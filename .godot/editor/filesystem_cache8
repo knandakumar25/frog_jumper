@@ -1,0 +1,38 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1742861247
+default_bus_layout.tres::AudioBusLayout::3137085059746869496::1742851944::0::1::::<><>::
+icon.svg::CompressedTexture2D::4252469985764379791::1737209675::1741795041::1::::<><>::
+options_menu.gd::GDScript::-1::1742852939::0::1::::<>Control<>::
+::res://images/::1742770062
+Blue.png::CompressedTexture2D::5227847430129174552::1737245788::1742770061::1::::<><>::
+Cherries.png::CompressedTexture2D::4892855478078104551::1737239727::1742770061::1::::<><>::
+cooltext474246181467297.png::CompressedTexture2D::3151943950704235620::1737297114::1742770061::1::::<><>::
+cursor.png::CompressedTexture2D::2004514391923716233::1740270123::1742770061::1::::<><>::
+End (Idle).png::CompressedTexture2D::5094460395289115164::1737243078::1742770061::1::::<><>::
+Gray.png::CompressedTexture2D::4071039668786678463::1737297247::1742770061::1::::<><>::
+Green.png::CompressedTexture2D::7034441681233248833::1737211228::1742770061::1::::<><>::
+Idle (32x32).png::CompressedTexture2D::6001416089825481590::1737216918::1742770060::1::::<><>::
+Jump (32x32).png::CompressedTexture2D::925467713655388497::1737215850::1742770060::1::::<><>::
+Run (32x32).png::CompressedTexture2D::8699530206691028700::1737217618::1742770060::1::::<><>::
+Terrain (16x16).png::CompressedTexture2D::2529367758802948922::1737211970::1742770060::1::::<><>::
+world_tileset.png::CompressedTexture2D::8625178046154874323::1737410815::1742770060::1::::<><>::
+::res://music/::1742770058
+arcade-game-jump-epic-stock-media-1-00-00.mp3::AudioStreamMP3::4222641460361301046::1737410037::1742770057::1::::<><>::
+church-bell-sound-effect-241382.mp3::AudioStreamMP3::1469265541709967284::1737326403::1742770057::1::::<><>::
+game-music-loop-1-143979.mp3::AudioStreamMP3::5229153496844109778::1737680301::1742770057::1::::<><>::
+retro-coin-1-236677.mp3::AudioStreamMP3::8837777877138670201::1737326403::1742770057::1::::<><>::
+Sakura-Girl-Yay-chosic.com_.mp3::AudioStreamMP3::813397036593679722::1737680301::1742770057::1::::<><>::
+::res://scenes/::1742853429
+audio_options.gd::GDScript::-1::1742853032::0::1::::<>Control<>::
+collectable.gd::GDScript::-1::1737389854::0::1::::<>Area2D<>::
+collectable.tscn::PackedScene::2469289567830450137::1742853419::0::1::::<><>::uid://cbyeu512lkc5d::::res://images/Cherries.png<>res://scenes/collectable.gd<>uid://dx6c57pgkvo46::::res://music/retro-coin-1-236677.mp3
+finish.gd::GDScript::-1::1737390015::0::1::::<>Area2D<>::
+finish.tscn::PackedScene::1928646656846965112::1742853421::0::1::::<><>::uid://cet2avjhfqbx1::::res://images/End (Idle).png<>res://scenes/finish.gd<>uid://u6yuawto7645::::res://music/church-bell-sound-effect-241382.mp3
+game_manager.gd::GDScript::-1::1737327027::0::1::::<>Node<>::
+level1.tscn::PackedScene::4860039336305967456::1742853424::0::1::::<><>::res://scenes/game_manager.gd<>uid://c7hshyd8wwkbh::::res://images/Green.png<>uid://bcbik170qk7ri::::res://images/Terrain (16x16).png<>uid://bfh5vtjxuvdbx::::res://scenes/main_character.tscn<>uid://du5dome0dvt12::::res://images/world_tileset.png<>uid://bbge3rhbn4u4x::::res://scenes/collectable.tscn<>uid://2qir8eoxanie::::res://scenes/finish.tscn<>uid://ck68m5fwnp1h2::::res://scenes/level2.tscn<>uid://luasbdbaqkr7::::res://music/Sakura-Girl-Yay-chosic.com_.mp3
+level2.tscn::PackedScene::5540752188872629049::1742853427::0::1::::<><>::res://scenes/game_manager.gd<>uid://c7hshyd8wwkbh::::res://images/Green.png<>uid://bcbik170qk7ri::::res://images/Terrain (16x16).png<>uid://bfh5vtjxuvdbx::::res://scenes/main_character.tscn<>uid://du5dome0dvt12::::res://images/world_tileset.png<>uid://bbge3rhbn4u4x::::res://scenes/collectable.tscn<>uid://2qir8eoxanie::::res://scenes/finish.tscn<>uid://cwp7b6o11ii16::::res://scenes/main_menu.tscn<>uid://luasbdbaqkr7::::res://music/Sakura-Girl-Yay-chosic.com_.mp3
+main_character.gd::GDScript::-1::1737410366::0::1::::<>CharacterBody2D<>::
+main_character.tscn::PackedScene::2753675570536141005::1742853422::0::1::::<><>::res://scenes/main_character.gd<>uid://ngkk2v51s4fd::::res://images/Jump (32x32).png<>uid://crrepf1yqowug::::res://images/Idle (32x32).png<>uid://dv7d8yfnxd2w3::::res://images/Run (32x32).png<>uid://b1fqj13jg2ww1::::res://music/arcade-game-jump-epic-stock-media-1-00-00.mp3
+main_menu.gd::GDScript::-1::1742396515::0::1::::<>Node<>::
+main_menu.tscn::PackedScene::6349907974363749587::1742853425::0::1::::<><>::res://scenes/main_menu.gd<>uid://bk53b6fklsl1e::::res://images/cooltext474246181467297.png<>uid://byabotociwvdv::::res://images/Gray.png<>uid://cgrbnnt4sqsh3::::res://music/game-music-loop-1-143979.mp3
+options_menu.tscn::PackedScene::2180400394466193694::1742853429::0::1::::<><>::res://options_menu.gd<>res://scenes/audio_options.gd

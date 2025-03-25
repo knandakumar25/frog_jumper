@@ -1,0 +1,29 @@
+extends Area2D
+
+@export var target_level : PackedScene
+@onready var finish_audio: AudioStreamPlayer = $FinishAudio
+@onready var audio_stream_player: AudioStreamPlayer = $"../../AudioStreamPlayer"
+
+func _on_body_entered(body):
+	if (body.name == "CharacterBody2D"):
+		# Stop the background music
+		audio_stream_player.stop()
+
+		# Stop character movement
+		if body.has_method("stop_movement"):
+			body.stop_movement()
+
+		# Play finish audio
+		finish_audio.play()
+
+		# Create and start a timer
+		var timer = Timer.new()
+		timer.wait_time = 3
+		add_child(timer)
+		timer.start()
+
+		# Wait for the timer to timeout
+		await timer.timeout
+
+		# Change the scene
+		get_tree().change_scene_to_packed(target_level)
