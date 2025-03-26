@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://bbge3rhbn4u4x"]
 
-[ext_resource type="Texture2D" uid="uid://cbyeu512lkc5d" path="res://images/Cherries.png" id="1_6jdkj"]
-[ext_resource type="Script" path="res://scenes/collectable.gd" id="1_ybnr2"]
-[ext_resource type="AudioStream" uid="uid://dx6c57pgkvo46" path="res://music/retro-coin-1-236677.mp3" id="3_rca47"]
+[ext_resource type="Texture2D" uid="uid://cbyeu512lkc5d" path="res://assets/images/Cherries.png" id="1_6jdkj"]
+[ext_resource type="Script" path="res://assets/scenes/collectable.gd" id="1_ybnr2"]
+[ext_resource type="AudioStream" uid="uid://dx6c57pgkvo46" path="res://assets/music/retro-coin-1-236677.mp3" id="3_rca47"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_digve"]
 atlas = ExtResource("1_6jdkj")

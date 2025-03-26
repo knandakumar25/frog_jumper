@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://ck68m5fwnp1h2"]
 
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_vj8fr"]
-[ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://images/Green.png" id="2_5titt"]
-[ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://images/Terrain (16x16).png" id="3_dkru8"]
-[ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://scenes/main_character.tscn" id="4_5ru1b"]
-[ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://images/world_tileset.png" id="4_wvdws"]
-[ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://scenes/collectable.tscn" id="5_6gg60"]
-[ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://scenes/finish.tscn" id="6_sqb2k"]
-[ext_resource type="PackedScene" uid="uid://cwp7b6o11ii16" path="res://scenes/main_menu.tscn" id="7_6erjq"]
-[ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://music/Sakura-Girl-Yay-chosic.com_.mp3" id="8_y4e06"]
+[ext_resource type="Script" path="res://assets/scenes/game_manager.gd" id="1_vj8fr"]
+[ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_5titt"]
+[ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_dkru8"]
+[ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://assets/scenes/main_character.tscn" id="4_5ru1b"]
+[ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="4_wvdws"]
+[ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://assets/scenes/collectable.tscn" id="5_6gg60"]
+[ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="6_sqb2k"]
+[ext_resource type="PackedScene" uid="uid://cwp7b6o11ii16" path="res://assets/scenes/main_menu.tscn" id="7_6erjq"]
+[ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="8_y4e06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f71te"]
 texture = ExtResource("3_dkru8")

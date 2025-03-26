@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://2qir8eoxanie"]
 
-[ext_resource type="Texture2D" uid="uid://cet2avjhfqbx1" path="res://images/End (Idle).png" id="1_fu08x"]
-[ext_resource type="Script" path="res://scenes/finish.gd" id="1_wlkrx"]
-[ext_resource type="AudioStream" uid="uid://u6yuawto7645" path="res://music/church-bell-sound-effect-241382.mp3" id="3_njm7j"]
+[ext_resource type="Texture2D" uid="uid://cet2avjhfqbx1" path="res://assets/images/End (Idle).png" id="1_fu08x"]
+[ext_resource type="Script" path="res://assets/scenes/finish.gd" id="1_wlkrx"]
+[ext_resource type="AudioStream" uid="uid://u6yuawto7645" path="res://assets/music/church-bell-sound-effect-241382.mp3" id="3_njm7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2a3"]
 size = Vector2(44, 43)

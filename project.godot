@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="2d Platformer game"
-run/main_scene="res://scenes/main_menu.tscn"
-config/features=PackedStringArray("4.4", "Mobile")
+run/main_scene="res://assets/scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [display]

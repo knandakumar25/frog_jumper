@@ -1,10 +1,10 @@
 [gd_scene load_steps=31 format=3 uid="uid://bfh5vtjxuvdbx"]
 
-[ext_resource type="Script" path="res://scenes/main_character.gd" id="1_de1be"]
-[ext_resource type="Texture2D" uid="uid://ngkk2v51s4fd" path="res://images/Jump (32x32).png" id="1_l8ai2"]
-[ext_resource type="Texture2D" uid="uid://crrepf1yqowug" path="res://images/Idle (32x32).png" id="2_4jx7f"]
-[ext_resource type="Texture2D" uid="uid://dv7d8yfnxd2w3" path="res://images/Run (32x32).png" id="4_wfmo3"]
-[ext_resource type="AudioStream" uid="uid://b1fqj13jg2ww1" path="res://music/arcade-game-jump-epic-stock-media-1-00-00.mp3" id="5_je6mw"]
+[ext_resource type="Script" path="res://assets/scenes/main_character.gd" id="1_de1be"]
+[ext_resource type="Texture2D" uid="uid://ngkk2v51s4fd" path="res://assets/images/Jump (32x32).png" id="1_l8ai2"]
+[ext_resource type="Texture2D" uid="uid://crrepf1yqowug" path="res://assets/images/Idle (32x32).png" id="2_4jx7f"]
+[ext_resource type="Texture2D" uid="uid://dv7d8yfnxd2w3" path="res://assets/images/Run (32x32).png" id="4_wfmo3"]
+[ext_resource type="AudioStream" uid="uid://b1fqj13jg2ww1" path="res://assets/music/arcade-game-jump-epic-stock-media-1-00-00.mp3" id="5_je6mw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puhw5"]
 atlas = ExtResource("2_4jx7f")
