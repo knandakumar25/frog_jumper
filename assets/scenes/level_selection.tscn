@@ -34,13 +34,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Level 1" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Button 1"
+text = "Level 1"
 
 [node name="Level 2" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Button 2
-"
+text = "Level 2"
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 1

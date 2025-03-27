@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="4_wvdws"]
 [ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://assets/scenes/collectable.tscn" id="5_6gg60"]
 [ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="6_sqb2k"]
-[ext_resource type="PackedScene" uid="uid://cwp7b6o11ii16" path="res://assets/scenes/main_menu.tscn" id="7_6erjq"]
+[ext_resource type="PackedScene" uid="uid://cloxsvam0ymha" path="res://assets/scenes/level_selection.tscn" id="8_8wvlm"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="8_y4e06"]
 [ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="10_tm2c0"]
 
@@ -488,7 +488,7 @@ scale = Vector2(3, 3)
 [node name="Finish" parent="SceneObjects" instance=ExtResource("6_sqb2k")]
 position = Vector2(2171, 66)
 scale = Vector2(2, 2)
-target_level = ExtResource("7_6erjq")
+target_level = ExtResource("8_8wvlm")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
