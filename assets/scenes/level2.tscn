@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ck68m5fwnp1h2"]
+[gd_scene load_steps=14 format=3 uid="uid://ck68m5fwnp1h2"]
 
 [ext_resource type="Script" path="res://assets/scenes/game_manager.gd" id="1_vj8fr"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_5titt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="6_sqb2k"]
 [ext_resource type="PackedScene" uid="uid://cwp7b6o11ii16" path="res://assets/scenes/main_menu.tscn" id="7_6erjq"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="8_y4e06"]
+[ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="10_tm2c0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f71te"]
 texture = ExtResource("3_dkru8")
@@ -515,3 +516,11 @@ stream = ExtResource("8_y4e06")
 volume_db = 24.0
 autoplay = true
 mix_target = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_tm2c0")]
+offset_left = -34.0
+offset_top = -42.0
+offset_right = -34.0
+offset_bottom = -42.0

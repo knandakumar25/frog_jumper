@@ -7,9 +7,8 @@
 shader = ExtResource("1_pbo1x")
 shader_parameter/lod = 0.0
 
-[sub_resource type="Animation" id="Animation_enmwi"]
-resource_name = "blur"
-length = 0.3
+[sub_resource type="Animation" id="Animation_is18p"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,8 +22,9 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_is18p"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_enmwi"]
+resource_name = "blur"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
