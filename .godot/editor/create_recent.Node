@@ -1,8 +1,8 @@
+Button
 CanvasLayer
 CanvasGroup
 ColorRect
 AnimationPlayer
-Button
 VBoxContainer
 PanelContainer
 Label
@@ -12,4 +12,3 @@ Node
 HSlider
 Control
 RichTextLabel
-AudioStreamPlayer

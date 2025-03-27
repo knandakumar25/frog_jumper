@@ -8,3 +8,4 @@ res://assets/scenes/main_character.tscn
 res://assets/scenes/options_menu.tscn
 res://assets/scenes/level_selection.tscn
 res://assets/scenes/pause_menu.tscn
+res://assets/scenes/main_menu.gd

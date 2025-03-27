@@ -55,6 +55,14 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
+[node name="Quit" type="Button" parent="."]
+offset_left = 795.0
+offset_top = 509.0
+offset_right = 1063.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_rmpln")
 volume_db = 24.0
@@ -62,3 +70,4 @@ autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743082165
+::res://::1743113478
 default_bus_layout.tres::AudioBusLayout::3137085059746869496::1742932602::0::1::::<><>::
 icon.svg::CompressedTexture2D::4252469985764379791::1742932602::1742932688::1::::<><>::
 ::res://assets/::1742932601
@@ -22,23 +22,23 @@ church-bell-sound-effect-241382.mp3::AudioStreamMP3::1469265541709967284::174293
 game-music-loop-1-143979.mp3::AudioStreamMP3::5229153496844109778::1742932601::1742932684::1::::<><>::
 retro-coin-1-236677.mp3::AudioStreamMP3::8837777877138670201::1742932601::1742932684::1::::<><>::
 Sakura-Girl-Yay-chosic.com_.mp3::AudioStreamMP3::813397036593679722::1742932601::1742932684::1::::<><>::
-::res://assets/scenes/::1743007980
+::res://assets/scenes/::1743113439
 audio_options.gd::GDScript::-1::1742938911::0::1::::<>Control<>::
 collectable.gd::GDScript::-1::1742932601::0::1::::<>Area2D<>::
-collectable.tscn::PackedScene::2469289567830450137::1743007943::0::1::::<><>::uid://cbyeu512lkc5d::::res://assets/images/Cherries.png<>res://assets/scenes/collectable.gd<>uid://dx6c57pgkvo46::::res://assets/music/retro-coin-1-236677.mp3
+collectable.tscn::PackedScene::2469289567830450137::1743113397::0::1::::<><>::uid://cbyeu512lkc5d::::res://assets/images/Cherries.png<>res://assets/scenes/collectable.gd<>uid://dx6c57pgkvo46::::res://assets/music/retro-coin-1-236677.mp3
 finish.gd::GDScript::-1::1742932601::0::1::::<>Area2D<>::
-finish.tscn::PackedScene::1928646656846965112::1743007945::0::1::::<><>::uid://cet2avjhfqbx1::::res://assets/images/End (Idle).png<>res://assets/scenes/finish.gd<>uid://u6yuawto7645::::res://assets/music/church-bell-sound-effect-241382.mp3
+finish.tscn::PackedScene::1928646656846965112::1743113398::0::1::::<><>::uid://cet2avjhfqbx1::::res://assets/images/End (Idle).png<>res://assets/scenes/finish.gd<>uid://u6yuawto7645::::res://assets/music/church-bell-sound-effect-241382.mp3
 game_manager.gd::GDScript::-1::1742932601::0::1::::<>Node<>::
-level1.tscn::PackedScene::4860039336305967456::1743007975::0::1::::<><>::res://assets/scenes/game_manager.gd<>uid://c7hshyd8wwkbh::::res://assets/images/Green.png<>uid://bcbik170qk7ri::::res://assets/images/Terrain (16x16).png<>uid://bfh5vtjxuvdbx::::res://assets/scenes/main_character.tscn<>uid://du5dome0dvt12::::res://assets/images/world_tileset.png<>uid://bbge3rhbn4u4x::::res://assets/scenes/collectable.tscn<>uid://2qir8eoxanie::::res://assets/scenes/finish.tscn<>uid://ck68m5fwnp1h2::::res://assets/scenes/level2.tscn<>uid://luasbdbaqkr7::::res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3<>uid://dscsic47d81gv::::res://assets/scenes/pause_menu.tscn
-level2.tscn::PackedScene::5540752188872629049::1743007952::0::1::::<><>::res://assets/scenes/game_manager.gd<>uid://c7hshyd8wwkbh::::res://assets/images/Green.png<>uid://bcbik170qk7ri::::res://assets/images/Terrain (16x16).png<>uid://bfh5vtjxuvdbx::::res://assets/scenes/main_character.tscn<>uid://du5dome0dvt12::::res://assets/images/world_tileset.png<>uid://bbge3rhbn4u4x::::res://assets/scenes/collectable.tscn<>uid://2qir8eoxanie::::res://assets/scenes/finish.tscn<>uid://cwp7b6o11ii16::::res://assets/scenes/main_menu.tscn<>uid://luasbdbaqkr7::::res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3
+level1.tscn::PackedScene::4860039336305967456::1743113402::0::1::::<><>::res://assets/scenes/game_manager.gd<>uid://c7hshyd8wwkbh::::res://assets/images/Green.png<>uid://bcbik170qk7ri::::res://assets/images/Terrain (16x16).png<>uid://bfh5vtjxuvdbx::::res://assets/scenes/main_character.tscn<>uid://du5dome0dvt12::::res://assets/images/world_tileset.png<>uid://bbge3rhbn4u4x::::res://assets/scenes/collectable.tscn<>uid://2qir8eoxanie::::res://assets/scenes/finish.tscn<>uid://ck68m5fwnp1h2::::res://assets/scenes/level2.tscn<>uid://luasbdbaqkr7::::res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3<>uid://dscsic47d81gv::::res://assets/scenes/pause_menu.tscn
+level2.tscn::PackedScene::5540752188872629049::1743113405::0::1::::<><>::res://assets/scenes/game_manager.gd<>uid://c7hshyd8wwkbh::::res://assets/images/Green.png<>uid://bcbik170qk7ri::::res://assets/images/Terrain (16x16).png<>uid://bfh5vtjxuvdbx::::res://assets/scenes/main_character.tscn<>uid://du5dome0dvt12::::res://assets/images/world_tileset.png<>uid://bbge3rhbn4u4x::::res://assets/scenes/collectable.tscn<>uid://2qir8eoxanie::::res://assets/scenes/finish.tscn<>uid://cwp7b6o11ii16::::res://assets/scenes/main_menu.tscn<>uid://luasbdbaqkr7::::res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3<>uid://dscsic47d81gv::::res://assets/scenes/pause_menu.tscn
 level_selection.gd::GDScript::-1::1742953284::0::1::::<>Node<>::
-level_selection.tscn::PackedScene::5575249674655255918::1743007959::0::1::::<><>::uid://byabotociwvdv::::res://assets/images/Gray.png<>res://assets/scenes/level_selection.gd<>uid://cgrbnnt4sqsh3::::res://assets/music/game-music-loop-1-143979.mp3
+level_selection.tscn::PackedScene::5575249674655255918::1743113411::0::1::::<><>::uid://byabotociwvdv::::res://assets/images/Gray.png<>res://assets/scenes/level_selection.gd<>uid://cgrbnnt4sqsh3::::res://assets/music/game-music-loop-1-143979.mp3
 main_character.gd::GDScript::-1::1742932601::0::1::::<>CharacterBody2D<>::
-main_character.tscn::PackedScene::2753675570536141005::1743007954::0::1::::<><>::res://assets/scenes/main_character.gd<>uid://ngkk2v51s4fd::::res://assets/images/Jump (32x32).png<>uid://crrepf1yqowug::::res://assets/images/Idle (32x32).png<>uid://dv7d8yfnxd2w3::::res://assets/images/Run (32x32).png<>uid://b1fqj13jg2ww1::::res://assets/music/arcade-game-jump-epic-stock-media-1-00-00.mp3
+main_character.tscn::PackedScene::2753675570536141005::1743113407::0::1::::<><>::res://assets/scenes/main_character.gd<>uid://ngkk2v51s4fd::::res://assets/images/Jump (32x32).png<>uid://crrepf1yqowug::::res://assets/images/Idle (32x32).png<>uid://dv7d8yfnxd2w3::::res://assets/images/Run (32x32).png<>uid://b1fqj13jg2ww1::::res://assets/music/arcade-game-jump-epic-stock-media-1-00-00.mp3
 main_menu.gd::GDScript::-1::1742953570::0::1::::<>Node<>::
-main_menu.tscn::PackedScene::6349907974363749587::1743007941::0::1::::<><>::uid://bk53b6fklsl1e::::res://assets/images/cooltext474246181467297.png<>res://assets/scenes/main_menu.gd<>uid://byabotociwvdv::::res://assets/images/Gray.png<>uid://cgrbnnt4sqsh3::::res://assets/music/game-music-loop-1-143979.mp3
+main_menu.tscn::PackedScene::6349907974363749587::1743113394::0::1::::<><>::uid://bk53b6fklsl1e::::res://assets/images/cooltext474246181467297.png<>res://assets/scenes/main_menu.gd<>uid://byabotociwvdv::::res://assets/images/Gray.png<>uid://cgrbnnt4sqsh3::::res://assets/music/game-music-loop-1-143979.mp3
 options_menu.gd::GDScript::-1::1742941506::0::1::::<>Control<>::
-options_menu.tscn::PackedScene::2180400394466193694::1743007956::0::1::::<><>::res://assets/scenes/options_menu.gd<>res://assets/scenes/audio_options.gd
-pause_menu.gd::GDScript::-1::1743007937::0::1::::<>Control<>::
-pause_menu.gdshader::Shader::-1::1743007980::0::1::::<><>::
-pause_menu.tscn::PackedScene::8427897335598339393::1743007961::0::1::::<><>::res://assets/scenes/pause_menu.gd<>res://assets/scenes/pause_menu.gdshader
+options_menu.tscn::PackedScene::2180400394466193694::1743113409::0::1::::<><>::res://assets/scenes/options_menu.gd<>res://assets/scenes/audio_options.gd
+pause_menu.gd::GDScript::-1::1743083481::0::1::::<>Control<>::
+pause_menu.gdshader::Shader::-1::1743113439::0::1::::<><>::
+pause_menu.tscn::PackedScene::8427897335598339393::1743113413::0::1::::<><>::res://assets/scenes/pause_menu.gd<>res://assets/scenes/pause_menu.gdshader
