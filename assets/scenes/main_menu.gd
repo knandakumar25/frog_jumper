@@ -10,4 +10,14 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	$ColorRect.show()
+	$VBoxContainer.show()
+
+
+func _on_yes_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_no_pressed() -> void:
+	$VBoxContainer.hide()
+	$ColorRect.hide()
