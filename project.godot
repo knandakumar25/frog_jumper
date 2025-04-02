@@ -26,6 +26,10 @@ mouse_cursor/tooltip_position_offset=Vector2(1, 1)
 
 project/assembly_name="2d Platformer game"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/PressStart2P-Regular.ttf"
+
 [input]
 
 left={

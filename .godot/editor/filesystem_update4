@@ -1,11 +1,12 @@
-res://assets/scenes/main_menu.tscn
+res://assets/scenes/level1.tscn
 res://assets/scenes/pause_menu.gdshader
-res://assets/scenes/main_menu.gd
+res://assets/scenes/main_menu.tscn
 res://assets/scenes/collectable.tscn
 res://assets/scenes/finish.tscn
-res://assets/scenes/level1.tscn
 res://assets/scenes/level2.tscn
 res://assets/scenes/main_character.tscn
 res://assets/scenes/options_menu.tscn
 res://assets/scenes/level_selection.tscn
 res://assets/scenes/pause_menu.tscn
+res://assets/scenes/finish.gd
+res://assets/scenes/main_character.gd

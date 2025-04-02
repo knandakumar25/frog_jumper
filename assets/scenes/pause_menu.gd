@@ -2,15 +2,15 @@ extends Control
 
 func _ready() -> void:
 	get_tree().paused = false
-	$PanelContainer.visible = false
+	$ColorRect2.visible = false
 
 func resume():
 	get_tree().paused = false
-	$PanelContainer.visible = false
+	$ColorRect2.visible = false
 
 func pause():
 	get_tree().paused = true
-	$PanelContainer.visible = true
+	$ColorRect2.visible = true
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("escape") and !get_tree().paused:

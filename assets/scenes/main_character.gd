@@ -8,6 +8,7 @@ var is_moving = true  # Flag to control movement
 
 func _physics_process(delta: float) -> void:
 	if not is_moving:
+		sprite_2d.animation = "finished"
 		return  # Do not move if it's set to stop
 
 	# Animations
