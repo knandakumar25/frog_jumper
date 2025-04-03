@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbiiexkohykyy"]
+[gd_scene load_steps=16 format=3 uid="uid://cbiiexkohykyy"]
 
+[ext_resource type="Script" path="res://assets/scenes/level_1.gd" id="1_ginj4"]
 [ext_resource type="Script" path="res://assets/scenes/game_manager.gd" id="1_rycb2"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_gdqxh"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_75a4b"]
@@ -323,6 +324,7 @@ sources/0 = SubResource("TileSetAtlasSource_f71te")
 sources/1 = SubResource("TileSetAtlasSource_apkse")
 
 [node name="Node" type="Node"]
+script = ExtResource("1_ginj4")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -482,8 +484,8 @@ mix_target = 1
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_iy0yb")]
 offset_left = -34.0
-offset_top = 741.0
+offset_top = -3.0
 offset_right = -34.0
-offset_bottom = 741.0
+offset_bottom = -3.0
 
 [connection signal="body_entered" from="GameManager/Water" to="GameManager" method="_on_water_body_entered"]

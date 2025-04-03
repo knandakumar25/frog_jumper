@@ -1,3 +1,6 @@
+Button
+TextureButton
+MenuButton
 Node2D
 StaticBody2D
 Area2D
@@ -6,10 +9,6 @@ ColorRect
 TextureRect
 BoxContainer
 ItemList
-TextureButton
-Button
 VBoxContainer
 PanelContainer
 Label
-CanvasLayer
-CanvasGroup
