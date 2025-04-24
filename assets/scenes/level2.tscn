@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ck68m5fwnp1h2"]
 
-[ext_resource type="Script" path="res://assets/scenes/game_manager.gd" id="1_vj8fr"]
+[ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_vj8fr"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_5titt"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_dkru8"]
 [ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://assets/scenes/main_character.tscn" id="4_5ru1b"]

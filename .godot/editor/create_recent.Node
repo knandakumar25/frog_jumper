@@ -1,3 +1,6 @@
+AcceptDialog
+ConfirmationDialog
+Control
 Button
 TextureButton
 MenuButton
@@ -10,5 +13,3 @@ TextureRect
 BoxContainer
 ItemList
 VBoxContainer
-PanelContainer
-Label

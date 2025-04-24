@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cloxsvam0ymha"]
 
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="1_ahwel"]
-[ext_resource type="Script" path="res://assets/scenes/level_selection.gd" id="1_eqe0b"]
+[ext_resource type="Script" uid="uid://c8cdjl7cfya32" path="res://assets/scenes/level_selection.gd" id="1_eqe0b"]
 [ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="3_g6l3d"]
 
 [node name="Node" type="Node"]

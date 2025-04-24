@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbiiexkohykyy"]
+[gd_scene load_steps=15 format=3 uid="uid://cbiiexkohykyy"]
 
-[ext_resource type="Script" path="res://assets/scenes/level_1.gd" id="1_ginj4"]
-[ext_resource type="Script" path="res://assets/scenes/game_manager.gd" id="1_rycb2"]
+[ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_rycb2"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_gdqxh"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_75a4b"]
 [ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://assets/scenes/main_character.tscn" id="4_7li5s"]
@@ -324,7 +323,6 @@ sources/0 = SubResource("TileSetAtlasSource_f71te")
 sources/1 = SubResource("TileSetAtlasSource_apkse")
 
 [node name="Node" type="Node"]
-script = ExtResource("1_ginj4")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

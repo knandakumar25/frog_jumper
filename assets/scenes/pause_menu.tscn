@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dscsic47d81gv"]
 
-[ext_resource type="Script" path="res://assets/scenes/pause_menu.gd" id="1_0d1qr"]
-[ext_resource type="Shader" path="res://assets/scenes/pause_menu.gdshader" id="1_pbo1x"]
+[ext_resource type="Script" uid="uid://djgnbpvl8k1ga" path="res://assets/scenes/pause_menu.gd" id="1_0d1qr"]
+[ext_resource type="Shader" uid="uid://c4gsbwxau2efu" path="res://assets/scenes/pause_menu.gdshader" id="1_pbo1x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s1nw1"]
 shader = ExtResource("1_pbo1x")
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bf6of"]
 _data = {
-"RESET": SubResource("Animation_is18p"),
-"blur": SubResource("Animation_enmwi")
+&"RESET": SubResource("Animation_is18p"),
+&"blur": SubResource("Animation_enmwi")
 }
 
 [node name="PauseMenu" type="Control"]
@@ -141,7 +141,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bf6of")
+&"": SubResource("AnimationLibrary_bf6of")
 }
 
 [connection signal="pressed" from="ColorRect2/Resume" to="." method="_on_resume_pressed"]
