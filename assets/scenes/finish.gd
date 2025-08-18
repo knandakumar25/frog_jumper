@@ -8,7 +8,7 @@ func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		# Stop the background music
 		audio_stream_player.stop()
-
+		Global.reached_finish = true
 		# Stop character movement
 		if body.has_method("stop_movement"):
 			body.stop_movement()
@@ -26,4 +26,5 @@ func _on_body_entered(body):
 		await timer.timeout
 
 		# Change the scene
+		Global.reached_finish = false
 		get_tree().change_scene_to_packed(target_level)

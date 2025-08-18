@@ -64,6 +64,17 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Level 2"
 
+[node name="Level 3" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 224.0
+offset_right = 776.0
+offset_bottom = 274.0
+scale = Vector2(1, 1.25)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Level 3"
+
 [node name="BackButton" type="Button" parent="."]
 offset_left = 71.0
 offset_top = 505.0
@@ -79,4 +90,5 @@ autoplay = true
 
 [connection signal="pressed" from="TextureRect/Level 1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="TextureRect/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="TextureRect/Level 3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

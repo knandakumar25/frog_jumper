@@ -7,6 +7,9 @@ var is_moving = true  # Flag to control movement
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 
 func _physics_process(delta: float) -> void:
+	if Global.reached_finish:
+		sprite_2d.animation = "idle"
+	
 	if not is_moving:
 		sprite_2d.animation = "finished"
 		return  # Do not move if it's set to stop
