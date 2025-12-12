@@ -12,7 +12,7 @@ func pause():
 	get_tree().paused = true
 	$ColorRect2.visible = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape") and !get_tree().paused:
 		pause()
 	elif Input.is_action_just_pressed("escape") and get_tree().paused:
