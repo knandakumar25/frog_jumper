@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwp7b6o11ii16"]
+
+[ext_resource type="Texture2D" uid="uid://bk53b6fklsl1e" path="res://assets/images/cooltext474246181467297.png" id="1_fb8i2"]
+[ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
+[ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
+[ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="4_rmpln"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_hgd46")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v0073")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -133.5
+offset_right = 380.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fb8i2")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 442.0
+offset_top = 375.0
+offset_right = 710.0
+offset_bottom = 465.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Settings" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -139.0
+offset_right = 134.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 509.0
+offset_right = 1063.0
+offset_bottom = 599.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="Control"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rmpln")
+volume_db = 24.0
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -126.0
+offset_right = -3.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+color = Color(0, 0.501961, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = -119.5
+offset_right = -3.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yes"
+
+[node name="No" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "No"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="confirmed" from="Control/QuitDialog" to="." method="_on_quit_dialog_confirmed"]
+[connection signal="pressed" from="VBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="VBoxContainer/No" to="." method="_on_no_pressed"]

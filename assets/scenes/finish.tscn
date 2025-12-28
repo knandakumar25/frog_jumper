@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://2qir8eoxanie"]
+
+[ext_resource type="Texture2D" uid="uid://cet2avjhfqbx1" path="res://assets/images/End (Idle).png" id="1_fu08x"]
+[ext_resource type="Script" uid="uid://cnmeabb7vr57l" path="res://assets/scenes/finish.gd" id="1_wlkrx"]
+[ext_resource type="AudioStream" uid="uid://u6yuawto7645" path="res://assets/music/church-bell-sound-effect-241382.mp3" id="3_njm7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2a3"]
+size = Vector2(44, 43)
+
+[node name="Finish" type="Area2D"]
+script = ExtResource("1_wlkrx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fu08x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_lt2a3")
+
+[node name="FinishAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_njm7j")
+volume_db = 24.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
