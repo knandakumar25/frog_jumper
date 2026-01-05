@@ -59,6 +59,7 @@ text = "Objective"
 [node name="ObjectiveText" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Guide the turtle through levels, collect cherries for points, and reach the finish flag!"
@@ -110,6 +111,7 @@ text = "Tips"
 [node name="Tip1" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Avoid falling into water or you'll restart the level"
@@ -118,6 +120,7 @@ autowrap_mode = 3
 [node name="Tip2" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Collect all cherries to maximize your score"
@@ -126,6 +129,7 @@ autowrap_mode = 3
 [node name="Tip3" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Time your jumps carefully to reach platforms"
