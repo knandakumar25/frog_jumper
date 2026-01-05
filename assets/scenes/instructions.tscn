@@ -52,7 +52,7 @@ layout_mode = 2
 [node name="ObjectiveTitle" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Objective"
 
@@ -71,7 +71,7 @@ layout_mode = 2
 [node name="ControlsTitle" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Controls"
 
@@ -103,7 +103,7 @@ layout_mode = 2
 [node name="TipsTitle" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Tips"
 
