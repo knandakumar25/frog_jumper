@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
-[ext_resource type="FontFile" uid="uid://cods1k3vpyot" path="res://assets/fonts/Audiowide-Regular.ttf" id="3_glitch"]
+[ext_resource type="FontFile" uid="uid://b0k5n8p7m8qwe" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_noto"]
 [ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="4_rmpln"]
 
 [node name="MainMenu" type="Node"]
@@ -32,7 +32,7 @@ offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.6, 0, 1)
-theme_override_fonts/font = ExtResource("3_glitch")
+theme_override_fonts/font = ExtResource("3_noto")
 theme_override_font_sizes/font_size = 80
 text = "TURTLE JUMP"
 horizontal_alignment = 1

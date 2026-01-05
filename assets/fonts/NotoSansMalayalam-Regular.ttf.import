@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cx8y9z0a1b2c3d4"
-path="res://.godot/imported/NotoSansMalayalam-Regular.ttf-fa6e4d3c2b1a9e8d7c6b5a4f3e2d1c0b.fontdata"
+uid="uid://88xrmfi5q1ch"
+path="res://.godot/imported/NotoSansMalayalam-Regular.ttf-a5f9d687da597f992281d3d168a872b3.fontdata"
 
 [deps]
 
 source_file="res://assets/fonts/NotoSansMalayalam-Regular.ttf"
-dest_files=["res://.godot/imported/NotoSansMalayalam-Regular.ttf-fa6e4d3c2b1a9e8d7c6b5a4f3e2d1c0b.fontdata"]
+dest_files=["res://.godot/imported/NotoSansMalayalam-Regular.ttf-a5f9d687da597f992281d3d168a872b3.fontdata"]
 
 [params]
 
@@ -21,8 +21,10 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
+modulate_color_glyphs=false
 hinting=1
 subpixel_positioning=1
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
