@@ -32,7 +32,7 @@ project/assembly_name="2d Platformer game"
 
 [gui]
 
-theme/custom_font="res://assets/fonts/NotoSans-Regular.ttf"
+theme/custom_font="res://assets/fonts/NotoSansMalayalam-Regular.ttf"
 
 [input]
 
