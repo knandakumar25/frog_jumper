@@ -8,7 +8,7 @@ var is_reloading = false
 func add_point():
 	points += 1
 	print(points)
-	points_label.text = "Points: " + str(points)
+	points_label.text = tr("Points") + ": " + str(points)
 
 
 func _on_water_body_entered(body: Node2D) -> void:

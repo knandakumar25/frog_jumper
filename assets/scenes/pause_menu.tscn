@@ -92,6 +92,7 @@ offset_bottom = 134.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Resume"
+auto_translate_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Restart" type="Button" parent="ColorRect2"]
@@ -107,6 +108,7 @@ offset_bottom = 190.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Restart"
+auto_translate_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSelection" type="Button" parent="ColorRect2"]
@@ -122,6 +124,7 @@ offset_bottom = 248.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return to Level Selection"
+auto_translate_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Button" parent="ColorRect2"]
@@ -137,6 +140,7 @@ offset_bottom = 317.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return to Main Menu"
+auto_translate_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

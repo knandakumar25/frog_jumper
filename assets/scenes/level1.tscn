@@ -479,9 +479,9 @@ mix_target = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_iy0yb")]
-offset_left = -34.0
+offset_left = -35.0
 offset_top = -3.0
-offset_right = -34.0
+offset_right = -35.0
 offset_bottom = -3.0
 
 [connection signal="body_entered" from="GameManager/Water" to="GameManager" method="_on_water_body_entered"]

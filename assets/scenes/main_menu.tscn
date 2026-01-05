@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwp7b6o11ii16"]
 
-[ext_resource type="Texture2D" uid="uid://bk53b6fklsl1e" path="res://assets/images/cooltext474246181467297.png" id="1_fb8i2"]
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
+[ext_resource type="FontFile" uid="uid://cods1k3vpyot" path="res://assets/fonts/Audiowide-Regular.ttf" id="3_glitch"]
 [ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="4_rmpln"]
 
 [node name="MainMenu" type="Node"]
@@ -18,21 +18,28 @@ grow_vertical = 2
 texture = ExtResource("2_v0073")
 stretch_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TitleLabel" type="Label" parent="."]
+auto_translate_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -380.0
-offset_top = -133.5
-offset_right = 380.0
-offset_bottom = 3.5
+offset_left = -440.0
+offset_top = -196.0
+offset_right = 440.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_fb8i2")
+theme_override_colors/font_color = Color(0, 0.6, 0, 1)
+theme_override_fonts/font = ExtResource("3_glitch")
+theme_override_font_sizes/font_size = 80
+text = "TURTLE JUMP"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play" type="Button" parent="."]
+auto_translate_mode = 1
 offset_left = 442.0
 offset_top = 375.0
 offset_right = 710.0
@@ -42,6 +49,7 @@ theme_override_font_sizes/font_size = 30
 text = "Play"
 
 [node name="Settings" type="Button" parent="."]
+auto_translate_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -64,6 +72,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="QuitButton" type="Button" parent="Control"]
+auto_translate_mode = 1
 layout_mode = 0
 offset_left = 795.0
 offset_top = 509.0

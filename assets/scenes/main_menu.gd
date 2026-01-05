@@ -23,7 +23,7 @@ func _on_no_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	quit_dialog.popup_centered()
-	quit_dialog.dialog_text = "Are you sure you want to quit?"
+	quit_dialog.dialog_text = tr("Are you sure you want to quit?")
 
 
 func _on_quit_dialog_confirmed() -> void:
