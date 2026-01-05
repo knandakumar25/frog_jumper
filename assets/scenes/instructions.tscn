@@ -59,7 +59,7 @@ text = "Objective"
 [node name="ObjectiveText" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Guide the turtle through levels, collect cherries for points, and reach the finish flag!"
 autowrap_mode = 3
@@ -78,21 +78,21 @@ text = "Controls"
 [node name="ControlMove" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Move: Arrow Keys or A/D"
 
 [node name="ControlJump" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Jump: Up Arrow, W, or Spacebar"
 
 [node name="ControlPause" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Pause: Escape"
 
@@ -110,7 +110,7 @@ text = "Tips"
 [node name="Tip1" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Avoid falling into water or you'll restart the level"
 autowrap_mode = 3
@@ -118,7 +118,7 @@ autowrap_mode = 3
 [node name="Tip2" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Collect all cherries to maximize your score"
 autowrap_mode = 3
@@ -126,7 +126,7 @@ autowrap_mode = 3
 [node name="Tip3" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Time your jumps carefully to reach platforms"
 autowrap_mode = 3
