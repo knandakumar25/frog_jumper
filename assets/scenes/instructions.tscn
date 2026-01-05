@@ -46,7 +46,7 @@ text = "How to Play"
 horizontal_alignment = 1
 
 [node name="Spacer1" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="ObjectiveTitle" type="Label" parent="VBoxContainer"]
@@ -59,12 +59,12 @@ text = "Objective"
 [node name="ObjectiveText" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "Guide the turtle through levels, collect cherries for points, and reach the finish flag!"
 autowrap_mode = 3
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="ControlsTitle" type="Label" parent="VBoxContainer"]
@@ -74,17 +74,26 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Controls"
 
-[node name="ControlsText" type="Label" parent="VBoxContainer"]
+[node name="ControlMove" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Move: Arrow Keys or A/D
-Jump: Up Arrow, W, or Spacebar
-Pause: Escape"
-autowrap_mode = 3
+theme_override_font_sizes/font_size = 18
+text = "Move: Arrow Keys or A/D"
+
+[node name="ControlJump" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Jump: Up Arrow, W, or Spacebar"
+
+[node name="ControlPause" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Pause: Escape"
 
 [node name="Spacer3" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="TipsTitle" type="Label" parent="VBoxContainer"]
@@ -94,17 +103,29 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Tips"
 
-[node name="TipsText" type="Label" parent="VBoxContainer"]
+[node name="Tip1" type="Label" parent="VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "• Avoid falling into water or you'll restart the level
-• Collect all cherries to maximize your score
-• Time your jumps carefully to reach platforms"
+theme_override_font_sizes/font_size = 18
+text = "• Avoid falling into water or you'll restart the level"
+autowrap_mode = 3
+
+[node name="Tip2" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "• Collect all cherries to maximize your score"
+autowrap_mode = 3
+
+[node name="Tip3" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "• Time your jumps carefully to reach platforms"
 autowrap_mode = 3
 
 [node name="Spacer4" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
