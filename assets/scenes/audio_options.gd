@@ -69,7 +69,7 @@ func _on_master_slider_mouse_exited() -> void:
 	release_focus()
 
 
-func _on_language_option_item_selected(index: int) -> void:
+func _on_language_option_item_selected(_index: int) -> void:
 	# Don't apply immediately, wait for Apply button
 	pass
 
