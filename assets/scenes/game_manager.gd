@@ -5,6 +5,9 @@ extends Node
 var points = 0
 var is_reloading = false
 
+func _ready():
+	points_label.text = tr("Points") + ": " + str(points)
+
 func add_point():
 	points += 1
 	print(points)
