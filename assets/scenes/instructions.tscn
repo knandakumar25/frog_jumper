@@ -57,6 +57,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Objective"
+horizontal_alignment = 3
 text_direction = 2
 structured_text_bidi_override = 1
 
@@ -67,7 +68,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Guide the turtle through levels, collect cherries for points, and reach the finish flag!"
+horizontal_alignment = 3
+text_direction = 2
 autowrap_mode = 3
+structured_text_bidi_override = 1
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -79,6 +83,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Controls"
+horizontal_alignment = 3
 text_direction = 2
 structured_text_bidi_override = 1
 
@@ -88,6 +93,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Move: Arrow Keys or A/D"
+horizontal_alignment = 3
 text_direction = 2
 structured_text_bidi_override = 1
 
@@ -97,6 +103,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Jump: Up Arrow, W, or Spacebar"
+horizontal_alignment = 3
 text_direction = 2
 structured_text_bidi_override = 1
 
@@ -106,6 +113,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Pause: ESC key"
+horizontal_alignment = 3
 text_direction = 2
 structured_text_bidi_override = 1
 
@@ -119,6 +127,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Tips"
+horizontal_alignment = 3
 text_direction = 2
 structured_text_bidi_override = 1
 
@@ -129,6 +138,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Avoid falling into water or you'll restart the level"
+horizontal_alignment = 3
 autowrap_mode = 3
 text_direction = 2
 structured_text_bidi_override = 1
@@ -140,6 +150,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Collect all cherries to maximize your score"
+horizontal_alignment = 3
 autowrap_mode = 3
 text_direction = 2
 structured_text_bidi_override = 1
@@ -151,6 +162,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Time your jumps carefully to reach platforms"
+horizontal_alignment = 3
 autowrap_mode = 3
 text_direction = 2
 structured_text_bidi_override = 1
