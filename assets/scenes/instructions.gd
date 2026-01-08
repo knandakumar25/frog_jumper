@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	print("=== INSTRUCTIONS SCREEN _ready() CALLED ===")
 	var current_locale = TranslationServer.get_locale()
 	print("Current locale: ", current_locale)
 	var locale_code = current_locale.split("_")[0]  # Get language code (e.g., "ar" from "ar_SA")
