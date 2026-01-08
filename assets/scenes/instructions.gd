@@ -13,7 +13,7 @@ func _ready() -> void:
 		push_warning("Checking child: " + child.name + " Type: " + child.get_class())
 		if child is Label and child.name != "Title":
 			push_warning("Processing label: " + child.name)
-			if locale_code == "ar":
+			if locale_code == "arabic":
 				push_warning("Setting RIGHT alignment for: " + child.name)
 				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			else:
