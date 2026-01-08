@@ -11,9 +11,9 @@ func _ready() -> void:
 	for child in $VBoxContainer.get_children():
 		if child is Label and child.name != "Title":
 			if locale_code in RTL_LOCALES:
-				child.horizontal_alignment = 2  # HORIZONTAL_ALIGNMENT_RIGHT
+				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			else:
-				child.horizontal_alignment = 0  # HORIZONTAL_ALIGNMENT_LEFT
+				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/main_menu.tscn")

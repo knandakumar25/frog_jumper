@@ -67,8 +67,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Guide the turtle through levels, collect cherries for points, and reach the finish flag!"
-text_direction = 2
 autowrap_mode = 3
+text_direction = 2
 structured_text_bidi_override = 1
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
@@ -131,8 +131,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Avoid falling into water or you'll restart the level"
-text_direction = 2
 autowrap_mode = 3
+text_direction = 2
 structured_text_bidi_override = 1
 
 [node name="Tip2" type="Label" parent="VBoxContainer"]
@@ -142,8 +142,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Collect all cherries to maximize your score"
-text_direction = 2
 autowrap_mode = 3
+text_direction = 2
 structured_text_bidi_override = 1
 
 [node name="Tip3" type="Label" parent="VBoxContainer"]
@@ -153,8 +153,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "• Time your jumps carefully to reach platforms"
-text_direction = 2
 autowrap_mode = 3
+text_direction = 2
 structured_text_bidi_override = 1
 
 [node name="Spacer4" type="Control" parent="VBoxContainer"]
