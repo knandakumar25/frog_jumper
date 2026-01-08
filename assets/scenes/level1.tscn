@@ -347,6 +347,7 @@ stretch_mode = 1
 [node name="TileMap" type="TileMapLayer" parent="SceneObjects"]
 texture_filter = 1
 scale = Vector2(3, 3)
+tile_map_data = PackedByteArray(0, 0, 5, 0, 12, 0, 0, 0, 7, 0, 0, 0, 0, 0, 4, 0, 12, 0, 0, 0, 7, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_nmd1v")
 
 [node name="CharacterBody2D" parent="SceneObjects" instance=ExtResource("4_7li5s")]
