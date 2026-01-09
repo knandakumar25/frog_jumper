@@ -15,6 +15,12 @@ func _on_body_entered(body):
 
 		# Play finish audio
 		finish_audio.play()
+		
+		# Save score to database
+		var level_name = get_tree().current_scene.name
+		var game_manager = get_node_or_null("/root/" + get_tree().current_scene.name + "/GameManager")
+		if game_manager and game_manager.has_method("save_score"):
+			game_manager.save_score(level_name)
 
 		# Create and start a timer
 		var timer = Timer.new()

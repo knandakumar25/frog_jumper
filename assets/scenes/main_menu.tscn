@@ -40,30 +40,40 @@ vertical_alignment = 1
 
 [node name="Play" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 442.0
+offset_left = 390.0
 offset_top = 330.0
-offset_right = 710.0
-offset_bottom = 420.0
+offset_right = 762.0
+offset_bottom = 410.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
 [node name="Instructions" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 442.0
-offset_top = 440.0
-offset_right = 710.0
-offset_bottom = 530.0
+offset_left = 390.0
+offset_top = 425.0
+offset_right = 762.0
+offset_bottom = 505.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "How to Play"
 
+[node name="Leaderboard" type="Button" parent="."]
+auto_translate_mode = 1
+offset_left = 390.0
+offset_top = 520.0
+offset_right = 762.0
+offset_bottom = 600.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+
 [node name="Settings" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 442.0
-offset_top = 550.0
-offset_right = 710.0
-offset_bottom = 640.0
+offset_left = 795.0
+offset_top = 330.0
+offset_right = 1063.0
+offset_bottom = 410.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Settings"
@@ -78,9 +88,9 @@ offset_bottom = 40.0
 auto_translate_mode = 1
 layout_mode = 0
 offset_left = 795.0
-offset_top = 330.0
+offset_top = 425.0
 offset_right = 1063.0
-offset_bottom = 420.0
+offset_bottom = 505.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Quit"
@@ -141,6 +151,7 @@ text = "No"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="confirmed" from="Control/QuitDialog" to="." method="_on_quit_dialog_confirmed"]
