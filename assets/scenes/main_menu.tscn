@@ -40,40 +40,40 @@ vertical_alignment = 1
 
 [node name="Play" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 390.0
-offset_top = 330.0
-offset_right = 762.0
-offset_bottom = 410.0
+offset_left = 442.0
+offset_top = 300.0
+offset_right = 710.0
+offset_bottom = 380.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
 [node name="Instructions" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 390.0
-offset_top = 425.0
-offset_right = 762.0
-offset_bottom = 505.0
+offset_left = 300.0
+offset_top = 400.0
+offset_right = 550.0
+offset_bottom = 480.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "How to Play"
 
 [node name="Leaderboard" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 390.0
-offset_top = 520.0
-offset_right = 762.0
-offset_bottom = 600.0
+offset_left = 602.0
+offset_top = 400.0
+offset_right = 852.0
+offset_bottom = 480.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Leaderboard"
 
 [node name="Settings" type="Button" parent="."]
 auto_translate_mode = 1
-offset_left = 795.0
-offset_top = 330.0
-offset_right = 1063.0
-offset_bottom = 410.0
+offset_left = 300.0
+offset_top = 500.0
+offset_right = 550.0
+offset_bottom = 580.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Settings"
@@ -87,10 +87,10 @@ offset_bottom = 40.0
 [node name="QuitButton" type="Button" parent="Control"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 795.0
-offset_top = 425.0
-offset_right = 1063.0
-offset_bottom = 505.0
+offset_left = 602.0
+offset_top = 500.0
+offset_right = 852.0
+offset_bottom = 580.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Quit"
