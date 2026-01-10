@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgladm2g3g5cv"]
+[gd_scene load_steps=15 format=3 uid="uid://dgladm2g3g5cv"]
 
 [ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_2glvr"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_6xbfe"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://assets/scenes/collectable.tscn" id="6_1wim7"]
 [ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="7_om06g"]
 [ext_resource type="PackedScene" uid="uid://bm0jx6muu0ov7" path="res://assets/scenes/level4.tscn" id="8_iaj0w"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_comic_light"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="9_7i0qa"]
 [ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="10_61e3g"]
 
@@ -571,10 +572,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_comic_light")
 theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_direction = 2
+structured_text_bidi_override = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_7i0qa")

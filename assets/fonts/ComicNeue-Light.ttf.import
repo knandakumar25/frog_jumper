@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bvrc6tj6goi0s"
-path="res://.godot/imported/PressStart2P-Regular.ttf-e20d5ff307f5ecfa1e9984f5c6184197.fontdata"
+uid="uid://5haj7i3kmsn6"
+path="res://.godot/imported/ComicNeue-Light.ttf-b6cc2365e57c25a5b3d1a02349874664.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/PressStart2P-Regular.ttf"
-dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-e20d5ff307f5ecfa1e9984f5c6184197.fontdata"]
+source_file="res://assets/fonts/ComicNeue-Light.ttf"
+dest_files=["res://.godot/imported/ComicNeue-Light.ttf-b6cc2365e57c25a5b3d1a02349874664.fontdata"]
 
 [params]
 
@@ -23,11 +23,11 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[]
+fallbacks=[Resource("uid://88xrmfi5q1ch", "res://assets/fonts/NotoSansMalayalam-Regular.ttf")]
 Compress=null
 compress=true
 preload=[]

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://6cg41t2ksmty"]
+[gd_scene load_steps=7 format=3 uid="uid://6cg41t2ksmty"]
 
 [ext_resource type="Script" uid="uid://0bdswcw1n215" path="res://assets/scenes/options_menu.gd" id="1_f2tif"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="2_w4rdp"]
+[ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="3_bg"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="5_comic_light"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="6_comic_regular"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +15,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f2tif")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bg")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -280.0
+offset_right = 200.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_bold")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 2
+structured_text_bidi_override = 1
 
 [node name="AudioOptions" type="Control" parent="."]
 anchors_preset = 0
@@ -32,18 +70,33 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="VolumeLabel" type="Label" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_light")
+theme_override_font_sizes/font_size = 30
+text = "Volume"
+auto_translate_mode = 1
+
 [node name="MasterSlider" type="HSlider" parent="AudioOptions/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.05
 
-[node name="MasterLabel" type="Label" parent="AudioOptions/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="Spacer" type="Control" parent="AudioOptions/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="AudioOptions/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_light")
 theme_override_font_sizes/font_size = 30
-text = "Volume"
+text = "Language"
+horizontal_alignment = 1
 auto_translate_mode = 1
 
 [node name="LanguageOption" type="OptionButton" parent="AudioOptions/VBoxContainer"]
@@ -51,20 +104,13 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 25
 
-[node name="LanguageLabel" type="Label" parent="AudioOptions/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 30
-text = "Language"
-horizontal_alignment = 1
-
 [node name="Confirm" type="Button" parent="AudioOptions"]
 layout_mode = 0
 offset_left = 750.0
 offset_top = 402.0
 offset_right = 980.0
 offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("6_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Apply"
 auto_translate_mode = 1
@@ -75,6 +121,7 @@ offset_left = 98.0
 offset_top = 402.0
 offset_right = 175.0
 offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("6_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Back"
 auto_translate_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbiiexkohykyy"]
+[gd_scene load_steps=17 format=3 uid="uid://cbiiexkohykyy"]
 
 [ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_rycb2"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_gdqxh"]
@@ -8,8 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://assets/scenes/collectable.tscn" id="5_k33w3"]
 [ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="6_75qpd"]
 [ext_resource type="PackedScene" uid="uid://ck68m5fwnp1h2" path="res://assets/scenes/level2.tscn" id="7_3tb0g"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="10_comic_light"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="9_4ychm"]
 [ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="10_iy0yb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
+bg_color = Color(0, 0, 0, 0.7)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnv1u"]
 size = Vector2(70, 90)
@@ -453,10 +461,12 @@ target_level = ExtResource("7_3tb0g")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
+modulate = Color(1, 1, 1, 0.9)
 offset_left = 13.0
 offset_top = 10.0
 offset_right = 205.0
 offset_bottom = 69.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_score_panel")
 
 [node name="PointsLabel" type="Label" parent="UI/Panel"]
 unique_name_in_owner = true
@@ -466,10 +476,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_comic_light")
 theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_direction = 2
+structured_text_bidi_override = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_4ychm")

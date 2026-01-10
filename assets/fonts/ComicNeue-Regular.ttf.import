@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cods1k3vpyot"
-path="res://.godot/imported/Audiowide-Regular.ttf-62e85edd5fada4bf3a870f3432dcfb6f.fontdata"
+uid="uid://cufqwoc742wsk"
+path="res://.godot/imported/ComicNeue-Regular.ttf-11872ec8bd338434a00ce2df66ffe523.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Audiowide-Regular.ttf"
-dest_files=["res://.godot/imported/Audiowide-Regular.ttf-62e85edd5fada4bf3a870f3432dcfb6f.fontdata"]
+source_file="res://assets/fonts/ComicNeue-Regular.ttf"
+dest_files=["res://.godot/imported/ComicNeue-Regular.ttf-11872ec8bd338434a00ce2df66ffe523.fontdata"]
 
 [params]
 
@@ -27,7 +27,7 @@ subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[]
+fallbacks=[Resource("uid://88xrmfi5q1ch", "res://assets/fonts/NotoSansMalayalam-Regular.ttf")]
 Compress=null
 compress=true
 preload=[]

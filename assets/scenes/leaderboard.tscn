@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chndvkbdhmd47"]
+[gd_scene load_steps=5 format=3 uid="uid://chndvkbdhmd47"]
 
 [ext_resource type="Script" uid="uid://bfmam5smi8buy" path="res://assets/scenes/leaderboard.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_bg"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_comic_bold"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="4_comic_regular"]
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -41,9 +43,12 @@ grow_vertical = 2
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("3_comic_bold")
 theme_override_font_sizes/font_size = 50
 text = "Leaderboard"
 horizontal_alignment = 1
+text_direction = 2
+structured_text_bidi_override = 1
 
 [node name="Spacer1" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -69,6 +74,7 @@ layout_mode = 2
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Back"
 

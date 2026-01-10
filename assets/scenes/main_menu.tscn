@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwp7b6o11ii16"]
+[gd_scene load_steps=7 format=3 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
 [ext_resource type="FontFile" uid="uid://b0k5n8p7m8qwe" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_noto"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
 [ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="4_rmpln"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_hgd46")
@@ -32,7 +34,7 @@ offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.6, 0, 1)
-theme_override_fonts/font = ExtResource("3_noto")
+theme_override_fonts/font = ExtResource("4_comic_bold")
 theme_override_font_sizes/font_size = 80
 text = "TURTLE JUMP"
 horizontal_alignment = 1
@@ -45,6 +47,7 @@ offset_top = 300.0
 offset_right = 710.0
 offset_bottom = 380.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
@@ -55,6 +58,7 @@ offset_top = 400.0
 offset_right = 550.0
 offset_bottom = 480.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "How to Play"
 
@@ -65,6 +69,7 @@ offset_top = 400.0
 offset_right = 852.0
 offset_bottom = 480.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Leaderboard"
 
@@ -75,6 +80,7 @@ offset_top = 500.0
 offset_right = 550.0
 offset_bottom = 580.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
@@ -92,6 +98,7 @@ offset_top = 500.0
 offset_right = 852.0
 offset_bottom = 580.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 

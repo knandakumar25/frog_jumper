@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dscsic47d81gv"]
+[gd_scene load_steps=9 format=3 uid="uid://dscsic47d81gv"]
 
 [ext_resource type="Script" uid="uid://djgnbpvl8k1ga" path="res://assets/scenes/pause_menu.gd" id="1_0d1qr"]
 [ext_resource type="Shader" uid="uid://c4gsbwxau2efu" path="res://assets/scenes/pause_menu.gdshader" id="1_pbo1x"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_comic_bold"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="4_comic_regular"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s1nw1"]
 shader = ExtResource("1_pbo1x")
@@ -71,77 +73,111 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -271.0
-offset_top = -322.0
-offset_right = 272.0
-offset_bottom = 326.0
+offset_left = -300.0
+offset_top = -280.0
+offset_right = 300.0
+offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 1, 0, 1)
+color = Color(0, 0, 0, 0.85)
+
+[node name="Title" type="Label" parent="ColorRect2"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -240.0
+offset_right = 100.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_comic_bold")
+theme_override_font_sizes/font_size = 40
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 2
+structured_text_bidi_override = 1
 
 [node name="Resume" type="Button" parent="ColorRect2"]
-layout_mode = 2
-anchor_left = -0.259668
-anchor_top = 0.0617507
-anchor_right = -0.259668
-anchor_bottom = 0.0617507
-offset_left = 214.5
-offset_top = 84.5
-offset_right = 622.5
-offset_bottom = 134.5
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 28
 text = "Resume"
-auto_translate_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Restart" type="Button" parent="ColorRect2"]
-layout_mode = 2
-anchor_left = -0.259668
-anchor_top = 0.135825
-anchor_right = -0.259668
-anchor_bottom = 0.135825
-offset_left = 214.5
-offset_top = 140.5
-offset_right = 622.5
-offset_bottom = 190.5
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -60.0
+offset_right = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 28
 text = "Restart"
-auto_translate_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="LevelSelection" type="Button" parent="ColorRect2"]
-layout_mode = 2
-anchor_left = -0.259668
-anchor_top = 0.206812
-anchor_right = -0.259668
-anchor_bottom = 0.206812
-offset_left = 214.5
-offset_top = 198.5
-offset_right = 622.5
-offset_bottom = 248.5
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 28
 text = "Return to Level Selection"
-auto_translate_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Button" parent="ColorRect2"]
-layout_mode = 2
-anchor_left = -0.259668
-anchor_top = 0.260825
-anchor_right = -0.259668
-anchor_bottom = 0.260825
-offset_left = 214.5
-offset_top = 267.5
-offset_right = 622.5
-offset_bottom = 317.5
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 28
 text = "Return to Main Menu"
-auto_translate_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
