@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://6cg41t2ksmty"]
+[gd_scene load_steps=9 format=3 uid="uid://6cg41t2ksmty"]
 
 [ext_resource type="Script" uid="uid://0bdswcw1n215" path="res://assets/scenes/options_menu.gd" id="1_f2tif"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="2_w4rdp"]
@@ -6,6 +6,36 @@
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="5_comic_light"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="6_comic_regular"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_options_button"]
+bg_color = Color(0, 0.7, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9, 0.3, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_options_button_hover"]
+bg_color = Color(0, 0.85, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -110,8 +140,14 @@ offset_left = 750.0
 offset_top = 402.0
 offset_right = 980.0
 offset_bottom = 452.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("6_comic_regular")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_options_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_options_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_options_button")
 text = "Apply"
 auto_translate_mode = 1
 
@@ -121,8 +157,14 @@ offset_left = 98.0
 offset_top = 402.0
 offset_right = 175.0
 offset_bottom = 452.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("6_comic_regular")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_options_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_options_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_options_button")
 text = "Back"
 auto_translate_mode = 1
 

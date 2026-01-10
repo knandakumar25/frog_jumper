@@ -4,6 +4,10 @@ extends Node
 @onready var quit_dialog: ConfirmationDialog = $Control/QuitDialog
 
 
+func _ready() -> void:
+	Global.play_menu_music()
+
+
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/level_selection.tscn")
 

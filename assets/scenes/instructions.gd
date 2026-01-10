@@ -1,6 +1,8 @@
 extends Control
 
 func _ready() -> void:
+	Global.play_menu_music()
+	
 	var current_locale = TranslationServer.get_locale()
 	var locale_code = current_locale.split("_")[0]
 	

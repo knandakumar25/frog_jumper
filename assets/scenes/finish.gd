@@ -33,4 +33,7 @@ func _on_body_entered(body):
 
 		# Change the scene
 		Global.reached_finish = false
+		# If returning to level selection, restart menu music
+		if target_level.resource_path == "res://assets/scenes/level_selection.tscn":
+			Global.play_menu_music()
 		get_tree().change_scene_to_packed(target_level)

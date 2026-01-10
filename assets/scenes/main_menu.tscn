@@ -1,11 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwp7b6o11ii16"]
+[gd_scene load_steps=8 format=3 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
 [ext_resource type="FontFile" uid="uid://b0k5n8p7m8qwe" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_noto"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
-[ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="4_rmpln"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0, 0.7, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9, 0.3, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0, 0.85, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_hgd46")
@@ -46,9 +75,14 @@ offset_left = 442.0
 offset_top = 300.0
 offset_right = 710.0
 offset_bottom = 380.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "Play"
 
 [node name="Instructions" type="Button" parent="."]
@@ -57,9 +91,14 @@ offset_left = 300.0
 offset_top = 400.0
 offset_right = 550.0
 offset_bottom = 480.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "How to Play"
 
 [node name="Leaderboard" type="Button" parent="."]
@@ -68,9 +107,14 @@ offset_left = 602.0
 offset_top = 400.0
 offset_right = 852.0
 offset_bottom = 480.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "Leaderboard"
 
 [node name="Settings" type="Button" parent="."]
@@ -79,9 +123,14 @@ offset_left = 300.0
 offset_top = 500.0
 offset_right = 550.0
 offset_bottom = 580.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "Settings"
 
 [node name="Control" type="Control" parent="."]
@@ -97,17 +146,17 @@ offset_left = 602.0
 offset_top = 500.0
 offset_right = 852.0
 offset_bottom = 580.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "Quit"
 
 [node name="QuitDialog" type="ConfirmationDialog" parent="Control"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_rmpln")
-volume_db = 24.0
-autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

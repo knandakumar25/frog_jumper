@@ -6,6 +6,7 @@ var db_path = "user://scores.db"
 @onready var scores_table = $VBoxContainer/ScrollContainer/ScoresTable
 
 func _ready() -> void:
+	Global.play_menu_music()
 	init_database()
 	load_scores()
 

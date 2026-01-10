@@ -13,11 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="10_iy0yb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
-bg_color = Color(0, 0, 0, 0.7)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0, 0, 0, 0.75)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.8, 0.2, 0.8)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnv1u"]
 size = Vector2(70, 90)

@@ -1,10 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://cloxsvam0ymha"]
+[gd_scene load_steps=7 format=3 uid="uid://cloxsvam0ymha"]
 
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="1_ahwel"]
 [ext_resource type="Script" uid="uid://c8cdjl7cfya32" path="res://assets/scenes/level_selection.gd" id="1_eqe0b"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="2_comic_bold"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
-[ext_resource type="AudioStream" uid="uid://cgrbnnt4sqsh3" path="res://assets/music/game-music-loop-1-143979.mp3" id="3_g6l3d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_level_button"]
+bg_color = Color(0, 0.7, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9, 0.3, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_level_button_hover"]
+bg_color = Color(0, 0.85, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
 
 [node name="Node" type="Node"]
 script = ExtResource("1_eqe0b")
@@ -56,36 +85,56 @@ theme_override_constants/separation = 20
 auto_translate_mode = 1
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_level_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_level_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_level_button")
 text = "Level 1"
 
 [node name="Level2" type="Button" parent="VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_level_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_level_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_level_button")
 text = "Level 2"
 
 [node name="Level3" type="Button" parent="VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_level_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_level_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_level_button")
 text = "Level 3"
 
 [node name="Level4" type="Button" parent="VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_level_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_level_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_level_button")
 text = "Level 4"
 
 [node name="BottomSpacer" type="Control" parent="VBoxContainer"]
@@ -99,15 +148,15 @@ layout_mode = 2
 auto_translate_mode = 1
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_level_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_level_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_level_button")
 text = "Back"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_g6l3d")
-volume_db = 24.0
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
