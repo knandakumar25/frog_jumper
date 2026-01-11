@@ -1,5 +1,7 @@
 extends Node
 
+const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
+
 var db = null
 
 @onready var quit_popup: Panel = $QuitPopup
@@ -79,7 +81,7 @@ func _on_close_language_popup_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/level_selection.tscn")
+	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
 
 
 func _on_instructions_pressed() -> void:

@@ -1,5 +1,7 @@
 extends Control
 
+const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
+
 func _ready() -> void:
 	Global.play_menu_music()
 	
@@ -15,4 +17,4 @@ func _ready() -> void:
 				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/main_menu.tscn")
+	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/main_menu.tscn")

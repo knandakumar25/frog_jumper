@@ -1,5 +1,7 @@
 extends Control
 
+const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
+
 var db: SQLite
 var db_path = "user://scores.db"
 
@@ -65,4 +67,4 @@ func add_row(level: String, score: String, is_header: bool) -> void:
 	scores_table.add_child(row_container)
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/main_menu.tscn")
+	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/main_menu.tscn")
