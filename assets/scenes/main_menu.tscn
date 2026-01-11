@@ -1,10 +1,69 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwp7b6o11ii16"]
+[gd_scene load_steps=14 format=3 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
 [ext_resource type="FontFile" uid="uid://b0k5n8p7m8qwe" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_noto"]
+[ext_resource type="Script" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
+[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_panel"]
+bg_color = Color(0.12, 0.12, 0.12, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.8, 0.2, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 15
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
+bg_color = Color(0.15, 0.15, 0.15, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.8, 0.2, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dropdown_normal"]
+bg_color = Color(0.2, 0.2, 0.2, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.8, 0.2, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dropdown_hover"]
+bg_color = Color(0.25, 0.25, 0.25, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.3, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
 bg_color = Color(0, 0.7, 0.2, 1)
@@ -158,7 +217,230 @@ text = "Quit"
 
 [node name="QuitDialog" type="ConfirmationDialog" parent="Control"]
 
+[node name="SettingsPopup" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="SettingsPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="SettingsPopup/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.3, 1)
+theme_override_fonts/font = ExtResource("4_comic_bold")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="SettingsPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="AudioOptions" type="Control" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_audio_options")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup/VBoxContainer/AudioOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -80.0
+offset_right = 300.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_light")
+theme_override_font_sizes/font_size = 28
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_bg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_bg")
+max_value = 1.0
+step = 0.05
+
+[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("4_comic_light")
+theme_override_font_sizes/font_size = 28
+text = "Language"
+horizontal_alignment = 1
+
+[node name="LanguageButton" type="Button" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.9, 1, 0.9, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dropdown_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dropdown_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dropdown_hover")
+text = "Select Language"
+
+[node name="Spacer2" type="Control" parent="SettingsPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ApplyButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+text = "Apply"
+
+[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+text = "Close"
+
+[node name="BottomSpacer" type="Control" parent="SettingsPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="LanguagePopup" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LanguagePopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="LanguagePopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="LanguagePopup/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.3, 1)
+theme_override_fonts/font = ExtResource("4_comic_bold")
+theme_override_font_sizes/font_size = 42
+text = "Select Language"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="LanguagePopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LanguagePopup/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LanguageGrid" type="GridContainer" parent="LanguagePopup/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="Spacer2" type="Control" parent="LanguagePopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="LanguagePopup/VBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+text = "Close"
+
+[node name="BottomSpacer" type="Control" parent="LanguagePopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+visible = false
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,5 +493,9 @@ text = "No"
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="confirmed" from="Control/QuitDialog" to="." method="_on_quit_dialog_confirmed"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton" to="." method="_on_language_button_pressed"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/ApplyButton" to="." method="_on_apply_settings_pressed"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="LanguagePopup/VBoxContainer/CloseButton" to="." method="_on_close_language_popup_pressed"]
 [connection signal="pressed" from="VBoxContainer/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="VBoxContainer/No" to="." method="_on_no_pressed"]
