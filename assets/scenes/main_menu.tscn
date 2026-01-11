@@ -1,12 +1,41 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwp7b6o11ii16"]
+[gd_scene load_steps=13 format=3 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
-[ext_resource type="FontFile" uid="uid://b0k5n8p7m8qwe" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_noto"]
-[ext_resource type="Script" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+[ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
+[ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
+[ext_resource type="FontFile" uid="uid://5haj7i3kmsn6" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
+[ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0, 0.7, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9, 0.3, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0, 0.85, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_panel"]
 bg_color = Color(0.12, 0.12, 0.12, 0.95)
@@ -19,7 +48,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 0.6)
 shadow_size = 15
 shadow_offset = Vector2(0, 5)
 
@@ -65,36 +93,6 @@ shadow_color = Color(0, 0, 0, 0.4)
 shadow_size = 5
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
-bg_color = Color(0, 0.7, 0.2, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0.9, 0.3, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 0.3)
-shadow_size = 4
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
-bg_color = Color(0, 0.85, 0.25, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 1, 0.4, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 0.4)
-shadow_size = 6
-shadow_offset = Vector2(0, 4)
-
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_hgd46")
 
@@ -128,69 +126,103 @@ text = "TURTLE JUMP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Play" type="Button" parent="."]
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="ButtonContainer"]
 auto_translate_mode = 1
-offset_left = 442.0
-offset_top = 300.0
-offset_right = 710.0
-offset_bottom = 380.0
+custom_minimum_size = Vector2(268, 80)
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Play"
 
-[node name="Instructions" type="Button" parent="."]
+[node name="Row1" type="HBoxContainer" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Instructions" type="Button" parent="ButtonContainer/Row1"]
 auto_translate_mode = 1
-offset_left = 300.0
-offset_top = 400.0
-offset_right = 550.0
-offset_bottom = 480.0
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "How to Play"
 
-[node name="Leaderboard" type="Button" parent="."]
+[node name="Leaderboard" type="Button" parent="ButtonContainer/Row1"]
 auto_translate_mode = 1
-offset_left = 602.0
-offset_top = 400.0
-offset_right = 852.0
-offset_bottom = 480.0
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Leaderboard"
 
-[node name="Settings" type="Button" parent="."]
+[node name="Row2" type="HBoxContainer" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Settings" type="Button" parent="ButtonContainer/Row2"]
 auto_translate_mode = 1
-offset_left = 300.0
-offset_top = 500.0
-offset_right = 550.0
-offset_bottom = 580.0
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Settings"
+
+[node name="QuitButton" type="Button" parent="ButtonContainer/Row2"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+text = "Quit"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -198,24 +230,95 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="QuitButton" type="Button" parent="Control"]
+[node name="QuitBackground" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="QuitPopup" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuitPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="QuitPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Message" type="Label" parent="QuitPopup/VBoxContainer"]
 auto_translate_mode = 1
-layout_mode = 0
-offset_left = 602.0
-offset_top = 500.0
-offset_right = 852.0
-offset_bottom = 580.0
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 28
+text = "Are you sure you want to quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="QuitPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="QuitPopup/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="YesButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
-text = "Quit"
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+text = "Yes"
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="Control"]
+[node name="ButtonSpacer" type="Control" parent="QuitPopup/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="NoButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_comic_regular")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+text = "No"
+
+[node name="BottomSpacer" type="Control" parent="QuitPopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="SettingsPopup" type="Panel" parent="."]
 visible = false
@@ -332,13 +435,13 @@ auto_translate_mode = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Apply"
 
 [node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
@@ -350,14 +453,14 @@ auto_translate_mode = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
-text = "Close"
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+text = "Exit"
 
 [node name="BottomSpacer" type="Control" parent="SettingsPopup/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -425,13 +528,13 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Close"
 
 [node name="BottomSpacer" type="Control" parent="LanguagePopup/VBoxContainer"]
@@ -439,8 +542,6 @@ custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-visible = false
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -480,22 +581,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Yes" type="Button" parent="VBoxContainer"]
+auto_translate_mode = 1
 layout_mode = 2
 text = "Yes"
 
 [node name="No" type="Button" parent="VBoxContainer"]
+auto_translate_mode = 1
 layout_mode = 2
 text = "No"
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="confirmed" from="Control/QuitDialog" to="." method="_on_quit_dialog_confirmed"]
+[connection signal="pressed" from="ButtonContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonContainer/Row1/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="ButtonContainer/Row1/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="ButtonContainer/Row2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonContainer/Row2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton" to="." method="_on_language_button_pressed"]
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/ApplyButton" to="." method="_on_apply_settings_pressed"]
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_settings_pressed"]
 [connection signal="pressed" from="LanguagePopup/VBoxContainer/CloseButton" to="." method="_on_close_language_popup_pressed"]
-[connection signal="pressed" from="VBoxContainer/Yes" to="." method="_on_yes_pressed"]
-[connection signal="pressed" from="VBoxContainer/No" to="." method="_on_no_pressed"]

@@ -1,7 +1,8 @@
 extends Node
 
 
-@onready var quit_dialog: ConfirmationDialog = $Control/QuitDialog
+@onready var quit_popup: Panel = $QuitPopup
+@onready var quit_background: ColorRect = $QuitBackground
 @onready var settings_popup: Panel = $SettingsPopup
 @onready var language_popup: Panel = $LanguagePopup
 @onready var language_grid: GridContainer = $LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid
@@ -35,7 +36,7 @@ func _populate_language_buttons() -> void:
 		_create_language_button(lang_name, languages[lang_name])
 
 
-func _create_language_button(lang_name: String, locale: String) -> void:
+func _create_language_button(lang_name: String, _locale: String) -> void:
 	var button = Button.new()
 	button.text = lang_name
 	button.custom_minimum_size = Vector2(370, 50)
@@ -48,8 +49,8 @@ func _create_language_button(lang_name: String, locale: String) -> void:
 	button.add_theme_font_size_override("font_size", 20)
 	
 	# Get StyleBox from scene
-	var normal_style = $Settings.get_theme_stylebox("normal", "Button")
-	var hover_style = $Settings.get_theme_stylebox("hover", "Button")
+	var normal_style = $ButtonContainer/Row2/Settings.get_theme_stylebox("normal", "Button")
+	var hover_style = $ButtonContainer/Row2/Settings.get_theme_stylebox("hover", "Button")
 	button.add_theme_stylebox_override("normal", normal_style)
 	button.add_theme_stylebox_override("hover", hover_style)
 	button.add_theme_stylebox_override("pressed", normal_style)
@@ -111,14 +112,10 @@ func _on_yes_pressed() -> void:
 
 
 func _on_no_pressed() -> void:
-	$VBoxContainer.hide()
-	$ColorRect.hide()
+	quit_popup.visible = false
+	quit_background.visible = false
 
 
 func _on_quit_button_pressed() -> void:
-	quit_dialog.popup_centered()
-	quit_dialog.dialog_text = tr("Are you sure you want to quit?")
-
-
-func _on_quit_dialog_confirmed() -> void:
-	get_tree().quit()
+	quit_background.visible = true
+	quit_popup.visible = true
