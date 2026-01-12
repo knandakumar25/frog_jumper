@@ -1,6 +1,7 @@
 extends Node
 
 const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
+const FallingTurtle = preload("res://assets/scenes/falling_turtle.tscn")
 
 var db = null
 
@@ -13,10 +14,48 @@ var db = null
 @onready var language_grid: GridContainer = $LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid
 @onready var scores_table: VBoxContainer = $LeaderboardPopup/VBoxContainer/ScrollContainer/ScoresTable
 
+var spawn_timer: float = 0.0
+var spawn_interval_min: float = 0.5
+var spawn_interval_max: float = 2.0
+var next_spawn_time: float = 0.0
+
 
 func _ready() -> void:
 	Global.play_menu_music()
 	_populate_language_buttons()
+	_reset_spawn_timer()
+
+
+func _process(delta: float) -> void:
+	# Spawn falling turtles
+	spawn_timer += delta
+	if spawn_timer >= next_spawn_time:
+		_spawn_falling_turtle()
+		_reset_spawn_timer()
+
+
+func _reset_spawn_timer() -> void:
+	spawn_timer = 0.0
+	next_spawn_time = randf_range(spawn_interval_min, spawn_interval_max)
+
+
+func _spawn_falling_turtle() -> void:
+	var turtle = FallingTurtle.instantiate()
+	
+	# Random horizontal position across the screen
+	var screen_width = get_viewport().get_visible_rect().size.x
+	turtle.position = Vector2(randf_range(50, screen_width - 50), -50)
+	
+	# Random scale for variety
+	var scale_factor = randf_range(0.8, 1.5)
+	turtle.scale = Vector2(scale_factor, scale_factor)
+	
+	# Random fall speed
+	turtle.fall_speed = randf_range(150, 300)
+	
+	# Add to scene (behind UI elements)
+	add_child(turtle)
+	move_child(turtle, 1)  # Move behind other UI elements
 
 
 func _populate_language_buttons() -> void:
