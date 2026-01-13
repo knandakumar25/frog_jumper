@@ -1,7 +1,7 @@
 extends Node
 
 const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
-const FallingTurtle = preload("res://assets/scenes/falling_turtle.tscn")
+const FallingCharacter = preload("res://assets/scenes/falling_character.tscn")
 
 var db = null
 
@@ -15,8 +15,8 @@ var db = null
 @onready var scores_table: VBoxContainer = $LeaderboardPopup/VBoxContainer/ScrollContainer/ScoresTable
 
 var spawn_timer: float = 0.0
-var spawn_interval_min: float = 0.5
-var spawn_interval_max: float = 2.0
+var spawn_interval_min: float = 0.2
+var spawn_interval_max: float = 0.8
 var next_spawn_time: float = 0.0
 
 
@@ -27,10 +27,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# Spawn falling turtles
+	# Spawn falling characters
 	spawn_timer += delta
 	if spawn_timer >= next_spawn_time:
-		_spawn_falling_turtle()
+		_spawn_falling_character()
 		_reset_spawn_timer()
 
 
@@ -39,23 +39,27 @@ func _reset_spawn_timer() -> void:
 	next_spawn_time = randf_range(spawn_interval_min, spawn_interval_max)
 
 
-func _spawn_falling_turtle() -> void:
-	var turtle = FallingTurtle.instantiate()
+func _spawn_falling_character() -> void:
+	var character = FallingCharacter.instantiate()
+	
+	# Random character selection
+	var characters = ["Ninja Frog", "Mask Dude", "Pink Man", "Virtual Guy"]
+	character.character_name = characters[randi() % characters.size()]
 	
 	# Random horizontal position across the screen
 	var screen_width = get_viewport().get_visible_rect().size.x
-	turtle.position = Vector2(randf_range(50, screen_width - 50), -50)
+	character.position = Vector2(randf_range(50, screen_width - 50), -50)
 	
 	# Random scale for variety
 	var scale_factor = randf_range(0.8, 1.5)
-	turtle.scale = Vector2(scale_factor, scale_factor)
+	character.scale = Vector2(scale_factor, scale_factor)
 	
 	# Random fall speed
-	turtle.fall_speed = randf_range(150, 300)
+	character.fall_speed = randf_range(150, 300)
 	
 	# Add to scene (behind UI elements)
-	add_child(turtle)
-	move_child(turtle, 1)  # Move behind other UI elements
+	add_child(character)
+	move_child(character, 1)  # Move behind other UI elements
 
 
 func _populate_language_buttons() -> void:
@@ -120,7 +124,7 @@ func _on_close_language_popup_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/character_selection.tscn")
 
 
 func _on_instructions_pressed() -> void:

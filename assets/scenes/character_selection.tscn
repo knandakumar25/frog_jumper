@@ -1,0 +1,183 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7gy8mqw3hxvd"]
+
+[ext_resource type="Script" path="res://assets/scenes/character_selection.gd" id="1_char_select_script"]
+[ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_comic_bold"]
+[ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="4_comic_regular"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0, 0.7, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9, 0.3, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0, 0.85, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_char_select_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_comic_bold")
+theme_override_font_sizes/font_size = 50
+text = "Choose your character"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CharacterGrid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 40
+columns = 4
+
+[node name="NinjaFrog" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+
+[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/NinjaFrog"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+flat = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton"]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+
+[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/NinjaFrog"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 24
+text = "Ninja Frog"
+horizontal_alignment = 1
+
+[node name="MaskDude" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+
+[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/MaskDude"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+flat = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/MaskDude/CharacterButton"]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+
+[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/MaskDude"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 24
+text = "Mask Dude"
+horizontal_alignment = 1
+
+[node name="PinkMan" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+
+[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/PinkMan"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+flat = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/PinkMan/CharacterButton"]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+
+[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/PinkMan"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 24
+text = "Pink Man"
+horizontal_alignment = 1
+
+[node name="VirtualGuy" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+
+[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/VirtualGuy"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+flat = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton"]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+
+[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/VirtualGuy"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_comic_regular")
+theme_override_font_sizes/font_size = 24
+text = "Virtual Guy"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton" to="." method="_on_ninja_frog_pressed"]
+[connection signal="pressed" from="VBoxContainer/CharacterGrid/MaskDude/CharacterButton" to="." method="_on_mask_dude_pressed"]
+[connection signal="pressed" from="VBoxContainer/CharacterGrid/PinkMan/CharacterButton" to="." method="_on_pink_man_pressed"]
+[connection signal="pressed" from="VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton" to="." method="_on_virtual_guy_pressed"]

@@ -1,6 +1,7 @@
 extends Node
 
 var reached_finish = false
+var selected_character = "Ninja Frog"  # Default character
 
 # Global menu music player
 var menu_music_player: AudioStreamPlayer = null

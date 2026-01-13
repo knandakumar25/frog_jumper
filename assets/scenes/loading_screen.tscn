@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw2ys5k0m8bfw"]
+[gd_scene load_steps=3 format=3 uid="uid://dw2ys5k0m8bfw"]
 
 [ext_resource type="Script" path="res://assets/scenes/loading_screen.gd" id="1_loading_script"]
-[ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_bg"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
 
 [node name="LoadingScreen" type="Control"]
@@ -13,16 +12,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_loading_script")
 
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bg")
-stretch_mode = 1
+color = Color(0, 0, 0, 1)
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -37,7 +43,7 @@ layout_mode = 2
 
 [node name="LoadingLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.8, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 48
 text = "Loading..."
