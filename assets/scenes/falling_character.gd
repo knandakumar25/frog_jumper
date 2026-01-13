@@ -13,21 +13,21 @@ func _ready() -> void:
 
 func _load_character_sprite() -> void:
 	var base_path = "res://assets/images/" + character_name + "/"
-	var sprite_frames = SpriteFrames.new()
+	var frames = SpriteFrames.new()
 	
 	# Load idle animation
 	var idle_texture = load(base_path + "Idle (32x32).png")
-	sprite_frames.add_animation("idle")
-	sprite_frames.set_animation_loop("idle", true)
-	sprite_frames.set_animation_speed("idle", 10.0)
+	frames.add_animation("idle")
+	frames.set_animation_loop("idle", true)
+	frames.set_animation_speed("idle", 10.0)
 	
 	for i in range(11):
 		var atlas = AtlasTexture.new()
 		atlas.atlas = idle_texture
 		atlas.region = Rect2(i * 32, 0, 32, 32)
-		sprite_frames.add_frame("idle", atlas)
+		frames.add_frame("idle", atlas)
 	
-	self.sprite_frames = sprite_frames
+	self.sprite_frames = frames
 
 
 func _process(delta: float) -> void:

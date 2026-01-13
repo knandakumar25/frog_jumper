@@ -13,6 +13,7 @@ var db = null
 @onready var language_popup: Panel = $LanguagePopup
 @onready var language_grid: GridContainer = $LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid
 @onready var scores_table: VBoxContainer = $LeaderboardPopup/VBoxContainer/ScrollContainer/ScoresTable
+@onready var title_container: HBoxContainer = $TitleContainer
 
 var spawn_timer: float = 0.0
 var spawn_interval_min: float = 0.2
@@ -24,6 +25,50 @@ func _ready() -> void:
 	Global.play_menu_music()
 	_populate_language_buttons()
 	_reset_spawn_timer()
+	_setup_floating_title()
+
+
+func _setup_floating_title() -> void:
+	# Get translated title text
+	var title_text = tr("PIXEL JUMPERS")
+	
+	# Load ComicNeue-Bold font
+	var bold_font = load("res://assets/fonts/ComicNeue-Bold.ttf")
+	
+	# Clear any existing children
+	for child in title_container.get_children():
+		child.queue_free()
+	
+	# Create a single label for the entire title
+	var label = Label.new()
+	label.text = title_text
+	label.add_theme_color_override("font_color", Color(0, 0.6, 0, 1))
+	label.add_theme_font_override("font", bold_font)
+	label.add_theme_font_size_override("font_size", 80)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	
+	title_container.add_child(label)
+	
+	# Animate the entire title to float
+	_animate_floating_title(label)
+
+
+func _animate_floating_title(label: Label) -> void:
+	# Create vertical floating animation
+	var tween = create_tween()
+	tween.set_loops()
+	
+	# Float up and down
+	tween.tween_property(label, "position:y", -15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(label, "position:y", 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	
+	# Add slight rotation for more dynamic feel
+	var rotation_tween = create_tween()
+	rotation_tween.set_loops()
+	rotation_tween.tween_property(label, "rotation_degrees", -2, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	rotation_tween.tween_property(label, "rotation_degrees", 2, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 
 func _process(delta: float) -> void:
@@ -150,6 +195,9 @@ func _on_apply_settings_pressed() -> void:
 	# Apply language settings
 	var audio_options = $SettingsPopup/VBoxContainer/AudioOptions
 	audio_options.apply_language_change()
+	
+	# Update title with new language
+	_setup_floating_title()
 	
 	# Close the popup
 	settings_popup.visible = false
