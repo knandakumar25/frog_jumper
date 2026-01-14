@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var target_level : PackedScene
+@export var current_level_number : int = 1  # Set this in the editor for each level
 @onready var finish_audio: AudioStreamPlayer = $FinishAudio
 @onready var audio_stream_player: AudioStreamPlayer = $"../../AudioStreamPlayer"
 
@@ -9,6 +10,10 @@ func _on_body_entered(body):
 		# Stop the background music
 		audio_stream_player.stop()
 		Global.reached_finish = true
+		
+		# Unlock next level
+		Global.unlock_next_level(current_level_number)
+		
 		# Stop character movement
 		if body.has_method("stop_movement"):
 			body.stop_movement()

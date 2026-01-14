@@ -39,6 +39,12 @@ func _setup_floating_title() -> void:
 	for child in title_container.get_children():
 		child.queue_free()
 	
+	# Create a wrapper control to handle scaling without container interference
+	var wrapper = Control.new()
+	wrapper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	wrapper.custom_minimum_size = Vector2(0, 120)
+	title_container.add_child(wrapper)
+	
 	# Create a single label for the entire title
 	var label = Label.new()
 	label.text = title_text
@@ -47,28 +53,48 @@ func _setup_floating_title() -> void:
 	label.add_theme_font_size_override("font_size", 80)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.anchor_left = 0.5
+	label.anchor_right = 0.5
+	label.anchor_top = 0.5
+	label.anchor_bottom = 0.5
+	label.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	label.grow_vertical = Control.GROW_DIRECTION_BOTH
 	
-	title_container.add_child(label)
+	wrapper.add_child(label)
+	
+	# Need to wait a frame for the label to get its proper size
+	await get_tree().process_frame
+	
+	# Set pivot offset to center of label for proper scaling
+	label.pivot_offset = label.size / 2
 	
 	# Animate the entire title to float
 	_animate_floating_title(label)
 
 
 func _animate_floating_title(label: Label) -> void:
-	# Create vertical floating animation
-	var tween = create_tween()
-	tween.set_loops()
+	# Initial zoom-in animation when game launches
+	label.scale = Vector2(0.1, 0.1)  # Start very small
+	label.modulate.a = 0.0  # Start invisible
 	
-	# Float up and down
-	tween.tween_property(label, "position:y", -15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(label, "position:y", 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	var zoom_tween = create_tween()
+	zoom_tween.set_parallel(true)  # Run scale and fade in parallel
+	zoom_tween.tween_property(label, "scale", Vector2(1.0, 1.0), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	zoom_tween.tween_property(label, "modulate:a", 1.0, 1.0).set_ease(Tween.EASE_OUT)
 	
-	# Add slight rotation for more dynamic feel
-	var rotation_tween = create_tween()
-	rotation_tween.set_loops()
-	rotation_tween.tween_property(label, "rotation_degrees", -2, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	rotation_tween.tween_property(label, "rotation_degrees", 2, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	# Wait for zoom to complete, then start floating animation
+	await zoom_tween.finished
+	
+	# Create continuous vertical floating animation (no rotation)
+	var float_tween = create_tween()
+	float_tween.set_loops()
+	
+	# Store original position
+	var original_y = label.position.y
+	
+	# Float up and down smoothly
+	float_tween.tween_property(label, "position:y", original_y - 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	float_tween.tween_property(label, "position:y", original_y + 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 
 func _process(delta: float) -> void:

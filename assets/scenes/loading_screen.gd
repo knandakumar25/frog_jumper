@@ -23,10 +23,10 @@ func _ready() -> void:
 	var error = ResourceLoader.load_threaded_request(target_scene_path)
 	if error == OK:
 		loading_started = true
-		status_label.text = "Loading scene..."
+		status_label.text = tr("Loading scene...")
 	else:
 		push_error("Failed to start loading: " + target_scene_path)
-		status_label.text = "Error: Failed to start loading"
+		status_label.text = tr("Error: Failed to start loading")
 
 
 func _fade_in() -> void:
@@ -50,7 +50,7 @@ func _process(_delta: float) -> void:
 	
 	match loading_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
-			status_label.text = "Error: Invalid resource"
+			status_label.text = tr("Error: Invalid resource")
 			push_error("Failed to load scene: " + target_scene_path)
 			loading_started = false
 			
@@ -58,17 +58,17 @@ func _process(_delta: float) -> void:
 			# Update progress bar (progress[0] is between 0.0 and 1.0)
 			if progress.size() > 0:
 				progress_bar.value = progress[0] * 100.0
-				status_label.text = "Loading... " + str(int(progress[0] * 100)) + "%"
+				status_label.text = tr("Loading... ") + str(int(progress[0] * 100)) + "%"
 			
 		ResourceLoader.THREAD_LOAD_FAILED:
-			status_label.text = "Error: Loading failed"
+			status_label.text = tr("Error: Loading failed")
 			push_error("Failed to load scene: " + target_scene_path)
 			loading_started = false
 			
 		ResourceLoader.THREAD_LOAD_LOADED:
 			# Loading complete
 			progress_bar.value = 100.0
-			status_label.text = "Complete!"
+			status_label.text = tr("Complete!")
 			loading_started = false
 			_on_loading_complete()
 
