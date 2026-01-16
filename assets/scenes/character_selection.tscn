@@ -59,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -250.0
-offset_right = 350.0
-offset_bottom = 250.0
+offset_left = -480.0
+offset_top = -240.0
+offset_right = 480.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -70,9 +70,9 @@ grow_vertical = 2
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/line_spacing = 8
+theme_override_constants/line_spacing = 10
 theme_override_fonts/font = ExtResource("3_comic_bold")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 72
 text = "Choose your character"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -83,16 +83,16 @@ layout_mode = 2
 
 [node name="CharacterGrid" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 50
-theme_override_constants/v_separation = 40
+theme_override_constants/h_separation = 90
+theme_override_constants/v_separation = 50
 columns = 4
 
 [node name="NinjaFrog" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
-custom_minimum_size = Vector2(150, 200)
+custom_minimum_size = Vector2(180, 240)
 layout_mode = 2
 
 [node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/NinjaFrog"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 flat = true

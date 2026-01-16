@@ -38,5 +38,6 @@ func _process(delta: float) -> void:
 	rotation += rotation_speed * delta
 	
 	# Remove when off screen (below viewport)
-	if position.y > 800:
+	var viewport_height = get_viewport_rect().size.y
+	if position.y > viewport_height + 50:
 		queue_free()
