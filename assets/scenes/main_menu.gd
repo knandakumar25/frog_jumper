@@ -126,7 +126,7 @@ func _process(delta: float) -> void:
 	var screen_height = get_viewport().get_visible_rect().size.y
 	for cloud in clouds:
 		cloud.position.x -= cloud.get_meta("speed") * delta
-		if cloud.position.x < -cloud.texture.get_width() * cloud.scale.x:
+		if cloud.position.x < -cloud.texture.get_size().x * cloud.scale.x:
 			# Recycle cloud to right
 			cloud.position.x = screen_width + randf_range(0, 200)
 			cloud.position.y = randf_range(40, screen_height * 0.5)
