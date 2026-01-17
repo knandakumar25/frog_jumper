@@ -15,6 +15,14 @@ var db = null
 @onready var scores_table: VBoxContainer = $LeaderboardPopup/VBoxContainer/ScrollContainer/ScoresTable
 @onready var title_container: HBoxContainer = $TitleContainer
 
+
+# Cloud animation variables
+var cloud_scene: Texture2D = preload("res://assets/images/clouds.png")
+var cloud_spawn_timer: float = 0.0
+var cloud_spawn_interval: float = 1.0
+var max_clouds: int = 6
+var clouds: Array = []
+
 var spawn_timer: float = 0.0
 var spawn_interval_min: float = 0.2
 var spawn_interval_max: float = 0.8
@@ -26,6 +34,21 @@ func _ready() -> void:
 	_populate_language_buttons()
 	_reset_spawn_timer()
 	_setup_floating_title()
+	_spawn_initial_clouds()
+
+func _spawn_initial_clouds() -> void:
+	var clouds_layer = $CloudsLayer
+	var screen_width = get_viewport().get_visible_rect().size.x
+	var screen_height = get_viewport().get_visible_rect().size.y
+	for i in range(max_clouds):
+		var sprite = Sprite2D.new()
+		sprite.texture = cloud_scene
+		sprite.position = Vector2(randf_range(0, screen_width), randf_range(40, screen_height * 0.5))
+		sprite.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
+		sprite.modulate.a = randf_range(0.7, 1.0)
+		sprite.set_meta("speed", randf_range(30, 90))
+		clouds_layer.add_child(sprite)
+		clouds.append(sprite)
 
 
 func _setup_floating_title() -> void:
@@ -98,11 +121,25 @@ func _animate_floating_title(label: Label) -> void:
 
 
 func _process(delta: float) -> void:
-	# Spawn falling characters
-	spawn_timer += delta
-	if spawn_timer >= next_spawn_time:
-		_spawn_falling_character()
-		_reset_spawn_timer()
+
+	       # Animate clouds
+	       var screen_width = get_viewport().get_visible_rect().size.x
+	       var screen_height = get_viewport().get_visible_rect().size.y
+	       for cloud in clouds:
+		       cloud.position.x -= cloud.get_meta("speed") * delta
+		       if cloud.position.x < -cloud.texture.get_width() * cloud.scale.x:
+			       # Recycle cloud to right
+			       cloud.position.x = screen_width + randf_range(0, 200)
+			       cloud.position.y = randf_range(40, screen_height * 0.5)
+			       cloud.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
+			       cloud.modulate.a = randf_range(0.7, 1.0)
+			       cloud.set_meta("speed", randf_range(30, 90))
+
+	       # Spawn falling characters
+	       spawn_timer += delta
+	       if spawn_timer >= next_spawn_time:
+		       _spawn_falling_character()
+		       _reset_spawn_timer()
 
 
 func _reset_spawn_timer() -> void:
