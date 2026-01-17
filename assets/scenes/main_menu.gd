@@ -30,13 +30,37 @@ var next_spawn_time: float = 0.0
 
 
 func _ready() -> void:
+	print("main_menu: _ready() start")
 	Global.play_menu_music()
 	_populate_language_buttons()
 	_reset_spawn_timer()
 	_setup_floating_title()
-	_spawn_initial_clouds()
+
+	# Ensure CloudsLayer exists; create it if missing so clouds can be spawned
+	if not has_node("CloudsLayer"):
+		print("main_menu: CloudsLayer not found — creating runtime CloudsLayer node")
+		var created_layer = Node2D.new()
+		created_layer.name = "CloudsLayer"
+		add_child(created_layer)
+		# Place behind UI but above background (try index 1)
+		var target_index = clamp(1, 0, get_child_count() - 1)
+		move_child(created_layer, target_index)
+
+	if cloud_scene == null:
+		push_error("main_menu: cloud_scene texture failed to load (null).")
+	else:
+		_spawn_initial_clouds()
+
+	print("main_menu: _ready() complete")
 
 func _spawn_initial_clouds() -> void:
+	if not has_node("CloudsLayer"):
+		push_error("main_menu: _spawn_initial_clouds called but CloudsLayer missing. Aborting spawn.")
+		return
+	if cloud_scene == null:
+		push_error("main_menu: _spawn_initial_clouds: cloud_scene is null. Aborting cloud spawn.")
+		return
+
 	var clouds_layer = $CloudsLayer
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var screen_height = get_viewport().get_visible_rect().size.y
@@ -126,13 +150,16 @@ func _process(delta: float) -> void:
 	var screen_height = get_viewport().get_visible_rect().size.y
 	for cloud in clouds:
 		cloud.position.x -= cloud.get_meta("speed") * delta
-		if cloud.position.x < -cloud.texture.get_size().x * cloud.scale.x:
+		if cloud.texture and cloud.position.x < -cloud.texture.get_size().x * cloud.scale.x:
 			# Recycle cloud to right
 			cloud.position.x = screen_width + randf_range(0, 200)
 			cloud.position.y = randf_range(40, screen_height * 0.5)
 			cloud.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
 			cloud.modulate.a = randf_range(0.7, 1.0)
 			cloud.set_meta("speed", randf_range(30, 90))
+		else:
+			# If texture missing, skip recycling logic for this cloud
+			continue
 
 	# Spawn falling characters
 	spawn_timer += delta
