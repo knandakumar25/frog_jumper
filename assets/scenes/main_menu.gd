@@ -121,25 +121,24 @@ func _animate_floating_title(label: Label) -> void:
 
 
 func _process(delta: float) -> void:
+	# Animate clouds
+	var screen_width = get_viewport().get_visible_rect().size.x
+	var screen_height = get_viewport().get_visible_rect().size.y
+	for cloud in clouds:
+		cloud.position.x -= cloud.get_meta("speed") * delta
+		if cloud.position.x < -cloud.texture.get_width() * cloud.scale.x:
+			# Recycle cloud to right
+			cloud.position.x = screen_width + randf_range(0, 200)
+			cloud.position.y = randf_range(40, screen_height * 0.5)
+			cloud.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
+			cloud.modulate.a = randf_range(0.7, 1.0)
+			cloud.set_meta("speed", randf_range(30, 90))
 
-	       # Animate clouds
-	       var screen_width = get_viewport().get_visible_rect().size.x
-	       var screen_height = get_viewport().get_visible_rect().size.y
-	       for cloud in clouds:
-		       cloud.position.x -= cloud.get_meta("speed") * delta
-		       if cloud.position.x < -cloud.texture.get_width() * cloud.scale.x:
-			       # Recycle cloud to right
-			       cloud.position.x = screen_width + randf_range(0, 200)
-			       cloud.position.y = randf_range(40, screen_height * 0.5)
-			       cloud.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
-			       cloud.modulate.a = randf_range(0.7, 1.0)
-			       cloud.set_meta("speed", randf_range(30, 90))
-
-	       # Spawn falling characters
-	       spawn_timer += delta
-	       if spawn_timer >= next_spawn_time:
-		       _spawn_falling_character()
-		       _reset_spawn_timer()
+	# Spawn falling characters
+	spawn_timer += delta
+	if spawn_timer >= next_spawn_time:
+		_spawn_falling_character()
+		_reset_spawn_timer()
 
 
 func _reset_spawn_timer() -> void:
