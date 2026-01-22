@@ -244,7 +244,16 @@ func _create_language_button(lang_name: String, _locale: String) -> void:
 	button.add_theme_stylebox_override("normal", normal_style)
 	button.add_theme_stylebox_override("hover", hover_style)
 	button.add_theme_stylebox_override("pressed", normal_style)
-	
+    
+	# If the language uses a right-to-left script, set text_direction so it renders correctly
+	var rtl_locales = ["arabic", "hebrew"]
+	if _locale != null and _locale.to_lower() in rtl_locales:
+		# TEXT_DIRECTION_RTL = 2
+		if typeof(button) == TYPE_OBJECT:
+			button.text_direction = 2
+		else:
+			button.text_direction = 2
+
 	button.pressed.connect(_on_language_selected.bind(lang_name))
 	language_grid.add_child(button)
 
