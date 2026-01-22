@@ -244,24 +244,42 @@ func _create_language_button(lang_name: String, _locale: String) -> void:
 	button.add_theme_stylebox_override("normal", normal_style)
 	button.add_theme_stylebox_override("hover", hover_style)
 	button.add_theme_stylebox_override("pressed", normal_style)
-    
+	
 	# If the language uses a right-to-left script, set text_direction so it renders correctly
 	var rtl_locales = ["arabic", "hebrew"]
-	if _locale != null and _locale.to_lower() in rtl_locales:
-		# TEXT_DIRECTION_RTL = 2
-		if typeof(button) == TYPE_OBJECT:
-			button.text_direction = 2
-		else:
-			button.text_direction = 2
+	var is_rtl = _locale != null and _locale.to_lower() in rtl_locales
 
 	button.pressed.connect(_on_language_selected.bind(lang_name))
 	language_grid.add_child(button)
+
+	# The Button creates an internal Label child; set its direction/alignment if RTL
+	if is_rtl:
+		for child in button.get_children():
+			if child is Label:
+				child.text_direction = 2 # TEXT_DIRECTION_RTL
+				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			elif typeof(child) == TYPE_OBJECT and child.has_method("set_text_direction"):
+				child.text_direction = 2
 
 
 func _on_language_selected(lang_name: String) -> void:
 	var audio_options = $SettingsPopup/VBoxContainer/AudioOptions
 	audio_options.selected_language = lang_name
-	$SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton.text = lang_name
+	var lang_button = $SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton
+	lang_button.text = lang_name
+	# Set settings language button to RTL if needed
+	var rtl_locales = ["arabic", "hebrew"]
+	var locale = ""
+	if audio_options.languages.has(lang_name):
+		locale = audio_options.languages[lang_name]
+	if locale != "" and locale.to_lower() in rtl_locales:
+		# Attempt to set internal label direction
+		for child in lang_button.get_children():
+			if child is Label:
+				child.text_direction = 2
+				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			elif typeof(child) == TYPE_OBJECT and child.has_method("set_text_direction"):
+				child.text_direction = 2
 	language_popup.visible = false
 
 
