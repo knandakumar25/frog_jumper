@@ -252,13 +252,21 @@ func _create_language_button(lang_name: String, _locale: String) -> void:
 	button.pressed.connect(_on_language_selected.bind(lang_name))
 	language_grid.add_child(button)
 
-	# The Button creates an internal Label child; set its direction/alignment if RTL
-	if is_rtl:
-		for child in button.get_children():
-			if child is Label:
+	# Wait a frame so the Button's internal children (Label) are created, then apply RTL
+	await get_tree().process_frame
+
+	# Debug info to help diagnose RTL issues
+	print("create_language_button: added", lang_name, "locale=", _locale, "is_rtl=", is_rtl)
+	for child in button.get_children():
+		print("  child: ", child, typeof(child))
+		if child is Label:
+			print("    before: text_direction=", child.text_direction, "h_align=", child.horizontal_alignment)
+			if is_rtl:
 				child.text_direction = 2 # TEXT_DIRECTION_RTL
 				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-			elif typeof(child) == TYPE_OBJECT and child.has_method("set_text_direction"):
+			print("    after: text_direction=", child.text_direction, "h_align=", child.horizontal_alignment)
+		elif typeof(child) == TYPE_OBJECT and child.has_method("set_text_direction"):
+			if is_rtl:
 				child.text_direction = 2
 
 
