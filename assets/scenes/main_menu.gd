@@ -204,16 +204,23 @@ func _populate_language_buttons() -> void:
 	for child in language_grid.get_children():
 		child.queue_free()
 	
-	# Add English first
-	_create_language_button("English (English)", languages["English (English)"])
-	
-	# Sort remaining languages alphabetically
-	var sorted_langs = []
+	# Add English first by finding the locale code 'english' in the languages map
+	var english_key: String = ""
+	for key in languages.keys():
+		if languages[key] == "english":
+			english_key = key
+			break
+
+	if english_key != "":
+		_create_language_button(english_key, languages[english_key])
+
+	# Sort remaining languages alphabetically (excluding the English entry we used)
+	var sorted_langs: Array = []
 	for lang_name in languages.keys():
-		if lang_name != "English (English)":
+		if lang_name != english_key:
 			sorted_langs.append(lang_name)
 	sorted_langs.sort()
-	
+
 	# Add sorted languages
 	for lang_name in sorted_langs:
 		_create_language_button(lang_name, languages[lang_name])
