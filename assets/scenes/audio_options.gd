@@ -39,7 +39,6 @@ const LANGUAGE_OVERRIDES := {
 	"armenian": ["Armenian", "Հայերեն"],
 	"azerbaijani": ["Azerbaijani", "Azərbaycan"],
 	"bengali": ["Bengali", "বাংলা"],
-	"cantonese": ["Cantonese", "粵語"],
 	"lithuanian": ["Lithuanian", "Lietuvių"],
 	"latvian": ["Latvian", "Latviešu"],
 	"estonian": ["Estonian", "Eesti"],
