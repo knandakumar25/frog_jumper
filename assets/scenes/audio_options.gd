@@ -8,6 +8,7 @@ const TRANSLATION_CSV: String = "res://assets/translations/Translations - Sheet1
 
 # Known display overrides: locale_code -> [English name, native name]
 const LANGUAGE_OVERRIDES := {
+	"is": ["Icelandic", "Íslenska"],
 	"english": ["English", "English"],
 	"spanish": ["Spanish", "Español"],
 	"eurofrench": ["French - Europe", "Français"],
