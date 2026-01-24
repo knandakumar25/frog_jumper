@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
-[ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="2_v0073"]
+[ext_resource type="Texture2D" uid="uid://skyuid" path="res://assets/images/sky.png" id="2_v0073"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
 [ext_resource type="FontFile" uid="uid://clroefbjk4kiv" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="3_comic_bolditalic"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
@@ -105,7 +105,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_v0073")
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="TitleContainer" type="HBoxContainer" parent="."]
 anchors_preset = 8
@@ -778,21 +778,6 @@ text = "Close"
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -159.0
-offset_top = -126.0
-offset_right = -3.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-color = Color(0, 0.501961, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false

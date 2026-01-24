@@ -16,24 +16,19 @@ var db = null
 @onready var title_container: HBoxContainer = $TitleContainer
 
 
-# Cloud animation variables
 var cloud_scene: Texture2D = preload("res://assets/images/clouds.png")
-var cloud_spawn_timer: float = 0.0
-var cloud_spawn_interval: float = 1.0
 var max_clouds: int = 6
 var clouds: Array = []
 
-var spawn_timer: float = 0.0
-var spawn_interval_min: float = 0.2
-var spawn_interval_max: float = 0.8
-var next_spawn_time: float = 0.0
+
+
+
 
 
 func _ready() -> void:
 	print("main_menu: _ready() start")
 	Global.play_menu_music()
 	_populate_language_buttons()
-	_reset_spawn_timer()
 	_setup_floating_title()
 
 	# Ensure CloudsLayer exists; create it if missing so clouds can be spawned
@@ -49,6 +44,7 @@ func _ready() -> void:
 	if cloud_scene == null:
 		push_error("main_menu: cloud_scene texture failed to load (null).")
 	else:
+		# Clouds are only spawned at random positions at the start, never at random times.
 		_spawn_initial_clouds()
 
 	print("main_menu: _ready() complete")
@@ -65,14 +61,14 @@ func _spawn_initial_clouds() -> void:
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var screen_height = get_viewport().get_visible_rect().size.y
 	for i in range(max_clouds):
-		var sprite = Sprite2D.new()
-		sprite.texture = cloud_scene
-		sprite.position = Vector2(randf_range(0, screen_width), randf_range(40, screen_height * 0.5))
-		sprite.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
-		sprite.modulate.a = randf_range(0.7, 1.0)
-		sprite.set_meta("speed", randf_range(30, 90))
-		clouds_layer.add_child(sprite)
-		clouds.append(sprite)
+			var sprite = Sprite2D.new()
+			sprite.texture = cloud_scene
+			sprite.position = Vector2(randf_range(0, screen_width), randf_range(40, screen_height * 0.5))
+			sprite.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
+			sprite.modulate.a = randf_range(0.7, 1.0)
+			sprite.set_meta("speed", randf_range(30, 90))
+			clouds_layer.add_child(sprite)
+			clouds.append(sprite)
 
 
 func _setup_floating_title() -> void:
@@ -151,7 +147,6 @@ func _process(delta: float) -> void:
 	for cloud in clouds:
 		cloud.position.x -= cloud.get_meta("speed") * delta
 		if cloud.texture and cloud.position.x < -cloud.texture.get_size().x * cloud.scale.x:
-			# Recycle cloud to right
 			cloud.position.x = screen_width + randf_range(0, 200)
 			cloud.position.y = randf_range(40, screen_height * 0.5)
 			cloud.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
@@ -161,16 +156,11 @@ func _process(delta: float) -> void:
 			# If texture missing, skip recycling logic for this cloud
 			continue
 
-	# Spawn falling characters
-	spawn_timer += delta
-	if spawn_timer >= next_spawn_time:
-		_spawn_falling_character()
-		_reset_spawn_timer()
+	# Spawn falling characters (disabled: timer variables removed)
+	# To re-enable, add timer logic and variables for falling character spawn.
 
 
-func _reset_spawn_timer() -> void:
-	spawn_timer = 0.0
-	next_spawn_time = randf_range(spawn_interval_min, spawn_interval_max)
+
 
 
 func _spawn_falling_character() -> void:
