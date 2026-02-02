@@ -17,8 +17,19 @@ var db = null
 
 
 var cloud_scene: Texture2D = preload("res://assets/images/clouds.png")
-var max_clouds: int = 6
+var max_clouds: int = 8
 var clouds: Array = []
+
+# Cloud animation enhancement variables
+var cloud_vertical_drift: Dictionary = {}
+var cloud_drift_speed: Dictionary = {}
+var cloud_drift_offset: Dictionary = {}
+
+# Falling character spawn variables
+var spawn_timer: float = 0.0
+var spawn_interval_min: float = 0.5
+var spawn_interval_max: float = 2.0
+var next_spawn_time: float = 0.0
 
 
 
@@ -30,6 +41,7 @@ func _ready() -> void:
 	Global.play_menu_music()
 	_populate_language_buttons()
 	_setup_floating_title()
+	_reset_spawn_timer()
 
 	# Ensure CloudsLayer exists; create it if missing so clouds can be spawned
 	if not has_node("CloudsLayer"):
@@ -61,14 +73,40 @@ func _spawn_initial_clouds() -> void:
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var screen_height = get_viewport().get_visible_rect().size.y
 	for i in range(max_clouds):
-			var sprite = Sprite2D.new()
-			sprite.texture = cloud_scene
-			sprite.position = Vector2(randf_range(0, screen_width), randf_range(40, screen_height * 0.5))
-			sprite.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
-			sprite.modulate.a = randf_range(0.7, 1.0)
-			sprite.set_meta("speed", randf_range(30, 90))
-			clouds_layer.add_child(sprite)
-			clouds.append(sprite)
+		var sprite = Sprite2D.new()
+		sprite.texture = cloud_scene
+		
+		# Assign cloud to a layer (front, middle, or back) for parallax
+		var layer = i % 3
+		var y_pos = randf_range(40 + layer * 60, screen_height * 0.5)
+		sprite.position = Vector2(randf_range(0, screen_width), y_pos)
+		
+		# Scale and opacity based on depth (further = smaller and more transparent)
+		var depth_factor = 1.0 - (layer * 0.2)
+		var base_scale = randf_range(0.7, 1.3) * depth_factor
+		sprite.scale = Vector2(base_scale, base_scale)
+		sprite.modulate.a = randf_range(0.5, 0.8) * depth_factor
+		
+		# Speed based on parallax layer (closer = faster)
+		var base_speed = 80 - (layer * 25)
+		sprite.set_meta("speed", randf_range(base_speed - 15, base_speed + 15))
+		sprite.set_meta("layer", layer)
+		sprite.set_meta("base_y", y_pos)
+		
+		# Setup vertical drift
+		cloud_drift_offset[sprite] = randf_range(0, TAU)
+		cloud_drift_speed[sprite] = randf_range(0.3, 0.7)
+		cloud_vertical_drift[sprite] = randf_range(5, 12)
+		
+		# Fade in smoothly
+		var start_alpha = sprite.modulate.a
+		sprite.modulate.a = 0.0
+		var tween = create_tween()
+		if tween:
+			tween.tween_property(sprite, "modulate:a", start_alpha, randf_range(1.5, 3.0))
+		
+		clouds_layer.add_child(sprite)
+		clouds.append(sprite)
 
 
 func _setup_floating_title() -> void:
@@ -141,26 +179,64 @@ func _animate_floating_title(label: Label) -> void:
 
 
 func _process(delta: float) -> void:
-	# Animate clouds
+	# Animate clouds with parallax and vertical drift
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var screen_height = get_viewport().get_visible_rect().size.y
+	var time = Time.get_ticks_msec() / 1000.0
+	
 	for cloud in clouds:
+		# Horizontal movement (parallax)
 		cloud.position.x -= cloud.get_meta("speed") * delta
+		
+		# Gentle vertical drift
+		if cloud in cloud_vertical_drift:
+			var base_y = cloud.get_meta("base_y")
+			var drift_amount = cloud_vertical_drift[cloud]
+			var drift_speed = cloud_drift_speed[cloud]
+			var offset = cloud_drift_offset[cloud]
+			cloud.position.y = base_y + sin(time * drift_speed + offset) * drift_amount
+		
+		# Recycle clouds that move off screen
 		if cloud.texture and cloud.position.x < -cloud.texture.get_size().x * cloud.scale.x:
-			cloud.position.x = screen_width + randf_range(0, 200)
-			cloud.position.y = randf_range(40, screen_height * 0.5)
-			cloud.scale = Vector2(randf_range(0.7, 1.2), randf_range(0.7, 1.2))
-			cloud.modulate.a = randf_range(0.7, 1.0)
-			cloud.set_meta("speed", randf_range(30, 90))
-		else:
-			# If texture missing, skip recycling logic for this cloud
-			continue
+			# Reposition to the right
+			cloud.position.x = screen_width + randf_range(50, 300)
+			
+			# Reassign layer and properties
+			var layer = cloud.get_meta("layer")
+			var y_pos = randf_range(40 + layer * 60, screen_height * 0.5)
+			cloud.set_meta("base_y", y_pos)
+			
+			# Update scale and opacity based on depth
+			var depth_factor = 1.0 - (layer * 0.2)
+			var base_scale = randf_range(0.7, 1.3) * depth_factor
+			cloud.scale = Vector2(base_scale, base_scale)
+			
+			# Update speed for this layer
+			var base_speed = 80 - (layer * 25)
+			cloud.set_meta("speed", randf_range(base_speed - 15, base_speed + 15))
+			
+			# Reset drift parameters
+			cloud_drift_offset[cloud] = randf_range(0, TAU)
+			cloud_drift_speed[cloud] = randf_range(0.3, 0.7)
+			cloud_vertical_drift[cloud] = randf_range(5, 12)
+			
+			# Smooth fade in
+			var target_alpha = randf_range(0.5, 0.8) * depth_factor
+			cloud.modulate.a = 0.0
+			var tween = create_tween()
+			if tween:
+				tween.tween_property(cloud, "modulate:a", target_alpha, randf_range(2.0, 4.0))
 
-	# Spawn falling characters (disabled: timer variables removed)
-	# To re-enable, add timer logic and variables for falling character spawn.
+	# Spawn falling characters at random intervals
+	spawn_timer += delta
+	if spawn_timer >= next_spawn_time:
+		_spawn_falling_character()
+		_reset_spawn_timer()
 
 
-
+func _reset_spawn_timer() -> void:
+	spawn_timer = 0.0
+	next_spawn_time = randf_range(spawn_interval_min, spawn_interval_max)
 
 
 func _spawn_falling_character() -> void:
@@ -174,8 +250,8 @@ func _spawn_falling_character() -> void:
 	var screen_width = get_viewport().get_visible_rect().size.x
 	character.position = Vector2(randf_range(50, screen_width - 50), -50)
 	
-	# Random scale for variety
-	var scale_factor = randf_range(0.8, 1.5)
+	# Random scale for variety - increased size
+	var scale_factor = randf_range(1.5, 2.5)
 	character.scale = Vector2(scale_factor, scale_factor)
 	
 	# Random fall speed

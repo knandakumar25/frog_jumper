@@ -18,4 +18,11 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+# Android build files
+android/build/
+android/.build_version
+
 # End of https://www.toptal.com/developers/gitignore/api/godot
+
+android/build/
+android/.build_version

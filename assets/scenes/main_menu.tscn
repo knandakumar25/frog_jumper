@@ -1,12 +1,295 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwp7b6o11ii16"]
+[gd_scene format=4 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
-[ext_resource type="Texture2D" uid="uid://skyuid" path="res://assets/images/sky.png" id="2_v0073"]
+[ext_resource type="Texture2D" uid="uid://c0xwocsnmgkq2" path="res://assets/images/sky.png" id="2_v0073"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
 [ext_resource type="FontFile" uid="uid://clroefbjk4kiv" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="3_comic_bolditalic"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
 [ext_resource type="FontFile" uid="uid://5haj7i3kmsn6" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+[ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="8_terrain"]
+[ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="9_worldtiles"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
+texture = ExtResource("8_terrain")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_world"]
+texture = ExtResource("9_worldtiles")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mainmenu"]
+sources/0 = SubResource("TileSetAtlasSource_terrain")
+sources/1 = SubResource("TileSetAtlasSource_world")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
 bg_color = Color(0, 0.7, 0.2, 1)
@@ -94,10 +377,10 @@ shadow_color = Color(0, 0, 0, 0.4)
 shadow_size = 5
 shadow_offset = Vector2(0, 3)
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="Node" unique_id=529692672]
 script = ExtResource("1_hgd46")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1292908816]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,7 +390,13 @@ grow_vertical = 2
 texture = ExtResource("2_v0073")
 stretch_mode = 6
 
-[node name="TitleContainer" type="HBoxContainer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2031219896]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAABMAAAAGAAAAAAABABMAAAAHAAAAAAACABMAAAAHAAAAAAADABMAAAAHAAAAAAAEABMAAAAHAAAAAAAFABMAAAAHAAAAAAAGABMAAAAHAAAAAAAHABMAAAAHAAAAAAAIABEAAAAGAAAAAAAJABEAAAAHAAAAAAAKABEAAAAHAAAAAAALABEAAAAHAAAAAAAMABEAAAAHAAAAAAANABEAAAAHAAAAAAAOABEAAAAHAAAAAAAPABEAAAAHAAAAAAAQABEAAAAHAAAAAAARABEAAAAHAAAAAAASABEAAAAHAAAAAAATABEAAAAHAAAAAAAUABEAAAAGAAEAAAAUABAAAAAGAAAAAAAVABAAAAAHAAAAAAAWABAAAAAIAAAAAAAVABEAAAAHAAEAAAAWABEAAAAIAAEAAAAXABEAAAAHAAAAAAAYABEAAAAHAAAAAAAZABEAAAAHAAAAAAAaABEAAAAHAAAAAAAbABEAAAAHAAAAAAAcABEAAAAHAAAAAAAdABEAAAAIAAAAAAAeABIAAAAHAAAAAAAfABIAAAAHAAAAAAAgABIAAAAHAAAAAAAhABIAAAAHAAAAAAAiABIAAAAHAAAAAAAjABIAAAAHAAAAAAAkABIAAAAHAAAAAAAlABIAAAAHAAAAAAAmABMAAAAGAAAAAAAnABMAAAAIAAAAAAAAABQAAAAGAAEAAAAAABUAAAAGAAEAAAABABQAAAAHAAEAAAABABUAAAAHAAEAAAACABQAAAAHAAEAAAACABUAAAAHAAEAAAADABQAAAAHAAEAAAADABUAAAAHAAEAAAAEABQAAAAHAAEAAAAEABUAAAAHAAEAAAAFABQAAAAHAAEAAAAFABUAAAAHAAEAAAAGABQAAAAHAAEAAAAGABUAAAAHAAEAAAAHABQAAAAHAAEAAAAHABUAAAAHAAEAAAAIABQAAAAHAAEAAAAIABUAAAAHAAEAAAAJABQAAAAHAAEAAAAJABUAAAAHAAEAAAAKABQAAAAHAAEAAAAKABUAAAAHAAEAAAALABQAAAAHAAEAAAALABUAAAAHAAEAAAAMABQAAAAHAAEAAAAMABUAAAAHAAEAAAANABQAAAAHAAEAAAANABUAAAAHAAEAAAAOABQAAAAHAAEAAAAOABUAAAAHAAEAAAAPABQAAAAHAAEAAAAPABUAAAAHAAEAAAAQABQAAAAHAAEAAAAQABUAAAAHAAEAAAARABQAAAAHAAEAAAARABUAAAAHAAEAAAASABQAAAAHAAEAAAASABUAAAAHAAEAAAATABQAAAAHAAEAAAATABUAAAAHAAEAAAAUABQAAAAHAAEAAAAUABUAAAAHAAEAAAAVABQAAAAHAAEAAAAVABUAAAAHAAEAAAAWABQAAAAHAAEAAAAWABUAAAAHAAEAAAAXABQAAAAHAAEAAAAXABUAAAAHAAEAAAAYABQAAAAHAAEAAAAYABUAAAAHAAEAAAAZABQAAAAHAAEAAAAZABUAAAAHAAEAAAAaABQAAAAHAAEAAAAaABUAAAAHAAEAAAAbABQAAAAHAAEAAAAbABUAAAAHAAEAAAAcABQAAAAHAAEAAAAcABUAAAAHAAEAAAAdABQAAAAHAAEAAAAdABUAAAAHAAEAAAAeABQAAAAHAAEAAAAeABUAAAAHAAEAAAAfABQAAAAHAAEAAAAfABUAAAAHAAEAAAAgABQAAAAHAAEAAAAgABUAAAAHAAEAAAAhABQAAAAHAAEAAAAhABUAAAAHAAEAAAAiABQAAAAHAAEAAAAiABUAAAAHAAEAAAAjABQAAAAHAAEAAAAjABUAAAAHAAEAAAAkABQAAAAHAAEAAAAkABUAAAAHAAEAAAAlABQAAAAHAAEAAAAlABUAAAAHAAEAAAAmABQAAAAHAAEAAAAmABUAAAAHAAEAAAAnABQAAAAIAAEAAAAnABUAAAAIAAEAAAAIABMAAAAGAAEAAAAIABIAAAAGAAEAAAAJABIAAAAHAAEAAAAKABIAAAAHAAEAAAAKABMAAAAHAAEAAAAJABMAAAAHAAEAAAALABIAAAAHAAEAAAAMABIAAAAHAAEAAAANABIAAAAHAAEAAAAOABIAAAAHAAEAAAAPABIAAAAHAAEAAAAQABIAAAAHAAEAAAARABIAAAAHAAEAAAASABIAAAAHAAEAAAATABIAAAAHAAEAAAAUABIAAAAHAAEAAAAVABIAAAAHAAEAAAAWABIAAAAHAAEAAAAXABIAAAAHAAEAAAAYABIAAAAHAAEAAAAZABIAAAAHAAEAAAAaABIAAAAHAAEAAAAbABIAAAAHAAEAAAAcABIAAAAHAAEAAAAdABIAAAAHAAEAAAALABMAAAAHAAEAAAAMABMAAAAHAAEAAAANABMAAAAHAAEAAAAOABMAAAAHAAEAAAAPABMAAAAHAAEAAAAQABMAAAAHAAEAAAARABMAAAAHAAEAAAASABMAAAAHAAEAAAATABMAAAAHAAEAAAAUABMAAAAHAAEAAAAVABMAAAAHAAEAAAAWABMAAAAHAAEAAAAXABMAAAAHAAEAAAAYABMAAAAHAAEAAAAZABMAAAAHAAEAAAAaABMAAAAHAAEAAAAbABMAAAAHAAEAAAAcABMAAAAHAAEAAAAdABMAAAAHAAEAAAAeABMAAAAHAAEAAAAfABMAAAAHAAEAAAAgABMAAAAHAAEAAAAhABMAAAAHAAEAAAAiABMAAAAHAAEAAAAjABMAAAAHAAEAAAAkABMAAAAHAAEAAAAlABMAAAAHAAEAAAAAABYAAAAGAAIAAAAnABYAAAAIAAIAAAABABYAAAAHAAIAAAACABYAAAAHAAIAAAADABYAAAAHAAIAAAAEABYAAAAHAAIAAAAFABYAAAAHAAIAAAAGABYAAAAHAAIAAAAHABYAAAAHAAIAAAAIABYAAAAHAAIAAAAJABYAAAAHAAIAAAAKABYAAAAHAAIAAAALABYAAAAHAAIAAAAMABYAAAAHAAIAAAANABYAAAAHAAIAAAAOABYAAAAHAAIAAAAPABYAAAAHAAIAAAAQABYAAAAHAAIAAAARABYAAAAHAAIAAAASABYAAAAHAAIAAAATABYAAAAHAAIAAAAUABYAAAAHAAIAAAAVABYAAAAHAAIAAAAWABYAAAAHAAIAAAAXABYAAAAHAAIAAAAYABYAAAAHAAIAAAAZABYAAAAHAAIAAAAaABYAAAAHAAIAAAAbABYAAAAHAAIAAAAcABYAAAAHAAIAAAAdABYAAAAHAAIAAAAeABYAAAAHAAIAAAAfABYAAAAHAAIAAAAgABYAAAAHAAIAAAAhABYAAAAHAAIAAAAiABYAAAAHAAIAAAAjABYAAAAHAAIAAAAkABYAAAAHAAIAAAAlABYAAAAHAAIAAAAmABYAAAAHAAIAAAA=")
+tile_set = SubResource("TileSet_mainmenu")
+
+[node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -121,7 +410,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ButtonContainer" type="VBoxContainer" parent="."]
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=350939543]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -135,7 +424,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="Play" type="Button" parent="ButtonContainer"]
+[node name="Play" type="Button" parent="ButtonContainer" unique_id=1183083552]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(500, 120)
 layout_mode = 2
@@ -149,12 +438,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Play"
 
-[node name="Row1" type="HBoxContainer" parent="ButtonContainer"]
+[node name="Row1" type="HBoxContainer" parent="ButtonContainer" unique_id=832959731]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Instructions" type="Button" parent="ButtonContainer/Row1"]
+[node name="Instructions" type="Button" parent="ButtonContainer/Row1" unique_id=2063356946]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
@@ -169,7 +458,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "How to Play"
 
-[node name="Leaderboard" type="Button" parent="ButtonContainer/Row1"]
+[node name="Leaderboard" type="Button" parent="ButtonContainer/Row1" unique_id=485867091]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
@@ -184,12 +473,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Leaderboard"
 
-[node name="Row2" type="HBoxContainer" parent="ButtonContainer"]
+[node name="Row2" type="HBoxContainer" parent="ButtonContainer" unique_id=1415807042]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Settings" type="Button" parent="ButtonContainer/Row2"]
+[node name="Settings" type="Button" parent="ButtonContainer/Row2" unique_id=1423822794]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
@@ -204,7 +493,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="ButtonContainer/Row2"]
+[node name="QuitButton" type="Button" parent="ButtonContainer/Row2" unique_id=1176693379]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
@@ -219,13 +508,13 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Quit"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1634546171]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="QuitBackground" type="ColorRect" parent="."]
+[node name="QuitBackground" type="ColorRect" parent="." unique_id=454912470]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -234,7 +523,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
-[node name="QuitPopup" type="Panel" parent="."]
+[node name="QuitPopup" type="Panel" parent="." unique_id=1222892908]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -249,7 +538,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="QuitPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="QuitPopup" unique_id=199085370]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,11 +546,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="QuitPopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="QuitPopup/VBoxContainer" unique_id=2126358548]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Message" type="Label" parent="QuitPopup/VBoxContainer"]
+[node name="Message" type="Label" parent="QuitPopup/VBoxContainer" unique_id=395552663]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -271,15 +560,15 @@ text = "Are you sure you want to quit?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="QuitPopup/VBoxContainer"]
+[node name="Spacer" type="Control" parent="QuitPopup/VBoxContainer" unique_id=717182959]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="QuitPopup/VBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="QuitPopup/VBoxContainer" unique_id=1585912529]
 layout_mode = 2
 alignment = 1
 
-[node name="YesButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer"]
+[node name="YesButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer" unique_id=826980719]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -293,11 +582,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Yes"
 
-[node name="ButtonSpacer" type="Control" parent="QuitPopup/VBoxContainer/ButtonContainer"]
+[node name="ButtonSpacer" type="Control" parent="QuitPopup/VBoxContainer/ButtonContainer" unique_id=901231950]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="NoButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer"]
+[node name="NoButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer" unique_id=1754101547]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -311,11 +600,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "No"
 
-[node name="BottomSpacer" type="Control" parent="QuitPopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="QuitPopup/VBoxContainer" unique_id=1176746577]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="SettingsPopup" type="Panel" parent="."]
+[node name="SettingsPopup" type="Panel" parent="." unique_id=228723333]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -330,7 +619,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup" unique_id=403408098]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -338,11 +627,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="SettingsPopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1550530674]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="SettingsPopup/VBoxContainer"]
+[node name="Title" type="Label" parent="SettingsPopup/VBoxContainer" unique_id=25966560]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0.3, 1)
@@ -351,16 +640,16 @@ theme_override_font_sizes/font_size = 48
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="Spacer1" type="Control" parent="SettingsPopup/VBoxContainer"]
+[node name="Spacer1" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1091092357]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="AudioOptions" type="Control" parent="SettingsPopup/VBoxContainer"]
+[node name="AudioOptions" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1677392437]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("3_audio_options")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup/VBoxContainer/AudioOptions"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup/VBoxContainer/AudioOptions" unique_id=583135160]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -374,7 +663,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VolumeLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1335012688]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.8, 0, 1)
@@ -383,7 +672,7 @@ theme_override_font_sizes/font_size = 28
 text = "Volume"
 horizontal_alignment = 1
 
-[node name="MasterSlider" type="HSlider" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+[node name="MasterSlider" type="HSlider" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1404734987]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_slider_bg")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_bg")
@@ -391,11 +680,11 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_
 max_value = 1.0
 step = 0.05
 
-[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=489283737]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="LanguageLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+[node name="LanguageLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1177784798]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.8, 0, 1)
@@ -404,7 +693,7 @@ theme_override_font_sizes/font_size = 28
 text = "Language"
 horizontal_alignment = 1
 
-[node name="LanguageButton" type="Button" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer"]
+[node name="LanguageButton" type="Button" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=354102998]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -417,15 +706,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_dropdown_hover")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dropdown_hover")
 text = "Select Language"
 
-[node name="Spacer2" type="Control" parent="SettingsPopup/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1064379103]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="SettingsPopup/VBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="SettingsPopup/VBoxContainer" unique_id=2096769657]
 layout_mode = 2
 alignment = 1
 
-[node name="ApplyButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
+[node name="ApplyButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer" unique_id=1130536042]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
@@ -439,11 +728,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Apply"
 
-[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
+[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/ButtonContainer" unique_id=1400109334]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer"]
+[node name="CloseButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer" unique_id=670983349]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
@@ -457,11 +746,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Exit"
 
-[node name="BottomSpacer" type="Control" parent="SettingsPopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1200575657]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="InstructionsPopup" type="Panel" parent="."]
+[node name="InstructionsPopup" type="Panel" parent="." unique_id=922019136]
 visible = false
 z_index = 10
 anchors_preset = 8
@@ -477,7 +766,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InstructionsPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="InstructionsPopup" unique_id=224484084]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -485,11 +774,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="InstructionsPopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=1919596814]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="InstructionsPopup/VBoxContainer"]
+[node name="Title" type="Label" parent="InstructionsPopup/VBoxContainer" unique_id=624942119]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0.3, 1)
@@ -498,26 +787,26 @@ theme_override_font_sizes/font_size = 42
 text = "How to Play"
 horizontal_alignment = 1
 
-[node name="Spacer1" type="Control" parent="InstructionsPopup/VBoxContainer"]
+[node name="Spacer1" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=1428511467]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="InstructionsPopup/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="InstructionsPopup/VBoxContainer" unique_id=1213114118]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="InstructionsPopup/VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="InstructionsPopup/VBoxContainer/ScrollContainer" unique_id=2126240251]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="ContentContainer" type="VBoxContainer" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="ContentContainer" type="VBoxContainer" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1141407328]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ObjectiveTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="ObjectiveTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=2076264415]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.8, 0, 1)
@@ -525,7 +814,7 @@ theme_override_fonts/font = ExtResource("3_comic_bolditalic")
 theme_override_font_sizes/font_size = 28
 text = "Objective"
 
-[node name="ObjectiveText" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="ObjectiveText" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1707154625]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -533,11 +822,11 @@ theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 18
 text = "Guide your character through levels, collect cherries for points, and reach the finish flag!"
 
-[node name="Spacer2" type="Control" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="Spacer2" type="Control" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=186556360]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="ControlsTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="ControlsTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=499617453]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.8, 0, 1)
@@ -545,7 +834,7 @@ theme_override_fonts/font = ExtResource("3_comic_bolditalic")
 theme_override_font_sizes/font_size = 28
 text = "Controls"
 
-[node name="ControlMove" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="ControlMove" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=2147357936]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -553,7 +842,7 @@ theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 18
 text = "Move: Arrow Keys or A/D"
 
-[node name="ControlJump" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="ControlJump" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=566489646]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -561,7 +850,7 @@ theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 18
 text = "Jump: Up Arrow, W, or Spacebar"
 
-[node name="ControlPause" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="ControlPause" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1780083021]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -569,11 +858,11 @@ theme_override_fonts/font = ExtResource("5_comic_regular")
 theme_override_font_sizes/font_size = 18
 text = "Pause: ESC key"
 
-[node name="Spacer3" type="Control" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="Spacer3" type="Control" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=591047228]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="TipsTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="TipsTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1521634949]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.8, 0, 1)
@@ -581,7 +870,7 @@ theme_override_fonts/font = ExtResource("3_comic_bolditalic")
 theme_override_font_sizes/font_size = 28
 text = "Tips"
 
-[node name="Tip1" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="Tip1" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1171764454]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -590,7 +879,7 @@ theme_override_font_sizes/font_size = 18
 text = "• Avoid falling into water or you'll restart the level"
 autowrap_mode = 3
 
-[node name="Tip2" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="Tip2" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=2056497591]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -599,7 +888,7 @@ theme_override_font_sizes/font_size = 18
 text = "• Collect all cherries to maximize your score"
 autowrap_mode = 3
 
-[node name="Tip3" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer"]
+[node name="Tip3" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1329462600]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -608,11 +897,11 @@ theme_override_font_sizes/font_size = 18
 text = "• Time your jumps carefully to reach platforms"
 autowrap_mode = 3
 
-[node name="Spacer4" type="Control" parent="InstructionsPopup/VBoxContainer"]
+[node name="Spacer4" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=1763827276]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="InstructionsPopup/VBoxContainer"]
+[node name="CloseButton" type="Button" parent="InstructionsPopup/VBoxContainer" unique_id=173133598]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
@@ -627,11 +916,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Exit"
 
-[node name="BottomSpacer" type="Control" parent="InstructionsPopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=573278576]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="LeaderboardPopup" type="Panel" parent="."]
+[node name="LeaderboardPopup" type="Panel" parent="." unique_id=458061956]
 visible = false
 z_index = 10
 anchors_preset = 8
@@ -647,7 +936,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardPopup" unique_id=1162780498]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -655,11 +944,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="LeaderboardPopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=454259885]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="LeaderboardPopup/VBoxContainer"]
+[node name="Title" type="Label" parent="LeaderboardPopup/VBoxContainer" unique_id=146239336]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0.3, 1)
@@ -668,23 +957,23 @@ theme_override_font_sizes/font_size = 42
 text = "Leaderboard"
 horizontal_alignment = 1
 
-[node name="Spacer1" type="Control" parent="LeaderboardPopup/VBoxContainer"]
+[node name="Spacer1" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=1319924905]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="LeaderboardPopup/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="LeaderboardPopup/VBoxContainer" unique_id=2044559638]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScoresTable" type="VBoxContainer" parent="LeaderboardPopup/VBoxContainer/ScrollContainer"]
+[node name="ScoresTable" type="VBoxContainer" parent="LeaderboardPopup/VBoxContainer/ScrollContainer" unique_id=1833180463]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Spacer2" type="Control" parent="LeaderboardPopup/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=1283761196]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="LeaderboardPopup/VBoxContainer"]
+[node name="CloseButton" type="Button" parent="LeaderboardPopup/VBoxContainer" unique_id=1311873185]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
@@ -699,11 +988,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Exit"
 
-[node name="BottomSpacer" type="Control" parent="LeaderboardPopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=1493364678]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="LanguagePopup" type="Panel" parent="."]
+[node name="LanguagePopup" type="Panel" parent="." unique_id=719324461]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -718,7 +1007,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LanguagePopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LanguagePopup" unique_id=471580111]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -726,11 +1015,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="LanguagePopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="LanguagePopup/VBoxContainer" unique_id=366091835]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="LanguagePopup/VBoxContainer"]
+[node name="Title" type="Label" parent="LanguagePopup/VBoxContainer" unique_id=154984802]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0.3, 1)
@@ -739,15 +1028,15 @@ theme_override_font_sizes/font_size = 42
 text = "Select Language"
 horizontal_alignment = 1
 
-[node name="Spacer1" type="Control" parent="LanguagePopup/VBoxContainer"]
+[node name="Spacer1" type="Control" parent="LanguagePopup/VBoxContainer" unique_id=1126571355]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="LanguagePopup/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="LanguagePopup/VBoxContainer" unique_id=89242338]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LanguageGrid" type="GridContainer" parent="LanguagePopup/VBoxContainer/ScrollContainer"]
+[node name="LanguageGrid" type="GridContainer" parent="LanguagePopup/VBoxContainer/ScrollContainer" unique_id=974073795]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -755,11 +1044,11 @@ theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 12
 columns = 2
 
-[node name="Spacer2" type="Control" parent="LanguagePopup/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="LanguagePopup/VBoxContainer" unique_id=1363040999]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="LanguagePopup/VBoxContainer"]
+[node name="CloseButton" type="Button" parent="LanguagePopup/VBoxContainer" unique_id=1320899258]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
@@ -774,12 +1063,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Close"
 
-[node name="BottomSpacer" type="Control" parent="LanguagePopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="LanguagePopup/VBoxContainer" unique_id=1415189542]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=671100976]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -794,7 +1082,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=865855131]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -802,12 +1090,12 @@ text = "Quit?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Yes" type="Button" parent="VBoxContainer"]
+[node name="Yes" type="Button" parent="VBoxContainer" unique_id=279929470]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Yes"
 
-[node name="No" type="Button" parent="VBoxContainer"]
+[node name="No" type="Button" parent="VBoxContainer" unique_id=168627804]
 auto_translate_mode = 1
 layout_mode = 2
 text = "No"
