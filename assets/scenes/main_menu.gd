@@ -129,7 +129,9 @@ func _setup_floating_title() -> void:
 	# Create a single label for the entire title
 	var label = Label.new()
 	label.text = title_text
-	label.add_theme_color_override("font_color", Color(0, 0.6, 0, 1))
+	label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+	label.add_theme_color_override("font_outline_color", Color(0, 0.4, 0, 1))
+	label.add_theme_constant_override("outline_size", 12)
 	label.add_theme_font_override("font", bold_font)
 	label.add_theme_font_size_override("font_size", 80)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
