@@ -492,3 +492,7 @@ func _add_row(level: String, score: String, is_header: bool) -> void:
 	row_container.add_child(score_label)
 	
 	scores_table.add_child(row_container)
+
+
+func _on_portfolio_button_pressed() -> void:
+	OS.shell_open("https://knandakumar25.github.io/portfolio/")
