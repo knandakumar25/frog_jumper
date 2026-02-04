@@ -9,22 +9,35 @@ func _ready() -> void:
 
 func _on_ninja_frog_pressed() -> void:
 	Global.selected_character = "Ninja Frog"
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	_create_session_and_start("Ninja Frog")
 
 
 func _on_mask_dude_pressed() -> void:
 	Global.selected_character = "Mask Dude"
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	_create_session_and_start("Mask Dude")
 
 
 func _on_pink_man_pressed() -> void:
 	Global.selected_character = "Pink Man"
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	_create_session_and_start("Pink Man")
 
 
 func _on_virtual_guy_pressed() -> void:
 	Global.selected_character = "Virtual Guy"
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	_create_session_and_start("Virtual Guy")
+
+func _create_session_and_start(character_name: String) -> void:
+	# Create a new game session in the database
+	var session_id = SessionManager.create_new_session(character_name)
+	
+	if session_id > 0:
+		print("Created new session: ", session_id, " for character: ", character_name)
+		# Go to level selection
+		LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	else:
+		print("Error creating session!")
+		# Fallback: still go to level selection
+		LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
 
 
 func _setup_character_animations() -> void:

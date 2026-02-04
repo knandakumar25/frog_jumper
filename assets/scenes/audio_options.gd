@@ -9,6 +9,7 @@ const TRANSLATION_CSV: String = "res://assets/translations/Translations - Sheet1
 # Known display overrides: locale_code -> [English name, native name]
 const LANGUAGE_OVERRIDES := {
 	"is": ["Icelandic", "Íslenska"],
+	"icelandic": ["Icelandic", "Íslenska"],
 	"english": ["English", "English"],
 	"spanish": ["Spanish", "Español"],
 	"eurofrench": ["French - Europe", "Français"],
@@ -31,7 +32,7 @@ const LANGUAGE_OVERRIDES := {
 	"vietnamese": ["Vietnamese", "Tiếng Việt"],
 	"malay": ["Malay", "Bahasa Melayu"],
 	"indonesian": ["Indonesian", "Bahasa Indonesia"],
-	"filipino": ["Filipino", "Filipino"],
+	"filipino": ["Filipino", "Pilipino"],
 	"malayalam": ["Malayalam", "മലയാളം"],
 	"tamil": ["Tamil", "தமிழ்"],
 	"norwegian": ["Norwegian", "Norsk"],
@@ -56,6 +57,8 @@ const LANGUAGE_OVERRIDES := {
 	"gujarati": ["Gujarati", "ગુજરાતી"],
 	"marathi": ["Marathi", "मराठी"],
 	"punjabi": ["Punjabi", "ਪੰਜਾਬੀ"],
+	"greek": ["Greek", "ελληνικά"]
+
 }
 
 var selected_language = ""

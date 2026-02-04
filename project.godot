@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://assets/scenes/global.gd"
+SessionManager="*res://assets/scenes/session_manager.gd"
 
 [display]
 

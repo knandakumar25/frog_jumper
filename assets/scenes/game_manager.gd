@@ -34,6 +34,21 @@ func save_score(level_name: String) -> void:
 		"score": points
 	}
 	db.insert_row("scores", data_dict)
+	
+	# Also update the session if one is active
+	if SessionManager.current_session_id > 0:
+		# Extract level number from level_name (e.g., "level1" -> 1)
+		var level_num = 1
+		if level_name.begins_with("level"):
+			level_num = int(level_name.substr(5))
+		
+		# Update session with current progress
+		SessionManager.update_session(
+			SessionManager.current_session_id,
+			level_num,
+			points,
+			0  # collectables - can be updated if tracking this
+		)
 
 func add_point():
 	points += 1

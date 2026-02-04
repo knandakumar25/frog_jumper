@@ -26,6 +26,21 @@ func _on_body_entered(body):
 		var game_manager = get_node_or_null("/root/" + get_tree().current_scene.name + "/GameManager")
 		if game_manager and game_manager.has_method("save_score"):
 			game_manager.save_score(level_name)
+		
+		# Update session progress to next level if in a session
+		if SessionManager.current_session_id > 0:
+			var next_level = current_level_number + 1
+			var total_score = 0
+			if game_manager:
+				total_score = game_manager.points
+			
+			SessionManager.update_session(
+				SessionManager.current_session_id,
+				next_level,
+				total_score,
+				0  # collectables
+			)
+			print("Session updated: Level ", next_level, " Score: ", total_score)
 
 		# Create and start a timer
 		var timer = Timer.new()

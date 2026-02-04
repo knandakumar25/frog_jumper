@@ -15,6 +15,14 @@ var db = null
 @onready var scores_table: VBoxContainer = $LeaderboardPopup/VBoxContainer/ScrollContainer/ScoresTable
 @onready var title_container: HBoxContainer = $TitleContainer
 
+# Session management UI elements
+@onready var new_game_popup: Panel = $NewGamePopup
+@onready var continue_popup: Panel = $ContinuePopup
+@onready var sessions_container: VBoxContainer = $ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer
+@onready var continue_button: Button = $ButtonContainer/ContinueButton
+@onready var confirm_popup: Panel = $ConfirmPopup
+@onready var confirm_label: Label = $ConfirmPopup/VBoxContainer/ConfirmLabel
+
 
 var cloud_scene: Texture2D = preload("res://assets/images/clouds.png")
 var max_clouds: int = 8
@@ -42,6 +50,12 @@ func _ready() -> void:
 	_populate_language_buttons()
 	_setup_floating_title()
 	_reset_spawn_timer()
+	
+	# Show/hide continue button based on existing sessions
+	if SessionManager.has_sessions():
+		continue_button.visible = true
+	else:
+		continue_button.visible = false
 
 	# Ensure CloudsLayer exists; create it if missing so clouds can be spawned
 	if not has_node("CloudsLayer"):
@@ -368,7 +382,8 @@ func _on_close_language_popup_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/character_selection.tscn")
+	# Show new game popup instead of going directly to character selection
+	new_game_popup.visible = true
 
 
 func _on_instructions_pressed() -> void:
@@ -496,3 +511,118 @@ func _add_row(level: String, score: String, is_header: bool) -> void:
 
 func _on_portfolio_button_pressed() -> void:
 	OS.shell_open("https://knandakumar25.github.io/portfolio/")
+
+
+# ===== SESSION MANAGEMENT FUNCTIONS =====
+
+func _on_new_game_confirm_pressed() -> void:
+	# Close new game popup and go to character selection
+	new_game_popup.visible = false
+	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/character_selection.tscn")
+
+func _on_new_game_cancel_pressed() -> void:
+	new_game_popup.visible = false
+
+func _on_continue_pressed() -> void:
+	# Load and display all saved sessions
+	_populate_sessions()
+	continue_popup.visible = true
+
+func _populate_sessions() -> void:
+	# Clear existing session buttons
+	for child in sessions_container.get_children():
+		child.queue_free()
+	
+	var sessions = SessionManager.get_all_sessions()
+	
+	if sessions.is_empty():
+		var no_sessions_label = Label.new()
+		no_sessions_label.text = tr("No saved games found")
+		no_sessions_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		no_sessions_label.add_theme_font_size_override("font_size", 24)
+		no_sessions_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+		sessions_container.add_child(no_sessions_label)
+		return
+	
+	for session in sessions:
+		var session_button = Button.new()
+		
+		var character = session["character"]
+		var level = session["current_level"]
+		var score = session["total_score"]
+		var last_played = SessionManager.format_datetime(session["last_played"])
+		
+		session_button.text = character + " - " + tr("Level") + " " + str(level) + " - " + tr("Score") + ": " + str(score) + "\\n" + last_played
+		session_button.custom_minimum_size = Vector2(800, 100)
+		session_button.add_theme_font_size_override("font_size", 24)
+		session_button.add_theme_font_override("font", load("res://assets/fonts/ComicNeue-Regular.ttf"))
+		
+		# Style the button
+		var style_normal = StyleBoxFlat.new()
+		style_normal.bg_color = Color(0, 0.5, 0, 0.8)
+		style_normal.corner_radius_top_left = 10
+		style_normal.corner_radius_top_right = 10
+		style_normal.corner_radius_bottom_left = 10
+		style_normal.corner_radius_bottom_right = 10
+		
+		var style_hover = StyleBoxFlat.new()
+		style_hover.bg_color = Color(0, 0.7, 0, 0.9)
+		style_hover.corner_radius_top_left = 10
+		style_hover.corner_radius_top_right = 10
+		style_hover.corner_radius_bottom_left = 10
+		style_hover.corner_radius_bottom_right = 10
+		
+		session_button.add_theme_stylebox_override("normal", style_normal)
+		session_button.add_theme_stylebox_override("hover", style_hover)
+		session_button.add_theme_stylebox_override("pressed", style_hover)
+		session_button.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+		
+		# Connect button to load session
+		var session_id = session["id"]
+		session_button.pressed.connect(_on_session_selected.bind(session_id, session))
+		
+		sessions_container.add_child(session_button)
+		
+		# Add some spacing
+		var spacer = Control.new()
+		spacer.custom_minimum_size = Vector2(0, 10)
+		sessions_container.add_child(spacer)
+
+func _on_session_selected(session_id: int, session_data: Dictionary) -> void:
+	# Show confirmation popup
+	var character = session_data["character"]
+	var level = session_data["current_level"]
+	var last_played = SessionManager.format_datetime(session_data["last_played"])
+	
+	confirm_label.text = tr("Continue with") + " " + character + "?\\n" + tr("Level") + " " + str(level) + "\\n" + tr("Last played") + ": " + last_played
+	
+	# Store the session ID for confirmation
+	confirm_popup.set_meta("session_id", session_id)
+	confirm_popup.set_meta("session_data", session_data)
+	
+	continue_popup.visible = false
+	confirm_popup.visible = true
+
+func _on_confirm_yes_pressed() -> void:
+	var session_id = confirm_popup.get_meta("session_id")
+	var session_data = confirm_popup.get_meta("session_data")
+	
+	# Load the session
+	SessionManager.load_session(session_id)
+	
+	# Store character in Global for the game to use
+	Global.selected_character = session_data["character"]
+	
+	# Load the appropriate level
+	var level_num = session_data["current_level"]
+	var level_scene = "res://assets/scenes/level" + str(level_num) + ".tscn"
+	
+	confirm_popup.visible = false
+	LoadingScreen.load_scene(get_tree(), level_scene)
+
+func _on_confirm_no_pressed() -> void:
+	confirm_popup.visible = false
+	continue_popup.visible = true
+
+func _on_continue_back_pressed() -> void:
+	continue_popup.visible = false
