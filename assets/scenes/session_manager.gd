@@ -147,39 +147,19 @@ func has_sessions() -> bool:
 	return sessions.size() > 0
 
 func format_datetime(datetime_str: String) -> String:
-	# Convert ISO datetime to readable format
+	# Return ISO format for universal compatibility
 	# Input: "2026-02-04T14:30:45"
-	# Output: "Feb 4, 2026 2:30 PM"
+	# Output: "2026-02-04 14:30"
 	
 	if datetime_str.is_empty():
 		return "Unknown"
 	
-	var parts = datetime_str.split("T")
-	if parts.size() != 2:
-		return datetime_str
+	# Replace T with space and remove seconds
+	var formatted = datetime_str.replace("T", " ")
 	
-	var date_parts = parts[0].split("-")
-	var time_parts = parts[1].split(":")
+	# Remove seconds if present (keep only YYYY-MM-DD HH:MM)
+	var parts = formatted.split(":")
+	if parts.size() >= 2:
+		return parts[0] + ":" + parts[1]
 	
-	if date_parts.size() != 3 or time_parts.size() < 2:
-		return datetime_str
-	
-	var year = date_parts[0]
-	var month = int(date_parts[1])
-	var day = date_parts[2]
-	var hour = int(time_parts[0])
-	var minute = time_parts[1]
-	
-	var month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-	var month_name = month_names[month - 1] if month >= 1 and month <= 12 else str(month)
-	
-	var am_pm = "AM"
-	var display_hour = hour
-	if hour >= 12:
-		am_pm = "PM"
-		if hour > 12:
-			display_hour = hour - 12
-	elif hour == 0:
-		display_hour = 12
-	
-	return month_name + " " + day + ", " + year + " " + str(display_hour) + ":" + minute + " " + am_pm
+	return formatted

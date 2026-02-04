@@ -594,7 +594,7 @@ func _on_session_selected(session_id: int, session_data: Dictionary) -> void:
 	var level = session_data["current_level"]
 	var last_played = SessionManager.format_datetime(session_data["last_played"])
 	
-	confirm_label.text = tr("Continue with") + " " + character + "?\\n" + tr("Level") + " " + str(level) + "\\n" + tr("Last played") + ": " + last_played
+	confirm_label.text = character + "\\n\\n" + tr("Continue this game?") + "\\n" + tr("Level") + " " + str(level) + "\\n" + tr("Last played") + ": " + last_played
 	
 	# Store the session ID for confirmation
 	confirm_popup.set_meta("session_id", session_id)
