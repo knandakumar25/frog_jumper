@@ -370,7 +370,33 @@ func _on_language_selected(lang_name: String) -> void:
 				child.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			elif typeof(child) == TYPE_OBJECT and child.has_method("set_text_direction"):
 				child.text_direction = 2
+	
+	# Update instructions popup if it's visible
+	if instructions_popup.visible:
+		_update_instructions_alignment()
+	
 	language_popup.visible = false
+
+
+func _update_instructions_alignment() -> void:
+	# Update text alignment for instructions based on current language
+	var audio_options = $SettingsPopup/VBoxContainer/AudioOptions
+	var current_lang = audio_options.selected_language
+	var rtl_locales = ["arabic", "hebrew"]
+	
+	var is_rtl = false
+	if audio_options.languages.has(current_lang):
+		var locale = audio_options.languages[current_lang]
+		is_rtl = locale.to_lower() in rtl_locales
+	
+	var content_container = instructions_popup.get_node("VBoxContainer/ScrollContainer/MarginContainer/ContentContainer")
+	var alignment = HORIZONTAL_ALIGNMENT_RIGHT if is_rtl else HORIZONTAL_ALIGNMENT_LEFT
+	
+	# Update all labels in the instructions
+	for child in content_container.get_children():
+		if child is Label:
+			child.text_direction = Control.TEXT_DIRECTION_AUTO
+			child.horizontal_alignment = alignment
 
 
 func _on_language_button_pressed() -> void:
@@ -387,6 +413,7 @@ func _on_play_pressed() -> void:
 
 
 func _on_instructions_pressed() -> void:
+	_update_instructions_alignment()
 	instructions_popup.visible = true
 
 
