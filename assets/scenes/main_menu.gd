@@ -536,10 +536,6 @@ func _add_row(level: String, score: String, is_header: bool) -> void:
 	scores_table.add_child(row_container)
 
 
-func _on_portfolio_button_pressed() -> void:
-	OS.shell_open("https://knandakumar25.github.io/portfolio/")
-
-
 # ===== SESSION MANAGEMENT FUNCTIONS =====
 
 func _on_new_game_confirm_pressed() -> void:

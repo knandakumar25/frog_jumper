@@ -523,21 +523,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Quit"
 
-[node name="PortfolioButton" type="Button" parent="ButtonContainer"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(180, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-text = "Portfolio"
-
 [node name="Control" type="Control" parent="." unique_id=1634546171]
 layout_mode = 3
 anchors_preset = 0
@@ -1370,7 +1355,6 @@ text = "No"
 [connection signal="pressed" from="ButtonContainer/Row1/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="ButtonContainer/Row2/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonContainer/Row2/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/PortfolioButton" to="." method="_on_portfolio_button_pressed"]
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton" to="." method="_on_language_button_pressed"]
