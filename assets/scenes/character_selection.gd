@@ -32,12 +32,12 @@ func _create_session_and_start(character_name: String) -> void:
 	
 	if session_id > 0:
 		print("Created new session: ", session_id, " for character: ", character_name)
-		# Go to level selection
-		LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+		# Go to story intro before level selection
+		LoadingScreen.load_scene(get_tree(), "res://assets/scenes/story_intro.tscn")
 	else:
 		print("Error creating session!")
-		# Fallback: still go to level selection
-		LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+		# Fallback: still go to story intro
+		LoadingScreen.load_scene(get_tree(), "res://assets/scenes/story_intro.tscn")
 
 
 func _setup_character_animations() -> void:
