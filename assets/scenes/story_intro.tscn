@@ -1,9 +1,59 @@
 [gd_scene format=3 uid="uid://b5n8qw7j8yak2"]
 
 [ext_resource type="Script" path="res://assets/scenes/story_intro.gd" id="1_story_intro_script"]
-[ext_resource type="Texture2D" uid="uid://c345e5xg1e7mr" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_robot_image"]
+[ext_resource type="Texture2D" uid="uid://bdpjelaxkre4f" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_robot_image"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qraa2"]
+atlas = ExtResource("2_robot_image")
+region = Rect2(0, 0, 166, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_138my"]
+atlas = ExtResource("2_robot_image")
+region = Rect2(166, 0, 166, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hetip"]
+atlas = ExtResource("2_robot_image")
+region = Rect2(332, 0, 166, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvc0k"]
+atlas = ExtResource("2_robot_image")
+region = Rect2(498, 0, 166, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpaj0"]
+atlas = ExtResource("2_robot_image")
+region = Rect2(664, 0, 166, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wsnv"]
+atlas = ExtResource("2_robot_image")
+region = Rect2(830, 0, 166, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_robot"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_qraa2")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_138my")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_hetip")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_tvc0k")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_mpaj0")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4wsnv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
 bg_color = Color(0.05, 0.05, 0.15, 0.95)
@@ -43,7 +93,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="StoryIntro" type="Control"]
+[node name="StoryIntro" type="Control" unique_id=828138138]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_story_intro_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=360379746]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,7 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.02, 0.02, 0.08, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=379804377]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,23 +126,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="RobotSprite" type="TextureRect" parent="HBoxContainer"]
+[node name="RobotContainer" type="Control" parent="HBoxContainer" unique_id=201232567]
 custom_minimum_size = Vector2(500, 600)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_robot_image")
-expand_mode = 1
-stretch_mode = 5
 
-[node name="DialogueBox" type="Panel" parent="HBoxContainer"]
+[node name="RobotSprite" type="AnimatedSprite2D" parent="HBoxContainer/RobotContainer" unique_id=604603518]
+position = Vector2(250, 300)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_robot")
+autoplay = "default"
+
+[node name="DialogueBox" type="Panel" parent="HBoxContainer" unique_id=805034983]
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DialogueBox"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DialogueBox" unique_id=209902631]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +157,7 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="DialogueLabel" type="RichTextLabel" parent="HBoxContainer/DialogueBox/MarginContainer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="HBoxContainer/DialogueBox/MarginContainer" unique_id=1423319273]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.9, 0.95, 1, 1)
 theme_override_fonts/normal_font = ExtResource("3_comic_regular")
@@ -114,7 +167,7 @@ text = "Initializing dialogue..."
 fit_content = true
 scroll_active = false
 
-[node name="ContinueButton" type="Button" parent="."]
+[node name="ContinueButton" type="Button" parent="." unique_id=1198511465]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -131,11 +184,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_comic_bold")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Continue"
 
-[node name="SkipButton" type="Button" parent="."]
+[node name="SkipButton" type="Button" parent="." unique_id=1171772263]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -149,8 +202,8 @@ theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_fonts/font = ExtResource("3_comic_regular")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Skip >>>"
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
