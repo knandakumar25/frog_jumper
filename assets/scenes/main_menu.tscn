@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cwp7b6o11ii16"]
 
 [ext_resource type="Script" uid="uid://dnnu4fv0bvcsq" path="res://assets/scenes/main_menu.gd" id="1_hgd46"]
-[ext_resource type="Texture2D" uid="uid://c0xwocsnmgkq2" path="res://assets/images/sky.png" id="2_v0073"]
+[ext_resource type="Texture2D" uid="uid://c0xwocsnmgkq2" path="res://assets/images/Gemini_Generated_Image_t8s2p4t8s2p4t8s2.png" id="2_v0073"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
 [ext_resource type="FontFile" uid="uid://clroefbjk4kiv" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="3_comic_bolditalic"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
