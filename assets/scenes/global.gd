@@ -11,7 +11,7 @@ func _ready() -> void:
 	# Create persistent menu music player
 	menu_music_player = AudioStreamPlayer.new()
 	menu_music_player.name = "MenuMusicPlayer"
-	menu_music_player.stream = load("res://assets/music/game-music-loop-1-143979.mp3")
+	menu_music_player.stream = load("res://assets/music/Dystopian_Dawn_FULL_SONG_MusicGPT (2).mp3")
 	menu_music_player.volume_db = 24.0
 	menu_music_player.bus = "Master"
 	add_child(menu_music_player)
