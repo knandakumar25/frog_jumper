@@ -8,6 +8,12 @@ var unlocked_levels = 1  # Track highest unlocked level (1-4)
 var menu_music_player: AudioStreamPlayer = null
 
 func _ready() -> void:
+	# Set default locale to english (matching the CSV column name)
+	# This ensures translations work from the start
+	TranslationServer.set_locale("english")
+	print("Global: Locale set to 'english'")
+	print("Global: Available translations:", TranslationServer.get_loaded_locales())
+	
 	# Create persistent menu music player
 	menu_music_player = AudioStreamPlayer.new()
 	menu_music_player.name = "MenuMusicPlayer"
