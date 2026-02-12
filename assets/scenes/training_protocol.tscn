@@ -1,16 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7training123456"]
+[gd_scene load_steps=12 format=3 uid="uid://b7training123456"]
 
 [ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_train"]
-[ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_train"]
+[ext_resource type="Texture2D" uid="uid://dj8k4nq7training" path="res://assets/images/Gemini_Generated_Image_2m3dsl2m3dsl2m3d.png" id="2_train"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_train"]
 [ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://assets/scenes/main_character.tscn" id="4_train"]
 [ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="5_train"]
-[ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://assets/scenes/collectable.tscn" id="6_train"]
-[ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="7_train"]
-[ext_resource type="PackedScene" path="res://assets/scenes/level_selection.tscn" id="8_train"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_train"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="10_train"]
-[ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="11_train"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score"]
 bg_color = Color(0, 0, 0, 0.75)
@@ -26,9 +22,6 @@ corner_radius_bottom_left = 15
 shadow_color = Color(0, 0, 0, 0.4)
 shadow_size = 6
 shadow_offset = Vector2(0, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
-size = Vector2(1500, 90)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
 texture = ExtResource("3_train")
@@ -78,13 +71,6 @@ sources/1 = SubResource("TileSetAtlasSource_world")
 unique_name_in_owner = true
 script = ExtResource("1_train")
 
-[node name="Water" type="Area2D" parent="GameManager"]
-position = Vector2(750, 538)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameManager/Water"]
-position = Vector2(0, 25)
-shape = SubResource("RectangleShape2D_water")
-
 [node name="SceneObjects" type="Node" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
@@ -108,41 +94,6 @@ position = Vector2(1.33333, 3.66667)
 scale = Vector2(0.333333, 0.333333)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
-
-[node name="Collectables" type="Node" parent="SceneObjects"]
-
-[node name="Collectable1" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(247, 389)
-scale = Vector2(3, 3)
-
-[node name="Collectable2" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(389, 359)
-scale = Vector2(3, 3)
-
-[node name="Collectable3" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(531, 191)
-scale = Vector2(3, 3)
-
-[node name="Collectable4" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(680, 127)
-scale = Vector2(3, 3)
-
-[node name="Collectable5" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(822, 295)
-scale = Vector2(3, 3)
-
-[node name="Collectable6" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(971, 359)
-scale = Vector2(3, 3)
-
-[node name="Collectable7" parent="SceneObjects/Collectables" instance=ExtResource("6_train")]
-position = Vector2(1114, 199)
-scale = Vector2(3, 3)
-
-[node name="Finish" parent="SceneObjects" instance=ExtResource("7_train")]
-position = Vector2(1315, 451)
-scale = Vector2(2, 2)
-target_level = ExtResource("8_train")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -174,13 +125,3 @@ autowrap_mode = 2
 stream = ExtResource("10_train")
 volume_db = 24.0
 autoplay = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_train")]
-offset_left = -35.0
-offset_top = -3.0
-offset_right = -35.0
-offset_bottom = -3.0
-
-[connection signal="body_entered" from="GameManager/Water" to="GameManager" method="_on_water_body_entered"]
