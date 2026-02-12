@@ -91,7 +91,7 @@ func _on_skip_button_pressed() -> void:
 
 
 func _proceed_to_level_selection() -> void:
-	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/level_selection.tscn")
+	LoadingScreen.load_scene(get_tree(), "res://assets/scenes/training_protocol.tscn")
 
 
 func _input(event: InputEvent) -> void:
