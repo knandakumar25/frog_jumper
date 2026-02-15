@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 var fall_speed: float = 200.0
 var rotation_speed: float = 2.0
-var character_name: String = "Ninja Frog"
+var character_name: String = "Cyber Shogun"
 
 func _ready() -> void:
 	_load_character_sprite()
@@ -12,20 +12,42 @@ func _ready() -> void:
 
 
 func _load_character_sprite() -> void:
-	var base_path = "res://assets/images/" + character_name + "/"
 	var frames = SpriteFrames.new()
 	
-	# Load idle animation
-	var idle_texture = load(base_path + "Idle (32x32).png")
-	frames.add_animation("idle")
-	frames.set_animation_loop("idle", true)
-	frames.set_animation_speed("idle", 10.0)
-	
-	for i in range(11):
-		var atlas = AtlasTexture.new()
-		atlas.atlas = idle_texture
-		atlas.region = Rect2(i * 32, 0, 32, 32)
-		frames.add_frame("idle", atlas)
+	if character_name == "Cyber Shogun":
+		var idle_texture = load("res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png")
+		if idle_texture == null:
+			print("Error: Cyber Shogun idle texture not found.")
+			return
+		frames.add_animation("idle")
+		frames.set_animation_loop("idle", true)
+		frames.set_animation_speed("idle", 10.0)
+		var frame_width = 61
+		var frame_height = 71
+		var columns = 3
+		var frame_count = 9
+		for i in range(frame_count):
+			var atlas = AtlasTexture.new()
+			atlas.atlas = idle_texture
+			var x = (i % columns) * frame_width
+			var y = int(i / columns) * frame_height
+			atlas.region = Rect2(x, y, frame_width, frame_height)
+			frames.add_frame("idle", atlas)
+	else:
+		var base_path = "res://assets/images/" + character_name + "/"
+		# Load idle animation
+		var idle_texture = load(base_path + "Idle (32x32).png")
+		if idle_texture == null:
+			print("Error: Idle texture not found for ", character_name)
+			return
+		frames.add_animation("idle")
+		frames.set_animation_loop("idle", true)
+		frames.set_animation_speed("idle", 10.0)
+		for i in range(11):
+			var atlas = AtlasTexture.new()
+			atlas.atlas = idle_texture
+			atlas.region = Rect2(i * 32, 0, 32, 32)
+			frames.add_frame("idle", atlas)
 	
 	self.sprite_frames = frames
 

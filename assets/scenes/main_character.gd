@@ -34,50 +34,67 @@ func _load_character_sprites() -> void:
 	if sprite_frames.has_animation("default"):
 		sprite_frames.remove_animation("default")
 	
-	# Load idle animation
-	var idle_texture = load(base_path + "Idle (32x32).png")
-	_add_animation_frames(sprite_frames, "default", idle_texture, 10.0)
-	_add_animation_frames(sprite_frames, "idle", idle_texture, 10.0)
-	_add_animation_frames(sprite_frames, "finished", idle_texture, 10.0)
-	
-	# Load jump animation
-	var jump_texture = load(base_path + "Jump (32x32).png")
-	_add_animation_frames(sprite_frames, "jumping", jump_texture, 10.0)
-	
-	# Load run animation
-	var run_texture = load(base_path + "Run (32x32).png")
-	_add_animation_frames(sprite_frames, "running", run_texture, 10.0)
-	
-	# Load fall animation
-	var fall_texture = load(base_path + "Fall (32x32).png")
-	_add_animation_frames(sprite_frames, "falling", fall_texture, 10.0)
-	
-	# Load double jump animation
-	var double_jump_texture = load(base_path + "Double Jump (32x32).png")
-	_add_animation_frames(sprite_frames, "double_jump", double_jump_texture, 10.0)
-	
-	# Load hit animation
-	var hit_texture = load(base_path + "Hit (32x32).png")
-	_add_animation_frames(sprite_frames, "hit", hit_texture, 10.0)
-	
-	# Load sword fight animation (if exists)
-	var sword_fight_path = base_path + "Sword Fight.png"
-	if ResourceLoader.exists(sword_fight_path):
-		var sword_fight_texture = load(sword_fight_path)
-		_add_animation_frames(sprite_frames, "sword_attack", sword_fight_texture, 15.0, false, 6)
-	
-	# Load karate animation (if exists)
-	var karate_path = base_path + "Karate.png"
-	if ResourceLoader.exists(karate_path):
-		var karate_texture = load(karate_path)
-		_add_animation_frames(sprite_frames, "karate_attack", karate_texture, 15.0, false, 6)
+	if character == "Cyber Shogun":
+		var idle_texture = load("res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png")
+		if idle_texture == null:
+			print("Error: Cyber Shogun idle texture not found.")
+			return
+		var frame_size = Vector2(61, 71)
+		var frame_count = 9
+		var columns = 3
+		_add_animation_frames(sprite_frames, "default", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "idle", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "finished", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "jumping", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "running", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "falling", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "double_jump", idle_texture, 10.0, true, frame_count, columns, frame_size)
+		_add_animation_frames(sprite_frames, "hit", idle_texture, 10.0, true, frame_count, columns, frame_size)
+	else:
+		# Load idle animation
+		var idle_texture = load(base_path + "Idle (32x32).png")
+		_add_animation_frames(sprite_frames, "default", idle_texture, 10.0)
+		_add_animation_frames(sprite_frames, "idle", idle_texture, 10.0)
+		_add_animation_frames(sprite_frames, "finished", idle_texture, 10.0)
+		
+		# Load jump animation
+		var jump_texture = load(base_path + "Jump (32x32).png")
+		_add_animation_frames(sprite_frames, "jumping", jump_texture, 10.0)
+		
+		# Load run animation
+		var run_texture = load(base_path + "Run (32x32).png")
+		_add_animation_frames(sprite_frames, "running", run_texture, 10.0)
+		
+		# Load fall animation
+		var fall_texture = load(base_path + "Fall (32x32).png")
+		_add_animation_frames(sprite_frames, "falling", fall_texture, 10.0)
+		
+		# Load double jump animation
+		var double_jump_texture = load(base_path + "Double Jump (32x32).png")
+		_add_animation_frames(sprite_frames, "double_jump", double_jump_texture, 10.0)
+		
+		# Load hit animation
+		var hit_texture = load(base_path + "Hit (32x32).png")
+		_add_animation_frames(sprite_frames, "hit", hit_texture, 10.0)
+		
+		# Load sword fight animation (if exists)
+		var sword_fight_path = base_path + "Sword Fight.png"
+		if ResourceLoader.exists(sword_fight_path):
+			var sword_fight_texture = load(sword_fight_path)
+			_add_animation_frames(sprite_frames, "sword_attack", sword_fight_texture, 15.0, false, 6)
+		
+		# Load karate animation (if exists)
+		var karate_path = base_path + "Karate.png"
+		if ResourceLoader.exists(karate_path):
+			var karate_texture = load(karate_path)
+			_add_animation_frames(sprite_frames, "karate_attack", karate_texture, 15.0, false, 6)
 	
 	# Apply the new sprite frames
 	sprite_2d.sprite_frames = sprite_frames
 	sprite_2d.play("default")
 
 
-func _add_animation_frames(sprite_frames: SpriteFrames, anim_name: String, texture: Texture2D, speed: float, should_loop: bool = true, manual_frame_count: int = -1, frames_per_row: int = -1) -> void:
+func _add_animation_frames(sprite_frames: SpriteFrames, anim_name: String, texture: Texture2D, speed: float, should_loop: bool = true, manual_frame_count: int = -1, frames_per_row: int = -1, frame_size: Vector2 = Vector2(32, 32)) -> void:
 	if texture == null:
 		print("Error: Texture is null for animation: ", anim_name)
 		return
@@ -87,7 +104,7 @@ func _add_animation_frames(sprite_frames: SpriteFrames, anim_name: String, textu
 	sprite_frames.set_animation_speed(anim_name, speed)
 	
 	# Use manual frame count if provided, otherwise calculate automatically
-	var frame_count = manual_frame_count if manual_frame_count > 0 else texture.get_width() / 32
+	var frame_count = manual_frame_count if manual_frame_count > 0 else int(texture.get_width() / frame_size.x)
 	
 	# If frames_per_row is not specified, assume all frames are in one row
 	var columns = frames_per_row if frames_per_row > 0 else frame_count
@@ -97,9 +114,9 @@ func _add_animation_frames(sprite_frames: SpriteFrames, anim_name: String, textu
 	for i in range(frame_count):
 		var atlas = AtlasTexture.new()
 		atlas.atlas = texture
-		var x = (i % columns) * 32
-		var y = int(i / columns) * 32
-		atlas.region = Rect2(x, y, 32, 32)
+		var x = (i % columns) * frame_size.x
+		var y = int(i / columns) * frame_size.y
+		atlas.region = Rect2(x, y, frame_size.x, frame_size.y)
 		sprite_frames.add_frame(anim_name, atlas)
 
 func _physics_process(delta: float) -> void:

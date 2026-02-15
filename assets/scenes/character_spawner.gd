@@ -14,8 +14,8 @@ func spawn_character() -> void:
 	
 	# Load the appropriate character scene based on selection
 	match Global.selected_character:
-		"Ninja Frog":
-			character_scene = load("res://assets/scenes/ninja_frog.tscn")
+		"Cyber Shogun":
+			character_scene = load("res://assets/scenes/cyber_shogun.tscn")
 		"Mask Dude":
 			character_scene = load("res://assets/scenes/mask_dude.tscn")
 		"Pink Man":
@@ -23,8 +23,8 @@ func spawn_character() -> void:
 		"Virtual Guy":
 			character_scene = load("res://assets/scenes/virtual_guy.tscn")
 		_:
-			# Default to main_character if no match (backward compatibility)
-			character_scene = load("res://assets/scenes/main_character.tscn")
+			# Default to Cyber Shogun if no match
+			character_scene = load("res://assets/scenes/cyber_shogun.tscn")
 	
 	# Instantiate and add the character
 	character = character_scene.instantiate()

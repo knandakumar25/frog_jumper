@@ -1,9 +1,14 @@
 extends BaseCharacter
 
-# Ninja Frog specific properties
+# Cyber Shogun specific properties
 var is_attacking = false
 var mouse_clicked = false
 var q_pressed = false
+
+
+func _ready() -> void:
+	super._ready()  # Call parent _ready
+	print("=== Cyber Shogun Initialized ===")
 
 
 func _input(event: InputEvent) -> void:

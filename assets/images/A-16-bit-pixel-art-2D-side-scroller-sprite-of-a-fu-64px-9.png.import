@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmws1hlfygi04"
-path="res://.godot/imported/Wall Jump (32x32).png-97d570ca5294a358a5193fdbd549484d.ctex"
+uid="uid://deayy5ut03ugs"
+path="res://.godot/imported/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png-a5e7e03e5e460e5eccacb720009e8089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Ninja Frog/Wall Jump (32x32).png"
-dest_files=["res://.godot/imported/Wall Jump (32x32).png-97d570ca5294a358a5193fdbd549484d.ctex"]
+source_file="res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png"
+dest_files=["res://.godot/imported/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png-a5e7e03e5e460e5eccacb720009e8089.ctex"]
 
 [params]
 

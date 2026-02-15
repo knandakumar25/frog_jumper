@@ -7,9 +7,9 @@ func _ready() -> void:
 	_setup_character_animations()
 
 
-func _on_ninja_frog_pressed() -> void:
-	Global.selected_character = "Ninja Frog"
-	_create_session_and_start("Ninja Frog")
+func _on_cyber_shogun_pressed() -> void:
+	Global.selected_character = "Cyber Shogun"
+	_create_session_and_start("Cyber Shogun")
 
 
 func _on_mask_dude_pressed() -> void:
@@ -42,7 +42,7 @@ func _create_session_and_start(character_name: String) -> void:
 
 func _setup_character_animations() -> void:
 	var characters = [
-		{"name": "Ninja Frog", "node": $VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton/AnimatedSprite},
+		{"name": "Cyber Shogun", "node": $VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton/AnimatedSprite},
 		{"name": "Mask Dude", "node": $VBoxContainer/CharacterGrid/MaskDude/CharacterButton/AnimatedSprite},
 		{"name": "Pink Man", "node": $VBoxContainer/CharacterGrid/PinkMan/CharacterButton/AnimatedSprite},
 		{"name": "Virtual Guy", "node": $VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton/AnimatedSprite}
@@ -50,14 +50,21 @@ func _setup_character_animations() -> void:
 	
 	for character in characters:
 		var sprite: AnimatedSprite2D = character.node
-		var base_path = "res://assets/images/" + character.name + "/"
-		
-		# Create sprite frames
 		var sprite_frames = SpriteFrames.new()
 		
-		# Load idle animation
-		var idle_texture = load(base_path + "Idle (32x32).png")
-		_add_animation_frames(sprite_frames, "idle", idle_texture, 11, 10.0)
+		if character.name == "Cyber Shogun":
+			var idle_texture = load("res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png")
+			if idle_texture == null:
+				print("Error: Cyber Shogun idle texture not found.")
+				continue
+			_add_grid_animation_frames(sprite_frames, "idle", idle_texture, Vector2i(61, 71), 3, 9, 10.0)
+		else:
+			var base_path = "res://assets/images/" + character.name + "/"
+			var idle_texture = load(base_path + "Idle (32x32).png")
+			if idle_texture == null:
+				print("Error: Idle texture not found for ", character.name)
+				continue
+			_add_animation_frames(sprite_frames, "idle", idle_texture, 11, 10.0)
 		
 		# Apply and play
 		sprite.sprite_frames = sprite_frames
@@ -73,4 +80,18 @@ func _add_animation_frames(sprite_frames: SpriteFrames, anim_name: String, textu
 		var atlas = AtlasTexture.new()
 		atlas.atlas = texture
 		atlas.region = Rect2(i * 32, 0, 32, 32)
+		sprite_frames.add_frame(anim_name, atlas)
+
+
+func _add_grid_animation_frames(sprite_frames: SpriteFrames, anim_name: String, texture: Texture2D, frame_size: Vector2i, columns: int, frame_count: int, speed: float) -> void:
+	sprite_frames.add_animation(anim_name)
+	sprite_frames.set_animation_loop(anim_name, true)
+	sprite_frames.set_animation_speed(anim_name, speed)
+	
+	for i in range(frame_count):
+		var atlas = AtlasTexture.new()
+		atlas.atlas = texture
+		var x = (i % columns) * frame_size.x
+		var y = int(i / columns) * frame_size.y
+		atlas.region = Rect2(x, y, frame_size.x, frame_size.y)
 		sprite_frames.add_frame(anim_name, atlas)

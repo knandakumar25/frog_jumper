@@ -109,7 +109,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("4_comic_regular")
 theme_override_font_sizes/font_size = 20
-text = "Ninja Frog"
+text = "Cyber Shogun"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -191,7 +191,7 @@ text = "Virtual Guy"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton" to="." method="_on_ninja_frog_pressed"]
+[connection signal="pressed" from="VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton" to="." method="_on_cyber_shogun_pressed"]
 [connection signal="pressed" from="VBoxContainer/CharacterGrid/MaskDude/CharacterButton" to="." method="_on_mask_dude_pressed"]
 [connection signal="pressed" from="VBoxContainer/CharacterGrid/PinkMan/CharacterButton" to="." method="_on_pink_man_pressed"]
 [connection signal="pressed" from="VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton" to="." method="_on_virtual_guy_pressed"]
