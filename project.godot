@@ -42,10 +42,6 @@ project/assembly_name="2d Platformer game"
 
 enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
-[filesystem]
-
-import/blender/enabled=false
-
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
