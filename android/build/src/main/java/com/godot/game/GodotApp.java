@@ -30,6 +30,7 @@
 
 package com.godot.game;
 
+import org.godotengine.godot.BuildConfig;
 import org.godotengine.godot.Godot;
 import org.godotengine.godot.GodotActivity;
 
