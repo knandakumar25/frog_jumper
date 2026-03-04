@@ -18,6 +18,11 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+# Android export/build outputs (generated)
+android/build/
+android/.build_version
+*.aar
+
 # Android build files
 android/build/
 android/.build_version
