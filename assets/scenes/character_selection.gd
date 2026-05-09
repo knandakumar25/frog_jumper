@@ -7,9 +7,9 @@ func _ready() -> void:
 	_setup_character_animations()
 
 
-func _on_cyber_shogun_pressed() -> void:
-	Global.selected_character = "Cyber Shogun"
-	_create_session_and_start("Cyber Shogun")
+func _on_ninja_frog_pressed() -> void:
+	Global.selected_character = "Ninja Frog"
+	_create_session_and_start("Ninja Frog")
 
 
 func _on_mask_dude_pressed() -> void:
@@ -42,7 +42,7 @@ func _create_session_and_start(character_name: String) -> void:
 
 func _setup_character_animations() -> void:
 	var characters = [
-		{"name": "Cyber Shogun", "node": $VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton/AnimatedSprite},
+		{"name": "Ninja Frog", "node": $VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton/AnimatedSprite},
 		{"name": "Mask Dude", "node": $VBoxContainer/CharacterGrid/MaskDude/CharacterButton/AnimatedSprite},
 		{"name": "Pink Man", "node": $VBoxContainer/CharacterGrid/PinkMan/CharacterButton/AnimatedSprite},
 		{"name": "Virtual Guy", "node": $VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton/AnimatedSprite}
@@ -52,12 +52,12 @@ func _setup_character_animations() -> void:
 		var sprite: AnimatedSprite2D = character.node
 		var sprite_frames = SpriteFrames.new()
 		
-		if character.name == "Cyber Shogun":
-			var idle_texture = load("res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png")
+		if character.name == "Ninja Frog":
+			var idle_texture = load("res://assets/images/Ninja Frog/Idle (32x32).png")
 			if idle_texture == null:
-				print("Error: Cyber Shogun idle texture not found.")
+				print("Error: Ninja Frog idle texture not found.")
 				continue
-			_add_grid_animation_frames(sprite_frames, "idle", idle_texture, Vector2i(61, 71), 3, 9, 10.0)
+			_add_animation_frames(sprite_frames, "idle", idle_texture, 11, 10.0)
 		else:
 			var base_path = "res://assets/images/" + character.name + "/"
 			var idle_texture = load(base_path + "Idle (32x32).png")
