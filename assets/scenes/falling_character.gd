@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 var fall_speed: float = 200.0
 var rotation_speed: float = 2.0
-var character_name: String = "Cyber Shogun"
+var character_name: String = "Ninja Frog"
 
 func _ready() -> void:
 	_load_character_sprite()

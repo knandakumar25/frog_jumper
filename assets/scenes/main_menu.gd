@@ -261,7 +261,7 @@ func _spawn_falling_character() -> void:
 	var character = FallingCharacter.instantiate()
 	
 	# Random character selection
-	var characters = ["Cyber Shogun", "Mask Dude", "Pink Man", "Virtual Guy"]
+	var characters = ["Ninja Frog", "Mask Dude", "Pink Man", "Virtual Guy"]
 	character.character_name = characters[randi() % characters.size()]
 	
 	# Random horizontal position across the screen
