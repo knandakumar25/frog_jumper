@@ -704,12 +704,14 @@ func _on_confirm_yes_pressed() -> void:
 			continue_popup.visible = true
 		else:
 			continue_popup.visible = false
+			continue_button.visible = false
 		return
 
 	if delete_mode == "all":
 		SessionManager.delete_all_sessions()
 		confirm_popup.visible = false
 		continue_popup.visible = false
+		continue_button.visible = false
 		return
 
 	# Default: continue a session
