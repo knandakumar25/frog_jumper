@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bm0jx6muu0ov7"]
+﻿[gd_scene load_steps=17 format=3 uid="uid://bm0jx6muu0ov7"]
 
 [ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_q0rud"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_ni1wa"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_htkdi"]
 [ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="4_o7buu"]
-[ext_resource type="PackedScene" path="res://assets/scenes/cyber_shogun.tscn" id="5_xmyhd"]
+[ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://assets/scenes/main_character.tscn" id="5_xmyhd"]
 [ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://assets/scenes/collectable.tscn" id="6_52m5w"]
 [ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://assets/scenes/finish.tscn" id="7_tfqab"]
 [ext_resource type="PackedScene" uid="uid://cloxsvam0ymha" path="res://assets/scenes/level_selection.tscn" id="8_cbyuy"]
