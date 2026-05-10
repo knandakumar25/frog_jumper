@@ -19,8 +19,6 @@ var db = null
 @onready var new_game_popup: Panel = $NewGamePopup
 @onready var continue_popup: Panel = $ContinuePopup
 @onready var sessions_container: VBoxContainer = $ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer
-
-var _selected_session_ids: Array = []
 @onready var continue_button: Button = $ButtonContainer/ContinueButton
 @onready var confirm_popup: Panel = $ConfirmPopup
 @onready var confirm_label: Label = $ConfirmPopup/VBoxContainer/ConfirmLabel
@@ -556,10 +554,9 @@ func _on_continue_pressed() -> void:
 	continue_popup.visible = true
 
 func _populate_sessions() -> void:
-	# Clear existing session buttons and selection state
+	# Clear existing session buttons
 	for child in sessions_container.get_children():
 		child.queue_free()
-	_selected_session_ids.clear()
 
 	var sessions = SessionManager.get_all_sessions()
 
@@ -572,32 +569,16 @@ func _populate_sessions() -> void:
 		sessions_container.add_child(no_sessions_label)
 		return
 
-	# --- Delete action buttons row ---
+	# Delete All button pinned to the top-right
 	var action_row = HBoxContainer.new()
 	action_row.alignment = BoxContainer.ALIGNMENT_END
-	action_row.add_theme_constant_override("separation", 16)
-
-	var delete_selected_btn = Button.new()
-	delete_selected_btn.text = "Delete Selected"
-	delete_selected_btn.add_theme_font_size_override("font_size", 20)
-	delete_selected_btn.add_theme_font_override("font", load("res://assets/fonts/ComicNeue-Regular.ttf"))
-	var del_sel_style = StyleBoxFlat.new()
-	del_sel_style.bg_color = Color(0.7, 0.1, 0.1, 0.9)
-	del_sel_style.corner_radius_top_left = 8
-	del_sel_style.corner_radius_top_right = 8
-	del_sel_style.corner_radius_bottom_left = 8
-	del_sel_style.corner_radius_bottom_right = 8
-	delete_selected_btn.add_theme_stylebox_override("normal", del_sel_style)
-	delete_selected_btn.add_theme_stylebox_override("hover", del_sel_style)
-	delete_selected_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-	delete_selected_btn.pressed.connect(_on_delete_selected_pressed)
 
 	var delete_all_btn = Button.new()
 	delete_all_btn.text = "Delete All"
 	delete_all_btn.add_theme_font_size_override("font_size", 20)
 	delete_all_btn.add_theme_font_override("font", load("res://assets/fonts/ComicNeue-Regular.ttf"))
 	var del_all_style = StyleBoxFlat.new()
-	del_all_style.bg_color = Color(0.5, 0.0, 0.0, 0.9)
+	del_all_style.bg_color = Color(0.55, 0.05, 0.05, 0.95)
 	del_all_style.corner_radius_top_left = 8
 	del_all_style.corner_radius_top_right = 8
 	del_all_style.corner_radius_bottom_left = 8
@@ -606,44 +587,30 @@ func _populate_sessions() -> void:
 	delete_all_btn.add_theme_stylebox_override("hover", del_all_style)
 	delete_all_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	delete_all_btn.pressed.connect(_on_delete_all_pressed)
-
-	action_row.add_child(delete_selected_btn)
 	action_row.add_child(delete_all_btn)
 	sessions_container.add_child(action_row)
 
 	var row_spacer = Control.new()
-	row_spacer.custom_minimum_size = Vector2(0, 8)
+	row_spacer.custom_minimum_size = Vector2(0, 6)
 	sessions_container.add_child(row_spacer)
 
-	# --- Session rows ---
+	# Session rows: [green continue button] [red X delete button]
 	for session in sessions:
-		var row = HBoxContainer.new()
-		row.add_theme_constant_override("separation", 12)
-
-		# Checkbox for selection
-		var checkbox = CheckBox.new()
-		checkbox.custom_minimum_size = Vector2(36, 36)
 		var session_id = session["id"]
-		checkbox.toggled.connect(func(pressed: bool) -> void:
-			if pressed:
-				if session_id not in _selected_session_ids:
-					_selected_session_ids.append(session_id)
-			else:
-				_selected_session_ids.erase(session_id)
-		)
-		row.add_child(checkbox)
-
-		# Session button (click to continue)
-		var session_button = Button.new()
 		var character = session["character"]
 		var level = session["current_level"]
 		var score = session["total_score"]
 		var last_played = SessionManager.format_datetime(session["last_played"])
 
-		session_button.text = character + " - " + tr("Level") + " " + str(level) + " - " + tr("Score") + ": " + str(score) + "\\n" + last_played
+		var row = HBoxContainer.new()
+		row.add_theme_constant_override("separation", 8)
+
+		# Continue button
+		var session_button = Button.new()
+		session_button.text = character + "  |  " + tr("Level") + " " + str(level) + "  |  " + tr("Score") + ": " + str(score) + "  |  " + last_played
 		session_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		session_button.custom_minimum_size = Vector2(0, 80)
-		session_button.add_theme_font_size_override("font_size", 24)
+		session_button.custom_minimum_size = Vector2(0, 70)
+		session_button.add_theme_font_size_override("font_size", 22)
 		session_button.add_theme_font_override("font", load("res://assets/fonts/ComicNeue-Regular.ttf"))
 
 		var style_normal = StyleBoxFlat.new()
@@ -665,20 +632,42 @@ func _populate_sessions() -> void:
 		session_button.add_theme_stylebox_override("pressed", style_hover)
 		session_button.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 		session_button.pressed.connect(_on_session_selected.bind(session_id, session))
-
 		row.add_child(session_button)
+
+		# Delete (X) button
+		var del_btn = Button.new()
+		del_btn.text = "✕"
+		del_btn.custom_minimum_size = Vector2(60, 70)
+		del_btn.add_theme_font_size_override("font_size", 28)
+		var del_style = StyleBoxFlat.new()
+		del_style.bg_color = Color(0.75, 0.1, 0.1, 0.95)
+		del_style.corner_radius_top_left = 10
+		del_style.corner_radius_top_right = 10
+		del_style.corner_radius_bottom_left = 10
+		del_style.corner_radius_bottom_right = 10
+		var del_style_hover = StyleBoxFlat.new()
+		del_style_hover.bg_color = Color(0.9, 0.15, 0.15, 1.0)
+		del_style_hover.corner_radius_top_left = 10
+		del_style_hover.corner_radius_top_right = 10
+		del_style_hover.corner_radius_bottom_left = 10
+		del_style_hover.corner_radius_bottom_right = 10
+		del_btn.add_theme_stylebox_override("normal", del_style)
+		del_btn.add_theme_stylebox_override("hover", del_style_hover)
+		del_btn.add_theme_stylebox_override("pressed", del_style_hover)
+		del_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+		del_btn.pressed.connect(_on_delete_one_pressed.bind(session_id))
+		row.add_child(del_btn)
+
 		sessions_container.add_child(row)
 
 		var spacer = Control.new()
-		spacer.custom_minimum_size = Vector2(0, 10)
+		spacer.custom_minimum_size = Vector2(0, 8)
 		sessions_container.add_child(spacer)
 
-func _on_delete_selected_pressed() -> void:
-	if _selected_session_ids.is_empty():
-		return
-	var count = _selected_session_ids.size()
-	confirm_label.text = "Delete " + str(count) + " selected game" + ("s" if count > 1 else "") + "?\nThis cannot be undone."
-	confirm_popup.set_meta("delete_mode", "selected")
+func _on_delete_one_pressed(session_id: int) -> void:
+	confirm_label.text = "Delete this saved game?\nThis cannot be undone."
+	confirm_popup.set_meta("delete_mode", "one")
+	confirm_popup.set_meta("delete_session_id", session_id)
 	continue_popup.visible = false
 	confirm_popup.visible = true
 
@@ -694,7 +683,7 @@ func _on_session_selected(session_id: int, session_data: Dictionary) -> void:
 	var level = session_data["current_level"]
 	var last_played = SessionManager.format_datetime(session_data["last_played"])
 
-	confirm_label.text = character + "\\n\\n" + tr("Continue this game?") + "\\n" + tr("Level") + " " + str(level) + "\\n" + tr("Last played") + ": " + last_played
+	confirm_label.text = character + "  |  " + tr("Level") + " " + str(level) + "\n" + tr("Continue this game?") + "\n" + tr("Last played") + ": " + last_played
 
 	confirm_popup.set_meta("delete_mode", "none")
 	confirm_popup.set_meta("session_id", session_id)
@@ -706,20 +695,21 @@ func _on_session_selected(session_id: int, session_data: Dictionary) -> void:
 func _on_confirm_yes_pressed() -> void:
 	var delete_mode = confirm_popup.get_meta("delete_mode", "none")
 
-	if delete_mode == "selected":
-		SessionManager.delete_sessions(_selected_session_ids)
+	if delete_mode == "one":
+		var del_id = confirm_popup.get_meta("delete_session_id")
+		SessionManager.delete_session(del_id)
 		confirm_popup.visible = false
 		if SessionManager.has_sessions():
 			_populate_sessions()
 			continue_popup.visible = true
 		else:
-			continue_button.visible = false
+			continue_popup.visible = false
 		return
 
 	if delete_mode == "all":
 		SessionManager.delete_all_sessions()
 		confirm_popup.visible = false
-		continue_button.visible = false
+		continue_popup.visible = false
 		return
 
 	# Default: continue a session

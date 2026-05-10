@@ -142,10 +142,6 @@ func delete_session(session_id: int) -> void:
 	
 	print("SessionManager: Deleted session ", session_id)
 
-func delete_sessions(session_ids: Array) -> void:
-	for session_id in session_ids:
-		delete_session(session_id)
-
 func delete_all_sessions() -> void:
 	if db == null:
 		init_database()
