@@ -183,15 +183,17 @@ func _animate_floating_title(label: Label) -> void:
 	await zoom_tween.finished
 	
 	# Create continuous vertical floating animation (no rotation)
-	var float_tween = create_tween()
-	float_tween.set_loops()
-	
-	# Store original position
 	var original_y = label.position.y
-	
-	# Float up and down smoothly
-	float_tween.tween_property(label, "position:y", original_y - 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	float_tween.tween_property(label, "position:y", original_y + 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	_start_float_loop(label, original_y)
+
+
+func _start_float_loop(label: Node, original_y: float) -> void:
+	var t = create_tween()
+	t.tween_property(label, "position:y", original_y - 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	t.tween_property(label, "position:y", original_y + 15, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	await t.finished
+	if is_instance_valid(label):
+		_start_float_loop(label, original_y)
 
 
 func _process(delta: float) -> void:
