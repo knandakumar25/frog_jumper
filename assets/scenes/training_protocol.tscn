@@ -1,4 +1,4 @@
-﻿[gd_scene format=3 uid="uid://lffiou4dnk5d"]
+[gd_scene format=3 uid="uid://lffiou4dnk5d"]
 
 [ext_resource type="Script" uid="uid://blo85d8juyuo7" path="res://assets/scenes/game_manager.gd" id="1_train"]
 [ext_resource type="Texture2D" uid="uid://o63uau7mxg45" path="res://assets/images/training_dojo_background.png" id="2_train"]
