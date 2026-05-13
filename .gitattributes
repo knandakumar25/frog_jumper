@@ -1,3 +1,13 @@
 addons/godot-sqlite/bin/libgodot-cpp.ios.template_debug.xcframework/**/*.a filter=lfs diff=lfs merge=lfs -text
 addons/godot-sqlite/bin/libgodot-cpp.ios.template_release.xcframework/**/*.a filter=lfs diff=lfs merge=lfs -text
 *.aar filter=lfs diff=lfs merge=lfs -text
+
+# Godot text files — keep LF on all platforms
+*.gd text eol=lf
+*.godot text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.import text eol=lf
+*.cfg text eol=lf
+*.csv text eol=lf
+*.svg text eol=lf
