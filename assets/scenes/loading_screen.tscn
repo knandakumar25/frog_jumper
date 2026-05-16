@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw2ys5k0m8bfw"]
 
-[ext_resource type="Script" path="res://assets/scenes/loading_screen.gd" id="1_loading_script"]
+[ext_resource type="Script" path="res://assets/scenes/LoadingScreen.cs" id="1_loading_script"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
 
 [node name="LoadingScreen" type="Control"]

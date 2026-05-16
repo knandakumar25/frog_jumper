@@ -6,7 +6,7 @@ extends Area2D
 @onready var audio_stream_player: AudioStreamPlayer = $"../../AudioStreamPlayer"
 
 func _on_body_entered(body):
-	if (body.name == "CharacterBody2D"):
+	if body is CharacterBody2D:
 		# Stop the background music
 		audio_stream_player.stop()
 		Global.reached_finish = true

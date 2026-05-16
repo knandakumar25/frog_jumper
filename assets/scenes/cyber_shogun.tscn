@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cusnivs56uyv4"]
 
-[ext_resource type="Script" uid="uid://cvphlt8k3g5vg" path="res://assets/scenes/cyber_shogun.gd" id="1"]
+[ext_resource type="Script" path="res://assets/scenes/CyberShogun.cs" id="1"]
 [ext_resource type="AudioStream" uid="uid://b1fqj13jg2ww1" path="res://assets/music/arcade-game-jump-epic-stock-media-1-00-00.mp3" id="2"]
 [ext_resource type="Texture2D" uid="uid://deayy5ut03ugs" path="res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png" id="3"]
 

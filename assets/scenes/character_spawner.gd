@@ -2,7 +2,7 @@ extends Node2D
 class_name CharacterSpawner
 
 # The spawned character instance
-var character: BaseCharacter = null
+var character: CharacterBody2D = null
 
 
 func _ready() -> void:
@@ -16,15 +16,10 @@ func spawn_character() -> void:
 	match Global.selected_character:
 		"Cyber Shogun":
 			character_scene = load("res://assets/scenes/cyber_shogun.tscn")
-		"Mask Dude":
-			character_scene = load("res://assets/scenes/mask_dude.tscn")
-		"Pink Man":
-			character_scene = load("res://assets/scenes/pink_man.tscn")
-		"Virtual Guy":
-			character_scene = load("res://assets/scenes/virtual_guy.tscn")
 		_:
-			# Default to Cyber Shogun if no match
-			character_scene = load("res://assets/scenes/cyber_shogun.tscn")
+			# All other characters (Ninja Frog, Mask Dude, Pink Man, Virtual Guy)
+			# use the main_character scene which loads sprites from Global.selected_character
+			character_scene = load("res://assets/scenes/main_character.tscn")
 	
 	# Instantiate and add the character
 	character = character_scene.instantiate()

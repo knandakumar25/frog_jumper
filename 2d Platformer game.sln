@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2022
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2d Platformer game", "2d Platformer game.csproj", "{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{E289E993-D5A7-49C7-AB1F-DF80EB6E7D3B}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
+

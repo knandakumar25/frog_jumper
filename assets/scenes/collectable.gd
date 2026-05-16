@@ -4,7 +4,7 @@ extends Area2D
 @onready var coin_sound: AudioStreamPlayer = $CoinSound
 
 func _on_body_entered(body):
-	if (body.name == "CharacterBody2D"):
+	if body is CharacterBody2D:
 		coin_sound.play()
 		# Create and start a timer
 		var timer = Timer.new()

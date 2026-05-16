@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ca2v36wlpbp5b"]
 
-[ext_resource type="Script" path="res://assets/scenes/falling_character.gd" id="1_falling_script"]
+[ext_resource type="Script" path="res://assets/scenes/FallingCharacter.cs" id="1_falling_script"]
 
 [node name="FallingCharacter" type="AnimatedSprite2D"]
 texture_filter = 1
