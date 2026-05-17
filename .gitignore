@@ -27,3 +27,7 @@ addons/**/~*.dll
 # End of https://www.toptal.com/developers/gitignore/api/godot
 
 .fake
+
+# Android build artifacts
+android/build/.gradle/
+android/build/local.properties
