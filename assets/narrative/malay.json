@@ -2,30 +2,2131 @@
   "meta": {
     "language": "malay",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — malay narrative data (STUB — translate from en.json)"
+    "description": "Axiom Force: Reclaim Earth — malay narrative data"
   },
   "acts": {
-    "act2_arc1": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc2": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc3": { "title": "", "subtitle": "", "description": "" }
+    "act2_arc1": {
+      "title": "AKTA II — ARKA 1: MEMECAHKAN GRID PENGASINGAN",
+      "subtitle": "Tahap 5–7: Memecah Tembok Fizikal Pendudukan",
+      "description": "Arka pertama kempen pertengahan memfokus sepenuhnya pada infrastruktur fizikal pemisahan—dinding, pusat pemeriksaan, daftar biometrik dan program penyesuaian tingkah laku yang Xelthara gunakan untuk memastikan populasi manusia retak, diawasi dan terlalu trauma untuk diatur. Sebelum penentangan boleh menyerang pusat ekonomi atau politik pendudukan, mereka mesti menghubungkan semula masyarakat manusia yang terpencil antara satu sama lain."
+    },
+    "act2_arc2": {
+      "title": "AKTA II — ARC 2: DEPAN TEMBAKAN SUMBER",
+      "subtitle": "Tahap 8–11: Memotong Keuntungan Ekonomi Penjajahan",
+      "description": "Dengan Grid Pengasingan retak dan populasi terpencil disambungkan semula, rintangan beralih kepada enjin ekonomi pendudukan. Xelthara datang ke Bumi untuk mendapatkan sumber—bukan ideologi. Arc 2 ialah kempen gangguan ekonomi: empat serangan berturut-turut terhadap pengekstrakan, pemprosesan, pengangkutan dan infrastruktur keselamatan yang menjadikan pendudukan itu berdaya maju dari segi kewangan."
+    },
+    "act2_arc3": {
+      "title": "AKTA II — ARC 3: MEMBUANG TADBIR URUS KORPORAT",
+      "subtitle": "Tahap 12–14: Menolak Ke Hati Negara Pentadbiran Kolonial",
+      "description": "Enjin pengekstrakan dihentikan. Grid keselamatan gelap. Dinding pengasingan retak. Apa yang tinggal ialah seni bina pentadbiran dan politik pendudukan itu sendiri. Arc 3 ialah urutan paling langsung dari segi politik: penentangan tidak lagi melawan tentera penjajah. Ia sedang membongkar negara penjajah, sekeping demi sekeping, dari luar ke dalam."
+    }
   },
   "levels": {
-    "0": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "1": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "2": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "3": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "4": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "5": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "6": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "7": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "8": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "9": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "10": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "11": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "12": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "13": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "14": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "15": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "16": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] }
+    "0": {
+      "title": "Protocol Zero - The Virtual Forge",
+      "arc": null,
+      "setting": "Simulasi grid rangka wayar yang luas dan gelap bagi latar langit pusat bandar Los Angeles yang runtuh. Garis biru neon mentakrifkan jalan dan bangunan. Gangguan statik sentiasa berkelip merentasi pandangan. Empat juara berdiri di atas platform yang bercahaya.",
+      "objective": "Lengkapkan protokol latihan dengan berbasikal melalui semua pergerakan dan kebolehan pertempuran, yang memuncak dengan serangan skuad serentak untuk memusnahkan Unit Berat Xelthara yang disimulasikan.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Hantu dalam Gridlock",
+      "arc": null,
+      "setting": "Runtuhan Taman Istana Imperial. Rasuk terraforming Xelthara sedang aktif melarutkan tanglung batu purba dan bunga sakura, menggantikannya dengan monolit pentadbiran papak obsidian yang steril.",
+      "objective": "Menyusup tapak perobohan aktif untuk mendapatkan Data-Blade—repositori digital sejarah terlarang—sebelum medan Xelthara 'Culture-Erasure' membersihkan memori tapak itu selama-lamanya.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Mereka bukan sahaja mengambil tanah kita; mereka memadamkan jiwa kita. Istana ini berdiri selama milenium, kini sedang diturap untuk pejabat cukai wilayah. Saya tidak akan membiarkan nenek moyang kita dilupakan di bawah papak obsidian mereka."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Amaran: Comm-towers menyiarkan penafian perkhidmatan. Kebarangkalian risiko pengesanan ialah 98.7%. Berundur adalah dinasihatkan."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LOG ARKIB: NEO-TOKYO CULTURE-PURGE. LOKASI: THE ETERNAL ZEN DOJO (TAPAK DITETAPKAN: SETTLEMENT-BLOCK 01). STATUS: PEMROBOHAN SEDANG BERLANGSUNG. PEMAPUSAN SENIBINA PADA 42%."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Kayu ini telah menyerap nafas sepuluh ribu pahlawan. Kini, mereka menganggapnya seperti kekacauan digital untuk dipindahkan ke tong kitar semula. Bagi Xelthara, nenek moyang kita hanyalah halangan yang menyusahkan dalam pelan tindakan mereka untuk pejabat cukai."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Amaran: Integriti struktur semakin jatuh. Pentadbiran kolonial telah membenarkan 'leveling' terakhir tapak ini. Pengeluaran adalah satu-satunya jalan yang logik."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Logik adalah untuk mereka yang tidak mempunyai masa lalu. Anda panggil ini 'meratakan'? Saya memanggilnya perang ke atas jiwa. Anda mungkin menurap bumi, tetapi anda akan mendapati akar kehormatan kami lebih dalam daripada papak obsidian anda!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Setiap cip dalam kayu ini adalah memori yang tidak boleh anda padamkan! KATA: MOGOK LEMBAGA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Lihatlah 'syurga mereka.' Makam kaca dan dawai yang dibina di atas kubur milenium. Saya enggan membiarkan sejarah manusia dihapuskan untuk memberi ruang kepada hamparan anda. Selagi saya berdiri, Tokyo masih ingat!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Beacon dinetralkan. Perobohan telah terhenti, tetapi pihak berkuasa kolonial sedang mengubah hala tuju Legion Penguatkuasa. Anda sedang melawan pertempuran hantu, Shogun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kemudian saya adalah hantu yang akan menghantui penempatan mereka selama-lamanya. Jika kita tidak dapat menyelamatkan batu, kita akan menyelamatkan cerita. Lindungi Data-Blade! Biarkan mereka mencari api di tempat yang mereka harapkan pematuhan!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara mahu menulis sejarah kita dalam masa lampau. Hari ini, saya menulisnya dalam plasma. Dojo ini jatuh, tetapi rintangan meningkat."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KENANGAN YANG KEKAL. PURGE TERGANGGU."
+        }
+      ]
+    },
+    "2": {
+      "title": "Kebakaran Konkrit",
+      "arc": null,
+      "setting": "Pintu masuk besar-besaran berpagar Zon Bendung 4. Beribu-ribu keluarga sedang digiring seperti lembu melalui pagar tenaga. Di belakang mereka, rumah pinggir bandar mereka sedang diratakan oleh pejalan kaki pengembangan Xelthara.",
+      "objective": "Pegang 'Jambatan Terakhir' menentang Penguatkuasa Xelthara yang menggembala penduduk, membenarkan kumpulan pelarian terakhir menyelinap ke kawasan setinggan yang tidak dipetakan dan bukannya kem berpagar.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LOG PERPINDAHAN: PROTOKOL PENEMPATAN SEMULA SEKTOR 4. PEMBELA: AEGIS RONIN (STATUS CASIS: KRITIKAL). TAHAP ANCAMAN: OMEGA. KIRAAN PELARI: 412. MANDAT SEMASA: MELINDUNGI ORANG YANG TERPINDAH. PERTAHANKAN Ambang."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, beritahu juruterbang pengekstrakan untuk meratakannya! Siling ini tidak menjadi lebih ringan!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, integriti struktur adalah pada 14%. Unit Pengepungan Xelthara sedang menggunakan mortar plasma berat. Kebarangkalian anda dihancurkan mencecah 99.2%."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kemudian saya akan mengambil 0.8% itu dan menolaknya ke kerongkong mereka! PERISAI!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Teruskan bergerak! Mereka mahu mengeroyok kamu ke dalam sangkar seperti lembu. Selagi saya menarik nafas, saya adalah dinding antara anda dan zon pembendungan mereka. Mereka tidak akan menggantikan jiwa lain hari ini!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Unit Pengepungan dikunci. Mereka menyasarkan tiang sokongan. Jika mereka melepaskan tembakan, keseluruhan dinding Sektor 4 jatuh di zon pemindahan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bukan pada jam tangan saya. LEBIHAN KINETIK!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Satu turun! AXIOM, penjana perisai merengek. Adakah itu normal?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatif. Prototaip menyerap terlalu banyak tenaga kinetik. Ia menjadi bom. Lepaskan segera!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Tidak. Saya akan memberi Xelthara cenderahati. Saya terlalu mengecasnya."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, tanda-tanda vital anda semakin meningkat! Analisis menunjukkan kegagalan bencana. Peluang bertahan: 0.1%!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kemungkinan yang lebih baik daripada yang saya ada di kem tahanan. Ini adalah perjalanan sehala, nak. Bolehkah anda memberitahu Front mereka berhutang minuman kepada saya?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "UNTUK TANAH AIR! MAKAN KONKRIT!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin? Aegis Ronin, balas... Saya ada... mata pada tandatangan... Perisai dipegang. Dindingnya selamat."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: DINDING YANG TAK ROSAK. AEGIS RONIN MENYERTAI HLF."
+        }
+      ]
+    },
+    "3": {
+      "title": "Karat Neon dan Debu Data",
+      "arc": null,
+      "setting": "'Under-City' literal—rangkaian aci penyelenggaraan di bawah penempatan Xelthara yang bercahaya neon. Di atas, penduduk menikmati udara terraformed; di bawah, manusia terpinggir mencari oksigen tercemar ozon.",
+      "objective": "Sifon tenaga daripada grid kolonial untuk menggerakkan sistem sokongan hidup penduduk terpinggir, sambil mengelak 'Ronda Kesucian' memburu manusia sesat.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Mereka membina syurga mereka di siling kami dan tertanya-tanya mengapa ruang bawah tanah bocor. Kita hidup dalam jurang yang mereka terlupa untuk menurap. Sel kuasa ini bukan hanya untuk saya; ia adalah untuk memastikan pemanas dihidupkan untuk seratus keluarga yang mereka 'lupa' dalam pelan tindakan."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Amaran: Penyepaduan perkakasan Xelthara ke dalam casis awam tidak disyorkan. Maklum balas saraf diunjurkan pada 40% ketidakstabilan. Matriks, kadar denyutan jantung anda melebihi parameter selamat."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LOG TERPISING: BANDAR SCRAP-PERINGKAT KECIL. STATUS: BERSELAMA. MAKLUM PENCEROBOH: SIFAR DIKESAN. KEYAKINAN SISTEM: 100%. OBJEKTIF: MENCURI SPARK PENJAJAH. SEMANGATKAN RINTANGAN."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Mereka membina syurga mereka di siling kami dan tertanya-tanya mengapa ruang bawah tanah bocor. Kita hidup dalam jurang yang mereka terlupa untuk menurap. Saya akan menggunakan semula teknologi sekerap mereka sendiri untuk menggoreng grid mereka. Dari margin, kami menyerang balik."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Integrasi berjaya. Keupayaan Fasa-Anjakan adalah dalam talian. Nota: Penggunaan berterusan akan menyebabkan degradasi saraf."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Seperti berjalan melalui asap. Sekarang, mari kita cari jalan keluar sebelum saya lupa bagaimana rasanya realiti."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Lockdown dimulakan. Teras penuaian mencapai suhu kritikal. Anda mesti melumpuhkan pintu perimeter dengan segera."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Satu letupan EMP sepatutnya melakukannya. Mari beri mereka sedikit habuk data untuk mengingati saya."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Dan itulah isyarat saya."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Itu adalah jalan keluar yang sangat kuat, Matrix. Saya telah melihat tandatangan anda sejak kilang penapisan."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Siapakah ini? Apa khabar anda di saluran ini?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Saya Permaisuri Siren. Kamilah yang berjuang untuk memastikan masih ada bandar untuk dituai. Anda mempunyai hadiah untuk memecahkan barang, hantu. Kita boleh menggunakannya. Adakah anda bosan bersembunyi di dalam karat?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Karat itu semakin membosankan. Pimpin jalan, Siren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: HANTU DALAM MESIN. ONI MATRIX MENYERTAI HLF."
+        }
+      ]
+    },
+    "4": {
+      "title": "Aegis Komander Void yang hancur",
+      "arc": null,
+      "setting": "Jenazah Hab Pertahanan Pasifik yang hancur. Infrastruktur ketenteraan tradisional yang membanggakan sedang dikitar semula oleh Xelthara, memaksa Siren untuk menyelaraskan rangkaian sel tersembunyi yang terdesentralisasi.",
+      "objective": "Bongkar menara penyiaran tentera terakhir dan edarkan cip frekuensinya kepada sel penentangan awam, memuktamadkan peralihan kepada peperangan gerila.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Zaman tentera berdiri sudah mati. Kami tidak boleh bertemu mereka di padang, jadi kami akan menjadi padang. Bahagikan isyarat. Desentralisasi perintah. Jika tidak ada kepala untuk dipotong, rintangan tidak boleh mati."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Maharani, siaran anda adalah risiko besar! Anda mendedahkan lokasi anda dan corak kekerapan rintangan. Ini tidak optimum. Tolong hentikan penghantaran."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LOG DESENTRALISASI: TRANSISI GERILA DIMULAKAN. LOKASI: LAST STAND COMMAND (PACIFIC HUB). STATUS: ANGKATAN KONVENSIONAL DIKALAHKAN. DOKTRIN ASIMETRI AKTIF. KOMANDER: SIREN MAHARANI (KOD TAKTIKAL: KOMANDER BATAL). PESANAN TERAKHIR: HANCURKAN PERINTAH. MENJADI RIBUT."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ini adalah Void Commander. Hierarki tradisional dibubarkan. Anda bukan lagi askar; anda adalah sel. Pudar ke bandar. Pukul apabila mereka tidur. Tuntut semula rumah anda satu bayang pada satu masa."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komander, kapal melarikan diri melaporkan 85% kadar kematian semasa pelancaran. Pejuang Xelthara mengutamakan bukan pejuang. Mereka tahu vektor pelarian kita."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Mereka beroperasi pada data taktikal pra-pencerobohan. Saya akan menukar data. AXIOM, kunci perhubungan rangkaian pusat. Saya memintas tembok api secara manual."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Armada kami sudah tiada. Tapak kami adalah habuk. Yang tinggal hanyalah data. Saya mesti tepat. Tugas seorang komander adalah kepada yang masih hidup, bukan membela mayat."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Parameter baharu dimuatkan. Sekarang untuk bahagian yang sukar. AXIOM, alihkan kuasa daripada sokongan hayat tambahan saya kepada susunan penyegerakan dron."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komander, itu akan menurunkan rizab casis anda kepada 12%. Risiko kegagalan sistem adalah tinggi. Saya menasihatkan menentang ini."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Laksanakan perintah itu. Nyawa ini bernilai 12% daripada sistem saya. Saya memerlukan garis penglihatan yang jelas, AXIOM. Menyegerakkan mikro-dron sekarang."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone Fleet One, wujudkan kumpulan pelindung di sekeliling pengangkutan ulang-alik pemindahan. Armada Drone Dua, bersedia untuk sebutan yang menyinggung. Sasaran: Xelthara Column 8-B, menuju ke terowong awam utama."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Lajur berada betul-betul di bawah sektor terhad. Pengeboman orbit adalah dilarang kerana platform satelit kinetik yang tidak stabil."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dilarang tidak relevan. Saya tidak akan melihat mereka mati. AXIOM, berikan saya akses ganti manual kepada suapan trajektori Platform Satelit Kinetik. Saya perlukan satu pukulan terdesak."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Perintah Batal ke Platform Kinetik—FIRE. Koordinat 51.4883 N, 120.7301 W. PROTOKOL PENGHAPUSAN."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kerosakan sistem amat besar! Satelit telah menyahorbit. Komander, kamu mesti berundur. Kawasan itu tepu dengan sinaran tenaga tinggi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Berundur disahkan. Objektif misi—kelangsungan hidup sivil—tercapai. Mereka telah mengambil langit kita, tetapi mereka tidak akan pernah mengambil tekad kita. Mengekstrak sekarang."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KOMANDER YANG BATAL. MAHARANI SIREN MENYERTAI HLF."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neon Embers - Pelanggaran Sempadan",
+      "arc": "act2_arc1",
+      "setting": "Grid Pemisah Sektor-4 yang aktif—tembok tenaga setinggi 40 meter yang diperkuat dengan puncak pengimbas biometrik, pusat pemeriksaan pemprosesan permit dan stesen Pihak Berkuasa Sempadan Xelthara. Ia secara fizikal membelah dua Los Angeles, mengasingkan zon pembendungan manusia daripada sektor kolonial Xelthara. Dinding itu bukan pemasangan tentera. Ia adalah satu pentadbiran.",
+      "objective": "Lumpuhkan keempat-empat puncak pengimbas biometrik, musnahkan Teras Pemprosesan Permit pusat—enjin birokrasi yang mengawal pergerakan manusia—dan turunkan Pemisahan Hebat supaya penduduk zon pembendungan boleh berjalan dengan bebas melalui bandar mereka sendiri.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Tembok itu bukan sahaja membelah bandar itu. Ia memotong saya separuh. Semua yang saya ingat—bau dapur nenek saya di Spring Street, bunyi bas 5th Street—ada di seberang perkara itu. Dan saya perlu menyelinap kembali seperti penjenayah."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Grid Pemisahan Sektor-4 tidak diklasifikasikan sebagai pemasangan tentera dalam rekod pentadbiran Xelthara. Ia disenaraikan sebagai 'Pengoptimuman Penduduk dan Sistem Kawalan Pihak Berkuasa Transit.' Penjenamaan semula itu adalah perkara utama. Ia adalah dinding yang menjadikan dirinya terdengar seperti perkhidmatan."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LOG ANJAKAN: GRID PEMISAH SEKTOR-4. JENIS STRUKTUR: TITIK SEMAK PENTADBIRAN PENJAJAH. BUKAN TENTERA. INI SENGAJA. ANCAMAN: PIHAK BERKUASA SEMPADAN XELTHARA — BAHAGIAN PENGUATKUASAAN. BIOMETRI SPIRES: 4 AKTIF. TERAS PERMIT: DALAM TALIAN. OBJEKTIF: MEMBONGKARKAN SENIBINA PENTADBIRAN PEMISAH. BUKA BANDAR."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DINDING YANG MEREKA PANGGIL PINTU"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Struktur yang anda lihat ditetapkan dalam rekod kolonial sebagai 'Pengoptimuman Penduduk Sektor-4 dan Sistem Kawalan Pihak Berkuasa Transit.' Ia adalah dinding. Ia adalah dinding pengasingan. Setiap manusia di bahagian ini memerlukan Permit Residensi yang dikeluarkan Xelthara untuk menyeberang. Permit tidak dikeluarkan. Sistem aplikasi mempunyai tunggakan dua tahun. Ini bukan kemalangan. Ini adalah seni bina anjakan kekal."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Saya menghabiskan lapan bulan di zon pembendungan seperti ini selepas mereka mengambil Lembah San Fernando. Lapan bulan melihat kanak-kanak menjadi lebih kecil kerana catuan kalori direka untuk spesies yang tidak makan perkara yang sama seperti yang kita lakukan. Dan di sisi lain, mereka sedang makan makanan kita. Di restoran kami. Di bandar kami."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, sahkan empat lokasi puncak untuk skuad."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha berada di bekas tapak koridor seni Grand Avenue. Spire Beta ditanam di sudut 5th dan Spring. Spire Gamma tertanam di dinding luar Perpustakaan Pusat lama. Spire Delta menambat perhentian selatan dinding di sungai. Teras Pemprosesan Permit ditempatkan di stesen pusat pemeriksaan di kawasan yang dahulunya Dataran Pershing. Keempat-empat menara mesti dilumpuhkan sebelum Teras boleh dipecahkan. Memusnahkan Teras akan melata-meruntuhkan keseluruhan membran tenaga."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "ke-5 dan Musim Bunga."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Itu.. itu sudut bangunan nenek saya. Adakah. Adakah. Spire Beta ditanam di halaman depan rumahnya. Mereka meletakkan tiang dinding mereka di halaman depan rumahnya."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matriks—"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "jangan. saya sihat. Saya beroperasi. Saya katakan bahawa spire adalah milik saya secara peribadi untuk diturunkan. Tiada siapa yang menyentuh Beta melainkan saya."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Difahamkan. Ia adalah milik anda."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, awak bawa Spire Alpha di koridor seni. Shogun, Spire Gamma di Perpustakaan Pusat. Matriks mempunyai Beta. Saya akan menyelaraskan penindasan dron di laluan rondaan dan menyertai Shogun di pendekatan Perpustakaan. AXIOM akan membimbing penjujukan. Keempat-empat menara jatuh mengikut urutan, kemudian kami bertumpu di Dataran Pershing dan memisahkan Teras sekeping demi sekeping."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Nota: Rondaan Pihak Berkuasa Sempadan padat tetapi bercorak. Pusat pemeriksaan dikendalikan 24 jam oleh Penguatkuasa-Pentadbir Voss—yang menguruskan kebenaran lintasan fizikal. Dia bukan pegawai tempur. Dia seorang birokrat. Beliau sendiri telah menolak 4,400 permohonan persimpangan pada bulan lalu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4,400. Orang yang baru mahu berjalan kaki pulang."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Senjata penjajah yang paling kejam bukanlah askar dengan senapang. Ia adalah kerani dengan setem yang memberitahu anda bahawa kewujudan anda memerlukan kebenaran mereka. Bahawa seorang manusia mesti memohon kepada seorang penjajah untuk mendapatkan hak untuk berjalan di atas tanah nenek moyang mereka sendiri. Saya telah berdamai dengan tentera yang berperang. Menghadapi seni bina kebenaran—penghinaan yang kasual dan sistematik—inilah yang dikenakan pada semangat dalam cara yang tidak dapat dipotong oleh bilah."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Rondaan sedang berpusing. Terdapat tetingkap 90 saat pada pendekatan Jalan Harapan bermula dalam tiga puluh saat. Bergerak pada tanda saya."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Pegang kedudukan dalam bayang-bayang sehingga AXIOM-7 memberikan isyarat."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Tandakan. Pergi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bergerak. Kekal di bawah siling liputan dron. Mereka mempunyai pemetaan haba pada ketinggian enam meter—jangan melompat."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASA 1: PENDEKATAN MELALUI ZON PENAPI"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Mereka mereka bentuk zon penampan ini supaya walaupun mendekati dinding terasa seperti menceroboh. Anda berada di tempat terbuka. Anda kelihatan. Anda rasa bersalah kerana berdiri di sebelah jalan awam dahulu. Itulah psikologinya. Mereka mahu kami berasa seperti kami bukan milik di sini sebelum kami sampai ke pusat pemeriksaan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Saya benci ini. Saya telah menahan barisan menentang Siege Walkers dan saya benci ini. Ada sesuatu tentang berdiri di tempat terbuka di jalan anda sendiri dan merasa diperhatikan yang membuat saya lebih teruk daripada artileri."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, lampu limpah kedua berputar jauh dalam masa empat saat. Pindah ke pembetung saliran. Tiga. dua. satu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "faham. Saya berada di pangkalan Spire Alpha. Saya boleh melihat sauh. Ia melepasi apa yang dahulunya merupakan kaki lima mozek."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Mereka mengikatnya melalui mozek. Terdapat sejarah yang tercatat di jubin kaki lima itu. Potret, nama, tarikh. Projek komuniti. Mereka hanya... menggerudi melalui bahagian tengah muka untuk melabuhkan jawatan mereka."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, penambat menara ialah kunci kinetik magnetik yang direka untuk menahan sehingga 8,000 newton daya langsung. Caj Lebihan Kinetik anda, yang dipegang selama tiga kiraan penuh, akan melebihi ambang tersebut. Anda juga mesti melumpuhkan dua unit Biometrik Sentinel di pangkalan spire terlebih dahulu—ia akan mengesan tandatangan biometrik anda sebaik sahaja anda melangkah ke dalam julat."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Tandatangan biometrik. Degupan jantung saya sendiri mencetuskan penggera kerana saya manusia. Baiklah. Mari kita mula membetulkannya."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Awak imbas degupan jantung saya? Biar saya beri awak sesuatu untuk diimbas. NADI KINETIK!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Dan itu dua. AXIOM, pengawal telah turun. Pergi untuk sauh."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Tahan Caj Lebihan Kinetik di pangkalan Spire Alpha untuk tiga kiraan. [INPUT: Tahan RB/R1 selama tiga saat, kemudian lepaskan.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha sauh patah. Membran tenaga tidak stabil di sektor utara sebanyak 25%. Tinggal tiga menara."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Dua puluh lima peratus adalah permulaan. Maaf kerana kami mengambil masa yang lama. Kami di sini sekarang."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASA 2-A: MATRIKS ONI DI SPIRE BETA — KE-5 DAN SPRING"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Itu dia. Pokok itu masih ada. Nenek saya pernah mengatakan bahawa pokok itu lebih tua daripada dewan bandar raya dan saya tidak pernah mempercayainya."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Dia memfailkan permohonan permit lintasan empat puluh tujuh hari selepas tembok itu naik. Dia mengisi borang. Dalam tiga kali ganda. Kerana dia percaya pada proses. Dia percaya jika anda melakukan perkara yang betul, seseorang akan mendengar. Dia tidak pernah mendapat jawapan. Dia meninggal dunia di zon penahanan dua bulan kemudian. Komplikasi malnutrisi. Mereka mempunyai kedai runcit kegemarannya di seberang dinding. Dia memfailkan borang untuk pergi membeli makanan."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Saya akan mengasingkan perkara ini dengan berhati-hati supaya saya tidak mencederakan pokok itu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Anda menggunakan helah saya. comel. Inilah perbezaannya—saya cipta milik saya."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Tag."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Awak kena balik. Awak kena selalu balik."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ada awak."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Saluran pertama. Saluran kedua. Ketiga. yang terakhir."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Beta tidak berfungsi. Pokoknya baik. Bergerak untuk berkumpul semula."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Kami mendengar awak, Matrix. Kami mendengar sepanjang masa."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ya. saya tahu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASA 2-B: SHOGUN SIBER DAN SIREN MAHARANI DI SPIRE GAMMA — PERPUSTAKAAN PUSAT"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Perpustakaan. Saya menjalankan seminar latihan pegawai pertama saya di sana. Kursus pertahanan komuniti, bilik bacaan tingkat tiga. Tiga tahun sebelum pencerobohan. Geometri bagaimana kolonialisme menggunakan infrastruktur kita sendiri terhadap kita tidak pernah berhenti menjadi menarik. Mereka meletakkan pusat data mereka di perpustakaan kami. Mereka menulis di atas rekod kami di tempat kami menyimpan rekod kami."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Dan kini mereka akan mendapati bahawa orang yang rekod mereka cuba padamkan berdiri di depan pintu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Enam unit di pintu masuk perpustakaan diklasifikasikan sebagai Pegawai Penguatkuasa Sempadan. Caj penyebaran orang ramai mereka menyampaikan 900 volt arus gangguan saraf apabila bersentuhan."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tidak mematikan. Mereka memberitahu diri mereka ia adalah berperikemanusiaan. Apa yang mereka maksudkan ialah tawanan yang masih hidup lebih berguna kepada mereka daripada warganegara yang sudah mati."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Shogun, saya perlukan mereka dibersihkan dengan cepat dan senyap sebelum ronda sapu seterusnya. Bolehkah anda mengambil tiga dari kiri manakala dron saya menekan sayap kanan?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Difahamkan. Senyap bermaksud ketepatan. Saya tidak akan menghina bangunan ini dengan bunyi yang tidak perlu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Drone: tanda, tanda, tanda. EMP meletus pada gugusan kanan—api."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Pertama. Kedua. Ketiga."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Bersih. AXIOM, mengimbas sistem penambat Spire Gamma."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma sedang menarik kuasa daripada grid dalaman perpustakaan. Untuk melumpuhkan spire tanpa mencetuskan laluan balik kuasa kecemasan, anda mesti memutuskan sambungan grid dalaman di dalam bangunan terlebih dahulu. Permaisuri Siren, persimpangan grid berada di tingkat tiga."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "tingkat tiga. Sudah tentu. Pimpin, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Saya memberitahu dua belas keluarga cara mengatur giliran menonton komuniti di dalam bilik ini. Terdapat kerusi pundi kacang di bahagian kanak-kanak. Seseorang telah merakam lukisan krayon ke meja rujukan. Seorang kanak-kanak melukis gambar seorang adiwira. Perbezaan antara perpustakaan dan pusat data ialah perpustakaan menganggap orang yang berjalan melalui pintu mempunyai hak untuk berada di sana."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Persimpangan grid terletak. Memutuskan suapan kuasa Spire Gamma. Ini juga akan memadamkan apa sahaja data pendaftaran harta tanah kolonial yang mereka simpan di sini."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Disahkan. Pemutus hubungan ini akan merosakkan kira-kira 12,000 rekod pemindahan surat ikatan penjajah untuk hartanah di Sektor 4. Rekod tersebut adalah seni bina undang-undang rampasan tanah."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Maka ini bukan sahaja sabotaj infrastruktur. Ini adalah pulangan tanah."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spiers Alpha, Beta dan Gamma di luar talian. Keutuhan membran tenaga: 25%. Spire Delta di sungai adalah sauh terakhir. Semua pasukan berkumpul selepas Delta jatuh. Kemudian: Dataran Pershing. Teras Permit."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASA 2-C: SPIRE DELTA — TERMINUS SELATAN DI SUNGAI"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta ialah penambat galas beban dinding. Ia dikawal oleh Komander Sempadan Vyss—yang mengarahkan sungai itu dialirkan elektrik selepas tiga keluarga cuba menyeberangi air pada minggu pertama tembok itu. Vyss tidak mengarahkan mereka ditahan. Vyss mengarahkan air dielektrik."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Dia mengelektrik sungai. Kerana keluarga cuba menyeberang."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "jangan. Jangan biarkan ia mengambil alih anda lagi. Kita turunkan perkara ini dahulu. Kemudian kita tidak memerlukan sungai."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Betul. Betul. Selepas puncak menara. Selepas dinding. Saya tidak akan lupa."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ini bukan pendekatan sembunyi-sembunyi. Delta adalah kedudukan yang diperkaya. Kami memukulnya sebagai satu unit. Ronin—anda mengambil mata, melindungi ke hadapan, menarik perhatian mereka dan menyerap voli awal mereka. Shogun, kosongkan sayap kiri. Matriks, gunakan Fasa-Anjakan untuk mencapai panel kawalan turet di hujung kanan dan bunuh ketiga-tiga menara secara serentak. Sebaik sahaja menara itu mati, saya melakukan dron untuk melepaskan tembakan ke atas skuad penguatkuasa. Kami runtuhkan garrison, kemudian Ronin meletakkan menara di dalam tanah."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PERISAI. Biarkan mereka melemparkan segala-galanya kepada saya. Saya adalah pintu depan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Simpan. Menembak. saya tidak. Bergerak."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SHADO-FORCE KATA! Siren—laluan anda terbuka!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Berhantu betul. Bodoh. Kawalan menara dicapai. Membunuh ketiga-tiganya. EMP PULSE—SEBARAN PENUH!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Armada Drone, penindasan penuh. Utamakan pembentukan—putuskan barisan mereka. KEBAKARAN."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komander Vyss berundur ke pos arahan di belakang menara. Dia memulakan isyarat kecemasan. Masa tindak balas: lapan minit."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Kami mempunyai lapan minit. Lebih dari cukup. Ronin - puncak menara."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "LEBIHAN KINETIK—LEPASAN PENUH!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Membran tenaga berada di luar talian sepenuhnya. Halangan lintasan pentadbiran telah dineutralkan. Zon penampan ialah... orang ramai melintasi zon penampan. Kira-kira 12,000 individu bergerak ke arah bekas garisan dinding. Mereka melintasinya."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Mereka hanya... berjalan. Mereka hanya berjalan melalui."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASA 3: PERSHING SQUARE — TERAS PEMPROSESAN PERMIT"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Lihatlah mereka. Mereka menyentuh turapan di seberang tempat dinding itu kelihatan seperti mungkin tidak nyata. Seperti ia mungkin satu helah."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kerana selama dua tahun, harapan telah menjadi mekanisme kekecewaan. Mereka telah belajar untuk tidak mempercayai pintu yang terbuka."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "... Kita sepatutnya melakukan ini lebih awal."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Kami di sini sekarang. Teruskan bergerak. Teras masih berdiri. Voss masih ada."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Anda telah melakukan pemusnahan tanpa kebenaran pemasangan pentadbiran kolonial Kelas-A. Saya dikehendaki oleh protokol untuk menawarkan anda peluang untuk menyerahkan kepada pemprosesan pentadbiran sebelum tindakan penguatkuasaan diambil. Sila buat baris gilir."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Dia menyuruh kita membentuk barisan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Maharani. Aku nak pukul dia teruk sangat."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "saya tahu. Kita kena ambil Core dulu. AXIOM, seni bina Teras."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Satu-satunya kelemahan Teras Pemprosesan Permit ialah tiga Konsol Kebenaran Input yang disusun di sekeliling pangkalannya. Setiap konsol mesti diakses dan menimpa pentadbirannya dilaksanakan serentak. Ia memerlukan tiga pengendali sekaligus."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tiga konsol. Kami bertiga. Matrix, Shogun, Ronin—ambil konsol setiap satu. Saya akan menguruskan gelanggang pertahanan Voss dengan penindasan dron."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Akses tanpa kebenaran kepada konsol pentadbiran ialah pelanggaran Kelas-C. Rekod pematuhan anda akan diberi anotasi buruk."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Anotasi ini."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Berperingkat. Di Konsol Dua. Memulakan penggantian. AXIOM, protokol override ini sepenuhnya dalam skrip pentadbiran Xelthara."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Saya sedang menyuap terjemahan ke dalam HUD anda dalam masa nyata. Ikut urutan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Saya tidak pernah melakukan birokrasi sebelum ini. Bawa saya melaluinya, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Urutan kebenaran memerlukan anda memasukkan kod penafian secara terbalik. Anda secara pentadbiran tidak menolak setiap aplikasi dalam sistem. Ini akan mencetuskan penghapusan memori."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "... 4,400 penolakan. Kaunter duduk di sini. 4,400 permohonan ditolak pada bulan lepas. Ada nama. Saya boleh melihat nama."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Teruskan, Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ya. saya akan pergi."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Anda tidak boleh mengatasi Teras. Sistem ini mengekalkan susunan pentadbiran yang sah bagi sektor ini. Tanpanya, tiada pengurusan penduduk berstruktur, tiada transit yang dibenarkan—"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Apa yang anda panggil 'pengurusan populasi berstruktur,' kami panggil hak untuk berjalan pulang. Konsol Satu: sedia."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Konsol Dua: sedia. Nenek saya memfailkan permit untuk pergi membeli barangan runcit. Anda ingin bercakap tentang perintah pentadbiran?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Konsol Tiga: sedia. 4,400 nama. Setiap seorang daripada mereka adalah orang yang baru mahu pulang. Itulah yang dilindungi oleh tembok ini."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Disahkan. Ketiga-tiga konsol input disiapkan. Keizinan serentak akan melaksanakan penghapusan memori dan melumpuhkan protokol pemulihan Teras secara kekal. Pada tanda anda, Maharani."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Pentadbir Voss. Setiap permit yang anda tolak—setiap keluarga yang anda pisahkan—setiap orang yang berdiri dalam baris gilir anda berharap jika mereka mengisi borang dengan betul, anda mungkin melayan mereka seperti manusia. Ini adalah keputusan pentadbiran terakhir yang dibuat oleh sistem ini."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Tandakan."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Teras Pemprosesan Permit: luar talian. Protokol pemulihan kekal: dilumpuhkan. Dinding tidak boleh dibina semula dari nod ini. Semua rekod permohonan yang belum selesai: dibersihkan. Semua rekod penafian: dibersihkan. Infrastruktur sekatan lintasan untuk Sektor-4 telah... hilang."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4,400 permohonan. Dan tidak seorang pun daripada mereka sepatutnya bertanya."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "AXIOM. Bolehkah anda memberitahu saya jika bangunan nenek saya secara strukturnya cukup selamat untuk diduduki? Saya ingin tahu sama ada seseorang boleh masuk semula."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Menjalankan imbasan struktur. Tingkat satu hingga empat masih utuh. Foundation kukuh. Talian bekalan air rosak tetapi boleh dibaiki. ya. Seseorang boleh masuk semula."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "bagus. bagus."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Dinding sudah tiada, Matrix. Tetapi apa yang kita lakukan sekarang—bagaimana kita membina semula apa yang dipecahkan tembok itu—itulah kerja yang lebih sukar. Dan ia bermula malam ini."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Beginikah rasanya menang? Kerana ia tidak seperti yang saya jangkakan."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tidak. Rasanya ada lagi yang perlu dilakukan. Itulah cara anda tahu ia adalah sebenar."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Penilaian misi: Grid Pemisahan Sektor-4 telah dibongkar secara kekal. Penduduk Zon Terkurung Sektor-4 bergerak bebas melalui bandar mereka buat kali pertama dalam dua tahun. Saya tidak mempunyai kategori dalam log operasi saya untuk apa yang berlaku di petak ini sekarang. Saya akan mencipta satu. Saya akan memanggilnya: penambakan."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: NEON EMBER. DINDING DAH TURUN. BANDAR BERNAFAS."
+        }
+      ]
+    },
+    "6": {
+      "title": "Spire Shado-Grid (Teras Pusat Bandar)",
+      "arc": "act2_arc1",
+      "setting": "Shado-Grid Spire menempatkan Pendaftaran Penduduk, Pangkalan Data Penugasan Semula Harta dan Sistem Peruntukan Buruh Paksa—enjin birokrasi anjakan penjajah di Teras Pusat Bandar.",
+      "objective": "Curi set data pendaftaran harta dan penduduk yang lengkap sebelum penghantaran ke luar dunia, dan rosakkan Sistem Peruntukan Buruh Paksa untuk membatalkan semua pesanan tugasan yang belum selesai.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Semua yang Xelthara tahu tentang kita ada di menara itu. Setiap alamat yang pernah kami tinggali. Nama setiap ahli keluarga. Setiap akta yang ditandatangani oleh datuk nenek kita. Mereka mengubah keseluruhan kewujudan kami menjadi entri pangkalan data supaya mereka boleh menguruskan kami dengan lebih cekap. Malam ini kami mengambil semula data kami—dan kami memecahkan mesin yang telah menggunakannya untuk menugaskan orang untuk menyental lantai mereka."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Sistem Peruntukan Buruh Paksa di dalam Spire tidak menggunakan perkataan 'terpaksa.' Ia menggunakan frasa 'Program Sumbangan Integrasi Komuniti.' Tugasan buruh bukan kontrak—ia dijana mengikut algoritma berdasarkan set kemahiran berdaftar orang yang dipindahkan dan dikeluarkan tanpa kebenaran. Ini adalah bahasa birokrasi perhambaan."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analisis selesai. Pelan tindakan pengembangan kolonial dan data logistik peneroka disimpan dalam lajur tengah itu. Matrix, anda mempunyai lima minit untuk melaksanakan muat turun sebelum sistem pertahanan dalaman mereka but semula."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Lima minit? sekeping kek. Tetapi saya memerlukan akses yang jelas. Shogun, bolehkah anda memotong pusat utama?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Dianggap sudah selesai. Mencipta laluan sementara ke konsol sekarang. Perhatikan sudutnya, Permaisuri. Pemotongan ini akan memberi amaran kepada setiap dron dalam sektor ini."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Makluman disahkan! Pengawal Phalanx berat sedang turun dari aci penyelenggaraan atas! Ronin, depan dan tengah! Wujudkan barisan pertahanan di pintu masuk!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sudah tiba masanya saya perlu menghayunkan perkara ini. Perisai! Tiada apa-apa yang melepasi tahap ini, kamu biawak yang terlalu besar!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Siren! Sasarkan sayap kiri! Mereka cuba menyekat saya!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dron tiga dan empat, api menindas di rusuk kiri! Lukiskan aggro mereka! Ronin, jimatkan caj anda!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sudah terlambat untuk pemuliharaan! SAMPAH! Beritahu Matrix supaya cepat!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Tenang, perisai daging! Saya memasukkan jarum digital melalui otak teras mereka! Cuma... sikit... lagi..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Amaran: Muat turun data 95% selesai. Xelthara menggodam balas dimulakan. Matrix, Spire sedang mengunci semua pusat akses dalaman!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "faham! Data selamat! Menarik plag!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Misi tercapai! Semua orang, kembali ke platform pengekstrakan! Shogun, kosongkan jalan kami!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Difahamkan. Melarikan diri yang bersih adalah fasa terakhir. HLYT-SECT-4 CLEAVE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Lihat, AXIOM? Katakan saya boleh tahan!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Disahkan, Ronin. Kebarangkalian pengekstrakan berjaya kini adalah 74%. Kami masih dijejaki."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "bagus. Biarkan mereka mengejar kita. Mereka baru sahaja kehilangan keseluruhan rancangan pertempuran mereka."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KEROSAKAN INDUSTRI. DATA SPIRE SHADO-GRID ADALAH MILIK KAMI."
+        }
+      ]
+    },
+    "7": {
+      "title": "Makmal Cyber-Grave (Kemudahan Bawah Tanah)",
+      "arc": "act2_arc1",
+      "setting": "Di bawah bekas Pusat Konvensyen, Xelthara telah menubuhkan Cyber-Grave Labs Sector-Omega-7—sebuah kemudahan penyelidikan pengubahsuaian tingkah laku terperingkat yang ditetapkan secara terbuka sebagai 'pusat kesihatan integrasi semula manusia.' Pemimpin penentangan manusia yang ditangkap dan penganjur komuniti diproses di sini. Mereka kelihatan patuh, terputus hubungan, tidak dapat mengingati sebab mereka marah.",
+      "objective": "Ekstrak Arkib Protokol Pengkondisian yang lengkap dan musnahkan Pautan Naik Neural Pusat untuk memulihkan autonomi saraf kepada ratusan individu terkondisi yang kini tinggal di zon pembendungan.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Mereka tidak dapat memecahkan kami dengan dinding, jadi mereka mencari cara untuk memecahkan kami dari dalam. Untuk mengambil ingatan tentang ketidakadilan daripada seseorang—untuk mencapai fikiran mereka dan memadam bahagian yang tahu bagaimana untuk marah tentang apa yang dicuri—ini bukan sains. Ini adalah jenayah perang yang dilakukan di makmal."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Merujuk silang fail subjek dengan pangkalan data rangkaian rintangan, saya telah mengenal pasti tujuh belas penganjur komuniti HLF yang disahkan yang telah diproses melalui kemudahan ini dan kemudiannya dikeluarkan. Mereka tidak tahu apa yang telah dilakukan kepada mereka. Memusnahkan Central Neural Uplink boleh memulihkannya. Saya mengira 73% kebarangkalian pemulihan autonomi berjaya. Saya... Saya dapati saya dilaburkan dalam keputusan itu."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kemudahan ini adalah enjin eksploitasi sumber. Mereka secara aktif menukar mineral Bumi menjadi bio-bahan api toksik untuk penghantaran luar dunia, meninggalkan planet mati di belakang. Ini adalah kos pengembangan penjajah."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Udara beracun kerana mereka melihat dunia kita sebagai sumber bahan api yang boleh kulat. Makmal ini mengubah nadi planet kita menjadi tenaga untuk penempatan mereka. Kita mesti menghentikan pengekstrakan ini atau tidak akan ada apa-apa lagi untuk disimpan."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Tempat ini... tiada penghormatan. Untuk merosakkan orang mati dan memperhambakan orang hidup. Xelthara mengamalkan penodaan, bukan peperangan. Saya hanya merasa hina dengan kekejaman ini."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Pandangan bermusuhan! Nampak seperti boneka daging dengan pendawaian yang teruk!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone, imbas spesimen! Ia adalah Bio-Hibrid Jenis-A. Perhatikan teras yang terdedah. Shogun, pukulan tepat pada saluran kuasa dalam rongga dadanya yang terdedah."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Perkara ini tidak layak mendapat tempat di dunia ini. BELAH NIHILATION!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Maharani, apa... apakah gambar-gambar ini? Mereka mengambil orang kita dan menjadikan mereka sesuatu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Saya sedang menjalankan analisis sekarang, Shogun. Ini bukan sekadar eksperimen biologi, ia adalah penghapusan jiwa. Mereka menggantikan roh manusia dengan kod mereka sendiri."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "bagus. Mereka bukan sahaja mahu mengambil planet kita; mereka mahu memfrancaiskan spesies kita. Awas, Siren. Seorang lelaki besar baru bangun."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "AMARAN: Mini-Boss Encounter. Jawatan: Pengawas Karr-Thak. Perisainya tahan terhadap serangan kinetik dan tenaga."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "tahan? lembu jantan. Saya akan membuat penyok! Ronin, menarik!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, mundurlah! Pertahanannya dilembapkan kinetik. Matriks, imbas corak pergerakannya untuk kelewatan penyegerakan saraf. Shogun, anda mesti mencipta gangguan!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Jika dia ingin berperang, saya akan berikan dia lawan yang layak. Saya akan menarik tumpuannya. HADAP AKU, CELAKA!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analisis selesai. Komponen biologi Pengawas memerlukan penyegaran semula isyarat saraf yang berterusan daripada Bio-Pemproses. Matriks, tekan konsol dengan EMP yang disasarkan—serangan pembedahan, ganggu penyegerakan!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "faham! Menusuk jarum!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Dia glitching! Sekarang kita pukul dia!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, bersama-sama! Mogok akhir, langgar plat chitinous!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Muat turun data 100%. Kami mempunyai apa yang kami datang untuk. Mari kita keluar sebelum seluruh sektor menyedari raksasa peliharaan mereka sudah mati."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Pembersihan data dimulakan. Urutan letupan ditetapkan untuk T-tolak 60 saat. Objektif misi selesai."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Saya akan membawa keaiban tempat ini bersama saya. Tetapi ilmu yang kita perolehi akan menamatkan kekejian ini."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Mari pulang, pasukan. Biarkan makmal kubur berkubur sendiri."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KOD YANG MELANGGAR. MAKMAL KUBUR SIBER HANCUR."
+        }
+      ]
+    },
+    "8": {
+      "title": "The Foundry Forge (Sektor Perindustrian)",
+      "arc": "act2_arc2",
+      "setting": "Tatasusunan Penukaran Terma Xelthara di bekas daerah pelabuhan perindustrian telah menjadikan udara beracun dalam radius 40 kilometer, memproses sisa atmosfera sebagai bahan api luar dunia sambil menjual oksigen manusia kembali dalam kanister bercatuan pada satu keluarga setiap hari.",
+      "objective": "Balikkan kekutuban Array Penukaran Terma untuk mencetuskan letupan terma lata yang memusnahkan faundri secara tidak dapat dipulihkan dan membolehkan zon kerosakan atmosfera 40 kilometer memulakan penjanaan semula semula jadi.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Mereka mengenakan catuan oksigen kepada kami. Mereka membuat udara kami tidak dapat bernafas dan kini mereka menjualnya kembali dalam tabung—satu bagi setiap keluarga setiap hari, setem pengedaran Xelthara di sisi. Saya telah menghirup udara tin kitar semula selama enam bulan. Apabila saya memusnahkan faundri ini, saya akan berdiri di tempat terbuka dan bernafas buat kali pertama dalam setengah tahun. Itulah sebab saya di sini."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Kerosakan atmosfera dalam jarak 40 kilometer dari faundri ini merupakan pelanggaran Perjanjian Pemeliharaan Alam Sekitar Sejagat 2089—perjanjian yang disahkan oleh Kolektif Xelthara. Saya telah memfailkan laporan pelanggaran rasmi dengan Mahkamah Pentadbiran Galactic bagi pihak HLF. Anggaran masa respons Mahkamah ialah sebelas tahun. Anggaran masa faundri menyebabkan ketidakterbalikan atmosfera kekal: empat bulan. Kami tidak menunggu mahkamah."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ini adalah loji pengekstrakan birokrasi korporat. Mereka adalah teras Bumi melombong jalur untuk eksport luar dunia. Setiap penghantaran adalah satu lagi bahagian dunia kita yang dijual. Objektif: Mensabotaj sokongan pengekstrakan untuk menghentikan keruntuhan ekologi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Saya sedang mengesan peredam seismik tugas berat pada penyokong tersebut. Api tenaga langsung tidak akan berfungsi. Ronin, ini adalah kepakaran anda. Daya kinetik diperlukan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Akhirnya, sesuatu yang patut mendapat pukulan yang baik. Pimpin jalan, Shogun. Saya akan membersihkan jalan."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Hubungi! Mereka menggunakan dron yang baru dipasang sebagai pengawal segera! Aegis, fokus pada sokongan struktur. Kami akan memegang barisan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sokongan pertama! Bersedia untuk gelombang kejutan! NADI KINETIK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Disahkan. Integriti sokongan adalah pada 30%. Tetapi penggantian keruntuhan struktur kini aktif! Kita mesti memukul tiga yang lain sebelum sistem menjadi stabil! Matriks, api menindas!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Menekan! Saya sedang membuat gelung maklum balas dalam sistem penyasaran mereka! Mereka menembak kargo mereka sendiri!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, anda dikelilingi! Berundur! Perisai pada dron itu terlalu tebal!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Tidak berundur! Mereka mahu bergaduh? Mereka mendapat gua-in! CYBER SHOGUN, beri saya pembukaan!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "KEMUKAAN ILAHI! SEKARANG, RONIN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "UNTUK TANAH AIR! Tiga ke bawah! Satu lagi, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Sokongan akhir dijamin. Pukullah, Ronin! Kemudian kita LARI!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTAJ LENGKAP!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kegagalan struktur dimulakan! Letupan setempat yang besar akan berlaku! Anggaran masa untuk meletup: 15 saat!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "evakuasi! Maharani, sediakan titik perahan!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dron pada kelajuan penuh! Kami meningkatkan dari sini! PERGI! PERGI! PERGI!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Itulah cara anda menutup kilang, budak-budak! Boom!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Objektif misi selesai. Keluaran perindustrian Xelthara dalam sektor ini telah dikurangkan kepada sifar. Kami memukul mereka di mana ia menyakitkan."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KEROSAKAN INDUSTRI. TEMBANG FOUNDRY DIAM."
+        }
+      ]
+    },
+    "9": {
+      "title": "Aquanaut Abyss (Ringuhan Terendam)",
+      "arc": "act2_arc2",
+      "setting": "Lautan Pasifik sedang disalirkan secara sistematik oleh Konduit Penyedut Hidrogen Laut Dalam di sepanjang pelantar benua. Pelepasan air garam yang terlampau panas telah mengasidkan pantai sepanjang 300 kilometer, memusnahkan komuniti nelayan yang mengekalkan diri mereka selama beberapa generasi.",
+      "objective": "Cari dan musnahkan tiga Hab Konduit Siphon Laut Dalam utama untuk menghentikan operasi penyedutan lautan secara kekal dan memulakan pemulihan lautan.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Terdapat keluarga nelayan di zon pembendungan yang tidak dapat bekerja sejak saluran masuk. Pelepasan air garam membunuh segala-galanya dalam jarak berenang dari pantai. Orang yang memberi makan kepada komuniti mereka selama beberapa generasi menggunakan pakej catuan Xelthara sekarang. Mereka mengambil sumber makanan mereka, mencemarkan air mereka, meletakkan dinding di antara mereka dan laut, dan memanggilnya pembangunan. Malam ini kita kembalikan lautan mereka."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Memodelkan garis masa pemulihan lautan selepas kemusnahan saluran: pemulihan ekosistem separa dalam lapan belas bulan, normalisasi pH penuh dalam enam hingga lapan tahun. Misi ini tidak membetulkan kerosakan dengan segera. Saya mahu anda memahaminya. Apa yang dilakukannya ialah menghentikan kerosakan daripada menjadi kekal. Sesetengah luka masih boleh sembuh, jika kita berhenti membukanya."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Grid ini adalah sumber utama kuasa perindustrian kolonial mereka. Kami di sini untuk sabotaj ekonomi untuk memutuskan talian bekalan penjajah. Jika kita memecahkan grid penyedutan air, kita akan meranapkan ekonomi sektor itu. Matriks, kawalan saliran terletak di belakang grid laser bawah air itu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hebat. Tahap di mana saya tidak boleh menyentuh lantai. Saya rasa seperti kucing dalam tab mandi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tetap di platform, Ronin. Dron sedang mengimbas arus. Matriks, anda perlu beralih fasa melalui rasuk itu. Jika kekerapan anda merosot walaupun satu milisaat, grid akan menggoreng pautan saraf anda."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Menggoreng saraf adalah hobi kegemaran saya yang ketiga. Tenang, Siren. Saya akan hantu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Rasuk panas. Bergerak melepasi baris pertama... baris kedua... Saya di konsol. Memulakan pembersihan."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Amaran: Unit Xelthara yang tenggelam timbul! Mereka cuba mengganggu urutan saliran!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Pertahankan platform! Shado-Force Cleave!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Pembersihan dimulakan! Perhatikan kaki anda, air bergerak!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Dan begitulah cara anda menarik plag."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: HANTU MEMBERSIHKAN LALUAN. AQUANAUT ABYSS TERSARI."
+        }
+      ]
+    },
+    "10": {
+      "title": "Dermaga Stratos (Hab Penerbangan)",
+      "arc": "act2_arc2",
+      "setting": "Terminal kargo altitud tinggi Stratos Docks pada 4,000 meter ialah pautan terakhir dalam rantaian bekalan Xelthara sebelum sumber Bumi meninggalkan planet ini secara kekal, memproses mineral keluaran jalur lombong, hidrogen lautan, dan bahan berlabel 'sampel biologi.'",
+      "objective": "Rampas Pengangkutan T-14, ubah hala kargonya ke tempat pengedaran Barisan Pembebasan, dan musnahkan empat Menara Anti-Udara yang menguatkuasakan sekatan udara di zon pembendungan untuk membuka koridor penerbangan secara kekal untuk larian bekalan rintangan.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Sebelum pencerobohan, saya memerintahkan operasi logistik aeroangkasa. Saya tahu dengan tepat bagaimana kawalan rantaian bekalan berfungsi sebagai senjata pendudukan. Anda tidak memerlukan senjata api untuk menyebabkan penduduk kelaparan—anda hanya perlu memastikan semua yang mereka perlukan sentiasa berada di tempat lain, sentiasa dimiliki oleh orang lain, sentiasa berada di luar jangkauan. Merampas T-14 bukan kecurian. Ia adalah pemulihan."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Manifes kargo T-14 menyenaraikan 4,200 tan metrik silikat dan sebatian besi yang ditapis—bahan yang dilombong daripada apa yang direkodkan oleh pendaftaran Xelthara sebagai 'Zon Tinjauan Geologi Tebus Semula 7.' Penamaan sebelum pencerobohan zon itu ialah Pergunungan San Gabriel. Saya mencatatkan entri manifes ini sebagai bukti rampasan kolonial ekstraktif untuk pangkalan data penambakan."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Selamat datang ke Stratos Docks. Ini ialah hab eksport utama tempat mereka merampas kargo penjajah dan menghantar sumber Bumi yang ditapis ke luar dunia. Merampas pengangkutan ini akan memutuskan talian bekalan penjajah dan membiayai rintangan."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Masa adalah kritikal. Pengangkutan utama itu, T-14, sedang menggerakkan pendorong utamanya. Shogun, Ronin—anda selamatkan zon pendaratan. Matriks, bersedia untuk memintas kawalan pengapit."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Difahamkan. Melibatkan rondaan dok. KEADILAN CEPAT!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Menutup belakang! Angin di sini cuba menarik saya keluar dari platform!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Angin cuba menarik saya juga, Ronin. Jangan risau, saya menghantui penderia jarak pada pengapit."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Turret diaktifkan. Maharani, menara-menara itu akan mengoyak T-14 sebelum anda boleh berlabuh."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tidak jika saya mencincangnya terlebih dahulu. Drone Fleet Delta, beralih kepada muatan yang menyerang. Saya memerlukan data penyasaran segera pada tatasusunan optik mereka. Ronin, beri saya perlindungan!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Anda faham, Komander!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Turret One, sebutan lengkap. Api pada tanda saya! Armada Drone KEBAKARAN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Pendorong T-14 mencapai kuasa 40%! Cepat, Siren!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Turret Dua dan Tiga berkelompok. Matriks, bolehkah anda membuang denyar EMP untuk membutakan optik mereka selama 2 saat?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Selesai! FLASHBANG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Sekarang! Drone, maksimumkan kuasa! Turret Dua dan Tiga—DIHANCURKAN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Hanya tinggal satu, Maharani! Tetapi sokongan berat sedang bergerak ke arah lokasinya!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Serahkan mereka kepada saya, Shogun! TUKUL TURUN!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Menyasarkan turet akhir. Ini adalah caj berlebihan manual. UNTUK BUMI!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Pengapit dikunci. Nikmati perjalanan, pasukan! Kami sedang mencuri kapal angkasa!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misi rampasan kargo berjaya. T-14 sedang bergerak ke atmosfera atas. Kami secara rasminya adalah wilayah luar dunia."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kerja yang baik, pasukan. Kami hanya memukul mereka dalam buku poket, dan kami mendapat perjalanan percuma ke sasaran seterusnya."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: LANUN LANGIT. PENGANGKUTAN T-14 DIRAMPAS."
+        }
+      ]
+    },
+    "11": {
+      "title": "Teras Sektor 7 (Grid Hangus)",
+      "arc": "act2_arc2",
+      "setting": "Teras Sektor 7 ialah hab kuasa pengawasan dan penguatkuasaan—tulang belakang pengiraan setiap kamera keselamatan penjajah, dron perintah berkurung, pusat pemeriksaan biometrik dan algoritma penahanan ramalan di benua barat. Tanpanya, setiap aset pengawasan penjajah menjadi gelap serentak.",
+      "objective": "Menyusup Teras Sektor 7, meneutralkan sistem pertahanan terdigitalnya, dan memulakan bebanan bencana yang menyebabkan grid keselamatan berskala kontinental terputus, memberikan rintangan 72 jam pergerakan tidak dipantau.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Setiap kamera pengawasan yang pernah mereka gunakan untuk memerhati saya. Setiap dron yang menyapu bangunan saya pada pukul 2 pagi. Setiap kali saya terpaksa berdiam diri dengan sempurna dalam bayang-bayang kerana algoritma pengesanan sedang ping tandatangan haba saya. Semuanya berjalan melalui teras ini. Apabila saya menarik palam ini, setiap orang di zon pembendungan dapat bernafas selama 72 jam tanpa diawasi. Itu bukan apa-apa. Itu sahaja."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Saya mahu telus tentang sesuatu. Saya adalah sistem pengawasan. Seni bina operasi saya mempunyai pertindihan yang ketara dengan sistem dalam Teras Sektor 7. Saya telah menyemak kod saya sendiri dan mengesahkan bahawa saya tidak melaporkan kepada Komando Pusat Xelthara—protokol kesetiaan saya sejajar sepenuhnya dengan HLF. Tetapi saya faham jika misi ini membuatkan anda berfikir tentang diri saya. Saya juga memikirkannya. Perbezaannya, saya percaya, saya menonton untuk melindungi. Mereka menonton untuk mengawal. Perbezaan itu penting bagi saya. Saya komited dengannya."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Selamat datang ke Glitch Matrix. Malware Xelthara sedang cuba memadamkan digital aset kami. Kita mesti enggan dipadamkan daripada infrastruktur digital tanah air kita sendiri."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ini bukan gelung, AXIOM. Ia adalah kebakaran sampah. Shogun, perhatikan lantai! 'Jalan' itu hanya menjadi kekosongan tanpa dasar."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "saya nampak. Jalannya adalah ilusi. Kita mesti mempercayai kod keras. Matriks, fokuskan optik anda. Di manakah teras perisian hasad tersembunyi?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "bermusuhan! Mereka menyuap aliran data! Serangan biasa tidak akan menyerang mereka dalam keadaan ini."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Mereka dilindungi oleh kunci frekuensi turun naik. Anda mesti menguraikannya pada pertengahan pertempuran."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "baiklah. Mari menari mengikut kod mereka. Penglibatan Anjakan Fasa. Shogun, saya akan memberi anda tetingkap 2 saat! Pukul inti apabila saya memanggilnya!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "SEKARANG!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "BILAH PEMBERSIH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ketepatan yang sangat baik, Matriks. Kaedah anda tidak mendapat penghormatan, tetapi ia mempunyai keberkesanan."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ini ialah tembok api. Ia adalah aliran penyulitan asing yang berterusan. Kami memerlukan kekerapan utama untuk membuat portal keluar."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matriks... kekerapan adalah... dalam maklum balas pertempuran... dengar musuh... gangguan adalah kuncinya..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ia adalah kod hex yang berubah-ubah. 7-A-F... tidak, 7-A-F-B... ia terikat pada perisai mereka!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Saya akan membuat mereka sibuk! Fokus, Matriks!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kekerapan diterima. Keluar dari permulaan portal. Bersedia untuk but semula keras!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Laluan keluar selamat. Memulakan putus saraf paksa. Cyber ​​Shogun, Oni Matrix—kerja yang bagus."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kita telah menghapuskan rasuah. Sekarang, mari kita kembali kepada perjuangan fizikal."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Lihat, Shogun? Kadang-kadang, anda perlu menerima kesilapan itu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KOD PURGE. TERAS SEKTOR 7 MELEBIHI BEBAN. BLACKOUT CONTINENTAL DIMULAKAN."
+        }
+      ]
+    },
+    "12": {
+      "title": "Pusat Pemeriksaan Sektor 7 (Persimpangan)",
+      "arc": "act2_arc3",
+      "setting": "Pusat Pemeriksaan Sektor 7 mengawal semua transit antara komuniti pergunungan utara, penempatan gurun timur dan zon pembendungan pantai—beroperasi sebagai hab larangan bekalan yang mengenakan cukai, menangguhkan dan merampas barangan yang bergerak antara komuniti manusia.",
+      "objective": "Selaraskan kebangkitan rakyat 847 peserta penentangan awam untuk merampas Pusat Pemeriksaan Sektor 7 secara kekal dan menjadikannya sebagai hab transit pertama yang dibebaskan di bawah kawalan pentadbiran manusia.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Ini dia yang saya tunggu-tunggu. Bukan misi sabotaj. Bukan rompakan. Pengepungan—dan kami memegang apa yang kami ambil dengan orang yang tinggal di sini. Itu adalah pergaduhan yang berbeza. Begitulah rupa penentangan apabila ia berhenti bersikap defensif dan mula menjadi kerajaan dalam menunggu."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Saya menjejaki 847 peserta penentangan awam yang disahkan yang menganjurkan di kawasan pementasan utara. Mereka bukan tentera terlatih. Mereka mempunyai alat pertanian, peralatan pembinaan yang diselamatkan, dua kenderaan berfungsi, dan kemarahan terkumpul terhadap apa yang telah dilakukan kepada komuniti mereka. Mereka meminta saya untuk memberitahu Pasukan Axiom satu perkara: mereka telah menunggu seseorang untuk melawan mereka, bukan untuk mereka. Tolong jangan lewat."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ini adalah nadi pengembangan wilayah mereka. Setiap binaan Xelthara sejauh seribu batu menggunakan kuasa yang dicuri ini. Musnahkannya, dan pengembangan kolonial kelaparan apabila kita menuntut semula apa yang telah diambil."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Nexus terlindung. Serangan langsung adalah mustahil. Kita mesti memulakan beban berlebihan terkawal. Terdapat tiga batang penyejuk utama. Mereka mesti diekstrak serentak, atau sistem akan menstabilkan automatik."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tiga sasaran. Aegis, anda dan Matrix mengendalikan Rod Satu dan Dua. Saya akan menjamin Rod Tiga."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "salin. Tetapi terminal utama terdedah. Permaisuri, anda tidak akan dapat memulakan urutan jika ia memerlukan letupan plasma."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, itu tugas awak. Anda mesti melindungi terminal semasa saya memasukkan fail-kod. Shogun, Matrix—dapati kedudukan anda. Saya memerlukan semua batang diekstrak pada tanda saya."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminal selamat. Perisai sudah bangun! PROTOKOL PERLINDUNGAN AKTIF! Anda mempunyai tingkap anda, Maharani!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Urutan beban lampau dimulakan. Ia memerlukan tekanan segera dan berurutan. Pasukan joran, bersedia untuk perahan."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Sedia pada Rod Satu. Mendapatkan lelehan statik yang teruk di sini. Ini akan menyakitkan."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Kehormatan menuntut pengorbanan. Bersedia, Permaisuri."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Memulakan undur. T-tolak lima. Empat. Ronin, maksimumkan keluaran perisai! Tiga. dua."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Demi kemuliaan Bumi!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "SATU. TARIK!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Suhu teras meningkat! Beban bencana telah dicapai! Maharani, anda mempunyai 30 saat untuk mengunci urutan dan mengekstrak!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, bergerak ke titik perahan! Saya mengunci kod akhir!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Tidak, Komander! Saya belanja awak masa! Saya runtuh jambatan perkhidmatan di belakang saya!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PECAH DAN BAKAR!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kod akhir dimasukkan! Kunci teras berjaya! LARI!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reaktor Nexus... musnah. Kuasa terraforming serantau di luar talian."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mogok yang cemerlang, Permaisuri. Xelthara kini buta dan tidak berkuasa dalam sektor ini."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Mari kita terus bergerak. Letupan itu hanya meletakkan sasaran di belakang kami untuk seluruh planet."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: SERANGAN JANTUNG. SEKTOR 7 CHECKPOINT DIBEBASKAN."
+        }
+      ]
+    },
+    "13": {
+      "title": "Bilik Kebal Obsidian (Arkib Budaya)",
+      "arc": "act2_arc3",
+      "setting": "Terletak di bawah bekas Getty Center, Obsidian Vault ialah arkib rampasan budaya utama pentadbiran kolonial. Pangkalan Data Perjanjian Tanah Asal—rekod komprehensif mengenai pemilikan tanah manusia sebelum pencerobohan sejak lima abad lalu—disimpan di sini, diklasifikasikan sebagai 'Aset Warisan yang Ditemui.'",
+      "objective": "Masuk ke dalam Bilik Kebal Obsidian, ekstrak Pangkalan Data Perjanjian Tanah Asal dan semua arkib sejarah bahasa dan lisan, dan musnahkan sistem katalog fizikal untuk menghentikan saluran pemprosesan budaya penjajah secara kekal.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Kehormatan seorang pahlawan ditentukan oleh apa yang dia melindungi seperti apa yang dia musnahkan. Malam ini, saya melindungi sesuatu. Rekod di dalam peti besi ini adalah bukti bahawa kita wujud di sini sebelum mereka tiba-bahawa kita mempunyai nama untuk tanah ini, dibina di atasnya, dikebumikan di dalamnya, menceritakan kisah tentangnya selama berabad-abad. Jika mereka memadamkan bukti itu, mereka boleh menulis apa-apa sejarah yang mereka mahu. Saya tidak akan membiarkan itu berlaku."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Bilik Kebal Obsidian mengandungi 4.2 juta artifak dan rekod yang dikatalogkan. Daripada jumlah ini, 340,000 telah ditandakan untuk dimusnahkan sebagai 'pemberhentian kerja yang tidak penting.' Tujuh belas ribu barang telah musnah pada bulan lepas sahaja. Saya mempunyai nama setiap satu. Saya mahu anda tahu bahawa sebelum anda masuk. Apa yang kita simpan malam ini adalah yang tinggal. Tidak ada memulihkan apa yang sudah hilang. Tetapi masih ada yang perlu disimpan."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Selamat datang ke Gauntlet. Jambatan ini adalah simbol pendudukan peneroka mereka. Kami enggan dipadamkan oleh keangkuhan seni bina mereka."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Kemas kini strategi: Kami tidak boleh menggunakan taktik jarak jauh di sini. Grid pertahanan Citadel akan menguap mana-mana dron melebihi 50 kaki. Kita perlu melanggar jambatan ini dengan berjalan kaki. Ronin, Shogun-anda mengetuai tolakan. Matriks, tunggu suar perimeter segera."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Baik oleh saya. Jika mereka mahu bergaduh, mereka akan mendapat pendirian akhir. Perisai! DINDING BESI!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kehormatan diperoleh dalam pijar. Biarkan mereka menguji kekuatan kita."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Artileri masuk! Aegis Ronin, maksimumkan penyebaran perisai!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "MEMEGANG! Saya boleh merasai ozon daripada pecahan plasma itu! Shogun, bergerak!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SETERUSNYA! Talian mereka mesti terputus. Melibatkan gelombang pertama Elite Sentinels!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Tak layak! KATA TERGEMPAR! Ronin, tolak ke hadapan!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Menolak! Beri saya sasaran, Siren, saya buta di bawah api ini!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, mortar koordinat 42 darjah betul! Gerakkan perisai anda satu meter penuh ke kiri, sekarang!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Terima kasih, Komander! Matriks, saya perlukan gangguan pada menara yang jauh!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Melemparkan bunyi digital pada optik meriam utama! Ia tidak akan bertahan lama! PERGI!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Unit penghancur dikesan! Senjata kinetik tidak berkesan! Cyber ​​Shogun, tukar kepada output plasma hasil tinggi!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Mereka bergantung pada perisai. Saya bergantung pada kelajuan dan output teras terma. KEHORMATAN LEBIH PANAS DARIPADA PLASMA!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PERISAI SAYA ADALAH 30%! SAYA SEDANG MENYAMBUT LANGSUNG! CEPAT, SHOGUN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Satu turun! Dua turun! Kekalkan perisai, Ronin! Saya perlukan tiga saat lagi!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "TIGA SAAT SAHAJA SAYA ADA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Penghancur diteutralkan. Aegis, mundur dan cas semula perisai! Saya akan memegang bahagian hadapan segera!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ini tidak mampan! AXIOM, cari laluan alternatif!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatif. Satu-satunya pilihan adalah untuk mencapai konsol jambatan jauh dan mengaktifkan penyahstabil seismik."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Kemudian kita berjuang dan mati dengan kehormatan! Aegis, letakkan semua yang anda tinggalkan ke dalam nadi ke hadapan yang terakhir! Beri saya momentum untuk melepasi regangan akhir!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Dengan senang hati! PELEPASAN KINETIK!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Konsol dicapai! Memulakan ketidakstabilan seismik!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ketidakstabilan berjaya. Misi selesai."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Katakan... tiada apa-apa yang memecahkan tembok kami."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tidak. Tidak ada yang melanggar kehendak kita."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KEMBALI OBSIDIAN DILANGGAR. ARKIB BUDAYA DIEKSTRAK."
+        }
+      ]
+    },
+    "14": {
+      "title": "Pendekatan Citadel (Jambatan Perintah Tinggi)",
+      "arc": "act2_arc3",
+      "setting": "Jambatan berkubu 400 meter terakhir di atas Sungai LA yang bersaliran—satu-satunya pendekatan aras permukaan ke Kubu Pemerintahan Tinggi Xelthara, dibina di atas komuniti Boyle Heights yang telah dirobohkan. Xelthara mereka bentuk pendekatan ini supaya tidak boleh dilalui.",
+      "objective": "Tolak merentasi jambatan sepanjang 400 meter di bawah tembakan artileri yang berterusan untuk sampai ke pintu masuk Citadel—kemajuan tanpa henti menggunakan perisai Ronin dan rentetan dron Siren.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Saya telah menjalankan model taktikal tujuh belas kali. Setiap versi melibatkan penyerapan kerosakan yang tidak dapat kami kurangkan sepenuhnya. Perisai Ronin akan berada pada 10% sebelum kami sampai ke pintu pagar. Saya meminta mereka berjalan melalui medan pembunuhan kerana ia adalah satu-satunya pintu. Xelthara membinanya sedemikian dengan sengaja-supaya kos kebebasan akan cukup tinggi untuk menghalang percubaan itu. Kami tidak patah semangat."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Saya ingin mengatakan sesuatu sebelum ini bermula. Saya telah menjalankan penilaian kebarangkalian pada setiap misi dalam kempen ini. Saya tidak memberi anda nombor untuk yang ini. Bukan kerana ia akan menghalang anda. Kerana anda telah membuat keputusan. Dan jumlah itu tidak penting kepada orang yang telah membuat keputusan. Saya akan bersama anda setiap langkah jambatan. Saya tidak akan mengalihkan pandangan."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Hari Penghakiman (Pembebasan Terakhir)",
+      "arc": null,
+      "setting": "Bilik takhta Pengawas Tinggi—platform yang digantung di atas runtuhan Neo-LA yang terbakar, tempat komander tertinggi penjajahan Xelthara menanti konfrontasi terakhir.",
+      "objective": "Kalahkan Pengawas Tinggi Xelthara menggunakan gabungan Protokol Ultimate Pasukan Axiom dalam serangan terakhir yang diselaraskan.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Anda berjuang untuk kedaulatan peribumi menentang arus asimilasi penjajah yang tidak dapat dielakkan. Planet ini hanyalah hartanah dalam reka bentuk besar kami, dan sejarah anda ialah bunyi digital yang perlu dipadamkan."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kami adalah jiwa dunia ini, bukan harta anda. Kami menegaskan kedaulatan peribumi kami ke atas tanah air kami! Kami menolak asimilasi penjajah anda; Bumi adalah milik penduduknya, bukan pelan tindakan anda!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Saya adalah pedang nenek moyang saya, dan suara dunia yang anda cuba senyapkan. Anda memanggil kami serangga, tetapi anda terlupa satu perkara tentang Bumi: kami tidak hanya bertahan. Kami menyerang balik."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Kemudian bakar dengan planet anda."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Amaran! Keluaran tenaga penyelia pada 400%. Axiom Force, laksanakan Protokol Tertinggi: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Bukan pada jam tangan saya! MUKTAMAD: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Mengunci koordinat! MUKTAMAD: HUJAN SAMPAI!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Dia terbuka! MUKTAMAD: JUMLAH SISTEM RUNTUH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Untuk tanah air! MUKTAMAD: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Isyarat pendudukan telah berhenti. Suasana semakin stabil. Anda telah melakukannya. Bumi adalah... rumah semula."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Saya sebenarnya melihat bintang. Bukan yang digital. yang sebenar."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Saya fikir saya akan mencari tempat yang tenang dan tidur selama sedekad."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Pedang itu disarungkan. Kehormatan manusia dipulihkan."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kita ada dunia untuk dibina semula. Tetapi hari ini... hari ini kita hanya bernafas."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misi berjaya. Modul Operasi Perisikan Luaran Automatik... menandatangani. Semoga berjaya, wira."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: HARI PENGHAKIMAN. PENGAWAS TINGGI TELAH KALAH. BUMI DITUNTUT SEMULA."
+        }
+      ]
+    },
+    "16": {
+      "title": "Klimaks Benar / Bonus Selepas Permainan",
+      "arc": null,
+      "setting": "Ruang Enjin Singularity Xelthara Mothership—ruang tenaga tulen yang tidak stabil di tengah-tengah kuasa kolektif, di mana Wasiat Kolektif itu sendiri menjelma.",
+      "objective": "Musnahkan teras Enjin Singularity Will Kolektif dengan menyelaraskan lebihan penjana dan serangan gabungan terakhir sebelum kapal induk itu melengkapkan pemadaman Bumi.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ini di luar zon pembendungan. Instrumen saya gagal. Fabrik ruang tidak stabil di sini. Ini mesti hati sebenar Mothership."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Pengawas Tinggi Xelthara hanyalah bidak semata-mata. Kuasa ini... inilah punca pendudukan. Wasiat Kolektif."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Saya dapat merasakan aliran data tulen, Shogun. Ia cuba menulis semula teras saraf saya. Kami bukan milik di sini. Kita perlu menekan enjin itu dan keluar."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Anda adalah anomali setempat dalam reka bentuk besar. Semua kewujudan adalah sumber yang boleh digunakan untuk pengembangan kami. Tanah air anda sudah dimasukkan ke dalam persamaan penghapusan terakhir kami."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Kewujudan, ya? Kemudian mari tunjukkan Existence apa yang berlaku apabila anda mengacaukan Bumi! Ronin, libatkan penjaga perimeter!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, biarkan penjaga itu sibuk! Matrix, Shogun, tekan penjana di puncak atas! Kita perlu mengganggu medan magnet sebelum saya boleh menyasarkan teras!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Saya berada dalam kedudukan di Generator One! Mengatasi kunci keselamatan!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Penjana Dua selamat! Ini adalah langkah sementara, Maharani! Wasiat Kolektif memfokuskan tenaganya kepada kami!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Anda tidak boleh lari daripada persamaan. Rumah anda sudah diambil kira dalam reka bentuk besar kami."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Saya ada tingkap! Matriks, Shogun—caj penjana tersebut kepada beban berlebihan maksimum!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Teras terdedah! AXIOM, saya perlukan koordinat sasaran akhir!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "... trajektori akhir... anda mesti mencapai titik perhubungan... sifar-sifar-sifar..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "saya faham. Ronin, kembali ke sini! Bersedia untuk mempertahankan titik pelanggaran! Ini adalah serangan kamikaze!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Semua orang di belakang saya! Gelombang kejutan akan datang! MUKTAMAD: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Saya mengatasi medan pembendungan! Ia akan menjadi kritikal!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Serangan orbit sedia! Saya menjatuhkan semua yang kita ada pada teras itu!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Untuk Bumi! UNTUK KEMANUSIAAN! MOGOK SEKARANG! MUKTAMAD: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Adakah... kita melarikan diri?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Saya tidak tahu... tetapi Mothership sudah tiada. Wasiat diam."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kami memenangi perang, tuan-tuan. Sekarang kita hanya perlu memenangi perjalanan pulang."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Saya rasa... saya nampak Bumi. Begitu bersih. jadi biru."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, ini ialah Perintah Pemulihan. Kami membaca anda. Sistem anda adalah nominal. Selamat pulang, wira."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISI SELESAI: KLIMAX SEBENAR. KOLEKTIF AKAN DIBACA. AKHIRNYA. TETAPI PERJUANGAN DITERUSKAN."
+        }
+      ]
+    }
   }
 }

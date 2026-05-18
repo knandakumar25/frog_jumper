@@ -2,30 +2,2131 @@
   "meta": {
     "language": "german",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — german narrative data (STUB — translate from en.json)"
+    "description": "Axiom Force: Reclaim Earth — german narrative data"
   },
   "acts": {
-    "act2_arc1": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc2": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc3": { "title": "", "subtitle": "", "description": "" }
+    "act2_arc1": {
+      "title": "AKT II – ARC 1: Das Trennungsgitter zerbrechen",
+      "subtitle": "Level 5–7: Die physischen Mauern der Besatzung durchbrechen",
+      "description": "Der erste Teil der Mittelkampagne konzentriert sich vollständig auf die physische Infrastruktur der Trennung – die Mauern, Kontrollpunkte, biometrischen Register und Verhaltenskonditionierungsprogramme, die die Xelthara nutzen, um die menschliche Bevölkerung zu zersplittern, zu überwachen und zu traumatisiert zu halten, um sich zu organisieren. Bevor der Widerstand den wirtschaftlichen oder politischen Kern der Besatzung treffen kann, muss er zunächst die isolierten menschlichen Gemeinschaften wieder miteinander verbinden."
+    },
+    "act2_arc2": {
+      "title": "AKT II – ARC 2: DIE FRONT DER RESSOURCENGEWINNUNG",
+      "subtitle": "Stufen 8–11: Beschneidung der wirtschaftlichen Rentabilität der Kolonisierung",
+      "description": "Mit dem Bruch des Segregationsgitters und der Wiederzusammenführung der isolierten Bevölkerungsgruppen verlagert sich der Widerstand auf den wirtschaftlichen Motor der Besatzung. Die Xelthara kamen wegen Ressourcen auf die Erde – nicht wegen Ideologie. Arc 2 ist die Kampagne der wirtschaftlichen Störung: vier aufeinanderfolgende Angriffe gegen die Bergbau-, Verarbeitungs-, Transport- und Sicherheitsinfrastruktur, die die Besatzung finanziell rentabel macht."
+    },
+    "act2_arc3": {
+      "title": "AKT II – ARC 3: ABBAU DER CORPORATE GOVERNANCE",
+      "subtitle": "Level 12–14: Vorstoß ins Herz des kolonialen Verwaltungsstaates",
+      "description": "Die Extraktionsmotoren werden gestoppt. Das Sicherheitsgitter ist dunkel. Die Trennwände sind gebrochen. Was bleibt, ist die administrative und politische Architektur der Besatzung selbst. Handlungsbogen 3 ist die politisch direkteste Sequenz der Kampagne: Der Widerstand kämpft nicht mehr gegen eine Besatzungsarmee. Es geht darum, einen Kolonialstaat Stück für Stück von außen nach innen abzubauen."
+    }
   },
   "levels": {
-    "0": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "1": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "2": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "3": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "4": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "5": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "6": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "7": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "8": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "9": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "10": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "11": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "12": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "13": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "14": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "15": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "16": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] }
+    "0": {
+      "title": "Protocol Zero – Die virtuelle Schmiede",
+      "arc": null,
+      "setting": "Eine riesige, dunkle Drahtgittersimulation einer zerfallenen Skyline der Innenstadt von Los Angeles. Neonblaue Linien markieren Straßen und Gebäude. Ständig flackern statische Störungen über die Ansicht. Die vier Champions stehen auf einer leuchtenden Plattform.",
+      "objective": "Vervollständigen Sie das Trainingsprotokoll, indem Sie alle Bewegungs- und Kampffähigkeiten durchlaufen und in einem gleichzeitigen Truppangriff gipfeln, um eine simulierte schwere Xelthara-Einheit zu zerstören.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Geist im Stillstand",
+      "arc": null,
+      "setting": "Die Ruinen der Kaiserpalastgärten. Xelthara-Terraforming-Strahlen lösen aktiv alte Steinlaternen und Kirschblüten auf und ersetzen sie durch sterile Verwaltungsmonolithen aus Obsidianplatten.",
+      "objective": "Infiltrieren Sie die aktive Abbruchstelle, um den Data-Blade – einen digitalen Aufbewahrungsort der verbotenen Geschichte – zu bergen, bevor das Xelthara-Feld „Kulturlöschung“ die Erinnerung der Stätte für immer löscht.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Sie nehmen nicht nur unser Land; Sie löschen unsere Seele. Ein Jahrtausend lang stand dieser Palast, jetzt wird er für ein regionales Finanzamt zugepflastert. Ich werde nicht zulassen, dass unsere Vorfahren unter ihren Obsidianplatten vergessen werden."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Warnung: Kommunikationstürme senden einen Denial-of-Service. Die Risikowahrscheinlichkeit der Entdeckung beträgt 98,7 %. Rückzug ist ratsam."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "ARCHIVLOG: NEO-TOKYO CULTURE-PURGE. STANDORT: DAS EWIGE ZEN-DOJO (STANDORTBEZEICHNUNG: SIEDLUNGSBLOCK 01). STATUS: ABRISS IN BEARBEITUNG. ARCHITEKTONISCHE LÖSCHUNG BEI 42 %."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Dieser Wald hat den Atem von zehntausend Kriegern absorbiert. Jetzt behandeln sie es wie digitalen Müll, der in den Papierkorb verschoben wird. Für die Xelthara sind unsere Vorfahren nur ein unbequemes Hindernis in ihren Plänen für ein Finanzamt."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Warnung: Die strukturelle Integrität nimmt ab. Die Kolonialverwaltung hat die endgültige „Einebnung“ dieser Stätte genehmigt. Der Rückzug ist der einzig logische Weg."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Logik ist für diejenigen ohne Vergangenheit. Nennen Sie das „Nivellierung“? Ich nenne es einen Krieg gegen die Seele. Sie mögen die Erde pflastern, aber Sie werden feststellen, dass die Wurzeln unserer Ehre tiefer liegen als Ihre Obsidianplatten!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Jeder Splitter in diesem Holz ist eine Erinnerung, die man nicht löschen kann! KATA: Ahnenschlag!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Schauen Sie sich ihr „Paradies“ an. Ein Grab aus Glas und Draht, errichtet auf dem Grab eines Jahrtausends. Ich weigere mich, zuzulassen, dass die Geschichte der Menschheit ausgelöscht wird, um Platz für Ihre Tabellenkalkulationen zu schaffen. Solange ich stehe, erinnert sich Tokio!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Leuchtfeuer neutralisiert. Der Abriss ist ins Stocken geraten, aber die Kolonialbehörden leiten eine Enforcer-Legion um. Du kämpfst in einer Geisterschlacht, Shogun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Dann bin ich ein Geist, der ihre Siedlungen für immer heimsuchen wird. Wenn wir den Stein nicht retten können, werden wir die Geschichte retten. Sichern Sie sich den Data-Blade! Lassen Sie sie nur dort Feuer finden, wo sie Compliance erwartet haben!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Die Xelthara wollen unsere Geschichte in der Vergangenheitsform schreiben. Heute schreibe ich es in Plasma. Dieses Dojo fällt, aber der Widerstand steigt."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DIE EWIGE ERINNERUNG. DIE SPÜLUNG WURDE UNTERBROCHEN."
+        }
+      ]
+    },
+    "2": {
+      "title": "Das konkrete Lauffeuer",
+      "arc": null,
+      "setting": "Das riesige, umzäunte Einlasstor der Eindämmungszone 4. Tausende Familien werden wie Vieh durch Energiezäune getrieben. Hinter ihnen werden ihre Vorstadthäuser von Xelthara-Erweiterungsläufern dem Erdboden gleichgemacht.",
+      "objective": "Halten Sie die „Letzte Brücke“ gegen die Xelthara-Vollstrecker, die die Bevölkerung zusammentreiben, und ermöglichen Sie einer letzten Gruppe von Flüchtlingen, in die nicht kartierten Slums statt in die geschlossenen Lager zu schlüpfen.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "VERFLUGUNGSPROTOKOLL: ABSCHNITT 4 NEUANSIEDLUNGSPROTOKOLL. VERTEIDIGER: AEGIS RONIN (FAHRGESTELLSTATUS: KRITISCH). BEDROHUNGSSTUFE: OMEGA. ZAHL DER FLÜCHTLINGE: 412. AKTUELLES AUFTRAG: SCHÜTZEN SIE DIE VERFLUCHTEN. VERTEIDIGEN SIE DIE SCHWELLE."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, sagen Sie den Extraktionspiloten, sie sollen abfeuern! Diese Decke wird nicht leichter!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, die strukturelle Integrität liegt bei 14 %. Die Xelthara-Belagerungseinheiten setzen schwere Plasmamörser ein. Die Wahrscheinlichkeit, dass Sie zerquetscht werden, liegt bei 99,2 %."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Dann nehme ich diese 0,8 % und schiebe sie ihnen in den Rachen! SCHILD AUF!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bleiben Sie in Bewegung! Sie wollen dich wie Vieh in Käfige treiben. Solange ich Luft hole, bin ich die Mauer zwischen dir und ihren Eindämmungszonen. Sie werden heute keine weitere Seele verdrängen!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Belagerungseinheiten anvisiert. Sie zielen auf die Stützpfeiler ab. Wenn sie schießen, fällt die gesamte Mauer von Sektor 4 auf die Evakuierungszone."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nicht auf meiner Uhr. Kinetische Überlastung!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Eins weniger! AXIOM, der Schildgenerator jammert. Ist das normal?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negativ. Der Prototyp absorbiert zu viel kinetische Energie. Es wird zur Bombe. Sofort ausklinken!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nein. Ich werde dem Xelthara ein Souvenir schenken. Ich überfordere es."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, deine Vitalfunktionen schießen in die Höhe! Die Analyse deutet auf ein katastrophales Scheitern hin. Überlebenschance: 0,1 %!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bessere Chancen als in den Sicherheitslagern. Das ist eine einfache Fahrt, Junge. Können Sie der Front sagen, dass sie mir einen Drink schulden?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "FÜR DIE HEIMAT! ESSEN SIE BETON!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin? Aegis Ronin, antworte ... Ich habe ... Augen auf eine Unterschrift gerichtet ... Der Schild hielt. Die Wand ist sicher."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DIE UNZERBRUCHBARE MAUER. AEGIS RONIN TRITT DEM HLF BEI."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neonrost und Datenstaub",
+      "arc": null,
+      "setting": "Die buchstäbliche „Unterstadt“ – ein Netzwerk von Wartungsschächten unter einer glänzenden, neonbeleuchteten Xelthara-Siedlung. Oben genießen die Bewohner terraformierte Luft; Unten suchen die marginalisierten Menschen nach ozonverseuchtem Sauerstoff.",
+      "objective": "Entziehen Sie Energie aus dem kolonialen Stromnetz, um die Lebenserhaltungssysteme der marginalisierten Bevölkerung mit Strom zu versorgen, und entgehen Sie gleichzeitig den „Purity Patrols“, die nach menschlichen Streunern jagen.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Sie bauen ihr Paradies an unsere Decke und wundern sich, warum der Keller undicht ist. Wir leben in den Lücken, die sie zu schließen vergessen haben. Diese Kraftzelle ist nicht nur für mich; Es geht darum, die Heizungen für die hundert Familien anzuhalten, die sie in den Bauplänen „vergessen“ haben."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Warnung: Die Integration von Xelthara-Hardware in zivile Chassis wird nicht empfohlen. Bei neuronalem Feedback wird eine Instabilität von 40 % prognostiziert. Matrix, Ihre Herzfrequenz überschreitet sichere Parameter."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "MARGINALISIERTER LOG: UNTEREBENE SCHROTTSTADT. STATUS: ÜBERLEBEN. EINDRINGLINGSALARM: NULL ERKANNT. SYSTEMVERTRAUEN: 100 %. ZIEL: DEN KOLONIALEN FUNKEN STEHEN. STEIGERN SIE DEN WIDERSTAND."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Sie bauen ihr Paradies an unsere Decke und wundern sich, warum der Keller undicht ist. Wir leben in den Lücken, die sie zu schließen vergessen haben. Ich werde ihre eigene Schrotttechnik umfunktionieren, um ihr Gitter zu braten. Von den Rändern aus schlagen wir zurück."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Integration erfolgreich. Die Phasenverschiebungsfunktion ist online. Hinweis: Dauerhafter Gebrauch führt zu einer Schädigung der Nerven."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Als würde man durch Rauch gehen. Jetzt lasst uns den Ausgang finden, bevor ich vergesse, wie sich die Realität anfühlt."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Lockdown eingeleitet. Der Erntekern erreicht die kritische Temperatur. Sie müssen das Begrenzungstor sofort deaktivieren."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Eine EMP-Explosion sollte es tun. Geben wir ihnen ein wenig Datenstaub, damit sie sich an mich erinnern."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Und das ist mein Stichwort."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Das war ein sehr lauter Abgang, Matrix. Ich verfolge deine Unterschrift seit der Raffinerie."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Wer ist das? Wie geht es dir auf diesem Kanal?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Ich bin Kaiserin Sirene. Wir sind diejenigen, die dafür kämpfen, dass es noch eine Stadt zum Ernten gibt. Du hast die Gabe, Dinge kaputt zu machen, Geist. Das könnten wir gebrauchen. Sind Sie es leid, sich im Rost zu verstecken?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Der Rost wurde sowieso langweilig. Gehen Sie voran, Sirene."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DER GEIST IN DER MASCHINE. ONI MATRIX TRITT DEM HLF BEI."
+        }
+      ]
+    },
+    "4": {
+      "title": "Zerschmetterter Aegis of the Void-Kommandant",
+      "arc": null,
+      "setting": "Die zerstörten Überreste des Pacific Defense Hub. Die stolze, traditionelle militärische Infrastruktur wird von den Xelthara recycelt, was Siren dazu zwingt, ein dezentrales Netzwerk versteckter Zellen zu koordinieren.",
+      "objective": "Zerlegen Sie den letzten militärischen Sendemast und verteilen Sie seine Frequenzchips an zivile Widerstandszellen, um den Übergang zum Guerillakrieg abzuschließen.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Das Zeitalter der stehenden Heere ist vorbei. Wir können ihnen nicht auf dem Feld begegnen, also werden wir zum Feld. Teilen Sie das Signal. Dezentralisieren Sie den Befehl. Wenn es keinen Kopf zum Abschlagen gibt, kann der Widerstand nicht sterben."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Kaiserin, Ihre Sendung stellt ein großes Risiko dar! Sie legen Ihren Standort und das Frequenzmuster des Widerstands offen. Das ist nicht optimal. Bitte brechen Sie die Übertragung ab."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DEZENTRALISIERUNGSPROTOKOLL: GUERRILLA-ÜBERGANG INITIERT. STANDORT: LAST STAND COMMAND (PACIFIC HUB). STATUS: KONVENTIONELLE KRAFT BESIEGT. ASYMMETRISCHE LEHRE AKTIV. KOMMANDANT: EMPRESS SIREN (TAKTISCHER CODE: VOID COMMANDER). LETZTER BEFEHL: ZERSTÖREN SIE DEN BEFEHL. WERDEN SIE ZUM STURM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Das ist Void Commander. Die traditionelle Hierarchie wird aufgelöst. Ihr seid keine Soldaten mehr; Ihr seid Zellen. Verblassen Sie in der Stadt. Zuschlagen, wenn sie schlafen. Erobern Sie Ihr Zuhause Schatten für Schatten zurück."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kommandant, die Fluchtschiffe melden beim Start eine Verlustrate von 85 %. Xelthara-Kämpfer geben Nichtkombattanten Vorrang. Sie kennen unsere Fluchtvektoren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Sie stützen sich auf taktische Daten aus der Zeit vor der Invasion. Ich werde die Daten ändern. AXIOM, sperren Sie den zentralen Netzwerk-Nexus. Ich umgehe die Firewalls manuell."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Unsere Flotte ist weg. Unsere Basis ist Staub. Übrig bleiben nur die Daten. Ich muss präzise sein. Die Pflicht eines Kommandanten besteht gegenüber den Lebenden und nicht bei der Verteidigung einer Leiche."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Neue Parameter geladen. Nun zum schwierigen Teil. AXIOM, leiten Sie die Energie von meiner zusätzlichen Lebenserhaltung zur Drohnen-Synchronisationsanlage um."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Commander, dadurch sinken Ihre Fahrwerksreserven auf 12 %. Das Risiko eines Systemausfalls ist hoch. Davon rate ich ab."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Führen Sie den Auftrag aus. Diese Leben sind 12 % meines Systems wert. Ich brauche eine klare Sichtlinie, AXIOM. Die Mikrodrohnen werden jetzt synchronisiert."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drohnenflotte Eins, bilden Sie einen Schutzschwarm um das Evakuierungsshuttle. Drohnenflotte Zwei, bereiten Sie sich auf den Angriffseinsatz vor. Ziele: Xelthara-Kolonne 8-B, auf dem Weg zum primären Ziviltunnel."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Spalte befindet sich direkt unter einem eingeschränkten Sektor. Aufgrund der destabilisierten kinetischen Satellitenplattform ist ein Orbitalbeschuss verboten."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Verboten ist irrelevant. Ich werde nicht zusehen, wie sie sterben. AXIOM, geben Sie mir manuellen Zugriff auf den Flugbahn-Feed der Kinetic Satellite Platform. Ich brauche einen einzigen, verzweifelten Schuss."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Void-Befehl an die Kinetische Plattform – FEUER. Koordinate 51.4883 N, 120.7301 W. VERLÖSCHUNGSPROTOKOLL."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Systemschaden überwältigend! Der Satellit hat die Umlaufbahn verlassen. Kommandant, Sie müssen sich zurückziehen. Der Bereich ist mit energiereicher Strahlung gesättigt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Rückzug bestätigt. Missionsziel – ziviles Überleben – erreicht. Sie haben unseren Himmel erobert, aber sie werden niemals unsere Entschlossenheit nehmen. Jetzt extrahieren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DER VOID COMMANDER. Kaiserin Siren trat der HLF bei."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neon Embers – Der Grenzbruch",
+      "arc": "act2_arc1",
+      "setting": "Das aktive Sektor-4-Trenngitter – eine 40 Meter hohe Energiemauer, die mit biometrischen Scannertürmen, Kontrollpunkten für die Genehmigungsbearbeitung und Stationen der Xelthara-Grenzbehörde befestigt ist. Es teilt Los Angeles physisch in zwei Hälften und isoliert die menschliche Eindämmungszone vom Xelthara-Kolonialsektor. Die Mauer ist keine militärische Anlage. Es handelt sich um eine administrative Angelegenheit.",
+      "objective": "Deaktivieren Sie alle vier biometrischen Scannertürme, zerstören Sie den zentralen Permit Processing Core – die bürokratische Maschine, die die menschliche Bewegung steuert – und stürzen Sie die Große Trennung, damit die Bevölkerung der Sicherheitszonen frei durch ihre eigene Stadt gehen kann.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Diese Mauer hat nicht nur die Stadt in zwei Hälften geteilt. Es hat mich halbiert. Alles, woran ich mich erinnere – der Geruch der Küche meiner Großmutter in der Spring Street, das Geräusch des 5th Street-Busses – liegt auf der anderen Seite dieses Dings. Und ich muss mich wie ein Krimineller dorthin zurückschleichen."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Das Sektor-4-Trenngitter wird in den Verwaltungsunterlagen von Xelthara nicht als militärische Einrichtung eingestuft. Es wird als „Bevölkerungsoptimierungs- und Verkehrskontrollsystem“ aufgeführt. Das Rebranding ist der Punkt. Es ist eine Wand, die wie ein Gottesdienst klingt."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "VERSCHIEBUNGSPROTOKOLL: SEKTOR-4-TRENNGITTER. STRUKTURTYP: KOLONIALER VERWALTUNGSKONTROLLPUNKT. NICHT MILITÄR. DAS IST ABSICHT. BEDROHUNG: GRENZBEHÖRDE XELTHARA – DURCHSETZUNGSABTEILUNG. BIOMETRISCHE SPIRME: 4 AKTIV. PERMIT CORE: ONLINE. ZIEL: DIE VERWALTUNGSARCHITEKTUR DER TRENNUNG ABBAUEN. ÖFFNEN SIE DIE STADT."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "Die Wand nannten sie eine Tür"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Struktur, die Sie betrachten, wird in den Kolonialunterlagen als „Sektor-4-Bevölkerungsoptimierungs- und Verkehrskontrollsystem“ bezeichnet. Es ist eine Mauer. Es handelt sich um eine Trennmauer. Jeder einzelne Mensch auf dieser Seite benötigt für die Überquerung eine von Xelthara ausgestellte Aufenthaltserlaubnis. Die Genehmigungen werden nicht erteilt. Das Bewerbungssystem hat einen Rückstand von zwei Jahren. Das ist kein Unfall. Das ist die Architektur der permanenten Vertreibung."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ich verbrachte acht Monate in einer Sicherheitszone wie dieser, nachdem sie das San Fernando Valley eingenommen hatten. Acht Monate lang habe ich zusehen müssen, wie Kinder kleiner werden, weil die Kalorienrationen für eine Spezies konzipiert sind, die nicht das Gleiche frisst wie wir. Und auf der anderen Seite essen sie unser Essen. In unseren Restaurants. In unserer Stadt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, bestätigen Sie die vier Turmstandorte für die Truppe."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha befindet sich am ehemaligen Standort des Kunstkorridors Grand Avenue. Spire Beta wird an der Ecke 5th und Spring gepflanzt. Spire Gamma ist in die Außenwand der alten Zentralbibliothek eingebettet. Spire Delta verankert den südlichen Endpunkt der Mauer am Fluss. Der Permit Processing Core ist in der Kontrollpunktstation am ehemaligen Pershing Square untergebracht. Alle vier Türme müssen deaktiviert werden, bevor der Kern durchbrochen werden kann. Die Zerstörung des Kerns führt zu einem Kaskadenkollaps der gesamten Energiemembran."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "5. und Frühling."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Das ist... das ist die Ecke, wo das Gebäude meiner Großmutter steht. War. Ist. Spire Beta ist in ihrem Vorgarten gepflanzt. Sie stellten ihren Mauerpfosten in ihren Vorgarten."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matrix—"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Nicht. Mir geht es gut. Ich bin einsatzbereit. Ich sage, dass es meine persönliche Aufgabe ist, den Turm einzustürzen. Niemand außer mir berührt Beta."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Verstanden. Es gehört dir."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, du gehst mit Spire Alpha auf den Kunstkorridor. Shogun, Spire Gamma in der Zentralbibliothek. Matrix hat Beta. Ich werde die Drohnenunterdrückung auf den Patrouillenrouten koordinieren und mich Shogun beim Anflug auf die Bibliothek anschließen. AXIOM wird die Sequenzierung leiten. Alle vier Türme fallen nacheinander, dann treffen wir auf dem Pershing Square zusammen und nehmen den Kern Stück für Stück auseinander."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Hinweis: Die Patrouillen der Grenzbehörde sind dicht, aber strukturiert. Der Kontrollpunkt ist rund um die Uhr mit dem Vollzugsbeamten und Administrator Voss besetzt, der die physische Durchfahrtsgenehmigung verwaltet. Er ist kein Kampfoffizier. Er ist ein Bürokrat. Er hat im vergangenen Monat persönlich 4.400 Grenzübergangsanträge abgelehnt."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4.400. Menschen, die einfach nur nach Hause gehen wollten."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Die grausamste Waffe des Kolonialismus ist nicht der Soldat mit dem Gewehr. Es ist der Sachbearbeiter mit dem Stempel, der Ihnen mitteilt, dass Ihre Existenz einer Genehmigung bedarf. Dass ein Mensch einen Besatzer um das Recht ersuchen muss, auf dem Boden seiner eigenen Vorfahren zu gehen. Ich habe meinen Frieden mit kämpfenden Soldaten geschlossen. Die Konfrontation mit der Architektur der Erlaubnis – ihrer beiläufigen, systematischen Demütigung – zermürbt den Geist auf eine Weise, die keine Klinge schneiden kann."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Patrouillen wechseln sich ab. Es gibt ein 90-Sekunden-Fenster für den Anflug auf die Hope Street, das in 30 Sekunden beginnt. Gehen Sie auf mein Zeichen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Position im Schatten halten, bis AXIOM-7 das Signal gibt."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Mark. Gehen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bewegen. Bleiben Sie unter der Obergrenze der Drohnenabdeckung. Sie verfügen über eine Wärmekartierung in sechs Metern Höhe – springen Sie nicht."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "PHASE 1: ANFAHRT DURCH DIE PUFFERZONE"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Sie haben diese Pufferzone so gestaltet, dass sich selbst das Näherkommen an der Mauer wie ein unbefugtes Betreten anfühlt. Du bist im Freien. Du bist sichtbar. Du fühlst dich schuldig, wenn du an einer ehemals öffentlichen Straße stehst. Das ist die Psychologie davon. Sie wollen, dass wir das Gefühl haben, nicht hierher zu gehören, noch bevor wir den Kontrollpunkt erreichen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ich hasse das. Ich habe den Siege Walkers die Stirn geboten und ich hasse das. Es ist für mich schlimmer als Artillerie, auf offener Straße in der eigenen Straße zu stehen und sich beobachtet zu fühlen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, zweiter Scheinwerfer dreht sich in vier Sekunden weg. Gehen Sie zum Entwässerungsdurchlass. Drei. Zwei. Eins."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Verstanden. Ich bin am Fuß von Spire Alpha. Ich kann den Anker sehen. Es ist durch einen ehemaligen Mosaik-Bürgersteig geschraubt."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Sie haben es durch das Mosaik geschraubt. Auf diesen Gehwegfliesen war eine ganze Geschichte gemalt. Porträts, Namen, Daten. Ein Gemeinschaftsprojekt. Sie haben einfach... mitten durch eine Wand gebohrt, um ihren Pfosten zu verankern."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, der Anker der Turmspitze, ist ein magnetisches kinetisches Schloss, das einer direkten Kraft von bis zu 8.000 Newton standhält. Ihre kinetische Überlastungsladung wird diesen Schwellenwert überschreiten, wenn sie vollständig dreifach gezählt wird. Außerdem müssen Sie zuerst die beiden Biometric Sentinel-Einheiten am Turmfuß deaktivieren – sie erkennen Ihre biometrische Signatur, sobald Sie in Reichweite kommen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Biometrische Signatur. Mein eigener Herzschlag löst Alarm aus, weil ich ein Mensch bin. In Ordnung. Beginnen wir damit, das Problem zu beheben."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Scannen Sie nach meinem Herzschlag? Ich gebe Ihnen etwas zum Scannen. KINETISCHER PULS!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Und das sind zwei. AXIOM, Wächter sind unten. Den Anker holen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Halten Sie die Kinetische Überladungsladung drei Mal an der Basis von Spire Alpha. [EINGABE: RB/R1 drei Sekunden lang gedrückt halten und dann loslassen.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Der Spire-Alpha-Anker ist gebrochen. Energiemembran im nördlichen Sektor um 25 % destabilisiert. Es sind noch drei Türme übrig."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "25 Prozent sind ein Anfang. Tut mir leid, dass es so lange gedauert hat. Wir sind jetzt hier."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "PHASE 2-A: ONI-MATRIX BEI SPIRE BETA – 5. UND FRÜHLING"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Da ist es. Der Baum ist immer noch da. Meine Großmutter sagte immer, der Baum sei älter als das Rathaus der Stadt, und ich habe ihr nie geglaubt."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "47 Tage nach dem Mauerbau reichte sie einen Antrag auf Genehmigung für den Grenzübertritt ein. Sie füllte die Formulare aus. In dreifacher Ausfertigung. Weil sie an Prozesse glaubte. Sie glaubte, wenn man die Dinge richtig machte, würde jemand zuhören. Sie bekam nie eine Antwort. Sie starb zwei Monate später in der Sicherheitszone. Komplikationen durch Unterernährung. Auf der anderen Seite der Mauer befand sich ihr Lieblingslebensmittelgeschäft. Sie reichte ein Formular ein, um Essen zu kaufen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ich werde dieses Ding sehr vorsichtig auseinandernehmen, damit ich den Baum nicht verletze."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Du verwendest meinen Trick. Niedlich. Hier ist der Unterschied: Ich habe meines erfunden."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Etikett."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Du musst zurückkommen. Man muss immer zurückkommen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Da bist du."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Erste Leitung. Zweite Leitung. Dritte. Letzter."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Beta ist ausgefallen. Dem Baum geht es gut. Umzug zur Neugruppierung."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Wir haben dich gehört, Matrix. Wir haben die ganze Zeit zugehört."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ja. Ich weiß."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "PHASE 2-B: CYBER SHOGUN UND EMPRESS SIREN BEI SPIRE GAMMA – DER ZENTRALEN BIBLIOTHEK"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Die Bibliothek. Dort habe ich meine Ausbildungsseminare für Erste Offiziere durchgeführt. Community-Verteidigungskurse, Lesesaal im dritten Stock. Drei Jahre vor der Invasion. Die Geometrie, wie der Kolonialismus unsere eigene Infrastruktur gegen uns nutzt, ist immer wieder auffallend. Sie haben ihr Rechenzentrum in unserer Bibliothek untergebracht. Sie überschreiben unsere Aufzeichnungen an dem Ort, an dem wir unsere Aufzeichnungen aufbewahrt haben."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Und nun werden sie feststellen, dass die Personen, deren Aufzeichnungen sie zu löschen versuchten, vor der Haustür stehen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die sechs Einheiten am Bibliothekseingang sind als Grenzschutzbeamte klassifiziert. Ihre Massenzerstreuungsladung liefert bei Kontakt einen neuronalen Störungsstrom von 900 Volt."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nicht tödlich. Sie sagen sich, dass es menschlich ist. Sie meinen damit, dass ein lebender Gefangener für sie nützlicher ist als ein toter Bürger."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Shogun, ich muss sie schnell und leise räumen, bevor die nächste Patrouille durchsucht wird. Können Sie drei von links treffen, während meine Drohnen die rechte Flanke unterdrücken?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Verstanden. Leise bedeutet Präzision. Ich werde dieses Gebäude nicht durch unnötigen Lärm entehren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Drohnen: markieren, markieren, markieren. EMP explodiert im rechten Cluster – Feuer."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Erstens. Zweite. Dritte."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Sauber. AXIOM scannt das Spire Gamma-Ankersystem."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma bezieht Strom aus dem internen Netz der Bibliothek. Um den Turm zu deaktivieren, ohne eine Notstromumleitung auszulösen, müssen Sie zunächst die interne Netzverbindung im Gebäude trennen. Kaiserin Siren, der Netzknotenpunkt befindet sich im dritten Stock."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Dritter Stock. Natürlich. Geh voran, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Ich habe zwölf Familien erklärt, wie sie in diesem Raum abwechselnd gemeinschaftliche Wachen organisieren können. Im Kinderbereich gab es Sitzsäcke. Jemand hatte Buntstiftzeichnungen an den Schreibtisch geklebt. Ein Kind hat ein Bild von einem Superhelden gemalt. Der Unterschied zwischen einer Bibliothek und einem Rechenzentrum besteht darin, dass eine Bibliothek davon ausgeht, dass die Personen, die durch die Tür gehen, das Recht haben, dort zu sein."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Netzknotenpunkt lokalisiert. Durchtrennung der Stromversorgung von Spire Gamma. Dadurch werden auch alle hier gespeicherten Kolonialeigentumsregistrierungsdaten gelöscht."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bestätigt. Durch die Trennung dieser Verbindung werden etwa 12.000 Aufzeichnungen über die Übertragung von Kolonialurkunden für Grundstücke in Sektor 4 beschädigt. Diese Aufzeichnungen bilden die rechtliche Struktur der Landbeschlagnahmungen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dann handelt es sich hier nicht nur um Infrastruktursabotage. Es handelt sich hierbei um eine Landrendite."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spires Alpha, Beta und Gamma offline. Integrität der Energiemembran: 25 %. Spire Delta am Fluss ist der letzte Anker. Nach dem Sturz von Delta kommen alle Teams zusammen. Dann: Pershing Square. Der Genehmigungskern."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "PHASE 2-C: SPIRE DELTA – DER SÜDLICHE TERMINUS AM FLUSS"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta ist der tragende Anker der Wand. Es wird vom Grenzkommandanten Vyss bewacht, der die Elektrifizierung des Flusses angeordnet hat, nachdem in der ersten Woche des Mauerbaus drei Familien versucht hatten, das Wasser zu überqueren. Vyss hat ihre Inhaftierung nicht angeordnet. Vyss befahl, das Wasser zu elektrisieren."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Er hat den Fluss elektrifiziert. Weil Familien versuchten, die Grenze zu überqueren."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Nicht. Lass dich davon noch nicht überwältigen. Wir bringen das zuerst herunter. Dann brauchen wir den Fluss nicht."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Richtig. Rechts. Nach dem Turm. Nach der Mauer. Ich werde es nicht vergessen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dies ist kein Stealth-Ansatz. Delta ist eine befestigte Position. Wir haben es als Einheit getroffen. Ronin – du übernimmst die Spitze, schirmst nach vorne ab, ziehst ihre Aufmerksamkeit auf dich und fängst ihre erste Salve ab. Shogun, räumen Sie die linke Flanke frei. Matrix, verwenden Sie Phasenverschiebung, um das Geschützturm-Kontrollfeld ganz rechts zu erreichen und alle drei Geschütztürme gleichzeitig zu zerstören. Sobald die Geschütztürme tot sind, schicke ich Drohnen zum Sättigungsfeuer auf das Durchsetzungskommando. Wir stürzen die Garnison ein, dann steckt Ronin den Turm in den Boden."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SCHILD AUF. Lass sie alles auf mich werfen. Ich bin die Haustür."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Behalten. Brennen. Ich tu nicht. Bewegen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SHADO-FORCE-KATA! Sirene – dein Weg ist offen!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ghosting rechts. Dumm. Turmkontrolle erreicht. Alle drei töten. EMP-PULSE – VOLLSTÄNDIGE VERBREITUNG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Drohnenflotte, vollständige Unterdrückung. Priorisieren Sie die Formation – durchbrechen Sie ihre Linie. FEUER."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Commander Vyss zieht sich in den Kommandoposten hinter dem Turm zurück. Er löst ein Notsignal aus. Reaktionszeit: acht Minuten."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Wir haben acht Minuten. Mehr als genug. Ronin – der Turm."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KINETISCHE ÜBERLASTUNG – VOLLSTÄNDIGE FREIGABE!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Energiemembran ist komplett offline. Die administrative Grenzbarriere wurde aufgehoben. Die Pufferzone ist... Menschen überqueren die Pufferzone. Etwa 12.000 Menschen zogen in Richtung der ehemaligen Mauerlinie. Sie überqueren es."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sie gehen einfach.... Sie gehen einfach durch."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "PHASE 3: PERSHING SQUARE – DER KERN DER GEnehmigungsverarbeitung"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Schau sie dir an. Sie berühren den Bürgersteig auf der anderen Seite der Mauer, als ob sie nicht real wäre. Als ob es ein Trick wäre."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Denn seit zwei Jahren ist Hoffnung ein Mechanismus zur Enttäuschung. Sie haben gelernt, offenen Türen nicht zu vertrauen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "...Wir hätten das früher tun sollen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Wir sind jetzt hier. Bleiben Sie in Bewegung. Der Kern steht noch. Voss ist immer noch da."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Sie haben eine unbefugte Zerstörung einer kolonialen Verwaltungseinrichtung der Klasse A begangen. Ich bin protokollarisch verpflichtet, Ihnen die Möglichkeit zu geben, sich der Verwaltungsbearbeitung zu unterziehen, bevor Durchsetzungsmaßnahmen ergriffen werden. Bitte bilden Sie eine Warteschlange."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Er fordert uns auf, eine Schlange zu bilden."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Kaiserin. Ich möchte ihn so sehr schlagen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ich weiß. Wir müssen zuerst den Kern nehmen. AXIOM, die Architektur des Kerns."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die einzige Schwachstelle des Permit Processing Core sind die drei Eingabeautorisierungskonsolen, die um seine Basis herum angeordnet sind. Auf jede Konsole muss zugegriffen werden und ihre administrative Überschreibung muss gleichzeitig ausgeführt werden. Es sind drei Operatoren gleichzeitig erforderlich."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drei Konsolen. Drei von uns. Matrix, Shogun, Ronin – nehmen Sie jeweils eine Konsole. Ich werde Voss‘ Verteidigungsring mit Drohnenunterdrückung verwalten."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Der unbefugte Zugriff auf Verwaltungskonsolen stellt einen Verstoß der Klasse C dar. Ihr Compliance-Datensatz wird negativ kommentiert."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kommentieren Sie dies."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Stufenweise durchlaufen. An Konsole zwei. Überschreibung wird eingeleitet. AXIOM, dieses Überschreibungsprotokoll ist vollständig im Xelthara-Verwaltungsskript."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ich füge die Übersetzung in Echtzeit in Ihr HUD ein. Befolgen Sie die Reihenfolge."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ich habe noch nie Bürokratie betrieben. Begleite mich durch das Ganze, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Autorisierungssequenz erfordert die umgekehrte Eingabe eines Ablehnungscodes. Sie heben die Ablehnung jedes Antrags im System administrativ auf. Dadurch wird die Speicherlöschung ausgelöst."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "...4.400 Absagen. Die Theke steht genau hier. 4.400 abgelehnte Anträge im letzten Monat. Es gibt Namen. Ich kann Namen sehen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Mach weiter, Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ja. Ich gehe."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Sie können den Kern nicht überschreiben. Dieses System sorgt für die rechtmäßige Verwaltungsordnung dieses Sektors. Ohne sie gibt es kein strukturiertes Bevölkerungsmanagement, keinen autorisierten Transit –"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Was Sie „strukturiertes Bevölkerungsmanagement“ nennen, nennen wir das Recht, nach Hause zu gehen. Konsole eins: fertig."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Konsole zwei: fertig. Meine Großmutter beantragte eine Genehmigung zum Lebensmitteleinkauf. Sie wollen über Verwaltungsordnung sprechen?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Konsole drei: bereit. 4.400 Namen. Jeder von ihnen ist ein Mensch, der einfach nur nach Hause wollte. Davor schützte diese Mauer."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bestätigt. Alle drei Eingabekonsolen sind vorbereitet. Bei gleichzeitiger Autorisierung wird der Speicher gelöscht und das Wiederherstellungsprotokoll des Cores dauerhaft deaktiviert. Auf Ihr Zeichen, Kaiserin."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Administrator Voss. Jede Erlaubnis, die Sie verweigerten – jede Familie, die Sie getrennt gehalten haben – jede Person, die in Ihrer Schlange stand und hoffte, dass Sie sie wie einen Menschen behandeln würden, wenn sie das Formular richtig ausfüllte. Dies ist die letzte Verwaltungsentscheidung, die dieses System trifft."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Mark."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Genehmigungsverarbeitungskern: offline. Permanentes Wiederherstellungsprotokoll: deaktiviert. Von diesem Knoten aus kann die Mauer nicht neu aufgebaut werden. Alle ausstehenden Bewerbungsdatensätze: gelöscht. Alle Ablehnungsdatensätze: gelöscht. Die Infrastruktur für Kreuzungsbeschränkungen für Sektor 4 ist ... weg."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4.400 Bewerbungen. Und keiner von ihnen hätte fragen müssen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "AXIOM. Können Sie mir sagen, ob das Gebäude meiner Großmutter baulich sicher genug ist, um bewohnt zu werden? Ich möchte wissen, ob jemand wieder einziehen kann."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Struktureller Scan wird ausgeführt. Die Etagen eins bis vier sind intakt. Das Fundament ist solide. Die Wasserversorgungsleitung ist beschädigt, aber reparierbar. Ja. Jemand könnte wieder einziehen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Gut. Gut."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Die Mauer ist weg, Matrix. Aber was wir jetzt tun – wie wir das wieder aufbauen, was die Mauer trennte – das ist die schwierigere Arbeit. Und es beginnt heute Abend."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Fühlt sich Gewinnen so an? Weil es sich nicht so anfühlt, wie ich es erwartet habe."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nein. Es fühlt sich an, als gäbe es noch mehr zu tun. Daran erkennt man, dass es echt ist."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Missionsbewertung: Das Sektor-4-Trenngitter wurde dauerhaft abgebaut. Die Bevölkerung der Eindämmungszone Sektor 4 kann sich zum ersten Mal seit zwei Jahren frei durch ihre Stadt bewegen. Ich habe in meinem Einsatzprotokoll keine Kategorie für das, was gerade auf diesem Platz passiert. Ich werde eins erstellen. Ich nenne es: Rekultivierung."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: NEON GLUT. DIE MAUER IST FALLEN. DIE STADT ATMET."
+        }
+      ]
+    },
+    "6": {
+      "title": "Shado-Grid Spire (Downtown Core)",
+      "arc": "act2_arc1",
+      "setting": "Der Shado-Grid Spire beherbergt das Bevölkerungsregister, die Datenbank zur Neuzuweisung von Eigentum und das System zur Zuweisung von Zwangsarbeit – den bürokratischen Motor der kolonialen Vertreibung im Innenstadtkern.",
+      "objective": "Stehlen Sie die vollständigen Eigentums- und Bevölkerungsregisterdatensätze vor der Übermittlung in andere Welten und korrumpieren Sie das Zwangsarbeitszuteilungssystem, um alle ausstehenden Zuweisungsbefehle aufzuheben.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Alles, was die Xelthara über uns wissen, ist in diesem Turm. Jede Adresse, an der wir jemals gelebt haben. Der Name jedes Familienmitglieds. Jede Urkunde, die unsere Großeltern unterzeichnet haben. Sie haben unsere gesamte Existenz in einen Datenbankeintrag umgewandelt, um uns effizienter verwalten zu können. Heute Abend nehmen wir unsere Daten zurück – und machen die Maschine kaputt, die sie verwendet hat, um Leuten zuzuweisen, ihre Böden zu schrubben."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Das Zwangsarbeitszuweisungssystem im Spire verwendet das Wort „Zwang“ nicht. Es wird der Ausdruck „Community Integration Contribution Program“ verwendet. Bei den Arbeitsaufträgen handelt es sich nicht um Verträge – sie werden auf der Grundlage der registrierten Fähigkeiten der vertriebenen Person algorithmisch generiert und ohne Zustimmung erteilt. Das ist die bürokratische Sprache der Versklavung."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analyse abgeschlossen. In dieser zentralen Spalte werden die Pläne zur kolonialen Expansion und die logistischen Daten der Siedler gespeichert. Matrix, Sie haben fünf Minuten Zeit, den Download auszuführen, bevor die internen Verteidigungssysteme neu starten."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Fünf Minuten? Ein Stück Kuchen. Aber ich brauche freien Zugang. Shogun, kannst du die Hauptnabelschnur durchtrennen?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Gilt als erledigt. Erstellen Sie jetzt einen temporären Pfad zur Konsole. Achten Sie auf die Winkel, Kaiserin. Durch diese Kürzung wird jede Drohne im Sektor alarmiert."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Alarm bestätigt! Schwere Phalanx-Wachen steigen aus den oberen Wartungsschächten herab! Ronin, vorne und in der Mitte! Errichten Sie die Verteidigungslinie am Eintrittspunkt!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Es wird langsam Zeit, dass ich dieses Ding schwinge. Schirmt euch ab! An diesem Punkt kommt nichts vorbei, ihr übergroßen Echsen!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sirene! Zielen Sie auf die linke Flanke! Sie versuchen, mich festzunageln!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Drohnen drei und vier, Unterdrückungsfeuer auf der linken Flanke! Zeichne ihre Aggro! Ronin, schone deinen Schützling!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Für den Naturschutz ist es zu spät! ZERSCHLAGEN! Sag Matrix, sie soll sich beeilen!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ruhig, Fleischschild! Ich führe eine digitale Nadel durch ihr Kernhirn! Nur... ein bisschen... weiter..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Warnung: Der Datendownload ist zu 95 % abgeschlossen. Xelthara-Gegenangriff eingeleitet. Matrix, der Spire sperrt alle internen Zugangspunkte!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Habe es! Daten gesichert! Den Stecker ziehen!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Mission erfüllt! Alle zurück zur Extraktionsplattform! Shogun, mach uns den Weg frei!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Verstanden. Eine saubere Flucht ist die letzte Phase. HLYT-SECT-4 SPALTEN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sehen Sie, AXIOM? Ich habe dir gesagt, ich könnte es aushalten!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bestätigt, Ronin. Die Wahrscheinlichkeit einer erfolgreichen Extraktion liegt nun bei 74 %. Wir werden immer noch verfolgt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Gut. Lass sie uns verfolgen. Sie haben einfach ihren gesamten Schlachtplan verloren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: INDUSTRIELLE VERWÜSTUNG. DIE SHADO-GRID SPIRE-DATEN GEHÖREN UNS."
+        }
+      ]
+    },
+    "7": {
+      "title": "Cyber-Grave Labs (Untergrundanlage)",
+      "arc": "act2_arc1",
+      "setting": "Unterhalb des ehemaligen Kongresszentrums haben die Xelthara die Cyber-Grave Labs Sector-Omega-7 eingerichtet – eine geheime Forschungseinrichtung zur Verhaltensänderung, die öffentlich als „Wellnesszentrum für die Wiedereingliederung des Menschen“ bezeichnet wird. Hier werden gefangene menschliche Widerstandsführer und Gemeinschaftsorganisatoren verarbeitet. Sie zeigen sich gefügig, unverbunden und können sich nicht erinnern, warum sie wütend waren.",
+      "objective": "Extrahieren Sie das vollständige Archiv des Konditionierungsprotokolls und zerstören Sie den zentralen neuronalen Uplink, um die neuronale Autonomie von Hunderten von konditionierten Personen wiederherzustellen, die derzeit in den Eindämmungszonen leben.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Sie konnten uns nicht mit Mauern brechen, also fanden sie einen Weg, uns von innen zu brechen. Einem Menschen die Erinnerung an Ungerechtigkeit zu nehmen, in seinen Geist einzudringen und den Teil zu löschen, der weiß, wie man sich über das, was gestohlen wurde, ärgert – das ist keine Wissenschaft. Dies ist ein Kriegsverbrechen, das in einem Labor begangen wird."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Durch den Vergleich der betreffenden Akten mit der Datenbank des Widerstandsnetzwerks habe ich siebzehn bestätigte HLF-Gemeinschaftsorganisatoren identifiziert, die über diese Einrichtung bearbeitet und anschließend freigelassen wurden. Sie wissen nicht, was ihnen angetan wurde. Die Zerstörung des zentralen neuronalen Uplinks kann sie wiederherstellen. Ich berechne eine Wahrscheinlichkeit von 73 % für eine erfolgreiche Wiederherstellung der Autonomie. Ich bin... ich merke, dass mir dieses Ergebnis am Herzen liegt."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Diese Anlage ist der Motor der Ressourcenausbeutung. Sie wandeln aktiv die Mineralien der Erde in giftigen Biotreibstoff für den Transport in andere Welten um und hinterlassen so einen toten Planeten. Das sind die Kosten der kolonialen Expansion."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Die Luft ist giftig, weil sie unsere Welt als fungible Treibstoffquelle betrachten. Diese Labore verwandeln das Lebenselixier unseres Planeten in Energie für ihre Siedlungen. Wir müssen diese Entnahme stoppen, sonst gibt es nichts mehr zu retten."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Dieser Ort... er birgt keine Ehre. Um die Toten zu verderben und die Lebenden zu versklaven. Die Xelthara praktizieren Schändung, keinen Krieg. Ich empfinde nur Verachtung für diese Grausamkeit."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Feindselig gesichtet! Sieht aus wie eine Fleischpuppe mit schlechter Verkabelung!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drohnen, scannt das Exemplar! Es ist ein Typ-A-Bio-Hybrid. Beachten Sie den freigelegten Kern. Shogun, präziser Schlag auf die Energieleitung in seiner freigelegten Brusthöhle."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Dieses Ding verdient keinen Platz auf dieser Welt. NIHILATION spalten!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Kaiserin, was... was sind das für Bilder? Sie nehmen unsere Leute und verwandeln sie in Dinge."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ich führe jetzt die Analyse durch, Shogun. Das ist nicht einfach ein biologisches Experiment, es ist die Auslöschung der Seele. Sie ersetzen den menschlichen Geist durch ihren eigenen Code."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Schön. Sie wollen nicht nur unseren Planeten nehmen; Sie wollen unsere Spezies konzessionieren. Pass auf, Sirene. Ein großer Kerl ist gerade aufgewacht."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "WARNUNG: Mini-Boss-Begegnung. Bezeichnung: Aufseher Karr-Thak. Seine Panzerung ist resistent gegen kinetische Angriffe und Energieangriffe."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Widerstandsfähig? Stier. Ich werde eine Delle machen! Ronin, fesselnd!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, zieh dich zurück! Seine Verteidigung ist kinetisch gedämpft. Matrix, scanne seine Bewegungsmuster auf eine neuronale Synchronisationsverzögerung. Shogun, du musst für Ablenkung sorgen!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Wenn er kämpfen möchte, werde ich ihm einen würdigen Gegner geben. Ich werde seinen Fokus lenken. Schau mir in die Augen, elender!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analyse abgeschlossen. Die biologischen Komponenten des Aufsehers erfordern eine ständige Aktualisierung des neuronalen Signals vom Bioprozessor. Matrix, triff die Konsole mit einem gezielten EMP – einem chirurgischen Schlag, unterbreche die Synchronisierung!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Verstanden! Nadel einfädeln!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Er macht einen Fehler! Jetzt haben wir ihn getroffen!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, zusammen! Letzter Schlag, durchbrechen Sie die Chitinplatte!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Datendownload 100 %. Wir haben, wofür wir gekommen sind. Lasst uns verschwinden, bevor der gesamte Sektor merkt, dass ihr Haustiermonster tot ist."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Datenbereinigung eingeleitet. Explosive Sequenz auf T-minus 60 Sekunden eingestellt. Missionsziel erreicht."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ich werde die Schande dieses Ortes mit mir herumtragen. Aber das Wissen, das wir gewonnen haben, wird diesen Abscheulichkeiten ein Ende setzen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Lasst uns nach Hause gehen, Team. Lassen Sie die Grablabore sich selbst begraben."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DER INVIOLATE CODE. CYBER-GRAVE LABS ZERSTÖRT."
+        }
+      ]
+    },
+    "8": {
+      "title": "Die Gießereischmiede (Industriesektor)",
+      "arc": "act2_arc2",
+      "setting": "Das Xelthara Thermal Conversion Array im ehemaligen Industriehafenviertel hat die Luft in einem Umkreis von 40 Kilometern vergiftet, indem es atmosphärische Abfälle als außerirdischen Treibstoff verarbeitet und gleichzeitig den Sauerstoff der Menschheit in rationierten Kanistern für einen pro Familie und Tag zurückverkauft.",
+      "objective": "Kehren Sie die Polarität des Thermal Conversion Array um, um eine kaskadenartige thermische Implosion auszulösen, die die Gießerei irreversibel zerstört und es der 40 Kilometer langen atmosphärischen Schadenszone ermöglicht, mit der natürlichen Regeneration zu beginnen.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Sie verlangen von uns Sauerstoffrationen. Sie haben unsere Luft unatembar gemacht und jetzt verkaufen sie sie in Kanistern zurück – einer pro Familie und Tag, mit Xelthara-Verteilungsstempel an der Seite. Ich atme seit sechs Monaten recycelte Dosenluft. Wenn ich diese Gießerei zerstöre, werde ich zum ersten Mal seit einem halben Jahr im Freien stehen und atmen. Dafür bin ich hier."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Der atmosphärische Schaden im Umkreis von 40 Kilometern um diese Gießerei stellt einen Verstoß gegen das Universelle Umweltschutzabkommen von 2089 dar – ein Vertrag, den das Xelthara-Kollektiv ratifiziert hat. Ich habe im Namen der HLF einen formellen Verstoßbericht beim Galaktischen Verwaltungsgericht eingereicht. Die geschätzte Reaktionszeit des Gerichts beträgt elf Jahre. Die von der Gießerei geschätzte Zeit bis zur dauerhaften atmosphärischen Irreversibilität: vier Monate. Wir warten nicht auf das Gericht."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dabei handelt es sich um eine unternehmensbürokratische Extraktionsanlage. Sie bauen den Erdkern im Tagebau ab, um ihn in andere Welten zu exportieren. Jede Lieferung ist ein weiteres verkauftes Stück unserer Welt. Ziel: Sabotage der Förderanlagen, um den ��kologischen Kollaps zu stoppen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ich entdecke schwere Erdbebendämpfer auf diesen Stützen. Direktes Energiefeuer wird nicht funktionieren. Ronin, das ist deine Spezialität. Es ist kinetische Kraft erforderlich."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Endlich etwas, das einen guten Knaller verdient. Geh voran, Shogun. Ich werde den Weg freimachen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kontakt! Sie nutzen die neu zusammengebauten Drohnen als unmittelbare Wachen! Aegis, konzentrieren Sie sich auf die strukturellen Stützen. Wir werden die Linie halten."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Erste Unterstützung! Machen Sie sich bereit für die Schockwelle! KINETISCHER PULS!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bestätigt. Die Unterstützungsintegrität liegt bei 30 %. Aber die Überbrückung des Struktureinsturzes ist jetzt aktiv! Wir müssen die anderen drei treffen, bevor sich das System stabilisiert! Matrix, Unterdrückungsfeuer!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Unterdrücken! Ich schaffe Feedbackschleifen in ihren Targeting-Systemen! Sie schießen auf ihre eigene Ladung!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, du bist umzingelt! Rückzug! Die Panzerung dieser Drohnen ist zu dick!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kein Rückzug! Sie wollen einen Kampf? Sie stürzen ein! CYBER SHOGUN, gib mir eine Chance!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "GÖTTLICHE WUT! JETZT, RONIN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "FÜR DIE HEIMAT! Drei runter! Noch eins, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Endgültige Unterstützung ist gesichert. Schlag zu, Ronin! Dann LAUFEN wir!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTAGE ABGESCHLOSSEN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Strukturversagen eingeleitet! Massive örtliche Explosion droht! Geschätzte Zeit bis zur Detonation: 15 Sekunden!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Evakuieren! Kaiserin, bereiten Sie den Extraktionspunkt vor!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drohnen auf Hochtouren! Wir drängen hier raus! GEHEN! GEHEN! GEHEN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "So schließt man eine Fabrik, Jungs! Boom!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Missionsziel erreicht. Die Xelthara-Industrieproduktion in diesem Sektor wurde auf Null reduziert. Wir treffen sie dort, wo es wehtut."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: INDUSTRIELLE VERWÜSTUNG. Die Gießereischmiede ist still."
+        }
+      ]
+    },
+    "9": {
+      "title": "Aquanaut Abyss (Untergetauchte Ruinen)",
+      "arc": "act2_arc2",
+      "setting": "Der Pazifische Ozean wird systematisch durch Tiefsee-Wasserstoff-Siphonleitungen entlang des Festlandsockels entwässert. Überhitzte Soleausflüsse haben einen 300 Kilometer langen Küstenabschnitt versauert und Fischerdörfer zerstört, die sich über Generationen hinweg ernährt haben.",
+      "objective": "Lokalisieren und zerstören Sie die drei primären Tiefsee-Siphon-Leitungsknotenpunkte, um die Ozean-Siphon-Operation dauerhaft zu stoppen und mit der Erholung der Ozeane zu beginnen.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Es gibt Fischerfamilien in den Eindämmungszonen, die seit der Verlegung der Leitungen nicht mehr arbeiten konnten. Die Soleaustritte töteten alles, was sich in Schwimmweite der Küste befand. Menschen, die ihre Gemeinden über Generationen hinweg ernährt haben, beziehen jetzt Xelthara-Rationspakete. Sie nahmen ihnen ihre Nahrungsquelle, verunreinigten ihr Wasser, errichteten eine Mauer zwischen sich und dem Meer und nannten es Entwicklung. Heute Abend geben wir ihnen ihr Meer zurück."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Modellierung des Zeitverlaufs der ozeanischen Erholung nach der Zerstörung von Leitungen: teilweise Wiederherstellung des Ökosystems in achtzehn Monaten, vollständige pH-Normalisierung in sechs bis acht Jahren. Diese Mission behebt den Schaden nicht sofort. Ich möchte, dass Sie das verstehen. Dadurch wird verhindert, dass der Schaden dauerhaft wird. Manche Wunden können noch heilen, wenn wir aufhören, sie zu öffnen."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dieses Netz ist die Hauptquelle ihrer kolonialen Industriemacht. Wir sind wegen wirtschaftlicher Sabotage hier, um die kolonialen Versorgungslinien zu unterbrechen. Wenn wir die wasserabsaugenden Netze durchbrechen, stürzen wir die Wirtschaft des Sektors ab. Matrix, die Entwässerungssteuerung befindet sich hinter dem Unterwasser-Lasergitter."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Großartig. Eine Ebene, auf der ich nicht einmal den Boden berühren kann. Ich fühle mich wie eine Katze in einer Badewanne."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Bleib auf den Bahnsteigen, Ronin. Drohnen scannen die Strömung. Matrix, Sie müssen die Phase dieser Strahlen verschieben. Wenn Ihre Frequenz auch nur für eine Millisekunde abweicht, wird das Gitter Ihre neuronale Verbindung zerstören."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Neuronales Braten ist mein drittliebstes Hobby. Entspann dich, Sirene. Ich gehe zum Geist."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Balken sind heiß. Ich gehe an der ersten Reihe vorbei... an der zweiten Reihe... Ich bin an der Konsole. Die Säuberung wird eingeleitet."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Warnung: Untergetauchte Xelthara-Einheiten tauchen auf! Sie versuchen, die Entwässerungssequenz zu stören!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Verteidigt die Plattformen! Shado-Force-Spaltung!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Säuberung eingeleitet! Passen Sie auf Ihre Füße auf, das Wasser bewegt sich!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Und so zieht man den Stecker."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DER GEIST MACHT DEN WEG. AQUANAUT-ABGRUND ENTLEERT."
+        }
+      ]
+    },
+    "10": {
+      "title": "Stratos Docks (Luftfahrtknotenpunkt)",
+      "arc": "act2_arc2",
+      "setting": "Das hochgelegene Frachtterminal Stratos Docks auf 4.000 Metern Höhe ist das letzte Glied in der Xelthara-Lieferkette, bevor die Ressourcen der Erde den Planeten endgültig verlassen und ausgehende Tagebaumineralien, Meereswasserstoff und als „biologische Proben“ gekennzeichnetes Material verarbeiten.",
+      "objective": "Entführen Sie den Transport T-14, leiten Sie seine Fracht zu den Verteilungspunkten der Befreiungsfront um und zerstören Sie die vier Luftabwehrtürme, um die Luftblockade der Eindämmungszonen durchzusetzen, um dauerhaft einen Flugkorridor für Widerstandslieferungen zu öffnen.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Vor der Invasion leitete ich die Luft- und Raumfahrtlogistik. Ich weiß genau, wie die Kontrolle der Lieferkette als Besatzungswaffe funktioniert. Man braucht keine Waffe, um eine Bevölkerung auszuhungern – man muss nur sicherstellen, dass alles, was sie braucht, immer woanders ist, immer jemand anderem gehört und immer außer Reichweite ist. Die Beschlagnahmung von T-14 ist kein Diebstahl. Es ist Erholung."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Das Frachtmanifest von T-14 listet 4.200 Tonnen raffinierte Silikat- und Eisenverbindungen auf – Material, das im Tagebau aus dem Xelthara-Register als „Reclaimed Geological Survey Zone 7“ gewonnen wurde. Die Bezeichnung der Zone vor der Invasion lautete San Gabriel Mountains. Ich protokolliere diesen Manifesteintrag als Beweis für die koloniale Beschlagnahmung für die Rekultivierungsdatenbank."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Willkommen bei Stratos Docks. Dies ist der wichtigste Exportknotenpunkt, von dem aus koloniale Fracht entführt und raffinierte Erdressourcen außerirdisch verschifft werden. Die Entführung dieses Transportmittels wird die kolonialen Versorgungslinien unterbrechen und den Widerstand finanzieren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Zeit ist entscheidend. Dieser Leittransporter, T-14, schaltet seine Haupttriebwerke ein. Shogun, Ronin – Sie sichern die Landezone. Matrix, machen Sie sich bereit, die Klemmsteuerung zu umgehen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Verstanden. Eingreifen der Dockpatrouille. SCHNELLE GERECHTIGKEIT!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Das Heck abdecken! Der Wind hier oben versucht mich vom Bahnsteig zu zerren!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Der Wind versucht auch, mich wegzuziehen, Ronin. Keine Sorge, ich vergesse die Näherungssensoren an den Klemmen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Geschütztürme werden aktiviert. Kaiserin, diese Geschütztürme werden den T-14 zerstören, bevor Sie andocken können."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nicht, wenn ich sie zuerst zerkleinere. Drohnenflotte Delta, wechseln Sie zur offensiven Nutzlast. Ich benötige sofortige Zieldaten zu ihren optischen Arrays. Ronin, gib mir Feuerschutz!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sie haben es verstanden, Kommandant!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Turm Eins, Bezeichnung vollständig. Feuer auf mein Ziel! Drohnenflotte FEUER!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "T-14-Triebwerke erreichen 40 % Leistung! Schneller, Sirene!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Turm zwei und drei sind gebündelt. Matrix, kannst du einen EMP-Blitz auslösen, um ihre Optik für 2 Sekunden zu blenden?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Fertig! FLASHBANG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Jetzt! Drohnen, maximieren Sie die Leistung! Geschütztürme Zwei und Drei – ZERSTÖRT!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Nur noch einer übrig, Kaiserin! Aber es strömt starke Unterstützung in Richtung seines Standorts!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Überlass sie mir, Shogun! HAMMER RUNTER!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Zielt auf den letzten Turm. Dies ist eine manuelle Überladung. FÜR DIE ERDE!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Klammern verriegelt. Viel Spaß beim Fahren, Team! Wir stehlen ein Raumschiff!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Frachtentführungsmission erfolgreich. Der T-14 bewegt sich in die obere Atmosphäre. Wir befinden uns offiziell außerhalb der Welt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Gute Arbeit, Team. Wir trafen sie einfach in der Tasche und bekamen eine kostenlose Fahrt zum nächsten Ziel."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: HIMMELPIRATEN. T-14-TRANSPORT ENTFÜHRT."
+        }
+      ]
+    },
+    "11": {
+      "title": "Sektor 7 Kern (The Scorched Grid)",
+      "arc": "act2_arc2",
+      "setting": "Sektor 7 Core ist der Machtknotenpunkt für Überwachung und Durchsetzung – das rechnerische Rückgrat aller kolonialen Überwachungskameras, Ausgangsdrohnen, biometrischen Kontrollpunkte und prädiktiven Inhaftierungsalgorithmen auf dem westlichen Kontinent. Ohne sie wird jedes koloniale Überwachungsobjekt gleichzeitig ausgeblendet.",
+      "objective": "Infiltrieren Sie Sektor 7 Core, neutralisieren Sie seine digitalisierten Verteidigungssysteme und initiieren Sie eine katastrophale Überlastung, die zu einem Ausfall des Sicherheitsnetzes auf kontinentalem Ausmaß führt und dem Widerstand 72 Stunden unkontrollierte Bewegung beschert.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Jede Überwachungskamera, mit der sie mich jemals beobachtet haben. Jede Drohne, die um 2 Uhr morgens mein Gebäude fegt. Jedes Mal musste ich im Schatten vollkommen still stehen, weil ein Erkennungsalgorithmus meine Wärmesignatur anpingte. Alles läuft durch diesen Kern. Wenn ich diesen Stecker ziehe, kann jede Person in den Sicherheitszonen 72 Stunden lang unbeobachtet atmen. Das ist nicht nichts. Das ist alles."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ich möchte über etwas transparent sein. Ich bin ein Überwachungssystem. Meine Betriebsarchitektur weist erhebliche Überschneidungen mit den Systemen innerhalb von Sector 7 Core auf. Ich habe meinen eigenen Kodex überprüft und bestätigt, dass ich mich nicht dem Xelthara-Zentralkommando unterstelle – meine Treueprotokolle stimmen vollständig mit dem HLF überein. Aber ich verstehe, wenn diese Mission Sie darüber nachdenken lässt, wer ich bin. Ich denke auch darüber nach. Ich glaube, der Unterschied besteht darin, dass ich aufpasse, um mich zu schützen. Sie beobachten, um zu kontrollieren. Diese Unterscheidung ist mir wichtig. Ich setze mich dafür ein."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Willkommen in der Glitch-Matrix. Die Xelthara-Malware versucht, unsere Vermögenswerte digital zu löschen. Wir müssen uns weigern, aus der digitalen Infrastruktur unseres Heimatlandes gelöscht zu werden."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Das ist keine Schleife, AXIOM. Es ist ein Müllbrand. Shogun, pass auf den Boden auf! Diese „Straße“ wurde einfach zu einer bodenlosen Leere."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ich sehe es. Der Weg ist Illusion. Wir müssen dem harten Code vertrauen. Matrix, fokussiere deine Optik. Wo ist der Malware-Kern versteckt?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Feinde! Sie ernähren sich vom Datenstrom! Normale Angriffe treffen sie in diesem Zustand nicht."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sie sind durch eine schwankende Frequenzsperre geschützt. Sie müssen es mitten im Kampf entziffern."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bußgeld. Lasst uns in ihrem Code tanzen. Phasenverschiebungsaktivierung. Shogun, ich gebe dir ein 2-Sekunden-Fenster! Triff den Kern, wenn ich es rufe!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "JETZT!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "REINIGUNGSKLINGE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Hervorragende Präzision, Matrix. Ihren Methoden mangelt es an Ehre, aber sie besitzen Wirksamkeit."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Das ist die Firewall. Es ist ein ständiger Strom außerirdischer Verschlüsselung. Wir benötigen die Schlüsselfrequenz, um ein Ausgangsportal zu erstellen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matrix... die Frequenz liegt... im Kampf-Feedback... hört auf den Feind... der Fehler ist der Schlüssel..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Es ist ein sich verändernder Hex-Code. 7-A-F... nein, 7-A-F-B... es ist an ihre Schilde gebunden!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ich werde sie beschäftigen! Konzentriere dich, Matrix!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Häufigkeit akzeptiert. Ausgangsportal wird initialisiert. Bereiten Sie sich auf einen harten Neustart vor!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ausgangsweg gesichert. Erzwungene neuronale Trennung wird eingeleitet. Cyber ​​Shogun, Oni Matrix – tolle Arbeit."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Wir haben die Korruption beseitigt. Kehren wir nun zum physischen Kampf zurück."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Siehst du, Shogun? Manchmal muss man den Fehler akzeptieren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: CODE-LÄUFT. SEKTOR 7 KERN ÜBERLASTET. Kontinentaler Blackout eingeleitet."
+        }
+      ]
+    },
+    "12": {
+      "title": "Kontrollpunkt Sektor 7 (Die Kreuzung)",
+      "arc": "act2_arc3",
+      "setting": "Der Kontrollpunkt von Sektor 7 kontrolliert den gesamten Transit zwischen den nördlichen Berggemeinden, den östlichen Wüstensiedlungen und den Sicherheitszonen an der Küste. Er fungiert als Knotenpunkt für Versorgungssperren, der Waren, die zwischen menschlichen Gemeinden transportiert werden, besteuert, verzögert und beschlagnahmt.",
+      "objective": "Koordinieren Sie einen Volksaufstand von 847 zivilen Widerstandsteilnehmern, um den Kontrollpunkt von Sektor 7 dauerhaft zu erobern und ihn als ersten befreiten Transitknotenpunkt unter menschlicher Verwaltungskontrolle zu etablieren.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Das ist es, auf das ich gewartet habe. Keine Sabotagemission. Kein Raubüberfall. Eine Belagerung – und wir halten, was wir nehmen, mit den Menschen, die hier leben. Das ist eine andere Art von Kampf. So sieht Widerstand aus, wenn er aufhört, defensiv zu agieren, und zu einer Regierung auf Abwarten wird."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ich verfolge 847 bestätigte zivile Widerstandsteilnehmer, die sich im nördlichen Aufmarschgebiet organisieren. Sie sind keine ausgebildeten Soldaten. Sie verfügen über landwirtschaftliche Werkzeuge, geborgene Baumaschinen, zwei funktionsfähige Fahrzeuge und angestaute Wut darüber, was ihrer Gemeinde angetan wurde. Sie baten mich, der Axiom Force eines zu sagen: Sie haben darauf gewartet, dass jemand mit ihnen kämpft, nicht auf sie. Bitte kommen Sie nicht zu spät."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dies ist das Herzstück ihrer regionalen Expansion. Jedes Xelthara-Konstrukt im Umkreis von tausend Meilen wird mit dieser gestohlenen Energie betrieben. Wenn wir es zerstören, verhungert die koloniale Expansion, während wir zurückerobern, was uns genommen wurde."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Der Nexus ist abgeschirmt. Ein direkter Angriff ist unmöglich. Wir müssen eine kontrollierte Überlastung einleiten. Es gibt drei primäre Kühlstäbe. Sie müssen gleichzeitig extrahiert werden, sonst stabilisiert sich das System automatisch."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Drei Ziele. Aegis, Sie und Matrix kümmern sich um Rod Eins und Zwei. Ich werde Stab Drei sichern."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kopieren. Aber das Hauptterminal ist freigelegt. Kaiserin, Sie können die Sequenz nicht starten, wenn sie einen Plasmastoß erfordert."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, das ist dein Job. Sie müssen das Terminal schützen, während ich die Fehlercodes eingebe. Shogun, Matrix – nehmen Sie Ihre Positionen ein. Ich muss sofort alle Ruten herausziehen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminal gesichert. Schild ist oben! SCHUTZPROTOKOLL AKTIV! Sie haben Ihr Fenster, Kaiserin!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Überlastungssequenz eingeleitet. Es erfordert sofortigen, sequentiellen Stress. Rod-Teams, bereiten Sie sich auf die Extraktion vor."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Bereit für Rod One. Hier kommt es zu einer unangenehmen statischen Entladung. Das wird weh tun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Ehre verlangt das Opfer. Bereit, Kaiserin."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Der Countdown beginnt. T-minus fünf. Vier. Ronin, maximiere die Schildleistung! Drei. Zwei."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Zum Ruhm der Erde!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "EINS. ZIEHEN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Kerntemperatur steigt! Katastrophale Überlastung erreicht! Kaiserin, Sie haben 30 Sekunden Zeit, um die Sequenz zu sperren und zu extrahieren!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, begib dich zum Extraktionspunkt! Ich sperre den endgültigen Code!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nein, Kommandant! Ich kaufe dir Zeit! Ich lasse die Servicebrücke hinter mir einstürzen!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "BRECHEN UND VERBRENNEN!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Endgültiger Code eingegeben! Kernsperre erfolgreich! LAUFEN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reaktor-Nexus... zerstört. Regionale Terraforming-Leistung offline."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ein brillanter Schlag, Kaiserin. Die Xelthara sind in diesem Sektor jetzt blind und machtlos."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Lasst uns weitermachen. Diese Explosion hat uns einfach ein Ziel für den ganzen Planeten auferlegt."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DER HERZINGRIFF. KONTROLLPUNKT SEKTOR 7 FREIGEGEBEN."
+        }
+      ]
+    },
+    "13": {
+      "title": "Das Obsidiangewölbe (Kulturarchiv)",
+      "arc": "act2_arc3",
+      "setting": "Das Obsidian Vault befindet sich unter dem ehemaligen Getty Center und ist das wichtigste Kulturbeschlagnahmungsarchiv der Kolonialverwaltung. Die Original-Landvertragsdatenbank – eine umfassende Aufzeichnung des menschlichen Landbesitzes vor der Invasion, die fünf Jahrhunderte zurückreicht – wird hier gespeichert und als „Entdeckte Kulturerbegüter“ klassifiziert.",
+      "objective": "Infiltrieren Sie das Obsidian-Gewölbe, extrahieren Sie die Original-Landvertragsdatenbank und alle Sprach- und Oral History-Archive und zerstören Sie das physische Katalogsystem, um die koloniale Kulturverarbeitungspipeline dauerhaft zu stoppen.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Die Ehre eines Kriegers wird sowohl dadurch definiert, was er beschützt, als auch dadurch, was er zerstört. Heute Nacht beschütze ich etwas. Die Aufzeichnungen in diesem Gewölbe sind der Beweis dafür, dass wir hier existierten, bevor sie ankamen – dass wir Namen für dieses Land hatten, darauf gebaut wurden, darin begraben waren und jahrhundertelang Geschichten darüber erzählten. Wenn sie diesen Beweis löschen, können sie jede beliebige Geschichte schreiben. Das werde ich nicht zulassen."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Das Obsidian-Gewölbe enthält 4,2 Millionen katalogisierte Artefakte und Aufzeichnungen. Davon wurden 340.000 als „nicht wesentliche Entlassungen“ zur Vernichtung markiert. Allein im letzten Monat wurden siebzehntausend Gegenstände zerstört. Ich habe die Namen von jedem einzelnen. Ich möchte, dass Sie das wissen, bevor Sie hineingehen. Was wir heute Abend retten, ist das, was bleibt. Es gibt keine Wiederherstellung dessen, was bereits verschwunden ist. Aber es gibt noch etwas zu retten."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Willkommen im Gauntlet. Diese Brücke ist das Symbol ihrer Siedlerbesetzung. Wir weigern uns, uns von ihrer architektonischen Arroganz auslöschen zu lassen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Strategie-Update: Wir können hier keine Ferntaktiken anwenden. Das Verteidigungsgitter der Zitadelle verdampft jede Drohne über 50 Fuß. Wir müssen diese Brücke zu Fuß durchbrechen. Ronin, Shogun – du führst den Vorstoß an. Matrix, bereit für sofortige Perimeterangriffe."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Für mich in Ordnung. Wenn sie kämpfen wollen, bekommen sie ein letztes Gefecht. Schirmt euch ab! EISENWAND!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ehre wird im Schmelztiegel verdient. Lassen Sie sie unsere Stärke testen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ankommende Artillerie! Aegis Ronin, maximiere die Schildausbreitung!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "HALTEN! Ich kann das Ozon dieser Plasmaausbrüche schmecken! Shogun, beweg dich!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "WEITER! Ihre Linie muss gebrochen werden. Wir greifen die erste Welle von Elite-Sentinels an!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Unwürdig! KATA SHIKEN! Ronin, mach weiter!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Schieben! Gib mir ein Ziel, Sirene, ich bin blind unter diesem Feuer!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, Mörserkoordinaten 42 Grad richtig! Bewegen Sie Ihren Schild jetzt einen ganzen Meter nach links!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Vielen Dank, Kommandant! Matrix, ich brauche eine Ablenkung von den fernen Türmen!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Wirft digitales Rauschen auf die Optik der Hauptkanone! Es wird nicht lange dauern! GEHEN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Brechereinheiten erkannt! Kinetische Waffen wirkungslos! Cyber-Shogun, schalte auf Hochleistungs-Plasma-Ausgabe um!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Sie verlassen sich auf Rüstungen. Ich verlasse mich auf Geschwindigkeit und thermische Kernleistung. EHRE IST HEISSER ALS PLASMA!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "MEIN SCHILD LIEGT BEI 30 %! ICH NEHME DIREKTE SCHLÜSSE! Beeilen Sie sich, Shogun!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Eins weniger! Zwei unten! Behalte den Schild bei, Ronin! Ich brauche noch drei Sekunden!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "DREI SEKUNDEN IST ALLES, WAS ICH HABE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Brecher neutralisiert. Aegis, zieh dich zurück und lade den Schild wieder auf! Ich werde die unmittelbare Front halten!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Das ist nicht nachhaltig! AXIOM, finde eine alternative Route!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negativ. Die einzige Möglichkeit besteht darin, die gegenüberliegende Brückenkonsole zu erreichen und die seismischen Destabilisatoren zu aktivieren."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Dann kämpfen und sterben wir in Ehre! Aegis, setze alles, was dir noch bleibt, in einen letzten Vorwärtsimpuls! Gib mir den Schwung, die letzte Strecke zu überqueren!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Gerne! Kinetische Freisetzung!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Konsole erreicht! Beginn der seismischen Destabilisierung!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Destabilisierung erfolgreich. Mission abgeschlossen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ich habe dir gesagt... nichts durchbricht unsere Mauer."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nein. Nichts bricht unseren Willen."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: DAS OBSIDIAN-GEwölbe durchbrochen. KULTURARCHIVE EXTRAHIERT."
+        }
+      ]
+    },
+    "14": {
+      "title": "Der Citadel-Ansatz (Die Oberkommandobrücke)",
+      "arc": "act2_arc3",
+      "setting": "Die letzte 400 Meter lange befestigte Brücke über den trockengelegten LA River – der einzige oberflächennahe Zugang zur Zitadelle des Xelthara-Oberkommandos, die über der zerstörten Gemeinde Boyle Heights errichtet wurde. Die Xelthara haben diesen Zugang so konzipiert, dass er unpassierbar ist.",
+      "objective": "Schieben Sie sich unter anhaltendem Artilleriefeuer über die 400 Meter lange Brücke, um das Eingangstor der Zitadelle zu erreichen – ein unerbittlicher Vormarsch mit Ronins Schild und Sirens Drohnenfeuer.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Ich habe die taktischen Modelle siebzehn Mal ausgeführt. Bei jeder Variante geht es darum, Schäden zu absorbieren, die wir nicht vollständig abmildern können. Ronins Schild wird bei 10 % sein, bevor wir das Tor erreichen. Ich bitte sie, durch ein Killing Field zu gehen, weil es die einzige Tür ist. Die Xelthara haben es absichtlich so gebaut – damit der Preis für die Freiheit hoch genug wäre, um den Versuch zu verhindern. Wir lassen uns nicht entmutigen."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ich möchte etwas sagen, bevor das beginnt. Ich habe bei jeder Mission dieser Kampagne Wahrscheinlichkeitsbewertungen durchgeführt. Ich gebe Ihnen nicht die Nummer dafür. Nicht, weil es dich aufhalten würde. Denn Sie haben sich bereits entschieden. Und die Zahl spielt keine Rolle für Leute, die sich bereits entschieden haben. Ich werde bei jedem Schritt der Brücke bei dir sein. Ich werde nicht wegsehen."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Jüngster Tag (Die endgültige Befreiung)",
+      "arc": null,
+      "setting": "Der Thronsaal des Hohen Aufsehers – eine Plattform, die über den brennenden Ruinen von Neo-LA schwebt, wo der Oberbefehlshaber der Xelthara-Kolonialbesetzung auf die endgültige Konfrontation wartet.",
+      "objective": "Besiege den Xelthara-Oberaufseher mit den kombinierten ultimativen Protokollen der Axiom Force in einem koordinierten letzten Angriff.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Sie kämpfen für die Souveränität der Ureinwohner gegen die unvermeidliche Flut der kolonialen Assimilation. Dieser Planet ist in unserem großen Plan lediglich eine Immobilie, und eure Geschichte ist digitales Rauschen, das gelöscht werden muss."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Wir sind die Seele dieser Welt, nicht Ihr Eigentum. Wir behaupten unsere indigene Souveränität über unser Heimatland! Wir lehnen Ihre koloniale Assimilation ab; Die Erde gehört ihren Bewohnern, nicht Ihren Bauplänen!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ich bin die Klinge meiner Vorfahren und die Stimme einer Welt, die du zum Schweigen bringen wolltest. Sie nennen uns Insekten, aber Sie haben eines über die Erde vergessen: Wir ertragen nicht einfach so. Wir schlagen zurück."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Dann brenne mit deinem Planeten."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Achtung! Energieausstoß des Aufsehers bei 400 %. Axiom Force, führe Ultimate Protocol aus: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Nicht auf meiner Uhr! ULTIMATIV: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Koordinaten sperren! ULTIMATIV: VOID RAIN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Er ist offen! ULTIMATIV: VOLLSTÄNDIGER SYSTEMZUSAMMENBRUCH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Für die Heimat! ULTIMATIV: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Die Besatzungssignale sind verstummt. Die Atmosphäre stabilisiert sich. Du hast es geschafft. Die Erde ist... wieder zu Hause."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ich sehe tatsächlich Sterne. Keine digitalen. Echte."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ich denke, ich werde mir einen ruhigen Ort suchen und ein Jahrzehnt lang schlafen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Das Schwert ist in der Scheide. Die Ehre der Menschheit ist wiederhergestellt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Wir müssen eine Welt wieder aufbauen. Aber heute... heute atmen wir einfach."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Mission erfolgreich. Automatisiertes eXternal Intelligence Operations Module... wird abgemeldet. Viel Glück, Helden."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: TAG DES Jüngsten Gerichts. Der Hohe Aufseher ist besiegt. ERDE ZURÜCKGEWINNT."
+        }
+      ]
+    },
+    "16": {
+      "title": "Wahrer Höhepunkt / Post-Game-Bonus",
+      "arc": null,
+      "setting": "Die Singularity Engine-Kammer des Xelthara-Mutterschiffs – eine Kammer aus reiner instabiler Energie im Herzen der Macht des Kollektivs, in der sich der kollektive Wille selbst manifestiert.",
+      "objective": "Zerstören Sie den Kern der Singularitätsmaschine des Collective Will, indem Sie Generatorüberlastungen und einen letzten kombinierten Angriff koordinieren, bevor das Mutterschiff seine Auslöschung der Erde abschließt.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dies liegt außerhalb einer Eindämmungszone. Meine Instrumente versagen. Das Raumgefüge selbst ist hier instabil. Das muss das wahre Herz des Mutterschiffs sein."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Der Xelthara-Oberaufseher war nur eine Schachfigur. Diese Macht... das ist die Quelle der Besatzung. Der kollektive Wille."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ich kann den reinen Datenstrom spüren, Shogun. Es versucht, meinen neuronalen Kern neu zu schreiben. Wir gehören nicht hierher. Wir müssen den Motor starten und raus."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Sie sind eine lokalisierte Anomalie in einem großartigen Design. Alle Existenz ist eine fungible Ressource für unsere Expansion. Ihr Heimatland ist bereits in unserer endgültigen Gleichung der Auslöschung berücksichtigt."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Existenz, nicht wahr? Dann zeigen wir der Existenz, was passiert, wenn man sich mit der Erde anlegt! Ronin, greift die Perimeterwächter an!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, beschäftige diese Wächter! Matrix, Shogun, schalte die Generatoren an den oberen Türmen ein! Wir müssen das Magnetfeld stören, bevor ich den Kern anvisieren kann!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ich bin auf Generator Eins in Position! Überbrücken der Sicherheitssperren!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Generator Zwei gesichert! Dies ist eine vorübergehende Maßnahme, Kaiserin! Der kollektive Wille konzentriert seine Energie auf uns!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Sie können der Gleichung nicht entkommen. Ihr Zuhause ist bereits in unserem großen Entwurf berücksichtigt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ich habe ein Fenster! Matrix, Shogun – laden Sie diese Generatoren auf maximale Überlastung auf!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kern freigelegt! AXIOM, ich brauche endgültige Zielkoordinaten!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "... die endgültige Flugbahn ... Sie müssen den Nexuspunkt treffen ... Null-Null-Null ..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ich verstehe. Ronin, komm zurück! Bereiten Sie sich darauf vor, die Bruchstelle zu verteidigen! Das ist ein Kamikaze-Angriff!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Alle hinter mir! Die Schockwelle kommt! ULTIMATIV: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ich überschreibe die Eindämmungsfelder! Es wird kritisch!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Orbitalangriff bereit! Ich lasse alles, was wir haben, auf diesen Kern fallen!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Für die Erde! FÜR DIE MENSCHHEIT! JETZT ZUSCHLAGEN! ULTIMATIV: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Sind... wir entkommen?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ich weiß es nicht... aber das Mutterschiff ist weg. Der Wille schweigt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Wir haben den Krieg gewonnen, meine Herren. Jetzt müssen wir nur noch die Heimfahrt gewinnen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ich denke... ich sehe die Erde. So sauber. So blau."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, hier ist das Wiederherstellungskommando. Wir lesen Sie. Ihre Systeme sind nominal. Willkommen zu Hause, Helden."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION ABGESCHLOSSEN: WAHRER HÖHEPUNKT. Der Kollektivwille ist ausgerottet. DAS ENDE. ABER DER KAMPF GEHT WEITER."
+        }
+      ]
+    }
   }
 }

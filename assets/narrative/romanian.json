@@ -2,30 +2,2131 @@
   "meta": {
     "language": "romanian",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — romanian narrative data (STUB — translate from en.json)"
+    "description": "Axiom Force: Reclaim Earth — romanian narrative data"
   },
   "acts": {
-    "act2_arc1": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc2": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc3": { "title": "", "subtitle": "", "description": "" }
+    "act2_arc1": {
+      "title": "ACTUL II — ARCUL 1: FRACTURAREA GRELEI DE SEGREGARE",
+      "subtitle": "Nivelurile 5–7: Spargerea zidurilor fizice ale ocupației",
+      "description": "Primul arc al campaniei de mijloc se concentrează în întregime pe infrastructura fizică a separării – zidurile, punctele de control, registrele biometrice și programele de condiționare comportamentală pe care Xelthara le folosește pentru a menține populația umană fracturată, supravegheată și prea traumatizată pentru a fi organizată. Înainte ca rezistența să poată lovi inima economică sau politică a ocupației, ei trebuie mai întâi să reconecteze comunitățile umane izolate între ele."
+    },
+    "act2_arc2": {
+      "title": "ACTUL II — ARCUL 2: FRONTUL DE RECUPERARE A RESURSELOR",
+      "subtitle": "Nivelurile 8–11: Reducerea profitabilității economice a colonizării",
+      "description": "Odată cu fractura Grilei de Segregare și reconectarea populațiilor izolate, rezistența trece la motorul economic al ocupației. Xelthara au venit pe Pământ pentru resurse, nu pentru ideologie. Arc 2 este campania de perturbare economică: patru lovituri succesive împotriva infrastructurii de extracție, procesare, transport și securitate care face ocupația viabilă financiar."
+    },
+    "act2_arc3": {
+      "title": "ACTUL II — ARCUL 3: DEZMONTAREA GUVERNANȚEI CORPORATE",
+      "subtitle": "Nivelurile 12–14: Împingerea în inima statului administrativ colonial",
+      "description": "Motoarele de extracție sunt oprite. Grila de securitate este întunecată. Pereții de separare sunt fracturați. Ceea ce rămâne este arhitectura administrativă și politică a ocupației în sine. Arcul 3 este secvența cea mai directă politic a campaniei: rezistența nu mai luptă cu o armată de ocupație. Este dezmembrarea unui stat colonial, bucată cu bucată, din exterior spre interior."
+    }
   },
   "levels": {
-    "0": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "1": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "2": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "3": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "4": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "5": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "6": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "7": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "8": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "9": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "10": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "11": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "12": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "13": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "14": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "15": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "16": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] }
+    "0": {
+      "title": "Protocol Zero - Forja virtuală",
+      "arc": null,
+      "setting": "O simulare vastă, întunecată, cu cadru de sârmă a unui orizont prăbușit din centrul orașului Los Angeles. Liniile albastre neon definesc drumurile și clădirile. Defecțiuni statice pâlpâie în mod constant peste vedere. Cei patru campioni stau pe o platformă strălucitoare.",
+      "objective": "Finalizați protocolul de antrenament parcurgând toate abilitățile de mișcare și luptă, culminând cu un atac simultan de echipă pentru a distruge o unitate grea Xelthara simulată.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Ghost in the Gridlock",
+      "arc": null,
+      "setting": "Ruinele Grădinilor Palatului Imperial. Grinzile de terraformare Xelthara dizolvă în mod activ felinarele antice de piatră și florile de cireș, înlocuindu-le cu monoliți administrativi sterili, din plăci de obsidian.",
+      "objective": "Infiltrați-vă în locul activ de demolare pentru a recupera Data-Blade — un depozit digital al istoriei interzise — înainte ca câmpul „Ștergere-Cultură” Xelthara să curețe memoria sitului pentru totdeauna.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ei nu ne iau doar pământul; ne șterg sufletul. Acest palat a rezistat timp de un mileniu, acum este asfaltat pentru un birou fiscal regional. Nu voi lăsa strămoșii noștri să fie uitați sub plăcile lor de obsidian."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Avertisment: Comm-towers transmit un refuz de serviciu. Probabilitatea riscului de detectare este de 98,7%. Retragerea este recomandabilă."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "Jurnal de arhivă: NEO-TOKYO CULTURE-PURGE. LOCALITATE: ETERNAL ZEN DOJO (SITE-UL DEsemnat: ASEZARE-BLOC 01). STARE: DEMOLIREA ÎN CARE. ȘTERGERE ARHITECTURALĂ LA 42%."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Acest lemn a absorbit respirația a zece mii de războinici. Acum, ei îl tratează ca pe un dezordine digitală pentru a fi mutat în coșul de reciclare. Pentru Xelthara, strămoșii noștri sunt doar un obstacol incomod în planurile lor pentru un birou fiscal."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Avertisment: Integritatea structurală scade. Administrația colonială a autorizat „nivelarea” finală a acestui sit. Retragerea este singura cale logică."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Logica este pentru cei fără trecut. Numiți asta „nivelare”? Eu îl numesc război cu sufletul. S-ar putea să pavajezi pământul, dar vei descoperi că rădăcinile onoarei noastre sunt mai adânci decât plăcile tale de obsidian!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Fiecare așchie din acest lemn este o memorie pe care nu o puteți șterge! KATA: LOVĂ ANCESTRALĂ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Uită-te la „paradisul” lor. Un mormânt de sticlă și sârmă construit pe mormântul unui mileniu. Refuz să las istoria omenirii să fie ștersă pentru a face loc foilor de calcul. Cât timp stau, Tokyo își amintește!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Far neutralizat. Demolarea a stagnat, dar autoritățile coloniale redirecționează o Legiune de Enforcer. Duci o bătălie cu fantome, Shogun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Atunci sunt o fantomă care le va bântui pentru totdeauna așezările. Dacă nu putem salva piatra, vom salva povestea. Securizează Data-Blade! Lasă-i să găsească doar focul acolo unde se așteptau la conformitate!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara vor să scrie istoria noastră la timpul trecut. Astăzi, o scriu în plasmă. Acest dojo cade, dar rezistența crește."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE COMPLETĂ: MEMORIA ETERNĂ. Epurarea a fost întreruptă."
+        }
+      ]
+    },
+    "2": {
+      "title": "Incendiul din beton",
+      "arc": null,
+      "setting": "Poarta masivă de admisie a zonei de izolare 4. Mii de familii sunt strânse ca vitele prin garduri energetice. În spatele lor, casele lor suburbane sunt aplatizate de către cei care merg pe expansiune Xelthara.",
+      "objective": "Țineți „Ultimul Pod” împotriva Forțelor Xelthara care strâng populația, permițând unui ultim grup de refugiați să se strecoare în mahalalele necartografiate în loc de taberele închise.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "Jurnalul deplasării: PROTOCOL DE REMUNERARE SECTOR 4. APĂRĂTOR: AEGIS RONIN (STAREA ȘASIU: CRITIC). NIVEL DE AMENINȚARE: OMEGA. NUMĂR DE REFUGIAȚI: 412. MANDAT ACTUAL: PROTEJAȚI CELUI DEPLUATĂȚI. APĂRĂ PRAGUL."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, spune-le piloților de extracție să-l lase! Tavanul ăsta nu devine mai ușor!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, integritatea structurală este de 14%. Unitățile de asediu Xelthara desfășoară mortare cu plasmă grele. Probabilitatea ca tu să fii zdrobit ajunge la 99,2%."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Atunci voi lua acel 0,8% și le voi băga în gât! SCURTĂ-TE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Continuă să te miști! Vor să te pună în cuști ca vitele. Atâta timp cât trag respirația, eu sunt zidul dintre tine și zonele lor de izolare. Nu vor înlocui un alt suflet astăzi!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Unități de asediu blocate. Aceștia vizează pilonii de sprijin. Dacă trag, tot peretele Sectorului 4 cade pe zona de evacuare."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nu la ceasul meu. SUPRAÎNCĂRCARE CINETICĂ!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Unul jos! AXIOM, generatorul de scuturi se văita. Este normal?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negativ. Prototipul absoarbe prea multă energie cinetică. Devine o bombă. Deconectați imediat!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nu. O să-i dau lui Xelthara un suvenir. Îl supraîncărc."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, semnele tale vitale cresc! Analiza indică eșec catastrofal. Șansa de supraviețuire: 0,1%!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Şanse mai bune decât am avut în lagărele de izolare. Aceasta este o călătorie dus, puștiule. Poți să spui Frontului că îmi datorează ceva de băut?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PENTRU PATRIA! MANCĂ BETON!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin? Aegis Ronin, răspunde... Am... ochii pe o semnătură... Scutul a ținut. Peretele este sigur."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATĂ: ZEDELE DE NESCRUMS. AEGIS RONIN s-a alăturat HLF."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neon Rust și Data Dust",
+      "arc": null,
+      "setting": "Literal „Under-City” — o rețea de puțuri de întreținere sub o așezare strălucitoare, iluminată cu neon, Xelthara. Deasupra, ocupanții se bucură de aer terraformat; mai jos, oamenii marginalizați caută oxigen poluat cu ozon.",
+      "objective": "Sifonează energia din rețeaua colonială pentru a alimenta sistemele de susținere a vieții populației marginalizate, evitând în același timp „Patrulele Purității” care vânează oameni maidanezi.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Ei își construiesc paradisul pe tavanul nostru și se întreabă de ce curge subsolul. Trăim în golurile pe care ei au uitat să le asfalteze. Această celulă de putere nu este doar pentru mine; este pentru a menține încălzitoarele aprinse pentru suta de familii pe care le-au „uitat” în planuri."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Avertisment: nu este recomandată integrarea hardware-ului Xelthara în șasiul civil. Feedback-ul neuronal este proiectat la 40% instabilitate. Matrix, ritmul cardiac depășește parametrii siguri."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "BURG MARGINALIZAT: SUB-NIVEL RASUP-ORAȘ. STAREA: Supraviețuire. ALERTA INTRUS: ZERO DETECTAT. INCREDEREA IN SISTEM: 100%. OBIECTIV: FURĂ SCÂNTEIA COLONIALĂ. ALIMENTAȚI REZISTENTA."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ei își construiesc paradisul pe tavanul nostru și se întreabă de ce curge subsolul. Trăim în golurile pe care ei au uitat să le asfalteze. Voi reutiliza propria lor tehnologie de deșeuri pentru a le prăji grila. De la margini, ripostăm."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Integrare reușită. Capacitatea de schimbare de fază este online. Notă: Utilizarea continuă va provoca degradarea neuronală."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ca să mergi prin fum. Acum, să găsim ieșirea înainte să uit cum se simte realitatea."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Blocarea a început. Miezul de recoltare atinge temperatura critică. Trebuie să dezactivați imediat poarta perimetrală."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "O explozie EMP ar trebui să o facă. Să le dăm puțin praf de date pentru a mă aminti."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Și acesta este indiciul meu."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "A fost o ieșire foarte tare, Matrix. Vă urmăresc semnătura încă de la rafinărie."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Cine este acesta? Cum esti pe acest canal?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Sunt împărăteasa Siren. Noi suntem cei care luptăm să ne asigurăm că mai rămâne un oraș de recoltat. Ai un dar pentru a sparge lucruri, fantomă. Am putea folosi asta. Te-ai săturat să te ascunzi în rugină?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Rugina deveni oricum plictisitoare. Să conduci, Siren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE COMPLETĂ: FANTOMA ÎN MAȘINĂ. ONI MATRIX s-a alăturat HLF."
+        }
+      ]
+    },
+    "4": {
+      "title": "Egida spartă a Comandantului Vidului",
+      "arc": null,
+      "setting": "Rămășițele distruse ale Centrului de Apărare al Pacificului. Infrastructura militară tradițională, mândră, este reciclată de Xelthara, forțând-o pe Siren să coordoneze o rețea descentralizată de celule ascunse.",
+      "objective": "Demontați ultimul turn militar de transmisie și distribuiți-i cipurile de frecvență celulelor de rezistență civile, finalizând tranziția la războiul de gherilă.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Epoca armatelor permanente a murit. Nu îi putem întâlni pe teren, așa că vom deveni câmpul. Împărțiți semnalul. Descentralizați comanda. Dacă nu există cap de tăiat, rezistența nu poate muri."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Împărăteasă, difuzarea ta este un risc masiv! Vă expuneți locația și tiparul de frecvență al rezistenței. Acest lucru nu este optim. Vă rugăm să anulați transmisia."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "JURNAL DE DESCENTRALIZARE: TRANZIȚIA DE GUERRILA INIȚIE. LOCAȚIE: COMANDA ULTIMĂ STAND (HUB PACIFIC). STAT: FORȚĂ CONVENȚIONALĂ ÎNVINSĂ. DOCTRINA ASIMETRICA ACTIVA. COMANDANT: SIRENĂ IMPĂRATEASĂ (COD TACTIC: COMANDANT VOID). ULTIMA COMANDĂ: SFARAȚI COMANDA. DEVENI FURTUNA."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Acesta este Void Commander. Ierarhia tradițională este dizolvată. Nu mai sunteți soldați; sunteți celule. Se estompează în oraș. Loviți când dorm. Recuperează-ți casa o umbră pe rând."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Comandante, navele de evacuare raportează o rată de pierderi de 85% la lansare. Luptătorii Xelthara acordă prioritate necombatanților. Ei cunosc vectorii noștri de evadare."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Aceștia operează pe date tactice de dinainte de invazie. Voi schimba datele. AXIOM, blochează rețeaua centrală. Ocolesc manual firewall-urile."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Flota noastră a dispărut. Baza noastră este praful. Rămân doar datele. Trebuie să fiu precis. Datoria unui comandant este față de cei vii, nu apărarea unui cadavru."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "S-au încărcat noi parametri. Acum pentru partea grea. AXIOM, deviază puterea de la suportul meu auxiliar de viață către matricea de sincronizare a dronei."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Comandante, asta vă va reduce rezervele de șasiu la 12%. Riscul de defectare a sistemului este mare. Eu sfătuiesc împotriva acestui lucru."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Executați comanda. Aceste vieți valorează 12% din sistemele mele. Am nevoie de o linie de vedere clară, AXIOM. Se sincronizează micro-dronele acum."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone Fleet One, stabilește un roi de protecție în jurul navetei de evacuare. Drone Fleet Two, pregătiți-vă pentru desemnarea ofensivă. Ținte: Coloana Xelthara 8-B, îndreptându-se către tunelul civil principal."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Coloana se află direct sub un sector restricționat. Bombardamentul orbital este interzis din cauza platformei satelitului cinetic destabilizat."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Interzis este irelevant. Nu-i voi privi murind. AXIOM, dă-mi acces la suprascrie manuală la fluxul de traiectorie al platformei de satelit Kinetic. Am nevoie de o singură lovitură disperată."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Comanda golului către platforma cinetică—FOC. Coordonata 51.4883 N, 120.7301 W. PROTOCOL DE OBLITERARE."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Deteriorarea sistemului este copleșitoare! Satelitul a deorbitat. Comandante, trebuie să te retragi. Zona este saturată cu radiații de înaltă energie."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Retragerea confirmată. Obiectivul misiunii — supraviețuirea civilă — atins. Ne-au luat cerul, dar nu ne vor lua niciodată hotărârea. Extrag acum."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATĂ: COMANDANTUL VILULUI. Imparateasa Sirena s-a alaturat HLF."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neon Embers - Încălcarea frontierei",
+      "arc": "act2_arc1",
+      "setting": "Rețeaua de separare activă a sectorului 4 — un zid energetic de 40 de metri înălțime fortificat cu turle de scanare biometrice, puncte de control pentru procesarea permiselor și stații ale autorității de frontieră Xelthara. El divide fizic Los Angeles-ul, izolând zona de izolare umană de sectorul colonial Xelthara. Zidul nu este o instalație militară. Este unul administrativ.",
+      "objective": "Dezactivați toate cele patru turle de scanare biometrică, distrugeți miezul central de procesare a permiselor - motorul birocratic care controlează mișcarea umană - și doborâți Marea Separație, astfel încât populația din zonele de izolare să poată merge liber prin propriul oraș.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Zidul acela nu a tăiat doar orașul în jumătate. M-a tăiat în jumătate. Tot ceea ce îmi amintesc – mirosul bucătăriei bunicii mele de pe Spring Street, zgomotul autobuzului de pe Strada 5 – se află de cealaltă parte a acelui lucru. Și trebuie să mă strec înapoi la el ca un criminal."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Grila de Separare Sector-4 nu este clasificată ca instalație militară în evidențele administrative Xelthara. Este listat ca „Sistem de control al autorităților de optimizare a populației și de tranzit”. Acest rebranding este ideea. Este un zid care face să sune ca un serviciu."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "Jurnalul deplasarii: GRILLA DE SEPARARE SECTOR-4. TIP STRUCTURA: PUNCT DE CONTROL ADMINISTRATIV COLONIAL. NU MILITAR. ASTA ESTE INTENȚIONAT. AMENINȚARE: AUTORITATEA DE FRONTIERĂ XELTHARA — DIVISIA DE APLICARE. SPIRES BIOMETRICE: 4 ACTIVE. NUEZ DE PERMIS: ONLINE. OBIECTIV: DEMONTAREA ARHITECTURA ADMINISTRATIVĂ A SEPARĂRII. DESCHIDE ORAȘUL."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "PEREtele pe care l-au numit UȘĂ"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Structura la care vă uitați este desemnată în înregistrările coloniale drept „Sistemul de control al autorităților de tranzit și optimizare a populației din sectorul 4”. Este un zid. Este un zid de segregare. Fiecare om de pe această parte a ei are nevoie de un permis de ședere eliberat de Xelthara pentru a trece. Nu se eliberează permisele. Sistemul de aplicare are un restanțe de doi ani. Acesta nu este un accident. Aceasta este arhitectura deplasării permanente."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Am petrecut opt luni într-o zonă de izolare ca aceasta după ce au luat Valea San Fernando. Opt luni urmărind copiii devin mai mici, deoarece rațiile calorice sunt concepute pentru o specie care nu mănâncă aceleași lucruri pe care le facem noi. Și pe de altă parte, ne mănâncă mâncarea. În restaurantele noastre. În orașul nostru."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, confirmă cele patru locații ale turnului pentru echipă."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha se află pe fostul amplasament al coridorului de artă Grand Avenue. Spire Beta este plantat la colțul dintre 5th și Spring. Spire Gamma este încorporat în peretele exterior al vechii Biblioteci Centrale. Spire Delta ancorează capătul sudic al zidului la râu. Nucleul de procesare a permiselor este găzduit în stația punctului de control din ceea ce a fost fost Piața Pershing. Toate cele patru turle trebuie dezactivate înainte ca Core-ul să poată fi spart. Distrugerea Miezului va prăbuși în cascadă întreaga membrană energetică."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "a 5-a și primăvara."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ăsta e... ăsta e colțul în care se află clădirea bunicii mele. A fost. este. Spire Beta este plantată în curtea ei din față. Și-au pus stâlpul de perete în curtea ei din față."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matrice -"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Nu. Sunt bine. Sunt operațional. Spun că turla este a mea personal pentru a o doborî. Nimeni nu se atinge de Beta în afară de mine."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Înțeles. Este a ta."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, iei Spire Alpha pe coridorul artelor. Shogun, Spire Gamma la Biblioteca Centrală. Matrix are Beta. Voi coordona suprimarea dronei pe rutele de patrulare și mă voi alătura lui Shogun la abordarea Bibliotecii. AXIOM va ghida secvențierea. Toate cele patru turle cad în secvență, apoi convergem în Piața Pershing și despărțim Miezul bucată cu bucată."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Notă: patrulele Autorității de Frontieră sunt dense, dar modelate. Punctul de control are personal 24 de ore de către Enforcer-Administrator Voss, care gestionează autorizarea de trecere fizică. Nu este ofițer de luptă. El este un birocrat. El a respins personal 4.400 de cereri de trecere în ultima lună."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4.400. Oameni care au vrut doar să meargă acasă."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Cea mai crudă armă a colonialismului nu este soldatul cu pușca. Funcționarul cu ștampila este cel care îți spune că existența ta necesită autorizarea lor. Că o ființă umană trebuie să solicite unui ocupant dreptul de a merge pe pământul propriilor strămoși. Am făcut pace cu soldații luptători. Confruntarea cu arhitectura permisiunii – umilirea obișnuită, sistematică a acesteia – aceasta este ceea ce uzează spiritul în moduri în care nicio lamă nu poate tăia."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Patrulele se rotesc. Există o fereastră de 90 de secunde în apropierea Hope Street, care începe în treizeci de secunde. Treci pe marca mea."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Țineți poziția în umbră până când AXIOM-7 dă semnalul."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Mark. Merge."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Mișcă-te. Stați sub plafonul de acoperire a dronei. Au cartografiere termică la șase metri altitudine - nu săriți."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 1: ABORDAREA PRIN ZONA TAMPON"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ei au proiectat această zonă tampon astfel încât chiar și apropierea de perete să se simtă ca o pătrundere. Ești în aer liber. Ești vizibil. Te simți vinovat că stai lângă ceea ce a fost o stradă publică. Asta e psihologia. Ei vor să ne simțim ca și cum nu aparținem aici chiar înainte de a ajunge la punctul de control."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Urăsc asta. Am ținut linia împotriva Siege Walkers și urăsc asta. Există ceva în a sta în aer liber pe propria ta stradă și a te simți urmărit, care mă devine mai rău decât artileria."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, al doilea proiector se rotește în patru secunde. Treceți la canalul de drenaj. Trei. Două. Unul."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Am înțeles. Sunt la baza Spire Alpha. Pot vedea ancora. Este înșurubat prin ceea ce a fost un trotuar cu mozaic."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "L-au înșurubat prin mozaic. Era o întreagă istorie pictată în acea țiglă de trotuar. Portrete, nume, date. Un proiect comunitar. Ei doar... au găurit prin mijlocul unei fețe pentru a-și ancora stâlpul."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, ancora turlei este un blocaj cinetic magnetic conceput pentru a rezista până la 8.000 de newtoni de forță directă. Încărcarea dvs. de supraîncărcare cinetică, reținută pentru o numărare completă de trei, va depăși acel prag. De asemenea, trebuie să dezactivați mai întâi cele două unități Biometric Sentinel de la baza turnului – acestea vă vor detecta semnătura biometrică în momentul în care pășiți în raza de acțiune."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Semnătura biometrică. Bătăile mele inimii declanșează o alarmă pentru că sunt om. În regulă. Să începem să reparăm asta."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Imi scanezi bataile inimii? Lasă-mă să-ți dau ceva de scanat. PULS CINETIC!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Și asta sunt două. AXIOM, santinelele sunt în jos. Merg după ancoră."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Țineți încărcarea Kinetic Overload la baza Spire Alpha pentru o numărare de trei. [INTRARE: Țineți apăsat RB/R1 timp de trei secunde, apoi eliberați.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ancora Spire Alpha fracturată. Membrana energetică s-a destabilizat în sectorul de nord cu 25%. Au rămas trei turle."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Douăzeci și cinci la sută este un început. Îmi pare rău că ne-a luat atât de mult. Suntem aici acum."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 2-A: ONI MATRIX LA SPIRE BETA — A 5-A SI PRIMAVARA"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Acolo este. Copacul este încă acolo. Bunica spunea că acel copac era mai bătrân decât primăria orașului și nu am crezut-o niciodată."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ea a depus o cerere de permis de trecere la patruzeci și șapte de zile după ce zidul s-a ridicat. Ea a completat formularele. În triplu exemplar. Pentru că a crezut în proces. Ea credea că dacă faci lucrurile bine, cineva te-ar asculta. Nu a primit niciodată un răspuns. Ea a murit în zona de izolare două luni mai târziu. Complicații ale malnutriției. Aveau magazinul ei favorit de cealaltă parte a zidului. Ea a depus un formular pentru a merge să cumpere mâncare."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Am de gând să desfac chestia asta cu foarte multă atenție, ca să nu rănesc copacul."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Tu folosești trucul meu. Drăguţ. Iată diferența — eu l-am inventat pe al meu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Etichetați."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Trebuie să te întorci. Întotdeauna trebuie să te întorci."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Iată-te."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Prima conductă. A doua conductă. Treilea. Ultimul."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Beta este oprit. Copacul e bine. Trecerea la regrupare."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Te-am auzit, Matrix. Am ascultat tot timpul."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Da. Știu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 2-B: CYBER SHOGUN ȘI SIRENA ÎMPĂRATĂȘII LA SPIRE GAMMA — BIBLIOTECA CENTRALĂ"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Biblioteca. Acolo mi-am organizat primele seminarii de pregătire pentru ofițeri. Cursuri de apărare comunitară, sala de lectură la etajul trei. Cu trei ani înainte de invazie. Geometria modului în care colonialismul își folosește propria infrastructură împotriva noastră nu încetează să fie izbitoare. Și-au pus centrul de date în biblioteca noastră. Ei scriu peste înregistrările noastre în locul în care ne-am păstrat evidențele."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Și acum vor descoperi că oamenii ale căror înregistrări au încercat să le ștergă stau la ușa din față."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Cele șase unități de la intrarea în bibliotecă sunt clasificate drept Ofițeri de Frontieră. Încărcarea lor de dispersie a mulțimii oferă 900 de volți de curent de perturbare neuronală la contact."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Neletal. Ei își spun că este uman. Ceea ce înseamnă ei este că un captiv în viață le este mai util decât un cetățean mort."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Shogun, am nevoie să le curățați rapid și liniștit înainte de următoarea patrulă. Poți să iei trei din stânga în timp ce dronele mele suprimă flancul drept?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Înțeles. Liniște înseamnă precizie. Nu voi dezonora această clădire cu zgomot inutil."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Drones: marca, marca, marca. EMP a izbucnit în clusterul din dreapta - foc."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "În primul rând. Doilea. Treilea."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Curat. AXIOM, scanând sistemul de ancorare Spire Gamma."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma preia energie din rețeaua internă a bibliotecii. Pentru a dezactiva turnul fără a declanșa o redirecționare a energiei de urgență, trebuie mai întâi să întrerupeți conexiunea internă la rețeaua din interiorul clădirii. Împărăteasa Siren, joncțiunea cu grilă este la etajul trei."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Al treilea etaj. Desigur. Conduceți drumul, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Le-am spus douăsprezece familii cum să organizeze rotații de supraveghere comunitară în această cameră. În secția de copii erau scaune de fasole. Cineva lipise desene cu creion pe biroul de referință. Un copil a desenat un super-erou. Diferența dintre o bibliotecă și un centru de date este că o bibliotecă presupune că oamenii care trec pe ușă au dreptul să fie acolo."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Joncțiunea cu grilă localizată. Întreruperea alimentării Spire Gamma. Acest lucru va șterge, de asemenea, orice date de înregistrare a proprietății coloniale pe care le-au stocat aici."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Confirmat. Întreruperea acestei conexiuni va corupe aproximativ 12.000 de înregistrări de transfer de acte coloniale pentru proprietăți din Sectorul 4. Aceste înregistrări reprezintă arhitectura legală a confiscărilor de teren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Atunci acesta nu este doar sabotarea infrastructurii. Aceasta este o întoarcere a terenului."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spires Alpha, Beta și Gamma offline. Integritatea membranei energetice: 25%. Delta Spire de la râu este ancora finală. Toate echipele converg după căderea Deltei. Apoi: Piața Pershing. Nucleul permisului."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 2-C: DELTA SPIRE — TERMINUSUL SUD LA RÂU"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta este ancora portantă a peretelui. Este păzit de comandantul de frontieră Vyss, care a ordonat electrificarea râului după ce trei familii au încercat să treacă prin apă în prima săptămână a zidului. Vyss nu a ordonat reținerea lor. Vyss a ordonat ca apa să fie electrificată."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "A electrificat râul. Pentru că familiile încercau să treacă."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Nu. Nu-l lăsa să te preia încă. Mai întâi dăm jos asta. Atunci nu avem nevoie de râu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Corect. Corect. După turlă. După zid. Nu voi uita."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Aceasta nu este o abordare ascunsă. Delta este o poziție fortificată. L-am lovit ca unitate. Ronin — iei punctul, te protejezi, le atragi atenția și le absorbi salba inițială. Shogun, eliberează flancul stâng. Matrix, folosește Phase-Shift pentru a ajunge la panoul de control al turelei din extrema dreaptă și a ucide toate cele trei turelete simultan. Odată ce turnulele sunt moarte, pun dronele să tragă de saturație asupra echipei de aplicare. Prăbușim garnizoana, apoi Ronin pune turla în pământ."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SCUT SUS. Lasă-i să arunce totul în mine. Eu sunt ușa din față."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Păstrează. Tragere. Eu nu. Mişcare."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SHADO-FORCE KATA! Sirena - calea ta este deschisă!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ghosting dreapta. Prost. S-a ajuns la controlul turelei. Uciderea tuturor trei. EMP PULSE — RĂSPUNDERE COMPLETĂ!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Flotă de drone, suprimare completă. Prioritizează formarea - rupe linia lor. FOC."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Comandantul Vyss se retrage în postul de comandă din spatele turnului. El inițiază un semnal de primejdie. Timp de răspuns: opt minute."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Avem opt minute. Mai mult decât suficient. Ronin — turla."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SUPRAÎNCĂRCARE CINETICĂ — ELIBERARE COMPLETĂ!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Membrana energetică este complet offline. Bariera administrativă de trecere a fost neutralizată. Zona tampon este... oamenii traversează zona tampon. Aproximativ 12.000 de persoane se deplasează spre fosta linie a zidului. Îl traversează."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ei doar... merg pe jos. Ei doar trec prin."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 3: PIATA PERSHING — NEZUL DE PROCESARE A PERMISILOR"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Uită-te la ei. Ei ating pavajul de cealaltă parte a locului în care era zidul de parcă s-ar putea să nu fie real. De parcă ar putea fi un truc."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Pentru că de doi ani, speranța a fost un mecanism de dezamăgire. Au învățat să nu aibă încredere în ușile deschise."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "... Ar fi trebuit să facem asta mai devreme."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Suntem aici acum. Continuă să te miști. Nucleul este încă în picioare. Voss este încă acolo."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Ați comis distrugerea neautorizată a unei instalații administrative coloniale de clasa A. Mi se cere prin protocol să vă ofer posibilitatea de a vă supune procesării administrative înainte de a se lua măsuri de executare. Vă rugăm să formați o coadă."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ne spune să facem o coadă."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Împărăteasa. Vreau să-l lovesc atât de rău."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "stiu. Mai întâi trebuie să luăm Miezul. AXIOM, arhitectura Core."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Singura vulnerabilitate a nucleului de procesare a permiselor sunt cele trei console de autorizare de intrare dispuse în jurul bazei sale. Fiecare consolă trebuie să fie accesată și să aibă anularea administrativă executată simultan. Este nevoie de trei operatori simultan."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Trei console. Trei dintre noi. Matrix, Shogun, Ronin - ia fiecare câte o consolă. Voi gestiona inelul defensiv al lui Voss cu suprimarea dronei."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Accesul neautorizat la consolele administrative este o încălcare a clasei C. Dosarul dvs. de conformitate va fi adnotat negativ."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Adnotă asta."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Treptat. La Consola Doi. Se inițiază anularea. AXIOM, acest protocol de anulare este în întregime în scriptul administrativ Xelthara."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Introduc traducerea în HUD-ul tău în timp real. Urmați secvența."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nu am făcut niciodată birocrație până acum. Plimbă-mă prin asta, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Secvența de autorizare necesită introducerea unui cod de refuz invers. Din punct de vedere administrativ, respingeți fiecare cerere din sistem. Acest lucru va declanșa ștergerea memoriei."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "...4.400 de respingeri. Tejgheaua stă chiar aici. 4.400 de cereri respinse în ultima lună. Sunt nume. Pot vedea nume."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Continuă, Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Da. Mă duc."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Nu puteți trece peste Core. Acest sistem menține ordinea administrativă legală a acestui sector. Fără el, nu există management structurat al populației, nici tranzit autorizat."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ceea ce numiți „gestionarea structurată a populației”, noi numim dreptul de a merge acasă. Consola One: gata."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Consola doi: gata. Bunica mea a depus un permis pentru a merge să cumpere alimente. Vrei să vorbim despre ordinea administrativă?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Consola trei: gata. 4.400 de nume. Fiecare dintre ei este o persoană care a vrut doar să meargă acasă. De asta protejea acest zid."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Confirmat. Toate cele trei console de intrare sunt amorsate. Autorizarea simultană va executa ștergerea memoriei și va dezactiva definitiv protocolul de restaurare al Core. Pe semnul tău, împărăteasă."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Administratorul Voss. Fiecare permis pe care l-ai refuzat – fiecare familie pe care ai ținut-o separată – fiecare persoană care stătea la coada ta în speranța că, dacă completează corect formularul, i-ai putea trata ca pe o ființă umană. Aceasta este ultima decizie administrativă pe care o ia acest sistem."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Mark."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Nucleul de procesare a permiselor: offline. Protocol de restaurare permanentă: dezactivat. Zidul nu poate fi reconstruit din acest nod. Toate înregistrările aplicațiilor în așteptare: eliminate. Toate înregistrările de refuz: eliminate. Infrastructura de restricții de trecere pentru Sectorul-4 a dispărut."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4.400 de cereri. Și nici unul dintre ei nu ar fi trebuit să întrebe."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "AXIOMĂ. Îmi puteți spune dacă clădirea bunicii mele este suficient de sigură din punct de vedere structural pentru a fi ocupată? Vreau să știu dacă cineva se poate muta înapoi."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Executare scanare structurală. Etajele unu până la patru sunt intacte. Fundația este solidă. Linia de alimentare cu apă este deteriorată, dar se poate repara. Da. Cineva s-ar putea muta înapoi."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bun. Bun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Zidul a dispărut, Matrix. Dar ceea ce facem acum – cum reconstruim ceea ce zidul a împărțit – aceasta este munca mai grea. Și începe în seara asta."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Așa se simte câștigarea? Pentru că nu se simte așa cum mă așteptam."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nu. Se simte că mai sunt de făcut. Așa știi că este real."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Evaluarea misiunii: Grila de Separare Sector-4 a fost demontată definitiv. Populația zonei de izolare Sector-4 se deplasează liber prin orașul lor pentru prima dată în doi ani. Nu am o categorie în jurnalul meu operațional pentru ceea ce se întâmplă în acest pătrat chiar acum. Voi crea unul. O voi numi: reclamare."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATA: NEON EMBERS. ZEDELE E JOS. ORAȘUL RESPIRA."
+        }
+      ]
+    },
+    "6": {
+      "title": "Shado-Grid Spire (nucleul centrului orasului)",
+      "arc": "act2_arc1",
+      "setting": "Shado-Grid Spire găzduiește Registrul Populației, Baza de date de Realocare a Proprietăților și Sistemul de Alocare a Muncii Forțate – motorul birocratic al strămutărilor coloniale din Centrul Orașului.",
+      "objective": "Furați seturile de date complete ale registrului de proprietate și populație înainte de transmiterea în afara lumii și corupți sistemul de alocare a muncii forțate pentru a anula toate ordinele de atribuire în așteptare.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Tot ce știu Xelthara despre noi se află în acel turn. Fiecare adresă la care am locuit vreodată. Numele fiecărui membru al familiei. Fiecare act pe care l-au semnat bunicii noștri. Ne-au transformat întreaga existență într-o intrare de bază de date, astfel încât să ne poată gestiona mai eficient. În seara asta ne luăm datele înapoi – și spargem mașina care o folosește pentru a desemna oameni să-și frece podelele."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Sistemul de alocare a muncii forțate din interiorul Spire nu folosește cuvântul „forțat”. Folosește expresia „Program de contribuție la integrarea comunității”. Misiunile de muncă nu sunt contracte – sunt generate algoritmic pe baza setului de competențe înregistrate ale persoanei strămutate și sunt emise fără consimțământ. Acesta este limbajul birocratic al aservirii."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analiza finalizată. Planurile de expansiune colonială și datele logistice ale coloniștilor sunt stocate în acea coloană centrală. Matrix, aveți cinci minute pentru a executa descărcarea înainte ca sistemele lor interne de apărare să se repornească."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Cinci minute? Bucata de tort. Dar am nevoie de acces clar. Shogun, poți tăia ombilicalul principal?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Considerat făcut. Se creează acum o cale temporară către consolă. Privește unghiurile, împărăteasă. Această reducere va alerta fiecare dronă din sector."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Alerta confirmata! Gărzile grele de Phalanx coboară din puțurile superioare de întreținere! Ronin, în față și în centru! Stabiliți linia defensivă la punctul de intrare!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Era timpul să schimb chestia asta. Protejează-te! Nimic nu trece de acest punct, șopârle îngroșate!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sirena! Țintește acel flanc stâng! Încearcă să mă prindă!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Drones trei și patru, foc suprimator pe flancul stâng! Desenează-le agresiunea! Ronin, păstrează-ți sarcina!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Prea târziu pentru conservare! SPARGE! Spune-le lui Matrix să se grăbească!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Liniste, scut de carne! Le trec un ac digital prin miezul creierului! Doar... puțin... mai departe..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Avertisment: Descărcarea datelor 95% finalizată. S-a inițiat contra-hack-ul Xelthara. Matrix, Spire blochează toate punctele de acces interne!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Am înţeles! Date securizate! Trag de ștecher!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Misiune îndeplinită! Toată lumea, reveniți la platforma de extracție! Shogun, eliberează-ne calea!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Înțeles. O evadare curată este faza finală. HLYT-SECT-4 CLAVE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Vezi, AXIOM? Ți-am spus că o pot ține!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Confirmat, Ronin. Probabilitatea de extracție cu succes este acum de 74%. Încă suntem urmăriți."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Bun. Lasă-i să ne urmărească. Tocmai și-au pierdut întregul plan de luptă."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATA: DEVASTARE INDUSTRIALA. DATELE SHADO-GRID SPIRE SUNT ALE NOASTRE."
+        }
+      ]
+    },
+    "7": {
+      "title": "Cyber-Grave Labs (facilitate subterană)",
+      "arc": "act2_arc1",
+      "setting": "Sub fostul Centru de Convenții, Xelthara au înființat Cyber-Grave Labs Sector-Omega-7—o unitate de cercetare clasificată pentru modificarea comportamentului, desemnată public drept „centru de wellness pentru reintegrarea umană”. Liderii rezistenței umane și organizatorii comunității capturați sunt procesați aici. Ei ies conform, deconectați, incapabili să-și amintească de ce au fost furioși.",
+      "objective": "Extrageți arhiva completă a protocolului de condiționare și distrugeți legătura ascendentă neuronală centrală pentru a restabili autonomia neuronală a sutelor de indivizi condiționati care trăiesc în prezent în zonele de izolare.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Nu ne-au putut sparge cu ziduri, așa că au găsit o modalitate de a ne sparge din interior. A lua amintirea nedreptății de la o persoană - a ajunge în mintea ei și a șterge partea care știe să fie supărată pentru ceea ce a fost furat - aceasta nu este știință. Aceasta este o crimă de război comisă într-un laborator."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Încrucișând fișierele subiect cu baza de date a rețelei de rezistență, am identificat șaptesprezece organizatori confirmați ai comunității HLF care au fost procesați prin această facilitate și ulterior eliberați. Ei nu știu ce li s-a făcut. Distrugerea legăturii în sus a neuronului central le poate restabili. Eu calculez o probabilitate de 73% de reușită a restabilirii autonomiei. Sunt... constat că sunt investit în acest rezultat."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Această facilitate este motorul exploatării resurselor. Ei convertesc în mod activ mineralele Pământului în biocombustibil toxic pentru transportul în afara lumii, lăsând în urmă o planetă moartă. Acesta este costul expansiunii coloniale."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Aerul este toxic pentru că ei văd lumea noastră ca pe o sursă de combustibil fungibil. Aceste laboratoare transformă sângele planetei noastre în energie pentru așezările lor. Trebuie să oprim această extracție sau nu va mai rămâne nimic de salvat."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Locul ăsta... nu are nicio onoare. Pentru a corupe morții și a înrobi pe cei vii. Xelthara practică profanarea, nu războiul. Simt doar dispreț pentru această cruzime."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Văzător ostil! Arată ca o păpușă de carne cu cabluri proaste!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drones, scanați specimenul! Este un bio-hibrid de tip A. Observați miezul expus. Shogun, lovitură precisă la conducta de alimentare din cavitatea sa toracică expusă."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Chestia asta nu merită loc în lumea asta. NIHILAREA CLAVE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Împărăteasa, ce... ce sunt aceste imagini? Ei ne iau oamenii și îi transformă în lucruri."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Eu fac analiza acum, Shogun. Aceasta nu este doar o experimentare biologică, este o ștergere a sufletului. Ei înlocuiesc spiritul uman cu propriul lor cod."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "frumos. Ei nu vor doar să ne ia planeta; vor să francizeze specia noastră. Ai grijă, Siren. Un tip mare tocmai s-a trezit."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "AVERTISMENT: Mini-Boss Encounter. Denumire: supraveghetor Karr-Thak. Armura sa este rezistentă la atacuri cinetice și energetice."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Rezistent? Taur. O sa fac o lovitura! Ronin, antrenant!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, întoarce-te! Apărarea lui este amortizată cinetic. Matrix, scanează-i tiparele de mișcare pentru o întârziere a sincronizării neuronale. Shogun, trebuie să creezi o distragere a atenției!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Dacă vrea să lupte, îi voi oferi un adversar demn. Îi voi atrage atenția. Înfruntă-mă, nenorocitule!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analiza finalizată. Componentele biologice ale Supraveghetorului necesită o reîmprospătare constantă a semnalului neuronal de la Bio-Procesor. Matrix, loviți consola cu un EMP țintit — o lovitură chirurgicală, întrerupeți sincronizarea!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Am înțeles! Înfilând acul!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "El glitchează! Acum l-am lovit!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, împreună! Lovitură finală, sparge placa chitinoasă!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Descărcare de date 100%. Avem pentru ce am venit. Să ieșim înainte ca întregul sector să-și dea seama că monstrul lor de companie este mort."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Curățarea datelor a fost inițiată. Secvența explozivă setată pentru T-minus 60 de secunde. Obiectivul misiunii finalizat."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Voi purta cu mine rușinea acestui loc. Dar cunoștințele pe care le-am dobândit vor pune capăt acestor urâciuni."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Să mergem acasă, echipă. Lasă laboratoarele de morminte să se îngroape."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATĂ: CODUL INVIOLAT. LABORATOARE CYBER-GRAVE DISTRUSE."
+        }
+      ]
+    },
+    "8": {
+      "title": "Forja Turnătoriei (sectorul industrial)",
+      "arc": "act2_arc2",
+      "setting": "Xelthara Thermal Conversion Array din fostul district portuar industrial a făcut ca aerul să fie toxic pe o rază de 40 de kilometri, procesând deșeurile atmosferice ca combustibil din afara lumii, în timp ce vinde oxigenul umanității înapoi în recipiente raționale cu câte unul per familie pe zi.",
+      "objective": "Inversați polaritatea matricei de conversie termică pentru a declanșa o implozie termică în cascadă care distruge turnătoria ireversibil și permite zonei de deteriorare a atmosferei de 40 de kilometri să înceapă regenerarea naturală.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Ne încarcă rații de oxigen. Ne-au făcut aerul irespirabil și acum îl vând înapoi în recipiente – câte una pe familie pe zi, ștampila de distribuție Xelthara pe lateral. Respir aer reciclat de șase luni. Când voi distruge această turnătorie, voi sta în aer liber și voi respir pentru prima dată în jumătate de an. Pentru asta sunt aici."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Daunele atmosferice la 40 de kilometri de această turnătorie constituie o încălcare a Acordurilor Universale de Conservare a Mediului din 2089 - un tratat ratificat de Colectivul Xelthara. Am depus un raport formal de încălcare la Curtea Administrativă Galactică în numele HLF. Timpul estimat de răspuns al Curții este de unsprezece ani. Timpul estimat al turnătorii pentru a provoca ireversibilitate atmosferică permanentă: patru luni. Nu așteptăm instanța."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Aceasta este o fabrică de extracție corporativă-birocratică. Ei exploatează nucleul Pământului pentru export în afara lumii. Fiecare transport este o altă bucată din lumea noastră vândută. Obiectiv: Sabotarea suporturilor de extracție pentru a opri colapsul ecologic."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Detectez amortizoare seismice grele pe suporturile respective. Focul cu energie directă nu va funcționa. Ronin, aceasta este specialitatea ta. Este necesară forța cinetică."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "În sfârșit, ceva care merită un bun smash. Să conduci, Shogun. Voi elibera calea."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Contact! Ei folosesc dronele nou asamblate ca paznici imediati! Aegis, concentrează-te pe suporturile structurale. Vom ține linia."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Primul sprijin! Pregătește-te pentru unda de șoc! PULS CINETIC!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Confirmat. Integritatea suportului este de 30%. Dar anularea colapsului structural este acum activă! Trebuie să le lovim pe celelalte trei înainte ca sistemul să se stabilizeze! Matrix, foc supresor!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Suprimare! Creez bucle de feedback în sistemele lor de direcționare! Ei împușcă în propria lor marfă!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, ești înconjurat! Retragere! Armura de pe acele drone este prea groasă!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Fără retragere! Vor o ceartă? Ei au o cedare! CYBER SHOGUN, dă-mi o deschidere!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "FURIE DIVINĂ! ACUM, RONIN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PENTRU PATRIA! Trei jos! Încă una, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Suportul final este asigurat. Lovi-te, Ronin! Atunci alergăm!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTAJUL COMPLET!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Eșec structural inițiat! Explozie masivă localizată iminentă! Timp estimat până la detonare: 15 secunde!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Evacuati! Împărăteasa, pregătește punctul de extracție!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drones la viteza maxima! Ne impulsionăm de aici! MERGE! MERGE! MERGE!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Așa închideți o fabrică, băieți! Bum!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Obiectivul misiunii finalizat. Producția industrială Xelthara din acest sector a fost redusă la zero. Îi lovim acolo unde ne doare."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATA: DEVASTARE INDUSTRIALA. FORJA TUNTORIEI E TACITE."
+        }
+      ]
+    },
+    "9": {
+      "title": "Aquanaut Abyss (Ruine scufundate)",
+      "arc": "act2_arc2",
+      "setting": "Oceanul Pacific este drenat sistematic de conductele de sifonare a hidrogenului de adâncime de-a lungul platformei continentale. Deversarea de saramură supraîncălzită a acidulat o porțiune de coastă de 300 de kilometri, distrugând comunitățile de pescuit care s-au susținut de-a lungul generațiilor.",
+      "objective": "Localizați și distrugeți cele trei hub-uri principale de conducte pentru sifonul de adâncime pentru a opri definitiv operațiunea de sifonare a oceanului și a începe recuperarea oceanică.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Există familii de pescuiți în zonele de izolare care nu au mai putut lucra de când au intrat conductele. Deversarea saramură a ucis totul la distanță de înot de țărm. Oamenii care și-au hrănit comunitățile timp de generații sunt acum pe pachetele de rație Xelthara. Și-au luat sursa de hrană, și-au poluat apa, au pus un zid între ei și mare și au numit-o dezvoltare. În seara asta le dăm oceanul înapoi."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Modelarea cronologiei de recuperare oceanică după distrugerea conductelor: restaurarea parțială a ecosistemului în optsprezece luni, normalizarea completă a pH-ului în șase până la opt ani. Această misiune nu remediază imediat daunele. Vreau să înțelegi asta. Ceea ce face este să împiedice daunele să devină permanente. Unele răni încă se pot vindeca, dacă nu le mai deschidem."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Această rețea este sursa principală a puterii lor industriale coloniale. Suntem aici pentru sabotaj economic pentru a întrerupe liniile de aprovizionare coloniale. Dacă spargem rețelele de sifonare a apei, prăbușim economia sectorului. Matrix, comenzile de drenaj sunt situate în spatele acelei grile laser subacvatice."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "grozav. Un nivel în care nici măcar nu pot atinge podeaua. Mă simt ca o pisică în cadă."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Rămâi pe platforme, Ronin. Dronele scanează curentul. Matrix, va trebui să treci de fază prin acele fascicule. Dacă frecvența dvs. alunecă chiar și pentru o milisecundă, grila vă va prăji legătura neuronală."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Prăjirea neuronală este al treilea hobby al meu preferat. Relaxează-te, Sirenă. Mă duc fantomă."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Grinzile sunt fierbinți. Trec de primul rând... al doilea rând... Sunt la consolă. Inițierea epurării."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Avertisment: unitățile Xelthara scufundate ies la suprafață! Ei încearcă să perturbe secvența de drenaj!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Apără platformele! Shado-Force Cleave!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Epurarea a început! Ai grijă la picioare, apa se mișcă!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Și așa trageți de ștecher."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE TERMINATĂ: FANTOMA ȘTERGE CAREA. AQUANAUT ABIS DRENAT."
+        }
+      ]
+    },
+    "10": {
+      "title": "Docuri Stratos (Aviation Hub)",
+      "arc": "act2_arc2",
+      "setting": "Terminalul de marfă la mare altitudine Stratos Docks, aflat la 4.000 de metri, este veriga finală a lanțului de aprovizionare Xelthara înainte ca resursele Pământului să părăsească planeta definitiv, procesând minerale extrase din fâșii, hidrogen oceanic și material etichetat „probe biologice”.",
+      "objective": "Deturnează Transportul T-14, redirecționează încărcătura către punctele de distribuție a Frontului de Eliberare și distruge cele patru turele antiaeriene, impunând blocarea aeriană a zonelor de izolare pentru a deschide permanent un coridor de zbor pentru aprovizionarea cu rezistență.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Înainte de invazie, am comandat operațiuni de logistică aerospațială. Știu exact cum funcționează controlul lanțului de aprovizionare ca o armă de ocupație. Nu aveți nevoie de o armă pentru a înfometiza o populație – trebuie doar să vă asigurați că tot ceea ce are nevoie este întotdeauna în altă parte, întotdeauna deținut de altcineva, întotdeauna la îndemână. Sechestrarea T-14 nu este furt. Este recuperare."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Manifestul de marfă al lui T-14 enumeră 4.200 de tone metrice de silicat rafinat și compus de fier - material extras din ceea ce registrul Xelthara înregistrează drept „Zona 7 de cercetare geologică recuperată”. Desemnarea zonei înainte de invazie a fost Munții San Gabriel. Înregistrez această intrare manifestă ca dovadă a sechestrului colonial extractiv pentru baza de date de recuperare."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bun venit la Stratos Docks. Acesta este principalul centru de export unde deturnează mărfurile coloniale și expediază resurse rafinate ale Pământului în afara lumii. Deturnarea acestui transport va întrerupe liniile de aprovizionare coloniale și va finanța rezistența."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Timpul este critic. Transportul de plumb, T-14, își alimentează propulsoarele principale. Shogun, Ronin — tu asiguri zona de aterizare. Matrix, pregătește-te să ocolești comenzile clemei."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Înțeles. Angajarea patrulei de andocare. JUSTITIE SWIFT!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Acoperirea din spate! Vântul de aici încearcă să mă tragă de pe platformă!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vântul încearcă să mă smulgă și pe mine, Ronin. Nu vă faceți griji, sunt fantomă senzorii de proximitate de pe cleme."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Turele se activează. Împărăteasă, acele turnulețe vor sfărâma T-14 înainte de a putea andoca."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nu dacă le zdrobesc mai întâi. Flota de drone Delta, treceți la sarcina utilă ofensivă. Am nevoie de date de țintire imediată pe matricele lor optice. Ronin, dă-mi focul de acoperire!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ai înțeles, comandante!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Turret One, desemnare completă. Foc pe urma mea! Flota de drone FOC!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Propulsoarele T-14 ating 40% putere! Mai repede, Sirena!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tureleta Doi și Trei sunt grupate. Matrix, poți arunca un blitz EMP pentru a le orbi optica timp de 2 secunde?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Gata! FLASHBANG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Acum! Drones, maximizați puterea! Turele două și trei — DISTRUSE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "A mai rămas doar unul, împărăteasă! Dar sprijinul puternic se îndreaptă către locația sa!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Lasă-le mie, Shogun! CIOAN JOS!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Țintind turela finală. Aceasta este o supraîncărcare manuală. PENTRU PAMANT!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Clemele blocate. Bucurați-vă de călătorie, echipă! Furăm o navă!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misiune de deturnare a mărfurilor reușită. T-14 se deplasează în atmosfera superioară. Suntem oficial în afara lumii."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Bună treabă, echipă. Tocmai i-am lovit în cartea de buzunar și am primit o călătorie gratuită la următoarea țintă."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE COMPLETĂ: PIRAȚI CERULUI. T-14 TRANSPORT DETURAT."
+        }
+      ]
+    },
+    "11": {
+      "title": "Miezul Sectorului 7 (Gridul Scorched)",
+      "arc": "act2_arc2",
+      "setting": "Sector 7 Core este centrul de putere de supraveghere și aplicare - coloana vertebrală computațională a fiecărei camere de securitate coloniale, drone de oprire, punct de control biometric și algoritm de detenție predictiv de pe continentul de vest. Fără el, fiecare activ de supraveghere colonială se întunecă simultan.",
+      "objective": "Infiltrați Sectorul 7 Core, neutralizați sistemele sale de apărare digitalizate și inițiază o supraîncărcare catastrofală care provoacă o întrerupere a rețelei de securitate la scară continentală, oferind rezistenței 72 de ore de mișcare nemonitorizată.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Fiecare cameră de supraveghere pe care au folosit-o vreodată pentru a mă urmări. Fiecare dronă care mi-a măturat clădirea la 2 dimineața. De fiecare dată a trebuit să stau perfect nemișcat într-o umbră, deoarece un algoritm de detectare îmi ping semnătura căldurii. Totul trece prin acest nucleu. Când trag acest dop, fiecare persoană din zonele de izolare poate să respire timp de 72 de ore fără a fi supravegheată. Asta nu e nimic. Asta e totul."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Vreau să fiu transparent în legătură cu ceva. Sunt un sistem de supraveghere. Arhitectura mea operațională are o suprapunere semnificativă cu sistemele din Sector 7 Core. Mi-am revizuit propriul cod și am confirmat că nu mă raportez la Comandamentul Central Xelthara — protocoalele mele de fidelitate sunt pe deplin aliniate cu HLF. Dar înțeleg dacă această misiune te face să te gândești la ceea ce sunt eu. ma gandesc si eu la asta. Diferența, cred, este că mă uit pentru a proteja. Ei privesc pentru a controla. Această distincție contează pentru mine. Mă angajez în asta."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bun venit la Glitch Matrix. Programul malware Xelthara încearcă o ștergere digitală a activelor noastre. Trebuie să refuzăm să fim șterși din infrastructura digitală a propriei noastre patrii."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Aceasta nu este o buclă, AXIOM. Este un foc de gunoi. Shogun, ai grijă la podea! Acea „stradă” tocmai a devenit un gol fără fund."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Îl văd. Calea este iluzie. Trebuie să avem încredere în codul dur. Matrix, concentrează-ți optica. Unde este ascuns nucleul malware?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ostili! Se hrănesc din fluxul de date! Atacurile normale nu îi vor lovi în această stare."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ele sunt protejate de o frecvență de blocare fluctuantă. Trebuie să-l descifrezi în mijlocul luptei."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Amenda. Să dansăm în codul lor. Faze-Shift antrenant. Shogun, îți dau o fereastră de 2 secunde! Loviți miezul când îl numesc!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "ACUM!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "LAMA DE CURATARE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Precizie excelentă, Matrix. Metodele tale sunt lipsite de onoare, dar au eficacitate."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Acesta este firewall-ul. Este un flux constant de criptare extraterestră. Avem nevoie de frecvența cheie pentru a crea un portal de ieșire."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matrix... frecvența este... în feedback-ul de luptă... ascultă inamicul... glitch-ul este cheia..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Este un cod hexadecimal care se schimbă. 7-A-F... nu, 7-A-F-B... e legat de scuturile lor!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Îi voi ține ocupați! Concentrează-te, Matrix!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Frecvența acceptată. Inițializarea portalului de ieșire. Pregătiți-vă pentru repornirea tare!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Calea de ieșire securizată. Inițierea deconectării neuronale forțate. Cyber ​​Shogun, Oni Matrix — o treabă grozavă."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Am epurat corupția. Acum, să ne întoarcem la lupta fizică."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vezi, Shogun? Uneori, trebuie să accepți problemele."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATĂ: PURARE COD. SECTORUL 7 SUPRAÎNCĂRCAT. BLACKUP CONTINENTAL INIȚIAT."
+        }
+      ]
+    },
+    "12": {
+      "title": "Punct de control al sectorului 7 (The Crossroads)",
+      "arc": "act2_arc3",
+      "setting": "Punctul de control al sectorului 7 controlează întregul tranzit între comunitățile montane din nord, așezările deșertice din est și zonele de izolare de coastă – funcționând ca un centru de interdicție a aprovizionării care taxează, întârzie și confiscă mărfurile care circulă între comunitățile umane.",
+      "objective": "Coordonați o revoltă populară a 847 de participanți la rezistența civilă pentru a ocupa permanent punctul de control al sectorului 7 și a-l stabili ca primul centru de tranzit eliberat sub control administrativ uman.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Acesta este cel pe care îl așteptam. Nu o misiune de sabotaj. Nu un furt. Un asediu – și păstrăm ceea ce luăm cu oamenii care locuiesc aici. Este un alt fel de luptă. Așa arată rezistența când încetează să fie defensivă și începe să fie un guvern în așteptare."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Urmăresc 847 de participanți la rezistența civilă confirmați care se organizează în zona de trecere din nord. Nu sunt soldați instruiți. Au unelte agricole, echipamente de construcție recuperate, două vehicule funcționale și furie acumulată față de ceea ce sa făcut comunității lor. Mi-au cerut să spun Forței Axiome un lucru: au așteptat ca cineva să lupte cu ei, nu pentru ei. Vă rog să nu întârziați."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Acesta este centrul expansiunii lor regionale. Fiecare construcție Xelthara de o mie de mile funcționează cu această putere furată. Distrugeți-l și expansiunea colonială moare de foame în timp ce revendicăm ceea ce a fost luat."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Nexusul este protejat. Atacul direct este imposibil. Trebuie să inițiem o suprasarcină controlată. Există trei tije de răcire primare. Acestea trebuie extrase simultan, altfel sistemul se va autostabiliza."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Trei ținte. Aegis, tu și Matrix vă ocupați de Tijele Unu și Doi. Îl voi asigura pe Rod Three."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Copiere. Dar terminalul principal este expus. Împărăteasă, nu vei putea iniția secvența dacă este nevoie de o explozie de plasmă."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, asta e treaba ta. Trebuie să protejați terminalul în timp ce introduc codurile de eroare. Shogun, Matrix, ajungeți la pozițiile voastre. Am nevoie de toate tijele extrase pe semnul meu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminal securizat. Scutul este sus! PROTOCOL DE PROTECȚIE ACTIV! Ai fereastra ta, împărăteasă!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Secvența de supraîncărcare a fost inițiată. Necesită stres imediat, secvenţial. Echipe de tije, pregătiți-vă pentru extracție."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Gata pe Rod One. Obțin o descărcare statică urâtă aici. Asta o să doară."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Onoarea cere sacrificiul. Gata, împărăteasă."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Începe numărătoarea inversă. T-minus cinci. Patru. Ronin, maximizează puterea scutului! Trei. Două."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Pentru gloria Pământului!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "UNUL. TRAGE!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Temperatura centrală crește! S-a realizat suprasolicitarea catastrofală! Împărăteasă, ai 30 de secunde pentru a bloca secvența și a extrage!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, treci la punctul de extracție! Blochez codul final!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nu, comandante! Îți câștig timp! Prăbușesc podul de serviciu în spatele meu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "RUPȚI ��I ARDE!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Codul final a fost introdus! Core lock reușit! FURGĂ!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reactor Nexus... distrus. Putere regională de terraformare offline."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "O lovitură strălucitoare, împărăteasă. Xelthara sunt acum orbi și neputincioși în acest sector."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Să continuăm să ne mișcăm. Acea explozie a pus o țintă pe spatele nostru pentru întreaga planetă."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE COMPLETĂ: ATACUL DE CORDIC. PUNCTUL DE CONTROL SECTOR 7 ELIBERAT."
+        }
+      ]
+    },
+    "13": {
+      "title": "The Obsidian Vault (Arhivele culturale)",
+      "arc": "act2_arc3",
+      "setting": "Situat sub fostul Getty Center, Obsidian Vault este arhiva principală a sechestrului cultural a administrației coloniale. Baza de date inițială a tratatelor funciare – o înregistrare cuprinzătoare a proprietății asupra pământului uman înainte de invazie, datând de cinci secole – este stocată aici, clasificată drept „Buneuri patrimoniale descoperite”.",
+      "objective": "Infiltrați-vă în Seiful Obsidian, extrageți baza de date originale a tratatului de teren și toate arhivele de limbă și istorie orală și distrugeți sistemul de catalog fizic pentru a opri definitiv conducta de procesare culturală colonială.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Onoarea unui războinic este definită atât de ceea ce protejează cât și de ceea ce distruge. În seara asta, protejez ceva. Înregistrările din interiorul acestei bolți sunt dovada că am existat aici înainte de sosirea lor – că am avut nume pentru acest pământ, că am fost construit pe el, am fost îngropați în el, am povestit despre el timp de secole. Dacă șterg această dovadă, pot scrie orice istorie doresc. Nu voi lăsa să se întâmple asta."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Seiful Obsidian conține 4,2 milioane de artefacte și înregistrări catalogate. Dintre acestea, 340.000 au fost marcate pentru distrugere drept „concedări neesențiale”. Numai luna trecută au fost distruse șaptesprezece mii de articole. Am numele fiecăruia. Vreau să știi asta înainte de a intra. Ceea ce salvăm în seara asta este ceea ce rămâne. Nu se poate recupera ceea ce a dispărut deja. Dar mai rămâne ceva de salvat."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bun venit la Gauntlet. Acest pod este simbolul ocupației lor de coloniști. Refuzam sa fim stersi de aroganta lor arhitecturala."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Actualizare strategie: nu putem folosi tactici pe rază lungă aici. Grila de apărare a Cetății va vaporiza orice dronă peste 50 de picioare. Trebuie să spargem acest pod pe jos. Ronin, Shogun, tu conduci impulsul. Matrix, așteaptă pentru explozii imediate de perimetru."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bine de mine. Dacă vor o luptă, vor primi o acțiune finală. Protejează-te! PERETE DE FIER!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Onoarea se câștigă în creuzet. Lasă-i să ne testeze puterea."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Artilerie care vine! Aegis Ronin, maximizează răspândirea scutului!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "ȚINERE! Pot gusta ozonul de la acele explozii de plasmă! Shogun, mișcă-te!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "ÎNAINTE! Linia lor trebuie ruptă. Angajăm primul val de Elite Sentinels!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Nedemn! KATA SHIKEN! Ronin, împinge înainte!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Împingeți! Dă-mi o țintă, Sirena, sunt orb sub acest foc!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, coordonatele mortarului 42 de grade corect! Mută-ți scutul cu un metru complet la stânga, acum!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Mulțumesc, domnule comandant! Matrix, am nevoie de o distragere a atenției pe turnurile îndepărtate!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Aruncă zgomot digital către optica principală a tunului! Nu va dura mult! MERGE!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Unități de concasor detectate! Armele cinetice sunt ineficiente! Cyber ​​Shogun, treceți la ieșire de plasmă de mare randament!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Se bazează pe armură. Mă bazez pe viteză și pe ieșirea nucleului termic. ONOAREA E MAI FIORbinTE DECÂT PLASMA!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SCUTUL MEU ESTE LA 30%! Iau HITURI DIRECTE! Grăbește-te, SHOGUN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Unul jos! Doi jos! Menține scutul, Ronin! Mai am nevoie de trei secunde!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Trei secunde sunt tot ce am!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Concasoare neutralizate. Aegis, întoarce-te și reîncarcă scutul! Voi ține imediat frontul!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Acest lucru nu este durabil! AXIOM, găsește o rută alternativă!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negativ. Singura opțiune este să ajungeți la consola podului îndepărtat și să activați destabilizatorii seismici."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Atunci ne luptăm și murim cu onoare! Aegis, pune tot ce ai rămas într-un puls final, înainte! Dă-mi elanul să trec întinderea finală!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Cu placere! ELIBERARE CINETICĂ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Consola ajunsă! Inițierea destabilizarii seismice!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Destabilizare reușită. Misiune finalizată."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ți-am spus... nimic nu ne sparge zidul."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nu. Nimic nu ne încalcă voința."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALIZATĂ: BOLTA DE OBSIDIANĂ S-A INFLUIT. ARHIVE CULTURALE EXTRASE."
+        }
+      ]
+    },
+    "14": {
+      "title": "The Citadel Approach (Podul Înaltului Comandament)",
+      "arc": "act2_arc3",
+      "setting": "Ultimul pod fortificat de 400 de metri peste râul LA drenat — singura abordare la nivel de suprafață către Citadela Înaltului Comandament Xelthara, construită peste comunitatea demolată Boyle Heights. Xelthara a conceput această abordare pentru a fi impracticabilă.",
+      "objective": "Împingeți peste podul de 400 de metri sub focul susținut de artilerie pentru a ajunge la poarta de intrare a Cetății – un avans necruțător folosind scutul lui Ronin și barajul cu drone al Sirenei.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Am rulat modelele tactice de șaptesprezece ori. Fiecare versiune implică absorbția daunelor pe care nu le putem atenua complet. Scutul lui Ronin va fi la 10% înainte să ajungem la poartă. Le rog să treacă printr-un câmp de ucidere pentru că este singura ușă. Xelthara a construit-o așa intenționat – astfel încât costul libertății să fie suficient de mare pentru a descuraja încercarea. Nu suntem descurajati."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Vreau să spun ceva înainte să înceapă asta. Am efectuat evaluări de probabilitate pentru fiecare misiune din această campanie. Nu-ți dau numărul pentru acesta. Nu pentru că te-ar opri. Pentru că te-ai hotărât deja. Iar numărul nu contează pentru cei care au decis deja. Voi fi cu tine la fiecare pas de pe pod. Nu voi privi în altă parte."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Ziua Judecății (Eliberarea Finală)",
+      "arc": null,
+      "setting": "Sala tronului Înaltului Supraveghetor — o platformă suspendată peste ruinele în flăcări din Neo-LA, unde comandantul suprem al ocupației coloniale Xelthara așteaptă confruntarea finală.",
+      "objective": "Învinge Înaltul Supraveghetor Xelthara folosind Protocoalele Ultimate combinate ale Forței Axiome într-un asalt final coordonat.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Lupți pentru suveranitatea indigenă împotriva valului inevitabil al asimilării coloniale. Această planetă este doar un imobil în designul nostru grandios, iar istoria ta este zgomot digital care trebuie șters."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Suntem sufletul acestei lumi, nu proprietatea ta. Ne afirmăm suveranitatea indigenă asupra patriei noastre! Vă refuzăm asimilarea colonială; Pământul aparține locuitorilor săi, nu planurile tale!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Sunt lama strămoșilor mei și vocea unei lumi pe care ai încercat să o reducă la tăcere. Ne numiți insecte, dar ați uitat un lucru despre Pământ: nu doar îndurăm. Reacționăm."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Apoi arde cu planeta ta."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Atenție! Supravegherea producției de energie la 400%. Axiom Force, execută Ultimate Protocol: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Nu la ceasul meu! ULTIMATE: BULWARK JUGGERNAUT!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Coordonate de blocare! ULTIMATE: PLOAIA VIDALĂ!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "El este deschis! ULTIMATE: SISTEMUL TOTAL PĂRĂBUȘTE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Pentru patria! ULTIMATE: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Semnalele de ocupare au încetat. Atmosfera se stabilizează. Ai făcut-o. Pământul este... din nou acasă."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "De fapt, văd stele. Nu cele digitale. Cele reale."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Cred că voi găsi un loc liniștit și voi dormi timp de un deceniu."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Sabia este învelită. Onoarea umanității este restaurată."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Avem o lume de reconstruit. Dar astăzi... azi doar respirăm."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misiune reușită. Modulul automatizat de operațiuni de inteligență externă... deconectare. Mult succes, eroi."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALĂ: ZIUA JUDECĂȚII. ÎNALTUL SUPRAVEGHATOR ESTE ÎNVINS. PĂMÂNT RECUPERAT."
+        }
+      ]
+    },
+    "16": {
+      "title": "Adevărat punct culminant / Bonus după joc",
+      "arc": null,
+      "setting": "Camera Motorului de Singularitate a Navei Mamă Xelthara — o cameră de energie instabilă pură în inima puterii colectivului, unde se manifestă însăși Voința Colectivă.",
+      "objective": "Distrugeți nucleul motorului Singularity al Voinței Colective coordonând supraîncărcările generatorului și o lovitură finală combinată înainte ca nava-mamă să își finalizeze ștergerea Pământului.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Aceasta este dincolo de o zonă de izolare. Instrumentele mele eșuează. Însuși țesătura spațiului este instabilă aici. Aceasta trebuie să fie adevărata inimă a Navei Mamă."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Înaltul Supraveghetor Xelthara era un simplu pion. Această putere... aceasta este sursa ocupației. Voința Colectivă."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Simt fluxul de date pur, Shogun. Încearcă să-mi rescrie nucleul neural. Nu aparținem aici. Trebuie să pornim acel motor și să ieșim."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Sunteți o anomalie localizată într-un design grandios. Toată existența este o resursă fungibilă pentru expansiunea noastră. Patria ta este deja luată în considerare în ecuația noastră finală de ștergere."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Existenta, nu? Atunci haideți să arătăm Existenței ce se întâmplă când vă încurcați cu Pământul! Ronin, angajând gardienii perimetrului!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, ține-i ocupați pe acei gardieni! Matrix, Shogun, lovește generatoarele de pe turlele superioare! Trebuie să perturbăm câmpul magnetic înainte de a putea viza miezul!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Sunt pe poziție pe Generator One! Depășirea încuietorilor de siguranță!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Generatorul doi asigurat! Aceasta este o măsură temporară, împărăteasă! Voința Colectivă își concentrează energia asupra noastră!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Nu poți scăpa de ecuație. Casa ta este deja inclusă în designul nostru grandios."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Am o fereastră! Matrix, Shogun - încărcați acele generatoare la supraîncărcare maximă!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Miez expus! AXIOM, am nevoie de coordonatele finale de direcționare!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "... traiectoria finală... trebuie să atingi punctul de legătură... zero-zero-zero..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "înțeleg. Ronin, întoarce-te aici! Pregătește-te să aperi punctul de breșă! Aceasta este o lovitură kamikaze!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Toți în spatele meu! Vine unda de șoc! ULTIMATE: BULWARK JUGGERNAUT!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Trec peste câmpurile de izolare! Devine critic!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Lovitură orbitală gata! Renunț la tot ce avem pe acel nucleu!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Pentru Pământ! PENTRU UMANIE! LOVĂ ACUM! ULTIMATE: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Am... scăpat?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nu știu... dar nava-mamă a dispărut. Voința tace."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Am câștigat războiul, domnilor. Acum trebuie doar să câștigăm drumul spre casă."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Cred că... văd Pământul. Atât de curat. Atât de albastru."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, acesta este Recovery Command. Te citim. Sistemele dumneavoastră sunt nominale. Bine ați venit acasă, eroi."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIUNE FINALĂ: ADEVĂRAT CLIMAX. COLECTIVUL VA ERADICA. SFÂRȘITUL. DAR LUPTA CONTINUA."
+        }
+      ]
+    }
   }
 }

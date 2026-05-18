@@ -2,30 +2,2131 @@
   "meta": {
     "language": "dutch",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — dutch narrative data (STUB — translate from en.json)"
+    "description": "Axiom Force: Reclaim Earth — dutch narrative data"
   },
   "acts": {
-    "act2_arc1": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc2": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc3": { "title": "", "subtitle": "", "description": "" }
+    "act2_arc1": {
+      "title": "BEDRIJF II – BOOG 1: HET SEGREGATIERASTER OPBREKEN",
+      "subtitle": "Niveaus 5–7: Het doorbreken van de fysieke muren van de bezetting",
+      "description": "De eerste lijn van de middencampagne richt zich volledig op de fysieke infrastructuur van scheiding – de muren, controleposten, biometrische registers en gedragsconditioneringsprogramma’s die de Xelthara gebruiken om de menselijke bevolking verdeeld, bewaakt en te getraumatiseerd te houden om te organiseren. Voordat het verzet de economische of politieke kern van de bezetting kan raken, moeten ze eerst de geïsoleerde menselijke gemeenschappen weer met elkaar verbinden."
+    },
+    "act2_arc2": {
+      "title": "BEDRIJF II – ARC 2: HET GRONDSTOFFENRECLAMATIEFRONT",
+      "subtitle": "Niveaus 8–11: De economische winstgevendheid van de kolonisatie afsnijden",
+      "description": "Nu het Segregatienetwerk is gebroken en de geïsoleerde bevolkingsgroepen weer met elkaar zijn verbonden, verschuift het verzet naar de economische motor van de bezetting. De Xelthara kwamen naar de aarde voor hulpbronnen – niet voor ideologie. Arc 2 is de campagne van economische ontwrichting: vier opeenvolgende aanvallen op de winnings-, verwerkings-, transport- en veiligheidsinfrastructuur die de bezetting financieel levensvatbaar maakt."
+    },
+    "act2_arc3": {
+      "title": "HANDEL II – ARC 3: ONTMANTELING VAN CORPORATE GOVERNANCE",
+      "subtitle": "Niveaus 12–14: Doordringen tot het hart van de koloniale bestuursstaat",
+      "description": "De extractiemotoren worden stopgezet. Het beveiligingsraster is donker. De scheidingsmuren zijn gebroken. Wat overblijft is de administratieve en politieke architectuur van de bezetting zelf. Arc 3 is de meest politiek directe reeks van de campagne: het verzet vecht niet langer tegen een bezettingsleger. Het is het ontmantelen van een koloniale staat, stukje bij beetje, van buiten naar binnen."
+    }
   },
   "levels": {
-    "0": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "1": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "2": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "3": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "4": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "5": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "6": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "7": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "8": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "9": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "10": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "11": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "12": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "13": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "14": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "15": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "16": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] }
+    "0": {
+      "title": "Protocol Zero - De virtuele smederij",
+      "arc": null,
+      "setting": "Een enorme, donkere wireframe-rastersimulatie van de verbrokkelde skyline van het centrum van Los Angeles. Neonblauwe lijnen definiëren wegen en gebouwen. Statische storingen flikkeren voortdurend door het beeld. De vier kampioenen staan ​​op een gloeiend platform.",
+      "objective": "Voltooi het trainingsprotocol door alle bewegings- en gevechtsmogelijkheden te doorlopen, culminerend in een gelijktijdige squadronaanval om een gesimuleerde Xelthara Heavy Unit te vernietigen.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Geest in de gridlock",
+      "arc": null,
+      "setting": "De ruïnes van de tuinen van het keizerlijk paleis. Xelthara-terravormende balken lossen actief oude stenen lantaarns en kersenbloesems op en vervangen ze door steriele administratieve monolieten van obsidiaanplaten.",
+      "objective": "Infiltreer de actieve slooplocatie om de Data-Blade op te halen, een digitale opslagplaats van verboden geschiedenis, voordat het Xelthara 'Culture-Erasure'-veld het geheugen van de locatie voor altijd opschoont.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ze nemen niet alleen ons land af; ze verwijderen onze ziel. Dit paleis heeft een millennium bestaan ​​en wordt nu geplaveid voor een regionaal belastingkantoor. Ik zal niet toestaan ​​dat onze voorouders vergeten worden onder hun obsidiaanplaten."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Waarschuwing: Comm-torens zenden een Denial of Service uit. De risicokans van detectie bedraagt ​​98,7%. Terugtrekken is raadzaam."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "ARCHIEFLOGBOEK: NEO-TOKYO CULTUUR-ZUIVERING. LOCATIE: DE EEUWIGE ZEN DOJO (AANGEWEZEN LOCATIE: SETTLEMENT-BLOCK 01). STATUS: SLOOP IN UITVOERING. ARCHITECTONISCHE WISSEN OP 42%."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Dit hout heeft de adem van tienduizend krijgers geabsorbeerd. Nu behandelen ze het als digitale rommel die naar de prullenbak moet worden verplaatst. Voor de Xelthara zijn onze voorouders slechts een lastig obstakel in hun blauwdrukken voor een belastingkantoor."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Waarschuwing: de structurele integriteit neemt af. Het koloniale bestuur heeft toestemming gegeven voor de definitieve 'nivellering' van dit terrein. Intrekking is de enige logische weg."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Logica is voor mensen zonder verleden. Noem jij dit 'nivellering'? Ik noem het een oorlog tegen de ziel. Je mag dan de aarde bedekken, maar je zult merken dat de wortels van onze eer dieper zijn dan jouw obsidiaanplaten!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Elke chip in dit hout is een herinnering die je niet kunt verwijderen! KATA: VOORouderlijke aanval!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kijk naar hun 'paradijs.' Een tombe van glas en draad gebouwd op het graf van een millennium. Ik weiger de menselijke geschiedenis schoon te laten vegen om ruimte te maken voor jouw spreadsheets. Zolang ik sta, onthoudt Tokyo het!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Baken geneutraliseerd. De sloop is tot stilstand gekomen, maar de koloniale autoriteiten sturen een Enforcer Legion om. Je voert een spookgevecht, Shogun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Dan ben ik een geest die voor altijd in hun nederzettingen zal rondspoken. Als we de steen niet kunnen redden, redden we het verhaal. Beveilig de datablade! Laat ze alleen maar vuur vinden waar ze naleving verwachtten!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "De Xelthara willen onze geschiedenis in de verleden tijd schrijven. Vandaag schrijf ik het in plasma. Deze dojo valt, maar het verzet stijgt."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: HET EEUWIGE GEHEUGEN. DE ZUIVERING WERD ONDERBROKEN."
+        }
+      ]
+    },
+    "2": {
+      "title": "De betonnen bosbrand",
+      "arc": null,
+      "setting": "De enorme, afgesloten inlaatpoort van Containment Zone 4. Duizenden gezinnen worden als vee door energiehekken gedreven. Achter hen worden hun huizen in de voorsteden met de grond gelijk gemaakt door Xelthara-uitbreidingslopers.",
+      "objective": "Houd de 'Laatste Brug' tegen Xelthara Enforcers die de bevolking hoeden, waardoor een laatste groep vluchtelingen de niet in kaart gebrachte sloppenwijken kan binnenglippen in plaats van de omheinde kampen.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "VERPLAATSINGSLOGBOEK: SECTOR 4 HERVESTIGINGSPROTOCOL. VERDEDIGER: AEGIS RONIN (CHASSISSTATUS: KRITIEK). BEDREIGINGSNIVEAU: OMEGA. AANTAL VLUCHTELINGEN: 412. Huidig ​​mandaat: bescherm de ontheemden. VERDEDIG DE DREMPEL."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, zeg tegen de extractiepiloten dat ze de vloer moeten leggen! Dit plafond wordt er niet lichter op!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, de structurele integriteit bedraagt 14%. De Xelthara Siege-eenheden zetten zware plasmamortieren in. De kans dat je verpletterd wordt, bereikt 99,2%."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Dan neem ik die 0,8% en duw ik het door hun strot! SCHILD OMHOOG!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Blijf bewegen! Ze willen je als vee in kooien drijven. Zolang ik adem haal, ben ik de muur tussen jou en hun insluitingszones. Ze zullen vandaag geen andere ziel verdringen!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Belegeringseenheden vergrendeld. Ze richten zich op de steunpijlers. Als ze schieten, valt de hele Sector 4-muur op de evacuatiezone."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Niet op mijn horloge. kinetische OVERBELASTING!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Eén neer! AXIOM, de schildgenerator jankt. Is dat normaal?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatief. Het prototype absorbeert te veel kinetische energie. Het wordt een bom. Schakel onmiddellijk uit!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nee. Ik ga de Xelthara een souvenir geven. Ik overlaad het."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, je vitale functies pieken! Analyse wijst op een catastrofale mislukking. Overlevingskans: 0,1%!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Betere kansen dan ik had in de insluitingskampen. Dit is een enkele reis, jongen. Kunt u tegen het Front zeggen dat ze mij een drankje schuldig zijn?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "VOOR HET THUISLAND! EET BETON!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin? Aegis Ronin, reageer... Ik heb... een handtekening op het oog... Het schild hield stand. De muur is veilig."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE ONBREEKBARE MUUR. AEGIS RONIN SLUIT ZICH AAN BIJ HET HLF."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neonroest en datastof",
+      "arc": null,
+      "setting": "De letterlijke 'Under-City': een netwerk van onderhoudsschachten onder een glanzende, neonverlichte Xelthara-nederzetting. Boven genieten de bezetters van geterraformeerde lucht; hieronder zoeken de gemarginaliseerde mensen naar met ozon vervuilde zuurstof.",
+      "objective": "Hevel energie uit het koloniale net om de levensondersteunende systemen van de gemarginaliseerde bevolking van stroom te voorzien, terwijl je de 'Purity Patrols' ontwijkt die op jacht zijn naar menselijke zwerfdieren.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Ze bouwen hun paradijs op ons plafond en vragen zich af waarom de kelder lekt. Wij leven in de gaten die ze vergaten te plaveien. Deze krachtcel is niet alleen voor mij; het is bedoeld om de verwarming aan te houden voor de honderd gezinnen die ze in de blauwdrukken 'vergeten' hebben."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Waarschuwing: Integratie van Xelthara-hardware in een civiel chassis wordt niet aanbevolen. Neurale feedback wordt geprojecteerd op 40% instabiliteit. Matrix, je hartslag overschrijdt de veilige parameters."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "GEMARKEERD BLOK: SUB-LEVEL SCRAP-STAD. STATUS: OVERLEVEN. INBREDERSALARM: NUL GEDETECTEERD. SYSTEEMVERTROUWEN: 100%. DOEL: STEEL DE KOLONIALE VONK. BRANDSTOF DE WEERSTAND."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ze bouwen hun paradijs op ons plafond en vragen zich af waarom de kelder lekt. Wij leven in de gaten die ze vergaten te plaveien. Ik zal hun eigen schroottechnologie hergebruiken om hun rooster te frituren. Vanuit de marge slaan we terug."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Integratie succesvol. Phase-Shift-mogelijkheden zijn online. Opmerking: Continu gebruik zal neurale degradatie veroorzaken."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Alsof je door rook loopt. Laten we nu de uitgang vinden voordat ik vergeet hoe de realiteit voelt."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Lockdown gestart. De oogstkern bereikt een kritische temperatuur. U moet de perimeterpoort onmiddellijk uitschakelen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Eén EMP-explosie zou het moeten doen. Laten we ze wat datastof geven, zodat ze mij kunnen herinneren."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "En dat is mijn signaal."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Dat was een zeer luide uitgang, Matrix. Ik let al op je handtekening sinds de raffinaderij."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Wie is dit? Hoe is het met jou op dit kanaal?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Ik ben keizerin Sirene. Wij zijn degenen die vechten om ervoor te zorgen dat er nog een stad over is om te oogsten. Je hebt een gave om dingen kapot te maken, geest. Dat kunnen we gebruiken. Ben je het zat om je te verstoppen in de roest?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "De roest begon toch saai te worden. Wijs de weg, sirene."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE GEEST IN DE MACHINE. ONI MATRIX IS TOEGEVOEGD BIJ HET HLF."
+        }
+      ]
+    },
+    "4": {
+      "title": "Verbrijzelde Aegis van de Leegtecommandant",
+      "arc": null,
+      "setting": "De verbrijzelde overblijfselen van de Pacific Defense Hub. De trotse, traditionele militaire infrastructuur wordt door de Xelthara gerecycled, waardoor Siren gedwongen wordt een gedecentraliseerd netwerk van verborgen cellen te coördineren.",
+      "objective": "Ontmantel de laatste nog bestaande militaire zendmast en distribueer de frequentiechips naar civiele verzetscellen, waarmee de overgang naar guerrillaoorlogvoering wordt afgerond.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Het tijdperk van staande legers is dood. We kunnen ze niet tegenkomen op het veld, dus wij zullen het veld worden. Verdeel het signaal. Decentraliseer de opdracht. Als er geen hoofd is om af te hakken, kan het verzet niet sterven."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Keizerin, uw uitzending is een enorm risico! Je maakt je locatie en het frequentiepatroon van de weerstand bloot. Dit is niet optimaal. Gelieve de verzending af te breken."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DECENTRALISATIELOGBOEK: GUERRILLA-OVERGANG GESTART. LOCATIE: LAATSTE STANDCOMMANDO (PACIFIC HUB). STATUS: CONVENTIONELE KRACHT VERSLAGEN. ASYMMETRISCHE LEER ACTIEF. COMMANDANT: KEIZERIN SIRENE (TACTISCHE CODE: ONGELDIGE COMMANDANT). LAATSTE BESTELLING: VERNIETIG HET BEVEL. WORD DE STORM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dit is Void Commander. De traditionele hiërarchie wordt opgeheven. Jullie zijn geen soldaten meer; jullie zijn cellen. Verdwijn in de stad. Sla toe als ze slapen. Claim je huis schaduw voor schaduw."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Commandant, de ontsnappingsvaartuigen melden een sterftepercentage van 85% bij de lancering. Xelthara-strijders geven voorrang aan niet-strijders. Ze kennen onze ontsnappingsvectoren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ze opereren op basis van tactische gegevens van vóór de invasie. Ik zal de gegevens wijzigen. AXIOM, vergrendel de centrale netwerkverbinding. Ik omzeil handmatig de firewalls."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Onze vloot is verdwenen. Onze basis is stof. Het enige dat overblijft zijn de gegevens. Ik moet precies zijn. De plicht van een commandant is jegens de levenden, niet de verdediging van een lijk."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nieuwe parameters geladen. Nu het moeilijke deel. AXIOM, leid de stroom van mijn levensonderhoud af naar de drone-synchronisatie-array."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Commandant, dat verlaagt uw chassisreserves tot 12%. Het risico op systeemstoringen is groot. Ik raad dit af."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Voer de bestelling uit. Deze levens zijn 12% van mijn systemen waard. Ik heb een duidelijke zichtlijn nodig, AXIOM. Ik ben nu de micro-drones aan het synchroniseren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone Fleet One, creëer een beschermende zwerm rond de evacuatie shuttle. Dronevloot Twee, bereid je voor op een offensieve aanwijzing. Doelwitten: Xelthara-kolom 8-B, op weg naar de primaire civiele tunnel."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "De kolom bevindt zich direct onder een beperkte sector. Orbitaal bombardement is verboden vanwege het gedestabiliseerde kinetische satellietplatform."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Verboden is niet relevant. Ik zal ze niet zien sterven. AXIOM, geef mij handmatige toegang tot de trajectfeed van het Kinetic Satellite Platform. Ik heb één wanhopig schot nodig."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Annuleer opdracht naar kinetisch platform: FIRE. Coördinaat 51.4883 N, 120.7301 W. VERNIETIGINGSPROTOCOL."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Systeemschade overweldigend! De satelliet is uit zijn baan geraakt. Commandant, u moet zich terugtrekken. Het gebied is verzadigd met hoogenergetische straling."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Terugtrekking bevestigd. Missiedoelstelling – overleven van de burgerbevolking – bereikt. Ze hebben ons luchtruim ingenomen, maar ze zullen nooit ons besluit overnemen. Nu aan het extraheren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE VOID COMMANDANT. KEIZERIN SIRENE SLUIT ZICH AAN BIJ HET HLF."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neon Embers - De grensovertreding",
+      "arc": "act2_arc1",
+      "setting": "Het actieve Sector-4 Separation Grid – een 40 meter hoge energiemuur versterkt met biometrische scannertorens, controlepunten voor vergunningverwerking en Xelthara Border Authority-stations. Het doorsnijdt fysiek Los Angeles en isoleert de menselijke inperkingszone van de koloniale sector Xelthara. De muur is geen militaire installatie. Het is een administratieve.",
+      "objective": "Schakel alle vier de biometrische scannerspitsen uit, vernietig de centrale Permit Processing Core – de bureaucratische motor die de menselijke beweging controleert – en vernietig de Grote Separatie zodat de bevolking van de containmentzones vrij door hun eigen stad kan lopen.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Die muur sneed de stad niet alleen doormidden. Het heeft mij gehalveerd. Alles wat ik me herinner – de geur van de keuken van mijn grootmoeder in Spring Street, het geluid van de bus op 5th Street – bevindt zich aan de andere kant van dat ding. En ik moet er als een crimineel naar terug sluipen."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Het Sector-4-scheidingsrooster is in de administratieve documenten van Xelthara niet geclassificeerd als een militaire installatie. Het wordt vermeld als een 'Population Optimization and Transit Authority Control System'. Die rebranding is het punt. Het is een muur die klinkt als een dienst."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "VERPLAATSINGSLOGBOEK: SECTOR-4 SCHEIDINGSRASTER. STRUCTUURTYPE: KOLONIALE ADMINISTRATIEVE CONTROLEPUNT. NIET MILITAIRE. DIT IS OPZETTELIJK. BEDREIGING: GRENSAUTORITEIT XELTHARA – AFDELING HANDHAVING. BIOMETRISCHE SPIRES: 4 ACTIEF. VERGUNNING KERN: ONLINE. DOEL: DE ADMINISTRATIEVE ARCHITECTUUR VAN SCHEIDING ONTMANTELEN. OPEN DE STAD."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DE MUUR NOEMDEN ZIJ EEN DEUR"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "De structuur waar u naar kijkt, wordt in de koloniale archieven aangeduid als het 'Sector-4 Bevolkingsoptimalisatie- en Transitautoriteitscontrolesysteem'. Het is een muur. Het is een scheidingsmuur. Ieder mens aan deze kant heeft een door Xelthara uitgegeven verblijfsvergunning nodig om over te steken. De vergunningen worden niet afgegeven. Het aanvraagsysteem heeft een achterstand van twee jaar. Dit is geen ongeluk. Dit is de architectuur van permanente verplaatsing."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ik heb acht maanden in een insluitingsgebied als dit doorgebracht nadat ze de San Fernando Valley hadden ingenomen. Acht maanden kijken hoe kinderen kleiner worden omdat de calorierantsoenen zijn ontworpen voor een soort die niet dezelfde dingen eet als wij. En aan de andere kant eten ze ons voedsel. In onze restaurants. In onze stad."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, bevestig de vier torenspitslocaties voor het team."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha bevindt zich op de voormalige locatie van de kunstcorridor Grand Avenue. Spire Beta wordt geplant op de hoek van 5th en Spring. Spire Gamma is ingebed in de buitenmuur van de oude Centrale Bibliotheek. Spire Delta verankert het zuidelijke eindpunt van de muur aan de rivier. De Permit Processing Core is gehuisvest in het controlepoststation op het voormalige Pershing Square. Alle vier de torenspitsen moeten worden uitgeschakeld voordat de Kern kan worden doorbroken. Het vernietigen van de Kern zal het hele energiemembraan laten instorten."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "5e en lente."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Dat is... dat is de hoek waar het gebouw van mijn grootmoeder staat. Was. Is. Spire Beta wordt in haar voortuin geplant. Ze plaatsten hun muurpaal in haar voortuin."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matrix—"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Niet doen. Het gaat goed met me. Ik ben operationeel. Ik zeg dat het mijn persoonlijke taak is om de torenspits neer te halen. Niemand raakt Beta aan, behalve ik."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Begrepen. Het is van jou."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, jij neemt Spire Alpha mee naar de kunstgang. Shogun, Spire Gamma in de Centrale Bibliotheek. Matrix heeft bèta. Ik zal de drone-onderdrukking op de patrouilleroutes coördineren en me bij Shogun voegen bij de nadering van de bibliotheek. AXIOM zal de sequencing begeleiden. Alle vier de torenspitsen vallen achtereenvolgens, dan komen we samen op Pershing Square en halen we de kern stukje bij beetje uit elkaar."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Opmerking: de patrouilles van de grensautoriteiten zijn druk maar hebben een patroon. Het controlepunt wordt 24 uur per dag bemand door Enforcer-Administrator Voss, die de fysieke oversteekautorisatie beheert. Hij is geen gevechtsofficier. Hij is een bureaucraat. Hij heeft de afgelopen maand persoonlijk 4.400 grensoverschrijdende aanvragen afgewezen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4.400. Mensen die gewoon naar huis wilden lopen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Het wreedste wapen van het kolonialisme is niet de soldaat met het geweer. Het is de klerk met de stempel die u vertelt dat uw bestaan ​​hun toestemming vereist. Dat een mens een bezetter moet verzoeken om het recht om op het terrein van zijn eigen voorouders te lopen. Ik heb vrede gesloten met vechtende soldaten. Het confronteren van de architectuur van toestemming – de nonchalante, systematische vernedering ervan – dit is wat de geest aantast op een manier die geen mes kan doorsnijden."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Patrouilles draaien. Er is een venster van 90 seconden op de nadering van Hope Street, die over dertig seconden begint. Ga op mijn doel af."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Houd de positie in de schaduw vast totdat AXIOM-7 het signaal geeft."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Markeer. Gaan."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Verplaatsen. Blijf onder het dronedekkingsplafond. Ze hebben heat-mapping op zes meter hoogte – spring niet."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASE 1: AANPAK DOOR DE BUFFERZONE"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ze hebben deze bufferzone zo ontworpen dat zelfs het dicht bij de muur komen als een overtreding voelt. Je bent in de open lucht. Je bent zichtbaar. Je voelt je schuldig omdat je naast wat vroeger een openbare straat was, stond. Dat is de psychologie ervan. Ze willen dat we het gevoel krijgen dat we hier niet thuishoren, nog voordat we het controlepunt bereiken."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ik haat dit. Ik heb de lijn vastgehouden tegen Siege Walkers en ik haat dit. Er is iets aan het in de open lucht staan ​​in je eigen straat en je bekeken voelen, wat mij erger maakt dan artillerie."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, de tweede schijnwerper draait binnen vier seconden weg. Ga naar de afwateringsduiker. Drie. Twee. Een."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ik heb het. Ik sta aan de basis van Spire Alpha. Ik kan het anker zien. Het zit vast aan wat ooit een mozaïek-stoep was."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ze hebben het door het mozaïek geschroefd. Er stond een hele geschiedenis op die stoeptegel geschilderd. Portretten, namen, data. Een gemeenschapsproject. Ze boorden gewoon door het midden van een gezicht om hun paal te verankeren."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, het anker van de torenspits is een magnetisch kinetisch slot, ontworpen om tot 8.000 Newton aan directe kracht te weerstaan. Uw kinetische overbelastingslading, die drie volledige tellen wordt vastgehouden, zal deze drempel overschrijden. Je moet ook eerst de twee biometrische Sentinel-eenheden op de basis van de torenspits uitschakelen. Ze zullen je biometrische handtekening detecteren zodra je binnen bereik komt."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Biometrische handtekening. Mijn eigen hartslag veroorzaakt een alarm omdat ik een mens ben. Akkoord. Laten we beginnen dat op te lossen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Scan jij mijn hartslag? Ik zal je iets geven om te scannen. kinetische polsslag!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "En dat zijn er twee. AXIOM, de wachters zijn neergehaald. Op weg naar het anker."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Houd de Kinetic Overload Charge drie tellen vast op de basis van Spire Alpha. [INPUT: Houd RB/R1 drie seconden ingedrukt en laat dan los.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha-anker gebroken. Energiemembraan gedestabiliseerd in de noordelijke sector met 25%. Er blijven drie torenspitsen over."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Vijfentwintig procent is een begin. Sorry dat het zo lang heeft geduurd. We zijn nu hier."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASE 2-A: ONI MATRIX BIJ SPIRE BÈTA – 5E EN LENTE"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Daar is het. De boom staat er nog. Mijn grootmoeder zei altijd dat die boom ouder was dan het stadhuis van de stad en ik heb haar nooit geloofd."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Zevenenveertig dagen nadat de muur was gevallen, diende ze een aanvraag voor een oversteekvergunning in. Ze vulde de formulieren in. In drievoud. Omdat ze in proces geloofde. Ze geloofde dat als je de dingen goed deed, iemand zou luisteren. Ze kreeg nooit antwoord. Ze stierf twee maanden later in de insluitingszone. Complicaties van ondervoeding. Ze hadden haar favoriete kruidenierswinkel aan de andere kant van de muur. Ze diende een formulier in om eten te gaan kopen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ik ga dit ding heel voorzichtig uit elkaar halen, zodat ik de boom geen pijn doe."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Je gebruikt mijn truc. Schattig. Dit is het verschil: ik heb de mijne uitgevonden."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Label."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Je moet terugkomen. Je moet altijd terugkomen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Daar ben je."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Eerste leiding. Tweede kanaal. Derde. Laatste."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Bèta is uitgeschakeld. Het gaat goed met de boom. Bewegen om te hergroeperen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "We hebben je gehoord, Matrix. We hebben de hele tijd geluisterd."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ja. Ik weet."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASE 2-B: CYBER SHOGUN EN KEIZERIN SIRENE BIJ SPIRE GAMMA – DE CENTRALE BIBLIOTHEEK"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "De bibliotheek. Ik gaf daar mijn eerste officierstrainingsseminars. Gemeenschappelijke verdedigingscursussen, leeszaal op de derde verdieping. Drie jaar voor de invasie. De geometrie van de manier waarop het kolonialisme onze eigen infrastructuur tegen ons gebruikt, blijft opvallend. Ze hebben hun datacenter in onze bibliotheek geplaatst. Ze schrijven over onze gegevens heen op de plaats waar wij onze gegevens bewaarden."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "En nu zullen ze ontdekken dat de mensen van wie ze de gegevens probeerden te wissen, bij de voordeur staan."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "De zes eenheden bij de ingang van de bibliotheek zijn geclassificeerd als grenshandhavingsfunctionarissen. Hun massaverspreidingslading levert bij contact 900 volt neurale verstoringsstroom."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Niet-dodelijk. Ze zeggen tegen zichzelf dat het menselijk is. Wat ze bedoelen is dat een levende gevangene nuttiger voor hen is dan een dode burger."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Shogun, ik wil dat ze snel en stil worden opgeruimd voor de volgende patrouille. Kun jij er drie van links pakken terwijl mijn drones de rechterflank onderdrukken?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Begrepen. Stil betekent precisie. Ik zal dit gebouw niet onteren met onnodig lawaai."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Drones: markeer, markeer, markeer. EMP barstte los op de rechter cluster: vuur."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ten eerste. Seconde. Derde."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Schoon. AXIOM, scant het Spire Gamma-ankersysteem."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma haalt stroom uit het interne netwerk van de bibliotheek. Om de torenspits uit te schakelen zonder een noodstroomomleiding te activeren, moet u eerst de interne netverbinding in het gebouw verbreken. Keizerin Siren, het netwerkknooppunt bevindt zich op de derde verdieping."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Derde verdieping. Natuurlijk. Wijs de weg, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Ik vertelde twaalf gezinnen hoe ze in deze kamer gemeenschapswachtrotaties moesten organiseren. In het kindergedeelte stonden zitzakken. Iemand had krijttekeningen op het referentiebureau geplakt. Een kind maakte een tekening van een superheld. Het verschil tussen een bibliotheek en een datacenter is dat een bibliotheek ervan uitgaat dat de mensen die binnenkomen het recht hebben om daar te zijn."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Rasterknooppunt gelegen. Het verbreken van de Spire Gamma-stroomtoevoer. Hiermee worden ook alle gegevens over de registratie van koloniale eigendommen gewist die ze hier hebben opgeslagen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bevestigd. Het verbreken van deze verbinding zal ongeveer 12.000 overdrachtsgegevens van koloniale akten voor eigendommen in Sector 4 beschadigen. Deze gegevens vormen de juridische structuur van de landbeslagleggingen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dan is dit niet alleen sabotage van de infrastructuur. Dit is een landteruggave."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spiers Alpha, Bèta en Gamma offline. Energiemembraanintegriteit: 25%. Spire Delta aan de rivier is het laatste anker. Alle teams komen samen nadat Delta valt. Dan: Pershing-plein. De Vergunningskern."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASE 2-C: SPIRE DELTA – HET ZUIDELIJKE TERMINUS AAN DE RIVIER"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta is het dragende anker van de muur. Het wordt bewaakt door grenscommandant Vyss, die opdracht gaf de rivier onder stroom te zetten nadat drie families in de eerste week van de muur hadden geprobeerd het water over te steken. Vyss gaf geen bevel om hen vast te houden. Vyss gaf opdracht om het water te elektrificeren."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Hij heeft de rivier geëlektrificeerd. Omdat gezinnen probeerden over te steken."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Niet doen. Laat het je nog niet overnemen. Wij brengen dit eerst naar beneden. Dan hebben we de rivier niet nodig."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Juist. Rechts. Na de torenspits. Na de muur. Ik zal het niet vergeten."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dit is geen stealth-aanpak. Delta is een versterkte positie. We hebben het als een eenheid getroffen. Ronin: jij pakt het punt, beschermt naar voren, trekt hun aandacht en absorbeert hun eerste salvo. Shogun, maak de linkerflank vrij. Matrix, gebruik Phase-Shift om het geschutsbedieningspaneel uiterst rechts te bereiken en alle drie de geschutskoepels tegelijkertijd te doden. Zodra de geschutskoepels dood zijn, geef ik drones opdracht tot verzadigingsvuur op het handhavingsteam. We laten het garnizoen instorten, waarna Ronin de torenspits in de grond steekt."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SCHILD OMHOOG. Laat ze alles naar mij gooien. Ik ben de voordeur."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Houd. Vuren. Ik niet. Beweging."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SHADO-KRACHT KATA! Sirene – jouw pad is open!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Het rechts spookt. Dom. Torencontrole bereikt. Alle drie vermoord. EMP PULSE – VOLLEDIGE SPREIDING!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Dronevloot, volledige onderdrukking. Geef prioriteit aan formatie – doorbreek hun lijn. VUUR."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Commandant Vyss trekt zich terug in de commandopost achter de torenspits. Hij geeft een noodsignaal af. Reactietijd: acht minuten."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "We hebben acht minuten. Meer dan genoeg. Ronin – de torenspits."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KINETISCHE OVERBELASTING – VOLLEDIGE RELEASE!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Het energiemembraan is volledig offline. De administratieve grensovergangsbarrière is geneutraliseerd. De bufferzone is... mensen overschrijden de bufferzone. Ongeveer 12.000 mensen trekken naar de voormalige muurlijn. Ze steken het over."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ze zijn gewoon... aan het lopen. Ze lopen er gewoon doorheen."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FASE 3: PERSHING SQUARE – DE KERN VOOR VERGUNNINGSVERWERKING"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kijk naar ze. Ze raken het trottoir aan de andere kant van de muur aan, alsof het misschien niet echt is. Alsof het een truc zou kunnen zijn."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Omdat hoop al twee jaar een mechanisme voor teleurstelling is. Ze hebben geleerd open deuren niet te vertrouwen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "...We hadden dit eerder moeten doen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "We zijn nu hier. Blijf bewegen. De Kern staat nog steeds overeind. Vos is er nog steeds."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "U heeft ongeoorloofde vernietiging begaan van een koloniale administratieve installatie van klasse A. Ik ben protocollair verplicht om u de mogelijkheid te bieden zich aan een administratieve afhandeling te onderwerpen voordat er handhavend wordt opgetreden. Vorm een ​​wachtrij."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Hij zegt dat we een rij moeten vormen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Keizerin. Ik wil hem zo graag slaan."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ik weet het. We moeten eerst de kern nemen. AXIOM, de architectuur van de Core."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "De enige kwetsbaarheid van de Permit Processing Core zijn de drie Input Authorization Consoles die rondom de basis zijn opgesteld. Elke console moet toegankelijk zijn en de administratieve overschrijving moet tegelijkertijd worden uitgevoerd. Er zijn drie operators tegelijk nodig."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drie consoles. Drie van ons. Matrix, Shogun, Ronin: neem elk een console. Ik beheer de verdedigingsring van Voss met drone-onderdrukking."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Ongeautoriseerde toegang tot beheerdersconsoles is een Klasse-C-overtreding. Uw nalevingsrecord zal negatief worden geannoteerd."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Annoteer dit."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Gefaseerd door. Bij console twee. Overschrijven initiëren. AXIOM, dit override-protocol is volledig in Xelthara-beheerscript."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ik voer de vertaling in realtime in uw HUD. Volg de volgorde."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ik heb nog nooit aan bureaucratie gedaan. Leid me er doorheen, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Voor de autorisatieprocedure moet u een weigeringscode in omgekeerde volgorde invoeren. U maakt de afwijzing van elke aanvraag in het systeem administratief ongedaan. Dit activeert het wissen van het geheugen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "...4.400 afwijzingen. De balie staat hier. 4.400 afgewezen aanvragen in de afgelopen maand. Er zijn namen. Ik kan namen zien."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ga door, Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ja. Ik ga."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Je kunt de Core niet overschrijven. Dit systeem handhaaft de wettige bestuursorde van deze sector. Zonder dit is er geen gestructureerd bevolkingsbeheer, geen geautoriseerde doorreis."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Wat u 'gestructureerd bevolkingsbeheer' noemt, noemen wij het recht om naar huis te lopen. Console Eén: klaar."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Console twee: klaar. Mijn grootmoeder heeft een vergunning aangevraagd om boodschappen te gaan doen. Wil je het hebben over administratieve orde?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Console Drie: klaar. 4.400 namen. Het zijn allemaal mensen die gewoon naar huis wilden. Dat is waar deze muur tegen beschermde."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bevestigd. Alle drie de invoerconsoles zijn voorbereid. Gelijktijdige autorisatie zal het geheugen wissen uitvoeren en het herstelprotocol van de Core permanent uitschakelen. Op uw teken, keizerin."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Beheerder Vos. Elke vergunning die je weigerde, elk gezin dat je gescheiden hield, elke persoon die bij je in de rij stond in de hoop dat je hem, als hij het formulier correct invulde, als een mens zou behandelen. Dit is de laatste administratieve beslissing die dit systeem neemt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Markeer."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Vergunningverwerking Kern: offline. Protocol voor permanent herstel: uitgeschakeld. De muur kan vanaf dit knooppunt niet opnieuw worden opgebouwd. Alle aanvraagrecords die in behandeling zijn: verwijderd. Alle weigeringsrecords: gewist. De kruisbeperkingsinfrastructuur voor Sector-4 is... verdwenen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4.400 aanvragen. En niet één van hen had het moeten vragen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "AXIOM. Kunt u mij vertellen of het gebouw van mijn grootmoeder structureel veilig genoeg is om bewoond te worden? Ik wil weten of iemand er weer in kan trekken."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Structurele scan uitvoeren. Verdiepingen één tot en met vier zijn intact. Fundering is gezond. De watertoevoerleiding is beschadigd maar kan worden gerepareerd. Ja. Er zou weer iemand kunnen intrekken."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Goed. Goed."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "De muur is weg, Matrix. Maar wat we nu doen – hoe we herbouwen wat de muur verdeelde – dat is het zwaardere werk. En het begint vanavond."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Is dit hoe winnen voelt? Omdat het niet voelt zoals ik had verwacht."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nee. Het voelt alsof er meer te doen is. Zo weet je dat het echt is."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Missiebeoordeling: het Sector-4-scheidingsraster is definitief ontmanteld. De bevolking van Containment Zone Sector-4 beweegt zich voor het eerst in twee jaar vrij door hun stad. Ik heb geen categorie in mijn operationele logboek voor wat er momenteel op dit plein gebeurt. Ik zal er een maken. Ik noem het: terugwinning."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: NEON EMBERS. DE MUUR IS OMLAAG. DE STAD ADEMT."
+        }
+      ]
+    },
+    "6": {
+      "title": "Shado-Grid Spire (binnenstad)",
+      "arc": "act2_arc1",
+      "setting": "De Shado-Grid Spire herbergt het bevolkingsregister, de database voor eigendomsoverdracht en het systeem voor de toewijzing van dwangarbeid – de bureaucratische motor van koloniale ontheemding in de binnenstad.",
+      "objective": "Steel de volledige datasets van eigendoms- en bevolkingsregisters voordat deze buiten de wereld worden verzonden, en corrumpeer het Forced Labour Allocation System om alle lopende toewijzingsbevelen ongeldig te verklaren.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Everything the Xelthara know about us is in that tower. Elk adres waar we ooit hebben gewoond. De naam van elk familielid. Elke akte die onze grootouders ondertekenden. They turned our entire existence into a database entry so they could manage us more efficiently. Tonight we take our data back—and we break the machine that's been using it to assign people to scrub their floors."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "The Forced Labor Allocation System inside the Spire does not use the word 'forced.' It uses the phrase 'Community Integration Contribution Program.' De arbeidsopdrachten zijn geen contracten; ze worden algoritmisch gegenereerd op basis van de geregistreerde vaardigheden van de ontheemde en zonder toestemming uitgegeven. This is the bureaucratic language of enslavement."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analyse voltooid. The colonial expansion blueprints and settler logistical data are stored in that central column. Matrix, you have five minutes to execute the download before their internal defense systems reboot."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vijf minuten? Een fluitje van een cent. Maar ik heb duidelijke toegang nodig. Shogun, kun je de navelstreng doorknippen?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Beschouwd als gedaan. Creëer nu een tijdelijk pad naar de console. Let op de hoeken, keizerin. Deze bezuiniging zal elke drone in de sector waarschuwen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Waarschuwing bevestigd! Heavy Phalanx guards are descending from the upper maintenance shafts! Ronin, vooraan en in het midden! Vestig de verdedigingslinie bij het toegangspunt!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Het werd tijd dat ik dit ding ging slingeren. Schild omhoog! Nothing passes this point, you overgrown lizards!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sirene! Richt je op die linkerflank! Ze proberen mij vast te pinnen!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Drones three and four, suppressive fire on the left flank! Teken hun aggro! Ronin, spaar je lading!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Te laat voor natuurbehoud! SMASH! Vertel Matrix dat ze op moet schieten!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Stil, vleesschild! I'm threading a digital needle through their core brain! Nog even... een stukje... verder..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Waarschuwing: gegevensdownload is voor 95% voltooid. Xelthara-tegenhack gestart. Matrix, the Spire is locking down all internal access points!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Begrepen! Gegevens beveiligd! De stekker eruit trekken!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Missie volbracht! Iedereen, val terug naar het extractieplatform! Shogun, maak ons ​​pad vrij!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Begrepen. Een schone ontsnapping is de laatste fase. HLYT-SECT-4 KLIKT!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Zie je, AXIOM? Ik zei toch dat ik het kon vasthouden!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bevestigd, Ronin. De kans op een succesvolle extractie is nu 74%. We worden nog steeds gevolgd."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Goed. Laat ze ons achtervolgen. Ze zijn zojuist hun hele strijdplan kwijtgeraakt."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: INDUSTRIËLE VERWOESTING. DE SHADO-GRID SPIRE-GEGEVENS ZIJN VAN ONS."
+        }
+      ]
+    },
+    "7": {
+      "title": "Cyber-Grave Labs (ondergrondse faciliteit)",
+      "arc": "act2_arc1",
+      "setting": "Onder het voormalige Convention Center hebben de Xelthara Cyber-Grave Labs Sector-Omega-7 opgericht – een geheime onderzoeksfaciliteit voor gedragsverandering die publiekelijk is aangewezen als een 'welzijnscentrum voor menselijke re-integratie'. Gevangen menselijke verzetsleiders en gemeenschapsorganisatoren worden hier verwerkt. Ze komen meegaand tevoorschijn, zijn niet verbonden en kunnen zich niet herinneren waarom ze boos waren.",
+      "objective": "Pak het volledige Conditioning Protocol Archive uit en vernietig de Central Neural Uplink om de neurale autonomie te herstellen van honderden geconditioneerde individuen die momenteel in de containmentzones wonen.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ze konden ons niet breken met muren, dus vonden ze een manier om ons van binnenuit te breken. Om de herinnering aan onrecht van iemand weg te nemen – om in zijn geest te reiken en het deel te verwijderen dat weet hoe hij boos moet zijn over wat er gestolen is – dit is geen wetenschap. Dit is een oorlogsmisdaad gepleegd in een laboratorium."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Door de betrokken bestanden te vergelijken met de database van het verzetsnetwerk, heb ik zeventien bevestigde HLF-gemeenschapsorganisatoren geïdentificeerd die via deze faciliteit werden verwerkt en vervolgens werden vrijgelaten. Ze weten niet wat hen is aangedaan. Het vernietigen van de centrale neurale uplink kan deze herstellen. Ik bereken een kans van 73% op succesvol autonomieherstel. Ik ben... Ik merk dat ik in dat resultaat geïnvesteerd ben."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Deze faciliteit is de motor van de exploitatie van hulpbronnen. Ze zetten de mineralen van de aarde actief om in giftige biobrandstof voor de scheepvaart buiten de wereld, waardoor een dode planeet achterblijft. Dit zijn de kosten van koloniale expansie."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "De lucht is giftig omdat ze onze wereld zien als een vervangbare brandstofbron. Deze laboratoria zetten het levensbloed van onze planeet om in energie voor hun nederzettingen. We moeten deze extractie stoppen, anders valt er niets meer te redden."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Deze plek... het heeft geen eer. Om de doden te corrumperen en de levenden tot slaaf te maken. De Xelthara beoefenen ontheiliging, geen oorlog. Ik voel alleen maar minachting voor deze wreedheid."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Vijandig gezien! Ziet eruit als een vleespop met slechte bedrading!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drones, scan het exemplaar! Het is een type-A biohybride. Let op de blootliggende kern. Shogun, nauwkeurige aanval op de stroomleiding in de blootliggende borstholte."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Dit ding verdient geen plaats in deze wereld. NIHILATIE KLEEF!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Keizerin, wat... wat zijn deze beelden? Ze nemen onze mensen en maken er dingen van."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ik voer de analyse nu uit, Shogun. Dit zijn niet simpelweg biologische experimenten, het is het wissen van de ziel. Ze vervangen de menselijke geest door hun eigen code."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Leuk. Ze willen niet alleen onze planeet innemen; ze willen onze soort franchisen. Kijk uit, sirene. Er is net een grote kerel wakker geworden."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "WAARSCHUWING: ontmoeting met mini-baas. Hoedanigheid: opzichter Karr-Thak. Het pantser is bestand tegen kinetische en energieaanvallen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Resistent? Stier. Ik zal een deuk maken! Ronin, boeiend!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, val terug! Zijn verdediging is kinetisch gedempt. Matrix, scan zijn bewegingspatronen op een neurale synchronisatievertraging. Shogun, je moet voor afleiding zorgen!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Als hij wil vechten, zal ik hem een ​​waardige tegenstander geven. Ik zal zijn focus vestigen. KIJK MIJ AAN, SLECHT!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analyse voltooid. De biologische componenten van de Overseer vereisen een constante vernieuwing van het neurale signaal van de bioprocessor. Matrix, raak de console met een gerichte EMP: een chirurgische aanval, verstoor de synchronisatie!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Begrepen! De naald inrijgen!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hij is aan het glitchen! Nu hebben we hem geraakt!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, samen! Laatste slag, breek de chitineuze plaat!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Gegevens downloaden 100%. We hebben waar we voor kwamen. Laten we weggaan voordat de hele sector zich realiseert dat hun huisdierenmonster dood is."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Het opschonen van gegevens is gestart. Explosievensequentie ingesteld op T-minus 60 seconden. Missiedoelstelling voltooid."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ik zal de schaamte van deze plek met mij meedragen. Maar de kennis die we hebben verworven zal een einde maken aan deze gruwelen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Laten we naar huis gaan, team. Laat de graflaboratoria zichzelf begraven."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE INSCHENDINGSCODE. CYBERGRAAFLABS VERNIETIGD."
+        }
+      ]
+    },
+    "8": {
+      "title": "The Foundry Forge (industriële sector)",
+      "arc": "act2_arc2",
+      "setting": "De Xelthara Thermal Conversion Array in het voormalige industriële havendistrict heeft de lucht in een straal van 40 kilometer giftig gemaakt, waarbij atmosferisch afval wordt verwerkt als brandstof van buiten de wereld, terwijl de zuurstof van de mensheid terug wordt verkocht in gerantsoeneerde bussen voor één per gezin per dag.",
+      "objective": "Keer de polariteit van de Thermal Conversion Array om om een ​​thermische implosie in cascade te veroorzaken die de gieterij onomkeerbaar vernietigt en ervoor zorgt dat de 40 kilometer lange atmosferische schadezone op natuurlijke wijze kan herstellen.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Ze vragen ons zuurstofrantsoenen. Ze hebben onze lucht onadembaar gemaakt en nu verkopen ze die terug in bussen: één per gezin per dag, met een Xelthara-distributiestempel op de zijkant. Ik adem al zes maanden gerecycleerde lucht in. Als ik deze gieterij vernietig, ga ik voor het eerst in een half jaar in de open lucht staan ​​en ademen. Dat is waarvoor ik hier ben."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "De atmosferische schade binnen een straal van 40 kilometer rond deze gieterij vormt een schending van de Universal Environmental Preservation Accords uit 2089 – een verdrag dat het Xelthara Collective heeft geratificeerd. Ik heb namens het HLF een formeel schendingsrapport ingediend bij de Galactische Administratieve Rechtbank. De geschatte responstijd van het Hof bedraagt ​​elf jaar. De geschatte tijd van de gieterij om permanente atmosferische onomkeerbaarheid te veroorzaken: vier maanden. Wij wachten niet op de rechtbank."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dit is een bedrijfsbureaucratische extractiefabriek. Ze ontginnen de kern van de aarde voor export buiten de wereld. Elke zending is een ander verkocht stukje van onze wereld. Doelstelling: Sabotage van de winningssteunpunten om de ecologische ineenstorting te stoppen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ik detecteer zware seismische dempers op die steunen. Direct energievuur zal niet werken. Ronin, dit is jouw specialiteit. Kinetische kracht is vereist."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Eindelijk iets dat een goede klap verdient. Wijs de weg, Shogun. Ik zal het pad vrijmaken."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Contacteer! Ze gebruiken de nieuw samengestelde drones als directe bewakers! Aegis, focus op de structurele steunen. Wij zullen de lijn vasthouden."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Eerste steun! Maak je klaar voor de schokgolf! kinetische polsslag!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bevestigd. De ondersteuningsintegriteit bedraagt ​​30%. Maar het opheffen van de structurele ineenstorting is nu actief! We moeten de andere drie raken voordat het systeem stabiliseert! Matrix, onderdrukkend vuur!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Onderdrukken! Ik creëer feedbackloops in hun targetingsystemen! Ze schieten op hun eigen lading!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, je bent omsingeld! Toevluchtsoord! Het pantser van die drones is te dik!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Geen terugtocht! Willen ze ruzie? Ze krijgen een instorting! CYBER SHOGUN, geef mij een opening!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "GODDELIJKE WOED! NU, RONIN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "VOOR HET THUISLAND! Drie neer! Nog één, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "De definitieve steun is verzekerd. Zet 'm op, Ronin! Dan rennen wij!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTAGE VOLTOOID!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Structureel falen begonnen! Enorme plaatselijke explosie dreigt! Geschatte tijd tot ontploffing: 15 seconden!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Evacueren! Keizerin, bereid het extractiepunt voor!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drones op volle snelheid! We gaan hier weg! GAAN! GAAN! GAAN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Zo sluit je een fabriek, jongens! Boom!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Missiedoelstelling voltooid. De industriële productie van Xelthara in deze sector is tot nul teruggebracht. We slaan ze waar het pijn doet."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: INDUSTRIËLE VERWOESTING. DE GIETERIJSSMEDTE IS STIL."
+        }
+      ]
+    },
+    "9": {
+      "title": "Aquanaut Abyss (ondergedompelde ruïnes)",
+      "arc": "act2_arc2",
+      "setting": "De Stille Oceaan wordt systematisch drooggelegd door diepzeewaterstofhevelleidingen langs het continentaal plat. Oververhitte pekelafvoer heeft een kuststrook van 300 kilometer verzuurd, waardoor vissersgemeenschappen die generaties lang in hun levensonderhoud hebben voorzien, zijn vernietigd.",
+      "objective": "Lokaliseer en vernietig de drie primaire Deep-Sea Siphon Conduit Hubs om het overhevelen van de oceaan permanent te stoppen en het herstel van de oceaan te beginnen.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Er zijn vissersfamilies in de inperkingszones die niet meer hebben kunnen werken sinds de leidingen erin gingen. De pekelafvoer doodde alles binnen zwemafstand van de kust. Mensen die hun gemeenschappen generaties lang hebben gevoed, zitten nu op Xelthara-rantsoenpakketten. Ze namen hun voedselbron af, vervuilden hun water, plaatsten een muur tussen hen en de zee en noemden het ontwikkeling. Vanavond geven we ze hun oceaan terug."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Modellering van de tijdlijn voor herstel van de oceanen na vernietiging van de leidingen: gedeeltelijk ecosysteemherstel in achttien maanden, volledige pH-normalisatie in zes tot acht jaar. Deze missie herstelt de schade niet onmiddellijk. Ik wil dat je dat begrijpt. Wat het doet is voorkomen dat de schade permanent wordt. Sommige wonden kunnen nog steeds genezen, als we ze niet langer openen."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dit netwerk is de voornaamste bron van hun koloniale industriële macht. Wij zijn hier voor economische sabotage om de koloniale aanvoerlijnen af ​​te snijden. Als we de waterhevelsystemen kapot maken, crashen we de economie van de sector. Matrix, de afwateringsbedieningen bevinden zich achter het onderwaterlaserrooster."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Geweldig. Een niveau waarop ik de vloer niet eens kan aanraken. Ik voel me als een kat in een badkuip."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Blijf op de perrons, Ronin. Drones scannen de stroming. Matrix, je moet door die stralen heen faseverschuiven. Als je frequentie zelfs maar een milliseconde afneemt, zal het raster je neurale link kapot maken."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Neuraal frituren is mijn derde favoriete hobby. Ontspan, sirene. Ik word een spook."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Balken zijn heet. Ik loop voorbij de eerste rij... tweede rij... Ik sta bij de console. Het starten van de zuivering."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Waarschuwing: ondergedompelde Xelthara-eenheden komen boven! Ze proberen de afvoervolgorde te verstoren!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Verdedig de platforms! Shado-Force Cleave!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Zuivering gestart! Let op je voeten, het water beweegt!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "En zo trek je de stekker eruit."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE GEEST MAAKT HET PAD VRIJ. AQUANAUT-AFLOK GEDRAINEERD."
+        }
+      ]
+    },
+    "10": {
+      "title": "Stratos Docks (luchtvaarthub)",
+      "arc": "act2_arc2",
+      "setting": "De vrachtterminal op grote hoogte van Stratos Docks, op 4.000 meter hoogte, is de laatste schakel in de toeleveringsketen van Xelthara voordat de hulpbronnen van de aarde de planeet definitief verlaten en uitgaande mineralen uit de stripmijnen, oceaanwaterstof en materiaal met het label 'biologische monsters' verwerken.",
+      "objective": "Kaap Transport T-14, stuur de lading om naar de distributiepunten van het Liberation Front en vernietig de vier luchtafweergeschutskoepels die de luchtblokkade van de insluitingszones afdwingen om permanent een vluchtcorridor te openen voor bevoorradingsvluchten van het verzet.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Vóór de invasie voerde ik het bevel over logistieke lucht- en ruimtevaartoperaties. Ik weet precies hoe supply chain control functioneert als bezettingswapen. Je hebt geen wapen nodig om een ​​bevolking uit te hongeren; je moet er alleen voor zorgen dat alles wat ze nodig hebben altijd ergens anders is, altijd eigendom van iemand anders, altijd net buiten bereik. Het in beslag nemen van de T-14 is geen diefstal. Het is herstel."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Op het vrachtmanifest van de T-14 staat 4.200 ton geraffineerd silicaat en ijzerverbindingen, materiaal afkomstig uit wat het Xelthara-register registreert als 'Reclaimed Geological Survey Zone 7'. De aanduiding van de zone vóór de invasie was het San Gabriel-gebergte. Ik registreer dit manifest als bewijs van extractieve koloniale inbeslagname voor de terugwinningsdatabase."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Welkom bij Stratos Docks. Dit is het belangrijkste exportknooppunt waar ze koloniale vracht kapen en geraffineerde aardse hulpbronnen buiten de wereld verschepen. Het kapen van dit transport zal de koloniale aanvoerlijnen afsnijden en het verzet financieren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Tijd is van cruciaal belang. Dat leidende transportschip, de T-14, zet zijn hoofdmotoren aan. Shogun, Ronin, jullie beveiligen de landingszone. Matrix, maak je klaar om de klembedieningen te omzeilen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Begrepen. Het inschakelen van de dokpatrouille. SNELLE RECHTVAARDIGHEID!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Achterkant bedekken! De wind hier probeert me van het platform te trekken!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "De wind probeert mij ook weg te trekken, Ronin. Maak je geen zorgen, ik zie de nabijheidssensoren op de klemmen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Torentjes activeren. Keizerin, die geschutskoepels zullen de T-14 versnipperen voordat u kunt aanmeren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Niet als ik ze eerst versnipper. Drone Fleet Delta, schakel over naar offensieve lading. Ik heb onmiddellijke targetinggegevens nodig over hun optische arrays. Ronin, geef me dekking!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "U begrijpt het, commandant!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Torentje Eén, aanduiding voltooid. Vuur op mijn teken! Dronevloot BRAND!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "T-14 stuwraketten halen 40% vermogen! Sneller, sirene!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Torentje Twee en Drie zijn geclusterd. Matrix, kun jij een EMP-flitser gebruiken om hun optiek twee seconden lang te verblinden?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Klaar! FLITSBANG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Nu! Drones, maximaliseer de kracht! Torentjes twee en drie - VERNIETIGD!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Er is er nog maar één over, keizerin! Maar er komt zware steun richting de locatie!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Laat ze maar aan mij over, Shogun! HAMER NEER!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Gericht op het laatste torentje. Dit is een handmatige overbelasting. VOOR AARDE!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Klemmen vergrendeld. Geniet van de rit, team! We stelen een ruimteschip!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ladingkapingsmissie geslaagd. De T-14 beweegt zich naar de hogere atmosfeer. We zijn officieel buitenwereldgebied."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Goed werk, team. We raakten ze gewoon in de portemonnee en we kregen een gratis rit naar het volgende doel."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: LUCHTPiraTEN. T-14 TRANSPORT GEKAAPT."
+        }
+      ]
+    },
+    "11": {
+      "title": "Sector 7 Kern (Het verschroeide raster)",
+      "arc": "act2_arc2",
+      "setting": "Sector 7 Core is het machtscentrum voor toezicht en handhaving – de computationele ruggengraat van elke koloniale beveiligingscamera, avondklok-drone, biometrisch controlepunt en voorspellend detentie-algoritme op het westelijke continent. Zonder dit gaat elk koloniaal surveillancemiddel tegelijkertijd verloren.",
+      "objective": "Infiltreer Sector 7 Core, neutraliseer zijn gedigitaliseerde verdedigingssystemen en initieer een catastrofale overbelasting die een black-out van het veiligheidsnet op continentale schaal veroorzaakt, waardoor het verzet 72 uur lang ongecontroleerde bewegingen kan maken.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Elke bewakingscamera die ze ooit hebben gebruikt om mij in de gaten te houden. Elke drone die om twee uur 's nachts mijn gebouw bestormde. Elke keer moest ik volkomen stil blijven in een schaduw omdat een detectiealgoritme mijn hittesignatuur pingde. Het loopt allemaal door deze kern. Als ik deze stekker eruit trek, kan iedere persoon in de insluitingszones 72 uur lang ademhalen zonder te worden bekeken. Dat is niet niets. Dat is alles."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ik wil ergens transparant over zijn. Ik ben een surveillancesysteem. Mijn operationele architectuur heeft aanzienlijke overlap met de systemen binnen Sector 7 Core. Ik heb mijn eigen code gecontroleerd en bevestigd dat ik niet rapporteer aan het Xelthara Centrale Commando; mijn loyaliteitsprotocollen zijn volledig afgestemd op het HLF. Maar ik begrijp het als deze missie je doet nadenken over wat ik ben. Ik denk er ook over na. Het verschil is volgens mij dat ik kijk om te beschermen. Ze kijken om te controleren. Dat onderscheid is voor mij belangrijk. Ik ben er toegewijd aan."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Welkom bij de Glitch-matrix. De Xelthara-malware probeert onze bezittingen digitaal te wissen. We moeten weigeren uit de digitale infrastructuur van ons eigen thuisland te worden gewist."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Dit is geen lus, AXIOM. Het is een afvalbrand. Shogun, let op de vloer! Die 'straat' werd zojuist een bodemloze leegte."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ik zie het. Het pad is een illusie. We moeten op de harde code vertrouwen. Matrix, focus je optiek. Waar is de kern van de malware verborgen?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vijanden! Ze voeden zich met de datastroom! Normale aanvallen zullen ze in deze staat niet treffen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ze worden beschermd door een fluctuerende frequentievergrendeling. Je moet het midden in een gevecht ontcijferen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Prima. Laten we dansen in hun code. Faseverschuiving boeiend. Shogun, ik geef je twee seconden tijd! Raak de kern als ik het roep!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "NU!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "REINIGEND MES!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Uitstekende precisie, Matrix. Uw methoden ontberen eer, maar ze zijn wel effectief."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Dit is de firewall. Het is een constante stroom buitenaardse encryptie. We hebben de sleutelfrequentie nodig om een ​​exitportaal te creëren."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matrix... de frequentie zit... in de gevechtsfeedback... luister naar de vijand... de glitch is de sleutel..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Het is een veranderende hexadecimale code. 7-A-F... nee, 7-A-F-B... het zit vast aan hun schilden!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ik zal ze bezig houden! Focus, Matrix!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Frequentie geaccepteerd. Initialisatie van de portal afsluiten. Bereid je voor op een harde reboot!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Uitgangspad beveiligd. Het initiëren van geforceerde neurale ontkoppeling. Cyber ​​Shogun, Oni Matrix – geweldig werk."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "We hebben de corruptie gezuiverd. Laten we nu terugkeren naar het fysieke gevecht."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Zie je, Sjogoen? Soms moet je de glitch omarmen."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: CODE ZUIVEREN. SECTOR 7 KERN OVERBELAST. CONTINENTAL BLACK-OUT GESTART."
+        }
+      ]
+    },
+    "12": {
+      "title": "Sector 7 Controlepunt (het kruispunt)",
+      "arc": "act2_arc3",
+      "setting": "Het Sector 7 Checkpoint controleert alle doorvoer tussen de noordelijke berggemeenschappen, de oostelijke woestijnnederzettingen en de kustgebieden. Het fungeert als een knooppunt voor bevoorradingsverboden dat goederen die tussen menselijke gemeenschappen bewegen, belast, vertraagt en in beslag neemt.",
+      "objective": "Coördineer een volksopstand van 847 civiele verzetsdeelnemers om het Sector 7-controlepunt permanent te veroveren en het te vestigen als het eerste bevrijde doorgangsknooppunt onder menselijke administratieve controle.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Dit is degene waar ik op heb gewacht. Geen sabotagemissie. Geen overval. Een belegering – en wat we meenemen, behouden we samen met de mensen die hier wonen. Dat is een ander soort gevecht. Zo ziet verzet eruit als het ophoudt defensief te zijn en een wachtende regering begint te worden."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ik volg 847 bevestigde civiele verzetsdeelnemers die zich organiseren in de noordelijke verzamelplaats. Het zijn geen getrainde soldaten. Ze hebben landbouwwerktuigen, geborgen bouwmateriaal, twee functionele voertuigen en een opgebouwde woede over wat hun gemeenschap is aangedaan. Ze vroegen me om de Axiom Force één ding te vertellen: ze hebben gewacht op iemand die met hen zou vechten, niet op hen. Wees alsjeblieft niet te laat."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dit is het hart van hun regionale expansie. Elke Xelthara-constructie gedurende duizend mijl draait op deze gestolen kracht. Vernietig het, en de koloniale expansie verhongert terwijl wij terugvorderen wat er is ingenomen."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "De Nexus is afgeschermd. Een directe aanval is onmogelijk. We moeten een gecontroleerde overbelasting initiëren. Er zijn drie primaire koelstaven. Ze moeten tegelijkertijd worden geëxtraheerd, anders wordt het systeem automatisch gestabiliseerd."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Drie doelen. Aegis, jij en Matrix behandelen Rods Eén en Twee. Ik zal Rod Three beveiligen."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kopieer. Maar de hoofdterminal is zichtbaar. Keizerin, u kunt de reeks niet starten als er een plasmastoot voor nodig is."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, dat is jouw taak. Je moet de terminal beschermen terwijl ik de foutcodes invoer. Shogun, Matrix, ga naar je posities. Ik wil dat alle staven op mijn plek worden uitgetrokken."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminal beveiligd. Schild is omhoog! BESCHERMINGSPROTOCOL ACTIEF! U heeft uw raam, keizerin!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Overbelastingssequentie gestart. Het vereist onmiddellijke, opeenvolgende stress. Rod-teams, bereid je voor op extractie."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Klaar op Rod One. Ik krijg hier een vervelende statische ontlading. Dit gaat pijn doen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Eer vereist het offer. Klaar, keizerin."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Het aftellen begint. T-min vijf. Vier. Ronin, maximaliseer de schildoutput! Drie. Twee."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Voor de glorie van de aarde!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "EEN. TREKKEN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "De kerntemperatuur stijgt! Catastrofale overbelasting bereikt! Keizerin, u heeft 30 seconden om de reeks te vergrendelen en uit te pakken!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, ga naar het extractiepunt! Ik vergrendel de laatste code!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nee, commandant! Ik koop tijd voor je! Ik stort de dienstbrug achter mij in!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "BREKEN EN VERBRANDEN!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Laatste code ingevoerd! Kernlock succesvol! LOOP!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reactor Nexus... vernietigd. Regionale terravormingskracht offline."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Een briljante aanval, keizerin. De Xelthara zijn nu blind en machteloos in deze sector."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Laten we in beweging blijven. Die explosie heeft een doelwit voor de hele planeet op onze rug gelegd."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE HARTAANVAL. SECTOR 7 CONTROLEPUNT BEVRIJD."
+        }
+      ]
+    },
+    "13": {
+      "title": "De Obsidian Vault (Culturele archieven)",
+      "arc": "act2_arc3",
+      "setting": "De Obsidian Vault, gelegen onder het voormalige Getty Center, is het belangrijkste culturele beslagarchief van het koloniale bestuur. De Original Land Treaty Database – een uitgebreid overzicht van het grondbezit van vóór de invasie van mensen dat vijf eeuwen teruggaat – is hier opgeslagen, geclassificeerd als 'Ontdekte erfgoedactiva'.",
+      "objective": "Infiltreer de Obsidian Vault, extraheer de Original Land Treaty Database en alle taal- en mondelinge geschiedenisarchieven, en vernietig het fysieke catalogussysteem om de koloniale culturele verwerkingspijplijn permanent te stoppen.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "De eer van een krijger wordt zowel bepaald door wat hij beschermt als door wat hij vernietigt. Vanavond bescherm ik iets. De documenten in deze kluis zijn het bewijs dat we hier bestonden voordat ze arriveerden – dat we namen hadden voor dit land, erop gebouwd waren, erin begraven waren en er eeuwenlang verhalen over vertelden. Als ze dat bewijs wissen, kunnen ze elke geschiedenis schrijven die ze willen. Dat zal ik niet laten gebeuren."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "De Obsidian Vault bevat 4,2 miljoen gecatalogiseerde artefacten en records. Hiervan zijn er 340.000 aangemerkt voor vernietiging als 'niet-essentiële ontslagen'. Alleen al de afgelopen maand werden zeventienduizend voorwerpen vernietigd. Ik heb van iedereen de namen. Ik wil dat je dat weet voordat je naar binnen gaat. Wat we vanavond redden, is wat overblijft. Er is geen herstel mogelijk van wat al weg is. Maar er valt nog iets te redden."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Welkom bij de Handschoen. Deze brug is het symbool van hun kolonistenberoep. Wij weigeren ons te laten uitwissen door hun architectonische arrogantie."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Strategie-update: We kunnen hier geen langeafstandstactieken gebruiken. Het verdedigingsrooster van de Citadel zal elke drone boven 15 meter verdampen. We moeten deze brug te voet doorbreken. Ronin, Shogun, jij leidt de push. Matrix, wacht op onmiddellijke perimeterfakkels."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Prima volgens mij. Als ze willen vechten, krijgen ze een definitief standpunt. Schild omhoog! IJZEREN MUUR!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Eer wordt verdiend in de smeltkroes. Laat ze onze kracht testen."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Aankomende artillerie! Aegis Ronin, maximaliseer de schildspreiding!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "HOUDEN! Ik kan de ozon van die plasma-uitbarstingen proeven! Shogun, beweeg!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "VOORwaarts! Hun lijn moet worden doorbroken. Betrek de eerste golf Elite Sentinels!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Onwaardig! KATA SHIKEN! Ronin, vooruit!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Duwen! Geef me een doelwit, Sirene, ik ben blind onder dit vuur!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, mortiercoördinaten 42 graden goed! Verplaats je schild nu een volle meter naar links!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bedankt, commandant! Matrix, ik heb afleiding nodig bij de verre torentjes!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Digitale ruis naar de belangrijkste kanonoptiek gooien! Het zal niet lang duren! GAAN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Breekeenheden gedetecteerd! Kinetische wapens zijn niet effectief! Cyber ​​Shogun, schakel over naar plasma-output met hoog rendement!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ze vertrouwen op pantsering. Ik vertrouw op snelheid en thermische kernoutput. EER IS HETER DAN PLASMA!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "MIJN SCHILD STAAT OP 30%! Ik neem directe treffers! HAAST, SHOGUN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Eén neer! Twee neer! Houd het schild in stand, Ronin! Ik heb nog drie seconden nodig!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "DRIE SECONDEN IS ALLES DAT IK HEB!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Brekers geneutraliseerd. Aegis, val terug en laad het schild op! Ik zal het directe front behouden!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dit is niet duurzaam! AXIOM, zoek een alternatieve route!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatief. De enige optie is om de verre brugconsole te bereiken en de seismische destabilisatoren te activeren."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Dan vechten we en sterven we met eer! Aegis, stop alles wat je nog hebt in een laatste, voorwaartse puls! Geef mij het momentum om het laatste stuk over te steken!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Met plezier! kinetische vrijgave!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Console bereikt! Het initiëren van seismische destabilisatie!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Destabilisatie succesvol. Missie voltooid."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ik zei het toch... niets breekt onze muur."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nee. Niets breekt onze wil."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DE OBSIDIAANKEL GESCHONDEN. CULTURELE ARCHIEVEN UITGEKOMEN."
+        }
+      ]
+    },
+    "14": {
+      "title": "De Citadel-aanpak (de Hoge Commandobrug)",
+      "arc": "act2_arc3",
+      "setting": "De laatste 400 meter lange versterkte brug over de drooggelegde LA-rivier - de enige toegang vanaf het oppervlak tot de Xelthara High Command Citadel, gebouwd over de gesloopte Boyle Heights-gemeenschap. De Xelthara ontwierp deze aanpak onbegaanbaar.",
+      "objective": "Duw onder aanhoudend artillerievuur over de 400 meter lange brug om de toegangspoort van de Citadel te bereiken: een meedogenloze, knarsende opmars met Ronins schild en Sirens drone-spervuur.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Ik heb de tactische modellen zeventien keer uitgevoerd. Elke versie omvat het absorberen van schade die we niet volledig kunnen beperken. Ronins schild staat op 10% voordat we de poort bereiken. Ik vraag ze om door een moordveld te lopen, omdat dit de enige deur is. De Xelthara bouwden het met opzet zo, zodat de kosten van de vrijheid hoog genoeg zouden zijn om de poging te ontmoedigen. Wij zijn niet ontmoedigd."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ik wil iets zeggen voordat dit begint. Ik heb bij elke missie in deze campagne waarschijnlijkheidsbeoordelingen uitgevoerd. Ik geef je hier het nummer niet van. Niet omdat het je zou tegenhouden. Omdat je al besloten hebt. En het aantal doet er niet toe voor mensen die al besloten hebben. Ik zal bij je zijn bij elke stap van de brug. Ik zal niet wegkijken."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Dag des Oordeels (de laatste bevrijding)",
+      "arc": null,
+      "setting": "De troonzaal van de High Overseer: een platform dat boven de brandende ruïnes van Neo-LA hangt, waar de opperbevelhebber van de koloniale bezetting van Xelthara wacht op de laatste confrontatie.",
+      "objective": "Versla de Xelthara High Overseer met behulp van de gecombineerde Ultimate Protocols van de Axiom Force in een gecoördineerde laatste aanval.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Je strijdt voor inheemse soevereiniteit tegen de onvermijdelijke golf van koloniale assimilatie. Deze planeet is slechts onroerend goed in ons grote ontwerp, en jullie geschiedenis is digitale ruis die moet worden uitgewist."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Wij zijn de ziel van deze wereld, niet jouw eigendom. Wij laten onze inheemse soevereiniteit over ons thuisland gelden! Wij weigeren uw koloniale assimilatie; De aarde is van haar bewoners, niet van jouw blauwdrukken!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ik ben het zwaard van mijn voorouders, en de stem van een wereld die jij probeerde het zwijgen op te leggen. Je noemt ons insecten, maar je vergat één ding over de aarde: we verdragen niet alleen maar. Wij slaan terug."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Verbrand dan met je planeet."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Waarschuwing! Toezicht op de energieopbrengst van 400%. Axiom Force, voer het ultieme protocol uit: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Niet op mijn horloge! ULTIEM: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Coördinaten vergrendelen! ULTIEM: VERMIJD REGEN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Hij is open! ULTIEM: TOTALE SYSTEEMINVAL!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Voor het vaderland! ULTIEM: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "De bezettingssignalen zijn opgehouden. De atmosfeer stabiliseert. Je hebt het gedaan. De aarde is... weer thuis."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ik zie eigenlijk sterren. Niet digitale. Echte."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ik denk dat ik een rustige plek ga zoeken en tien jaar ga slapen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Het zwaard is omhuld. De eer van de mensheid is hersteld."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "We hebben een wereld om opnieuw op te bouwen. Maar vandaag... vandaag ademen we gewoon."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Missie succesvol. Geautomatiseerde eXternal Intelligence Operations Module... afmelden. Veel succes, helden."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: DAG VAN HET OORDEEL. DE HOGE OPZIENER IS VERSLAGEN. AARDE TERUGGEWONNEN."
+        }
+      ]
+    },
+    "16": {
+      "title": "Echte climax / bonus na het spel",
+      "arc": null,
+      "setting": "De Singularity Engine-kamer van het Xelthara-moederschip – een kamer van pure onstabiele energie in het hart van de collectieve kracht, waar de collectieve wil zich manifesteert.",
+      "objective": "Vernietig de Singularity Engine-kern van de Collective Will door overbelasting van de generator te coördineren en een laatste gecombineerde aanval uit te voeren voordat het moederschip de vernietiging van de aarde voltooit.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dit ligt buiten een insluitingsgebied. Mijn instrumenten falen. Het weefsel van de ruimte is hier onstabiel. Dit moet het ware hart van het Moederschip zijn."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "De Xelthara High Overseer was slechts een pion. Deze macht... dit is de bron van de bezetting. De collectieve wil."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ik kan de pure datastroom voelen, Shogun. Het probeert mijn neurale kern te herschrijven. Wij horen hier niet. We moeten die motor aanzetten en eruit komen."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Je bent een gelokaliseerde anomalie in een groots ontwerp. Het hele bestaan ​​is een vervangbare hulpbron voor onze expansie. Jouw thuisland is al meegenomen in onze uiteindelijke uitwissingsvergelijking."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Bestaan, hè? Laten we dan het Bestaan ​​laten zien wat er gebeurt als je met de Aarde knoeit! Ronin, schakel de perimeterwachters in!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, houd die bewakers bezig! Matrix, Shogun, raak de generatoren op de bovenste torenspitsen! We moeten het magnetische veld verstoren voordat ik de kern kan targeten!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ik ben in positie op Generator One! Veiligheidssloten opheffen!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Generator Twee beveiligd! Dit is een tijdelijke maatregel, keizerin! De Collectieve Wil richt zijn energie op ons!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Je kunt niet aan de vergelijking ontsnappen. Uw huis is al opgenomen in ons grootse ontwerp."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ik heb een raam! Matrix, Shogun – laad die generatoren op tot maximale overbelasting!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kern blootgelegd! AXIOM, ik heb de definitieve targetingcoördinaten nodig!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "...het laatste traject... je moet het verbindingspunt raken... nul-nul-nul..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ik begrijp het. Ronin, kom terug! Bereid je voor om het breekpunt te verdedigen! Dit is een kamikaze-aanval!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Iedereen achter mij! De schokgolf komt eraan! ULTIEM: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ik negeer de insluitingsvelden! Het wordt kritiek!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Orbitale aanval klaar! Ik laat alles vallen wat we op die kern hebben!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Voor de aarde! VOOR DE MENSHEID! STAK NU! ULTIEM: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Zijn we ontsnapt?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ik weet het niet... maar het Moederschip is verdwenen. De wil zwijgt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "We hebben de oorlog gewonnen, heren. Nu moeten we alleen nog de rit naar huis winnen."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ik denk... Ik zie de aarde. Zo schoon. Zo blauw."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, dit is Herstelcommando. Wij lezen je. Uw systemen zijn nominaal. Welkom thuis, helden."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSIE VOLTOOID: WARE CLIMAX. HET COLLECTIEF ZAL UITGEROEID WORDEN. HET EINDE. MAAR DE STRIJD GAAT DOOR."
+        }
+      ]
+    }
   }
 }

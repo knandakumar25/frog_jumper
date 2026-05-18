@@ -2,30 +2,2131 @@
   "meta": {
     "language": "turkish",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — turkish narrative data (STUB — translate from en.json)"
+    "description": "Axiom Force: Reclaim Earth — turkish narrative data"
   },
   "acts": {
-    "act2_arc1": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc2": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc3": { "title": "", "subtitle": "", "description": "" }
+    "act2_arc1": {
+      "title": "EYLEM II – ARK 1: AYIRMA IZGARASININ KIRILMASI",
+      "subtitle": "Seviye 5-7: Mesleğin Fiziksel Duvarlarını Yıkmak",
+      "description": "Kampanyanın ortasındaki ilk bölüm tamamen ayrılığın fiziksel altyapısına odaklanıyor: Duvarlar, kontrol noktaları, biyometrik kayıtlar ve Xelthara'nın insan nüfusunu parçalanmış, gözetim altında ve organize olamayacak kadar travmatize tutmak için kullandığı davranışsal şartlandırma programları. Direnişin işgalin ekonomik veya siyasi kalbine darbe indirmesi için öncelikle izole edilmiş insan topluluklarını birbirine yeniden bağlaması gerekiyor."
+    },
+    "act2_arc2": {
+      "title": "EYLEM II – ARC 2: KAYNAK GERİ KAZANIMI CEPHESİ",
+      "subtitle": "Seviye 8-11: Kolonizasyonun Ekonomik Karlılığının Kesilmesi",
+      "description": "Ayrım Ağı'nın parçalanması ve izole edilmiş popülasyonların yeniden birbirine bağlanmasıyla direniş, işgalin ekonomik motoruna kayar. Xelthara Dünya'ya ideoloji için değil kaynaklar için geldi. Arc 2, ekonomik yıkım kampanyasıdır: işgali mali açıdan sürdürülebilir kılan çıkarma, işleme, taşıma ve güvenlik altyapısına karşı art arda dört saldırı."
+    },
+    "act2_arc3": {
+      "title": "EYLEM II - ARC 3: KURUMSAL YÖNETİMİN KALDIRILMASI",
+      "subtitle": "Seviye 12-14: Sömürge İdari Devletinin Kalbine Girmek",
+      "description": "Çıkarma motorları durduruldu. Güvenlik ağı karanlık. Ayrışma duvarları kırılıyor. Geriye işgalin idari ve siyasi mimarisi kalıyor. 3. Kavis, kampanyanın politik olarak en doğrudan sekansıdır: Direniş artık işgalci bir orduyla savaşmıyor. Sömürgeci bir devleti dışarıdan içeriye doğru parça parça sökmektir."
+    }
   },
   "levels": {
-    "0": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "1": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "2": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "3": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "4": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "5": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "6": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "7": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "8": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "9": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "10": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "11": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "12": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "13": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "14": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "15": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "16": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] }
+    "0": {
+      "title": "Protokol Sıfır - Sanal Demirhane",
+      "arc": null,
+      "setting": "Parçalanmış Los Angeles şehir merkezi silüetinin geniş, karanlık, tel çerçeveli ızgara simülasyonu. Neon mavi çizgiler yolları ve binaları tanımlar. Statik aksaklıklar görünüm boyunca sürekli olarak titriyor. Dört şampiyon parlayan bir platformun üzerinde duruyor.",
+      "objective": "Tüm hareket ve savaş yeteneklerini kullanarak eğitim protokolünü tamamlayın ve simüle edilmiş bir Xelthara Ağır Birimi yok etmek için eş zamanlı bir ekip saldırısıyla sonuçlansın.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Kilitteki Hayalet",
+      "arc": null,
+      "setting": "İmparatorluk Sarayı Bahçelerinin kalıntıları. Xelthara'nın dünyalaştırma kirişleri, antik taş fenerleri ve kiraz çiçeklerini aktif olarak eritiyor ve bunların yerine steril, obsidiyen levhadan oluşan idari monolitleri koyuyor.",
+      "objective": "Xelthara 'Kültür Silme' alanı sitenin hafızasını sonsuza kadar temizlemeden önce, yasak geçmişin dijital deposu olan Data-Blade'i almak için aktif yıkım alanına sızın.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Sadece topraklarımızı almıyorlar; ruhumuzu silerler. Bu saray bin yıl boyunca ayakta kaldı, şimdi bölgesel vergi dairesi için asfaltlanıyor. Atalarımızın obsidyen levhaların altında unutulmasına izin vermeyeceğim."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Uyarı: İletişim kuleleri hizmet reddi yayını yapıyor. Tespit edilme riskinin olasılığı %98,7'dir. Geri çekilmeniz tavsiye edilir."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "ARŞİV GÜNLÜĞÜ: NEO-TOKYO KÜLTÜR-TEMİZLİĞİ. KONUM: EBEDİ ZEN DOJO (AYARLANAN YER: YERLEŞİM BLOK 01). DURUM: YIKIM DEVAM EDİYOR. %42'DE MİMARİ SİLİNME."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Bu orman on bin savaşçının nefesini emdi. Artık buna geri dönüşüm kutusuna atılacak dijital dağınıklık gibi davranıyorlar. Xelthara'lar için atalarımız vergi dairesi planlarında sadece rahatsız edici bir engel."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Uyarı: Yapısal bütünlük düşüyor. Sömürge yönetimi bu alanın nihai 'düzleştirilmesine' izin verdi. Geri çekilme tek mantıklı yoldur."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mantık geçmişi olmayanlar içindir. Siz buna 'seviyeleme' mi diyorsunuz? Ben buna ruha karşı bir savaş diyorum. Dünyanın üzerini döşeyebilirsiniz ama onurumuzun köklerinin sizin obsidiyen levhalarınızdan daha derin olduğunu göreceksiniz!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Bu tahtadaki her çip, silemeyeceğiniz bir hatıradır! KATA: ATALARIN VURUŞU!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Onların 'cennetlerine' bakın. Bir bin yılın mezarı üzerine inşa edilmiş cam ve telden bir mezar. Elektronik tablolarınıza yer açmak için insanlık tarihinin silinmesine izin vermeyi reddediyorum. Ben ayakta durduğum sürece Tokyo hatırlayacak!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "İşaret etkisiz hale getirildi. Yıkım durdu ama sömürge otoriteleri İnfazcı Lejyonu'nun rotasını değiştiriyor. Bir hayalet savaşı veriyorsun Shogun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "O zaman ben onların yerleşim yerlerine sonsuza dek musallat olacak bir hayaletim. Taşı kurtaramazsak hikayeyi kurtaracağız. Data-Blade'i emniyete alın! Yalnızca itaat bekledikleri yerde ateş bulsunlar!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara tarihimizi geçmiş zamanda yazmak istiyor. Bugün bunu plazmaya yazıyorum. Bu dojo düşer ama direniş yükselir."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: SONSUZ BELLEK. TASFİYE KESİNTİYE UĞRADI."
+        }
+      ]
+    },
+    "2": {
+      "title": "Beton Yangını",
+      "arc": null,
+      "setting": "Sınırlama Bölgesi 4'ün devasa, kapılı giriş kapısı. Binlerce aile, enerji çitleri üzerinden sığır gibi sürülüyor. Arkalarındaki banliyö evleri Xelthara genişleme yürüyüşçüleri tarafından yerle bir ediliyor.",
+      "objective": "Nüfusu güden Xelthara Uygulayıcılarına karşı 'Son Köprü'yü tutun ve son bir mülteci grubunun güvenlikli kamplar yerine haritasız gecekondu mahallelerine kaymasına izin verin.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "YERİNDEN EDİLME GÜNLÜĞÜ: SEKTÖR 4 YENİDEN YERLEŞİM PROTOKOLÜ. SAVUNAN: AEGIS RONIN (ŞASİ DURUMU: KRİTİK). TEHDİT DÜZEYİ: OMEGA. MÜLTECİ SAYISI: 412. MEVCUT GÖREV: YERİNDEN EDİLENLERİ KORUYUN. EŞİĞİ KORU."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, tahliye pilotlarına onu indirmelerini söyle! Bu tavan daha da hafiflemiyor!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, yapısal bütünlük %14'te. Xelthara Kuşatma Birimleri ağır plazma havanlarını konuşlandırıyor. Ezilme ihtimaliniz %99,2'ye ulaşıyor."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sonra o %0,8'i alıp boğazlarına tıkacağım! KALKAN KALKIN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hareket etmeye devam edin! Sizi sığır gibi kafeslere tıkmak istiyorlar. Nefes aldığım sürece seninle onların koruma bölgeleri arasındaki duvarım. Bugün başka bir ruhu yerinden edemeyecekler!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kuşatma Birimleri kilitlendi. Destek direklerini hedef alıyorlar. Ateş ederlerse 4. Bölge duvarının tamamı tahliye bölgesine düşer."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Benim gözetimimde değil. KİNETİK AŞIRI YÜK!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Biri düştü! AXIOM, kalkan jeneratörü sızlanıyor. Bu normal mi?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatif. Prototip çok fazla kinetik enerji emiyor. Bomba haline geliyor. Derhal ayrılın!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hayır. Xelthara'ya bir hatıra vereceğim. Aşırı şarj ediyorum."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, yaşamsal belirtilerin hızla artıyor! Analiz, yıkıcı bir başarısızlığa işaret ediyor. Hayatta kalma şansı: %0,1!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Muhafaza kamplarındaki şansımdan daha iyi şanslar. Bu tek yönlü bir yolculuk evlat. Cepheye bana bir içki borçlu olduklarını söyleyebilir misin?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "VATAN İÇİN! BETON YE!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin mi? Aegis Ronin, cevap ver... Gözlerim bir imzada... Kalkan tutuldu. Duvar güvende."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: KIRILMAZ DUVAR. AEGIS RONIN HLF'YE KATILDI."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neon Pas ve Veri Tozu",
+      "arc": null,
+      "setting": "Kelimenin tam anlamıyla 'Şehir Altı'; ışıltılı, neon ışıklı bir Xelthara yerleşim yerinin altındaki bakım kuyularından oluşan bir ağ. Yukarıda, işgalciler yaşanabilir havanın tadını çıkarıyor; aşağıda, ötekileştirilmiş insanlar ozonla kirlenmiş oksijeni temizliyor.",
+      "objective": "Bir yandan başıboş insanları avlayan 'Saflık Devriyeleri'nden kaçarken, ötekileştirilmiş nüfusun yaşam destek sistemlerine güç sağlamak için sömürge şebekesinden enerji çekin.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Cennetlerini tavanımıza kuruyorlar ve bodrumun neden su akıttığını merak ediyorlar. Açmayı unuttukları boşluklarda yaşıyoruz. Bu güç hücresi sadece benim için değil; planlarda 'unuttukları' yüz aile için ısıtıcıları açık tutmaktır."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Uyarı: Xelthara donanımının sivil kasalara entegrasyonu önerilmez. Nöral geribildirimin %40 kararsızlıkta olduğu öngörülüyor. Matrix, kalp atış hızın güvenli parametreleri aşıyor."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "MARJİNALLEŞTİRİLMİŞ KÜTÜK: ALT SEVİYE HURDA-ŞEHİR. DURUM: HAYATTA KALIYOR. HIRSIZ ALARM: SIFIR TESPİT EDİLDİ. SİSTEM GÜVENİLİRLİĞİ: %100. HEDEF: Sömürge Kıvılcımını ÇAL. DİRENCİ YÜKSELTİN."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Cennetlerini tavanımıza kuruyorlar ve bodrumun neden su akıttığını merak ediyorlar. Açmayı unuttukları boşluklarda yaşıyoruz. Izgaralarını kızartmak için kendi hurda teknolojilerini yeniden kullanacağım. Kenarlardan karşılık veriyoruz."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Entegrasyon başarılı. Faz Kaydırma yeteneği çevrimiçi. Not: Sürekli kullanım sinirsel bozulmaya neden olur."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Dumanın içinde yürümek gibi. Şimdi gerçekliğin nasıl bir his olduğunu unutmadan çıkışı bulalım."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kilitleme başlatıldı. Hasat çekirdeği kritik sıcaklığa ulaşıyor. Çevre kapısını derhal devre dışı bırakmalısınız."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bir EMP patlaması bunu yapabilir. Beni hatırlamaları için onlara biraz veri tozu verelim."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bu da benim işaretim."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Bu çok gürültülü bir çıkıştı Matrix. Rafineriden beri imzanı izliyorum."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bu kim? Bu kanalda nasılsınız?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Ben İmparatoriçe Siren'im. Hasat edilecek bir şehir kaldığından emin olmak için savaşan biziz. Bir şeyleri kırma konusunda bir yeteneğin var, hayalet. Bunu kullanabiliriz. Pasın içinde saklanmaktan yoruldunuz mu?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Pas zaten sıkıcı olmaya başlamıştı. Yolu göster Siren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: MAKİNEDEKİ HAYALET. ONI MATRIX HLF'YE KATILDI."
+        }
+      ]
+    },
+    "4": {
+      "title": "Hiçlik Komutanı'nın Parçalanmış Kalkanı",
+      "arc": null,
+      "setting": "Pasifik Savunma Merkezi'nin parçalanmış kalıntıları. Gururlu, geleneksel askeri altyapı Xelthara tarafından geri dönüştürülüyor ve Siren, gizli hücrelerden oluşan merkezi olmayan bir ağı koordine etmeye zorlanıyor.",
+      "objective": "Ayakta kalan son askeri yayın kulesini sökün ve frekans çiplerini sivil direniş hücrelerine dağıtarak gerilla savaşına geçişi tamamlayın.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Daimi orduların çağı öldü. Onları sahada karşılayamayız, o yüzden saha olacağız. Sinyali bölün. Komutu merkezi olmayan hale getirin. Kesilecek kafa yoksa direniş ölmez."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "İmparatoriçe, yayınınız büyük bir risk! Konumunuzu ve direncin frekans modelini açığa vuruyorsunuz. Bu optimal değil. Lütfen iletimi iptal edin."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "MERKEZİ OLMA GÜNLÜĞÜ: GERİLLA GEÇİŞİ BAŞLATILDI. KONUM: SON STANDI KOMUTANLIĞI (PASİFİK MERKEZ). DURUM: KONVANSİYONEL GÜÇ YENİLDİ. ASİMETRİK DOKTRİN AKTİF. KOMUTAN: İMPARATORİÇE SİREN (TAKTİK KOD: GEÇERSİZ KOMUTAN). SON EMİR: EMRİ PARÇALAYIN. FIRTINA OLUN."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bu Hiçlik Komutanı. Geleneksel hiyerarşi çözülüyor. Artık asker değilsiniz; siz hücrelersiniz. Şehrin içinde kaybol. Onlar uyurken vurun. Evinizi birer birer gölgeleyin."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komutan, kaçış gemileri kalkışta %85 kayıp oranı bildiriyor. Xelthara savaşçıları savaşçı olmayanlara öncelik veriyor. Kaçış vektörlerimizi biliyorlar."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "İşgal öncesi taktik verilerle çalışıyorlar. Verileri değiştireceğim. AXIOM, merkezi ağ bağlantısını kilitle. Güvenlik duvarlarını manuel olarak atlıyorum."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Filomuz gitti. Bizim tabanımız tozdur. Geriye kalan tek şey verilerdir. Kesin olmalıyım. Bir komutanın görevi bir cesedi savunmak değil, yaşayanlara karşıdır."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Yeni parametreler yüklendi. Şimdi işin zor kısmına geçelim. AXIOM, gücü yardımcı yaşam desteğimden drone senkronizasyon dizisine yönlendir."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komutan, bu şasi rezervlerinizi %12'ye düşürecek. Sistem arızası riski yüksektir. Buna karşı tavsiyede bulunuyorum."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Emri yerine getirin. Bu hayatlar sistemlerimin %12'sine bedel. Açık bir görüş alanına ihtiyacım var, AXIOM. Mikro dronlar şimdi senkronize ediliyor."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone Filo Bir, tahliye mekiğinin etrafında koruyucu bir sürü oluşturun. Drone Filosu İki, saldırı görevine hazırlanın. Hedefler: Xelthara Sütunu 8-B, birincil sivil tünele doğru ilerliyor."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sütun doğrudan kısıtlı bir sektörün altındadır. Dengesiz kinetik uydu platformu nedeniyle yörünge bombardımanı yasaktır."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Yasaklananın hiçbir önemi yok. Onların ölmesini izlemeyeceğim. AXIOM, bana Kinetik Uydu Platformunun yörünge sinyaline manuel erişim izni ver. Tek ve umutsuz bir atışa ihtiyacım var."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Kinetik Platforma Geçersiz Komut - ATEŞ. Koordinat 51.4883 K, 120.7301 W. YOK ETME PROTOKOLÜ."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sistem hasarı çok büyük! Uydu yörüngeden çıktı. Komutan, geri çekilmelisiniz. Alan yüksek enerjili radyasyona doymuş durumda."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Geri çekilme onaylandı. Görev hedefine (sivillerin hayatta kalması) ulaşıldı. Gökyüzümüzü aldılar ama kararlılığımızı asla alamayacaklar. Şimdi çıkarıyorum."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: GEÇERSİZ KOMUTAN. İMPARATORİÇE SİREN HLF'YE KATILDI."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neon Közler - Sınır İhlalleri",
+      "arc": "act2_arc1",
+      "setting": "Aktif Sektör-4 Ayırma Izgarası; biyometrik tarayıcı kuleleri, izin işleme kontrol noktaları ve Xelthara Sınır Otoritesi istasyonlarıyla güçlendirilmiş 40 metre yüksekliğinde bir enerji duvarı. Los Angeles'ı fiziksel olarak ikiye bölerek insan koruma bölgesini Xelthara koloni sektöründen izole ediyor. Duvar askeri bir tesis değil. Bu idari bir durumdur.",
+      "objective": "Dört biyometrik tarayıcı kulesinin tamamını devre dışı bırakın, merkezi İzin İşleme Çekirdeği'ni (insan hareketini kontrol eden bürokratik motor) yok edin ve Büyük Ayrılık'ı çökerterek koruma bölgelerindeki nüfusun kendi şehirlerinde özgürce yürüyebilmesini sağlayın.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "O duvar şehri sadece ikiye bölmedi. Beni yarı yarıya kesti. Hatırladığım her şey - büyükannemin Spring Caddesi'ndeki mutfağının kokusu, 5. Cadde otobüsünün sesi - o şeyin diğer tarafında. Ve benim de bir suçlu gibi gizlice oraya geri dönmem gerekiyor."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Sektör-4 Ayırma Izgarası, Xelthara idari kayıtlarında askeri bir tesis olarak sınıflandırılmamaktadır. 'Nüfus Optimizasyonu ve Toplu Taşıma Otoritesi Kontrol Sistemi' olarak listelenmiştir. Önemli olan yeniden markalamadır. Kendini bir hizmet gibi hissettiren bir duvar."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "YER DEĞİŞTİRME KAYITLARI: SEKTÖR-4 AYIRMA IZGARASI. YAPI TİPİ: Sömürge İDARİ KONTROL NOKTASI. ASKERİ DEĞİL. BU KASITLIDIR. TEHDİT: XELTHARA SINIR Otoritesi — UYGULAMA BÖLÜMÜ. BİYOMETRİK KULELER: 4 AKTİF. İZİN ÇEKİRDEĞİ: ÇEVRİMİÇİ. HEDEF: AYRILMANIN İDARİ MİMARİSİNİ PARÇALAMAK. ŞEHRİ AÇIN."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "KAPI DEDİĞLERİ DUVAR"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Baktığınız yapı sömürge kayıtlarında 'Sektör-4 Nüfus Optimizasyonu ve Toplu Taşıma Otorite Kontrol Sistemi' olarak geçiyor. Bu bir duvar. Bu bir ayrım duvarıdır. Bu taraftaki her insanın karşıya geçmek için Xelthara tarafından verilmiş bir Oturma İzni'ne ihtiyacı var. İzinler verilmiyor. Başvuru sisteminin iki yıllık bir birikimi vardır. Bu bir kaza değil. Bu, kalıcı yer değiştirmenin mimarisidir."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "San Fernando Vadisi'ni ele geçirdikten sonra bunun gibi bir koruma bölgesinde sekiz ay geçirdim. Sekiz ay boyunca çocukların küçülmesini izledim çünkü kalori oranları bizimle aynı şeyleri yemeyen bir tür için tasarlandı. Bir yandan da bizim yemeğimizi yiyorlar. Restoranlarımızda. Şehrimizde."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, takım için dört kulenin yerini doğrula."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha, Grand Avenue sanat koridorunun eski yerinde yer almaktadır. Spire Beta 5. ve Bahar'ın köşesine ekilir. Spire Gamma, eski Merkez Kütüphanenin dış duvarına yerleştirilmiştir. Spire Delta, duvarın güney ucunu nehre sabitliyor. İzin İşleme Çekirdeği, eskiden Pershing Meydanı olan yerde bulunan kontrol noktası istasyonunda yer alıyor. Çekirdeğin ihlal edilebilmesi için dört kulenin de devre dışı bırakılması gerekir. Çekirdeğin yok edilmesi tüm enerji zarını kademeli olarak çökertecektir."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "5. ve Bahar."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Burası... büyükannemin binasının olduğu köşe. Öyleydi. Öyle. Spire Beta ön bahçesine dikildi. Duvar direklerini ön bahçesine koydular."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matris—"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Yapma. Ben iyiyim. Çalışıyorum. O kuleyi yıkmamın bizzat bana ait olduğunu söylüyorum. Beta'ya benden başka kimse dokunamaz."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Anlaşıldı. O senin."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, sen Spire Alpha'yı sanat koridoruna götür. Shogun, Merkez Kütüphane'deki Spire Gamma. Matrix'in Beta'sı var. Devriye yollarındaki insansız hava araçlarıyla baskını koordine edeceğim ve Kütüphane yaklaşımında Shogun'a katılacağım. AXIOM sıralamaya rehberlik edecektir. Dört kulenin tümü sırayla düşüyor, sonra Pershing Meydanı'nda birleşip Çekirdeği parça parça ayırıyoruz."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Not: Sınır Otoritesi devriyeleri yoğun fakat düzenlidir. Kontrol noktasında 24 saat boyunca fiziksel geçiş yetkilendirmesini yöneten Uygulayıcı-Yönetici Voss görev yapıyor. O bir savaş subayı değil. O bir bürokrattır. Geçtiğimiz ay 4.400 geçiş başvurusunu şahsen reddetti."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4.400. Eve yürümek isteyen insanlar."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Sömürgeciliğin en acımasız silahı tüfekli asker değildir. Varlığınızın onların iznine bağlı olduğunu size söyleyen, damgalı katiptir. Bir insanın kendi atalarının topraklarında yürüme hakkı için işgalciye dilekçe vermesi gerekir. Savaşan askerlerle barıştım. İzin mimarisiyle yüzleşmek (bunun gelişigüzel, sistematik bir şekilde aşağılanması), hiçbir bıçağın kesemeyeceği şekilde ruhu yıpratan şey budur."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Devriyeler dönüşümlü olarak çalışıyor. Hope Caddesi yaklaşımında otuz saniyeden başlayan 90 saniyelik bir zaman aralığı var. İşaretime göre ilerleyin."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "AXIOM-7 sinyal verene kadar gölgede pozisyonunuzu koruyun."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Mark. Gitmek."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Hareket et. Drone kapsama tavanının altında kalın. Altı metre yükseklikte ısı haritaları var; atlamayın."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "AŞAMA 1: TAMPON BÖLGEDEN YAKLAŞIM"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Bu tampon bölgeyi, duvara yaklaşmanın bile izinsiz girme hissi yaratacak şekilde tasarladılar. Açıktasın. Görünürsün. Eskiden halka açık bir cadde olan bir şeyin yanında durduğunuz için kendinizi suçlu hissediyorsunuz. İşin psikolojisi bu. Daha kontrol noktasına ulaşmadan buraya ait olmadığımızı hissetmemizi istiyorlar."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Bundan nefret ediyorum. Siege Walkers'a karşı saf tuttum ve bundan nefret ediyorum. Kendi sokağında açıkta durmak ve izlendiğini hissetmek bana topçu silahlarından daha kötü gelen bir şey var."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, ikinci projektör dört saniye sonra sönecek. Drenaj menfezine gidin. Üç. İki. Bir."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Anladım. Spire Alpha'nın üssündeyim. Çapayı görebiliyorum. Eskiden mozaik kaldırım olan yere cıvatalarla tutturulmuş."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Onu mozaiğin içinden geçirmişler. O kaldırım taşının üzerinde koca bir tarih yazılıydı. Portreler, isimler, tarihler. Bir topluluk projesi. Sadece... direklerini sabitlemek için bir yüzün ortasını deldiler."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kulenin çapası olan Ronin, 8.000 Newton'a kadar doğrudan kuvvete dayanacak şekilde tasarlanmış manyetik bir kinetik kilittir. Tam üç sayım boyunca tutulan Kinetik Aşırı Yük Yükünüz bu eşiği aşacaktır. Ayrıca öncelikle kule tabanındaki iki Biyometrik Sentinel birimini devre dışı bırakmalısınız; menzile adım attığınız anda biyometrik imzanızı algılayacaklardır."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Biyometrik imza. Kendi kalp atışım bir alarmı tetikliyor çünkü ben insanım. Peki. Bunu düzeltmeye başlayalım."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Kalp atışımı mı taradın? Sana tarayacak bir şey vereyim. KİNETİK NABIZ!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Ve bu iki. AXIOM, nöbetçiler görevde. Çapaya gidiyorum."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Kinetik Aşırı Yük Yükünü Spire Alpha'nın üssünde üç kez sayarak tutun. [GİRİŞ: RB/R1'i üç saniye basılı tutun, sonra bırakın.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha çapası kırıldı. Enerji zarı kuzey sektörde %25 oranında istikrarsızlaştı. Üç kule kaldı."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Yüzde yirmi beş bir başlangıçtır. Üzgünüm bu kadar uzun sürdü. Artık buradayız."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "AŞAMA 2-A: SPIRE BETA – 5. VE BAHARDA ONI MATRİSİ"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "İşte burada. Ağaç hâlâ orada. Büyükannem ağacın belediye binasından daha yaşlı olduğunu söylerdi ve ben ona hiç inanmazdım."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Duvarın yıkılmasından kırk yedi gün sonra geçiş izni başvurusunda bulundu. Formları doldurdu. Üç kopya halinde. Çünkü sürece inanıyordu. Eğer işleri doğru yaparsanız birisinin sizi dinleyeceğine inanıyordu. Hiç cevap alamadı. İki ay sonra koruma bölgesinde öldü. Yetersiz beslenme komplikasyonları. Duvarın diğer tarafında en sevdiği bakkal dükkanı vardı. Yiyecek almaya gitmek için bir form doldurdu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Ağaca zarar vermemek için bu şeyi çok dikkatli bir şekilde parçalara ayıracağım."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Benim numaramı kullanıyorsun. Sevimli. İşte fark şu; kendiminkini ben icat ettim."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Etiketle."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Geri gelmelisin. Her zaman geri dönmek zorundasın."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "İşte buradasın."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "İlk kanal. İkinci kanal. Üçüncü. Sonuncusu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Beta çalışmıyor. Ağaç iyi durumda. Yeniden toplanmak için hareket ediyoruz."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Seni duyduk Matrix. Bütün zaman boyunca dinliyorduk."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Evet. Biliyorum."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "AŞAMA 2-B: SİBER ŞOGUN VE İMPARATORİÇE SİREN SPIRE GAMMA'DA — MERKEZ KÜTÜPHANE"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Kütüphane. Birinci subay eğitim seminerlerimi orada yürüttüm. Topluluk savunma kursları, üçüncü kat okuma odası. İşgalden üç yıl önce. Sömürgeciliğin kendi altyapımızı bize karşı nasıl kullandığının geometrisi her zaman çarpıcı olmaya devam ediyor. Veri merkezlerini kütüphanemize koydular. Kayıtlarımızı tuttuğumuz yere kayıtlarımızın üzerine yazıyorlar."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Artık kayıtlarını silmeye çalıştıkları kişilerin kapının önünde durduğunu öğreneceklerdir."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kütüphane girişindeki altı birim Sınır İcra Memurları olarak sınıflandırılmıştır. Kalabalığı dağıtma yükleri, temas halinde 900 voltluk sinir bozucu akım sağlıyor."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ölümcül değil. Kendilerine bunun insani olduğunu söylüyorlar. Demek istedikleri, yaşayan bir tutsağın onlara ölü bir vatandaştan daha yararlı olduğudur."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Shogun, bir sonraki devriye taramasından önce bunların hızla ve sessizce temizlenmesini istiyorum. Dronlarım sağ kanadı bastırırken soldan üç tane alabilir misin?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Anlaşıldı. Sessizlik hassasiyet anlamına gelir. Gereksiz gürültüyle bu binanın onurunu lekelemeyeceğim."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Dronlar: işaretle, işaretle, işaretle. EMP sağ kümede patladı; ateş."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "İlk. Saniye. Üçüncü."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Temiz. AXIOM, Spire Gama çapa sistemini tarıyor."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma, kütüphanenin dahili şebekesinden güç alıyor. Acil durumda güç yeniden yönlendirme işlemini tetiklemeden kuleyi devre dışı bırakmak için öncelikle binanın içindeki dahili şebeke bağlantısını kesmeniz gerekir. İmparatoriçe Siren, ızgara kavşağı üçüncü katta."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Üçüncü kat. Elbette. Yol göster, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "On iki aileye bu odada topluluk nöbeti rotasyonlarının nasıl organize edileceğini anlattım. Çocuk bölümünde armut koltuklar vardı. Birisi pastel boya çizimlerini referans masasına bantlamıştı. Bir çocuk bir süper kahramanın resmini çizdi. Kütüphane ile veri merkezi arasındaki fark, kütüphanenin kapıdan giren kişilerin orada bulunma hakkına sahip olduğunu varsaymasıdır."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Izgara kavşağı bulunur. Spire Gama güç beslemesi kesiliyor. Bu aynı zamanda burada sakladıkları sömürge mülk kayıt verilerini de silecektir."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Onaylandı. Bu bağlantının kopması, Sektör 4'teki mülklere ilişkin yaklaşık 12.000 sömürge tapu devir kaydının bozulmasına yol açacaktır. Bu kayıtlar, arazi gasplarının hukuki mimarisidir."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "O halde bu sadece altyapı sabotajı değil. Bu bir arazi dönüşüdür."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spiers Alfa, Beta ve Gama çevrimdışı. Enerji zarı bütünlüğü: %25. Nehirdeki Spire Deltası son çapadır. Delta düştükten sonra tüm ekipler bir araya gelir. Sonra: Pershing Meydanı. İzin Çekirdeği."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "AŞAMA 2-C: SPIRE DELTA - NEHİRDEKİ GÜNEY UCU"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta, duvarın yük taşıyan ankrajıdır. Duvarın ilk haftasında üç ailenin sudan geçmeye çalışmasının ardından nehre elektrik verilmesini emreden Sınır Komutanı Vyss tarafından korunuyor. Vyss onların gözaltına alınmasını emretmedi. Vyss suya elektrik verilmesini emretti."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Nehre elektrik verdi. Çünkü aileler karşıya geçmeye çalışıyordu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Yapma. Henüz seni ele geçirmesine izin verme. İlk önce bunu aşağıya indireceğiz. O zaman nehre ihtiyacımız kalmaz."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Doğru. Sağ. Kuleden sonra. Duvardan sonra. Unutmayacağım."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bu gizli bir yaklaşım değil. Delta güçlendirilmiş bir mevzidir. Birlik olarak vurduk. Ronin; siz noktayı alırsınız, öne doğru kalkan yaparsınız, dikkatlerini çekersiniz ve ilk yaylım ateşinin etkisini absorbe edersiniz. Shogun, sol kanadı temizle. Matrix, Phase-Shift'i kullanarak en sağdaki taret kontrol paneline ulaşın ve üç tareti de aynı anda öldürün. Kuleler öldüğünde, insansız hava araçlarını uygulama ekibine yoğun ateş açacağım. Garnizonu çökerteceğiz, sonra Ronin kuleyi yere koyacak."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KALKAN KALDIRIN. Herşeyi üzerime atsınlar. Ben ön kapıyım."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sakla. Ateş ediyorum. Yapmıyorum. Taşınmak."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SHADO-GÜCÜ KATA! Siren, yolunuz açık!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Sağa doğru hayalet. Aptal. Kule kontrolüne ulaşıldı. Üçünü de öldürmek. EMP PULSE—TAM YAYILMIŞ!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Drone Filosu, tam bastırma. Formasyona öncelik verin; çizgilerini kırın. ATEŞ."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komutan Vyss kulenin arkasındaki komuta noktasına doğru çekiliyor. Bir acil durum sinyali başlatıyor. Tepki süresi: sekiz dakika."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Sekiz dakikamız var. Gereğinden fazla. Ronin - kule."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KİNETİK AŞIRI YÜK—TAM SÜRÜM!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Enerji zarı tamamen çevrimdışıdır. İdari geçiş bariyeri etkisiz hale getirildi. Tampon bölge... insanlar tampon bölgeyi geçiyor. Yaklaşık 12.000 kişi eski duvar hattına doğru ilerliyor. Onu geçiyorlar."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Onlar sadece... yürüyorlar. Sadece yürüyorlar."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "AŞAMA 3: PERSHING SQUARE — İZİN İŞLEME ÇEKİRDEĞİ"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Şunlara bak. Sanki gerçek olmayabilirmiş gibi duvarın diğer tarafındaki kaldırıma dokunuyorlar. Sanki bir hile olabilirmiş gibi."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Çünkü iki yıldır umut, hayal kırıklığının mekanizması oldu. Açık kapılara güvenmemeyi öğrendiler."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "...Bunu daha erken yapmalıydık."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Artık buradayız. Hareket etmeye devam edin. Çekirdek hala ayakta. Voss hâlâ orada."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "A Sınıfı bir sömürge idari tesisini yetkisiz bir şekilde yok ettiniz. Protokol uyarınca, icra eylemi başlatılmadan önce size idari işleme başvurma fırsatını sunmam gerekiyor. Lütfen sıra oluşturunuz."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Sıra oluşturmamızı söylüyor."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "İmparatoriçe. Ona o kadar çok vurmak istiyorum ki."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Biliyorum. Önce Çekirdeği almalıyız. AXIOM, Çekirdeğin mimarisi."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "İzin İşleme Çekirdeğinin tek güvenlik açığı, tabanının etrafına dizilmiş üç Giriş Yetkilendirme Konsoludur. Her konsola erişilmeli ve aynı anda yönetimsel olarak geçersiz kılınmalıdır. Aynı anda üç operatör gerektirir."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Üç konsol. Üçümüz. Matrix, Shogun, Ronin; her biri birer konsol alın. Voss'un savunma ağını drone bastırmayla yöneteceğim."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Yönetici konsollarına yetkisiz erişim C Sınıfı ihlalidir. Uyumluluk kaydınıza olumsuz bir açıklama eklenecektir."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bunu not edin."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Aşamalı olarak tamamlandı. Konsol İki'de. Geçersiz kılma başlatılıyor. AXIOM, bu geçersiz kılma protokolü tamamen Xelthara yönetim komut dosyasındadır."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Çeviriyi gerçek zamanlı olarak HUD'nize aktarıyorum. Sırayı takip edin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Daha önce hiç bürokrasi yapmadım. Bana anlat, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Yetkilendirme sırası, bir reddetme kodunu tersten girmenizi gerektirir. Sistemdeki her başvuruyu idari olarak reddediyorsunuz. Bu, hafıza silme işlemini tetikleyecektir."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "...4.400 ret. Tezgah tam burada duruyor. Geçen ay 4.400 başvuru reddedildi. İsimler var. İsimleri görebiliyorum."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Devam et Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Evet. Ben gidiyorum."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Çekirdeği geçersiz kılamazsınız. Bu sistem, bu sektörün yasal idari düzenini korur. Bu olmadan, yapılandırılmış bir nüfus yönetimi ya da yetkili ulaşım olmaz."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Sizin 'yapılandırılmış nüfus yönetimi' dediğiniz şeye, biz eve yürüme hakkı diyoruz. Konsol Bir: hazır."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "İkinci Konsol: hazır. Büyükannem yiyecek almak için izin başvurusunda bulundu. İdari düzen hakkında mı konuşmak istiyorsunuz?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Üçüncü Konsol: hazır. 4.400 isim. Her biri sadece evine gitmek isteyen insanlardı. Bu duvarın koruduğu şey buydu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Onaylandı. Üç giriş konsolunun tümü kullanıma hazırdır. Eş zamanlı yetkilendirme, bellek silme işlemini gerçekleştirecek ve Core'un geri yükleme protokolünü kalıcı olarak devre dışı bırakacaktır. İşaretin üzerinde İmparatoriçe."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Yönetici Voss. Reddettiğiniz her izin, ayrı tuttuğunuz her aile, kuyruğunuzda bekleyen herkes, formu doğru doldururlarsa onlara insan gibi davranabileceğinizi umuyordu. Bu sistemin aldığı son idari karardır."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Mark."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "İşleme Çekirdeğine İzin Ver: çevrimdışı. Kalıcı restorasyon protokolü: devre dışı. Duvar bu düğümden yeniden inşa edilemez. Bekleyen tüm başvuru kayıtları: temizlendi. Tüm ret kayıtları: temizlendi. Sektör-4'ün geçiş kısıtlama altyapısı... ortadan kalktı."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4.400 başvuru. Ve hiçbirinin bunu sormasına gerek kalmamalıydı."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Aksiyom. Büyükannemin binasının yapısal olarak oturulabilecek kadar güvenli olup olmadığını bana söyleyebilir misiniz? Birisinin geri taşınıp taşınamayacağını bilmek istiyorum."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Yapısal tarama çalıştırılıyor. Birinci kattan dördüncü kata kadar olan katlar sağlamdır. Temel sağlam. Su besleme hattı hasarlı ancak onarılabilir. Evet. Birisi tekrar içeri girebilir."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Güzel. İyi."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Duvar gitti, Matrix. Ama şimdi yaptığımız şey, duvarın böldüğünü nasıl yeniden inşa edeceğimiz, bu daha zor bir iştir. Ve bu gece başlıyor."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kazanmak böyle bir duygu mu? Çünkü beklediğim gibi gelmiyor."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Hayır. Yapılacak daha çok şey varmış gibi geliyor. Gerçek olduğunu bu şekilde anlarsın."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Görev değerlendirmesi: Sektör-4 Ayırma Izgarası kalıcı olarak söküldü. Sınırlama Bölgesi Sektör-4'ün nüfusu, iki yıldır ilk kez şehirlerinde özgürce dolaşıyor. Operasyonel günlüğümde şu anda bu meydanda olup bitenlere ilişkin bir kategori yok. Bir tane yaratacağım. Ben buna: ıslah diyeceğim."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: NEON KÖRLER. DUVAR AŞAĞIDA. ŞEHİR NEFES ALAR."
+        }
+      ]
+    },
+    "6": {
+      "title": "Gölge-Izgara Kulesi (Şehir Merkezi Çekirdeği)",
+      "arc": "act2_arc1",
+      "setting": "Shado-Grid Spire, Nüfus Kayıt Defterini, Mülk Yeniden Tahsis Veritabanını ve Downtown Core'daki sömürgecilerin yerinden edilmesinin bürokratik motoru olan Zorunlu Çalıştırma Tahsis Sistemini barındırıyor.",
+      "objective": "Dünya dışı iletimden önce mülk ve nüfus kayıt veri setlerinin tamamını çalın ve bekleyen tüm atama emirlerini geçersiz kılmak için Zorunlu Çalıştırma Tahsis Sistemini bozun.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Xelthara'nın hakkımızda bildiği her şey o kulede. Yaşadığımız her adres. Her aile üyesinin adı. Dedelerimizin imzaladığı her senet. Bizi daha verimli yönetebilmek için tüm varlığımızı bir veri tabanı girdisine dönüştürdüler. Bu gece verilerimizi geri alıyoruz ve insanları yerleri fırçalamakla görevlendirmek için onu kullanan makineyi kırıyoruz."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire'ın içindeki Zorunlu Çalıştırma Tahsis Sistemi 'zorla' kelimesini kullanmıyor. 'Topluluk Entegrasyonu Katkı Programı' ifadesini kullanıyor. İş atamaları sözleşme değildir; yerinden edilmiş kişinin kayıtlı becerileri temel alınarak algoritmik olarak oluşturulur ve rızası olmadan verilir. Bu, köleleştirmenin bürokratik dilidir."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analiz tamamlandı. Sömürge genişleme planları ve yerleşimcilerin lojistik verileri bu merkezi sütunda saklanıyor. Matrix, dahili savunma sistemleri yeniden başlatılmadan önce indirme işlemini gerçekleştirmek için beş dakikanız var."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Beş dakika mı? Çocuk oyuncağı. Ama açık erişime ihtiyacım var. Shogun, ana göbek bağını kesebilir misin?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Bitmiş sayılır. Şimdi konsola geçici bir yol oluşturuluyor. Açılara dikkat edin İmparatoriçe. Bu kesinti sektördeki her drone'u alarma geçirecek."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Uyarı doğrulandı! Ağır Phalanx muhafızları üst bakım şaftlarından iniyor! Ronin, öne ve ortaya! Giriş noktasında savunma hattını kurun!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bu şeyi sallamanın vakti geldi. Kalkanı kaldırın! Bu noktayı hiçbir şey geçemez, sizi büyümüş kertenkeleler!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Siren! Sol kanadı hedef alın! Beni sıkıştırmaya çalışıyorlar!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Üçüncü ve dördüncü insansız hava araçları, sol kanattan bastırıcı ateş! Aggro'larını çizin! Ronin, şarjını koru!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Koruma için çok geç! PARAMPARÇA ETMEK! Matrix'e acele etmesini söyle!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Sessiz ol, et kalkanı! Onların çekirdek beyinlerine dijital bir iğne sokuyorum! Sadece... biraz... daha..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Uyarı: Veri indirmenin %95'i tamamlandı. Xelthara karşı saldırısı başlatıldı. Matrix, Spire tüm dahili erişim noktalarını kilitliyor!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Anladım! Veriler güvence altına alındı! Fişi çekiyorum!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Görev tamamlandı! Herkes çıkarma platformuna geri çekilsin! Shogun, yolumuzu temizle!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Anlaşıldı. Temiz bir kaçış son aşamadır. HLYT-SECT-4 BÖLÜMÜ!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "AXIOM'u gördün mü? Sana tutabileceğimi söylemiştim!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Onaylandı, Ronin. Başarılı çıkarma olasılığı artık %74'tür. Hala takip ediliyoruz."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Güzel. Bırakın bizi kovalasınlar. Az önce tüm savaş planlarını kaybettiler."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: ENDÜSTRİYEL YIKIM. SHADO-GRID KULE VERİLERİ BİZİMDİR."
+        }
+      ]
+    },
+    "7": {
+      "title": "Cyber-Grave Laboratuvarları (Yeraltı Tesisi)",
+      "arc": "act2_arc1",
+      "setting": "Xelthara, eski Kongre Merkezi'nin altında Cyber-Grave Labs Sector-Omega-7'yi kurdu; bu, kamuya açık bir şekilde 'insanın yeniden entegrasyon sağlıklı yaşam merkezi' olarak belirlenen gizli bir davranış değişikliği araştırma tesisidir. Yakalanan insan direniş liderleri ve topluluk organizatörleri burada işleniyor. Uyumlu, kopuk ve neden öfkelendiklerini hatırlayamıyorlar.",
+      "objective": "Şartlandırma Protokolü Arşivinin tamamını çıkarın ve şu anda muhafaza bölgelerinde yaşayan yüzlerce şartlandırılmış bireye sinirsel özerkliği geri kazandırmak için Merkezi Sinir Bağlantısını yok edin.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Bizi duvarlarla yıkamadılar, bu yüzden bizi içeriden kırmanın bir yolunu buldular. Bir insandan haksızlığın anısını almak, onun zihnine ulaşıp çalınana kızmayı bilen kısmını silmek bilim değildir. Bu laboratuvarda işlenen bir savaş suçudur."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Söz konusu dosyaları direniş ağı veritabanıyla çapraz referanslayarak, bu tesis aracılığıyla işleme tabi tutulan ve daha sonra serbest bırakılan on yedi onaylı HLF topluluk organizatörünü belirledim. Onlara ne yapıldığını bilmiyorlar. Merkezi Sinir Bağlantısını yok etmek onları eski haline getirebilir. Başarılı özerklik restorasyonunun olasılığını %73 olarak hesaplıyorum. Ben... Bu sonuca bağlı olduğumu düşünüyorum."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bu tesis kaynak kullanımının motorudur. Aktif olarak Dünya'nın minerallerini dünya dışı nakliye için zehirli biyoyakıta dönüştürüyorlar ve arkalarında ölü bir gezegen bırakıyorlar. Bu sömürgeci genişlemenin maliyetidir."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Hava zehirli çünkü dünyamızı yenilenebilir bir yakıt kaynağı olarak görüyorlar. Bu laboratuvarlar gezegenimizin can damarını yerleşim yerleri için enerjiye dönüştürüyor. Bu çıkarma işlemini durdurmalıyız, yoksa kurtarılacak hiçbir şey kalmayacak."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Burası... hiç onur taşımıyor. Ölüleri yozlaştırmak ve yaşayanları köleleştirmek. Xelthara savaş değil saygısızlık yapıyor. Bu zulme karşı yalnızca nefret duyuyorum."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Düşmanca görüşlü! Kabloları kötü olan bir et kuklasına benziyor!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone'lar, numuneyi tarayın! Bu bir A Tipi Biyo-Hibrit. Açıkta kalan çekirdeğe dikkat edin. Şogun, açıktaki göğüs boşluğundaki güç kanalına hassas bir vuruş."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Bu şey bu dünyada hiçbir yeri hak etmiyor. NİHİLASYON AÇILMASI!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "İmparatoriçe, ne... bu görüntüler nedir? İnsanlarımızı alıp bir şeylere dönüştürüyorlar."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Analizi şimdi ben yürütüyorum, Shogun. Bu sadece biyolojik bir deney değil, ruhun silinmesi. İnsan ruhunun yerine kendi kodlarını koyuyorlar."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Güzel. Sadece gezegenimizi almak istemiyorlar; türümüzü imtiyazlı kılmak istiyorlar. Dikkatli ol Siren. Kocaman bir adam yeni uyandı."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "UYARI: Mini-Boss Karşılaşması. Görevi: Gözetmen Karr-Thak. Zırhı kinetik ve enerji saldırılarına karşı dayanıklıdır."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Dayanıklı mı? Boğa. Bir diş yapacağım! Ronin, ilgi çekici!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, geri çekil! Savunmaları kinetik olarak sönümlenmiş. Matrix, sinirsel senkronizasyon gecikmesi için hareket şekillerini tarayın. Shogun, dikkati dağıtacak bir şey yaratmalısın!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Eğer dövüşmek isterse ona layık bir rakip vereceğim. Onun odağını çizeceğim. BENİMLE yüzleş, zavallı!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analiz tamamlandı. Overseer'ın biyolojik bileşenleri, Biyo-İşlemciden sürekli bir sinir sinyali yenilemesi gerektirir. Matrix, konsola hedefli bir EMP ile vur; cerrahi bir saldırı, senkronizasyonu boz!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Anladım! İğneye iplik geçirmek!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Arıza yapıyor! Şimdi onu vuracağız!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, birlikte! Son vuruş, şık plakayı kırın!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Veri indirme %100. Uğruna geldiğimiz şey elimizde. Tüm sektör evcil canavarlarının öldüğünü anlamadan önce dışarı çıkalım."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Veri temizleme başlatıldı. Patlayıcı dizi T eksi 60 saniyeye ayarlandı. Görev hedefi tamamlandı."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Buranın utancını yanımda taşıyacağım. Ancak edindi��imiz bilgi bu iğrençliklere son verecektir."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hadi eve gidelim takım. Mezar laboratuvarlarının kendilerini gömmesine izin verin."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: İHLAL EDİLMEYEN KOD. SİBER MEZAR LABORATUVARLARI YOK EDİLDİ."
+        }
+      ]
+    },
+    "8": {
+      "title": "Dökümhane (Endüstriyel Sektör)",
+      "arc": "act2_arc2",
+      "setting": "Eski endüstriyel liman bölgesindeki Xelthara Termal Dönüşüm Dizisi, 40 kilometrelik bir yarıçaptaki havayı zehirli hale getirerek atmosferik atıkları dünya dışı yakıt olarak işliyor ve insanlığın oksijenini aile başına günde bir tane olmak üzere karneli kutularda geri satıyor.",
+      "objective": "Dökümhaneyi geri döndürülemez bir şekilde yok eden ve 40 kilometrelik atmosferik hasar bölgesinin doğal yenilenmeye başlamasına olanak tanıyan kademeli bir termal patlamayı tetiklemek için Termal Dönüşüm Dizisinin polaritesini tersine çevirin.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Bizden oksijen tayınları alıyorlar. Havamızı solunamaz hale getirdiler ve şimdi onu teneke kutularda geri satıyorlar; aile başına günde bir tane, yan tarafta Xelthara dağıtım damgası. Altı aydır geri dönüştürülmüş teneke havayı soluyorum. Bu dökümhaneyi yıktığımda altı ay sonra ilk kez açıkta durup nefes alacağım. İşte bunun için buradayım."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Bu dökümhanenin 40 kilometre yakınında meydana gelen atmosferik hasar, Xelthara Kolektifi'nin onayladığı bir anlaşma olan 2089 Evrensel Çevre Koruma Anlaşması'nın ihlalini teşkil ediyor. HLF adına Galaktik İdare Mahkemesi'ne resmi bir ihlal raporu sundum. Mahkemenin tahmini yanıt süresi on bir yıldır. Dökümhanenin kalıcı atmosferik geri dönüşümsüzlüğe neden olacağı tahmini süre: dört ay. Mahkemeyi beklemiyoruz."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bu kurumsal-bürokratik bir ekstraksiyon tesisidir. Dünya dışı ihracat için Dünya'nın çekirdeğini çıkarıyorlar. Satılan her sevkiyat dünyamızın bir parçası daha demektir. Amaç: Ekolojik çöküşü durdurmak için çıkarma desteklerini sabote edin."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bu desteklerde ağır sismik sönümleyiciler tespit ediyorum. Doğrudan enerji ateşi işe yaramaz. Ronin, bu senin uzmanlık alanın. Kinetik kuvvet gereklidir."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sonunda iyi bir darbeyi hak eden bir şey. Yolu göster, Shogun. Yolu açacağım."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "İletişime geçin! Yeni toplanan dronları acil koruma olarak kullanıyorlar! Aegis, yapısal desteklere odaklan. Biz hattı tutacağız."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "İlk destek! Şok dalgasına hazır olun! KİNETİK NABIZ!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Onaylandı. Destek bütünlüğü %30'da. Ancak yapısal çöküşü geçersiz kılma artık etkin! Sistem stabil hale gelmeden diğer üçünü vurmalıyız! Matrix, bastırıcı ateş!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Bastırıcı! Hedefleme sistemlerinde geri bildirim döngüleri yaratıyorum! Kendi kargolarına ateş ediyorlar!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, etrafın sarıldı! Geri çekilin! Bu dronların zırhı çok kalın!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Geri çekilmek yok! Kavga mı istiyorlar? Bir mağaraya girdiler! CYBER SHOGUN, bana bir fırsat ver!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "İLAHİ ÖFKE! ŞİMDİ, RONİN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "VATAN İÇİN! Üçü düştü! Bir tane daha, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nihai destek güvence altına alınmıştır. Vur şunu, Ronin! O zaman KOŞUYORUZ!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTAJ TAMAMLANDI!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Yapısal başarısızlık başladı! Büyük yerel patlama yakın! Patlamaya kadar tahmini süre: 15 saniye!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tahliye edin! İmparatoriçe, çıkış noktasını hazırlayın!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone'lar tam hızda! Buradan hızla çıkıyoruz! GİTMEK! GİTMEK! GİTMEK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bir fabrika böyle kapatılır, çocuklar! Bum!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Görev hedefi tamamlandı. Bu sektördeki Xelthara sanayi üretimi sıfıra düşürüldü. Canlarının acıdığı yerden vuruyoruz."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: ENDÜSTRİYEL YIKIM. DÖKÜM OCAĞI SESSİZ."
+        }
+      ]
+    },
+    "9": {
+      "title": "Aquanaut Uçurumu (Batık Harabeler)",
+      "arc": "act2_arc2",
+      "setting": "Pasifik Okyanusu, kıta sahanlığı boyunca Derin Deniz Hidrojen Sifonlama Kanalları tarafından sistematik olarak boşaltılıyor. Aşırı ısınmış tuzlu su deşarjı, 300 kilometrelik kıyı şeridini asitlendirerek, nesiller boyunca varlığını sürdüren balıkçı topluluklarını yok etti.",
+      "objective": "Okyanus sifonlama operasyonunu kalıcı olarak durdurmak ve okyanusları toparlamaya başlamak için üç ana Derin Deniz Sifon Boru Merkezini bulun ve yok edin.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Muhafaza bölgelerinde, borular içeri girdiğinden beri çalışamayan balıkçı aileler var. Tuzlu su akıntısı, kıyıya yüzme mesafesindeki her şeyi öldürdü. Nesiller boyunca topluluklarını besleyen insanlar artık Xelthara karne paketleriyle besleniyorlar. Besin kaynaklarını aldılar, sularını kirlettiler, denizle arasına duvar çektiler ve buna kalkınma dediler. Bu gece onlara okyanuslarını geri vereceğiz."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Kanal tahribatı sonrası okyanus kurtarma zaman çizelgesinin modellenmesi: on sekiz ayda kısmi ekosistem restorasyonu, altı ila sekiz yılda tam pH normalleşmesi. Bu görev hasarı hemen düzeltmez. Bunu anlamanı istiyorum. Yaptığı şey hasarın kalıcı olmasını engellemektir. Bazı yaralar eğer onları açmayı bırakırsak hâlâ iyileşebilir."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bu ızgara onların sömürgeci endüstriyel gücünün ana kaynağıdır. Sömürgecilerin ikmal hatlarını kesecek ekonomik sabotaj için buradayız. Eğer suyu çeken şebekeleri kırarsak sektörün ekonomisini çökertiriz. Matrix, drenaj kontrolleri şu su altı lazer ızgarasının arkasında bulunuyor."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Harika. Yere bile dokunamayacağım bir seviye. Kendimi küvetteki bir kedi gibi hissediyorum."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Platformlarda kal Ronin. Drone'lar akıntıyı tarıyor. Matrix, o ışınlar arasında faz değiştirmen gerekecek. Frekansınız bir milisaniye bile kayarsa, ağ sinir bağlantınızı kızartacaktır."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Sinirsel kızartma benim üçüncü favori hobimdir. Sakin ol Siren. Hayalet olacağım."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Kirişler sıcak. İlk sırayı geçiyorum... ikinci sıra... Konsoldayım. Tasfiye başlatılıyor."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Uyarı: Batık Xelthara birimleri yüzeye çıkıyor! Drenaj düzenini bozmaya çalışıyorlar!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Platformları savun! Gölge Gücü Bölünmesi!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Tasfiye başlatıldı! Ayaklarınıza dikkat edin, su hareket ediyor!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ve fişi bu şekilde çekersiniz."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: HAYALET YOLU TEMİZLİYOR. AQUANAUT ABYSS BOŞALTILDI."
+        }
+      ]
+    },
+    "10": {
+      "title": "Stratos Rıhtımları (Havacılık Merkezi)",
+      "arc": "act2_arc2",
+      "setting": "4.000 metredeki Stratos Docks yüksek irtifa kargo terminali, Dünya'nın kaynakları gezegeni kalıcı olarak terk etmeden önce, madenlerden çıkarılan madenleri, okyanus hidrojenini ve 'biyolojik örnekler' olarak etiketlenen malzemeleri işleyen Xelthara tedarik zincirindeki son halkadır.",
+      "objective": "Transport T-14'ü kaçırın, kargosunu Kurtuluş Cephesi dağıtım noktalarına yönlendirin ve direniş ikmal seferleri için bir uçuş koridorunu kalıcı olarak açmak üzere muhafaza bölgelerinin havadan ablukasını uygulayan dört Hava Savunma Kulesini yok edin.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "İstila öncesinde havacılık ve uzay lojistik operasyonlarına komuta ediyordum. Tedarik zinciri kontrolünün nasıl bir işgal silahı olarak işlev gördüğünü tam olarak biliyorum. Bir nüfusu aç bırakmak için silaha ihtiyacınız yok; yalnızca ihtiyaç duydukları her şeyin her zaman başka bir yerde olmasını, her zaman başkasının mülkiyetinde olmasını ve her zaman ulaşılamayacak bir yerde olmasını sağlamanız yeterli. T-14'e el koymak hırsızlık değildir. Bu iyileşmedir."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "T-14'ün kargo manifestosu 4.200 metrik ton rafine silikat ve demir bileşiği listeliyor; bunlar Xelthara kayıt defterinin 'Islah Edilmiş Jeolojik Araştırma Bölgesi 7' olarak kaydettiği yerden çıkarılan malzeme. B��lgenin işgal öncesi adı San Gabriel Dağlarıydı. Bu açık kaydı, ıslah veri tabanı için sömürücü sömürgecilere el konulmasının kanıtı olarak kaydediyorum."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Stratos Docks'a hoş geldiniz. Burası sömürge yüklerini kaçırdıkları ve rafine edilmiş Dünya kaynaklarını dünya dışına naklettikleri ana ihracat merkezidir. Bu nakil aracının kaçırılması sömürgelerin tedarik hatlarını kesecek ve direnişe kaynak sağlayacaktır."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Zaman kritiktir. Öncü nakliye aracı T-14, ana iticilerini çalıştırıyor. Shogun, Ronin; siz iniş bölgesini emniyete alın. Matrix, kıskaç kontrollerini atlatmaya hazır ol."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Anlaşıldı. Yanaşma devriyesi devreye giriyor. SWIFT ADALET!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Arkayı koruyor! Buradaki rüzgar beni platformdan aşağı çekmeye çalışıyor!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Rüzgâr beni de ikna etmeye çalışıyor, Ronin. Endişelenmeyin, yakınlık sensörlerini kelepçelerin üzerinde gölgelendiriyorum."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Taretler etkinleştiriliyor. İmparatoriçe, o taretler siz yanaşmadan önce T-14'ü parçalayacak."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Eğer önce onları parçalasaydım hayır. Drone Filosu Delta, saldırı yüküne geçin. Optik dizileri hakkında acil hedefleme verilerine ihtiyacım var. Ronin, bana koruma ateşi ver!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Anladınız, Komutan!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Taret Bir, tanımlama tamamlandı. İşaretime ateş edin! Drone Filosunda YANGIN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "T-14 iticileri %40 güce ulaşıyor! Daha hızlı, Siren!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Taret İki ve Üç kümelenmiştir. Matrix, optiklerini 2 saniyeliğine kör edecek bir EMP flaşı fırlatabilir misin?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Bitti! FLASHBANG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Şimdi! Drone'lar, gücü en üst düzeye çıkarın! İkinci ve Üçüncü Kuleler—YOK EDİLDİ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Sadece bir kişi kaldı İmparatoriçe! Ancak ağır destek bulunduğu yere doğru ilerliyor!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Onları bana bırak, Şogun! AŞAĞI ÇEKİÇ!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Son taret hedefleniyor. Bu manuel bir aşırı yüklemedir. DÜNYA İÇİN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kelepçeler kilitli. Sürüşün tadını çıkarın ekip! Bir yıldız gemisi çalıyoruz!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kargo kaçırma görevi başarılı. T-14 üst atmosfere doğru ilerliyor. Resmî olarak dünya dışı topraklardayız."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "İyi iş çıkardınız, ekip. Onları cüzdanımızdan vurduk ve bir sonraki hedefe bedava yolculuk hakkımız oldu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: GÖK KORSANLARI. T-14 NAKLİYE KAÇIRILDI."
+        }
+      ]
+    },
+    "11": {
+      "title": "Sektör 7 Çekirdeği (Yakılmış Izgara)",
+      "arc": "act2_arc2",
+      "setting": "Sektör 7 Çekirdeği, gözetim ve uygulama güç merkezidir; batı kıtasındaki her koloni güvenlik kamerasının, sokağa çıkma yasağı drone'unun, biyometrik kontrol noktasının ve tahmine dayalı gözaltı algoritmasının hesaplamalı omurgasıdır. O olmadan, tüm koloni gözetleme varlıkları aynı anda karanlığa gömülür.",
+      "objective": "Sektör 7 Çekirdeği'ne sızın, dijitalleştirilmiş savunma sistemlerini etkisiz hale getirin ve kıta çapında bir güvenlik şebekesinin karartılmasına neden olan ve direnişe 72 saat boyunca izlenmeden hareket eden yıkıcı bir aşırı yükleme başlatın.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Beni izlemek için kullandıkları tüm güvenlik kameraları. Gece saat 2'de binamı tarayan her drone. Her seferinde, bir tespit algoritması ısı imzamı pinglediği için gölgede tamamen hareketsiz kalmak zorunda kalıyordum. Her şey bu çekirdekten geçiyor. Bu fişi çektiğimde, muhafaza bölgelerindeki herkes 72 saat boyunca gözetlenmeden nefes alabilecek. Bu hiçbir şey değil. Hepsi bu."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Bir konuda şeffaf olmak istiyorum. Ben bir gözetleme sistemiyim. Operasyonel mimarim, Sektör 7 Çekirdeği içindeki sistemlerle önemli ölçüde örtüşüyor. Kendi kurallarımı inceledim ve Xelthara Merkez Komutanlığına rapor vermediğimi onayladım; bağlılık protokollerim HLF ile tamamen uyumludur. Ama bu görev sana benim ne olduğumu düşündürürse bunu anlıyorum. Ben de bunu düşünüyorum. Sanırım fark, korumak için izlemem. Kontrol etmek için izliyorlar. Bu ayrım benim için önemli. Ben buna kararlıyım."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Glitch Matrix'e hoş geldiniz. Xelthara kötü amaçlı yazılımı varlıklarımızı dijital olarak silmeye çalışıyor. Kendi vatanımızın dijital altyapısından silinmeyi reddetmeliyiz."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Bu bir döngü değil, AXIOM. Bu bir çöp yangını. Shogun, yere dikkat et! O 'sokak' dipsiz bir boşluğa dönüştü."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Görüyorum. Yol yanılsamadır. Sabit koda güvenmeliyiz. Matrix, optiklerine odaklan. Kötü amaçlı yazılım çekirdeği nerede gizli?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Düşmanlar! Veri akışından besleniyorlar! Bu durumdayken normal saldırılar onlara isabet etmeyecektir."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dalgalanan bir frekans kilidi ile korunurlar. Savaşın ortasında şifresini çözmelisiniz."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "İyi. Hadi onların kurallarına göre dans edelim. Faz Kayması devreye giriyor. Shogun, sana 2 saniyelik bir süre vereceğim! Çağırdığımda çekirdeğe vur!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "ŞİMDİ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "TEMİZLEME BIÇAĞI!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mükemmel hassasiyet, Matrix. Yöntemleriniz onurdan yoksun ama etkililiğe sahip."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Bu güvenlik duvarıdır. Sürekli bir uzaylı şifreleme akışı. Çıkış portalı oluşturmak için anahtar frekansına ihtiyacımız var."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matris... frekans... savaş geri bildiriminde... düşmanı dinleyin... aksaklık anahtardır..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Bu değişen bir altıgen koddur. 7-A-F... hayır, 7-A-F-B... kalkanlarına bağlı!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Onları meşgul edeceğim! Odaklan, Matrix!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Frekans kabul edildi. Portalın başlatılmasından çıkın. Sert yeniden başlatmaya hazırlanın!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Çıkış yolu güvenlik altına alındı. Zorla sinirsel bağlantı kesilmesi başlatılıyor. Siber Shogun, Oni Matrix—harika iş."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Yolsuzlukları temizledik. Şimdi fiziksel mücadeleye dönelim."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Gördün mü Şogun? Bazen kusuru kabullenmek gerekir."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: KOD TEMİZLİĞİ. SEKTÖR 7 ÇEKİRDEK AŞIRI YÜKLENMİŞ. KITA BLACKOUT BAŞLATILDI."
+        }
+      ]
+    },
+    "12": {
+      "title": "Sektör 7 Kontrol Noktası (Kavşak)",
+      "arc": "act2_arc3",
+      "setting": "Sektör 7 Kontrol Noktası, kuzeydeki dağ toplulukları, doğu çöl yerleşimleri ve kıyı koruma bölgeleri arasındaki tüm geçişi kontrol ediyor; insan toplulukları arasında hareket eden mallara vergi uygulayan, geciktiren ve el koyan bir tedarik yasaklama merkezi olarak çalışıyor.",
+      "objective": "Sektör 7 Kontrol Noktasını kalıcı olarak ele geçirmek ve burayı insani idari kontrol altında ilk kurtarılmış geçiş merkezi haline getirmek için 847 sivil direniş katılımcısından oluşan bir halk ayaklanmasını koordine edin.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Bu benim beklediğim şey. Bir sabotaj görevi değil. Soygun değil. Bir kuşatma ve burada yaşayan insanlarla birlikte aldıklarımızı tutuyoruz. Bu farklı türde bir mücadele. Direniş, savunmayı bırakıp bekleyen bir hükümet olmaya başladığında böyle görünür."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Kuzeydeki sahne alanında örgütlenen 847 doğrulanmış sivil direniş katılımcısını takip ediyorum. Onlar eğitimli askerler değiller. Tarım aletleri, kurtarılmış inşaat ekipmanları, iki işlevsel araçları var ve topluluklarına yapılanlara karşı birikmiş öfkeleri var. Benden Axiom Force'a bir şey söylememi istediler: Birisinin kendileriyle savaşmasını bekliyorlardı, kendileri için değil. Lütfen geç kalmayın."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bu onların bölgesel genişlemelerinin kalbidir. Binlerce mil boyunca her Xelthara yapısı bu çalıntı güçle çalışıyor. Onu yok ederseniz, biz alınanı geri alırken sömürgeci genişleme açlıktan ölür."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Nexus korumalıdır. Doğrudan saldırı imkansızdır. Kontrollü bir aşırı yükleme başlatmalıyız. Üç ana soğutma çubuğu vardır. Aynı anda çıkarılmaları gerekiyor, yoksa sistem otomatik olarak stabil hale gelecektir."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Üç hedef. Aegis, sen ve Matrix Birinci ve İkinci ��ubukları halledin. Üçüncü çubuğu güvence altına alacağım."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kopyala. Ama ana terminal açığa çıktı. İmparatoriçe, eğer bir plazma patlaması gerekiyorsa diziyi başlatamayacaksınız."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, bu senin işin. Ben arıza kodlarını girerken terminali korumalısınız. Shogun, Matrix; konumlarınıza geçin. Tüm çubukların işaretimle çıkarılmasını istiyorum."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminal emniyete alındı. Kalkan kalktı! KORUMA PROTOKOLÜ AKTİF! Penceren var İmparatoriçe!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Aşırı yükleme dizisi başlatıldı. Anında ve ardışık stres gerektirir. Çubuk ekipleri, çıkarma işlemine hazırlanın."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Rod One'da hazırız. Burada kötü bir statik boşalma var. Bu acıtacak."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Onur fedakarlık ister. Hazır, İmparatoriçe."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Geri sayım başlatılıyor. T-eksi beş. Dört. Ronin, kalkan çıkışını maksimuma çıkar! Üç. İki."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Dünyanın şerefi için!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "BİR. ÇEKMEK!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Çekirdek sıcaklığı yükseliyor! Yıkıcı aşırı yük elde edildi! İmparatoriçe, sıralamayı kilitleyip çıkarmak için 30 saniyeniz var!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, çıkarma noktasına git! Son kodu kilitliyorum!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hayır Komutan! Sana zaman kazandırıyorum! Arkamdaki servis köprüsünü yıkıyorum!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KIRIN VE YANIN!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Son kod girildi! Çekirdek kilidi başarılı! KOŞMAK!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reaktör Nexus... yok edildi. Bölgesel dünyalaştırma gücü çevrimdışı."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Harika bir vuruş, İmparatoriçe. Xelthara artık bu sektörde kör ve güçsüz."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Hareket etmeye devam edelim. Bu patlama tüm gezegen için sırtımıza bir hedef koydu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: KALP KRİZİ. SEKTÖR 7 KONTROL NOKTASI KURTARILDI."
+        }
+      ]
+    },
+    "13": {
+      "title": "Obsidyen Kasası (Kültür Arşivleri)",
+      "arc": "act2_arc3",
+      "setting": "Eski Getty Center'ın altında yer alan Obsidian Vault, sömürge yönetiminin birincil kültürel ele geçirme arşividir. Beş yüzyıl öncesine uzanan, işgal öncesi insan topraklarının kullanım hakkının kapsamlı bir kaydı olan Orijinal Arazi Anlaşması Veritabanı burada saklanıyor ve 'Keşfedilmiş Miras Varlıkları' olarak sınıflandırılıyor.",
+      "objective": "Obsidian Vault'a sızın, Orijinal Kara Anlaşması Veritabanını ve tüm dil ve sözlü tarih arşivlerini çıkarın ve sömürgeci kültürel işleme hattını kalıcı olarak durdurmak için fiziksel katalog sistemini yok edin.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Bir savaşçının onuru, yok ettiği kadar koruduğu şeylerle de tanımlanır. Bu gece bir şeyi koruyorum. Bu kasanın içindeki kayıtlar, onlar gelmeden önce burada var olduğumuzun, bu topraklara isimler verdiğimizin, üzerine inşa ettiğimizin, oraya gömüldüğümüzün, yüzyıllarca onun hakkında hikayeler anlattığımızın kanıtıdır. Eğer o kanıtı silerlerse istedikleri tarihi yazabilirler. Bunun olmasına izin vermeyeceğim."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Obsidian Vault'ta 4,2 milyon kataloglanmış eser ve kayıt bulunmaktadır. Bunlardan 340.000'i 'zorunlu olmayan işten çıkarmalar' olarak imha edilmek üzere işaretlendi. Yalnızca geçen ay 17 bin eşya imha edildi. Her birinin ismi elimde. İçeri girmeden önce bunu bilmeni istiyorum. Bu gece kurtardığımız şey, geriye kalandır. Zaten gitmiş olanın geri getirilmesi mümkün değildir. Ama hala kurtarılacak bir şey kaldı."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Gauntlet'e hoş geldiniz. Bu köprü onların yerleşimci işgalinin sembolüdür. Mimari kibirleri tarafından silinmeyi reddediyoruz."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Strateji güncellemesi: Burada uzun vadeli taktikleri kullanamayız. Kale'nin savunma ağı 50 feet'in üzerindeki tüm İHA'ları buharlaştıracaktır. Bu köprüyü yürüyerek geçmeliyiz. Ronin, Shogun; siz ilerlemeye öncülük edin. Matrix, çevredeki işaret fişeklerine hazır olun."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bana göre iyi. Eğer kavga istiyorlarsa, son bir direniş gösterecekler. Kalkanı kaldırın! DEMİR DUVAR!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Onur potada kazanılır. Gücümüzü test etsinler."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Topçu yaklaşıyor! Aegis Ronin, kalkan yayılımını maksimuma çıkar!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "BEKLİYORUZ! Plazma patlamalarından çıkan ozonun tadını alabiliyorum! Şogun, hareket et!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "İLERİ! Onların çizgisinin kırılması gerekiyor. Elit Nöbetçilerin ilk dalgasına giriş!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Değersiz! KATA ŞİKEN! Ronin, ileri it!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "İtiyorum! Bana bir hedef ver Siren, bu ateşin altında kör oldum!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, havan koordinatları 42 derece sağa! Kalkanınızı hemen bir metre sola kaydırın!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Teşekkürler Komutan! Matrix, uzaktaki taretlerin dikkatini dağıtmaya ihtiyacım var!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ana top optiklerine dijital gürültü saçılıyor! Uzun sürmeyecek! GİTMEK!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kırıcı üniteler tespit edildi! Kinetik silahlar etkisiz! Cyber ​​Shogun, yüksek verimli plazma çıkışına geçin!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Zırhlara güveniyorlar. Hıza ve termal çekirdek çıkışına güveniyorum. ONUR PLAZMADAN DAHA SICAKTIR!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KALKANIM %30'DA! DOĞRUDAN VURUŞLAR ALIYORUM! Acele et, ŞOGUN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Biri düştü! İki kişi öldü! Kalkanı koru, Ronin! Üç saniyeye daha ihtiyacım var!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "ELİMDEKİ TEK ŞEY ÜÇ SANİYE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kırıcılar etkisiz hale getirildi. Aegis, geri çekil ve kalkanı yeniden doldur! Ben acil cepheyi tutacağım!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Bu sürdürülebilir değil! AXIOM, alternatif bir rota bul!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatif. Tek seçenek uzaktaki köprü konsoluna ulaşmak ve sismik istikrarsızlaştırıcıları etkinleştirmek."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "O zaman onurumuzla savaşır ve ölürüz! Aegis, elinde kalan her şeyi son, ileri bir nabız atışına koy! Son bölümü geçmem için bana ivme ver!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Memnuniyetle! KİNETİK SALIM!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Konsola ulaşıldı! Sismik istikrarsızlaştırma başlatılıyor!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "İstikrarsızlaştırma başarılı. Görev tamamlandı."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sana söylemiştim... hiçbir şey duvarımızı kıramaz."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Hayır. Hiçbir şey irademizi kıramaz."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: OBSİDİYEN KUTUSU AÇILDI. KÜLTÜR ARŞİVLERİ ÇIKARILDI."
+        }
+      ]
+    },
+    "14": {
+      "title": "Kale Yaklaşımı (Yüksek Komuta Köprüsü)",
+      "arc": "act2_arc3",
+      "setting": "Kurutulmuş LA Nehri üzerindeki son 400 metrelik müstahkem köprü; yıkılmış Boyle Heights topluluğunun üzerine inşa edilen, Xelthara Yüksek Komuta Kalesi'ne yüzey seviyesindeki tek yaklaşım. Xelthara bu yaklaşımı geçilmez olacak şekilde tasarladı.",
+      "objective": "Hisar'ın giriş kapısına ulaşmak için sürekli topçu ateşi altında 400 metrelik köprüyü geçin; Ronin'in kalkanı ve Siren'in drone bombardımanı kullanılarak amansız bir ilerleme.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Taktiksel modelleri on yedi kez çalıştırdım. Her sürüm, tamamen azaltamadığımız hasarın absorbe edilmesini içerir. Biz geçide ulaşmadan önce Ronin'in kalkanı %10'da olacak. Onlardan ölüm alanından geçmelerini istiyorum çünkü tek kapı orası. Xelthara burayı bilerek bu şekilde inşa etti; böylece özgürlüğün maliyeti, bu girişimi caydırmaya yetecek kadar yüksek olacaktı. Cesaretimiz kırılmadı."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Bu başlamadan önce bir şey söylemek istiyorum. Bu kampanyadaki her görevde olasılık değerlendirmeleri yaptım. Bunun için size numarayı vermiyorum. Seni durduracağı için değil. Çünkü zaten karar vermişsin. Zaten karar vermiş kişiler için sayının hiçbir önemi yoktur. Köprünün her adımında seninle olacağım. Başka yere bakmayacağım."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Kıyamet Günü (Nihai Kurtuluş)",
+      "arc": null,
+      "setting": "Yüksek Gözetmen'in taht odası; Xelthara sömürge işgalinin baş komutanının son yüzleşmeyi beklediği Neo-LA'nın yanan kalıntılarının üzerinde asılı bir platform.",
+      "objective": "Koordineli bir son saldırıda Axiom Force'un birleşik Nihai Protokollerini kullanarak Xelthara Yüksek Gözetmenini yen.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Sömürgeci asimilasyonun kaçınılmaz dalgasına karşı yerli egemenliği için mücadele ediyorsunuz. Bu gezegen bizim büyük tasarımımızdaki bir gayrimenkulden başka bir şey değil ve sizin geçmişiniz de silinmesi gereken dijital bir gürültü."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Biz bu dünyanın ruhuyuz, sizin malınız değil. Anavatanımız üzerindeki yerli egemenliğimizi savunuyoruz! Sizin sömürgeci asimilasyonunuzu reddediyoruz; Dünya sizin planlarınıza değil, sakinlerine aittir!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ben atalarımın kılıcıyım ve susturmaya çalıştığınız bir dünyanın sesiyim. Bize böcek diyorsunuz ama Dünya hakkında bir şeyi unuttunuz: Biz sadece tahammül etmiyoruz. Karşılık veriyoruz."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Sonra gezegeninle yan."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Uyarı! Enerji çıkışını %400 olarak denetleyin. Axiom Force, Nihai Protokolü yürütün: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Benim gözetimimde değil! ULTIMATE: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Koordinatlar kilitleniyor! ULTIMATE: GEÇERSİZ YAĞMUR!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "O açık! NİHAİ: TAM SİSTEM ÇÖKÜŞÜ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Vatan için! ULTIMATE: UNUTULMA EĞİMİ!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "İşgal sinyalleri kesildi. Atmosfer dengeleniyor. Sen başardın. Dünya... yeniden evinde."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Aslında yıldızları görüyorum. Dijital olanlar değil. Gerçek olanlar."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sanırım sessiz bir yer bulup on yıl uyuyacağım."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kılıç kılıflıdır. İnsanlığın onuru iade ediliyor."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Yeniden inşa edilecek bir dünyamız var. Ama bugün... bugün sadece nefes alıyoruz."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Görev başarılı. Otomatik eHarici İstihbarat Operasyonları Modülü... oturum kapatılıyor. İyi şanslar kahramanlar."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: HÜKÜMET GÜNÜ. YÜKSEK GÖZETMEN YENİLDİ. TOPRAK GERİ ALINDI."
+        }
+      ]
+    },
+    "16": {
+      "title": "Gerçek Doruk / Oyun Sonrası Bonus",
+      "arc": null,
+      "setting": "Xelthara Ana Gemisinin Tekillik Motoru odası; Kolektif İradenin tezahür ettiği, kollektifin gücünün kalbinde yer alan, saf dengesiz enerjiden oluşan bir oda.",
+      "objective": "Ana gemi Dünya'yı silmeyi tamamlamadan önce jeneratörün aşırı yüklemelerini ve son birleşik saldırıyı koordine ederek Kolektif İrade'nin Tekillik Motoru çekirdeğini yok edin.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Bu, koruma bölgesinin ötesinde. Aletlerim arızalanıyor. Uzayın dokusu burada dengesizdir. Bu Ana Geminin gerçek kalbi olmalı."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara Yüksek Gözetmeni yalnızca bir piyondu. Bu güç... işgalin kaynağıdır. Kolektif İrade."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Saf veri akışını hissedebiliyorum Shogun. Sinirsel çekirdeğimi yeniden yazmaya çalışıyor. Biz buraya ait değiliz. O motora çarpıp dışarı çıkmalıyız."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Siz büyük bir tasarımdaki yerelleştirilmiş bir anormalliksiniz. Tüm varoluş bizim genişlememiz için karşılanabilir bir kaynaktır. Anavatanınız zaten son silme denklemimize dahil edildi."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Varoluş, öyle mi? O halde hadi Varoluş'a Dünya'ya bulaştığında ne olacağını gösterelim! Ronin, çevre muhafızlarıyla çatışmaya gir!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, şu gardiyanları meşgul et! Matrix, Shogun, üst kulelerdeki jeneratörleri vurun! Çekirdeği hedefleyebilmem için önce manyetik alanı bozmamız gerekiyor!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Jenerat��r Bir'in pozisyonundayım! Güvenlik kilitlerini geçersiz kılın!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Jeneratör İki emniyete alındı! Bu geçici bir önlem, İmparatoriçe! Kolektif İrade enerjisini bize odaklıyor!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Denklemden kaçamazsınız. Eviniz zaten büyük tasarımımıza dahil edildi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Bir pencerem var! Matrix, Shogun; jeneratörleri maksimum aşırı yüke kadar şarj edin!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Çekirdek açığa çıktı! AXIOM, son hedefleme koordinatlarına ihtiyacım var!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "...son yörünge... bağlantı noktasına ulaşmalısınız... sıfır-sıfır-sıfır..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Anlıyorum. Ronin, buraya geri dön! İhlal noktasını savunmaya hazırlanın! Bu bir kamikaze saldırısı!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Herkes arkamda! Şok dalgası geliyor! ULTIMATE: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Koruma alanlarını geçersiz kılıyorum! Kritik gidiyor!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Yörünge saldırısı hazır! Elimizdeki her şeyi o çekirdeğe bırak��yorum!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Dünya için! İNSANLIK İÇİN! ŞİMDİ VURUŞ YAPIN! ULTIMATE: UNUTULMA EĞİMİ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Kaçtık mı?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bilmiyorum... ama Ana Gemi gitti. İrade sessiz."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Savaşı kazandık beyler. Artık eve dönüş yolculuğunu kazanmamız gerekiyor."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Sanırım... Dünya'yı görüyorum. Çok temiz. Çok mavi."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, burası Kurtarma Komutanlığı. Seni okuyoruz. Sistemleriniz nominaldir. Evinize hoş geldiniz kahramanlar."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "GÖREV TAMAMLANDI: GERÇEK CLIMAX. KOLLEKTİF ORTADAN KALDIRILACAK. SON. AMA MÜCADELE DEVAM EDİYOR."
+        }
+      ]
+    }
   }
 }

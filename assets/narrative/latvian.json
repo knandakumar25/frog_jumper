@@ -2,30 +2,2131 @@
   "meta": {
     "language": "latvian",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — latvian narrative data (STUB — translate from en.json)"
+    "description": "Axiom Force: Reclaim Earth — latvian narrative data"
   },
   "acts": {
-    "act2_arc1": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc2": { "title": "", "subtitle": "", "description": "" },
-    "act2_arc3": { "title": "", "subtitle": "", "description": "" }
+    "act2_arc1": {
+      "title": "II DARBĪBA — 1. LOKA: SEGREGĀCIJAS REŽĢA DAĻA",
+      "subtitle": "5.–7. līmenis: okupācijas fizisko sienu laušana",
+      "description": "Kampaņas vidusposma pirmais loks pilnībā koncentrējas uz atdalīšanas fizisko infrastruktūru — sienām, kontrolpunktiem, biometriskajiem reģistriem un uzvedības regulēšanas programmām, ko Xelthara izmanto, lai cilvēku populācija būtu salauzta, uzraudzīta un pārāk traumēta, lai to organizētu. Pirms pretošanās var uzbrukt okupācijas ekonomiskajai vai politiskajai būtībai, tām vispirms ir jāsavieno izolētās cilvēku kopienas viena ar otru."
+    },
+    "act2_arc2": {
+      "title": "II DARBĪBA — 2. ARC: RESURSU ATJAUNOŠANAS PRIEKŠNE",
+      "subtitle": "8.–11. līmenis: kolonizācijas ekonomiskās rentabilitātes samazināšana",
+      "description": "Sadalot segregācijas tīklu un no jauna savienojoties izolētajām populācijām, pretestība pāriet uz okupācijas ekonomikas dzinējspēku. Xelthara ieradās uz Zemi, lai iegūtu resursus, nevis ideoloģiju. Arc 2 ir ekonomikas traucējumu kampaņa: četri secīgi streiki pret ieguves, apstrādes, transporta un drošības infrastruktūru, kas padara okupāciju finansiāli dzīvotspējīgu."
+    },
+    "act2_arc3": {
+      "title": "II DARBĪBA — 3. ARC: KORPORATĪVĀS PĀRVALDĪBAS ATJAUKŠANA",
+      "subtitle": "12.–14. līmenis: virzība koloniālās administratīvās valsts sirdī",
+      "description": "Izvilkšanas dzinēji ir apturēti. Drošības režģis ir tumšs. Segregācijas sienas ir salauztas. Tas, kas paliek, ir pašas okupācijas administratīvā un politiskā arhitektūra. Arc 3 ir kampaņas politiski tiešākā secība: pretošanās vairs necīnās ar okupācijas armiju. Tā ir koloniālās valsts demontāža, pa gabalu, no ārpuses uz iekšu."
+    }
   },
   "levels": {
-    "0": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "1": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "2": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "3": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "4": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "5": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "6": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "7": { "title": "", "arc": "act2_arc1", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "8": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "9": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "10": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "11": { "title": "", "arc": "act2_arc2", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "12": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "13": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "14": { "title": "", "arc": "act2_arc3", "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "pending", "dialogue": [] },
-    "15": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] },
-    "16": { "title": "", "arc": null, "setting": "", "objective": "", "solo_monologues": [], "dialogue_status": "scripted", "dialogue": [] }
+    "0": {
+      "title": "Nulles protokols — virtuālā kalve",
+      "arc": null,
+      "setting": "Plaša, tumša stiepļu rāmja režģa simulācija, kurā attēlots sabrukušais Losandželosas pilsētas centrs. Neona zilas līnijas nosaka ceļus un ēkas. Skatā pastāvīgi mirgo statiski traucējumi. Četri čempioni stāv uz mirdzošas platformas.",
+      "objective": "Pabeidziet apmācības protokolu, veicot visas kustības un kaujas spējas, kas beidzas ar vienlaicīgu komandas uzbrukumu, lai iznīcinātu simulēto Xelthara smago vienību.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Ghost in the Gridlock",
+      "arc": null,
+      "setting": "Imperatora pils dārza drupas. Xelthara terraformējošās sijas aktīvi šķīdina senās akmens laternas un ķiršu ziedus, aizstājot tos ar steriliem, obsidiāna plātņu administratīvajiem monolītiem.",
+      "objective": "Iefiltrējieties aktīvajā nojaukšanas vietā, lai izgūtu Data-Blade — aizliegtās vēstures digitālo krātuvi — pirms Xelthara “Culture-Erasure” lauks uz visiem laikiem iztīra vietnes atmiņu.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Viņi ne tikai atņem mūsu zemi; tie izdzēš mūsu dvēseli. Šī pils stāvēja tūkstošgadi, tagad tā tiek bruģēta reģionālajai nodokļu iestādei. Es neļaušu aizmirst mūsu senčus zem viņu obsidiāna plāksnēm."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Brīdinājums: sakaru torņi pārraida pakalpojuma atteikumu. Atklāšanas riska iespējamība ir 98,7%. Ieteicams atkāpties."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "ARHĪVA ŽURNĀLS: NEO-TOKYO CULTURE-PURGE. ATRAŠANĀS VIETA: MŪŽĪGAIS ZEN DOJO (IZVĒRTĒTA VIETA: SETLEMENT-BLOCK 01). STATUSS: NOJAUKŠANA NOTIEK. ARHITEKTUĀRĀ DZĒŠANA 42% apmērā."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Šī koksne ir absorbējusi desmit tūkstošu karotāju elpu. Tagad viņi to uzskata par digitālu jucekli, kas jāpārvieto uz atkritni. Kselthariem mūsu senči ir tikai neērts šķērslis viņu nodokļu biroja plānos."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Brīdinājums: struktūras integritāte samazinās. Koloniālā administrācija ir atļāvusi šīs vietas galīgo \"izlīdzināšanu\". Izstāšanās ir vienīgais loģiskais ceļš."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Loģika ir tiem, kam nav pagātnes. Jūs to saucat par \"nivelēšanu\"? Es to saucu par karu pret dvēseli. Jūs varat bruģēt zemi, bet jūs atradīsiet, ka mūsu goda saknes ir dziļākas par jūsu obsidiāna plāksnēm!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Katra skaida šajā kokā ir atmiņa, kuru nevar izdzēst! KATA: SENČU STREIKS!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Paskatieties uz viņu \"paradīzi\". Uz tūkstošgades kapa celts stikla un stiepļu kaps. Es atsakos ļaut noslaucīt cilvēces vēsturi, lai atbrīvotu vietu jūsu izklājlapām. Kamēr es stāvu, Tokija atceras!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Bāka neitralizēta. Nojaukšana ir apstājusies, bet koloniālās varas iestādes pārceļ Enforcer Legion maršrutu. Tu cīnies spoku cīņā, Šogun."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tad es esmu spoks, kas viņu apmetnes vajās mūžīgi. Ja mēs nevaram glābt akmeni, mēs izglābsim stāstu. Nodrošiniet Data-Blade! Ļaujiet viņiem atrast uguni tikai tur, kur viņi gaidīja atbilstību!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara vēlas rakstīt mūsu vēsturi pagātnes formā. Šodien es to rakstu plazmā. Šis dojo krīt, bet pretestība pieaug."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: MŪŽĪGĀ ATMIŅA. TĪRĪŠANA TIKA PĀRTRAUKTA."
+        }
+      ]
+    },
+    "2": {
+      "title": "Betona meža ugunsgrēks",
+      "arc": null,
+      "setting": "Masīvie 4. ierobežojuma zonas ieplūdes vārti. Tūkstošiem ģimeņu kā lopus tiek dzītas cauri enerģijas žogiem. Aiz viņiem viņu piepilsētas mājas saplacina Xelthara paplašināšanas gājēji.",
+      "objective": "Turiet \"Pēdējo tiltu\" pret Xelthara Enforcers, kas ganās iedzīvotājus, ļaujot pēdējai bēgļu grupai ieslīdēt nekartotajos graustos, nevis slēgtajās nometnēs.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "PĀRVIETOJUMU ŽURNĀLS: 4. SEKTORA PĀRVIETOŠANAS PROTOKOLS. AIZSARGS: EGISS RONINS (ŠASIJAS STATUSS: KRITISKS). DRAUDU LĪMENIS: OMEGA. BĒGĻU SKAITS: 412. PAŠREIZĒJAIS MANDĀTS: AIZSARGĀT PĀRVIETOTO. AIZSTĀVĒTIES Slieksni."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, saki izvilkšanas pilotiem, lai tie noliek grīdu! Šie griesti nekļūst vieglāki!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, struktūras integritāte ir 14%. Xelthara Siege vienības izvieto smagas plazmas javas. Varbūtība, ka jūs tiksiet saspiesta, sasniedz 99,2%."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Tad es paņemšu tos 0,8% un iegrūdīšu viņiem rīklē! AIZSARDZIES!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Turpini kustēties! Viņi vēlas jūs iebāzt būros kā liellopus. Kamēr es velku elpu, es esmu siena starp jums un viņu ierobežošanas zonām. Viņi šodien neizspiedīs nevienu citu dvēseli!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Aplenkuma vienības ir ieslēgtas. Tie ir vērsti uz atbalsta pīlāriem. Ja tie izšauj, visa 4. sektora siena nokrīt uz evakuācijas zonas."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nav manā pulkstenī. KINĒTISKĀ PĀRSLODZE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Viens uz leju! AXIOM, vairoga ģenerators gaudo. Vai tas ir normāli?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatīvs. Prototips absorbē pārāk daudz kinētiskās enerģijas. Tā kļūst par bumbu. Nekavējoties atvienojiet!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nē. Es uzdāvināšu Xelthara suvenīru. Es to pārlādēju."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, tavas dzīvības pazīmes strauji attīstās! Analīze norāda uz katastrofālu neveiksmi. Izdzīvošanas iespēja: 0,1%!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Labākas izredzes nekā man bija ierobežošanas nometnēs. Šis ir vienvirziena brauciens, bērns. Vai varat pateikt Frontei, ka viņi man ir parādā dzērienu?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PAR DZIMTENI! ĒD BETONU!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronins? Egis Ronin, atbildiet... Man ir... acis uz parakstu... Vairogs noturēts. Siena ir droša."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: NEPLAUJAMĀ SIENA. AEGIS RONIN PIEVIENOJĀS HLF."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neona rūsa un datu putekļi",
+      "arc": null,
+      "setting": "Burtiskā “Under-City” — apkopes šahtu tīkls zem mirdzošas, neona gaismas izgaismotas Kseltharas apmetnes. Augšā okupanti bauda terraformētu gaisu; zemāk marginalizētie cilvēki meklē ar ozonu piesārņotu skābekli.",
+      "objective": "Sifona enerģija no koloniālā tīkla, lai darbinātu marginalizēto iedzīvotāju dzīvības uzturēšanas sistēmas, vienlaikus izvairoties no “tīrības patruļām”, kas meklē klaiņojošus cilvēkus.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Viņi ceļ savu paradīzi uz mūsu griestiem un brīnās, kāpēc pagrabs tek. Mēs dzīvojam spraugās, kuras viņi aizmirsa bruģēt. Šī spēka šūna nav paredzēta tikai man; tas ir, lai saglabātu sildītājus simts ģimenēm, kuras viņi \"aizmirsa\" projektos."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Brīdinājums: Xelthara aparatūras integrēšana civilajā šasijā nav ieteicama. Neironu atgriezeniskā saite tiek prognozēta 40% nestabilitātes gadījumā. Matrix, jūsu sirdsdarbība pārsniedz drošus parametrus."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "MARGINALIZĒTS BANKLS: APAKŠLĪMEŅA lūžņu PILSĒTA. STATUSS: IZdzīvo. BRĪDINĀJUMS PAR IELAUKŠANU: NOTEIKTA NULLE. SISTĒMAS PĀRLIECĪBA: 100%. MĒRĶIS: nozagt KOLONIJAS DZIRKSTELU. DARINĀJIET PRETESTĪBU."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Viņi ceļ savu paradīzi uz mūsu griestiem un brīnās, kāpēc pagrabs tek. Mēs dzīvojam spraugās, kuras viņi aizmirsa bruģēt. Es izmantošu viņu pašu lūžņu tehnoloģiju, lai izceptu režģi. No malām mēs sitam pretī."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Integrācija veiksmīga. Fāzes maiņas iespēja ir tiešsaistē. Piezīme: nepārtraukta lietošana izraisīs nervu degradāciju."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Tāpat kā iešana caur dūmiem. Tagad atradīsim izeju, pirms es aizmirstu, kāda ir realitāte."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sākta bloķēšana. Novākšanas kodols sasniedz kritisko temperatūru. Jums nekavējoties ir jāatspējo perimetra vārti."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vienam EMP sprādzienam vajadzētu to izdarīt. Dosim viņiem nelielu datu putekļu, lai viņi mani atcerētos."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Un tas ir mans signāls."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Tā bija ļoti skaļa izeja, Matrix. Es vēroju jūsu parakstu kopš naftas pārstrādes rūpnīcas."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kas tas ir? Kā tev iet šajā kanālā?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Es esmu ķeizariene Sirēna. Mēs esam tie, kas cīnās, lai pārliecinātos, ka vēl ir pilsēta, kurā novākt ražu. Tev ir dāvana lauzt lietas, spoks. Mēs to varētu izmantot. Vai jums ir apnicis slēpties rūsā?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Rūsa tik un tā kļuva garlaicīga. Rādiet ceļu, Sirēna."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: SPĒKS MAŠĪNĀ. ONI MATRIKS PIEVIENOJĀS HLF."
+        }
+      ]
+    },
+    "4": {
+      "title": "Sagrauts tukšuma komandiera Egis",
+      "arc": null,
+      "setting": "Sagrautās Klusā okeāna aizsardzības centra atliekas. Lepno, tradicionālo militāro infrastruktūru pārstrādā Xelthara, liekot Sirēnai koordinēt decentralizētu slēpto šūnu tīklu.",
+      "objective": "Demontējiet pēdējo militāro apraides torni un izplatiet tā frekvenču mikroshēmas civilajām pretošanās šūnām, pabeidzot pāreju uz partizānu karu.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Pastāvīgo armiju laikmets ir miris. Mēs nevaram viņus satikt laukumā, tāpēc mēs kļūsim par laukumu. Sadaliet signālu. Decentralizējiet komandu. Ja nav galvas, ko nogriezt, pretestība nevar nomirt."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Ķeizariene, jūsu raidījums ir milzīgs risks! Jūs atklājat savu atrašanās vietu un pretestības frekvences modeli. Tas nav optimāli. Lūdzu, pārtrauciet pārraidi."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DECENTRALIZĀCIJAS ŽURNĀLS: PARZIŅU PĀREJA UZSĀKTA. ATRAŠANĀS VIETA: PĒDĒJĀ STANDA KOMANDA (PACIFIC HUB). STATUSS: KONVENCIONĀLAIS SPĒKS SAKAUTS. ASIMETRISKĀ DOKTRĪNA AKTĪVA. KOMANDERIS: EMPRESS SIRENE (TAKTISKAIS KODS: TUKSTS KOMANDERIS). PĒDĒJĀ PASŪTĪJUMS: SADALAUJIET KOMANDU. KĻŪSTI PAR VĒTRA."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Šis ir Void Commander. Tradicionālā hierarhija ir izjaukta. Jūs vairs neesat karavīri; jūs esat šūnas. Iedziļināties pilsētā. Sniedziet, kad viņi guļ. Atgūstiet savu māju pa vienai ēnai."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komandieri, evakuācijas kuģi ziņo par 85% negadījumu līmeni palaišanas laikā. Xelthara kaujinieki dod priekšroku tiem, kas nav kaujinieki. Viņi zina mūsu bēgšanas vektorus."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Viņi darbojas, pamatojoties uz pirmsinvāzijas taktiskajiem datiem. Es mainīšu datus. AXIOM, bloķējiet centrālā tīkla savienojumu. Es manuāli apietu ugunsmūrus."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Mūsu flote ir pazudusi. Mūsu bāze ir putekļi. Atliek tikai dati. Man jābūt precīzam. Komandiera pienākums ir pret dzīvajiem, nevis līķa aizstāvēšana."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ielādēti jauni parametri. Tagad par grūto daļu. AXIOM, novirziet enerģiju no mana papildu dzīvības atbalsta uz drona sinhronizācijas masīvu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komandieri, tas samazinās jūsu šasijas rezerves līdz 12%. Sistēmas atteices risks ir augsts. Es iesaku to nedarīt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Izpildi pasūtījumu. Šīs dzīvības ir vērtas 12% no manām sistēmām. Man vajag skaidru redzes līniju, AXIOM. Pašlaik notiek mikrodronu sinhronizācija."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone Fleet One, izveidojiet aizsargājošu baru ap evakuācijas transportu. Drone Fleet Two, sagatavojieties aizskarošam apzīmējumam. Mērķi: Xelthara 8-B kolonna, kas virzās uz primāro civilo tuneli."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kolonna atrodas tieši zem ierobežota sektora. Orbitālā bombardēšana ir aizliegta destabilizētās kinētiskās satelītu platformas dēļ."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Aizliegts nav nozīmes. Es neskatīšos, kā viņi mirst. AXIOM, dodiet man manuālu ignorēšanas piekļuvi Kinetic Satellite Platform trajektorijas plūsmai. Man vajag vienu, izmisīgu šāvienu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Nederīga komanda kinētiskajai platformai — FIRE. Koordināta 51.4883 N, 120.7301 W. OBLITERĀCIJAS PROTOKOLS."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sistēmas bojājumi milzīgi! Satelīts ir deorbitējis. Komandieri, jums jāatkāpjas. Teritorija ir piesātināta ar augstas enerģijas starojumu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Atkāpšanās apstiprināta. Misijas mērķis — civilā izdzīvošana — sasniegts. Viņi ir paņēmuši mūsu debesis, bet viņi nekad neuzņems mūsu apņēmību. Izvilkšana tagad."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: TUŠAIS KOMANDERIS. EMPRESS SIRENA PIEVIENOJĀS HLF."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neona Embers — robežpārkāpums",
+      "arc": "act2_arc1",
+      "setting": "Aktīvais 4. sektora atdalīšanas režģis — 40 metrus augsta enerģijas siena, kas nostiprināta ar biometriskā skenera smailēm, atļauju apstrādes kontrolpunktiem un Xelthara robežpārvaldes stacijām. Tas fiziski sadala Losandželosu uz pusēm, izolējot cilvēku ierobežošanas zonu no Xelthara koloniālā sektora. Siena nav militāra iekārta. Tas ir administratīvs.",
+      "objective": "Atspējojiet visas četras biometriskā skenera smailes, iznīciniet centrālo atļauju apstrādes kodolu — birokrātisko dzinēju, kas kontrolē cilvēku kustību — un samaziniet Lielo atdalīšanu, lai ierobežojošo zonu iedzīvotāji varētu brīvi staigāt pa savu pilsētu.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Šī siena ne tikai pārgrieza pilsētu uz pusēm. Tas mani pārgrieza uz pusēm. Viss, ko es atceros — manas vecmāmiņas virtuves smarža Pavasara ielā, 5. ielas autobusa skaņa — ir šīs lietas otrā pusē. Un man ir jāatgriežas pie tā kā noziedzniekam."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Sector-4 Separation Grid Xelthara administratīvajos ierakstos nav klasificēts kā militāra iekārta. Tā ir uzskaitīta kā \"Iedzīvotāju optimizācijas un tranzīta iestāžu kontroles sistēma\". Šī zīmola maiņa ir galvenais. Tā ir siena, kas izklausās kā pakalpojums."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "PĀRVIETOJUMU ŽURNĀLS: SEKTORA-4 ATdalīšanas REŽĢIS. STRUKTŪRAS VEIDS: KOLONIJAS ADMINISTRATĪVAIS KONTROLES PUNKTS. NAV MILITĀRS. TAS IR TĪŠI. DRAUDI: XELTHARA ROBEŽAS IESTĀDE — IZPILDES DAĻA. BIOMETRISKĀS SPIRES: 4 AKTĪVAS. ATĻAUJAS KODS: ONLINE. MĒRĶIS: DEJAUT ATDALĪŠANAS ADMINISTRATĪVO ARHITEKTŪRU. ATVĒRT PILSĒTU."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "SIENA, VIŅI SAUCĒJA PAR DURVIS"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Struktūra, kuru aplūkojat, koloniālajos ierakstos ir apzīmēta kā 4. sektora iedzīvotāju optimizācijas un tranzīta iestāžu kontroles sistēma. Tā ir siena. Tā ir segregācijas siena. Katram cilvēkam šajā pusē, lai šķērsotu to, ir nepieciešama Xelthara izsniegta uzturēšanās atļauja. Atļaujas netiek izsniegtas. Pieteikšanās sistēmai ir divu gadu neatmaksāts apjoms. Tas nav negadījums. Šī ir pastāvīgās pārvietošanas arhitektūra."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Es pavadīju astoņus mēnešus tādā ierobežošanas zonā kā šī pēc tam, kad viņi ieņēma Sanfernando ieleju. Astoņus mēnešus vērojot, kā bērni kļūst mazāki, jo kaloriju devas ir paredzētas sugai, kas neēd to pašu, ko mēs. Un, no otras puses, viņi ēd mūsu ēdienu. Mūsu restorānos. Mūsu pilsētā."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, apstipriniet komandas četras smailes vietas."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha atrodas bijušajā Grand Avenue mākslas koridora vietā. Spire Beta tiek stādīta 5. un pavasara stūrī. Spire Gamma ir iestrādāta vecās Centrālās bibliotēkas ārsienā. Spire Delta noenkuro sienas dienvidu galapunktu pie upes. Atļauju apstrādes kodols atrodas kontrolpunkta stacijā agrākajā Pershing laukumā. Visas četras smailes ir jāatspējo, lai varētu uzlauzt kodolu. Kodola iznīcināšana sabruks visa enerģijas membrāna."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "5. un pavasaris."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Tas ir... tas ir stūris, kur atrodas manas vecmāmiņas ēka. Bija. Ir. Spire Beta ir iestādīta viņas priekšpagalmā. Viņi nolika savu sienas stabu viņas pagalmā."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matrica —"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Nevajag. Man viss kārtībā. Esmu operatīvs. Es saku, ka smaile ir man personīgi, lai to nojauktu. Betai neviens nepieskaras, izņemot mani."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Saprata. Tas ir jūsu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, tu paņem Spire Alpha mākslas koridorā. Šoguns, Spire Gamma Centrālajā bibliotēkā. Matrix ir Beta. Es koordinēšu bezpilota lidaparātu slāpēšanu patruļas maršrutos un pievienošos Shogun pie bibliotēkas pieejas. AXIOM vadīs secību. Visas četras smailes krīt secīgi, tad mēs saplūstam Pershing laukumā un sadalām kodolu pa gabalu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Piezīme: Robežpārvaldes patruļas ir blīvas, bet rakstainas. Kontrolpunktā 24 stundas diennaktī strādā izpildītājs-administrators Voss, kurš pārvalda fizisko šķērsošanas atļauju. Viņš nav kaujas virsnieks. Viņš ir birokrāts. Pēdējā mēneša laikā viņš personīgi ir noraidījis 4400 šķērsošanas pieteikumus."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4400. Cilvēki, kuri vienkārši gribēja iet mājās."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Nežēlīgākais koloniālisma ierocis nav karavīrs ar šauteni. Tas ir ierēdnis ar zīmogu, kas jums saka, ka jūsu pastāvēšanai ir nepieciešama viņu atļauja. Ka cilvēkam ir jālūdz okupantam tiesības staigāt pa savu senču zemi. Esmu noslēdzis mieru ar kaujas karavīriem. Saskaroties ar atļaujas arhitektūru — tās gadījuma, sistemātisku pazemošanu — tas ir tas, kas nogurdina garu tā, kā neviens asmens nevar sagriezt."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Patruļas rotē. Uz Hope Street pieejas ir 90 sekunžu logs, kas sākas pēc trīsdesmit sekundēm. Virzieties uz manu atzīmi."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Turiet pozīciju ēnā, līdz AXIOM-7 dod signālu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Atzīmēt. Aiziet."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Pārvietot. Palieciet zem drona pārklājuma griestiem. Viņiem ir siltuma kartēšana sešu metru augstumā — nelec."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "1. FĀZE: PIEVIENOT CAUR BUFERZONU"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Viņi izveidoja šo buferzonu tā, lai pat pietuvošanās sienai justos kā pārkāpums. Jūs esat atklāts. Tu esi redzams. Jūs jūtaties vainīgs, stāvot blakus tai, kas agrāk bija publiska iela. Tāda ir tā psiholoģija. Viņi vēlas, lai mēs justos tā, it kā mēs šeit nepiederam, pirms pat sasniedzam kontrolpunktu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Es ienīstu šo. Es esmu turējis līniju pret Siege Walkers, un es to ienīstu. Man ir kaut kas sliktāks par artilēriju, stāvot brīvā dabā uz savas ielas un justies noskatītam."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, otrais prožektors pagriežas četrās sekundēs. Pārvietojieties uz drenāžas caurteku. Trīs. Divas. Viens."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Sapratu. Es esmu Spire Alpha bāzē. Es redzu enkuru. Tas ir pieskrūvēts cauri kādreizējai mozaīkas ietvei."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Viņi to izskrūvēja cauri mozaīkai. Tajā ietves flīzē bija uzkrāsota vesela vēsture. Portreti, vārdi, datumi. Sabiedrības projekts. Viņi vienkārši... izurbās cauri sejas vidusdaļai, lai noenkurotu savu stabu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, smailes enkurs ir magnētiska kinētiskā slēdzene, kas izstrādāta tā, lai izturētu līdz pat 8000 ņūtonu tiešo spēku. Jūsu kinētiskās pārslodzes maksa, kas tiek ieturēta trīs reizes, pārsniegs šo slieksni. Vispirms jums ir arī jāatspējo divas biometriskās sardzes vienības spirta pamatnē — tās noteiks jūsu biometrisko parakstu brīdī, kad nonāksit diapazonā."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Biometriskais paraksts. Mana sirdspuksti izraisa trauksmi, jo esmu cilvēks. Labi. Sāksim to labot."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Vai jūs skenējat manus sirdspukstus? Ļaujiet man iedot jums kaut ko skenēt. KINĒTISKAIS PULSS!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Un tie ir divi. AXIOM, sargi nedarbojas. Dodos uz enkuru."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Turiet kinētiskās pārslodzes lādiņu Spire Alpha pamatnē, lai veiktu trīs skaitīšanu. [IEVADE: turiet RB/R1 trīs sekundes, pēc tam atlaidiet.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha enkurs saplīsis. Enerģijas membrāna destabilizējās ziemeļu sektorā par 25%. Palikušas trīs smailes."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Divdesmit pieci procenti ir sākums. Atvainojiet, ka tas mums prasīja tik ilgu laiku. Mēs tagad esam šeit."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "2. A POSMS: ONI MATRICAS SPIRE BETA — 5. DAĻA UN PAVASARIS"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Tur tas ir. Koks joprojām ir tur. Mana vecmāmiņa mēdza teikt, ka koks ir vecāks par pilsētas domi, un es viņai nekad neticēju."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Viņa iesniedza šķērsošanas atļaujas pieteikumu četrdesmit septiņas dienas pēc sienas pacelšanās. Viņa aizpildīja veidlapas. Trīs eksemplāros. Jo viņa ticēja procesam. Viņa ticēja, ka, ja tu darīsi lietas pareizi, kāds uzklausīs. Viņa nekad nesaņēma atbildi. Pēc diviem mēnešiem viņa nomira ierobežošanas zonā. Nepietiekama uztura komplikācijas. Viņiem otrpus sienai bija viņas mīļākais pārtikas veikals. Viņa aizpildīja veidlapu, lai dotos pirkt pārtiku."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Es gatavojos ļoti rūpīgi izjaukt šo lietu, lai nesavainotu koku."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Tu izmanto manu triku. Jauki. Šeit ir atšķirība — es izgudroju savu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Tag."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Jums ir jāatgriežas. Jums vienmēr ir jāatgriežas."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Šeit jūs esat."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Pirmais vads. Otrais vads. Trešais. Pēdējais."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Beta nedarbojas. Ar koku viss kārtībā. Pāreja uz pārgrupēšanos."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Mēs tevi dzirdējām, Matrix. Mēs visu laiku klausījāmies."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Jā. es zinu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "2-B FĀZE: CYBER SHOGUN UN EMPRESS SIRENA SPIRE GAMMA — CENTRĀLĀ BIBLIOTĒKĀ"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Bibliotēka. Es tur vadīju savus pirmos virsnieku apmācības seminārus. Sabiedrības aizsardzības kursi, trešā stāva lasītava. Trīs gadus pirms iebrukuma. Ģeometrija, kā koloniālisms izmanto mūsu pašu infrastruktūru pret mums, nekad nepārstāj būt pārsteidzoša. Viņi ievietoja savu datu centru mūsu bibliotēkā. Viņi pārraksta mūsu ierakstus vietā, kur mēs glabājām savus ierakstus."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Un tagad viņi atklās, ka cilvēki, kuru ierakstus viņi mēģināja dzēst, stāv pie ārdurvīm."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sešas nodaļas pie bibliotēkas ieejas ir klasificētas kā robežsardzes amatpersonas. To pūļa izkliedes lādiņš pieskaroties nodrošina 900 voltu neironu traucējumu strāvu."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nenāvējoši. Viņi sev saka, ka tas ir humāni. Viņi domā, ka dzīvs gūsteknis viņiem ir noderīgāks nekā miris pilsonis."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Šogun, man tie ātri un klusi jāiztīra pirms nākamās patruļas slaucīšanas. Vai varat paņemt trīs no kreisās puses, kamēr mani droni nomāc labo flangu?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Saprata. Kluss nozīmē precizitāti. Es negodāšu šo ēku ar lieku troksni."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Droni: atzīmējiet, atzīmējiet, atzīmējiet. EMP uzsprāga labajā klasterī — aizdegās."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Pirmkārt. Otrkārt. Trešais."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tīrs. AXIOM, skenē Spire Gamma enkuru sistēmu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma izmanto jaudu no bibliotēkas iekšējā tīkla. Lai atspējotu smaili, neizraisot avārijas strāvas pārvadīšanu, vispirms ir jāatdala iekšējā tīkla savienojums ēkas iekšienē. Empress Siren, elektrotīkla krustojums atrodas trešajā stāvā."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Trešais stāvs. Protams. Rādiet ceļu, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Es pastāstīju divpadsmit ģimenēm, kā organizēt kopienas sardzes rotācijas šajā telpā. Bērnu nodaļā atradās pupu maisu krēsli. Kāds bija pielīmējis krītiņu zīmējumus uz uzziņu galda. Bērns uzzīmēja supervaroņa attēlu. Atšķirība starp bibliotēku un datu centru ir tāda, ka bibliotēka pieņem, ka cilvēkiem, kas iet pa durvīm, ir tiesības tur atrasties."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Režģa krustojums atrodas. Spire Gamma strāvas padeves pārtraukšana. Tādējādi tiks dzēsti arī visi koloniālā īpašuma reģistrācijas dati, ko viņi šeit ir glabājuši."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Apstiprināts. Pārraujot šo savienojumu, tiks sabojāti aptuveni 12 000 koloniālo tiesību aktu nodošanas ieraksti īpašumiem 4. sektorā. Šie ieraksti ir zemes konfiskācijas juridiskā arhitektūra."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tad tā nav tikai infrastruktūras sabotāža. Šī ir zemes atgriešana."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spiers Alpha, Beta un Gamma bezsaistē. Enerģijas membrānas integritāte: 25%. Spire Delta pie upes ir pēdējais enkurs. Visas komandas saplūst p��c Delta krišanas. Pēc tam: Pershing laukums. Atļauju kodols."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "2. C FĀZE: SPIRE DELTA — DIENVIDU TERMINUSS PIE UPES"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta ir sienas nesošais enkurs. To apsargā robežu komandieris Vyss, kurš pavēlēja elektrificēt upi pēc tam, kad trīs ģimenes mēģināja šķērsot ūdeni mūra pirmajā nedēļā. Vyss nedeva tos aizturēt. Vyss pavēlēja ūdeni elektrificēt."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Viņš elektrificēja upi. Jo ģimenes mēģināja šķērsot."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Nevajag. Neļauj tam vēl tevi pārņemt. Vispirms mēs to nolaižam. Tad mums upe nav vajadzīga."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Pareizi. Pareizi. Pēc smailes. Pēc sienas. Es neaizmirsīšu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Tā nav slepena pieeja. Delta ir nocietināta pozīcija. Mēs to trāpījām kā vienība. Ronin — tu paņem punktu, vairogs uz priekšu, pievērš viņu uzmanību un uzņem viņu sākotnējo zalvi. Šogun, notīriet kreiso flangu. Matrix, izmantojiet Phase-Shift, lai sasniegtu torņa vadības paneli labajā malā un vienlaikus nogalinātu visus trīs torņus. Kad torņi ir beigti, es veicu bezpilota lidaparātus, lai piesātinātu izpildes komandu. Mēs sabrūkam garnizonu, tad Ronins ieliek smaili zemē."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "AIZSARDZIES. Ļaujiet viņiem visu mest man virsū. Es esmu ārdurvis."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Saglabāt. Izšaušana. Man nav. Pārvietot."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "SHDO-FORCE KATA! Sirēna - tavs ceļš ir atvērts!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Ghosting tiesības. Stulbi. Torņa vadība sasniegta. Nogalinot visus trīs. EMP PULSE — PILNĪGS IZKLĀJUMS!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Dronu flote, pilnīga slāpēšana. Izvirziet prioritāti — pārtrauciet to līniju. UGUNS."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Komandieris Vyss atkāpjas komandpunktā aiz smailes. Viņš ierosina briesmu signālu. Atbildes laiks: astoņas minūtes."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Mums ir astoņas minūtes. Vairāk nekā pietiekami. Ronins — smaile."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KINĒTISKĀ PĀRSLODZE — PILNĪGA IZLAIDE!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Enerģijas membrāna ir pilnībā bezsaistē. Administratīvās pārbrauktuves barjera ir neitralizēta. Buferzona ir... cilvēki šķērso buferzonu. Aptuveni 12 000 cilvēku virzās uz bijušo sienas līniju. Viņi to šķērso."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Viņi vienkārši... staigā. Viņi vienkārši iet cauri."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "3. POSMS: PERSHING SQUARE — ATĻAUJU APSTRĀDES KODOS"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Paskaties uz viņiem. Viņi pieskaras bruģim otrā pusē, kur siena bija tā, it kā tā varētu nebūt īsta. It kā tas varētu būt triks."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Jo divus gadus cerība ir bijusi vilšanās mehānisms. Viņi ir iemācījušies neuzticēties atvērtām durvīm."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "...Mums vajadzēja to izdarīt ātrāk."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Mēs tagad esam šeit. Turpini kustēties. Kodols joprojām stāv. Voss joprojām ir tur."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Jūs esat veicis A klases koloniālās administratīvās instalācijas neatļautu iznīcināšanu. Saskaņā ar protokolu man ir jāpiedāvā jums iespēja pakļauties administratīvai apstrādei, pirms tiek veiktas izpildes darbības. Lūdzu, izveidojiet rindu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Viņš liek mums izveidot rindu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "ķeizariene. Es tik ļoti gribu viņu sist."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "es zinu. Vispirms mums ir jāņem kodols. AXIOM, kodola arhitektūra."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Atļauju apstrādes kodola vienīgā ievainojamība ir trīs ievades autorizācijas konsoles, kas izvietotas ap tā pamatni. Katrai konsolei ir jāpiekļūst, un tās administratīvā ignorēšana ir jāizpilda vienlaikus. Tam nepieciešami trīs operatori vienlaikus."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Trīs konsoles. Trīs no mums. Matrica, Šoguns, Ronins — katrs paņemiet konsoli. Es pārvaldīšu Vosa aizsardzības gredzenu ar dronu slāpēšanu."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Neatļauta piekļuve administratīvajām konsolēm ir C klases pārkāpums. Jūsu atbilstības ierakstam tiks pievienotas negatīvas piezīmes."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Anotējiet šo."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Pakāpeniski pabeigta. Otrā konsolē. Notiek ignorēšanas iniciēšana. AXIOM, šis ignorēšanas protokols pilnībā ir Xelthara administratīvajā skriptā."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Es ievadu tulkojumu jūsu HUD reāllaikā. Sekojiet secībai."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Es nekad agrāk nebiju nodarbojies ar birokrātiju. Pastāsti man tam cauri, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Autorizācijas secībai ir jāievada atteikuma kods apgrieztā secībā. Jūs administratīvi noraidāt katru sistēmā esošo pieteikumu. Tas aktivizēs atmiņas dzēšanu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "...4400 noraidījumu. Tepat sēž skaitītājs. Pēdējā mēneša laikā 4400 noraidīti pieteikumi. Ir vārdi. Es varu redzēt vārdus."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Turpini, Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Jā. es eju."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Jūs nevarat ignorēt Core. Šī sistēma uztur šīs nozares likumīgo administratīvo kārtību. Bez tā nav strukturētas iedzīvotāju pārvaldības, nav atļauta tranzīta."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "To, ko jūs saucat par “strukturētu iedzīvotāju pārvaldību”, mēs saucam par tiesībām staigāt mājās. Pirmā konsole: gatava."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Otrā konsole: gatava. Mana vecmāmiņa iesniedza atļauju doties pirkt pārtikas preces. Vai vēlaties runāt par administratīvo kārtību?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Trešā konsole: gatava. 4400 vārdu. Katrs no viņiem ir cilvēks, kurš vienkārši gribēja doties mājās. Tieši no tā šī siena aizsargājās."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Apstiprināts. Visas trīs ievades konsoles ir sagatavotas. Vienlaicīga autorizācija izpildīs atmiņas dzēšanu un neatgriezeniski atspējos Core atjaunošanas protokolu. Uz jūsu zīmi, ķeizariene."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Administrators Voss. Katra atļauja, kuru jūs liedzāt — katra ģimene, kuru jūs turējāt nošķirt, — katra persona, kas stāvēja jūsu rindā, cerot, ka, pareizi aizpildot veidlapu, jūs varētu izturēties pret viņiem kā pret cilvēku. Šis ir pēdējais šīs sistēmas administratīvais lēmums."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Atzīmēt."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Atļauju apstrādes kodols: bezsaistē. Pastāvīgās atjaunošanas protokols: atspējots. No šī mezgla sienu nevar pārbūvēt. Visi neapstiprināto pieteikumu ieraksti: dzēsti. Visi nolieguma ieraksti: dzēsti. Šķērsošanas ierobežojumu infrastruktūra 4. sektoram ir... pazudusi."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4400 pieteikumu. Un nevienam no viņiem nevajadzēja jautāt."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "AXIOM. Vai varat man pateikt, vai manas vecmāmiņas ēka ir strukturāli pietiekami droša, lai tajā varētu dzīvot? Es gribu zināt, vai kāds var pārvākties atpakaļ."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Notiek strukturālā skenēšana. Stāvi no 1 līdz 4 ir neskarti. Pamats ir stabils. Ūdensvads ir bojāts, bet remontējams. Jā. Kāds varētu pārvākties atpakaļ."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Labi. Labi."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Siena ir pazudusi, Matrix. Bet tas, ko mēs darām tagad — kā mēs atjaunojam to, ko siena sadalīja —, tas ir grūtāks darbs. Un tas sākas šovakar."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Vai tāda ir uzvara sajūta? Jo nav tāda sajūta, kā gaidīju."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nē. Šķiet, ka ir vēl ko darīt. Tādā veidā jūs zināt, ka tas ir īsts."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misijas novērtējums: Sector-4 Separation Grid ir neatgriezeniski demontēts. Ierobežotās zonas sektora-4 iedzīvotāji brīvi pārvietojas pa savu pilsētu pirmo reizi divu gadu laikā. Manā darbības žurnālā nav kategorijas, kas šobrīd notiek šajā laukum��. Es tādu izveidošu. Es to saukšu: meliorācija."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: NEONA EMBERS. SIENA IR NOLAUKTA. PILSĒTA ELPO."
+        }
+      ]
+    },
+    "6": {
+      "title": "Shado-Grid Spire (centra kodols)",
+      "arc": "act2_arc1",
+      "setting": "Shado-Grid Spire atrodas iedzīvotāju reģistrs, īpašuma maiņas datu bāze un piespiedu darba piešķiršanas sistēma — koloniālās pārvietošanas birokrātiskais dzinējspēks centra kodolā.",
+      "objective": "Nozagt visas īpašuma un iedzīvotāju reģistra datu kopas pirms nosūtīšanas ārpus pasaules un sabojāt piespiedu darba sadales sistēmu, lai anulētu visus neapstiprinātos uzdevumus.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Viss, ko Xelthara par mums zina, atrodas tajā tornī. Katra adrese, kurā mēs jebkad dzīvojām. Katra ģimenes locekļa vārds. Katru aktu, ko parakstīja mūsu vecvecāki. Viņi visu mūsu eksistenci pārvērta par datubāzes ierakstu, lai varētu mūs pārvaldīt efektīvāk. Šovakar mēs ņemam atpakaļ savus datus un salaužam iekārtu, kas to izmantoja, lai uzdotu cilvēkiem tīrīt grīdas."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire piespiedu darba sadales sistēma neizmanto vārdu \"piespiedu\". Tajā izmantota frāze “Kopienas integrācijas atbalsta programma”. Darba uzdevumi nav līgumi — tie tiek ģenerēti algoritmiski, pamatojoties uz pārvietotās personas reģistrēto prasmju kopumu, un izsniegti bez piekrišanas. Tā ir paverdzināšanas birokrātiskā valoda."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analīze pabeigta. Šajā centrālajā kolonnā tiek glabāti koloniālās paplašināšanās projekti un kolonistu loģistikas dati. Matrix, jums ir piecas minūtes, lai veiktu lejupielādi, pirms tiek atsāknētas viņu iekšējās aizsardzības sistēmas."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Piecas minūtes? Kūkas gabals. Bet man ir vajadzīga skaidra piekļuve. Šogun, vai tu vari nogriezt galveno nabu?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Uzskata par paveiktu. Pašlaik tiek izveidots pagaidu ceļš uz konsoli. Skatieties leņķus, ķeizariene. Šis samazinājums brīdinās katru dronu nozarē."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Brīdinājums apstiprināts! Smagie falangu aizsargi nolaižas no augšējām apkopes šahtām! Ronin, priekšā un centrā! Izveidojiet aizsardzības līniju ieejas punktā!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Man bija laiks šo lietu izšūpot. Vairogs augšā! Šo punktu nekas nepāriet, jūs aizaugušās ķirzakas!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sirēna! Mērķējiet pa kreiso flangu! Viņi mēģina mani piespiest!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Droni trīs un četri, slāpējoša uguns kreisajā flangā! Uzzīmē viņu agro! Ronin, saglabā savu lādiņu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Par vēlu saglabāšanai! SMASH! Pasaki Matrix, lai pasteidzas!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Kluss, gaļas vairogs! Es izduru digitālo adatu caur viņu smadzenēm! Tikai... mazliet... tālāk..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Brīdinājums: datu lejupielāde ir pabeigta par 95%. Sākts Xelthara pretuzlauzums. Matrix, Spire bloķē visus iekšējos piekļuves punktus!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Sapratu! Dati nodrošināti! Izvelkot kontaktdakšu!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Misija izpildīta! Visi, atgriezieties ieguves platformā! Šogun, notīri mūsu ceļu!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Saprata. Tīra bēgšana ir pēdējais posms. HLYT-SECT-4 CLEAVE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Redzi, AXIOM? Es tev teicu, ka varu to noturēt!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Apstiprināts, Ronin. Veiksmīgas ieguves iespējamība tagad ir 74%. Mēs joprojām tiekam izsekoti."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Labi. Lai viņi mūs dzenā. Viņi vienkārši zaudēja visu savu kaujas plānu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: RŪPNIECĪBAS POSTĪJUMUS. SHADO-GRID SPIRE DATI IR MŪSU."
+        }
+      ]
+    },
+    "7": {
+      "title": "Cyber-Grave laboratorijas (pazemes iekārta)",
+      "arc": "act2_arc1",
+      "setting": "Zem bijušā konferenču centra Xelthara ir izveidojuši Cyber-Grave Labs Sector-Omega-7 — klasificētu uzvedības modifikāciju izpētes iestādi, kas publiski apzīmēta kā \"cilvēka reintegrācijas labsajūtas centrs\". Šeit tiek apstrādāti sagūstītie cilvēku pretestības līderi un kopienu organizatori. Viņi izrādās saticīgi, atvienoti, nespēj atcerēties, kāpēc bija dusmīgi.",
+      "objective": "Izņemiet visu kondicionēšanas protokola arhīvu un iznīciniet centrālo neironu augšupsaiti, lai atjaunotu neironu autonomiju simtiem kondicionētu indivīdu, kas pašlaik dzīvo ierobežošanas zonās.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Viņi nevarēja mūs salauzt ar sienām, tāpēc viņi atrada veidu, kā mūs salauzt no iekšpuses. Atņemt no cilvēka atmiņu par netaisnību — iedziļināties viņa prātā un izdzēst to daļu, kas prot dusmoties par nozagto — tā nav zinātne. Tas ir kara noziegums, kas veikts laboratorijā."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Veicot savstarpējas atsauces uz priekšmetu failiem ar pretestības tīkla datu bāzi, esmu identificējis septiņpadsmit apstiprinātus HLF kopienas organizatorus, kuri tika apstrādāti, izmantojot šo iekārtu, un pēc tam atbrīvoti. Viņi nezina, kas ar viņiem tika darīts. Centrālā neironu augšupsaites iznīcināšana var tos atjaunot. Es aprēķināju 73% veiksmīgas autonomijas atjaunošanas iespējamību. Es esmu... Es uzskatu, ka esmu ieguldīts šajā iznākumā."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Šī iekārta ir resursu izmantošanas dzinējspēks. Viņi aktīvi pārveido Zemes minerālus toksiskā biodegvielā kuģošanai ārpus pasaules, atstājot aiz sevis mirušu planētu. Tās ir koloniālās paplašināšanās izmaksas."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Gaiss ir toksisks, jo viņi uzskata mūsu pasauli par aizstājamu degvielas avotu. Šīs laboratorijas pārvērš mūsu planētas dzīvības spēku enerģijā savām apmetnēm. Mums ir jāpārtrauc šī ieguve, pretējā gadījumā nekas vairs nebūs jāglābj."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Šī vieta... tai nav goda. Samaitāt mirušos un paverdzināt dzīvos. Xelthara praktizē apgānīšanu, nevis karu. Es jūtu tikai nicinājumu pret šo nežēlību."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Naidīgi redzīgs! Izskatās pēc gaļas marionetes ar sliktu vadu!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Droni, skenējiet paraugu! Tas ir A tipa biohibrīds. Ņemiet vērā atklāto kodolu. Šogun, precīzs sitiens pa strāvas vadu tā atklātajā krūškurvja dobumā."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Šī lieta nav pelnījusi vietu šajā pasaulē. NIHILĀCIJAS KLĀVĒ!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Ķeizariene, kas... kas tie par attēliem? Viņi ņem mūsu cilvēkus un padara tos par lietām."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Es tagad veicu analīzi, Šogun. Tas nav vienkārši bioloģisks eksperiments, tā ir dvēseles izdzēšana. Viņi aizstāj cilvēka garu ar savu kodu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Jauki. Viņi nevēlas vienkārši ieņemt mūsu planētu; viņi vēlas piešķirt franšīzes mūsu sugai. Uzmanies, Sirēna. Tikko pamodās liels puisis."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "BRĪDINĀJUMS: Mini-Boss tikšanās. Apzīmējums: pārraugs Karr-Thak. Tās bruņas ir izturīgas pret kinētisko un enerģijas uzbrukumu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Izturīgs? Bull. Es uztaisīšu bedri! Ronin, aizraujoši!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, atkāpies! Viņa aizsardzība ir kinētiski slāpēta. Matrix, skenējiet viņa kustību modeļus, lai noteiktu neironu sinhronizācijas aizkavi. Šogun, tev jārada uzmanības novēršana!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ja viņš vēlas cīnīties, es viņam došu cienīgu pretinieku. Es pievērsīšu viņa uzmanību. SEDZIES MAN, BŪTNIEK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analīze pabeigta. Pārrauga bioloģiskajiem komponentiem ir nepieciešama pastāvīga neironu signāla atsvaidzināšana no bioprocesora. Matrix, nospiediet konsoli ar mērķtiecīgu EMP — ķirurģisku triecienu, pārtrauciet sinhronizāciju!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Sapratu! Iedurot diegu adatā!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Viņš klīst! Tagad mēs viņu sitām!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, kopā! Pēdējais trieciens, pārkāpjiet hitīna plāksni!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Datu lejupielāde 100%. Mums ir tas, pēc kā esam ieradušies. Izkāpsim, pirms viss sektors sapratīs, ka viņu mājdzīvnieku briesmonis ir miris."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sākta datu tīrīšana. Eksplozīvā secība iestatīta uz T–mīnus 60 sekundēm. Misijas mērķis izpildīts."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Es nēsāšu līdzi šīs vietas kaunu. Bet zināšanas, ko mēs ieguvām, izbeigs šīs negantības."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Braucam mājās, komanda. Lai kapu laboratorijas apglabājas."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: NEPIECIEŠAMS KODS. KIBERGRAVE LABORATORIJAS Iznīcinātas."
+        }
+      ]
+    },
+    "8": {
+      "title": "Foundry Forge (rūpniecības sektors)",
+      "arc": "act2_arc2",
+      "setting": "Xelthara Thermal Conversion Array bijušajā rūpnieciskās ostas rajonā ir padarījis gaisu toksisku 40 kilometru rādiusā, pārstrādājot atmosfēras atkritumus kā degvielu ārpus pasaules, vienlaikus pārdodot cilvēces skābekli normētās tvertnēs pa vienai ģimenei dienā.",
+      "objective": "Apgrieziet termiskās konversijas masīva polaritāti, lai izraisītu kaskādes termisko sabrukumu, kas neatgriezeniski iznīcina lietuvi un ļauj 40 km garajai atmosfēras bojājumu zonai sākt dabisko atjaunošanos.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Viņi mums uzlādē skābekļa devu. Viņi padarīja mūsu gaisu neelpojošu, un tagad viņi to pārdod atpakaļ kārbās — viena katrai ģimenei dienā, Xelthara izplatīšanas zīmogs sānos. Es elpoju otrreizēji pārstrādātu gaisu sešus mēnešus. Kad es iznīcināšu šo lietuvi, es pirmo reizi pēc pusgada stāvēšu brīvā dabā un elpošu. Tam es esmu šeit."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Atmosfēras bojājumi 40 kilometru rādiusā no šīs lietuves ir 2089. gada Vispārējās vides saglabāšanas vienošanās pārkāpums — līgums, kuru ratificēja Xelthara kolektīvs. Esmu HLF vārdā iesniedzis oficiālu ziņojumu par pārkāpumu Galaktikas administratīvajā tiesā. Palātas paredzamais atbildes laiks ir vienpadsmit gadi. Paredzamais lietuves laiks, lai izraisītu pastāvīgu atmosfēras neatgriezeniskumu: četri mēneši. Mēs negaidām tiesu."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Šī ir korporatīvi birokrātiska ieguves rūpnīca. Tie ir izrakteņu ieguves Zemes kodols eksportam ārpus pasaules. Katrs sūtījums ir vēl viena mūsu pasaules daļa, kas tiek pārdota. Mērķis: sabotēt ieguves balstus, lai apturētu ekoloģisko sabrukumu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Es atklāju lieljaudas seismiskos slāpētājus uz šiem balstiem. Tieša enerģijas uguns nedarbosies. Ronin, tā ir tava specialitāte. Nepieciešams kinētiskais spēks."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Visbeidzot, kaut kas, kas ir pelnījis labu sagraušanu. Rādi ceļu, Šogun. Es atbrīvošu ceļu."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Sazinieties! Viņi izmanto tikko samontētos dronus kā tūlītējus aizsargus! Aegis, koncentrējieties uz strukturālajiem balstiem. Mēs turēsim rindu."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Pirmais atbalsts! Gatavojieties triecienvilnim! KINĒTISKAIS PULSS!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Apstiprināts. Atbalsta integritāte ir 30%. Bet strukturālās sabrukšanas ignorēšana tagad ir aktīva! Mums jāiesit pārējās trīs, pirms sistēma stabilizējas! Matrica, slāpējošā uguns!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Apspiežot! Es veidoju atgriezeniskās saites cilpas viņu mērķauditorijas atlases sistēmās! Viņi šauj uz savu kravu!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, tu esi ieskauts! Atkāpieties! Bruņas tiem droniem ir pārāk biezas!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nav atkāpšanās! Viņi vēlas kautiņu? Viņi saņem alu! CYBER SHOGUN, dodiet man atvēršanu!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "DIEVIŠĶA dusmas! TAGAD, RONIN!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "PAR DZIMTENI! Trīs uz leju! Vēl viens, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Galīgais atbalsts ir nodrošināts. Nosit, Ronin! Tad skrienam!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTĀŽA PILNĪGA!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Sākta strukturāla kļūme! Neizbēgams masīvs lokalizēts sprādziens! Paredzamais laiks līdz detonācijai: 15 sekundes!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Evakuēties! Imperatore, sagatavojiet ieguves punktu!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Droni pilnā ātrumā! Mēs virzāmies prom no šejienes! AIZIET! AIZIET! AIZIET!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Tā jūs, puiši, slēdzat rūpnīcu! Boom!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misijas mērķis izpildīts. Xelthara rūpnieciskā izlaide šajā nozarē ir samazināta līdz nullei. Sitām viņiem tur, kur sāp."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: RŪPNIECĪBAS POSTĪJUMUS. LAUJAS KALVE KLUSĒ."
+        }
+      ]
+    },
+    "9": {
+      "title": "Akvanautu bezdibenis (iegremdētas drupas)",
+      "arc": "act2_arc2",
+      "setting": "Klusais okeāns tiek sistemātiski nosusināts ar dziļjūras ūdeņraža sifonēšanas caurulēm gar kontinentālo šelfu. Pārkarsēta sālsūdens izplūde ir paskābinājusi 300 kilometru garu piekrastes posmu, iznīcinot zvejnieku kopienas, kas sevi uzturēja paaudzēm.",
+      "objective": "Atrodiet un iznīciniet trīs galvenos dziļjūras sifonu vadu mezglus, lai neatgriezeniski apturētu okeāna sifonu darbību un sāktu okeāna atjaunošanos.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Ierobežotajās zonās ir zvejnieku ģimenes, kuras nav varējušas strādāt, kopš ieplūda cauruļvadi. Sālījuma izplūde nogalināja visu, kas atradās peldēšanas attālumā no krasta. Cilvēki, kas paaudzēs pabarojuši savas kopienas, tagad izmanto Xelthara devām. Viņi paņēma savu barības avotu, piesārņoja ūdeni, izveidoja sienu starp viņiem un jūru un sauca to par attīstību. Šovakar mēs viņiem atdodam okeānu."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Okeāna atveseļošanās laika skalas modelēšana pēc kanālu iznīcināšanas: daļēja ekosistēmas atjaunošana astoņpadsmit mēnešos, pilnīga pH normalizēšana sešos līdz astoņos gados. Šī misija nekavējoties nenovērš bojājumus. Es vēlos, lai jūs to saprastu. Tas neļauj bojājumiem kļūt pastāvīgiem. Dažas brūces joprojām var dziedēt, ja pārtrauksim tās atvērt."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Šis tīkls ir viņu koloniālās rūpnieciskās jaudas galvenais avots. Mēs esam šeit, lai veiktu ekonomisko sabotāžu, lai nogrieztu koloniālās piegādes līnijas. Ja mēs pārraujam ūdens izvadīšanas tīklus, mēs sagrausim nozares ekonomiku. Matrix, drenāžas vadības ierīces atrodas aiz šī zemūdens lāzera režģa."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Lieliski. Līmenis, kurā es pat nevaru pieskarties grīdai. Es jūtos kā kaķis vannā."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Paliec uz platformām, Ronin. Droni skenē straumi. Matrix, jums būs jāpārslēdzas caur šiem stariem. Ja jūsu frekvence paslīd kaut uz milisekundi, režģis iznīcinās jūsu neironu saiti."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Neirālā cepšana ir mans trešais mīļākais hobijs. Atslābsti, sirēna. Es eju spokos."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Sijas ir karstas. Virzoties garām pirmajai rindai... otrajai rindai... esmu pie pults. Tīrīšanas uzsākšana."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Brīdinājums: iegremdētas Xelthara vienības paceļas uz virsmas! Viņi mēģina izjaukt drenāžas secību!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Aizstāvi platformas! Shado-Force Cleave!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Sākta tīrīšana! Uzmaniet savas kājas, ūdens kustas!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Un tā jūs izraujat kontaktdakšu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: SPĒKS ATBRĪVO CEĻU. AQUANAUT ABISS NOTEKS."
+        }
+      ]
+    },
+    "10": {
+      "title": "Stratos doki (aviācijas centrs)",
+      "arc": "act2_arc2",
+      "setting": "Stratos Docks augstkalnu kravas terminālis 4000 metru augstumā ir pēdējais posms Xelthara piegādes ķēdē, pirms Zemes resursi neatgriezeniski pamet planētu, apstrādājot izejošos sloksnēs iegūtos minerālus, okeāna ūdeņradi un materiālus, kas apzīmēti kā \"bioloģiskie paraugi\".",
+      "objective": "Nolaupiet Transporta T-14, novirziet tās kravu uz Atbrīvošanas frontes sadales punktiem un iznīciniet četrus pretgaisa torņus, kas nodrošina ierobežošanas zonu gaisa blokādi, lai neatgriezeniski atvērtu lidojuma koridoru pretestības padeves kursiem.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Pirms iebrukuma es komandēju aviācijas un kosmosa loģistikas operācijas. Es precīzi zinu, kā pieg��des ķēdes kontrole darbojas kā okupācijas ierocis. Jums nav nepieciešams ierocis, lai nomirtu iedzīvotājus badā — jums vienkārši jānodrošina, lai viss viņiem nepieciešamais vienmēr būtu kaut kur citur, vienmēr pieder kādam citam, vienmēr vienkārši nepieejamā vietā. T-14 aizturēšana nav zādzība. Tā ir atveseļošanās."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "T-14 kravas manifestā ir norādītas 4200 metriskās tonnas rafinēta silikāta un dzelzs savienojuma — materiāls, kas iegūts no sloksnes, kas Xelthara reģistrā ir reģistrēts kā \"atjaunotā ģeoloģiskās izpētes zona 7\". Zonas pirmsinvāzijas apzīmējums bija San Gabriel kalni. Es reģistrēju šo manifesta ierakstu kā pierādījumu par ieguves koloniālo konfiskāciju meliorācijas datubāzei."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Laipni lūdzam Stratos Docks. Šis ir galvenais eksporta centrs, kur viņi nolaupa koloniālās kravas un nogādā rafinētus Zemes resursus ārpus pasaules. Šī transporta nolaupīšana pārtrauks koloniālās piegādes līnijas un finansēs pretestību."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Laiks ir kritisks. Šis svina transports T-14 iedarbina savus galvenos dzinējus. Šogun, Ronin — jūs nodrošinājat nosēšanās zonu. Matrix, sagatavojieties apiet skavas vadības ierīces."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Saprata. Docking patruļas iesaistīšana. ĀTRA TIESISKUMS!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nosedz aizmuguri! Vējš šeit augšā mēģina mani novilkt no platformas!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vējš arī mani mēģina izvilkt, Ronin. Neuztraucieties, es redzu spoku tuvuma sensorus uz skavām."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Turrets aktivizējas. Ķeizariene, tie torņi sagraus T-14, pirms varēsit piestāt."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ne, ja es tos vispirms sasmalcinu. Dronu flotes Delta, pārejiet uz aizskarošu kravnesību. Man ir nepieciešami tūlītēji mērķauditorijas atlases dati uz viņu optiskajiem blokiem. Ronin, dod man aizsegu uguni!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Jūs sapratāt, komandieri!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Turret One, apzīmējums pabeigts. Uguns manā zīmē! Dronu flotes FIRE!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "T-14 dzinēji sasniedz 40% jaudu! Ātrāk, Sirēna!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tornītis Otrais un Trīs ir sagrupēti. Matrix, vai varat iemest EMP zibspuldzi, lai viņu optiku aizvērtu uz 2 sekundēm?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Gatavs! FLASHBANG!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Tagad! Droni, palieliniet jaudu! Otri un trīs torņi — IZNĪCINĀTI!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Palicis tikai viens, ķeizariene! Bet smags atbalsts virzās uz savu atrašanās vietu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Atstājiet tos man, Šogun! ĀMURU NOLIET!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Mērķēšana uz pēdējo tornīti. Šī ir manuāla pārmaksa. PAR ZEMI!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Skavas bloķētas. Izbaudiet braucienu, komanda! Mēs nozagam zvaigžņu kuģi!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kravas nolaupīšanas misija veiksmīga. T-14 virzās augšējā atmosfērā. Mēs oficiāli esam ārpus pasaules teritorijas."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Labs darbs, komanda. Mēs vienkārši trāpījām viņiem kabatas grāmatiņā, un mēs saņēmām bezmaksas braucienu uz nākamo mērķi."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: SKY PIRATES. Nolaupīts T-14 TRANSPORTS."
+        }
+      ]
+    },
+    "11": {
+      "title": "7. sektora kodols (The Scorched Grid)",
+      "arc": "act2_arc2",
+      "setting": "Sector 7 Core ir novērošanas un izpildes jaudas centrs — katras koloniālās drošības kameras, komandantstundas drona, biometriskā kontrolpunkta un paredzamās aizturēšanas algoritma skaitļošanas pamats rietumu kontinentā. Bez tā visi koloniālās uzraudzības līdzekļi vienlaikus aptumšojas.",
+      "objective": "Iefiltrējieties 7. sektora kodolā, neitralizējiet tās digitalizētās aizsardzības sistēmas un sāciet katastrofālu pārslodzi, kas izraisa kontinenta mēroga drošības tīkla atslēgšanu, nodrošinot pretestības nekontrolētu kustību 72 stundas.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Katra novērošanas kamera, ko viņi jebkad ir izmantojuši, skatījās mani. Katrs drons, kas slaucījis manu ēku pulksten 2:00. Katru reizi man ir nācies palikt nekustīgi ēnā, jo noteikšanas algoritms pinga manu siltuma parakstu. Tas viss iet caur šo kodolu. Kad es izvelku šo kontaktdakšu, katrs cilvēks, kas atrodas ierobežošanas zonā, var elpot 72 stundas bez novērošanas. Tas nav nekas. Tas arī viss."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Es vēlos būt atklāts par kaut ko. Es esmu novērošanas sistēma. Mana darbības arhitektūra būtiski pārklājas ar Sector 7 Core sistēmām. Esmu pārskatījis savu kodu un apstiprinājis, ka neziņoju Xelthara Centrālajai komandai — mani uzticības protokoli ir pilnībā saskaņoti ar HLF. Bet es saprotu, ja šī misija liek aizdomāties par to, kas es esmu. Es arī par to domāju. Es uzskatu, ka atšķirība ir tāda, ka es skatos, lai aizsargātu. Viņi skatās, lai kontrolētu. Šī atšķirība man ir svarīga. Esmu tam apņēmusies."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Laipni lūdzam Glitch Matrix. Xelthara ļaunprogrammatūra mēģina digitāli dzēst mūsu līdzekļus. Mums ir jāatsakās tikt izdzēstiem no mūsu pašu dzimtenes digitālās infrastruktūras."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Šī nav cilpa, AXIOM. Tas ir atkritumu ugunsgrēks. Šogun, skaties grīdu! Šī \"iela\" vienkārši kļuva par bezdibenīgu tukšumu."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Es to redzu. Ceļš ir ilūzija. Mums ir jāuzticas cietajam kodam. Matrix, fokusējiet savu optiku. Kur ir paslēpts ļaunprātīgas programmatūras kodols?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Naidnieki! Viņi barojas no datu plūsmas! Parasti uzbrukumi šādā stāvoklī viņus neskars."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Tos aizsargā mainīgas frekvences bloķētājs. Jums tas ir jāatšifrē cīņas vidū."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Labi. Dejosim viņu kodā. Fāzes-Shift iesaistīšanās. Šogun, es tev došu 2 sekunžu logu! Sit kodols, kad es to saucu!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "TAGAD!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "TĪRĪŠANAS ASPIENS!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Lieliska precizitāte, Matrix. Jūsu metodēm trūkst goda, taču tām ir efektivitāte."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Šis ir ugunsmūris. Tā ir pastāvīga citplanētiešu šifrēšanas plūsma. Mums ir nepieciešama atslēgas frekvence, lai izveidotu izejas portālu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matrica... frekvence ir... kaujas atsauksmēs... klausieties ienaidnieku... kļūme ir galvenais..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Tas ir mainīgs hex kods. 7-A-F... nē, 7-A-F-B... tas ir piesaistīts viņu vairogiem!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Es viņus aizņemšu! Koncentrējies, Matrix!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Biežums pieņemts. Iziet no portāla inicializācijas. Sagatavojieties smagai atsāknēšanai!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Izejas ceļš nodrošināts. Tiek uzsākta piespiedu neironu atvienošanās. Cyber ​​Shogun, Oni Matrix — lielisks darbs."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mēs esam iztīrījuši korupciju. Tagad atgriezīsimies pie fiziskās cīņas."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Redzi, Šogun? Dažreiz jums ir jāpieņem kļūme."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: KODA TĪRĪŠANA. 7. SEKTORA KODOLS PĀRSLOGTS. KONTINENTĀLĀ APTUŠANĀS UZSĀKTS."
+        }
+      ]
+    },
+    "12": {
+      "title": "7. sektora kontrolpunkts (Šķērsiela)",
+      "arc": "act2_arc3",
+      "setting": "7. sektora kontrolpunkts kontrolē visu tranzītu starp ziemeļu kalnu kopienām, austrumu tuksneša apmetnēm un piekrastes ierobežošanas zonām — darbojas kā piegādes aizlieguma centrs, kas apliek ar nodokļiem, aizkavē un konfiscē preces, kas pārvietojas starp cilvēku kopienām.",
+      "objective": "Koordinējiet tautas sacelšanos, kurā piedalījās 847 civilie pretošanās dalībnieki, lai pastāvīgi ieņemtu 7. sektora kontrolpunktu un izveidotu to kā pirmo atbrīvoto tranzīta mezglu, ko kontrolē cilvēki.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Šis ir tas, ko es gaidīju. Nav sabotāžas misija. Nav laupīšana. Aplenkums — un mēs turam to, ko paņemam līdzi cilvēkiem, kas šeit dzīvo. Tā ir cita veida cīņa. Tā izskatās pretestība, kad tā pārstāj būt aizsardzības un sāk būt valdība, kas gaida."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Es izsekoju 847 apstiprinātus civilās pretošanās dalībniekus, kas organizējas ziemeļu inscenēšanas zonā. Tie nav apmācīti karavīri. Viņiem ir lauksaimniecības instrumenti, izglābtas celtniecības iekārtas, divi funkcionāli transportlīdzekļi un uzkrātas dusmas par to, kas ir nodarīts viņu kopienai. Viņi lūdza man pateikt Axiom Force vienu lietu: viņi ir gaidījuši, kad kāds cīnīsies ar viņiem, nevis viņu dēļ. Lūdzu, nekavējieties."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Tā ir viņu reģionālās paplašināšanās sirds. Katra Xelthara konstrukcija tūkstoš jūdžu garumā darbojas ar šo nozagto jaudu. Iznīcini to, un koloniālā ekspansija mirst, kad mēs atgūstam paņemto."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Nexus ir ekranēts. Tiešs uzbrukums nav iespējams. Mums ir jāuzsāk kontrolēta pārslodze. Ir trīs primārie dzesēšanas stieņi. Tie ir jāizņem vienlaikus, pretējā gadījumā sistēma automātiski stabilizējas."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Trīs mērķi. Aegis, jūs un Matrix rīkojat stieņus Viens un divi. Es nodrošināšu Rod Three."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kopēt. Bet galvenais terminālis ir atklāts. Ķeizariene, jūs nevarēsit uzsākt secību, ja tai būs nepieciešams plazmas uzliesmojums."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, tas ir tavs darbs. Jums ir jāaizsargā terminālis, kamēr es ievadu atteices kodus. Shogun, Matrix — nokļūstiet savās pozīcijās. Man vajag visus stieņus izvilkt uz manas zīmes."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminālis nodrošināts. Vairogs ir augšā! AIZSARDZĪBAS PROTOKOLS AKTĪVS! Jums ir savs logs, ķeizariene!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Sākta pārslodzes secība. Tas prasa tūlītēju, secīgu stresu. Stieņu komandas, gatavojieties ieguvei."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Gatavs uz Rod One. Šeit rodas nepatīkama statiskā izlāde. Tas sāpēs."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Gods prasa upuri. Gatavs, ķeizariene."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Atpakaļskaitīšanas sākšana. T-mīnus pieci. Četri. Ronin, palieliniet vairoga jaudu! Trīs. Divas."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Zemes godam!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "VIENS. VELK!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Pamata temperatūra paaugstinās! Sasniegta katastrofāla pārslodze! Ķeizariene, jums ir 30 sekundes, lai bloķētu secību un izvilktu!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, pārej uz ieguves punktu! Es bloķēju gala kodu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nē, komandieri! Es pērku jums laiku! Man aiz muguras sabrūk dienesta tilts!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "LAUZ UN SADEDZIET!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ievadīts pēdējais kods! Kodola bloķēšana ir veiksmīga! SKRIEN!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Nexus reaktors... iznīcināts. Reģionālās terraformēšanas jauda bezsaistē."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Lielisks trieciens, ķeizariene. Xelthara tagad ir akli un bezspēcīgi šajā sektorā."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Turpināsim kustēties. Šis sprādziens mums vienkārši uzlika mērķi uz visas planētas."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA BEIGTA: SIRDS TRAKME. 7. SEKTORS ATBRĪVOTS KONTROLES PUNKTS."
+        }
+      ]
+    },
+    "13": {
+      "title": "Obsidian Vault (kultūras arhīvs)",
+      "arc": "act2_arc3",
+      "setting": "Obsidian Vault, kas atrodas zem bijušā Getty centra, ir koloniālās administrācijas primārais kultūras konfiskāciju arhīvs. Šeit tiek glabāta sākotnējā zemes līguma datu bāze — visaptverošs ieraksts par cilvēku zemes īpašumtiesībām pirms iebrukuma piecus gadsimtus senā pagātnē — tā ir klasificēta kā \"Atklātie mantojuma aktīvi\".",
+      "objective": "Iefiltrējieties Obsidian Vault, izņemiet oriģinālo zemes līguma datu bāzi un visus valodas un mutvārdu vēstures arhīvus un iznīciniet fizisko katalogu sistēmu, lai neatgriezeniski apturētu koloniālās kultūras apstrādes cauruļvadu.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Karotāja godu nosaka tas, ko viņš aizsargā tikpat daudz, cik tas, ko viņš iznīcina. Šovakar es kaut ko aizsargāju. Ieraksti, kas atrodas šajā velvē, ir pierādījums tam, ka mēs šeit pastāvējām pirms viņu ierašanās — ka mums bija nosaukumi šai zemei, uz tās tika uzcelti, tika tajā apglabāti, stāstīts par to gadsimtiem ilgi. Ja viņi izdzēš šo pierādījumu, viņi var rakstīt jebkuru vēsturi, ko vēlas. Es neļaušu tam notikt."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Obsidian Vault ir 4,2 miljoni kataloģizētu artefaktu un ierakstu. No tiem 340 000 ir atzīmēti iznīcināšanai kā \"nebūtiska atlaišana\". Pagājušajā mēnesī vien tika iznīcināti septiņpadsmit tūkstoši priekšmetu. Man ir visu vārdi. Es vēlos, lai jūs to zinātu, pirms ieejat. Tas, ko mēs šovakar ietaupām, ir tas, kas paliek. To, kas jau ir pagājis, nevar atgūt. Bet vēl ir ko glābt."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Laipni lūdzam Gauntlet. Šis tilts ir viņu kolonistu okupācijas simbols. Mēs atsakāmies, lai mūs izdzēš viņu arhitektoniskā augstprātība."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Stratēģijas atjauninājums: šeit mēs nevaram izmantot tālsatiksmes taktiku. Citadeles aizsardzības režģis iztvaicēs jebkuru dronu virs 50 pēdām. Mums šis tilts jāpārkāpj kājām. Roņins, Šoguns — jūs vadāt grūdienu. Matrix, gaidiet tūlītējus perimetra uzliesmojumus."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Man labi. Ja viņi vēlas cīnīties, viņi iegūs galīgo pozīciju. Vairogs augšā! DZELZS SIENA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Gods tiek nopelnīts tīģelī. Ļaujiet viņiem pārbaudīt mūsu spēkus."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ienākošā artilērija! Aegis Ronin, palieliniet vairoga izplatību!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "TURĒT! Es jūtu ozona garšu no tiem plazmas uzliesmojumiem! Šogun, kusties!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "TURPMĀK! Viņu līnija ir jāpārtrauc. Iesaistiet pirmo Elite Sentinels vilni!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Necienīgi! KATA SHIKEN! Ronin, virzies uz priekšu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Spiežam! Dod man mērķi, Sirēna, es esmu akls zem šīs uguns!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, javas koordinātes 42 grādi pareizi! Pārvietojiet savu vairogu par pilnu metru pa kreisi!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Paldies, komandier! Matrix, man vajag novērst uzmanību tālākajos torņos!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ciparu trokšņa mešana galvenajā lielgabala optikā! Tas neturpināsies ilgi! AIZIET!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Atklātas drupinātāja vienības! Kinētiskie ieroči neefektīvi! Cyber ​​Shogun, pārslēdzieties uz augstas ražības plazmas izvadi!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Viņi paļaujas uz bruņām. Es paļaujos uz ātrumu un siltuma kodola jaudu. GODS IR KARSTĀKS PAR PLAZMU!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "MANS VAIROGS IR 30%! ES ŅEMU TIEŠOS HITU! STEIDZIES, SHOGUN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Viens uz leju! Divi uz leju! Saglabā vairogu, Ronin! Man vajag vēl trīs sekundes!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "TRĪS SEKUNDES IR VISS, KAS MAN IR!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Drupinātāji neitralizēti. Aegis, atkāpies un uzlādējiet vairogu! Es turēšu tūlītēju priekšu!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tas nav ilgtspējīgi! AXIOM, atrodi alternatīvu maršrutu!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negatīvs. Vienīgā iespēja ir sasniegt tālāko tilta konsoli un aktivizēt seismiskos destabilizatorus."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Tad mēs cīnāmies un mirstam ar godu! Aegis, ielieciet visu, kas jums ir palicis pēdējā, uz priekšu pulsā! Dod man impulsu, lai šķērsotu pēdējo posmu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Ar prieku! KINĒTISKĀ IZLAIDE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Konsole sasniegta! Tiek uzsākta seismiska destabilizācija!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Destabilizācija veiksmīga. Misija pabeigta."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Es tev teicu... nekas nesalauž mūsu sienu."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nē. Nekas nepārkāpj mūsu gribu."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: IZPAUTA OBSIDIĀNA VELVE. IZVĒSTĪTI KULTŪRAS ARHĪVI."
+        }
+      ]
+    },
+    "14": {
+      "title": "Citadeles pieeja (The High Command Bridge)",
+      "arc": "act2_arc3",
+      "setting": "Pēdējais 400 metru nocietinātais tilts pāri nosusinātajai LA upei — vienīgā virsmas līmeņa pieeja Xelthara High Command citadelei, kas uzbūvēta virs nojauktās Boila augstienes kopienas. Xelthara izstrādāja šo pieeju kā neizbraucamu.",
+      "objective": "Stiepieties pāri 400 metru tiltam zem ilgstošas artilērijas uguns, lai sasniegtu Citadeles ieejas vārtus — tas ir nerimstošs virziens, izmantojot Ronina vairogu un Sirēnas drona aizsprostu.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Esmu vadījis taktiskos modeļus septiņpadsmit reizes. Katra versija ietver bojājumu absorbēšanu, ko mēs nevaram pilnībā mazināt. Ronina vairogs būs uz 10%, pirms mēs sasniegsim vārtus. Es lūdzu viņus iet cauri nogalināšanas laukam, jo ​​tās ir vienīgās durvis. Xelthara to tā izveidoja ar nolūku, lai brīvības izmaksas būtu pietiekami augstas, lai atturētu no mēģinājuma. Mēs neesam mazdūšīgi."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Es vēlos kaut ko pateikt, pirms tas sākas. Esmu veicis varbūtības novērtējumu katrā šīs kampaņas misijā. Es jums nedodu numuru šim numuram. Ne tāpēc, ka tas tevi apturētu. Jo jūs jau esat izlēmuši. Un skaitlim nav nozīmes cilvēkiem, kuri jau ir izlēmuši. Es būšu ar jums ik uz tilta soļa. Es nenovērsīšu skatienu."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Tiesas diena (galīgā atbrīvošana)",
+      "arc": null,
+      "setting": "Augstā pārrauga troņa zāle — platforma, kas piekārta virs degošajām Neo-LA drupām, kur Xelthara koloniālās okupācijas augstākais komandieris gaida pēdējo konfrontāciju.",
+      "objective": "Sakauj Xelthara High Overseer, izmantojot Axiom Force apvienotos Ultimate Protocols saskaņotā pēdējā uzbrukumā.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Jūs cīnāties par pamatiedzīvotāju suverenitāti pret neizbēgamo koloniālās asimilācijas paisumu. Šī planēta ir tikai nekustamais īpašums mūsu lielajā dizainā, un jūsu vēsture ir digitālais troksnis, kas jāizdzēš."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mēs esam šīs pasaules dvēsele, nevis jūsu īpašums. Mēs apliecinām savu pamatiedzīvotāju suverenitāti pār mūsu dzimteni! Mēs atsakāmies no jūsu koloniālās asimilācijas; Zeme pieder tās iedzīvotājiem, nevis jūsu projektiem!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Es esmu savu senču asmens un balss pasaulei, kuru tu centies apklusināt. Jūs mūs saucat par kukaiņiem, bet aizmirsāt vienu lietu par Zemi: mēs ne tikai izturam. Mēs sitam pretī."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Tad sadeg ar savu planētu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Brīdinājums! Pārrauga enerģijas izlaide pie 400%. Axiom Force, izpildiet Ultimate Protocol: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Nav manā pulkstenī! GALĪGAIS: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Bloķēšanas koordinātas! GALĪGAIS: NEDERĪGS LIETUS!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Viņš ir atvērts! GALĪGAIS: KOPĒJĀ SISTĒMAS SAKRŪTĪBA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Par dzimteni! GALĪGAIS: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Okupācijas signāli ir beigušies. Atmosfēra stabilizējas. Jūs to esat izdarījuši. Zeme ir... atkal mājas."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Es tiešām redzu zvaigznes. Nevis digitālās. Īstās."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Es domāju, ka es atradīšu klusu vietu un gulēšu desmit gadus."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Zobens ir apšūts. Cilvēces gods tiek atjaunots."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Mums ir pasaule, kas jāatjauno. Bet šodien... šodien mēs vienkārši elpojam."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misija veiksmīga. Automatizētais ārējās izlūkošanas operāciju modulis... izrakstīšanās. Lai veicas, varoņi."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: SPRIEDUMA DIENA. AUGSTS UZRAUDZĪTĀJS IR UZVARĒTS. ZEME ATGŪTA."
+        }
+      ]
+    },
+    "16": {
+      "title": "Īsts kulminācijas/pēcspēles bonuss",
+      "arc": null,
+      "setting": "Xelthara Mothership's Singularity Engine kamera — tīras nestabilas enerģijas kamera kolektīva spēka centrā, kur izpaužas pati kolektīvā griba.",
+      "objective": "Iznīcini Kolektīvās gribas Singularity Engine kodolu, koordinējot ģeneratora pārslodzi un pēdējo kombinēto triecienu, pirms mātes kuģis pabeidz Zemes dzēšanu.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Tas atrodas ārpus ierobežošanas zonas. Mani instrumenti nedarbojas. Pats telpas audums šeit ir nestabils. Tai ir jābūt Mothership patiesajai sirdij."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara augstais pārraugs bija tikai bandinieks. Šis spēks... tas ir okupācijas avots. Kolektīvā griba."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Es jūtu tīro datu plūsmu, Šogun. Tas mēģina pārrakstīt manu neironu kodolu. Mēs šeit nepiederam. Mums jāiesit tam dzinējam un jākāpj ārā."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Jūs esat lokalizēta anomālija grandiozā dizainā. Visa esamība ir aizstājams resurss mūsu paplašināšanai. Jūsu dzimtene jau ir iekļauta mūsu galīgajā dzēšanas vienādojumā."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Esamība, ja? Tad parādīsim Esamībai, kas notiek, kad tu jauc ar Zemi! Ronin, iesaistot perimetra sargus!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, turi tos aizbildņus aizņemt! Matrix, Shogun, sitiet ģeneratorus uz augšējām smailēm! Mums ir jāizjauc magnētiskais lauks, pirms es varu mērķēt uz kodolu!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Es esmu pozīcijā Generator One! Drošības slēdzeņu ignorēšana!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Otrais ģenerators nodrošināts! Tas ir pagaidu pasākums, ķeizariene! Kolektīvā griba koncentrē savu enerģiju uz mums!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Jūs nevarat izvairīties no vienādojuma. Jūsu māja jau ir iekļauta mūsu lieliskajā dizainā."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Man ir logs! Matrix, Shogun — uzlādējiet šos ģeneratorus līdz maksimālai pārslodzei!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kodols atklāts! AXIOM, man ir vajadzīgas galamērķa koordinātas!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "...pēdējā trajektorija... jums jāsasniedz savienojuma punkts... nulle-nulle-nulle..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "es saprotu. Ronin, atgriezies šeit! Sagatavojieties aizstāvēt pārkāpuma punktu! Šis ir kamikadzes streiks!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Visi aiz manis! Trieciena vilnis tuvojas! GALĪGAIS: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Es ignorēju ierobežošanas laukus! Tas notiek kritiski!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Orbitālais trieciens gatavs! Es atmetu visu, kas mums ir šajā kodolā!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Zemei! CILVĒCĪBAI! STREIKO TAGAD! GALĪGAIS: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Vai... mēs aizbēgām?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Es nezinu... bet Mātes kuģis ir pazudis. Griba klusē."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Mēs uzvarējām karu, kungi. Tagad mums tikai jāuzvar brauciens uz mājām."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Es domāju... es redzu Zemi. Tik tīrs. Tik zils."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, šī ir atkopšanas komanda. Mēs tevi lasām. Jūsu sistēmas ir nominālas. Laipni lūgti mājās, varoņi."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA PABEIGTA: PATIESAIS KLIMAXS. KOLEKTĪVS IZCUSĪS. BEIGAS. BET CĪŅA TURPINĀS."
+        }
+      ]
+    }
   }
 }
