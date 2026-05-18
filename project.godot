@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Global="*res://assets/scenes/global.gd"
 SessionManager="*res://assets/scenes/SessionManager.cs"
+NarrativeManager="*res://assets/narrative/NarrativeManager.gd"
 
 [display]
 
