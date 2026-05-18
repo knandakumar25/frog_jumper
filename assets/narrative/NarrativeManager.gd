@@ -5,7 +5,7 @@
 ## retrieving structured level data and dialogue lines.
 ##
 ## JSON file naming convention: res://assets/narrative/{locale}.json
-## Falls back to "en" if the requested locale is not found.
+## Falls back to "english" if the requested locale file is not found.
 ##
 ## Usage:
 ##   NarrativeManager.get_level(5)          -> Dictionary with .title, .setting, .objective, etc.
@@ -20,7 +20,7 @@ extends Node
 # ---------------------------------------------------------------------------
 
 const NARRATIVE_DIR := "res://assets/narrative/"
-const FALLBACK_LOCALE := "en"
+const FALLBACK_LOCALE := "english"
 
 # ---------------------------------------------------------------------------
 # Private state
