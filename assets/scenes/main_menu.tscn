@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cwp7b6o11ii16"]
 
-[ext_resource type="Script" path="res://assets/scenes/MainMenu.cs" id="1_hgd46"]
-[ext_resource type="Texture2D" uid="uid://dh3k9m2n5p8q1" path="res://assets/images/cyber_city_dusk_background.png" id="2_v0073"]
+[ext_resource type="Script" uid="uid://s2aukf1vgcnf" path="res://assets/scenes/MainMenu.cs" id="1_hgd46"]
+[ext_resource type="Texture2D" uid="uid://dh3lam2n5p8q1" path="res://assets/images/Gemini_Generated_Image_t8s2p4t8s2p4t8s2.png" id="2_v0073"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
 [ext_resource type="FontFile" uid="uid://clroefbjk4kiv" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="3_comic_bolditalic"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
@@ -438,9 +438,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Play"
 
-[node name="ContinueButton" type="Button" parent="ButtonContainer"]
-visible = false
+[node name="ContinueButton" type="Button" parent="ButtonContainer" unique_id=1219863040]
 auto_translate_mode = 1
+visible = false
 custom_minimum_size = Vector2(500, 120)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -1082,7 +1082,7 @@ text = "Close"
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="NewGamePopup" type="Panel" parent="."]
+[node name="NewGamePopup" type="Panel" parent="." unique_id=993984160]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1097,7 +1097,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NewGamePopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NewGamePopup" unique_id=991193288]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1105,11 +1105,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="NewGamePopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="NewGamePopup/VBoxContainer" unique_id=767908048]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Message" type="Label" parent="NewGamePopup/VBoxContainer"]
+[node name="Message" type="Label" parent="NewGamePopup/VBoxContainer" unique_id=1458301845]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -1119,15 +1119,15 @@ text = "Start New Game?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="NewGamePopup/VBoxContainer"]
+[node name="Spacer" type="Control" parent="NewGamePopup/VBoxContainer" unique_id=725599029]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="NewGamePopup/VBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="NewGamePopup/VBoxContainer" unique_id=896705299]
 layout_mode = 2
 alignment = 1
 
-[node name="ConfirmButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
+[node name="ConfirmButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer" unique_id=45080044]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -1141,11 +1141,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Yes"
 
-[node name="ButtonSpacer" type="Control" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
+[node name="ButtonSpacer" type="Control" parent="NewGamePopup/VBoxContainer/ButtonContainer" unique_id=1752486551]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="CancelButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
+[node name="CancelButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer" unique_id=1555424930]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -1159,11 +1159,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "No"
 
-[node name="BottomSpacer" type="Control" parent="NewGamePopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="NewGamePopup/VBoxContainer" unique_id=1955303009]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ContinuePopup" type="Panel" parent="."]
+[node name="ContinuePopup" type="Panel" parent="." unique_id=976346447]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1178,7 +1178,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContinuePopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContinuePopup" unique_id=1889551354]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1186,11 +1186,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="ContinuePopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=1049827262]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="ContinuePopup/VBoxContainer"]
+[node name="Title" type="Label" parent="ContinuePopup/VBoxContainer" unique_id=1013226931]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -1200,23 +1200,23 @@ text = "Select Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer1" type="Control" parent="ContinuePopup/VBoxContainer"]
+[node name="Spacer1" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=1936048558]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ContinuePopup/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ContinuePopup/VBoxContainer" unique_id=1909735158]
 custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
 
-[node name="SessionsContainer" type="VBoxContainer" parent="ContinuePopup/VBoxContainer/ScrollContainer"]
+[node name="SessionsContainer" type="VBoxContainer" parent="ContinuePopup/VBoxContainer/ScrollContainer" unique_id=429691061]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Spacer2" type="Control" parent="ContinuePopup/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=1041515367]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="ContinuePopup/VBoxContainer"]
+[node name="BackButton" type="Button" parent="ContinuePopup/VBoxContainer" unique_id=1299514755]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
@@ -1231,11 +1231,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Back"
 
-[node name="BottomSpacer" type="Control" parent="ContinuePopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=832363968]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ConfirmPopup" type="Panel" parent="."]
+[node name="ConfirmPopup" type="Panel" parent="." unique_id=1936297070]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1250,7 +1250,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPopup" unique_id=1762329342]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1258,11 +1258,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopSpacer" type="Control" parent="ConfirmPopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=1167531144]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ConfirmLabel" type="Label" parent="ConfirmPopup/VBoxContainer"]
+[node name="ConfirmLabel" type="Label" parent="ConfirmPopup/VBoxContainer" unique_id=1560576393]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -1272,15 +1272,15 @@ text = "Continue with this game?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="ConfirmPopup/VBoxContainer"]
+[node name="Spacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=375653628]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="ConfirmPopup/VBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="ConfirmPopup/VBoxContainer" unique_id=266056815]
 layout_mode = 2
 alignment = 1
 
-[node name="YesButton" type="Button" parent="ConfirmPopup/VBoxContainer/ButtonContainer"]
+[node name="YesButton" type="Button" parent="ConfirmPopup/VBoxContainer/ButtonContainer" unique_id=2119963784]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -1294,11 +1294,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Yes"
 
-[node name="ButtonSpacer" type="Control" parent="ConfirmPopup/VBoxContainer/ButtonContainer"]
+[node name="ButtonSpacer" type="Control" parent="ConfirmPopup/VBoxContainer/ButtonContainer" unique_id=1628220593]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="NoButton" type="Button" parent="ConfirmPopup/VBoxContainer/ButtonContainer"]
+[node name="NoButton" type="Button" parent="ConfirmPopup/VBoxContainer/ButtonContainer" unique_id=993043488]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -1312,7 +1312,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "No"
 
-[node name="BottomSpacer" type="Control" parent="ConfirmPopup/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=1913211128]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
@@ -1368,4 +1368,3 @@ text = "No"
 [connection signal="pressed" from="ContinuePopup/VBoxContainer/BackButton" to="." method="_on_continue_back_pressed"]
 [connection signal="pressed" from="ConfirmPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_confirm_yes_pressed"]
 [connection signal="pressed" from="ConfirmPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_confirm_no_pressed"]
-

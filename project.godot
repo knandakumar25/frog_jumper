@@ -41,7 +41,7 @@ project/assembly_name="2d Platformer game"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg", "res://addons/meshy-godot-plugin/plugin.cfg")
 
 [gui]
 
