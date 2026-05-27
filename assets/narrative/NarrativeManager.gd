@@ -121,46 +121,46 @@ func reload_for_locale(locale: String) -> void:
 # ---------------------------------------------------------------------------
 
 func _load_for_locale(locale: String) -> void:
-	var path := NARRATIVE_DIR + locale + ".json"
-	if not FileAccess.file_exists(path):
-		if locale != FALLBACK_LOCALE:
-			push_warning(
-				"NarrativeManager: No narrative file for locale '%s', falling back to '%s'."
-				% [locale, FALLBACK_LOCALE]
-			)
-			path = NARRATIVE_DIR + FALLBACK_LOCALE + ".json"
-			locale = FALLBACK_LOCALE
-		else:
-			push_error(
-				"NarrativeManager: Fallback narrative file '%s' not found. Narrative data unavailable."
-				% path
-			)
-			_data = {}
-			_loaded_locale = ""
-			return
+			var path := NARRATIVE_DIR + locale + ".json"
+			if not FileAccess.file_exists(path):
+				if locale != FALLBACK_LOCALE:
+					push_warning(
+						"NarrativeManager: No narrative file for locale '%s', falling back to '%s'."
+						% [locale, FALLBACK_LOCALE]
+					)
+					path = NARRATIVE_DIR + FALLBACK_LOCALE + ".json"
+					locale = FALLBACK_LOCALE
+				else:
+					push_error(
+						"NarrativeManager: Fallback narrative file '%s' not found. Narrative data unavailable."
+						% path
+					)
+					_data = {}
+					_loaded_locale = ""
+					return
 
-	var file := FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		push_error("NarrativeManager: Could not open '%s' (error %d)." % [path, FileAccess.get_open_error()])
-		_data = {}
-		_loaded_locale = ""
-		return
+			var file := FileAccess.open(path, FileAccess.READ)
+			if file == null:
+				push_error("NarrativeManager: Could not open '%s' (error %d)." % [path, FileAccess.get_open_error()])
+				_data = {}
+				_loaded_locale = ""
+				return
 
-	var json := JSON.new()
-	var err := json.parse(file.get_as_text())
-	file.close()
+			var json := JSON.new()
+			var err := json.parse(file.get_as_text())
+			file.close()
 
-	if err != OK:
-		push_error(
-			"NarrativeManager: JSON parse error in '%s' at line %d: %s"
-			% [path, json.get_error_line(), json.get_error_message()]
-		)
-		_data = {}
-		_loaded_locale = ""
-		return
+			if err != OK:
+				push_error(
+					"NarrativeManager: JSON parse error in '%s' at line %d: %s"
+					% [path, json.get_error_line(), json.get_error_message()]
+				)
+				_data = {}
+				_loaded_locale = ""
+				return
 
-	_data = json.data as Dictionary
-	_loaded_locale = locale
-	print("NarrativeManager: Loaded narrative for locale '%s' (%d levels)."
-		% [locale, (_data.get("levels", {}) as Dictionary).size()])
-		  # ...existing code...
+			_data = json.data as Dictionary
+			_loaded_locale = locale
+			print("NarrativeManager: Loaded narrative for locale '%s' (%d levels)."
+				% [locale, (_data.get("levels", {}) as Dictionary).size()])
+	# ...existing code...
