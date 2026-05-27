@@ -94,3 +94,37 @@ addons/
 - Music generated with **MusicGPT** (*Dystopian Dawn*)
 - Font — [Comic Neue](https://comicneue.com/) & [Noto Sans](https://fonts.google.com/noto)
 - SQLite plugin — [godot-sqlite](https://github.com/2shady4u/godot-sqlite)
+
+---
+
+## Ink Narrative Integration
+
+This project uses the official Ink C# runtime to power interactive narrative sequences.
+
+### How to Use
+
+1. **Compile your Ink stories to JSON**
+   - Use [Inky](https://www.inklestudios.com/ink/) or the `inklecate` CLI to compile `.ink` files to `.json`.
+   - Place the compiled JSON files in `assets/narrative/`.
+   - Name them by locale, e.g. `english.json`, `japanese.json`.
+
+2. **InkManager API**
+   - The singleton `InkManager` loads the appropriate JSON file for the current locale.
+   - **Methods:**
+     - `InkManager.Instance.Continue()` — returns the next line of story text
+     - `InkManager.Instance.CanContinue()` — returns `true` if more story text is available
+     - `InkManager.Instance.GetChoiceCount()` — returns the number of current choices
+     - `InkManager.Instance.GetChoiceText(index)` — returns the text for a given choice
+     - `InkManager.Instance.ChooseChoiceIndex(index)` — selects a choice and advances the story
+
+3. **Example Usage**
+   ```csharp
+   if (InkManager.Instance.CanContinue())
+       GD.Print(InkManager.Instance.Continue());
+   for (int i = 0; i < InkManager.Instance.GetChoiceCount(); i++)
+       GD.Print($"Choice {i}: {InkManager.Instance.GetChoiceText(i)}");
+   // To select a choice:
+   InkManager.Instance.ChooseChoiceIndex(0); // choose the first option
+   ```
+
+> The Ink runtime expects compiled JSON, not raw `.ink` files.

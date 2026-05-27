@@ -18,7 +18,7 @@ var typewriter_timer: float = 0.0
 
 func _ready() -> void:
 	Global.play_menu_music()
-	
+
 	# Setup dialogue lines with translation support
 	dialogue_lines = [
 		"[center][color=#00FF00]" + tr("STORY_LINE_1") + "[/color][/center]\n\n" + tr("STORY_LINE_1_INTRO"),
@@ -31,15 +31,15 @@ func _ready() -> void:
 		tr("STORY_LINE_8"),
 		tr("STORY_LINE_9")
 	]
-	
+
 	# Hide continue button initially
 	continue_button.visible = false
 	dialogue_label.visible_characters = 0
-	
+
 	# Start robot animation if sprite frames are configured
 	if robot_sprite.sprite_frames != null:
 		robot_sprite.play()
-	
+
 	# Start first dialogue line
 	_start_next_line()
 

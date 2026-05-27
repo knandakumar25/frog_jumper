@@ -163,3 +163,4 @@ func _load_for_locale(locale: String) -> void:
 	_loaded_locale = locale
 	print("NarrativeManager: Loaded narrative for locale '%s' (%d levels)."
 		% [locale, (_data.get("levels", {}) as Dictionary).size()])
+		  # ...existing code...

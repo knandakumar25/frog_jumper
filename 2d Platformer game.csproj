@@ -1,4 +1,4 @@
-<Project Sdk="Godot.NET.Sdk/4.6.2">
+<Project Sdk="Godot.NET.Sdk/4.6.3">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net10.0</TargetFramework>
@@ -6,5 +6,30 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="assets\scenes\InkManager.tscn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Void.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\VariablesState.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\VariableReference.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\VariableAssignment.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Value.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Tag.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\StringJoinExtension.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\StoryState.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\StoryException.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Story.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\StatePatch.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\SimpleJson.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\SearchResult.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\PushPop.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Profiler.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Pointer.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Path.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\Object.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\NativeFunctionCall.cs" />
+    <Compile Include="addons\ink\ink-master\ink-engine-runtime\ListDefinitionsOrigin.cs" />
+  </ItemGroup>
 </Project>
 
