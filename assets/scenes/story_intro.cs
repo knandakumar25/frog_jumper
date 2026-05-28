@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public partial class StoryIntro : Control
 {
-    private AnimatedSprite2D robotSprite;
-    private Panel dialogueBox;
-    private RichTextLabel dialogueLabel;
-    private Button continueButton;
-    private Button skipButton;
+    private AnimatedSprite2D? robotSprite;
+    private Panel? dialogueBox;
+    private RichTextLabel? dialogueLabel;
+    private Button? continueButton;
+    private Button? skipButton;
 
     private List<string> dialogueLines = new();
     private int currentLineIndex = 0;
@@ -19,20 +19,32 @@ public partial class StoryIntro : Control
 
     public override void _Ready()
     {
-        robotSprite = GetNode<AnimatedSprite2D>("HBoxContainer/RobotContainer/RobotSprite");
-        dialogueBox = GetNode<Panel>("HBoxContainer/DialogueBox");
-        dialogueLabel = GetNode<RichTextLabel>("HBoxContainer/DialogueBox/MarginContainer/DialogueLabel");
-        continueButton = GetNode<Button>("ContinueButton");
-        skipButton = GetNode<Button>("SkipButton");
+        // Safely get nodes (will warn if missing instead of throwing)
+        robotSprite = GetNodeOrNull<AnimatedSprite2D>("HBoxContainer/RobotContainer/RobotSprite");
+        dialogueBox = GetNodeOrNull<Panel>("HBoxContainer/DialogueBox");
+        dialogueLabel = GetNodeOrNull<RichTextLabel>("HBoxContainer/DialogueBox/MarginContainer/DialogueLabel");
+        continueButton = GetNodeOrNull<Button>("ContinueButton");
+        skipButton = GetNodeOrNull<Button>("SkipButton");
 
         // Load dialogue from InkManager
         var inkManager = InkManager.Instance;
         if (inkManager != null)
         {
-            var inkText = inkManager.GetInkStory();
-            if (!string.IsNullOrEmpty(inkText))
+            // If there's an active story, gather its continuations into lines.
+            if (inkManager.HasStory())
             {
-                dialogueLines = new List<string>(inkText.Split("\n\n"));
+                var parts = new List<string>();
+                while (inkManager.CanContinue())
+                {
+                    var part = inkManager.Continue();
+                    if (!string.IsNullOrEmpty(part))
+                        parts.Add(part);
+                }
+
+                if (parts.Count > 0)
+                    dialogueLines = parts;
+                else
+                    dialogueLines = new List<string> {"[color=red]No story found.[/color]"};
             }
             else
             {
@@ -44,13 +56,27 @@ public partial class StoryIntro : Control
             dialogueLines = new List<string> {"[color=red]InkManager not found.[/color]"};
         }
 
-        continueButton.Visible = false;
-        dialogueLabel.VisibleCharacters = 0;
-        if (robotSprite.SpriteFrames != null)
+        // Initialize UI state defensively
+        if (continueButton != null)
+            continueButton.Visible = false;
+        else
+            GD.PrintErr("StoryIntro: ContinueButton node not found");
+
+        if (dialogueLabel != null)
+            dialogueLabel.VisibleCharacters = 0;
+        else
+            GD.PrintErr("StoryIntro: DialogueLabel node not found");
+
+        if (robotSprite != null && robotSprite.SpriteFrames != null)
             robotSprite.Play();
+
+        // Connect signals before starting the typewriter
+        if (continueButton != null)
+            continueButton.Pressed += OnContinueButtonPressed;
+        if (skipButton != null)
+            skipButton.Pressed += OnSkipButtonPressed;
+
         StartNextLine();
-        continueButton.Pressed += OnContinueButtonPressed;
-        skipButton.Pressed += OnSkipButtonPressed;
     }
 
     public override void _Process(double delta)
@@ -64,12 +90,14 @@ public partial class StoryIntro : Control
                 currentCharIndex++;
                 if (currentCharIndex <= currentText.Length)
                 {
-                    dialogueLabel.VisibleCharacters = currentCharIndex;
+                    if (dialogueLabel != null)
+                        dialogueLabel.VisibleCharacters = currentCharIndex;
                 }
                 else
                 {
                     isTyping = false;
-                    continueButton.Visible = true;
+                    if (continueButton != null)
+                        continueButton.Visible = true;
                 }
             }
         }
@@ -80,11 +108,19 @@ public partial class StoryIntro : Control
         if (currentLineIndex < dialogueLines.Count)
         {
             currentText = dialogueLines[currentLineIndex];
-            dialogueLabel.Text = currentText;
+            if (dialogueLabel != null)
+                dialogueLabel.Text = currentText;
+
             currentCharIndex = 0;
-            dialogueLabel.VisibleCharacters = 0;
+
+            if (dialogueLabel != null)
+                dialogueLabel.VisibleCharacters = 0;
+
             isTyping = true;
-            continueButton.Visible = false;
+
+            if (continueButton != null)
+                continueButton.Visible = false;
+
             typewriterTimer = 0f;
         }
         else
@@ -97,9 +133,11 @@ public partial class StoryIntro : Control
     {
         if (isTyping)
         {
-            dialogueLabel.VisibleCharacters = -1;
+            if (dialogueLabel != null)
+                dialogueLabel.VisibleCharacters = -1;
             isTyping = false;
-            continueButton.Visible = true;
+            if (continueButton != null)
+                continueButton.Visible = true;
         }
         else
         {
@@ -124,13 +162,17 @@ public partial class StoryIntro : Control
         {
             if (keyEvent.Keycode == Key.Space || keyEvent.Keycode == Key.Enter)
             {
-                if (continueButton.Visible)
+                if (continueButton != null && continueButton.Visible)
+                {
                     OnContinueButtonPressed();
+                }
                 else if (isTyping)
                 {
-                    dialogueLabel.VisibleCharacters = -1;
+                    if (dialogueLabel != null)
+                        dialogueLabel.VisibleCharacters = -1;
                     isTyping = false;
-                    continueButton.Visible = true;
+                    if (continueButton != null)
+                        continueButton.Visible = true;
                 }
             }
         }
