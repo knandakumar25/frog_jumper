@@ -1,0 +1,17 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-deep);
+}
+
+main {
+  flex: 1;
+}
+
+/* Section alternating backgrounds */
+#story   { background: var(--color-bg-deep); }
+#characters { background: var(--color-bg-dark); }
+#levels  { background: var(--color-bg-deep); }
+#features { background: var(--color-bg-dark); }
+#controls { background: var(--color-bg-deep); }

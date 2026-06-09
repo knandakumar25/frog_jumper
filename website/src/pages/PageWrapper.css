@@ -1,0 +1,108 @@
+/* =============================================
+   Shared Page Wrapper Styles
+   ============================================= */
+
+.page-wrapper {
+  min-height: 100vh;
+}
+
+/* Page-level hero banner (smaller than main hero) */
+.page-hero {
+  position: relative;
+  padding: 160px 0 60px;
+  overflow: hidden;
+  background: var(--color-bg-dark);
+}
+
+/* Unique accent backgrounds per page */
+.page-hero--story {
+  background:
+    radial-gradient(ellipse 70% 80% at 10% 50%, rgba(155, 77, 202, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 90% 50%, rgba(255, 77, 77, 0.08) 0%, transparent 70%),
+    var(--color-bg-dark);
+}
+
+.page-hero--characters {
+  background:
+    radial-gradient(ellipse 70% 80% at 90% 50%, rgba(0, 212, 255, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 50%, rgba(57, 211, 83, 0.06) 0%, transparent 70%),
+    var(--color-bg-dark);
+}
+
+.page-hero--levels {
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 100%, rgba(255, 203, 71, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 10% 0%, rgba(255, 77, 77, 0.06) 0%, transparent 70%),
+    var(--color-bg-dark);
+}
+
+.page-hero--features {
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 50%, rgba(155, 77, 202, 0.08) 0%, transparent 70%),
+    var(--color-bg-dark);
+}
+
+.page-hero--controls {
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(57, 211, 83, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 50%, rgba(0, 212, 255, 0.06) 0%, transparent 70%),
+    var(--color-bg-dark);
+}
+
+/* Subtle grid overlay on all page heroes */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Bottom fade into page content */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg-deep));
+  pointer-events: none;
+}
+
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3,7,18,0.3) 0%,
+    rgba(3,7,18,0.0) 60%
+  );
+  pointer-events: none;
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.page-hero__title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.page-hero__sub {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--color-text-secondary);
+  max-width: 540px;
+}

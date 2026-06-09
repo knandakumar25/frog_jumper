@@ -1,0 +1,194 @@
+.controls__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.controls__header .section-description { margin: 0 auto; }
+
+.controls__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Group */
+.controls__group {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.controls__group-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls__group-icon { font-size: 1.2rem; }
+
+/* Table */
+.controls__table {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.controls__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.controls__row:last-child { border-bottom: none; }
+
+.controls__action {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.controls__note {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+}
+
+.controls__keys {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.controls__or {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+}
+
+/* Keyboard key style */
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  padding: 4px 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 3px solid rgba(0,0,0,0.4);
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: var(--transition-smooth);
+}
+.key:hover {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: var(--color-primary);
+}
+
+/* Special moves */
+.controls__special {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.controls__special-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.controls__moves-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.controls__move {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid var(--move-color);
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+.controls__move:hover {
+  background: rgba(255,255,255,0.05);
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+}
+
+.controls__move-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+.controls__move-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.controls__move-name {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.controls__move-input {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--move-color);
+  letter-spacing: 0.08em;
+}
+
+/* Tip */
+.controls__tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  background: rgba(0, 212, 255, 0.04);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.controls__tip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.controls__tip strong { color: var(--color-primary); }
+
+@media (max-width: 768px) {
+  .controls__layout { grid-template-columns: 1fr; }
+  .controls__moves-grid { grid-template-columns: 1fr; }
+}
