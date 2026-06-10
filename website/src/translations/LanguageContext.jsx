@@ -161,8 +161,11 @@ export function LanguageProvider({ children }) {
   const hasMounted = useRef(false);
 
   useEffect(() => {
-    const storedCountry = localStorage.getItem('selectedCountry');
-    if (!storedCountry) {
+    // Only treat a stored country as valid if the user (or geo-detection) explicitly confirmed it
+    const userConfirmed = localStorage.getItem('userSelectedLocale') === '1';
+    if (!userConfirmed) {
+      // Clear any stale auto-detected data from previous sessions
+      localStorage.removeItem('selectedCountry');
       needsGeoFallback.current = true;
       setIsModalOpen(true);
     }
@@ -183,6 +186,7 @@ export function LanguageProvider({ children }) {
           lang?.countries.find(c => c.name === fallback.countryName) ||
           lang?.countries[0];
         if (lang && country) {
+          localStorage.setItem('userSelectedLocale', '1');
           setSelectedLanguage(fallback.langId);
           setSelectedCountry(country.name);
           const newLocale = getLocaleCode(fallback.langId, country.name, LANGUAGE_CONFIG);
@@ -218,6 +222,7 @@ export function LanguageProvider({ children }) {
   const chooseLanguageAndCountry = (langId, country) => {
     const actualLangId = country.langId || langId;
     needsGeoFallback.current = false; // user made an explicit choice
+    localStorage.setItem('userSelectedLocale', '1');
     setSelectedLanguage(actualLangId);
     setSelectedCountry(country.name);
     setIsModalOpen(false);
