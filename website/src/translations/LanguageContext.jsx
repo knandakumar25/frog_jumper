@@ -157,6 +157,8 @@ export function LanguageProvider({ children }) {
 
   // Track whether the modal was opened for a first-time visitor (no stored country)
   const needsGeoFallback = useRef(false);
+  // Skip the geo-detection effect on the very first render (isModalOpen starts false)
+  const hasMounted = useRef(false);
 
   useEffect(() => {
     const storedCountry = localStorage.getItem('selectedCountry');
@@ -168,6 +170,10 @@ export function LanguageProvider({ children }) {
 
   // When modal closes without the user picking a country, geo-detect and apply a default
   useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
     if (!isModalOpen && !selectedCountry && needsGeoFallback.current) {
       needsGeoFallback.current = false;
       detectGeoDefault().then(match => {
@@ -187,6 +193,7 @@ export function LanguageProvider({ children }) {
       });
     }
   }, [isModalOpen]);
+
 
   useEffect(() => {
     localStorage.setItem('selectedCountry', selectedCountry || '');
