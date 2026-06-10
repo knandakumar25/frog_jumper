@@ -83,6 +83,10 @@
   filter: drop-shadow(0 0 6px var(--color-primary));
 }
 
+.footer__logo-accent {
+  color: var(--color-primary);
+}
+
 .footer__brand-desc {
   font-size: 0.9rem;
   color: var(--color-text-secondary);

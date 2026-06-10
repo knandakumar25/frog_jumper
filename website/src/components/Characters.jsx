@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Characters.css';
 
 const CHARACTERS = [
@@ -6,57 +7,53 @@ const CHARACTERS = [
     id: 'ninja-frog',
     name: 'Ninja Frog',
     codename: 'SHADOW-1',
-    role: 'Infiltrator',
+    roleKey: 'characters.warriors.frog.role',
     color: '#39d353',
     glowColor: 'rgba(57, 211, 83, 0.5)',
-    description:
-      'A master of stealth and agility. The Ninja Frog can wall-jump and double-jump to reach impossible positions. Lightning-fast movement makes this warrior the ideal scout.',
+    descKey: 'characters.warriors.frog.desc',
     abilities: ['Wall Jump', 'Double Jump', 'Sprint', 'Shadow Strike'],
     stats: { speed: 95, power: 60, agility: 99, defense: 45 },
     spriteFile: 'Ninja Frog',
-    lore: '"They do not see me until it is too late. In the margins between their spotlights, I exist."',
+    loreKey: 'characters.warriors.frog.lore',
   },
   {
     id: 'mask-dude',
     name: 'Mask Dude',
     codename: 'PHANTOM-2',
-    role: 'Balanced Fighter',
+    roleKey: 'characters.warriors.dude.role',
     color: '#00d4ff',
     glowColor: 'rgba(0, 212, 255, 0.5)',
-    description:
-      'The masked warrior offers the perfect balance of offense and defense. Reliable in all situations, Mask Dude is the go-to choice for strategic gameplay.',
+    descKey: 'characters.warriors.dude.desc',
     abilities: ['Balanced Attack', 'Shield Block', 'Ground Slam', 'Recovery Jump'],
     stats: { speed: 75, power: 75, agility: 75, defense: 75 },
     spriteFile: 'Mask Dude',
-    lore: '"The mask is not a disguise. It is a declaration that I refuse to be recognized by their systems."',
+    loreKey: 'characters.warriors.dude.lore',
   },
   {
     id: 'pink-man',
     name: 'Pink Man',
     codename: 'NOVA-3',
-    role: 'Heavy Hitter',
+    roleKey: 'characters.warriors.pink.role',
     color: '#ff69b4',
     glowColor: 'rgba(255, 105, 180, 0.5)',
-    description:
-      'Do not let the color fool you. Pink Man is the powerhouse of the team — devastating attacks with high damage output and impressive defensive capabilities.',
+    descKey: 'characters.warriors.pink.desc',
     abilities: ['Power Strike', 'Charge Attack', 'Heavy Stomp', 'Rage Mode'],
     stats: { speed: 55, power: 99, agility: 50, defense: 85 },
     spriteFile: 'Pink Man',
-    lore: '"They laugh at my color. They stop laughing very quickly."',
+    loreKey: 'characters.warriors.pink.lore',
   },
   {
     id: 'virtual-guy',
     name: 'Virtual Guy',
     codename: 'MATRIX-4',
-    role: 'Tech Specialist',
+    roleKey: 'characters.warriors.guy.role',
     color: '#9b4dca',
     glowColor: 'rgba(155, 77, 202, 0.5)',
-    description:
-      'A digital consciousness embedded in a physical chassis. Virtual Guy can interface with enemy systems and exploit technical vulnerabilities that others cannot perceive.',
+    descKey: 'characters.warriors.guy.desc',
     abilities: ['EMP Burst', 'Hack Interface', 'Phase Shift', 'Data Siphon'],
     stats: { speed: 80, power: 65, agility: 88, defense: 55 },
     spriteFile: 'Virtual Guy',
-    lore: '"I live in the space between their firewalls. I am the ghost in their machine."',
+    loreKey: 'characters.warriors.guy.lore',
   },
 ];
 
@@ -82,20 +79,20 @@ function StatBar({ label, value, color }) {
 export default function Characters({ sprites, hideSectionHeader }) {
   const [activeChar, setActiveChar] = useState(0);
   const char = CHARACTERS[activeChar];
+  const { t } = useTranslation();
 
   return (
     <section className="characters section" id="characters">
       <div className="container">
         {!hideSectionHeader && (
           <div className="characters__header">
-            <span className="section-label">// warrior selection</span>
+            <span className="section-label">// {t('characters.briefing')}</span>
             <h2 className="section-title">
-              Choose Your <span className="text-gradient-primary">Fighter</span>
+              Choose Your <span className="text-gradient-primary">{t('characters.title')}</span>
             </h2>
             <div className="divider" />
             <p className="section-description">
-              Four elite warriors stand against the Xelthara occupation. Each brings
-              unique abilities to the fight for Earth's freedom.
+              {t('characters.desc')}
             </p>
           </div>
         )}
@@ -145,7 +142,7 @@ export default function Characters({ sprites, hideSectionHeader }) {
 
             {/* Lore quote */}
             <div className="characters__lore" style={{ borderColor: `${char.color}40` }}>
-              <span className="characters__lore-text">{char.lore}</span>
+              <span className="characters__lore-text">{t(char.loreKey)}</span>
             </div>
           </div>
 
@@ -157,17 +154,17 @@ export default function Characters({ sprites, hideSectionHeader }) {
               >
                 ◈ {char.codename}
               </span>
-              <span className="characters__role">{char.role}</span>
+              <span className="characters__role">{t(char.roleKey)}</span>
             </div>
 
             <h3 className="characters__name" style={{ textShadow: `0 0 30px ${char.glowColor}` }}>
               {char.name}
             </h3>
 
-            <p className="characters__description">{char.description}</p>
+            <p className="characters__description">{t(char.descKey)}</p>
 
             <div className="characters__abilities">
-              <h4 className="characters__abilities-title">ABILITIES</h4>
+              <h4 className="characters__abilities-title">{t('characters.abilities_title')}</h4>
               <div className="characters__ability-grid">
                 {char.abilities.map(ab => (
                   <div
@@ -183,11 +180,11 @@ export default function Characters({ sprites, hideSectionHeader }) {
             </div>
 
             <div className="characters__stats">
-              <h4 className="characters__stats-title">COMBAT STATS</h4>
+              <h4 className="characters__stats-title">{t('characters.stats_title')}</h4>
               {Object.entries(char.stats).map(([key, val]) => (
                 <StatBar
                   key={key}
-                  label={key.toUpperCase()}
+                  label={t(`characters.stats.${key.toLowerCase()}`)}
                   value={val}
                   color={char.color}
                 />
@@ -200,8 +197,7 @@ export default function Characters({ sprites, hideSectionHeader }) {
         <div className="characters__unlock">
           <span className="characters__unlock-icon">🔐</span>
           <span>
-            <strong>Cyber Shogun</strong> — Bonus unlockable character with sword & karate attacks.
-            Complete the campaign to unlock this legendary warrior.
+            <strong>Cyber Shogun</strong> — {t('characters.unlock')}
           </span>
         </div>
       </div>

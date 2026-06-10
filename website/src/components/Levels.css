@@ -308,3 +308,13 @@
   .levels__select-item { flex: 1 0 100%; }
   .levels__detail-bg { height: 200px; }
 }
+
+/* RTL Overrides */
+html[dir="rtl"] .levels__select-item {
+  text-align: right;
+}
+
+html[dir="rtl"] .levels__select-item::before {
+  left: auto;
+  right: 0;
+}

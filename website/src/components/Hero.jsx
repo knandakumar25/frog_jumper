@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Hero.css';
 
-const TYPEWRITER_LINES = [
-  'AXIOM-7 ONLINE',
-  'The year is 2157.',
-  'Earth has fallen under colonial occupation.',
-  'Four champions emerged from the margins.',
-  'Join the Homeland Liberation Front.',
-  'Reclaim what was taken.',
+const TYPEWRITER_KEYS = [
+  'footer.status',
+  'story.timeline.arrival_title',
+  'story.timeline.displacement_title',
+  'story.timeline.resistance_title',
+  'story.timeline.axiom_title',
+  'story.timeline.mission_title'
 ];
 
 export default function Hero({ bgImage }) {
@@ -15,9 +16,10 @@ export default function Hero({ bgImage }) {
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
-    const currentLine = TYPEWRITER_LINES[lineIndex];
+    const currentLine = t(TYPEWRITER_KEYS[lineIndex]);
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
@@ -33,13 +35,13 @@ export default function Hero({ bgImage }) {
           setCharIndex(c => c - 1);
         } else {
           setIsDeleting(false);
-          setLineIndex(i => (i + 1) % TYPEWRITER_LINES.length);
+          setLineIndex(i => (i + 1) % TYPEWRITER_KEYS.length);
         }
       }
     }, isDeleting ? 40 : 70);
 
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, lineIndex]);
+  }, [charIndex, isDeleting, lineIndex, t]);
 
   const handleScrollDown = () => {
     document.querySelector('#story')?.scrollIntoView({ behavior: 'smooth' });
@@ -80,13 +82,13 @@ export default function Hero({ bgImage }) {
       <div className="hero__content container">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          <span>AXIOM-7 ONLINE — MISSION ACTIVE</span>
+          <span>{t('footer.status')}</span>
         </div>
 
         <h1 className="hero__title">
-          <span className="hero__title-line1">AXIOM FORCE</span>
+          <span className="hero__title-line1">{t('hero.title_line1')}</span>
           <span className="hero__title-line2">
-            RECLAIM <span className="hero__title-accent">EARTH</span>
+            {t('hero.title_line2_prefix')}<span className="hero__title-accent">{t('hero.title_line2_highlight')}</span>
           </span>
         </h1>
 
@@ -97,9 +99,7 @@ export default function Hero({ bgImage }) {
         </div>
 
         <p className="hero__description">
-          A 3D action platformer set in a dystopian 2157 Los Angeles.
-          Battle through alien-occupied territories, collect cherries, and fight
-          for humanity's freedom as one of four elite warriors.
+          {t('hero.subtitle')}
         </p>
 
         <div className="hero__tags">
@@ -119,7 +119,7 @@ export default function Hero({ bgImage }) {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z"/>
             </svg>
-            Play Now
+            {t('nav.play_now')}
           </a>
           <a
             href="#story"
@@ -130,21 +130,21 @@ export default function Hero({ bgImage }) {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            The Story
+            {t('home.story_label')}
           </a>
         </div>
 
         {/* Stats */}
         <div className="hero__stats">
           {[
-            { value: '5', label: 'Characters' },
-            { value: '4+', label: 'Levels' },
-            { value: '50+', label: 'Languages' },
-            { value: '∞', label: 'Replayability' },
+            { value: '5', labelKey: 'home.char_label' },
+            { value: '4+', labelKey: 'home.levels_label' },
+            { value: '50+', labelKey: 'modal.language' },
+            { value: '∞', labelKey: 'hero.replayability', defaultLabel: 'Replayability' },
           ].map(stat => (
-            <div key={stat.label} className="hero__stat">
+            <div key={stat.labelKey} className="hero__stat">
               <span className="hero__stat-value">{stat.value}</span>
-              <span className="hero__stat-label">{stat.label}</span>
+              <span className="hero__stat-label">{t(stat.labelKey, stat.defaultLabel)}</span>
             </div>
           ))}
         </div>

@@ -1,31 +1,32 @@
-import React from 'react';
+import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Controls.css';
 
 const KEYBOARD_CONTROLS = [
-  { action: 'Move Left', keys: ['A', '←'] },
-  { action: 'Move Right', keys: ['D', '→'] },
-  { action: 'Jump', keys: ['W', '↑', 'Space'] },
-  { action: 'Sword Attack', keys: ['LMB'], note: 'Cyber Shogun only' },
-  { action: 'Karate Attack', keys: ['Q'], note: 'Cyber Shogun only' },
-  { action: 'Pause', keys: ['Esc'] },
+  { actionKey: 'move_left', keys: ['A', '←'] },
+  { actionKey: 'move_right', keys: ['D', '→'] },
+  { actionKey: 'jump', keys: ['W', '↑', 'Space'] },
+  { actionKey: 'sword_attack', keys: ['LMB'], noteKey: 'shogun_only' },
+  { actionKey: 'karate_attack', keys: ['Q'], noteKey: 'shogun_only' },
+  { actionKey: 'pause', keys: ['Esc'] },
 ];
 
 const GAMEPAD_CONTROLS = [
-  { action: 'Move Left', keys: ['D-Pad ←', 'L-Stick'] },
-  { action: 'Move Right', keys: ['D-Pad →', 'L-Stick'] },
-  { action: 'Jump', keys: ['A / ✕'] },
-  { action: 'Pause', keys: ['Start'] },
+  { actionKey: 'move_left', keys: ['D-Pad ←', 'L-Stick'] },
+  { actionKey: 'move_right', keys: ['D-Pad →', 'L-Stick'] },
+  { actionKey: 'jump', keys: ['A / ✕'] },
+  { actionKey: 'pause', keys: ['Start'] },
 ];
 
 const COMBAT_MOVES = [
-  { move: 'Plasma Blade Strike', input: 'Light Attack', icon: '⚔️', color: 'var(--color-primary)' },
-  { move: 'Energy Tower Shield', input: 'LB / L1', icon: '🛡️', color: 'var(--color-secondary)' },
-  { move: 'Kinetic Overload', input: 'Hold RB/R1 + Heavy', icon: '💥', color: 'var(--color-accent)' },
-  { move: 'Phase Shift', input: 'L2 / LT', icon: '👻', color: 'var(--color-gold)' },
-  { move: 'Drone Mark & Fire', input: 'Hold LT + Release', icon: '🚁', color: 'var(--color-green)' },
-  { move: 'EMP Burst', input: '○+△ / B+Y', icon: '⚡', color: 'var(--color-secondary)' },
-  { move: 'Shield Overload', input: 'Hold X+Y / □+△', icon: '🌟', color: 'var(--color-gold)' },
-  { move: 'Orbital Strike', input: '↑↑↓↓←→', icon: '☄️', color: 'var(--color-accent)' },
+  { moveKey: 'plasma_blade', icon: '⚔️', color: 'var(--color-primary)' },
+  { moveKey: 'energy_shield', icon: '🛡️', color: 'var(--color-secondary)' },
+  { moveKey: 'kinetic_overload', icon: '💥', color: 'var(--color-accent)' },
+  { moveKey: 'phase_shift', icon: '👻', color: 'var(--color-gold)' },
+  { moveKey: 'drone_mark', icon: '🚁', color: 'var(--color-green)' },
+  { moveKey: 'emp_burst', icon: '⚡', color: 'var(--color-secondary)' },
+  { moveKey: 'shield_overload', icon: '🌟', color: 'var(--color-gold)' },
+  { moveKey: 'orbital_strike', icon: '☄️', color: 'var(--color-accent)' },
 ];
 
 function Key({ label }) {
@@ -33,19 +34,20 @@ function Key({ label }) {
 }
 
 export default function Controls({ hideSectionHeader }) {
+  const { t } = useTranslation();
+
   return (
     <section className="controls section grid-bg" id="controls">
       <div className="container">
         {!hideSectionHeader && (
           <div className="controls__header">
-            <span className="section-label">// command interface</span>
+            <span className="section-label">// {t('controls.briefing')}</span>
             <h2 className="section-title">
-              Master the <span className="text-gradient-primary">Controls</span>
+              {t('controls.title_prefix')}<span className="text-gradient-primary">{t('controls.title_highlight')}</span>
             </h2>
             <div className="divider" />
             <p className="section-description">
-              Full keyboard and gamepad support. Each warrior's unique abilities map to
-              dedicated input commands — master them all to survive.
+              {t('controls.desc')}
             </p>
           </div>
         )}
@@ -55,21 +57,21 @@ export default function Controls({ hideSectionHeader }) {
           <div className="controls__group">
             <h3 className="controls__group-title">
               <span className="controls__group-icon">⌨️</span>
-              Keyboard
+              {t('controls.keyboard')}
             </h3>
             <div className="controls__table">
               {KEYBOARD_CONTROLS.map(row => (
-                <div key={row.action} className="controls__row">
+                <div key={row.actionKey} className="controls__row">
                   <span className="controls__action">
-                    {row.action}
-                    {row.note && <span className="controls__note">{row.note}</span>}
+                    {t(`controls.actions.${row.actionKey}`)}
+                    {row.noteKey && <span className="controls__note">{t(`controls.notes.${row.noteKey}`)}</span>}
                   </span>
                   <div className="controls__keys">
                     {row.keys.map((k, i) => (
-                      <React.Fragment key={k}>
+                      <Fragment key={k}>
                         <Key label={k} />
-                        {i < row.keys.length - 1 && <span className="controls__or">or</span>}
-                      </React.Fragment>
+                        {i < row.keys.length - 1 && <span className="controls__or">{t('controls.or')}</span>}
+                      </Fragment>
                     ))}
                   </div>
                 </div>
@@ -81,18 +83,18 @@ export default function Controls({ hideSectionHeader }) {
           <div className="controls__group">
             <h3 className="controls__group-title">
               <span className="controls__group-icon">🎮</span>
-              Gamepad
+              {t('controls.gamepad')}
             </h3>
             <div className="controls__table">
               {GAMEPAD_CONTROLS.map(row => (
-                <div key={row.action} className="controls__row">
-                  <span className="controls__action">{row.action}</span>
+                <div key={row.actionKey} className="controls__row">
+                  <span className="controls__action">{t(`controls.actions.${row.actionKey}`)}</span>
                   <div className="controls__keys">
                     {row.keys.map((k, i) => (
-                      <React.Fragment key={k}>
+                      <Fragment key={k}>
                         <Key label={k} />
-                        {i < row.keys.length - 1 && <span className="controls__or">or</span>}
-                      </React.Fragment>
+                        {i < row.keys.length - 1 && <span className="controls__or">{t('controls.or')}</span>}
+                      </Fragment>
                     ))}
                   </div>
                 </div>
@@ -104,20 +106,20 @@ export default function Controls({ hideSectionHeader }) {
         {/* Special moves */}
         <div className="controls__special">
           <h3 className="controls__special-title">
-            <span className="section-label" style={{ display: 'inline-block', marginBottom: '4px' }}>// special abilities</span>
-            Combat Techniques
+            <span className="section-label" style={{ display: 'inline-block', marginBottom: '4px' }}>// {t('controls.special_briefing')}</span>
+            {t('controls.special_title')}
           </h3>
           <div className="controls__moves-grid">
             {COMBAT_MOVES.map(move => (
               <div
-                key={move.move}
+                key={move.moveKey}
                 className="controls__move"
                 style={{ '--move-color': move.color }}
               >
                 <span className="controls__move-icon">{move.icon}</span>
                 <div className="controls__move-info">
-                  <span className="controls__move-name">{move.move}</span>
-                  <span className="controls__move-input">{move.input}</span>
+                  <span className="controls__move-name">{t(`controls.moves.${move.moveKey}.name`)}</span>
+                  <span className="controls__move-input">{t(`controls.moves.${move.moveKey}.input`)}</span>
                 </div>
               </div>
             ))}
@@ -128,11 +130,11 @@ export default function Controls({ hideSectionHeader }) {
         <div className="controls__tip">
           <span className="controls__tip-icon">💡</span>
           <div>
-            <strong>Training Protocol:</strong> Start with Level 00 — Protocol Zero to learn
-            all controls in the Neural-Sync Virtual Reality before entering live combat.
+            <strong>{t('controls.tip.title')}</strong> {t('controls.tip.text')}
           </div>
         </div>
       </div>
     </section>
   );
 }
+

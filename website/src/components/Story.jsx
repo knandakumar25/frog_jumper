@@ -1,39 +1,40 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Story.css';
 
 const STORY_EVENTS = [
   {
     year: '2157',
-    title: 'The Arrival',
-    text: 'The Xelthara Collective arrives on Earth, declaring it "discovered territory" and humanity "an inconvenient indigenous population."',
+    titleKey: 'story.timeline.arrival_title',
+    textKey: 'story.timeline.arrival_desc',
     icon: '🛸',
     color: 'var(--color-secondary)',
   },
   {
     year: '2157 — Week 1',
-    title: 'Mass Displacement',
-    text: 'Within days, millions are displaced into cramped containment zones while the Xelthara colonize our cities and dismantle our monuments.',
+    titleKey: 'story.timeline.displacement_title',
+    textKey: 'story.timeline.displacement_desc',
     icon: '🏚️',
     color: 'var(--color-accent)',
   },
   {
     year: '2157 — Month 2',
-    title: 'The Resistance Forms',
-    text: 'From the margins of the containment zones, four champions emerge — Ninja Frog, Mask Dude, Pink Man, and Virtual Guy — refusing to be erased.',
+    titleKey: 'story.timeline.resistance_title',
+    textKey: 'story.timeline.resistance_desc',
     icon: '✊',
     color: 'var(--color-primary)',
   },
   {
     year: '2157 — Month 3',
-    title: 'AXIOM-7 Deployed',
-    text: 'The Homeland Liberation Front activates AXIOM-7, an Automated External Intelligence Operations Module, to coordinate the resistance.',
+    titleKey: 'story.timeline.axiom_title',
+    textKey: 'story.timeline.axiom_desc',
     icon: '🤖',
     color: 'var(--color-green)',
   },
   {
     year: 'Now',
-    title: 'Your Mission Begins',
-    text: 'You have been chosen. Infiltrate colonial territories. Sabotage power cores. Dismantle settlement infrastructure. Reclaim Earth.',
+    titleKey: 'story.timeline.mission_title',
+    textKey: 'story.timeline.mission_desc',
     icon: '⚔️',
     color: 'var(--color-gold)',
   },
@@ -57,21 +58,20 @@ function useInView(threshold = 0.2) {
 
 export default function Story({ bgImage, hideSectionHeader }) {
   const [sectionRef, inView] = useInView(0.1);
+  const { t } = useTranslation();
 
   return (
     <section className="story section grid-bg" id="story" ref={sectionRef}>
       <div className="container">
         {!hideSectionHeader && (
           <div className="story__header">
-            <span className="section-label">// narrative briefing</span>
+            <span className="section-label">// {t('story.briefing')}</span>
             <h2 className="section-title">
-              The <span className="text-gradient-primary">Story</span>
+              The <span className="text-gradient-primary">{t('story.title')}</span>
             </h2>
             <div className="divider" />
             <p className="section-description">
-              Earth has fallen under a dystopian alien occupation. A small team of warriors
-              must fight their way through enemy territory to reclaim it. Choose your fighter,
-              survive the gauntlet, and prove yourself worthy of saving the world.
+              {t('story.desc')}
             </p>
           </div>
         )}
@@ -87,8 +87,8 @@ export default function Story({ bgImage, hideSectionHeader }) {
               />
               <div className="story__image-overlay" />
               <div className="story__image-caption">
-                <span className="story__image-caption-label">LIVE FEED</span>
-                <span>Los Angeles — Sector 4 Containment Zone</span>
+                <span className="story__image-caption-label">{t('story.live_feed')}</span>
+                <span>{t('story.caption')}</span>
               </div>
             </div>
 
@@ -99,10 +99,7 @@ export default function Story({ bgImage, hideSectionHeader }) {
                 <span className="story__axiom-id">AXIOM-7</span>
               </div>
               <p className="story__axiom-text">
-                "Infiltrate their colonial territories. Sabotage the power cores
-                fueling their terraforming. Every zone you liberate pushes back
-                their occupation and reminds them: Earth has inhabitants who
-                will fight for it."
+                {t('story.axiom_text')}
               </p>
             </div>
           </div>
@@ -126,8 +123,8 @@ export default function Story({ bgImage, hideSectionHeader }) {
                   <span className="story__event-year" style={{ color: event.color }}>
                     {event.year}
                   </span>
-                  <h3 className="story__event-title">{event.title}</h3>
-                  <p className="story__event-text">{event.text}</p>
+                  <h3 className="story__event-title">{t(event.titleKey)}</h3>
+                  <p className="story__event-text">{t(event.textKey)}</p>
                 </div>
               </div>
             ))}

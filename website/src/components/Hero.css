@@ -289,3 +289,9 @@
   .hero__stats { gap: 24px; }
   .hero__stat-value { font-size: 1.5rem; }
 }
+
+/* RTL Overrides */
+html[dir="rtl"] .hero__typewriter::before {
+  left: auto;
+  right: 0;
+}

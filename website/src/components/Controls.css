@@ -192,3 +192,13 @@
   .controls__layout { grid-template-columns: 1fr; }
   .controls__moves-grid { grid-template-columns: 1fr; }
 }
+
+/* RTL Overrides */
+html[dir="rtl"] .controls__move {
+  border-left: none;
+  border-right: 3px solid var(--move-color);
+}
+
+html[dir="rtl"] .controls__move:hover {
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+}

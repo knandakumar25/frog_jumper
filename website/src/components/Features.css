@@ -130,3 +130,8 @@
   .features__grid { grid-template-columns: 1fr; }
   .features__tech { padding: 24px; }
 }
+
+/* RTL Overrides */
+html[dir="rtl"] .features__card::before {
+  background: linear-gradient(to left, var(--feat-color), transparent);
+}

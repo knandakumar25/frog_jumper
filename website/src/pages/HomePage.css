@@ -46,7 +46,7 @@
 }
 
 .home-teaser__arrow {
-  margin-left: auto;
+  margin-inline-start: auto;
   font-size: 1.1rem;
   color: var(--color-primary);
   opacity: 0;
@@ -57,5 +57,14 @@
 
 .home-teaser:hover .home-teaser__arrow {
   opacity: 1;
+  transform: translateX(0);
+}
+
+/* RTL Arrow Transitions */
+html[dir="rtl"] .home-teaser__arrow {
+  transform: translateX(6px);
+}
+
+html[dir="rtl"] .home-teaser:hover .home-teaser__arrow {
   transform: translateX(0);
 }

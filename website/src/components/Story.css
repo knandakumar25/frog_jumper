@@ -201,3 +201,30 @@
     position: static;
   }
 }
+
+/* RTL Overrides */
+html[dir="rtl"] .story__axiom-quote {
+  border-left: none;
+  border-right: 3px solid var(--color-green);
+}
+
+html[dir="rtl"] .story__timeline-line {
+  left: auto;
+  right: 20px;
+}
+
+html[dir="rtl"] .story__image-panel {
+  transform: translateX(40px);
+}
+
+html[dir="rtl"] .story__image-panel--visible {
+  transform: translateX(0);
+}
+
+html[dir="rtl"] .story__timeline {
+  transform: translateX(-40px);
+}
+
+html[dir="rtl"] .story__timeline--visible {
+  transform: translateX(0);
+}

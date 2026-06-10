@@ -1,92 +1,78 @@
-import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Features.css';
 
 const FEATURES = [
   {
     icon: '👥',
-    title: '5 Playable Characters',
-    desc: 'Four main warriors plus Cyber Shogun — an unlockable bonus character with unique sword and karate attack combos.',
-    tag: 'ROSTER',
+    key: 'roster',
     color: 'var(--color-primary)',
   },
   {
     icon: '📜',
-    title: 'Deep Story Narrative',
-    desc: 'A typewriter-style story intro powered by the Ink runtime — an explicit narrative about resistance against colonial occupation.',
-    tag: 'NARRATIVE',
+    key: 'story',
     color: 'var(--color-gold)',
   },
   {
     icon: '🍒',
-    title: 'Collectibles & Scoring',
-    desc: 'Cherries scattered across all levels worth points. Scores are saved locally via SQLite and displayed on a persistent leaderboard.',
-    tag: 'PROGRESSION',
+    key: 'progress',
     color: 'var(--color-accent)',
   },
   {
     icon: '💾',
-    title: 'Session System',
-    desc: 'Create multiple save sessions and continue exactly where you left off. Your progress persists across playthroughs.',
-    tag: 'SAVE SYSTEM',
+    key: 'save',
     color: 'var(--color-green)',
   },
   {
     icon: '🌍',
-    title: '50+ Language Support',
-    desc: 'Fully localised UI including Arabic, Hindi, Japanese, Malayalam, and many more — powered by CSV-based translation.',
-    tag: 'LOCALISATION',
+    key: 'local',
     color: 'var(--color-secondary)',
   },
   {
     icon: '🎮',
-    title: 'Gamepad Support',
-    desc: 'Full controller support including D-Pad, analogue stick movement, and button mapping for all attacks and abilities.',
-    tag: 'CONTROLS',
+    key: 'controls',
     color: 'var(--color-primary)',
   },
   {
     icon: '⏸️',
-    title: 'Blur Pause Menu',
-    desc: 'A premium pause menu with real-time blur shader effect — adjustable music and SFX volumes accessible at any time.',
-    tag: 'UX',
+    key: 'ux',
     color: 'var(--color-gold)',
   },
   {
     icon: '🎵',
-    title: 'Original Soundtrack',
-    desc: '"Dystopian Dawn" — original music generated with MusicGPT to perfectly match the dystopian sci-fi atmosphere.',
-    tag: 'AUDIO',
+    key: 'audio',
     color: 'var(--color-green)',
   },
 ];
 
 const TECH = [
-  { name: 'Godot 4.6', desc: 'Game Engine' },
-  { name: 'C# / .NET 8', desc: 'Game Logic' },
-  { name: 'GDScript', desc: 'Scene Scripting' },
-  { name: 'SQLite', desc: 'Score Persistence' },
-  { name: 'Ink Runtime', desc: 'Narrative Engine' },
-  { name: 'MSBuild', desc: 'Build System' },
+  { name: 'Godot 4.6', descKey: 'engine' },
+  { name: 'C# / .NET 8', descKey: 'logic' },
+  { name: 'GDScript', descKey: 'scripting' },
+  { name: 'SQLite', descKey: 'persistence' },
+  { name: 'Ink Runtime', descKey: 'narrative_engine' },
+  { name: 'MSBuild', descKey: 'build' },
 ];
 
 export default function Features({ hideSectionHeader }) {
+  const { t } = useTranslation();
+
   return (
     <section className="features section" id="features">
       <div className="container">
         {!hideSectionHeader && (
           <div className="features__header">
-            <span className="section-label">// system capabilities</span>
+            <span className="section-label">// {t('features.briefing')}</span>
             <h2 className="section-title">
-              Game <span className="text-gradient-primary">Features</span>
+              {t('features.title_prefix')}<span className="text-gradient-primary">{t('features.title_highlight')}</span>
             </h2>
             <div className="divider" />
           </div>
         )}
 
         <div className="features__grid">
-          {FEATURES.map((feat, i) => (
+          {FEATURES.map((feat) => (
             <div
-              key={feat.title}
+              key={feat.key}
               className="features__card card"
               style={{ '--feat-color': feat.color }}
             >
@@ -96,11 +82,11 @@ export default function Features({ hideSectionHeader }) {
                   className="features__tag"
                   style={{ color: feat.color, borderColor: `${feat.color}40` }}
                 >
-                  {feat.tag}
+                  {t(`features.tags.${feat.key}`)}
                 </span>
               </div>
-              <h3 className="features__title">{feat.title}</h3>
-              <p className="features__desc">{feat.desc}</p>
+              <h3 className="features__title">{t(`features.items.${feat.key}.title`)}</h3>
+              <p className="features__desc">{t(`features.items.${feat.key}.desc`)}</p>
             </div>
           ))}
         </div>
@@ -108,16 +94,16 @@ export default function Features({ hideSectionHeader }) {
         {/* Tech Stack */}
         <div className="features__tech">
           <h3 className="features__tech-title">
-            <span className="section-label" style={{ fontSize: '0.7rem' }}>// built with</span>
-            Tech Stack
+            <span className="section-label" style={{ fontSize: '0.7rem' }}>// {t('features.built_with')}</span>
+            {t('features.tech_title')}
           </h3>
           <div className="features__tech-grid">
-            {TECH.map(t => (
-              <div key={t.name} className="features__tech-item">
+            {TECH.map((tItem) => (
+              <div key={tItem.name} className="features__tech-item">
                 <div className="features__tech-dot" />
                 <div>
-                  <div className="features__tech-name">{t.name}</div>
-                  <div className="features__tech-desc">{t.desc}</div>
+                  <div className="features__tech-name">{tItem.name}</div>
+                  <div className="features__tech-desc">{t(`features.tech.${tItem.descKey}`)}</div>
                 </div>
               </div>
             ))}
@@ -127,3 +113,4 @@ export default function Features({ hideSectionHeader }) {
     </section>
   );
 }
+
