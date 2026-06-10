@@ -31,3 +31,7 @@ addons/**/~*.dll
 # Android build artifacts
 android/build/.gradle/
 android/build/local.properties
+android/build/build/reports/
+
+# Website scratch/temp scripts
+website/scratch/
