@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LANGUAGE_CONFIG } from './config';
 import i18n from './i18n';
@@ -117,6 +117,32 @@ export function parseLocaleCode(locale, languageConfig) {
   return null;
 }
 
+// Find the best language+country match for a given 2-letter country code
+function findGeoMatch(countryCode) {
+  const code = countryCode.toLowerCase();
+  for (const lang of LANGUAGE_CONFIG.languages) {
+    const country = lang.countries.find(c => c.code.toLowerCase() === code);
+    if (country) {
+      return { langId: country.langId || lang.id, countryName: country.name };
+    }
+  }
+  return null; // country not in our config
+}
+
+async function detectGeoDefault() {
+  try {
+    const res = await fetch('https://ip-api.com/json/?fields=countryCode', {
+      signal: AbortSignal.timeout(4000),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.countryCode) return null;
+    return findGeoMatch(data.countryCode);
+  } catch {
+    return null;
+  }
+}
+
 export function LanguageProvider({ children }) {
   const [selectedCountry, setSelectedCountry] = useState(() => {
     return localStorage.getItem('selectedCountry') || null;
@@ -129,12 +155,38 @@ export function LanguageProvider({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Track whether the modal was opened for a first-time visitor (no stored country)
+  const needsGeoFallback = useRef(false);
+
   useEffect(() => {
     const storedCountry = localStorage.getItem('selectedCountry');
     if (!storedCountry) {
+      needsGeoFallback.current = true;
       setIsModalOpen(true);
     }
   }, []);
+
+  // When modal closes without the user picking a country, geo-detect and apply a default
+  useEffect(() => {
+    if (!isModalOpen && !selectedCountry && needsGeoFallback.current) {
+      needsGeoFallback.current = false;
+      detectGeoDefault().then(match => {
+        const fallback = match || { langId: 'english', countryName: 'United States' };
+        const lang = LANGUAGE_CONFIG.languages.find(l => l.id === fallback.langId);
+        const country =
+          lang?.countries.find(c => c.name === fallback.countryName) ||
+          lang?.countries[0];
+        if (lang && country) {
+          setSelectedLanguage(fallback.langId);
+          setSelectedCountry(country.name);
+          const newLocale = getLocaleCode(fallback.langId, country.name, LANGUAGE_CONFIG);
+          const pathParts = location.pathname.split('/');
+          const restOfPath = pathParts.slice(2).join('/');
+          navigate(`/${newLocale}/${restOfPath}`);
+        }
+      });
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     localStorage.setItem('selectedCountry', selectedCountry || '');
@@ -144,7 +196,7 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     const langCode = LANGUAGE_ID_TO_CODE[selectedLanguage] || 'en';
     i18n.changeLanguage(langCode);
-    
+
     // Set text direction and language dynamically
     const isRtl = langCode === 'ar' || langCode === 'he';
     document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
@@ -158,6 +210,7 @@ export function LanguageProvider({ children }) {
 
   const chooseLanguageAndCountry = (langId, country) => {
     const actualLangId = country.langId || langId;
+    needsGeoFallback.current = false; // user made an explicit choice
     setSelectedLanguage(actualLangId);
     setSelectedCountry(country.name);
     setIsModalOpen(false);
@@ -188,5 +241,3 @@ export function LanguageProvider({ children }) {
 export function useLanguage() {
   return useContext(LanguageContext);
 }
-
-
