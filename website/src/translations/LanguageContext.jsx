@@ -77,6 +77,13 @@ export const LANGUAGE_ID_TO_CODE = {
   turkish: 'tr',
   ukrainian: 'uk',
   vietnamese: 'vi',
+  albanian: 'sq',
+  bulgarian: 'bg',
+  croatian: 'hr',
+  dzongkha: 'dz',
+  kazakh: 'kk',
+  khmer: 'km',
+  lao: 'lo',
 };
 
 export function getLocaleCode(langId, countryName, languageConfig) {
