@@ -31,7 +31,7 @@
       "choose": "Choose"
     },
     "footer": {
-      "tagline": "A 3D action platformer built with Godot 4.6 and C#. Battle through four levels and race to the finish line.",
+      "tagline": "A 3D action platformer. Lead the resistance to reclaim Earth from alien occupiers.",
       "status": "AXIOM-7 ONLINE — RESISTANCE ACTIVE",
       "nav_title": "Navigation",
       "tech_title": "MISSION SPECS",
@@ -183,7 +183,7 @@
       "title_prefix": "Game ",
       "title_highlight": "Features",
       "built_with": "built with",
-      "tech_title": "Tech Stack",
+      "tech_title": "Resistance Systems",
       "tags": {
         "roster": "ROSTER",
         "narrative": "NARRATIVE",
@@ -204,20 +204,20 @@
       },
       "items": {
         "roster": {
-          "title": "5 Playable Characters",
-          "desc": "Four main warriors plus Cyber Shogun — an unlockable bonus character with unique sword and karate attack combos."
+          "title": "Chassis Roster",
+          "desc": "Deploy one of five customized combat frames calibrated with specialized hardware loadouts."
         },
         "story": {
-          "title": "Deep Story Narrative",
-          "desc": "A typewriter-style story intro powered by the Ink runtime — an explicit narrative about resistance against colonial occupation."
+          "title": "Intel Database",
+          "desc": "Real-time telemetry and regional intelligence archives compiled by the Axiom-7 mainframe."
         },
         "progress": {
           "title": "Collectibles & Scoring",
           "desc": "Cherries scattered across all levels worth points. Scores are saved locally via SQLite and displayed on a persistent leaderboard."
         },
         "save": {
-          "title": "Session System",
-          "desc": "Create multiple save sessions and continue exactly where you left off. Your progress persists across playthroughs."
+          "title": "Memory Nodes",
+          "desc": "Decentralized storage vaults backing up combat telemetry and sync state sessions."
         },
         "local": {
           "title": "50+ Language Support",
@@ -232,8 +232,8 @@
           "desc": "A premium pause menu with real-time blur shader effect — adjustable music and SFX volumes accessible at any time."
         },
         "audio": {
-          "title": "Original Soundtrack",
-          "desc": "\"Dystopian Dawn\" — original music generated with MusicGPT to perfectly match the dystopian sci-fi atmosphere."
+          "title": "Acoustic Cloak",
+          "desc": "Deploy acoustic white-noise scramblers to mask squad audio signatures and evade patrols."
         }
       }
     },
@@ -329,15 +329,17 @@
       "los_angeles_2157": "LOS ANGELES 2157"
     },
     "tech_hub": {
-      "hero_desc": "Direct access to the Axiom Force technical documentation. Built for high-performance tactical engagement across multiple platforms. Powered by Godot and Ink.",
-      "engine_title": "Engine Specs",
-      "engine_desc": "Leveraging the Godot Engine compiled with .NET 8 for aggressive performance optimization. Custom rendering pipeline utilizing Vulkan for advanced neon-noir lighting and atmospheric effects.",
-      "status_init": "Initialize Core... [OK]",
-      "status_shaders": "Load Vulkan Shaders... [OK]",
-      "status_link": "Establish Neural Link... [PENDING]",
-      "narrative_desc": "Driven by Inkle's Ink scripting language, providing deeply branching dialogue trees and persistent state tracking for every resistance operative.",
-      "comms_desc": "Full localization support for 50+ languages, utilizing a custom dynamic font rendering system to handle complex scripts and RTL layouts seamlessly.",
-      "offline_status": "System Offline"
+      "hero_desc": "Technical specifications of the HLF insurgent equipment, mainframe decrypters, and cybernetic assault chassis active in Sector 4.",
+      "engine_title": "Chassis Specs",
+      "engine_desc": "Insurgent combat chassis are equipped with high-efficiency neural links operating over localized sub-GHz channels, designed to bypass Xelthara electronic countermeasures.",
+      "status_init": "Initialize Neural-Sync... [OK]",
+      "status_shaders": "Calibrate Movement Shaders... [OK]",
+      "status_link": "Establish Sector Link... [SECURED]",
+      "narrative_desc": "Decentralized Ink-comms routing system designed to establish multi-channel communication networks between resistance squads, ensuring secure transmission of coordinates and mission logs.",
+      "comms_desc": "Adaptive wideband encryption protocols supporting secure frequency hopping across all 50+ regional sub-grids, preventing intercept from high-altitude atmospheric processors.",
+      "offline_status": "System Offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -750,7 +752,9 @@
       "status_link": "Establecer Enlace Neural... [PENDIENTE]",
       "narrative_desc": "Impulsado por el lenguaje de scripting Ink de Inkle, que proporciona árboles de diálogo profundamente ramificados y seguimiento de estado persistente para cada operativo de la resistencia.",
       "comms_desc": "Soporte completo de localización para más de 50 idiomas, utilizando un sistema de renderizado de fuentes dinámico personalizado para manejar escrituras complejas y diseños RTL sin problemas.",
-      "offline_status": "Sistema Fuera de Línea"
+      "offline_status": "Sistema Fuera de Línea",
+      "chassis_sync": "Sincronización neuronal del chasis",
+      "comms_decrypter": "Descifrador de comunicaciones"
     },
     "design_system": {
       "title": "Cinética Glitch-Noir",
@@ -1163,7 +1167,9 @@
       "status_link": "Établir la Liaison Neurale... [EN ATTENTE]",
       "narrative_desc": "Propulsé par le langage de script Ink d'Inkle, fournissant des arbres de dialogue profondément ramifiés et un suivi d'état persistant pour chaque agent de la résistance.",
       "comms_desc": "Support de localisation complet pour plus de 50 langues, utilisant un système de rendu de police dynamique personnalisé pour gérer les écritures complexes et les mises en page RTL de manière fluide.",
-      "offline_status": "Système Hors Ligne"
+      "offline_status": "Système Hors Ligne",
+      "chassis_sync": "Synchronisation neuronale du châssis",
+      "comms_decrypter": "Décrypteur de communications"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -1576,7 +1582,9 @@
       "status_link": "إنشاء الارتباط العصبي... [قيد الانتظار]",
       "narrative_desc": "يعمل بلغة السيناريو Ink من Inkle، مما يوفر أشجار حوار متفرعة بعمق وتتبع الحالة المستمرة لكل عميل مقاومة.",
       "comms_desc": "دعم التعريب الكامل لأكثر من 50 لغة، باستخدام نظام عرض خطوط ديناميكي مخصص للتعامل مع النصوص المعقدة وتخطيطات RTL بسلاسة.",
-      "offline_status": "النظام غير متصل"
+      "offline_status": "النظام غير متصل",
+      "chassis_sync": "المزامنة العصبية للهيكل",
+      "comms_decrypter": "كومنز ديكريبتر"
     },
     "design_system": {
       "title": "خلل-نوير الحركية",
@@ -1989,7 +1997,9 @@
       "status_link": "יצירת קישור עצבי... [בהמתנה]",
       "narrative_desc": "מונע על ידי שפת התסריט Ink of Inkle, ומספק עצי דיאלוג מסתעפים עמוקים ומעקב אחר מצב מתמיד עבור כל סוכן התנגדות.",
       "comms_desc": "תמיכת לוקליזציה מלאה ל-50+ שפות, תוך שימוש במערכת רינדור גופנים דינמית מותאמת אישית לטיפול בכתב מורכב ופריסות מימין לשמאל בצורה חלקה.",
-      "offline_status": "מערכת לא מקוונת"
+      "offline_status": "מערכת לא מקוונת",
+      "chassis_sync": "שלדה Neural-Sync",
+      "comms_decrypter": "מפענח תקשורת"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -2402,7 +2412,9 @@
       "status_link": "Estabelecer Link Neural... [PENDENTE]",
       "narrative_desc": "Impulsionado pela linguagem de script Ink da Inkle, fornecendo árvores de diálogo profundamente ramificadas e rastreamento de estado persistente para cada operativo da resistência.",
       "comms_desc": "Suporte completo de localização para mais de 50 idiomas, usando um sistema de renderização de fontes dinâmico personalizado para lidar com scripts complexos e layouts RTL perfeitamente.",
-      "offline_status": "Sistema Offline"
+      "offline_status": "Sistema Offline",
+      "chassis_sync": "Sincronização Neural do Chassi",
+      "comms_decrypter": "Descriptografador de comunicações"
     },
     "design_system": {
       "title": "Cinética Glitch-Noir",
@@ -2815,7 +2827,9 @@
       "status_link": "Ստեղծել նյարդային կապ... [ՍՊԱՍ Է]",
       "narrative_desc": "Առաջնորդվում է Inkle's Ink սկրիպտավորման լեզվով, որն ապահովում է խորը ճյուղավորվող երկխոսության ծառեր և կայուն վիճակի հետևում յուրաքանչյուր դիմադրության օպերատորի համար:",
       "comms_desc": "Լրիվ տեղայնացման աջակցություն 50+ լեզուների համար՝ օգտագործելով տառատեսակների մշակման դինամիկ անհատական համակարգ՝ բարդ սցենարների և RTL դասավորությունների անխափան մշակման համար:",
-      "offline_status": "Համակարգը անցանց"
+      "offline_status": "Համակարգը անցանց",
+      "chassis_sync": "Շասսի Նյարդային-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -3228,7 +3242,9 @@
       "status_link": "Sinir Bağlantısını Yaradın... [Gözləmədə]",
       "narrative_desc": "Inkle's Ink skript dili ilə idarə olunur, hər bir müqavimət əməliyyatçısı üçün dərin budaqlanan dialoq ağacları və davamlı vəziyyət izlənməsini təmin edir.",
       "comms_desc": "Mürəkkəb skriptləri və RTL tərtibatlarını qüsursuz idarə etmək üçün xüsusi dinamik şrift göstərmə sistemindən istifadə edərək 50+ dil üçün tam lokallaşdırma dəst��yi.",
-      "offline_status": "Sistem Offline"
+      "offline_status": "Sistem Offline",
+      "chassis_sync": "Şassi Neyron Sinxronizasiyası",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetik",
@@ -3641,7 +3657,9 @@
       "status_link": "নিউরাল লিঙ্ক স্থাপন করুন... [পেন্ডিং]",
       "narrative_desc": "ইঙ্কলের কালি স্ক্রিপ্টিং ভাষা দ্বারা চালিত, প্রতিটি প্রতিরোধ অপারেটিভের জন্য গভীরভাবে শাখাযুক্ত কথোপকথন গাছ এবং অবিরাম রাষ্ট্র ট্র্যাকিং প্রদান করে।",
       "comms_desc": "50+ ভাষার জন্য সম্পূর্ণ স্থানীয়করণ সমর্থন, একটি কাস্টম ডায়নামিক ফন্ট রেন্ডারিং সিস্টেম ব্যবহার করে জটিল স্ক্রিপ্ট এবং RTL লেআউটগুলি নির্বিঘ্নে পরিচালনা করতে।",
-      "offline_status": "সিস্টেম অফলাইন"
+      "offline_status": "সিস্টেম অফলাইন",
+      "chassis_sync": "চ্যাসিস নিউ���াল-সিঙ্ক",
+      "comms_decrypter": "Comms ডিক্রিপ্টার"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -4054,7 +4072,9 @@
       "status_link": "Vytvořit neuronové spojení... [ČEKÁ]",
       "narrative_desc": "Poháněno skriptovacím jazykem Inkle Ink, který poskytuje hluboce větvené stromy dialogů a trvalé sledování stavu pro každého pracovníka odporu.",
       "comms_desc": "Plná podpora lokalizace pro více než 50 jazyků, využívající vlastní dynamický systém vykreslování písem pro bezproblémové zpracování složitých skriptů a rozvržení RTL.",
-      "offline_status": "Systém offline"
+      "offline_status": "Systém offline",
+      "chassis_sync": "Podvozek Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -4467,7 +4487,9 @@
       "status_link": "Etabler neural forbindelse... [VENTER]",
       "narrative_desc": "Drevet af Inkles Ink-scriptsprog, der giver dybt forgrenede dialogtræer og vedvarende tilstandssporing for enhver modstandsperson.",
       "comms_desc": "Fuld lokaliseringsunderstøttelse til 50+ sprog, ved hjælp af et brugerdefineret dynamisk skrifttypegengivelsessystem til at håndtere komplekse scripts og RTL-layouts problemfrit.",
-      "offline_status": "System offline"
+      "offline_status": "System offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -4880,7 +4902,9 @@
       "status_link": "Breng een neurale link tot stand... [AFWACHT]",
       "narrative_desc": "Gedreven door Inkle's Ink-scripttaal, die diep vertakkende dialoogbomen en aanhoudende statusregistratie biedt voor elke verzetsagent.",
       "comms_desc": "Volledige lokalisatieondersteuning voor meer dan 50 talen, waarbij gebruik wordt gemaakt van een aangepast dynamisch lettertypeweergavesysteem om complexe scripts en RTL-lay-outs naadloos af te handelen.",
-      "offline_status": "Systeem offline"
+      "offline_status": "Systeem offline",
+      "chassis_sync": "Chassis neurale synchronisatie",
+      "comms_decrypter": "Comms-decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetisch",
@@ -5293,7 +5317,9 @@
       "status_link": "Loo närvilink... [OOTEL]",
       "narrative_desc": "Ajendab Inkle'i Ink skriptikeelt, pakkudes sügavalt hargnevaid dialoogipuid ja püsivat oleku jälgimist iga vastupanutöötaja jaoks.",
       "comms_desc": "Täielik lokaliseerimise tugi enam kui 50 keelele, kasutades kohandatud dünaamilise fondi renderdussüsteemi, mis võimaldab sujuvalt käsitleda keerulisi skripte ja RTL-paigutusi.",
-      "offline_status": "Süsteem võrguühenduseta"
+      "offline_status": "Süsteem võrguühenduseta",
+      "chassis_sync": "Šassii Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noiri kineetika",
@@ -5706,7 +5732,9 @@
       "status_link": "Magtatag ng Neural Link... [PENDING]\n<",
       "narrative_desc": "Hinimok ng Ink's Ink scripting language, na nagbibigay ng malalim na sumasanga na mga dialogue tree at patuloy na pagsubaybay sa estado para sa bawat operatiba ng paglaban.\n<",
       "comms_desc": "Buong suporta sa localization para sa 50+ na wika, na gumagamit ng custom na dynamic na font rendering system upang mapangasiwaan ang mga kumplikadong script at mga layout ng RTL nang walang putol.\n<",
-      "offline_status": "System Offline\n<"
+      "offline_status": "System Offline\n<",
+      "chassis_sync": "Chassis Neural-Sync\n<",
+      "comms_decrypter": "Comms Decrypter\n<"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic\n<",
@@ -6119,7 +6147,9 @@
       "status_link": "Luo hermolinkki... [DODING]",
       "narrative_desc": "Inklen Ink-skriptikielen ohjaama, joka tarjoaa syvälle haarautuvat dialogipuut ja jatkuvan tilan seurannan jokaiselle vastustajalle.",
       "comms_desc": "Täysi lokalisointituki yli 50 kielelle, jossa hyödynnetään mukautettua dynaamista kirjasinten renderöintijärjestelmää monimutkaisten komentosarjojen ja RTL-asettelujen saumaiseen käsittelyyn.",
-      "offline_status": "Järjestelmä offline-tilassa"
+      "offline_status": "Järjestelmä offline-tilassa",
+      "chassis_sync": "Alustan Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -6532,7 +6562,9 @@
       "status_link": "ნერვული კავშირის შექმნა... [მოლოდინშია]",
       "narrative_desc": "ამოძრავებს Inkle's Ink სკრიპტირების ენით, რომელიც უზრუნველყოფს ღრმად განშტოებული დიალოგის ხეებს და მუდმივ მდგომარეობას თვალყურის დევნებას ყველა წინააღმდეგობის ოპერატიულისთვის.",
       "comms_desc": "ლოკალიზაციის სრული მხარდაჭერა 50+ ენაზე, პერსონალური დინამიური შრიფტების რენდერის სისტემის გამოყენებით რთული სკრიპტებისა და RTL განლაგების შეუფერხებლად დასამუშავებლად.",
-      "offline_status": "სისტემა ხაზგარეშე"
+      "offline_status": "სისტემა ხაზგარეშე",
+      "chassis_sync": "შასის ნეირონული სინქრონიზაცია",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -6945,7 +6977,9 @@
       "status_link": "Neuronale Verbindung herstellen... [AUSSTEHEND]",
       "narrative_desc": "Unterstützt durch die Ink-Skriptsprache von Inkle, die tief verzweigte Dialogbäume und eine dauerhafte Statusverfolgung für jeden Widerstandskämpfer bietet.",
       "comms_desc": "Volle Lokalisierungsunterstützung für über 50 Sprachen mit einem benutzerdefinierten dynamischen Font-Rendering-System zur nahtlosen Verarbeitung komplexer Schriften und RTL-Layouts.",
-      "offline_status": "System offline"
+      "offline_status": "System offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Kommunikations-Entschlüsseler"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -7358,7 +7392,9 @@
       "status_link": "Δημιουργία νευρωνικού συνδέσμου... [ΕΚΚΡΕΜΕΙ]",
       "narrative_desc": "Καθοδηγείται από τη γλώσσα δέσμης ενεργειών Inkle's Ink, παρέχοντας βαθιά διακλαδισμένα δέντρα διαλόγου και επίμονη παρακολούθηση κατάστασης για κάθε επιχειρηματία αντίστασης.",
       "comms_desc": "Πλήρης υποστήριξη τοπικής προσαρμογής για 50+ γλώσσες, χρησιμοποιώντας ένα προσαρμοσμένο σύστημα δυναμικής απόδοσης γραμματοσειρών για τον απρόσκοπτο χειρισμό σύνθετων σεναρίων και διατάξεων RTL.",
-      "offline_status": "Σύστημα εκτός σύνδεσης"
+      "offline_status": "Σύστημα εκτός σύνδεσης",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -7771,7 +7807,9 @@
       "status_link": "ન્યુરલ લિંક સ્થાપિત કરો... [બાકી]",
       "narrative_desc": "ઇન્કલની ઇન્ક સ્ક્રિપ્ટીંગ ભાષા દ્વારા સંચાલિત, દરેક પ્રતિકારક ઓપરેટિવ માટે ઊંડે શાખાવાળા સંવાદ વૃક્ષો અને સતત સ્ટેટ ટ્રેકિંગ પ્રદાન કરે છે.",
       "comms_desc": "જટિલ સ્ક્રિપ્ટો અને RTL લેઆઉટને એકીકૃત રીતે હેન્ડલ કરવા માટે કસ્ટમ ડાયનેમિક ફોન્ટ રેન્ડરિંગ સિસ્ટમનો ઉપયોગ કરીને 50+ ભાષાઓ માટે સંપૂર્ણ સ્થાનિકીકરણ સપોર્ટ.",
-      "offline_status": "સિસ્ટમ ઑફલાઇન"
+      "offline_status": "સિસ્ટમ ઑફલાઇન",
+      "chassis_sync": "ચેસિસ ન્યુરલ-સિંક",
+      "comms_decrypter": "કોમ્સ ડિક્રિપ્ટર"
     },
     "design_system": {
       "title": "ગ્લીચ-નોઇર કાઇનેટિક",
@@ -8184,7 +8222,9 @@
       "status_link": "न्यूरल लिंक स्थापित करें... [लंबित]",
       "narrative_desc": "इंकल की इंक स्क्रिप्टिंग भाषा द्वारा संचालित, प्रत्येक प्रतिरोध ऑपरेटिव के लिए गहरी शाखाओं वाले संवाद वृक्ष और लगातार स���थिति ट्रैकिंग प्रदान करता है।",
       "comms_desc": "50+ भाषाओं के लिए पूर्ण स्थानीयकरण समर्थन, जटिल स्क्रिप्ट और आरटीएल लेआउट को निर्बाध रूप से संभालने के लिए एक कस्टम डायनेमिक फ़ॉन्ट रेंडरिंग सिस्टम का उपयोग।",
-      "offline_status": "सिस्टम ऑफ़लाइन"
+      "offline_status": "सिस्टम ऑफ़लाइन",
+      "chassis_sync": "चेसिस न्यूरल-सिंक",
+      "comms_decrypter": "कॉम्स डिक्रिप्टर"
     },
     "design_system": {
       "title": "ग्लिच-नोयर काइनेटिक",
@@ -8597,7 +8637,9 @@
       "status_link": "Neurális kapcsolat létrehozása... [FÜGGŐBEN]",
       "narrative_desc": "Az Inkle Ink szkriptnyelve vezérli, mélyen elágazó párbeszédfákat és állandó állapotkövetést biztosít minden ellenállási operátor számára.",
       "comms_desc": "Teljes honosítási támogatás több mint 50 nyelvhez, egyéni dinamikus betűkészlet-megjelenítési rendszert használva az összetett szkriptek és RTL-elrendezések zökkenőmentes kezelésére.",
-      "offline_status": "Rendszer Offline"
+      "offline_status": "Rendszer Offline",
+      "chassis_sync": "Alváz Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -9010,7 +9052,9 @@
       "status_link": "Komdu á taugatengli... [BÍÐUR]",
       "narrative_desc": "Knúið áfram af Inkle's Ink forskriftarmáli, sem veitir djúpt greinótt samræðutré og viðvarandi ástandsmælingu fyrir hvern andspyrnustarfsmann.",
       "comms_desc": "Fullur staðsetningarstuðningur fyrir 50+ tungumál, með því að nota sérsniðið kraftmikið leturútgáfukerfi til að meðhöndla flókin forskriftir og RTL skipulag óaðfinnanlega.",
-      "offline_status": "Kerfi án nettengingar"
+      "offline_status": "Kerfi án nettengingar",
+      "chassis_sync": "Taugasamstilling undirvagns",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -9423,7 +9467,9 @@
       "status_link": "Membangun Tautan Neural... [TERTUNDA]",
       "narrative_desc": "Didorong oleh bahasa skrip Ink Ink, menyediakan pohon dialog yang sangat bercabang dan pelacakan status yang persisten untuk setiap operasi perlawanan.",
       "comms_desc": "Dukungan pelokalan penuh untuk 50+ bahasa, memanfaatkan sistem rendering font dinamis khusus untuk menangani skrip kompleks dan tata letak RTL dengan lancar.",
-      "offline_status": "Sistem Offline"
+      "offline_status": "Sistem Offline",
+      "chassis_sync": "Sinkronisasi Neural Sasis",
+      "comms_decrypter": "Dekripsi Komunikasi"
     },
     "design_system": {
       "title": "Kinetika Kesalahan-Noir",
@@ -9836,7 +9882,9 @@
       "status_link": "Stabilisci collegamento neurale... [IN SOSPESO]",
       "narrative_desc": "Gestito dal linguaggio di scripting Ink di Inkle, fornisce alberi di dialogo profondamente ramificati e monitoraggio persistente dello stato per ogni agente della resistenza.",
       "comms_desc": "Supporto completo della localizzazione per oltre 50 lingue, utilizzando un sistema di rendering dinamico dei caratteri personalizzato per gestire senza problemi script complessi e layout RTL.",
-      "offline_status": "Sistema non in linea"
+      "offline_status": "Sistema non in linea",
+      "chassis_sync": "Sincronizzazione neurale del telaio",
+      "comms_decrypter": "Decrittatore di comunicazioni"
     },
     "design_system": {
       "title": "Glitch-Noir cinetico",
@@ -10249,7 +10297,9 @@
       "status_link": "ニューラルリンク確立... [保留中]",
       "narrative_desc": "InkleのInkスクリプト言語によって駆動され、すべての抵抗部隊員の深く分岐する対話ツリーと永続的な状態追跡を提供します。",
       "comms_desc": "50以上の言語の完全なローカライズサポート。カスタム動的フォントレンダリングシステムを使用して、複雑なスクリプトとRTLレイアウトをシームレスに処理します。",
-      "offline_status": "システムオフライン"
+      "offline_status": "システムオフライン",
+      "chassis_sync": "シャーシニューラルシンク",
+      "comms_decrypter": "通信復号化ツール"
     },
     "design_system": {
       "title": "グリッチ ノワール キネティック",
@@ -10662,7 +10712,9 @@
       "status_link": "ನ್ಯೂರಲ್ ಲಿಂಕ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿ... [ಬಾಕಿ]",
       "narrative_desc": "ಇಂಕ್ಲ್‌ನ ಇಂಕ್ ಸ್ಕ್ರಿಪ್ಟಿಂಗ್ ಭಾಷೆಯಿಂದ ನಡೆಸಲ್ಪಡುತ್ತದೆ, ಆಳವಾಗಿ ಕವಲೊಡೆಯುವ ಡೈಲಾಗ್ ಟ್ರೀಗಳನ್ನು ಮತ್ತು ಪ್ರತಿ ರೆಸಿಸ್ಟೆನ್ಸ್ ಆಪರೇಟಿವ್‌ಗೆ ನಿರಂತರ ಸ್ಟೇಟ್ ಟ್ರ್ಯಾಕಿಂಗ�� ಅನ್ನು ಒದಗಿಸುತ್ತದೆ.",
       "comms_desc": "50+ ಭಾಷೆಗಳಿಗೆ ಸಂಪೂರ್ಣ ಸ್ಥಳೀಕರಣ ಬೆಂಬಲ, ಸಂಕೀರ್ಣ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು ಮತ್ತು RTL ಲೇಔಟ್‌ಗಳನ್ನು ಮನಬಂದಂತೆ ನಿರ್ವಹಿಸಲು ಕಸ್ಟಮ್ ಡೈನಾಮಿಕ್ ಫಾಂಟ್ ರೆಂಡರಿಂಗ್ ಸಿಸ್ಟಮ್ ಅನ್ನು ಬಳಸಿಕೊಳ್ಳುತ್ತದೆ.",
-      "offline_status": "ಸಿಸ್ಟಮ್ ಆಫ್‌ಲೈನ್"
+      "offline_status": "ಸಿಸ್ಟಮ್ ಆಫ್‌ಲೈನ್",
+      "chassis_sync": "ಚಾಸಿಸ್ ನ್ಯೂರಲ್-ಸಿಂಕ್",
+      "comms_decrypter": "ಕಾಮ್ಸ್ ಡಿಕ್ರಿಪ್ಟರ್"
     },
     "design_system": {
       "title": "ಗ್ಲಿಚ್-ನಾಯರ್ ಕೈನೆಟಿಕ್",
@@ -11075,7 +11127,9 @@
       "status_link": "신경 링크 수립... [대기 중]",
       "narrative_desc": "Inkle의 Ink 스크립팅 언어로 구동되어 모든 저항군 대원에 대한 고도로 분기되는 대화 트리 및 지속적인 상태 추적을 제공합니다.",
       "comms_desc": "복잡한 스크립트와 RTL 레이아웃을 매끄럽게 처리하는 맞춤형 동적 글꼴 렌더링 시스템을 사용하여 50개 이상의 언어를 완벽하게 지원합니다.",
-      "offline_status": "시스템 오프라인"
+      "offline_status": "시스템 오프라인",
+      "chassis_sync": "섀시 신경 동기화",
+      "comms_decrypter": "통신 해독기"
     },
     "design_system": {
       "title": "글리치 느와르 키네틱",
@@ -11488,7 +11542,9 @@
       "status_link": "Izveidot neironu saiti... [GAIDA]",
       "narrative_desc": "Darbojas ar Inkle's Ink skriptu valodu, kas nodrošina dziļi sazarotus dialogu kokus un pastāvīgu stāvokļa izsekošanu katram pretestības darbiniekam.",
       "comms_desc": "Pilns lokalizācijas atbalsts vairāk nekā 50 valodām, izmantojot pielāgotu dinamisko fontu renderēšanas sistēmu, lai nevainojami apstrādātu sarežģītus skriptus un RTL izkārtojumus.",
-      "offline_status": "Sistēma bezsaistē"
+      "offline_status": "Sistēma bezsaistē",
+      "chassis_sync": "Šasijas neironu sinhronizācija",
+      "comms_decrypter": "Comms atšifrētājs"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -11901,7 +11957,9 @@
       "status_link": "Sukurti neuroninį ryšį... [LAUKIAMA]",
       "narrative_desc": "Varoma Inkle's Ink skriptų kalba, kuri suteikia giliai išsišakojusius dialogų medžius ir nuolatinį kiekvieno pasipriešinimo operatoriaus būsenos stebėjimą.",
       "comms_desc": "Visiškas lokalizacijos palaikymas daugiau nei 50 kalbų, naudojant tinkintą dinaminio šrifto atvaizdavimo sistemą, kad būtų galima sklandžiai tvarkyti sudėtingus scenarijus ir RTL maketus.",
-      "offline_status": "Sistema neprisijungusi"
+      "offline_status": "Sistema neprisijungusi",
+      "chassis_sync": "Važiuoklės neuroninis sinchronizavimas",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir kinetika",
@@ -12314,7 +12372,9 @@
       "status_link": "Wujudkan Pautan Neural... [TERTUNDA]",
       "narrative_desc": "Didorong oleh bahasa skrip Inkle's Ink, menyediakan pokok dialog yang bercabang mendalam dan penjejakan keadaan berterusan untuk setiap operasi rintangan.",
       "comms_desc": "Sokongan penyetempatan penuh untuk 50+ bahasa, menggunakan sistem pemaparan fon dinamik tersuai untuk mengendalikan skrip kompleks dan reka letak RTL dengan lancar.",
-      "offline_status": "Sistem Luar Talian"
+      "offline_status": "Sistem Luar Talian",
+      "chassis_sync": "Penyegerakan Neural Chassis",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Kinetik Glitch-Noir",
@@ -12727,7 +12787,9 @@
       "status_link": "ന്യൂറൽ ലിങ്ക് സ്ഥാപിക്കുക... [തീർച്ചപ്പെടുത്തിയിട്ടില്ല]",
       "narrative_desc": "Inkle's Ink scripting language വഴി നയിക്കപ്പെടുന്നു, ആഴത്തിൽ ശാഖകളുള്ള ഡയലോഗ് ട്രീകളും ഓരോ പ്രതിരോധ പ്രവർത്തനത്തിനും സ്ഥിരമായ അവസ്ഥ ട്രാക്കിംഗും നൽകുന്നു.",
       "comms_desc": "സങ്കീർണ്ണമായ സ്ക്രിപ്റ്റുകളും RTL ലേഔട്ടുകളും തടസ്സമില്ലാതെ കൈകാര്യം ചെയ്യുന്നതിനായി ഒരു ഇഷ്‌ടാനുസൃത ഡൈനാമിക് ഫോണ്ട് റെൻഡറിംഗ് സിസ്റ്റം ഉപയോഗിച്ച് 50+ ഭാഷകൾക്കുള്ള പൂർണ്ണ പ്രാദേശികവൽക്കരണ പിന്തുണ.",
-      "offline_status": "സിസ്റ്റം ഓഫ്‌ലൈൻ"
+      "offline_status": "സിസ്റ്റം ഓഫ്‌ലൈൻ",
+      "chassis_sync": "ചേസിസ് ന്യൂറൽ-സമന്വയം",
+      "comms_decrypter": "കോംസ് ഡീക്രിപ്റ്റർ"
     },
     "design_system": {
       "title": "ഗ്ലിച്ച്-നോയർ കൈനറ്റിക്",
@@ -13140,7 +13202,9 @@
       "status_link": "建立神经链接... [进行中]",
       "narrative_desc": "由 Inkle 的 Ink 脚本语言驱动，为每位抵抗特工提供深层分支的对话树和持久的状态跟踪。",
       "comms_desc": "完全支持 50+ 种语言的多国语言本地化，利用自定义动态字体渲染系统无缝处理复杂的文体和从右至左（RTL）的版面布局。",
-      "offline_status": "系统离线"
+      "offline_status": "系统离线",
+      "chassis_sync": "底盘神经同步",
+      "comms_decrypter": "通讯解密器"
     },
     "design_system": {
       "title": "黑色故障动力学",
@@ -13553,7 +13617,9 @@
       "status_link": "न्यूरल लिंक स्थापित करा... [प्रलंबित]",
       "narrative_desc": "Inkle च्या इंक स्क्रिप्टिंग भाषेद्वारे चालविलेले, प्रत्येक प्रतिकार कार्यकर्त्यासाठी सखोल शाखा असलेल्या डायलॉग ट्री आणि सक्तीचे स्टेट ट्रॅकिंग प्रदान करते.",
       "comms_desc": "जटिल स्क्रिप्ट्स आणि RTL लेआउट्स अखंडपणे हाताळण्यासाठी सानुकूल डायनॅमिक फॉन्ट रेंडरिंग सिस्टमचा वापर करून, 50+ भाषांसाठी पूर्ण स्थानिकीकरण समर्थन.",
-      "offline_status": "सिस्टम ऑफलाइन"
+      "offline_status": "सिस्टम ऑफलाइन",
+      "chassis_sync": "चेसिस न्यूरल-सिंक",
+      "comms_decrypter": "Comms डिक्रिप्टर"
     },
     "design_system": {
       "title": "ग्लिच-नॉयर कायनेटिक",
@@ -13966,7 +14032,9 @@
       "status_link": "Etabler nevralkobling ... [VENTER]",
       "narrative_desc": "Drevet av Inkles Ink-skriptspråk, gir dypt forgrenede dialogtrær og vedvarende tilstandssporing for hver motstandsmann.",
       "comms_desc": "Full lokaliseringsstøtte for 50+ språk, ved å bruke et tilpasset dynamisk skriftgjengivelsessystem for å håndtere komplekse skript og RTL-oppsett sømløst.",
-      "offline_status": "System frakoblet"
+      "offline_status": "System frakoblet",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -14379,7 +14447,9 @@
       "status_link": "Ustanów połączenie neuronowe... [OCZEKUJE]",
       "narrative_desc": "Napędzany językiem skryptowym Inkle's Ink, zapewniającym głęboko rozgałęzione drzewa dialogowe i ciągłe śledzenie stanu dla każdego agenta ruchu oporu.",
       "comms_desc": "Pełna obsługa lokalizacji dla ponad 50 języków, z wykorzystaniem niestandardowego systemu dynamicznego renderowania czcionek do płynnej obsługi złożonych skryptów i układów RTL.",
-      "offline_status": "System offline"
+      "offline_status": "System offline",
+      "chassis_sync": "Synchronizacja neuronowa obudowy",
+      "comms_decrypter": "Deszyfrator komunikacji"
     },
     "design_system": {
       "title": "Kinetyka Glitch-Noir",
@@ -14792,7 +14862,9 @@
       "status_link": "ਨਿਊਰਲ ਲਿੰਕ ਸਥਾਪਿਤ ਕਰੋ... [ਪੈਂਡਿੰਗ]",
       "narrative_desc": "ਇੰਕਲ ਦੀ ਸਿਆਹੀ ਸਕ੍ਰਿਪਟਿੰਗ ਭਾਸ਼ਾ ਦੁਆਰਾ ਸੰਚਾਲਿਤ, ਡੂੰਘੀ ਬ੍ਰਾਂਚਿੰਗ ਡਾਇਲਾਗ ਟ੍ਰੀ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ ਅਤੇ ਹਰੇਕ ਪ੍ਰਤੀਰੋਧ ਆਪਰੇਟਿਵ ਲਈ ਨਿਰੰਤਰ ਸਟੇਟ ਟਰੈਕਿੰਗ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।",
       "comms_desc": "ਗੁੰਝਲਦਾਰ ਸਕ੍ਰਿਪਟਾਂ ਅਤੇ RTL ਲੇਆਉਟ ਨੂੰ ਸਹਿਜੇ ਹੀ ਸੰਭਾਲਣ ਲਈ ਇੱਕ ਕਸਟਮ ਡਾਇਨਾਮਿਕ ਫੌਂਟ ਰੈਂਡਰਿੰਗ ਸਿਸਟਮ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋਏ, 50+ ਭਾਸ਼ਾਵਾਂ ਲਈ ਪੂਰਾ ਸਥਾਨਕਕਰਨ ਸਮਰਥਨ।",
-      "offline_status": "ਸਿਸਟਮ ਔਫਲਾਈਨ"
+      "offline_status": "ਸਿਸਟਮ ਔਫਲਾਈਨ",
+      "chassis_sync": "ਚੈਸੀਸ ਨਿਊਰਲ-ਸਿੰਕ",
+      "comms_decrypter": "Comms ਡੀਕ੍ਰਿਪਟਰ"
     },
     "design_system": {
       "title": "ਗਲਿਚ-ਨੋਇਰ ਕਾਇਨੇਟਿਕ",
@@ -15205,7 +15277,9 @@
       "status_link": "Stabiliți legătura neuronală... [ÎN AȘTEPTARE]",
       "narrative_desc": "Condus de limbajul de scripting Inkle de la Inkle, oferind arbori de dialog profund ramificați și urmărire persistentă a stării pentru fiecare agent de rezistență.",
       "comms_desc": "Suport complet de localizare pentru peste 50 de limbi, utilizând un sistem de redare dinamic personalizat a fonturilor pentru a gestiona perfect scripturi complexe și machete RTL.",
-      "offline_status": "Sistem offline"
+      "offline_status": "Sistem offline",
+      "chassis_sync": "Sincronizare neuronală a șasiului",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -15618,7 +15692,9 @@
       "status_link": "Neural Link ස්ථාපනය කරන්න... [PENDING]",
       "narrative_desc": "Inkle's Ink scripting language මගින් මෙහෙයවනු ලබන අතර, සෑම ප්‍රතිරෝධක ක්‍රියාකාරකමක් සඳහාම ගැඹුරින් අතු බෙදී යන දෙබස් ගස් සහ ස්ථීර රාජ්‍ය ලුහුබැඳීම සපයයි.",
       "comms_desc": "භාෂා 50+ සඳහා පූර්ණ දේශීයකරණ සහාය, සංකීර්ණ ස්ක්‍ර��ප්ට් සහ RTL පිරිසැලසුම් බාධාවකින් තොරව හැසිරවීමට අභිරුචි ගතික අකුරු විදැහුම්කරණ පද්ධතියක් භාවිතා කරයි.",
-      "offline_status": "පද්ධතිය නොබැඳි"
+      "offline_status": "පද්ධතිය නොබැඳි",
+      "chassis_sync": "චැසි ස්නායු-සමමුහුර්තකරණය",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -16031,7 +16107,9 @@
       "status_link": "Vytvoriť neurónové prepojenie... [ČAKÁ]",
       "narrative_desc": "Poháňaný skriptovacím jazykom Inkle Ink, ktorý poskytuje hlboko rozvetvené stromy dialógov a trvalé sledovanie stavu pre každého pracovníka odporu.",
       "comms_desc": "Plná podpora lokalizácie pre viac ako 50 jazykov s využitím vlastného dynamického systému vykresľovania písiem na bezproblémové spracovanie zložitých skriptov a rozložení RTL.",
-      "offline_status": "Systém je offline"
+      "offline_status": "Systém je offline",
+      "chassis_sync": "Podvozok Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -16444,7 +16522,9 @@
       "status_link": "Vzpostavitev nevronske povezave ... [V ČAKANJU]",
       "narrative_desc": "Poganja Inklov skriptni jezik Ink, ki zagotavlja globoko razvejana drevesa dialogov in vztrajno sledenje stanju za vsakega odporniškega operativca.",
       "comms_desc": "Popolna lokalizacijska podpora za več kot 50 jezikov z uporabo sistema za dinamično upodabljanje pisav po meri za brezhibno obdelavo kompleksnih skriptov in postavitev RTL.",
-      "offline_status": "Sistem brez povezave"
+      "offline_status": "Sistem brez povezave",
+      "chassis_sync": "Nevronska sinhronizacija ohišja",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -16857,7 +16937,9 @@
       "status_link": "Upprätta nervlänk... [VÄNTAR]",
       "narrative_desc": "Drivs av Inkles Ink-skriptspråk, som ger djupt förgrenade dialogträd och ihållande tillståndsspårning för varje motståndsman.",
       "comms_desc": "Fullständigt lokaliseringsstöd för 50+ språk, med ett anpassat dynamiskt teckensnittsrenderingssystem för att hantera komplexa skript och RTL-layouter sömlöst.",
-      "offline_status": "System offline"
+      "offline_status": "System offline",
+      "chassis_sync": "Chassi Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -17270,7 +17352,9 @@
       "status_link": "நரம்பியல் இணைப்பை நிறுவவும்... [நிலுவையில்]",
       "narrative_desc": "Inkle இன் இங்க் ஸ்கிரிப்டிங் மொழியால் இயக்கப்படுகிறது, ஆழமாக கிளைக்கும் உரையாடல் மரங்கள் மற்றும் ஒவ்வொரு எதிர்ப்பு இயக்���த்திற்கும் நிலையான நிலை கண்காணிப்பை வழங்குகிறது.",
       "comms_desc": "50+ மொழிகளுக்கான முழு உள்ளூர்மயமாக்கல் ஆதரவு, சிக்கலான ஸ்கிரிப்ட்கள் மற்றும் RTL தளவமைப்புகளைத் தடையின்றி கையாள தனிப்பயன் டைனமிக் எழுத்துரு ரெண்டரிங் அமைப்பைப் பயன்படுத்துகிறது.",
-      "offline_status": "கணினி ஆஃப்லைன்"
+      "offline_status": "கணினி ஆஃப்லைன்",
+      "chassis_sync": "சேஸ் நியூரல்-ஒத்திசைவு",
+      "comms_decrypter": "Comms Decrypter"
     },
     "design_system": {
       "title": "தடுமாற்றம்-நோயர் இயக்கவியல்",
@@ -17683,7 +17767,9 @@
       "status_link": "న్యూరల్ లింక్‌ని ఏర్పాటు చేయండి... [పెండింగ్]",
       "narrative_desc": "ఇంకిల్ యొక్క ఇంక్ స్క్రిప్టింగ్ లాంగ్వేజ్ ద్వారా నడపబడుతుంది, ప్రతి రెసిస్టెన్స్ ఆపరేటివ్‌కు లోతైన బ్రాంచ్ డైలాగ్ ట్రీలు మరియు నిరంతర స్థితి ట్రాకింగ్‌ను అందిస్తుంది.",
       "comms_desc": "50+ భాషలకు పూర్తి స్థానికీకరణ మద్దతు, సంక్లిష్ట స్క్రిప్ట్‌లు మరియు RTL లేఅవుట్‌లను సజావుగా నిర్వహించడానికి అనుకూల డైనమిక్ ఫాంట్ రెండరింగ్ సిస్టమ్‌ను ఉపయోగిస్తుంది.",
-      "offline_status": "సిస్టమ్ ఆఫ్‌లైన్"
+      "offline_status": "సిస్టమ్ ఆఫ్‌లైన్",
+      "chassis_sync": "చట్రం న్యూరల్-సింక్",
+      "comms_decrypter": "కామ్స్ డిక్రిప్టర్"
     },
     "design_system": {
       "title": "గ్లిచ్-నోయిర్ కైనెటిక్",
@@ -18096,7 +18182,9 @@
       "status_link": "สร้างการเชื่อมโยงประสาท... [รอดำเนินการ]",
       "narrative_desc": "ขับเคลื่อนด้วยภาษาสคริปต์ Inkle ของ Inkle ให้แผนผังบทสนทนาที่แตกแขนงอย่างลึกซึ้งและการติดต���มสถานะอย่างต่อเนื่องสำหรับหน่วยต่อต้านทุกราย",
       "comms_desc": "รองรับการแปลหลายภาษาอย่างเต็มรูปแบบสำหรับ 50+ ภาษา โดยใช้ระบบการเรนเดอร์ฟอนต์แบบไดนามิกแบบกำหนดเองเพื่อจัดการสคริปต์ที่ซับซ้อนและเค้าโครง RTL ได้อย่างราบรื่น",
-      "offline_status": "ระบบออฟไลน์"
+      "offline_status": "ระบบออฟไลน์",
+      "chassis_sync": "แชสซี Neural-Sync",
+      "comms_decrypter": "ตัวถอดรหัสการสื่อสาร"
     },
     "design_system": {
       "title": "ทันทีทันใด-นัวร์จลน์ศาสตร์",
@@ -18509,7 +18597,9 @@
       "status_link": "Sinir Bağlantısı Kurun... [BEKLEMEDE]",
       "narrative_desc": "Inkle'ın Ink kodlama dili tarafından yönlendirilen, derin dallara ayrılan diyalog ağaçları ve her direniş görevlisi için kalıcı durum takibi sağlar.",
       "comms_desc": "Karmaşık komut dosyalarını ve RTL düzenlerini sorunsuz bir şekilde işlemek için özel bir dinamik yazı tipi oluşturma sistemi kullanan 50'den fazla dil için tam yerelleştirme desteği.",
-      "offline_status": "Sistem Çevrimdışı"
+      "offline_status": "Sistem Çevrimdışı",
+      "chassis_sync": "Kasa Sinir Senkronizasyonu",
+      "comms_decrypter": "İletişim Şifre Çözücü"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetik",
@@ -18922,7 +19012,9 @@
       "status_link": "Встановити нейронний зв'язок... [ЧЕКУЄТЬСЯ]",
       "narrative_desc": "Керується мовою сценаріїв Ink від Inkle, що забезпечує глибокі розгалужені дерева діалогів і постійне відстеження стану для кожного оперативника опору.",
       "comms_desc": "Повна підтримка локалізації для понад 50 мов із використанням спеціальної системи динамічного відтворення шрифтів для бездоганної роботи зі складними сценаріями та макетами RTL.",
-      "offline_status": "Система в автономному режимі"
+      "offline_status": "Система в автономному режимі",
+      "chassis_sync": "Шасі Neural-Sync",
+      "comms_decrypter": "Дешифратор комунікацій"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",
@@ -19335,7 +19427,9 @@
       "status_link": "Thiết lập liên kết thần kinh... [Đang chờ xử lý]",
       "narrative_desc": "Được thúc đẩy bởi ngôn ngữ kịch bản Ink của Inkle, cung cấp các cây đối thoại phân nhánh sâu và theo dõi trạng thái liên tục cho mọi đặc vụ kháng chiến.",
       "comms_desc": "Hỗ trợ bản địa hóa đầy đủ cho hơn 50 ngôn ngữ, sử dụng hệ thống kết xuất phông chữ động tùy chỉnh để xử lý liền mạch các tập lệnh phức tạp và bố cục RTL.",
-      "offline_status": "Hệ thống ngoại tuyến"
+      "offline_status": "Hệ thống ngoại tuyến",
+      "chassis_sync": "Đồng bộ hóa thần kinh khung gầm",
+      "comms_decrypter": "Bộ giải mã tin nhắn"
     },
     "design_system": {
       "title": "Glitch-Noir Kinetic",

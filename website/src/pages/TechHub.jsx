@@ -24,7 +24,7 @@ export default function TechHub() {
           SYS.REQ //
         </div>
         <h1 className="font-display-hero text-headline-lg-mobile md:text-display-hero text-primary-container mb-4 uppercase tracking-tighter drop-shadow-[0_0_12px_rgba(0,243,255,0.5)] font-extrabold">
-          {t('features.tech_title', 'Core Architecture')}
+          {t('features.tech_title', 'Resistance Systems')}
         </h1>
         <p className={`font-body-lg text-body-lg text-on-surface-variant max-w-3xl border-warning-orange pl-6 ${
           isRtl ? 'border-r-4 pr-6 pl-0 text-right' : 'border-l-4 pl-6 pr-0 text-left'
@@ -48,7 +48,7 @@ export default function TechHub() {
                 <span className="font-label-caps text-label-caps text-warning-orange">FRAMEWORK</span>
                 <span className="px-2 py-0.5 bg-tertiary-fixed-dim text-void-black font-label-caps text-[11px] font-bold">ACTIVE</span>
               </div>
-              <h3 className="font-headline-md text-headline-md text-primary-container uppercase font-bold">Godot + C# Core</h3>
+              <h3 className="font-headline-md text-headline-md text-primary-container uppercase font-bold">{t('tech_hub.chassis_sync', 'Chassis Neural-Sync')}</h3>
               <p className="mt-2 text-on-surface-variant leading-relaxed font-body-md text-[14px]">
                 {getUIString('engine_desc')}
               </p>
@@ -80,7 +80,7 @@ export default function TechHub() {
               <span className="material-symbols-outlined text-9xl">forum</span>
             </div>
             <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary-container uppercase mb-6 drop-shadow-[0_0_10px_rgba(254,0,254,0.5)] font-bold">
-              {t('features.tech.narrative_engine', 'Narrative Engine')}
+              {t('tech_hub.comms_decrypter', 'Comms Decrypter')}
             </h2>
             <p className="mb-6 text-inverse-surface leading-relaxed">
               {getUIString('narrative_desc')}
