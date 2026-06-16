@@ -56,7 +56,14 @@ const CODE_TO_GT_CODE = {
   th: 'th',
   tr: 'tr',
   uk: 'uk',
-  vi: 'vi'
+  vi: 'vi',
+  sq: 'sq',
+  bg: 'bg',
+  hr: 'hr',
+  dz: 'dz',
+  kk: 'kk',
+  km: 'km',
+  lo: 'lo'
 };
 
 const SEP = "\n<<<>>>\n";

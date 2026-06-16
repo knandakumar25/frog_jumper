@@ -19498,5 +19498,2875 @@
       "typo_body_md": "Xelthara đến không phải để chinh phục mà để quản lý. Chúng tôi hoạt động trong vùng chết, tấn công từ bóng tối của những tảng đá nguyên khối tàn bạo.",
       "typo_label_caps": "TRẠNG THÁI: KHÁNG LIÊN KẾT COMM ĐƯỢC ĐẢM BẢO // ĐỘ TRỄ 4ms"
     }
+  },
+  "sq": {
+    "nav": {
+      "story": "Histori",
+      "characters": "Personazhet",
+      "levels": "Nivelet",
+      "features": "Veçoritë",
+      "controls": "Kontrollet",
+      "play_now": "Luaj Tani",
+      "home": "SHTËPI",
+      "gameplay": "LOJËRI",
+      "squad": "Skuadra",
+      "tech_hub": "TECH HUB",
+      "design_system": "SISTEMI I PROJEKTIMIT"
+    },
+    "hero": {
+      "title_line1": "FORCA E AXIOMËS",
+      "title_line2_prefix": "RIKURTIMI ",
+      "title_line2_highlight": "TOKA",
+      "subtitle": "Një platformë veprimi 3D. Rikuperoni Tokën nga pushtuesit e huaj.",
+      "play_on_github": "Luaj në GitHub",
+      "view_source": "Shiko Burimin",
+      "replayability": "Riluajtshmëria"
+    },
+    "modal": {
+      "title": "Zgjidhni gjuhën dhe shtetin tuaj",
+      "country": "Vendi",
+      "language": "Gjuha",
+      "no_countries": "Nuk ka shtete të disponueshme për këtë gjuhë",
+      "select_country_first": "Ju lutemi zgjidhni fillimisht një shtet",
+      "choose": "Zgjidhni"
+    },
+    "footer": {
+      "tagline": "Një platformë veprimi 3D. Drejtoni rezistencën për të rimarrë Tokën nga pushtuesit e huaj.",
+      "status": "AXIOM-7 ONLINE — REZISTENCA AKTIVE",
+      "nav_title": "Navigimi",
+      "tech_title": "SPECS E MISIONIT",
+      "credits_title": "Kreditë",
+      "copyright": "© {{vit}} AXIOM FORCE: RECLAIM EARTH — Të gjitha të drejtat e rezervuara",
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // TRANSMETIM I SIGURT",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Hyrja: Gamepad / Tastierë",
+      "status_desc": "Statusi: Kryengritës aktiv",
+      "version_desc": "Rishikimi: V1.0.0 Publikimi"
+    },
+    "home": {
+      "story_label": "Historia",
+      "story_desc": "Toka, e pushtuar. Ngrihen katër heronj.",
+      "char_label": "Personazhet",
+      "char_desc": "Zgjidhni luftëtarin tuaj.",
+      "levels_label": "Nivelet",
+      "levels_desc": "5 misione. Rritja e aksioneve.",
+      "features_label": "Veçoritë",
+      "features_desc": "Mbi 50 gjuhë. Sisteme të thella.",
+      "controls_label": "Kontrollet",
+      "controls_desc": "Tastiera dhe tastiera e lojës janë gati.",
+      "warning_casualty": "> PARALAJMËRIM: SHKALLA E LARTË viktimash",
+      "status_operational": "STATUSI: OPERACIONAL",
+      "grid_hacked": "Nënstacioni 4Alpha është hakuar. Rrjeti lokal nën kontrollin e HLF."
+    },
+    "story": {
+      "briefing": "përmbledhje narrative",
+      "title": "Historia",
+      "desc": "Toka ka rënë nën një pushtim dystopian të alienëve. Një ekip i vogël luftëtarësh duhet të luftojnë rrugën e tyre nëpër territorin e armikut për ta rimarrë atë. Zgjidhni luftëtarin tuaj, mbijetoni dorën dhe tregohuni të denjë për të shpëtuar botën.",
+      "live_feed": "FEED LIVE",
+      "caption": "Los Angeles - Zona e Mbajtjes së Sektorit 4",
+      "axiom_text": "\"Infiltroni territoret e tyre koloniale. Sabotoni bërthamat e fuqisë duke nxitur terraformimin e tyre. Çdo zonë që ju çlironi e shtyn pushtimin e tyre dhe u kujton atyre: Toka ka banorë që do të luftojnë për të.\"",
+      "timeline": {
+        "arrival_title": "Arritja",
+        "arrival_desc": "Kolektivi Xelthara mbërrin në Tokë, duke e shpallur atë \"territor të zbuluar\" dhe njerëzimin \"një popullsi indigjene të papërshtatshme\".",
+        "displacement_title": "Zhvendosja në masë",
+        "displacement_desc": "Brenda disa ditësh, miliona janë zhvendosur në zona të ngushta të kontrollit, ndërsa Xelthara kolonizojnë qytetet tona dhe çmontojnë monumentet tona.",
+        "resistance_title": "Format e Rezistencës",
+        "resistance_desc": "Nga kufijtë e zonave të kontrollit, dalin katër kampionë - Ninja Frog, Mask Dude, Pink Man dhe Virtual Guy - duke refuzuar të fshihen.",
+        "axiom_title": "AXIOM-7 u vendos",
+        "axiom_desc": "Fronti i Çlirimit të Atdheut aktivizon AXIOM-7, një modul i automatizuar i operacioneve të inteligjencës së jashtme, për të koordinuar rezistencën.",
+        "mission_title": "Misioni juaj fillon",
+        "mission_desc": "Ju jeni zgjedhur. Depërtoni në territoret koloniale. Sabotoni bërthamat e energjisë. Çmontimi i infrastrukturës së vendbanimeve. Rikuperoni Tokën."
+      }
+    },
+    "characters": {
+      "briefing": "përzgjedhja e luftëtarëve",
+      "title": "Zgjidhni luftëtarin tuaj",
+      "desc": "Katër luftëtarë elitarë qëndrojnë kundër pushtimit të Xelthara. Secili sjell aftësi unike në luftën për lirinë e Tokës.",
+      "abilities_title": "AFTËSITË",
+      "stats_title": "STATISTIKAT E LUFTAVE",
+      "unlock": "Karakter bonus i zhbllokueshëm me sulme me shpatë dhe karate. Përfundoni fushatën për të zhbllokuar këtë luftëtar legjendar.",
+      "stats": {
+        "speed": "SHPEJTËSI",
+        "power": "PUSHTETI",
+        "agility": "AGILITETI",
+        "defense": "MBROJTJA"
+      },
+      "warriors": {
+        "frog": {
+          "role": "I infiltruar",
+          "desc": "Një mjeshtër i vjedhjes dhe shkathtësisë. Ninja Frog mund të kërcejë me mur dhe të kërcejë dy herë për të arritur pozicione të pamundura. Lëvizja e shpejtë rrufe e bën këtë luftëtar skautin ideal.",
+          "lore": "\"Ata nuk më shohin derisa të jetë tepër vonë. Në kufijtë mes dritave të tyre të vëmendjes, unë ekzistoj.\""
+        },
+        "dude": {
+          "role": "Luftëtar i ekuilibruar",
+          "desc": "Luftëtari i maskuar ofron ekuilibrin e përsosur të sulmit dhe mbrojtjes. I besueshëm në të gjitha situatat, Aegis Ronin është strategjik dhe i pajisur me çekiçin kinetik dhe mburojën e kullës së energjisë.",
+          "lore": "\"Maska nuk është një maskim. Është një deklaratë që unë refuzoj të më njohin sistemet e tyre.\""
+        },
+        "pink": {
+          "role": "Goditës i rëndë",
+          "desc": "Një specialist në Phase-Shifting dhe EMP shpërthen, duke luftuar për të rimarrë identitetet e vjedhura nga bazat e të dhënave të alienëve. Jashtëzakonisht i shpejtë dhe vdekjeprurës në afërsi.",
+          "lore": "\"Ata qeshin me ngjyrën time. Ata ndalojnë së qeshuri shumë shpejt.\""
+        },
+        "guy": {
+          "role": "Specialist Teknik",
+          "desc": "Një ndërgjegje dixhitale e ngulitur në një shasi fizike. Virtual Guy mund të ndërlidhet me sistemet e armikut dhe të shfrytëzojë dobësitë teknike që të tjerët nuk mund t'i perceptojnë.",
+          "lore": "\"Unë jetoj në hapësirën midis mureve të tyre të zjarrit. Unë jam fantazma në makinën e tyre.\""
+        }
+      }
+    },
+    "levels": {
+      "briefing": "nivelet e fushatës",
+      "title_prefix": "Të ",
+      "title_highlight": "Misioni",
+      "title_suffix": " pret",
+      "desc": "Pesë nivele unike me vështirësi në rritje. Çdo mision hapet gradualisht ndërsa ju shtyni pushtimin e Xelthara.",
+      "objectives_title": "OBJEKTIVAT E MISIONIT",
+      "difficulty_title": "VËSHTIRËSI",
+      "threat_title": "KËRCËNIM:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "MINIMAL",
+        "high": "I LARTË",
+        "omega": "OMEGA",
+        "critical": "KRITIKE"
+      },
+      "types": {
+        "training": "TRAJNIMI",
+        "infiltration": "INFILTRIMI",
+        "defense": "MBROJTJA",
+        "stealth": "VJESHTJE",
+        "assault": "SULM"
+      },
+      "level_0": {
+        "name": "Protokolli Zero",
+        "subtitle": "Forge virtuale",
+        "description": "Një simulim i gjerë me kornizë teli i një horizonti të shkatërruar në qendër të Los Anxhelosit. Zotëroni shasinë tuaj luftarake në Realitetin Virtual Neural-Sync përpara se të fillojë lufta e vërtetë.",
+        "obj_0": "Kalibrim i plotë i shasisë",
+        "obj_1": "Shkatërroni njësitë e simuluara Xelthara",
+        "obj_2": "Kaloni testin e goditjes së sinkronizuar"
+      },
+      "level_1": {
+        "name": "Ghost in the Gridlock",
+        "subtitle": "Protokolli i fshirjes kulturore",
+        "description": "Rrënojat e Kopshteve të Pallatit Perandorak. Trarët terraformues të Xelthara shpërndajnë fenerë të lashtë prej guri. Merrni Data-Blade - një depo dixhitale e historisë së ndaluar - përpara se të fshihet përgjithmonë.",
+        "obj_0": "Angazhoni dronët e Ekuipazhit të Demolition",
+        "obj_1": "Neutralizoni fenerin e rrënimit",
+        "obj_2": "Siguroni të dhënat-Blade"
+      },
+      "level_2": {
+        "name": "Zjarri i betonit",
+        "subtitle": "Zhvendosja sistematike",
+        "description": "Mbani urën e fundit kundër Zbatuesve të Xelthara që grumbullojnë 412 refugjatë në kontroll. Lëreni grupin përfundimtar të rrëshqasë në lagjet e varfëra të paharta dhe t'i shpëtojë regjistrimit kolonial.",
+        "obj_0": "Aktivizoni Mburojën e Kullës së Energjisë",
+        "obj_1": "Mbajeni urën nën zjarr me mortaja",
+        "obj_2": "Shkatërroni Siege Walkers"
+      },
+      "level_3": {
+        "name": "Ndryshku neoni dhe pluhuri i të dhënave",
+        "subtitle": "Jeta në margjina",
+        "description": "Nën-City - një rrjet i boshteve të mirëmbajtjes nën një vendbanim shkëlqyes Xelthara. Shfrytëzoni energjinë e tyre për të fuqizuar sistemet e mbështetjes së jetës së popullatës së margjinalizuar duke shmangur Patrullat e Pastërtisë.",
+        "obj_0": "Aktivizoni aftësinë Phase-Shift",
+        "obj_1": "Anashkaloni Xelthara Sentinels i pazbuluar",
+        "obj_2": "Shpërthoni EMP në portën rrethuese"
+      },
+      "level_4": {
+        "name": "Egida e shpartalluar e komandantit bosh",
+        "subtitle": "Lufta asimetrike",
+        "description": "Qendra e Mbrojtjes e Paqësorit e shkatërruar. Çmontoni kullën e fundit të transmetimit dhe shpërndani çipat e frekuencës në qelizat e rezistencës civile - duke finalizuar kalimin në luftën guerile.",
+        "obj_0": "Nisni sekuencën e rrjetit Hotwire",
+        "obj_1": "Sinkronizoni flotën e mikro-dronit",
+        "obj_2": "Zjarri Orbital Strike - Protocol of Obliteration"
+      }
+    },
+    "features": {
+      "briefing": "aftësitë e sistemit",
+      "title_prefix": "Lojë ",
+      "title_highlight": "Veçoritë",
+      "built_with": "ndërtuar me",
+      "tech_title": "Sistemet e Rezistencës",
+      "tags": {
+        "roster": "ROSTER",
+        "narrative": "rrëfimtar",
+        "progression": "PROGRESIONI",
+        "save_system": "SAVE SISTEMI",
+        "localisation": "LOKALIZIMI",
+        "controls": "KONTROLLET",
+        "ux": "UX",
+        "audio": "AUDIO"
+      },
+      "tech": {
+        "engine": "Motori i lojës",
+        "logic": "Loja Logjikë",
+        "scripting": "Skenarizimi i skenës",
+        "persistence": "Qëndrueshmëria e rezultatit",
+        "narrative_engine": "Motori narrativ",
+        "build": "Ndërtimi i sistemit"
+      },
+      "items": {
+        "roster": {
+          "title": "Lista e shasisë",
+          "desc": "Vendosni një nga pesë kornizat luftarake të personalizuara të kalibruara me ngarkesa të specializuara harduerike."
+        },
+        "story": {
+          "title": "Baza e të dhënave Intel",
+          "desc": "Telemetria në kohë reale dhe arkivat e inteligjencës rajonale të përpiluara nga mainframe Axiom-7."
+        },
+        "progress": {
+          "title": "Të koleksionueshme dhe pikë",
+          "desc": "Qershitë e shpërndara në të gjitha nivelet me vlerë pikë. Rezultatet ruhen në nivel lokal nëpërmjet SQLite dhe shfaqen në një tabelë të vazhdueshme drejtuese."
+        },
+        "save": {
+          "title": "Nyjet e memories",
+          "desc": "Kasafortat e decentralizuara të ruajtjes që mbështesin telemetrinë luftarake dhe sinkronizojnë seancat e gjendjes."
+        },
+        "local": {
+          "title": "Mbështetje gjuhësore mbi 50",
+          "desc": "UI plotësisht i lokalizuar duke përfshirë arabisht, hindisht, japonisht, malajalam dhe shumë të tjera — mundësuar nga përkthimi i bazuar në CSV."
+        },
+        "controls": {
+          "title": "Mbështetje Gamepad",
+          "desc": "Mbështetje e plotë e kontrolluesit duke përfshirë D-Pad, lëvizjen e shkopit analog dhe hartën e butonave për të gjitha sulmet dhe aftësitë."
+        },
+        "ux": {
+          "title": "Menuja e pauzës së turbullimit",
+          "desc": "Një meny premium pauzë me efekt mjegullues në kohë reale — muzikë e rregullueshme dhe vëllime SFX të aksesueshme në çdo kohë."
+        },
+        "audio": {
+          "title": "Mantele akustike",
+          "desc": "Vendosni pajisje akustike me zhurmë të bardhë për të maskuar nënshkrimet audio të skuadrës dhe për të shmangur patrullimet."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "ndërfaqja e komandës",
+      "title_prefix": "Zotëroni ",
+      "title_highlight": "Kontrollet",
+      "desc": "Mbështetje e plotë e tastierës dhe tastierës së lojës. Aftësitë unike të çdo luftëtari hartohen me komandat e dedikuara të hyrjes - zotërojini të gjitha për të mbijetuar.",
+      "keyboard": "Tastierë",
+      "gamepad": "Tabela e lojës",
+      "or": "ose",
+      "special_briefing": "aftësi të veçanta",
+      "special_title": "Teknika luftarake",
+      "tip": {
+        "title": "Protokolli i trajnimit:",
+        "text": "Filloni me Nivelin 00 - Protokolli Zero për të mësuar të gjitha kontrollet në Realitetin Virtual Neural-Sync përpara se të hyni në luftime të drejtpërdrejta."
+      },
+      "actions": {
+        "move_left": "Lëviz majtas",
+        "move_right": "Lëviz djathtas",
+        "jump": "kërcejnë",
+        "sword_attack": "Sulmi me shpatë",
+        "karate_attack": "Sulmi i Karatesë",
+        "pause": "Ndalo"
+      },
+      "notes": {
+        "shogun_only": "Vetëm Cyber Shogun"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plazma Blade Strike",
+          "input": "Sulmi i lehtë"
+        },
+        "energy_shield": {
+          "name": "Mburoja e Kullës së Energjisë",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Mbingarkesa kinetike",
+          "input": "Mbani RB/R1 + Heavy"
+        },
+        "phase_shift": {
+          "name": "Zhvendosja e Fazës",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "Mbaj LT + Lësho"
+        },
+        "emp_burst": {
+          "name": "Shpërthimi i EMP",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Mbingarkesa e Mburojës",
+          "input": "Mbajeni X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "Goditja Orbitale",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "OPERATIVI I SHPËRNDARJES",
+      "deploying": "POSHTIMI...",
+      "syncComplete": "SINkronizimi I PLOTËSUAR // OPERATIVI I ZHVILLUAR ME SUKSES NË SEKTORIN E SHQYRTIMIT",
+      "active": "AKTIVE",
+      "standby": "GJITHSHME",
+      "role": "ROLI",
+      "firepower": "FUQI ZJARRI",
+      "defense": "MBROJTJA",
+      "mobility": "Lëvizshmëria",
+      "shogun": "KIBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "BRETKOSH NINJA",
+      "guy": "DJALI VIRTUAL"
+    },
+    "gameplay": {
+      "protocols": "PROTOKOLLET THEMELORE",
+      "terminal": "Terminali i bazës së të dhënave",
+      "active": "AKTIVE",
+      "synced": "SINkronizuar",
+      "online": "ONLINE",
+      "t1_title": "Kërcim kinetik",
+      "t1_desc": "Zotëroni lëvizjen e bazuar në moment. Vraponi në mur përgjatë monoliteve të huaj, kapuni përmes rrokaqiejve të shkatërruar dhe rrëshqitjeve me zinxhirë për t'iu shmangur sensorëve të shënjestrimit të Xelthara.",
+      "t2_title": "Hakimi nervor",
+      "t2_desc": "Infiltro rrjetet e alienëve në fluturim. Hiqni dronët e armikut, mbingarkoni mburojat e energjisë ose ktheni mbrojtjen e automatizuar kundër krijuesve të tyre në luftime në kohë reale.",
+      "t3_title": "Sinergjia e skuadrës",
+      "t3_desc": "Komandoni qelizën tuaj të rezistencës të drejtuar nga AI. Ekzekutoni shkelje të sinkronizuara, vendosni prita taktike dhe kombinoni aftësi unike për të çmontuar armaturën e rëndë Xelthara.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "LOS ANGELES 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "Specifikimet teknike të pajisjeve të kryengritësve të FDH-së, dekriptuesve të sistemit kryesor dhe shasisë së sulmit kibernetik aktiv në Sektorin 4.",
+      "engine_title": "Specifikat e shasisë",
+      "engine_desc": "Shasia luftarake e kryengritësve është e pajisur me lidhje nervore me efikasitet të lartë që veprojnë mbi kanale të lokalizuara nën-GHz, të dizajnuara për të anashkaluar kundërmasat elektronike Xelthara.",
+      "status_init": "Inicializoni Neural-Sync... [OK]",
+      "status_shaders": "Kalibroni hijezuesit e lëvizjes... [OK]",
+      "status_link": "Krijo lidhjen e sektorit... [E SIGURUAR]",
+      "narrative_desc": "Sistemi i decentralizuar i rrugëzimit Ink-comms i krijuar për të krijuar rrjete komunikimi me shumë kanale midis skuadrave të rezistencës, duke siguruar transmetim të sigurt të koordinatave dhe regjistrave të misionit.",
+      "comms_desc": "Protokollet adaptive të enkriptimit me brez të gjerë që mbështesin kërcimin e sigurt të frekuencës në të gjitha mbi 50 nën-rrjetet rajonale, duke parandaluar përgjimin nga procesorët atmosferikë në lartësi të madhe.",
+      "offline_status": "Sistemi Offline",
+      "chassis_sync": "Shasia Neural-Sync",
+      "comms_decrypter": "Dekriptuesi i Comms"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "Udhëzues interaktiv dhe sallë ekspozite e shenjave për sistemin e projektimit të kornizave kryesore rebele të HLF. Kontrast i lartë, paraqitje viscerale dhe mbivendosje me fërkim CRT.",
+      "values": {
+        "digital_defiance": {
+          "title": "// DEFIANCA DIGJITALE",
+          "desc": "Skajet e papërpunuara, të papërpunuara të përziera me efekte të ndezura katodike për të shkelur kornizën kryesore të korporatës."
+        },
+        "visual_friction": {
+          "title": "// FËRKIM VIZUAL",
+          "desc": "Skanime të qëllimshme CRT dhe devijime të vogla ngjyrash për të përfaqësuar një transmetim të lokalizuar rebel."
+        },
+        "rigid_tactical_grid": {
+          "title": "// RRJETI TAKTIK I ngurtë",
+          "desc": "Modele kuti asimetrike që ndihen si komponentë të lidhur direkt në një motherboard."
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI SURVIVAL",
+          "desc": "Printime të të dhënave në një hapësirë, qoshe të mprehta kufiri 0 pikselë dhe motive me densitet pikselësh me rezolucion të ulët."
+        }
+      },
+      "color_swatches": "Swatch me ngjyra",
+      "copy_success": "KOPJUAR!",
+      "copy_prompt": "KLIKONI PËR TË KOPJUAR",
+      "typography_stack": "Stack tipografie",
+      "component_showroom": "Showroom i komponentëve",
+      "btn_interactive_states": "// SHTETET INTERAKTIVE TË BUTONIT",
+      "primary_action_desc": "Veprimi Parësor (dridhje dhe anon në Magenta në lëvizje)",
+      "secondary_outline_desc": "Skicë dytësore",
+      "warning_action_desc": "Veprim paralajmërues (animacion i animuar)",
+      "tactical_card_desc": "// KARTELA TAKTIKE HOVER & HYRJE",
+      "alpha_card_title": "Karta Alfa e Sektorit 4",
+      "alpha_card_desc": "Enë me kornizë interaktive e pajisur me katër qoshe të kllapave të personalizuara dhe hijezues të dyfishtë të shkëlqimit në fokus.",
+      "comms_label": "TERMINALI I SIGURT KOMMUN (kliko për të parë kufirin e treguesit pulsues)",
+      "decryption_placeholder": "Fut kodin e deshifrimit...",
+      "colors": {
+        "void_black": {
+          "name": "E zezë e zbrazët",
+          "desc": "Sfondi bazë i fshehtë"
+        },
+        "deep_grey": {
+          "name": "Gri i thellë",
+          "desc": "Sfondi dytësor i kontejnerit të lartësisë"
+        },
+        "neon_cyan": {
+          "name": "Neon Cyan (fillore)",
+          "desc": "Ndërfaqe taktike dhe teknologji miqësore"
+        },
+        "electric_magenta": {
+          "name": "Magenta elektrike (e mesme)",
+          "desc": "Kapërcen energji të lartë dhe veprime të FHL"
+        },
+        "toxic_green": {
+          "name": "Gjelbër toksik (terciar)",
+          "desc": "Hakime të suksesshme dhe tregues të statusit aktiv"
+        },
+        "warning_orange": {
+          "name": "Paralajmërim portokalli",
+          "desc": "Sinjalizime kritike, gjendje kërcënimi dhe paralajmërime"
+        }
+      },
+      "typo_display_hero": "RIKURTIMI I TOKËS",
+      "typo_headline_lg": "RAPORTI TAKTIK I INTEL",
+      "typo_body_lg": "> Forcat tokësore kanë shkelur parametrat e kontrollit të Sektorit 4. Nisja e kyçjes aktive të rrjetit të sinkronizimit.",
+      "typo_body_md": "Xelthara mbërriti jo për të pushtuar, por për të administruar. Ne operojmë në zonat e vdekura, duke u goditur nga hijet e monoliteve brutaliste.",
+      "typo_label_caps": "STATUSI: LINDJA E KOMUNITETEVE TË REZISTENCAVE E SIGURUAR // VONESË 4 ms"
+    }
+  },
+  "bg": {
+    "nav": {
+      "story": "История",
+      "characters": "герои",
+      "levels": "Нива",
+      "features": "Характеристики",
+      "controls": "Контроли",
+      "play_now": "Играйте сега",
+      "home": "НАЧАЛО",
+      "gameplay": "ИГРА",
+      "squad": "СКУД",
+      "tech_hub": "ТЕХНИЧЕСКИ ХЪБ",
+      "design_system": "СИСТЕМА ЗА ПРОЕКТИРАНЕ"
+    },
+    "hero": {
+      "title_line1": "АКСИОМА СИЛА",
+      "title_line2_prefix": "ВЪЗСТАНОВЯВАНЕ ",
+      "title_line2_highlight": "ЗЕМЯ",
+      "subtitle": "3D екшън платформинг. Върнете Земята от извънземни окупатори.",
+      "play_on_github": "Играйте в GitHub",
+      "view_source": "Вижте източника",
+      "replayability": "Повторна игра"
+    },
+    "modal": {
+      "title": "Изберете своя език и държава",
+      "country": "държава",
+      "language": "език",
+      "no_countries": "Няма налични държави за този език",
+      "select_country_first": "Моля, първо изберете държава",
+      "choose": "Изберете"
+    },
+    "footer": {
+      "tagline": "3D екшън платформинг. Поведете съпротивата, за да си върнете Земята от извънземни окупатори.",
+      "status": "AXIOM-7 ОНЛАЙН — СЪПРОТИВЛЕНИЕ АКТИВНО",
+      "nav_title": "Навигация",
+      "tech_title": "СПЕЦИФИКАЦИИ НА МИСИЯТА",
+      "credits_title": "Кредити",
+      "copyright": "© {{year}} AXIOM FORCE: ВЪРНЕТЕ ЗЕМЯТА — Всички права запазени",
+      "broadcast_status": "v1.0.0 // NET-SYNC ОПЕРАТИВЕН // СИГУРНО ИЗПЪЛНЕНИЕ",
+      "platform_desc": "Платформа: Windows (PC)",
+      "input_desc": "Вход: геймпад / клавиатура",
+      "status_desc": "Статус: Активен бунт",
+      "version_desc": "Ревизия: v1.0.0 Release"
+    },
+    "home": {
+      "story_label": "Историята",
+      "story_desc": "Земята, окупирана. Четирима герои се издигат.",
+      "char_label": "герои",
+      "char_desc": "Изберете своя воин.",
+      "levels_label": "Нива",
+      "levels_desc": "5 мисии. Увеличаване на залозите.",
+      "features_label": "Характеристики",
+      "features_desc": "50+ езика. Дълбоки системи.",
+      "controls_label": "Контроли",
+      "controls_desc": "Готова клавиатура и геймпад.",
+      "warning_casualty": "> ПРЕДУПРЕЖДЕНИЕ: ВИСОК ПРОЦЕНТ НА ЖЕРТВИ",
+      "status_operational": "СТАТУС: РАБОТЕН",
+      "grid_hacked": "Подстанция 4Alpha хакната. Локална мрежа под контрол на HLF."
+    },
+    "story": {
+      "briefing": "наративен брифинг",
+      "title": "Историята",
+      "desc": "Земята е попаднала под дистопична извънземна ��купация. Малък екип от воини трябва да си пробие път през територията на врага, за да си я върне. Изберете вашия боец, оцелейте в ръкавицата и докажете, че сте достоен да спасите света.",
+      "live_feed": "ЕМИСИЯ НА ЖИВО",
+      "caption": "Лос Анджелис — зона за ограничаване на сектор 4",
+      "axiom_text": "\"Проникнете в техните колониални територии. Саботирайте силовите ядра, подхранващи тяхното тераформиране. Всяка зона, която освободите, отблъсква окупацията им и им напомня: Земята има жители, които ще се бият за нея.\"",
+      "timeline": {
+        "arrival_title": "Пристигането",
+        "arrival_desc": "Колективът Xelthara пристига на Земята, обявявайки я за „открита територия“, а човечеството за „неудобно местно население“.",
+        "displacement_title": "Масово изместване",
+        "displacement_desc": "В рамките на дни милиони са разселени в тесни затворени зони, докато Xelthara колонизират нашите градове и разрушават нашите паметници.",
+        "resistance_title": "Формите на съпротива",
+        "resistance_desc": "От границите на зоните за задържане се появяват четирима шампиони — жабата нинджа, маската, розовият човек и виртуалният човек — които отказват да бъдат изтрити.",
+        "axiom_title": "AXIOM-7 е разгърнат",
+        "axiom_desc": "Фронтът за освобождение на родината активира AXIOM-7, модул за автоматизирани операции на външното разузнаване, за да координира съпротивата.",
+        "mission_title": "Вашата мисия започва",
+        "mission_desc": "��ие сте избрани. Проникнете в колониалните територии. Саботирайте захранващи ядра. Демонтирайте селищната инфраструктура. Възстановете Земята."
+      }
+    },
+    "characters": {
+      "briefing": "избор на воин",
+      "title": "Изберете своя боец",
+      "desc": "Четирима елитни воини се противопоставят на окупацията на Xelthara. Всеки носи уникални способности в битката за свободата на Земята.",
+      "abilities_title": "СПОСОБНОСТИ",
+      "stats_title": "БОЙНА СТАТИСТИКА",
+      "unlock": "Бонус отключващ персонаж с атаки с меч и карате. Завършете кампанията, за да отключите този легендарен воин.",
+      "stats": {
+        "speed": "СКОРОСТ",
+        "power": "МОЩНОСТ",
+        "agility": "ПЪРВИНА",
+        "defense": "ОТБРАНА"
+      },
+      "warriors": {
+        "frog": {
+          "role": "Инфилтратор",
+          "desc": "Майстор на стелт и ловкост. Жабата нинджа може да скача на стена и да скача двойно, за да достигне невъзможни позиции. Светкавично бързото движение прави този воин идеалния разузнавач.",
+          "lore": "„Те не ме виждат, докато не стане твърде късно. В полето между прожекторите им аз съществувам.“"
+        },
+        "dude": {
+          "role": "Балансиран боец",
+          "desc": "Маскираният воин предлага перфектния баланс между атака и защита. Надежден във всички ситуации, Aegis Ronin е стратегически и е оборудван с Kinetic Hammer и Energy Tower Shield.",
+          "lore": "„Маската не е маскировка. Това е декларация, че отказвам да бъда разпознат от техните системи.“"
+        },
+        "pink": {
+          "role": "Тежък ударник",
+          "desc": "Специалист по Phase-Shifting и EMP изблици, борейки се за възстановяване на откраднати самоличности от извънземни бази данни. Изключително бърз и смъртоносен отблизо.",
+          "lore": "\"Те се смеят на цвета ми. Много бързо спират да се смеят.\""
+        },
+        "guy": {
+          "role": "Технически специалист",
+          "desc": "Дигитално съзнание, вградено във физическо шаси. Virtual Guy може да взаимодейства с вражески системи и да използва технически уязвимости, които другите не могат да възприемат.",
+          "lore": "„Живея в пространството между техните защитни стени. Аз съм призракът в тяхната машина.“"
+        }
+      }
+    },
+    "levels": {
+      "briefing": "нива на кампанията",
+      "title_prefix": "The ",
+      "title_highlight": "Мисия",
+      "title_suffix": " Очаква",
+      "desc": "Пет уникални нива с нарастваща трудност. Всяка мисия се отключва постепенно, докато отблъсквате окупацията на Xelthara.",
+      "objectives_title": "ЦЕЛИ НА МИСИЯТА",
+      "difficulty_title": "ТРУДНОСТ",
+      "threat_title": "ЗАПЛАХА:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "МИНИМАЛЕН",
+        "high": "ВИСОКА",
+        "omega": "ОМЕГА",
+        "critical": "КРИТИЧНО"
+      },
+      "types": {
+        "training": "ОБУЧЕНИЕ",
+        "infiltration": "ИНФИЛТРАЦИЯ",
+        "defense": "ОТБРАНА",
+        "stealth": "СТЕЛТ",
+        "assault": "НАПАДЕНИЕ"
+      },
+      "level_0": {
+        "name": "Протокол нула",
+        "subtitle": "Виртуалната ковачница",
+        "description": "Обширна телена симулация на разрушен силует в центъра на Лос Анджелис. Овладейте своето бойно шаси във виртуалната реалност Neural-Sync, преди да започне истинската война.",
+        "obj_0": "Пълно калибриране на шасито",
+        "obj_1": "Унищожете симулирани единици Xelthara",
+        "obj_2": "Преминете теста за синхронизиран удар"
+      },
+      "level_1": {
+        "name": "Ghost in the Gridlock",
+        "subtitle": "Протокол за културно изтриване",
+        "description": "Руините на градините на императорския дворец. Тераформиращите греди Xelthara разтварят древни каменни фенери. Извлечете Data-Blade — цифрово хранилище на забранена история — преди да бъде изтрито завинаги.",
+        "obj_0": "Включете дронове на Demolition Crew",
+        "obj_1": "Неутрализирайте маяка за разрушаване",
+        "obj_2": "Осигурете Data-Blade"
+      },
+      "level_2": {
+        "name": "Бетонният горски пожар",
+        "subtitle": "Системно изместване",
+        "description": "Задръжте последния мост срещу Xelthara Enforcers, държащи 412 бежанци в затвора. Позволете на последната група да се промъкне в некартографираните бедняшки квартали и да избяга от колониалната регистрация.",
+        "obj_0": "Активирайте щита на енергийната кула",
+        "obj_1": "Дръжте моста под минометен огън",
+        "obj_2": "Унищожете Siege Walkers"
+      },
+      "level_3": {
+        "name": "Неонова ръжда и прах от данни",
+        "subtitle": "Живот в пределите",
+        "description": "Under-City — мрежа от шахти за поддръжка под блестящо селище Xelthara. Изсмучете енергията им, за да захранвате животоподдържащите системи на маргинализираното население, като същевременно избягвате патрулите на Чистотата.",
+        "obj_0": "Активирайте възможността Phase-Shift",
+        "obj_1": "Заобиколете Xelthara Sentinels незабелязани",
+        "obj_2": "Детонирайте EMP на вратата на периметъра"
+      },
+      "level_4": {
+        "name": "Командир на Shattered Aegis of the Void",
+        "subtitle": "Асиметрична война",
+        "description": "Разбитият Тихоокеански отбранителен център. Демонтирайте последната кула за излъчване и раздайте честотни чипове на цивилни съпротивителни клетки - финализиране на прехода към партизанска война.",
+        "obj_0": "Стартирайте последователността Network Hotwire",
+        "obj_1": "Синхронизирайте флота от микродронове",
+        "obj_2": "Изстреляйте Orbital Strike — Obliteration Protocol"
+      }
+    },
+    "features": {
+      "briefing": "системни възможности",
+      "title_prefix": "Игра ",
+      "title_highlight": "Характеристики",
+      "built_with": "построен с",
+      "tech_title": "Системи за съпротивление",
+      "tags": {
+        "roster": "СПИСЪК",
+        "narrative": "НАРАТИВ",
+        "progression": "ПРОГРЕСИЯ",
+        "save_system": "ЗАПАЗЕТЕ СИСТЕМАТА",
+        "localisation": "ЛОКАЛИЗАЦИЯ",
+        "controls": "УПРАВЛЕНИЯ",
+        "ux": "UX",
+        "audio": "АУДИО"
+      },
+      "tech": {
+        "engine": "Игрален двигател",
+        "logic": "Логика на играта",
+        "scripting": "Сценарий за сцена",
+        "persistence": "Резултат Упоритост",
+        "narrative_engine": "Машина за разказ",
+        "build": "Система за изграждане"
+      },
+      "items": {
+        "roster": {
+          "title": "Списък на шасито",
+          "desc": "Разгърнете една от пет персонализирани бойни рамки, калибрирани със специализирани хардуерни зареждания."
+        },
+        "story": {
+          "title": "База данни на Intel",
+          "desc": "Телеметрия в реално време и регионални разузнавателни архиви, събрани от мейнфрейма Axiom-7."
+        },
+        "progress": {
+          "title": "Колекционерски предмети и точкуване",
+          "desc": "Череши, разпръснати по всички нива, струват точки. Резултатите се записват локално чрез SQLite и се показват в постоянна класация."
+        },
+        "save": {
+          "title": "Възли на паметта",
+          "desc": "Децентрализирани трезори за съхранение, архивиращи бойна телеметрия и сесии за синхронизиране на състоянието."
+        },
+        "local": {
+          "title": "Поддръжка на 50+ езика",
+          "desc": "Напълно локализиран потребителски интерфейс, включително арабски, хинди, японски, малаяламски и много други - захранван от CSV базиран превод."
+        },
+        "controls": {
+          "title": "Поддръжка на геймпад",
+          "desc": "Пълна поддръжка на контролер, включително D-Pad, движение на аналогов стик и картографиране на бутони за всички атаки и способности."
+        },
+        "ux": {
+          "title": "Меню за пауза на замъгляване",
+          "desc": "Първокласно меню за пауза с ефект на шейдър на размазване в реално време — регулируеми сила на звука на музика и SFX, достъпни по всяко време."
+        },
+        "audio": {
+          "title": "Акустично наметало",
+          "desc": "Разположете акустични скремблери с бял шум, за да маскирате аудио подписите на отряда и да избегнете патрулите."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "команден интерфейс",
+      "title_prefix": "Овладейте ",
+      "title_highlight": "Контроли",
+      "desc": "Пълна поддръжка на клавиатура и геймпад. Уникалните способности на всеки воин се свързват със специални команди за въвеждане — овладейте ги всички, за да оцелеете.",
+      "keyboard": "Клавиатура",
+      "gamepad": "Геймпад",
+      "or": "или",
+      "special_briefing": "специални способности",
+      "special_title": "Бойни техники",
+      "tip": {
+        "title": "Протокол за обучение:",
+        "text": "Започнете с ниво 00 — протокол нула, за да научите всички контроли във виртуалната реалност Neural-Sync, преди да влезете в бой на живо."
+      },
+      "actions": {
+        "move_left": "Преместване наляво",
+        "move_right": "Преместване надясно",
+        "jump": "скочи",
+        "sword_attack": "Атака с меч",
+        "karate_attack": "Карате Атака",
+        "pause": "Пауза"
+      },
+      "notes": {
+        "shogun_only": "Само Cyber Shogun"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "Лека атака"
+        },
+        "energy_shield": {
+          "name": "Щит на енергийната кула",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Кинетично претоварване",
+          "input": "Задръжте RB/R1 + Heavy"
+        },
+        "phase_shift": {
+          "name": "Фазово изместване",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "Задръжте LT + Освободете"
+        },
+        "emp_burst": {
+          "name": "EMP Burst",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Претоварване на щита",
+          "input": "Задръжте X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "Орбитален удар",
+          "input": "↑↑↓↓ ←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "РАЗГЛОНАВАНЕ НА ОПЕРАТИВА",
+      "deploying": "ИЗВЪРШВА СЕ...",
+      "syncComplete": "СИНХРОНИЗИРАНЕТО Е ЗАВЪРШЕНО // ОПЕРАТИВАТА УСПЕШНО РАЗГЛЕНАТА В ЦЕЛЕВИЯ СЕКТОР",
+      "active": "АКТИВЕН",
+      "standby": "РЕЖИМ НА ГОТОВНОСТ",
+      "role": "РОЛЯ",
+      "firepower": "ОГНЕВА МОЩ",
+      "defense": "ОТБРАНА",
+      "mobility": "МОБИЛНОСТ",
+      "shogun": "КИБЕР ШОГУН",
+      "ronin": "ЕГИС РОНИН",
+      "matrix": "ONI МАТРИЦА",
+      "frog": "ЖАБА НИНДЖА",
+      "guy": "ВИРТУАЛЕН ЧОВЕК"
+    },
+    "gameplay": {
+      "protocols": "ОСНОВНИ ПРОТОКОЛИ",
+      "terminal": "Терминал за база данни",
+      "active": "АКТИВЕН",
+      "synced": "СИНХРОНИЗИРАНО",
+      "online": "ОНЛАЙН",
+      "t1_title": "Кинетично преминаване",
+      "t1_desc": "Овладейте движение, базирано на инерция. Тичайте по стена покрай извънземни монолити, борете се през разрушени небостърга��и и се плъзгайте по вериги, за да избегнете сензорите за насочване на Xelthara.",
+      "t2_title": "Невронно хакване",
+      "t2_desc": "Прониквайте в извънземни мрежи в движение. Отвличайте вражески дронове, претоварвайте енергийните щитове или обръщайте автоматизирани защити срещу техните създатели в битка в реално време.",
+      "t3_title": "Синергия на отбора",
+      "t3_desc": "Управлявайте вашата съпротивителна клетка, управлявана от AI. Изпълнявайте синхронизирани пробиви, поставяйте тактически засади и комбинирайте уникални способности, за да разглобите тежката броня Xelthara.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "ЛОС АНДЖЕЛИС 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "Технически спецификации на бунтовническо оборудване HLF, мейнфрейм дешифратори и кибернетични щурмови шасита, активни в Сектор 4.",
+      "engine_title": "Спецификации на шасито",
+      "engine_desc": "Бойните шасита на Insurgent са оборудвани с високоефективни невронни връзки, работещи по локализирани суб-GHz канали, предназначени да заобикалят електронните противодействия на Xelthara.",
+      "status_init": "Инициализиране на Neural-Sync... [OK]",
+      "status_shaders": "Калибриране на шейдърите за движение... [OK]",
+      "status_link": "Установяване на секторна връзка... [СИГУРЕН]",
+      "narrative_desc": "Децентрализирана система за маршрутизиране на Ink-comms, предназначена за установяване на многоканални комуникационни мрежи между съпротивителните отряди, осигурявайки сигурно предаване на координати и дневници на мисии.",
+      "comms_desc": "Адаптивни широколентови протоколи за криптиране, поддържащи сигурно прескачане на честотата във всички над 50 регионални подмрежи, предотвратявайки прихващане от атмосферни процесори на голяма надморска височина.",
+      "offline_status": "Системата е офлайн",
+      "chassis_sync": "Шаси Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "Интерактивно ръководство и шоурум за жетони за системата за проектиране на бунтовнически мейнфрейм HLF. Висок контраст, висцерални оформления и CRT фрикционни наслагвания.",
+      "values": {
+        "digital_defiance": {
+          "title": "// DIGITAL DEFIANCE",
+          "desc": "Сурови, нерафинирани ръбове, смесени със светещи катодни ефекти, за да пробият корпоративния мейнфрейм."
+        },
+        "visual_friction": {
+          "title": "// ВИЗУАЛНО ТРИЕНИЕ",
+          "desc": "Умишлени CRT сканирани линии и незначителни цветови аберации, за да представят локализирано бунтовническо излъчване."
+        },
+        "rigid_tactical_grid": {
+          "title": "// ТВЪРДА ТАКТИЧЕСКА РЕШЕТКА",
+          "desc": "Модели с асиметрични кутии, които се усещат като компоненти, включени директно в дънна платка."
+        },
+        "low_fi_survival": {
+          "title": "// ОЦЕЛЯВАНЕ С НИСКО FI",
+          "desc": "Разпечатки на моноразмерни данни, остри ръбове с 0px и мотиви с плътност на пикселите с ниска разделителна способност."
+        }
+      },
+      "color_swatches": "Мостри цветове",
+      "copy_success": "КОПИРАНО!",
+      "copy_prompt": "КЛИКНЕТЕ ЗА КОПИРАНЕ",
+      "typography_stack": "Типографски стек",
+      "component_showroom": "Шоурум за компоненти",
+      "btn_interactive_states": "// ИНТЕРАКТИВНИ СЪСТОЯНИЯ НА БУТОНА",
+      "primary_action_desc": "Основно действие (мига и се изкривява към магента при задържане)",
+      "secondary_outline_desc": "Вторичен план",
+      "warning_action_desc": "Предупредително действие (изкривена анимация)",
+      "tactical_card_desc": "// ТАКТИЧЕСКА ХОВЪР КАРТА И ВЪВЕЖДАНЕ",
+      "alpha_card_title": "Сектор 4 Алфа карта",
+      "alpha_card_desc": "Интерактивен рамков контейнер, оборудван с четири персонализирани ъгъла на скоби и двойни светещи шейдъри на фокус.",
+      "comms_label": "СИГУРЕН КОМУНИКАЦИОНЕН ТЕРМИНАЛ (щракнете, за да видите границата на пулсиращия индикатор)",
+      "decryption_placeholder": "Въведете кода за дешифриране...",
+      "colors": {
+        "void_black": {
+          "name": "Void Black",
+          "desc": "Стелт базов фон"
+        },
+        "deep_grey": {
+          "name": "Наситено сиво",
+          "desc": "Фон на вторичния контейнер с надморска височина"
+        },
+        "neon_cyan": {
+          "name": "Неонов циан (основен)",
+          "desc": "Тактически интерфейси и приятелска техноло��ия"
+        },
+        "electric_magenta": {
+          "name": "Електрически магента (вторичен)",
+          "desc": "Високоенергийни пренастройки и HLF действия"
+        },
+        "toxic_green": {
+          "name": "Токсично зелено (третично)",
+          "desc": "Успешни хакове и активни индикатори за състояние"
+        },
+        "warning_orange": {
+          "name": "Предупреждение оранжево",
+          "desc": "Критични сигнали, състояния на заплаха и предупреждения"
+        }
+      },
+      "typo_display_hero": "В��РНЕТЕ ЗЕМЯТА",
+      "typo_headline_lg": "ТАКТИЧЕСКИ РАЗУЗНАВАТЕЛЕН ДОКЛАД",
+      "typo_body_lg": "> Сухопътните сили са нарушили параметрите за задържане на сектор 4. Стартиране на активно заключване на мрежата за синхронизиране.",
+      "typo_body_md": "Кселтара пристигна не за да завладее, а за да управлява. Ние действаме в мъртвите зони, нанасяйки удари от сенките на бруталните монолити.",
+      "typo_label_caps": "СТАТУС: СЪПРОТИВЛЕНИЕ КОМУНИКАЦИОННА ВРЪЗКА ЗАЩИТЕНА // ЗАКЪСНЕНИЕ 4ms"
+    }
+  },
+  "hr": {
+    "nav": {
+      "story": "priča",
+      "characters": "Likovi",
+      "levels": "Razine",
+      "features": "Značajke",
+      "controls": "Kontrole",
+      "play_now": "Igrajte sada",
+      "home": "KUĆA",
+      "gameplay": "IGRANJE",
+      "squad": "SKLAD",
+      "tech_hub": "TEHNIČKO SREDIŠTE",
+      "design_system": "SUSTAV DIZAJNA"
+    },
+    "hero": {
+      "title_line1": "AKSIOM SILA",
+      "title_line2_prefix": "POVRAT ",
+      "title_line2_highlight": "ZEMLJA",
+      "subtitle": "3D akcijski platformer. Povratite Zemlju od vanzemaljskih okupatora.",
+      "play_on_github": "Igrajte na GitHubu",
+      "view_source": "Pogledaj izvor",
+      "replayability": "Ponovljivost"
+    },
+    "modal": {
+      "title": "Odaberite svoj jezik i državu",
+      "country": "Država",
+      "language": "Jezik",
+      "no_countries": "Nema dostupnih zemalja za ovaj jezik",
+      "select_country_first": "Prvo odaberite zemlju",
+      "choose": "Odaberite"
+    },
+    "footer": {
+      "tagline": "3D akcijski platformer. Predvodite otpor da povratite Zemlju od vanzemaljskih okupatora.",
+      "status": "AXIOM-7 ONLINE — OTPOR AKTIVAN",
+      "nav_title": "Navigacija",
+      "tech_title": "SPECIFIKACIJE MISIJE",
+      "credits_title": "Zasluge",
+      "copyright": "© {{year}} AXIOM FORCE: POVRATITE ZEMLJU — Sva prava pridržana",
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIVAN // SIGURNO EMITIRANJE",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Ulaz: Gamepad / tipkovnica",
+      "status_desc": "Status: Aktivna pobuna",
+      "version_desc": "Revizija: v1.0.0 Izdanje"
+    },
+    "home": {
+      "story_label": "Priča",
+      "story_desc": "Zemlja, okupirana. Četiri junaka ustaju.",
+      "char_label": "Likovi",
+      "char_desc": "Odaberite svog ratnika.",
+      "levels_label": "Razine",
+      "levels_desc": "5 misija. Povećanje uloga.",
+      "features_label": "Značajke",
+      "features_desc": "50+ jezika. Duboki sustavi.",
+      "controls_label": "Kontrole",
+      "controls_desc": "Tipkovnica i gamepad spremni.",
+      "warning_casualty": "> UPOZORENJE: VISOKA STOPA STRADA",
+      "status_operational": "STATUS: U RADU",
+      "grid_hacked": "Trafostanica 4Alpha hakirana. Lokalna mreža pod kontrolom HLF-a."
+    },
+    "story": {
+      "briefing": "narativni brifing",
+      "title": "Priča",
+      "desc": "Zemlja je pala pod distopijsku vanzemaljsku okupaciju. Mali tim ratnika mora se probiti kroz neprijateljski teritorij kako bi ga povratio. Odaberite svog borca, preživite izazov i dokažite da ste dostojni spasiti svijet.",
+      "live_feed": "PRENOS UŽIVO",
+      "caption": "Los Angeles — Zaštitna zona sektora 4",
+      "axiom_text": "\"Infiltrirajte se u njihove kolonijalne teritorije. Sabotirajte jezgre moći koje potiču njihovo teraformiranje. Svaka zona koju oslobodite odbija njihovu okupaciju i podsjeća ih: Zemlja ima stanovnike koji će se boriti za nju.\"",
+      "timeline": {
+        "arrival_title": "Dolazak",
+        "arrival_desc": "Xelthara Collective stiže na Zemlju, proglašavajući je \"otkrivenim teritorijem\", a čovječanstvo \"nezgodnom autohtonom populacijom\".",
+        "displacement_title": "Masovni pomak",
+        "displacement_desc": "Za nekoliko dana, milijuni su raseljeni u skučene zone zadržavanja dok Xelthara koloniziraju naše gradove i ruše naše spomenike.",
+        "resistance_title": "Oblici otpora",
+        "resistance_desc": "S rubova zatvorenih zona pojavljuju se četiri prvaka — Ninja Žaba, Mask Dude, Pink Man i Virtual Guy — koji odbijaju biti izbrisani.",
+        "axiom_title": "AXIOM-7 raspoređen",
+        "axiom_desc": "Domovinski oslobodilački front aktivira AXIOM-7, automatizirani vanjski obavještajni operativni modul, za koordinaciju otpora.",
+        "mission_title": "Vaša misija počinje",
+        "mission_desc": "Izabrani ste. Infiltrirajte se u kolonijalne teritorije. Sabotirajte jezgre napajanja. Demontirati infrastrukturu naselja. Povrati Zemlju."
+      }
+    },
+    "characters": {
+      "briefing": "selekcija ratnika",
+      "title": "Odaberite svog borca",
+      "desc": "Četiri elitna ratnika bore se protiv okupacije Xelthare. Svaki donosi jedinstvene sposobnosti u borbi za slobodu Zemlje.",
+      "abilities_title": "SPOSOBNOSTI",
+      "stats_title": "BORBENA STATISTIKA",
+      "unlock": "Bonus lik koji se može otključati s napadima mačem i karateom. Dovršite kampanju za otključavanje ovog legendarnog ratnika.",
+      "stats": {
+        "speed": "BRZINA",
+        "power": "SNAGA",
+        "agility": "AGILNOST",
+        "defense": "OBRANA"
+      },
+      "warriors": {
+        "frog": {
+          "role": "Infiltrator",
+          "desc": "Majstor skrivenosti i agilnosti. Ninja žaba može skočiti zidom i dvostruko skočiti kako bi dosegla nemoguće položaje. Munjevito kretanje čini ovog ratnika idealnim izviđačem.",
+          "lore": "\"Ne vide me dok ne bude prekasno. Na marginama između njihovih svjetala reflektora postojim ja.\""
+        },
+        "dude": {
+          "role": "Uravnoteženi borac",
+          "desc": "Maskirani ratnik nudi savršenu ravnotežu napada i obrane. Pouzdan u svim situacijama, Aegis Ronin je strateški i opremljen Kinetičkim čekićem i štitom energetskog tornja.",
+          "lore": "\"Maska nije maska. To je izjava da odbijam da me njihovi sustavi prepoznaju.\""
+        },
+        "pink": {
+          "role": "Teški udarač",
+          "desc": "Specijalist za fazne promjene i EMP eksplozije, bori se za povrat ukradenih identiteta iz vanzemaljskih baza podataka. Iznimno brz i smrtonosan iz neposredne blizine.",
+          "lore": "\"Smiju se mojoj boji. Vrlo brzo se prestanu smijati.\""
+        },
+        "guy": {
+          "role": "tehnički stručnjak",
+          "desc": "Digitalna svijest ugrađena u fizičko kućište. Virtual Guy se može povezati s neprijateljskim sustavima i iskoristiti tehničke ranjivosti koje drugi ne mogu uočiti.",
+          "lore": "\"Živim u prostoru između njihovih vatrozida. Ja sam duh u njihovom stroju.\""
+        }
+      }
+    },
+    "levels": {
+      "briefing": "razine kampanje",
+      "title_prefix": "The ",
+      "title_highlight": "Misija",
+      "title_suffix": " čeka",
+      "desc": "Pet jedinstvenih razina s rastućim poteškoćama. Svaka se misija postupno otključava kako potiskujete okupaciju Xelthare.",
+      "objectives_title": "CILJEVI MISIJE",
+      "difficulty_title": "TEŠKOĆE",
+      "threat_title": "PRIJETNJA:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "MINIMALNO",
+        "high": "VISOKO",
+        "omega": "OMEGA",
+        "critical": "KRITIČNO"
+      },
+      "types": {
+        "training": "OBUKA",
+        "infiltration": "INFILTRACIJA",
+        "defense": "OBRANA",
+        "stealth": "STEALTH",
+        "assault": "NAPADA"
+      },
+      "level_0": {
+        "name": "Protokol nula",
+        "subtitle": "Virtualna kovačnica",
+        "description": "Ogromna žičana simulacija srušenog centra Los Angelesa. Usavršite svoju borbenu šasiju u virtualnoj stvarnosti Neural-Sync prije nego što počne pravi rat.",
+        "obj_0": "Potpuna kalibracija šasije",
+        "obj_1": "Uništi simulirane jedinice Xelthare",
+        "obj_2": "Prođite test sinkroniziranog udarca"
+      },
+      "level_1": {
+        "name": "Duh u Gridlocku",
+        "subtitle": "Protokol kulturnog brisanja",
+        "description": "Ruševine vrtova carske palače. Xelthara teraformirajuće grede rastvaraju drevne kamene svjetiljke. Dohvatite Data-Blade — digitalno spremište zabranjene povijesti — prije nego što se zauvijek izbriše.",
+        "obj_0": "Uključite dronove Demolition Crew",
+        "obj_1": "Neutralizirajte svjetionik za rušenje",
+        "obj_2": "Osigurajte Data-Blade"
+      },
+      "level_2": {
+        "name": "Betonski šumski požar",
+        "subtitle": "Sustavno pomicanje",
+        "description": "Držite posljednji most protiv Xelthara Enforcersa koji tjeraju 412 izbjeglica u zatočeništvo. Dopustite posljednjoj skupini da sklizne u neucrtane slamove i pobjegne kolonijalnoj registraciji.",
+        "obj_0": "Aktivirajte štit energetskog tornja",
+        "obj_1": "Držite most pod minobacačkom vatrom",
+        "obj_2": "Uništite opsadne šetače"
+      },
+      "level_3": {
+        "name": "Neonska hrđa i prašina podataka",
+        "subtitle": "Život na margini",
+        "description": "Under-City — mreža šahtova za održavanje ispod blještavog naselja Xelthara. Iskoristite njihovu energiju za napajanje sustava za održavanje života marginalizirane populacije dok izbjegavate patrole Čistoće.",
+        "obj_0": "Aktivirajte mogućnost pomaka faze",
+        "obj_1": "Zaobiđite Xelthara Sentinele neotkrivene",
+        "obj_2": "Detoniraj EMP na rubnim vratima"
+      },
+      "level_4": {
+        "name": "Slomljena Egida zapovjednika praznine",
+        "subtitle": "Asimetrično ratovanje",
+        "description": "Razbijeno Pacifičko obrambeno središte. Rastavite posljednji toranj za emitiranje i podijelite frekvencijske čipove civilnim ćelijama otpora - finalizirajući prijelaz na gerilsko ratovanje.",
+        "obj_0": "Pokrenite sekvencu Network Hotwire",
+        "obj_1": "Sinkronizirajte flotu mikro-dronova",
+        "obj_2": "Ispali Orbitalni udar — Protokol brisanja"
+      }
+    },
+    "features": {
+      "briefing": "mogućnosti sustava",
+      "title_prefix": "Igra ",
+      "title_highlight": "Značajke",
+      "built_with": "izgrađen sa",
+      "tech_title": "Sustavi otpora",
+      "tags": {
+        "roster": "POPIS",
+        "narrative": "NARATIVNO",
+        "progression": "NAPREDOVANJE",
+        "save_system": "SAČUVAJ SUSTAV",
+        "localisation": "LOKALIZACIJA",
+        "controls": "KONTROLE",
+        "ux": "UX",
+        "audio": "AUDIO"
+      },
+      "tech": {
+        "engine": "Game Engine",
+        "logic": "Logika igre",
+        "scripting": "Scenarij",
+        "persistence": "Upornost bodova",
+        "narrative_engine": "Narativni motor",
+        "build": "Izgradite sustav"
+      },
+      "items": {
+        "roster": {
+          "title": "Popis šasija",
+          "desc": "Postavite jedan od pet prilagođenih borbenih okvira kalibriranih sa specijaliziranim hardverskim punjenjem."
+        },
+        "story": {
+          "title": "Intel baza podataka",
+          "desc": "Telemetrija u stvarnom vremenu i regionalne obavještajne arhive sastavljene od strane glavnog računala Axiom-7."
+        },
+        "progress": {
+          "title": "Kolekcionarstvo i bodovanje",
+          "desc": "Trešnje razbacane po svim razinama vrijedne bodova. Rezultati se spremaju lokalno putem SQLitea i prikazuju na trajnoj ploči s najboljim rezultatima."
+        },
+        "save": {
+          "title": "Memorijski čvorovi",
+          "desc": "Decentralizirani trezori za pohranu koji podržavaju borbenu telemetriju i sinkroniziraju sesije stanja."
+        },
+        "local": {
+          "title": "Podrška za više od 50 jezika",
+          "desc": "Potpuno lokalizirano korisničko sučelje uključujući arapski, hindski, japanski, malajalamski i još mnogo toga — pokretano prijevodom temeljenim na CSV-u."
+        },
+        "controls": {
+          "title": "Podrška za gamepad",
+          "desc": "Potpuna podrška za kontrolere uključujući D-Pad, kretanje analogne palice i mapiranje gumba za sve napade i sposobnosti."
+        },
+        "ux": {
+          "title": "Izbornik pauze zamućivanja",
+          "desc": "Vrhunski izbornik pauze s efektom sjenčanja zamućenja u stvarnom vremenu — podesive glasnoće glazbe i SFX-a dostupne u bilo kojem trenutku."
+        },
+        "audio": {
+          "title": "Akustični ogrtač",
+          "desc": "Postavite akustične scramblere s bijelim šumom kako biste maskirali zvučne potpise odreda i izbjegli patrole."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "naredbeno sučelje",
+      "title_prefix": "Ovladajte ",
+      "title_highlight": "Kontrole",
+      "desc": "Puna podrška za tipkovnicu i gamepad. Jedinstvene sposobnosti svakog ratnika preslikavaju se u namjenske ulazne naredbe — savladaj ih sve da preživiš.",
+      "keyboard": "Tipkovnica",
+      "gamepad": "Gamepad",
+      "or": "ili",
+      "special_briefing": "posebne sposobnosti",
+      "special_title": "Borbene tehnike",
+      "tip": {
+        "title": "Protokol treninga:",
+        "text": "Započnite s Razinom 00 — Protocol Zero kako biste naučili sve kontrole u virtualnoj stvarnosti Neural-Sync prije ulaska u borbu uživo."
+      },
+      "actions": {
+        "move_left": "Pomakni se lijevo",
+        "move_right": "Pomakni se desno",
+        "jump": "Skoči",
+        "sword_attack": "Napad mačem",
+        "karate_attack": "Karate napad",
+        "pause": "Pauza"
+      },
+      "notes": {
+        "shogun_only": "Samo Cyber Shogun"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "Lagani napad"
+        },
+        "energy_shield": {
+          "name": "Štit energetskog tornja",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Kinetičko preopterećenje",
+          "input": "Držite RB/R1 + Heavy"
+        },
+        "phase_shift": {
+          "name": "Fazni pomak",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "Držite LT + otpustite"
+        },
+        "emp_burst": {
+          "name": "EMP eksplozija",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Preopterećenje štita",
+          "input": "Držite X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "Orbitalni udar",
+          "input": "↑↑↓↓ ←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "RASPORED OPERATIVA",
+      "deploying": "PRIMJENA...",
+      "syncComplete": "SINKRONIZACIJA DOVRŠENA // OPERATIVA USPJEŠNO RASPOREĐENA NA CILJNI SEKTOR",
+      "active": "AKTIVAN",
+      "standby": "PRIPRAVNOST",
+      "role": "ULOGA",
+      "firepower": "VATRENA MOĆ",
+      "defense": "OBRANA",
+      "mobility": "MOBILNOST",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRICA",
+      "frog": "NINJA ŽABA",
+      "guy": "VIRTUALNI MOMAK"
+    },
+    "gameplay": {
+      "protocols": "OSNOVNI PROTOKOLI",
+      "terminal": "Terminal baze podataka",
+      "active": "AKTIVAN",
+      "synced": "SINKRONIZIRANO",
+      "online": "ONLINE",
+      "t1_title": "Kinetička traverza",
+      "t1_desc": "Savladajte kretanje temeljeno na zamahu. Trčite po zidu duž izvanzemaljskih monolita, probijajte se kroz ruševine nebodera i lančano klizite kako biste izbjegli Xeltharine senzore za ciljanje.",
+      "t2_title": "Neuralno hakiranje",
+      "t2_desc": "Infiltrirajte se u vanzemaljske mreže u hodu. Otmite neprijateljske dronove, preopteretite energetske štitove ili okrenite automatiziranu obranu protiv njihovih kreatora u borbi u stvarnom vremenu.",
+      "t3_title": "Sinergija momčadi",
+      "t3_desc": "Upravljajte svojom ćelijom otpora koju pokreće AI. Izvršite sinkronizirane prodore, postavite taktičke zasjede i kombinirajte jedinstvene sposobnosti za rastavljanje teškog Xelthara oklopa.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "LOS ANGELES 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "Tehničke specifikacije pobunjeničke opreme HLF, dekriptora glavnog računala i šasije za kibernetske napade aktivne u Sektoru 4.",
+      "engine_title": "Specifikacije šasije",
+      "engine_desc": "Pobunjeničke borbene šasije opremljene su visokoučinkovitim neuronskim vezama koje rade preko lokaliziranih sub-GHz kanala, dizajniranih za zaobilaženje elektroničkih protumjera Xelthare.",
+      "status_init": "Inicijaliziraj Neural-Sync... [OK]",
+      "status_shaders": "Kalibriraj shadere pokreta... [OK]",
+      "status_link": "Uspostavite vezu sektora... [OSIGURAN]",
+      "narrative_desc": "Decentralizirani sustav usmjeravanja Ink-comms dizajniran za uspostavljanje višekanalnih komunikacijskih mreža između odreda otpora, osiguravajući siguran prijenos koordinata i zapisa misije.",
+      "comms_desc": "Prilagodljivi protokoli širokopojasne enkripcije koji podržavaju sigurno frekvencijsko skakanje preko svih 50+ regionalnih podmreža, sprječavajući presretanje od atmosferskih procesora na velikoj nadmorskoj visini.",
+      "offline_status": "Sustav izvan mreže",
+      "chassis_sync": "Neuronska sinkronizacija šasije",
+      "comms_decrypter": "Dešifrator komunikacije"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "Interaktivni vodič i izložbeni prostor za tokene za HLF rebel sustav dizajna glavnog računala. Visoki kontrast, visceralni izgledi i CRT trenje preklapanja.",
+      "values": {
+        "digital_defiance": {
+          "title": "// DIGITALNI PRKOS",
+          "desc": "Sirovi, nepročišćeni rubovi pomiješani s efektima svjetleće katode za probijanje korporativnog glavnog računala."
+        },
+        "visual_friction": {
+          "title": "// VIZUALNO TRENJE",
+          "desc": "Namjerno postavljene CRT linije skeniranja i manje aberacije boja koje predstavljaju lokalizirano emitiranje pobunjenika."
+        },
+        "rigid_tactical_grid": {
+          "title": "// KRUTA TAKTIČKA MREŽA",
+          "desc": "Modeli asimetrične kutije koji se osjećaju kao komponente priključene izravno na matičnu ploču."
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI PREŽIVLJAVANJE",
+          "desc": "Ispisi podataka s jednostrukim razmakom, oštri rubovi od 0 px i motivi gustoće piksela niske rezolucije."
+        }
+      },
+      "color_swatches": "Uzorci boja",
+      "copy_success": "KOPIRANO!",
+      "copy_prompt": "KLIKNITE ZA KOPIRANJE",
+      "typography_stack": "Stog tipografije",
+      "component_showroom": "Izložbeni prostor za komponente",
+      "btn_interactive_states": "// INTERAKTIVNA STANJA GUMBA",
+      "primary_action_desc": "Primarna radnja (treperi i iskosi u magentu pri lebdenju)",
+      "secondary_outline_desc": "Sekundarni nacrt",
+      "warning_action_desc": "Radnja upozorenja (kosa animacija)",
+      "tactical_card_desc": "// TACTICAL HOVER KARTICA & ULAZ",
+      "alpha_card_title": "Alfa kartica sektora 4",
+      "alpha_card_desc": "Interaktivni okvirni spremnik opremljen s četiri prilagođena ugla zagrada i dvostrukim sjajnim osjenčivačima u fokusu.",
+      "comms_label": "SIGURNI KOMUNIKACIJSKI TERMINAL (kliknite da biste vidjeli pulsirajući okvir indikatora)",
+      "decryption_placeholder": "Unesite kod za dešifriranje...",
+      "colors": {
+        "void_black": {
+          "name": "Void Black",
+          "desc": "Stealth osnovna pozadina"
+        },
+        "deep_grey": {
+          "name": "Duboko siva",
+          "desc": "Pozadina spremnika sekundarne elevacije"
+        },
+        "neon_cyan": {
+          "name": "Neon cijan (primarno)",
+          "desc": "Taktička sučelja i prijateljska tehnologija"
+        },
+        "electric_magenta": {
+          "name": "Električna magenta (sekundarna)",
+          "desc": "Visokoenergetska nadjačavanja i HLF radnje"
+        },
+        "toxic_green": {
+          "name": "Otrovno zeleno (tercijarno)",
+          "desc": "Uspješna hakiranja i aktivni indikatori statusa"
+        },
+        "warning_orange": {
+          "name": "Upozorenje Narančasto",
+          "desc": "Kritična upozorenja, stanja prijetnji i upozorenja"
+        }
+      },
+      "typo_display_hero": "POVRAT ZEMLJU",
+      "typo_headline_lg": "TAKTIČKO OBAVJEŠTAJNO IZVJEŠĆE",
+      "typo_body_lg": "> Kopnene snage su probile parametre zadržavanja Sektora 4. Pokretanje aktivnog zaključavanja mreže sinkronizacije.",
+      "typo_body_md": "Xelthara nije stigao da osvoji, već da upravlja. Djelujemo u mrtvim zonama, udarajući iz sjene brutalističkih monolita.",
+      "typo_label_caps": "STATUS: OTPOR KOMUNIKACIONA VEZA OSIGURANA // LATENCIJA 4ms"
+    }
+  },
+  "dz": {
+    "nav": {
+      "story": "སྲུང",
+      "characters": "ཡིག་འབྲུ།",
+      "levels": "གནས་རིམ་ཚུ།",
+      "features": "ཁྱད་ཆོས",
+      "controls": "ཚད་འཛིན་ཚུ།",
+      "play_now": "ད་ལྟོ་རྩེད།",
+      "home": "ཁྱིམ",
+      "gameplay": "རྩེད་མོ།",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "བཟོ་བཀོད་ལམ་ལུགས།"
+    },
+    "hero": {
+      "title_line1": "AXIOM ཤུགས་ཤུགས།",
+      "title_line2_prefix": "ལོག་ཐོབ་ཐངས།",
+      "title_line2_highlight": "འཛམ༌གླིང",
+      "subtitle": "3D བྱ་བའི་སྟེགས་བུ་ཅིག། འཛམ་གླིང་འདི་ ཕྱི་མི་ཚུ་ལས་ ལོག་ལེན་དགོ།",
+      "play_on_github": "གིཊི་ཧབ་གུ་རྩེད་ནི།",
+      "view_source": "འབྱུང་ཁུངས་བལྟ།",
+      "replayability": "བསྐྱར་རྩེད་འབད་ཚུལ།"
+    },
+    "modal": {
+      "title": "ཁྱོད་རའི་སྐད་ཡིག་དང་རྒྱལ་ཁབ་སེལ་འཐུ་འབད།",
+      "country": "རྒྱལ་ཁབ",
+      "language": "སྐད༌ཡིག",
+      "no_countries": "སྐད་ཡིག་འདི་ལུ་རྒྱལ་ཁབ་ཚུ་མེད།",
+      "select_country_first": "དང་པ་རྒྱལ་ཁབ་ཅིག་སེལ་འཐུ་འབད་གནང་།",
+      "choose": "གདམ་ཁ་རྐྱབ་ནི"
+    },
+    "footer": {
+      "tagline": "3D བྱ་བའི་སྟེགས་བུ་ཅིག། འཛམ་གླིང་འདི་ ཕྱི་མི་ཚུ་ལས་ ལོག་ཐོབ་ནིའི་དོན་ལུ་ ངོ་རྒོལ་འགོ་འཁྲིད་འབད།",
+      "status": "AXIOM-7 ONLINE — བཀག་འགོག་ཤུགས་ལྡན་པ།",
+      "nav_title": "འགྲུལ་བསྐྱོད།",
+      "tech_title": "དམིགས་ཡུལ་གྱི་ཁྱད་ཆོས།",
+      "credits_title": "སྐྱིན་འགྲུལ།",
+      "copyright": "© {{ལོ}} AXIOM FORCE: RECLAIM EARTH — ཐོབ་ཐང་ཆ་ཚང་ཉར་ཚགས་བྱས།",
+      "broadcast_status": "v1.0.0 // NET-SYNC བཀོལ་སྤྱོད་ // བདེ་འཇགས་རྒྱང་བསྒྲགས།",
+      "platform_desc": "གཞི་རྟེན་: ཝིན་ཌོ་ (པི་སི)",
+      "input_desc": "ཨིན་པུཊི་: གེམ་པེ་ཌི་ / ལྡེ་སྒྲོམ།",
+      "status_desc": "གནས་སྟངས།: ངོ་ལོག་དྲག་པོ།",
+      "version_desc": "བསྐྱར་ཞིབ།: v1.0.0 གསར་བསྒྲགས།"
+    },
+    "home": {
+      "story_label": "གཏམ་རྒྱུད།",
+      "story_desc": "འཛམ་གླིང་, བཙན་བཟུང་འབད་ཡོདཔ། དཔའ་བོ་བཞི་ཡར་ལངས།",
+      "char_label": "ཡིག་འབྲུ།",
+      "char_desc": "ཁྱོད་ཀྱི་དམག་མི་འདི་གདམ་ཁ་རྐྱབས།",
+      "levels_label": "གནས་རིམ་ཚུ།",
+      "levels_desc": "5 དམིགས་ཡུལ། ཁེ་ཕན་ཡར་སེང་འབད་དོ།",
+      "features_label": "ཁྱད་ཆོས",
+      "features_desc": "སྐད་ཡིག་ ༥༠+ ཡོད། གཏིང་ཟབ་པའི་ལམ་ལུགས།",
+      "controls_label": "ཚད་འཛིན་ཚུ།",
+      "controls_desc": "ལྡེ་སྒྲོམ་དང་ རྩེད་ཐང་གྲ་སྒྲིག།",
+      "warning_casualty": "> ཉེན་བརྡ། རྐྱེན་ངན་གྱི་ཚད་གཞི་མཐོ་དྲགས།",
+      "status_operational": "གནས་སྟངས།: བཀོལ་སྤྱོད།",
+      "grid_hacked": "ཡན་ལག་ས་ཚིགས་ ༤ཨཱལ་ཕ་ ཧཀ་བཏང་ཡོདཔ། ཨེཆ་ཨེལ་ཨེཕ་ཚད་འཛིན་འོག་ལུ་ཡོད་པའི་ས་གནས་ཀྱི་གིརིཌ།"
+    },
+    "story": {
+      "briefing": "གཏམ་རྒྱུད་མདོར་བསྡུས།",
+      "title": "གཏམ་རྒྱུད།",
+      "desc": "འཛམ་གླིང་འདི་ dystopian ཕྱི་མི་ཚུ་གི་ལཱ་གཡོག་གི་འོག་ལུ་ཚུད་ཡོདཔ་ཨིན། དམག་མི་སྡེ་ཚན་ཆུང་ཀུ་ཅིག་གིས་ དགྲ་གི་ས་ཁོངས་ནང་ལས་ ལོག་ཐོབ་ནིའི་དོན་ལུ་ འཐབ་འཛིང་འབད་དགོཔ་ཨིན། ཁྱོད་ཀྱི་འཐབ་འཛིང་པ་གདམ་ཁ་རྐྱབ་སྟེ་ གཱོན་ཊི་ལས་ ཐར་ཐབས་འབད་དེ་ འཛམ་གླིང་སྐྱོབ་ནིའི་དོན་ལུ་ ཁྱོད་རང་ འོས་འབབ་ཡོདཔ་སྦེ་ བདེན་ཁུངས་བསྐྱལ་དགོ།",
+      "live_feed": "ཐད་གཏོང་ཕིཌ།",
+      "caption": "Los Angeles — སྡེ་ཚན་༤ བཀག་སྡོམ་ས་ཁོངས།",
+      "axiom_text": "དབང་འོག་ས་ཁོངས་ནང་ལུ་འཛུལ་ཏེ་ དབང་ཚད་ཀྱི་ལྟེ་བ་ཚུ་ མེདཔ་བཏང་ཞིནམ་ལས་ ཁྱོད་ཀྱིས་ དབང་འོག་བཙུགས་མི་ས་ཁོངས་ག་ར་གིས་ ཁོང་གི་ལཱ་གཡོག་འདི་ ལོག་སྟེ་རང་ བསྐུལ་མ་འབད་དེ་ འཛམ་གླིང་ནང་ལུ་ འཐབ་འཛིང་འབད་མི་ མི་ཚུ་ཡོདཔ་སྦེ་ དྲན་བསྐུལ་འབདཝ་ཨིན།",
+      "timeline": {
+        "arrival_title": "འབྱོར།",
+        "arrival_desc": "Xelthara Collectiveགིས་ འཛམ་གླིང་ནང་ལུ་ལྷོད་དེ་ \"ས་སྒོ་གསར་ཐོབ་འབད་ཡོདཔ་\" དང་ མི་རིགས་འདི་ \"སྟབས་མ་བདེཝ་ཡོད་པའི་མི་རློབས་\"ཨིནམ་སྦེ་ གསལ་བསྒྲགས་འབད་ནུག",
+        "displacement_title": "མང་ཚོགས་གནས་སྤོ།",
+        "displacement_desc": "ཉིནམ་དག་པ་ཅིག་གི་ནང་འཁོད་ལུ་ མི་ས་ཡ་ལས་བཅད་དེ་ བཀག་ཆ་འབད་སའི་ས་ཁོངས་ཚུ་ནང་ སྤོ་བཤུད་འབད་ཡོདཔ་ད་ ཟེལ་ཐ་ར་གིས་ ང་བཅས་ཀྱི་ཁྲོམ་ཚོགས་ཚུ་ དབང་དུ་བསྡུ་སྟེ་ ང་བཅས་ཀྱི་དྲན་རྟེན་ཚུ་ བཤིག་བཏངམ་ཨིན།",
+        "resistance_title": "ངོ་རྒོལ་གྱི་རྣམ་པ་ཚུ།",
+        "resistance_desc": "བཀག་འཛིན་ས་ཁོངས་ཀྱི་ མཐའ་མཚམས་ལས་ རྒྱལ་ཁ་ཐོབ་མི་ ནིན་ཇ་ཕོརག་དང་ མཱསི་ཀ་ཌུཌ་ པིང་ཀ་མེན་ དེ་ལས་ ཝར་ཅུ་ཝལ་གཱའི་ཚུ་ བཏོན་བཏང་མ་བཏུབ་པར་ ཐོན་ཡོདཔ་ཨིན་པས།",
+        "axiom_title": "AXIOM-7 བཀྲམ་སྤེལ་འབད་ཡོདཔ།",
+        "axiom_desc": "རྒྱལ་ཁབ་ཀྱི་རང་དབང་མདུན་ཕྱོགས་ཀྱིས་ ངོ་རྒོལ་མཉམ་འབྲེལ་འབད་ནིའི་དོན་ལུ་ རང་བཞིན་ཕྱིའི་བློ་རིག་བཀོལ་སྤྱོད་ཚད་གཞི་ AXIOM-7 འདི་ ཤུགས་ལྡན་བཟོཝ་ཨིན།",
+        "mission_title": "ཁྱོད་ཀྱི་ཕྲིན་ལས་འགོ་བཙུགས།",
+        "mission_desc": "ཁྱོད་གདམ་ཁ་རྐྱབ་ཡོད། དབང་འོག་ས་ཁོངས་ཚུ་ནང་ འཛུལ་ཞུགས་འབད་ནི། Sabotage ནུས་ཤུགས་ལྟེ་བ་ཚུ། གཞིས་ཆགས་ཀྱི་ གཞི་རྟེན་མཐུན་རྐྱེན་ཚུ་ བཤུབ་གཏང་ནི། འཛམ་གླིང་སླར་ཡང་བཙུགས།"
+      }
+    },
+    "characters": {
+      "briefing": "དམག་མི་འདེམས་སྒྲུག།",
+      "title": "ཁྱོད་རའི་འཐབ་འཛིང་པ་འདེམས།",
+      "desc": "དམག་མི་དྲག་ཤོས་བཞི་གིས་ ཟེལ་ཐ་ར་གི་དབང་ཚད་ལུ་ ངོ་རྒོལ་འབདཝ་ཨིན། རེ་རེ་གིས་འཛམ་གླིང་གི་རང་དབང་གི་དོན་ལུ་འཐབ་རྩོད་འབད་ནི་ལུ་ ཁྱད་པར་ཅན་གྱི་ལྕོགས་གྲུབ་འབག་འོང་།",
+      "abilities_title": "ནུས་པ།",
+      "stats_title": "དམག་འཁྲུག་གི་གནས་སྡུད།",
+      "unlock": "རལ་གྲི་དང་ཀ་ར་ཊི་འཇབ་རྒོལ་གྱི་ཐོག་ལས་ ལྡེ་མིག་ཕྱེ་མ་བཏུབ་པའི་ཡིག་འབྲུ། ལོ་རྒྱུས་ཅན་གྱི་དམག་མི་འདི་ ལྡེ་མིག་ཕྱེ་ནིའི་དོན་ལུ་ བསྐུལ་བསྒྲགས་འདི་མཇུག་བསྡུ།",
+      "stats": {
+        "speed": "ཤུགས",
+        "power": "ནུས༌པ",
+        "agility": "མགྱོགས་ཚད།",
+        "defense": "སྲུང་སྐྱོབ།"
+      },
+      "warriors": {
+        "frog": {
+          "role": "ནང་འཛུལ་བ།",
+          "desc": "མགུ་སྐོར་དང་ མགྱོགས་དྲགས་ཀྱི་ མཁས་མཆོག་ཅིག། ནིན་ཇ་སྦལཔ་འདི་གིས་ གྱང་མཆོངས་དང་ གཉིས་མཆོང་འབད་དེ་ འབད་མ་ཚུགས་པའི་གནས་རིམ་ཚུ་ནང་ ལྷོད་ཚུགས། གློག་མེ་མགྱོགས་དྲགས་ཀྱི་འགུལ་སྐྱོད་འདི་གིས་ དམག་མི་འདི་ འོས་འབབ་ཅན་གྱི་འཚོལ་ཞིབ་པ་ཅིག་ལུ་འགྱུརཝ་ཨིན།",
+          "lore": "དེ་ལས་ ཁོང་གིས་ ང་འདི་ ཕྱི་སོངཔ་ཚུན་ཚོད་ མ་མཐོང་པས། ཁོང་གི་ འོད་མདངས་བར་ནའི་ མཐའ་མཚམས་ལུ་ ང་ཡོདཔ་ཨིན།\""
+        },
+        "dude": {
+          "role": "འདྲ་མཉམ་གྱི་འཐབ་འཛིང་པ།",
+          "desc": "གདོང་འབག་གྱོན་པའི་དམག་མི་འདི་གིས་ བྱ་ངན་དང་སྲུང་སྐྱོབ་ཀྱི་ འདྲ་མཉམ་ཡང་དག་ཅིག་ བྱིནམ་ཨིན། གནས་སྟངས་ག་རའི་ནང་ བློ་གཏད་ཅན་གྱི་ ཨེ་ཇིསི་རོ་ནིན་འདི་ ཐབས་བྱུས་ཅན་དང་ ཀི་ནེ་ཊིག་ཧམ་མར་དང་ ནུས་ཤུགས་ཀ་ཁྱིམ་གྱི་ གདོང་ཕྱོགས་ཚུ་ བཙུགས་ཏེ་ཡོདཔ་ཨིན།",
+          "lore": "ཁ་རས་འདི་ མགུ་སྐོར་རྐྱབ་མི་ཅིག་མེན། ང་གིས་ ཁོང་གི་ལམ་ལུགས་ཀྱིས་ ངོས་འཛིན་འབད་མ་བཏུབ་པའི་ གསལ་བསྒྲགས་ཅིག་ཨིན།\""
+        },
+        "pink": {
+          "role": "ལྗིད་ཅན་གྱི་རྡུང་མཁན།",
+          "desc": "གནས་རིམ་སོར་བསྒྱུར་དང་ EMP གི་མཁས་མཆོག་ཅིག་གིས་ ཕྱི་ཡི་གནས་སྡུད་གཞི་རྟེན་ནང་ལས་ ཨརཝ་ཤོར་མི་ངོ་རྟགས་ཚུ་ ལོག་ཐོབ་ནིའི་དོན་ལུ་ འཐབ་འཛིང་འབདཝ་ཨིན། ཉེ་འདབས་ལུ་ ཧ་ཅང་མགྱོགས་དྲགས་དང་ ཤི་རྐྱེན་འབྱུང་སྲིད།",
+          "lore": "\"ཁོང་གིས་ངའི་ཚོས་གཞི་ལུ་གད་མོ་ཤོརཝ་ཨིན། ཁོང་གིས་གད་མོ་ཤོར་ནི་འདི་ མགྱོགས་པ་རང་བཀག་བཞགཔ་ཨིན།\""
+        },
+        "guy": {
+          "role": "Tech མཁས་པ།",
+          "desc": "གཟུགས་ཀྱི་ཆ་ཤས་ནང་ལུ་བཙུགས་ཡོད་པའི་ ཌི་ཇི་ཊལ་གྱི་དྲན་ཤེས་ཅིག། བར་ཅུ་ཝལ་གཱའི་གིས་ དགྲ་གི་ལམ་ལུགས་ཚུ་དང་ འབྲེལ་མཐུད་འབད་ཚུགས་ནི་དང་ གཞན་གྱིས་ མ་ཤེས་པའི་ འཕྲུལ་རིག་གི་ ཉེན་ཁ་ཚུ་ ལག་ལེན་འཐབ་ཚུགས།",
+          "lore": "ང་ཁོང་ཚོའི་ཕ་ཡར་ཝོལ་གྱི་བར་ན་ས་སྟོང་ནང་སྡོད། ང་ཁོང་ཚོའི་འཕྲུལ་ཆས་ནང་ལུ་ཡོད་པའི་འདྲེ་ཅིག་ཨིན།"
+        }
+      }
+    },
+    "levels": {
+      "briefing": "བསྐུལ་བསྒྲགས་གནས་རིམ།",
+      "title_prefix": "ཚིག༌ཕྲད",
+      "title_highlight": "དོན་གཅོད་, དམིགས་ལཱ",
+      "title_suffix": "སྒུག་དོ།",
+      "desc": "དཀའ་ངལ་ཡར་སེང་འགྱོ་བའི་ ཁྱད་པར་ཅན་གྱི་གནས་རིམ་ལྔ། ཁྱོད་ཀྱིས་ Xelthara ལཱ་གཡོག་འདི་ ལོག་སྟེ་བཙུགས་པའི་སྐབས་ དམིགས་ཡུལ་རེ་རེ་བཞིན་དུ་ རིམ་གྱིས་སྦེ་ ལྡེ་མིག་ཕྱེཝ་ཨིན།",
+      "objectives_title": "དམིགས་ཡུལ་དམིགས་ཡུལ།",
+      "difficulty_title": "དཀའ་ངལ།",
+      "threat_title": "ཉེན༌ཁ:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "ཉུང་ཤོས།",
+        "high": "སྦོམ",
+        "omega": "ཨོ་མེ་ག།",
+        "critical": "སྐྱོན་བརྗོད"
+      },
+      "types": {
+        "training": "སྦྱོང་བརྡར",
+        "infiltration": "ནང་འཛུལ་བ།",
+        "defense": "སྲུང་སྐྱོབ།",
+        "stealth": "STEALTH",
+        "assault": "རྒོལ༌རྡུང"
+      },
+      "level_0": {
+        "name": "གྲོས་མཐུན་ཀླད་ཀོར།",
+        "subtitle": "བར་ཅུ་ཡལ་ཕོརཇ་",
+        "description": "ལོས་ཨེན་ཇི་ལོས་ཁྲོམ་གྱི་གནམ་སྟོང་འདི་ བརྡིབས་འགྱོ་མི་གི་ གློག་ཐག་སྦོམ་གྱི་ བརྡ་སྟོན་ཅིག་ཨིན། དམག་འཁྲུག་ངོ་མ་འགོ་མ་བཙུགས་པའི་ཧེ་མ་ ཁྱོད་རའི་དམག་འཁྲུག་གི་ཆ་ཤས་འདི་ ནེའུ་རལ་-སིན་ཀ་ བར་ཅུ་ཝལ་དངོས་ཡོད་ནང་ལུ་ མཁས་མཆོག་བཟོ།",
+        "obj_0": "ཆ་ཤས་ཚད་འཇལ་མཇུག་བསྡུ།",
+        "obj_1": "བརྫུས་མའི་ཟེལ་ཐ་ར་སྡེ་ཚན་ཚུ་མེདཔ་གཏང་།",
+        "obj_2": "མཉམ་འབྱུང་ངོ་རྒོལ་བརྟག་ཞིབ་ལས་བརྒལ།"
+      },
+      "level_1": {
+        "name": "གིརིཌ་ལོག་ནང་ལུ་འདྲེ།",
+        "subtitle": "རིག་གནས་བསུབ་པའི་གྲོས་མཐུན།",
+        "description": "རྒྱལ་པོའི་ཕོ་བྲང་ལྡུམ་རའི་གྱང་ཤུལ་ཚུ། Xelthara terraforming beams གིས་ སྔོན་ལུགས་རྡོ་གི་སྒྲོན་མེ་ཚུ་ བཞུ་བཅུགཔ་ཨིན། གནད་སྡུད་-བེལེཌ་ — བཀག་ཆ་འབད་ཡོད་པའི་བྱུང་རབས་ཀྱི་ ཌི་ཇི་ཊཱལ་མཛོད་ཁང་ — འདི་ རྟག་བུ་རང་ བཏོན་མ་བཏང་པའི་ཧེ་མ་ ལོག་ཐོབ།",
+        "obj_0": "བཤིག་གཏང་མི་ལས་བྱེདཔ་གི་དམག་མི་མེད་པའི་གནམ་གྲུ་ཚུ་ འབྲེལ་གཏོགས་འབད།",
+        "obj_1": "བཤིག་གཏོར་གྱི་འོད་སྣང་འདི་ བར་མཚམས་ལུ་བཟོ།",
+        "obj_2": "གནད་སྡུད་-བེལེཌི་འདི་ཉེན་སྲུང་འབད།"
+      },
+      "level_2": {
+        "name": "བརྟན་པོའི་མེ་ལྕེ།",
+        "subtitle": "རིམ་ལུགས་གནས་སྤོ།",
+        "description": "སྐྱབས་བཅོལ་བ་༤༡༢ བཀག་བཞག་མི་ ཟེལ་ཐ་ར་ བཀག་ཆ་འབད་མི་ཚུ་ལུ་ ཟམ་མཇུག་འདི་ བཀག་བཞག། མཐའ་མའི་སྡེ་ཚན་འདི་ སབ་ཁྲ་མེད་པའི་ གཞིས་ཆགས་ཚུ་ནང་ བཤུད་འགྱོ་བཅུག་སྟེ་ དབང་འོག་ཐོ་བཀོད་ལས་ ཐར་བཅུག།",
+        "obj_0": "ནུས་ཤུགས་ཀ་རིང་གདོང་འབག་འདི་ཤུགས་ལྡན་བཟོ།",
+        "obj_1": "ཟམ་འདི་ མར་ཁུ་མེ་འོག་ལུ་བཞག།",
+        "obj_2": "བཙན་དབང་འགྲུལ་པ་ཚུ་མེདཔ་གཏང་།"
+      },
+      "level_3": {
+        "name": "ནིའོན་ཟངས་དང་གནས་སྡུད་ཐལ་རྡུལ།",
+        "subtitle": "མཐའ་མཚམས་ནང་གི་མི་ཚེ།",
+        "description": "ཁྲོམ་གྱི་འོག་ལུ་ — འོད་མདངས་ཅན་གྱི་ Xelthara གཞིས་ཆགས་ཀྱི་འོག་ལུ་ ཉམས་བཅོས་འབད་སའི་ དྲྭ་རྒྱ་ཅིག་ཨིན། མཐའ་ཟུར་གྱི་མི་རློབས་ཚུ་ལུ་ མི་ཚེ་རྒྱབ་སྐྱོར་གྱི་ལམ་ལུགས་ལུ་ དབང་ཚད་བྱིན་ནིའི་དོན་ལུ་ ཁོང་གི་ནུས་ཤུགས་ཚུ་ བཙག་འཐུ་འབད་ནི་ལས་ བཀག་ཐབས་འབདཝ་ཨིན།",
+        "obj_0": "གནས་རིམ་སོར་བསྒྱུར་ལྕོགས་གྲུབ་ཤུགས་ལྡན་བཟོ།",
+        "obj_1": "བཱའི་པ་སི་ཟེལ་ཐ་ར་སེནཊི་ནེལ་ཚུ་ ཤེས་རྟོགས་མ་བྱུང་པས།",
+        "obj_2": "མཐའ་འཁོར་གྱི་སྒོ་ཁར་ EMP འགས་གཏོར་འབད།"
+      },
+      "level_4": {
+        "name": "སྟོང་ཆའི་དམག་དཔོན་གྱི་ བརྡབ་གསིག་ཨེ་ཇིས།",
+        "subtitle": "འདྲ་མཉམ་མེད་པའི་དམག་འཁྲུག",
+        "description": "བརྡིབས་ཡོད་པའི་པེ་སི་ཕིག་སྲུང་སྐྱོབ་ལྟེ་བ། མཐའ་མའི་རྒྱང་བསྒྲགས་ཀ་ཁྱིམ་འདི་བཤིག་ཞིནམ་ལས་ ཞི་བའི་མི་སེར་གྱི་བཀག་འཛིན་ཁམས་ཕྲན་ཚུ་ལུ་ བསྐྱར་འབྱུང་ཆ་ཤས་ཚུ་བཀྲམ་སྤེལ་འབད་དེ་ གུ་རི་ལ་དམག་འཁྲུག་ལུ་འགྱུར་བཅོས་འབད་ནི་འདི་ མཇུག་བསྡུ་དགོ།",
+        "obj_0": "ཡོངས་འབྲེལ་ཧོཊི་ཝ་ཡར་རིམ་པ་འགོ་བཙུགས།",
+        "obj_1": "མའི་ཀོརོ་དྲོན་གྱི་གྲུ་གཟིངས་མཉམ་མཐུད།",
+        "obj_2": "རྒྱུ་ལམ་གྱི་འཇབ་རྒོལ་འདི་མེ་བཏང — རྩ་མེད་བཏང་ནི་གི་མཐུན་སྒྲིལ།"
+      }
+    },
+    "features": {
+      "briefing": "མ་ལག་གི་ནུས་པ།",
+      "title_prefix": "རྩེདམོ",
+      "title_highlight": "ཁྱད་ཆོས",
+      "built_with": "དང་ཅིག་ཁར་བཟོ་བསྐྲུན་འབད་ཡོདཔ།",
+      "tech_title": "འགོག་ཤུགས་ལམ་ལུགས།",
+      "tags": {
+        "roster": "ROSTER",
+        "narrative": "ལོ་རྒྱུས",
+        "progression": "ཡར་རྒྱས།",
+        "save_system": "རིམ་ལུགས་སྲུངས།",
+        "localisation": "ས་གནས་ཀྱི་བཟོ་བཀོད།",
+        "controls": "ཚད་འཛིན།",
+        "ux": "UX",
+        "audio": "སྒྲ།"
+      },
+      "tech": {
+        "engine": "རྩེདམོ་འཕྲུལ་འཁོར།",
+        "logic": "རྩེདམོ་ཚད་མ།",
+        "scripting": "མཐོང་སྣང་ཡིག་ཆ།",
+        "persistence": "སྐུགས་རྒྱུན་སྲུང།",
+        "narrative_engine": "གཏམ་བཤད་འཕྲུལ་འཁོར།",
+        "build": "རིམ་ལུགས་བཟོ་བསྐྲུན།"
+      },
+      "items": {
+        "roster": {
+          "title": "ཅ་སི་ཐོ་ཡིག",
+          "desc": "དམིགས་བསལ་གྱི་མཐུན་རྐྱེན་མངོན་གསལ་ཚུ་དང་གཅིག་ཁར་ ཚད་འཇལ་འབད་ཡོད་པའི་ སྲོལ་སྒྲིག་དམག་འཁྲུག་གི་གཞི་ཁྲམ་ལྔ་ལས་གཅིག་བཀྲམ་སྤེལ་འབད།"
+        },
+        "story": {
+          "title": "ཨིན་ཊེལ་གནས་སྡུད་གཞི་རྟེན།",
+          "desc": "དུས་ཚོད་ངོ་མའི་ བརྡ་འཕྲིན་ཚད་འཇལ་དང་ ལུང་ཕྱོགས་བློ་རིག་གཏན་མཛོད་ཚུ་ Axiom-7 mainframe གིས་ བསྡུ་སྒྲིག་འབད་ཡོདཔ་ཨིན།"
+        },
+        "progress": {
+          "title": "བསྡུ་གསོག་དང་སྐུགས་ཐོབ་ཐངས།",
+          "desc": "ཆེར་རི་ཚུ་ གནས་རིམ་ཆ་མཉམ་ནང་ ཁ་སྟོར་འགྱོ་སྟེ་ གནས་རིམ་གྱི་ སྐུགས་ཚུ་ ཐོབ་ཡོདཔ་ཨིན། སྐུགས་ཚུ་ ཨེསི་ཀིའུ་ལའིཊི་བརྒྱུད་དེ་ ཉེ་གནས་ལུ་སྲུང་བཞག་འབད་དེ་ རྟག་བརྟན་གྱི་འགོ་ཁྲིད་ཐིག་ཁྲམ་གུ་བཀྲམ་སྟོན་འབདཝ་ཨིན།"
+        },
+        "save": {
+          "title": "དྲན་ཚད་མཛུབ་གནོན་ཚུ།",
+          "desc": "དམག་འཁྲུག་གི་ བརྡ་འཕྲིན་ཚད་འཇལ་དང་ མཉམ་འབྱུང་གནས་སྟངས་ཀྱི་ལཱ་ཡུན་ཚུ་ རྒྱབ་སྐྱོར་འབད་མི་ དབང་ཚད་མེད་པའི་ གསོག་འཇོག་འབད་སའི་ བཀག་ཆ་ཚུ།"
+        },
+        "local": {
+          "title": "50+ སྐད་ཡིག་རྒྱབ་སྐྱོར།",
+          "desc": "Arabic, Hindi, Japanese, Malayalam དང་གཞན་ཡང་ལེ་ཤ་ཅིག་རྩིས་ཏེ་ ཆ་ཚང་ས་གནས་ཀྱི་ཡུ་ཨའི་ — CSV གཞི་བཞག་པའི་སྐད་སྒྱུར་གྱིས་ ཤུགས་སྤྲོད་ཡོདཔ་ཨིན།"
+        },
+        "controls": {
+          "title": "Gamepad རྒྱབ་སྐྱོར།",
+          "desc": "ཌི་-པེ་ཌི་དང་ ཨེ་ནཱ་ལོག་སི་ཊིག་འགུལ་སྐྱོད་ དེ་ལས་ གནོདཔ་བཀལ་ནི་དང་ ལྕོགས་གྲུབ་ཆ་མཉམ་གྱི་དོན་ལུ་ ཨེབ་རྟ་སབ་ཁྲ་བཟོ་ནི་ཚུ་རྩིས་ཏེ་ ཚད་འཛིན་རྒྱབ་སྐྱོར་ཆ་ཚང་།"
+        },
+        "ux": {
+          "title": "བར་ཆད་དཀར་ཆག",
+          "desc": "དུས་ཚོད་ངོ་མའི་ མུན་ནག་གྱིབ་མའི་ནུས་པ་ཡོད་པའི་ བར་མཚམས་དཀར་ཆག་མཐོ་ཤོས་ — བདེ་སྒྲིག་འབད་བཏུབ་པའི་ སྙན་ཆ་དང་ ཨེསི་ཨེཕ་ཨེགསི་སྐད་ཤུགས་ཚུ་ དུས་ནམ་ར་འབད་རུང་ འཛུལ་སྤྱོད་འབད་ཚུགས།"
+        },
+        "audio": {
+          "title": "སྒྲ་དབྱངས་གྱོན་ཆས།",
+          "desc": "སྡེ་ཚན་གྱི་སྒྲ་སྐད་ཀྱི་མཚན་རྟགས་ཚུ་ གདོང་ཁར་བཀབ་ནི་དང་ སྐོར་སྲུང་ཚུ་ལས་ བཀག་ཐབས་ལུ་ སྒྲ་དབྱངས་དཀརཔོ་གི་སྐད་རྐྱབ་མི་ཚུ་ བཀྲམ་སྤེལ་འབད།"
+        }
+      }
+    },
+    "controls": {
+      "briefing": "བརྡ་བཀོད་ངོས་འདྲ་བ།",
+      "title_prefix": "མཁས་པ།",
+      "title_highlight": "ཚད་འཛིན་ཚུ།",
+      "desc": "ལྡེ་སྒྲོམ་དང་རྩེད་རིགས་རྒྱབ་སྐྱོར། དམག་མི་རེ་རེ་གི་ ཁྱད་པར་ཅན་གྱི་ལྕོགས་གྲུབ་ཚུ་ བརྩོན་ཤུགས་ཅན་གྱི་ ཨིན་པུཊ་བརྡ་བཀོད་ཚུ་ལུ་ སབ་ཁྲ་བཟོཝ་ཨིན་ — དེ་ཚུ་ག་ར་ མི་ཚེ་གནས་ཐབས་ལུ་ མཁས་མཆོག་བཟོ།",
+      "keyboard": "ལྡེ་སྒྲོམ།",
+      "gamepad": "གེམ་པེཌ།",
+      "or": "ཡང་ཅིན་",
+      "special_briefing": "དམིགས་བསལ་ནུས་པ།",
+      "special_title": "འཐབ་འཛིང་གི་ཐབས་ཤེས།",
+      "tip": {
+        "title": "སྦྱོང་བརྡར་གྲོས་ཆོད།",
+        "text": "གནས་རིམ་ ༠༠ དང་ཅིག་ཁར་འགོ་བཙུགས། — མཐུན་འབྲེལ་ཀླད་ཀོར་འདི་ ཐད་རི་བ་རི་དམག་འཁྲུག་ནང་མ་འཛུལ་བའི་ཧེ་མ་ ནེའུ་རལ་-སིན་ཀ་ བར་ཅུ་ཡལ་དངོས་ཡོད་ནང་ ཚད་འཛིན་ཆ་མཉམ་ལྷབ་ནིའི་དོན་ལུ་ཨིན།"
+      },
+      "actions": {
+        "move_left": "གཡོན་ལུ་སྤོ།",
+        "move_right": "གཡས་ལུ་སྤོ།",
+        "jump": "མཆོང་ནི",
+        "sword_attack": "རལ་གྲིའི་འཇབ་རྒོལ།",
+        "karate_attack": "ཀ་ར་ཊི་འཇབ་རྒོལ།",
+        "pause": "བར་བཀག"
+      },
+      "notes": {
+        "shogun_only": "དྲ་རྒྱའི་ཤོ་གུན་རྐྱངམ་གཅིག།"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "པཱལཱསི་མ་བེལེཌ་སི་ཊའིཀ།",
+          "input": "འོད་ཀྱི་འཇབ་རྒོལ།"
+        },
+        "energy_shield": {
+          "name": "ནུས་ཤུགས་ཀ་རིང་གདོང་ལེན།",
+          "input": "LB / L1."
+        },
+        "kinetic_overload": {
+          "name": "ཀའི་ནེ་ཊིག་ཨོ་ཝར་ལྗོངས།",
+          "input": "RB/R1 + ལྗིད་པོ།"
+        },
+        "phase_shift": {
+          "name": "གནས་རིམ་སོར་བ།",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "དྲོན་རྟགས་དང་མེ།",
+          "input": "ཨེལ་ཊི་ + བཏོན་གཏང་།"
+        },
+        "emp_burst": {
+          "name": "EMP འབར་འགྱུར།",
+          "input": "○+△ / བི་+ཡ།"
+        },
+        "shield_overload": {
+          "name": "ཤེལ་ཕོར་མངོན་ལམ།",
+          "input": "ཨེགསི་+ཝའི་ / □+△ འཛིན་དགོ།"
+        },
+        "orbital_strike": {
+          "name": "རྒྱུ་ལམ་གྱི་འཇབ་རྒོལ།",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "བཀོལ་སྤྱོད།",
+      "deploying": "བཀྲམ་སྤེལ་འབད་དོ།",
+      "syncComplete": "SYNC COMPLETE // དམིགས་གཏད་སྡེ་ཚན་ལུ་ བཀོལ་སྤྱོད་མཐར་འཁྱོལ་ཅན་སྦེ་བཀྲམ་སྤེལ་འབད་ཡོདཔ།",
+      "active": "ངར་ཡེང་ཡེ",
+      "standby": "སྒུག་སྡོད།",
+      "role": "འགན་ཁུར",
+      "firepower": "མེའི་ནུས་ཤུགས།",
+      "defense": "སྲུང་སྐྱོབ།",
+      "mobility": "འགུལ་སྐྱོད།",
+      "shogun": "CYBER ཤོ་གུན།",
+      "ronin": "ཨེ་ཇིསི་རོ་ནིན།",
+      "matrix": "ཨོ་ནི་མེ་ཊིགསི་",
+      "frog": "ནིན་ཇ་སྦལ་པ།",
+      "guy": "གཟུགས་བརྙན་གྱི་མི།"
+    },
+    "gameplay": {
+      "protocols": "CORE མཐུན་སྒྲིལ།",
+      "terminal": "གནད་སྡུད་གཞི་རྟེན་ཊར་མི་ནཱལ།",
+      "active": "ངར་ཡེང་ཡེ",
+      "synced": "མཉམ་འབྱུང་འབད་ཡོདཔ།",
+      "online": "ཡོངས༌འབྲེལ༌ཐོག༌ལས",
+      "t1_title": "ཀའི་ནེ་ཊིག་བརྒལ་འགྱུར།",
+      "t1_desc": "མགྱོགས་ཚད་གཞི་བཞག་པའི་གཡོ་འགུལ། ཕྱི་ཡི་རྡོ་གཅིག་བདའ་སྟེ་ གྱང་རྒྱུག་སྟེ་ གྱང་ཁོག་གྱང་ཁོག་ཚུ་བརྒྱུད་དེ་ འཕྱག་འབག་སྟེ་ Xelthara དམིགས་གཏད་ཚོར་འཕྲུལ་ཚུ་ལས་ བཀག་ཐབས་ལུ་ རིམ་སྒྲིག་བཤུད་བརྙན་ཚུ་ཨིན།",
+      "t2_title": "རྩ་ཁམས་ཧ་ཀིང་།",
+      "t2_desc": "འཕུར་འགྲུལ་གྱི་ཐོག་ལུ་ ཕྱི་རྒྱལ་གྱི་ཡོངས་འབྲེལ་ཚུ་ནང་ འཛུལ་ཞུགས་འབད། དགྲ་བྱང་ཕྱད་ཀྱི་དམག་མི་མེད་པའི་གནམ་གྲུ་ཚུ་ བརྐུ་འཕྲོག་འབད་ནི་དང་ ནུས་ཤུགས་ཀྱི་གདོང་ཕྱོགས་ཚུ་ མང་དྲགས་སྦེ་བཀལ་ནི་ ཡང་ན་ དུས་ཚོད་ངོ་མའི་དམག་འཁྲུག་ནང་ ཁོང་རའི་བཟོ་མི་ཚུ་ལུ་ རང་བཞིན་གྱི་སྲུང་སྐྱོབ་ཚུ་ བསྒྱིར་ནི།",
+      "t3_title": "སྡེ་ཚན་མཉམ་འབྲེལ།",
+      "t3_desc": "ཁྱོད་ཀྱི་ཨེ་ཨའི་-བཀོལ་སྤྱོད་འབད་མི་གདོང་ལེན་ནང་ཐིག་འདི་བརྡ་བཀོད། མཉམ་མཐུན་གྱི་ བརྡལ་བཤིག་ཚུ་ ལག་ལེན་འཐབ་ནི་དང་ ཐབས་ཤེས་ཀྱི་ བཀག་ཆ་འབད་ནི་ དེ་ལས་ ཟེལ་ཐ་ར་གི་དམག་ཆས་ལྗིད་ཅན་ཚུ་ བཤིག་ནི་གི་ ཁྱད་པར་ཅན་གྱི་ལྕོགས་གྲུབ་ཚུ་ མཉམ་སྡེབ་འབད་ནི།",
+      "intel_classified": "ཨིན་ཊེལ་_དབྱེ་འབྱེད་འབད་ཡོདཔ། // ཨེལ་ཨེ་ཀིའུ་ཛེཌ།",
+      "los_angeles_2157": "ལོས་ཨེན་ཇེ་ལིས་ ༢༡༥༧"
+    },
+    "tech_hub": {
+      "hero_desc": "དབྱེ་ཁག་༤པའི་ནང་ལུ་ ཨེཆ་ཨེལ་ཨེཕ་ངོ་རྒོལ་གྱི་ཅ་ཆས་དང་ མེན་ཕེརེམ་གསང་བཟོ་འབད་མི་ དེ་ལས་ ཡོངས་འབྲེལ་གྱི་གནོདཔ་བཀལ་ནིའི་ ཆ་ཤས་ཚུ་གི་ འཕྲུལ་རིག་ཁྱད་ཚད།",
+      "engine_title": "གཞི་སྒྲོམ་གྱི་ཁྱད་ཆོས།",
+      "engine_desc": "ངོ་རྒོལ་གྱི་དམག་འཁྲུག་གི་ཆ་ཤས་ཚུ་ ས་གནས་ཀྱི་ GHz ཡན་ལག་རྒྱུ་ལམ་ཚུ་ནང་ལས་ཕར་ ལཱ་འབད་མི་ ཇོན་ཐངས་མཐོ་བའི་ རྩ་ཁམས་མཐུད་ལམ་ཚུ་ བཙུགས་ཏེ་ཡོདཔ་དང་ འདི་ཡང་ Xelthara གློག་རིག་གི་ གདོང་ལེན་ཐབས་ལམ་ཚུ་ བརྒལ་ཐབས་ལུ་ བཟོ་བཀོད་འབད་དེ་ཡོདཔ་ཨིན།",
+      "status_init": "ནེའུ་རལ་-སིན་ཀ་འགོ་བཙུགས་... [བཏུབ་]",
+      "status_shaders": "གཡོ་འགུལ་གྱིབ་མ་ཚུ་ཚད་འཇལ་འབད།... [བཏུབ་]",
+      "status_link": "ལས་ཁུངས་འབྲེལ་མཐུད་གཞི་བཙུགས་... [SECURED]",
+      "narrative_desc": "དབང་ཚད་མེད་པའི་ Ink-comms routing system འདི་ བཀག་ཆ་འབད་མི་སྡེ་ཚན་ཚུ་གི་བར་ན་ བརྒྱུད་ལམ་སྣ་ཚོགས་ཀྱི་ ཡོངས་འབྲེལ་གཞི་བཙུགས་འབད་ནིའི་དོན་ལུ་ བཟོ་བཀོད་འབད་ཡོདཔ་ཨིན།",
+      "comms_desc": "མཐོ་ཚད་མཐོ་བའི་གནམ་གཤིས་བྱ་རིམ་ཚུ་ལས་ བར་ཆད་བཀག་ཐབས་ལུ་ ལུང་ཕྱོགས་ཡན་ལག་དྲྭ་ལམ་༥༠ལྷགཔ་ཅིག་ནང་ ཉེན་སྲུང་ཅན་གྱི་བསྐྱར་འབྱུང་ལུ་རྒྱབ་སྐྱོར་འབད་མི་ མཐུན་སྒྲིག་ཅན་གྱི་རྒྱ་ཆེ་བའི་གསང་བཟོའི་མཐུན་གྲོས་ཚུ་ཨིན།",
+      "offline_status": "རིམ་ལུགས་ཨོཕ་ལཱའིན།",
+      "chassis_sync": "ཆ་སི་སི་ནའུ་རལ་-སིནཀ།",
+      "comms_decrypter": "Comms གསང་བཤོལ་འཕྲུལ་ཆས།"
+    },
+    "design_system": {
+      "title": "གྷིལིཆ་-ནོ་ཡར་ ཀའི་ནེ་ཊིག།",
+      "description": "འབྲེལ་མཐུད་ལམ་སྟོན་དང་ ཨེཆ་ཨེལ་ཨེཕ་ངོ་རྒོལ་གྱི་ གཞི་རྟེན་བཟོ་བཀོད་རིམ་ལུགས་ཀྱི་དོན་ལུ་ བརྡ་མཚོན་སྟོན་ཁང་། ཁྱད་པར་མཐོ་དྲགས་དང་ ནང་འཁོད་སྒྲིག་བཀོད་ དེ་ལས་ སི་ཨར་ཊི་ འཕྱེལ་འགྱོ་བའི་ བཀབ་སྟངས།",
+      "values": {
+        "digital_defiance": {
+          "title": "// ཌི་ཇི་ཊལ་ ཌི་ཕི་ཡེནསི།",
+          "desc": "ལས་འཛིན་གྱི་གཞི་སྒྲོམ་གཙོ་བོ་འདི་ བརྡལ་བཤིག་གཏང་ནི་གི་དོན་ལུ་ འོད་མདངས་ཅན་གྱི་ཀེ་ཐོཌ་གི་ནུས་པ་ཚུ་དང་གཅིག་ཁར་ སླ་བསྲེ་རྐྱབ་སྟེ་ བཙག་འཐུ་མ་འབད་བའི་མཐའམ་ཚུ་ཨིན།"
+        },
+        "visual_friction": {
+          "title": "// མཐོང་སྣང་འགུལ་ཤུགས།",
+          "desc": "ས་གནས་ཀྱི་ངོ་རྒོལ་བརྡ་བརྒྱུད་ཀྱི་ངོ་ཚབ་འབད་ནི་གི་དོན་ལུ་ བསམ་བཞིན་དུ་ CRT scanlines དང་ ཚོས་གཞི་ཆུང་ཀུ་གི་འགྱུར་བ་ཚུ་ཨིན།"
+        },
+        "rigid_tactical_grid": {
+          "title": "// རི་ཇིཌ་ཊེག་ཊི་ཀཱལ་གིརིཌ།",
+          "desc": "ཆ་ཤས་ཚུ་ ཐད་ཀར་དུ་ མདའ་རྩེདཔ་ནང་ལུ་ བཙུགས་ཡོདཔ་བཟུམ་སྦེ་ མནོ་མི་ Asymmetric box དཔེ་ཚད་ཚུ།"
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI འཚོ་གནས་།",
+          "desc": "མོ་ནོ་སི་པེསི་གནད་སྡུད་དཔར་བསྐྲུན་དང་ ཤརཔ་༠པི་ཨེགསི་མཐའ་མཚམས་ཟུར་ཚུ་ དེ་ལས་ དམའ་བའི་རི་སི་པིག་སེལ་སྟུག་ཚད་ཀྱི་ མཚོན་བརྙན་ཚུ།"
+        }
+      },
+      "color_swatches": "ཚོས་གཞི་དཔེ་ཚད།",
+      "copy_success": "འདྲ་བཤུས་འབད་ཡོདཔ།",
+      "copy_prompt": "འདྲ་བཤུས་བརྐྱབ་ནིའི་དོན་ལུ་ཨེབ།",
+      "typography_stack": "དཔེ་སྐྲུན་བང་རིམ།",
+      "component_showroom": "ཆ་ཤས་འགྲེམས་སྟོན་ཁང་།",
+      "btn_interactive_states": "// ཨེབ་རྟ་ཕན་ཚུན་འབྲེལ་བའི་གནས་སྟངས།",
+      "primary_action_desc": "གཞི་རིམ་བྱ་བ་ (ཧོ་ཝར་གུ་ མེ་ཇེན་ཊ་ལུ་ ཕིལིཀ་དང་ སི་ཀའུ་ཚུ་)",
+      "secondary_outline_desc": "འབྲིང་རིམ་གྱི་བཀོད་སྒྲིག།",
+      "warning_action_desc": "ཉེན་བརྡའི་བྱ་བ་ (skew བསྒུལ་བཟོ་)",
+      "tactical_card_desc": "// ཊེག་ཊི་ཀཱལ་ཧོ་ཝར་ཀར་ཌི་དང་ཨིན་པུཊི།",
+      "alpha_card_title": "སྡེ་ཚན་ ༤ ཨཱལ་ཕ་ཤོག་བྱང་།",
+      "alpha_card_desc": "འབྲེལ་མཐུད་ཅན་གྱི་གཞི་ཁྲམ་དོས་ཆས་འདི་ སྲོལ་སྒྲིག་གུག་ཤད་ཟུར་བཞི་དང་ གཙོ་བོར་བཏོན་མི་གུ་ལུ་ འོད་མདངས་གཉིས་ལྡན་གྱི་གྱིབ་མ་ཚུ་ཡོདཔ་ཨིན།",
+      "comms_label": "SECURE COMMS TERMINAL (འཕར་རྩི་བརྡ་སྟོན་མཐའ་མཚམས་བལྟ་ནི་ལུ་ཨེབ་གཏང་འབད།)",
+      "decryption_placeholder": "གསང་བཟོའི་ཨང་རྟགས་བཙུགས།...",
+      "colors": {
+        "void_black": {
+          "name": "Void ནག་པོ།",
+          "desc": "གསང་བའི་གཞི་རྟེན་རྒྱབ་ལྗོངས།"
+        },
+        "deep_grey": {
+          "name": "གཏིང་ཟབ་པའི་སྐྱ་ཐལ།",
+          "desc": "གཉིས་པ་མཐོ་ཚད་སྣོད་ཀྱི་རྒྱབ་ལྗོངས།"
+        },
+        "neon_cyan": {
+          "name": "ནིའོན་སི་ཡན་ (གཙོ་བོ།)",
+          "desc": "ཐབས་བྱུས་ངོས་འདྲ་བ་དང་མཛའ་མཐུན་ལག་རྩལ།"
+        },
+        "electric_magenta": {
+          "name": "གློག་མེའི་མེ་ཇེན་ཊ་ (གཉིས་པ་)",
+          "desc": "ནུས་ཤུགས་མཐོ་བའི་ བཀག་ཆ་འབད་ནི་དང་ ཨེཆ་ཨེལ་ཨེཕ་བྱ་བ་ཚུ།"
+        },
+        "toxic_green": {
+          "name": "དུག་ལྗང་ཁུ་ (གསུམ་པ་)",
+          "desc": "མཐར་འཁྱོལ་ཅན་གྱི་ཧཀ་ཚུ་དང་ ཤུགས་ལྡན་གནས་ཚད་བརྡ་སྟོན།"
+        },
+        "warning_orange": {
+          "name": "ཉེན་བརྡ་ཨོ་རེནཇ།",
+          "desc": "གལ་ཆེ་བའི་ཉེན་བརྡ་དང་ཉེན་ཁའི་གནས་སྟངས་ དེ་ལས་ཉེན་བརྡ།"
+        }
+      },
+      "typo_display_hero": "འཛམ་གླིང་སླར་ཡང་བཙུགས།",
+      "typo_headline_lg": "TACTICAL ཨིན་ཊེལ་སྙན་ཞུ།",
+      "typo_body_lg": "> ས་ཐོག་དམག་མི་ཚུ་གིས་ སྡེ་ཚན་༤ པའི་ བཀག་འཛིན་ཚད་གཞི་ཚུ་ ཆ་མེད་བཏང་ཡོདཔ། ཤུགས་ལྡན་མཉམ་འབྱུང་གིརིཌི་ལྡེ་མིག་འགོ་བཙུགས་དོ།",
+      "typo_body_md": "ཟེལ་ཐ་ར་འདི་ དབང་དུ་བསྡུ་ནིའི་དོན་ལུ་མེན་པར་ བདག་སྐྱོང་འབད་ནིའི་དོན་ལུ་འོང་ཡོདཔ་ཨིན། ང་བཅས་ཀྱིས་ ཤི་སའི་ས་ཁོངས་ནང་ལུ་ ལཱ་འབད་དེ་ གདུག་རྩུབ་ཅན་གྱི་རྡོ་གཅིག་ཚུ་གི་གྱིབ་མ་ལས་ བརྡུང་རྫོབ་འབདཝ་ཨིན།",
+      "typo_label_caps": "གནས་སྟངས།: བཀག་འགོག་COMM ལིནཀ་བདེ་འཇགས་ // LATENCI 4ms"
+    }
+  },
+  "kk": {
+    "nav": {
+      "story": "Әңгіме",
+      "characters": "Кейіпкерлер",
+      "levels": "Деңгейлер",
+      "features": "Ерекшеліктер",
+      "controls": "Басқару элементтері",
+      "play_now": "Қазір ойнаңыз",
+      "home": "ҮЙ",
+      "gameplay": "ОЙЫН",
+      "squad": "ОРТАҚ",
+      "tech_hub": "ТЕХНИКАЛЫҚ ХАБ",
+      "design_system": "ДИЗАЙН ЖҮЙЕСІ"
+    },
+    "hero": {
+      "title_line1": "АКСИОМАЛЫҚ КҮШ",
+      "title_line2_prefix": "ҚАЙТАРУ ",
+      "title_line2_highlight": "ЖЕР",
+      "subtitle": "3D экшн платформасы. Жерді бөтен басқыншылардан қайтарыңыз.",
+      "play_on_github": "GitHub сайтында ойнаңыз",
+      "view_source": "Дереккөзді көру",
+      "replayability": "Қайта ойнату мүмкіндігі"
+    },
+    "modal": {
+      "title": "Тілді және елді таңдаңыз",
+      "country": "Ел",
+      "language": "Тіл",
+      "no_countries": "Бұл тіл үшін қол жетімді елдер жоқ",
+      "select_country_first": "Алдымен елді таңдаңыз",
+      "choose": "таңдаңыз"
+    },
+    "footer": {
+      "tagline": "3D экшн платформасы. Жерді бөтен басқыншылардан қайтарып алуға қарсылық көрсетіңіз.",
+      "status": "АКСИОМ-7 ОНЛАЙН — ҚАРСЫСЫ БЕЛСЕНДІ",
+      "nav_title": "Навигация",
+      "tech_title": "МИССИЯНЫҢ ЕРЕКШЕЛІКТЕРІ",
+      "credits_title": "Несиелер",
+      "copyright": "© {{year}} AXIOM FORCE: ЖЕРДІ ҚАЙТА АЛУ — Барлық құқықтар қорғалған",
+      "broadcast_status": "v1.0.0 // NET-SYNC ОПЕРАЦИЯЛЫҚ // ҚАУІПСІЗ ХАБАРЛАУ",
+      "platform_desc": "Платформа: Windows (ДК)",
+      "input_desc": "Кіріс: геймпад / пернетақта",
+      "status_desc": "Күйі: көтеріліс белсенді",
+      "version_desc": "Түзету: v1.0.0 шығарылымы"
+    },
+    "home": {
+      "story_label": "Әңгіме",
+      "story_desc": "Жер, басып алынған. Төрт батыр көтеріледі.",
+      "char_label": "Кейіпкерлер",
+      "char_desc": "Жауынгерді таңдаңыз.",
+      "levels_label": "Деңгейлер",
+      "levels_desc": "5 миссия. Үлестерді көбейту.",
+      "features_label": "Ерекшеліктер",
+      "features_desc": "50+ тіл. Терең жүйелер.",
+      "controls_label": "Басқару элементтері",
+      "controls_desc": "Пернетақта мен геймпад дайын.",
+      "warning_casualty": "> ЕСКЕРТУ: ЖАҒДАЙ БОЛУ КӨРСЕТІЛІГІ ЖОҒАРЫ",
+      "status_operational": "МӘРТЕБЕСІ: ЖҰМЫС",
+      "grid_hacked": "4Альфа қосалқы станциясы бұзылды. HLF бақылауындағы жергілікті желі."
+    },
+    "story": {
+      "briefing": "баяндайтын брифинг",
+      "title": "Әңгіме",
+      "desc": "Жер дистопиялық бөтен оккупацияға ұшырады. Жауынгерлердің шағын командасы жау аумағын қайтарып алу үшін соғысуы керек. Өзіңіздің жауынгеріңізді таңдаңыз, қолайсыз жағдайдан аман өтіңіз және әлемді құтқаруға лайық болыңыз.",
+      "live_feed": "ТІКЕЛЕЙ ФЕД",
+      "caption": "Лос-Анджелес — 4-сектор оқшаулау аймағы",
+      "axiom_text": "\"Олардың отарлау аумақтарына еніңіз. Олардың терраформизациясын күшейтетін қуат ядроларына саботаж жасаңыз. Сіз азат еткен әрбір аймақ олардың оккупациясын кері итермелейді және оларға: Жерде бұл үшін күресетін тұрғындар бар\".",
+      "timeline": {
+        "arrival_title": "Келу",
+        "arrival_desc": "Xelthara ұжымы Жерге келіп, оны «ашылған аумақ» және адамзатты «ыңғайсыз жергілікті халық» деп жариялайды.",
+        "displacement_title": "Массалық орын ауыстыру",
+        "displacement_desc": "Бірнеше күн ішінде миллиондаған адамдар тар аумақтарға қоныс аударады, ал Кселтаралар біздің қалаларды отарлап, ескерткіштерімізді бұзды.",
+        "resistance_title": "Қарсыласу формалары",
+        "resistance_desc": "Қорғау аймақтарының шетінен төрт чемпион шығады - Ниндзя бақа, Маска досы, Қызғылт адам және Виртуалды жігіт - өшіруден бас тартады.",
+        "axiom_title": "AXIOM-7 орналастырылған",
+        "axiom_desc": "Отанды азат ету майданы қарсылықты үйлестіру үшін AXIOM-7 автоматтандырылған сыртқы барлау операцияларын іске қосады.",
+        "mission_title": "Сіздің миссияңыз басталады",
+        "mission_desc": "Сіз таңдалды. Колониялық аумақтарға еніп кету. Саботаждық қуат өзектері. Елді мекеннің инфрақұрылымын бөлшектеу. Жерді қалпына келтіру."
+      }
+    },
+    "characters": {
+      "briefing": "жауынгер таңдау",
+      "title": "Өзіңіздің жауынгерің��зді таңдаңыз",
+      "desc": "Төрт элиталық жауынгер Ксельтараға қарсы тұр. Олардың әрқайсысы Жердің бостандығы үшін күреске бірегей қабілеттер әкеледі.",
+      "abilities_title": "ҚАБІЛЕТТЕР",
+      "stats_title": "ЖА��ЫС СТАТАТСЫ",
+      "unlock": "Қылыш пен каратэ шабуылдары бар құлыптан босатылатын бонустық кейіпкер. Осы аңызға айналған жауынгердің құлпын ашу үшін науқанды аяқтаңыз.",
+      "stats": {
+        "speed": "ЖЫЛДАМДЫҚ",
+        "power": "ҚУАТ",
+        "agility": "ЖЕПТІЛІК",
+        "defense": "ҚОРҒАНЫС"
+      },
+      "warriors": {
+        "frog": {
+          "role": "Инфильтратор",
+          "desc": "Жасырындық пен ептілік шебері. Ниндзя бақа мүмкін емес позицияларға жету үшін қабырғаға секіре алады және екі рет секіре алады. Найзағайдай жылдам қозғалыс бұл жауынгерді тамаша барлаушы етеді.",
+          "lore": "«Олар мені кеш болғанша көрмейді. Олардың прожекторларының арасындағы шеттерде мен бармын»."
+        },
+        "dude": {
+          "role": "Теңгерімді жауынгер",
+          "desc": "Бетперде киген жауынгер шабуыл мен қорғаныстың тамаша тепе-теңдігін ұсынады. Барлық жағдайларда сенімді, Эгис Ронин стратегиялық және кинетикалық балғамен және энергетикалық мұнара қалқанымен жабдықталған.",
+          "lore": "«Маска - бұл бетперде емес. Бұл олардың жүйелерімен танылудан бас тартатынымды білдіретін мәлімдеме»."
+        },
+        "pink": {
+          "role": "Ауыр соққы",
+          "desc": "Phase-Shifting және EMP жарылыстарының маманы бөтен дерекқорлардан ұрланған сәйкестіктерді қайтару үшін күреседі. Жақын жерде өте жылдам және өлімге әкелетін.",
+          "lore": "«Олар менің түсіме күледі. Олар күлуді тез тоқтатады»."
+        },
+        "guy": {
+          "role": "Техникалық маман",
+          "desc": "Физикалық шассиге енгізілген сандық сана. Виртуалды жігіт жау жүйелерімен интерфейс жасай алады және басқалар қабылдай алмайтын техникалық осалдықтарды пайдалана алады.",
+          "lore": "«Мен ола��дың брандмауэрлерінің арасындағы кеңістікте тұрамын. Мен олардың машинасындағы елесмін»."
+        }
+      }
+    },
+    "levels": {
+      "briefing": "науқан деңгейлері",
+      "title_prefix": "The ",
+      "title_highlight": "Миссия",
+      "title_suffix": " Күтеді",
+      "desc": "Күрделілігі жоғары бес бірегей деңгей. Сіз Xelthara оккупациясын артқа тастаған сайын әрбір миссия біртіндеп ашылады.",
+      "objectives_title": "МИССИЯ МАҚСАТТАРЫ",
+      "difficulty_title": "ҚИЫНДЫҚ",
+      "threat_title": "ҚАУІП:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "МИНИМАЛ",
+        "high": "ЖОҒАРЫ",
+        "omega": "ОМЕГА",
+        "critical": "СЫНЫ"
+      },
+      "types": {
+        "training": "ТРЕНИНГ",
+        "infiltration": "ИНФИЛЬТРАЦИЯ",
+        "defense": "ҚОРҒАНЫС",
+        "stealth": "СТАЛТ",
+        "assault": "ҚОСЫЛУ"
+      },
+      "level_0": {
+        "name": "Протокол нөл",
+        "subtitle": "Виртуалды сарай",
+        "description": "Лос-Анджелестің қираған орталығындағы аспан сызығының кең сымдық симуляциясы. Нағыз соғыс басталғанға дейін Neural-Sync виртуалды шындықта жауынгерлік шассиді меңгеріңіз.",
+        "obj_0": "Шассиді толық калибрлеу",
+        "obj_1": "Симулирленген Xelthara бірліктерін жойыңыз",
+        "obj_2": "Синхрондалған соққы сынағынан өтіңіз"
+      },
+      "level_1": {
+        "name": "Ghost in the Gridlock",
+        "subtitle": "Мәдениетті жою хаттамасы",
+        "description": "Император сарайы бақтарының қирандылары. Xelthara терраформды сәулелер ежелгі тас шамдарды ерітеді. Data-Blade — тыйым салынған тарихтың сандық репозиторийі — мәңгі өшірілмес бұрын шығарып алыңыз.",
+        "obj_0": "Demolition Crew дрондарын қосыңыз",
+        "obj_1": "Бұзылу шамын бейтараптандырыңыз",
+        "obj_2": "Деректер тақтасын бекітіңіз"
+      },
+      "level_2": {
+        "name": "Бетон дала өрті",
+        "subtitle": "Жүйелік орын ауыстыру",
+        "description": "Соңғы көпірді 412 босқынды қамауға алып жатқан Xelthara күштеріне қарсы ұстаңыз. Соңғы топқа картада көрсетілмеген қараңғы аудандарға кіріп, отаршылдық тіркеуден құтылуға мүмкіндік беріңіз.",
+        "obj_0": "Энергия мұнарасының қалқанын іске қосыңыз",
+        "obj_1": "Көпірді миномет отының астында ұстаңыз",
+        "obj_2": "Қоршаудағы серуендерді жойыңыз"
+      },
+      "level_3": {
+        "name": "Неон тоты және деректер шаңы",
+        "subtitle": "Шеттегі өмір",
+        "description": "Under-City — жарқыраған Xelthara елді мекенінің астындағы техникалық қызмет көрсету біліктерінің желісі. Тазалық патрульдерінен жалтарып, маргиналды халықтың өмірін қамтамасыз ету жүйелерін қуаттандыру үшін олардың энергиясын сорып алыңыз.",
+        "obj_0": "Phase-shift мүмкіндігін іске қосыңыз",
+        "obj_1": "Xelthara Sentinels анықталмады",
+        "obj_2": "Периметрлік қақпада ЭМП жарылуы"
+      },
+      "level_4": {
+        "name": "Бос қолбасшының сынған Эгисі",
+        "subtitle": "Асимметриялық соғыс",
+        "description": "Қираған Тынық мұхиты қорғаныс хабы. Соңғы хабар тарату мұнарасын бөлшектеңіз және жиілік чиптерін азаматтық қарсылық ұяшықтарына таратыңыз - партизандық соғысқа көшуді аяқтаңыз.",
+        "obj_0": "Network Hotwire тізбегін іске қосыңыз",
+        "obj_1": "Микро-дрондар флотын синхрондаңыз",
+        "obj_2": "Orbital Strike - Облитерация хаттамасы"
+      }
+    },
+    "features": {
+      "briefing": "жүйе мүмкіндіктері",
+      "title_prefix": "Ойын ",
+      "title_highlight": "Ерекшеліктер",
+      "built_with": "көмегімен салынған",
+      "tech_title": "Қарсыласу жүйелері",
+      "tags": {
+        "roster": "ТІЗІМ",
+        "narrative": "ӘҢГІМЕ",
+        "progression": "ПРОГРЕССИЯ",
+        "save_system": "ЖҮЙені САҚТАУ",
+        "localisation": "ЖЕРГІЛендіру",
+        "controls": "БАСҚАРУ",
+        "ux": "UX",
+        "audio": "АУДИО"
+      },
+      "tech": {
+        "engine": "Ойын қозғалтқышы",
+        "logic": "Ойын логикасы",
+        "scripting": "Көрініс сценарийі",
+        "persistence": "Ұпай тұрақтылығы",
+        "narrative_engine": "Баяндау механизмі",
+        "build": "Жүйені құрастыру"
+      },
+      "items": {
+        "roster": {
+          "title": "Шасси тізімі",
+          "desc": "Арнайы аппараттық жүктемелермен калибрленген бес теңшелген жауынгерлік кадрдың бірін орналастырыңыз."
+        },
+        "story": {
+          "title": "Intel деректер базасы",
+          "desc": "Axiom-7 негізгі фреймімен құрастырылған на��ты уақыттағы телеметрия және аймақтық барлау мұрағаты."
+        },
+        "progress": {
+          "title": "Коллекциялық заттар және бағалау",
+          "desc": "Шие ұпай санының барлық деңгейлері бойынша шашыраңқы. Ұпайлар SQLite арқылы жергілікті түрде сақталады және тұрақты көшбасшылар тақтасында көрсетіледі."
+        },
+        "save": {
+          "title": "Жад түйіндері",
+          "desc": "Жауынгерлік телеметрия мен синхрондау күйінің сеанстарының сақтық көшірмесін жасайтын орталықтандырылмаған сақтау қоймалары."
+        },
+        "local": {
+          "title": "50+ тілді қолдау",
+          "desc": "Араб, хинди, жапон, малаялам және т.б. қоса алғанда, толық локализацияланған UI CSV негізіндегі аудармамен жұмыс істейді."
+        },
+        "controls": {
+          "title": "Геймпадты қолдау",
+          "desc": "Толық контроллерге қолдау көрсету, соның ішінде D-Pad, аналогтық таяқша қозғалысы және барлық шабуылдар мен қабілеттер үшін түймелерді салыстыру."
+        },
+        "ux": {
+          "title": "Бұлыңғыр кідірту мәзірі",
+          "desc": "Нақты уақыттағы бұлыңғыр шейдер эффектісі бар премиум кідірту мәзірі — реттелетін музыка және кез келген уақытта қол жетімді SFX дыбыс деңгейі."
+        },
+        "audio": {
+          "title": "Акустикалық жадағай",
+          "desc": "Топтың дыбыстық қолтаңбаларын бүркемелеу және патрульдерден жалтару үшін акустикалық ақ шулы скремблерлерді орналастырыңыз."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "командалық интерфейс",
+      "title_prefix": "меңгеру ",
+      "title_highlight": "Басқару элементтері",
+      "desc": "Толық пернетақта мен геймпадты қолдау. Әрбір жауынгердің бірегей қабілеттері арнайы енгізу пәрмендерімен салыстырылады — олардың барлығын аман қалу үшін игеріңіз.",
+      "keyboard": "Пернетақта",
+      "gamepad": "Геймпад",
+      "or": "немесе",
+      "special_briefing": "ерекше қабілеттер",
+      "special_title": "Жауынгерлік техникалар",
+      "tip": {
+        "title": "Жаттығу хаттамасы:",
+        "text": "Тікелей жекпе-жекке кіріспес бұрын Neural-Sync ви��туалды шындықтағы барлық басқару элементтерін үйрену үшін Level 00 — Protocol Zero арқылы бастаңыз."
+      },
+      "actions": {
+        "move_left": "Солға жылжытыңыз",
+        "move_right": "Оңға жылжытыңыз",
+        "jump": "Секіру",
+        "sword_attack": "Қылышпен шабуыл",
+        "karate_attack": "Каратэ шабуылы",
+        "pause": "Кідірту"
+      },
+      "notes": {
+        "shogun_only": "Тек кибер шогун"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "Жеңіл шабуыл"
+        },
+        "energy_shield": {
+          "name": "Энергия мұнарасы қалқаны",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Кинетикалық шамадан тыс жүктеме",
+          "input": "RB/R1 + Ауыр ұстаңыз"
+        },
+        "phase_shift": {
+          "name": "Фазалық жылжу",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "LT + босату пернелерін басып тұрыңыз"
+        },
+        "emp_burst": {
+          "name": "EMP Burst",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Қалқанның шамадан тыс жүктелуі",
+          "input": "X+Y / □+△ пернелерін басып тұрыңыз"
+        },
+        "orbital_strike": {
+          "name": "Орбиталық соққы",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "ОПЕРАТИВТІ ОРНАТУ",
+      "deploying": "ОРНАТУ...",
+      "syncComplete": "синхрондауды аяқтау // ОПЕРАЦИЯ МАҚСАТТЫ СЕКТОРҒА СӘТТІ ОРНАЛДЫ",
+      "active": "БЕЛСЕНДІ",
+      "standby": "КҮТУ",
+      "role": "РОЛ",
+      "firepower": "ОТ КҮШІ",
+      "defense": "ҚОРҒАНЫС",
+      "mobility": "ҰТЫЛДЫҚ",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "ЭГИС РОНИН",
+      "matrix": "ONI MATRIX",
+      "frog": "НИНДЗА БАҚА",
+      "guy": "ВИРТУАЛДЫ ЖІГІТ"
+    },
+    "gameplay": {
+      "protocols": "НЕГІЗГІ ПРОТОКОЛДАР",
+      "terminal": "Деректер базасының терминалы",
+      "active": "БЕЛСЕНДІ",
+      "synced": "синхрондалған",
+      "online": "ОНЛАЙН",
+      "t1_title": "Кинетикалық өту",
+      "t1_desc": "Импульске негізделген қозғалысты меңгеру. Бөтен монолиттердің бойымен қабырғаға жүгіріңіз, қираған зәулім ғимараттарды аралаңыз және Xelthara нысанаға алу се��сорларынан құтылу үшін тізбекті сырғанақтарды өтіңіз.",
+      "t2_title": "Нейрондық бұзу",
+      "t2_desc": "Бөтен желілерге жылдам еніңіз. Нақты уақыттағы шайқаста жаудың дрондарын ұрлаңыз, қуат қалқандарын шамадан тыс жүктеңіз немесе оларды жасаушыларға қарсы автоматтандырылған қорғанысты қосыңыз.",
+      "t3_title": "Команда синергетикасы",
+      "t3_desc": "AI басқаратын қарсылық ұяшығына пәрмен беріңіз. Синхрондалған бұзушылықтарды орындаңыз, тактикалық буксирлер жасаңыз және ауыр Xelthara құрыштарын бөлшектеу үшін бірегей қабілеттерді біріктіріңіз.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "Лос-Анджелес 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "HLF бүлікші жабдығының, негізгі фреймді дешифрлеуіштердің және 4-секторда белсенді кибернетикалық шабуыл шассиінің техникалық сипаттамалары.",
+      "engine_title": "Шасси сипаттамалары",
+      "engine_desc": "Көтерілісшілердің жауынгерлік шассилері Xelthara электронды қарсы шараларын айналып өтуге арналған жергілікті GHz-ден төмен арналар арқылы жұмыс істейтін жоғары тиімді нейрондық байланыстармен жабдықталған.",
+      "status_init": "Нейрондық синхрондауды инициализациялау... [Жарайды]",
+      "status_shaders": "Қозғалыс шейдерлерін калибрлеу... [Жарайды]",
+      "status_link": "Сектор сілтемесін орнату... [ҚАУІПСІЗ]",
+      "narrative_desc": "Орталықтандырылмаған Ink-comms бағыттау жүйесі қарсылық жасақтары арасында көп арналы байланыс желілерін орнатуға арналған, координаттар мен миссия журналдарының қауіпсіз берілуін қамтамасыз етеді.",
+      "comms_desc": "Барлық 50+ аймақтық ішкі торлар бойынша қауіпсіз жиілікті секіріп өтуге қолдау көрсететін адаптивті кең жолақты шифрлау протоколдары, жоғары биіктіктегі атмосфералық процессорлардың кедергісін болдырмайды.",
+      "offline_status": "Жүйе офлайн",
+      "chassis_sync": "Шасси нейрондық-синхрондау",
+      "comms_decrypter": "Comms Decrypter"
+    },
+    "design_system": {
+      "title": "Glitch-Noir кинетикалық",
+      "description": "HLF rebel мэйнфреймінің дизайн жүйесіне арналған интерактивті нұсқаулық және таңбалауыш көрме залы. Жоғары контраст, висцеральды орналасулар және CRT үйкеліс қабаттары.",
+      "values": {
+        "digital_defiance": {
+          "title": "// ЦИФРЛІК ҚАРСЫЛЫҚ",
+          "desc": "Корпоративтік негізгі фреймді бұзу үшін жарқыраған катод әсерлерімен араласқан өңделмеген, тазартылмаған жиектер."
+        },
+        "visual_friction": {
+          "title": "// Көрнекі үйкеліс",
+          "desc": "Жергілікті бүлікшілер хабарын көрсету үшін әдейі CRT сканерлеу сызықтары және аздаған түс ауытқулары."
+        },
+        "rigid_tactical_grid": {
+          "title": "// ҚАТТЫ ТАКТИКАЛЫҚ ТОР",
+          "desc": "Аналық платаға тікелей қосылған компоненттер сияқты сезінетін асимметриялық қорап үлгілері."
+        },
+        "low_fi_survival": {
+          "title": "// ТӨМЕН ҚАБЫЛДАУ",
+          "desc": "Бір кеңістіктегі деректерді басып шығару, анық 0px жиек бұрыштары және төмен ажыратымдылықтағы пиксель тығыздығы мотивтері."
+        }
+      },
+      "color_swatches": "Түс үлгілері",
+      "copy_success": "КӨШІРІЛДІ!",
+      "copy_prompt": "КӨШІРУ ҮШІН БАСЫҢЫЗ",
+      "typography_stack": "Типографиялық стек",
+      "component_showroom": "Компоненттер көрмесі",
+      "btn_interactive_states": "// ТҮЙМЕШІКТЕРДІҢ ИНТЕРАКТИВТІ КҮЙІ",
+      "primary_action_desc": "Негізгі әрекет (меңгілеуде жыпылықтайды және қызғылт түске қисайды)",
+      "secondary_outline_desc": "Қосымша контур",
+      "warning_action_desc": "Ескерту әрекеті (қиғаш анимация)",
+      "tactical_card_desc": "// ТАКТИКАЛЫҚ АВТО КАРТА ЖӘНЕ ЕНГІЗУ",
+      "alpha_card_title": "4-сектор Альфа картасы",
+      "alpha_card_desc": "Төрт реттелетін кронштейн бұрыштарымен және фокустағы қос жарқырауық шейдерлерімен жабдықталған интерактивті жақтау контейнері.",
+      "comms_label": "ҚАУІПСІЗ БАЙЛАНЫС ТЕРМИНАЛЫ (импульстік индикатор шекарасын көру үшін басыңыз)",
+      "decryption_placeholder": "Шифрды шешу кодын енгізіңіз...",
+      "colors": {
+        "void_black": {
+          "name": "Бос қара",
+          "desc": "Жасырын негізгі фон"
+        },
+        "deep_grey": {
+          "name": "Қою сұр",
+          "desc": "Екінші деңгейлі контейнер фоны"
+        },
+        "neon_cyan": {
+          "name": "Неон көгілдір (бастапқы)",
+          "desc": "Тактикалық интерфейстер және достық технология"
+        },
+        "electric_magenta": {
+          "name": "Электр күлгін (екінші)",
+          "desc": "Жоғары энергияны қайта анықтау және HLF әрекеттері"
+        },
+        "toxic_green": {
+          "name": "Улы жасыл (үшінші)",
+          "desc": "Сәтті бұзылулар және белсенді күй көрсеткіштері"
+        },
+        "warning_orange": {
+          "name": "Ескерту қызғылт сары",
+          "desc": "Маңызды ескертулер, қауіп жағдайлары және ескертулер"
+        }
+      },
+      "typo_display_hero": "ЖЕРДІ ҚАЙТА АЛУ",
+      "typo_headline_lg": "ТАКТИКАЛЫҚ ИНТЕЛЬ ЕСЕП",
+      "typo_body_lg": "> Құрлық күштері 4-сектордың оқшаулау параметрлерін бұзды. Белсенді синхрондау торының құлпы іске қосылуда.",
+      "typo_body_md": "Кселтаралар жаулап алу үшін емес, басқару үшін келді. Біз қатыгез монолиттердің көлеңкесінен шығып, өлі аймақтарда әрекет етеміз.",
+      "typo_label_caps": "МӘРТЕБЕСІ: ҚАРСЫЛЫҚ БАЙЛАНЫСЫ ҚАУІПСІЗІ // Кідіріс 4 мс"
+    }
+  },
+  "km": {
+    "nav": {
+      "story": "រឿង",
+      "characters": "តួអក្សរ",
+      "levels": "កម្រិត",
+      "features": "លក្ខណៈពិសេស",
+      "controls": "ការត្រួតពិនិត្យ",
+      "play_now": "លេងឥឡូវនេះ",
+      "home": "ទំព័រដើម",
+      "gameplay": "ហ្គេម",
+      "squad": "ក្រុម",
+      "tech_hub": "មជ្ឈមណ្ឌលបច្ចេកវិទ្យា",
+      "design_system": "ប្រព័ន្ធរចនា"
+    },
+    "hero": {
+      "title_line1": "កម្លាំងអ័ក្ស",
+      "title_line2_prefix": "ទាមទារឡើងវិញ ",
+      "title_line2_highlight": "ផែនដី",
+      "subtitle": "វេទិកាសកម្មភាព 3D ។ យកផែនដីមកវិញពីអ្នកកាន់កាប់ក្រៅភព។",
+      "play_on_github": "លេងនៅលើ GitHub",
+      "view_source": "មើលប្រភព",
+      "replayability": "ភាពអាចលេងឡើងវិញបាន។"
+    },
+    "modal": {
+      "title": "ជ្រើសរើសភាសា និងប្រទេសរបស់អ្នក។",
+      "country": "ប្រទេស",
+      "language": "ភាសា",
+      "no_countries": "គ្មានប្រទេសណាដែលអាចប្រើបានសម្រាប់ភាសានេះទេ។",
+      "select_country_first": "សូមជ្រើសរើសប្រទេសជាមុនសិន",
+      "choose": "ជ្រើសរើស"
+    },
+    "footer": {
+      "tagline": "វេទិកាសកម្មភាព 3D ។ ដឹកនាំការតស៊ូដើម្បីយកផែនដីមកវិញពីអ្នកកាន់កាប់ក្រៅភព។",
+      "status": "AXIOM-7 លើបណ្តាញ - ការតស៊ូសកម្ម",
+      "nav_title": "ការរុករក",
+      "tech_title": "លក្ខណៈពិសេសបេសកកម្ម",
+      "credits_title": "ឥណទាន",
+      "copyright": "© {{year}} AXIOM FORCE៖ ទាមទារដីឡើងវិញ — រក្សាសិទ្ធិគ្រប់យ៉ាង",
+      "broadcast_status": "v1.0.0 // NET-Sync ប្រតិបត្តិការ // សុវត្ថិភាពការផ្សព្វផ្សាយ",
+      "platform_desc": "វេទិកា៖ វីនដូ (កុំព្យូទ័រ)",
+      "input_desc": "បញ្ចូល៖ Gamepad / Keyboard",
+      "status_desc": "ស្ថានភាព៖ ការបះបោរសកម្ម",
+      "version_desc": "ការកែប្រែ៖ ការចេញផ្សាយ v1.0.0"
+    },
+    "home": {
+      "story_label": "រឿង",
+      "story_desc": "ផែនដី, កាន់កាប់។ វីរបុរសបួននាក់កើនឡើង។",
+      "char_label": "តួអក្សរ",
+      "char_desc": "ជ្រើសរើសអ្នកចម្បាំងរបស់អ្នក។",
+      "levels_label": "កម្រិត",
+      "levels_desc": "5 បេសកកម្ម។ ការបង្កើនប្រាក់ភ្នាល់។",
+      "features_label": "លក្ខណៈពិសេស",
+      "features_desc": "50+ ភាសា។ ប្រព័ន្ធជ្រៅ។",
+      "controls_label": "ការត្រួតពិនិត្យ",
+      "controls_desc": "ក្តារចុច និងបន្ទះហ្គេមរួចរាល់។",
+      "warning_casualty": "> ការព្រមាន៖ អត្រាគ្រោះថ្នាក់ខ្ពស់។",
+      "status_operational": "ស្ថានភាព៖ ប្រតិបត្តិការ",
+      "grid_hacked": "ស្ថានីយ​រង 4Alpha ត្រូវ​បាន​គេ​លួច​ចូល។ បណ្តាញមូលដ្ឋានក្រោមការគ្រប់គ្រងរបស់ HLF ។"
+    },
+    "story": {
+      "briefing": "ការរៀបរាប់សង្ខេប",
+      "title": "រឿង",
+      "desc": "ផែនដីបានធ្លាក់នៅក្រោមការកាន់កាប់របស់ជនបរទេស dystopian ។ ក្រុម​អ្នក​ចម្បាំង​មួយ​ក្រុម​តូច​ត្រូវ​តែ​ប្រយុទ្ធ​តាម​ផ្លូវ​របស់​ពួកគេ​តាម​ទឹកដី​សត្រូវ​ដើម្បី​ដណ្តើម​យក​វា​មក​វិញ។ ជ្រើសរើសអ្នកប្រយុទ្ធរបស់អ្នក រស់រានមានជីវិតពីភាពកខ្វក់ និងបង្ហាញថាអ្នកមានភាពសក្ដិសមក្នុងការជួយសង្គ្រោះពិភពលោក។",
+      "live_feed": "ផ្សាយបន្តផ្ទាល់",
+      "caption": "ឡូសអេនជឺលេស — តំបន់​កុងតឺន័រ​ផ្នែកទី ៤",
+      "axiom_text": "\"ជ្រៀតចូលទៅក្នុងទឹកដីអាណានិគមរបស់ពួកគេ។ បំផ្លាញស្នូលថាមពលដែលជំរុញឱ្យមានផ្ទៃរាបស្មើរបស់ពួកគេ។ គ្រប់តំបន់ដែលអ្នករំដោះបានរុញច្រានការកាន់កាប់របស់ពួក���េមកវិញ ហើយរំលឹកពួកគេ៖ ផែនដីមានប្រជាជនដែលនឹងប្រយុទ្ធដើម្បីវា\" ។",
+      "timeline": {
+        "arrival_title": "ការមកដល់",
+        "arrival_desc": "សមូហភាព Xelthara មកដល់ផែនដីដោយប្រកាសថាវា \"ទឹកដីដែលបានរកឃើញ\" និងមនុស្សជាតិ \"ជាប្រជាជនជនជាតិដើមភាគតិចដែលមិនងាយស្រួល\" ។",
+        "displacement_title": "ការផ្លាស់ទីលំនៅដ៏ធំ",
+        "displacement_desc": "ក្នុងរយៈពេលប៉ុន្មានថ្ងៃ មនុស្សរាប់លាននាក់ត្រូវបានផ្លាស់ទីលំនៅទៅក្នុងតំបន់ចង្អៀត ខណៈតំបន់ Xelthara ធ្វើអាណានិគមលើទីក្រុងរបស់យើង និងរុះរើវិមានរបស់យើង។",
+        "resistance_title": "ទម្រង់តស៊ូ",
+        "resistance_desc": "ពីគែមនៃតំបន់ហាមឃាត់ ម្ចាស់ជើងឯកបួននាក់បានលេចចេញមក - Ninja Frog, Mask Dude, Pink Man និង Virtual Guy - បដិសេធមិនលុប។",
+        "axiom_title": "AXIOM-7 ដាក់ពង្រាយ",
+        "axiom_desc": "រណសិរ្សរំដោះមាតុភូមិធ្វើឱ្យសកម្ម AXIOM-7 ដែលជាម៉ូឌុលប្រតិបត្តិការស៊ើបការណ៍សម្ងាត់ខាងក្រៅដោយស្វ័យប្រវត្តិ ដើម្បីសម្របសម្រួលការតស៊ូ។",
+        "mission_title": "បេសកកម្មរបស់អ្នកចាប់ផ្តើម",
+        "mission_desc": "អ្នកត្រូវបានជ្រើសរើស។ ជ្រៀតចូលទឹកដីអាណានិគម។ ការបំផ្លាញស្នូលថាមពល។ រុះរើហេដ្ឋារចនាសម្ព័ន្ធតាំងទីលំនៅ។ យកផែនដីឡើងវិញ។"
+      }
+    },
+    "characters": {
+      "briefing": "ការជ្រើសរើសអ្នកចម្បាំង",
+      "title": "ជ្រើសរើសអ្នកប្រយុទ្ធរបស់អ្នក។",
+      "desc": "អ្នកចម្បាំងវរជនបួននាក់ឈរប្រឆាំងនឹងការកាន់កាប់ Xelthara ។ នីមួយៗនាំមកនូវសមត្ថភាពពិសេសដល់ការប្រយុទ្ធដើម្បីសេរីភាពរបស់ផែនដី។",
+      "abilities_title": "សមត្ថភាព",
+      "stats_title": "ស្ថិតិប្រយុទ្ធ",
+      "unlock": "តួអក្សរដែលអាចដោះសោបានប្រាក់រង្វាន់ជាមួយនឹងការវាយប្រហារដោយដាវ និងការ៉ាតេ។ បញ្ចប់យុទ្ធនាការដើម្បីដោះសោអ្នកចម្បាំងរឿងព្រេងនិទាននេះ។",
+      "stats": {
+        "speed": "ល្បឿន",
+        "power": "ថាមពល",
+        "agility": "ភាពរហ័សរហួន",
+        "defense": "ការពារ"
+      },
+      "warriors": {
+        "frog": {
+          "role": "អ្នកជ្រៀតចូល",
+          "desc": "មេនៃការបំបាំងកាយ និងរហ័សរហួន។ Ninja Frog អាចលោតជញ្ជាំង និងលោតពីរដង ដើម្បីទៅដល់ទីតាំងដែលមិនអាចទៅរួច។ ចលនាលឿនដូចផ្លេកបន្ទោរធ្វើឱ្យអ្នកចម្បាំងនេះជាកាយរឹទ្ធិដ៏ល្អ។",
+          "lore": "\"ពួកគេមិនបានឃើញខ្ញុំទេ រហូតដល់វាយឺតពេល។ នៅគែមរវាងពន្លឺរបស់ពួកគេ ខ្ញុំមាន\"។"
+        },
+        "dude": {
+          "role": "អ្នកប្រយុទ្ធដែលមានតុល្យភាព",
+          "desc": "អ្នកចម្បាំងពាក់ម៉ាស់ ផ្តល់នូវតុល្យភាពដ៏ល្អឥតខ្ចោះនៃការវាយលុក និងការការពារ។ អាចទុកចិត្តបានក្នុងគ្រប់ស្ថានភាពទាំងអស់ Aegis Ronin គឺជាយុទ្ធសាស្ត្រ និងបំពាក់ដោយ Kinetic Hammer និង Energy Tower Shield ។",
+          "lore": "\"របាំងមិនមែនជាការក្លែងបន្លំទេ។ វាគឺជាការប្រកាសដែលខ្ញុំបដិសេធមិនទទួលស្គាល់ដោយប្រព័ន្ធរបស់ពួកគេ\"។"
+        },
+        "pink": {
+          "role": "អ្នកវាយប្រហារធ្ងន់",
+          "desc": "អ្នកឯកទេសនៅក្នុង Phase-Shifting និង EMP ផ្ទុះឡើង ដែលកំពុងប្រយុទ្ធដើម្បីទាមទារអត្តសញ្ញាណដែលបានលួចពីមូលដ្ឋានទិន្នន័យជនបរទេស។ លឿន​ខ្លាំង និង​ស្លាប់​នៅ​ជិត​ត្រីមាស។",
+          "lore": "\"ពួកគេសើចនឹងពណ៌របស់ខ្ញុំ។ ពួកគេឈប់សើចយ៉ាងលឿន\" ។"
+        },
+        "guy": {
+          "role": "អ្នកជំនាញបច្ចេកទេស",
+          "desc": "មនសិការឌីជីថលដែលបានបង្កប់នៅក្នុងតួរាងកាយ។ Virtual Guy អាចទាក់ទងជាមួយប្រព័ន្ធសត្រូវ និងទាញយកភាពងាយរងគ្រោះផ្នែកបច្ចេកទេសដែលអ្នកផ្សេងទៀតមិនអាចយល់បាន។",
+          "lore": "\"ខ្ញុំរស់នៅក្នុងចន្លោះរវាងជញ្ជាំងភ្លើងរបស់ពួកគេ។ ខ្ញុំជាខ្មោចនៅក្នុងម៉ាស៊ីនរបស់ពួកគេ\"។"
+        }
+      }
+    },
+    "levels": {
+      "briefing": "កម្រិតយុទ្ធនាការ",
+      "title_prefix": "នេះ។ ",
+      "title_highlight": "បេសកកម្ម",
+      "title_suffix": " រង់ចាំ",
+      "desc": "កម្រិតពិសេសចំនួនប្រាំជាមួយនឹងការកើនឡើងការលំបាក។ បេសកកម្មនីមួយៗដោះសោជាបណ្តើរៗនៅពេលអ្នករុញការកាន់កាប់ Xelthara មកវិញ។",
+      "objectives_title": "គោលបំណងបេសកកម្ម",
+      "difficulty_title": "ភាពលំបាក",
+      "threat_title": "ការគំរាមកំហែង៖",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "តិចតួចបំផុត។",
+        "high": "ខ្ពស់",
+        "omega": "អូមេហ្គា",
+        "critical": "សំខាន់"
+      },
+      "types": {
+        "training": "ការបណ្តុះបណ្តាល",
+        "infiltration": "ការបញ្ចូល",
+        "defense": "ការពារ",
+        "stealth": "លួច",
+        "assault": "ASSAULT"
+      },
+      "level_0": {
+        "name": "ពិធីការសូន្យ",
+        "subtitle": "The Virtual Forge",
+        "description": "ការ​ក្លែង​ធ្វើ​ស៊ុម​ខ្សែ​ដ៏​ធំ​នៃ​ខ្សែបន្ទាត់​មេឃ​នៅ​កណ្តាល​ទីក្រុង Los Angeles គ្រប់គ្រងតួប្រយុទ្ធរបស់អ្នកនៅក្នុង Neural-Sync Virtual Reality មុនពេលសង្រ្គាមពិតប្រាកដចាប់ផ្តើម។",
+        "obj_0": "ការក្រិតតាមខ្នាតតួពេញលេញ",
+        "obj_1": "បំផ្លាញគ្រឿង Xelthara ដែលក្លែងធ្វើ",
+        "obj_2": "ឆ្លងកាត់ការធ្វើតេស្តកូដកម្មដែលបានធ្វើសមកាលកម្ម"
+      },
+      "level_1": {
+        "name": "ខ្មោចនៅក្នុង Gridlock",
+        "subtitle": "ពិធីការលុបបំបាត់វប្បធម៌",
+        "description": "ប្រាសាទ​នៃ​សួន​ច្បារ​ព្រះ​បរម​រាជវាំង។ Xelthara terraforming beams រំលាយចង្កៀងថ្មបុរាណ។ ទាញយក Data-Blade - ឃ្លាំងឌីជីថលនៃប្រវត្តិហាមឃាត់ - មុនពេលវាត្រូវបានលុបជារៀងរហូត។",
+        "obj_0": "ចូលរួមជាមួយយន្តហោះគ្មានមនុស្សបើក Demolition Crew",
+        "obj_1": "បន្សាបភ្លើងសញ្ញារុះរើ",
+        "obj_2": "ធានាសុវត្ថិភាព Data-Blade"
+      },
+      "level_2": {
+        "name": "ភ្លើងឆេះព្រៃបេតុង",
+        "subtitle": "ការផ្លាស់ទីលំនៅជាប្រព័ន្ធ",
+        "description": "កាន់ស្ពានចុងក្រោយប្រឆាំងនឹង Xelthara Enforcers ដែលបណ្ដេញជនភៀសខ្លួនចំនួន 412 នាក់ចូលទៅក្នុងការឃុំឃាំង។ អនុញ្ញាតឱ្យក្រុមចុងក្រោយរអិលចូលទៅក្នុងតំបន់អនាធិបតេយ្យដែលមិនមានផែនទី ហើយគេចចេញពីការចុះឈ្មោះអាណានិគម។",
+        "obj_0": "បើកដំណើរការ Energy Tower Shield",
+        "obj_1": "សង្កត់ស្ពាននៅក្រោមភ្លើងបាយអ",
+        "obj_2": "បំផ្លាញ Siege Walkers"
+      },
+      "level_3": {
+        "name": "Neon Rust និង Data Dust",
+        "subtitle": "ជីវិតនៅគែម",
+        "description": "The Under-City - បណ្តាញថែទាំក្រោមការតាំងទីលំនៅ Xelthara ដ៏ភ្លឺស្វាង។ Siphon ថាមពលរបស់ពួកគេដើម្បីផ្តល់ថាមពលដល់ប្រព័ន្ធទ្រទ្រង់ជីវិតរបស់ប្រជាជនដែលខ្វះខាតខណៈពេលដែលគេចចេញពីការល្បាតភាពបរិសុទ្ធ។",
+        "obj_0": "បើកដំណើរការមុខងារ Phase-Shift",
+        "obj_1": "ឆ្លងកាត់ Xelthara Sentinels មិនត្រូវបានរកឃើញ",
+        "obj_2": "បំផ្ទុះ EMP នៅច្រកទ្វារបរិវេណ"
+      },
+      "level_4": {
+        "name": "កម្ទេច Aegis នៃមេបញ្ជាការ Void",
+        "subtitle": "សង្គ្រាមមិនស៊ីមេទ្រី",
+        "description": "មជ្ឈមណ្ឌលការពារជាតិប៉ាស៊ីហ្វិកដែលបាក់បែក។ រុះរើប៉មផ្សាយចុងក្រោយ និងចែកចាយបន្ទះសៀគ្វីប្រេកង់ទៅកោសិកាតស៊ូស៊ីវិល - បញ្ចប់ការផ្លាស់ប្តូរទៅជាសង្គ្រាមទ័ពព្រៃ។",
+        "obj_0": "ចាប់ផ្តើមលំដាប់បណ្តាញ Hotwire",
+        "obj_1": "ធ្វើសមកាលកម្មកងនាវាខ្នាតតូច",
+        "obj_2": "បញ្ឈប់ការធ្វើកូដកម្មគន្លង - ពិធីការលុបបំបាត់"
+      }
+    },
+    "features": {
+      "briefing": "សមត្ថភាពប្រព័ន្ធ",
+      "title_prefix": "ហ្គេម ",
+      "title_highlight": "លក្ខណៈពិសេស",
+      "built_with": "សាងសង់ជាមួយ",
+      "tech_title": "ប្រព័ន្ធទប់ទល់",
+      "tags": {
+        "roster": "បញ្ជីឈ្មោះ",
+        "narrative": "ការរៀបរាប់",
+        "progression": "វឌ្ឍនភាព",
+        "save_system": "រក្សាទុកប្រព័ន្ធ",
+        "localisation": "ទីតាំង",
+        "controls": "ការគ្រប់គ្រង",
+        "ux": "UX",
+        "audio": "អូឌីយ៉ូ"
+      },
+      "tech": {
+        "engine": "ម៉ាស៊ីនហ្គេម",
+        "logic": "តក្កវិជ្ជាហ្គេម",
+        "scripting": "ស្គ្រីបឈុតឆាក",
+        "persistence": "ពិន្ទុជាប់លាប់",
+        "narrative_engine": "ម៉ាស៊ីននិទានរឿង",
+        "build": "ប្រព័ន្ធសាងសង់"
+      },
+      "items": {
+        "roster": {
+          "title": "បញ្ជីឈ្មោះតួ",
+          "desc": "ដាក់ពង្រាយស៊ុមប្រយុទ្ធមួយក្នុងចំនោម 5 ស៊ុមប្រយុទ្ធតាមតម្រូវការដែលបានក្រិតតាមខ្នាតជាមួយនឹងការផ្ទុកផ្នែករឹងពិសេស។"
+        },
+        "story": {
+          "title": "មូលដ្ឋានទិន្នន័យ Intel",
+          "desc": "បណ្ណសារទូរគមនាគមន៍តាមពេលវេលាជាក់ស្តែង និងព័ត៌មានសម្ងាត់ក្នុងតំបន់ ចងក្រងដោយ Axiom-7 mainframe ។"
+        },
+        "progress": {
+          "title": "ការប្រមូល និងពិន្ទុ",
+          "desc": "Cherry រាយប៉ាយនៅគ្រប់កម្រិតដែលមានតម្លៃ។ ពិន្ទុត្រូវបានរក្សាទុកក្នុងមូលដ្ឋានតាមរយៈ SQLite និងបង្ហាញនៅលើតារាងពិន្ទុជាប់លាប់។"
+        },
+        "save": {
+          "title": "ថ្នាំងសតិ",
+          "desc": "តុដេកផ្ទុកវិមជ្ឈការ បម្រុងទុក telemetry ប្រយុទ្ធ និងធ្វើសមកាលកម្មសម័យរដ្ឋ។"
+        },
+        "local": {
+          "title": "ការគាំទ្រភាសា 50+",
+          "desc": "UI ដែលបានធ្វើមូលដ្ឋានីយកម្មយ៉ាងពេញលេញ រួមទាំងភាសាអារ៉ាប់ ហិណ្ឌូ ជប៉ុន ម៉ាឡាយ៉ាឡា និងជាច្រើនទៀត — ដំណើរការដោយការបកប្រែផ្អែកលើ CSV ។"
+        },
+        "controls": {
+          "title": "ការគាំទ្រ Gamepad",
+          "desc": "ការគាំទ្រឧបករណ៍បញ្ជាពេញលេញរួមទាំង D-Pad ចលនាដំបង analogue និងការគូសផែនទីប៊ូតុងសម្រាប់ការវាយប្រហារ និងសមត្ថភាពទាំងអស់។"
+        },
+        "ux": {
+          "title": "ម៉ឺនុយផ្អាកព្រិល",
+          "desc": "ម៉ឺនុយផ្អាកបុព្វលាភជាមួយនឹងបែបផែនស្រមោលព្រិលតាមពេលវេលាជាក់ស្តែង — តន្ត្រីដែលអាចលៃតម្រូវបាន និងកម្រិតសំឡេង SFX អាចចូលប្រើបានគ្រប់ពេល។"
+        },
+        "audio": {
+          "title": "អាវទ្រនាប់សូរស័ព្ទ",
+          "desc": "ដាក់​ពង្រាយ​ឧបករណ៍​បន្លឺសំឡេង​ពណ៌​ស ដើម្បី​បិទបាំង​ហត្ថលេខា​សំឡេង​របស់​ក្រុម និង​គេច​ពី​ការ​ល្បាត។"
+        }
+      }
+    },
+    "controls": {
+      "briefing": "ចំណុចប្រទាក់ពាក្យបញ្ជា",
+      "title_prefix": "ធ្វើជាម្ចាស់ ",
+      "title_highlight": "កា���ត្រួតពិនិត្យ",
+      "desc": "ការគាំទ្រក្តារចុច និងបន្ទះហ្គេមពេញលេញ។ សមត្ថភាពពិសេសរបស់អ្នកចម្បាំងនីមួយៗធ្វើផែនទីទៅនឹងពាក្យបញ្ជាបញ្ចូលជាក់លាក់ — គ្រប់គ្រងពួកគេទាំងអស់ដើម្បីរស់។",
+      "keyboard": "ក្ដារចុច",
+      "gamepad": "បន្ទះហ្គេម",
+      "or": "ឬ",
+      "special_briefing": "សមត្ថភាពពិសេស",
+      "special_title": "បច្ចេកទេសប្រយុទ្ធ",
+      "tip": {
+        "title": "ពិធីការបណ្តុះបណ្តាល៖",
+        "text": "ចាប់ផ្តើមជាមួយនឹងកម្រិត 00 — Protocol Zero ដើម្បីស្វែងយល់ពីការគ្រប់គ្រងទាំងអស់នៅក្នុង Neural-Sync Virtual Reality មុនពេលចូលទៅក្នុងការប្រយុទ្ធផ្ទាល់។"
+      },
+      "actions": {
+        "move_left": "ផ្លាស់ទីទៅឆ្វេង",
+        "move_right": "ផ្លាស់ទីទៅស្តាំ",
+        "jump": "លោត",
+        "sword_attack": "ការវាយប្រហារដោយដាវ",
+        "karate_attack": "ការវាយប្រហារការ៉ាតេ",
+        "pause": "ផ្អាក"
+      },
+      "notes": {
+        "shogun_only": "Cyber Shogun តែប៉ុណ្ណោះ"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "កូដកម្មប្លាស្មា",
+          "input": "ការវាយប្��ហារស្រាល"
+        },
+        "energy_shield": {
+          "name": "Energy Tower Shield",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Kinetic Overload",
+          "input": "សង្កត់ RB/R1 + ធ្ងន់"
+        },
+        "phase_shift": {
+          "name": "ការផ្លាស់ប្តូរដំណាក់កាល",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "សង្កត់ LT + ការចេញផ្សាយ"
+        },
+        "emp_burst": {
+          "name": "EMP ផ្ទុះ",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "ការការពារលើសទម្ងន់",
+          "input": "សង្កត់ X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "កូដកម្មគន្លង",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "ដាក់ពង្រាយប្រតិបត្តិការ",
+      "deploying": "កំពុងដាក់ពង្រាយ...",
+      "syncComplete": "ធ្វើសមកាលកម្មពេញលេញ // ដំណើរការដោយជោគជ័យ បានដាក់ពង្រាយទៅកាន់វិស័យគោលដៅ",
+      "active": "សកម្ម",
+      "standby": "រង់ចាំ",
+      "role": "តួនាទី",
+      "firepower": "ភ្លើង",
+      "defense": "ការពារ",
+      "mobility": "ចល័ត",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI ម៉ាទ្រីក",
+      "frog": "NINJA FROG",
+      "guy": "បុរសនិម្មិត"
+    },
+    "gameplay": {
+      "protocols": "ពិធីការស្នូល",
+      "terminal": "ស្ថានីយមូលដ្ឋានទិន្នន័យ",
+      "active": "សកម្ម",
+      "synced": "ធ្វើសមកាលកម្ម",
+      "online": "អនឡាញ",
+      "t1_title": "Kinetic ឆ្លងកាត់",
+      "t1_desc": "មេចលនាផ្អែកលើសន្ទុះ។ ការរត់តាមជញ្ជាំងតាមផ្ទាំងថ្មចម្លែកៗ វាយលុកលើអគារខ្ពស់ៗដែលខូច ហើយរំកិលខ��សែសង្វាក់ដើម្បីគេចពីឧបករណ៍ចាប់សញ្ញាគោលដៅ Xelthara។",
+      "t2_title": "ការលួចស្តាប់សរសៃប្រសាទ",
+      "t2_desc": "ជ្រៀតចូលបណ្តាញជនបរទេសភ្លាមៗ។ ប្លន់យន្តហោះគ្មានមនុស្សបើករបស់សត្រូវ របាំងការពារថាមពលលើសទម្ងន់ ឬបើកការការពារដោយស្វ័យប្រវត្តិប្រឆាំ���នឹងអ្នកបង្កើតរបស់ពួកគេក្នុងការប្រយុទ្ធតាមពេលវេលាជាក់ស្តែង។",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "បញ្ជាកោសិកាធន់ទ្រាំដែលជំរុញដោយ AI របស់អ្នក។ អនុវត្តការបំពានដែលបានធ្វើសមកាលកម្ម ដាក់ការវាយឆ្មក់តាមយុទ្ធសាស្ត្រ និងរួមបញ្ចូលគ្នានូវសមត្ថ��ាពពិសេសដើម្បីរុះរើពាសដែក Xelthara ធ្ងន់។",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "ឡូសអេនជឺលេស ២១៥៧"
+    },
+    "tech_hub": {
+      "hero_desc": "លក្ខណៈបច្ចេកទេសនៃឧបករណ៍បះបោរ HLF ឧបករណ៍ឌិគ្រីបមេហ្វ្រេម និងតួវាយលុកតាមអ៊ី���ធឺណិតសកម្មនៅក្នុងវិស័យទី 4 ។",
+      "engine_title": "លក្ខណៈបច្ចេកទេសរបស់តួ",
+      "engine_desc": "តួប្រយុទ្ធរបស់ពួកបះបោរត្រូវបានបំពាក់ដោយតំណភ្ជាប់សរសៃប្រសាទដែលមានប្រសិទ្ធភាពខ្ពស់ដែលដំណើរការលើបណ្តាញរង GHz ដែលបានធ្វើមូលដ្ឋានីយកម្ម ដែលត្រូវបានរចនាឡើងដើម្បីគេចពីវិធានការប្រឆាំងអេឡិចត្រូនិច Xelthara ។",
+      "status_init": "ចាប់ផ្តើមការធ្វើសមកាលកម្មសរសៃប្រសាទ... [យល់ព្រម]",
+      "status_shaders": "តម្រឹមស្រមោលចលនា... [យល់ព្រម]",
+      "status_link": "បង្កើតតំណភ្ជាប់តាមវិស័យ... [SECURED]",
+      "narrative_desc": "ប្រព័ន្ធកំណត់ផ្លូវ Ink-comms វិមជ្ឈការបានរចនាឡើងដើម្បីបង្កើតបណ្តាញទំនាក់ទំនងពហុឆានែលរវាងក្រុមតស៊ូ ធានាការបញ្ជូនកូអរដោណេ និងកំណត់ហេតុបេសកកម្មប្រកបដោយសុវត្ថិភាព។",
+      "comms_desc": "ពិធីការ​អ៊ិនគ្រីប​កម្រិត​ធំទូលាយ​ដែល​សម្របខ្លួន​បាន​ដែល​គាំទ្រ​ប្រេ���ង់​សុវត្ថិភាព​ដែល​លោត​ឆ្លង​ក្រឡាចត្រង្គ​រង​ក្នុង​តំបន់​ទាំង 50+ ការពារ​ការ​ស្ទាក់ចាប់​ពី​ប្រព័ន្ធ​ដំណើរការ​បរិយាកាស​កម្ពស់​ខ្ពស់។",
+      "offline_status": "ប្រព័ន្ធក្រៅបណ្តាញ",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "មគ្គុទ្ទេសក៍អន្តរកម្ម និងបន្ទប់តាំងបង្ហាញសញ្ញាសម្ងាត់សម្រាប់ប្រព័ន្ធរចនាមេស៊ុមឧទ្ទាម HLF ។ កម្រិតពណ៌ខ្ពស់ ប្លង់ visceral និងការលាបលើការកកិត CRT ។",
+      "values": {
+        "digital_defiance": {
+          "title": "// កំហុសឌីជីថល",
+          "desc": "គែមឆៅ និងមិនទាន់ចម្រាញ់ លាយឡំជាមួយឥទ្ធិពល cathode បញ្ចេញពន្លឺ ដើម្បីរំលោភលើ mainframe របស់ក្រុមហ៊ុន។"
+        },
+        "visual_friction": {
+          "title": "// ការកកិតតាមរូបភាព",
+          "desc": "ការស្កែន CRT ដោយចេតនា និងភាពមិនប្រក្រតីនៃពណ៌តិចតួច ដើម្បីតំណាងឱ្យការផ្សាយរបស់ពួកឧទ្ទាមដែលបានធ្វើមូលដ្ឋានីយកម្ម។"
+        },
+        "rigid_tactical_grid": {
+          "title": "// ក្រឡាចត្រង្គ TACTICAL រឹង",
+          "desc": "ម៉ូដែលប្រអប់ Asymmetric ដែលមានអារម្មណ៍ដូចជាសមាសធាតុដែលបានដោតដោយផ្ទាល់ទៅក្នុង motherboard ។"
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI SURVIVAL",
+          "desc": "ការបោះពុម្ពទិន្នន័យដែលមានចន្លោះប្រហោង ជ្រុងស៊ុម 0px មុតស្រួច និងគំនូរដង់ស៊ីតេភីកសែលទាប។"
+        }
+      },
+      "color_swatches": "នាឡិកាពណ៌",
+      "copy_success": "ចម្លង!",
+      "copy_prompt": "ចុចដើម្បីចម្លង",
+      "typography_stack": "ជង់វាយអក្សរ",
+      "component_showroom": "បន្ទប់តាំងបង្ហាញសមាសធាតុ",
+      "btn_interactive_states": "// ប៊ូតុងស្ថានភាពអន្តរកម្ម",
+      "primary_action_desc": "សកម្មភាព​ចម្បង (flickers and skews to Magenta on hover)",
+      "secondary_outline_desc": "គ្រោងបន្ទាប់បន្សំ",
+      "warning_action_desc": "សកម្មភាពព្រមាន (ចលនាបញ្ឆៀង)",
+      "tactical_card_desc": "// កាត HOVER TACTICAL & បញ្ចូល",
+      "alpha_card_title": "កាតអាល់ហ្វាផ្នែកទី 4",
+      "alpha_card_desc": "កុងតឺន័រស៊ុមអន្តរកម្មដែលបំពាក់ដោយជ្រុងតង្កៀបផ្ទាល់ខ្លួនចំនួនបួន និងឧបករណ៍ស្រមោលពន្លឺពីរនៅលើការផ្តោតអារម្មណ៍។",
+      "comms_label": "ស្ថានីយ COMMS សុវត្ថិភាព (ចុចដើម្បីមើលព្រំដែនសូចនាករជីពចរ)",
+      "decryption_placeholder": "បញ្ចូល​កូដ​ឌិគ្រីប...",
+      "colors": {
+        "void_black": {
+          "name": "ខ្មៅ",
+          "desc": "ផ្ទៃខាងក្រោយនៃបំបាំងកាយ"
+        },
+        "deep_grey": {
+          "name": "ប្រផេះជ្រៅ",
+          "desc": "ផ្ទៃខាងក្រោយកុងតឺន័រកម្ពស់បន្ទាប់បន្សំ"
+        },
+        "neon_cyan": {
+          "name": "អ៊ីយ៉ុងខៀវ (បឋម)",
+          "desc": "ចំណុចប្រទា��់យុទ្ធសាស្ត្រ និងបច្ចេកវិទ្យាមិត្តភាព"
+        },
+        "electric_magenta": {
+          "name": "ស្វាយ​អគ្គិសនី (បន្ទាប់បន្សំ)",
+          "desc": "ការបដិសេធថាមពលខ្ពស់ និងសកម្មភាព HLF"
+        },
+        "toxic_green": {
+          "name": "បៃតងពុល (ទីបី)",
+          "desc": "ការលួចចូលដោយជោគជ័យ និងសូចនាករស្ថានភាពសកម្ម"
+        },
+        "warning_orange": {
+          "name": "ពណ៌ទឹកក្រូចព្រមាន",
+          "desc": "ការជូនដំណឹងសំខាន់ៗ ស្ថានភាពគំរាមកំហែង និងការព្រមាន"
+        }
+      },
+      "typo_display_hero": "ទាមទារដីឡើងវិញ",
+      "typo_headline_lg": "របាយការណ៍ TACTICAL INTEL",
+      "typo_body_lg": "> កងកំលាំងជើងគោកបានបំពានលើប៉ារ៉ាម៉ែត្រទប់ស្កាត់វិស័យទី 4 ។ បើកដំណើរការចាក់សោក្រឡាចត្រង្គសមកាលកម្មសកម្ម។",
+      "typo_body_md": "Xelthara បានមកដល់មិនមែនដើម្បីយកឈ្នះទេគឺដើម្បីគ្រប់គ្រង។ យើងធ្វើប្រតិបត្តិការនៅក្នុងតំបន់ដែលស្លាប់ ដោយធ្វើកូដកម្មពីស្រមោលនៃ monoliths ឃោរឃៅ។",
+      "typo_label_caps": "ស្ថានភាព៖ តំណភ្ជាប់ COMM RESISTANCE មានសុវត្ថិភាព // ភាពយឺតយ៉ាវ 4ms"
+    }
+  },
+  "lo": {
+    "nav": {
+      "story": "ເລື່ອງ",
+      "characters": "ຕົວອັກສອນ",
+      "levels": "ລະດັບ",
+      "features": "ຄຸນສົມບັດ",
+      "controls": "ການຄວບຄຸມ",
+      "play_now": "ຫຼິ້ນດຽວນີ້",
+      "home": "ຫນ້າທໍາອິດ",
+      "gameplay": "ຫຼິ້ນເກມ",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "ລະບົບການອອກແບບ"
+    },
+    "hero": {
+      "title_line1": "axiom FORCE",
+      "title_line2_prefix": "ອ້າງສິດຄືນ ",
+      "title_line2_highlight": "ແຜ່ນດິນໂລກ",
+      "subtitle": "ເວທີການປະຕິບັດ 3D. Reclaim ໂລກຈາກ occupiers ມະນຸດຕ່າງດາວ.",
+      "play_on_github": "ຫຼິ້ນຢູ່ GitHub",
+      "view_source": "ເບິ່ງແຫຼ່ງ",
+      "replayability": "ຄວາມສາມາດໃນການຫຼິ້ນຄືນ"
+    },
+    "modal": {
+      "title": "ເລືອກພາສາ ແລະປະເທດຂອງເຈົ້າ",
+      "country": "ປະເທດ",
+      "language": "ພາສາ",
+      "no_countries": "ບໍ່ມີປະເທດໃດທີ່ສາມາດໃຊ້ໄດ້ສຳລັບພາສານີ້",
+      "select_country_first": "ກະລຸນາເລືອກປະເທດກ່ອນ",
+      "choose": "ເລືອກ"
+    },
+    "footer": {
+      "tagline": "ເວທີການປະຕິບັດ 3D. ນໍາພາການຕໍ່ຕ້ານເພື່ອຍຶດແຜ່ນດິນໂລກຄືນຈາກຜູ້ຄອບຄອງມະນຸດຕ່າງດາວ.",
+      "status": "AXIOM-7 ອອນລາຍ — ມີການຕໍ່ຕ້ານ",
+      "nav_title": "ການນໍາທາງ",
+      "tech_title": "ຂໍ້ກໍາຫນົດພາລະກິດ",
+      "credits_title": "ສິນເຊື່ອ",
+      "copyright": "© {{year}} AXIOM FORCE: Reclaim Earth — ສະຫງວນລິຂະສິດທັງໝົດ",
+      "broadcast_status": "v1.0.0 // NET-SYNC ປະຕິບັດການ // ການກະຈາຍສຽງທີ່ປອດໄພ",
+      "platform_desc": "ເວທີ: Windows (PC)",
+      "input_desc": "ການປ້ອນຂໍ້ມູນ: Gamepad / Keyboard",
+      "status_desc": "ສະຖານະ: Insurgency Active",
+      "version_desc": "ສະບັບປັບປຸງ: v1.0.0 ປ່ອ��"
+    },
+    "home": {
+      "story_label": "ເລື່ອງ",
+      "story_desc": "ໂລກ, ຄອບຄອງ. ສີ່ heroes ເພີ່ມຂຶ້ນ.",
+      "char_label": "ຕົວອັກສອນ",
+      "char_desc": "ເລືອກນັກຮົບຂອງເຈົ້າ.",
+      "levels_label": "ລະດັບ",
+      "levels_desc": "5 ພາລະກິດ. ການເພີ່ມສະເຕກ.",
+      "features_label": "ຄຸນສົມບັດ",
+      "features_desc": "50+ ພາສາ. ລະບົບເລິກ.",
+      "controls_label": "ການຄວບຄຸມ",
+      "controls_desc": "ພ້ອມແລ້ວ.",
+      "warning_casualty": "> ຄຳເຕືອນ: ອັດຕາການຕາຍສູງ",
+      "status_operational": "ສະຖານະ: ປະຕິບັດການ",
+      "grid_hacked": "ສະຖານີຍ່ອຍ 4Alpha ຖືກແ���ັກ. ຕາຂ່າຍໄຟຟ້າທ້ອງຖິ່ນພາຍໃຕ້ການຄວບຄຸມ HLF."
+    },
+    "story": {
+      "briefing": "ການບັນຍາຍໂດຍຫຍໍ້",
+      "title": "ເລື່ອງ",
+      "desc": "ໂລກໄດ້ຕົກຢູ່ພາຍໃຕ້ອາຊີບມະນຸດຕ່າງດາວ dystopian. ນັກຮົບກຸ່ມນ້ອຍຕ້ອງຕໍ່ສູ້ຜ່ານດິນແດນຂອງສັດຕູເພື່ອຍຶດເອົາຄືນ. ເລືອກ​ເອົາ​ນັກ​ສູ້​ຂອງ​ທ່ານ​, ຄວາມ​ຢູ່​ລອດ gauntlet​, ແລະ​ພິ​ສູດ​ຕົວ​ທ່ານ​ເອງ​ມີ​ຄ່າ​ຄວນ​ທີ່​ຈະ​ຊ່ວຍ​ປະ​ຢັດ​ໂລກ​.",
+      "live_feed": "ອາຫານສົດ",
+      "caption": "ລອສ ແອງເຈລີສ — ເຂດບັນຈຸ 4 ພາກ",
+      "axiom_text": "\"ແຊກຊຶມເຂົ້າໄປໃນອານານິຄົມຂອງພວກເຂົາ. ທໍາລາຍແກນພະລັງງານທີ່ເຮັດໃຫ້ເກີດພື້ນທີ່ຂອງພວກເຂົາ. ທຸກໆເຂດທີ່ທ່ານປົດປ່ອຍຈະຍູ້ການຍຶດຄອງຂອງພວກເຂົາຄືນແລະເຕືອນພວກເຂົາວ່າ: ໂລກມີປະຊາຊົນທີ່ຈະຕໍ່ສູ້ກັບມັນ.\"",
+      "timeline": {
+        "arrival_title": "ມາຮອດ",
+        "arrival_desc": "ກຸ່ມ Xelthara ມາຮອດໂລກ, ປະກາດວ່າມັນ \"ອານາເຂດທີ່ຄົ້ນພົບ\" ແລະມະນຸດ \"ເປັນປະຊາກອນພື້ນເມືອງທີ່ບໍ່ສະດວກ.\"",
+        "displacement_title": "ການຍົກຍ້າຍມະຫາຊົນ",
+        "displacement_desc": "ພາຍໃນສອງສາມມື້, ຫຼາຍລ້ານຄົນຖືກຍົກຍ້າຍເຂົ້າໄປໃນເຂດກັກຂັງທີ່ແຄບໃນຂະນະທີ່ Xelthara ເປັນອານານິຄົມຂອງເມືອງຂອງພວກເຮົາແລະທໍາລາຍອະນຸສອນຂອງພວກເຮົາ.",
+        "resistance_title": "ຮູບແບບການຕໍ່ຕ້ານ",
+        "resistance_desc": "ຈາກຂອບຂອງເຂດບັນຈຸ, ແຊ້ມສີ່ຄົນອອກມາ - Ninja Frog, Mask Dude, Pink Man, ແລະ Virtual Guy - ປະຕິເສດ��ີ່ຈະຖືກລຶບລ້າງ.",
+        "axiom_title": "AXIOM-7 ຖືກນຳໃຊ້ແລ້ວ",
+        "axiom_desc": "ແນວໂຮມປົດປ່ອຍບ້ານເກີດເປີດໃຊ້ AXIOM-7, ໂມດູນປະຕິບັດການທາງປັນຍາພາຍນອກອັດຕະໂນມັດ, ເພື່ອປະສານງານການຕໍ່ຕ້ານ.",
+        "mission_title": "ພາລະກິດຂອງເຈົ້າເລີ່ມຕົ້ນ",
+        "mission_desc": "ທ່ານໄດ້ຖືກເລືອກ. ແຊກຊຶມເຂົ້າອານານິຄົມ. ແກນພະລັງງານທີ່ຖືກທໍາລາຍ. ຮື້ຖອນໂຄງສ້າງພື້ນຖານການຕັ້ງຖິ່ນຖານ. ຍຶດຄືນແຜ່ນດິນໂລກ."
+      }
+    },
+    "characters": {
+      "briefing": "ການຄັດເລືອກນັກຮົບ",
+      "title": "ເລືອກ Fighter ຂອງ​ທ່ານ​",
+      "desc": "ນັກຮົບຊັ້ນສູງສີ່ຄົນຢືນຕໍ່ຕ້ານການຍຶດຄອງ Xelthara. ແຕ່​ລະ​ຄົນ​ເອົາ​ຄວາມ​ສາ​ມາດ​ເປັນ​ເອ​ກະ​ລັກ​ເພື່ອ​ການ​ຕໍ່​ສູ້​ເພື່ອ​ສິດ​ເສລີ​ພາບ​ໃນ​ໂລກ​.",
+      "abilities_title": "ຄວາມສາມາດ",
+      "stats_title": "ສະຖິຕິການສູ້ຮົບ",
+      "unlock": "ໂບນັດຕົວລະຄອນທີ່ສາມາດປົດລັອກໄດ້ດ້ວຍດາບ ແລະການໂຈມຕີຄາຣາເຕ. ສໍາເລັດຂະບວນການເພື່ອປົດລັອກນັກຮົບ legendary ນີ້.",
+      "stats": {
+        "speed": "ຄວາມໄວ",
+        "power": "ພະລັງງານ",
+        "agility": "ຄວາມວ່ອງໄວ",
+        "defense": "ປ້ອງກັນ"
+      },
+      "warriors": {
+        "frog": {
+          "role": "Infiltrator",
+          "desc": "ຕົ້ນສະບັບຂອງ stealth ແລະວ່ອງໄວ. ກົບ Ninja ສາມາດໂດດຝາແລະໂດດສອງເທົ່າເພື່ອບັນລຸຕໍາແຫນ່ງທີ່ເປັນໄປບໍ່ໄດ້. ການ​ເຄື່ອນ​ໄຫວ​ທີ່​ໄວ​ດ້ວຍ​ຟ້າ​ຜ່າ​ເຮັດ​ໃຫ້​ນັກ​ຮົບ​ຄົນ​ນີ້​ເປັນ​ນັກ​ສືບ​ທີ່​ເໝາະ​ສົມ.",
+          "lore": "\"ພວກເຂົາບໍ່ເຫັນຂ້ອຍຈົນກ່ວາມັນສາຍເກີນໄປ. ໃນຂອບລະຫວ່າງຈຸດເດັ່ນຂອງພວກເຂົາ, ຂ້ອຍມີຢູ່.\""
+        },
+        "dude": {
+          "role": "Balanced Fighter",
+          "desc": "ນັກຮົບທີ່ມີຫນ້າກາກສະຫນອງຄວາມສົມດຸນທີ່ສົມບູນແບບຂອງການກະທໍາຜິດແລະການປ້ອງກັນ. ເຊື່ອຖືໄດ້ໃນທຸກສະຖານະການ, Aegis Ronin ແມ່ນຍຸດທະສາດ ແລະຕິດຕັ້ງດ້ວຍຄ້ອນ Kinetic ແລະ Energy Tower Shield.",
+          "lore": "\"ຫນ້າກາກບໍ່ແມ່ນການປອມແປງ. ມັນເປັນການປະກາດທີ່ຂ້ອຍປະຕິເສດທີ່ຈະຮັບຮູ້ໂດຍລະບົບຂອງພວກເຂົາ.\""
+        },
+        "pink": {
+          "role": "Hitter ຫນັກ",
+          "desc": "ຜູ້ຊ່ຽວຊານໃນ Phase-Shifting ແລະ EMP ລະເບີດ, ຕໍ່ສູ້ເພື່ອຍຶດເອົາຕົວຕົນທີ່ຖືກລັກມາຈາກຖານຂໍ້ມູນມະນຸດຕ່າງດາວ. ໄວທີ່ສຸດແລະຕາຍຢູ່ໃນໄຕມາດໃກ້ຊິດ.",
+          "lore": "\"ພວກເຂົາຫົວເລາະໃສ່ສີຂອງຂ້ອຍ. ພວກເຂົາຢຸດຫົວເລາະຢ່າງໄວວາ.\""
+        },
+        "guy": {
+          "role": "ຜູ້ຊ່ຽວຊານດ້ານເຕັກໂນໂລຢີ",
+          "desc": "ສະຕິດິຈິຕອນທີ່ຝັງຢູ່ໃນຕົວເຄື່ອງ. Virtual Guy ສາມາດໂຕ້ຕອບກັບລະບົບສັດຕູ ແລະໃຊ້ຊ່ອງໂຫວ່ທາງເທັກນິກທີ່ຄົນອື່ນບໍ່ສາມາດຮັບຮູ້ໄດ້.",
+          "lore": "\"ຂ້ອຍອາໄສຢູ່ໃນຊ່ອງລະຫວ່າງໄຟວໍຂອງພວກເຂົາ. ຂ້ອຍແມ່ນຜີຢູ່ໃນເຄື່ອງຂອງພວກເຂົາ.\""
+        }
+      }
+    },
+    "levels": {
+      "briefing": "ລະດັບແຄມເປນ",
+      "title_prefix": "ໄດ້ ",
+      "title_highlight": "ພາລະກິດ",
+      "title_suffix": " ລໍຖ້າ",
+      "desc": "ຫ້າລະດັບທີ່ເປັນເອກະລັກກັບຄວາມຫຍຸ້ງຍາກເພີ່ມຂຶ້ນ. ແຕ່ລະພາລະກິດປົດລັອກຢ່າງກ້າວກະໂດດເມື່ອທ່ານຍູ້ອາຊີບ Xelthara ກັບຄືນ.",
+      "objectives_title": "ເປົ້າໝາຍພາລະກິດ",
+      "difficulty_title": "ຄວາມຫຍຸ້ງຍາກ",
+      "threat_title": "ໄພຂົ່ມຂູ່:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "ໜ້ອຍທີ່ສຸດ",
+        "high": "ສູງ",
+        "omega": "OMEGA",
+        "critical": "ສຳຄັນ"
+      },
+      "types": {
+        "training": "ການຝຶກອົບຮົມ",
+        "infiltration": "ການແຊກຊຶມ",
+        "defense": "ປ້ອງກັນ",
+        "stealth": "ການລັກລອບ",
+        "assault": "ໂຈມຕີ"
+      },
+      "level_0": {
+        "name": "ອະນຸສັນຍາສູນ",
+        "subtitle": "The Virtual Forge",
+        "description": "ການຈຳລອງ wireframe ຂະໜາດໃຫຍ່ຂອງເສັ້ນຂອບຟ້າຂອງເມືອງ Los Angeles ທີ່ພັງທະລາຍລົງ. ຄວບຄຸມຕົວເຄື່ອງສູ້ຮົບຂອງທ່ານໃນ Neural-Sync Virtual Reality ກ່ອນທີ່ສົງຄາມທີ່ແທ້ຈິງຈະເລີ່ມຕົ້ນ.",
+        "obj_0": "ສໍາເລັດການປັບຕົວເຄື່ອງ",
+        "obj_1": "ທໍາລາຍຫນ່ວຍງານ Xelthara ທີ່ຈໍາລອງ",
+        "obj_2": "ຜ່ານການທົດສອບການປະທ້ວງ synchronized"
+      },
+      "level_1": {
+        "name": "ຜີຢູ່ໃນ Gridlock",
+        "subtitle": "ອະນຸສັນຍາການລຶບລ້າງວັດທະນະທໍາ",
+        "description": "ຊາກຫັກພັງຂອງສວນ Imperial Palace. Xelthara terraforming beams ລະລາຍ lanterns ແກນວັດຖຸບູຮານ. ດຶງຂໍ້ມູນ Data-Blade — ເປັນບ່ອນເກັບຂໍ້ມູນດິຈິຕອນຂອງປະຫວັດການຫ້າມ — ກ່ອນທີ່ມັນຈະຖືກລຶບຕະຫຼອດໄປ.",
+        "obj_0": "ມີສ່ວນຮ່ວມໃນ Demolition Crew drones",
+        "obj_1": "Neutralize the Demolition Beacon",
+        "obj_2": "ຮັບປະກັນ Data-Blade"
+      },
+      "level_2": {
+        "name": "ໄຟປ່າຄອນກີດ",
+        "subtitle": "ການຍ້າຍຖິ່ນຖານຂອງລະບົບ",
+        "description": "ຖືຂົວສຸດທ້າຍຕ້ານ Xelthara Enforcers ຄວບຄຸມຊາວອົບພະຍົບ 412 ຄົນ. ອະນຸຍາດໃຫ້ກຸ່ມສຸດທ້າຍເລື່ອນເຂົ້າໄປໃນສະລັມທີ່ບໍ່ມີແຜນທີ່ແລະຫນີຈາກການລົງທະບຽນອານານິຄົມ.",
+        "obj_0": "ເປີດໃຊ້ Energy Tower Shield",
+        "obj_1": "ຖືຂົວພາຍໃຕ້ໄຟປູນ",
+        "obj_2": "ທໍາລາຍ Siege Walkers"
+      },
+      "level_3": {
+        "name": "Neon Rust ແລະຝຸ່ນຂໍ້ມູນ",
+        "subtitle": "ຊີວິດຢູ່ໃນຂອບ",
+        "description": "The Under-City — ເຄືອ​ຂ່າຍ​ຂອງ​ການ​ບໍາ​ລຸງ​ຮັກ​ສາ shafts ໃຕ້​ການ​ຕັ້ງ​ຖິ່ນ​ຖານ Xelthara gleaming​. Siphon ພະລັງງານຂອງພວກເຂົາເພື່ອພະລັງງານລະບົບການຊ່ວຍເຫຼືອຊີວິດຂອງປະຊາກອນທີ່ດ້ອຍໂອກາດໃນຂະນະທີ່ຫລີກລ້ຽງການລາດຕະເວນບໍລິສຸດ.",
+        "obj_0": "ເປີດໃຊ້ຄວາມສາມາດ Phase-Shift",
+        "obj_1": "ຂ້າມຜ່ານ Xelthara Sentinels undetected",
+        "obj_2": "ລະເບີດ EMP ທີ່ປະຕູຮົ້ວອ້ອມຮອບ"
+      },
+      "level_4": {
+        "name": "Aegis ຂອງຜູ້ບັນຊາການ Void ທີ່ຖືກທໍາລາຍ",
+        "subtitle": "ສົງຄາມບໍ່ສົມມາດ",
+        "description": "ສູນ​ກາງ​ປ້ອງ​ກັນ​ປະ​ເທດ​ປາ​ຊີ​ຟິກ​ໄດ້​ຖືກ​ທຳລາຍ. ມ້າງຫໍອອກອາກາດສຸດທ້າຍ ແລະແຈກຢາຍຊິບຄວາມຖີ່ໃຫ້ກັບຈຸລັງຕໍ່ຕ້ານພົນລະເຮືອນ - ສິ້ນສຸດການຫັນປ່ຽນໄປສູ່ສົງຄາມກອງໂຈນ.",
+        "obj_0": "ເລີ່ມຕົ້ນລໍາດັບ��ຄືອຂ່າຍ Hotwire",
+        "obj_1": "ຊິ້ງເຮືອຈຸນລະພາກ",
+        "obj_2": "Fire the Orbital Strike — Obliteration Protocol"
+      }
+    },
+    "features": {
+      "briefing": "ຄວາມສາມາດຂອງລະບົບ",
+      "title_prefix": "ເກມ ",
+      "title_highlight": "ຄຸນສົມບັດ",
+      "built_with": "ສ້າງດ້ວຍ",
+      "tech_title": "ລະບົບການຕໍ່ຕ້ານ",
+      "tags": {
+        "roster": "ບັນຊີລາຍການ",
+        "narrative": "ບັນຍາຍ",
+        "progression": "ຄວາມຄືບໜ້າ",
+        "save_system": "ບັນທຶກລະບົບ",
+        "localisation": "ທ້ອງຖິ່ນ",
+        "controls": "ຄວບຄຸມ",
+        "ux": "UX",
+        "audio": "ສຽງ"
+      },
+      "tech": {
+        "engine": "ເກມເຄື່ອງຈັກ",
+        "logic": "ເກມ ຕາມເຫດຜົນ",
+        "scripting": "Scene Scripting",
+        "persistence": "ຄະແນນຄົງທີ່",
+        "narrative_engine": "ເຄື່ອງຈັກການບັນຍາຍ",
+        "build": "ກໍ່ສ້າງລະບົບ"
+      },
+      "items": {
+        "roster": {
+          "title": "Chassis Roster",
+          "desc": "ນຳໃຊ້ໜຶ່ງໃນຫ້າກອບການສູ້ຮົບແບບກຳນົດເອງທີ່ປັບທຽບກັບການໂຫຼດຮາດແວສະເພາະ."
+        },
+        "story": {
+          "title": "ຖານຂໍ້ມູນ Intel",
+          "desc": "ການເກັ���ຂໍ້ມູນ telemetry ໃນເວລາຈິງ ແລະການສືບລັບພາກພື້ນ ລວບລວມໂດຍ Axiom-7 mainframe."
+        },
+        "progress": {
+          "title": "ການເກັບກຳ & ການໃຫ້ຄະແນນ",
+          "desc": "Cherry ກະແຈກກະຈາຍໄປທົ່ວທຸກລະດັບທີ່ມີມູນຄ່າຈຸດ. ຄະແນນຖືກບັນທຶກຢູ່ໃນທ້ອງຖິ່ນຜ່ານ SQLite ແລະສະແດງຢູ່ໃນກະດານຈັດອັນດັບທີ່ຍັງຄົງຄ້າງ."
+        },
+        "save": {
+          "title": "ໂນດຫນ່ວຍຄວາມຈໍາ",
+          "desc": "vaults ການເກັບຮັກສາການແບ່ງຂັ້ນຄຸ້ມຄອງການສໍາຮອງ telemetry ສູ້ຮົບແລະ sync sessions ລັດ."
+        },
+        "local": {
+          "title": "ຮອງຮັບ 50+ ພາສາ",
+          "desc": "UI ທີ່ເປັນທ້ອງຖິ່ນຢ່າງສົມບູນລວມທັງພາສາອາຣັບ, ຮິນດູ, ຍີ່ປຸ່ນ, ພາສາມາລາຢາລາມ, ແລະອື່ນໆອີກຫຼາຍ — ຂັບເຄື່ອນໂດຍການແປພາສາ CSV."
+        },
+        "controls": {
+          "title": "ຮອງຮັບ Gamepad",
+          "desc": "ສະຫນັບສະຫນູນການຄວບຄຸມຢ່າງເຕັມທີ່ລວມທັງ D-Pad, ການເຄື່ອນໄຫວຂອງໄມ້ analogue, ແລະແຜນທີ່ປຸ່ມສໍາລັບການໂຈມຕີແລະຄວາມສາມາດທັງຫມົດ."
+        },
+        "ux": {
+          "title": "ເມນູຢຸດມົວ",
+          "desc": "ເມນູຢຸດຊົ່ວຄາວແບບພຣີມຽມທີ່ມີເອັບເຟັກເງົາມົວແບບສົດໆ — ເພງທີ່ສາມາດປັບໄດ້ ແລະປະລິມານ SFX ເຂົ້າເຖິງໄດ້ທຸກເວລາ."
+        },
+        "audio": {
+          "title": "ເສື້ອກັນໜາວ",
+          "desc": "ນຳໃຊ້ເຄື່ອງປັ່ນປ່ວນສຽງຂາວແບບອາໂກສຕິກເພື່ອປິດບັງລາຍເຊັນສຽງຂອງກອງກຳລັງ ແລະ ຫຼົບຫຼີກການລາດຕະເວນ."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "ການໂຕ້ຕອບຄໍາສັ່ງ",
+      "title_prefix": "ປະລິນຍາໂທ ",
+      "title_highlight": "ການຄວບຄຸມ",
+      "desc": "ຮອງຮັບ keyboard ແລະ gamepad ເຕັມຮູບແບບ. ຄວາມສາມາດທີ່ເປັນເອກະລັກຂອງນັກຮົບແຕ່ລະຄົນເຮັດແຜນທີ່ໃສ່ຄໍາສັ່ງປ້ອນຂໍ້ມູນສະເພາະ - ຄວບຄຸມພວກມັນທັງຫມົດເພື່ອຄວາມຢູ່ລອດ.",
+      "keyboard": "ແປ້ນພິມ",
+      "gamepad": "ແຜ່ນເກມ",
+      "or": "ຫຼື",
+      "special_briefing": "ຄວາມສາມາດພິເສດ",
+      "special_title": "ເຕັກນິກການຕໍ່ສູ້",
+      "tip": {
+        "title": "ພິທີການການຝຶກອົບຮົມ:",
+        "text": "ເລີ່ມຕົ້ນດ້ວຍລະດັບ 00 — Protocol Zero ເພື່ອຮຽນຮູ້ການຄວບຄຸມທັງໝົດໃນ Neural-Sync Virtual Reality ກ່ອນທີ່ຈະເຂົ້າສູ່ການຕໍ່ສູ້ສົດ."
+      },
+      "actions": {
+        "move_left": "ຍ້າຍຊ້າຍ",
+        "move_right": "ຍ້າຍໄປຂວາ",
+        "jump": "ໂດດ",
+        "sword_attack": "ການໂຈມຕີດ້ວຍດາບ",
+        "karate_attack": "ການໂຈມຕີ Karate",
+        "pause": "ຢຸດຊົ່ວຄາວ"
+      },
+      "notes": {
+        "shogun_only": "Cyber Shogun ເທົ່ານັ້ນ"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "ການໂຈມຕີແສງສະຫວ່າງ"
+        },
+        "energy_shield": {
+          "name": "Energy Tower Shield",
+          "input": "LB/L1"
+        },
+        "kinetic_overload": {
+          "name": "Kinetic Overload",
+          "input": "ຖື RB/R1 + ໜັກ"
+        },
+        "phase_shift": {
+          "name": "ການປ່ຽນແປງໄລຍະ",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "ຖື LT + ປ່ອຍ"
+        },
+        "emp_burst": {
+          "name": "ລະເບີດ EMP",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Shield Overload",
+          "input": "ຖື X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "ການໂຈມຕີວົງໂຄຈອນ",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "ປະຕິບັດການ",
+      "deploying": "ກຳລັງນຳໃ��້...",
+      "syncComplete": "ຊິ້ງສຳເລັດ // ດຳເນີນການສຳເລັດແລ້ວ ນຳໃຊ້ກັບຂະແໜງການເປົ້າໝາຍ",
+      "active": "ເຄື່ອນໄຫວ",
+      "standby": "ຢືນຢູ່",
+      "role": "ບົດບາດ",
+      "firepower": "ໄຟໄຫມ້",
+      "defense": "ປ້ອງກັນ",
+      "mobility": "ມືຖື",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROG",
+      "guy": "ຜູ້​ຊາຍ virtual"
+    },
+    "gameplay": {
+      "protocols": "ຫຼັກພິທີການ",
+      "terminal": "ສະຖານີຖານຂໍ້ມູນ",
+      "active": "ເຄື່ອນໄຫວ",
+      "synced": "Synced",
+      "online": "ອອນລາຍ",
+      "t1_title": "Kinetic Traverse",
+      "t1_desc": "ການ​ເຄື່ອນ​ໄຫວ​ທີ່​ອີງ​ໃສ່​ປັດ​ຈຸ​ບັນ​. ແລ່ນຜ່ານຝາຕາມເສົາຫີນຂອງມະນຸດຕ່າງດາວ, ແກວ່ງຕຶກສູງທີ່ເສຍຫາຍ, ແລະສະໄລ້ຕ່ອງໂສ້ເພື່ອຫຼົບຫຼີກເຊັນເຊີເປົ້າໝາຍ Xelthara.",
+      "t2_title": "ການແຮັກລະບົບປະສາດ",
+      "t2_desc": "ແຊກຊຶມເຄືອຂ່າຍມະນຸດຕ່າງດາວໃນການບິນ. ເຈາະ drones ສັດຕູ, ໄສ້ພະລັງງານເກີນ, ຫຼືປ່ຽນການປ້ອງກັນອັດຕະໂນມັດຕໍ່ກັບຜູ້ສ້າງຂອງພວກເຂົາໃນການຕໍ່ສູ້ແບບສົ��ໆ.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "ສັ່ງໃຫ້ເຊນຕ້ານທານທີ່ຂັບເຄື່ອນດ້ວຍ AI ຂອງທ່ານ. ປະຕິບັດການລະເມີດ synchronized, ວາງການດັກສະກັດຍຸດທະວິທີ, ແລະສົມທົບຄວາມສາມາດທີ່ເປັນເອກະລັກເພື່ອທໍາລາຍລົດຫຸ້ມເກາະ Xelthara ຫນັກ.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "LOS ANGELES 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "ຂໍ້ມູນສະເພາະດ້ານເຕັກນິກຂອງອຸປະກອນການກະບົດ HLF, ເຄື່ອງຖອດລະຫັດຫຼັກ ແລະລະບົບການໂຈມຕີທາງໄຊເບີເນຕິກທີ່ນຳໃຊ້ຢູ່ໃນຂະແໜງ 4.",
+      "engine_title": "ສະເພາະຕົວເຄື່ອງ",
+      "engine_desc": "chassis combat insurgent ແມ່ນອຸປະກອນທີ່ມີການເຊື່ອມຕໍ່ neural ປະສິດທິພາບສູງປະຕິບັດງານໃນໄລຍະທ້ອງຖິ່ນ sub-GHz ຊ່ອງ, ອອກແບບມາເພື່ອ bypass ມາດຕະການຕ້ານເອເລັກໂຕຣນິກ Xelthara.",
+      "status_init": "ເລີ່ມຕົ້ນ Neural-Sync... [OK]",
+      "status_shaders": "Calibrate Shaders ການເຄື່ອນໄຫວ... [OK]",
+      "status_link": "ສ້າງການເຊື່ອມໂຍງຂະແໜງການ... [SECURED]",
+      "narrative_desc": "Decentralized Ink-comms routing system ອອກ​ແບບ​ເພື່ອ​ສ້າງ​ຕັ້ງ​ເຄືອ​ຂ່າຍ​ການ​ສ��່​ສານ​ຫຼາຍ​ຊ່ອງ​ທາງ​ລະ​ຫວ່າງ squads ການ​ຕໍ່​ຕ້ານ​, ຮັບ​ປະ​ກັນ​ການ​ຮັບ​ປະ​ກັນ​ການ​ສົ່ງ​ສານ​ພິ​ກັດ​ແລະ​ບັນ​ທຶກ​ການ​ພາ​ລະ​ກິດ​.",
+      "comms_desc": "ໂປຣໂຕຄອນການເຂົ້າລະຫັດໄວແບນແບບປັບຕົວໄດ້ທີ່ຮອງຮັບຄວາມຖີ່ທີ່ປອດໄພໃນທຸກ 50+ ຕາໜ່າງຍ່ອຍໃນພາກພື້ນ, ປ້ອງກັນການຂັດຂວາງຈາກໂປຣເຊສເຊີບັນຍາກາດທີ່ສູງ.",
+      "offline_status": "ລະບົບ Offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "ເຄື່ອງຖອດລະຫັດ Comms"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "ຄູ່ມືແບບໂຕ້ຕອບແລະຫ້ອງສະແດງ token ສໍາລັບລະບົບການອອກແບບ mainframe rebel HLF. ຄວາມຄົມຊັດສູງ, ການຈັດວາງ visceral, ແລະ CRT friction overlays.",
+      "values": {
+        "digital_defiance": {
+          "title": "// ດິຈິຕອລ DEFIANCE",
+          "desc": "ຂອບດິບ, ທີ່ບໍ່ມີການຫລອມໂລຫະປະສົມກັບຜົນກະທົບຂອງ cathode ທີ່ເຫຼື້ອມເພື່ອລະເມີດ mainframe ຂອງບໍລິສັດ."
+        },
+        "visual_friction": {
+          "title": "// visual FRICTION",
+          "desc": "ການສ��ແກນ CRT ໂດຍເຈດຕະນາແລະຄວາມຜິດສີເລັກນ້ອຍເພື່ອສະແດງການກະຈາຍສຽງຂອງພວກກະບົດ."
+        },
+        "rigid_tactical_grid": {
+          "title": "// RIGID TACTICAL GRID",
+          "desc": "ຮູບແບບກ່ອງທີ່ບໍ່ສົມມາດວັດແທກທີ່ມີຄວາມຮູ້ສຶກຄືກັບອົງປະກອບທີ່ສຽບໂດຍກົງໃສ່ເມນບອດ."
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI SURVIVAL",
+          "desc": "ການພິມຂໍ້ມູນແບບ monospaced, ມຸມຂອບ 0px ແຫຼມ, ແລະ motifs ຄວາມຫນາແຫນ້ນຂອງ pixels ລວງຕ່ໍາ."
+        }
+      },
+      "color_swatches": "Swatches ສີ",
+      "copy_success": "ສຳເນົາແລ້ວ!",
+      "copy_prompt": "ຄລິກເພື່ອສຳເນົາ",
+      "typography_stack": "Typography Stack",
+      "component_showroom": "ຫ້ອງວາງສະແດງອົງປະກອບ",
+      "btn_interactive_states": "// ປຸ່ມລັດໂຕ້ຕອບ",
+      "primary_action_desc": "ການປະຕິບັດຂັ້ນຕົ້ນ (flickers ແລະ skew ກັບ Magenta ສຸດ hover)",
+      "secondary_outline_desc": "ໂຄງຮ່າງຂັ້ນສອງ",
+      "warning_action_desc": "ການ​ປະ​ຕິ​ບັດ​ການ​ເຕືອນ​ໄພ (ພາບ​ເຄື່ອນ​ໄຫວ skew​)",
+      "tactical_card_desc": "// TACTICAL HOVER CARD & ປ້ອນຂໍ້ມູນ",
+      "alpha_card_title": "Sector 4 Alpha Card",
+      "alpha_card_desc": "ຕູ້ຄອນເທນເນີກອບແບບໂຕ້ຕອບທີ່ຕິດຕັ້ງດ້ວຍສີ່ແຈວົງເລັບແບບກຳນົດເອງ ແລະເຄື່ອງສ່ອງແສງສອງເທົ່າຢູ່ໃນຈຸດໂຟກັສ.",
+      "comms_label": "COMMS TERMINAL ທີ່ປອດໄພ (ຄລິກເພື່ອເບິ່ງຂອບຕົວຊີ້ວັດການເຕັ້ນ)",
+      "decryption_placeholder": "ໃສ່ລະຫັດຖອດລະຫັດ...",
+      "colors": {
+        "void_black": {
+          "name": "ສີດໍາ",
+          "desc": "ພື້ນ​ຖານ stealth"
+        },
+        "deep_grey": {
+          "name": "ສີເທົາເລິກ",
+          "desc": "ພື້ນຫຼັງຕູ້ຄອນເທນເນີລະດັບຄວາມສູງສຳຮອງ"
+        },
+        "neon_cyan": {
+          "name": "ນີອອນ Cyan (ປະຖົມ)",
+          "desc": "ການໂຕ້ຕອບມີສິດເທົ່າທຽມແລະເຕັກໂນໂລຢີທີ່ເປັນມິດ"
+        },
+        "electric_magenta": {
+          "name": "ສີມ່ວງແດງ (ມັດທະຍົມ)",
+          "desc": "ພະລັງງານສູງ overrides ແລະການປະຕິບັດ HLF"
+        },
+        "toxic_green": {
+          "name": "ສີຂຽວເປັນພິດ (ຊັ້ນສາມ)",
+          "desc": "hacks ສົບຜົນສໍາເລັດແລະຕົວຊີ້ວັດສະຖານະການເຄື່ອນໄຫວ"
+        },
+        "warning_orange": {
+          "name": "ຄໍາເຕືອນສີສົ້ມ",
+          "desc": "ການແຈ້ງເຕືອນສຳຄັນ, ສະຖານະໄພຂົ່ມຂູ່, ແລະການເຕືອນໄພ"
+        }
+      },
+      "typo_display_hero": "ອ້າງເອົາ���ຜ່ນດິນຄືນ",
+      "typo_headline_lg": "ບົດລາຍງານ TACTICAL INtel",
+      "typo_body_lg": "> ກອງທັບບົກໄດ້ລະເມີດຂະແຫນງການບັນຈຸ 4. ກຳລັງເປີດການລັອກຕາໜ່າງການຊິງຄ໌ທີ່ເປີດໃຊ້ຢູ່.",
+      "typo_body_md": "Xelthara ມາຮອດບໍ່ແມ່ນເພື່ອເອົາຊະນະ, ແຕ່ເພື່ອບໍລິຫານ. ພວກເຮົາປະຕິບັດງານຢູ່ໃນເຂດຕາຍ, ພົ້ນເດັ່ນຂື້ນຈາກເງົາຂອງ monoliths ທີ່ໂຫດຮ້າຍ.",
+      "typo_label_caps": "ສະຖານະ: ການເຊື່ອມຕໍ່ COMM RESISTANCE ປອດໄພ // LATENCY 4ms"
+    }
   }
 }
