@@ -99,12 +99,12 @@
         },
         "dude": {
           "role": "Balanced Fighter",
-          "desc": "The masked warrior offers the perfect balance of offense and defense. Reliable in all situations, Mask Dude is the go-to choice for strategic gameplay.",
+          "desc": "The masked warrior offers the perfect balance of offense and defense. Reliable in all situations, Aegis Ronin is strategic and equipped with a Kinetic Hammer and Energy Tower Shield.",
           "lore": "\"The mask is not a disguise. It is a declaration that I refuse to be recognized by their systems.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Do not let the color fool you. Pink Man is the powerhouse of the team — devastating attacks with high damage output and impressive defensive capabilities.",
+          "desc": "A specialist in Phase-Shifting and EMP bursts, fighting to reclaim stolen identities from alien databases. Extremely fast and deadly at close quarters.",
           "lore": "\"They laugh at my color. They stop laughing very quickly.\""
         },
         "guy": {
@@ -509,22 +509,22 @@
       "warriors": {
         "frog": {
           "role": "Infiltrador",
-          "desc": "Un maestro del sigilo y la agilidad. Ninja Frog puede saltar paredes y realizar un doble salto para alcanzar posiciones imposibles. Sus movimientos ultra rápidos lo convierten en el explorador ideal.",
+          "desc": "Un maestro del sigilo y la agilidad. Ninja Frog puede saltar paredes y hacer doble salto para alcanzar posiciones imposibles. Los movimientos ultrarrápidos convierten a este guerrero en el explorador ideal.",
           "lore": "\"No me ven hasta que es demasiado tarde. Existo en los márgenes entre sus reflectores.\""
         },
         "dude": {
           "role": "Luchador Equilibrado",
-          "desc": "El guerrero enmascarado ofrece el equilibrio perfecto entre ataque y defensa. Confiable en cualquier situación, Mask Dude es la opción ideal para el juego estratégico.",
+          "desc": "El guerrero enmascarado ofrece el equilibrio perfecto entre ataque y defensa. Fiable en todas las situaciones, Aegis Ronin es estratégico y está equipado con un martillo cinético y un escudo de torre de energía.",
           "lore": "\"La máscara no es un disguise. Es una declaración de que me niego a ser reconocido por sus sistemas.\""
         },
         "pink": {
           "role": "Atacante Pesado",
-          "desc": "No te dejes engañar por el color. Pink Man es la potencia del equipo: ataques devastadores con un alto daño y capacidades defensivas impresionantes.",
+          "desc": "Un especialista en cambios de fase y explosiones EMP que lucha por recuperar identidades robadas de bases de datos alienígenas. Extremadamente rápido y mortal a corta distancia.",
           "lore": "\"Se ríen de mi color. Dejan de reírse muy rápido.\""
         },
         "guy": {
           "role": "Especialista Tecnológico",
-          "desc": "Una conciencia digital integrada en un chasis físico. Virtual Guy puede interactuar con los sistemas enemigos y explotar vulnerabilidades técnicas que otros no pueden percibir.",
+          "desc": "Una conciencia digital incrustada en un chasis físico. Virtual Guy puede interactuar con sistemas enemigos y explotar vulnerabilidades técnicas que otros no pueden percibir.",
           "lore": "\"Vivo en el espacio entre sus cortafuegos. Soy el fantasma en su máquina.\""
         }
       }
@@ -924,22 +924,22 @@
       "warriors": {
         "frog": {
           "role": "Infiltrateur",
-          "desc": "Un maître de la furtivité et de l'agilité. Ninja Frog peut sauter sur les murs et effectuer un double saut pour atteindre des positions improbables. Ses mouvements ultra-rapides en font l'éclaireur idéal.",
+          "desc": "Un maître de la furtivité et de l'agilité. La grenouille Ninja peut sauter au mur et faire un double saut pour atteindre des positions impossibles. Ses mouvements ultra-rapides font de ce guerrier l'éclaireur idéal.",
           "lore": "\"Ils ne me voient pas avant qu'il ne soit trop tard. J'existe dans l'ombre de leurs projecteurs.\""
         },
         "dude": {
           "role": "Combattant Équilibré",
-          "desc": "Le guerrier masqué offre l'équilibre parfait entre attaque et défense. Fiable dans toutes les situations, Mask Dude est le choix idéal pour un gameplay stratégique.",
+          "desc": "Le guerrier masqué offre l’équilibre parfait entre attaque et défense. Fiable dans toutes les situations, Aegis Ronin est stratégique et équipé d'un Kinetic Hammer et d'un Energy Tower Shield.",
           "lore": "\"Le masque n'est pas un déguisement. C'est une déclaration : je refuse d'être reconnu par leurs systèmes.\""
         },
         "pink": {
           "role": "Poids Lourd",
-          "desc": "Ne vous laissez pas tromper par la couleur. Pink Man est la force brute de l'équipe — des attaques dévastatrices avec des dégâts élevés et des capacités défensives impressionnantes.",
+          "desc": "Un spécialiste du changement de phase et des rafales EMP, luttant pour récupérer les identités volées dans des bases de données extraterrestres. Extrêmement rapide et mortel au corps à corps.",
           "lore": "\"Ils rient de ma couleur. Ils s'arrêtent de rire très vite.\""
         },
         "guy": {
           "role": "Spécialiste Tech",
-          "desc": "Une conscience digitale intégrée dans un châssis physique. Virtual Guy peut s'interfacer avec les systèmes ennemis et exploiter les failles techniques que d'autres ne perçoivent pas.",
+          "desc": "Une conscience numérique intégrée dans un châssis physique. Virtual Guy peut s'interfacer avec les systèmes ennemis et exploiter des vulnérabilités techniques que d'autres ne peuvent pas percevoir.",
           "lore": "\"Je vis dans l'espace entre leurs pare-feux. Je suis le fantôme dans leur machine.\""
         }
       }
@@ -1339,22 +1339,22 @@
       "warriors": {
         "frog": {
           "role": "متسلل",
-          "desc": "سيد التخفي والرشاقة. يستطيع نينجا فروج القفز على الجدران والقفز المزدوج للوصول إلى مواقع مستحيلة. حركته السريعة كالبرق تجعله المستكشف المثالي.",
+          "desc": "سيد التخفي وخفة الحركة. يمكن لضفدع النينجا القفز على الحائط والقفز المزدوج للوصول إلى المواقف المستحيلة. الحركة السريعة للغاية تجعل من هذا المحارب الكشافة المثالية.",
           "lore": "\"إنهم لا يرونني حتى يفوت الأوان. في الهوامش بين أضواء كشافاتهم، أتواجد.\""
         },
         "dude": {
           "role": "مقاتل متوازن",
-          "desc": "يقدم المحارب المقنع التوازن المثالي بين الهجوم والدفاع. يعتمد عليه in جميع المواقف، وهو الخيار الأمثل للعب الاستراتيجي.",
+          "desc": "يقدم المحارب المقنع التوازن المثالي بين الهجوم والدفاع. يمكن الاعتماد عليه في جميع المواقف، ويتميز إيجيس رونين بأنه استراتيجي ومجهز بمطرقة حركية ودرع برج الطاقة.",
           "lore": "\"القناع ليس تنكراً. إنه إعلان بأني أرفض أن يتم التعرف علي بواسطة أنظمتهم.\""
         },
         "pink": {
           "role": "مهاجم ثقيل",
-          "desc": "لا تدع اللون يخدعك. بينك مان هو القوة الدافعة للفريق — هجمات مدمرة ذات أضرار جسيمة وقدرات دفاعية رائعة.",
+          "desc": "متخصص في تحويل الطور وانفجارات النبضات الكهرومغناطيسية، ويقاتل من أجل استعادة الهويات المسروقة من قواعد بيانات الكائنات الفضائية. سريع للغاية ومميت في أماكن قريبة.",
           "lore": "\"إنهم يضحكون على لوني. يتوقفون عن الضحك بسرعة كبيرة.\""
         },
         "guy": {
           "role": "أخصائي تقني",
-          "desc": "وعي رقمي مدمج في هيكل مادي. يستطيع فيرتشوال جاي التفاعل مع أنظمة العدو واستغلال الثغرات التقنية التي لا يراها الآخرون.",
+          "desc": "وعي رقمي مضمن في هيكل مادي. يستطيع الفتى الافتراضي التفاعل مع أنظمة العدو واستغلال نقاط الضعف التقنية التي لا يستطيع الآخرون إدراكها.",
           "lore": "\"أعيش في الفراغ بين جدران الحماية الخاصة بهم. أنا الشبح في آلتهم.\""
         }
       }
@@ -1754,22 +1754,22 @@
       "warriors": {
         "frog": {
           "role": "מסתנן",
-          "desc": "אמן של חשאיות וזריזות. Ninja Frog יכול לבצע קפיצות קיר וקפיצות כפולות כדי להגיע למיקומים בלתי אפשריים. תנועה מהירה כברק הופכת לוחם זה לגשש האידיאלי.",
+          "desc": "אמן של התגנבות וזריזות. צפרדע הנינג'ה יכולה לקפוץ על הקיר ולקפוץ פעמיים כדי להגיע למצבים בלתי אפשריים. תנועה מהירה ברק הופכת את הלוחם הזה לצופית האידיאלית.",
           "lore": "\"הם לא רואים אותי עד שזה מאוחר מדי. בשוליים בין זרקורי האור שלהם, אני קיים.\""
         },
         "dude": {
           "role": "לוחם מאוזן",
-          "desc": "הלוחם בעל המסכה מציע את האיזון המושלם בין התקפה להגנה. אמין בכל המצבים, Mask Dude הוא הבחירה המועדפת למשחק אסטרטגי.",
+          "desc": "הלוחם רעול הפנים מציע את האיזון המושלם של התקפה והגנה. אמין בכל המצבים, אייג'יס רונין הוא אסטרטגי ומצויד בפטיש קינטי ומגן מגדל אנרגיה.",
           "lore": "\"המסכה אינה תחפושת. היא הצהרה שאני מסרב להיות מוכר על ידי המערכות שלהם.\""
         },
         "pink": {
           "role": "חובט כבד",
-          "desc": "אל תתנו לצבע להטעות אתכם. Pink Man הוא תחנת הכוח של הצוות — התקפות הרסניות עם נזק גבוה ויכולות הגנה מרשימות.",
+          "desc": "מומחה ב-מעבר פאזה ו-פולս אלקטروמгנטי (פולս אלקטרומгנטי (EMP)), נלחם כדי להחזיר זהויות גנובות ממאגרי מידע של חייזרים. מהיר במיוחד וקטלני בסביבה הקרובה.",
           "lore": "\"הם צוחקים על הצבע שלי. הם מפסיקים לצחוק מהר מאוד.\""
         },
         "guy": {
           "role": "מומחה טכנולוגי",
-          "desc": "תודעה דיגיטלית המוטמעת בשלדה פיזית. Virtual Guy יכול להתממשק עם מערכות האויב ולנצל נקודות תורפה טכניות שאחרים אינם יכולים להבחין בהן.",
+          "desc": "תודעה דיגיטלית משובצת בשלדה פיזית. וירטואל גאי יכול להתממשק עם מ��רכות אויב ולנצל פגיעויות טכניות שאחרים לא יכולים לתפוס.",
           "lore": "\"אני חי במרווח שבין חומות האש שלהם. אני הרוח שבמכונה שלהם.\""
         }
       }
@@ -2174,12 +2174,12 @@
         },
         "dude": {
           "role": "Lutador Equilibrado",
-          "desc": "O guerreiro mascarado oferece o equilíbrio perfeito entre ataque e defesa. Confiável em todas as situações, Mask Dude é a escolha certa para jogabilidade estratégica.",
+          "desc": "O guerreiro mascarado oferece o equilíbrio perfeito entre ataque e defesa. Confiável em todas as situações, Aegis Ronin é estratégico e equipado com um Martelo Cinético e um Escudo de Torre de Energia.",
           "lore": "“A máscara não é um disfarce. É uma declaração de que me recuso a ser reconhecido pelos seus sistemas.”"
         },
         "pink": {
           "role": "Lançador Pesado",
-          "desc": "Não se deixe enganar pela cor. Pink Man é a força motriz da equipe – ataques devastadores com alto dano e capacidades defensivas impressionantes.",
+          "desc": "Um especialista em mudança de fase e explosões de EMP, lutando para recuperar identidades roubadas de bancos de dados alienígenas. Extremamente rápido e mortal de perto.",
           "lore": "\"Eles riem da minha cor. Eles param de rir muito rapidamente.\""
         },
         "guy": {
@@ -2584,22 +2584,22 @@
       "warriors": {
         "frog": {
           "role": "Ներթափանցող",
-          "desc": "Գաղտնիության և ճարպկության վարպետ: Ninja Frog-ը կարող է ցատկել պատով և կրկնակի ցատկել՝ հասնելու անհնարին դիրքերին: Կայծակնային արագ շարժումը այս մարտիկին դարձնում է իդեալական հետախույզ:",
+          "desc": "Գաղտնիության և ճարպկության վարպետ: Նինջա Գորտը կարող է ցատկել պատով և կրկնակի ցատկել՝ հասնելու անհնարին դիրքերին: Կայծակնային արագ շարժումը այս մարտիկին դարձնում է իդեալական հետախույզ:",
           "lore": "«Նրանք ինձ չեն տեսնում, քանի դեռ ուշ չէ: Նրանց լուսարձակների արանքում ես գոյություն ունեմ»:"
         },
         "dude": {
           "role": "Հավասարակշռված մարտիկ",
-          "desc": "Դիմակավորված մարտիկն առաջարկում է հարձակման և պաշտպանության կատարյալ հավասարակշռություն: Հուսալի է բոլոր իրավիճակներում, Mask Dude-ը ռազմավարական խաղի լավագույն ընտրությունն է:",
+          "desc": "Դիմակավորված մարտիկն առաջարկում է հարձակման և պաշտպանության կատարյալ հավասարակշռություն: Բոլոր իրավիճակներում վստահելի Էգիս Ռոնինը ռազմավարական է և հագեցած է կինետիկ մուրճով և էներգետիկ աշտարակի վահանով:",
           "lore": "«Դիմակը քողարկում չէ, դա հայտարարություն է, որ ես հրաժարվում եմ ճանաչվել իրենց համակարգերի կողմից»:"
         },
         "pink": {
           "role": "Ծանր հարվածող",
-          "desc": "Թույլ մի տվեք, որ գույնը ձեզ խաբի: Pink Man-ը թիմի հզոր կենտրոնն է՝ ավերիչ հարձակումներ՝ բարձր վնասների ելքով և տպավորիչ պաշտպանական հնարավորություններով:",
+          "desc": "Ֆազային տեղաշարժի և ԷՄՊ-ի մասնագետը պայթում է՝ պայքարելով այլմոլորակայինների տվյալների բազաներից գողացված ինքնությունը վերականգնելու համար: Չափազանց արագ և մահացու մոտակայքում:",
           "lore": "«Նրանք ծիծաղում են իմ գույնի վրա, նրանք շատ արագ դադարում են ծիծաղել»:"
         },
         "guy": {
           "role": "Տեխնոլոգ",
-          "desc": "Թվային գիտակցություն՝ ներկառուցված ֆիզիկական շասսիում: Virtual Guy-ը կարող է ինտերֆեյս ունենալ թշնամու համակարգերի հետ և օգտվել տեխնիկական խոցելիությունից, որոնք ուրիշները չեն կարող ընկալել:",
+          "desc": "Թվային գիտակցություն՝ ներկառուցված ֆիզիկական շասսիում: Վիրտուալ Տղան կարող է ինտերֆեյս ունենալ թշն��մու համակարգերի հետ և օգտվել տեխնիկական խոցելիությունից, որոնք ուրիշները չեն կարող ընկալել:",
           "lore": "«Ես ապրում եմ նրանց պատերի միջև ընկած տարածության մեջ: Ես նրանց մեքենայի ուրվականն եմ»:"
         }
       }
@@ -2799,7 +2799,7 @@
       "mobility": "ՇԱՐԺՈՒՆԱԿՈՒԹՅՈՒՆ",
       "shogun": "ԿԻԲԵՐ ՇՈԳՈՒՆ",
       "ronin": "ԷԳԻՍ ՌՈՆԻՆ",
-      "matrix": "ONI MATRIX",
+      "matrix": "ՕՆԻ ՄԱՏՐԻՔՍ",
       "frog": "ՆԻՆՋԱ ԳՈՐՏ",
       "guy": "ՎԻՐՏՈՒԱԼ ՏՂԱ"
     },
@@ -3004,12 +3004,12 @@
         },
         "dude": {
           "role": "Balanslı Döyüşçü",
-          "desc": "Maskalı döyüşçü hücum və müdafiənin mükəmməl balansını təklif edir. Bütün vəziyyətlərdə etibarlı olan Mask Dude strateji oyun üçün əsas seçimdir.",
+          "desc": "Maskalı döyüşçü hücum və müdafiənin mükəmməl balansını təklif edir. Bütün vəziyyətlərdə etibarlı, Aegis Ronin stratejidir və Kinetik Çəkic və Enerji Qülləsi Qalxanı ilə təchiz edilmişdir.",
           "lore": "\"Maska maska deyil. Bu, onların sistemləri tərəfindən tanınmaqdan imtina etdiyim bir bəyannamədir.\""
         },
         "pink": {
           "role": "Ağır vuruşçu",
-          "desc": "Rəngin sizi aldatmasına imkan verməyin. Pink Man komandanın güc mərkəzidir - yüksək zərər çıxışı və təsirli müdafiə imkanları ilə dağıdıcı hücumlar.",
+          "desc": "Phase-Shifting və EMP partlamaları üzrə mütəxəssis yadplanetli verilənlər bazalarından oğurlanmış şəxsiyyətləri geri almaq üçün mübarizə aparır. Yaxın yerlərdə çox sürətli və ölümcül.",
           "lore": "\"Rəngimə gülürlər. Gülməyi çox tez kəsirlər.\""
         },
         "guy": {
@@ -3213,8 +3213,8 @@
       "defense": "MÜDAFİƏ",
       "mobility": "MOBİLLİK",
       "shogun": "CYBER SHOGUN",
-      "ronin": "AEGIS RONIN",
-      "matrix": "ONI MATRIX",
+      "ronin": "EGİS RONİN",
+      "matrix": "ONİ MATRİKS",
       "frog": "NINJA FROG",
       "guy": "VİRTUAL OĞLAN"
     },
@@ -3414,22 +3414,22 @@
       "warriors": {
         "frog": {
           "role": "অনুপ্রবেশকারী",
-          "desc": "চৌকস এবং তত্পরতা একটি মাস্টার. Ninja Frog অসম্ভব অবস্থানে পৌঁছানোর জন্য দেয়াল-জাম্প এবং ডাবল-জাম্প করতে পারে। বাজ-দ্রুত চলাচল এই যোদ্ধাকে আদর্শ স্কাউ�� করে তোলে।",
+          "desc": "চৌকস এবং তত্পরতা একটি মাস্টার. নিনজা ব্যাঙ অসম্ভব অবস্থানে পৌঁছানোর জন্য দেয়াল-জাম্প এবং ডাবল-জাম্প করতে পারে। বাজ-দ্রুত চলাচল এই যোদ্ধাকে আদর্শ স্কাউট করে তোলে।",
           "lore": "\"খুব দেরি না হওয়া পর্যন্ত তারা আমাকে দেখতে পায় না। তাদের স্পটলাইটের মাঝখানে, আমি বিদ্যমান।\""
         },
         "dude": {
           "role": "ব্যালেন্সড ফাইটার",
-          "desc": "মু��োশধারী যোদ্ধা অপরাধ এবং প্রতিরক্ষার নিখুঁত ভারসাম্য সরবরাহ করে। সমস্ত পরিস্থিতিতে নির্ভরযোগ্য, মাস্ক ডুড কৌশলগত গেমপ্লের জন্য পছন্দের পছন্দ।",
+          "desc": "মুখোশধারী যোদ্ধা অপরাধ এবং প্রতিরক্ষার নিখুঁত ভারসাম্য সরবরাহ করে। সমস্ত পরিস্থিতিতে নির্ভরযোগ্য, এজিস রনিন কৌশলগত এবং একটি কাইনেটিক হ্যামার এবং এনার্জি টাওয়ার শিল্ড দিয়ে সজ্জিত।",
           "lore": "\"মুখোশটি একটি ছদ্মবেশ নয়। এটি একটি ঘোষণা যে আমি তাদের সিস্টেম দ্বারা স্বীকৃত হতে অস্বীকার করি।\""
         },
         "pink": {
           "role": "হেভি হিটার",
-          "desc": "রঙ আপনাকে বোকা হতে দেবেন না। পিঙ্ক ম্যান হল দলের পাওয়ার হাউস — উচ্চ ক্ষতির আউটপুট এবং চিত্তাকর্ষক প্রতিরক্ষামূলক ক্ষমতা সহ বিধ্বংসী আক্রমণ।",
+          "desc": "ফেজ-শিফটিং এবং ইএমপি বিস্ফোরণের একজন বিশেষজ্ঞ, এলিয়েন ডেটাবেস থেকে চুরি হওয়া পরিচয় পুনরুদ্ধার করার জন্য লড়াই করছেন। অত্যন্ত দ্রুত এবং কাছাকাছি সময়ে মারাত্মক।",
           "lore": "\"তারা আমার রঙ দেখে হাসে। তারা খুব দ্রুত হাসি বন্ধ করে দেয়।\""
         },
         "guy": {
           "role": "প্রযুক্তি বিশেষজ্ঞ",
-          "desc": "একটি ডিজিটাল চেতনা একটি শারীরিক চ্যাসিসে এমবেড করা হয়েছে। ভার্চুয়াল গাই শত্রু সিস্টেমের সাথে ইন্টারফেস করতে পারে এবং প্রযু��্তিগত দুর্বলতাগুলিকে কাজে লাগাতে পারে যা অন্যরা উপলব্ধি করতে পারে না।",
+          "desc": "একটি ডিজিটাল চেতনা একটি শারীরিক চ্যাসিসে এমবেড করা হয়েছে। ভার্চুয়াল গাই শত্রু সিস্টেমের সাথে ইন্টারফেস করতে পারে এবং প্রযুক্তিগত দুর্বলতাগুলিকে কাজে লাগাতে পারে যা অন্যরা উপলব্ধি করতে পারে না।",
           "lore": "\"আমি তাদের ফায়ারওয়ালের মাঝখানে বাস করি। আমি তাদের মেশিনের ভূত।\""
         }
       }
@@ -3834,12 +3834,12 @@
         },
         "dude": {
           "role": "Vyvážený bojovník",
-          "desc": "Maskovaný válečník nabízí dokonalou rovnováhu mezi útokem a obranou. Mask Dude je spolehlivý ve všech situacích a je tou správnou volbou pro strategickou hru.",
+          "desc": "Maskovaný válečník nabízí dokonalou rovnováhu mezi útokem a obranou. Spolehlivý ve všech situacích, Aegis Ronin je strategický a vybavený kinetickým kladivem a energetickým věžovým štítem.",
           "lore": "\"Maska není převlek. Je to prohlášení, že odmítám být rozpoznán jejich systémy.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Nenechte se zmást barvou. Pink Man je hybnou silou týmu – ničivé útoky s vysokým poškozením a působivými obrannými schopnostmi.",
+          "desc": "Specialista na Phase-Shifting a EMP vybuchuje a bojuje o znovuzískání ukradených identit z mimozemských databází. Extrémně rychlý a smrtící na blízko.",
           "lore": "\"Smějí se mé barvě. Přestanou se smát velmi rychle.\""
         },
         "guy": {
@@ -4244,17 +4244,17 @@
       "warriors": {
         "frog": {
           "role": "Infiltrator",
-          "desc": "En mester i stealth og smidighed. Ninja Frog kan væg-springe og dobbelt-springe for at nå umulige positioner. Lynhurtig bevægelse gør denne kriger til den ideelle spejder.",
+          "desc": "En mester i stealth og smidighed. Ninja Frog kan væg-springe og dobbelt-springe for at nå umulige positioner. Lynhurtige bevægelser gør denne kriger til den ideelle spejder.",
           "lore": "\"De ser mig ikke, før det er for sent. I marginalen mellem deres spotlights eksisterer jeg.\""
         },
         "dude": {
           "role": "Balanceret fighter",
-          "desc": "Den maskerede kriger tilbyder den perfekte balance mellem angreb og forsvar. Pålidelig i alle situationer, Mask Dude er det bedste valg for strategisk gameplay.",
+          "desc": "Den maskerede kriger tilbyder den perfekte balance mellem angreb og forsvar. Pålidelig i alle situationer, Aegis Ronin er strategisk og udstyret med en Kinetic Hammer og Energy Tower Shield.",
           "lore": "\"Masken er ikke en forklædning. Det er en erklæring om, at jeg nægter at blive genkendt af deres systemer.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Lad ikke farven narre dig. Pink Man er holdets kraftcenter - ødelæggende angreb med høje skader og imponerende defensive evner.",
+          "desc": "En specialist i Phase-Shifting og EMP bursts, kæmper for at genvinde stjålne identiteter fra fremmede databaser. Ekstremt hurtig og dødbringende på tætteste hold.",
           "lore": "\"De griner af min farve. De holder meget hurtigt op med at grine.\""
         },
         "guy": {
@@ -4664,12 +4664,12 @@
         },
         "dude": {
           "role": "Evenwichtige vechter",
-          "desc": "De gemaskerde krijger biedt de perfecte balans tussen aanval en verdediging. Mask Dude is betrouwbaar in alle situaties en is de beste keuze voor strategische gameplay.",
+          "desc": "De gemaskerde krijger biedt de perfecte balans tussen aanval en verdediging. Betrouwbaar in alle situaties, Aegis Ronin is strategisch en uitgerust met een kinetische hamer en een energietorenschild.",
           "lore": "“Het masker is geen vermomming. Het is een verklaring dat ik weiger door hun systemen te worden herkend.”"
         },
         "pink": {
           "role": "Zware slagman",
-          "desc": "Laat je niet misleiden door de kleur. Pink Man is de krachtpatser van het team: verwoestende aanvallen met veel schade en indrukwekkende defensieve capaciteiten.",
+          "desc": "Een specialist in Phase-Shifting en EMP bursts, die vecht om gestolen identiteiten terug te winnen uit buitenaardse databases. Extreem snel en dodelijk van dichtbij.",
           "lore": "\"Ze lachen om mijn kleur. Ze stoppen heel snel met lachen.\""
         },
         "guy": {
@@ -5079,17 +5079,17 @@
         },
         "dude": {
           "role": "Tasakaalustatud võitleja",
-          "desc": "Maskides sõdalane pakub täiuslikku tasakaalu rünnaku ja kaitse vahel. Igas olukorras usaldusväärne Mask Dude on strateegilise mängu jaoks parim valik.",
+          "desc": "Maskiga sõdalane pakub täiuslikku tasakaalu rünnaku ja kaitse vahel. Igas olukorras usaldusväärne Aegis Ronin on strateegiline ja varustatud kineetilise vasara ja energiatorni kilbiga.",
           "lore": "\"Mask ei ole maskeering. See on deklaratsioon, et ma keeldun tunnustamast nende süsteemid.\""
         },
         "pink": {
           "role": "Raske lööja",
-          "desc": "Ärge laske värvil end petta. Pink Man on meeskonna jõuallikas – laastavad rünnakud suure kahjustuste ja muljetavaldavate kaitsevõimetega.",
+          "desc": "Faasinihke ja EMP-i spetsialist võitleb tulnukate andmebaasidest varastatud identiteetide tagasinõudmise eest. Äärmiselt kiire ja lähedalt surmav.",
           "lore": "\"Nad naeravad minu värvi üle. Nad lõpetavad naermise väga kiiresti.\""
         },
         "guy": {
           "role": "Tehniline spetsialist",
-          "desc": "Füüsilisse šassiisse põimitud digitaalne teadvus. Virtual Guy saab suhelda vaenlase süsteemidega ja kasutada tehnilisi nõrku kohti, mida teised ei taju.",
+          "desc": "Füüsilisse šassiisse põimitud digitaalne teadvus. Virtual Guy saab suhelda vaenlase süsteemidega ja kasutada tehnilisi haavatavusi, mida teised ei taju.",
           "lore": "\"Ma elan nende tulemüüride vahelises ruumis. Olen nende masina kummitus.\""
         }
       }
@@ -5494,12 +5494,12 @@
         },
         "dude": {
           "role": "Balanseng Manlalaban\n<",
-          "desc": "Ang nakamaskara na mandirigma ay nag-aalok ng perpektong balanse ng opensa at depensa. Maaasahan sa lahat ng sitwasyon, ang Mask Dude ang dapat piliin para sa madiskarteng gameplay.\n<",
+          "desc": "Ang nakamaskara na mandirigma ay nag-aalok ng perpektong balanse ng opensa at depensa. Maaasahan sa lahat ng sitwasyon, ang Aegis Ronin ay madiskarte at nilagyan ng Kinetic Hammer at Energy Tower Shield.\n<",
           "lore": "\"Ang maskara ay hindi isang disguise. Ito ay isang deklarasyon na tumanggi akong kilalanin ng kanilang mga sistema.\"\n<"
         },
         "pink": {
           "role": "Heavy Hitter\n<",
-          "desc": "Huwag hayaang lokohin ka ng kulay. Ang Pink Man ay ang powerhouse ng team — mga mapangwasak na pag-atake na may mataas na output ng pinsala at kahanga-hangang mga kakayahan sa pagtatanggol.\n<",
+          "desc": "Ang isang espesyalista sa Phase-Shifting at EMP ay sumabog, na nakikipaglaban upang mabawi ang mga ninakaw na pagkakakilanlan mula sa mga dayuhang database. Napakabilis at nakamamatay sa malapitan.\n<",
           "lore": "\"Tinatawanan nila ang kulay ko. Mabilis silang tumigil sa pagtawa.\"\n<"
         },
         "guy": {
@@ -5909,12 +5909,12 @@
         },
         "dude": {
           "role": "Tasapainoinen Taistelija",
-          "desc": "Naamioitu soturi tarjoaa täydellisen tasapainon hyökkäyksen ja puolustuksen välillä. Kaikissa tilanteissa luotettava Mask Dude on strategisen pelin paras valinta.",
+          "desc": "Naamioitu soturi tarjoaa täydellisen tasapainon hyökkäyksen ja puolustuksen välillä. Kaikissa tilanteissa luotettava Aegis Ronin on strateginen ja varustettu kineettisellä vasaralla ja Energy Tower Shieldillä.",
           "lore": "\"Naamio ei ole naamio. Se on julistus siitä, että kieltäydyn tunnustamasta minua.\""
         },
         "pink": {
           "role": "Raskas Hitter",
-          "desc": "Älä anna värin hämätä sinua. Pink Man on joukkueen voimanpesä – tuhoisat hyökkäykset suurilla vaurioilla ja vaikuttavilla puolustuskyvyillä.",
+          "desc": "Vaiheensiirron ja EMP-purskeiden asiantuntija taistelee saadakseen takaisin varastetut identiteetit muukalaisten tietokannoista. Äärimmäisen nopea ja tappava lähietäisyydeltä.",
           "lore": "\"He nauravat värilleni. He lopettavat nauramisen hyvin nopeasti.\""
         },
         "guy": {
@@ -6319,22 +6319,22 @@
       "warriors": {
         "frog": {
           "role": "ინფილტრატორი",
-          "desc": "სტელსისა და სისწრაფის ოსტატი. Ninja Frog-ს შეუძლია კედელზე გადახტომა და ორჯერ ხტომა შეუძლებელ პოზიციებზე მისასვლელად. ელვისებური მოძრაობა ამ მ���ომარს იდეალურ სკაუტად აქცევს.",
+          "desc": "სტელსისა და სისწრაფის ოსტატი. ნინჯა ბაყაყს შეუძლია კედელზე გადახტომა და ორჯერ ხტომა შეუძლებელ პოზიციებზე მისასვლელად. ელვისებური მოძრაობა ამ მეომარს იდეალურ სკაუ��ად აქცევს.",
           "lore": "\"ისინი არ მხედავენ, სანამ ძალიან გვიან არ არის. მათ პროჟექტორებს შორის მე ვარსებობ.\""
         },
         "dude": {
           "role": "გაწონასწორებული მებრძოლი",
-          "desc": "ნიღბიანი მეომარი გთავაზობთ შეტევისა და თავდაცვის სრულყოფილ ბალანსს. სანდოა ყველა სიტუაციაში, Mask Dude არის საუკეთესო არჩევანი სტრატეგიული თამაშისთვის.",
+          "desc": "ნიღბიანი მეომარი გთავაზობთ შეტევისა და თავდაცვის სრულყოფილ ბალანსს. სანდო ყველა სიტუაციაში, აიგის რონინი არის სტრატეგიული და აღჭურვილია კინეტიკური ჩაქუჩით და ენერგეტიკული კოშკის ფარით.",
           "lore": "\"ნიღაბი არ არის შენიღბვა. ეს არის განცხადება, რომ მე უარს ვამბობ მათი სისტემების მიერ აღიარებაზე.\""
         },
         "pink": {
           "role": "მძიმე დამრტყმელი",
-          "desc": "ფერს ნუ მოგატყუებთ. Pink Man არის გუნდის ძალა - დამანგრეველი თავდასხმები მაღალი დაზიანების გამომუშავებით და შთამბეჭდავი თავდაცვითი შესაძლებლობებით.",
+          "desc": "ფაზური გადანაცვლებისა და ელექტრომაგნიტური იმპულსის სპეციალისტი იფეთქებს და იბრძვის უცხოპლანეტელების მონაცემთა ბაზებიდან მოპარული პირადობის დასაბრუნებლად. უკიდურესად სწრაფი და სასიკვდილო ახლოს.",
           "lore": "\"ჩემს ფერზე იცინიან. ძალიან სწრაფად წყვეტენ სიცილს.\""
         },
         "guy": {
           "role": "ტექნიკური სპეციალისტი",
-          "desc": "ციფრული ცნობიერება ჩართული ფიზიკურ შასისში. Virtual Guy-ს შეუძლია ინტერფეისი მტრის სისტემებთან და გამოიყენოს ტექნიკური დაუცველობა, რომელსაც სხვები ვერ აღიქვამენ.",
+          "desc": "ციფრული ცნობიერება ჩართული ფიზიკურ შასისში. ვირტუალურ ბიჭს შეუძლია ინტერფეისი მტრის სისტემებთან და გამოიყენოს ტექნიკური დაუცველობა, რომელსაც სხვები ვერ აღიქვამენ.",
           "lore": "\"მე ვცხოვრობ სივრცეში მათ ბუხარებს შორის. მე ვარ მოჩვენება მათ მანქანაში.\""
         }
       }
@@ -6534,7 +6534,7 @@
       "mobility": "მობილურობა",
       "shogun": "კიბერ შოგუნი",
       "ronin": "აიგის რონინი",
-      "matrix": "ONI MATRIX",
+      "matrix": "ონი მატრიცა",
       "frog": "ნინჯა ბაყაყი",
       "guy": "ვირტუალური ბიჭი"
     },
@@ -6739,12 +6739,12 @@
         },
         "dude": {
           "role": "Ausgeglichener Kämpfer",
-          "desc": "Der maskierte Krieger bietet die perfekte Balance aus Angriff und Verteidigung. Mask Dude ist in allen Situationen zuverlässig und die erste Wahl für strategisches Gameplay.",
+          "desc": "Der maskierte Krieger bietet die perfekte Balance aus Angriff und Verteidigung. Aegis Ronin ist in allen Situationen zuverlässig, strategisch und mit einem kinetischen Hammer und einem Energieturmschild ausgestattet.",
           "lore": "„Die Maske ist keine Verkleidung. Sie ist eine Erklärung, dass ich mich weigere, von ihren Systemen anerkannt zu werden.“"
         },
         "pink": {
           "role": "Schwerer Schlagmann",
-          "desc": "Lassen Sie sich nicht von der Farbe täuschen. Pink Man ist das Kraftpaket des Teams – verheerende Angriffe mit hohem Schadensausstoß und beeindruckenden Verteidigungsfähigkeiten.",
+          "desc": "Ein Spezialist für Phasenverschiebung und EMP-Ausbrüche, der darum kämpft, gestohlene Identitäten aus außerirdischen Datenbanken zurückzugewinnen. Extrem schnell und tödlich aus nächster Nähe.",
           "lore": "„Sie lachen über meine Farbe. Sie hören sehr schnell auf zu lachen.“"
         },
         "guy": {
@@ -7149,22 +7149,22 @@
       "warriors": {
         "frog": {
           "role": "Διηθητικός",
-          "desc": "Δάσκαλος του stealth και της ευκινησίας. Το Ninja Frog μπορεί να πηδήξει στον τοίχο και να διπλοπηδήσει για να φτάσει σε αδύνατες θέσεις. Η αστραπιαία κίνηση κάνει αυτόν τον πολεμιστή τον ιδανικό ανιχνευτή.",
+          "desc": "Δάσκαλος του στελθ και της ευκινησίας. Το Βάτραχος Νίντζα μπορεί να πηδήξει στον τοίχο και να διπλοπηδήσει για να φτάσει σε αδύνατες θέσεις. Η αστραπιαία κίνηση κάνει αυτόν τον πολεμιστή τον ιδανικό ανιχνευτή.",
           "lore": "\"Δεν με βλέπουν μέχρι να είναι πολύ αργά. Στο περιθώριο ανάμεσα στους προβολείς τους, υπάρχω\"."
         },
         "dude": {
           "role": "Ισορροπημένος Μαχητής",
-          "desc": "Ο μασκοφόρος πολεμιστής προσφέρει την τέλεια ισορροπία επίθεσης και άμυνας. Αξιόπιστο σε όλες τις καταστάσεις, το Mask Dude είναι η καλύτερη επιλογή για στρατηγικό παιχνίδι.",
+          "desc": "Ο μασκοφόρος πολεμιστής προσφέρει την τέλεια ισορροπία επίθεσης και άμυνας. Αξιόπιστο σε όλες τις ��αταστάσεις, το Άιγις Ρόνιν είναι στρατηγικό και εξοπλισμένο με Κινητικό Σφυρί και Ασπίδα Πύργου Ενέργειας.",
           "lore": "\"Η μάσκα δεν είναι μεταμφίεση. Είναι μια δήλωση ότι αρνούμαι να με αναγνωρίσουν τα συστήματά τους.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Μην αφήσετε το χρώμα να σας ξεγελάσει. Το Pink Man είναι η δύναμη της ομάδας — καταστροφικές επιθέσεις με υψηλή απόδοση ζημιάς και εντυπωσιακές αμυντικές δυνατότητες.",
+          "desc": "Ένας ειδικός στο Μετατόπιση Φάσης και στο Ηλεκτρομαγνητικός Παλμός (Ηλεκτρομαγνητικός Παλμός (EMP)) ξεσπά, παλεύει για να ανακτήσει κλεμμένες ταυτότητες από βάσεις δεδομένων εξωγήινων. Εξαιρετικά γρήγορο και θανατηφόρο σε κοντινή απόσταση.",
           "lore": "\"Γελάνε με το χρώμα μου. Σταματούν να γελούν πολύ γρήγορα.\""
         },
         "guy": {
           "role": "Τεχνολόγος",
-          "desc": "Μια ψηφιακή συνείδηση ενσωματωμένη σε ένα φυσικό πλαίσιο. Το Virtual Guy μπορεί να διασυνδεθεί με εχθρικά συστήματα και να εκμεταλλευτεί τεχνικές ευπάθειες που οι άλλοι δεν μπορούν να αντιληφθούν.",
+          "desc": "Μια ψηφιακή συνείδηση ενσωματωμένη σε ένα φυσικό πλαίσιο. Το Βίρτουαλ Γκάι μπορεί να διασυνδεθεί με εχθρικά συστήματα και να εκμεταλλευτεί τεχνικές ευπάθειες που οι άλλοι δεν μπορούν να αντιληφθούν.",
           "lore": "\"Μένω στο χώρο ανάμεσα στα τείχη προστασίας τους. Είμαι το φάντασμα στη μηχανή τους.\""
         }
       }
@@ -7363,8 +7363,8 @@
       "defense": "ΑΜΥΝΑ",
       "mobility": "ΚΙΝΗΤΙΚΟΤΗΤΑ",
       "shogun": "CYBER SHOGUN",
-      "ronin": "AEGIS RONIN",
-      "matrix": "ONI MATRIX",
+      "ronin": "ΑΙΓΙΣ ΡΟΝΙΝ",
+      "matrix": "ΟΝΙ ΜΑΤΡΙΞ",
       "frog": "ΒΑΤΡΑΧΟΣ ΝΙΝΤΖΑ",
       "guy": "ΕΙΚΟΝΙΚΟΣ ΤΥΠΟΣ"
     },
@@ -7564,22 +7564,22 @@
       "warriors": {
         "frog": {
           "role": "ઘૂસણખોર",
-          "desc": "સ્ટીલ્થ અને ચપળતામાં માસ્ટર. નીન્જા ફ્રોગ અસંભવ સ્થિતિમાં પહોંચવા માટે દિવાલ પર કૂદી શકે છે અને ડબલ-જમ્પ કરી શકે છે. વીજળીની ઝડપી ગતિ આ યોદ્ધાને આદર્શ સ્કાઉ��� બનાવે છે.",
+          "desc": "સ્ટીલ્થ અને ચપળતામાં માસ્ટર. નીન્જા ફ્રોગ અસંભવ સ્થિતિમાં પહોંચવા માટે દિવાલ પર કૂદી શકે છે અને ડબલ-જમ્પ કરી શકે છે. વીજળીની ઝડપી ગતિ આ યોદ્ધાને આદર્શ સ્કાઉટ બનાવે છે.",
           "lore": "\"જ્યાં સુધી મોડું ન થાય ત્યાં સુધી તેઓ મને જોતા નથી. તેમની સ્પોટલાઇટ્સ વચ્ચેના હાંસિયામાં, હું અસ્તિત્વમાં છું.\""
         },
         "dude": {
           "role": "સંતુલિત ફાઇટર",
-          "desc": "માસ્ક પહેરેલ યોદ્ધા ગુનો અને સંરક્ષણનું સંપૂર્ણ સંતુલન પ્રદાન કરે છે. તમામ પરિસ્થિતિઓમાં વિશ્વસનીય, માસ્ક ડ્યૂડ એ વ્યૂહાત્મક ગેમપ્લે માટેની પસંદગી છે.",
+          "desc": "માસ્ક પહેરેલ યોદ્ધા ગુનો અને સંરક્ષણનું સંપૂર્ણ સંતુલન પ્રદાન કરે છે. તમામ પરિસ્થિતિમાં ભરોસાપાત્ર, એજીસ રોનિન વ્યૂહાત્મક છે અને કાઈનેટિક હેમર અને એનર્જી ટાવર શિલ્ડથી સજ્જ છે.",
           "lore": "\"માસ્ક કોઈ વેશ નથી. તે એક ઘોષણા છે કે હું તેમની સિસ્ટમો દ્વારા માન્યતા પ્રાપ્ત કરવાનો ઇનકાર કરું છું.\""
         },
         "pink": {
           "role": "હેવી હિટર",
-          "desc": "રંગ તમને મૂર્ખ ન દો. પિંક મેન એ ટીમનું પાવરહાઉસ છે - ઉચ્ચ નુકસાન આઉટપુટ અને પ્રભાવશાળી રક્ષણાત્મક ક્ષમતાઓ સાથે વિનાશક હુમલા.",
+          "desc": "ફેઝ-શિફ્ટિંગ અને EMP વિસ્ફોટના નિષ્ણાત, એલિયન ડેટાબેઝમાંથી ચોરાયેલી ઓળખનો ફરીથી દાવો કરવા માટે લડતા. અત્યંત ઝડપી અને નજીકમાં જીવલેણ.",
           "lore": "\"તેઓ મારા રંગ પર હસે છે. તેઓ ખૂબ જ ઝડપથી હસવાનું બંધ કરે છે.\""
         },
         "guy": {
           "role": "ટેક સ્પેશિયાલિસ્ટ",
-          "desc": "ભૌતિક ચેસિસમાં જડિત ડિજિટલ ચેતના. વર્ચ્યુઅલ ગાય દુશ્મન સિસ્ટમો સાથે ઇન્ટરફેસ કરી શકે છે અને તકનીકી નબળાઈઓનો ઉપયોગ કરી શકે છે જે અન્��� લોકો સમજી શકતા નથી.",
+          "desc": "ભૌતિક ચેસિસમાં જડિત ડિજિટલ ચેતના. વર્ચ્યુઅલ ગાય દુશ્મન સિસ્ટમો સાથે ઇન્ટરફેસ કરી શકે છે અને તકનીકી નબળાઈઓનો ઉપયોગ કરી શકે છે જે અન્ય લોકો સમજી શકતા નથી.",
           "lore": "\"હું તેમના ફાયરવોલ વચ્ચેની જગ્યામાં રહું છું. હું તેમના મશીનમાં ભૂત છું.\""
         }
       }
@@ -7779,7 +7779,7 @@
       "mobility": "ગતિશીલતા",
       "shogun": "સાયબર શોગન",
       "ronin": "એજીસ રોનિન",
-      "matrix": "ONI મેટ્રિક્સ",
+      "matrix": "ઓની મેટ્રિક્સ",
       "frog": "નિન્જા દેડકા",
       "guy": "વર્ચ્યુઅલ ગાય"
     },
@@ -7984,17 +7984,17 @@
         },
         "dude": {
           "role": "संतुलित लड़ाकू",
-          "desc": "नकाबपोश योद्धा आक्रमण और बचाव का सही संतुलन प्रदान करता है। सभी स्थितियों में विश्वसनीय, मास्क ड्यूड रणनीतिक गेमप्ले के लिए पसंदीदा विकल्प है।",
+          "desc": "नकाबपोश योद्धा आक्रमण और बचाव का सही संतुलन प्रदान करता है। सभी स्थितियों में विश्वसनीय, एजिस रोनिन रणनी���िक है और काइनेटिक हैमर और एनर्जी टॉवर शील्ड से सुसज्जित है।",
           "lore": "\"मुखौटा कोई छद्मवेश नहीं है। यह एक घोषणा है कि मैं उनके सिस्टम द्वारा पहचाने जाने से इनकार करता हूं।\""
         },
         "pink": {
           "role": "भारी हिटर",
-          "desc": "रंग को मूर्ख मत बनने दो। पिंक मैन टीम का पावरहाउस है - उच्च क्षति आउटपुट और प्रभावशाली रक्षात्मक क्षमताओं के साथ विनाशकारी हमले।",
+          "desc": "फेज़-शिफ्टिंग और ईएमपी बर्स्ट्स में एक विशेषज्ञ, विदेशी डेटाबेस से चुराई गई पहचान को पुनः प्राप्त करने के लिए लड़ रहा है। नजदीक से बेहद तेज और घातक।",
           "lore": "\"वे मेरे रंग पर हंसते हैं। वे बहुत जल्दी हंसना बंद कर देते हैं।\""
         },
         "guy": {
           "role": "तकनीकी विशेषज्ञ",
-          "desc": "भौतिक चेसिस में अंतर्निहित एक डिजिटल चेतना। वर्चुअल गाइ दुश्मन प्रणालियों के साथ इंटरफेस कर सकता है और उन तकनीकी कमजोरियों का फायदा उठा सकता है जिन्हें अन्य लोग समझ नहीं सकते हैं।",
+          "desc": "भौतिक चेसिस में अंत���्निहित एक डिजिटल चेतना। वर्चुअल गाइ दुश्मन प्रणालियों के साथ इंटरफेस कर सकता है और उन तकनीकी कमजोरियों का फायदा उठा सकता है जिन्हें अन्य लोग समझ नहीं सकते हैं।",
           "lore": "\"मैं उनकी फ़ायरवॉल के बीच की जगह में रहता हूं। मैं उनकी मशीन में भूत हूं।\""
         }
       }
@@ -8399,17 +8399,17 @@
         },
         "dude": {
           "role": "Kiegyensúlyozott harcos",
-          "desc": "Az álarcos harcos tökéletes egyensúlyt kínál a támadás és a védekezés között. A minden helyzetben megbízható Mask Dude a stratégiai játékmenet legjobb választása.",
+          "desc": "Az álarcos harcos tökéletes egyensúlyt kínál a támadás és a védekezés között. A minden helyzetben megbízható Aegis Ronin stratégiai jelentőségű, és kinetikus kalapáccsal és energiatorony pajzzsal van felszerelve.",
           "lore": "\"A maszk nem álcázás. Ez egy nyilatkozat arról, hogy megtagadom, hogy a rendszereik felismerjenek.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Ne hagyja, hogy a szín megtévessze. A Pink Man a csapat ereje – pusztító támadások nagy sebzéskibocsátással és lenyűgöző védekezési képességekkel.",
+          "desc": "A fáziseltolás és az EMP szakértője azért küzd, hogy visszaszerezze az ellopott személyazonosságokat az idegen adatbázisokból. Rendkívül gyors és halálos közelről.",
           "lore": "\"Nevetnek a színemen. Nagyon gyorsan abbahagyják a nevetést.\""
         },
         "guy": {
           "role": "Műszaki szakember",
-          "desc": "Fizikai alvázba ágyazott digitális tudat. A Virtual Guy képes interfészelni az ellenséges rendszerekkel, és kihasználni azokat a technikai sebezhetőségeket, amelyeket mások nem észlelnek.",
+          "desc": "Fizikai alvázba ágyazott digitális tudat. A Virtual Guy kapcsolódhat az ellenséges rendszerekhez, és kihasználhatja azokat a technikai sebezhetőségeket, amelyeket mások nem észlelnek.",
           "lore": "\"A tűzfalaik közötti térben élek. Én vagyok a szellem a gépükben.\""
         }
       }
@@ -8814,12 +8814,12 @@
         },
         "dude": {
           "role": "Balanced Fighter",
-          "desc": "Grímuklæddur kappinn býður upp á hið fullkomna jafnvægi sóknar og varnar. Mask Dude er áreiðanlegt í öllum aðstæðum og er valið fyrir stefnumótandi spilun.",
+          "desc": "Grímuklæddur kappinn býður upp á hið fullkomna jafnvægi sóknar og varnar. Áreiðanlegur í öllum aðstæðum, Aegis Ronin er stefnumótandi og búinn hreyfihamri og orkuturnsskjöld.",
           "lore": "\"Grískan er ekki dulargervi. Þetta er yfirlýsing um að ég neiti að vera viðurkenndur af kerfum þeirra.\""
         },
         "pink": {
           "role": "Heavy hitter",
-          "desc": "Ekki láta litinn blekkja þig. Pink Man er kraftaverk liðsins — hrikalegar árásir með miklum skaða og glæsilegum varnarhæfileikum.",
+          "desc": "Sérfræðingur í Phase-Shifting og EMP springur, berst við að endurheimta stolin auðkenni úr geimverugagnagrunnum. Einstaklega hratt og banvænt þegar nær dregur.",
           "lore": "\"Þeir hlæja að litnum mínum. Þeir hætta mjög fljótt að hlæja.\""
         },
         "guy": {
@@ -9229,12 +9229,12 @@
         },
         "dude": {
           "role": "Petarung Seimbang",
-          "desc": "Prajurit bertopeng menawarkan keseimbangan sempurna antara menyerang dan bertahan. Dapat diandalkan dalam segala situasi, Mask Dude adalah pilihan utama untuk gameplay strategis.",
+          "desc": "Prajurit bertopeng menawarkan keseimbangan sempurna antara menyerang dan bertahan. Dapat diandalkan dalam segala situasi, Aegis Ronin bersifat strategis dan dilengkapi dengan Kinetic Hammer dan Energy Tower Shield.",
           "lore": "\"Topeng itu bukan penyamaran. Itu adalah pernyataan bahwa saya menolak untuk dikenali oleh sistem mereka.\""
         },
         "pink": {
           "role": "Pemukul Berat",
-          "desc": "Jangan biarkan warnanya membodohi Anda. Pink Man adalah kekuatan tim — serangan dahsyat dengan hasil kerusakan tinggi dan kemampuan bertahan yang mengesankan.",
+          "desc": "Seorang spesialis dalam Pergeseran Fase dan EMP meledak, berjuang untuk mendapatkan kembali identitas yang dicuri dari database alien. Sangat cepat dan mematikan dalam jarak dekat.",
           "lore": "\"Mereka menertawakan warna kulitku. Mereka berhenti tertawa dengan sangat cepat.\""
         },
         "guy": {
@@ -9644,12 +9644,12 @@
         },
         "dude": {
           "role": "Combattente equilibrato",
-          "desc": "Il guerriero mascherato offre il perfetto equilibrio tra attacco e difesa. Affidabile in tutte le situazioni, Mask Dude è la scelta ideale per il gameplay strategico.",
+          "desc": "Il guerriero mascherato offre il perfetto equilibrio tra attacco e difesa. Affidabile in ogni situazione, Aegis Ronin è strategico e dotato di Martello Cinetico e Scudo Torre Energetico.",
           "lore": "\"La maschera non è un travestimento. È una dichiarazione che rifiuto di essere riconosciuto dai loro sistemi.\""
         },
         "pink": {
           "role": "Battitore Pesante",
-          "desc": "Non lasciarti ingannare dal colore. Pink Man è il punto forte della squadra: attacchi devastanti con danni elevati e capacità difensive impressionanti.",
+          "desc": "Uno specialista in Phase-Shifting ed EMP irrompe, lottando per recuperare le identità rubate dai database alieni. Estremamente veloce e letale a distanza ravvicinata.",
           "lore": "\"Ridono del mio colore. Smettono di ridere molto velocemente.\""
         },
         "guy": {
@@ -10054,22 +10054,22 @@
       "warriors": {
         "frog": {
           "role": "インフィルトレーター",
-          "desc": "ステルス性と機敏性の達人。 Ninja Frog は壁ジャンプやダブルジャンプで不可能な位置に到達できます。電光石火の動きをするこの戦士は理想的な偵察兵です。",
+          "desc": "ステルス性と機敏性の達人。 忍者フロッグ は壁ジャンプやダブルジャンプで不可能な位置に到達できます。電光石火の動きをするこの戦士は理想的な偵察兵です。",
           "lore": "「彼らは手遅れになるまで私���気づきません。彼らのスポットライトの隙間に私は存在します。」"
         },
         "dude": {
           "role": "バランスファイター",
-          "desc": "仮面の戦士は攻撃と防御の完璧なバランスを提供します。あらゆる状況で信頼できる Mask Dude は、戦略的なゲームプレイに最適な選択肢です。",
+          "desc": "仮面の戦士は攻撃と防御の完璧なバランスを提供します。あらゆる状況で信頼できるイージス ローニンは戦略的で、キネティック ハンマーとエネルギー タワー シールドを装備しています。",
           "lore": "「マ��クは変装ではありません。私が彼らのシステムによって認識されることを拒否するという宣言です。」"
         },
         "pink": {
           "role": "ヘビーヒッター",
-          "desc": "色に騙されないでください。ピンクマンはチームの原動力であり、高いダメージ出力と優れた防御能力を備えた破壊的な攻撃を行います。",
+          "desc": "フェーズシフトとEMPバーストバーストバーストの専門家が、エイリアンのデータベースから盗まれたアイデンティティを取り戻すために戦っています。非常に速く、至近距離では致命的です。",
           "lore": "「彼らは私の肌の色を見て笑います。彼らはすぐに笑いをやみます。」"
         },
         "guy": {
           "role": "技術スペシャリスト",
-          "desc": "物理的なシャーシに埋め込まれたデジタル意識。 Virtual Guy は、敵のシステムと接続し、他の人が認識できない技術的な脆弱性を悪用することができます。",
+          "desc": "物理的なシャーシに埋め込まれたデジタル意識。 バーチャル・ガイ は、敵のシステムと接続し、他の人が認識できない技術的な脆弱性を悪用することができます。",
           "lore": "「私は彼らのファイアウォールの間に住んでいます。私は彼らのマシンの中の幽霊です。」"
         }
       }
@@ -10474,12 +10474,12 @@
         },
         "dude": {
           "role": "ಸಮತೋಲಿತ ಹೋರಾಟಗಾರ",
-          "desc": "ಮುಖವಾ���ದ ಯೋಧನು ಅಪರಾಧ ಮತ್ತು ರಕ್ಷಣೆಯ ಪರಿಪೂರ್ಣ ಸಮತೋಲನವನ್ನು ನೀಡುತ್ತದೆ. ಎಲ್ಲಾ ಸಂದರ್ಭಗಳಲ್ಲಿ ವಿಶ್ವಾಸಾರ್ಹ, ಮಾಸ್ಕ್ ಡ್ಯೂಡ್ ಕಾರ್ಯತಂತ್ರದ ಆಟದ ಆಯ್ಕೆಯಾಗಿದೆ.",
+          "desc": "ಮುಖವಾಡದ ಯೋಧನು ಅಪರಾಧ ಮತ್ತು ರಕ್ಷಣೆಯ ಪರಿಪೂರ್ಣ ಸಮತೋಲನವನ್ನು ನೀಡುತ್ತದೆ. ಎಲ್ಲಾ ಸಂದರ್ಭಗಳಲ್ಲಿ ವಿಶ್ವಾಸಾರ್ಹ, ಏಜಿಸ್ ರೋನಿನ್ ಕಾರ್ಯತಂತ್ರ ಮತ್ತು ಕೈನೆಟಿಕ್ ಹ್ಯಾಮರ್ ಮತ್ತು ಎನರ್ಜಿ ಟವರ್ ಶೀಲ್ಡ್ ಅನ್ನು ಹೊಂದಿದೆ.",
           "lore": "\"ಮುಖವಾಡವು ವೇಷವಲ್ಲ. ಇದು ಅವರ ವ್ಯವಸ್ಥೆಗಳಿಂದ ನಾನು ಗುರುತಿಸಲು ನಿರಾಕರಿಸುವ ಘೋಷಣೆಯಾಗಿದೆ.\""
         },
         "pink": {
           "role": "ಭಾರೀ ಹಿಟ್ಟರ್",
-          "desc": "ಬಣ್ಣವು ನಿಮ್ಮನ್ನು ಮೋಸಗೊಳಿಸಲು ಬಿಡಬೇಡಿ. ಪಿಂಕ್ ಮ್ಯಾನ್ ತಂಡದ ಶಕ್ತಿ ಕೇಂದ್ರವಾಗಿದೆ - ಹೆಚ್ಚಿನ ಹಾನಿಯ ಔಟ್‌ಪುಟ್ ಮತ್ತು ಪ್ರಭಾವಶಾಲಿ ರಕ್ಷಣಾತ್ಮಕ ಸಾಮರ್ಥ್ಯಗಳೊಂದಿಗೆ ವಿನಾಶಕಾರಿ ದಾಳಿಗಳು.",
+          "desc": "ಫೇಸ್-ಶಿಫ್ಟಿಂಗ್ ಮತ್ತು EMP ಸ್ಫೋಟಗಳಲ್ಲಿ ಪರಿಣಿತರು, ಅನ್ಯಲೋಕದ ಡೇಟಾಬೇಸ್‌ಗಳಿಂದ ಕದ್ದ ಗುರುತುಗಳನ್ನು ಮರುಪಡೆಯಲು ಹೋರಾಡುತ್ತಿದ್ದಾರೆ. ಅತ್ಯಂತ ವೇಗವಾಗಿ ಮತ್ತು ಹತ್ತಿರದ ಸ್ಥಳಗಳಲ್ಲಿ ಮಾರಕ.",
           "lore": "\"ಅವರು ನನ್ನ ಬಣ್ಣವನ್ನು ನೋಡಿ ನಗುತ್ತಾರೆ, ಅವರು ಬೇಗನೆ ನಗುವುದನ್ನು ನಿಲ್ಲಿಸುತ್ತಾರೆ.\""
         },
         "guy": {
@@ -10889,17 +10889,17 @@
         },
         "dude": {
           "role": "균형잡힌 파이터",
-          "desc": "가면을 쓴 전사는 공격과 방어의 완벽한 균형을 제공합니다. 모든 상황에서 안정적인 Mask Dude는 전략적인 게임플레이를 위한 최고의 선택입니다.",
+          "desc": "가면을 쓴 전사는 공격과 방어의 완벽한 균형을 제공합니다. 모든 상황에서 신뢰할 수 있는 이지스 로닌은 전략적이며 키네틱 해머와 에너지 타워 실드를 갖추고 있습니다.",
           "lore": "\"마스크는 ���장이 아닙니다. 그들의 시스템에서 인식되기를 거부한다는 선언입니다.\""
         },
         "pink": {
           "role": "헤비히터",
-          "desc": "색상에 속지 마십시오. 핑크맨은 높은 피해량과 인상적인 방어 능력을 바탕으로 파괴적인 공격을 펼치는 팀의 최강자입니다.",
+          "desc": "위상 이동 및 EMP 폭발 폭발 폭발의 전문가로서 외계인 데이터베이스에서 훔친 신원을 되찾기 위해 싸우고 있습니다. 근거리에서 매우 빠르고 치명적입니다.",
           "lore": "\"그들은 내 색깔을 비웃습니다. 그들은 아주 빨리 웃음을 멈춥니다.\""
         },
         "guy": {
           "role": "기술 전문가",
-          "desc": "물리적 섀시에 디지털 의식이 내장되어 있습니다. Virtual Guy는 적 시스템과 인터페이스하고 다른 사람들이 인식할 수 없는 기술적 취약점을 악용할 수 있습니다.",
+          "desc": "물리적 섀시에 디지털 의식이 내장되어 있습니다. 버추얼 가이는 적 시스템과 인터페이스하고 다른 사람들이 인식할 수 없는 기술적 취약점을 악용할 수 있습니다.",
           "lore": "\"나는 그들의 방화벽 사이의 공간에 살��� 있습니다. 나는 그들의 기계 속의 유령입니다.\""
         }
       }
@@ -11304,12 +11304,12 @@
         },
         "dude": {
           "role": "Līdzsvarots cīnītājs",
-          "desc": "Maskās tērptais karavīrs piedāvā perfektu uzbrukuma un aizsardzības līdzsvaru. Uzticams visās situācijās, Mask Dude ir labākā izvēle stratēģiskai spēlei.",
+          "desc": "Maskās tērptais karavīrs piedāvā perfektu uzbrukuma un aizsardzības līdzsvaru. Uzticams visās situācijās, Aegis Ronin ir stratēģisks un aprīkots ar kinētisko āmuru un enerģijas torņa vairogu.",
           "lore": "\"Maska nav maskēšanās. Tā ir deklarācija, ka es atsakos, lai viņu sistēmas mani atpazītu.\""
         },
         "pink": {
           "role": "Smagais sitiens",
-          "desc": "Neļaujiet krāsai jūs maldināt. Pink Man ir komandas spēks — postoši uzbrukumi ar lielu bojājumu izlaidi un iespaidīgām aizsardzības spējām.",
+          "desc": "Fāzes maiņas un EMP speciālists cīnās, lai atgūtu nozagtas identitātes no citplanētiešu datu bāzēm. Ārkārtīgi ātrs un nāvējošs tuvās vietās.",
           "lore": "\"Viņi smejas par manu krāsu. Viņi ļoti ātri pārstāj smieties.\""
         },
         "guy": {
@@ -11719,12 +11719,12 @@
         },
         "dude": {
           "role": "Subalansuotas kovotojas",
-          "desc": "Kaukėtas karys siūlo puikų puolimo ir gynybos balansą. Patikimas visose situacijose, „Mask Dude“ yra geriausias strateginio žaidimo pasirinkimas.",
+          "desc": "Kaukėtas karys siūlo puikų puolimo ir gynybos balansą. Patikimas visose situacijose, Aegis Ronin yra strateginis ir aprūpintas kinetiniu plaktuku ir energijos bokšto skydu.",
           "lore": "„Kaukė nėra maskuotė. Tai pareiškimas, kad aš atsisakau, kad mane atpažintų jų sistemos“."
         },
         "pink": {
           "role": "Sunkusis Hitter",
-          "desc": "Neleiskite spalvoms jūsų apgauti. Pink Man yra komandos stiprybė – niokojančios atakos su daugybe žalos ir įspūdingų gynybinių pajėgumų.",
+          "desc": "Fazių keitimo ir EMP specialistas kovoja, kad atgautų pavogtas tapatybes iš ateivių duomenų bazių. Itin greitas ir mirtinas iš arti.",
           "lore": "\"Jie juokiasi iš mano spalvos. Jie labai greitai nustoja juoktis.\""
         },
         "guy": {
@@ -12134,12 +12134,12 @@
         },
         "dude": {
           "role": "Pejuang Seimbang",
-          "desc": "Pahlawan bertopeng menawarkan keseimbangan sempurna antara serangan dan pertahanan. Boleh dipercayai dalam semua situasi, Mask Dude ialah pilihan utama untuk permainan strategik.",
+          "desc": "Pahlawan bertopeng menawarkan keseimbangan sempurna antara serangan dan pertahanan. Boleh dipercayai dalam semua situasi, Aegis Ronin adalah strategik dan dilengkapi dengan Tukul Kinetik dan Perisai Menara Tenaga.",
           "lore": "\"Topeng itu bukan penyamaran. Ia adalah pengisytiharan bahawa saya enggan diiktiraf oleh sistem mereka.\""
         },
         "pink": {
           "role": "Pemukul Berat",
-          "desc": "Jangan biarkan warna menipu anda. Pink Man ialah kuasa besar pasukan — serangan yang dahsyat dengan output kerosakan yang tinggi dan keupayaan pertahanan yang mengagumkan.",
+          "desc": "Pakar dalam Anjakan Fasa dan EMP meletus, berjuang untuk menuntut semula identiti yang dicuri daripada pangkalan data asing. Sangat pantas dan mematikan pada jarak dekat.",
           "lore": "\"Mereka ketawakan warna saya. Mereka berhenti ketawa dengan cepat.\""
         },
         "guy": {
@@ -12549,12 +12549,12 @@
         },
         "dude": {
           "role": "സമതുലിതമായ പോരാളി",
-          "desc": "മുഖംമൂടി ധരിച്ച യോദ്ധാവ് കുറ്റകൃത്യത്തിൻ്റെയും പ്രതിരോധത്തിൻ്റെയും മികച്ച ബാലൻസ് വാഗ്ദാനം ചെയ്യുന്നു. എല്ലാ സാഹചര്യങ്ങളിലും വിശ്വസനീയമായ, മാസ്ക് ഡ്യൂഡ് തന്ത്രപരമായ ഗെയിംപ്ലേയ്ക്കുള്ള തിരഞ്ഞെടുക്കലാണ്.",
+          "desc": "മുഖംമൂടി ധരിച്ച യോദ്ധാവ് കുറ്റകൃത്യത്തിൻ്റെയും പ്രതിരോധത്തിൻ്റെയും മികച്ച ബാലൻസ് വാഗ്ദാനം ചെയ���യുന്നു. എല്ലാ സാഹചര്യങ്ങളിലും വിശ്വസനീയമാണ്, ഏജിസ് റോണിൻ തന്ത്രപ്രധാനവും കൈനറ്റിക് ഹാമറും എനർജി ടവർ ഷീൽഡും കൊണ്ട് സജ്ജീകരിച്ചിരിക്കുന്നു.",
           "lore": "\"മുഖമൂടി ഒരു വേഷപ്പകർച്ചയല്ല. അവരുടെ സംവിധാനങ്ങളാൽ ഞാൻ തിരിച്ചറിയപ്പെടാൻ വിസമ്മതിക്കുന്ന ഒരു പ്രഖ്യാപനമാണ��ത്.\""
         },
         "pink": {
           "role": "ഹെവി ഹിറ്റർ",
-          "desc": "നിറം നിങ്ങളെ കബളിപ്പിക്കാൻ അനുവദിക്കരുത്. പിങ്ക് മാൻ ടീമിൻ്റെ പവർഹൗസ് ആണ് - ഉയർന്ന നാശനഷ്ട ഔട്ട്പുട്ടും ശ്രദ്ധേയമായ പ്രതിരോധ ശേഷിയുമുള്ള വിനാശകരമായ ആക്രമണങ്ങൾ.",
+          "desc": "അന്യഗ്രഹ ഡാറ്റാബേസുകളിൽ നിന്ന് മോഷ്ടിച്ച ഐഡൻ്റിറ്റികൾ വീണ്ടെടുക്കാൻ പോരാടുന്ന ഫേസ്-ഷിഫ്റ്റിംഗിലും ഇഎംപിയിലും ഒരു സ്പെഷ്യലിസ്റ്റ്. വളരെ വേഗമേറിയതും അടുത്തുള്ള സ്ഥലങ്ങളിൽ മാരകവുമാണ്.",
           "lore": "\"എൻ്റെ നിറം കണ്ട് അവർ ചിരിക്കുന്നു, അവർ വളരെ വേഗം ചിരി നിർത്തുന്നു.\""
         },
         "guy": {
@@ -12964,12 +12964,12 @@
         },
         "dude": {
           "role": "平衡战斗机",
-          "desc": "蒙面武士提供了进攻和防守的完美平衡。 Mask Dude 在所有情况下都可靠，是战略游戏的首选。",
+          "desc": "蒙面武士提供了进攻和防守的完美平衡。宙斯盾浪人在任何情况下都是可靠的，具有战略性，并配备了动能锤和能量塔盾。",
           "lore": "“面具不是伪装。它是我拒绝被他们的系统识别的声明。”"
         },
         "pink": {
           "role": "重磅击球手",
-          "desc": "不要让颜色欺骗了您。粉红人是团队中的强者——具有高伤害输出和令人印象深刻的防御能力的毁灭性攻击。",
+          "desc": "一位相移和电磁脉冲爆发专家，努力从外星数据库中夺回被盗的身份。近距离时速度极快且致命。",
           "lore": "“他们嘲笑我的肤色。他们很快就不再笑了。”"
         },
         "guy": {
@@ -13374,22 +13374,22 @@
       "warriors": {
         "frog": {
           "role": "घुसखोर",
-          "desc": "चोरी आणि चपळतेचा मास्टर. निन्जा बेडूक भिंतीवर उडी मारू शकतो आणि अशक्य स्थितीत पोहोचण्यासाठी दुहेरी उडी मारू शकतो. लाइटनिंग-वेस्ट हालचाल या योद्ध्याला आदर्�� स्काउट बनवते.",
+          "desc": "चोरी आणि चपळतेचा मास्टर. निन्जा बेडूक भिंतीवर उडी मारू शकतो आणि अशक्य स्थितीत पोहोचण्यासाठी दुहेरी उडी मारू शकतो. लाइटनिंग-वेस्ट हालचाल या योद्ध्याला आदर्श स्काउट बनवते.",
           "lore": "\"खूप उशीर होईपर्यंत ते मला दिसत नाहीत. त्यांच्या स्पॉटलाइट्समधील फरकांमध्ये, मी अस्तित्वात आहे.\""
         },
         "dude": {
           "role": "संतुलित सेनानी",
-          "desc": "मुखवटा घातलेला योद्धा गुन्हा आणि संरक्षण यांचे परिपूर्ण संतुलन प्रदान करतो. सर्व परिस्थितींमध्ये विश्वासार्ह, मास्क ड्यूड ही रणनीतिक गेमप्लेसाठी योग्य निवड आहे.",
+          "desc": "मुखवटा घातलेला योद्धा गुन्हा आणि बचावाचे परिपूर्ण संतुलन प्रदान करतो. सर्व परिस्थितींमध्ये विश्वासार्ह, एजिस रोनिन हे धोरणात्मक आहे आणि ते कायनेटिक हॅमर आणि एनर्जी टॉवर शील्डने सुसज्ज आहे.",
           "lore": "\"मुखवटा हा एक वेश नाही. ही एक घोषणा आहे की मी त्यांच्या सिस्टमद्वारे ओळखले जाण्यास नकार देतो.\""
         },
         "pink": {
           "role": "हेवी हिटर",
-          "desc": "रंग तुम्हाला फसवू देऊ नका. पिंक मॅन हे संघाचे पॉवरहाऊस आहे — उच्च नुकसान आउटपुट आणि प्रभावी बचावात्मक क्षमतांसह विनाशकारी हल्ले.",
+          "desc": "फेज-शिफ्टिंग आणि ईएमपी स्फोटातील एक विशेषज्ञ, एलियन डेटाबेसमधून चोरलेल्या ओळखींवर पुन्हा दावा करण्यासाठी लढा देत आहे. अत्यंत जलद आणि जवळच्या भागात प्राणघातक.",
           "lore": "\"ते माझ्या रंगावर हसतात. ते हसणे लवकर थांबवतात.\""
         },
         "guy": {
           "role": "टेक स्पेशालिस्ट",
-          "desc": "भौतिक चेसिसमध्ये एम्बेड केलेली डिजिटल चेतना. व्हर्च्युअल गाय शत्रू प्रणालींशी इंटरफेस करू शकतो आणि तांत्रिक असुरक्षिततेचे शोषण करू शकतो ज्य�� इतरांना समजू शकत नाहीत.",
+          "desc": "भौतिक चेसिसमध्ये एम्बेड केलेली डिजिटल चेतना. व्हर्च्युअल गाय शत्रू प्रणालींशी इंटरफेस करू शकतो आणि तांत्रिक असुरक्षिततेचे शोषण करू शकतो ज्या इतरांना समजू शकत नाहीत.",
           "lore": "\"मी त्यांच्या फायरवॉलच्या मधल्या जागेत राहतो. मी त्यांच्या यंत्रातील भूत आहे.\""
         }
       }
@@ -13588,7 +13588,7 @@
       "defense": "संरक्षण",
       "mobility": "गतिशीलता",
       "shogun": "सायबर शोगुन",
-      "ronin": "AEGIS RONIN",
+      "ronin": "एजिस रोनिन",
       "matrix": "ओएनआय मॅट्रिक्स",
       "frog": "निंजा बेडूक",
       "guy": "आभासी माणूस"
@@ -13794,12 +13794,12 @@
         },
         "dude": {
           "role": "Balansert fighter",
-          "desc": "Den maskerte krigeren tilbyr den perfekte balansen mellom angrep og forsvar. Pålitelig i alle situasjoner, Mask Dude er det beste valget for strategisk spilling.",
+          "desc": "Den maskerte krigeren tilbyr den perfekte balansen mellom angrep og forsvar. Aegis Ronin er pålitelig i alle situasjoner og er strategisk og utstyrt med en Kinetic Hammer og Energy Tower Shield.",
           "lore": "\"Masken er ikke en forkledning. Det er en erklæring om at jeg nekter å bli gjenkjent av deres systemer.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Ikke la fargen lure deg. Pink Man er kraftsenteret til laget – ødeleggende angrep med høy skadeeffekt og imponerende defensive evner.",
+          "desc": "En spesialist i Phase-Shifting og EMP utbrudd, kjemper for å gjenvinne stjålne identiteter fra romvesendatabaser. Ekstremt rask og dødelig på nært hold.",
           "lore": "\"De ler av fargen min. De slutter å le veldig raskt.\""
         },
         "guy": {
@@ -14209,12 +14209,12 @@
         },
         "dude": {
           "role": "Zrównoważony wojownik",
-          "desc": "Zamaskowany wojownik zapewnia idealną równowagę ataku i obrony. Niezawodny w każdej sytuacji, Mask Dude to najlepszy wybór w przypadku strategicznej rozgrywki.",
+          "desc": "Zamaskowany wojownik zapewnia idealną równowagę ataku i obrony. Niezawodny w każdej sytuacji, Aegis Ronin jest strategiczny i wyposażony w Młot Kinetyczny i Tarczę Wieży Energetycznej.",
           "lore": "„Maska nie jest przebraniem. To deklaracja, że nie zgadzam się na rozpoznanie przez ich systemy”."
         },
         "pink": {
           "role": "Ciężki pałkarz",
-          "desc": "Nie daj się zwieść kolorowi. Pink Man to siła napędowa drużyny — niszczycielskie ataki zadające duże obrażenia i imponujące możliwości obronne.",
+          "desc": "Specjalista od przesunięcia fazowego i wybuchów EMP, walczący o odzyskanie skradzionych tożsamości z baz danych obcych. Niezwykle szybki i zabójczy w walce na bliskim dystansie.",
           "lore": "„Śmieją się z mojego koloru skóry. Bardzo szybko przestają się śmiać”."
         },
         "guy": {
@@ -14624,12 +14624,12 @@
         },
         "dude": {
           "role": "ਸੰਤੁਲਿਤ ਲੜਾਕੂ",
-          "desc": "ਨਕਾਬਪੋਸ਼ ਯੋਧਾ ਅਪਰਾਧ ਅਤੇ ਬਚਾਅ ਦੇ ਸੰਪੂਰਨ ਸੰਤੁਲਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ. ਸਾਰੀਆਂ ਸਥਿਤੀਆਂ ਵਿੱਚ ਭਰੋਸੇਮੰਦ, ਮਾਸਕ ਡੂਡ ਰਣਨੀਤਕ ਗੇਮਪਲੇ ਲਈ ਜਾਣ ਵਾਲੀ ਚੋਣ ਹੈ।",
+          "desc": "ਨਕਾਬਪੋਸ਼ ਯੋਧਾ ਅਪਰਾਧ ਅਤੇ ਬਚਾਅ ਦੇ ਸੰਪੂਰਨ ਸੰਤੁਲਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ. ਸਾਰੀਆਂ ਸਥਿਤੀਆਂ ਵਿੱਚ ਭਰੋਸੇਮੰਦ, ਏਜੀਸ ਰੋਨਿਨ ਰਣਨੀਤਕ ਹੈ ਅਤੇ ਇੱਕ ਕਾਇਨੇਟਿਕ ਹੈਮਰ ਅਤੇ ਐਨਰਜੀ ਟਾਵਰ ਸ਼ੀਲਡ ਨਾਲ ਲੈਸ ਹੈ।",
           "lore": "\"ਮਾਸਕ ਇੱਕ ਭੇਸ ਨਹੀਂ ਹੈ. ਇਹ ਇੱਕ ਘੋਸ਼ਣਾ ਹੈ ਕਿ ਮੈਂ ਉਹਨਾਂ ਦੇ ਸਿਸਟਮ ਦੁਆਰਾ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਇਨਕਾਰ ਕਰਦਾ ਹਾਂ.\""
         },
         "pink": {
           "role": "ਭਾਰੀ ਹਿੱਟਰ",
-          "desc": "ਰੰਗ ਤੁਹਾਨੂੰ ਮੂਰਖ ਨਾ ਹੋਣ ਦਿਓ. ਪਿੰਕ ਮੈਨ ਟੀਮ ਦਾ ਪਾਵਰਹਾਊਸ ਹੈ — ਉੱਚ ਨੁਕਸਾਨ ਦੇ ਆਉਟਪੁੱਟ ਅਤੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਰੱਖਿਆਤਮਕ ਸਮਰੱਥਾ ਦੇ ਨਾਲ ਵਿਨਾਸ਼ਕਾਰੀ ਹਮਲੇ।",
+          "desc": "ਫੇਜ਼-ਸ਼ਿਫਟਿੰਗ ਅਤੇ EMP ਬਰਸਟ ਵਿੱਚ ਇੱਕ ਮਾਹਰ, ਪਰਦੇਸੀ ਡੇਟਾਬੇਸ ਤੋਂ ਚੋਰੀ ਕੀਤੀਆਂ ਪਛਾਣਾਂ ਨੂੰ ਮੁੜ ਦਾਅਵਾ ਕਰਨ ਲਈ ਲੜ ਰਿਹਾ ਹੈ। ਬਹੁਤ ਤੇਜ਼ ਅਤੇ ਨਜ਼ਦੀਕੀ ਥਾਵਾਂ 'ਤੇ ਘਾਤਕ।",
           "lore": "\"ਮੇਰੇ ਰੰਗ 'ਤੇ ਉਹ ਹੱਸਦੇ ਹਨ। ਉਹ ਬਹੁਤ ਜਲਦੀ ਹੱਸਣਾ ਬੰਦ ਕਰ ਦਿੰਦੇ ਹਨ।\""
         },
         "guy": {
@@ -14834,7 +14834,7 @@
       "mobility": "ਗਤੀਸ਼ੀਲਤਾ",
       "shogun": "ਸਾਈਬਰ ਸ਼ੋਗਨ",
       "ronin": "ਏਜੀਸ ਰੋਨਿਨ",
-      "matrix": "ONI ਮੈਟ੍ਰਿਕਸ",
+      "matrix": "ਓਨੀ ਮੈਟ੍ਰਿਕਸ",
       "frog": "ਨਿੰਜਾ ਡੱਡੂ",
       "guy": "ਵਰਚੁਅਲ ਮੁੰਡਾ"
     },
@@ -15039,12 +15039,12 @@
         },
         "dude": {
           "role": "Luptător Echilibrat",
-          "desc": "Războinicul mascat oferă echilibrul perfect între atac și apărare. Fiabil în toate situațiile, Mask Dude este alegerea ideală pentru jocul strategic.",
+          "desc": "Războinicul mascat oferă echilibrul perfect între atac și apărare. Fiabil în toate situațiile, Aegis Ronin este strategic și echipat cu un ciocan Kinetic și un scut pentru turnul energetic.",
           "lore": "\"Masca nu este o deghizare. Este o declarație că refuz să fiu recunoscut de sistemele lor.\""
         },
         "pink": {
           "role": "Lovitor greu",
-          "desc": "Nu lăsa culoarea să te păcălească. Pink Man este puterea echipei – atacuri devastatoare cu daune mari și capacități defensive impresionante.",
+          "desc": "Un specialist în schimbarea de fază și exploziile EMP, luptă pentru a recupera identitățile furate din bazele de date extraterestre. Extrem de rapid și mortal la distanță apropiată.",
           "lore": "\"Ei râd de culoarea mea. Ei încetează să râdă foarte repede.\""
         },
         "guy": {
@@ -15454,17 +15454,17 @@
         },
         "dude": {
           "role": "සමබර සටන්කරුවෙක්",
-          "desc": "වෙස්මුහුණු රණශූරයා වරද සහ ආරක්ෂාව පිළිබඳ පරිප��ර්ණ සමතුලිතතාවයක් ලබා දෙයි. සෑම අවස්ථාවකදීම විශ්වාසදායක, Mask Dude උපාය මාර්ගික ක්‍රීඩාව සඳහා තෝරා ගැනීමයි.",
+          "desc": "වෙස්මුහුණු රණශූරයා වරද සහ ආරක්ෂාව පිළිබඳ පරිපූර්ණ සමතුලිතතාවයක් ලබා දෙයි. ඕනෑම අවස්ථාවක විශ්වසනීය, Aegis Ronin උපාය මාර්ගික වන අතර Kinetic Hammer and Energy Tower Shield වලින් සමන්විත වේ.",
           "lore": "\"වෙස්මුහුණ යනු වෙස්වළා ගැනීමක් නොවේ. එය ඔවුන්ගේ පද්ධති විසින් හඳුනා ගැනීම ප්‍රතික්ෂේප කරන බව ප්‍රකාශ කිරීමකි.\""
         },
         "pink": {
           "role": "හෙවි හිටර්",
-          "desc": "වර්ණය ඔබව රැවටීමට ඉඩ නොදෙන්න. Pink Man යනු කණ්ඩායමේ බලාගාරයයි - ඉහළ හානි ප්‍රතිදානයක් සහ ආකර්ෂණීය ආරක්ෂක හැකියාවන් සහිත විනාශකාරී ප්‍රහාර.",
+          "desc": "Phase-Shifting සහ EMP පිපිරුම් පිළිබඳ විශේෂඥයෙක් පිටසක්වල දත්ත ගබඩාවලින් සොරකම් කළ අනන්‍යතා නැවත ලබා ගැනීමට සටන් කරයි. ඉතා වේගවත් හා සමීප ස්ථානවල මාරාන්තික.",
           "lore": "\"මගේ පාටට උන් හිනාවෙනවා.ඉක්මනට හිනාව නවත්තනවා.\""
         },
         "guy": {
           "role": "තාක්ෂණික විශේෂඥ",
-          "desc": "භෞතික චැසියක තැන්පත් කර ඇති ඩිජිටල් විඥානයක්. අතථ්‍ය ගයි හට සතුරු පද්ධති සමඟ සම්බන්ධ විය හැකි අතර අනෙක් අයට නොපෙනෙන තාක්ෂණික දුර්වලතා උපයෝගී කර ගත හැකිය.",
+          "desc": "භෞතික චැසියක තැන්පත් කර ඇති ඩිජිටල් විඥානයක්. අතථ්‍��� ගයි හට සතුරු පද්ධති සමඟ සම්බන්ධ විය හැකි අතර අනෙක් අයට නොපෙනෙන තාක්ෂණික දුර්වලතා උපයෝගී කර ගත හැකිය.",
           "lore": "\"මම ඔවුන්ගේ ෆයර්වෝල් අතර අවකාශයේ ජීවත් වෙමි. මම ඔවුන්ගේ යන්ත්‍රයේ අවතාරය වෙමි.\""
         }
       }
@@ -15869,12 +15869,12 @@
         },
         "dude": {
           "role": "Vyvážený bojovník",
-          "desc": "Maskovaný bojovník ponúka dokonalú rovnováhu medzi útokom a obranou. Mask Dude je spoľahlivý vo všetkých situáciách a je tou správnou voľbou pre strategickú hru.",
+          "desc": "Maskovaný bojovník ponúka dokonalú rovnováhu medzi útokom a obranou. Aegis Ronin, spoľahlivý vo všetkých situáciách, je strategický a vybavený kinetickým kladivom a energetickým vežovým štítom.",
           "lore": "\"Maska nie je prestrojenie. Je to vyhlásenie, že odmietam byť rozpoznaný ich systémami.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Nenechajte sa zmiasť farbou. Pink Man je hnacou silou tímu – ničivé útoky s vysokým poškodením a pôsobivými obrannými schopnosťami.",
+          "desc": "Špecialista na fázový posun a EMP sa snaží získať späť ukradnuté identity z mimozemských databáz. Extrémne rýchly a smrtiaci na blízko.",
           "lore": "\"Smejú sa mojej farbe. Veľmi rýchlo sa prestanú smiať.\""
         },
         "guy": {
@@ -16063,7 +16063,7 @@
         },
         "orbital_strike": {
           "name": "Orbitálny štrajk",
-          "input": "↑↑↓↓←→"
+          "input": "↑���↓↓←→"
         }
       }
     },
@@ -16284,17 +16284,17 @@
         },
         "dude": {
           "role": "Uravnotežen borec",
-          "desc": "Zamaskirani bojevnik ponuja popolno ravnovesje med napadom in obrambo. Zanesljiv v vseh situacijah je Mask Dude prava izbira za strateško igranje.",
+          "desc": "Zamaskirani bojevnik ponuja popolno ravnovesje med napadom in obrambo. Zanesljiv v vseh situacijah, Aegis Ronin je strateški in opremljen s kinetičnim kladivom in ščitom energetskega stolpa.",
           "lore": "\"Maska ni preobleka. Je izjava, da nočem, da me njihovi sistemi prepoznajo.\""
         },
         "pink": {
           "role": "Hud udarec",
-          "desc": "Naj vas barva ne zavede. Pink Man je elektrarna ekipe — uničujoči napadi z visoko škodo in impresivnimi obrambnimi zmogljivostmi.",
+          "desc": "Specialist za fazne premike in izbruhe EMP, ki se bori za povrnitev ukradenih identitet iz zbirk podatkov nezemljanov. Izjemno hiter in smrtonosen od blizu.",
           "lore": "\"Smejijo se moji barvi. Zelo hitro se nehajo smejati.\""
         },
         "guy": {
           "role": "Tehnični specialist",
-          "desc": "Digitalna zavest, vgrajena v fizično ohišje. Virtual Guy se lahko poveže s sovražnimi sistemi in izkoristi tehni��ne ranljivosti, ki jih drugi ne morejo zaznati.",
+          "desc": "Digitalna zavest, vgrajena v fizično ohišje. Virtual Guy se lahko poveže s sovražnimi sistemi in izkoristi tehnične ranljivosti, ki jih drugi ne morejo zaznati.",
           "lore": "\"Živim v prostoru med njihovimi požarnimi zidovi. Sem duh v njihovem stroju.\""
         }
       }
@@ -16699,12 +16699,12 @@
         },
         "dude": {
           "role": "Balanserad kämpe",
-          "desc": "Den maskerade krigaren erbjuder den perfekta balansen mellan anfall och försvar. Mask Dude är pålitlig i alla situationer och är det bästa valet för strategiskt spel.",
+          "desc": "Den maskerade krigaren erbjuder den perfekta balansen mellan anfall och försvar. Pålitlig i alla situationer, Aegis Ronin är strategisk och utrustad med en Kinetic Hammer och Energy Tower Shield.",
           "lore": "\"Masken är inte en förklädnad. Det är en förklaring om att jag vägrar att bli igenkänd av deras system.\""
         },
         "pink": {
           "role": "Heavy Hitter",
-          "desc": "Låt inte färgen lura dig. Pink Man är lagets kraftpaket — förödande attacker med hög skadeeffekt och imponerande defensiva kapaciteter.",
+          "desc": "En specialist på Phase-Shifting och EMP exploderar, kämpar för att återta stulna identiteter från utomjordiska databaser. Extremt snabbt och dödligt på nära håll.",
           "lore": "\"De skrattar åt min färg. De slutar skratta väldigt snabbt.\""
         },
         "guy": {
@@ -17109,22 +17109,22 @@
       "warriors": {
         "frog": {
           "role": "ஊடுருவி",
-          "desc": "திருட்டுத்தனத்திலும் சுறுசுறுப்பிலும் வல்லவர். நிஞ்ஜா தவளை சுவர்-குதிக்கும் மற்றும் இரட்டை-குதிக்கும் சாத்தியமற்ற நிலைகளை அடைய முடியும். மின்னல் வேக இயக்கம் இந��த வீரரை சிறந்த சாரணர் ஆக்குகிறது.",
+          "desc": "திருட்டுத்தனத்திலும் சுறுசுறுப்பிலும் வல்லவர். நிஞ்ஜா தவளை சுவர்-குதிக்கும் மற்றும் இரட்டை-குதிக்கும் சாத்தியமற்ற நிலைகளை அடைய முடியும். மின்னல் வேக இயக்கம் இந்த வீரரை சிறந்த சாரணர் ஆக்குகிறது.",
           "lore": "\"தாமதமாகும் வரை அவர்கள் என்னைப் பார்ப்பதில்லை. அவர்களின் ஸ்பாட்லைட்டுகளுக்கு இடையே உள்ள ஓரங்களில் நான் இருக்கிறேன்.\""
         },
         "dude": {
           "role": "சமச்சீர் போராளி",
-          "desc": "முகமூடி அணிந்த போர்வீரன் குற்றம் மற்றும் பாதுகாப்பின் சரியான சமநிலையை வழங்குகிறது. எல்லா சூழ்நிலைகளிலும் நம்பகமானது, மாஸ்க் டியூட் என்பது மூலோபாய விளையாட்டுக்கான தேர்வு ஆகும்.",
+          "desc": "முகமூடி அணிந்த போர்வீரன் குற்றம் மற்றும் பாதுகாப்பின் சரியான சமநிலையை வழங்குகிறது. எல்லா சூழ்நிலைகளிலும் நம்பகமான, ஏஜிஸ் ரோனின் உத்தி மற்றும் ஒரு இயக்க சுத்தியல் மற்றும் ஆற்றல் டவர் கேடயத்துடன் பொருத்தப்பட்டவர்.",
           "lore": "\"முகமூடி ஒரு மாறுவேடம் அல்ல. இது அவர்களின் அமைப்புகளால் நான் அங்கீகரிக்கப்பட மறுக்கும் ஒரு அறிவிப்பு.\""
         },
         "pink": {
           "role": "ஹெவி ஹிட்டர்",
-          "desc": "நிறம் உங்களை முட்டாளாக்க விடாதீர்கள். பிங்க் மேன் அணியின் அதிகார மையமாக உள்ளது - அதிக சேதம் வெளியீடு மற்றும் ஈர்க்கக்கூடிய தற்காப்பு திறன்களுடன் பேரழிவு தாக்குதல்கள்.",
+          "desc": "ஃபேஸ்-ஷிஃப்டிங் மற்றும் ஈஎம்பி பர்ஸ்ட்களில் ஒரு நிபுணர், அன்னிய தரவுத்தளங்கள���லிருந்து திருடப்பட்ட அடையாளங்களை மீட்டெடுக்க போராடுகிறார். மிக வேகமாகவும், நெருங்கிய இடங்களில் கொடியதாகவும் இருக்கும்.",
           "lore": "\"அவர்கள் என் நிறத்தைப் பார்த்து சிரிக்கிறார்கள், அவர்கள் மிக விரைவாக சிரிப்பதை நிறுத்துகிறார்கள்.\""
         },
         "guy": {
           "role": "தொழில்நுட்ப நிபுணர்",
-          "desc": "ஒரு உடல் சேஸில் பதிக்கப்பட்ட டிஜிட்டல் உணர்வு. விர்ச்சுவல் கை எதிரி அமைப்புகளுடன் இடைமுகம் செய்யலாம் மற்றும் மற்றவர்கள் உணர முடியாத தொழில்நுட்ப பாதிப்புகளை பயன்படுத்திக் கொள்ளலாம்.",
+          "desc": "ஒரு உடல் சேஸில் பதிக்கப்பட்ட டிஜிட்டல் உணர்வு. விர்ச்சுவல் கை எதிரி அமைப்புகளுடன் இடைமுகம் செய்யலாம் மற்றும் மற்றவர்கள் உணர முடியாத தொழில்நுட்ப பாதிப��புகளை பயன்படுத்திக் கொள்ளலாம்.",
           "lore": "\"நான் அவர்களின் ஃபயர்வால்களுக்கு இடையே உள்ள இடைவெளியில் வாழ்கிறேன். அவர்களின் இயந்திரத்தில் நான் பேய்.\""
         }
       }
@@ -17524,17 +17524,17 @@
       "warriors": {
         "frog": {
           "role": "చొరబాటుదారుడు",
-          "desc": "దొంగతనం మరియు చురుకుదనం యొక్క మాస్టర్. నింజా ఫ్రాగ్ అసాధ్యమైన స్థానాలను చేరుకోవడానికి గోడ-దూకడం మరియు డబుల్-జంప్ చేయగలదు. మెరుపు-వేగవంతమైన కదలిక ఈ యోధుడిని ఆదర్��� స్కౌట్‌గా చేస్తుంది.",
+          "desc": "దొంగతనం మరియు చురుకుదనం యొక్క మాస్టర్. నింజా ఫ్రాగ్ అసాధ్యమైన స్థానాలను చేరుకోవడానికి గోడ-దూకడం మరియు డబుల్-జంప్ చేయగలదు. మెరుపు-వేగవంతమైన కదలిక ఈ యోధుడిని ఆదర్శ స్కౌట్‌గా చేస్తుంది.",
           "lore": "\"చాలా ఆలస్యం అయ్యే వరకు వారు నన్ను చూడలేరు. వారి స్పాట్‌లైట్ల మధ్య అంచులలో, నేను ఉన్నాను.\""
         },
         "dude": {
           "role": "బ్యాలెన్స్‌డ్ ఫైటర్",
-          "desc": "ముసుగు యోధుడు నేరం మరియు రక్షణ యొక్క ఖచ్చితమైన సమతుల్యతను అందిస్తుంది. అన్ని పరిస్థితులలో నమ్మదగినది, మాస్క్ డ్యూడ్ అనేది వ్యూహాత్మక గేమ్‌ప్లే కోసం గో-టు ఎంపిక.",
+          "desc": "ముసుగు యోధుడు నేరం మరియు రక్షణ యొక్క ఖచ్చితమైన సమతుల్యతను అందిస్తుంది. అన్ని పరిస్థితులలో నమ్మదగినది, ఏజిస్ రోనిన్ వ్యూహాత్మకమైనది మరియు కైనెటిక్ హామర్ మరియు ఎనర్జీ టవర్ షీల్డ్‌తో అమర్చబడి ఉంటుంది.",
           "lore": "\"ముసుగు అనేది మారువేషం కాదు. ఇది వారి వ్యవస్థలచే గుర్తించబడటానికి నేను నిరాకరించే ప్రకటన.\""
         },
         "pink": {
           "role": "హెవీ హిట్టర్",
-          "desc": "రంగు మిమ్మల్ని మోసం చేయనివ్వవద్దు. పింక్ మ్యాన్ జట్టు యొక్క పవర్‌హౌస్ - అధిక నష్టం అవుట్‌పుట్ మరియు ఆకట్టుకునే రక్షణ సామర్థ్యాలతో విధ్వంసకర దాడులు.",
+          "desc": "ఫేజ్-షిఫ్టింగ్ మరియు EMP బర్స్ట్‌లలో నిపుణుడు, ఏలియన్ డేటాబేస్ నుండి దొంగిలించబడిన గుర్తింపులను తిరిగి పొందేందుకు పోరాడుతున్నారు. అత్యంత వేగంగా ���రియు దగ్గరి ప్రదేశాలలో ప్రాణాంతకం.",
           "lore": "\"నా రంగు చూసి నవ్వుతారు. చాలా త్వరగా నవ్వడం మానేస్తారు.\""
         },
         "guy": {
@@ -17739,7 +17739,7 @@
       "mobility": "మొబిలిటీ",
       "shogun": "సైబర్ షోగన్",
       "ronin": "ఏజిస్ రోనిన్",
-      "matrix": "ONI మ���యాట్రిక్స్",
+      "matrix": "ఓని మ్యాట్రిక్స్",
       "frog": "నింజా కప్ప",
       "guy": "వర్చువల్ గై"
     },
@@ -17944,17 +17944,17 @@
         },
         "dude": {
           "role": "นักสู้ที่สมดุล",
-          "desc": "นักรบสวมหน้ากากมอบความสมดุลที่สมบูรณ์แบบของการรุกและการป้องกัน Mask Dude เชื่อถือได้ในทุกสถานการณ์คือตัวเลือกที่เหมาะสำหรับการเล่นเกมเชิงกลยุทธ์",
+          "desc": "นักรบสวมหน้ากากมอบความสมดุลที่สมบูรณ์แบบของการรุกและการป้องกัน เชื่อถือได้ในทุกสถานการณ์ เอจิส โรนิน มีกลยุทธ์และมาพร้อมกับ ค้อนจลนศาสตร์ และ โล่หอคอยพลังงาน",
           "lore": "“หน้ากากไม่ใช่การปลอมตัว แต่เป็นการประกาศว่าฉันปฏิเสธที่จะได้รับการยอมรับจากระบบของพวกเขา”"
         },
         "pink": {
           "role": "ผู้ตีหนัก",
-          "desc": "อย่าปล่อยให้สีหลอกคุณ Pink Man คือขุมพลังของทีม — การโจมตีทำลายล้างที่สร้างความเสียหายได้สูงและความสามารถในการป้องกันที่น่าประทับใจ",
+          "desc": "ผู้เชี่ยวชาญด้าน เฟส-ชิฟต์ และ คลื่นแม่เหล็กไฟฟ้า (คลื่นแม่เหล็กไฟฟ้า (EMP)) ระเบิด ต่อสู้เพื่อเรียกคืนตัวตนที่ถูกขโมยจากฐานข้อมูลของมนุษย์ต่างดาว รวดเร็วและอันตรายอย่างยิ่งในระยะประชิด",
           "lore": "“พวกเขาหัวเราะเยาะสีผิวของฉัน พวกเขาหยุดหัวเราะเร็วมาก”"
         },
         "guy": {
           "role": "ผู้เชี่ยวชาญด้านเทคโนโลยี",
-          "desc": "จิตสำนึกดิจิทัลที่ฝังอยู่ในแชสซีทางกายภาพ Virtual Guy สามารถเชื่อมต่อกับระบบของศัตรูและใช้ประโยชน์จากช่องโหว่ทางเทคนิคที่ผู้อื่นไม่สามารถรับรู้ได้",
+          "desc": "จิตสำนึกดิจิทัลที่ฝังอยู่ในแชสซีทางกายภาพ ผู้ชายเสมือนจริง สามารถเชื่อมต่อกับระบบของศัตรูและใช้ประโยชน์จากช่องโหว่ทางเทคนิคที่ผู้อื่นไม่สามารถรับรู้ได้",
           "lore": "\"ฉันอาศัยอยู่ในช่องว่างระหว่างไฟร์วอลล์ของพวกเขา ฉันคือผีในเครื่องของพวกเขา\""
         }
       }
@@ -18359,12 +18359,12 @@
         },
         "dude": {
           "role": "Dengeli Savaşçı",
-          "desc": "Maskeli savaşçı, saldırı ve savunma arasında mükemmel bir denge sunuyor. Her durumda güvenilir olan Mask Dude, stratejik oyun için ilk tercihtir.",
+          "desc": "Maskeli savaşçı, saldırı ve savunma arasında mükemmel bir denge sunuyor. Her durumda güvenilir olan Aegis Ronin stratejiktir ve Kinetik Çekiç ve Enerji Kulesi Kalkanı ile donatılmıştır.",
           "lore": "\"Maske bir kılık değiştirme değil. Sistemleri tarafından tanınmayı reddettiğimin bir beyanıdır.\""
         },
         "pink": {
           "role": "Ağır Vurucu",
-          "desc": "Rengi sizi yanıltmasın. Pembe Adam takımın güç merkezidir; yüksek hasar çıkışı ve etkileyici savunma yetenekleriyle yıkıcı saldırılar yapar.",
+          "desc": "Faz Değiştirme ve EMP patlamaları konusunda uzman, uzaylı veritabanlarından çalınan kimlikleri geri almak için savaşıyor. Yakın mesafelerde son derece hızlı ve ölümcül.",
           "lore": "\"Benim rengime gülüyorlar. Gülmeyi çok çabuk bırakıyorlar.\""
         },
         "guy": {
@@ -18774,17 +18774,17 @@
         },
         "dude": {
           "role": "Збалансований боєць",
-          "desc": "Воїн у масці пропонує ідеальний баланс нападу та захисту. Надійний у будь-якій ситуації, Mask Dude — ідеальний вибір для стратегічної гри.",
+          "desc": "Воїн у масці пропонує ідеальний баланс нападу та захисту. Надійний у будь-якій ситуації, Егід Ронін є стратегічним і осна��ений Кінетичний Молот і Енергетичний Вежовий Щит.",
           "lore": "«Маска — це не маскування. Це декларація того, що я відмовляюся бути розпізнаним їхніми системами»."
         },
         "pink": {
           "role": "Важкий нападник",
-          "desc": "Не дозволяйте кольору обдурити вас. Рожева людина — це потужний центр команди — нищівні атаки з великим ушкодженням і вражаючі захисні можливості.",
+          "desc": "Спеціаліст із фазового зсуву та спалахів ЕМІ, бореться за повернення вкрадених ідентифікацій із інопланетних баз даних. Надзвичайно швидкий і смертоносний на близькій відстані.",
           "lore": "«Вони сміються з мого кольору. Вони дуже швидко перестають сміятися»."
         },
         "guy": {
           "role": "технічний спеціаліст",
-          "desc": "Цифрова свідомість, вбудована у фізичне шасі. Virtual Guy може взаємодіяти з ворожими системами та використовувати технічні вразливості, які інші не можуть помітити.",
+          "desc": "Цифрова свідомість, вбудована у фізичне ш��сі. Віртуальний Хлопець може взаємодіяти з ворожими системами та використовувати технічні вразливості, які інші не можуть помітити.",
           "lore": "«Я живу в просторі між їхніми фаєрволами. Я привид у їхній машині»."
         }
       }
@@ -18984,7 +18984,7 @@
       "mobility": "МОБІЛЬНІСТЬ",
       "shogun": "КІБЕРШОГУН",
       "ronin": "ЕГІД РОНІН",
-      "matrix": "МАТРИЦЯ ONI",
+      "matrix": "МАТРИЦЯ ОНІ",
       "frog": "ЖАБА-НІНДЗЯ",
       "guy": "ВІРТУАЛЬНИЙ ХЛОПЕЦЬ"
     },
@@ -19189,12 +19189,12 @@
         },
         "dude": {
           "role": "Máy bay chiến đấu cân bằng",
-          "desc": "Chiến binh đeo mặt nạ mang đến sự cân bằng hoàn hảo giữa tấn công và phòng thủ. Đáng tin cậy trong mọi tình huống, Mask Dude là lựa chọn phù hợp cho lối chơi chiến lược.",
+          "desc": "Chiến binh đeo mặt nạ mang đến sự cân bằng hoàn hảo giữa tấn công và phòng thủ. Đáng tin cậy trong mọi tình huống, Aegis Ronin có tính chiến lược và được trang bị Búa Kinetic và Khiên Tháp Năng lượng.",
           "lore": "\"Chiếc mặt nạ không phải là một vật ngụy trang. Đó là lời tuyên bố rằng tôi từ chối được hệ thống của họ công nhận.\""
         },
         "pink": {
           "role": "Người đánh nặng",
-          "desc": "Đừng để màu sắc đánh lừa bạn. Pink Man là sức mạnh của đội - những đòn tấn công tàn khốc với lượng sát thương cao và khả năng phòng thủ ấn tượng.",
+          "desc": "Một chuyên gia về Dịch chuyển pha và bùng nổ EMP, chiến đấu để lấy lại danh tính bị đánh cắp từ cơ sở dữ liệu của người ngoài hành tinh. Cực kỳ nhanh và nguy hiểm ở khoảng cách gần.",
           "lore": "\"Họ cười nhạo màu sắc của tôi. Họ ngừng cười rất nhanh.\""
         },
         "guy": {
