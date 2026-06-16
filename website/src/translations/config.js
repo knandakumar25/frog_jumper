@@ -78,6 +78,9 @@ export const LANGUAGE_CONFIG = {
         { name: 'Lithuania (Lietuva)', flag: '🇱🇹', code: 'lt' },
         { name: 'Malaysia', flag: '🇲🇾', code: 'my' },
         { name: 'China (中国)', flag: '🇨🇳', code: 'cn' },
+        { name: 'Hong Kong (香港)', flag: '🇭🇰', code: 'hk' },
+        { name: 'Macao (澳門)', flag: '🇲🇴', code: 'mo' },
+        { name: 'Taiwan (台灣)', flag: '🇹🇼', code: 'tw' },
         { name: 'Norway (Norge)', flag: '🇳🇴', code: 'no' },
         { name: 'Poland (Polska)', flag: '🇵🇱', code: 'pl' },
         { name: 'Romania (România)', flag: '🇷🇴', code: 'ro' },
@@ -172,7 +175,17 @@ export const LANGUAGE_CONFIG = {
     { id: 'lithuanian', name: 'Lietuvių', countries: [{ name: 'Lithuania (Lietuva)', flag: '🇱🇹', code: 'lt' }] },
     { id: 'malay', name: 'Bahasa Melayu', countries: [{ name: 'Malaysia', flag: '🇲🇾', code: 'my' }, { name: 'Brunei', flag: '🇧🇳', code: 'bn' }, { name: 'Singapore (新加坡/Singapura/சிங்கப்பூர்)', flag: '🇸🇬', code: 'sg' }] },
     { id: 'malayalam', name: 'മലയാളം', countries: [{ name: 'India (भारत)', flag: '🇮🇳', code: 'in' }] },
-    { id: 'mandarin', name: '简体中文', countries: [{ name: 'China (中国)', flag: '🇨🇳', code: 'cn' }, { name: 'Singapore (新加坡/Singapura/சிங்கப்பூர்)', flag: '🇸🇬', code: 'sg' }] },
+    {
+      id: 'mandarin',
+      name: '简体中文',
+      countries: [
+        { name: 'China (中国)', flag: '🇨🇳', code: 'cn', langId: 'simplified_chinese' },
+        { name: 'Hong Kong (香港)', flag: '🇭🇰', code: 'hk', langId: 'cantonese' },
+        { name: 'Macao (澳門)', flag: '🇲🇴', code: 'mo', langId: 'cantonese' },
+        { name: 'Taiwan (台灣)', flag: '🇹🇼', code: 'tw', langId: 'traditional_chinese' },
+        { name: 'Singapore (新加坡/Singapura/சிங்கப்பூர்)', flag: '🇸🇬', code: 'sg', langId: 'simplified_chinese' }
+      ]
+    },
     { id: 'marathi', name: 'मराठी', countries: [{ name: 'India (भारत)', flag: '🇮🇳', code: 'in' }] },
     { id: 'norwegian', name: 'Norsk', countries: [{ name: 'Norway (Norge)', flag: '🇳🇴', code: 'no' }] },
     { id: 'polish', name: 'Polski', countries: [{ name: 'Poland (Polska)', flag: '🇵🇱', code: 'pl' }] },
@@ -228,6 +241,9 @@ export const NATIVE_LANGUAGE_NAMES = {
   malay: 'Bahasa Melayu',
   malayalam: 'മലയാളം',
   mandarin: '简体中文',
+  simplified_chinese: '简体中文',
+  traditional_chinese: '繁體中文',
+  cantonese: '粵語',
   marathi: 'मराठी',
   norwegian: 'Norsk',
   polish: 'Polski',
