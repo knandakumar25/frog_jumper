@@ -1,6 +1,7 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
-import './Footer.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,144 +10,108 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="footer" id="footer">
-      {/* CTA Banner */}
-      <div className="footer__cta">
-        <div className="footer__cta-bg" />
-        <div className="container footer__cta-inner">
-          <div>
-            <h2 className="footer__cta-title">
-              {t('story.timeline.mission_title')}
-            </h2>
-            <p className="footer__cta-sub">
-              {t('story.timeline.mission_desc')}
-            </p>
-          </div>
-          <div className="footer__cta-actions">
-            <a
-              href="https://github.com/knandakumar25/frog_jumper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary footer__cta-btn"
-              id="footer-play-btn"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-              {t('hero.play_on_github')}
-            </a>
-            <a
-              href="https://github.com/knandakumar25/frog_jumper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline footer__cta-btn"
-              id="footer-github-btn"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              {t('hero.view_source')}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer body */}
-      <div className="footer__body">
-        <div className="container footer__body-inner">
-          <div className="footer__brand">
-            <div className="footer__logo">
-              <span className="footer__logo-icon">⬡</span>
-              <span className="footer__logo-text">
+    <footer className="w-full mt-auto bg-void-black border-t-4 border-double border-secondary-container text-on-surface-variant font-body-md text-[14px]">
+      <div className="max-w-container-max-width mx-auto px-4 md:px-margin-desktop py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
+          
+          {/* Brand & Status Column */}
+          <div className="md:col-span-5 flex flex-col gap-4">
+            <div className="flex items-center gap-2 font-display-hero text-headline-md text-primary-container drop-shadow-[0_0_8px_rgba(0,243,255,0.6)] font-bold tracking-tighter uppercase select-none">
+              <span>⬡</span>
+              <span>
                 {t('hero.title_line1') === 'AXIOM FORCE' ? (
-                  <>AXIOM<span className="footer__logo-accent"> FORCE</span></>
+                  <>AXIOM <span className="text-secondary-container drop-shadow-[0_0_8px_rgba(254,0,254,0.6)]">FORCE</span></>
                 ) : (
                   t('hero.title_line1')
                 )}
               </span>
             </div>
-            <p className="footer__brand-desc">
-              {t('footer.tagline')}
+            
+            <p className="text-on-surface-variant max-w-sm font-body-md leading-relaxed">
+              {t('footer.tagline', "A 3D action platformer built with Godot 4.6 and C#. Reclaim Earth from Xelthara alien occupiers.")}
             </p>
-            <div className="footer__axiom-status">
-              <span className="footer__axiom-dot" />
-              <span className="footer__axiom-text">{t('footer.status')}</span>
+            
+            {/* Status indicator */}
+            <div className="flex items-center gap-2.5 mt-2 bg-deep-grey/50 border border-outline-variant/30 px-4 py-2 w-fit">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+              </span>
+              <span className="text-[12px] font-semibold text-tertiary-fixed-dim uppercase tracking-[0.1em] font-label-caps">
+                {t('footer.status', "AXIOM-7 ONLINE — RESISTANCE ACTIVE")}
+              </span>
             </div>
           </div>
 
-          <div className="footer__links-group">
-            <h4 className="footer__links-title">{t('footer.nav_title')}</h4>
-            <ul className="footer__links">
+          {/* Navigation Links Column */}
+          <div className="md:col-span-3">
+            <h4 className="font-label-caps text-label-caps text-warning-orange uppercase tracking-wider mb-4 border-b border-warning-orange/30 pb-2 w-fit">
+              {t('footer.nav_title', "NAVIGATION")}
+            </h4>
+            <ul className="flex flex-col gap-2">
               {[
-                { labelKey: 'home.story_label', href: '/' },
-                { labelKey: 'nav.story', href: '/story' },
-                { labelKey: 'nav.characters', href: '/characters' },
-                { labelKey: 'nav.levels', href: '/levels' },
-                { labelKey: 'nav.features', href: '/features' },
-                { labelKey: 'nav.controls', href: '/controls' },
-              ].map(link => {
-                const targetHref = link.href.startsWith('/') 
-                  ? `/${currentLocale}${link.href === '/' ? '' : link.href}` 
-                  : link.href;
-                return (
-                  <li key={link.href}>
-                    <a href={targetHref} className="footer__link">
-                      {t(link.labelKey)}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="footer__links-group">
-            <h4 className="footer__links-title">{t('footer.tech_title')}</h4>
-            <ul className="footer__links">
-              {[
-                { label: 'Godot Engine', href: 'https://godotengine.org/' },
-                { label: '.NET 8 SDK', href: 'https://dotnet.microsoft.com/' },
-                { label: 'godot-sqlite', href: 'https://github.com/2shady4u/godot-sqlite' },
-                { label: 'Pixel Adventure', href: '#' },
-                { label: 'Comic Neue Font', href: 'https://comicneue.com/' },
+                { label: 'HOME', to: '' },
+                { label: 'GAMEPLAY', to: '/gameplay' },
+                { label: 'SQUAD', to: '/squad' },
+                { label: 'TECH HUB', to: '/tech-hub' },
+                { label: 'DESIGN SYSTEM', to: '/design-system' },
               ].map(link => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target={link.href.startsWith('http') ? '_blank' : undefined}
-                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                <li key={link.to}>
+                  <NavLink
+                    to={`/${currentLocale}${link.to}`}
+                    end={link.to === ''}
+                    className={({ isActive }) =>
+                      `hover:text-primary-container transition-colors ${
+                        isActive ? 'text-primary-container font-semibold' : 'text-on-surface-variant'
+                      }`
+                    }
                   >
-                    {link.label}
-                  </a>
+                    &gt; {link.label}
+                  </NavLink>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="footer__links-group">
-            <h4 className="footer__links-title">{t('footer.credits_title')}</h4>
-            <ul className="footer__links footer__credits">
-              <li>Sprites: Pixel Adventure Pack</li>
-              <li>Backgrounds: Cyber City Dusk</li>
-              <li>Music: MusicGPT</li>
-              <li>Font: Comic Neue & Noto Sans</li>
-              <li>Engine: Godot 4.6</li>
+          {/* Tech Stack Column */}
+          <div className="md:col-span-4">
+            <h4 className="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-4 border-b border-secondary/30 pb-2 w-fit">
+              {t('footer.tech_title', "RESISTANCE ENGINE")}
+            </h4>
+            <ul className="flex flex-col gap-2 text-on-surface-variant">
+              <li>
+                <span className="text-secondary-fixed-dim font-semibold">Engine:</span> Godot 4.6 (Custom Vulkan)
+              </li>
+              <li>
+                <span className="text-secondary-fixed-dim font-semibold">C# Runtime:</span> .NET 8 SDK
+              </li>
+              <li>
+                <span className="text-secondary-fixed-dim font-semibold">Narrative:</span> Inkle Ink Script
+              </li>
+              <li>
+                <span className="text-secondary-fixed-dim font-semibold">Database:</span> SQLite Score Sync
+              </li>
+              <li>
+                <span className="text-secondary-fixed-dim font-semibold">Localization:</span> 50+ Languages (RTL-Ready)
+              </li>
             </ul>
           </div>
+
         </div>
 
-        <div className="footer__bottom">
-          <div className="container footer__bottom-inner">
-            <span className="footer__copyright">
-              {t('footer.copyright', { year })}
-            </span>
-            <span className="footer__mono">
-              v1.0.0 — GODOT 4.6 — MIT LICENSE
-            </span>
-          </div>
+        {/* Divider */}
+        <div className="h-[2px] bg-outline-variant/20 my-8"></div>
+
+        {/* Copyright Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] font-label-caps text-on-surface-variant/80">
+          <span>
+            {t('footer.copyright', { year }).replace('{{year}}', year)}
+          </span>
+          <span className="text-secondary-fixed-dim font-body-md tracking-wider">
+            v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST
+          </span>
         </div>
       </div>
     </footer>
   );
 }
-
