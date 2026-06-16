@@ -121,7 +121,7 @@ export default function DesignSystem() {
           <div className="border-b border-outline-variant/20 pb-6">
             <span className="font-label-caps text-[11px] text-outline block mb-2">DISPLAY HERO // Space Grotesk / 72px / Bold</span>
             <h1 className="font-display-hero text-[40px] md:text-display-hero uppercase text-primary font-bold leading-tight select-none">
-              RECLAIM EARTH
+              {t('design_system.typo_display_hero', 'RECLAIM EARTH')}
             </h1>
           </div>
 
@@ -129,7 +129,7 @@ export default function DesignSystem() {
           <div className="border-b border-outline-variant/20 pb-6">
             <span className="font-label-caps text-[11px] text-outline block mb-2">HEADLINE LG // Space Grotesk / 40px / Bold</span>
             <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-white font-bold leading-none">
-              TACTICAL INTEL REPORT
+              {t('design_system.typo_headline_lg', 'TACTICAL INTEL REPORT')}
             </h2>
           </div>
 
@@ -137,7 +137,7 @@ export default function DesignSystem() {
           <div className="border-b border-outline-variant/20 pb-6">
             <span className="font-label-caps text-[11px] text-outline block mb-2">BODY LG // JetBrains Mono / 18px / Normal</span>
             <p className="font-body-lg text-body-lg text-on-surface leading-relaxed">
-              &gt; Ground forces have breached Sector 4 containment parameters. Launching active sync grid lock.
+              {t('design_system.typo_body_lg', '> Ground forces have breached Sector 4 containment parameters. Launching active sync grid lock.')}
             </p>
           </div>
 
@@ -145,7 +145,7 @@ export default function DesignSystem() {
           <div className="border-b border-outline-variant/20 pb-6">
             <span className="font-label-caps text-[11px] text-outline block mb-2">BODY MD // JetBrains Mono / 14px / Normal</span>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              The Xelthara arrived not to conquer, but to administer. We operate in the dead zones, striking from the shadows of brutalist monoliths.
+              {t('design_system.typo_body_md', 'The Xelthara arrived not to conquer, but to administer. We operate in the dead zones, striking from the shadows of brutalist monoliths.')}
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function DesignSystem() {
           <div>
             <span className="font-label-caps text-[11px] text-outline block mb-2">LABEL CAPS // Space Mono / 12px / Bold / Monospaced</span>
             <span className="font-label-caps text-label-caps text-warning-orange uppercase block">
-              STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms
+              {t('design_system.typo_label_caps', 'STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms')}
             </span>
           </div>
         </div>

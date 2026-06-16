@@ -400,7 +400,12 @@
           "name": "Warning Orange",
           "desc": "Critical alerts, threat states, and warnings"
         }
-      }
+      },
+      "typo_display_hero": "RECLAIM EARTH",
+      "typo_headline_lg": "TACTICAL INTEL REPORT",
+      "typo_body_lg": "> Ground forces have breached Sector 4 containment parameters. Launching active sync grid lock.",
+      "typo_body_md": "The Xelthara arrived not to conquer, but to administer. We operate in the dead zones, striking from the shadows of brutalist monoliths.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
     }
   },
   "es": {
@@ -804,7 +809,12 @@
           "name": "Advertencia naranja",
           "desc": "Alertas críticas, estados de amenaza y advertencias"
         }
-      }
+      },
+      "typo_display_hero": "RECLAMAR LA TIERRA",
+      "typo_headline_lg": "INFORME TÁCTICO DE INFORMACIÓN",
+      "typo_body_lg": "> Las fuerzas terrestres han violado los parámetros de contención del Sector 4. Lanzando bloqueo de cuadrícula de sincronización activa.",
+      "typo_body_md": "Los Xelthara no llegaron para conquistar, sino para administrar. Operamos en las zonas muertas, atacando desde las sombras de monolitos brutalistas.",
+      "typo_label_caps": "ESTADO: ENLACE DE COMUNICACIÓN DE RESISTENCIA ASEGURADO // LATENCIA 4 ms"
     }
   },
   "fr": {
@@ -1208,7 +1218,12 @@
           "name": "Avertissement Orange",
           "desc": "Alertes critiques, états de menace et avertissements"
         }
-      }
+      },
+      "typo_display_hero": "RÉCLAMER LA TERRE",
+      "typo_headline_lg": "RAPPORT D'INTEL TACTIQUE",
+      "typo_body_lg": "> Les forces terrestres ont violé les paramètres de confinement du secteur 4. Lancement du verrouillage de la grille de synchronisation active.",
+      "typo_body_md": "Les Xelthara ne sont pas arrivés pour conquérir, mais pour administrer. Nous opérons dans les zones mortes, frappant depuis l’ombre de monolithes brutalistes.",
+      "typo_label_caps": "ÉTAT : RÉSISTANCE LIEN COMM SÉCURISÉ // LATENCE 4ms"
     }
   },
   "ar": {
@@ -1612,7 +1627,12 @@
           "name": "تحذير برتقالي",
           "desc": "التنبيهات الحرجة وحالات التهديد والتحذيرات"
         }
-      }
+      },
+      "typo_display_hero": "استصلاح الأرض",
+      "typo_headline_lg": "تقرير إنتل تكتيكي",
+      "typo_body_lg": "> انتهكت القوات البرية معايير الاحتواء للقطاع 4. إطلاق قفل شبكة المزامنة النشطة.",
+      "typo_body_md": "لم يصل Xelthara للغزو، بل للإدارة. نحن نعمل في المناطق الميتة، ونضرب من ظلال الكتل الوحشية.",
+      "typo_label_caps": "الحالة: رابط اتصال المقاومة مؤمن // زمن الاستجابة 4 مللي ثانية"
     }
   },
   "he": {
@@ -2016,7 +2036,12 @@
           "name": "אזהרה כתום",
           "desc": "התראות קריטיות, מצבי איום ואזהרות"
         }
-      }
+      },
+      "typo_display_hero": "להחזיר את כדור הארץ",
+      "typo_headline_lg": "דוח INTEL טקטי",
+      "typo_body_lg": "> כוחות הקרקע פרצו את פרמטרי הבלימה של סקטור 4. הפעלת נעילת רשת סנכרון פעילה.",
+      "typo_body_md": "הקסלטארה הגיעו לא כדי לכבוש, אלא כדי לנהל. אנו פועלים באזורים המתים, פוגעים בצללים של מונוליטים ברוטליים.",
+      "typo_label_caps": "סטטוס: התנגדות COM LINK מאובטח // חביון 4ms"
     }
   },
   "pt": {
@@ -2420,7 +2445,12 @@
           "name": "Aviso Laranja",
           "desc": "Alertas críticos, estados de ameaça e avisos"
         }
-      }
+      },
+      "typo_display_hero": "RECUPERAR A TERRA",
+      "typo_headline_lg": "RELATÓRIO INTEL TÁTICO",
+      "typo_body_lg": "> As forças terrestres violaram os parâmetros de contenção do Setor 4. Iniciando o bloqueio de grade de sincronização ativo.",
+      "typo_body_md": "Os Xelthara não chegaram para conquistar, mas para administrar. Operamos nas zonas mortas, atacando nas sombras dos monólitos brutalistas.",
+      "typo_label_caps": "STATUS: LINK DE COMUNICAÇÃO DE RESISTÊNCIA SEGURO // LATÊNCIA 4ms"
     }
   },
   "hy": {
@@ -2824,7 +2854,12 @@
           "name": "Զգուշացում Orange",
           "desc": "Կրիտիկական ազդանշաններ, սպառնալիքի վիճակներ և նախազգուշացումներ"
         }
-      }
+      },
+      "typo_display_hero": "ԵՐԿԻՐԸ ՎԵՐԱՑՆԵԼ",
+      "typo_headline_lg": "ՏԱԿՏԻԿԱԿԱՆ ԻՆՏԵԼ ՀԱՇՎԵՏՎՈՒԹՅՈՒՆ",
+      "typo_body_lg": "> Ցամաքային ուժերը խախտել են 4-րդ հատվածի զսպման պարամետրերը: Գործարկում է ակտիվ համաժամացման ցանցի կողպումը:",
+      "typo_body_md": "Xelthara-ն եկավ ոչ թե նվաճելու, այլ կառավարելու համար: Մենք գործում ենք մեռյալ գոտիներում՝ հարվածելով բրուտալիստական ​​մոնոլիտների ստվերից։",
+      "typo_label_caps": "ԿԱՐԳԱՎԻՃԱԿԸ. RESISTANCE COMM LINK ԱՊԱՀՈՎՎԱԾ Է // ԼԱՏԵՆՏՈՒԹՅՈՒՆ 4ms"
     }
   },
   "az": {
@@ -3228,7 +3263,12 @@
           "name": "Xəbərdarlıq Narıncı",
           "desc": "Kritik xəbərdarlıqlar, təhlükə halları və xəbərdarlıqlar"
         }
-      }
+      },
+      "typo_display_hero": "YERİNİ GERİ ALIN",
+      "typo_headline_lg": "TAKTİKİ İNTEL HESABATI",
+      "typo_body_lg": "> Quru qoşunları 4-cü sektorun saxlanma parametrlərini pozub. Aktiv sinxronizasiya şəbəkəsi kilidi işə salınır.",
+      "typo_body_md": "Xelthara fəth etmək üçün deyil, idarə etmək üçün gəldi. Biz qəddar monolitlərin kölgəsindən vuraraq ölü zonalarda fəaliyyət göstəririk.",
+      "typo_label_caps": "STATUS: MÜQAVİLƏT KOMM BAĞLANTISI TƏHLÜKƏSİZ OLUNUB // GECİRME 4ms"
     }
   },
   "bn": {
@@ -3632,7 +3672,12 @@
           "name": "সতর্কতা কমলা",
           "desc": "সমালোচনামূলক সতর্কতা, হুমকি রাষ্ট্র, এবং সতর্কতা"
         }
-      }
+      },
+      "typo_display_hero": "পৃথিবী পুনরুদ্ধার করুন",
+      "typo_headline_lg": "ট্যাকটিক্যাল ইন্টেল রিপোর্ট",
+      "typo_body_lg": "> স্থল বাহিনী সেক্টর 4 কন্টেনমেন্ট প্যারামিটার লঙ্ঘন করেছে। সক্রিয় সিঙ্ক গ্রিড লক চালু করা হচ্ছে।",
+      "typo_body_md": "জেলথারা জয় করতে নয়, শাসন করতে এসেছিল। আমরা নিষ্ঠুর মনোলিথের ছায়া থেকে আঘাত করে মৃত অঞ্চলে কাজ করি।",
+      "typo_label_caps": "স্থিতি: প্রতিরোধ কম লিঙ্ক সুরক্ষিত // লেটেন্সি 4 মি"
     }
   },
   "cs": {
@@ -4036,7 +4081,12 @@
           "name": "Varování oranžová",
           "desc": "Kritická upozornění, stavy ohrožení a varování"
         }
-      }
+      },
+      "typo_display_hero": "ZÍSKEJTE ZEMĚ",
+      "typo_headline_lg": "TAKTICKÁ ZPRÁVA INTEL",
+      "typo_body_lg": "> Pozemní síly porušily parametry kontejnmentu sektoru 4. Spouští se aktivní synchronizační zámek mřížky.",
+      "typo_body_md": "Xelthara nepřišel dobývat, ale spravovat. Operujeme v mrtvých zónách a útočíme ze stínů brutalistických monolitů.",
+      "typo_label_caps": "STAV: ODPOR KOMUN. LINK ZABEZPEČENÝ // LATENCE 4 ms"
     }
   },
   "da": {
@@ -4440,7 +4490,12 @@
           "name": "Advarsel Orange",
           "desc": "Kritiske advarsler, trusselstilstande og advarsler"
         }
-      }
+      },
+      "typo_display_hero": "GENKRAV JORD",
+      "typo_headline_lg": "TAKTISK INTEL RAPPORT",
+      "typo_body_lg": "> Jordstyrker har overtrådt Sektor 4 indeslutningsparametre. Starter aktiv synkroniseringsgitterlås.",
+      "typo_body_md": "Xelthara ankom ikke for at erobre, men for at administrere. Vi opererer i de døde zoner og rammer skyggerne af brutalistiske monolitter.",
+      "typo_label_caps": "STATUS: MODSTAND KOMM LINK SIKKERT // LATENCY 4ms"
     }
   },
   "nl": {
@@ -4844,7 +4899,12 @@
           "name": "Waarschuwing Oranje",
           "desc": "Kritieke waarschuwingen, dreigingsstatussen en waarschuwingen"
         }
-      }
+      },
+      "typo_display_hero": "TERUGWINNEN VAN AARDE",
+      "typo_headline_lg": "TACTISCH INTELRAPPORT",
+      "typo_body_lg": "> Grondtroepen hebben de inperkingsparameters van Sector 4 geschonden. Actieve synchronisatierastervergrendeling starten.",
+      "typo_body_md": "De Xelthara arriveerden niet om te veroveren, maar om te besturen. Wij opereren in de dode zones en slaan op vanuit de schaduw van brutalistische monolieten.",
+      "typo_label_caps": "STATUS: WEERSTAND COMM LINK BEVEILIGD // LATENCY 4 ms"
     }
   },
   "et": {
@@ -5248,7 +5308,12 @@
           "name": "Hoiatus oranž",
           "desc": "Kriitilised hoiatused, ohuseisundid ja hoiatused"
         }
-      }
+      },
+      "typo_display_hero": "TAAS MAA",
+      "typo_headline_lg": "TAKTIKALISE INTEL RAPORT",
+      "typo_body_lg": "> Maaväed on rikkunud 4. sektori kaitseparameetreid. Aktiivse sünkroonimisvõrgu lukustuse käivitamine.",
+      "typo_body_md": "Xelthara saabus mitte vallutama, vaid administreerima. Tegutseme surnud tsoonides, torkades silma brutalistlike monoliitide varjust.",
+      "typo_label_caps": "OLEK: TAKISTUSKOND LINK TURVALINE // LATENTSIAEG 4 ms"
     }
   },
   "fil": {
@@ -5602,7 +5667,7 @@
         },
         "visual_friction": {
           "title": "// VISUAL FRICTION\n<",
-          "desc": "Intentional CRT scanlines and minor color aberrations to represent a localized rebel broadcast."
+          "desc": "Sinadyang CRT scanlines at maliliit na aberration ng kulay upang kumatawan sa isang naisalokal na broadcast ng rebelde.\n<"
         },
         "rigid_tactical_grid": {
           "title": "// RIGID TACTICAL GRID\n<",
@@ -5652,7 +5717,12 @@
           "name": "Babala Orange\n<",
           "desc": "Mga kritikal na alerto, mga estado ng pagbabanta, at mga babala"
         }
-      }
+      },
+      "typo_display_hero": "RECLAIM EARTH\n<",
+      "typo_headline_lg": "TACTICAL INTEL REPORT\n<",
+      "typo_body_lg": "> Nilabag ng ground forces ang Sector 4 containment parameters. Paglulunsad ng aktibong sync grid lock.\n<",
+      "typo_body_md": "Dumating ang Xelthara hindi para manakop, kundi para mangasiwa. Nagpapatakbo kami sa mga patay na sona, na tumatama mula sa mga anino ng mga brutalist na monolith.\n<",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
     }
   },
   "fi": {
@@ -6056,7 +6126,12 @@
           "name": "Varoitus oranssi",
           "desc": "Kriittiset hälytykset, uhkatilat ja varoitukset"
         }
-      }
+      },
+      "typo_display_hero": "OTA MAA PAKKAUS",
+      "typo_headline_lg": "TAKTINEN INTEL -RAPORTTI",
+      "typo_body_lg": "> Maavoimat ovat rikkoneet Sektorin 4 suojaparametreja. Käynnistetään aktiivista synkronointiruudukon lukitusta.",
+      "typo_body_md": "Xeltharat eivät saapuneet valloittamaan, vaan hallitsemaan. Toimimme kuolleilla vyöhykkeillä, hätkähtäen brutalististen monoliittien varjoista.",
+      "typo_label_caps": "TILA: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
     }
   },
   "ka": {
@@ -6460,7 +6535,12 @@
           "name": "გაფრთხილება ნარინჯისფერი",
           "desc": "კრიტიკული გაფრთხილებები, საფრთხის მდგომარეობები და გაფრთხილებები"
         }
-      }
+      },
+      "typo_display_hero": "აღადგინე დედამიწა",
+      "typo_headline_lg": "ტაქტიკური ინტელის ანგარიში",
+      "typo_body_lg": "> სახმელეთო ძალებმა დაარღვიეს მე-4 სექტორის შეკავების პარამეტრები. აქტიური სინქრონიზაციის ქსელის დაბლოკვის გაშვება.",
+      "typo_body_md": "Xelthara ჩამოვიდა არა დასაპყრობად, არამედ ადმინისტრაციისთვის. ჩვენ ვმოქმედებთ მკვდარ ზონებში, ბრუტალისტური მონოლითების ჩრდილებიდან.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK დაცულია // შეყოვნება 4ms"
     }
   },
   "de": {
@@ -6864,7 +6944,12 @@
           "name": "Warnorange",
           "desc": "Kritische Warnungen, Bedrohungszustände und Warnungen"
         }
-      }
+      },
+      "typo_display_hero": "Erobere die Erde zurück",
+      "typo_headline_lg": "TAKTISCHER INTEL-BERICHT",
+      "typo_body_lg": "> Bodentruppen haben die Eindämmungsparameter von Sektor 4 verletzt. Aktive Sync-Grid-Sperre wird gestartet.",
+      "typo_body_md": "Die Xelthara kamen nicht, um zu erobern, sondern um zu verwalten. Wir operieren in den toten Zonen und schlagen aus den Schatten brutalistischer Monolithen zu.",
+      "typo_label_caps": "STATUS: WIDERSTAND KOMM-LINK GESICHERT // LATENZ 4 ms"
     }
   },
   "el": {
@@ -7268,7 +7353,12 @@
           "name": "Προειδοποίηση Πορτοκαλί",
           "desc": "Κρίσιμες ειδοποιήσεις, καταστάσεις απειλής και προειδοποιήσεις"
         }
-      }
+      },
+      "typo_display_hero": "ΑΝΑΚΤΗΣΤΕ ΤΗ ΓΗ",
+      "typo_headline_lg": "TACTICAL INTEL REPORT",
+      "typo_body_lg": "> Οι επίγειες δυνάμεις έχουν παραβιάσει τις παραμέτρους περιορισμού του Τομέα 4. Εκκίνηση ενεργού κλειδώματος πλέγματος συγχρονισμού.",
+      "typo_body_md": "Το Xelthara έφτασε όχι για να κατακτήσει, αλλά για να διοικήσει. Λειτουργούμε στις νεκρές ζώνες, χτυπώντας από τις σκιές των μπρουταλιστικών μονόλιθων.",
+      "typo_label_caps": "ΚΑΤΑΣΤΑΣΗ: ΑΝΤΙΣΤΑΣΗ ΣΥΝΔΕΣΗ ΕΠΙΚΟΙΝΩΝΙΑΣ ΑΣΦΑΛΗΣ // ΛΑΤΑΝΤΙΚΟ 4 ms"
     }
   },
   "gu": {
@@ -7672,7 +7762,12 @@
           "name": "ચેતવણી નારંગી",
           "desc": "જટિલ ચેતવણીઓ, ધમકીની સ્થિતિ અને ચેતવણીઓ"
         }
-      }
+      },
+      "typo_display_hero": "પૃથ્વી પર ફરીથી દાવો કરો",
+      "typo_headline_lg": "ટેક્ટિકલ ઇન્ટેલ રિપોર્ટ",
+      "typo_body_lg": "> ગ્રાઉન્ડ ફોર્સે સેક્ટર 4 કન્ટેઈનમેન્ટ પેરામીટર્સનો ભંગ કર્યો છે. સક્રિય સમન્વયન ગ્રીડ લોક લોંચ કરી રહ્યું છે.",
+      "typo_body_md": "ઝેલ્થારા જીતવા માટે નહીં, પરંતુ વહીવટ કરવા માટે આવ્યા હતા. અમે નિર્દયતાવાદી મોનોલિથ્સના પડછાયાઓથી પ્રહાર કરીને મૃત ઝોનમાં કાર્ય કરીએ છીએ.",
+      "typo_label_caps": "સ્થિતિ: RESISTANCE COMM લિંક સુરક્ષિત // લેટન્સી 4ms"
     }
   },
   "hi": {
@@ -8076,7 +8171,12 @@
           "name": "चेतावनी नारंगी",
           "desc": "गंभीर अलर्ट, ख़तरे की स्थिति और चेतावनियाँ"
         }
-      }
+      },
+      "typo_display_hero": "पृथ्वी को पुनः प्राप्त करें",
+      "typo_headline_lg": "सामरिक इंटेल रिपोर्ट",
+      "typo_body_lg": "> जमीनी बलों ने सेक्टर 4 रोकथाम मापदंडों का उल्लंघन किया है। सक्रिय सिंक ग्रिड लॉक लॉन्च किया जा रहा है।",
+      "typo_body_md": "ज़ेलथारा जीतने के लिए नहीं, बल्कि प्रशासन करने के लिए आया था। हम क्रूरतावादी मोनोलिथ की छाया से बचकर, मृत क्षेत्रों में काम करते हैं।",
+      "typo_label_caps": "स्थिति: प्रतिरोध कॉम लिंक सुरक्षि�� // विलंबता 4ms"
     }
   },
   "hu": {
@@ -8480,7 +8580,12 @@
           "name": "Figyelmeztetés narancs",
           "desc": "Kritikus riasztások, fenyegetettségi állapotok és figyelmeztetések"
         }
-      }
+      },
+      "typo_display_hero": "VISSZASZERZÉSE A FÖLDET",
+      "typo_headline_lg": "TAKTIKAI INTEL JELENTÉS",
+      "typo_body_lg": "> A szárazföldi erők megsértették a 4. szektor elszigetelési paramétereit. Az aktív szinkronrácszár elindítása.",
+      "typo_body_md": "A Xelthara nem hódítani érkezett, hanem igazgatni. A holt zónákban tevékenykedünk, a brutalista monolitok árnyékából feltűnően.",
+      "typo_label_caps": "ÁLLAPOT: ELLENÁLLÁS COMM LINK SECURED // LATENCIA 4ms"
     }
   },
   "is": {
@@ -8884,7 +8989,12 @@
           "name": "Viðvörun appelsínugult",
           "desc": "Mikilvægar viðvaranir, hættuástand og viðvaranir"
         }
-      }
+      },
+      "typo_display_hero": "ENDURLAGT JÖRÐ",
+      "typo_headline_lg": "TACTICAL INTEL SKÝRSLA",
+      "typo_body_lg": "> Jarðhersveitir hafa rofið innilokunarfæribreytur Sector 4. Ræsir virkan samstillingarlás.",
+      "typo_body_md": "Xelthara kom ekki til að sigra, heldur til að stjórna. Við störfum á dauðum svæðunum, sláandi úr skugga grimmdarhyggju einliða.",
+      "typo_label_caps": "STÖÐA: MÓÐSTÆÐI COMM LINK ÖRYGGIÐ // TÖF 4ms"
     }
   },
   "id": {
@@ -9288,7 +9398,12 @@
           "name": "Peringatan Oranye",
           "desc": "Peringatan penting, status ancaman, dan peringatan"
         }
-      }
+      },
+      "typo_display_hero": "DAPATKAN KEMBALI BUMI",
+      "typo_headline_lg": "LAPORAN INTEL TAKTIS",
+      "typo_body_lg": "> Pasukan darat telah melanggar parameter penahanan Sektor 4. Meluncurkan kunci jaringan sinkronisasi aktif.",
+      "typo_body_md": "Xelthara datang bukan untuk menaklukkan, tapi untuk memerintah. Kami beroperasi di zona mati, menyerang dari bayang-bayang monolit yang brutal.",
+      "typo_label_caps": "STATUS: LINK RESISTANCE COMM AMAN // LATENSI 4ms"
     }
   },
   "it": {
@@ -9692,7 +9807,12 @@
           "name": "Attenzione arancione",
           "desc": "Avvisi critici, stati di minaccia e avvisi"
         }
-      }
+      },
+      "typo_display_hero": "RIPRENDERE LA TERRA",
+      "typo_headline_lg": "RAPPORTO DI INFORMAZIONI TATTICHE",
+      "typo_body_lg": "> Le forze di terra hanno violato i parametri di contenimento del Settore 4. Avvio del blocco della griglia di sincronizzazione attiva.",
+      "typo_body_md": "Gli Xelthara arrivarono non per conquistare, ma per amministrare. Operiamo nelle zone morte, colpendo dall'ombra dei monoliti brutalisti.",
+      "typo_label_caps": "STATO: RESISTENZA COLLEGAMENTO COMUNICAZIONE PROTETTO // LATENZA 4ms"
     }
   },
   "ja": {
@@ -10096,7 +10216,12 @@
           "name": "警告オレンジ",
           "desc": "重大なアラート、脅威状態、および警告"
         }
-      }
+      },
+      "typo_display_hero": "地球を取り戻す",
+      "typo_headline_lg": "戦術情報レポート",
+      "typo_body_lg": "> 地上軍がセクター 4 の封じ込めパラメータを突破しました。アクティブ同期グリッド ロックを起動します。",
+      "typo_body_md": "ゼルタラは征服するためにではなく、統治するために到着しました。私たちはデッドゾーンで活動し、ブルータリストの一枚岩の影から攻撃します。",
+      "typo_label_caps": "ステータス: 抵抗通信リンクが確保されました // 遅延 4ms"
     }
   },
   "kn": {
@@ -10500,7 +10625,12 @@
           "name": "ಎಚ್ಚರಿಕೆ ಕಿತ್ತಳೆ",
           "desc": "ನಿರ್ಣಾಯಕ ಎಚ್ಚರಿಕೆಗಳು, ಬೆದರಿಕೆ ಸ್ಥಿತಿಗಳು ಮತ್ತು ಎಚ್ಚರಿಕೆಗಳು"
         }
-      }
+      },
+      "typo_display_hero": "ಭೂಮಿಯನ್ನು ಮರುಪಡೆಯಿರಿ",
+      "typo_headline_lg": "ಟ್ಯಾಕ್ಟಿಕಲ್ ಇಂಟೆಲ್ ವರದಿ",
+      "typo_body_lg": "> ನೆಲದ ಪಡೆಗಳು ಸೆಕ್ಟರ್ 4 ಧಾರಕ ನಿಯತಾಂಕಗಳನ್ನು ಉಲ್ಲಂಘಿಸಿವೆ. ಸಕ್ರಿಯ ಸಿಂಕ್ ಗ್ರಿಡ್ ಲಾಕ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ.",
+      "typo_body_md": "ಕ್ಸೆಲ್ತಾರಾ ಬಂದದ್ದು ವಶಪಡಿಸಿಕೊಳ್ಳಲು ಅಲ್ಲ, ಆದರೆ ಆಡಳಿತ ನಡೆಸಲು. ನಾವು ಸತ್ತ ವಲಯಗಳಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತೇವೆ, ಕ್ರೂರವಾದ ಏಕಶಿಲೆಗಳ ನೆರಳುಗಳಿಂದ ಹೊಡೆಯುತ್ತೇವೆ.",
+      "typo_label_caps": "ಸ್ಥಿತಿ: ರೆಸಿಸ್ಟೆನ್ಸ್ ಕಮ್ ಲಿಂಕ್ ಸುರಕ್ಷಿತವಾಗಿದೆ // ಲೇಟೆನ್ಸಿ 4 ಎಂಎಸ್"
     }
   },
   "ko": {
@@ -10904,7 +11034,12 @@
           "name": "경고 오렌지",
           "desc": "중요한 경고, 위협 상태 및 경고"
         }
-      }
+      },
+      "typo_display_hero": "지구를 되찾으세요",
+      "typo_headline_lg": "전술 정보 보고서",
+      "typo_body_lg": "> 지상군이 구역 4 격리 매개변수를 위반했습니다. 활성 동기화 그리드 잠금을 시작합니다.",
+      "typo_body_md": "젤타라는 정복하기 위해 온 것이 아니라 통치하기 위해 왔습니다. 우리는 잔혹한 기둥의 그림자로부터 공격을 받으며 ���드존에서 작전을 수행합니다.",
+      "typo_label_caps": "상태: 저항 통신 링크 보안됨 // 대기 시간 4ms"
     }
   },
   "lv": {
@@ -11308,7 +11443,12 @@
           "name": "Brīdinājums Orange",
           "desc": "Kritiskie brīdinājumi, draudu stāvokļi un brīdinājumi"
         }
-      }
+      },
+      "typo_display_hero": "ATGŪT ZEMI",
+      "typo_headline_lg": "TAKTISKAIS INTEL ZIŅOJUMS",
+      "typo_body_lg": "> Sauszemes spēki ir pārkāpuši 4. sektora ierobežošanas parametrus. Tiek palaists aktīvā sinhronizācijas režģa bloķēšana.",
+      "typo_body_md": "Xelthara ieradās nevis iekarot, bet gan pārvaldīt. Mēs darbojamies mirušajās zonās, uzkrītot no brutālistu monolītu ēnām.",
+      "typo_label_caps": "STATUSS: RESISTANCE COMM LINK SECURED // LATENCIJA 4 ms"
     }
   },
   "lt": {
@@ -11712,7 +11852,12 @@
           "name": "Oranžinis įspėjimas",
           "desc": "Kritiniai įspėjimai, grėsmės būsenos ir įspėjimai"
         }
-      }
+      },
+      "typo_display_hero": "ATGAUKTI ŽEMĘ",
+      "typo_headline_lg": "TAKTINĖS INTEL ATASKAITA",
+      "typo_body_lg": "> Sausumos pajėgos pažeidė 4 sektoriaus izoliavimo parametrus. Paleidžiamas aktyvus sinchronizavimo tinklelio užraktas.",
+      "typo_body_md": "Xelthara atvyko ne užkariauti, o administruoti. Veikiame mirusiose zonose, stulbinančiai iš brutalistinių monolitų šešėlių.",
+      "typo_label_caps": "STATUSAS: ATSPARUMO RYŠIO RYŠYS SAUGUS // LATENCIJA 4 ms"
     }
   },
   "ms": {
@@ -12116,7 +12261,12 @@
           "name": "Amaran Jingga",
           "desc": "Makluman kritikal, keadaan ancaman dan amaran"
         }
-      }
+      },
+      "typo_display_hero": "TUNDA SEMULA BUMI",
+      "typo_headline_lg": "LAPORAN INTEL TAKTIKAL",
+      "typo_body_lg": "> Tentera darat telah melanggar parameter pembendungan Sektor 4. Melancarkan kunci grid penyegerakan aktif.",
+      "typo_body_md": "Xelthara datang bukan untuk menakluk, tetapi untuk mentadbir. Kami beroperasi di zon mati, menyerlah dari bayang-bayang monolit brutalis.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECUED // LATENCY 4ms"
     }
   },
   "ml": {
@@ -12520,7 +12670,12 @@
           "name": "മുന്നറിയിപ്പ് ഓറഞ്ച്",
           "desc": "ഗുരുതരമായ അലേർട്ടുകൾ, ഭീഷണി നിലകൾ, മുന്നറിയിപ്പുകൾ"
         }
-      }
+      },
+      "typo_display_hero": "ഭൂമി വീണ്ടെടുക്കുക",
+      "typo_headline_lg": "ടാക്ടിക്കൽ ഇൻ്റൽ റിപ്പോർട്ട്",
+      "typo_body_lg": "> ഗ്രൗണ്ട് ഫോഴ്സ് സെക്ടർ 4 കണ്ടെയ്ൻമെൻ്റ് പാരാമീറ്ററുകൾ ലംഘിച്ചു. സജീവമായ സമന്വയ ഗ്രിഡ് ലോക്ക് സമാരംഭിക്കുന്നു.",
+      "typo_body_md": "സെൽതാര വന്നത് കീഴടക്കാനല്ല, ഭരണം നടത്താനാണ്. ക്രൂരമായ ഏകശിലകളുടെ നിഴലുകളിൽ നിന്ന് അടിച്ചമർത്ത���ക്കൊണ്ട് ഞങ്ങൾ ഡെഡ് സോണുകളിൽ പ്രവർത്തിക്കുന്നു.",
+      "typo_label_caps": "സ്റ്റാറ്റസ്: റെസിസ്റ്റൻസ് കമ്മീഷൻ ലിങ്ക് സുരക്ഷിതം // ലേറ്റൻസി 4 മി."
     }
   },
   "zh": {
@@ -12924,7 +13079,12 @@
           "name": "橙色警告",
           "desc": "严重警报、威胁���态和警告"
         }
-      }
+      },
+      "typo_display_hero": "收复地球",
+      "typo_headline_lg": "战术情报报告",
+      "typo_body_lg": "> 地面部队已经突破了第 4 区的收容参数。启动主动同步网格锁。",
+      "typo_body_md": "泽尔塔拉的到来不是为了征服，而是为了管理。我们在死亡地带行动，从野兽派巨石的阴影中发起攻击。",
+      "typo_label_caps": "状态：电阻通信链路安全 // 延迟 4ms"
     }
   },
   "mr": {
@@ -13328,7 +13488,12 @@
           "name": "चेतावणी ऑरेंज",
           "desc": "गंभीर सूचना, धोक्याची स्थिती आणि इशारे"
         }
-      }
+      },
+      "typo_display_hero": "पृथ्वीवर पुन्हा दावा करा",
+      "typo_headline_lg": "टॅक्टिकल इंटेल अहवाल",
+      "typo_body_lg": "> भूदलाने सेक्टर 4 कंटेनमेंट पॅरामीटर्सचे उल्लंघन केले आहे. सक्रिय सिंक ग्रिड लॉक लाँच करत आहे.",
+      "typo_body_md": "झ��ल्थारा जिंकण्यासाठी नाही तर प्रशासन करण्यासाठी आला. क्रूरतावादी मोनोलिथ्सच्या सावलीतून धडकून आम्ही मृत झोनमध्ये कार्य करतो.",
+      "typo_label_caps": "स्थिती: प्रतिकार कॉम लिंक सुरक्षित // विलंब 4ms"
     }
   },
   "no": {
@@ -13732,7 +13897,12 @@
           "name": "Advarsel oransje",
           "desc": "Kritiske varsler, trusseltilstander og advarsler"
         }
-      }
+      },
+      "typo_display_hero": "GJENNOM JORD",
+      "typo_headline_lg": "TAKTISK INTEL RAPPORT",
+      "typo_body_lg": "> Bakkestyrker har brutt inneslutningsparametere for sektor 4. Starter aktiv synkroniseringsrutenettlås.",
+      "typo_body_md": "Xelthara kom ikke for å erobre, men for å administrere. Vi opererer i de døde sonene, treffer fra skyggene av brutalistiske monolitter.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
     }
   },
   "pl": {
@@ -14136,7 +14306,12 @@
           "name": "Ostrzeżenie Pomarańczowy",
           "desc": "Alerty krytyczne, stany zagrożeń i ostrzeżenia"
         }
-      }
+      },
+      "typo_display_hero": "ODZYSKAJ ZIEMIĘ",
+      "typo_headline_lg": "TAKTYCZNY RAPORT INTEL",
+      "typo_body_lg": "> Siły lądowe naruszyły parametry bezpieczeństwa sektora 4. Uruchamiam aktywną blokadę siatki synchronizacji.",
+      "typo_body_md": "Xelthara przybyli nie po to, aby podbijać, ale aby zarządzać. Działamy w martwych strefach, uderzając z cieni brutalistycznych monolitów.",
+      "typo_label_caps": "STATUS: ODPORNOŚĆ ŁĄCZA KOMUNIKACYJNEGO ZABEZPIECZONA // OPÓŹNIENIE 4ms"
     }
   },
   "pa": {
@@ -14540,7 +14715,12 @@
           "name": "ਚੇਤਾਵਨੀ ਸੰਤਰੀ",
           "desc": "ਨਾਜ਼ੁਕ ਚੇਤਾਵਨੀਆਂ, ਧਮਕੀ ਦੀਆਂ ਸਥਿਤੀਆਂ ਅਤੇ ਚੇਤਾਵਨੀਆਂ"
         }
-      }
+      },
+      "typo_display_hero": "ਧਰਤੀ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ",
+      "typo_headline_lg": "ਟੈਕਟੀਕਲ ਇੰਟੇਲ ਰਿਪੋਰਟ",
+      "typo_body_lg": "> ਜ਼ਮ���ਨੀ ਬਲਾਂ ਨੇ ਸੈਕਟਰ 4 ਦੇ ਕੰਟੇਨਮੈਂਟ ਮਾਪਦੰਡਾਂ ਦੀ ਉਲੰਘਣਾ ਕੀਤੀ ਹੈ। ਕਿਰਿਆਸ਼ੀਲ ਸਮਕਾਲੀਕਰਨ ਗਰਿੱਡ ਲੌਕ ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।",
+      "typo_body_md": "ਜ਼ੈਲਥਾਰਾ ਜਿੱਤਣ ਲਈ ਨਹੀਂ, ਪਰ ਪ੍ਰਸ਼ਾਸਨ ਕਰਨ ਲਈ ਆਇਆ ਸੀ। ਅਸੀਂ ਬੇਰਹਿਮੀ ਵਾਲੇ ਮੋਨੋਲਿਥਾਂ ਦੇ ਪਰਛਾਵੇਂ ਤੋਂ ਮਾਰਦੇ ਹੋਏ, ਮਰੇ ਹੋਏ ਖੇਤਰਾਂ ਵਿੱਚ ਕੰਮ ਕਰਦੇ ਹਾਂ।",
+      "typo_label_caps": "ਸਥਿਤੀ: RESISTANCE COMM ਲਿੰਕ ਸੁਰੱਖਿਅਤ // ਲੇਟੈਂਸੀ 4ms"
     }
   },
   "ro": {
@@ -14944,7 +15124,12 @@
           "name": "Avertisment portocaliu",
           "desc": "Alerte critice, stări de amenințare și avertismente"
         }
-      }
+      },
+      "typo_display_hero": "REVENIREA PĂMÂNTULUI",
+      "typo_headline_lg": "RAPORT INTEL TACTIC",
+      "typo_body_lg": "> Forțele terestre au încălcat parametrii de izolare a Sectorului 4. Se lansează blocarea rețelei de sincronizare activă.",
+      "typo_body_md": "Xelthara a sosit nu pentru a cuceri, ci pentru a administra. Operăm în zonele moarte, lovind din umbra monoliților brutaliști.",
+      "typo_label_caps": "STARE: RESISTANCE COMM LINK SEGURATĂ // LATENȚĂ 4ms"
     }
   },
   "si": {
@@ -15348,7 +15533,12 @@
           "name": "අනතුරු ඇඟවීමේ තැඹිලි",
           "desc": "විවේචනාත්මක ඇඟවීම්, තර්ජන තත්වයන් සහ අනතුරු ඇඟවීම්"
         }
-      }
+      },
+      "typo_display_hero": "පෘථිවිය ඉල්ලා සිටින්න",
+      "typo_headline_lg": "උපායික ඉන්ටෙල් වාර්තාව",
+      "typo_body_lg": "> භූමි බලකායන් 4 වන කොටසේ අන්තර්ගත පරාමිතීන් උල්ලංඝනය කර ඇත. සක්‍රිය සමමුහුර්ත ජාල අගුල දියත් කරමින්.",
+      "typo_body_md": "Xelthara පැමිණියේ යටත් කර ගැනීමට නොව පරිපාලනය කිරීමට ය. ම්ලේච්ඡ මොනොලිත්වල සෙ���නැලි වලින් පහර දෙමින් අපි මළ කලාපවල ක්‍රියාත්මක වෙමු.",
+      "typo_label_caps": "තත්ත්‍වය: ප්‍රතිරෝධී කොමියුනිස්ට් සබැඳිය සුරක්ෂිත // ප්‍රමාදය 4ms"
     }
   },
   "sk": {
@@ -15752,7 +15942,12 @@
           "name": "Výstražné oranžové",
           "desc": "Kritické výstrahy, stavy hrozieb a varovania"
         }
-      }
+      },
+      "typo_display_hero": "ZÍSKAJTE ZEM",
+      "typo_headline_lg": "TAKTICKÁ SPRÁVA INTEL",
+      "typo_body_lg": "> Pozemné sily porušili parametre kontajnmentu sektora 4. Spúšťa sa aktívny zámok synchronizačnej mriežky.",
+      "typo_body_md": "Xelthara neprišiel dobyť, ale spravovať. Pôsobíme v mŕtvych zónach a útočíme z tieňa brutalistických monolitov.",
+      "typo_label_caps": "STAV: ODPOR KOMUN. LINK ZABEZPEČENÝ // LATENCIA 4 ms"
     }
   },
   "sl": {
@@ -16156,7 +16351,12 @@
           "name": "Opozorilo Oranžna",
           "desc": "Kritična opozorila, stanja groženj in opozorila"
         }
-      }
+      },
+      "typo_display_hero": "POVRNITE ZEMLJO",
+      "typo_headline_lg": "TAKTIČNO OBVEŠČALNO POROČILO",
+      "typo_body_lg": "> Kopenske sile so prebile parametre zadrževanja sektorja 4. Zagon aktivnega zaklepanja mreže za sinhronizacijo.",
+      "typo_body_md": "Xelthara ni prišel, da bi osvojil, ampak da bi upravljal. Delujemo v mrtvih conah, udarjamo iz senc brutalističnih monolitov.",
+      "typo_label_caps": "STATUS: ODPORNA KOMUNIKACIJA ZAVAROVANA // ZAKASNITEV 4ms"
     }
   },
   "sv": {
@@ -16560,7 +16760,12 @@
           "name": "Varning Orange",
           "desc": "Kritiska varningar, hottillstånd och varningar"
         }
-      }
+      },
+      "typo_display_hero": "ÅTERTAK JORD",
+      "typo_headline_lg": "TAKTISK INTEL RAPPORT",
+      "typo_body_lg": "> Markstyrkor har brutit mot parametrar för inneslutning i sektor 4. Startar aktivt synkroniseringsnätlås.",
+      "typo_body_md": "Xeltharan kom inte för att erövra, utan för att administrera. Vi opererar i de döda zonerna, slående från skuggorna av brutalistiska monoliter.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
     }
   },
   "ta": {
@@ -16964,7 +17169,12 @@
           "name": "எச்சரிக்கை ஆரஞ்சு",
           "desc": "முக்கியமான எச்சரிக்கைகள், அச்சுறுத்தல் நிலைகள் மற்றும் எச்சரிக்கைகள்"
         }
-      }
+      },
+      "typo_display_hero": "பூமியைத் திரும்பப் பெறவும்",
+      "typo_headline_lg": "தந்திரோபாய இன்டெல் அறிக்கை",
+      "typo_body_lg": "> தரைப்படைகள் பிரிவு 4 கட்டுப்பாட்டு அளவுருக்களை மீறியுள்ளன. செயலில் உள்ள ஒத்திசைவு கட்டம் பூட்டைத் தொடங்குகிறது.",
+      "typo_body_md": "ஜெல்தாரா வந்தது வெற்றி பெற அல்ல, நிர்வாகம் செய்ய. மிருகத்தனமான மோனோலித்களின் நிழல்களில் இருந்து தாக்கி இறந்த மண்டலங்களில் நாங்கள் செயல்படுகிறோம்.",
+      "typo_label_caps": "நிலை: ரெசிஸ்டன்ஸ் காம் இணைப்பு பாதுகாப்பானது // லேடென்சி 4 மி.எஸ்"
     }
   },
   "te": {
@@ -17368,7 +17578,12 @@
           "name": "హెచ్చరిక ఆరెంజ్",
           "desc": "క్లిష్ట హెచ్చరికలు, ముప్పు స్థితులు మరియు హెచ్చరికలు"
         }
-      }
+      },
+      "typo_display_hero": "భూమిని రిక్లెయిమ్ చేయండి",
+      "typo_headline_lg": "టాక్టికల్ ఇంటెల్ రిపోర్ట్",
+      "typo_body_lg": "> భూ బలగాలు సెక్టార్ 4 నియంత్రణ పారామితులను ఉల్లంఘించాయి. సక్రియ సమకాలీకరణ గ్రిడ్ లాక్‌ని ప్రారంభిస్తోంది.",
+      "typo_body_md": "Xelthara వచ్చింది జయించటానికి కాదు, కానీ పరిపాలన. మేము క్రూరమైన ఏకశిలాల నీడల నుండి కొట్టడం, చనిపోయిన జో��్లలో పనిచేస్తాము.",
+      "typo_label_caps": "స్థితి: రెసిస్టెన్స్ కమ్ లింక్ సెక్యూర్డ్ // లాటెన్సీ 4మి."
     }
   },
   "th": {
@@ -17772,7 +17987,12 @@
           "name": "คำเตือนสีส้ม",
           "desc": "การแจ้งเตือนที่สำคัญ สถานะภัยคุกคาม และคำเตือน"
         }
-      }
+      },
+      "typo_display_hero": "เรียกคืนโลก",
+      "typo_headline_lg": "รายงานทางยุทธวิธีของ Intel",
+      "typo_body_lg": "> กองกำลังภาคพื้นดินได้ฝ่าฝืนพารามิเตอร์การกักกันเซกเตอร์ 4 กำลังเปิดใช้การล็อกกริดการซิงค์ที่ใช้งานอยู่",
+      "typo_body_md": "เซลธาราไม่ได้มาเพื่อพิชิต แต่มาเพื่อบริหารจัดการ เราปฏิบัติการในโซนมรณะ โจมตีจากเงามืดของเสาหินสุดโหด",
+      "typo_label_caps": "สถานะ: ความต้านทาน ลิงก์การสื่อสารที่ปลอดภัย // เวลาแฝง 4ms"
     }
   },
   "tr": {
@@ -18176,7 +18396,12 @@
           "name": "Uyarı Turuncu",
           "desc": "Kritik uyarılar, tehdit durumları ve uyarılar"
         }
-      }
+      },
+      "typo_display_hero": "DÜNYAYI GERİ ALIN",
+      "typo_headline_lg": "TAKTİK İSTİHBARAT RAPORU",
+      "typo_body_lg": "> Kara kuvvetleri Sektör 4 koruma parametrelerini ihlal etti. Aktif senkronizasyon ızgarası kilidi başlatılıyor.",
+      "typo_body_md": "Xelthara fethetmeye değil yönetmeye geldi. Brütalist monolitlerin gölgesinden saldırarak ölü bölgelerde faaliyet gösteriyoruz.",
+      "typo_label_caps": "DURUM: DİRENÇ İLETİŞİM BAĞLANTISI GÜVENLİ // GECİKME 4 ms"
     }
   },
   "uk": {
@@ -18580,7 +18805,12 @@
           "name": "Попередження оранжевий",
           "desc": "Критичні сповіщення, стани загроз і попередження"
         }
-      }
+      },
+      "typo_display_hero": "ПОВЕРНУТИ ЗЕМЛЮ",
+      "typo_headline_lg": "ТАКТИЧНА РОЗВІДКА",
+      "typo_body_lg": "> Сухопутні війська порушили параметри стримування сектору 4. Запуск активного блокування сітки синхронізації.",
+      "typo_body_md": "Кселтара прибула не для того, щоб завойовувати, а щоб керувати. Ми працюємо в мертвих зонах, вражаючи з тіні брутальних монолітів.",
+      "typo_label_caps": "СТАТУС: ОПІР ЗВ’ЯЗКУ ЗАБЕЗПЕЧЕНО // ЗАТРИМКА 4 мс"
     }
   },
   "vi": {
@@ -18984,7 +19214,12 @@
           "name": "Cảnh báo màu cam",
           "desc": "Cảnh báo quan trọng, trạng thái mối đe dọa và cảnh báo"
         }
-      }
+      },
+      "typo_display_hero": "ĐẶT LẠI TRÁI ĐẤT",
+      "typo_headline_lg": "BÁO CÁO INTEL CHIẾN THUẬT",
+      "typo_body_lg": "> Lực lượng mặt đất đã vi phạm các thông số ngăn chặn của Khu vực 4. Khởi chạy khóa lưới đồng bộ hóa đang hoạt động.",
+      "typo_body_md": "Xelthara đến không phải để chinh phục mà để quản lý. Chúng tôi hoạt động trong vùng chết, tấn công từ bóng tối của những tảng đá nguyên khối tàn bạo.",
+      "typo_label_caps": "TRẠNG THÁI: KHÁNG LIÊN KẾT COMM ĐƯỢC ĐẢM BẢO // ĐỘ TRỄ 4ms"
     }
   }
 }
