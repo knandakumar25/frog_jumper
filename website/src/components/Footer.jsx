@@ -50,11 +50,11 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-2">
               {[
-                { label: 'HOME', to: '' },
-                { label: 'GAMEPLAY', to: '/gameplay' },
-                { label: 'SQUAD', to: '/squad' },
-                { label: 'TECH HUB', to: '/tech-hub' },
-                { label: 'DESIGN SYSTEM', to: '/design-system' },
+                { key: 'home', to: '' },
+                { key: 'gameplay', to: '/gameplay' },
+                { key: 'squad', to: '/squad' },
+                { key: 'tech_hub', to: '/tech-hub' },
+                { key: 'design_system', to: '/design-system' },
               ].map(link => (
                 <li key={link.to}>
                   <NavLink
@@ -66,7 +66,7 @@ export default function Footer() {
                       }`
                     }
                   >
-                    &gt; {link.label}
+                    &gt; {t(`nav.${link.key}`, link.key.toUpperCase().replace('_', ' '))}
                   </NavLink>
                 </li>
               ))}

@@ -6,7 +6,12 @@
       "levels": "Levels",
       "features": "Features",
       "controls": "Controls",
-      "play_now": "Play Now"
+      "play_now": "Play Now",
+      "home": "HOME",
+      "gameplay": "GAMEPLAY",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "DESIGN SYSTEM"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -283,6 +288,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "DEPLOY OPERATIVE",
+      "deploying": "DEPLOYING...",
+      "syncComplete": "SYNC COMPLETE // OPERATIVE SUCCESSFULLY DEPLOYED TO TARGET SECTOR",
+      "active": "ACTIVE",
+      "standby": "STANDBY",
+      "role": "ROLE",
+      "firepower": "FIREPOWER",
+      "defense": "DEFENSE",
+      "mobility": "MOBILITY",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROG",
+      "guy": "VIRTUAL GUY"
+    },
+    "gameplay": {
+      "protocols": "CORE PROTOCOLS",
+      "terminal": "Database Terminal",
+      "active": "ACTIVE",
+      "synced": "SYNCED",
+      "online": "ONLINE",
+      "t1_title": "Kinetic Traversal",
+      "t1_desc": "Master momentum-based movement. Wall-run along alien monoliths, grapple through ruined skyscrapers, and chain slides to evade Xelthara targeting sensors.",
+      "t2_title": "Neural Hacking",
+      "t2_desc": "Infiltrate alien networks on the fly. Hijack enemy drones, overload energy shields, or turn automated defenses against their creators in real-time combat.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Command your AI-driven resistance cell. Execute synchronized breaches, lay tactical ambushes, and combine unique abilities to dismantle heavy Xelthara armor."
+    },
+    "tech_hub": {
+      "hero_desc": "Direct access to the Axiom Force technical documentation. Built for high-performance tactical engagement across multiple platforms. Powered by Godot and Ink.",
+      "engine_title": "Engine Specs",
+      "engine_desc": "Leveraging the Godot Engine compiled with .NET 8 for aggressive performance optimization. Custom rendering pipeline utilizing Vulkan for advanced neon-noir lighting and atmospheric effects.",
+      "status_init": "Initialize Core... [OK]",
+      "status_shaders": "Load Vulkan Shaders... [OK]",
+      "status_link": "Establish Neural Link... [PENDING]",
+      "narrative_desc": "Driven by Inkle's Ink scripting language, providing deeply branching dialogue trees and persistent state tracking for every resistance operative.",
+      "comms_desc": "Full localization support for 50+ languages, utilizing a custom dynamic font rendering system to handle complex scripts and RTL layouts seamlessly.",
+      "offline_status": "System Offline"
     }
   },
   "es": {
@@ -292,7 +337,12 @@
       "levels": "Niveles",
       "features": "Características",
       "controls": "Controles",
-      "play_now": "Jugar Ahora"
+      "play_now": "Jugar Ahora",
+      "home": "INICIO",
+      "gameplay": "JUEGO",
+      "squad": "ESCUADRA",
+      "tech_hub": "CENTRO TECNOLÓGICO",
+      "design_system": "SISTEMA DE DISEÑO"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -569,6 +619,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "DESPLEGAR OPERATIVO",
+      "deploying": "DESPLEGANDO...",
+      "syncComplete": "SINCRONIZACIÓN COMPLETA // OPERATIVO DESPLEGADO CON ÉXITO EN EL SECTOR",
+      "active": "ACTIVO",
+      "standby": "EN ESPERA",
+      "role": "ROL",
+      "firepower": "POTENCIA DE FUEGO",
+      "defense": "DEFENSA",
+      "mobility": "MOVILIDAD",
+      "shogun": "CIBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "MATRIZ ONI",
+      "frog": "RANA NINJA",
+      "guy": "CHICO VIRTUAL"
+    },
+    "gameplay": {
+      "protocols": "PROTOCOLOS ESENCIALES",
+      "terminal": "Terminal de Base de Datos",
+      "active": "ACTIVO",
+      "synced": "SINCRONIZADO",
+      "online": "EN LÍNEA",
+      "t1_title": "Travesía Cinética",
+      "t1_desc": "Domina el movimiento basado en el impulso. Corre por las paredes de los monolitos alienígenas, desplázate por rascacielos en ruinas y encadena deslizamientos para evadir los sensores de puntería Xelthara.",
+      "t2_title": "Hackeo Neural",
+      "t2_desc": "Infiltra las redes alienígenas sobre la marcha. Secuestra drones enemigos, sobrecarga los escudos de energía o vuelve las defensas automatizadas contra sus creadores en combate en tiempo real.",
+      "t3_title": "Sinergia de Escuadra",
+      "t3_desc": "Dirige tu célula de resistencia controlada por IA. Ejecuta brechas sincronizadas, tiende emboscadas tácticas y combina habilidades únicas para desmantelar el blindaje pesado de los Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Acceso directo a la documentación técnica de Axiom Force. Creado para un combate táctico de alto rendimiento en múltiples plataformas. Impulsado por Godot e Ink.",
+      "engine_title": "Especificaciones de Motor",
+      "engine_desc": "Aprovechando el motor Godot compilado con .NET 8 para una optimización de rendimiento agresiva. Canal de renderizado personalizado utilizando Vulkan para iluminación avanzada de neón-noir y efectos atmosféricos.",
+      "status_init": "Inicializar Núcleo... [OK]",
+      "status_shaders": "Cargar Sombreadores Vulkan... [OK]",
+      "status_link": "Establecer Enlace Neural... [PENDIENTE]",
+      "narrative_desc": "Impulsado por el lenguaje de scripting Ink de Inkle, que proporciona árboles de diálogo profundamente ramificados y seguimiento de estado persistente para cada operativo de la resistencia.",
+      "comms_desc": "Soporte completo de localización para más de 50 idiomas, utilizando un sistema de renderizado de fuentes dinámico personalizado para manejar escrituras complejas y diseños RTL sin problemas.",
+      "offline_status": "Sistema Fuera de Línea"
     }
   },
   "fr": {
@@ -578,7 +668,12 @@
       "levels": "Niveaux",
       "features": "Fonctionnalités",
       "controls": "Contrôles",
-      "play_now": "Jouer"
+      "play_now": "Jouer",
+      "home": "ACCUEIL",
+      "gameplay": "GAMEPLAY",
+      "squad": "ESCOUADE",
+      "tech_hub": "CENTRE TECHNIQUE",
+      "design_system": "SYSTÈME DE CONCEPTION"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -855,6 +950,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "DÉPLOYER L'AGENT",
+      "deploying": "DÉPLOIEMENT...",
+      "syncComplete": "SYNCHRONISATION TERMINÉE // AGENT DÉPLOYÉ AVEC SUCCÈS DANS LE SECTEUR CIBLE",
+      "active": "ACTIF",
+      "standby": "EN ATTENTE",
+      "role": "RÔLE",
+      "firepower": "PUISSANCE DE FEU",
+      "defense": "DÉFENSE",
+      "mobility": "MOBILITÉ",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "MATRICE ONI",
+      "frog": "GRENOUILLE NINJA",
+      "guy": "GARS VIRTUEL"
+    },
+    "gameplay": {
+      "protocols": "PROTOCOLES FONDAMENTAUX",
+      "terminal": "Terminal de Base de Données",
+      "active": "ACTIF",
+      "synced": "SYNCHRONISÉ",
+      "online": "EN LIGNE",
+      "t1_title": "Déplacement Cinétique",
+      "t1_desc": "Maîtrisez les mouvements basés sur l'élan. Courez sur les murs des monolithes extraterrestres, agrippez-vous aux gratte-ciels en ruine et enchaînez les glissades pour échapper aux capteurs de ciblage Xelthara.",
+      "t2_title": "Piratage Neural",
+      "t2_desc": "Infiltrez les réseaux extraterrestres à la volée. Détournez les drones ennemis, surchargez les boucliers d'énergie ou retournez les défenses automatisées contre leurs créateurs en combat en temps réel.",
+      "t3_title": "Synergie d'Escouade",
+      "t3_desc": "Commandez votre cellule de résistance gérée par IA. Exécutez des brèches synchronisées, tendez des embuscades tactiques et combinez des capacités uniques pour démanteler le privilège lourd des Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Accès direct à la documentation technique d'Axiom Force. Conçu pour un engagement tactique haute performance sur plusieurs plateformes. Propulsé par Godot et Ink.",
+      "engine_title": "Spécifications Moteur",
+      "engine_desc": "Exploitation du moteur Godot compilé avec .NET 8 pour une optimisation agressive des performances. Pipeline de rendu personnalisé utilisant Vulkan pour un éclairage néon-noir avancé et des effets atmosphériques.",
+      "status_init": "Initialisation du Noyau... [OK]",
+      "status_shaders": "Chargement des Shaders Vulkan... [OK]",
+      "status_link": "Établir la Liaison Neurale... [EN ATTENTE]",
+      "narrative_desc": "Propulsé par le langage de script Ink d'Inkle, fournissant des arbres de dialogue profondément ramifiés et un suivi d'état persistant pour chaque agent de la résistance.",
+      "comms_desc": "Support de localisation complet pour plus de 50 langues, utilisant un système de rendu de police dynamique personnalisé pour gérer les écritures complexes et les mises en page RTL de manière fluide.",
+      "offline_status": "Système Hors Ligne"
     }
   },
   "ar": {
@@ -864,7 +999,12 @@
       "levels": "المستويات",
       "features": "الميزات",
       "controls": "التحكم",
-      "play_now": "العب الآن"
+      "play_now": "العب الآن",
+      "home": "الرئيسية",
+      "gameplay": "طريقة اللعب",
+      "squad": "الفرقة",
+      "tech_hub": "مركز التقنية",
+      "design_system": "نظام التصميم"
     },
     "hero": {
       "title_line1": "إكسيوم فورس",
@@ -963,7 +1103,7 @@
       "briefing": "مراحل الحملة",
       "title_prefix": "المهمة في ",
       "title_highlight": "الانتظار",
-      "title_suffix": "",
+      "title_suffix": "ينتظر",
       "desc": "خمسة مستويات فريدة بصعوبة متزايدة. يتم فتح كل مهمة تدريجياً بينما تدفع احتلال زيلثارا إلى الوراء.",
       "objectives_title": "أهداف المهمة",
       "difficulty_title": "الصعوبة",
@@ -1141,6 +1281,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "نشر العميل",
+      "deploying": "جاري النشر...",
+      "syncComplete": "اكتمل المزامنة // تم نشر العميل بنجاح في القطاع المستهدف",
+      "active": "نشط",
+      "standby": "الاستعداد",
+      "role": "الدور",
+      "firepower": "القوة النارية",
+      "defense": "الدفاع",
+      "mobility": "الحركية",
+      "shogun": "الساموراي السايبيري",
+      "ronin": "رونين الحامي",
+      "matrix": "مصفوفة أوني",
+      "frog": "الضفدع النينجا",
+      "guy": "الفتى الافتراضي"
+    },
+    "gameplay": {
+      "protocols": "البروتوكولات الأساسية",
+      "terminal": "محطة قاعدة البيانات",
+      "active": "نشط",
+      "synced": "متزامن",
+      "online": "متصل",
+      "t1_title": "العبور الحركي",
+      "t1_desc": "أتقن الحركة القائمة على الزخم. اركض على جدران المونوليث الفضائية، وتشبث عبر ناطحات السحاب المدمرة، واربط الانزلاقات لتفادي مستشعرات الاستهداف الخاصة بـ Xelthara.",
+      "t2_title": "الاختراق العصبي",
+      "t2_desc": "اخترق الشبكات الفضائية أثناء التنقل. اختطف طائرات العدو بدون طيار، وحمّل دروع الطاقة بشكل زائد، أو وجّه الدفاعات الآلية ضد صانعيها في القتال الفعلي.",
+      "t3_title": "تآزر الفرقة",
+      "t3_desc": "قُد خلية المقاومة التي تقودها الذكاء الاصطناعي. نفذ عمليات اختراق متزامنة، وانصب كمائن تكتيكية، واجمع بين القدرات الفريدة لتفكيك دروع Xelthara الثقيلة."
+    },
+    "tech_hub": {
+      "hero_desc": "الوصول المباشر إلى الوثائق الفنية لـ Axiom Force. مصمم للعمليات التكتيكية عالية الأداء عبر منصات متعددة. مدعوم بواسطة Godot و Ink.",
+      "engine_title": "مواصفات المحرك",
+      "engine_desc": "الاستفادة من محرك Godot المصنف باستخدام .NET 8 لتحسين الأداء القوي. خط أنابيب عرض مخصص باستخدام Vulkan لإضاءة نيون-نوار المتقدمة والمؤثرات الجوية.",
+      "status_init": "تهيئة النواة... [موافق]",
+      "status_shaders": "تحميل تظليل فولكان... [موافق]",
+      "status_link": "إنشاء الارتباط العصبي... [قيد الانتظار]",
+      "narrative_desc": "يعمل بلغة السيناريو Ink من Inkle، مما يوفر أشجار حوار متفرعة بعمق وتتبع الحالة المستمرة لكل عميل مقاومة.",
+      "comms_desc": "دعم التعريب الكامل لأكثر من 50 لغة، باستخدام نظام عرض خطوط ديناميكي مخصص للتعامل مع النصوص المعقدة وتخطيطات RTL بسلاسة.",
+      "offline_status": "النظام غير متصل"
     }
   },
   "he": {
@@ -1150,7 +1330,12 @@
       "levels": "שלבים",
       "features": "מאפיינים",
       "controls": "בקרות",
-      "play_now": "שחק עכשיו"
+      "play_now": "שחק עכשיו",
+      "home": "בית",
+      "gameplay": "משחקיות",
+      "squad": "צוות",
+      "tech_hub": "מרכז טכנולוגי",
+      "design_system": "מערכת עיצוב"
     },
     "hero": {
       "title_line1": "אקסיום פורס",
@@ -1427,6 +1612,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "פרוס סוכן",
+      "deploying": "פורס...",
+      "syncComplete": "סנכרון הושלם // הסוכן נפרס בהצלחה בסקטור היעד",
+      "active": "פעיל",
+      "standby": "המתנה",
+      "role": "תפקיד",
+      "firepower": "כוח אש",
+      "defense": "הגנה",
+      "mobility": "ניידות",
+      "shogun": "סייבר שוגון",
+      "ronin": "אייג'יס רונין",
+      "matrix": "אוני מטריקס",
+      "frog": "נינג'ה פרוג",
+      "guy": "וירטואל גאי"
+    },
+    "gameplay": {
+      "protocols": "פרוטוקולי ליבה",
+      "terminal": "מסוף מסד נתונים",
+      "active": "פעיל",
+      "synced": "מסונכרן",
+      "online": "מחובר",
+      "t1_title": "ניידות קינטית",
+      "t1_desc": "שלוט בתנועה מבוססת תנע. רוץ על קירות מונוליתים חייזריים, השתמש בחבל אחיזה דרך גורדי שחקים הרוסים, ושלב החלקות כדי לחמוק מחיישני המטרה של קולקטיב הקסלת'ארה.",
+      "t2_title": "פריצה עצבית",
+      "t2_desc": "חדור לרשתות חייזרים תוך כדי תנועה. חטוף רחפני אויב, העמס יתר על דרומי אנרגיה, או הפנה מערכות הגנה אוטומטיות נגד יוצריהן בקרב בזמן אמת.",
+      "t3_title": "סינרגיה קבוצתית",
+      "t3_desc": "פקد על תא ההתנגדות מונחה הבינה המלאכותית שלך. בצע פריצות מסונכרנות, הכן מארבים טקטיים, ושלב יכולות ייחודיות כדי לפרק שריון כבד של קסלת'ארה."
+    },
+    "tech_hub": {
+      "hero_desc": "גישה ישירה לתיעוד הטכני של אקסיום פורס. נבנה למעורבות טקטית עם ביצועים גבוהים על פני פלטפורמות מרובות. מופעל על ידי Godot ו-Ink.",
+      "engine_title": "מפרט מנוע",
+      "engine_desc": "שימוש במנוע Godot המהודר עם .NET 8 לאופטימיזציה אגרסיבית של ביצועים. צינור רינדור מותאם אישית המשתמש ב-Vulkan לתאורת ניאון-נואר מתקדמת ואפקטים אטמוספריים.",
+      "status_init": "אתחול ליבה... [אישור]",
+      "status_shaders": "טעינת הצללות Vulkan... [אישור]",
+      "status_link": "יצירת קישור עצבי... [בהמתנה]",
+      "narrative_desc": "מונע על ידי שפת התסריט Ink of Inkle, ומספק עצי דיאלוג מסתעפים עמוקים ומעקב אחר מצב מתמיד עבור כל סוכן התנגדות.",
+      "comms_desc": "תמיכת לוקליזציה מלאה ל-50+ שפות, תוך שימוש במערכת רינדור גופנים דינמית מותאמת אישית לטיפול בכתב מורכב ופריסות מימין לשמאל בצורה חלקה.",
+      "offline_status": "מערכת לא מקוונת"
     }
   },
   "pt": {
@@ -1436,7 +1661,12 @@
       "levels": "Níveis",
       "features": "Recursos",
       "controls": "Controles",
-      "play_now": "Jogue agora"
+      "play_now": "Jogue agora",
+      "home": "INÍCIO",
+      "gameplay": "JOGABILIDADE",
+      "squad": "ESQUADRÃO",
+      "tech_hub": "CENTRO DE TECNOLOGIA",
+      "design_system": "SISTEMA DE DESIGN"
     },
     "hero": {
       "title_line1": "FORÇA AXIOMA",
@@ -1713,6 +1943,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "IMPLANTAR OPERATIVO",
+      "deploying": "IMPLANTANDO...",
+      "syncComplete": "SINCRONIZAÇÃO CONCLUÍDA // OPERATIVO IMPLANTADO COM SUCESSO NO SETOR ALVO",
+      "active": "ATIVO",
+      "standby": "EM ESPERA",
+      "role": "FUNÇÃO",
+      "firepower": "PODER DE FOGO",
+      "defense": "DEFESA",
+      "mobility": "MOBILIDADE",
+      "shogun": "CIBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "MATRIZ ONI",
+      "frog": "SAPO NINJA",
+      "guy": "CARA VIRTUAL"
+    },
+    "gameplay": {
+      "protocols": "PROTOCOLOS BÁSICOS",
+      "terminal": "Terminal de Banco de Dados",
+      "active": "ATIVO",
+      "synced": "SINCRONIZADO",
+      "online": "ONLINE",
+      "t1_title": "Movimentação Cinética",
+      "t1_desc": "Domine a movimentação baseada em impulso. Corra pelas paredes dos monolitos alienígenas, use ganchos em arranha-céus em ruínas e encadeie deslizamentos para evadir sensores inimigos.",
+      "t2_title": "Hacking Neural",
+      "t2_desc": "Infiltre-se nas redes alienígenas instantaneamente. Sequestre drones inimigos, sobrecarregue escudos de energia ou use as defesas automáticas contra seus criadores.",
+      "t3_title": "Sinergia de Equipe",
+      "t3_desc": "Comande sua resistência controlada por IA. Execute invasões sincronizadas, prepare emboscadas táticas e combine habilidades para destruir blindagens pesadas."
+    },
+    "tech_hub": {
+      "hero_desc": "Acesso direto à documentação técnica do Axiom Force. Construído para engajamento tático de alto desempenho em várias plataformas. Alimentado por Godot e Ink.",
+      "engine_title": "Especificações do Motor",
+      "engine_desc": "Aproveitando o Godot Engine compilado com .NET 8 para otimização agressiva de desempenho. Pipeline de referência personalizado usando Vulkan para iluminação neon-noir avançada e efeitos atmosféricos.",
+      "status_init": "Inicializar Núcleo... [OK]",
+      "status_shaders": "Carregar Shaders Vulkan... [OK]",
+      "status_link": "Estabelecer Link Neural... [PENDENTE]",
+      "narrative_desc": "Impulsionado pela linguagem de script Ink da Inkle, fornecendo árvores de diálogo profundamente ramificadas e rastreamento de estado persistente para cada operativo da resistência.",
+      "comms_desc": "Suporte completo de localização para mais de 50 idiomas, usando um sistema de renderização de fontes dinâmico personalizado para lidar com scripts complexos e layouts RTL perfeitamente.",
+      "offline_status": "Sistema Offline"
     }
   },
   "hy": {
@@ -1722,7 +1992,12 @@
       "levels": "Մակարդակներ",
       "features": "Առանձնահատկություններ",
       "controls": "Կառավարում",
-      "play_now": "Խաղալ հիմա"
+      "play_now": "Խաղալ հիմա",
+      "home": "ՏՈՒՆ",
+      "gameplay": "ԳԵՅՄՓԼԵՅ",
+      "squad": "ՋՈԿԱՏ",
+      "tech_hub": "TECH HUB",
+      "design_system": "ԴԻԶԱՅՆ ՀԱՄԱԿԱՐԳ"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -1999,6 +2274,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ԴԵՊԼԻ ՕՊԵՐԱՏԻՎ",
+      "deploying": "ՏԵՂԱՓՈԽՈՒՄ...",
+      "syncComplete": "Համաժամեցումն ավարտված է // ՕՊԵՐԱՏԻՎԸ ՀԱՋՈՂՈՒԹՅԱՆ ՏՐԱՄԱԴՐՎԱԾ Է ՆՊԱՏԱԿԱՅԻՆ ՈԼՈՐՏՈՒՄ",
+      "active": "ԱԿՏԻՎ",
+      "standby": "ՍՊԱՍՆԱԿԱՆ",
+      "role": "ԴԵՐ",
+      "firepower": "ՀՐԱԿԱՅԻՆ ՈՒԺԵՐ",
+      "defense": "ՊԱՇՏՊԱՆՈՒԹՅՈՒՆ",
+      "mobility": "ՇԱՐԺՈՒՆԱԿՈՒԹՅՈՒՆ",
+      "shogun": "ԿԻԲԵՐ ՇՈԳՈՒՆ",
+      "ronin": "ԷԳԻՍ ՌՈՆԻՆ",
+      "matrix": "ONI MATRIX",
+      "frog": "ՆԻՆՋԱ ԳՈՐՏ",
+      "guy": "ՎԻՐՏՈՒԱԼ ՏՂԱ"
+    },
+    "gameplay": {
+      "protocols": "ՀԻՄՆԱԿԱՆ ԱՐՁԱՆԱԳՐՈՒԹՅՈՒՆՆԵՐ",
+      "terminal": "Տվյալների բազայի տերմինալ",
+      "active": "ԱԿՏԻՎ",
+      "synced": "ՀԱՄԱԺԱՄԱՆՑՎԱԾ",
+      "online": "ՕՆԼԱՅՆ",
+      "t1_title": "Կինետիկ անցում",
+      "t1_desc": "Վարպետեք իմպուլսի վրա հիմնված շարժումը: Պատերով վազեք այլմոլորակայինների մոնոլիտների երկայնքով, հաղթահարեք ավերված երկնաքերերը և շղթայական սլայդները՝ խուսափելու Xelthara թիրախավորման սենսորներից:",
+      "t2_title": "Նյարդային հաքեր",
+      "t2_desc": "Թռչելիս ներթափանցեք այլմոլորակայինների ցանցեր: Առևանգեք թշնամու անօդաչու թռչող սարքերը, ծանրաբեռնեք էներգիայի վահանները կամ իրական ժամանակի մարտերում դարձրեք ավտոմատ պաշտպանություն դրանց ստեղծողների դեմ:",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Հրամայեք ձեր AI-ի վրա հիմնված դիմադրության բջիջը: Կատարեք համաժամանակյա խախտումներ, դրեք մարտավարական դարանակալներ և համատեղեք եզակի ունակությունները՝ ապամոնտաժելու ծանր Xelthara զրահը:"
+    },
+    "tech_hub": {
+      "hero_desc": "Ուղղակի մուտք դեպի Axiom Force տեխնիկական փաստաթղթեր: Ստեղծված է բազմաթիվ հարթակներում բարձր արդյունավետությամբ մարտավարական նե��գրավվածության համար: Powered by Godot and Ink.",
+      "engine_title": "Շարժիչի բնութագրերը",
+      "engine_desc": "Օգտագործելով Godot Engine-ը, որը կազմվել է .NET 8-ի հետ՝ արդյունավետության ագրեսիվ օպտիմալացման համար: Պատվերով մատուցման խողովակաշար, որն օգտագործում է Vulkan-ը առաջադեմ նեոն-նոար լուսավորության և մթնոլորտային էֆեկտների համար:",
+      "status_init": "Նախաձեռնել Core... [OK]",
+      "status_shaders": "Բեռնել Vulkan Shaders... [OK]",
+      "status_link": "Ստեղծել նյարդային կապ... [ՍՊԱՍ Է]",
+      "narrative_desc": "Առաջնորդվում է Inkle's Ink սկրիպտավորման լեզվով, որն ապահովում է խորը ճյուղավորվող երկխոսության ծառեր և կայուն վիճակի հետևում յուրաքանչյուր դիմադրության օպերատորի համար:",
+      "comms_desc": "Լրիվ տեղայնացման աջակցություն 50+ լեզուների համար՝ օգտագործելով տառատեսակների մշակման դինամիկ անհատական համակարգ՝ բարդ սցենարների և RTL դասավորությունների անխափան մշակման համար:",
+      "offline_status": "Համակարգը անցանց"
     }
   },
   "az": {
@@ -2008,7 +2323,12 @@
       "levels": "Səviyyələr",
       "features": "Xüsusiyyətlər",
       "controls": "Nəzarətlər",
-      "play_now": "İndi Oyna"
+      "play_now": "İndi Oyna",
+      "home": "EV",
+      "gameplay": "OYUN",
+      "squad": "QRUP",
+      "tech_hub": "TECH HUB",
+      "design_system": "DİZAYN SİSTEMİ"
     },
     "hero": {
       "title_line1": "AKSİOM QÜVVƏSİ",
@@ -2285,6 +2605,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ƏMƏLİYYAT VERİN",
+      "deploying": "YERLENDİRİLİR...",
+      "syncComplete": "SYNC COMPLED // ƏMƏLİYYAT MƏQSƏD SEKTORA UĞURLU YERLƏŞDİRİLİB",
+      "active": "AKTİV",
+      "standby": "GÖZLƏMƏ",
+      "role": "ROLU",
+      "firepower": "ATEŞ GÜCÜ",
+      "defense": "MÜDAFİƏ",
+      "mobility": "MOBİLLİK",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROG",
+      "guy": "VİRTUAL OĞLAN"
+    },
+    "gameplay": {
+      "protocols": "ƏSAS PROTOKOLLAR",
+      "terminal": "Verilənlər bazası terminalı",
+      "active": "AKTİV",
+      "synced": "SYNCED",
+      "online": "ONLAYN",
+      "t1_title": "Kinetik keçid",
+      "t1_desc": "Tələbə əsaslanan hərəkətə hakim olun. Yadplanetlilərin monolitləri boyunca divarda qaçın, xarab olmuş göydələnlər arasından keçin və Xelthara hədəf sensorlarından yayınmaq üçün zəncir sürüşdürün.",
+      "t2_title": "Neyron Hacking",
+      "t2_desc": "Yadplanetli şəbəkələrə tez sızın. Düşmən pilotsuz təyyarələrini qaçırın, enerji qalxanlarını həddən artıq yükləyin və ya real vaxt döyüşlərində onların yaradıcılarına qarşı avtomatlaşdırılmış müdafiəni çevirin.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Süni intellektlə idarə olunan müqavimət hüceyrəsinə əmr verin. Sinxronlaşdırılmış pozuntuları yerinə yetirin, taktiki pusqular qurun və ağır Xelthara zirehlərini sökmək üçün unikal bacarıqları birləşdirin."
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force texniki sənədlərinə birbaşa çıxış. Çox platformada yüksək performanslı taktiki nişan üçün qurulmuşdur. Godot və Ink tərəfindən təchiz edilmişdir.",
+      "engine_title": "Mühərrik Xüsusiyyətləri",
+      "engine_desc": "Aqressiv performans optimallaşdırılması üçün .NET 8 ilə tərtib edilmiş Godot Mühərrikindən istifadə. Qabaqcıl neon-noir işıqlandırma və atmosfer effektləri üçün Vulkandan istifadə edən xüsusi render boru kəməri.",
+      "status_init": "Əsası işə salın... [OK]",
+      "status_shaders": "Vulkan Shaderləri yükləyin... [OK]",
+      "status_link": "Sinir Bağlantısını Yaradın... [Gözləmədə]",
+      "narrative_desc": "Inkle's Ink skript dili ilə idarə olunur, hər bir müqavimət əməliyyatçısı üçün dərin budaqlanan dialoq ağacları və davamlı vəziyyət izlənməsini təmin edir.",
+      "comms_desc": "Mürəkkəb skriptləri və RTL tərtibatlarını qüsursuz idarə etmək üçün xüsusi dinamik şrift göstərmə sistemindən istifadə edərək 50+ dil üçün tam lokallaşdırma dəst��yi.",
+      "offline_status": "Sistem Offline"
     }
   },
   "bn": {
@@ -2294,7 +2654,12 @@
       "levels": "স্তর",
       "features": "বৈশিষ্ট্য",
       "controls": "নিয়ন্ত্রণ করে",
-      "play_now": "এখন খেলুন"
+      "play_now": "এখন খেলুন",
+      "home": "হোম",
+      "gameplay": "গেমপ্লে",
+      "squad": "স্কোয়াড",
+      "tech_hub": "টেক হাব",
+      "design_system": "ডিজাইন সিস্টেম"
     },
     "hero": {
       "title_line1": "অ্যাক্সিওম ফোর্স",
@@ -2571,6 +2936,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "অপারেটিভ স্থাপন করুন",
+      "deploying": "স্থাপন করা হচ্ছে...",
+      "syncComplete": "সিঙ্ক সম্পূর্ণ // অপারেটিভ সফলভাবে লক্ষ্য সেক্টরে মোতায়েন",
+      "active": "সক্রিয়",
+      "standby": "স্ট্যান্ডবাই",
+      "role": "ভূমিকা",
+      "firepower": "ফায়ার পাওয়ার",
+      "defense": "প্রতিরক্ষা",
+      "mobility": "গতিশীলতা",
+      "shogun": "সাইবার শোগুন",
+      "ronin": "এজিস রনিন",
+      "matrix": "ওএনআই ম্যাট্রিক্স",
+      "frog": "নিনজা ব্যাঙ",
+      "guy": "ভার্চুয়াল লোক"
+    },
+    "gameplay": {
+      "protocols": "কোর প্রোটোকল",
+      "terminal": "ডাটাবেস টার্মিনাল",
+      "active": "সক্রিয়",
+      "synced": "সিঙ্ক করা হয়েছে",
+      "online": "অনলাইন",
+      "t1_title": "কাইনেটিক ট্রাভার্সাল",
+      "t1_desc": "মাস্টার ভরবেগ-ভিত্তিক আন্দোলন। এলিয়েন মনোলিথের সাথে প্রাচীর-দৌড়, ধ্বংসপ্রাপ্ত আকাশচুম্বী অট্টালিকাগুলির মধ্য দিয়ে ঝাঁপিয়ে পড়ুন, এবং জেলথারা টার্গেটিং সেন্সরগুলি এড়াতে চেইন স্লাইডগুলি।",
+      "t2_title": "নিউরাল হ্যাকিং",
+      "t2_desc": "উড়ে এলিয়েন নেটওয়ার্কে অনুপ্রবেশ করুন। শত্রুর ড্রোন হাইজ্যাক করুন, শক্তির ঢাল ওভারলোড করুন বা রিয়েল-টাইম যুদ্ধে তাদের নির্মাতাদের বিরুদ্ধে স্বয়ংক্রিয় প্রতিরক্ষা চালু করুন।",
+      "t3_title": "স্কোয়াড সিনার্জি",
+      "t3_desc": "আপনার AI-চালিত প্রতিরোধের সেলকে নির্দেশ করুন। সিঙ্ক্রোনাইজড লঙ্ঘন চালান, কৌশলগত অ্যাম্বুশ স্থাপন করুন এবং ভারী জেলথারা বর্ম ভেঙে ফেলার জন্য অনন্য ক্ষমতার সমন্বয় করুন।"
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force প্রযুক্তিগত ডকুমেন্টেশনে সরাসরি অ্যাক্সেস। একাধিক প্ল্যাটফর্ম জুড়ে উচ্চ-কর্মক্ষমতা কৌশলগত ব্যস্ততার জন্য নির্মিত। Godot এবং কালি দ্বারা চালিত.",
+      "engine_title": "ইঞ্জিন স্পেসিফিকেশন",
+      "engine_desc": "আক্রমনাত্মক কর্মক্ষমতা অপ্টিমাইজেশানের জন্য .NET 8 এর সাথে সংকলিত Godot ইঞ্জিনের ব্যবহার। উন্নত নিওন-নয়ার আলো এবং বায়ুমণ্ডলীয় প্রভাবের জন্য ভলকান ব্যবহার করে কাস্টম রেন্ডারিং পাইপলাইন।",
+      "status_init": "কোর শুরু করুন... [ঠিক আছে]",
+      "status_shaders": "ভলকান শেডার্স লোড করুন... [ঠিক আছে]",
+      "status_link": "নিউরাল লিঙ্ক স্থাপন করুন... [পেন্ডিং]",
+      "narrative_desc": "ইঙ্কলের কালি স্ক্রিপ্টিং ভাষা দ্বারা চালিত, প্রতিটি প্রতিরোধ অপারেটিভের জন্য গভীরভাবে শাখাযুক্ত কথোপকথন গাছ এবং অবিরাম রাষ্ট্র ট্র্যাকিং প্রদান করে।",
+      "comms_desc": "50+ ভাষার জন্য সম্পূর্ণ স্থানীয়করণ সমর্থন, একটি কাস্টম ডায়নামিক ফন্ট রেন্ডারিং সিস্টেম ব্যবহার করে জটিল স্ক্রিপ্ট এবং RTL লেআউটগুলি নির্বিঘ্নে পরিচালনা করতে।",
+      "offline_status": "সিস্টেম অফলাইন"
     }
   },
   "cs": {
@@ -2580,7 +2985,12 @@
       "levels": "úrovně",
       "features": "Vlastnosti",
       "controls": "Ovládací prvky",
-      "play_now": "Hrát hned"
+      "play_now": "Hrát hned",
+      "home": "DOMŮ",
+      "gameplay": "HRANÍ",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "DESIGNOVÝ SYSTÉM"
     },
     "hero": {
       "title_line1": "SÍLA AXIOM",
@@ -2857,6 +3267,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "NASTAVIT OPERATIVNÍHO",
+      "deploying": "NASTAVENÍ...",
+      "syncComplete": "SYNCHRONIZACE DOKONČENA // OPERATIVA ÚSPĚŠNĚ ZAVÁDĚNA DO CÍLOVÉHO SEKTORU",
+      "active": "AKTIVNÍ",
+      "standby": "POHOTOVOSTNÍ REŽIM",
+      "role": "ROLE",
+      "firepower": "PALUBNÍ SÍLA",
+      "defense": "OBRANA",
+      "mobility": "MOBILITA",
+      "shogun": "KYBER ŠOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA ŽÁBA",
+      "guy": "VIRTUÁLNÍ CHLAP"
+    },
+    "gameplay": {
+      "protocols": "ZÁKLADNÍ PROTOKOLY",
+      "terminal": "Databázový terminál",
+      "active": "AKTIVNÍ",
+      "synced": "SYNCHRONOVÁNO",
+      "online": "ONLINE",
+      "t1_title": "Kinetický přechod",
+      "t1_desc": "Ovládněte pohyb založený na hybnosti. Stěhujte se podél mimozemských monolitů, prohrabávejte se zničenými mrakodrapy a řetězovými skluzavkami, abyste se vyhnuli zaměřovacím senzorům Xelthary.",
+      "t2_title": "Neurální hackování",
+      "t2_desc": "Infiltrujte mimozemské sítě za běhu. Unést nepřátelské drony, přetížit energetické štíty nebo obrátit automatizovanou obranu proti jejich tvůrcům v boji v reálném čase.",
+      "t3_title": "Týmová synergie",
+      "t3_desc": "Ovládejte svou buňku odporu řízenou umělou inteligencí. Provádějte synchronizovaná průlomy, klaďte taktické zálohy a kombinujte jedinečné schopnosti k demontáži těžkého brnění Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Přímý přístup k technické dokumentaci Axiom Force. Vytvořeno pro vysoce výkonné taktické zapojení na více platformách. Běží na Godot and Ink.",
+      "engine_title": "Specifikace motoru",
+      "engine_desc": "Využití Godot Engine zkompilovaného s .NET 8 pro agresivní optimalizaci výkonu. Vlastní renderovací kanál využívající Vulkan pro pokročilé neon-noir osvětlení a atmosférické efekty.",
+      "status_init": "Inicializovat jádro... [OK]",
+      "status_shaders": "Načíst Vulkan Shaders... [OK]",
+      "status_link": "Vytvořit neuronové spojení... [ČEKÁ]",
+      "narrative_desc": "Poháněno skriptovacím jazykem Inkle Ink, který poskytuje hluboce větvené stromy dialogů a trvalé sledování stavu pro každého pracovníka odporu.",
+      "comms_desc": "Plná podpora lokalizace pro více než 50 jazyků, využívající vlastní dynamický systém vykreslování písem pro bezproblémové zpracování složitých skriptů a rozvržení RTL.",
+      "offline_status": "Systém offline"
     }
   },
   "da": {
@@ -2866,7 +3316,12 @@
       "levels": "Niveauer",
       "features": "Funktioner",
       "controls": "Kontrolelementer",
-      "play_now": "Spil nu"
+      "play_now": "Spil nu",
+      "home": "HJEM",
+      "gameplay": "SPIL",
+      "squad": "SQUAD",
+      "tech_hub": "TEKNISK HUB",
+      "design_system": "DESIGNSYSTEM"
     },
     "hero": {
       "title_line1": "AKSIOMKRAFT",
@@ -3143,6 +3598,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "UDSÆT OPERATIV",
+      "deploying": "UDSÆTTER...",
+      "syncComplete": "SYNCERING FULDFØRT // OPERATIV SUCCES UDPLASSET TIL MÅLSEKTOREN",
+      "active": "AKTIV",
+      "standby": "STANDBY",
+      "role": "ROLLE",
+      "firepower": "ILDKRAFT",
+      "defense": "FORSVAR",
+      "mobility": "MOBILITET",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FRØ",
+      "guy": "VIRTUEL FYR"
+    },
+    "gameplay": {
+      "protocols": "KERNEPROTOKOLLER",
+      "terminal": "Database terminal",
+      "active": "AKTIV",
+      "synced": "SYNCERET",
+      "online": "ONLINE",
+      "t1_title": "Kinetisk gennemkørsel",
+      "t1_desc": "Mestre momentum-baseret bevægelse. Vægløb langs fremmede monolitter, kæmp dig gennem ødelagte skyskrabere, og kædeslids for at undgå Xelthara-målretningssensorer.",
+      "t2_title": "Neural hacking",
+      "t2_desc": "Infiltrer fremmede netværk på farten. Kapr fjendens droner, overbelast energiskjolde, eller drej automatiserede forsvar mod deres skabere i realtidskamp.",
+      "t3_title": "Squad Synergi",
+      "t3_desc": "Styr din AI-drevne modstandscelle. Udfør synkroniserede brud, læg taktiske bagholdsangreb og kombiner unikke evner til at afmontere tunge Xelthara-rustninger."
+    },
+    "tech_hub": {
+      "hero_desc": "Direkte adgang til Axiom Force tekniske dokumentation. Bygget til højtydende taktisk engagement på tværs af flere platforme. Drevet af Godot og Ink.",
+      "engine_title": "Motor specifikationer",
+      "engine_desc": "Udnyttelse af Godot Engine kompileret med .NET 8 til aggressiv ydeevneoptimering. Brugerdefineret renderingspipeline, der bruger Vulkan til avanceret neon-noir-belysning og atmosfæriske effekter.",
+      "status_init": "Initialiser kerne... [OK]",
+      "status_shaders": "Indlæs Vulkan Shaders... [OK]",
+      "status_link": "Etabler neural forbindelse... [VENTER]",
+      "narrative_desc": "Drevet af Inkles Ink-scriptsprog, der giver dybt forgrenede dialogtræer og vedvarende tilstandssporing for enhver modstandsperson.",
+      "comms_desc": "Fuld lokaliseringsunderstøttelse til 50+ sprog, ved hjælp af et brugerdefineret dynamisk skrifttypegengivelsessystem til at håndtere komplekse scripts og RTL-layouts problemfrit.",
+      "offline_status": "System offline"
     }
   },
   "nl": {
@@ -3152,7 +3647,12 @@
       "levels": "Niveaus",
       "features": "Kenmerken",
       "controls": "Controles",
-      "play_now": "Speel nu"
+      "play_now": "Speel nu",
+      "home": "THUIS",
+      "gameplay": "SPEL",
+      "squad": "PLOEG",
+      "tech_hub": "TECHNISCHE HUB",
+      "design_system": "ONTWERP SYSTEEM"
     },
     "hero": {
       "title_line1": "AXIOM KRACHT",
@@ -3429,6 +3929,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "INZET OPERATIEF",
+      "deploying": "IMPLEMENTEREN...",
+      "syncComplete": "SYNC COMPLEET // OPERATIEF SUCCESVOL INGEZET IN DE DOELSECTOR",
+      "active": "ACTIEF",
+      "standby": "STAND-BY",
+      "role": "ROL",
+      "firepower": "VUURKRACHT",
+      "defense": "VERDEDIGING",
+      "mobility": "MOBILITEIT",
+      "shogun": "CYBERSHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA KIKKER",
+      "guy": "VIRTUELE KEREL"
+    },
+    "gameplay": {
+      "protocols": "KERNPROTOCOLLEN",
+      "terminal": "Databaseterminal",
+      "active": "ACTIEF",
+      "synced": "GESYNCHRONISEERD",
+      "online": "ONLINE",
+      "t1_title": "Kinetische verplaatsing",
+      "t1_desc": "Beheers op momentum gebaseerde bewegingen. Ren langs buitenaardse monolieten, worstel je door verwoeste wolkenkrabbers en glijd langs kettingen om Xelthara-doelsensoren te ontwijken.",
+      "t2_title": "Neuraal hacken",
+      "t2_desc": "Infiltreer buitenaardse netwerken terwijl je bezig bent. Kaap vijandelijke drones, overbelast energieschilden of schakel geautomatiseerde verdediging tegen hun makers in realtime gevechten.",
+      "t3_title": "Teamsynergie",
+      "t3_desc": "Voer het bevel over uw AI-aangedreven weerstandscel. Voer gesynchroniseerde doorbraken uit, leg tactische hinderlagen en combineer unieke vaardigheden om zwaar Xelthara-pantser te ontmantelen."
+    },
+    "tech_hub": {
+      "hero_desc": "Directe toegang tot de technische documentatie van Axiom Force. Gebouwd voor hoogwaardige tactische betrokkenheid op meerdere platforms. Mogelijk gemaakt door Godot en Inkt.",
+      "engine_title": "Motorspecificaties",
+      "engine_desc": "Gebruikmakend van de Godot Engine gecompileerd met .NET 8 voor agressieve prestatie-optimalisatie. Aangepaste renderingpijplijn met behulp van Vulkan voor geavanceerde neon-noir-verlichting en atmosferische effecten.",
+      "status_init": "Kern initialiseren... [OK]",
+      "status_shaders": "Vulkan Shaders laden... [OK]",
+      "status_link": "Breng een neurale link tot stand... [AFWACHT]",
+      "narrative_desc": "Gedreven door Inkle's Ink-scripttaal, die diep vertakkende dialoogbomen en aanhoudende statusregistratie biedt voor elke verzetsagent.",
+      "comms_desc": "Volledige lokalisatieondersteuning voor meer dan 50 talen, waarbij gebruik wordt gemaakt van een aangepast dynamisch lettertypeweergavesysteem om complexe scripts en RTL-lay-outs naadloos af te handelen.",
+      "offline_status": "Systeem offline"
     }
   },
   "et": {
@@ -3438,7 +3978,12 @@
       "levels": "Tasemed",
       "features": "Omadused",
       "controls": "Juhtnupud",
-      "play_now": "Mängi kohe"
+      "play_now": "Mängi kohe",
+      "home": "KODU",
+      "gameplay": "MÄNGU MÄNG",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "DISAINSÜSTEEM"
     },
     "hero": {
       "title_line1": "AKSIOOMJÕUD",
@@ -3715,6 +4260,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "KASUTADA OPERATIIV",
+      "deploying": "KASUTAMINE...",
+      "syncComplete": "SÜNKROONI LÕPETATUD // OPERATIIVS ON SIHTSEKTORI EDUKALT KASUTATUD",
+      "active": "AKTIIVNE",
+      "standby": "OOTEREŽIIM",
+      "role": "ROLL",
+      "firepower": "TULEJÕUD",
+      "defense": "KAITSE",
+      "mobility": "MOBIILSUS",
+      "shogun": "KÜBERSHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA KONN",
+      "guy": "VIRTUAALNE KUTS"
+    },
+    "gameplay": {
+      "protocols": "PÕHIPROTOKOLLID",
+      "terminal": "Andmebaasi terminal",
+      "active": "AKTIIVNE",
+      "synced": "SYNKREERITUD",
+      "online": "ONLINE",
+      "t1_title": "Kineetiline läbimine",
+      "t1_desc": "Õpetage hoogupõhine liikumine. Jookse mööda tulnukate monoliite, maadle lagunenud pilvelõhkujate ja kettliugudega, et vältida Xelthara sihtimisandureid.",
+      "t2_title": "Neuraalne häkkimine",
+      "t2_desc": "Infiltreeruge lennult tulnukate võrkudesse. Kaaperdage vaenlase droonid, laadige energiakilpe üle või pöörake automaatsed kaitsemehhanismid nende loojate vastu reaalajas võitluses.",
+      "t3_title": "Rühma sünergia",
+      "t3_desc": "Juhtige oma tehisintellekti juhitavat takistusrakku. Tehke sünkroniseeritud rikkumisi, korraldage taktikalisi varitsusi ja ühendage ainulaadsed võimed raskete Xelthara raudrüüde demonteerimiseks."
+    },
+    "tech_hub": {
+      "hero_desc": "Otsene juurdepääs Axiom Force'i tehnilisele dokumentatsioonile. Loodud suure jõudlusega taktikaliseks kaasamiseks mitmel platvormil. Toiteallikaks Godot ja Ink.",
+      "engine_title": "Mootori tehnilised andmed",
+      "engine_desc": "NET 8-ga koostatud Godot Engine'i kasutamine agressiivseks jõudluse optimeerimiseks. Kohandatud renderdamistoru, mis kasutab Vulkani täiustatud neoon-noir-valgustuse ja atmosfääriefektide jaoks.",
+      "status_init": "Initsialiseeri Core... [OK]",
+      "status_shaders": "Laadi Vulkan Shaders... [OK]",
+      "status_link": "Loo närvilink... [OOTEL]",
+      "narrative_desc": "Ajendab Inkle'i Ink skriptikeelt, pakkudes sügavalt hargnevaid dialoogipuid ja püsivat oleku jälgimist iga vastupanutöötaja jaoks.",
+      "comms_desc": "Täielik lokaliseerimise tugi enam kui 50 keelele, kasutades kohandatud dünaamilise fondi renderdussüsteemi, mis võimaldab sujuvalt käsitleda keerulisi skripte ja RTL-paigutusi.",
+      "offline_status": "Süsteem võrguühenduseta"
     }
   },
   "fil": {
@@ -3724,7 +4309,12 @@
       "levels": "Mga antas\n<",
       "features": "Mga tampok\n<",
       "controls": "Mga kontrol\n<",
-      "play_now": "Maglaro Ngayon\n<"
+      "play_now": "Maglaro Ngayon\n<",
+      "home": "BAHAY\n<",
+      "gameplay": "GAMEPLAY\n<",
+      "squad": "SQUAD\n<",
+      "tech_hub": "TECH HUB\n<",
+      "design_system": "SISTEMA NG DISENYO\n<"
     },
     "hero": {
       "title_line1": "AXIOM FORCE\n<",
@@ -4001,6 +4591,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "I-DEPLOY ANG OPERATIVE\n<",
+      "deploying": "NAG-DEPLOY...\n<",
+      "syncComplete": "SYNC COMPLETE // OPERATIVE NA MATAGUMPAY NA NA-DEPLOY SA TARGET SECTOR\n<",
+      "active": "ACTIVE\n<",
+      "standby": "STANDBY\n<",
+      "role": "TUNGKULIN\n<",
+      "firepower": "FIREPOWER\n<",
+      "defense": "PAGTATANGGOL\n<",
+      "mobility": "MOBILIDAD\n<",
+      "shogun": "CYBER SHOGUN\n<",
+      "ronin": "AEGIS RONIN\n<",
+      "matrix": "ONI MATRIX\n<",
+      "frog": "NINJA FROG\n<",
+      "guy": "VIRTUAL GUY\n<"
+    },
+    "gameplay": {
+      "protocols": "MGA PANGUNAHING PROTOCOL",
+      "terminal": "Terminal ng Database\n<",
+      "active": "ACTIVE\n<",
+      "synced": "SYNCED\n<",
+      "online": "ONLINE\n<",
+      "t1_title": "Kinetic Traversal\n<",
+      "t1_desc": "Master ang paggalaw na nakabatay sa momentum. Wall-run sa kahabaan ng alien monolith, makipagbuno sa mga nasirang skyscraper, at chain slides upang maiwasan ang mga sensor sa pag-target ng Xelthara.\n<",
+      "t2_title": "Neural Hacking\n<",
+      "t2_desc": "Makalusot sa mga dayuhang network nang mabilis. I-hijack ang mga drone ng kaaway, overload ang mga energy shield, o i-on ang mga awtomatikong depensa laban sa kanilang mga creator sa real-time na labanan.\n<",
+      "t3_title": "Squad Synergy\n<",
+      "t3_desc": "Command ang iyong AI-driven na resistance cell. Magsagawa ng mga naka-synchronize na paglabag, maglagay ng mga taktikal na ambus, at pagsamahin ang mga natatanging kakayahan upang lansagin ang mabibigat na Xelthara armor.\n<"
+    },
+    "tech_hub": {
+      "hero_desc": "Direktang pag-access sa teknikal na dokumentasyon ng Axiom Force. Binuo para sa mataas na pagganap na taktikal na pakikipag-ugnayan sa maraming platform. Pinapatakbo ng Godot at Ink.\n<",
+      "engine_title": "Mga Detalye ng Engine\n<",
+      "engine_desc": "Ang paggamit ng Godot Engine na pinagsama-sama sa .NET 8 para sa agresibong pag-optimize ng pagganap. Custom na pag-render ng pipeline na gumagamit ng Vulkan para sa advanced na neon-noir lighting at atmospheric effect.\n<",
+      "status_init": "I-initialize ang Core... [OK]\n<",
+      "status_shaders": "I-load ang Vulkan Shaders... [OK]\n<",
+      "status_link": "Magtatag ng Neural Link... [PENDING]\n<",
+      "narrative_desc": "Hinimok ng Ink's Ink scripting language, na nagbibigay ng malalim na sumasanga na mga dialogue tree at patuloy na pagsubaybay sa estado para sa bawat operatiba ng paglaban.\n<",
+      "comms_desc": "Buong suporta sa localization para sa 50+ na wika, na gumagamit ng custom na dynamic na font rendering system upang mapangasiwaan ang mga kumplikadong script at mga layout ng RTL nang walang putol.\n<",
+      "offline_status": "System Offline"
     }
   },
   "fi": {
@@ -4010,7 +4640,12 @@
       "levels": "Tasot",
       "features": "Ominaisuudet",
       "controls": "Säätimet",
-      "play_now": "Pelaa nyt"
+      "play_now": "Pelaa nyt",
+      "home": "KOTI",
+      "gameplay": "PELAA",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "SUUNNITTELUJÄRJESTELMÄ"
     },
     "hero": {
       "title_line1": "AXIOM VOIMA",
@@ -4287,6 +4922,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "KÄYTTÖÖNOTTO",
+      "deploying": "KÄYTTÖÖNOTTO...",
+      "syncComplete": "SYNKRONOINTI VALMIS // OPERATIIVI ON KÄYTETTY KOHDEALALLA",
+      "active": "AKTIIVINEN",
+      "standby": "VALMIUStila",
+      "role": "ROOLI",
+      "firepower": "TULIVOIMA",
+      "defense": "PUOLUSTUS",
+      "mobility": "LIIKKUVUUS",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIISI",
+      "frog": "NINJA-SAMMAKKO",
+      "guy": "VIRTUAALINEN KAUPPA"
+    },
+    "gameplay": {
+      "protocols": "YDINPROTOKOLLAT",
+      "terminal": "Tietokantapääte",
+      "active": "AKTIIVINEN",
+      "synced": "SYNKROINTI",
+      "online": "VERKOSSA",
+      "t1_title": "Kineettinen läpikulku",
+      "t1_desc": "Hallitse vauhtiin perustuva liike. Juokse muurien monoliitteihin, taistele pilaantuneiden pilvenpiirtäjien läpi ja ketjuliukumäkiä välttääksesi Xeltharan kohdistusantureita.",
+      "t2_title": "Neuraalinen hakkerointi",
+      "t2_desc": "Tunkeutukaa avaruusolioiden verkkoihin lennossa. Kaappaa vihollisen droneja, ylikuormita energiakilpiä tai käännä automaattinen puolustus niiden luojia vastaan ​​reaaliaikaisessa taistelussa.",
+      "t3_title": "Joukkueen synergia",
+      "t3_desc": "Ohjaa tekoälyn ohjaamaa vastussoluasi. Suorita synkronoituja rikkomuksia, tee taktisia väijytyksiä ja yhdistä ainutlaatuiset kyvyt raskaan Xelthara-panssarin purkamiseksi."
+    },
+    "tech_hub": {
+      "hero_desc": "Suora pääsy Axiom Forcen tekniseen dokumentaatioon. Rakennettu tehokkaaseen taktiseen sitoutumiseen useilla alustoilla. Voimanlähteenä Godot ja Ink.",
+      "engine_title": "Moottorin tekniset tiedot",
+      "engine_desc": "Hyödynnämme .NET 8:lla koottua Godot Engineä aggressiiviseen suorituskyvyn optimointiin. Mukautettu renderöintiputki hyödyntää Vulkania edistyneeseen neon-noir-valaistukseen ja tunnelmaefekteihin.",
+      "status_init": "Alusta ydin... [OK]",
+      "status_shaders": "Lataa Vulkan Shaders... [OK]",
+      "status_link": "Luo hermolinkki... [DODING]",
+      "narrative_desc": "Inklen Ink-skriptikielen ohjaama, joka tarjoaa syvälle haarautuvat dialogipuut ja jatkuvan tilan seurannan jokaiselle vastustajalle.",
+      "comms_desc": "Täysi lokalisointituki yli 50 kielelle, jossa hyödynnetään mukautettua dynaamista kirjasinten renderöintijärjestelmää monimutkaisten komentosarjojen ja RTL-asettelujen saumaiseen käsittelyyn.",
+      "offline_status": "Järjestelmä offline-tilassa"
     }
   },
   "ka": {
@@ -4296,7 +4971,12 @@
       "levels": "დონეები",
       "features": "მახასიათებლები",
       "controls": "კონტროლი",
-      "play_now": "ითამაშეთ ახლა"
+      "play_now": "ითამაშეთ ახლა",
+      "home": "მთავარი",
+      "gameplay": "GAMEPLAY",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "დიზაინის სისტემა"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -4573,6 +5253,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "DEPLOY OPERATIVE",
+      "deploying": "განლაგება...",
+      "syncComplete": "სინქრონიზაცია დასრულებულია // ოპერაციული წარმატებით განლაგებულია სამიზნე სექტორში",
+      "active": "აქტიური",
+      "standby": "ლოდინის რეჟიმში",
+      "role": "როლი",
+      "firepower": "ცეცხლსასროლი ძალა",
+      "defense": "თავდაცვა",
+      "mobility": "მობილურობა",
+      "shogun": "კიბერ შოგუნი",
+      "ronin": "აიგის რონინი",
+      "matrix": "ONI MATRIX",
+      "frog": "ნინჯა ბაყაყი",
+      "guy": "ვირტუალური ბიჭი"
+    },
+    "gameplay": {
+      "protocols": "ძირითადი პროტოკოლები",
+      "terminal": "მონაცემთა ბაზის ტერმინალი",
+      "active": "აქტიური",
+      "synced": "სინქრონიზებული",
+      "online": "ონლაინ",
+      "t1_title": "კინეტიკური გავლა",
+      "t1_desc": "დაეუფლეთ იმპულსზე დაფუძნებულ მოძრაობას. გაიარეთ კედელზე უცხო მონოლითების გასწვრივ, გადალახეთ დანგრეული ცათამბჯენები და ჯაჭვის სლაიდები, რათა თავიდან აიცილოთ Xelthara-ს სამიზნე სენსორები.",
+      "t2_title": "ნერვული ჰაკინგი",
+      "t2_desc": "შედით უცხოპლანეტელების ქსელებში ფრენის დროს. გაიტაცეს მტრის დრონები, გადატვირთეთ ენერგეტიკული ფარები ან შექმენით ავტომატური დაცვა მათი შემქმნელებისგან რეალურ დროში ბრძოლაში.",
+      "t3_title": "რაზმის სინერგია",
+      "t3_desc": "მართეთ თქვენი AI-ზე ორიენტირებული წინააღმდეგობის უჯრედი. შეასრულეთ სინქრონიზებული დარღვევები, მოაწყვეთ ტაქტიკური ჩასაფრები და გააერთიანეთ უნიკალური უნარები მძიმე Xelthara ჯავშნის დასაშლელად."
+    },
+    "tech_hub": {
+      "hero_desc": "პირდაპირი წვდომა Axiom Force-ის ტექნიკურ დოკუმენტაციაზე. შექმნილია მაღალი ხარისხის ტაქტიკური ჩართულობისთვის მრავალ პლატფორმაზე. უზრუნველყოფილია გოდო და მელნის მიერ.",
+      "engine_title": "ძრავის სპეციფიკაციები",
+      "engine_desc": ".NET 8-ით შედგენილი Godot Engine-ის გამოყენება აგრესიული მუშაობის ოპტიმიზაციისთვის. მორგებული რენდერის მილსადენი Vulkan-ის გამოყენებით მოწინავე ნეონ-ნუარის განათებისთვის და ატმოსფერული ეფექტებისთვის.",
+      "status_init": "Core-ის ინიცირება... [OK]",
+      "status_shaders": "Vulkan Shaders-ის ჩატვირთვა... [OK]",
+      "status_link": "ნერვული კავშირის შექმნა... [მოლოდინშია]",
+      "narrative_desc": "ამოძრავებს Inkle's Ink სკრიპტირების ენით, რომელიც უზრუნველყოფს ღრმად განშტოებული დიალოგის ხეებს და მუდმივ მდგომარეობას თვალყურის დევნებას ყველა წინააღმდეგობის ოპერატიულისთვის.",
+      "comms_desc": "ლოკალიზაციის სრული მხარდაჭერა 50+ ენაზე, პერსონალური დინამიური შრიფტების რენდერის სისტემის გამოყენებით რთული სკრიპტებისა და RTL განლაგების შეუფერხებლად დასამუშავებლად.",
+      "offline_status": "სისტემა ხაზგარეშე"
     }
   },
   "de": {
@@ -4582,7 +5302,12 @@
       "levels": "Ebenen",
       "features": "Funktionen",
       "controls": "Kontrollen",
-      "play_now": "Jetzt spielen"
+      "play_now": "Jetzt spielen",
+      "home": "STARTSEITE",
+      "gameplay": "GAMEPLAY",
+      "squad": "TRUPP",
+      "tech_hub": "TECH-HUB",
+      "design_system": "DESIGN-SYSTEM"
     },
     "hero": {
       "title_line1": "AXIOM KRAFT",
@@ -4859,6 +5584,46 @@
           "input": "↑ ↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "EINSATZKRAFT AKTIVIEREN",
+      "deploying": "AKTIVIERUNG...",
+      "syncComplete": "SYNCHRONISATION ABGESCHLOSSEN // EINSATZKRAFT ERFOLGREICH IM ZIELSEKTOR DEPLOYIERT",
+      "active": "AKTIV",
+      "standby": "BEREITSCHAFT",
+      "role": "ROLLE",
+      "firepower": "FEUERKRAFT",
+      "defense": "ABWEHR",
+      "mobility": "MOBILITÄT",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI-MATRIX",
+      "frog": "NINJA-FROSCH",
+      "guy": "VIRTUAL GUY"
+    },
+    "gameplay": {
+      "protocols": "KERNPROTOKOLLE",
+      "terminal": "Datenbank-Terminal",
+      "active": "AKTIV",
+      "synced": "SYNCHRONISIERT",
+      "online": "ONLINE",
+      "t1_title": "Kinetische Bewegung",
+      "t1_desc": "Meistere impulsbasierte Bewegung. Laufe an Wänden außerirdischer Monolithen entlang, schwinge dich durch Hochhausruinen und verknüpfe Rutschmanöver, um Sensoren zu entgehen.",
+      "t2_title": "Neurales Hacking",
+      "t2_desc": "Infiltriere gegnerische Netzwerke im Flug. Kapere feindliche Drohnen, überlaste Schutzschilde oder richte automatisierte Verteidigungsanlagen gegen ihre Schöpfer.",
+      "t3_title": "Trupp-Synergie",
+      "t3_desc": "Befehlige deine KI Widerstandszelle. Führe koordinierte Angriffe aus, lege taktische Hinterhalte und kombiniere Spezialfähigkeiten."
+    },
+    "tech_hub": {
+      "hero_desc": "Direkter Zugriff auf die technische Dokumentation von Axiom Force. Entwickelt für hochperformante taktische Einsätze auf mehreren Plattformen. Unterstützt durch Godot und Ink.",
+      "engine_title": "Motor-Spezifikationen",
+      "engine_desc": "Nutzung der mit .NET 8 kompilierten Godot-Engine für aggressive Leistungsoptimierung. Benutzerdefinierte Rendering-Pipeline mit Vulkan für fortschrittliche Neon-Noir-Beleuchtung und atmosphärische Effekte.",
+      "status_init": "Kern initialisieren... [OK]",
+      "status_shaders": "Vulkan-Shader laden... [OK]",
+      "status_link": "Neuronale Verbindung herstellen... [AUSSTEHEND]",
+      "narrative_desc": "Unterstützt durch die Ink-Skriptsprache von Inkle, die tief verzweigte Dialogbäume und eine dauerhafte Statusverfolgung für jeden Widerstandskämpfer bietet.",
+      "comms_desc": "Volle Lokalisierungsunterstützung für über 50 Sprachen mit einem benutzerdefinierten dynamischen Font-Rendering-System zur nahtlosen Verarbeitung komplexer Schriften und RTL-Layouts.",
+      "offline_status": "System Offline"
     }
   },
   "el": {
@@ -4868,7 +5633,12 @@
       "levels": "Επίπεδα",
       "features": "Χαρακτηριστικά",
       "controls": "Έλεγχοι",
-      "play_now": "Παίξτε Τώρα"
+      "play_now": "Παίξτε Τώρα",
+      "home": "ΣΠΙΤΙ",
+      "gameplay": "GAMEPLAY",
+      "squad": "ΟΜΑΔΑ",
+      "tech_hub": "TECH HUB",
+      "design_system": "ΣΥΣΤΗΜΑ ΣΧΕΔΙΑΣΜΟΥ"
     },
     "hero": {
       "title_line1": "ΑΞΙΩΜΑ ΔΥΝΑΜΗ",
@@ -5145,6 +5915,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ΕΠΙΧΕΙΡΗΣΗ ΑΝΑΠΤΥΞΗΣ",
+      "deploying": "ΑΝΑΠΤΥΞΗ...",
+      "syncComplete": "Ο ΣΥΓΧΡΟΝΙΣΜΟΣ ΟΛΟΚΛΗΡΩΘΗΚΕ // Ο ΛΕΙΤΟΥΡΓΙΚΟΣ ΑΝΑΠΤΥΞΗΘΗΚΕ ΜΕ ΕΠΙΤΥΧΙΑ ΣΤΟΝ ΤΟΜΕΑ ΣΤΟΧΟΥ",
+      "active": "ΕΝΕΡΓΟΣ",
+      "standby": "ΣΕ ΑΝΑΜΟΝΗ",
+      "role": "ΡΟΛΟΣ",
+      "firepower": "ΠΥΡΟΔΥΝΑΜΗ",
+      "defense": "ΑΜΥΝΑ",
+      "mobility": "ΚΙΝΗΤΙΚΟΤΗΤΑ",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "ΒΑΤΡΑΧΟΣ ΝΙΝΤΖΑ",
+      "guy": "ΕΙΚΟΝΙΚΟΣ ΤΥΠΟΣ"
+    },
+    "gameplay": {
+      "protocols": "ΒΑΣΙΚΑ ΠΡΩΤΟΚΟΛΛΑ",
+      "terminal": "Τερματικό βάσης δεδομένων",
+      "active": "ΕΝΕΡΓΟΣ",
+      "synced": "ΣΥΓΧΡΟΝΙΣΜΕΝΟ",
+      "online": "ONLINE",
+      "t1_title": "Κινητική διέλευση",
+      "t1_desc": "Κυριαρχήστε την κίνηση που βασίζεται στην ορμή. Τρέξτε τοίχους κατά μήκος εξωγήινων μονόλιθων, παλέψτε μέσα από κατεστραμμένους ουρανοξύστες και τσουλήθρες με αλυσίδα για να αποφύγετε τους αισθητήρες στόχευσης Xelthara.",
+      "t2_title": "Νευρωνικό Hacking",
+      "t2_desc": "Διεισδύστε σε δίκτυα εξωγήινων εν κινήσει. Κερδίστε εχθρικά drones, υπερφορτώστε τις ενεργειακές ασπίδες ή ενεργοποιήστε αυτοματοποιημένες άμυνες ενάντια στους δημιουργούς τους σε μάχη σε πραγματικό χρόνο.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Δώστε εντολή στην κυψέλη αντίστασης που βασίζεται σε AI. Εκτελέστε συγχρονισμένες παραβιάσεις, βάλτε τακτικές ενέδρες και συνδυάστε μοναδικές ικανότητες για να διαλύσετε τη βαριά πανοπλία Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Άμεση πρόσβαση στην τεχνική τεκμηρίωση της Axiom Force. Σχεδιασμένο για τακτική εμπλοκή υψηλής απόδοσης σε πολλές πλατφόρμες. Τροφοδοτείται από Godot and Ink.",
+      "engine_title": "Προδιαγραφές κινητήρα",
+      "engine_desc": "Αξιοποιώντας το Godot Engine μεταγλωττισμένο με .NET 8 για επιθετική βελτιστοποίηση απόδοσης. Σωλήνας προσαρμοσμένης απόδοσης που χρησιμοποιεί το Vulkan για προηγμένο φωτισμό neon-noir και ατμοσφαιρικά εφέ.",
+      "status_init": "Εκκίνηση πυρήνα... [ΟΚ]",
+      "status_shaders": "Φόρτωση Vulkan Shaders... [ΟΚ]",
+      "status_link": "Δημιουργία νευρωνικού συνδέσμου... [ΕΚΚΡΕΜΕΙ]",
+      "narrative_desc": "Καθοδηγείται από τη γλώσσα δέσμης ενεργειών Inkle's Ink, παρέχοντας βαθιά διακλαδισμένα δέντρα διαλόγου και επίμονη παρακολούθηση κατάστασης για κάθε επιχειρηματία αντίστασης.",
+      "comms_desc": "Πλήρης υποστήριξη τοπικής προσαρμογής για 50+ γλώσσες, χρησιμοποιώντας ένα προσαρμοσμένο σύστημα δυναμικής απόδοσης γραμματοσειρών για τον απρόσκοπτο χειρισμό σύνθετων σεναρίων και διατάξεων RTL.",
+      "offline_status": "Σύστημα εκτός σύνδεσης"
     }
   },
   "gu": {
@@ -5154,7 +5964,12 @@
       "levels": "સ્તરો",
       "features": "લક્ષણો",
       "controls": "નિયંત્રણો",
-      "play_now": "હમણાં રમો"
+      "play_now": "હમણાં રમો",
+      "home": "ઘર",
+      "gameplay": "ગેમપ્લે",
+      "squad": "ટુકડી",
+      "tech_hub": "ટેક હબ",
+      "design_system": "ડિઝાઇન સિસ્ટમ"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -5431,6 +6246,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "તૈનાત કાર્યકારી",
+      "deploying": "ડિપ્લોઇંગ...",
+      "syncComplete": "સમન્વય પૂર્ણ // કાર્યકારી સફળતાપૂર્વક લક્ષ્યાંક સેક્ટરમાં તૈનાત",
+      "active": "સક્રિય",
+      "standby": "સ્ટેન્ડબાય",
+      "role": "ભૂમિકા",
+      "firepower": "ફાયર પાવર",
+      "defense": "સંરક્ષણ",
+      "mobility": "ગતિશીલતા",
+      "shogun": "સાયબર શોગન",
+      "ronin": "એજીસ રોનિન",
+      "matrix": "ONI મેટ્રિક્સ",
+      "frog": "નિન્જા દેડકા",
+      "guy": "વર્ચ્યુઅલ ગાય"
+    },
+    "gameplay": {
+      "protocols": "કોર પ્રોટોકોલ્સ",
+      "terminal": "ડેટાબેઝ ટર્મિનલ",
+      "active": "સક્રિય",
+      "synced": "સમન્વયિત",
+      "online": "ઓનલાઈન",
+      "t1_title": "કાઇન��ટિક ટ્રાવર્સલ",
+      "t1_desc": "માસ્ટર વેગ આધારિત ચળવળ. એલિયન મોનોલિથ્સ સાથે વોલ-રન, ખંડેર ગગનચુંબી ઇમારતો અને ચેન સ્લાઇડ્સ દ્વારા ઝેલ્થરાને લક્ષ્યાંકિત સેન્સરથી બચવા માટે હાથ ધરો.",
+      "t2_title": "ન્યુરલ હેકિંગ",
+      "t2_desc": "ફ્લાય પર એલિયન નેટવર્ક્સમાં ઘૂસણખોરી કરો. દુશ્મનના ડ્રોનને હાઇજેક કરો, ઉર્જા શિલ્ડને ઓવરલોડ કરો અથવા રીઅલ-ટાઇમ લડાઇમાં તેમના સર્જકો સામે સ્વચાલિત સંરક્ષણ કરો.",
+      "t3_title": "સ્ક્વોડ સિનર્જી",
+      "t3_desc": "તમારા AI-સંચાલિત પ્રતિકારક કોષને આદેશ આપો. સિંક્રનાઇઝ્ડ ઉલ્લંઘનો ચલાવો, વ્યૂહાત્મક હુમલો કરો અને ભારે ઝેલ્થારા બખ્તરને તોડી પાડવા માટે અનન્ય ક્ષમતાઓને જોડો."
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom ફોર્સ ટેકનિકલ દસ્તાવેજીકરણની સીધી ઍક્સેસ. બહુવિધ પ્લેટફોર્મ પર ઉચ્ચ-પ્રદર્શન વ્યૂહાત્મક જોડાણ માટે બનાવેલ. ગોડોટ અને શાહી દ્વારા સંચાલિત.",
+      "engine_title": "એન્જિન સ્પેક્સ",
+      "engine_desc": "આક્રમક પ્રદર્શન ઑપ્ટિમાઇઝેશન માટે .NET 8 સાથે સંકલિત ગોડોટ એન્જિનનો લાભ લેવો. અદ્યતન નિયોન-નોઇર લાઇટિંગ અને વાતાવરણીય અસરો માટે વલ્કનનો ઉપયોગ કરતી કસ્ટમ રેન્ડરિંગ પાઇપલાઇન.",
+      "status_init": "કોર શરૂ કરો... [ઓકે]",
+      "status_shaders": "વલ્કન શેડર્સ લોડ કરો... [ઓકે]",
+      "status_link": "ન્યુરલ લિંક સ્થાપિત કરો... [બાકી]",
+      "narrative_desc": "ઇન્કલની ઇન્ક સ્ક્રિપ્ટીંગ ભાષા દ્વારા સંચાલિત, દરેક પ્રતિકારક ઓપરેટિવ માટે ઊંડે શાખાવાળા સંવાદ વૃક્ષો અને સતત સ્ટેટ ટ્રેકિંગ પ્રદાન કરે છે.",
+      "comms_desc": "જટિલ સ્ક્રિપ્ટો અને RTL લેઆઉટને એકીકૃત રીતે હેન્ડલ કરવા માટે કસ્ટમ ડાયનેમિક ફોન્ટ રેન્ડરિંગ સિસ્ટમનો ઉપયોગ કરીને 50+ ભાષાઓ માટે સંપૂર્ણ સ્થાનિકીકરણ સપોર્ટ.",
+      "offline_status": "સિસ્ટમ ઑફલાઇન"
     }
   },
   "hi": {
@@ -5440,7 +6295,12 @@
       "levels": "स्तर",
       "features": "विशेषताएं",
       "controls": "नियंत्रण",
-      "play_now": "अभी खेलें"
+      "play_now": "अभी खेलें",
+      "home": "घर",
+      "gameplay": "गेमप्ले",
+      "squad": "दस्ता",
+      "tech_hub": "टेक हब",
+      "design_system": "डिज़ाइन प्रणाली"
     },
     "hero": {
       "title_line1": "स्वयंसिद्ध बल",
@@ -5717,6 +6577,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ऑपरेटिव तैनात करें",
+      "deploying": "तैनाती...",
+      "syncComplete": "सिंक पूर्ण // ऑपरेटिव सफलतापूर्वक लक्ष्य क्षेत्र में तैनात",
+      "active": "सक्रिय",
+      "standby": "स्टैंडब��य",
+      "role": "भूमिका",
+      "firepower": "अग्निशक्ति",
+      "defense": "रक्षा",
+      "mobility": "गतिशीलता",
+      "shogun": "साइबर शोगुन",
+      "ronin": "एजिस रोनिन",
+      "matrix": "ओएनआई मैट्रिक्स",
+      "frog": "निंजा मेंढक",
+      "guy": "आभासी लड़का"
+    },
+    "gameplay": {
+      "protocols": "मुख्य प्रोटोकॉल",
+      "terminal": "डेटाबेस टर्मिनल",
+      "active": "सक्रिय",
+      "synced": "सिंक किया गया",
+      "online": "ऑनलाइन",
+      "t1_title": "काइनेटिक ट्रैवर्सल",
+      "t1_desc": "गति-आधारित गति में महारत हासिल करें। एलियन मोनोलिथ के साथ दीवार पर चलना, खंडहर हो चुकी गगनचुंबी इमारतों से जूझना, और ज़ेलथारा लक्ष्यीकरण सेंसर से बचने के लिए चेन स्लाइड।",
+      "t2_title": "न्यूरल हैकिंग",
+      "t2_desc": "मक्खी पर विदेशी नेटवर्क में घुसपैठ कर��ं। दुश्मन के ड्रोनों को हाईजैक करें, ऊर्जा ढालों को ओवरलोड करें, या वास्तविक समय की लड़ाई में अपने रचनाकारों के खिलाफ स्वचालित सुरक्षा को चालू करें।",
+      "t3_title": "स्क्वाड सिनर्जी",
+      "t3_desc": "अपने AI-संचालित प्रतिरोध सेल को कमांड करें। समका���िक उल्लंघनों को अंजाम दें, सामरिक घात लगाएं, और भारी ज़ेलथारा कवच को नष्ट करने के लिए अद्वितीय क्षमताओं को संयोजित करें।"
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force तकनीकी दस्तावेज़ तक सीधी पहुंच। कई प्लेटफार्मों पर उच्च-प्रदर्शन सामरिक जुड़ाव के लिए निर्मित। गोडोट और इंक द्वारा संचालित।",
+      "engine_title": "इंजन विशिष्टताएँ",
+      "engine_desc": "आक्रामक प्रदर्शन अनुकूलन के लिए .NET 8 के साथ संकलित गोडोट इंजन का लाभ उठाना। उन्नत नियॉन-नोयर प्रकाश व्यवस्था और वायुमंडलीय प्रभावों के लिए वल्कन का उपयोग करने वाली कस्टम रेंडरिंग पाइपलाइन।",
+      "status_init": "कोर प्रारंभ करें... [ठीक]",
+      "status_shaders": "वल्कन शेडर्स लोड करें... [ठीक]",
+      "status_link": "न्यूरल लिंक स्थापित करें... [लंबित]",
+      "narrative_desc": "इंकल की इंक स्क्रिप्टिंग भाषा द्वारा संचालित, प्रत्येक प्रतिरोध ऑपरेटिव के लिए गहरी शाखाओं वाले संवाद वृक्ष और लगातार स���थिति ट्रैकिंग प्रदान करता है।",
+      "comms_desc": "50+ भाषाओं के लिए पूर्ण स्थानीयकरण समर्थन, जटिल स्क्रिप्ट और आरटीएल लेआउट को निर्बाध रूप से संभालने के लिए एक कस्टम डायनेमिक फ़ॉन्ट रेंडरिंग सिस्टम का उपयोग।",
+      "offline_status": "सिस्टम ऑफ़लाइन"
     }
   },
   "hu": {
@@ -5726,7 +6626,12 @@
       "levels": "Szintek",
       "features": "Jellemzők",
       "controls": "Vezérlők",
-      "play_now": "Játssz most"
+      "play_now": "Játssz most",
+      "home": "OTTHON",
+      "gameplay": "JÁTÉKJÁTÉK",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "TERVEZÉSI RENDSZER"
     },
     "hero": {
       "title_line1": "AXIÓMA ERŐ",
@@ -6003,6 +6908,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "BEVEZETÉS MŰKÖDŐ",
+      "deploying": "BEVEZETÉS...",
+      "syncComplete": "SZINKRONIZÁLÁS BEFEJEZETT // A MŰKÖDÉS SIKERESEN BEVEZETETT A CÉLSZEKTORBA",
+      "active": "AKTÍV",
+      "standby": "KÉSZENLÉTI",
+      "role": "SZEREP",
+      "firepower": "TŰZERŐ",
+      "defense": "VÉDELEM",
+      "mobility": "MOBILITÁS",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MÁTRIX",
+      "frog": "NINJA BÉKA",
+      "guy": "VIRTUÁLIS SZÁF"
+    },
+    "gameplay": {
+      "protocols": "ALAPVETŐ PROTOKOLLOK",
+      "terminal": "Adatbázis terminál",
+      "active": "AKTÍV",
+      "synced": "SZinkronizálva",
+      "online": "ONLINE",
+      "t1_title": "Kinetikus bejárás",
+      "t1_desc": "Sajátítsa el a lendület alapú mozgást. Fuss végig a falon idegen monolitokon, küzdj le romos felhőkarcolókon és lánccsúszdán, hogy elkerüld a Xelthara célzási érzékelőit.",
+      "t2_title": "Neurális hacking",
+      "t2_desc": "Beszivároghat az idegen hálózatokba menet közben. Eltérítsd az ellenséges drónokat, töltsd túl az energiapajzsokat, vagy fordíts automatizált védelmet alkotóik ellen valós idejű harcban.",
+      "t3_title": "Osztag szinergia",
+      "t3_desc": "Parancsolja az AI-vezérelt ellenálláscellának. Hajtson végre szinkronizált áttöréseket, hajtson végre taktikai csapásokat, és egyesítse egyedi képességeit a nehéz Xelthara páncélok szétszereléséhez."
+    },
+    "tech_hub": {
+      "hero_desc": "Közvetlen hozzáférés az Axiom Force műszaki dokumentációjához. Nagy teljesítményű taktikai szerepvállalásra tervezték több platformon. Powered by Godot és Ink.",
+      "engine_title": "Motor specifikációk",
+      "engine_desc": "A .NET 8-mal összeállított Godot Engine kihasználása az agresszív teljesítményoptimalizáláshoz. Egyedi renderelési folyamat a Vulkan használatával a fejlett neon-noir megvilágításhoz és atmoszférikus hatásokhoz.",
+      "status_init": "Core inicializálása... [OK]",
+      "status_shaders": "Vulkan Shaderek betöltése... [OK]",
+      "status_link": "Neurális kapcsolat létrehozása... [FÜGGŐBEN]",
+      "narrative_desc": "Driven by Inkle's Ink scripting language, providing deeply branching dialogue trees and persistent state tracking for every resistance operative.",
+      "comms_desc": "Full localization support for 50+ languages, utilizing a custom dynamic font rendering system to handle complex scripts and RTL layouts seamlessly.",
+      "offline_status": "Rendszer Offline"
     }
   },
   "is": {
@@ -6012,7 +6957,12 @@
       "levels": "Stig",
       "features": "Eiginleikar",
       "controls": "Stýringar",
-      "play_now": "Spila núna"
+      "play_now": "Spila núna",
+      "home": "HEIM",
+      "gameplay": "LEIKUR",
+      "squad": "SVEIT",
+      "tech_hub": "TÆKNI HUB",
+      "design_system": "HÖNNUNARKERFI"
     },
     "hero": {
       "title_line1": "AXIOM KRAFLI",
@@ -6289,6 +7239,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "RÍKA REKSTUR",
+      "deploying": "SENDUR...",
+      "syncComplete": "SAMSTÖRKU LOKIÐ // REKSTUR TEKKIÐ TIL TAKA SENDINGAR",
+      "active": "VIRK",
+      "standby": "BANDBY",
+      "role": "Hlutverk",
+      "firepower": "ELDAKRAFTUR",
+      "defense": "VÖRN",
+      "mobility": "HREYFAN",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FRÓSKUR",
+      "guy": "VIRKILEGUR GAUR"
+    },
+    "gameplay": {
+      "protocols": "KJARNAFRÆÐINGAR",
+      "terminal": "Gagnagrunnsstöð",
+      "active": "VIRK",
+      "synced": "SAMBANDIÐ",
+      "online": "ONLINE",
+      "t1_title": "Kinetic Traversal",
+      "t1_desc": "Lærðu hreyfingu sem byggir á skriðþunga. Hlaupa á vegg meðfram einlitum geimverum, grípa í gegnum eyðilagða skýjakljúfa og keðjurennibrautir til að komast hjá Xelthara miðunarskynjara.",
+      "t2_title": "Taugahestur",
+      "t2_desc": "Sígast inn framandi net á flugu. Rændu dróna óvina, ofhleðdu orkuskjöld eða snúðu sjálfvirkum vörnum gegn höfundum þeirra í rauntíma bardaga.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Stjórnaðu gervigreindardrifnu viðnámsklefanum þínum. Framkvæma samstillt brot, leggja taktísk fyrirsát og sameina einstaka hæfileika til að taka í sundur þungar Xelthara brynjur."
+    },
+    "tech_hub": {
+      "hero_desc": "Beinn aðgangur að tækniskjölum Axiom Force. Byggt fyrir afkastamikla taktíska þátttöku á mörgum kerfum. Keyrt af Godot og Ink.",
+      "engine_title": "Vélarupplýsingar",
+      "engine_desc": "Nýttu Godot vélina sem unnin er með .NET 8 fyrir árásargjarna hagræðingu. Sérsniðin flutningsleiðsla sem notar Vulkan fyrir háþróaða neon-noir lýsingu og andrúmsloftsáhrif.",
+      "status_init": "Frumstilla kjarna... [Í lagi]",
+      "status_shaders": "Hlaða Vulkan Shaders... [Í lagi]",
+      "status_link": "Komdu á taugatengli... [BÍÐUR]",
+      "narrative_desc": "Knúið áfram af Inkle's Ink forskriftarmáli, sem veitir djúpt greinótt samræðutré og viðvarandi ástandsmælingu fyrir hvern andspyrnustarfsmann.",
+      "comms_desc": "Fullur staðsetningarstuðningur fyrir 50+ tungumál, með því að nota sérsniðið kraftmikið leturútgáfukerfi til að meðhöndla flókin forskriftir og RTL skipulag óaðfinnanlega.",
+      "offline_status": "Kerfi án nettengingar"
     }
   },
   "id": {
@@ -6298,7 +7288,12 @@
       "levels": "Tingkat",
       "features": "Fitur",
       "controls": "Kontrol",
-      "play_now": "Mainkan Sekarang"
+      "play_now": "Mainkan Sekarang",
+      "home": "RUMAH",
+      "gameplay": "PERMAINAN",
+      "squad": "Pasukan",
+      "tech_hub": "PUSAT TEKNOLOGI",
+      "design_system": "SISTEM DESAIN"
     },
     "hero": {
       "title_line1": "KEKUATAN AKSIOM",
@@ -6575,6 +7570,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "MENYEBARKAN OPERATIF",
+      "deploying": "MENYEDIAKAN...",
+      "syncComplete": "SYNC SELESAI // OPERASI BERHASIL DITERAPKAN KE SEKTOR TARGET",
+      "active": "AKTIF",
+      "standby": "SIAGA",
+      "role": "PERAN",
+      "firepower": "KEBAKARAN",
+      "defense": "PERTAHANAN",
+      "mobility": "MOBILITAS",
+      "shogun": "SHOGUN CYBER",
+      "ronin": "AEGIS RONIN",
+      "matrix": "MATRIKS ONI",
+      "frog": "katak ninja",
+      "guy": "ORANG VIRTUAL"
+    },
+    "gameplay": {
+      "protocols": "PROTOKOL INTI",
+      "terminal": "Terminal Basis Data",
+      "active": "AKTIF",
+      "synced": "DISINKRONKAN",
+      "online": "ONLINE",
+      "t1_title": "Perlintasan Kinetik",
+      "t1_desc": "Kuasai gerakan berbasis momentum. Berlari di dinding di sepanjang monolit asing, bergulat melalui gedung pencakar langit yang hancur, dan meluncur dengan rantai untuk menghindari sensor penargetan Xelthara.",
+      "t2_title": "Peretasan Saraf",
+      "t2_desc": "Menyusup ke jaringan asing dengan cepat. Membajak drone musuh, membebani perisai energi, atau mengubah pertahanan otomatis melawan penciptanya dalam pertempuran waktu nyata.",
+      "t3_title": "Sinergi Pasukan",
+      "t3_desc": "Perintahkan sel resistensi berbasis AI Anda. Jalankan pelanggaran tersinkronisasi, lakukan penyergapan taktis, dan gabungkan kemampuan unik untuk membongkar baju besi Xelthara yang berat."
+    },
+    "tech_hub": {
+      "hero_desc": "Akses langsung ke dokumentasi teknis Axiom Force. Dibuat untuk keterlibatan taktis berkinerja tinggi di berbagai platform. Didukung oleh Godot dan Tinta.",
+      "engine_title": "Spesifikasi Mesin",
+      "engine_desc": "Memanfaatkan Mesin Godot yang dikompilasi dengan .NET 8 untuk optimalisasi kinerja yang agresif. Pipa rendering khusus menggunakan Vulkan untuk pencahayaan neon-noir tingkat lanjut dan efek atmosfer.",
+      "status_init": "Inisialisasi Inti... [OK]",
+      "status_shaders": "Muat Vulkan Shader... [OK]",
+      "status_link": "Membangun Tautan Neural... [TERTUNDA]",
+      "narrative_desc": "Didorong oleh bahasa skrip Ink Ink, menyediakan pohon dialog yang sangat bercabang dan pelacakan status yang persisten untuk setiap operasi perlawanan.",
+      "comms_desc": "Dukungan pelokalan penuh untuk 50+ bahasa, memanfaatkan sistem rendering font dinamis khusus untuk menangani skrip kompleks dan tata letak RTL dengan lancar.",
+      "offline_status": "Sistem Offline"
     }
   },
   "it": {
@@ -6584,7 +7619,12 @@
       "levels": "Livelli",
       "features": "Caratteristiche",
       "controls": "Controlli",
-      "play_now": "Gioca ora"
+      "play_now": "Gioca ora",
+      "home": "CASA",
+      "gameplay": "GIOCO",
+      "squad": "SQUADRA",
+      "tech_hub": "CENTRO TECNOLOGICO",
+      "design_system": "SISTEMA DI PROGETTAZIONE"
     },
     "hero": {
       "title_line1": "FORZA ASSIOMATICA",
@@ -6861,6 +7901,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "DISTRIBUIRE OPERATIVO",
+      "deploying": "IMPLEMENTAZIONE...",
+      "syncComplete": "SINCRONIZZAZIONE COMPLETATA // OPERATIVA IMPLEMENTATA CON SUCCESSO NEL SETTORE DESTINATO",
+      "active": "ATTIVO",
+      "standby": "STANDBY",
+      "role": "RUOLO",
+      "firepower": "POTENZA DI FUOCO",
+      "defense": "DIFESA",
+      "mobility": "MOBILITÀ",
+      "shogun": "CYBERSHOGUN",
+      "ronin": "EGIS RONIN",
+      "matrix": "MATRICE ONI",
+      "frog": "RANA NINJA",
+      "guy": "RAGAZZO VIRTUALE"
+    },
+    "gameplay": {
+      "protocols": "PROTOCOLLI FONDAMENTALI",
+      "terminal": "Terminale della banca dati",
+      "active": "ATTIVO",
+      "synced": "SINCRONIZZATO",
+      "online": "IN LINEA",
+      "t1_title": "Attraversamento cinetico",
+      "t1_desc": "Padroneggia il movimento basato sullo slancio. Corri sui muri lungo monoliti alieni, aggrappati ai grattacieli in rovina e scivola con la catena per eludere i sensori di mira di Xelthara.",
+      "t2_title": "Hacking neurale",
+      "t2_desc": "Infiltrati al volo nelle reti aliene. Dirotta i droni nemici, sovraccarica gli scudi energetici o attiva le difese automatizzate contro i loro creatori in combattimenti in tempo reale.",
+      "t3_title": "Sinergia di squadra",
+      "t3_desc": "Comanda la tua cellula di resistenza guidata dall'intelligenza artificiale. Esegui violazioni sincronizzate, tende imboscate tattiche e combina abilità uniche per smantellare la pesante armatura Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Accesso diretto alla documentazione tecnica di Axiom Force. Costruito per un impegno tattico ad alte prestazioni su più piattaforme. Alimentato da Godot e Ink.",
+      "engine_title": "Specifiche del motore",
+      "engine_desc": "Sfruttare il Godot Engine compilato con .NET 8 per un'ottimizzazione aggressiva delle prestazioni. Pipeline di rendering personalizzato che utilizza Vulkan per illuminazione neon-noir avanzata ed effetti atmosferici.",
+      "status_init": "Inizializza Core... [OK]",
+      "status_shaders": "Carica shader Vulkan... [OK]",
+      "status_link": "Stabilisci collegamento neurale... [IN SOSPESO]",
+      "narrative_desc": "Gestito dal linguaggio di scripting Ink di Inkle, fornisce alberi di dialogo profondamente ramificati e monitoraggio persistente dello stato per ogni agente della resistenza.",
+      "comms_desc": "Supporto completo della localizzazione per oltre 50 lingue, utilizzando un sistema di rendering dinamico dei caratteri personalizzato per gestire senza problemi script complessi e layout RTL.",
+      "offline_status": "Sistema non in linea"
     }
   },
   "ja": {
@@ -6870,7 +7950,12 @@
       "levels": "レベル",
       "features": "特長",
       "controls": "コントロール",
-      "play_now": "今��ぐプレイ"
+      "play_now": "今��ぐプレイ",
+      "home": "ホーム",
+      "gameplay": "ゲームプレイ",
+      "squad": "分隊",
+      "tech_hub": "テックハブ",
+      "design_system": "デザインシステム"
     },
     "hero": {
       "title_line1": "公理の力",
@@ -7147,6 +8232,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "人員を配置する",
+      "deploying": "配置中...",
+      "syncComplete": "同期完了 // 対象セクターへの人員配置が完了しました",
+      "active": "アクティブ",
+      "standby": "スタンバイ",
+      "role": "役割",
+      "firepower": "火力",
+      "defense": "防御",
+      "mobility": "機動力",
+      "shogun": "サイバー将軍",
+      "ronin": "イージス・ローニン",
+      "matrix": "オニ・マトリクス",
+      "frog": "忍者フロッグ",
+      "guy": "バーチャル・ガイ"
+    },
+    "gameplay": {
+      "protocols": "コア・プロトコル",
+      "terminal": "データベース端末",
+      "active": "アクティブ",
+      "synced": "同期済み",
+      "online": "オンライン",
+      "t1_title": "キネティック・トラバーサル",
+      "t1_desc": "勢いを利用した動きをマスターしましょう。エイリアンのモノリスに沿って壁を走り、廃墟となった高層ビルをグラップルで通り抜け、スライディングを連鎖させてゼルスハラの照準センサーを回避します。",
+      "t2_title": "ニューラル・ハッキング",
+      "t2_desc": "その場でエイリアンのネットワークに侵入します。リアルタイム戦闘で、敵のドローンを乗っ取り、エネルギーシールドに過負荷をかけ、自動防御システムをその作成者に向けて対抗させます。",
+      "t3_title": "分隊シナジー",
+      "t3_desc": "AI駆動の抵抗セルを指揮します。同期された突破を実行し、戦術的な待ち伏せを仕掛け、独自の能力を組み合わせてゼルスハラの重装甲を解体します。"
+    },
+    "tech_hub": {
+      "hero_desc": "アクシオム・フォースの技術文書への直接アクセス。複数のプラットフォームにわたる高性能な戦術的エンゲージメント向けに構築されています。GodotとInkを搭載。",
+      "engine_title": "エンジン仕様",
+      "engine_desc": ".NET 8でコンパイルされたGodotエンジンを活用し、積極的なパフォーマンス最適化を実現。高度なネオン・ノワール照明と雰囲気効果のためにVulkanを利用したカスタムレンダリングパイプライン。",
+      "status_init": "コア初期化... [OK]",
+      "status_shaders": "Vulkanシェーダーロード... [OK]",
+      "status_link": "ニューラルリンク確立... [保留中]",
+      "narrative_desc": "InkleのInkスクリプト言語によって駆動され、すべての抵抗部隊員の深く分岐する対話ツリーと永続的な状態追跡を提供します。",
+      "comms_desc": "50以上の言語の完全なローカライズサポート。カスタム動的フォントレンダリングシステムを使用して、複雑なスクリプトとRTLレイアウトをシームレスに処理します。",
+      "offline_status": "システムオフライン"
     }
   },
   "kn": {
@@ -7156,7 +8281,12 @@
       "levels": "ಮಟ್ಟಗಳು",
       "features": "ವೈಶಿಷ್ಟ್ಯಗಳು",
       "controls": "ನಿಯಂತ್ರಣಗಳು",
-      "play_now": "ಈಗ ಪ್ಲೇ ಮಾಡಿ"
+      "play_now": "ಈಗ ಪ್ಲೇ ಮಾಡಿ",
+      "home": "ಮನೆ",
+      "gameplay": "ಆಟದ ಆಟ",
+      "squad": "ಸ್ಕ್ವಾಡ್",
+      "tech_hub": "ಟೆಕ್ ಹಬ್",
+      "design_system": "ವಿನ್ಯಾಸ ವ್ಯವಸ್ಥೆ"
     },
     "hero": {
       "title_line1": "ಆಕ್ಸಿಯೋಮ್ ಫೋರ್ಸ್",
@@ -7433,6 +8563,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ಕಾರ್ಯಾಚರಣೆಯನ್ನು ನಿಯೋಜಿಸಿ",
+      "deploying": "ನಿಯೋಜಿಸಲಾಗುತ್ತಿದೆ...",
+      "syncComplete": "ಸಿಂಕ್ ಪೂರ್ಣಗೊಂಡಿದೆ // ಕಾರ್ಯಾಚರಣೆಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಉದ್ದೇಶಿತ ವಲಯಕ್ಕೆ ನಿಯೋಜಿಸಲಾಗಿದೆ",
+      "active": "ಸಕ್ರಿಯ",
+      "standby": "ಸ್ಟ್ಯಾಂಡ್‌ಬೈ",
+      "role": "ಪಾತ್ರ",
+      "firepower": "ಅಗ್ನಿಶಾಮಕ ಶಕ್ತಿ",
+      "defense": "ರಕ್ಷಣಾ",
+      "mobility": "ಚಲನಶೀಲತೆ",
+      "shogun": "ಸೈಬರ್ ಶೋಗನ್",
+      "ronin": "ಏಜಿಸ್ ರೋನಿನ್",
+      "matrix": "ಓನಿ ಮ್ಯಾಟ್ರಿಕ್ಸ್",
+      "frog": "ನಿಂಜಾ ಕಪ್ಪೆ",
+      "guy": "ವರ್ಚುವಲ್ ಗೈ"
+    },
+    "gameplay": {
+      "protocols": "ಕೋರ್ ಪ್ರೋಟೋಕಾಲ್‌ಗಳು",
+      "terminal": "ಡೇಟಾಬೇಸ್ ಟರ್ಮಿನಲ್",
+      "active": "ಸಕ್ರಿಯ",
+      "synced": "ಸಿಂಕ್ ಮಾಡಲಾಗಿದೆ",
+      "online": "ಆನ್‌ಲೈನ್",
+      "t1_title": "ಕೈನೆಟಿಕ್ ಟ��ರಾವರ್ಸಲ್",
+      "t1_desc": "ಮಾಸ್ಟರ್ ಆವೇಗ ಆಧಾರಿತ ಚಲನೆ. ಅನ್ಯಲೋಕದ ಏಕಶಿಲೆಗಳ ಉದ್ದಕ್ಕೂ ವಾಲ್-ರನ್, ಪಾಳುಬಿದ್ದ ಗಗನಚುಂಬಿ ಕಟ್ಟಡಗಳ ಮೂಲಕ ಗ್ರ್ಯಾಪಲ್, ಮತ್ತು ಕ್ಸೆಲ್ತಾರಾ ಟಾರ್ಗೆಟಿಂಗ್ ಸೆನ್ಸರ್‌ಗಳಿಂದ ತಪ್ಪಿಸಿಕೊಳ್ಳಲು ಚೈನ್ ಸ್ಲೈಡ್‌ಗಳು.",
+      "t2_title": "ನರಗಳ ಹ್ಯಾಕಿಂಗ್",
+      "t2_desc": "ಹಾರಾಡುತ್ತ ಅನ್ಯಲೋಕದ ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಒಳನುಸುಳಿ. ಶತ್ರು ಡ್ರೋನ್‌ಗಳನ್ನು ಹೈಜಾಕ್ ಮಾಡಿ, ಶಕ್ತಿಯ ಗುರಾಣಿಗಳನ್ನು ಓವರ್‌ಲೋಡ್ ಮಾಡಿ ಅಥವಾ ನೈಜ-ಸಮಯದ ಯುದ್ಧದಲ್ಲಿ ಅವುಗಳ ರಚನೆಕಾರರ ವಿರುದ್ಧ ಸ್ವಯಂಚಾಲಿತ ರಕ್ಷಣೆಯನ್ನು ತಿರುಗಿಸಿ.",
+      "t3_title": "ಸ್ಕ್ವಾಡ್ ಸಿನ��್ಜಿ",
+      "t3_desc": "ನಿಮ್ಮ AI-ಚಾಲಿತ ಪ್ರತಿರೋಧ ಕೋಶಕ್ಕೆ ಆದೇಶ ನೀಡಿ. ಸಿಂಕ್ರೊನೈಸ್ ಮಾಡಿದ ಉಲ್ಲಂಘನೆಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಿ, ಯುದ್ಧತಂತ್ರದ ಹೊಂಚುದಾಳಿಗಳನ್ನು ಹಾಕಿ ಮತ್ತು ಭಾರೀ ಕ್ಸೆಲ್ತಾರಾ ರಕ್ಷಾಕವಚವನ್ನು ಕೆಡವಲು ಅನನ್ಯ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ಸಂಯೋಜಿಸಿ."
+    },
+    "tech_hub": {
+      "hero_desc": "ಆಕ್ಸಿಯಮ್ ಫೋರ್ಸ್ ತಾಂತ್ರಿಕ ದಾಖಲಾತಿಗೆ ನೇರ ಪ್ರವೇಶ. ಬಹು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಹೆಚ್ಚಿನ ಕಾರ್ಯಕ್ಷಮತೆಯ ಯುದ್ಧತಂತ್ರದ ನಿಶ್ಚಿತಾರ್ಥಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ. ಗೊಡಾಟ್ ಮತ್ತು ಇಂಕ್‌ನಿಂದ ನಡೆಸಲ್ಪಡುತ್ತಿದೆ.",
+      "engine_title": "ಎಂಜಿನ್ ವಿಶೇಷಣಗಳು",
+      "engine_desc": "ಆಕ್ರಮಣಕಾರಿ ಕಾರ್ಯಕ್ಷಮತೆಯ ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಾಗಿ .NET 8 ನೊಂದಿಗೆ ಸಂಕಲಿಸಲಾದ ಗೊಡಾಟ್ ಎಂಜಿನ್ ಅನ್ನು ನಿಯಂತ್ರಿಸುವುದು. ಸುಧಾರಿತ ನಿಯಾನ್-ನಾಯ್ರ್ ಲೈಟಿಂಗ್ ಮತ್ತು ವಾತಾವರಣದ ಪರಿಣಾಮಗಳಿಗಾಗಿ ವಲ್ಕನ್ ಅನ್ನು ಬಳಸಿಕೊಂಡು ಕಸ್ಟಮ್ ರೆಂಡರಿಂಗ್ ಪೈಪ್‌ಲೈನ್.",
+      "status_init": "ಕೋರ್ ಅನ್ನು ಆರಂಭಿಸಿ... [ಸರಿ]",
+      "status_shaders": "ವಲ್ಕನ್ ಶೇಡರ್ಸ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಿ... [ಸರಿ]",
+      "status_link": "ನ್ಯೂರಲ್ ಲಿಂಕ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿ... [ಬಾಕಿ]",
+      "narrative_desc": "ಇಂಕ್ಲ್‌ನ ಇಂಕ್ ಸ್ಕ್ರಿಪ್ಟಿಂಗ್ ಭಾಷೆಯಿಂದ ನಡೆಸಲ್ಪಡುತ್ತದೆ, ಆಳವಾಗಿ ಕವಲೊಡೆಯುವ ಡೈಲಾಗ್ ಟ್ರೀಗಳನ್ನು ಮತ್ತು ಪ್ರತಿ ರೆಸಿಸ್ಟೆನ್ಸ್ ಆಪರೇಟಿವ್‌ಗೆ ನಿರಂತರ ಸ್ಟೇಟ್ ಟ್ರ್ಯಾಕಿಂಗ�� ಅನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+      "comms_desc": "50+ ಭಾಷೆಗಳಿಗೆ ಸಂಪೂರ್ಣ ಸ್ಥಳೀಕರಣ ಬೆಂಬಲ, ಸಂಕೀರ್ಣ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು ಮತ್ತು RTL ಲೇಔಟ್‌ಗಳನ್ನು ಮನಬಂದಂತೆ ನಿರ್ವಹಿಸಲು ಕಸ್ಟಮ್ ಡೈನಾಮಿಕ್ ಫಾಂಟ್ ರೆಂಡರಿಂಗ್ ಸಿಸ್ಟಮ್ ಅನ್ನು ಬಳಸಿಕೊಳ್ಳುತ್ತದೆ.",
+      "offline_status": "ಸಿಸ್ಟಮ್ ಆಫ್‌ಲೈನ್"
     }
   },
   "ko": {
@@ -7442,7 +8612,12 @@
       "levels": "레벨",
       "features": "특징",
       "controls": "컨트롤",
-      "play_now": "지금 플레이"
+      "play_now": "지금 플레이",
+      "home": "홈",
+      "gameplay": "게임플레이",
+      "squad": "분대",
+      "tech_hub": "테크 허브",
+      "design_system": "디자인 시스템"
     },
     "hero": {
       "title_line1": "공리력",
@@ -7719,6 +8894,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "요원 배치",
+      "deploying": "배치 중...",
+      "syncComplete": "동기화 완료 // 대상 섹터에 요원 배치가 성공적으로 완료되었습니다",
+      "active": "활성",
+      "standby": "대기",
+      "role": "역할",
+      "firepower": "화력",
+      "defense": "방어",
+      "mobility": "기동성",
+      "shogun": "사이버 쇼군",
+      "ronin": "이지스 로닌",
+      "matrix": "오니 매트릭스",
+      "frog": "닌자 개구리",
+      "guy": "버추얼 가이"
+    },
+    "gameplay": {
+      "protocols": "핵심 프로토콜",
+      "terminal": "데이터베이스 터미널",
+      "active": "활성",
+      "synced": "동기화됨",
+      "online": "온라인",
+      "t1_title": "운동성 이동",
+      "t1_desc": "운동량 기반 이동을 마스터하세요. 외계 구조물 벽을 달리고, 파괴된 고층 빌딩 사이를 그래플로 통과하며, 미끄러지기를 연계하여 감지 센서를 피하세요.",
+      "t2_title": "신경 해킹",
+      "t2_desc": "외계인 네트워크에 즉각 침투하십시오. 실시간 전투에서 적의 드론을 해킹하고, 에너지 실드를 과부하 상태로 만들거나 자동 방어 시스템을 적에게 돌리세요.",
+      "t3_title": "분대 시너지",
+      "t3_desc": "AI가 조종하는 저항군 세포를 지휘하세요. 동기화된 돌파를 실행하고, 전술적 매복을 시도하며, 고유 능력을 조합해 외계 장갑을 파괴하세요."
+    },
+    "tech_hub": {
+      "hero_desc": "액시엄 포스 기술 문서에 직접 액세스하십시오. 여러 플랫폼에서 고성능 전술 교전을 위해 제작되었습니다. Godot 및 Ink 제공.",
+      "engine_title": "엔진 사양",
+      "engine_desc": "공격적인 성능 최적화를 위해 .NET 8로 컴파일된 Godot 엔진을 사용합니다. 고급 네온 느와르 조명 및 대기 효과를 위해 Vulkan을 사용하는 맞춤형 렌더링 파이프라인.",
+      "status_init": "코어 초기화... [OK]",
+      "status_shaders": "Vulkan 셰이더 로드... [OK]",
+      "status_link": "신경 링크 수립... [대기 중]",
+      "narrative_desc": "Inkle의 Ink 스크립팅 언어로 구동되어 모든 저항군 대원에 대한 고도로 분기되는 대화 트리 및 지속적인 상태 추적을 제공합니다.",
+      "comms_desc": "복잡한 스크립트와 RTL 레이아웃을 매끄럽게 처리하는 맞춤형 동적 글꼴 렌더링 시스템을 사용하여 50개 이상의 언어를 완벽하게 지원합니다.",
+      "offline_status": "시스템 오프라인"
     }
   },
   "lv": {
@@ -7728,7 +8943,12 @@
       "levels": "Līmeņi",
       "features": "Funkcijas",
       "controls": "Vadības ierīces",
-      "play_now": "Spēlēt tagad"
+      "play_now": "Spēlēt tagad",
+      "home": "MĀJAS",
+      "gameplay": "SPĒLES SPĒLE",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "DIZAINĒŠANAS SISTĒMA"
     },
     "hero": {
       "title_line1": "AKSIOMAS SPĒKS",
@@ -8005,6 +9225,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "IZSTĀDĪT OPERATĪVU",
+      "deploying": "NOTIEK IZLIETOŠANA...",
+      "syncComplete": "sinhronizācija ir pabeigta",
+      "active": "AKTĪVS",
+      "standby": "GAIDREŽĪMS",
+      "role": "LOMA",
+      "firepower": "UGUNSSPĒKS",
+      "defense": "AIZSARDZĪBA",
+      "mobility": "MOBILITĀTE",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONINS",
+      "matrix": "ONI MATRIKSA",
+      "frog": "NINJA VARDE",
+      "guy": "VIRTUĀLS PUISIS"
+    },
+    "gameplay": {
+      "protocols": "PAMATPROTOKOLI",
+      "terminal": "Datu bāzes terminālis",
+      "active": "AKTĪVS",
+      "synced": "SINHNCĒTS",
+      "online": "ONLINE",
+      "t1_title": "Kinētiskā šķērsošana",
+      "t1_desc": "Apgūstiet uz impulsu balstītu kustību. Skrieniet pa sienu pa citplanētiešu monolītiem, cīnieties pa sagruvušiem debesskrāpjiem un ķēdes slidkalniņiem, lai izvairītos no Xelthara mērķauditorijas atlases sensoriem.",
+      "t2_title": "Neironu uzlaušana",
+      "t2_desc": "Iefiltrēties citplanētiešu tīklos lidojumā. Nolaupiet ienaidnieka dronus, pārslogojiet enerģijas vairogus vai pagrieziet automātisko aizsardzību pret to radītājiem reāllaika cīņā.",
+      "t3_title": "Komandas sinerģija",
+      "t3_desc": "Vadiet savu AI vadīto pretestības šūnu. Veiciet sinhronizētus pārkāpumus, veiciet taktiskus slazdus un apvienojiet unikālas spējas, lai izjauktu smag��s Xelthara bruņas."
+    },
+    "tech_hub": {
+      "hero_desc": "Tieša piekļuve Axiom Force tehniskajai dokumentācijai. Izstrādāts augstas veiktspējas taktiskai iesaistei vairākās platformās. Darbojas ar Godo un Ink.",
+      "engine_title": "Dzinēja specifikācijas",
+      "engine_desc": "Izmantojot .NET 8 kompilēto Godot Engine, tiek izmantota agresīva veiktspējas optimizācija. Pielāgots renderēšanas cauruļvads, kurā tiek izmantots Vulkan uzlabots neona-noir apgaismojums un atmosfēras efekti.",
+      "status_init": "Inicializēt kodolu... [OK]",
+      "status_shaders": "Ielādēt Vulkan Shaders... [OK]",
+      "status_link": "Izveidot neironu saiti... [GAIDA]",
+      "narrative_desc": "Darbojas ar Inkle's Ink skriptu valodu, kas nodrošina dziļi sazarotus dialogu kokus un pastāvīgu stāvokļa izsekošanu katram pretestības darbiniekam.",
+      "comms_desc": "Pilns lokalizācijas atbalsts vairāk nekā 50 valodām, izmantojot pielāgotu dinamisko fontu renderēšanas sistēmu, lai nevainojami apstrādātu sarežģītus skriptus un RTL izkārtojumus.",
+      "offline_status": "Sistēma bezsaistē"
     }
   },
   "lt": {
@@ -8014,7 +9274,12 @@
       "levels": "Lygiai",
       "features": "Savybės",
       "controls": "Valdikliai",
-      "play_now": "Žaisti dabar"
+      "play_now": "Žaisti dabar",
+      "home": "NAMAI",
+      "gameplay": "ŽAIDIMO ŽAIDIMAS",
+      "squad": "BŪRINIS",
+      "tech_hub": "TECHNOLOGIJOS HUB",
+      "design_system": "PROJEKTAVIMO SISTEMA"
     },
     "hero": {
       "title_line1": "AXIOMOS JĖGA",
@@ -8291,6 +9556,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "DIEGTI OPERATYVĄ",
+      "deploying": "DIEGAMA...",
+      "syncComplete": "SINCHRONIZAVIMAS BAIGTAS // VEIKLA SĖKMINGAI NUSTATYTA TIKSLINIAME SEKTORIUI",
+      "active": "AKTYVUS",
+      "standby": "BUDĖTIS",
+      "role": "VAIDMUO",
+      "firepower": "UGNIES JĖGA",
+      "defense": "GYNYBA",
+      "mobility": "MOBILUMAS",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONINAS",
+      "matrix": "ONI MATRIKA",
+      "frog": "NINJA VARLYS",
+      "guy": "VIRTUALUS VAIKINAS"
+    },
+    "gameplay": {
+      "protocols": "PAGRINDINIAI PROTOKOLIAI",
+      "terminal": "Duomenų bazės terminalas",
+      "active": "AKTYVUS",
+      "synced": "SINCHRONUOTA",
+      "online": "INTERNETU",
+      "t1_title": "Kinetinis perėjimas",
+      "t1_desc": "Įvaldykite judesį, pagrįstą judesiais. Wall-run along alien monoliths, grapple through ruined skyscrapers, and chain slides to evade Xelthara targeting sensors.",
+      "t2_title": "Neuroninis įsilaužimas",
+      "t2_desc": "Skrydžiui įsiskverbkite į ateivių tinklus. Hijack enemy drones, overload energy shields, or turn automated defenses against their creators in real-time combat.",
+      "t3_title": "Būrio sinergija",
+      "t3_desc": "Įveskite savo AI valdomą pasipriešinimo elementą. Execute synchronized breaches, lay tactical ambushes, and combine unique abilities to dismantle heavy Xelthara armor."
+    },
+    "tech_hub": {
+      "hero_desc": "Direct access to the Axiom Force technical documentation. Built for high-performance tactical engagement across multiple platforms. Naudojama Godot ir Ink.",
+      "engine_title": "Variklio specifikacijos",
+      "engine_desc": "Leveraging the Godot Engine compiled with .NET 8 for aggressive performance optimization. Custom rendering pipeline utilizing Vulkan for advanced neon-noir lighting and atmospheric effects.",
+      "status_init": "Inicijuoti branduolį... [Gerai]",
+      "status_shaders": "Įkelti Vulkan Shaders... [Gerai]",
+      "status_link": "Sukurti neuroninį ryšį... [LAUKIAMA]",
+      "narrative_desc": "Varoma Inkle's Ink skriptų kalba, kuri suteikia giliai išsišakojusius dialogų medžius ir nuolatinį kiekvieno pasipriešinimo operatoriaus būsenos stebėjimą.",
+      "comms_desc": "Visiškas lokalizacijos palaikymas daugiau nei 50 kalbų, naudojant tinkintą dinaminio šrifto atvaizdavimo sistemą, kad būtų galima sklandžiai tvarkyti sudėtingus scenarijus ir RTL maketus.",
+      "offline_status": "Sistema neprisijungusi"
     }
   },
   "ms": {
@@ -8300,7 +9605,12 @@
       "levels": "Tahap",
       "features": "Ciri-ciri",
       "controls": "Kawalan",
-      "play_now": "Main Sekarang"
+      "play_now": "Main Sekarang",
+      "home": "RUMAH",
+      "gameplay": "PERMAINAN",
+      "squad": "SKUAD",
+      "tech_hub": "HUB TEKNIK",
+      "design_system": "SISTEM REKA BENTUK"
     },
     "hero": {
       "title_line1": "DAYA AXIOM",
@@ -8577,6 +9887,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "KELUARKAN OPERATIF",
+      "deploying": "MENGELUARKAN...",
+      "syncComplete": "SYNC COMPLETE // OPERATIVE BERJAYA DIKELUARKAN KE SEKTOR SASARAN",
+      "active": "AKTIF",
+      "standby": "STANDBY",
+      "role": "PERANAN",
+      "firepower": "KUASA API",
+      "defense": "PERTAHANAN",
+      "mobility": "MOBILITI",
+      "shogun": "SHOGUN CYBER",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIKS",
+      "frog": "KATAK NINJA",
+      "guy": "LELAKI MAYA"
+    },
+    "gameplay": {
+      "protocols": "PROTOKOL TERAS",
+      "terminal": "Terminal Pangkalan Data",
+      "active": "AKTIF",
+      "synced": "DISEGERAKAN",
+      "online": "DALAM TALIAN",
+      "t1_title": "Kinetik Traversal",
+      "t1_desc": "Kuasai pergerakan berasaskan momentum. Lari di dinding di sepanjang monolit asing, bergelut melalui bangunan pencakar langit yang musnah dan gelongsor rantai untuk mengelak penderia penyasaran Xelthara.",
+      "t2_title": "Penggodaman Neural",
+      "t2_desc": "Menyusup rangkaian makhluk asing dengan cepat. Rampas dron musuh, perisai tenaga yang berlebihan, atau pusingkan pertahanan automatik terhadap pencipta mereka dalam pertempuran masa nyata.",
+      "t3_title": "Sinergi Skuad",
+      "t3_desc": "Perintahkan sel rintangan dipacu AI anda. Laksanakan pelanggaran segerak, lakukan serangan hendap taktikal, dan gabungkan kebolehan unik untuk membongkar perisai Xelthara yang berat."
+    },
+    "tech_hub": {
+      "hero_desc": "Akses terus kepada dokumentasi teknikal Axiom Force. Dibina untuk penglibatan taktikal berprestasi tinggi merentas pelbagai platform. Dikuasakan oleh Godot dan Dakwat.",
+      "engine_title": "Spesifikasi Enjin",
+      "engine_desc": "Memanfaatkan Enjin Godot yang disusun dengan .NET 8 untuk pengoptimuman prestasi yang agresif. Saluran paip pemaparan tersuai menggunakan Vulkan untuk pencahayaan neon-noir termaju dan kesan atmosfera.",
+      "status_init": "Mulakan Teras... [OK]",
+      "status_shaders": "Muatkan Vulkan Shaders... [OK]",
+      "status_link": "Wujudkan Pautan Neural... [TERTUNDA]",
+      "narrative_desc": "Didorong oleh bahasa skrip Inkle's Ink, menyediakan pokok dialog yang bercabang mendalam dan penjejakan keadaan berterusan untuk setiap operasi rintangan.",
+      "comms_desc": "Sokongan penyetempatan penuh untuk 50+ bahasa, menggunakan sistem pemaparan fon dinamik tersuai untuk mengendalikan skrip kompleks dan reka letak RTL dengan lancar.",
+      "offline_status": "Sistem Luar Talian"
     }
   },
   "ml": {
@@ -8586,7 +9936,12 @@
       "levels": "ലെവലുകൾ",
       "features": "സവിശേഷതകൾ",
       "controls": "നിയന്ത്രണങ്ങൾ",
-      "play_now": "ഇപ്പോൾ കളിക്കുക"
+      "play_now": "ഇപ്പോൾ കളിക്കുക",
+      "home": "വീട്",
+      "gameplay": "ഗെയിംപ്ലേ",
+      "squad": "സ്ക്വാഡ്",
+      "tech_hub": "ടെക് ഹബ്",
+      "design_system": "ഡിസൈൻ സിസ്റ്റം"
     },
     "hero": {
       "title_line1": "ആക്‌സിയോം ഫോഴ്‌സ്",
@@ -8863,6 +10218,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "വിന്യസിക്കുക ഓപ്പറേറ്റീവ്",
+      "deploying": "വിന്യസിക്കുന്നു...",
+      "syncComplete": "സമന്വയം പൂർത്തിയായി // ഓപ്പറേറ്റീവ് വിജയകരമായി ടാർഗെറ്റ് സെക്ടറിലേക്ക് വിന്യസിച്ചു",
+      "active": "സജീവം",
+      "standby": "സ്റ്റാൻഡ്ബൈ",
+      "role": "റോൾ",
+      "firepower": "ഫയർ പവർ",
+      "defense": "പ്രതിരോധം",
+      "mobility": "മൊബിലിറ്റി",
+      "shogun": "സൈബർ ഷോഗൺ",
+      "ronin": "എജിസ് റോണിൻ",
+      "matrix": "ഒണി മെട്രിക്സ്",
+      "frog": "നിൻജ തവള",
+      "guy": "വെർച്വൽ ഗൈ"
+    },
+    "gameplay": {
+      "protocols": "കോർ പ്രോട്ടോക്കോളുകൾ",
+      "terminal": "ഡാറ്റാബേസ് ടെർമിനൽ",
+      "active": "സജീവം",
+      "synced": "സമന്വയിപ്പിച്ചു",
+      "online": "ഓൺലൈനിൽ",
+      "t1_title": "കൈനറ്റിക് ട��രാവെർസൽ",
+      "t1_desc": "മാസ്റ്റർ മൊമെൻ്റം അടിസ്ഥാനമാക്കിയുള്ള ചലനം. അന്യഗ്രഹ മോണോലിത്തുകൾക്കൊപ്പം ഭിത്തിയിൽ ഓടുക, തകർന്ന അംബരചുംബികളിലൂടെ കടന്നുപോകുക, സെൽതാര ടാർഗെറ്റുചെയ്യുന്ന സെൻസറുകളിൽ നിന്ന് രക്ഷപ്പെടാൻ ചെയിൻ സ്ലൈഡുകൾ.",
+      "t2_title": "ന്യൂറൽ ഹാക്കിംഗ്",
+      "t2_desc": "പറക്കുമ്പോൾ അന്യഗ്രഹ ശൃംഖലകളിലേക്ക് നുഴഞ്ഞുകയറുക. ശത്രു ഡ്രോണുകൾ ഹൈജാക്ക് ചെയ്യുക, ഊർജ്ജ കവചങ്ങൾ ഓവർലോഡ് ചെയ്യുക, അല്ലെങ്കിൽ തത്സമയ പോരാട്ടത്തിൽ അവയുടെ സ്രഷ്‌ടാക്കൾക്കെതിരെ സ്വയമേവയുള്ള പ്രതിരോധം മാറ്റുക.",
+      "t3_title": "സ്ക്വാഡ് സിനർജി",
+      "t3_desc": "നിങ്ങളുടെ AI- പ്രവർത്തിക്കുന്ന റെസിസ്റ്റൻസ് സെല്ലിനോട് കമാൻഡ് ചെയ്യുക. സമന്വയിപ്പിച്ച ലംഘനങ്ങൾ നടപ്പിലാക്കുക, തന്ത്രപരമായ പതിയിരിപ്പുകൾ നടത്തുക, കനത്ത സെൽതാര കവചം പൊളിക്കുന്നതിന് അതുല്യമായ കഴിവുകൾ സംയോജിപ്പിക്കുക."
+    },
+    "tech_hub": {
+      "hero_desc": "ആക്‌സിയോം ഫോഴ്‌സിൻ്റെ സാങ്കേതിക ഡോക്യുമെൻ്റേഷനിലേക്കുള്ള നേരിട്ടുള്ള പ്രവേശനം. ഒന്നിലധികം പ്ലാറ്റ്‌ഫോമുകളിലുടനീളമുള്ള ഉയർന്ന-പ്രകടന തന്ത്രപരമായ ഇടപെടലിനായി നിർമ്മിച്ചതാണ്. ഗോഡോട്ടും മഷിയും ഉപയോഗിച്ചാണ് പ്രവർത്തിക്കുന്നത്.",
+      "engine_title": "എഞ്ചിൻ സവിശേഷതകൾ",
+      "engine_desc": "ആക്രമണാത്മക പ്രകടന ഒപ്റ്റിമൈസേഷനായി .NET 8 ഉപയോഗിച്ച് സമാഹരിച്ച ഗോഡോട്ട് എഞ്ചിൻ പ്രയോജനപ്പെടുത്തുന്നു. വിപുലമായ നിയോൺ-നോയർ ലൈറ്റിംഗിനും അന്തരീക്ഷ ഇഫക്റ്റുകൾക്കുമായി വൾക്കൻ ഉപയോഗിക്കുന്ന കസ്റ്റം റെൻഡറിംഗ് പൈപ്പ്ലൈൻ.",
+      "status_init": "കോർ ആരംഭിക്കുക... [ശരി]",
+      "status_shaders": "Vulkan Shaders ലോഡ് ചെയ്യുക... [ശരി]",
+      "status_link": "ന്യൂറൽ ലിങ്ക് സ്ഥാപിക്കുക... [തീർച്ചപ്പെടുത്തിയിട്ടില്ല]",
+      "narrative_desc": "Inkle's Ink scripting language വഴി നയിക്കപ്പെടുന്നു, ആഴത്തിൽ ശാഖകളുള്ള ഡയലോഗ് ട്രീകളും ഓരോ പ്രതിരോധ പ്രവർത്തനത്തിനും സ്ഥിരമായ അവസ്ഥ ട്രാക്കിംഗും നൽകുന്നു.",
+      "comms_desc": "സങ്കീർണ്ണമായ സ്ക്രിപ്റ്റുകളും RTL ലേഔട്ടുകളും തടസ്സമില്ലാതെ കൈകാര്യം ചെയ്യുന്നതിനായി ഒരു ഇഷ്‌ടാനുസൃത ഡൈനാമിക് ഫോണ്ട് റെൻഡറിംഗ് സിസ്റ്റം ഉപയോഗിച്ച് 50+ ഭാഷകൾക്കുള്ള പൂർണ്ണ പ്രാദേശികവൽക്കരണ പിന്തുണ.",
+      "offline_status": "സിസ്റ്റം ഓഫ്‌ലൈൻ"
     }
   },
   "zh": {
@@ -8872,7 +10267,12 @@
       "levels": "级别",
       "features": "特点",
       "controls": "控制",
-      "play_now": "立即播放"
+      "play_now": "立即播放",
+      "home": "首页",
+      "gameplay": "游戏玩法",
+      "squad": "小队",
+      "tech_hub": "技术中心",
+      "design_system": "设计系统"
     },
     "hero": {
       "title_line1": "公理力",
@@ -9149,6 +10549,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "部署特工",
+      "deploying": "正在部署...",
+      "syncComplete": "同步完成 // 特工已成功部署至目标区域",
+      "active": "活跃",
+      "standby": "待命",
+      "role": "角色",
+      "firepower": "火力",
+      "defense": "防御",
+      "mobility": "机动性",
+      "shogun": "赛博将军",
+      "ronin": "宙斯盾浪人",
+      "matrix": "鬼矩阵",
+      "frog": "忍者青蛙",
+      "guy": "虚拟小子"
+    },
+    "gameplay": {
+      "protocols": "核心协议",
+      "terminal": "数据库终端",
+      "active": "活跃",
+      "synced": "已同步",
+      "online": "在线",
+      "t1_title": "动力位移",
+      "t1_desc": "掌握基于惯性的位移方式。在异星石碑上攀墙疾跑，用抓钩飞越废墟高楼，并连击滑行来避开敌人锁定。",
+      "t2_title": "神经黑客",
+      "t2_desc": "实时入侵外界网络。在即时战斗中劫持敌方无人机，破坏能量护盾，或将自动防御武器调转枪头对准创造者。",
+      "t3_title": "小队协同",
+      "t3_desc": "指挥由人工智能驱动的抵抗组织。执行同步突破，布置战术伏击，并结合专属技能以击碎重装装甲。"
+    },
+    "tech_hub": {
+      "hero_desc": "直接访问公理力量技术文档。专为多平台高性能战术交战而设计。由 Godot 和 Ink 提供动力。",
+      "engine_title": "引擎规格",
+      "engine_desc": "利用基于 .NET 8 编译的 Godot 引擎进行强力的性能优化。使用 Vulkan 自定义渲染管道，实现高级的赛博朋克霓虹灯光和大气效果。",
+      "status_init": "初始化内核... [确定]",
+      "status_shaders": "加载 Vulkan 着色器... [确定]",
+      "status_link": "建立神经链接... [进行中]",
+      "narrative_desc": "由 Inkle 的 Ink 脚本语言驱动，为每位抵抗特工提供深层分支的对话树和持久的状态跟踪。",
+      "comms_desc": "完全支持 50+ 种语言的多国语言本地化，利用自定义动态字体渲染系统无缝处理复杂的文体和从右至左（RTL）的版面布局。",
+      "offline_status": "系统离线"
     }
   },
   "mr": {
@@ -9158,7 +10598,12 @@
       "levels": "स्तर",
       "features": "वैशिष्ट्ये",
       "controls": "नियंत्रणे",
-      "play_now": "आता खेळा"
+      "play_now": "आता खेळा",
+      "home": "घर",
+      "gameplay": "गेमप्ले",
+      "squad": "पथक",
+      "tech_hub": "टेक हब",
+      "design_system": "डिझाइन सिस्टम"
     },
     "hero": {
       "title_line1": "AXIOM force",
@@ -9435,6 +10880,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "कार्यरत तैनात करा",
+      "deploying": "तैनात करत आहे...",
+      "syncComplete": "समक्रमण पूर्ण // ऑपरेटिव्ह यशस्वीरित्या लक्ष्य क्षेत्रावर तैनात",
+      "active": "सक्रिय",
+      "standby": "स्टँडबाय",
+      "role": "भूमिका",
+      "firepower": "फायरपॉवर",
+      "defense": "संरक्षण",
+      "mobility": "गतिशीलता",
+      "shogun": "सायबर शोगुन",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ओएनआय मॅट्रिक्स",
+      "frog": "निंजा बेडूक",
+      "guy": "आभासी माणूस"
+    },
+    "gameplay": {
+      "protocols": "कोर प्रोटोकॉल",
+      "terminal": "डेटाबेस टर्मिनल",
+      "active": "सक्रिय",
+      "synced": "सिंक केले",
+      "online": "ऑनलाइन",
+      "t1_title": "कायन���टिक ट्रॅव्हर्सल",
+      "t1_desc": "मास्टर मोमेंटम-आधारित चळवळ. एलियन मोनोलिथ्सच्या बाजूने वॉल-रन, उध्वस्त गगनचुंबी इमारतींमधून झटपट आणि झेल्थरा लक्ष्यित सेन्सर्सपासून बचाव करण्यासाठी चेन स्लाइड्स.",
+      "t2_title": "न्यूरल हॅकिंग",
+      "t2_desc": "फ्लाय वर परदेशी नेटवर्क घुसखोरी. शत्रूचे ड्रोन हायजॅक करा, ऊर्जा ढाल ओव्हरलोड करा किंवा रिअल-टाइम लढाईत त्यांच्या निर्मात्यांविरूद्ध स्वयंचलित संरक्षण चालू करा.",
+      "t3_title": "पथक सिनर्जी",
+      "t3_desc": "तुमच्या AI-चालित प्रतिरोधक सेलला आदेश द्या. सिंक्रोनाइझ केलेले उल्लंघन कार्यान्वित करा, सामरिक हल्ला करा आणि भारी झेल्थारा चिलखत नष्ट करण्यासाठी अद्वितीय क्षमता एकत्र करा."
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force तांत्रिक दस्तऐवजीकरणात थेट प्रवेश. एकाधिक प्लॅटफॉर्मवर उच्च-कार्यक्षमता रणनीतिक प्रतिबद्धतेसाठी तयार केलेले. गोडोट आणि इंक यांनी केले.",
+      "engine_title": "इंजिन चष्मा",
+      "engine_desc": "आक्रमक कामगिरी ऑप्टिमायझेशनसाठी .NET 8 सह संकलित केलेल्या गोडोट इंजिनचा लाभ घेणे. प्रगत निऑन-नॉयर लाइटिंग आणि वातावरणीय प्रभावांसाठी वल्कन वापरणारी कस्टम रेंडरिंग पाइपलाइन.",
+      "status_init": "कोर सुरू करा... [ओके]",
+      "status_shaders": "वल्कन शेडर्स लोड करा... [ओके]",
+      "status_link": "न्यूरल लिंक स्थापित करा... [प्रलंबित]",
+      "narrative_desc": "Inkle च्या इंक स्क्रिप्टिंग भाषेद्वारे चालविलेले, प्रत्येक प्रतिकार कार्यकर्त्यासाठी सखोल शाखा असलेल्या डायलॉग ट्री आणि सक्तीचे स्टेट ट्रॅकिंग प्रदान करते.",
+      "comms_desc": "जटिल स्क्रिप्ट्स आणि RTL लेआउट्स अखंडपणे हाताळण्यासाठी सानुकूल डायनॅमिक फॉन्ट रेंडरिंग सिस्टमचा वापर करून, 50+ भाषांसाठी पूर्ण स्थानिकीकरण समर्थन.",
+      "offline_status": "सिस्टम ऑफलाइन"
     }
   },
   "no": {
@@ -9444,7 +10929,12 @@
       "levels": "Nivåer",
       "features": "Funksjoner",
       "controls": "Kontroller",
-      "play_now": "Spill nå"
+      "play_now": "Spill nå",
+      "home": "HJEM",
+      "gameplay": "SPILL",
+      "squad": "SQUAD",
+      "tech_hub": "TEKNISK HUB",
+      "design_system": "DESIGNSYSTEM"
     },
     "hero": {
       "title_line1": "AKSIOMKRAFT",
@@ -9721,6 +11211,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "UTSETT OPERATIV",
+      "deploying": "UTSETTER...",
+      "syncComplete": "SYNC COMPLETE // OPERATIV SUKSESSFULLT UTPLASSERT TIL MÅLSEKTOREN",
+      "active": "AKTIV",
+      "standby": "STANDBY",
+      "role": "ROLLE",
+      "firepower": "BRANNKRAFT",
+      "defense": "FORSVAR",
+      "mobility": "MOBILITET",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROSK",
+      "guy": "VIRTUELL FYR"
+    },
+    "gameplay": {
+      "protocols": "KJERNEPROTOKOLLER",
+      "terminal": "Databaseterminal",
+      "active": "AKTIV",
+      "synced": "SYNSERT",
+      "online": "PÅ NETT",
+      "t1_title": "Kinetisk gjennomgang",
+      "t1_desc": "Mestre momentumbasert bevegelse. Løp vegg langs fremmede monolitter, grip deg gjennom ødelagte skyskrapere og kjettingglider for å unngå Xelthara-målsensorer.",
+      "t2_title": "Nevral hacking",
+      "t2_desc": "Infiltrer fremmede nettverk på farten. Kapr fiendtlige droner, overbelast energiskjold eller slå automatiserte forsvar mot skaperne deres i sanntidskamp.",
+      "t3_title": "Lagsynergi",
+      "t3_desc": "Styr din AI-drevne motstandscelle. Utfør synkroniserte brudd, legg taktiske bakholdsangrep og kombiner unike evner for å demontere tunge Xelthara-rustninger."
+    },
+    "tech_hub": {
+      "hero_desc": "Direkte tilgang til Axiom Force teknisk dokumentasjon. Bygget for høyytelses taktisk engasjement på tvers av flere plattformer. Drevet av Godot og Ink.",
+      "engine_title": "Motorspesifikasjoner",
+      "engine_desc": "Utnytte Godot-motoren kompilert med .NET 8 for aggressiv ytelsesoptimalisering. Egendefinert gjengivelsesrørledning som bruker Vulkan for avansert neon-noir-belysning og atmosfæriske effekter.",
+      "status_init": "Initialiser kjerne... [OK]",
+      "status_shaders": "Last inn Vulkan Shaders... [OK]",
+      "status_link": "Etabler nevralkobling ... [VENTER]",
+      "narrative_desc": "Drevet av Inkles Ink-skriptspråk, gir dypt forgrenede dialogtrær og vedvarende tilstandssporing for hver motstandsmann.",
+      "comms_desc": "Full lokaliseringsstøtte for 50+ språk, ved å bruke et tilpasset dynamisk skriftgjengivelsessystem for å håndtere komplekse skript og RTL-oppsett sømløst.",
+      "offline_status": "System frakoblet"
     }
   },
   "pl": {
@@ -9730,7 +11260,12 @@
       "levels": "Poziomy",
       "features": "Funkcje",
       "controls": "Sterowanie",
-      "play_now": "Zagraj teraz"
+      "play_now": "Zagraj teraz",
+      "home": "DOM",
+      "gameplay": "ROZGRYWKA",
+      "squad": "ODDZIAŁ",
+      "tech_hub": "CENTRUM TECHNICZNE",
+      "design_system": "SYSTEMU PROJEKTOWANIA"
     },
     "hero": {
       "title_line1": "SIŁA AKSYJOMU",
@@ -10007,6 +11542,46 @@
           "input": "↑↑↓↓← →"
         }
       }
+    },
+    "squad": {
+      "deploy": "WYŚLIJ OPERATORA",
+      "deploying": "WDROŻENIE...",
+      "syncComplete": "SYNCHRONIZACJA ZAKOŃCZONA // OPERATOR UDOSTĘPNIONY W SEKTORZE DOCELOWYM",
+      "active": "AKTYWNY",
+      "standby": "GOTOWOŚĆ",
+      "role": "ROLA",
+      "firepower": "SIŁA OGNIA",
+      "defense": "OBRONA",
+      "mobility": "MOBILNOŚĆ",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "MATRYCA ONI",
+      "frog": "ŻABA NINJA",
+      "guy": "WIRTUALNY CZŁOWIEK"
+    },
+    "gameplay": {
+      "protocols": "PODSTAWOWE PROTOKOŁY",
+      "terminal": "Terminal bazodanowy",
+      "active": "AKTYWNY",
+      "synced": "Zsynchronizowane",
+      "online": "ONLINE",
+      "t1_title": "Przejście kinetyczne",
+      "t1_desc": "Opanuj ruch oparty na pędzie. Biegaj po ścianach wzdłuż obcych monolitów, przedzieraj się przez zrujnowane drapacze chmur i ślizgaj się po łańcuchach, aby uniknąć czujników celowniczych Xelthary.",
+      "t2_title": "Hakowanie neuronowe",
+      "t2_desc": "Infiltruj obce sieci w locie. Porywaj wrogie drony, przeciążaj tarcze energetyczne lub obracaj automatyczną obronę przeciwko ich twórcom w walce w czasie rzeczywistym.",
+      "t3_title": "Synergia drużyny",
+      "t3_desc": "Dowódź komórką oporu kierowaną przez sztuczną inteligencję. Dokonuj zsynchronizowanych naruszeń, zastawiaj taktyczne zasadzki i łącz unikalne umiejętności, aby rozmontowywać ciężki pancerz Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Bezpośredni dostęp do dokumentacji technicznej Axiom Force. Zbudowany z myślą o wysokiej wydajności taktycznej walce na wielu platformach. Obsługiwane przez Godota i Ink.",
+      "engine_title": "Dane techniczne silnika",
+      "engine_desc": "Wykorzystanie silnika Godot skompilowanego z .NET 8 w celu agresywnej optymalizacji wydajności. Niestandardowy potok renderowania wykorzystujący Vulkan do zaawansowanego oświetlenia neon-noir i efektów atmosferycznych.",
+      "status_init": "Zainicjuj rdzeń... [OK]",
+      "status_shaders": "Załaduj shadery Vulkan... [OK]",
+      "status_link": "Ustanów połączenie neuronowe... [OCZEKUJE]",
+      "narrative_desc": "Napędzany językiem skryptowym Inkle's Ink, zapewniającym głęboko rozgałęzione drzewa dialogowe i ciągłe śledzenie stanu dla każdego agenta ruchu oporu.",
+      "comms_desc": "Pełna obsługa lokalizacji dla ponad 50 języków, z wykorzystaniem niestandardowego systemu dynamicznego renderowania czcionek do płynnej obsługi złożonych skryptów i układów RTL.",
+      "offline_status": "System offline"
     }
   },
   "pa": {
@@ -10016,7 +11591,12 @@
       "levels": "ਪੱਧਰ",
       "features": "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
       "controls": "ਨਿਯੰਤਰਣ",
-      "play_now": "ਹੁਣੇ ਚਲਾਓ"
+      "play_now": "ਹੁਣੇ ਚਲਾਓ",
+      "home": "ਘਰ",
+      "gameplay": "ਗੇਮਪਲੇ",
+      "squad": "ਸਕੁਐਡ",
+      "tech_hub": "TECH ਹੱਬ",
+      "design_system": "ਡਿਜ਼ਾਇਨ ਸਿਸਟਮ"
     },
     "hero": {
       "title_line1": "AXIOM ਫੋਰਸ",
@@ -10293,6 +11873,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ਆਪਰੇਟਿਵ ਤਾਇਨਾਤ ਕਰੋ",
+      "deploying": "ਤੈਨਾਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+      "syncComplete": "ਸਮਕਾਲੀਕਰਨ ਪੂਰਾ // ਸੰਚਾਲਨ ਸਫਲਤਾਪੂਰਵਕ ਟੀਚੇ ਵਾਲੇ ਖੇਤਰ ਵਿੱਚ ਤਾਇਨਾਤ",
+      "active": "ਕਿਰਿਆਸ਼ੀਲ",
+      "standby": "ਸਟੈਂਡਬਾਏ",
+      "role": "ਭੂਮਿਕਾ",
+      "firepower": "ਫਾਇਰ ਪਾਵਰ",
+      "defense": "ਰੱਖਿਆ",
+      "mobility": "ਗਤੀਸ਼ੀਲਤਾ",
+      "shogun": "ਸਾਈਬਰ ਸ਼ੋਗਨ",
+      "ronin": "ਏਜੀਸ ਰੋਨਿਨ",
+      "matrix": "ONI ਮੈਟ੍ਰਿਕਸ",
+      "frog": "ਨਿੰਜਾ ਡੱਡੂ",
+      "guy": "ਵਰਚੁਅਲ ਮੁੰਡਾ"
+    },
+    "gameplay": {
+      "protocols": "ਕੋਰ ਪ੍ਰੋਟੋਕੋਲ",
+      "terminal": "ਡਾਟਾਬੇਸ ਟਰਮੀਨਲ",
+      "active": "ਕਿਰਿਆਸ਼ੀਲ",
+      "synced": "ਸਿੰਕ ਕੀਤਾ ਗਿਆ",
+      "online": "ਔਨਲਾਈਨ",
+      "t1_title": "ਕਾਇਨੇਟਿਕ ਟਰਾਵਰਸਲ",
+      "t1_desc": "ਮਾਸਟਰ ਮੋਮੈਂਟਮ-ਅਧਾਰਿਤ ਅੰਦੋਲਨ. ਏਲੀਅਨ ਮੋਨੋਲਿਥਸ ਦੇ ਨਾਲ-ਨਾਲ ਕੰਧ-ਚਲਾਓ, ਵਿਨਾਸ਼ਕਾਰੀ ਗਗਨਚੁੰਬੀ ਇਮਾਰਤਾਂ ਨੂੰ ਫੜੋ, ਅਤੇ ਜ਼ੈਲਥਾਰਾ ਨੂੰ ਨਿਸ਼ਾਨਾ ਬਣਾਉਣ ਵਾਲੇ ਸੈਂਸਰਾਂ ਤੋਂ ਬਚਣ ਲਈ ਚੇਨ ਸਲਾਈਡਾਂ।",
+      "t2_title": "ਨਿਊਰਲ ਹੈਕਿੰਗ",
+      "t2_desc": "ਫਲਾਈ 'ਤੇ ਪਰਦੇਸੀ ਨੈਟਵਰਕਾਂ ਵਿੱਚ ਘੁਸਪੈਠ ਕਰੋ. ਦੁਸ਼ਮਣ ਦੇ ਡਰੋਨਾਂ ਨੂੰ ਹਾਈਜੈਕ ਕਰੋ, ਊਰਜਾ ਸ਼ੀਲਡਾਂ ਨੂੰ ਓਵਰਲੋਡ ਕਰੋ, ਜਾਂ ਅਸਲ-ਸਮੇਂ ਦੀ ਲੜਾਈ ਵਿੱਚ ਉਹਨਾਂ ਦੇ ਸਿਰਜਣਹਾਰਾਂ ਦੇ ਵਿਰੁੱਧ ਸਵੈਚਲਿਤ ਰੱਖਿਆ ਕਰੋ।",
+      "t3_title": "ਸਕੁਐਡ ਸਿੰਨਰਜੀ",
+      "t3_desc": "ਆਪਣੇ AI-ਚਾਲਿਤ ਪ੍ਰਤੀਰੋਧ ਸੈੱਲ ਨੂੰ ਹੁਕਮ ਦਿਓ। ਸਮਕਾਲੀ ਉਲੰਘਣਾਵਾਂ ਨੂੰ ਲਾਗੂ ਕਰੋ, ਰਣਨੀਤਕ ਹਮਲੇ ਕਰੋ, ਅਤੇ ਭਾਰੀ ਜ਼ੈਲਥਾਰਾ ਸ਼ਸਤਰ ਨੂੰ ਖਤਮ ਕਰਨ ਲਈ ਵਿਲੱਖਣ ਯੋਗਤਾਵਾਂ ਨੂੰ ਜੋੜੋ।"
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom ਫੋਰਸ ਤਕਨੀਕੀ ਦਸਤਾਵੇਜ਼ਾਂ ਤੱਕ ਸਿੱਧੀ ਪਹੁੰਚ। ਕਈ ਪਲੇਟਫਾਰਮਾਂ ਵਿੱਚ ਉੱਚ-ਪ੍ਰਦਰਸ਼ਨ ਵਾਲੀ ਰਣਨੀਤਕ ਸ਼ਮੂਲੀਅਤ ਲਈ ਬਣਾਇਆ ਗਿਆ। ਗੋਡੋਟ ਅਤੇ ਇੰਕ ਦੁਆਰਾ ਸੰਚਾਲਿਤ.",
+      "engine_title": "ਇੰਜਣ ਸਪੈਸਿਕਸ",
+      "engine_desc": "ਹਮਲਾਵਰ ਪ੍ਰਦਰਸ਼ਨ ਅਨੁਕੂਲਨ ਲਈ .NET 8 ਦੇ ਨਾਲ ਕੰਪਾਇਲ ਕੀਤੇ ਗੋਡੋਟ ਇੰਜਣ ਦਾ ਲਾਭ ਉਠਾਉਣਾ। ਉੱਨਤ ਨਿਓਨ-ਨੋਇਰ ਰੋਸ਼ਨੀ ਅਤੇ ਵਾਯੂਮੰਡਲ ਪ੍ਰਭਾਵਾਂ ਲਈ ਵੁਲਕਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਵਾਲੀ ਕਸਟਮ ਰੈਂਡਰਿੰਗ ਪਾਈਪਲਾਈਨ।",
+      "status_init": "ਕੋਰ ਸ਼ੁਰੂ ਕਰੋ... [ਠੀਕ ਹੈ]",
+      "status_shaders": "ਵੁਲਕਨ ਸ਼ੈਡਰ ਲੋਡ ਕਰੋ... [ਠੀਕ ਹੈ]",
+      "status_link": "ਨਿਊਰਲ ਲਿੰਕ ਸਥਾਪਿਤ ਕਰੋ... [ਪੈਂਡਿੰਗ]",
+      "narrative_desc": "ਇੰਕਲ ਦੀ ਸਿਆਹੀ ਸਕ੍ਰਿਪਟਿੰਗ ਭਾਸ਼ਾ ਦੁਆਰਾ ਸੰਚਾਲਿਤ, ਡੂੰਘੀ ਬ੍ਰਾਂਚਿੰਗ ਡਾਇਲਾਗ ਟ੍ਰੀ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ ਅਤੇ ਹਰੇਕ ਪ੍ਰਤੀਰੋਧ ਆਪਰੇਟਿਵ ਲਈ ਨਿਰੰਤਰ ਸਟੇਟ ਟਰੈਕਿੰਗ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।",
+      "comms_desc": "ਗੁੰਝਲਦਾਰ ਸਕ੍ਰਿਪਟਾਂ ਅਤੇ RTL ਲੇਆਉਟ ਨੂੰ ਸਹਿਜੇ ਹੀ ਸੰਭਾਲਣ ਲਈ ਇੱਕ ਕਸਟਮ ਡਾਇਨਾਮਿਕ ਫੌਂਟ ਰੈਂਡਰਿੰਗ ਸਿਸਟਮ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋਏ, 50+ ਭਾਸ਼ਾਵਾਂ ਲਈ ਪੂਰਾ ਸਥਾਨਕਕਰਨ ਸਮਰਥਨ।",
+      "offline_status": "ਸਿਸਟਮ ਔਫਲਾਈਨ"
     }
   },
   "ro": {
@@ -10302,7 +11922,12 @@
       "levels": "Niveluri",
       "features": "Caracteristici",
       "controls": "Controale",
-      "play_now": "Joacă acum"
+      "play_now": "Joacă acum",
+      "home": "ACASĂ",
+      "gameplay": "JOC",
+      "squad": "ECHIPĂ",
+      "tech_hub": "HUB TEHNIC",
+      "design_system": "SISTEM DE PROIECTARE"
     },
     "hero": {
       "title_line1": "FORTA AXIOMĂ",
@@ -10579,6 +12204,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "OPERAȚIUNE DE IMPLICARE",
+      "deploying": "SE IMPLANTA...",
+      "syncComplete": "SINCRONIZARE COMPLETĂ // OPERAȚIUNEA S-A IMPLICAT PENTRU SECTORUL ȚINTĂ",
+      "active": "ACTIV",
+      "standby": "STANDBY",
+      "role": "ROL",
+      "firepower": "PUTEREA DE FOC",
+      "defense": "APARARE",
+      "mobility": "MOBILITATE",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "BROSCĂ NINJA",
+      "guy": "BĂUT VIRTUAL"
+    },
+    "gameplay": {
+      "protocols": "PROTOCOLE DE BASE",
+      "terminal": "Terminalul bazei de date",
+      "active": "ACTIV",
+      "synced": "SINCRONIZATE",
+      "online": "ONLINE",
+      "t1_title": "Traversarea cinetică",
+      "t1_desc": "Stăpânește mișcarea bazată pe impuls. Alergați cu pereți de-a lungul monoliților extraterestre, luptați prin zgârie-nori ruinate și alunecați în lanț pentru a evita senzorii de țintire Xelthara.",
+      "t2_title": "Hacking neuronal",
+      "t2_desc": "Infiltrați-vă în rețelele extraterestre din mers. Deturnați dronele inamice, supraîncărcați scuturi de energie sau întoarceți apărările automate împotriva creatorilor lor în luptă în timp real.",
+      "t3_title": "Sinergia echipei",
+      "t3_desc": "Comanda-ți celula de rezistență condusă de AI. Executa brese sincronizate, intinzi ambuscade tactice si combina abilitati unice pentru a demonta armura grea Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Acces direct la documentația tehnică Axiom Force. Creat pentru un angajament tactic de înaltă performanță pe mai multe platforme. Produs de Godot and Ink.",
+      "engine_title": "Specificații motor",
+      "engine_desc": "Utilizarea motorului Godot compilat cu .NET 8 pentru optimizarea agresivă a performanței. Conductă de randare personalizată care utilizează Vulkan pentru iluminare neon-noir avansată și efecte atmosferice.",
+      "status_init": "Inițializați Core... [OK]",
+      "status_shaders": "Încărcați Vulkan Shaders... [OK]",
+      "status_link": "Stabiliți legătura neuronală... [ÎN AȘTEPTARE]",
+      "narrative_desc": "Condus de limbajul de scripting Inkle de la Inkle, oferind arbori de dialog profund ramificați și urmărire persistentă a stării pentru fiecare agent de rezistență.",
+      "comms_desc": "Suport complet de localizare pentru peste 50 de limbi, utilizând un sistem de redare dinamic personalizat a fonturilor pentru a gestiona perfect scripturi complexe și machete RTL.",
+      "offline_status": "Sistem offline"
     }
   },
   "si": {
@@ -10588,7 +12253,12 @@
       "levels": "මට්ටම්",
       "features": "විශේෂාංග",
       "controls": "පාලනයන්",
-      "play_now": "දැන් සෙල්ලම් කරන්න"
+      "play_now": "දැන් සෙල්ලම් කරන්න",
+      "home": "නිවස",
+      "gameplay": "ක්රීඩාව",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "සැලසුම් පද්ධතිය"
     },
     "hero": {
       "title_line1": "AXIOM බලකාය",
@@ -10865,6 +12535,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "මෙහෙයුම් යෙදවීම",
+      "deploying": "යෙදවීම...",
+      "syncComplete": "සමමුහුර්ත කිරීම සම්පූර්ණයි // ක්‍රියාකාරීත්වය ඉලක්ක අංශයට සාර්ථකව යොදවා ඇත",
+      "active": "ක්‍රියාකාරී",
+      "standby": "පොරොත්තුවෙන්",
+      "role": "භූමිකාව",
+      "firepower": "ගිනි බලය",
+      "defense": "ආරක්ෂක",
+      "mobility": "සංචලනය",
+      "shogun": "සයිබර් ෂෝගන්",
+      "ronin": "ඒජීස් රොනින්",
+      "matrix": "ඔනි මැට්‍රික්ස්",
+      "frog": "නින්ජා ගෙම්බා",
+      "guy": "වර්චුවල් ගයි"
+    },
+    "gameplay": {
+      "protocols": "මූලික ප්‍රොටෝකෝල",
+      "terminal": "දත්ත සමුදා පර්යන්තය",
+      "active": "ක්‍රියාකාරී",
+      "synced": "සමමුහුර්ත කර ඇත",
+      "online": "ඔන්ලයින්",
+      "t1_title": "චාල�� සංචාර",
+      "t1_desc": "ප්‍රධාන ගම්‍යතාවය මත පදනම් වූ චලනය. පිටසක්වල මොනොලිත් දිගේ බිත්තිය ධාවනය කිරීම, නටබුන් වූ අහස ගොඩනැගිලි හරහා පොරබදමින්, සහ Xelthara ඉලක්ක කරන සංවේදක මග හැරීම සඳහා දාම විනිවිදක.",
+      "t2_title": "Neural Hacking",
+      "t2_desc": "පියාසර කරන විට පිටසක්වල ජාල වලට ඇතුල් වන්න. සතුරු ඩ්‍රෝන යානා පැහැර ගැනීම, බලශක්ති පලිහ අධික ලෙස පැටවීම, හෝ තත්‍ය කාලීන සටනේදී ඒවායේ නිර්මාපකයන්ට එරෙහිව ස්වයංක්‍රීය ආරක්‍ෂාව හරවන්න.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "ඔබේ AI-ධාවන ප්‍රතිරෝධ සෛලයට අණ කරන්න. සමමුහුර්ත වූ කඩකිරීම් ක්‍රියාත්මක කිරීම, උපායශීලී සැඟවී සිටීම සහ බර Xelthara සන්නාහය විසුරුවා හැරීම සඳහා අද්විතීය හැකියාවන් ඒකාබද්ධ කිරීම."
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force තාක්ෂණික ලියකියවිලි වෙත සෘජු ප්‍රවේශය. බහු වේදිකා හරහා ඉහළ කාර්ය සාධනයක් සහිත උපායශීලී නියැලීම සඳහා ගොඩනගා ඇත. Godot සහ Ink මගින් බල ගැන්වේ.",
+      "engine_title": "එන්ජින් පිරිවිතර",
+      "engine_desc": "ආක්‍රමණශීලී කාර්ය සාධන ප්‍රශස්තකරණය සඳහා .NET 8 සමඟින් සම්පාදනය කරන ලද ගොඩෝ එන්ජිම භාවිතා කිරීම. උසස් neon-noir ආලෝකකරණය සහ වායුගෝලීය බලපෑම් සඳහා Vulkan භාවිතා කරන අභිරුචි විදැහුම්කරණ නල මාර්ගය.",
+      "status_init": "Core ආරම්භ කරන්න... [හරි]",
+      "status_shaders": "Vulkan Shaders පූරණය කරන්න... [හරි]",
+      "status_link": "Neural Link ස්ථාපනය කරන්න... [PENDING]",
+      "narrative_desc": "Inkle's Ink scripting language මගින් මෙහෙයවනු ලබන අතර, සෑම ප්‍රතිරෝධක ක්‍රියාකාරකමක් සඳහාම ගැඹුරින් අතු බෙදී යන දෙබස් ගස් සහ ස්ථීර රාජ්‍ය ලුහුබැඳීම සපයයි.",
+      "comms_desc": "භාෂා 50+ සඳහා පූර්ණ දේශීයකරණ සහාය, සංකීර්ණ ස්ක්‍ර��ප්ට් සහ RTL පිරිසැලසුම් බාධාවකින් තොරව හැසිරවීමට අභිරුචි ගතික අකුරු විදැහුම්කරණ පද්ධතියක් භාවිතා කරයි.",
+      "offline_status": "පද්ධතිය නොබැඳි"
     }
   },
   "sk": {
@@ -10874,7 +12584,12 @@
       "levels": "Úrovne",
       "features": "Vlastnosti",
       "controls": "Ovládacie prvky",
-      "play_now": "Hrať teraz"
+      "play_now": "Hrať teraz",
+      "home": "DOMOV",
+      "gameplay": "HRANIE",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "DIZAJNOVÝ SYSTÉM"
     },
     "hero": {
       "title_line1": "SILA AXIOM",
@@ -11151,6 +12866,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "NASTAVIŤ OPERATÍVNU",
+      "deploying": "PREBIEHA SA...",
+      "syncComplete": "SYNCHRONIZÁCIA JE DOKONČENÁ // OPERATÍVA ÚSPEŠNE NASADNUTÁ DO CIEĽOVÉHO SEKTORA",
+      "active": "AKTÍVNY",
+      "standby": "STANDBY",
+      "role": "ROLE",
+      "firepower": "OHNIVÁ SILA",
+      "defense": "OBRANA",
+      "mobility": "MOBILITA",
+      "shogun": "KYBER ŠOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA ŽABKA",
+      "guy": "VIRTUÁLNY CHLAP"
+    },
+    "gameplay": {
+      "protocols": "ZÁKLADNÉ PROTOKOLY",
+      "terminal": "Databázový terminál",
+      "active": "AKTÍVNY",
+      "synced": "SYNCHRONOVANÉ",
+      "online": "ONLINE",
+      "t1_title": "Kinetický prechod",
+      "t1_desc": "Ovládnite pohyb založený na hybnosti. Behajte po stenách po mimozemských monolitoch, predierajte sa zničenými mrakodrapmi a reťazovými kĺzačkami, aby ste sa vyhli zameriavacím senzorom Xelthara.",
+      "t2_title": "Neurónové hackovanie",
+      "t2_desc": "Infiltrujte mimozemské siete za behu. Uniesť nepriateľské drony, preťažiť energetické štíty alebo obrátiť automatizovanú obranu proti ich tvorcom v boji v reálnom čase.",
+      "t3_title": "Tímová synergia",
+      "t3_desc": "Ovládajte svoju bunku odporu poháňanú AI. Vykonávajte synchronizované prielomy, klaďte taktické zálohy a kombinujte jedinečné schopnosti na rozobratie ťažkého brnenia Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Priamy prístup k technickej dokumentácii Axiom Force. Vytvorené pre vysoko výkonné taktické zapojenie na viacerých platformách. Beží na Godot and Ink.",
+      "engine_title": "Špecifikácie motora",
+      "engine_desc": "Využitie Godot Engine skompilovaného s .NET 8 na agresívnu optimalizáciu výkonu. Vlastný renderovací kanál využívajúci Vulkan pre pokročilé neónové-noirové osvetlenie a atmosférické efekty.",
+      "status_init": "Inicializovať jadro... [OK]",
+      "status_shaders": "Načítať Vulkan Shaders... [OK]",
+      "status_link": "Vytvoriť neurónové prepojenie... [ČAKÁ]",
+      "narrative_desc": "Poháňaný skriptovacím jazykom Inkle Ink, ktorý poskytuje hlboko rozvetvené stromy dialógov a trvalé sledovanie stavu pre každého pracovníka odporu.",
+      "comms_desc": "Plná podpora lokalizácie pre viac ako 50 jazykov s využitím vlastného dynamického systému vykresľovania písiem na bezproblémové spracovanie zložitých skriptov a rozložení RTL.",
+      "offline_status": "Systém je offline"
     }
   },
   "sl": {
@@ -11160,7 +12915,12 @@
       "levels": "Ravni",
       "features": "Lastnosti",
       "controls": "Kontrole",
-      "play_now": "Igraj zdaj"
+      "play_now": "Igraj zdaj",
+      "home": "DOMOV",
+      "gameplay": "IGRANJE",
+      "squad": "SKUPINA",
+      "tech_hub": "TEHNIČNO SREDIŠČE",
+      "design_system": "OBLIKOVANJE SISTEMA"
     },
     "hero": {
       "title_line1": "AXIOM SILA",
@@ -11437,6 +13197,46 @@
           "input": "↑↑↓↓ ←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "RAZPOSTAVITE OPERATIVO",
+      "deploying": "RAZPOSTAVLJANJE ...",
+      "syncComplete": "SINHRONIZACIJA KONČANA // OPERATIVA USPEŠNO RAZPOSTAVLJENA V CILJNI SEKTOR",
+      "active": "AKTIVNO",
+      "standby": "PRIPRAVLJENOST",
+      "role": "VLOGA",
+      "firepower": "OGNJENA MOČ",
+      "defense": "OBRAMBA",
+      "mobility": "MOBILNOST",
+      "shogun": "KIBER ŠOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRICA",
+      "frog": "NINJA ŽABA",
+      "guy": "VIRTUALNI FANT"
+    },
+    "gameplay": {
+      "protocols": "OSNOVNI PROTOKOLI",
+      "terminal": "Terminal baze podatkov",
+      "active": "AKTIVNO",
+      "synced": "SINHRONIZIRANO",
+      "online": "ONLINE",
+      "t1_title": "Kinetično prečkanje",
+      "t1_desc": "Obvladajte gibanje na podlagi zagona. Tecite po zidu vzdolž nezemeljskih monolitov, se spopadajte skozi porušene nebotičnike in drsite z verigo, da se izognete senzorjem za ciljanje Xelthare.",
+      "t2_title": "Nevronsko hekanje",
+      "t2_desc": "Infiltrirajte se v tuja omre��ja na letenje. Ugrabite sovražnikove drone, preobremenite energetske ščite ali obrnite avtomatizirano obrambo proti njihovim ustvarjalcem v boju v realnem času.",
+      "t3_title": "Sinergija ekipe",
+      "t3_desc": "Upravljajte svojo odporno celico, ki jo poganja AI. Izvajajte sinhronizirane prodore, postavljajte taktične zasede in združite edinstvene sposobnosti za razstavljanje težkega oklepa Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Neposreden dostop do tehnične dokumentacije Axiom Force. Izdelan za visoko zmogljivo taktično delovanje na več platformah. Poganja Godot and Ink.",
+      "engine_title": "Specifikacije motorja",
+      "engine_desc": "Izkoriščanje Godot Engine, prevedenega z .NET 8 za agresivno optimizacijo delovanja. Cev za upodabljanje po meri, ki uporablja Vulkan za napredno neonsko-noir osvetlitev in atmosferske učinke.",
+      "status_init": "Inicializiraj jedro ... [V redu]",
+      "status_shaders": "Naloži Vulkan Shaders ... [OK]",
+      "status_link": "Vzpostavitev nevronske povezave ... [V ČAKANJU]",
+      "narrative_desc": "Poganja Inklov skriptni jezik Ink, ki zagotavlja globoko razvejana drevesa dialogov in vztrajno sledenje stanju za vsakega odporniškega operativca.",
+      "comms_desc": "Popolna lokalizacijska podpora za več kot 50 jezikov z uporabo sistema za dinamično upodabljanje pisav po meri za brezhibno obdelavo kompleksnih skriptov in postavitev RTL.",
+      "offline_status": "Sistem brez povezave"
     }
   },
   "sv": {
@@ -11446,7 +13246,12 @@
       "levels": "Nivåer",
       "features": "Funktioner",
       "controls": "Kontroller",
-      "play_now": "Spela nu"
+      "play_now": "Spela nu",
+      "home": "HEM",
+      "gameplay": "SPEL",
+      "squad": "SQUAD",
+      "tech_hub": "TECH HUB",
+      "design_system": "DESIGNSYSTEM"
     },
     "hero": {
       "title_line1": "AXIOMKRAFT",
@@ -11723,6 +13528,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "UPPLAGA OPERATIV",
+      "deploying": "UPPLATERAR...",
+      "syncComplete": "SYNC COMPLETE // OPERATIV MED FRAMGÅNGSRIKT UTPLITERAD TILL MÅLSEKTORN",
+      "active": "AKTIV",
+      "standby": "STANDBY",
+      "role": "ROLL",
+      "firepower": "BRANDKRAFT",
+      "defense": "FÖRSVAR",
+      "mobility": "MOBILITET",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA GRODA",
+      "guy": "VIRTUELL KILLE"
+    },
+    "gameplay": {
+      "protocols": "KÄRNPROTOKOLL",
+      "terminal": "Databasterminal",
+      "active": "AKTIV",
+      "synced": "SYNKERAD",
+      "online": "ONLINE",
+      "t1_title": "Kinetisk genomgång",
+      "t1_desc": "Bemästra momentumbaserad rörelse. Vägglöp längs utomjordiska monoliter, grabba dig igenom förstörda skyskrapor och kedjerlid för att undvika Xelthara-målsensorer.",
+      "t2_title": "Neural hacking",
+      "t2_desc": "Infiltrera främmande nätverk i farten. Kapa fiendens drönare, överbelasta energisköldar eller vänd automatiserade försvar mot deras skapare i realtidsstrid.",
+      "t3_title": "Lagsynergi",
+      "t3_desc": "Styr din AI-drivna motståndscell. Utför synkroniserade intrång, lägg taktiska bakhåll och kombinera unika förmågor för att demontera tunga Xelthara-rustningar."
+    },
+    "tech_hub": {
+      "hero_desc": "Direkt tillgång till Axiom Force tekniska dokumentation. Byggd för högpresterande taktiskt engagemang över flera plattformar. Drivs av Godot och Ink.",
+      "engine_title": "Motorspecifikationer",
+      "engine_desc": "Utnyttja Godot Engine kompilerad med .NET 8 för aggressiv prestandaoptimering. Anpassad renderingspipeline som använder Vulkan för avancerad neon-noir-belysning och atmosfäriska effekter.",
+      "status_init": "Initiera kärna... [OK]",
+      "status_shaders": "Ladda Vulkan Shaders... [OK]",
+      "status_link": "Upprätta nervlänk... [VÄNTAR]",
+      "narrative_desc": "Drivs av Inkles Ink-skriptspråk, som ger djupt förgrenade dialogträd och ihållande tillståndsspårning för varje motståndsman.",
+      "comms_desc": "Fullständigt lokaliseringsstöd för 50+ språk, med ett anpassat dynamiskt teckensnittsrenderingssystem för att hantera komplexa skript och RTL-layouter sömlöst.",
+      "offline_status": "System offline"
     }
   },
   "ta": {
@@ -11732,7 +13577,12 @@
       "levels": "நிலைகள்",
       "features": "அம்சங்கள்",
       "controls": "கட்டுப்பாடுகள்",
-      "play_now": "இப்போது விளையாடு"
+      "play_now": "இப்போது விளையாடு",
+      "home": "வீடு",
+      "gameplay": "கேம்ப்ளே",
+      "squad": "SQUAD",
+      "tech_hub": "டெக் ஹப்",
+      "design_system": "வடிவமைப்பு அமைப்பு"
     },
     "hero": {
       "title_line1": "ஆக்சியோம் ஃபோர்ஸ்",
@@ -12009,6 +13859,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "வரிசைப்படுத்து",
+      "deploying": "வரிசைப்படுத்துகிறது...",
+      "syncComplete": "ஒத்திசைவு முடிந்தது // இயக்கமானது இலக்கு துறைக்கு வெற்றிகரமாக பயன்படுத்தப்பட்டது",
+      "active": "செயலில்",
+      "standby": "காத்திருப்பு",
+      "role": "பாத்திரம்",
+      "firepower": "தீயணைப்பு சக்தி",
+      "defense": "தற்காப்பு",
+      "mobility": "மொபிலிட்டி",
+      "shogun": "சைபர் ஷோகன்",
+      "ronin": "ஏஜிஸ் ரோனின்",
+      "matrix": "ஓனி மேட்ரிக்ஸ்",
+      "frog": "நிஞ்ஜா தவளை",
+      "guy": "விர்ச்சுவல் கை"
+    },
+    "gameplay": {
+      "protocols": "முக்கிய நெறிமுறைகள்",
+      "terminal": "தரவுத்தள முனையம்",
+      "active": "செயலில்",
+      "synced": "ஒத்திசைக்கப்பட்டது",
+      "online": "ஆன்லைன்",
+      "t1_title": "இயக்கவி��ல் டிராவர்சல்",
+      "t1_desc": "மாஸ்டர் உந்தம் சார்ந்த இயக்கம். ஏலியன் மோனோலித்கள் வழியாகச் சுவரில் ஓடுவது, பாழடைந்த வானளாவிய கட்டிடங்கள் வழியாகப் பிடிப்பது மற்றும் செயின் ஸ்லைடுகளைக் குறிவைத்து செல்தாராவை குறிவைக்கும் சென்சார்களைத் தவிர்ப்பது.",
+      "t2_title": "நியூரல் ஹேக்கிங்",
+      "t2_desc": "பறக்கும் போது அன்னிய நெட்வொர்க்குகளை ஊடுருவவும். எதிரி ஆளில்லா விமானங்களைக் கடத்தவும், ஆற்றல் கவசங்களை ஓவர்லோட் செய்யவும் அல்லது நிகழ்நேரப் போரில் அவற்றின் படைப்பாளர்களுக்கு எதிராக தானியங்கி பாதுகாப்புகளை மாற்றவும்.",
+      "t3_title": "அணி சினெர்ஜி",
+      "t3_desc": "உங்கள் AI-உந்துதல் எதிர்ப்பு கலத்திற்கு கட்டளையிடவும். ஒத்திசைக்கப்பட்ட மீறல்களைச் செயல்படுத்தவும், தந்திரோபாய பதுங்கு குழிகளை இடவும் மற்றும் கனமான Xelthara கவசத்தை அகற்ற தனிப்பட்ட திறன்களை இணைக்கவும்."
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force தொழில்நுட்ப ஆவணங்களுக்கு நேரடி அணுகல். பல தளங்களில் உயர் செயல்திறன் தந்திரோபாய ஈடுபாட்டிற்காக கட்டப்பட்டது. கோடாட் மற்றும் மை மூலம் இயக்கப்படுகிறது.",
+      "engine_title": "எஞ்சின் விவரக்குறிப்புகள்",
+      "engine_desc": "ஆக்கிரமிப்பு செயல்திறன் மேம்படுத்தலுக்காக .NET 8 உடன் தொகுக்கப்பட்ட கோடாட் எஞ்சினை மேம்படுத்துதல். மேம்பட்ட நியான்-நோயர் லைட்டிங் மற்றும் வளிமண்டல விளைவுகளுக்கு வல்கனைப் பயன்படுத்தும் தனிப்பயன் ரெண்டரிங் பைப்லைன்.",
+      "status_init": "கோர்வை துவக்கவும்... [சரி]",
+      "status_shaders": "வல்கன் ஷேடர்களை ஏற்றவும்... [சரி]",
+      "status_link": "நரம்பியல் இணைப்பை நிறுவவும்... [நிலுவையில்]",
+      "narrative_desc": "Inkle இன் இங்க் ஸ்கிரிப்டிங் மொழியால் இயக்கப்படுகிறது, ஆழமாக கிளைக்கும் உரையாடல் மரங்கள் மற்றும் ஒவ்வொரு எதிர்ப்பு இயக்���த்திற்கும் நிலையான நிலை கண்காணிப்பை வழங்குகிறது.",
+      "comms_desc": "50+ மொழிகளுக்கான முழு உள்ளூர்மயமாக்கல் ஆதரவு, சிக்கலான ஸ்கிரிப்ட்கள் மற்றும் RTL தளவமைப்புகளைத் தடையின்றி கையாள தனிப்பயன் டைனமிக் எழுத்துரு ரெண்டரிங் அமைப்பைப் பயன்படுத்துகிறது.",
+      "offline_status": "கணினி ஆஃப்லைன்"
     }
   },
   "te": {
@@ -12018,7 +13908,12 @@
       "levels": "స్థాయిలు",
       "features": "ఫీచర్లు",
       "controls": "నియంత్రణలు",
-      "play_now": "ఇప్పుడే ఆడండి"
+      "play_now": "ఇప్పుడే ఆడండి",
+      "home": "హోమ్",
+      "gameplay": "గేమ్ప్లే",
+      "squad": "స్క్వాడ్",
+      "tech_hub": "టెక్ హబ్",
+      "design_system": "డిజైన్ సిస్టమ్"
     },
     "hero": {
       "title_line1": "యాక్సియోమ్ ఫోర్స్",
@@ -12295,6 +14190,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "డిప్లోయ్ ఆపరేటివ్",
+      "deploying": "అమలు చేస్తోంది...",
+      "syncComplete": "సమకాలీకరణ పూర్తయింది // ఆపరేటివ్ విజయవంతంగా లక్ష్య రంగానికి అమలు చేయబడింది",
+      "active": "యాక్టివ్",
+      "standby": "స్టాండ్‌బై",
+      "role": "పాత్ర",
+      "firepower": "అగ్నిమాపక శక్తి",
+      "defense": "రక్షణ",
+      "mobility": "మొబిలిటీ",
+      "shogun": "సైబర్ షోగన్",
+      "ronin": "ఏజిస్ రోనిన్",
+      "matrix": "ONI మ���యాట్రిక్స్",
+      "frog": "నింజా కప్ప",
+      "guy": "వర్చువల్ గై"
+    },
+    "gameplay": {
+      "protocols": "కోర్ ప్రోటోకాల్స్",
+      "terminal": "డేటాబేస్ టెర్మినల్",
+      "active": "యాక్టివ్",
+      "synced": "సమకాలీకరించబడింది",
+      "online": "ఆన్‌లైన్‌లో",
+      "t1_title": "కైనెటిక్ ట్రావర్సల్",
+      "t1_desc": "మాస్టర్ మొమెంటం ఆధారిత కదలిక. గ్రహాంతర మోనోలిత్‌ల వెంట వాల్-రన్, శిధిలమైన ఆకాశహర్మ్యాల గుండా పట్టుకోవడం మరియు Xelthara టార్గెటింగ్ సెన్సార్‌లను తప్పించుకోవడానికి చైన్ స్లైడ్‌లు.",
+      "t2_title": "న్యూరల్ హ్యాకింగ్",
+      "t2_desc": "ఫ్లైలో గ్రహాంతర నెట్‌వర్క్‌లలోకి చొరబడండి. శత్రు డ్రోన్‌లను హైజాక్ చేయండి, ఎనర్జీ షీల్డ్‌లను ఓవర్‌లోడ్ చేయండి లేదా నిజ-సమయ పోరాటంలో వాటి సృష్టికర్తలకు వ్యతిరేకంగా ఆటోమేటెడ్ డిఫెన్స్‌లను మార్చండి.",
+      "t3_title": "స్���్వాడ్ సినర్జీ",
+      "t3_desc": "మీ AI ఆధారిత రెసిస్టెన్స్ సెల్‌కి ఆజ్ఞాపించండి. సమకాలీకరించబడిన ఉల్లంఘనలను అమలు చేయండి, వ్యూహాత్మక ఆకస్మిక దాడులు చేయండి మరియు భారీ Xelthara కవచాన్ని కూల్చివేయడానికి ప్రత్యేక సామర్థ్యాలను కలపండి."
+    },
+    "tech_hub": {
+      "hero_desc": "యాక్���ియమ్ ఫోర్స్ సాంకేతిక డాక్యుమెంటేషన్‌కు ప్రత్యక్ష ప్రాప్యత. బహుళ ప్లాట్‌ఫారమ్‌లలో అధిక-పనితీరు గల వ్యూహాత్మక నిశ్చితార్థం కోసం రూపొందించబడింది. Godot మరియు ఇంక్ ద్వారా ఆధారితం.",
+      "engine_title": "ఇంజిన్ స్పెక్స్",
+      "engine_desc": "దూకుడు పనితీరు ఆప్టిమైజేషన్ కోసం .NET 8తో కంపైల్ చేయబడిన గోడాట్ ఇంజిన్‌ను ప్రభావితం చేయడం. అధునాతన నియాన్-నోయిర్ లైటింగ్ మరియు వాతావరణ ప్రభావాల కోసం వల్కాన్‌ని ఉపయోగించి అనుకూలమైన రెండరింగ్ పైప్‌లైన్.",
+      "status_init": "కోర్ని ప్రారంభించండి... [సరే]",
+      "status_shaders": "వల్కాన్ షేడర్‌లను లోడ్ చేయండి... [సరే]",
+      "status_link": "న్యూరల్ లింక్‌ని ఏర్పాటు చేయండి... [పెండింగ్]",
+      "narrative_desc": "ఇంకిల్ యొక్క ఇంక్ స్క్రిప్టింగ్ లాంగ్వేజ్ ద్వారా నడపబడుతుంది, ప్రతి రెసిస్టెన్స్ ఆపరేటివ్‌కు లోతైన బ్రాంచ్ డైలాగ్ ట్రీలు మరియు నిరంతర స్థితి ట్రాకింగ్‌ను అందిస్తుంది.",
+      "comms_desc": "50+ భాషలకు పూర్తి స్థానికీకరణ మద్దతు, సంక్లిష్ట స్క్రిప్ట్‌లు మరియు RTL లేఅవుట్‌లను సజావుగా నిర్వహించడానికి అనుకూల డైనమిక్ ఫాంట్ రెండరింగ్ సిస్టమ్‌ను ఉపయోగిస్తుంది.",
+      "offline_status": "సిస్టమ్ ఆఫ్‌లైన్"
     }
   },
   "th": {
@@ -12304,7 +14239,12 @@
       "levels": "ระดับ",
       "features": "คุณสมบัติ",
       "controls": "การควบคุม",
-      "play_now": "เล่นเลย"
+      "play_now": "เล่นเลย",
+      "home": "หน้าแรก",
+      "gameplay": "การเล่นเกม",
+      "squad": "ทีม",
+      "tech_hub": "เทคฮับ",
+      "design_system": "ระบบการออกแบบ"
     },
     "hero": {
       "title_line1": "พลังสัจพจน์",
@@ -12581,6 +14521,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "ปรับใช้ปฏิบัติการ",
+      "deploying": "กำลังปรับใช้...",
+      "syncComplete": "ซิงค์เสร็จสมบูรณ์ // ปฏิบัติการปรับใช้กับกลุ่มเป้าหมายได้สำเร็จ",
+      "active": "ใช้งานอยู่",
+      "standby": "สแตนด์บาย",
+      "role": "บทบาท",
+      "firepower": "พลังยิง",
+      "defense": "กลาโหม",
+      "mobility": "ความคล่องตัว",
+      "shogun": "โชกุนไซเบอร์",
+      "ronin": "เอจิส โรนิน",
+      "matrix": "โอนี เมทริกซ์",
+      "frog": "กบนินจา",
+      "guy": "ผู้ชายเสมือนจริง"
+    },
+    "gameplay": {
+      "protocols": "โปรโตคอลหลัก",
+      "terminal": "เทอร์มินัลฐานข้อมูล",
+      "active": "ใช้งานอยู่",
+      "synced": "ซิงค์แล้ว",
+      "online": "ออนไลน์",
+      "t1_title": "การข้ามผ่านจลนศาสตร์",
+      "t1_desc": "การเคลื่อนไหวตามโมเมนตัมหลัก วิ่งบนกำแพงไปตามเสาหินเอเลี่ยน ต่อสู้ผ่านตึกระฟ้าที่พังทลาย และโซ่เลื่อนเพื่อหลบเลี่ยงเซ็นเซอร์ตรวจจับเป้าหมาย Xelthara",
+      "t2_title": "การแฮ็กระบบประสาท",
+      "t2_desc": "แทรกซึมเครือข่ายคนต่างด้าวได้ทันที จี้โดรนศัตรู โหลดเกราะป้องกันพลังงานมากเกินไป หรือเปลี่ยนการป้องกันอัตโนมัติต่อผู้สร้างพวกมันในการต่อสู้แบบเรียลไทม์",
+      "t3_title": "การทำงานร่วมกันของทีม",
+      "t3_desc": "สั่งการเซลล์ต้านทานที่ขับเคลื่อนด้วย AI ของคุณ ดำเนินการเจาะข้อมูลพร้อมกัน วางการซุ่มโจมตีทางยุทธวิธี และผสมผสานความสามารถพิเศษเพื่อแยกชิ้นส่วนเกราะ Xelthara ที่มีน้ำหนักมาก"
+    },
+    "tech_hub": {
+      "hero_desc": "เข้าถึงเอกสารทางเทคนิคของ Axiom Force ได้โดยตรง สร้างขึ้นเพื่อการมีส่วนร่วมทางยุทธวิธีที่มีประสิทธิภาพสูงในหลายแพลตฟอร์ม ขับเคลื่อนโดย Godot และ Ink",
+      "engine_title": "ข้อมูลจำเพาะของเครื่องยนต์",
+      "engine_desc": "การใช้ประโยชน์จาก Godot Engine ที่คอมไพล์ด้วย .NET 8 เพื่อการเพิ่มประสิทธิภาพเชิงรุก ไปป์ไลน์การเรนเดอร์แบบกำหนดเองโดยใช้ Vulkan สำหรับแสงนีออนนัวร์ขั้นสูงและเอฟเฟกต์บรรยากาศ",
+      "status_init": "เริ่มต้นคอร์... [ตกลง]",
+      "status_shaders": "โหลด Vulkan Shaders... [ตกลง]",
+      "status_link": "สร้างการเชื่อมโยงประสาท... [รอดำเนินการ]",
+      "narrative_desc": "ขับเคลื่อนด้วยภาษาสคริปต์ Inkle ของ Inkle ให้แผนผังบทสนทนาที่แตกแขนงอย่างลึกซึ้งและการติดต���มสถานะอย่างต่อเนื่องสำหรับหน่วยต่อต้านทุกราย",
+      "comms_desc": "รองรับการแปลหลายภาษาอย่างเต็มรูปแบบสำหรับ 50+ ภาษา โดยใช้ระบบการเรนเดอร์ฟอนต์แบบไดนามิกแบบกำหนดเองเพื่อจัดการสคริปต์ที่ซับซ้อนและเค้าโครง RTL ได้อย่างราบรื่น",
+      "offline_status": "ระบบออฟไลน์"
     }
   },
   "tr": {
@@ -12590,7 +14570,12 @@
       "levels": "Seviyeler",
       "features": "Özellikler",
       "controls": "Kontroller",
-      "play_now": "Şimdi Oyna"
+      "play_now": "Şimdi Oyna",
+      "home": "ANA SAYFA",
+      "gameplay": "OYNANIŞ",
+      "squad": "TAKIM",
+      "tech_hub": "TEKNOLOJİ MERKEZİ",
+      "design_system": "TASARIM SİSTEMİ"
     },
     "hero": {
       "title_line1": "aksiyom kuvveti",
@@ -12867,6 +14852,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "OPERATİFİ YERLEŞTİR",
+      "deploying": "DAĞITILIYOR...",
+      "syncComplete": "SENKRONİZASYON TAMAMLANDI // OPERATİF HEDEF SEKTÖRE BAŞARIYLA YERLEŞTİRİLDİ",
+      "active": "AKTİF",
+      "standby": "BEKLEME",
+      "role": "ROLÜ",
+      "firepower": "ATEŞ GÜCÜ",
+      "defense": "SAVUNMA",
+      "mobility": "HAREKETLİLİK",
+      "shogun": "SİBER ŞOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRİSİ",
+      "frog": "NİNJA KURBAĞA",
+      "guy": "SANAL ADAM"
+    },
+    "gameplay": {
+      "protocols": "ÇEKİRDEK PROTOKOLLER",
+      "terminal": "Veritabanı Terminali",
+      "active": "AKTİF",
+      "synced": "SENKRONİZE EDİLDİ",
+      "online": "ÇEVRİMİÇİ",
+      "t1_title": "Kinetik Geçiş",
+      "t1_desc": "Momentum temelli hareketlerde ustalaşın. Xelthara'nın hedefleme sensörlerinden kaçmak için uzaylı monolitleri boyunca duvarlardan koşun, yıkık gökdelenlerin arasından geçin ve zincirli kaydıraklardan geçin.",
+      "t2_title": "Sinirsel Hackleme",
+      "t2_desc": "Uzaylı ağlarına anında sızın. Gerçek zamanlı savaşta düşman dronlarını ele geçirin, enerji kalkanlarını aşırı yükleyin veya yaratıcılarına karşı otomatik savunmaları çevirin.",
+      "t3_title": "Kadro Sinerjisi",
+      "t3_desc": "Yapay zeka destekli direnç hücrenize komuta edin. Ağır Xelthara zırhını parçalamak için senkronize ihlaller gerçekleştirin, taktiksel pusu kurun ve benzersiz yetenekleri birleştirin."
+    },
+    "tech_hub": {
+      "hero_desc": "Axiom Force teknik belgelerine doğrudan erişim. Birden fazla platformda yüksek performanslı taktiksel etkileşim için tasarlandı. Godot ve Ink tarafından desteklenmektedir.",
+      "engine_title": "Motor Özellikleri",
+      "engine_desc": "Agresif performans optimizasyonu için .NET 8 ile derlenen Godot Motorundan yararlanılıyor. Gelişmiş neon-noir aydınlatma ve atmosferik efektler için Vulkan'ı kullanan özel işleme hattı.",
+      "status_init": "Çekirdeği Başlat... [OK]",
+      "status_shaders": "Vulkan Gölgelendiricileri Yükle... [OK]",
+      "status_link": "Sinir Bağlantısı Kurun... [BEKLEMEDE]",
+      "narrative_desc": "Inkle'ın Ink kodlama dili tarafından yönlendirilen, derin dallara ayrılan diyalog ağaçları ve her direniş görevlisi için kalıcı durum takibi sağlar.",
+      "comms_desc": "Karmaşık komut dosyalarını ve RTL düzenlerini sorunsuz bir şekilde işlemek için özel bir dinamik yazı tipi oluşturma sistemi kullanan 50'den fazla dil için tam yerelleştirme desteği.",
+      "offline_status": "Sistem Çevrimdışı"
     }
   },
   "uk": {
@@ -12876,7 +14901,12 @@
       "levels": "Рівні",
       "features": "особливості",
       "controls": "Елементи керування",
-      "play_now": "Грати зараз"
+      "play_now": "Грати зараз",
+      "home": "ДІМ",
+      "gameplay": "ГЕЙМПЛЕЙ",
+      "squad": "ЗАГІД",
+      "tech_hub": "ТЕХНІЧНИЙ ХАБ",
+      "design_system": "СИСТЕМА ДИЗАЙНУ"
     },
     "hero": {
       "title_line1": "АКСІОМА СИЛА",
@@ -13153,6 +15183,46 @@
           "input": "↑↑↓↓ ←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "РОЗгорнути ОПЕРАТИВ",
+      "deploying": "РОЗгортання...",
+      "syncComplete": "СИНХРОНІЗАЦІЮ ЗАВЕРШЕНО // ОПЕРАТИВ УСПІШНО РОЗГОРОТКИ В ЦІЛЬОВОМУ СЕКТОРІ",
+      "active": "АКТИВНИЙ",
+      "standby": "РЕЖИМ ОЧІКУВАННЯ",
+      "role": "РОЛЬ",
+      "firepower": "ВОГНЕВА СИЛА",
+      "defense": "ОБОРОНА",
+      "mobility": "МОБІЛЬНІСТЬ",
+      "shogun": "КІБЕРШОГУН",
+      "ronin": "ЕГІД РОНІН",
+      "matrix": "МАТРИЦЯ ONI",
+      "frog": "ЖАБА-НІНДЗЯ",
+      "guy": "ВІРТУАЛЬНИЙ ХЛОПЕЦЬ"
+    },
+    "gameplay": {
+      "protocols": "ОСНОВНІ ПРОТОКОЛИ",
+      "terminal": "Термінал бази даних",
+      "active": "АКТИВНИЙ",
+      "synced": "СИНХРОНІЗОВАНО",
+      "online": "ОНЛАЙН",
+      "t1_title": "Кінетичний об��ід",
+      "t1_desc": "Освоїти рух на основі імпульсу. Біжіть стіною вздовж інопланетних монолітів, боріться крізь зруйновані хмарочоси та ковзайте ланцюгами, щоб уникнути націлювання датчиків Xelthara.",
+      "t2_title": "Нейронний хакінг",
+      "t2_desc": "Проникайте в інопланетні мережі на льоту. Захоплюйте ворожі дрони, перевантажуйте енергетичні щити або вмикайте автоматизований захист проти їх творців у бою в реальному часі.",
+      "t3_title": "Синергія команди",
+      "t3_desc": "Керуйте своїм осередком опору, керованим ШІ. Здійснюйте синхронні прориви, влаштовуйте тактичні засідки та комбінуйте унікальні здібності, щоб розібрати важку броню Xelthara."
+    },
+    "tech_hub": {
+      "hero_desc": "Прямий доступ до технічної документації Axiom Force. Створено для високоефективної тактичної боротьби на кількох платформах. На основі Godot and Ink.",
+      "engine_title": "Характеристики двигуна",
+      "engine_desc": "Використання Godot Engine, скомпільованого з .NET 8, для агресивної оптимізації продуктивності. Індивідуальний конвеєр візуалізації з використанням Vulkan для вдосконаленого неоново-нуарного освітлення та атмосферних ефектів.",
+      "status_init": "Ініціалізувати Core... [OK]",
+      "status_shaders": "Завантажити шейдери Vulkan... [OK]",
+      "status_link": "Встановити нейронний зв'язок... [ЧЕКУЄТЬСЯ]",
+      "narrative_desc": "Керується мовою сценаріїв Ink від Inkle, що забезпечує глибокі розгалужені дерева діалогів і постійне відстеження стану для кожного оперативника опору.",
+      "comms_desc": "Повна підтримка локалізації для понад 50 мов із використанням спеціальної системи динамічного відтворення шрифтів для бездоганної роботи зі складними сценаріями та макетами RTL.",
+      "offline_status": "Система в автономному режимі"
     }
   },
   "vi": {
@@ -13162,7 +15232,12 @@
       "levels": "Cấp độ",
       "features": "Tính năng",
       "controls": "Điều khiển",
-      "play_now": "Chơi ngay"
+      "play_now": "Chơi ngay",
+      "home": "TRANG CHỦ",
+      "gameplay": "CHƠI TRÒ CHƠI",
+      "squad": "BIỆT ĐỘI",
+      "tech_hub": "TRUNG TÂM CÔNG NGHỆ",
+      "design_system": "HỆ THỐNG THIẾT KẾ"
     },
     "hero": {
       "title_line1": "LỰC TỤC ĐÍCH",
@@ -13439,6 +15514,46 @@
           "input": "↑↑↓↓←→"
         }
       }
+    },
+    "squad": {
+      "deploy": "TRIỂN KHAI VẬN HÀNH",
+      "deploying": "ĐANG TRIỂN KHAI...",
+      "syncComplete": "SYNC HOÀN THÀNH // HOẠT ĐỘNG ĐƯỢC TRIỂN KHAI THÀNH CÔNG CHO NGÀNH MỤC TIÊU",
+      "active": "HOẠT ĐỘNG",
+      "standby": "CHỜ",
+      "role": "VAI TRÒ",
+      "firepower": "hỏa lực",
+      "defense": "PHÒNG NGỦ",
+      "mobility": "DI ĐỘNG",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "MA TRẬN ONI",
+      "frog": "ẾCH NINJA",
+      "guy": "anh chàng ảo"
+    },
+    "gameplay": {
+      "protocols": "GIAO THỨC CỐT LÕI",
+      "terminal": "Thiết bị đầu cuối cơ sở dữ liệu",
+      "active": "HOẠT ĐỘNG",
+      "synced": "ĐÃ ĐỒNG BỘ HÓA",
+      "online": "TRỰC TUYẾN",
+      "t1_title": "Truyền tải động học",
+      "t1_desc": "Làm chủ chuyển động dựa trên động lượng. Chạy dọc theo những tảng đá nguyên khối của người ngoài hành tinh, vật lộn qua những tòa nhà chọc trời đổ nát và trượt dây chuyền để trốn tránh các cảm biến nhắm mục tiêu của Xelthara.",
+      "t2_title": "Hack thần kinh",
+      "t2_desc": "Xâm nhập mạng lưới người ngoài hành tinh một cách nhanh chóng. Cướp máy bay không người lái của kẻ thù, lá chắn năng lượng quá tải hoặc bật hệ thống phòng thủ tự động chống lại người tạo ra chúng trong chiến đấu thời gian thực.",
+      "t3_title": "Sức mạnh tổng hợp của đội",
+      "t3_desc": "Chỉ huy tế bào kháng chiến do AI điều khiển của bạn. Thực hiện các cuộc tấn công đồng bộ, phục kích chiến thuật và kết hợp các khả năng độc đáo để tháo dỡ bộ giáp Xelthara hạng nặng."
+    },
+    "tech_hub": {
+      "hero_desc": "Truy cập trực tiếp vào tài liệu kỹ thuật của Axiom Force. Được xây dựng để tham gia chiến thuật hiệu suất cao trên nhiều nền tảng. Được cung cấp bởi Godot và Ink.",
+      "engine_title": "Thông số động cơ",
+      "engine_desc": "Tận dụng Godot Engine được biên dịch bằng .NET 8 để tối ưu hóa hiệu suất một cách mạnh mẽ. Đường dẫn kết xuất tùy chỉnh sử dụng Vulkan để tạo hiệu ứng khí quyển và ánh sáng neon-noir tiên tiến.",
+      "status_init": "Khởi tạo lõi... [OK]",
+      "status_shaders": "Tải Vulkan Shaders... [OK]",
+      "status_link": "Thiết lập liên kết thần kinh... [Đang chờ xử lý]",
+      "narrative_desc": "Được thúc đẩy bởi ngôn ngữ kịch bản Ink của Inkle, cung cấp các cây đối thoại phân nhánh sâu và theo dõi trạng thái liên tục cho mọi đặc vụ kháng chiến.",
+      "comms_desc": "Hỗ trợ bản địa hóa đầy đủ cho hơn 50 ngôn ngữ, sử dụng hệ thống kết xuất phông chữ động tùy chỉnh để xử lý liền mạch các tập lệnh phức tạp và bố cục RTL.",
+      "offline_status": "Hệ thống ngoại tuyến"
     }
   }
 }

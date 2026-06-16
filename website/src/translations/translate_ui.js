@@ -2,12 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 import { fileURLToPath } from 'url';
-import i18n from './i18n.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const enTranslation = i18n.options.resources.en.translation;
+const jsonPath = path.join(__dirname, 'ui_translations.json');
+const uiTranslations = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+const enTranslation = uiTranslations.en;
 
 const CODE_TO_GT_CODE = {
   ar: 'ar',
@@ -189,34 +190,48 @@ function setPathValue(obj, path, value) {
   current[keys[keys.length - 1]] = value;
 }
 
+function getNestedValue(obj, path) {
+  const keys = path.split('.');
+  let current = obj;
+  for (const key of keys) {
+    if (current === undefined || current === null) return undefined;
+    current = current[key];
+  }
+  return current;
+}
+
 async function main() {
   const items = getPathsAndStrings(enTranslation);
-  const strings = items.map(item => item.text);
-  const paths = items.map(item => item.path);
+  console.log(`Extracted ${items.length} UI strings from English bundle.`);
 
-  console.log(`Extracted ${strings.length} UI strings from English bundle.`);
-
-  // Load existing translations to preserve human-vetted strings
-  const finalResources = {
-    en: enTranslation,
-    es: i18n.options.resources.es.translation,
-    fr: i18n.options.resources.fr.translation,
-    ar: i18n.options.resources.ar.translation,
-    he: i18n.options.resources.he.translation
-  };
+  const finalResources = { ...uiTranslations };
+  finalResources.en = enTranslation;
 
   const targetLangs = Object.keys(CODE_TO_GT_CODE);
 
   for (const lang of targetLangs) {
-    // Skip already covered base translated languages to avoid API calls and preserve vetted translations
-    if (['en', 'es', 'fr', 'ar', 'he'].includes(lang)) {
+    if (lang === 'en') continue;
+
+    const code = CODE_TO_GT_CODE[lang];
+    const existingBundle = finalResources[lang] || {};
+
+    // Find strings that are missing or empty in this language
+    const missingItems = items.filter(item => {
+      const existingVal = getNestedValue(existingBundle, item.path);
+      return typeof existingVal !== 'string' || existingVal.trim() === '';
+    });
+
+    if (missingItems.length === 0) {
+      console.log(`Language ${lang} (${code}) is already fully translated. Skipping.`);
       continue;
     }
 
-    const code = CODE_TO_GT_CODE[lang];
-    console.log(`Translating website UI into ${lang} (${code})...`);
+    console.log(`Translating ${missingItems.length} missing strings into ${lang} (${code})...`);
 
-    const chunks = chunkArray(strings, 20, 3000);
+    const missingStrings = missingItems.map(item => item.text);
+    const missingPaths = missingItems.map(item => item.path);
+
+    const chunks = chunkArray(missingStrings, 20, 3000);
     const translatedStrings = [];
 
     for (let ci = 0; ci < chunks.length; ci++) {
@@ -228,19 +243,21 @@ async function main() {
       }
     }
 
-    const langBundle = {};
-    for (let i = 0; i < paths.length; i++) {
-      setPathValue(langBundle, paths[i], translatedStrings[i]);
+    for (let i = 0; i < missingPaths.length; i++) {
+      setPathValue(existingBundle, missingPaths[i], translatedStrings[i]);
     }
 
-    finalResources[lang] = langBundle;
+    finalResources[lang] = existingBundle;
     console.log(`Finished ${lang}.`);
+    
+    // Save incrementally
+    const outPath = path.join(__dirname, 'ui_translations.json');
+    fs.writeFileSync(outPath, JSON.stringify(finalResources, null, 2), 'utf8');
+    
     await sleep(250);
   }
 
-  const outPath = path.join(__dirname, 'ui_translations.json');
-  fs.writeFileSync(outPath, JSON.stringify(finalResources, null, 2), 'utf8');
-  console.log(`Saved translations to ${outPath}`);
+  console.log("All translations updated successfully!");
 }
 
 main().catch(err => {

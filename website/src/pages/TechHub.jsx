@@ -2,9 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
+
 export default function TechHub() {
   const { t } = useTranslation();
   const { selectedLanguage } = useLanguage();
+
+  const getUIString = (key) => {
+    return t(`tech_hub.${key}`, key);
+  };
 
   const isRtl = selectedLanguage === 'arabic' || selectedLanguage === 'hebrew';
 
@@ -24,7 +29,7 @@ export default function TechHub() {
         <p className={`font-body-lg text-body-lg text-on-surface-variant max-w-3xl border-warning-orange pl-6 ${
           isRtl ? 'border-r-4 pr-6 pl-0 text-right' : 'border-l-4 pl-6 pr-0 text-left'
         }`}>
-          Direct access to the Axiom Force technical documentation. Built for high-performance tactical engagement across multiple platforms. Powered by Godot and Ink.
+          {getUIString('hero_desc')}
         </p>
       </header>
 
@@ -35,7 +40,7 @@ export default function TechHub() {
         <div className="lg:col-span-5 flex flex-col justify-center">
           <h2 className="font-headline-lg text-headline-lg text-white uppercase mb-6 flex items-center gap-4">
             <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
-            {t('features.tech.engine', 'Engine Specs')}
+            {getUIString('engine_title')}
           </h2>
           <div className="space-y-6">
             <div className="glass-panel p-6 shadow-[0_0_15px_rgba(0,243,255,0.18)]">
@@ -45,7 +50,7 @@ export default function TechHub() {
               </div>
               <h3 className="font-headline-md text-headline-md text-primary-container uppercase font-bold">Godot + C# Core</h3>
               <p className="mt-2 text-on-surface-variant leading-relaxed font-body-md text-[14px]">
-                Leveraging the Godot Engine compiled with .NET 8 for aggressive performance optimization. Custom rendering pipeline utilizing Vulkan for advanced neon-noir lighting and atmospheric effects.
+                {getUIString('engine_desc')}
               </p>
             </div>
           </div>
@@ -59,9 +64,9 @@ export default function TechHub() {
           <div className={`absolute bottom-8 glass-panel p-4 max-w-xs terminal-text font-body-md text-[13px] leading-relaxed ${
             isRtl ? 'left-8' : 'right-8'
           }`}>
-            &gt; Initialize Core... [OK]<br />
-            &gt; Load Vulkan Shaders... [OK]<br />
-            &gt; Establish Neural Link... [PENDING]
+            &gt; {getUIString('status_init')}<br />
+            &gt; {getUIString('status_shaders')}<br />
+            &gt; {getUIString('status_link')}
           </div>
         </div>
       </section>
@@ -78,7 +83,7 @@ export default function TechHub() {
               {t('features.tech.narrative_engine', 'Narrative Engine')}
             </h2>
             <p className="mb-6 text-inverse-surface leading-relaxed">
-              Driven by Inkle's <strong>Ink</strong> scripting language, providing deeply branching dialogue trees and persistent state tracking for every resistance operative.
+              {getUIString('narrative_desc')}
             </p>
             <ul className="space-y-4 font-body-md text-[14px] text-on-surface-variant">
               <li className="flex items-start gap-3">
@@ -101,23 +106,23 @@ export default function TechHub() {
               {t('features.tags.localisation', 'Global Comms')}
             </h2>
             <p className="mb-6 text-inverse-surface leading-relaxed">
-              Full localization support for 50+ languages, utilizing a custom dynamic font rendering system to handle complex scripts and RTL layouts seamlessly.
+              {getUIString('comms_desc')}
             </p>
             
             <div className="bg-surface-container-high p-4 border border-outline-variant/30 font-body-md text-[13px] flex flex-col gap-2.5">
               <div className="flex justify-between items-center text-on-surface-variant">
                 <span>EN</span>
-                <span className="font-semibold">System Offline</span>
+                <span className="font-semibold">{t('tech_hub.offline_status', 'System Offline')}</span>
               </div>
               <div className="h-px bg-outline-variant/50 w-full"></div>
               <div className="flex justify-between items-center terminal-text" dir="rtl">
                 <span className="text-on-surface-variant text-sm" dir="ltr">AR</span>
-                <span className="font-semibold">النظام غير متصل</span>
+                <span className="font-semibold">{t('tech_hub.offline_status', 'System Offline', { lng: 'ar' })}</span>
               </div>
               <div className="h-px bg-outline-variant/50 w-full"></div>
               <div className="flex justify-between items-center text-secondary">
                 <span>JA</span>
-                <span className="font-semibold">システムオフライン</span>
+                <span className="font-semibold">{t('tech_hub.offline_status', 'System Offline', { lng: 'ja' })}</span>
               </div>
             </div>
           </div>

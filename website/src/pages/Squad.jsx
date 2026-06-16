@@ -10,8 +10,7 @@ export default function Squad() {
 
   const characterRoster = {
     shogun: {
-      name: 'CYBER SHOGUN',
-      role: 'characters.warriors.frog.role', // fallback key
+      role: 'characters.warriors.frog.role',
       roleDefault: 'ASSAULT COMMANDER',
       descKey: 'characters.unlock',
       descDefault: 'Heavy armor frontline combatant. Specializes in kinetic shielding and close-quarters energy blade strikes. System hack resistance 94%.',
@@ -22,7 +21,6 @@ export default function Squad() {
       icons: ['shield', 'bolt']
     },
     ronin: {
-      name: 'AEGIS RONIN',
       role: 'characters.warriors.dude.role',
       roleDefault: 'DEFENDER / TACTICIAN',
       descKey: 'characters.warriors.dude.desc',
@@ -34,7 +32,6 @@ export default function Squad() {
       icons: ['shield', 'visibility_off']
     },
     matrix: {
-      name: 'ONI MATRIX',
       role: 'characters.warriors.pink.role',
       roleDefault: 'INFILTRATOR / HACKER',
       descKey: 'characters.warriors.pink.desc',
@@ -46,7 +43,6 @@ export default function Squad() {
       icons: ['terminal', 'visibility_off']
     },
     frog: {
-      name: 'NINJA FROG',
       role: 'characters.warriors.frog.role',
       roleDefault: 'AGILE INFILTRATOR',
       descKey: 'characters.warriors.frog.desc',
@@ -58,7 +54,6 @@ export default function Squad() {
       icons: ['bolt', 'visibility_off']
     },
     guy: {
-      name: 'VIRTUAL GUY',
       role: 'characters.warriors.guy.role',
       roleDefault: 'TECH SPECIALIST',
       descKey: 'characters.warriors.guy.desc',
@@ -74,12 +69,19 @@ export default function Squad() {
   const activeChar = characterRoster[activeCharId];
   const isRtl = selectedLanguage === 'arabic' || selectedLanguage === 'hebrew';
 
+  const getUIString = (key) => {
+    return t(`squad.${key}`, key);
+  };
+
   const handleDeploy = () => {
-    setDeployStatus(`DEPLOYING ${activeChar.name}...`);
+    const activeName = getUIString(activeCharId);
+    setDeployStatus(getUIString('deploying'));
     setTimeout(() => {
-      setDeployStatus(`SYNC COMPLETE // ${activeChar.name} SUCCESSFULLY DEPLOYED TO TARGET SECTOR`);
+      setDeployStatus(getUIString('syncComplete').replace('${activeChar.name}', activeName));
     }, 1500);
   };
+
+  const activeName = getUIString(activeCharId);
 
   return (
     <div className="pt-32 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto w-full">
@@ -106,7 +108,7 @@ export default function Squad() {
           {/* Operative Render Frame */}
           <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px] bg-void-black border border-outline-variant/30">
             <img 
-              alt={activeChar.name} 
+              alt={activeName} 
               src={activeChar.img}
               className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-75 brightness-[0.85] contrast-125 select-none"
             />
@@ -121,19 +123,19 @@ export default function Squad() {
             <div>
               <div className="flex flex-wrap items-center gap-3 mb-3">
                 <span className={`font-label-caps text-[11px] px-2 py-0.5 font-bold uppercase ${
-                  activeChar.status === 'ACTIVE' 
+                  activeCharId === 'shogun' 
                     ? 'bg-tertiary-fixed-dim text-void-black' 
                     : 'bg-deep-grey text-on-surface-variant border border-outline-variant/30'
                 }`}>
-                  {activeChar.status}
+                  {activeCharId === 'shogun' ? getUIString('active') : getUIString('standby')}
                 </span>
                 <span className="font-body-md text-on-surface-variant text-[12px] tracking-wider uppercase">
-                  ROLE: {t(activeChar.role, activeChar.roleDefault)}
+                  {getUIString('role')}: {t(activeChar.role, activeChar.roleDefault)}
                 </span>
               </div>
               
               <h2 className="font-display-hero text-headline-lg text-primary-container mb-4 uppercase drop-shadow-[0_0_8px_rgba(0,243,255,0.4)]">
-                {activeChar.name}
+                {activeName}
               </h2>
               
               <p className="font-body-md text-[14px] text-on-surface-variant mb-6 leading-relaxed">
@@ -145,7 +147,7 @@ export default function Squad() {
                 {/* Firepower */}
                 <div>
                   <div className="flex justify-between font-label-caps text-[11px] mb-1 text-primary">
-                    <span>{t('characters.stats.power', 'FIREPOWER')}</span>
+                    <span>{t('characters.stats.power', getUIString('firepower'))}</span>
                     <span>{activeChar.stats.firepower}%</span>
                   </div>
                   <div className="h-2 w-full bg-surface-bright">
@@ -156,7 +158,7 @@ export default function Squad() {
                 {/* Defense */}
                 <div>
                   <div className="flex justify-between font-label-caps text-[11px] mb-1 text-primary">
-                    <span>{t('characters.stats.defense', 'DEFENSE')}</span>
+                    <span>{t('characters.stats.defense', getUIString('defense'))}</span>
                     <span>{activeChar.stats.defense}%</span>
                   </div>
                   <div className="h-2 w-full bg-surface-bright">
@@ -167,7 +169,7 @@ export default function Squad() {
                 {/* Mobility */}
                 <div>
                   <div className="flex justify-between font-label-caps text-[11px] mb-1 text-primary">
-                    <span>{t('characters.stats.speed', 'MOBILITY')}</span>
+                    <span>{t('characters.stats.speed', getUIString('mobility'))}</span>
                     <span>{activeChar.stats.mobility}%</span>
                   </div>
                   <div className="h-2 w-full bg-surface-bright">
@@ -183,12 +185,12 @@ export default function Squad() {
                 onClick={handleDeploy}
                 className="w-full bg-primary-container text-void-black font-headline-md text-headline-md uppercase py-3.5 px-6 hover:bg-secondary-container transition-colors brutal-border font-bold tracking-wider"
               >
-                DEPLOY OPERATIVE
+                {getUIString('deploy')}
               </button>
               
               {deployStatus && (
                 <div className={`text-[12px] font-label-caps p-2 border leading-normal ${
-                  deployStatus.startsWith('DEPLOYING') 
+                  deployStatus === getUIString('deploying')
                     ? 'text-warning-orange border-warning-orange/30 bg-warning-orange/5 animate-pulse' 
                     : 'text-tertiary-container border-tertiary-container/30 bg-tertiary-container/5'
                 }`}>
@@ -201,49 +203,52 @@ export default function Squad() {
 
         {/* Secondary Selection Grid */}
         <div className="lg:col-span-4 flex flex-col gap-4">
-          {Object.entries(characterRoster).map(([id, char]) => (
-            <div
-              key={id}
-              onClick={() => {
-                setActiveCharId(id);
-                setDeployStatus(null);
-              }}
-              className={`brutal-border p-4 flex gap-4 transition-colors cursor-pointer group items-center ${
-                activeCharId === id
-                  ? 'bg-surface-container border-primary-container'
-                  : 'bg-surface-container/40 border-outline-variant/20 opacity-70 hover:opacity-100 hover:bg-surface-container/80'
-              }`}
-            >
-              {/* Thumbnail frame */}
-              <div className="w-16 h-16 relative flex-shrink-0 bg-void-black border border-outline-variant/30 overflow-hidden">
-                <img 
-                  alt={char.name} 
-                  src={char.img}
-                  className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:scale-105 transition-all duration-150"
-                />
-              </div>
-              
-              {/* Title & Type */}
-              <div className="flex-grow">
-                <h3 className="font-headline-md text-[18px] uppercase text-inverse-surface font-bold group-hover:text-primary-container transition-colors">
-                  {char.name}
-                </h3>
-                <p className="font-label-caps text-[10px] text-secondary-fixed-dim uppercase tracking-wider mt-0.5">
-                  {t(char.role, char.roleDefault)}
-                </p>
-              </div>
+          {Object.entries(characterRoster).map(([id, char]) => {
+            const name = getUIString(id);
+            return (
+              <div
+                key={id}
+                onClick={() => {
+                  setActiveCharId(id);
+                  setDeployStatus(null);
+                }}
+                className={`brutal-border p-4 flex gap-4 transition-colors cursor-pointer group items-center ${
+                  activeCharId === id
+                    ? 'bg-surface-container border-primary-container'
+                    : 'bg-surface-container/40 border-outline-variant/20 opacity-70 hover:opacity-100 hover:bg-surface-container/80'
+                }`}
+              >
+                {/* Thumbnail frame */}
+                <div className="w-16 h-16 relative flex-shrink-0 bg-void-black border border-outline-variant/30 overflow-hidden">
+                  <img 
+                    alt={name} 
+                    src={char.img}
+                    className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:scale-105 transition-all duration-150"
+                  />
+                </div>
+                
+                {/* Title & Type */}
+                <div className="flex-grow">
+                  <h3 className="font-headline-md text-[18px] uppercase text-inverse-surface font-bold group-hover:text-primary-container transition-colors">
+                    {name}
+                  </h3>
+                  <p className="font-label-caps text-[10px] text-secondary-fixed-dim uppercase tracking-wider mt-0.5">
+                    {t(char.role, char.roleDefault)}
+                  </p>
+                </div>
 
-              {/* Status Icons */}
-              <div className="flex flex-col gap-1 text-right">
-                <span className="material-symbols-outlined text-primary-container text-sm">
-                  {char.icons[0]}
-                </span>
-                <span className="material-symbols-outlined text-outline-variant text-sm">
-                  {char.icons[1]}
-                </span>
+                {/* Status Icons */}
+                <div className="flex flex-col gap-1 text-right">
+                  <span className="material-symbols-outlined text-primary-container text-sm">
+                    {char.icons[0]}
+                  </span>
+                  <span className="material-symbols-outlined text-outline-variant text-sm">
+                    {char.icons[1]}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

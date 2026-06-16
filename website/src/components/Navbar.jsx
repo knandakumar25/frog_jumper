@@ -12,19 +12,6 @@ const NAV_LINKS = [
   { key: 'design_system', to: '/design-system' },
 ];
 
-const NAV_TRANSLATIONS = {
-  arabic: { home: 'الرئيسية', gameplay: 'طريقة اللعب', squad: 'الفرقة', tech_hub: 'مركز التقنية', design_system: 'نظام التصميم' },
-  hebrew: { home: 'בית', gameplay: 'משחקיות', squad: 'צוות', tech_hub: 'מרכז טכנולוגי', design_system: 'מערכת עיצוב' },
-  english: { home: 'HOME', gameplay: 'GAMEPLAY', squad: 'SQUAD', tech_hub: 'TECH HUB', design_system: 'DESIGN SYSTEM' },
-  spanish: { home: 'INICIO', gameplay: 'JUEGO', squad: 'ESCUADRA', tech_hub: 'CENTRO TECNOLÓGICO', design_system: 'SISTEMA DE DISEÑO' },
-  french: { home: 'ACCUEIL', gameplay: 'GAMEPLAY', squad: 'ESCOUADE', tech_hub: 'CENTRE TECHNIQUE', design_system: 'SYSTÈME DE CONCEPTION' },
-  portuguese: { home: 'INÍCIO', gameplay: 'JOGABILIDADE', squad: 'ESQUADRÃO', tech_hub: 'CENTRO DE TECNOLOGIA', design_system: 'SISTEMA DE DESIGN' },
-  german: { home: 'STARTSEITE', gameplay: 'GAMEPLAY', squad: 'TRUPP', tech_hub: 'TECH-HUB', design_system: 'DESIGN-SYSTEM' },
-  japanese: { home: 'ホーム', gameplay: 'ゲームプレイ', squad: '分隊', tech_hub: 'テックハブ', design_system: 'デザインシステム' },
-  korean: { home: '홈', gameplay: '게임플레이', squad: '분대', tech_hub: '테크 허브', design_system: '디자인 시스템' },
-  mandarin: { home: '首页', gameplay: '游戏玩法', squad: '小队', tech_hub: '技术中心', design_system: '设计系统' },
-};
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,8 +32,7 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const getNavLabel = (key) => {
-    const langObj = NAV_TRANSLATIONS[selectedLanguage] || NAV_TRANSLATIONS.english;
-    return langObj[key] || NAV_TRANSLATIONS.english[key] || key.toUpperCase();
+    return t(`nav.${key}`, key.toUpperCase().replace('_', ' '));
   };
 
   const playNowText = t('hero.title_line2_prefix', 'RECLAIM ') + t('hero.title_line2_highlight', 'EARTH');

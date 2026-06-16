@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
+
 export default function Gameplay() {
   const { t } = useTranslation();
   const { selectedLanguage } = useLanguage();
@@ -14,6 +15,10 @@ export default function Gameplay() {
     { id: 3, key: 'level_3', threat: 'stealth', type: 'stealth', threatVal: 'CRITICAL', code: 'VOID_003' },
     { id: 4, key: 'level_4', threat: 'critical', type: 'assault', threatVal: 'CRITICAL', code: 'ORB_004' },
   ];
+
+  const getUIString = (key) => {
+    return t(`gameplay.${key}`, key);
+  };
 
   const isRtl = selectedLanguage === 'arabic' || selectedLanguage === 'hebrew';
 
@@ -52,7 +57,7 @@ export default function Gameplay() {
               backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCko4QlFnMYn_IxApK2GUqJ01AVB0Lr-8x_okm6OI93q6yYfh0KJqPPj7o6JP-t0vT6XL-FypaEKtHO5ussFrWHZ6vhMPJMBvVuT7IGqSKApvibZ7Pd3v6qkuxKEP3Cp1NCBpe0pJQBKxhERZhDUOOvAXdSDYO0-RXEX71hxmNKz23lCOY-qCikG3d5RwpnY9T6te6lASAB9J2w8v1gSBowlMfMWrIXqO965ms9xdYKaR1SjarOJd6rjWUM6xKZ3SwXExb_XflFqBQ')" 
             }}
           ></div>
-          <div className="bracket-tl"></div><div class="bracket-tr"></div><div class="bracket-bl"></div><div class="bracket-br"></div>
+          <div className="bracket-tl"></div><div className="bracket-tr"></div><div className="bracket-bl"></div><div className="bracket-br"></div>
           
           <div className="absolute inset-0 bg-gradient-to-t from-void-black to-transparent z-10"></div>
 
@@ -72,9 +77,9 @@ export default function Gameplay() {
 
       {/* Mechanics Grid */}
       <section className="px-4 md:px-margin-desktop mb-32">
-        <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary mb-12 flex items-center gap-4 uppercase">
+        <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary mb-12 flex items-center gap-4 uppercase font-bold tracking-tight">
           <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
-          {t('controls.special_title', 'CORE PROTOCOLS')}
+          {getUIString('protocols')}
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-gutter">
@@ -84,12 +89,12 @@ export default function Gameplay() {
             <div className="flex justify-between items-start mb-6">
               <span className="material-symbols-outlined text-primary-container text-4xl group-hover:animate-pulse">speed</span>
               <div className="bg-void-black text-warning-orange font-label-caps text-label-caps px-2.5 py-1 border border-warning-orange font-bold">
-                ACTIVE
+                {getUIString('active')}
               </div>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Kinetic Traversal</h3>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">{getUIString('t1_title')}</h3>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Master momentum-based movement. Wall-run along alien monoliths, grapple through ruined skyscrapers, and chain slides to evade Xelthara targeting sensors.
+              {getUIString('t1_desc')}
             </p>
           </div>
 
@@ -99,12 +104,12 @@ export default function Gameplay() {
             <div className="flex justify-between items-start mb-6">
               <span className="material-symbols-outlined text-secondary text-4xl group-hover:animate-pulse">memory</span>
               <div className="bg-void-black text-secondary font-label-caps text-label-caps px-2.5 py-1 border border-secondary font-bold">
-                SYNCED
+                {getUIString('synced')}
               </div>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Neural Hacking</h3>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">{getUIString('t2_title')}</h3>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Infiltrate alien networks on the fly. Hijack enemy drones, overload energy shields, or turn automated defenses against their creators in real-time combat.
+              {getUIString('t2_desc')}
             </p>
           </div>
 
@@ -114,12 +119,12 @@ export default function Gameplay() {
             <div className="flex justify-between items-start mb-6">
               <span className="material-symbols-outlined text-tertiary-fixed-dim text-4xl group-hover:animate-pulse">join_full</span>
               <div className="bg-void-black text-tertiary-fixed-dim font-label-caps text-label-caps px-2.5 py-1 border border-tertiary-fixed-dim font-bold">
-                ONLINE
+                {getUIString('online')}
               </div>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Squad Synergy</h3>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">{getUIString('t3_title')}</h3>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Command your AI-driven resistance cell. Execute synchronized breaches, lay tactical ambushes, and combine unique abilities to dismantle heavy Xelthara armor.
+              {getUIString('t3_desc')}
             </p>
           </div>
         </div>
@@ -129,7 +134,7 @@ export default function Gameplay() {
       <section className="px-4 md:px-margin-desktop mb-12">
         <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-12 flex items-center gap-4 uppercase drop-shadow-[0_0_8px_rgba(0,243,255,0.3)]">
           <span className="material-symbols-outlined text-primary-container">database</span>
-          {t('levels.title_highlight')} Database Terminal
+          {t('levels.title_highlight')} {getUIString('terminal')}
         </h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter">
