@@ -34,4 +34,10 @@ android/build/local.properties
 android/build/build/reports/
 
 # Website scratch/temp scripts
-website/scratch/
+website/scratch/
+
+# Graphify output
+graphify-out/
+
+# Codex output
+.codex/
