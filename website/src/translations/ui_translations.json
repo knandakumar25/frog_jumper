@@ -17,7 +17,7 @@
       "title_line1": "AXIOM FORCE",
       "title_line2_prefix": "RECLAIM ",
       "title_line2_highlight": "EARTH",
-      "subtitle": "A 3D action platformer built with Godot 4.6 and C#. Reclaim Earth from alien occupiers.",
+      "subtitle": "A 3D action platformer. Reclaim Earth from alien occupiers.",
       "play_on_github": "Play on GitHub",
       "view_source": "View Source",
       "replayability": "Replayability"
@@ -34,15 +34,14 @@
       "tagline": "A 3D action platformer built with Godot 4.6 and C#. Battle through four levels and race to the finish line.",
       "status": "AXIOM-7 ONLINE — RESISTANCE ACTIVE",
       "nav_title": "Navigation",
-      "tech_title": "Tech",
+      "tech_title": "MISSION SPECS",
       "credits_title": "Credits",
       "copyright": "© {{year}} AXIOM FORCE: RECLAIM EARTH — All Rights Reserved",
-      "engine_desc": "Engine: Godot 4.6 (Custom Vulkan)",
-      "csharp_desc": "C# Runtime: .NET 8 SDK",
-      "narrative_desc": "Narrative: Inkle Ink Script",
-      "database_desc": "Database: SQLite Score Sync",
-      "localization_desc": "Localization: 50+ Languages (RTL-Ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST",
+      "platform_desc": "Platform: Windows (PC)",
+      "input_desc": "Input: Gamepad / Keyboard",
+      "status_desc": "Status: Insurgency Active",
+      "version_desc": "Revision: v1.0.0 Release"
     },
     "home": {
       "story_label": "The Story",
@@ -451,7 +450,11 @@
       "narrative_desc": "Narrativa: Guión de tinta Inkle",
       "database_desc": "Base de datos: sincronización de puntuación SQLite",
       "localization_desc": "Localización: más de 50 idiomas (listo para RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERACIONAL // TRANSMISIÓN SEGURA"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERACIONAL // TRANSMISIÓN SEGURA",
+      "platform_desc": "Plataforma: Windows (PC)",
+      "input_desc": "Entrada: Gamepad/teclado",
+      "status_desc": "Estado: Insurgencia Activa",
+      "version_desc": "Revisión: versión v1.0.0"
     },
     "home": {
       "story_label": "La Historia",
@@ -860,7 +863,11 @@
       "narrative_desc": "Récit : Script Inkle Ink",
       "database_desc": "Base de données : synchronisation des scores SQLite",
       "localization_desc": "Localisation : plus de 50 langues (prêt pour RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPÉRATIONNEL // DIFFUSION SÉCURISÉE"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPÉRATIONNEL // DIFFUSION SÉCURISÉE",
+      "platform_desc": "Plateforme : Windows (PC)",
+      "input_desc": "Entrée : manette de jeu/clavier",
+      "status_desc": "Statut : Insurrection active",
+      "version_desc": "Révision : version v1.0.0"
     },
     "home": {
       "story_label": "L'Histoire",
@@ -1269,7 +1276,11 @@
       "narrative_desc": "السرد: نص إنكل إنك",
       "database_desc": "قاعدة البيانات: مزامنة نقاط SQLite",
       "localization_desc": "الترجمة: أكثر من 50 لغة (جاهزة لـ RTL)",
-      "broadcast_status": "v1.0.0 // تشغيل NET-SYNC // بث آمن"
+      "broadcast_status": "v1.0.0 // تشغيل NET-SYNC // بث آمن",
+      "platform_desc": "النظام الأساسي: ويندوز (الكمبيوتر)",
+      "input_desc": "الإدخال: لوحة الألعاب / لوحة المفاتيح",
+      "status_desc": "الحالة: تمرد نشط",
+      "version_desc": "المراجعة: الإصدار v1.0.0"
     },
     "home": {
       "story_label": "القصة",
@@ -1678,7 +1689,11 @@
       "narrative_desc": "נרטיב: Inkle Ink Script",
       "database_desc": "מסד נתונים: SQLite Score Sync",
       "localization_desc": "לוקליזציה: 50+ שפות (מוכנות ל-RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC תפעולי // שידור מאובטח"
+      "broadcast_status": "v1.0.0 // NET-SYNC תפעולי // שידור מאובטח",
+      "platform_desc": "פלטפורמה: Windows (PC)",
+      "input_desc": "קלט: Gamepad / מקלדת",
+      "status_desc": "סטטוס: מרד פעיל",
+      "version_desc": "גרסה: v1.0.0 מהדורה"
     },
     "home": {
       "story_label": "הסיפור",
@@ -2087,7 +2102,11 @@
       "narrative_desc": "Narrativa: Script Inkle Ink",
       "database_desc": "Banco de dados: sincronização de pontuação SQLite",
       "localization_desc": "Localização: mais de 50 idiomas (pronto para RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERACIONAL // TRANSMISSÃO SEGURA"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERACIONAL // TRANSMISSÃO SEGURA",
+      "platform_desc": "Plataforma: Windows (PC)",
+      "input_desc": "Entrada: Gamepad/Teclado",
+      "status_desc": "Status: Insurgência Ativa",
+      "version_desc": "Revisão: versão v1.0.0"
     },
     "home": {
       "story_label": "A história",
@@ -2496,7 +2515,11 @@
       "narrative_desc": "Պատմություն. Inkle Ink Script",
       "database_desc": "Տվյալների բազա՝ SQLite Score Sync",
       "localization_desc": "Տեղայնացում՝ 50+ լեզու (RTL-Ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC Օպերացիոնալ // ԱՆՎՏԱՆԳ ՀԵՌԱՐԿՈՒՄ"
+      "broadcast_status": "v1.0.0 // NET-SYNC Օպերացիոնալ // ԱՆՎՏԱՆԳ ՀԵՌԱՐԿՈՒՄ",
+      "platform_desc": "Պլատֆորմ՝ Windows (PC)",
+      "input_desc": "Մ��ւտքագրում. Gamepad / Ստեղնաշար",
+      "status_desc": "Կարգավիճակը` ապստամբության ակտիվ",
+      "version_desc": "Վերանայում՝ v1.0.0 Թողարկում"
     },
     "home": {
       "story_label": "Պատմությունը",
@@ -2905,7 +2928,11 @@
       "narrative_desc": "Hekayə: Inkle Ink Script",
       "database_desc": "Verilənlər bazası: SQLite Score Sync",
       "localization_desc": "Lokallaşdırma: 50+ Dil (RTL-Hazır)",
-      "broadcast_status": "v1.0.0 // NET-SYNC ƏMƏLİYYAT // TƏHLÜKƏSİZ YAYIM"
+      "broadcast_status": "v1.0.0 // NET-SYNC ƏMƏLİYYAT // TƏHLÜKƏSİZ YAYIM",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Giriş: Gamepad / Klaviatura",
+      "status_desc": "Vəziyyəti: üsyan aktivdir",
+      "version_desc": "Revizyon: v1.0.0 Buraxılış"
     },
     "home": {
       "story_label": "Hekayə",
@@ -3314,7 +3341,11 @@
       "narrative_desc": "আখ্যান: কালি কালি স্ক্রিপ্ট",
       "database_desc": "ডাটাবেস: SQLite স্কোর সিঙ্ক",
       "localization_desc": "স্থানীয়করণ: 50+ ভাষা (RTL-প্রস্তুত)",
-      "broadcast_status": "v1.0.0 // NET-SYNC অপারেশনাল // নিরাপদ সম্প্রচার"
+      "broadcast_status": "v1.0.0 // NET-SYNC অপারেশনাল // নিরাপদ সম্প্রচার",
+      "platform_desc": "প্ল্যাটফর্ম: উইন্ডোজ (পিসি)",
+      "input_desc": "ইনপুট: গেমপ্যাড / কীবোর্ড",
+      "status_desc": "অবস্থা: বিদ্রোহ সক্রিয়",
+      "version_desc": "রিভিশন: v1.0.0 রিলিজ"
     },
     "home": {
       "story_label": "গল্প",
@@ -3723,7 +3754,11 @@
       "narrative_desc": "Příběh: Inkle Ink Script",
       "database_desc": "Databáze: SQLite Score Sync",
       "localization_desc": "Lokalizace: 50+ jazyků (připraveno pro RTL)",
-      "broadcast_status": "v1.0.0 // PROVOZNÍ NET-SYNC // ZABEZPEČENÉ VYSÍLÁNÍ"
+      "broadcast_status": "v1.0.0 // PROVOZNÍ NET-SYNC // ZABEZPEČENÉ VYSÍLÁNÍ",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Vstup: Gamepad / klávesnice",
+      "status_desc": "Stav: Povstání aktivní",
+      "version_desc": "Revize: Vydání v1.0.0"
     },
     "home": {
       "story_label": "Příběh",
@@ -4132,7 +4167,11 @@
       "narrative_desc": "Fortælling: Inkle Ink Script",
       "database_desc": "Database: SQLite Score Sync",
       "localization_desc": "Lokalisering: 50+ sprog (RTL-klar)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONELL // SIKKER UDSENDELSE"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONELL // SIKKER UDSENDELSE",
+      "platform_desc": "Platform: Windows (pc)",
+      "input_desc": "Input: Gamepad / Keyboard",
+      "status_desc": "Status: Oprør aktiv",
+      "version_desc": "Revision: v1.0.0 Udgivelse"
     },
     "home": {
       "story_label": "Historien",
@@ -4541,7 +4580,11 @@
       "narrative_desc": "Verhaal: Inktinktscript",
       "database_desc": "Database: SQLite Score-synchronisatie",
       "localization_desc": "Lokalisatie: 50+ talen (RTL-ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONEEL // VEILIGE UITZENDING"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONEEL // VEILIGE UITZENDING",
+      "platform_desc": "Platform: Windows (pc)",
+      "input_desc": "Invoer: Gamepad / Toetsenbord",
+      "status_desc": "Status: Opstand actief",
+      "version_desc": "Revisie: versie v1.0.0"
     },
     "home": {
       "story_label": "Het verhaal",
@@ -4950,7 +4993,11 @@
       "narrative_desc": "Narratiiv: Inkle Ink Script",
       "database_desc": "Andmebaas: SQLite Score Sync",
       "localization_desc": "Lokaliseerimine: 50+ keelt (RTL-valmidus)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // TURVALINE ÜLEVAADE"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // TURVALINE ÜLEVAADE",
+      "platform_desc": "Platvorm: Windows (PC)",
+      "input_desc": "Sisend: mängupult / klaviatuur",
+      "status_desc": "Olek: mässuline aktiivne",
+      "version_desc": "Redaktsioon: v1.0.0 väljalase"
     },
     "home": {
       "story_label": "Lugu",
@@ -5359,7 +5406,11 @@
       "narrative_desc": "Salaysay: Inkle Ink Script\n<",
       "database_desc": "Database: SQLite Score Sync\n<",
       "localization_desc": "Lokalisasyon: 50+ Wika (RTL-Ready)\n<",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST\n<"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST\n<",
+      "platform_desc": "Platform: Windows (PC)\n<",
+      "input_desc": "Input: Gamepad / Keyboard\n<",
+      "status_desc": "Katayuan: Aktibo ng Insurhensya\n<",
+      "version_desc": "Rebisyon: v1.0.0 Release\n<"
     },
     "home": {
       "story_label": "Ang Kwento\n<",
@@ -5768,7 +5819,11 @@
       "narrative_desc": "Kertomus: Inkle Ink Script",
       "database_desc": "Tietokanta: SQLite Score Sync",
       "localization_desc": "Lokalisointi: yli 50 kieltä (RTL-valmius)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SUOJATTU LÄHETYS"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SUOJATTU LÄHETYS",
+      "platform_desc": "Alusta: Windows (PC)",
+      "input_desc": "Tulo: Peliohjain / Näppäimistö",
+      "status_desc": "Tila: Kapina aktiivinen",
+      "version_desc": "Versio: v1.0.0 julkaisu"
     },
     "home": {
       "story_label": "Tarina",
@@ -6177,7 +6232,11 @@
       "narrative_desc": "თხრობა: Inkle Ink Script",
       "database_desc": "მონაცემთა ბაზა: SQLite Score Sync",
       "localization_desc": "ლოკალიზაცია: 50+ ენა (RTL-Ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC ოპერაციული // უსაფრთხო გადაცემა"
+      "broadcast_status": "v1.0.0 // NET-SYNC ოპერაციული // უსაფრთხო გადაცემა",
+      "platform_desc": "პლატფორმა: Windows (PC)",
+      "input_desc": "შეყვანა: Gamepad / კლავიატურა",
+      "status_desc": "სტატუსი: ამბოხებული აქტიური",
+      "version_desc": "რევიზია: v1.0.0 გამოშვება"
     },
     "home": {
       "story_label": "ამბავი",
@@ -6586,7 +6645,11 @@
       "narrative_desc": "Erzählung: Inkle Ink Script",
       "database_desc": "Datenbank: SQLite Score Sync",
       "localization_desc": "Lokalisierung: 50+ Sprachen (RTL-ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SICHERER BROADCAST"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SICHERER BROADCAST",
+      "platform_desc": "Plattform: Windows (PC)",
+      "input_desc": "Eingabe: Gamepad / Tastatur",
+      "status_desc": "Status: Aufstand aktiv",
+      "version_desc": "Revision: Version 1.0.0"
     },
     "home": {
       "story_label": "Die Geschichte",
@@ -6995,7 +7058,11 @@
       "narrative_desc": "Αφήγηση: Inkle Ink Script",
       "database_desc": "Βάση δεδομένων: SQLite Score Sync",
       "localization_desc": "Τοπική προσαρμογή: 50+ γλώσσες (RTL-Ready)",
-      "broadcast_status": "v1.0.0 // ΛΕΙΤΟΥΡΓΙΚΟ NET-SYNC // ΑΣΦΑΛΗΣ ΜΕΤΑΔΟΣΗ"
+      "broadcast_status": "v1.0.0 // ΛΕΙΤΟΥΡΓΙΚΟ NET-SYNC // ΑΣΦΑΛΗΣ ΜΕΤΑΔΟΣΗ",
+      "platform_desc": "Πλατφόρμα: Windows (PC)",
+      "input_desc": "Είσοδος: Gamepad / Πληκτρολόγιο",
+      "status_desc": "Κατάσταση: Insurgency Active",
+      "version_desc": "Αναθεώρηση: Έκδοση 1.0.0"
     },
     "home": {
       "story_label": "Η ιστορία",
@@ -7404,7 +7471,11 @@
       "narrative_desc": "વર્ણન: ઇંકલ ઇન્ક સ્ક્રિપ્ટ",
       "database_desc": "ડેટાબેઝ: SQLite સ્કોર સિંક",
       "localization_desc": "સ્થાનિકીકરણ: 50+ ભાષાઓ (RTL-તૈયાર)",
-      "broadcast_status": "v1.0.0 // નેટ-સિંક ઓપરેશનલ // સુરક્ષિત બ્રોડકાસ્ટ"
+      "broadcast_status": "v1.0.0 // નેટ-સિંક ઓપરેશનલ // સુરક્ષિત બ્રોડકાસ્ટ",
+      "platform_desc": "પ્લેટફોર્મ: વિન્ડોઝ (પીસી)",
+      "input_desc": "ઇનપુટ: ગેમપેડ / કીબોર્ડ",
+      "status_desc": "સ્થિતિ: બળવો સક્રિય",
+      "version_desc": "પુનરાવર્તન: v1.0.0 પ્રકાશન"
     },
     "home": {
       "story_label": "વાર્તા",
@@ -7813,7 +7884,11 @@
       "narrative_desc": "कथा: इंकल इंक स्क्रिप्ट",
       "database_desc": "डेटाबेस: SQLite स्कोर सिंक",
       "localization_desc": "स्थानीयकरण: 50+ भाषाएँ (���रटीएल-तैयार)",
-      "broadcast_status": "v1.0.0 // नेट-सिंक ऑपरेशनल // सुरक्षित प्रसारण"
+      "broadcast_status": "v1.0.0 // नेट-सिंक ऑपरेशनल // सुरक्षित प्रसारण",
+      "platform_desc": "प्लेटफ़ॉर्म: विंडोज़ (पीसी)",
+      "input_desc": "इनपुट: गेमपैड/कीबोर्ड",
+      "status_desc": "स्थिति: उग्रवाद सक्रिय",
+      "version_desc": "संशोधन: v1.0.0 रिलीज़"
     },
     "home": {
       "story_label": "कहानी",
@@ -8222,7 +8297,11 @@
       "narrative_desc": "Narratíva: Inkle Ink Script",
       "database_desc": "Adatbázis: SQLite Score Sync",
       "localization_desc": "Lokalizálás: több mint 50 nyelv (RTL-kész)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // BIZTONSÁGOS KÖZVETÍTÉS"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // BIZTONSÁGOS KÖZVETÍTÉS",
+      "platform_desc": "Platform: Windows (PC)",
+      "input_desc": "Bemenet: Gamepad / Billentyűzet",
+      "status_desc": "Állapot: Felkelés aktív",
+      "version_desc": "Verzió: v1.0.0 kiadás"
     },
     "home": {
       "story_label": "A történet",
@@ -8631,7 +8710,11 @@
       "narrative_desc": "Frásögn: Inkle Ink Script",
       "database_desc": "Gagnagrunnur: SQLite Score Sync",
       "localization_desc": "Staðsetning: 50+ tungumál (RTL-tilbúið)",
-      "broadcast_status": "v1.0.0 // NET-SYNC REKSTUR // ÖRUGG ÚTSENDING"
+      "broadcast_status": "v1.0.0 // NET-SYNC REKSTUR // ÖRUGG ÚTSENDING",
+      "platform_desc": "Pallur: Windows (PC)",
+      "input_desc": "Inntak: Gamepad / lyklaborð",
+      "status_desc": "Staða: Uppreisnarmenn virk",
+      "version_desc": "Endurskoðun: v1.0.0 Útgáfa"
     },
     "home": {
       "story_label": "Sagan",
@@ -9040,7 +9123,11 @@
       "narrative_desc": "Narasi: Skrip Tinta Tinta",
       "database_desc": "Basis Data: Sinkronisasi Skor SQLite",
       "localization_desc": "Lokalisasi: 50+ Bahasa (Siap RTL)",
-      "broadcast_status": "v1.0.0 // OPERASIONAL NET-SYNC // PENYIARAN AMAN"
+      "broadcast_status": "v1.0.0 // OPERASIONAL NET-SYNC // PENYIARAN AMAN",
+      "platform_desc": "Peron: Windows (PC)",
+      "input_desc": "Masukan: Gamepad/Keyboard",
+      "status_desc": "Status: Pemberontakan Aktif",
+      "version_desc": "Revisi: Rilis v1.0.0"
     },
     "home": {
       "story_label": "Ceritanya",
@@ -9449,7 +9536,11 @@
       "narrative_desc": "Narrativa: sceneggiatura Inkle Ink",
       "database_desc": "Database: sincronizzazione del punteggio SQLite",
       "localization_desc": "Localizzazione: oltre 50 lingue (pronto per RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIVO // BROADCAST SICURO"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIVO // BROADCAST SICURO",
+      "platform_desc": "Piattaforma: Windows (PC)",
+      "input_desc": "Ingresso: gamepad/tastiera",
+      "status_desc": "Stato: insurrezione attiva",
+      "version_desc": "Revisione: versione v1.0.0"
     },
     "home": {
       "story_label": "La storia",
@@ -9858,7 +9949,11 @@
       "narrative_desc": "ナラティブ: Inkle Ink スクリプト",
       "database_desc": "データベース: SQLite スコア同期",
       "localization_desc": "ローカリゼーション: 50 以上の言語 (RTL 対応)",
-      "broadcast_status": "v1.0.0 // NET-SYNC 運用可能 // 安全なブロードキャスト"
+      "broadcast_status": "v1.0.0 // NET-SYNC 運用可能 // 安全なブロードキャスト",
+      "platform_desc": "プラットフォーム: Windows (PC)",
+      "input_desc": "入力: ゲームパッド/キーボード",
+      "status_desc": "ステータス: 反乱活動中",
+      "version_desc": "リビジョン: v1.0.0 リリース"
     },
     "home": {
       "story_label": "物語",
@@ -10267,7 +10362,11 @@
       "narrative_desc": "ನಿರೂಪಣೆ: ಇಂಕ್ಲ್ ಇಂಕ್ ಸ್ಕ್ರಿಪ್ಟ್",
       "database_desc": "ಡೇಟಾಬೇಸ್: SQLite ಸ್ಕೋರ್ ಸಿಂಕ್",
       "localization_desc": "ಸ್ಥಳೀಕರಣ: 50+ ಭಾಷೆಗಳು (RTL-ಸಿದ್ಧ)",
-      "broadcast_status": "v1.0.0 // ನೆಟ್-ಸಿಂಕ್ ಆಪರೇಷನಲ್ // ಸುರಕ್ಷಿತ ಪ್ರಸಾರ"
+      "broadcast_status": "v1.0.0 // ನೆಟ್-ಸಿಂಕ್ ಆಪರೇಷನಲ್ // ಸುರಕ್ಷಿತ ಪ್ರಸಾರ",
+      "platform_desc": "ವೇದಿಕೆ: ವಿಂಡೋಸ್ (PC)",
+      "input_desc": "ಇನ್ಪುಟ್: ಗೇಮ್ಪ್ಯಾಡ್ / ಕೀಬೋರ್ಡ್",
+      "status_desc": "ಸ್ಥಿತಿ: ಬಂಡಾಯ ಸಕ್ರಿಯವಾಗಿದೆ",
+      "version_desc": "ಪರಿಷ್ಕರಣೆ: v1.0.0 ಬಿಡುಗಡೆ"
     },
     "home": {
       "story_label": "ದಿ ಸ್ಟೋರಿ",
@@ -10676,7 +10775,11 @@
       "narrative_desc": "내러티브: Inkle Ink 스크립트",
       "database_desc": "데이터베이스: SQLite 점수 동기화",
       "localization_desc": "현지화: 50개 이상의 언어(RTL 지원)",
-      "broadcast_status": "v1.0.0 // NET-SYNC 작동 // 보안 방송"
+      "broadcast_status": "v1.0.0 // NET-SYNC 작동 // 보안 방송",
+      "platform_desc": "플랫폼: 윈도우(PC)",
+      "input_desc": "입력: 게임패드/키보드",
+      "status_desc": "상태: 반란 활동 중",
+      "version_desc": "개정: v1.0.0 릴리스"
     },
     "home": {
       "story_label": "스토리",
@@ -11085,7 +11188,11 @@
       "narrative_desc": "Stāst��jums: Inkle Ink Script",
       "database_desc": "Datu bāze: SQLite Score Sync",
       "localization_desc": "Lokalizācija: vairāk nekā 50 valodas (RTL gatavs)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // DROŠA APRAIDE"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // DROŠA APRAIDE",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Ievade: Gamepad / Tastatūra",
+      "status_desc": "Statuss: Sacelšanās aktīvs",
+      "version_desc": "Versija: v1.0.0 laidiens"
     },
     "home": {
       "story_label": "Stāsts",
@@ -11494,7 +11601,11 @@
       "narrative_desc": "Pasakojimas: „Inkle Ink Script“.",
       "database_desc": "Duomenų bazė: SQLite Score Sync",
       "localization_desc": "Lokalizavimas: daugiau nei 50 kalbų (paruošta RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SAUGI TRANSLIAVIMAS"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SAUGI TRANSLIAVIMAS",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Įvestis: žaidimų pultelis / klaviatūra",
+      "status_desc": "Būsena: Sukilimas aktyvus",
+      "version_desc": "Peržiūra: v1.0.0 leidimas"
     },
     "home": {
       "story_label": "Istorija",
@@ -11903,7 +12014,11 @@
       "narrative_desc": "Naratif: Skrip Dakwat Dakwat",
       "database_desc": "Pangkalan Data: Penyegerakan Skor SQLite",
       "localization_desc": "Penyetempatan: 50+ Bahasa (Sedia RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SIARAN SELAMAT"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SIARAN SELAMAT",
+      "platform_desc": "Platform: Windows (PC)",
+      "input_desc": "Input: Pad permainan / Papan Kekunci",
+      "status_desc": "Status: Aktif Pemberontakan",
+      "version_desc": "Semakan: Keluaran v1.0.0"
     },
     "home": {
       "story_label": "Kisah",
@@ -12312,7 +12427,11 @@
       "narrative_desc": "വിവരണം: ഇങ്കിൽ മഷി സ്ക്രിപ്റ്റ്",
       "database_desc": "ഡാറ്റാബേസ്: SQLite സ്കോർ സമന്വയം",
       "localization_desc": "പ്രാദേശികവൽക്കരണം: 50+ ഭാഷകൾ (RTL-തയ്യാറാണ്)",
-      "broadcast_status": "v1.0.0 // നെറ്റ്-സിൻക് ഓപ്പറേഷണൽ // സുരക്ഷിത ബ്രോഡ്കാസ്റ്റ്"
+      "broadcast_status": "v1.0.0 // നെറ്റ്-സിൻക് ഓപ്പറേഷണൽ // സുരക്ഷിത ബ്രോഡ്കാസ്റ്റ്",
+      "platform_desc": "പ്ലാറ്റ്ഫോം: വിൻഡോസ് (പിസി)",
+      "input_desc": "ഇൻപുട്ട്: ഗെയിംപാഡ് / കീബോർഡ്",
+      "status_desc": "നില: കലാപം സജീവമാണ്",
+      "version_desc": "പുനരവലോകനം: v1.0.0 റിലീസ്"
     },
     "home": {
       "story_label": "കഥ",
@@ -12721,7 +12840,11 @@
       "narrative_desc": "叙述：Inkle 墨迹脚本",
       "database_desc": "数据库：SQLite 分数同步",
       "localization_desc": "本地化：50 多种语言（RTL 就绪）",
-      "broadcast_status": "v1.0.0 // 网络同步操作 // 安全广播"
+      "broadcast_status": "v1.0.0 // 网络同步操作 // 安全广播",
+      "platform_desc": "平台：Windows（PC）",
+      "input_desc": "输入：游戏手柄/键盘",
+      "status_desc": "状态：叛乱活动",
+      "version_desc": "修订版：v1.0.0 发布"
     },
     "home": {
       "story_label": "故事",
@@ -13130,7 +13253,11 @@
       "narrative_desc": "कथा: इंकल इंक स्क्रिप्ट",
       "database_desc": "डेटाबेस: SQLite स्कोअर सिंक",
       "localization_desc": "स्थानिकीकरण: 50+ भाषा (RTL-तयार)",
-      "broadcast_status": "v1.0.0 // नेट-सिंक ऑपरेशनल // सुरक्षित प्रसारण"
+      "broadcast_status": "v1.0.0 // नेट-सिंक ऑपरेशनल // सुरक्षित प्रसारण",
+      "platform_desc": "प्लॅटफॉर्म: विंडोज (पीसी)",
+      "input_desc": "इनपुट: गेमपॅड / कीबोर्ड",
+      "status_desc": "स्थिती: बंडखोरी सक्रिय",
+      "version_desc": "पुनरावृत्ती: v1.0.0 प्रकाशन"
     },
     "home": {
       "story_label": "कथा",
@@ -13539,7 +13666,11 @@
       "narrative_desc": "Fortelling: Inkle Ink Script",
       "database_desc": "Database: SQLite Score Sync",
       "localization_desc": "Lokalisering: 50+ språk (RTL-klar)",
-      "broadcast_status": "v1.0.0 // NET-SYNK OPERASJON // SIKKER KRINGKASTING"
+      "broadcast_status": "v1.0.0 // NET-SYNK OPERASJON // SIKKER KRINGKASTING",
+      "platform_desc": "Plattform: Windows (PC)",
+      "input_desc": "Inngang: Gamepad / Keyboard",
+      "status_desc": "Status: Opprør aktiv",
+      "version_desc": "Revisjon: v1.0.0 Utgivelse"
     },
     "home": {
       "story_label": "Historien",
@@ -13948,7 +14079,11 @@
       "narrative_desc": "Narracja: Skrypt Inkle Ink",
       "database_desc": "Baza danych: synchronizacja wyników SQLite",
       "localization_desc": "Lokalizacja: ponad 50 języków (gotowość RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC DZIAŁA // BEZPIECZNA TRANSMISJA"
+      "broadcast_status": "v1.0.0 // NET-SYNC DZIAŁA // BEZPIECZNA TRANSMISJA",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Wejście: Gamepad/klawiatura",
+      "status_desc": "Status: Powstanie aktywne",
+      "version_desc": "Wersja: wersja 1.0.0"
     },
     "home": {
       "story_label": "Historia",
@@ -14357,7 +14492,11 @@
       "narrative_desc": "ਬਿਰਤਾਂਤ: ਇੰਕਲ ਸਿਆਹੀ ਲਿਪੀ",
       "database_desc": "ਡਾਟਾਬੇਸ: SQLite ਸਕੋਰ ਸਿੰਕ",
       "localization_desc": "ਸਥਾਨੀਕਰਨ: 50+ ਭਾਸ਼ਾਵਾਂ (RTL-ਰੈਡੀ)",
-      "broadcast_status": "v1.0.0 // NET-SYNC ਸੰਚਾਲਨ // ਸੁਰੱਖਿਅਤ ਪ੍ਰਸਾਰਣ"
+      "broadcast_status": "v1.0.0 // NET-SYNC ਸੰਚਾਲਨ // ਸੁਰੱਖਿਅਤ ਪ੍ਰਸਾਰਣ",
+      "platform_desc": "ਪਲੇਟਫਾਰਮ: ਵਿੰਡੋਜ਼ (ਪੀਸੀ)",
+      "input_desc": "ਇਨਪੁਟ: ਗੇਮਪੈਡ / ਕੀਬੋਰਡ",
+      "status_desc": "ਸਥਿਤੀ: ਬਗਾਵਤ ਸਰਗਰਮ",
+      "version_desc": "ਸੰਸ਼ੋਧਨ: v1.0.0 ਰੀਲੀਜ਼"
     },
     "home": {
       "story_label": "ਕਹਾਣੀ",
@@ -14766,7 +14905,11 @@
       "narrative_desc": "Narațiune: Inkle Ink Script",
       "database_desc": "Baza de date: SQLite Score Sync",
       "localization_desc": "Localizare: peste 50 de limbi (RTL-Ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERAȚIONAL // TRANSMISIE SECURĂ"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERAȚIONAL // TRANSMISIE SECURĂ",
+      "platform_desc": "Platformă: Windows (PC)",
+      "input_desc": "Intrare: Gamepad / Tastatură",
+      "status_desc": "Stare: Insurgenție activă",
+      "version_desc": "Versiune: versiunea v1.0.0"
     },
     "home": {
       "story_label": "Povestea",
@@ -15175,7 +15318,11 @@
       "narrative_desc": "ආඛ්‍යානය: Inkle Ink Script",
       "database_desc": "දත්ත සමුදාය: SQLite ලකුණු සමමුහුර්තකරණය",
       "localization_desc": "ප්‍රාදේශීයකරණය: 50+ භාෂා (RTL-සූදානම්)",
-      "broadcast_status": "v1.0.0 // NET-SynC මෙහෙයුම් // ආරක්ෂිත විකාශනය"
+      "broadcast_status": "v1.0.0 // NET-SynC මෙහෙයුම් // ආරක්ෂිත විකාශනය",
+      "platform_desc": "වේදිකාව: වින්ඩෝස් (PC)",
+      "input_desc": "ආදානය: Gamepad / යතුරු පුවරුව",
+      "status_desc": "තත්ත්වය: කැරැල්ල ක්‍රියාකාරී",
+      "version_desc": "සංශෝධනය: v1.0.0 නිකුතුව"
     },
     "home": {
       "story_label": "කතාව",
@@ -15584,7 +15731,11 @@
       "narrative_desc": "Príbeh: Inkle Ink Script",
       "database_desc": "Databáza: SQLite Score Sync",
       "localization_desc": "Lokalizácia: 50+ jazykov (pripravené na RTL)",
-      "broadcast_status": "v1.0.0 // PREVÁDZKA NET-SYNC // ZABEZPEČENÉ VYSIELANIE"
+      "broadcast_status": "v1.0.0 // PREVÁDZKA NET-SYNC // ZABEZPEČENÉ VYSIELANIE",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Vstup: Gamepad / klávesnica",
+      "status_desc": "Stav: Povstanie aktívne",
+      "version_desc": "Revízia: Vydanie v1.0.0"
     },
     "home": {
       "story_label": "Príbeh",
@@ -15993,7 +16144,11 @@
       "narrative_desc": "Pripoved: Inkle Ink Script",
       "database_desc": "Baza podatkov: SQLite Score Sync",
       "localization_desc": "Lokalizacija: 50+ jezikov (pripravljeno za RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIVNO // VARNO ODDAJANJE"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIVNO // VARNO ODDAJANJE",
+      "platform_desc": "Platforma: Windows (PC)",
+      "input_desc": "Vnos: igralna plošča / tipkovnica",
+      "status_desc": "Status: Upornik aktiven",
+      "version_desc": "Revizija: v1.0.0 Izdaja"
     },
     "home": {
       "story_label": "Zgodba",
@@ -16402,7 +16557,11 @@
       "narrative_desc": "Berättelse: Inkle Ink Script",
       "database_desc": "Databas: SQLite Score Sync",
       "localization_desc": "Lokalisering: 50+ språk (RTL-Ready)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONELL // SÄKER SÄNDNING"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONELL // SÄKER SÄNDNING",
+      "platform_desc": "Plattform: Windows (PC)",
+      "input_desc": "Ingång: Gamepad/tangentbord",
+      "status_desc": "Status: Insurgency Active",
+      "version_desc": "Revision: v1.0.0 Release"
     },
     "home": {
       "story_label": "Berättelsen",
@@ -16811,7 +16970,11 @@
       "narrative_desc": "கதை: மை இங்க் ஸ்கிரிப்ட்",
       "database_desc": "தரவுத்தளம்: SQLite மதிப்பெண் ஒத்திசைவு",
       "localization_desc": "உள்ளூர்மயமாக்கல்: 50+ மொழிகள் (RTL-தயார்)",
-      "broadcast_status": "v1.0.0 // நெட்-ஒத்திசைவு செயல்பாட்டு // பாதுகாப்பான ஒளிபரப்பு"
+      "broadcast_status": "v1.0.0 // நெட்-ஒத்திசைவு செயல்பாட்டு // பாதுகாப்பான ஒளிபரப்பு",
+      "platform_desc": "இயங்குதளம்: விண்டோஸ் (பிசி)",
+      "input_desc": "உள்ளீடு: கேம்பேட் / விசைப்பலகை",
+      "status_desc": "நிலை: கிளர்ச்சி செயலில் உள்ளது",
+      "version_desc": "திருத்தம்: v1.0.0 வெளியீடு"
     },
     "home": {
       "story_label": "கதை",
@@ -17220,7 +17383,11 @@
       "narrative_desc": "కథనం: ఇంక్ల్ ఇంక్ స్క్రిప్ట్",
       "database_desc": "డేటాబేస్: SQLite స్కోర్ సింక్",
       "localization_desc": "స్థానికీకరణ: 50+ భాషలు (RTL-సిద్ధంగా)",
-      "broadcast_status": "v1.0.0 // నెట్-సింక్ ఆపరేషనల్ // సురక్షిత ప్రసారం"
+      "broadcast_status": "v1.0.0 // నెట్-సింక్ ఆపరేషనల్ // సురక్షిత ప్రసారం",
+      "platform_desc": "వేదిక: విండోస్ (PC)",
+      "input_desc": "ఇన్‌పుట్: గేమ్‌ప్యాడ్ / కీబోర్డ్",
+      "status_desc": "స్థితి: తిరుగుబాటు చురుగ్గా ఉంది",
+      "version_desc": "పునర్విమర్శ: v1.0.0 విడుదల"
     },
     "home": {
       "story_label": "ది స్టోరీ",
@@ -17629,7 +17796,11 @@
       "narrative_desc": "เรื่องราว: สคริปต์หมึก Inkle",
       "database_desc": "ฐานข้อมูล: การซิงค์คะแนน SQLite",
       "localization_desc": "รอง��ับหลายภาษา: 50+ ภาษา (พร้อมใช้ RTL)",
-      "broadcast_status": "v1.0.0 // การทำงานของ NET-SYNC // การออกอากาศที่ปลอดภัย"
+      "broadcast_status": "v1.0.0 // การทำงานของ NET-SYNC // การออกอากาศที่ปลอดภัย",
+      "platform_desc": "แพลตฟอร์ม: Windows (พีซี)",
+      "input_desc": "อินพุต: เกมแพด / คีย์บอร์ด",
+      "status_desc": "สถานะ: การก่อความไม่สงบเปิดใช้งานอยู่",
+      "version_desc": "การแก้ไข: รุ่น v1.0.0"
     },
     "home": {
       "story_label": "เรื่องราว",
@@ -18038,7 +18209,11 @@
       "narrative_desc": "Anlatı: Mürekkep Mürekkep Komut Dosyası",
       "database_desc": "Veritabanı: SQLite Puan Senkronizasyonu",
       "localization_desc": "Yerelleştirme: 50+ Dil (RTL'ye Hazır)",
-      "broadcast_status": "v1.0.0 // NET-SYNC OPERASYONEL // GÜVENLİ YAYIN"
+      "broadcast_status": "v1.0.0 // NET-SYNC OPERASYONEL // GÜVENLİ YAYIN",
+      "platform_desc": "Platform: Windows (PC)",
+      "input_desc": "Giriş: Oyun Kumandası / Klavye",
+      "status_desc": "Durum: Direniş Aktif",
+      "version_desc": "Revizyon: v1.0.0 Sürümü"
     },
     "home": {
       "story_label": "Hikaye",
@@ -18447,7 +18622,11 @@
       "narrative_desc": "Розповідь: Inkle Ink Script",
       "database_desc": "База даних: SQLite Score Sync",
       "localization_desc": "Локалізація: 50+ мов (готова до RTL)",
-      "broadcast_status": "v1.0.0 // NET-SYNC ПРАЦЮЄ // БЕЗПЕЧНА ТРАНСЛЯЦІЯ"
+      "broadcast_status": "v1.0.0 // NET-SYNC ПРАЦЮЄ // БЕЗПЕЧНА ТРАНСЛЯЦІЯ",
+      "platform_desc": "Платформа: Windows (ПК)",
+      "input_desc": "Вхід: геймпад / клавіатура",
+      "status_desc": "Статус: активний повстанець",
+      "version_desc": "Редакція: v1.0.0 Release"
     },
     "home": {
       "story_label": "Історія",
@@ -18856,7 +19035,11 @@
       "narrative_desc": "Tường thuật: Kịch bản mực inkle",
       "database_desc": "Cơ sở dữ liệu: Đồng bộ hóa điểm SQLite",
       "localization_desc": "Bản địa hóa: Hơn 50 ngôn ngữ (Sẵn sàng cho RTL)",
-      "broadcast_status": "v1.0.0 // VẬN HÀNH NET-SYNC // PHÁT SÓNG AN TOÀN"
+      "broadcast_status": "v1.0.0 // VẬN HÀNH NET-SYNC // PHÁT SÓNG AN TOÀN",
+      "platform_desc": "Nền tảng: Windows (PC)",
+      "input_desc": "Đầu vào: Tay cầm chơi game / Bàn phím",
+      "status_desc": "Trạng thái: Nổi dậy đang hoạt động",
+      "version_desc": "Bản sửa đổi: Phát hành v1.0.0"
     },
     "home": {
       "story_label": "Câu chuyện",

@@ -53,7 +53,6 @@ export default function Footer() {
                 { key: 'home', to: '' },
                 { key: 'gameplay', to: '/gameplay' },
                 { key: 'squad', to: '/squad' },
-                { key: 'tech_hub', to: '/tech-hub' },
               ].map(link => (
                 <li key={link.to}>
                   <NavLink
@@ -75,23 +74,20 @@ export default function Footer() {
           {/* Tech Stack Column */}
           <div className="md:col-span-4">
             <h4 className="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-4 border-b border-secondary/30 pb-2 w-fit">
-              {t('footer.tech_title', "RESISTANCE ENGINE")}
+              {t('footer.tech_title', "MISSION SPECS")}
             </h4>
             <ul className="flex flex-col gap-2 text-on-surface-variant">
               <li>
-                {t('footer.engine_desc', 'Engine: Godot 4.6 (Custom Vulkan)')}
+                {t('footer.platform_desc', 'Platform: Windows (PC)')}
               </li>
               <li>
-                {t('footer.csharp_desc', 'C# Runtime: .NET 8 SDK')}
+                {t('footer.input_desc', 'Input: Gamepad / Keyboard')}
               </li>
               <li>
-                {t('footer.narrative_desc', 'Narrative: Inkle Ink Script')}
+                {t('footer.status_desc', 'Status: Insurgency Active')}
               </li>
               <li>
-                {t('footer.database_desc', 'Database: SQLite Score Sync')}
-              </li>
-              <li>
-                {t('footer.localization_desc', 'Localization: 50+ Languages (RTL-Ready)')}
+                {t('footer.version_desc', 'Revision: v1.0.0 Release')}
               </li>
             </ul>
           </div>

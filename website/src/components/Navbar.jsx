@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { key: 'home', to: '' },
   { key: 'gameplay', to: '/gameplay' },
   { key: 'squad', to: '/squad' },
-  { key: 'tech_hub', to: '/tech-hub' },
 ];
 
 export default function Navbar() {

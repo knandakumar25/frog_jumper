@@ -33,16 +33,16 @@ export default function Gameplay() {
           SYS.REQ //
         </div>
         <h1 className="font-display-hero text-headline-lg-mobile md:text-display-hero text-primary-container mb-4 uppercase tracking-tighter drop-shadow-[0_0_12px_rgba(0,243,255,0.5)] font-extrabold">
-          {t('levels.title_prefix', 'Core ')}
+          {t('levels.title_prefix', 'The ')}
           <span className="text-secondary-container drop-shadow-[0_0_12px_rgba(254,0,254,0.5)]">
-            {t('levels.title_highlight', 'Architecture')}
+            {t('levels.title_highlight', 'Mission')}
           </span>
-          {t('levels.title_suffix', '')}
+          {t('levels.title_suffix', ' Awaits')}
         </h1>
         <p className={`font-body-lg text-body-lg text-on-surface-variant max-w-3xl border-warning-orange pl-6 ${
           isRtl ? 'border-r-4 pr-6 pl-0 text-right' : 'border-l-4 pl-6 pr-0 text-left'
         }`}>
-          {t('features.tech_title', 'Direct access to the Axiom Force technical documentation. Built for high-performance tactical engagement across multiple platforms. Powered by Godot and Ink.')}
+          {t('levels.desc', 'Five unique levels with increasing difficulty. Each mission unlocks progressively as you push back the Xelthara occupation.')}
         </p>
       </section>
 

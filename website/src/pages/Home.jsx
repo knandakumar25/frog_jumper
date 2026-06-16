@@ -48,7 +48,7 @@ export default function Home() {
             isRtl ? 'border-r-4 text-right pr-4 pl-0' : 'border-l-4 text-left pl-4 pr-0'
           }`}>
             &gt; INIT_RESISTANCE_PROTOCOL.exe<br />
-            &gt; {t('hero.subtitle', 'A 3D action platformer built with Godot 4.6 and C#.')}<br />
+            &gt; {t('hero.subtitle', 'A 3D action platformer. Reclaim Earth from alien occupiers.')}<br />
             &gt; {t('footer.status', 'THE COLONIAL MAINFRAME WILL FALL.')}
           </p>
           
