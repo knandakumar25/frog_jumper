@@ -218,7 +218,7 @@ async function main() {
     // Find strings that are missing or empty in this language
     const missingItems = items.filter(item => {
       const existingVal = getNestedValue(existingBundle, item.path);
-      return typeof existingVal !== 'string' || existingVal.trim() === '';
+      return typeof existingVal !== 'string' || existingVal.trim() === '' || existingVal.trim() === item.text.trim();
     });
 
     if (missingItems.length === 0) {

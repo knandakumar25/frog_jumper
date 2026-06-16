@@ -80,19 +80,19 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-2 text-on-surface-variant">
               <li>
-                <span className="text-secondary-fixed-dim font-semibold">Engine:</span> Godot 4.6 (Custom Vulkan)
+                {t('footer.engine_desc', 'Engine: Godot 4.6 (Custom Vulkan)')}
               </li>
               <li>
-                <span className="text-secondary-fixed-dim font-semibold">C# Runtime:</span> .NET 8 SDK
+                {t('footer.csharp_desc', 'C# Runtime: .NET 8 SDK')}
               </li>
               <li>
-                <span className="text-secondary-fixed-dim font-semibold">Narrative:</span> Inkle Ink Script
+                {t('footer.narrative_desc', 'Narrative: Inkle Ink Script')}
               </li>
               <li>
-                <span className="text-secondary-fixed-dim font-semibold">Database:</span> SQLite Score Sync
+                {t('footer.database_desc', 'Database: SQLite Score Sync')}
               </li>
               <li>
-                <span className="text-secondary-fixed-dim font-semibold">Localization:</span> 50+ Languages (RTL-Ready)
+                {t('footer.localization_desc', 'Localization: 50+ Languages (RTL-Ready)')}
               </li>
             </ul>
           </div>
@@ -108,7 +108,7 @@ export default function Footer() {
             {t('footer.copyright', { year }).replace('{{year}}', year)}
           </span>
           <span className="text-secondary-fixed-dim font-body-md tracking-wider">
-            v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST
+            {t('footer.broadcast_status', 'v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST')}
           </span>
         </div>
       </div>

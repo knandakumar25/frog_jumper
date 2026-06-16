@@ -60,13 +60,12 @@ export default function Gameplay() {
           <div className="bracket-tl"></div><div className="bracket-tr"></div><div className="bracket-bl"></div><div className="bracket-br"></div>
           
           <div className="absolute inset-0 bg-gradient-to-t from-void-black to-transparent z-10"></div>
-
           <div className="relative z-20 h-full flex flex-col justify-end p-6 md:p-12">
             <div className="inline-block bg-tertiary-fixed-dim text-on-tertiary px-3 py-1 font-label-caps text-label-caps mb-4 w-fit">
-              INTEL_CLASSIFIED // L.A. QZ
+              {t('gameplay.intel_classified', 'INTEL_CLASSIFIED // L.A. QZ')}
             </div>
             <h2 className="font-display-hero text-headline-lg md:text-[54px] text-primary-container mb-4 uppercase drop-shadow-[0_0_12px_rgba(0,243,255,0.4)]">
-              LOS ANGELES 2157
+              {t('gameplay.los_angeles_2157', 'LOS ANGELES 2157')}
             </h2>
             <p className="font-body-lg text-[14px] md:text-body-lg text-on-surface max-w-2xl bg-void-black/80 backdrop-blur-sm p-4 border-l-4 border-warning-orange leading-relaxed">
               {t('story.caption', 'The Xelthara arrived not to conquer, but to harvest. The once-sprawling metropolis is now Sector 4—a heavily militarized quarantine zone where human survivors scavenge beneath alien atmospheric processors.')}

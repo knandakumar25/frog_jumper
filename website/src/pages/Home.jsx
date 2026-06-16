@@ -109,8 +109,8 @@ export default function Home() {
           <div className={`absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur p-4 ${
             isRtl ? 'border-r-2 border-primary-container text-right' : 'border-l-2 border-primary-container text-left'
           }`}>
-            <div className="font-label-caps text-label-caps text-primary-container mb-1">STATUS: OPERATIONAL</div>
-            <div className="font-body-md text-body-md text-on-surface">Substation 4Alpha hacked. Local grid under HLF control.</div>
+            <div className="font-label-caps text-label-caps text-primary-container mb-1">{t('home.status_operational', 'STATUS: OPERATIONAL')}</div>
+            <div className="font-body-md text-body-md text-on-surface">{t('home.grid_hacked', 'Substation 4Alpha hacked. Local grid under HLF control.')}</div>
           </div>
         </div>
       </section>
@@ -193,7 +193,7 @@ export default function Home() {
 
           {/* Lore Block */}
           <div className="md:col-span-2 md:row-span-1 bg-deep-grey p-6 border-l-4 border-warning-orange flex flex-col justify-center">
-            <div className="font-body-md text-body-md text-warning-orange mb-2">&gt; WARNING: HIGH CASUALTY RATE</div>
+            <div className="font-body-md text-body-md text-warning-orange mb-2">{t('home.warning_casualty', '> WARNING: HIGH CASUALTY RATE')}</div>
             <p className="font-body-lg text-body-lg text-inverse-surface leading-normal italic">
               "{t('characters.warriors.guy.lore', "We don't recruit heroes. We recruit survivors. The mainframe doesn't sleep, and neither do we.")}"
             </p>
