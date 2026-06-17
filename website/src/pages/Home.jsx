@@ -49,7 +49,8 @@ export default function Home() {
           }`}>
             &gt; INIT_RESISTANCE_PROTOCOL.exe<br />
             &gt; {t('hero.subtitle', 'A 3D action platformer. Reclaim Earth from alien occupiers.')}<br />
-            &gt; {t('footer.status', 'THE COLONIAL MAINFRAME WILL FALL.')}
+            &gt; {t('footer.status', 'THE COLONIAL MAINFRAME WILL FALL.')}<br />
+            &gt; {t('footer.platform_desc', 'Target Platforms: Windows, macOS, Linux, iOS, Android, visionOS')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -140,7 +141,7 @@ export default function Home() {
               {t('characters.warriors.frog.role', 'ASSAULT / LEADER')}
             </div>
             <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-void-black via-void-black/85 to-transparent">
-              <h3 className="font-headline-md text-headline-md text-inverse-surface uppercase mb-2">CYBER SHOGUN</h3>
+              <h3 className="font-headline-md text-headline-md text-inverse-surface uppercase mb-2">{t('squad.shogun', 'CYBER SHOGUN')}</h3>
               <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
                 {t('characters.warriors.frog.desc', 'Frontline breaker. Specializes in heavy kinetic disruption and shield cracking.')}
               </p>
@@ -162,7 +163,7 @@ export default function Home() {
               }}
             ></div>
             <div className="absolute bottom-0 left-0 w-full p-4 bg-void-black/90">
-              <h3 className="font-headline-md text-[18px] text-primary-container uppercase">AEGIS RONIN</h3>
+              <h3 className="font-headline-md text-[18px] text-primary-container uppercase">{t('squad.ronin', 'AEGIS RONIN')}</h3>
               <div className="font-label-caps text-label-caps text-on-surface-variant mt-1">
                 {t('characters.warriors.dude.role', 'Infiltrator / Hacker')}
               </div>
@@ -184,7 +185,7 @@ export default function Home() {
               }}
             ></div>
             <div className="absolute bottom-0 left-0 w-full p-4 bg-void-black/90">
-              <h3 className="font-headline-md text-[18px] text-primary-container uppercase">ONI MATRIX</h3>
+              <h3 className="font-headline-md text-[18px] text-primary-container uppercase">{t('squad.matrix', 'ONI MATRIX')}</h3>
               <div className="font-label-caps text-label-caps text-on-surface-variant mt-1">
                 {t('characters.warriors.pink.role', 'Heavy / Support')}
               </div>

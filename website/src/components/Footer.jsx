@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
           
           {/* Brand & Status Column */}
-          <div className="md:col-span-5 flex flex-col gap-4">
+          <div className="md:col-span-8 flex flex-col gap-4">
             <div className="flex items-center gap-2 font-display-hero text-headline-md text-primary-container drop-shadow-[0_0_8px_rgba(0,243,255,0.6)] font-bold tracking-tighter uppercase select-none">
               <span>⬡</span>
               <span>
@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links Column */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <h4 className="font-label-caps text-label-caps text-warning-orange uppercase tracking-wider mb-4 border-b border-warning-orange/30 pb-2 w-fit">
               {t('footer.nav_title', "NAVIGATION")}
             </h4>
@@ -71,26 +71,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Tech Stack Column */}
-          <div className="md:col-span-4">
-            <h4 className="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-4 border-b border-secondary/30 pb-2 w-fit">
-              {t('footer.tech_title', "MISSION SPECS")}
-            </h4>
-            <ul className="flex flex-col gap-2 text-on-surface-variant">
-              <li>
-                {t('footer.platform_desc', 'Platform: Windows (PC)')}
-              </li>
-              <li>
-                {t('footer.input_desc', 'Input: Gamepad / Keyboard')}
-              </li>
-              <li>
-                {t('footer.status_desc', 'Status: Insurgency Active')}
-              </li>
-              <li>
-                {t('footer.version_desc', 'Revision: v1.0.0 Release')}
-              </li>
-            </ul>
-          </div>
 
         </div>
 
