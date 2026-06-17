@@ -50,7 +50,7 @@ export default function Home() {
             &gt; INIT_RESISTANCE_PROTOCOL.exe<br />
             &gt; {t('hero.subtitle', 'A 3D action platformer. Reclaim Earth from alien occupiers.')}<br />
             &gt; {t('footer.status', 'THE COLONIAL MAINFRAME WILL FALL.')}<br />
-            &gt; {t('footer.platform_desc', 'Platform: Windows, macOS, Linux, iOS, Android, visionOS')}
+            &gt; {t('footer.platform_desc', 'Target Platforms: Windows, macOS, Linux, iOS, Android, visionOS')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
