@@ -78,7 +78,7 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-2 text-on-surface-variant">
               <li>
-                {t('footer.platform_desc', 'Platform: Windows (PC)')}
+                {t('footer.platform_desc', 'Platform: Windows, macOS, Linux, iOS, Android, visionOS')}
               </li>
               <li>
                 {t('footer.input_desc', 'Input: Gamepad / Keyboard')}
