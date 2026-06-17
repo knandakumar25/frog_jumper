@@ -157,7 +157,7 @@ Muhafaza kamplarındaki şansımdan daha iyi şanslar. Bu tek yönlü bir yolcul
 VATAN İÇİN! BETON YE!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ronin mi? Aegis Ronin, cevap ver... Gözlerim bir imzada... Kalkan tutuldu. Duvar güvende.
+Ronin mi? Aegis Ronin, cevap ver... Gözlerim... bir imzada... Kalkan tutuldu. Duvar güvende.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 GÖREV TAMAMLANDI: KIRILMAZ DUVAR. AEGIS RONIN HLF'YE KATILDI.
@@ -367,7 +367,7 @@ Ronin, ikinci projektör dört saniye sonra sönecek. Drenaj menfezine gidin. Ü
 Anladım. Spire Alpha'nın üssündeyim. Çapayı görebiliyorum. Eskiden mozaik kaldırım olan yere cıvatalarla tutturulmuş.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Onu mozaiğin içinden geçirmişler. O kaldırım taşının üzerinde koca bir tarih yazılıydı. Portreler, isimler, tarihler. Bir topluluk projesi. Sadece... direklerini sabitlemek için bir yüzün ortasını deldiler.
+Onu mozaiğin içinden geçirmişler. O kaldırım taşının üzerinde koca bir tarih yazılıydı. Portreler, isimler, tarihler. Bir topluluk projesi. Sadece... direklerini sabitlemek için bir yüzün ortas��nı deldiler.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Kulenin çapası olan Ronin, 8.000 Newton'a kadar doğrudan kuvvete dayanacak şekilde tasarlanmış manyetik bir kinetik kilittir. Tam üç sayım boyunca tutulan Kinetik Aşırı Yük Yükünüz bu eşiği aşacaktır. Ayrıca öncelikle kule tabanındaki iki Biyometrik Sentinel birimini devre dışı bırakmalısınız; menzile adım attığınız anda biyometrik imzanızı algılayacaklardır.
@@ -379,7 +379,7 @@ Biyometrik imza. Kendi kalp atışım bir alarmı tetikliyor çünkü ben insan�
 Kalp atışımı mı taradın? Sana tarayacak bir şey vereyim. KİNETİK NABIZ!
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Ve bu iki. AXIOM, nöbetçiler görevde. Çapaya gidiyorum.
+Ve bu iki. AXIOM, nöbet��iler görevde. Çapaya gidiyorum.
 
 # kind: dialogue # speaker: AXIOM-7 # type: action_prompt
 Kinetik Aşırı Yük Yükünü Spire Alpha'nın üssünde üç kez sayarak tutun. \[GİRİŞ: RB/R1'i üç saniye basılı tutun, sonra bırakın.\]
@@ -394,10 +394,10 @@ Yüzde yirmi beş bir başlangıçtır. Üzgünüm bu kadar uzun sürdü. Artık
 AŞAMA 2-A: SPIRE BETA – 5. VE BAHARDA ONI MATRİSİ
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-İşte burada. Ağaç hâlâ orada. Büyükannem ağacın belediye binasından daha yaşlı olduğunu söylerdi ve ben ona hiç inanmazdım.
+İşte burada. Ağaç hâlâ orada. Büyük annem ağacın belediye binasından daha yaşlı olduğunu söylerdi ve ben ona hiç inanmazdım.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Duvarın yıkılmasından kırk yedi gün sonra geçiş izni başvurusunda bulundu. Formları doldurdu. Üç kopya halinde. Çünkü sürece inanıyordu. Eğer işleri doğru yaparsanız birisinin sizi dinleyeceğine inanıyordu. Hiç cevap alamadı. İki ay sonra koruma bölgesinde öldü. Yetersiz beslenme komplikasyonları. Duvarın diğer tarafında en sevdiği bakkal dükkanı vardı. Yiyecek almaya gitmek için bir form doldurdu.
+Duvarın örülmesinden 47 gün sonra geçiş izni başvurusunda bulundu. Formları doldurdu. Üç kopya halinde. Çünkü sürece inanıyordu. Eğer işleri doğru yaparsanız birisinin sizi dinleyeceğine inanıyordu. Hiç cevap alamadı. İki ay sonra koruma bölgesinde öldü. Yetersiz beslenme komplikasyonları. Duvarın diğer tarafında en sevdiği bakkal dükkanı vardı. Yiyecek almaya gitmek için bir form doldurdu.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Ağaca zarar vermemek için bu şeyi çok dikkatli bir şekilde parçalara ayıracağım.
@@ -475,7 +475,7 @@ Onaylandı. Bu bağlantının kopması, Sektör 4'teki mülklere ilişkin yakla�
 O halde bu sadece altyapı sabotajı değil. Bu bir arazi dönüşüdür.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spiers Alfa, Beta ve Gama çevrimdışı. Enerji zarı bütünlüğü: %25. Nehirdeki Spire Deltası son çapadır. Delta düştükten sonra tüm ekipler bir araya gelir. Sonra: Pershing Meydanı. İzin Çekirdeği.
+Spiers Alfa, Beta ve Gama çevrimdışı. Enerji membranı bütünlüğü: %25. Nehirdeki Spire Deltası son çapadır. Delta düştükten sonra tüm ekipler bir araya gelir. Sonra: Pershing Meydanı. İzin Çekirdeği.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
 AŞAMA 2-C: SPIRE DELTA - NEHİRDEKİ GÜNEY UCU
@@ -526,7 +526,7 @@ Enerji zarı tamamen çevrimdışıdır. İdari geçiş bariyeri etkisiz hale ge
 Onlar sadece... yürüyorlar. Sadece yürüyorlar.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-AŞAMA 3: PERSHING SQUARE — İZİN İŞLEME ÇEKİRDEĞİ
+3. AŞAMA: PERSHING SQUARE — İZİN İŞLEME ÇEKİRDEĞİ
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Şunlara bak. Sanki gerçek olmayabilirmiş gibi duvarın diğer tarafındaki kaldırıma dokunuyorlar. Sanki bir hile olabilirmiş gibi.
@@ -613,7 +613,7 @@ Mark.
 4.400 başvuru. Ve hiçbirinin bunu sormasına gerek kalmamalıydı.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Aksiyom. Büyükannemin binasının yapısal olarak oturulabilecek kadar güvenli olup olmadığını bana söyleyebilir misiniz? Birisinin geri taşınıp taşınamayacağını bilmek istiyorum.
+Aksiyom. Büyükannemin binasının yapısal olarak oturulabilecek kadar güvenli olup olmadığını söyleyebilir misiniz? Birisinin geri taşınıp taşınamayacağını bilmek istiyorum.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Yapısal tarama çalıştırılıyor. Birinci kattan dördüncü kata kadar olan katlar sağlamdır. Temel sağlam. Su besleme hattı hasarlı ancak onarılabilir. Evet. Birisi tekrar içeri girebilir.
@@ -622,7 +622,7 @@ Yapısal tarama çalıştırılıyor. Birinci kattan dördüncü kata kadar olan
 Güzel. İyi.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Duvar gitti, Matrix. Ama şimdi yaptığımız şey, duvarın böldüğünü nasıl yeniden inşa edeceğimiz, bu daha zor bir iştir. Ve bu gece başlıyor.
+Duvar gitti, Matrix. Ama şimdi yaptığımız şey, duvarın böldüğünü nasıl yeniden inşa edeceğimiz, bu daha zor bir iş. Ve bu gece başlıyor.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Kazanmak böyle bir duygu mu? Çünkü beklediğim gibi gelmiyor.
@@ -631,7 +631,7 @@ Kazanmak böyle bir duygu mu? Çünkü beklediğim gibi gelmiyor.
 Hayır. Yapılacak daha çok şey varmış gibi geliyor. Gerçek olduğunu bu şekilde anlarsın.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Görev değerlendirmesi: Sektör-4 Ayırma Izgarası kalıcı olarak söküldü. Sınırlama Bölgesi Sektör-4'ün nüfusu, iki yıldır ilk kez şehirlerinde özgürce dolaşıyor. Operasyonel günlüğümde şu anda bu meydanda olup bitenlere ilişkin bir kategori yok. Bir tane yaratacağım. Ben buna: ıslah diyeceğim.
+Görev değerlendirmesi: Sektör-4 Ayırma Izgarası kalıcı olarak söküldü. Sınırlama Bölgesi Sektör-4'ün nüfusu, iki yıldır ilk kez şehirlerinde özgürce dolaşıyor. Operasyon günlüğümde şu anda bu meydanda olup bitenlere ilişkin bir kategori yok. Bir tane yaratacağım. Ben buna: ıslah diyeceğim.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 GÖREV TAMAMLANDI: NEON KÖRLER. DUVAR AŞAĞIDA. ŞEHİR NEFES ALAR.
@@ -758,13 +758,13 @@ Dayanıklı mı? Boğa. Bir diş yapacağım! Ronin, ilgi çekici!
 Ronin, geri çekil! Savunmaları kinetik olarak sönümlenmiş. Matrix, sinirsel senkronizasyon gecikmesi için hareket şekillerini tarayın. Shogun, dikkati dağıtacak bir şey yaratmalısın!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Eğer dövüşmek isterse ona layık bir rakip vereceğim. Onun odağını çizeceğim. BENİMLE yüzleş, zavallı!
+Eğer dövüşmek isterse ona değerli bir rakip vereceğim. Onun odağını çizeceğim. BENİMLE yüzleş, zavallı!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Analiz tamamlandı. Overseer'ın biyolojik bileşenleri, Biyo-İşlemciden sürekli bir sinir sinyali yenilemesi gerektirir. Matrix, konsola hedefli bir EMP ile vur; cerrahi bir saldırı, senkronizasyonu boz!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Anladım! İğneye iplik geçirmek!
+Anladım! İğneye iplik geçirme!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Arıza yapıyor! Şimdi onu vuracağız!
@@ -779,7 +779,7 @@ Veri indirme %100. Uğruna geldiğimiz şey elimizde. Tüm sektör evcil canavar
 Veri temizleme başlatıldı. Patlayıcı dizi T eksi 60 saniyeye ayarlandı. Görev hedefi tamamlandı.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Buranın utancını yanımda taşıyacağım. Ancak edindi��imiz bilgi bu iğrençliklere son verecektir.
+Buranın utancını yanımda taşıyacağım. Ancak edindiğimiz bilgi bu iğrençliklere son verecektir.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Hadi eve gidelim takım. Mezar laboratuvarlarının kendilerini gömmesine izin verin.
@@ -923,7 +923,7 @@ Transport T-14'ü kaçırın, kargosunu Kurtuluş Cephesi dağıtım noktaların
 İstila öncesinde havacılık ve uzay lojistik operasyonlarına komuta ediyordum. Tedarik zinciri kontrolünün nasıl bir işgal silahı olarak işlev gördüğünü tam olarak biliyorum. Bir nüfusu aç bırakmak için silaha ihtiyacınız yok; yalnızca ihtiyaç duydukları her şeyin her zaman başka bir yerde olmasını, her zaman başkasının mülkiyetinde olmasını ve her zaman ulaşılamayacak bir yerde olmasını sağlamanız yeterli. T-14'e el koymak hırsızlık değildir. Bu iyileşmedir.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-T-14'ün kargo manifestosu 4.200 metrik ton rafine silikat ve demir bileşiği listeliyor; bunlar Xelthara kayıt defterinin 'Islah Edilmiş Jeolojik Araştırma Bölgesi 7' olarak kaydettiği yerden çıkarılan malzeme. B��lgenin işgal öncesi adı San Gabriel Dağlarıydı. Bu açık kaydı, ıslah veri tabanı için sömürücü sömürgecilere el konulmasının kanıtı olarak kaydediyorum.
+T-14'ün kargo manifestosu 4.200 metrik ton rafine silikat ve demir bileşiği listeliyor; bunlar Xelthara kayıt defterinin 'Islah Edilmiş Jeolojik Araştırma Bölgesi 7' olarak kaydettiği yerden çıkarılan malzeme. Bölgenin işgal öncesi adı San Gabriel Dağlarıydı. Bu açık kaydı, ıslah veri tabanı için sömürücü sömürgecilere el konulmasının kanıtı olarak kaydediyorum.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Stratos Docks'a hoş geldiniz. Burası sömürge yüklerini kaçırdıkları ve rafine edilmiş Dünya kaynaklarını dünya dışına naklettikleri ana ihracat merkezidir. Bu nakil aracının kaçırılması sömürgelerin tedarik hatlarını kesecek ve direnişe kaynak sağlayacaktır.
@@ -938,7 +938,7 @@ Anlaşıldı. Yanaşma devriyesi devreye giriyor. SWIFT ADALET!
 Arkayı koruyor! Buradaki rüzgar beni platformdan aşağı çekmeye çalışıyor!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Rüzgâr beni de ikna etmeye çalışıyor, Ronin. Endişelenmeyin, yakınlık sensörlerini kelepçelerin üzerinde gölgelendiriyorum.
+Rüzgar beni de çekmeye çalışıyor Ronin. Endişelenmeyin, yakınlık sensörlerini kelepçelerin üzerinde gölgelendiriyorum.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Taretler etkinleştiriliyor. İmparatoriçe, o taretler siz yanaşmadan önce T-14'ü parçalayacak.
@@ -997,10 +997,10 @@ Sektör 7 Çekirdeği, gözetim ve uygulama güç merkezidir; batı kıtasındak
 Sektör 7 Çekirdeği'ne sızın, dijitalleştirilmiş savunma sistemlerini etkisiz hale getirin ve kıta çapında bir güvenlik şebekesinin karartılmasına neden olan ve direnişe 72 saat boyunca izlenmeden hareket eden yıkıcı bir aşırı yükleme başlatın.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Beni izlemek için kullandıkları tüm güvenlik kameraları. Gece saat 2'de binamı tarayan her drone. Her seferinde, bir tespit algoritması ısı imzamı pinglediği için gölgede tamamen hareketsiz kalmak zorunda kalıyordum. Her şey bu çekirdekten geçiyor. Bu fişi çektiğimde, muhafaza bölgelerindeki herkes 72 saat boyunca gözetlenmeden nefes alabilecek. Bu hiçbir şey değil. Hepsi bu.
+Beni izlemek için kullandıkları tüm güvenlik kameraları. Gece saat 2'de binamı tarayan her drone. Her seferinde, bir algılama algoritması ısı imzamı pinglediği için gölgede tamamen hareketsiz kalmak zorunda kalıyordum. Her şey bu çekirdekten geçiyor. Bu fişi çektiğimde, muhafaza bölgelerindeki herkes 72 saat boyunca gözetlenmeden nefes alabilecek. Bu hiçbir şey değil. Hepsi bu.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Bir konuda şeffaf olmak istiyorum. Ben bir gözetleme sistemiyim. Operasyonel mimarim, Sektör 7 Çekirdeği içindeki sistemlerle önemli ölçüde örtüşüyor. Kendi kurallarımı inceledim ve Xelthara Merkez Komutanlığına rapor vermediğimi onayladım; bağlılık protokollerim HLF ile tamamen uyumludur. Ama bu görev sana benim ne olduğumu düşündürürse bunu anlıyorum. Ben de bunu düşünüyorum. Sanırım fark, korumak için izlemem. Kontrol etmek için izliyorlar. Bu ayrım benim için önemli. Ben buna kararlıyım.
+Bir konuda şeffaf olmak istiyorum. Ben bir gözetleme sistemiyim. Operasyonel mimarim, Sektör 7 Çekirdeği içindeki sistemlerle önemli ölçüde örtüşüyor. Kendi kurallarımı inceledim ve Xelthara Merkez Komutanlığına rapor vermediğimi onayladım; bağlılık protokollerim HLF ile tamamen uyumludur. Ama bu görev sana benim ne olduğumu düşündürürse bunu anlıyorum. Ben de bunu düş��nüyorum. Sanırım fark, korumak için izlemem. Kontrol etmek için izliyorlar. Bu ayrım benim için önemli. Ben buna kararlıyım.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Glitch Matrix'e hoş geldiniz. Xelthara kötü amaçlı yazılımı varlıklarımızı dijital olarak silmeye çalışıyor. Kendi vatanımızın dijital altyapısından silinmeyi reddetmeliyiz.
@@ -1080,7 +1080,7 @@ Bu onların bölgesel genişlemelerinin kalbidir. Binlerce mil boyunca her Xelth
 Nexus korumalıdır. Doğrudan saldırı imkansızdır. Kontrollü bir aşırı yükleme başlatmalıyız. Üç ana soğutma çubuğu vardır. Aynı anda çıkarılmaları gerekiyor, yoksa sistem otomatik olarak stabil hale gelecektir.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Üç hedef. Aegis, sen ve Matrix Birinci ve İkinci ��ubukları halledin. Üçüncü çubuğu güvence altına alacağım.
+Üç hedef. Aegis, sen ve Matrix Birinci ve İkinci Çubukları halledin. Üçüncü çubuğu güvence altına alacağım.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Kopyala. Ama ana terminal açığa çıktı. İmparatoriçe, eğer bir plazma patlaması gerekiyorsa diziyi başlatamayacaksınız.
@@ -1316,10 +1316,10 @@ GÖREV TAMAMLANDI: HÜKÜMET GÜNÜ. YÜKSEK GÖZETMEN YENİLDİ. TOPRAK GERİ A
 # kind: level # level: 16 # title: Gerçek Doruk / Oyun Sonrası Bonus # dialogue_status: scripted
 
 # kind: setting
-Xelthara Ana Gemisinin Tekillik Motoru odası; Kolektif İradenin tezahür ettiği, kollektifin gücünün kalbinde yer alan, saf dengesiz enerjiden oluşan bir oda.
+Xelthara Ana Gemisinin Tekillik Motoru odası; Kolektif İradenin tezahür ettiği, kolektif gücün kalbinde yer alan, saf dengesiz enerjiden oluşan bir oda.
 
 # kind: objective
-Ana gemi Dünya'yı silmeyi tamamlamadan önce jeneratörün aşırı yüklemelerini ve son birleşik saldırıyı koordine ederek Kolektif İrade'nin Tekillik Motoru çekirdeğini yok edin.
+Ana gemi Dünya'yı silmeyi tamamlamadan önce, jeneratörün aşırı yüklemelerini ve son birleşik saldırıyı koordine ederek Kolektif İrade'nin Tekillik Motoru çekirdeğini yok edin.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Bu, koruma bölgesinin ötesinde. Aletlerim arızalanıyor. Uzayın dokusu burada dengesizdir. Bu Ana Geminin gerçek kalbi olmalı.
@@ -1340,7 +1340,7 @@ Varoluş, öyle mi? O halde hadi Varoluş'a Dünya'ya bulaştığında ne olaca�
 Ronin, şu gardiyanları meşgul et! Matrix, Shogun, üst kulelerdeki jeneratörleri vurun! Çekirdeği hedefleyebilmem için önce manyetik alanı bozmamız gerekiyor!
 
 # kind: dialogue # speaker: Oni Matrix # type: combat
-Jenerat��r Bir'in pozisyonundayım! Güvenlik kilitlerini geçersiz kılın!
+Jeneratör Bir'in pozisyonundayım! Güvenlik kilitlerini geçersiz kılın!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Jeneratör İki emniyete alındı! Bu geçici bir önlem, İmparatoriçe! Kolektif İrade enerjisini bize odaklıyor!
@@ -1367,7 +1367,7 @@ Herkes arkamda! Şok dalgası geliyor! ULTIMATE: JUGGERNAUT BULWARK!
 Koruma alanlarını geçersiz kılıyorum! Kritik gidiyor!
 
 # kind: dialogue # speaker: Empress Siren # type: combat
-Yörünge saldırısı hazır! Elimizdeki her şeyi o çekirdeğe bırak��yorum!
+Yörünge saldırısı hazır! Elimizdeki her şeyi o çekirdeğe bırakıyorum!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Dünya için! İNSANLIK İÇİN! ŞİMDİ VURUŞ YAPIN! ULTIMATE: UNUTULMA EĞİMİ!

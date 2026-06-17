@@ -25,7 +25,7 @@
     "0": {
       "title": "Protocol Zero - The Virtual Forge",
       "arc": null,
-      "setting": "Obrovská, tmavá, drôtená sieťová simulácia rozpadajúceho sa panorámy centra Los Angeles. Neónové modr�� čiary definujú cesty a budovy. V zobrazení neustále blikajú statické poruchy. Štyria šampióni stoja na žiariacej plošine.",
+      "setting": "Obrovská, tmavá, drôtená sieťová simulácia rozpadajúceho sa panorámy centra Los Angeles. Neónové modré čiary definujú cesty a budovy. V zobrazení neustále blikajú statické poruchy. Štyria šampióni stoja na žiariacej plošine.",
       "objective": "Dokončite tréningový protokol prejazdom všetkých pohybových a bojových schopností, ktoré vyvrcholia súčasným tímovým útokom na zničenie simulovanej ťažkej jednotky Xelthara.",
       "solo_monologues": [],
       "dialogue_status": "pending",
@@ -106,7 +106,7 @@
       "title": "Betónový požiar",
       "arc": null,
       "setting": "Masívna vstupná brána uzavretej zóny 4. Tisíce rodín sú hnané ako dobytok cez energetické ploty. Za nimi sú ich predmestské domy sploštené expanznými chodcami Xelthara.",
-      "objective": "Držte 'Posledný most' proti Xelthara Enforcers, ktorí ženú populáciu, čo umožňuje poslednej skupine utečencov vkĺznuť do nezmapovaných slumov namiesto ohradených táborov.",
+      "objective": "Podržte 'Posledný most' proti Xelthara Enforcers, ktorí ženú obyvateľstvo, čím umožníte poslednej skupine utečencov vkĺznuť do nezmapovaných slumov namiesto uzavretých táborov.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
@@ -209,7 +209,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "MARGINALIZOVANÝ DENNÍK: PODÚROVŇOVÉ ŠROTOVNÉ MESTO. STAV: PREŽIJE. UPOZORNENIE VOĽBUDITEĽOV: NULOVÉ ZISTENIE. SYSTÉMOVÁ DÔVERA: 100%. CIEĽ: Ukradnúť KOLONIÁLNU ISKRU. PALIVA ODPORU."
+          "text": "MARGINALIZOVANÝ DENNÍK: PODÚROVŇOVÉ ŠROTOVNÉ MESTO. STAV: PREŽIJE. UPOZORNENIE VOĽBUDITEĽOV: NULOVÉ ZISTENIE. SYSTÉMOVÁ DÔVERA: 100%. CIEĽ: Ukradnúť KOLONIÁLNU ISKRU. PALIVO ODPORU."
         },
         {
           "speaker": "Oni Matrix",
@@ -305,7 +305,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Operujú na základe predinváznych taktických údajov. Údaje zmením. AXIOM, uzamknite centrálnu sieťovú linku. Ručne obchádzam firewally."
+          "text": "Operujú na základe predinváznych taktických údajov. Údaje zmením. AXIOM, uzamknite centrálny sieťový spoj. Ručne obchádzam firewally."
         },
         {
           "speaker": "Empress Siren",
@@ -386,7 +386,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "ZÁZNAM POSUNUTÍ: SEKTOR-4 SEPARAČNÁ mriežka. TYP ŠTRUKTÚRY: KOLONIÁLNY ADMINISTRATÍVNY KONTROLNÝ BOD. NIE VOJENSKÉ. TOTO JE ZÁMERNÉ. HROZBA: HRANIČNÝ ORGÁN XELTHARA — DIVÍZIA PRESADZOVANIA. BIOMETRICKÉ VEŽE: 4 AKTÍVNE. POVOLENÉ JADR: ONLINE. CIE��: DEMONTOVAŤ ADMINISTRATÍVNU ARCHITEKTÚRU ODDELENIA. OTVORIŤ MESTO."
+          "text": "ZÁZNAM POSUNUTÍ: SEKTOR-4 SEPARAČNÁ mriežka. TYP ŠTRUKTÚRY: KOLONIÁLNY ADMINISTRATÍVNY KONTROLNÝ BOD. NIE VOJENSKÉ. TOTO JE ZÁMERNÉ. HROZBA: HRANIČNÝ ORGÁN XELTHARA — DIVÍZIA PRESADZOVANIA. BIOMETRICKÉ VEŽE: 4 AKTÍVNE. POVOLENÉ JADR: ONLINE. CIEĽ: DEMONTOVAŤ ADMINISTRATÍVNU ARCHITEKTÚRU ODDELENIA. OTVORIŤ MESTO."
         },
         {
           "speaker": "DISPLAY",
@@ -456,7 +456,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "Najkrutejšou zbraňou kolonializmu nie je vojak s puškou. Je to úradník s pečiatkou, ktorý vám povie, že vaša existencia si vyžaduje ich autorizáciu. Že ľudská bytosť musí požiadať okupanta o právo chodiť na pôdu svojich vlastných predkov. Uzavrel som mier s bojujúcimi vojakmi. Konfrontácia s architektúrou povolenia – s jej náhodným, systematickým ponižovaním – to je to, čo zaťažuje ducha tak, že žiadna čepeľ nemôže prerezať."
+          "text": "Najkrutejšou zbraňou kolonializmu nie je vojak s puškou. Je to úradník s pečiatkou, ktorý vám povie, že vaša existencia si vyžaduje ich autorizáciu. Že ľudská bytosť musí požiadať okupanta o právo chodiť na pôdu svojich vlastných predkov. Uzavrel som mier s bojujúcimi vojakmi. Konfrontácia s architektúrou dovolenia – s jej náhodným, systematickým ponižovaním – to je to, čo zaťažuje ducha tak, že žiadna čepeľ nemôže prerezať."
         },
         {
           "speaker": "AXIOM-7",
@@ -506,7 +506,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Zaskrutkovali to cez mozaiku. V tej dlažbe na chodníku bola namaľovaná celá história. Portréty, mená, dátumy. Komunitný projekt. Len... prevŕtali stred tváre, aby ukotvili svoj stĺpik."
+          "text": "Zaskrutkovali to cez mozaiku. V tej dlažbe na chodníku bola namaľovaná celá hist��ria. Portréty, mená, dátumy. Komunitný projekt. Len... prevŕtali stred tváre, aby ukotvili svoj stĺpik."
         },
         {
           "speaker": "AXIOM-7",
@@ -541,7 +541,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Dvadsaťpäť percent je začiatok. Prepáčte, že nám to trvalo tak dlho. Teraz sme tu."
+          "text": "Dvadsaťpäť percent je začiatok. Prepáčte, že n��m to trvalo tak dlho. Teraz sme tu."
         },
         {
           "speaker": "DISPLAY",
@@ -696,7 +696,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Delta je nosná kotva do steny. Stráži ju hraničný veliteľ Vyss, ktorý nariadil elektrifikáciu rieky po tom, čo sa tri rodiny pokúsili prejsť cez vodu v prvom týždni múru. Vyss nenariadil ich zadržanie. Vyss nariadil elektrifikáciu vody."
+          "text": "Spire Delta je nosná kotva do steny. Stráži ho hraničný veliteľ Vyss, ktorý nariadil elektrifikáciu rieky po tom, čo sa tri rodiny pokúsili prejsť cez vodu v prvom týždni múru. Vyss nenariadil ich zadržanie. Vyss nariadil elektrifikáciu vody."
         },
         {
           "speaker": "Aegis Ronin",
@@ -771,7 +771,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "FÁZA 3: PERSHING SQUARE – JADRO SPRACOVANIA POVOLENÍ"
+          "text": "3. FÁZA: PERSHING SQUARE – JADRO SPRACOVANIA POVOLENÍ"
         },
         {
           "speaker": "Oni Matrix",
@@ -936,7 +936,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Je takýto pocit z víťazstva? Pretože to nie je také, aké som očakával."
+          "text": "Je takýto pocit z víťazstva? Pretože sa mi to nezdá tak, ako som očakával."
         },
         {
           "speaker": "Empress Siren",
@@ -982,7 +982,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Päť minút? Kúsok koláča. Potrebujem však jasný prístup. Shogun, môžeš prerezať hlavnú pupočnú?"
+          "text": "Päť minút? Kúsok koláča. Potrebujem však jasný prístup. Shogun, môžeš prerezať hlavnú pupočnú hlavu?"
         },
         {
           "speaker": "Cyber Shogun",
@@ -992,7 +992,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Upozornenie potvrdené! Ťažké stráže Phalanx zostupujú z horných údržbárskych š��cht! Ronin, vpredu a v strede! Vytvorte obrannú líniu na mieste vstupu!"
+          "text": "Upozornenie potvrdené! Ťažké stráže Phalanx zostupujú z horných údržbárskych šácht! Ronin, vpredu a v strede! Vytvorte obrannú líniu na mieste vstupu!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1083,12 +1083,12 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "This facility is the engine of resource exploitation. They are actively converting Earth's minerals into toxic bio-fuel for off-world shipping, leaving a dead planet behind. To sú náklady na koloniálnu expanziu."
+          "text": "Toto zariadenie je motorom využívania zdrojov. Aktívne premieňajú nerasty Zeme na toxické biopalivo pre námornú dopravu, pričom za sebou zanechávajú mŕtvu planétu. To sú náklady na koloniálnu expanziu."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "The air is toxic because they view our world as a fungible fuel source. These labs are turning our planet's lifeblood into energy for their settlements. We must stop this extraction or there will be nothing left to save."
+          "text": "Vzduch je toxický, pretože vnímajú náš svet ako zameniteľný zdroj paliva. Tieto laboratóriá premieňajú životnú miazgu našej planéty na energiu pre svoje osady. Túto ťažbu musíme zastaviť, inak už nebude čo zachraňovať."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1103,7 +1103,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Drony, naskenujte vzorku! Je to biohybrid typu A. Všimnite si odkryté jadro. Shogun, precise strike to the power conduit in its exposed chest cavity."
+          "text": "Drony, naskenujte vzorku! Je to biohybrid typu A. Všimnite si odkryté jadro. Shogun, presný zásah do elektrického vedenia v jeho odhalenej hrudnej dutine."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1113,12 +1113,12 @@
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Cisárovná, čo... čo sú to za obrázky? They are taking our people and making them into things."
+          "text": "Cisárovná, čo... čo sú to za obrázky? Berú našich ľudí a robia z nich veci."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Teraz vykonávam analýzu, Shogun. This is not simply biological experimentation, it's soul erasure. They are replacing the human spirit with their own code."
+          "text": "Teraz vykonávam analýzu, Shogun. Toto nie je len biologické experimentovanie, je to vymazanie duše. Nahrádzajú ľudského ducha vlastným kódom."
         },
         {
           "speaker": "Oni Matrix",
@@ -1128,7 +1128,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "UPOZORNENIE: Mini-Boss Encounter. Označenie: dozorca Karr-Thak. Its armor is resistant to kinetic and energy attack."
+          "text": "UPOZORNENIE: Mini-Boss Encounter. Označenie: dozorca Karr-Thak. Jeho pancier je odolný voči kinetickému a energetickému útoku."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1138,7 +1138,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, ustúp! Jeho obrana je kineticky tlmená. Matrix, scan his movement patterns for a neural synchronization delay. Shogun, musíš rozptýliť pozornosť!"
+          "text": "Ronin, ustúp! Jeho obrana je kineticky tlmená. Matrix, naskenujte jeho pohybové vzorce, či nedochádza k oneskoreniu neurálnej synchronizácie. Shogun, musíš rozptýliť pozornosť!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1195,7 +1195,7 @@
     "8": {
       "title": "The Foundry Forge (priemyselný sektor)",
       "arc": "act2_arc2",
-      "setting": "Xelthara Thermal Conversion Array v bývalej priemyselnej prístavnej štvrti spôsobila toxicitu vzduchu v okruhu 40 kilometrov, pričom spracovával atmosférický odpad ako mimozemské palivo a zároveň predával ľudstvu kyslík späť v kanistroch na prídel po jednej na rodinu denne.",
+      "setting": "Xelthara Thermal Conversion Array v bývalej priemyselnej prístavnej štvrti spôsobila toxicitu vzduchu v okruhu 40 kilometrov, pričom spracovával atmosférický odpad ako mimozemské palivo a zároveň predával ľudský kyslík späť v určených nádobách po jednej na rodinu denne.",
       "objective": "Obráťte polaritu termokonverzného poľa, aby sa spustila kaskádová tepelná implózia, ktorá nenávratne zničí zlieváreň a umožní 40-kilometrovej zóne atmosférického poškodenia začať prirodzenú regeneráciu.",
       "solo_monologues": [
         {
@@ -1254,7 +1254,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Žiadny ústup! Chcú bojovať? Dostanú jaskyňu! CYBER SHOGUN, dajte mi otvorenie!"
+          "text": "Žiadny ústup! Chcú bojovať? Dostanú jaskyňu! CYBER SHOGUN, otvorte mi to!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1350,7 +1350,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Nosníky sú horúce. Prechádzam cez prvý rad... druh�� rad... Som pri konzole. Spustenie očisty."
+          "text": "Nosníky sú horúce. Prechádzam cez prvý rad... druhý rad... Som pri konzole. Spustenie očisty."
         },
         {
           "speaker": "AXIOM-7",
@@ -1375,7 +1375,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISIA DOKONČENÁ: DUCHA ČISTÍ CESTU. AQUANAUT ABYSS ODVODNENÝ."
+          "text": "MISIA DOKONČENÁ: DUCHA VYČISTÍ CESTU. AQUANAUT ABYSS ODVODNENÝ."
         }
       ]
     },
@@ -1406,7 +1406,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Čas je kritický. Vedúci transportér, T-14, napája svoje hlavné trysky. Šógun, Ronin – zabezpečíte pristávaciu zónu. Matrix, priprav sa obísť ovládacie prvky svorky."
+          "text": "Čas je kritický. Vedúci transportér, T-14, napája svoje hlavné trysky. Šógun, Ronin – zabezpečíte pristávaciu zónu. Matrix, priprav sa obísť ovládacie prvky svoriek."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1746,7 +1746,7 @@
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "Česť bojovníka je definovaná tým, čo chráni, ako aj tým, čo ničí. Dnes večer niečo chránim. Záznamy v tomto trezore sú dôkazom toho, že sme tu existovali predtým, ako prišli – ��e sme mali mená pre túto krajinu, boli na nej vybudovaní, boli sme v nej pochovaní, rozprávali o nej príbehy po stáročia. Ak tento dôkaz vymažú, môžu si napísať históriu, akú chcú. To nedovolím."
+          "text": "Česť bojovníka je definovaná tým, čo chráni, ako aj tým, čo ničí. Dnes večer niečo chránim. Záznamy v tomto trezore sú dôkazom toho, že sme tu existovali predtým, ako prišli – že sme mali mená pre túto krajinu, boli na nej vybudovaní, boli sme v nej pochovaní, rozprávali o nej príbehy po stáročia. Ak tento dôkaz vymažú, môžu si napísať históriu, akú chcú. To nedovolím."
         },
         {
           "character": "AXIOM-7",

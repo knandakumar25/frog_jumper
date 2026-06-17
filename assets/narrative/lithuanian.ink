@@ -370,7 +370,7 @@ Supratau. Aš esu „Spire Alpha“ bazėje. Aš matau inkarą. Jis įsuktas per
 Jie priveržė jį per mozaiką. Toje šaligatvio plytelėje buvo nupiešta visa istorija. Portretai, vardai, datos. Bendruomenės projektas. Jie tiesiog... pragręžė veido vidurį, kad pritvirtintų savo postą.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ronin, smailės inkaras yra magnetinis kinetinis užraktas, sukurtas atlaikyti iki 8000 niutonų tiesioginės jėgos. J��sų kinetinės perkrovos mokestis, laikomas tris kartus, viršys tą slenkstį. Taip pat pirmiausia turite išjungti du biometrinius sentinel įrenginius, esančius smailės pagrinde – jie aptiks jūsų biometrinį parašą, kai pateksite į diapazoną.
+Ronin, smailės inkaras yra magnetinis kinetinis užraktas, sukurtas atlaikyti iki 8000 niutonų tiesioginės jėgos. Jūsų kinetinės perkrovos mokestis, laikomas tris kartus, viršys tą slenkstį. Taip pat pirmiausia turite išjungti du biometrinius sentinel įrenginius, esančius smailės pagrinde – jie aptiks jūsų biometrinį parašą, kai pateksite į diapazoną.
 
 # kind: dialogue # speaker: Aegis Ronin # type: internal
 Biometrinis parašas. Mano paties širdies plakimas sukelia pavojaus signalą, nes aš esu žmogus. Gerai. Pradėkime taisyti.
@@ -439,7 +439,7 @@ Ir dabar jie sužinos, kad žmonės, kurių įrašus bandė ištrinti, stovi pri
 Šeši skyriai prie įėjimo į biblioteką priskiriami pasienio kontrolės pareigūnams. Jų minios išsklaidymo krūvis kontaktuojant tiekia 900 voltų nervinio sutrikimo srovę.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Nemirtina. Jie sako sau, kad tai humaniška. Jie turi omenyje tai, kad gyvas belaisvis jiems yra naudingesnis nei miręs pilietis.
+Nemirtina. Jie sako sau, kad tai yra humaniška. Jie turi omenyje tai, kad gyvas belaisvis jiems yra naudingesnis nei miręs pilietis.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Shogun, man reikia juos greitai ir tyliai išvalyti prieš kitą patruliavimo šlavimą. Ar galite paimti tris iš kairės, kol mano dronai slopina dešinįjį šoną?
@@ -454,7 +454,7 @@ Dronai: pažymėkite, pažymėkite, pažymėkite. EMP sprogo dešiniajame klaste
 Pirma. Antra. Trečia.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Švarus. AXIOM, nuskaito Spire Gamma inkaro sistemą.
+Švarus. AXIOM, nuskaitęs Spire Gamma inkaro sistemą.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spire Gamma semiasi energijos iš bibliotekos vidinio tinklo. Norėdami išjungti smailę nesujungdami avarinio maitinimo peradresavimo, pirmiausia turite atjungti vidinį tinklo jungtį pastato viduje. Imperatorienė Sirena, tinklo mazgas yra trečiame aukšte.
@@ -493,7 +493,7 @@ Nereikia. Dar neleisk, kad tai tave užvaldytų. Pirmiausia tai sumažiname. Tad
 Teisingai. Teisingai. Po smaile. Po sienos. aš nepamiršiu.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Tai nėra slaptas požiūris. Delta yra įtvirtinta padėtis. Pataikėm kaip vienetas. Ronin – tu patrauki tašką, skydu į priekį, atkreipi jų dėmesį ir sugeria jų pradinį šūvį. Šogun, išvalykite kairįjį šoną. Matrica, naudokite fazės poslinkį, kad pasiektumėte bokštelio valdymo pultą dešinėje ir nužudytumėte visus tris bokštelius vienu metu. Kai bokšteliai miršta, aš pavedu bepiločius orlaivius, kad prisotinčiau vykdytojų būrį. Sugriuname garnizoną, tada Roninas įkiša smailę į žemę.
+Tai nėra slaptas požiūris. Delta yra įtvirtinta padėtis. Pataikėm kaip vienetas. Ronin – tu patrauki tašką, skydu į priekį, atkreipi jų dėmesį ir įsisavini pradinį šūvį. Šogun, išvalykite kairįjį šoną. Matrica, naudokite fazės poslinkį, kad pasiektumėte bokštelio valdymo skydelį dešinėje ir nužudytumėte visus tris bokštelius vienu metu. Bokšteliams žuvus, aš pavedu bepiločius orlaivius, kad būtų sušaudytas vykdytojų būrys. Sugriuname garnizoną, tada Roninas įkiša smaigalį į žemę.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 AUKŠTYK. Tegul viską meta į mane. Aš esu lauko durys.
@@ -616,13 +616,13 @@ Leidimų apdorojimo branduolys: neprisijungus. Nuolatinio atkūrimo protokolas: 
 AXIOMA. Ar galite pasakyti, ar mano močiutės pastatas yra pakankamai saugus, kad jį būtų galima apgyvendinti? Noriu sužinoti, ar kas nors gali persikelti atgal.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Vykdomas struktūrinis nuskaitymas. Nuo vieno iki ketvirto aukštai yra nepažeisti. Pamatas tvirtas. Vandentiekio linija pažeista, bet remontuotina. Taip. Kažkas galėtų grįžti atgal.
+Vykdomas struktūrinis nuskaitymas. Nuo vieno iki ketvirto aukštai yra nepažeisti. Pagrindas tvirtas. Vandentiekio linija pažeista, bet remontuotina. Taip. Kažkas galėtų grįžti atgal.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Gerai. Gerai.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Sienos nebėra, Matrix. Tačiau tai, ką darome dabar – kaip atstatome tai, ką siena padalija – tai yra sunkesnis darbas. Ir prasideda šį vakarą.
+Sienos nebėra, Matrix. Tačiau tai, ką mes darome dabar – kaip atstatome tai, ką padalija siena – yra sunkesnis darbas. Ir prasideda šį vakarą.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Ar toks jausmas laimėti? Nes atrodo ne taip, kaip tikėjausi.
@@ -631,10 +631,10 @@ Ar toks jausmas laimėti? Nes atrodo ne taip, kaip tikėjausi.
 Ne. Atrodo, kad reikia daugiau nuveikti. Taip žinai, kad tai tikra.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Misijos įvertinimas: 4 sektoriaus atskyrimo tinklas buvo visam laikui išmontuotas. 4-ojo izoliavimo zonos sektoriaus gyventojai pirmą kartą per dvejus metus laisvai juda per savo miestą. Savo veiklos žurnale neturiu kategorijos, kas šiuo metu vyksta šioje aikštėje. Aš sukursiu vieną. Aš tai pavadinsiu: melioracija.
+Misijos įvertinimas: 4 sektoriaus atskyrimo tinklas buvo visam laikui išmontuotas. Apribotos zonos sektoriaus-4 gyventojai pirmą kartą per dvejus metus laisvai juda per savo miestą. Savo veiklos žurnale neturiu kategorijos, kas šiuo metu vyksta šioje aikštėje. Aš sukursiu vieną. Aš tai pavadinsiu: melioracija.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISIJA BAIGTA: NEONINIAI EMBERS. SIENA NUgriuvo. MIESTAS KVĖPUOJA.
+MISIJA BAIGTA: NEONINIAI EMBERS. SIENA NULEIDA. MIESTAS KVĖPUOJA.
 
 -> END
 
@@ -722,7 +722,7 @@ Jie negalėjo mūsų sulaužyti sienomis, todėl rado būdą, kaip mus sulaužyt
 Kryžmines nuorodas į temų failus su pasipriešinimo tinklo duomenų baze radau septyniolika patvirtintų HLF bendruomenės organizatorių, kurie buvo apdoroti per šią priemonę ir vėliau paleisti. Jie nežino, kas jiems buvo padaryta. Sunaikinus centrinę nervinę uplink, galima juos atkurti. Skaičiuoju 73% sėkmingo autonomijos atkūrimo tikimybę. Aš... Manau, kad esu investavęs į tą rezultatą.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ši priemonė yra išteklių naudojimo variklis. Jie aktyviai paverčia Žemės mineralus toksišku biokuru, skirtu gabenimui už pasaulio ribų, palikdami negyvą planetą. Tai yra kolonijinės ekspansijos kaina.
+Ši priemonė yra išteklių naudojimo variklis. Jie aktyviai paverčia Žemės mineralus toksišku biokuru, skirtu gabenimui už pasaulio ribų, palikdami negyvą planetą. Tai kolonijinės ekspansijos kaina.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Oras yra toksiškas, nes jie žiūri į mūsų pasaulį kaip į pakeičiamą kuro šaltinį. Šios laboratorijos paverčia mūsų planetos gyvybę energija savo gyvenvietėms. Turime sustabdyti šį gavybą, kitaip nebeliks ką išgelbėti.
@@ -761,7 +761,7 @@ Roninai, atsitrauk! Jo gynyba yra kinetiškai slopinama. Matrica, nuskaitykite j
 Jei jis nori kautis, duosiu jam vertą priešininką. Aš atkreipsiu jo dėmesį. PASIŽIŪRĖK MAN SUSIVEIKIMĄ, BŪTINĖ!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Analizė baigta. Biologiniams prižiūrėtojo komponentams reikalingas nuolatinis neuroninio signalo atnaujinimas iš bioprocesoriaus. Matrix, paspauskite konsolę tiksline EMP – chirurginis smūgis, sutrikdykite sinchronizavimą!
+Analizė baigta. Biologiniams prižiūrėtojo komponentams reikalingas nuolatinis neuroninio signalo atnaujinimas iš bioprocesoriaus. Matrix, paspauskite konsolę su tiksline EMP - chirurginis smūgis, sutrikdykite sinchronizavimą!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Supratau! Siūlai į adatą!
@@ -867,7 +867,7 @@ MISIJA BAIGTA: PRAMONĖS NUNIIKINIMAS. LIEJYKLĖS KALVĖ TYLI.
 # kind: level # level: 9 # title: Aquanaut Abyss (panardinti griuvėsiai) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Ramusis vandenynas sistemingai nusausinamas giliavandeniais vandenilio vamzdžiais palei žemyninį šelfą. Perkaitintas sūrymas parūgštino 300 kilometrų pakrantės ruožą, sunaikindamas žvejų bendruomenes, kurios išgyveno ištisas kartas.
+Ramusis vandenynas sistemingai nusausinamas giliavandeniais vandenilio vamzdžiais palei žemyninį šelfą. Perkaitintas sūrymas parūgštino 300 kilometrų pakrantės ruožą, sunaikindamas žvejų bendruomenes, kurios išsilaikė ištisas kartas.
 
 # kind: objective
 Suraskite ir sunaikinkite tris pagrindinius giliavandenių sifonų kanalų mazgus, kad visam laikui sustabdytumėte vandenyno sifono operaciją ir pradėtumėte vandenyno atsigavimą.
@@ -1045,7 +1045,7 @@ Aš išlaikysiu juos užimtus! Susikoncentruok, Matrica!
 Dažnis priimtas. Išeiti inicijuojant portalą. Pasiruoškite sunkiam perkrovimui!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Išvažiavimo kelias apsaugotas. Inicijuoja priverstinį nervinį atsijungimą. „Cyber ​​Shogun“, „Oni Matrix“ – puikus darbas.
+Išvažiavimo kelias apsaugotas. Inicijuoja priverstinį nervinį atsijungimą. ��Cyber ​​Shogun“, „Oni Matrix“ – puikus darbas.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Mes išvalėme korupciją. Dabar grįžkime prie fizinės kovos.
@@ -1074,7 +1074,7 @@ Tai yra tas, kurio aš laukiau. Ne sabotažo misija. Ne apiplėšimas. Apgultis 
 Seku 847 patvirtintus civilių pasipriešinimo dalyvius, besiorganizuojančius šiaurinėje inscenizacijos zonoje. Jie nėra apmokyti kariai. Jie turi žemės ūkio įrankius, išgelbėtą statybinę įrangą, dvi funkcionalias transporto priemones ir sukauptą pyktį dėl to, kas buvo padaryta jų bendruomenei. Jie paprašė manęs pasakyti „Aksiomų pajėgoms“ vieną dalyką: jie laukė, kol kas nors kovos su jais, o ne už juos. Prašome nevėluoti.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Tai yra jų regioninės plėtros esmė. Kiekviena Xelthara konstrukcija tūkstantį mylių veikia su šia pavogta galia. Sunaikink jį, o kolonijinė ekspansija badauja, kai atgauname tai, kas buvo paimta.
+Tai yra jų regioninės plėtros esm��. Kiekviena Xelthara konstrukcija tūkstantį mylių veikia su šia pavogta galia. Sunaikink jį, o kolonijinė ekspansija badauja, kai atgauname tai, kas buvo paimta.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 „Nexus“ yra ekranuotas. Tiesioginis puolimas neįmanomas. Turime pradėti kontroliuojamą perkrovą. Yra trys pagrindiniai aušinimo strypai. Jie turi būti ištraukti vienu metu, kitaip sistema automatiškai stabilizuosis.
@@ -1110,7 +1110,7 @@ Prasideda atgalinis skaičiavimas. T minus penki. Keturi. Roninai, padidink skyd
 VIENA. TRAUKTI!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Pagrindinė temperatūra šoktelėjo! Pasiekta katastrofiška perkrova! Imperatore, turite 30 sekundži�� užrakinti seką ir išgauti!
+Pagrindinė temperatūra šoktelėjo! Pasiekta katastrofiška perkrova! Imperatore, turite 30 sekundžių užrakinti seką ir išgauti!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Roninai, eik į išgavimo tašką! Rakinu galutinį kodą!

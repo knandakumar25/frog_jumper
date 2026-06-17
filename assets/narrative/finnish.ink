@@ -127,7 +127,7 @@ AXIOM, käske poistolentäjiä lattiaan! Tämä katto ei tule yhtään vaaleamma
 Ronin, rakenteellinen eheys on 14%. Xelthara Siege Units käyttää raskaita plasmakranaatteja. Todennäköisyys, että sinut murskataan, on 99,2 %.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Sitten otan tuon 0,8 % ja työnän sen heidän kurkkuunsa! SUOJAA!
+Sitten otan sen 0,8% ja työnnän sen heidän kurkkuunsa! SUOJAA!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Jatka liikkumista! He haluavat paimentaa sinut häkkeihin kuin karjaa. Niin kauan kuin hengitän, olen muuri sinun ja heidän suojavyöhykkeidensä välillä. He eivät syrjäytä toista sielua tänään!
@@ -224,7 +224,7 @@ TEHTÄVÄ TÄYDETTY: KONEEN AAVE. ONI MATRIX LIITTYI HLF:ään.
 Tyynenmeren puolustuskeskuksen särkyneet jäänteet. Xelthara kierrättää ylpeää, perinteistä sotilaallista infrastruktuuria, mikä pakottaa Sirenin koordinoimaan piilotettujen solujen hajautettua verkostoa.
 
 # kind: objective
-Pura viimeinen seisova sotilaslähetystorni ja jaa sen taajuussirut siviilien vastarintasoluille, jolloin siirtyminen sissisotaan saadaan päätökseen.
+Pura viimeinen seisova sotilaslähetystorni ja jaa sen taajuussiruja siviilien vastarintasoluille, jolloin siirtyminen sissisotaan saadaan päätökseen.
 
 # kind: solo_monologue # character: Empress Siren # type: radio
 Pysyvien armeijoiden aikakausi on kuollut. Emme voi kohdata heitä kentällä, joten meistä tulee kenttä. Jaa signaali. Hajauta komento. Jos päätä ei ole leikattava, vastus ei voi kuolla.
@@ -239,7 +239,7 @@ HAJAUTTAMISLOKI: SITSIEN SIIRTYMÄ ALOITETTU. SIJAINTI: VIIMEINEN STAND COMMAND 
 Tämä on Void Commander. Perinteinen hierarkia hajoaa. Ette ole enää sotilaita; olette soluja. Häivy kaupunkiin. Lyö, kun he nukkuvat. Ota kotisi takaisin varjo kerrallaan.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Komentaja, pakoalukset raportoivat 85 %:n uhrimäärän laukaisussa. Xelthara-taistelijat asettavat etusijalle ei-taistelijat. He tietävät pakovektorimme.
+Komentaja, pakoalukset raportoivat 85 %:n uhrimäärän laukaisussa. Xelthara-taistelijat asettavat etusijalle ei-taistelijat. He tuntevat pakovektorimme.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 He toimivat hyökkäystä edeltävien taktisten tietojen perusteella. Muutan tiedot. AXIOM, lukitse keskusverkkoyhteys. Ohitan palomuurit manuaalisesti.
@@ -248,7 +248,7 @@ He toimivat hyökkäystä edeltävien taktisten tietojen perusteella. Muutan tie
 Laivastomme on poissa. Pohjamme on pölyä. Jäljelle jää vain data. Minun täytyy olla tarkka. Komentajan velvollisuus on eläviä kohtaan, ei ruumiin puolustaminen.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Uudet parametrit ladattu. Nyt vaikeimpaan osaan. AXIOM, käännä virta ylimääräisestä elämisen tuesta drone-synkronointijärjestelmään.
+Uudet parametrit ladattu. Nyt vaikeimpaan osaan. AXIOM, käännä virta ylimääräisestä henkisestä tukijärjestelmästäni drone-synkronointijärjestelmään.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Komentaja, se laskee alustavarasi 12 prosenttiin. Järjestelmävian riski on suuri. En suosittele tätä.
@@ -304,7 +304,7 @@ SEINÄ, jota he kutsuivat OVEKSI
 Tarkastelemasi rakenne on nimetty siirtomaatietueissa nimellä "Sektorin 4 väestön optimointi- ja kauttakulkuviranomaisten valvontajärjestelmä". Se on seinä. Se on erotusmuuri. Jokainen ihminen tällä puolella sitä tarvitsee Xeltharan myöntämän oleskeluluvan ylittääkseen. Lupia ei myönnetä. Hakujärjestelmässä on kahden vuoden ruuhka. Tämä ei ole onnettomuus. Tämä on pysyvän siirtymän arkkitehtuuri.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Vietin kahdeksan kuukautta tämän kaltaisella suojavyöhykkeellä sen jälkeen, kun he valloittivat San Fernandon laakson. Kahdeksan kuukautta katsomassa, kuinka lapset pienenevät, koska kaloriannokset on suunniteltu lajille, joka ei syö samoja asioita kuin me. Ja toisaalta he syövät meidän ruokaamme. Meidän ravintoloissa. Meidän kaupungissamme.
+Vietin kahdeksan kuukautta tämän kaltaisella suojavyöhykkeellä sen jälkeen, kun he valloittivat San Fernandon laakson. Kahdeksan kuukautta katsomassa, kuinka lapset pienenevät, koska kaloriannokset on suunniteltu lajeille, jotka eivät syö samoja asioita kuin me. Ja toisaalta he syövät meidän ruokaamme. Meidän ravintoloissa. Meidän kaupungissamme.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 AXIOM, vahvista joukkueen neljä tornin sijaintia.
@@ -463,7 +463,7 @@ Spire Gamma saa voimaa kirjaston sisäisestä verkkosta. Jos haluat poistaa torn
 Kolmas kerros. Tietenkin. Näytä tietä, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Kerroin kahdelletoista perheelle, kuinka järjestää yhteisövahtikierrokset tässä huoneessa. Lastenosastolla oli säkkituoleja. Joku oli teipannut värikynäpiirroksia referenssipöytään. Lapsi piirsi kuvan supersankarista. Ero kirjaston ja datakeskuksen välillä on se, että kirjasto olettaa, että ovesta kävelevillä ihmisillä on oikeus olla siellä.
+Kerroin kahdelletoista perheelle, kuinka järjestää yhteisövahtikierrokset tässä huoneessa. Lastenosastolla oli säkkituolit. Joku oli teipannut värikynäpiirroksia referenssipöytään. Lapsi piirsi kuvan supersankarista. Ero kirjaston ja datakeskuksen välillä on se, että kirjasto olettaa, että ovesta kävelevillä ihmisillä on oikeus olla siellä.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Verkkoliitos sijaitsee. Spire Gamma -tehosyötön katkaisu. Tämä myös pyyhkii kaikki tänne tallentamat siirtomaaomaisuuden rekisteröintitiedot.
@@ -493,7 +493,7 @@ Hän sähköistää joen. Koska perheet yrittivät ylittää.
 Oikein. Oikein. Tornin jälkeen. Seinän jälkeen. En unohda.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Tämä ei ole salakavala lähestymistapa. Delta on linnoitettu asema. Löysimme sen yksikkönä. Ronin – otat pisteen, suojaat eteenpäin, kiinnität heidän huomionsa ja imetät heidän alkuperäisen volleynsa. Shogun, tyhjennä vasen kylki. Matrix, käytä Phase-Shiftiä päästäksesi tornin ohjauspaneeliin äärioikealla ja tappaa kaikki kolme tornia samanaikaisesti. Kun tornit ovat kuolleet, teen drooneja kyllästystulitukseen valvontaryhmää vastaan. Romutamme varuskunnan, sitten Ronin laittaa tornin maahan.
+Tämä ei ole salakavala lähestymistapa. Delta on linnoitettu asema. Löysimme sen yksikkönä. Ronin – otat pisteen, suojaat eteenpäin, kiinnität heidän huomionsa ja imetät heidän alkuperäisen volleynsa. Shogun, tyhjennä vasen kylki. Matrix, käytä Phase-Shiftiä päästäksesi tornin ohjauspaneeliin äärioikealla ja tappaa kaikki kolme tornia samanaikaisesti. Kun tornit ovat kuolleet, annan drooneja kyllästystuleen valvontaryhmää vastaan. Romutamme varuskunnan, sitten Ronin laittaa tornin maahan.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 SUOJA YLÖS. Anna heidän heittää kaikki minulle. Olen etuovi.
@@ -520,7 +520,7 @@ Meillä on kahdeksan minuuttia aikaa. Enemmän kuin tarpeeksi. Ronin - torni.
 KINETINEN YLIKUORMITUS – TÄYDELLINEN VAPAUTA!!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Energiakalvo on täysin offline-tilassa. Hallinnollinen risteyseste on neutraloitu. Puskurivyöhyke on... ihmiset ylittävät puskurivyöhykkeen. Noin 12 000 ihmistä liikkuu kohti entistä muuria. He ylittävät sen.
+Energiakalvo on täysin offline-tilassa. Hallinnollinen risteyseste on neutraloitu. Puskurivyöhyke on... ihmiset ylitt��vät puskurivyöhykkeen. Noin 12 000 ihmistä liikkuu kohti entistä muuria. He ylittävät sen.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 He vain... kävelevät. He vain kävelevät läpi.
@@ -616,7 +616,7 @@ Luvankäsittelyydin: offline. Pysyvän palautuksen protokolla: poistettu käytö
 AXIOM. Voitko kertoa minulle, onko isoäitini rakennus rakenteellisesti riittävän turvallinen asuakseen? Haluan tietää, voiko joku muuttaa takaisin.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Suoritetaan rakennetarkistus. Kerrokset 1-4 ovat ehjiä. Perustus on kunnossa. Vesijohto on vaurioitunut, mutta korjattavissa. Kyllä. Joku voisi muuttaa takaisin.
+Rakennetarkistus käynnissä. Kerrokset 1-4 ovat ehjiä. Perustus on kunnossa. Vesijohto on vaurioitunut, mutta korjattavissa. Kyllä. Joku voisi muuttaa takaisin.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Hyvä. Hyvä.
@@ -657,7 +657,7 @@ Spiren sisällä oleva pakkotyön jakojärjestelmä ei käytä sanaa "pakotettu"
 Analyysi valmis. Siirtomaa-alueen laajennussuunnitelmat ja uudisasukkaiden logistiset tiedot tallennetaan tähän keskisarakkeeseen. Matrix, sinulla on viisi minuuttia aikaa suorittaa lataus ennen kuin heidän sisäiset puolustusjärjestelmänsä käynnistyvät uudelleen.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Viisi minuuttia? Kakun pala. Mutta tarvitsen selkeän pääsyn. Shogun, voitko leikata päänavan?
+Viisi minuuttia? Kakun pala. Mutta tarvitsen selke��n pääsyn. Shogun, voitko leikata päänavan?
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Tehty. Luodaan nyt väliaikaista polkua konsoliin. Varo kulmia, keisarinna. Tämä leikkaus hälyttää kaikki alan droonit.
@@ -873,7 +873,7 @@ Tyyntä valtamerta tyhjennetään järjestelmällisesti syvänmeren vetyputken k
 Paikanna ja tuhoa kolme ensisijaista Deep-Sea Siphon Conduit -keskitintä pysäyttääksesi pysyvästi valtameren imutoiminnan ja aloittaaksesi valtameren elpymisen.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Suojavyöhykkeillä on kalastajaperheitä, jotka eivät ole voineet työskennellä sen jälkeen, kun kanavat menivät sisään. Suuvesipurkaus tappoi kaiken uimaetäisyydellä rannasta. Ihmiset, jotka ruokkivat yhteisöjään sukupolvien ajan, ovat nyt Xelthara-annospaketeissa. He ottivat ravintolähteensä, saastuttivat vesinsä, asettivat muurin meren väliin ja kutsuivat sitä kehitykseksi. Tänä iltana annamme heille heidän valtamerensä takaisin.
+Suojavyöhykkeillä on kalastajaperheitä, jotka eivät ole voineet työskennellä sen jälkeen, kun kanavat menivät sisään. Suuvesipurkaus tappoi kaiken uimaetäisyydellä rannasta. Ihmiset, jotka ruokkivat yhteisöjään sukupolvien ajan, ovat nyt Xelthara-annospaketeissa. He ottivat ravintolähteensä, saastuttivat vesinsä, asettivat muurin meren v��liin ja kutsuivat sitä kehitykseksi. Tänä iltana annamme heille heidän valtamerensä takaisin.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Valtameren elpymisen aikajanan mallintaminen putkien tuhoutumisen jälkeen: ekosysteemin osittainen palautuminen kahdeksassatoista kuukaudessa, täydellinen pH:n normalisoituminen kuudesta kahdeksaan vuodessa. Tämä tehtävä ei korjaa vahinkoa välittömästi. Haluan sinun ymmärtävän sen. Se estää vahingon muuttumisen pysyväksi. Jotkut haavat voivat vielä parantua, jos lopetamme niiden avaamisen.
@@ -1178,7 +1178,7 @@ ETEENPÄIN! Heidän linjansa täytyy katkaista. Elite Sentinelsin ensimmäinen a
 Arvoton! KATA SHIKEN! Ronin, työnnä eteenpäin!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-Työntää! Anna minulle kohde, Sireeni, olen sokea tämän tulen alla!
+Työntää! Anna minulle kohde, Siren, olen sokea tämän tulen alla!
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Ronin, laasti koordinaatit 42 astetta oikein! Siirrä kilpiäsi nyt täysi metri vasemmalle!
@@ -1226,7 +1226,7 @@ Konsoli saavutettu! Aloittaa seismisen epävakauden!
 Epävakautus onnistui. Tehtävä suoritettu.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Sanoin... mikään ei riko seinäämme.
+Kerroin sinulle... mikään ei riko seinäämme.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Ei. Mikään ei riko tahtoamme.

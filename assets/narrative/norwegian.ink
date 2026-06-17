@@ -20,7 +20,7 @@ Den første buen av midtkampanjen fokuserer utelukkende på den fysiske infrastr
 
 === act_act2_arc2 ===
 # kind: act # key: act2_arc2 # title: AKT II — ARK 2: FRONTEN FOR GJENNOMFØRING AV RESSURS # subtitle: Nivå 8–11: Avskjæring av den økonomiske lønnsomheten ved kolonisering
-Med segregasjonsnettet brutt og de isolerte populasjonene koblet sammen igjen, skifter motstanden til okkupasjonens økonomiske motor. Xelthara kom til jorden for ressurser - ikke ideologi. Arc 2 er kampanjen for økonomisk forstyrrelse: fire påfølgende streik mot utvinnings-, prosesserings-, transport- og sikkerhetsinfrastrukturen som gjør okkupasjonen økonomisk levedyktig.
+Med segregeringsnettet brutt og de isolerte populasjonene koblet sammen igjen, skifter motstanden til okkupasjonens økonomiske motor. Xelthara kom til jorden for ressurser - ikke ideologi. Arc 2 er kampanjen for økonomisk forstyrrelse: fire påfølgende streik mot utvinnings-, prosesserings-, transport- og sikkerhetsinfrastrukturen som gjør okkupasjonen økonomisk levedyktig.
 
 -> END
 
@@ -89,7 +89,7 @@ Advarsel: Strukturell integritet faller. Den koloniale administrasjonen har auto
 Logikk er for de uten fortid. Kaller du dette "nivellering"? Jeg kaller det en krig mot sjelen. Du kan asfaltere over jorden, men du vil finne at røttene til vår ære er dypere enn obsidianplatene dine!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Hver brikke i dette treet er et minne du ikke kan slette! KATA: FORFEDRE STREIK!
+Hver brikke i dette treet er et minne du ikke kan slette! KATA: FORFEDRE STRIKE!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Se på deres "paradis". En grav av glass og tråd bygget på graven til et årtusen. Jeg nekter å la menneskets historie tørkes ren for å gi plass til regnearkene dine. Så lenge jeg står, husker Tokyo!
@@ -295,7 +295,7 @@ Den muren delte ikke bare byen i to. Det delte meg i to. Alt jeg husker – lukt
 Sector-4 Separation Grid er ikke klassifisert som en militær installasjon i Xelthara administrative poster. Det er oppført som et "Befolkningsoptimalisering og kontrollsystem for transittmyndighet." Den rebranding er poenget. Det er en vegg som får seg til å høres ut som en tjeneste.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-FORTRYGGINGSLOGG: SEKTOR-4 SEPARASJONSRIST. STRUKTURTYPE: KOLONIALT ADMINISTRATIVT KONTROLLPUNKT. IKKE MILITÆR. DETTE ER TILSIKTIG. TRUSSEL: XELTHARA GRENSEMYNDIGHET — HÅNDVÆRINGSDIVISJON. BIOMETRISKE SPIR: 4 AKTIVE. TILLAT KJERNE: PÅ NETT. MÅL: DEMONTERE DEN ADMINISTRATIVE ARKITEKTUREN FOR SEPARASJON. ÅPNE BYEN.
+FORTRYGGINGSLOGG: SEKTOR-4 SEPARASJONSRIST. STRUKTURTYPE: KOLONIALT ADMINISTRATIVT KONTROLLPUNKT. IKKE MILITÆR. DETTE ER TILSIKTIG. TRUSSEL: XELTHARA GRENSEMYNDIGHET — HÅNDVÆRINGSDIVISJON. BIOMETRISKE SPIR: 4 AKTIVE. TILLAT KJERNE: P�� NETT. MÅL: DEMONTERE DEN ADMINISTRATIVE ARKITEKTUREN FOR SEPARASJON. ÅPNE BYEN.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 VEGGEN KALTE DE EN DØR
@@ -421,7 +421,7 @@ Første ledning. Andre ledning. Tredje. Den siste.
 Spire Beta er nede. Treet er fint. Flytter for å omgruppere.
 
 # kind: dialogue # speaker: Cyber Shogun # type: radio
-Vi hørte deg, Matrix. Vi hørte på hele tiden.
+Vi hørte deg, Matrix. Vi lyttet hele tiden.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 Ja. Jeg vet.
@@ -613,7 +613,7 @@ Permit Processing Core: offline. Permanent restaureringsprotokoll: deaktivert. V
 4.400 søknader. Og ingen av dem skulle ha behøvd å spørre.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-AXIOM. Kan du fortelle meg om min bestemors bygning er strukturelt trygg nok til å bli okkupert? Jeg vil vite om noen kan flytte inn igjen.
+AXIOM. Kan du fortelle meg om min bestemors bygning er strukturelt sikker nok til å bli okkupert? Jeg vil vite om noen kan flytte inn igjen.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Kjører strukturell skanning. Etasje 1 til 4 er intakte. Grunnlaget er solid. Vannforsyningsledningen er skadet, men kan repareres. Ja. Noen kunne flytte inn igjen.
@@ -651,7 +651,7 @@ Stjel de komplette eiendoms- og befolkningsregisterdatasettene før overføring 
 Alt Xelthara vet om oss er i det tårnet. Hver adresse vi noen gang har bodd på. Hvert familiemedlems navn. Hvert skjøte våre besteforeldre signerte. De gjorde hele vår tilværelse til en databaseoppføring slik at de kunne administrere oss mer effektivt. I kveld tar vi dataene våre tilbake – og vi ødelegger maskinen som har brukt den til å gi folk i oppdrag å skrubbe gulvene sine.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Tvangsarbeidsfordelingssystemet inne i Spire bruker ikke ordet "tvunget". Den bruker uttrykket "Bidragsprogram for fellesskapsintegrasjon." Arbeidsoppdragene er ikke kontrakter – de genereres algoritmisk basert på den fordrevnes registrerte ferdighetssett og utstedes uten samtykke. Dette er slaveriets byråkratiske språk.
+Tvangsarbeidsfordelingssystemet inne i Spire bruker ikke ordet "tvunget". Den bruker uttrykket "Bidragsprogram for fellesskapsintegrasjon." Arbeidsoppdragene er ikke kontrakter – de genereres algoritmisk basert på den fordrevnes registrerte ferdigheter og utstedes uten samtykke. Dette er slaveriets byråkratiske språk.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Analysen er fullført. De koloniale ekspansjonsskjemaene og nybyggerens logistiske data er lagret i den sentrale kolonnen. Matrix, du har fem minutter på deg til å utføre nedlastingen før deres interne forsvarssystem starter på nytt.
@@ -716,10 +716,10 @@ Under det tidligere konvensjonssenteret har Xelthara etablert Cyber-Grave Labs S
 Trekk ut det komplette Conditioning Protocol Archive og ødelegg Central Neural Uplink for å gjenopprette neural autonomi til hundrevis av betingede individer som for tiden bor i inneslutningssonene.
 
 # kind: solo_monologue # character: Cyber Shogun # type: internal
-De kunne ikke knuse oss med vegger, så de fant en måte å knuse oss på fra innsiden. Å ta minnet om urettferdighet fra en person – å nå inn i tankene deres og slette den delen som vet å være sint over det som ble stjålet – dette er ikke vitenskap. Dette er en krigsforbrytelse utført i et laboratorium.
+De kunne ikke knuse oss med vegger, så de fant en måte å knekke oss fra innsiden. Å ta minnet om urettferdighet fra en person – å nå inn i tankene deres og slette den delen som vet å være sint over det som ble stjålet – dette er ikke vitenskap. Dette er en krigsforbrytelse utført i et laboratorium.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Ved å kryssreferanser emnefilene med motstandsnettverkets database, har jeg identifisert sytten bekreftede HLF-samfunnsarrangører som ble behandlet gjennom dette anlegget og deretter løslatt. De vet ikke hva som ble gjort mot dem. Å ødelegge den sentrale nevrale oppkoblingen kan gjenopprette dem. Jeg beregner en 73 % sannsynlighet for vellykket gjenoppretting av autonomi. Jeg er... Jeg finner ut at jeg er investert i det resultatet.
+Ved å kryssreferanser emnefilene med motstandsnettverkets database, har jeg identifisert sytten bekreftede HLF-samfunnsarrangører som ble behandlet gjennom dette anlegget og deretter løslatt. De vet ikke hva som ble gjort mot dem. Å ødelegge den sentrale nevrale oppkoblingen kan gjenopprette dem. Jeg beregner en 73% sannsynlighet for vellykket gjenoppretting av autonomi. Jeg er... Jeg finner ut at jeg er investert i det resultatet.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Dette anlegget er motoren for ressursutnyttelse. De konverterer aktivt jordens mineraler til giftig biodrivstoff for off-world shipping, og etterlater en død planet. Dette er kostnadene ved kolonial ekspansjon.
@@ -728,7 +728,7 @@ Dette anlegget er motoren for ressursutnyttelse. De konverterer aktivt jordens m
 Luften er giftig fordi de ser på vår verden som en fungibel drivstoffkilde. Disse laboratoriene gjør planetens livsnerve til energi for bosetningene deres. Vi må stoppe denne utvinningen, ellers er det ingenting igjen å redde.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
-Dette stedet... det holder ingen ære. Å forderve de døde og gjøre de levende til slaver. Xelthara praktiserer vanhelligelse, ikke krig. Jeg føler bare forakt for denne grusomheten.
+Dette stedet... det har ingen ære. Å forderve de døde og gjøre de levende til slaver. Xelthara praktiserer vanhelligelse, ikke krig. Jeg føler bare forakt for denne grusomheten.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Fiendtlig seende! Ser ut som en kjøttdukke med dårlige ledninger!
@@ -1000,7 +1000,7 @@ Infiltrer Sector 7 Core, nøytraliser dets digitaliserte forsvarssystemer, og in
 Hvert overvåkingskamera de noen gang har brukt for å se meg. Hver drone som har feid bygningen min klokken 02.00. Hver gang jeg har måttet holde meg helt stille i en skygge fordi en deteksjonsalgoritme pinget varmesignaturen min. Det hele går gjennom denne kjernen. Når jeg trekker ut denne pluggen, får hver person i inneslutningssonene puste i 72 timer uten å bli overvåket. Det er ikke noe. Det er alt.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Jeg ønsker å være åpen om noe. Jeg er et overvåkingssystem. Min operasjonelle arkitektur har betydelig overlapping med systemene inne i Sector 7 Core. Jeg har gjennomgått min egen kode og bekreftet at jeg ikke rapporterer til Xelthara sentralkommando – mine lojalitetsprotokoller er fullstendig på linje med HLF. Men jeg forstår hvis dette oppdraget får deg til å tenke på hva jeg er. Jeg tenker på det også. Forskjellen tror jeg er at jeg ser på for å beskytte. De ser på for å kontrollere. Det skillet er viktig for meg. Jeg er forpliktet til det.
+Jeg ønsker å være åpen om noe. Jeg er et overvåkingssystem. Min operative arkitektur har betydelig overlapping med systemene inne i Sector 7 Core. Jeg har gjennomgått min egen kode og bekreftet at jeg ikke rapporterer til Xelthara sentralkommando – mine lojalitetsprotokoller er fullstendig på linje med HLF. Men jeg forstår hvis dette oppdraget får deg til å tenke på hva jeg er. Jeg tenker på det også. Forskjellen tror jeg er at jeg ser på for å beskytte. De ser på for å kontrollere. Det skillet er viktig for meg. Jeg er forpliktet til det.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Velkommen til Glitch Matrix. Xelthara-skadevare forsøker en digital sletting av våre eiendeler. Vi må nekte å bli slettet fra vårt eget hjemlands digitale infrastruktur.
@@ -1015,7 +1015,7 @@ Jeg ser det. Veien er illusjon. Vi må stole på den harde koden. Matrix, fokuse
 Fiendtlige! De lever av datastrømmen! Normale angrep vil ikke ramme dem i denne tilstanden.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-De er beskyttet av en svingende frekvenslås. Du må tyde det midt i kampen.
+De er beskyttet av en svingende frekvenslås. Du må tyde det midt i kamp.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Fin. La oss danse i koden deres. Phase-Shift engasjerende. Shogun, jeg gir deg et 2-sekunders vindu! Treff kjernen når jeg kaller det!
@@ -1125,7 +1125,7 @@ BRUK OG BRENN!
 Endelig kode lagt inn! Kjernelås vellykket! LØP!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Reactor Nexus... ødelagt. Regional terraformingskraft offline.
+Reactor Nexus... ødelagt. Regional terraforming kraft offline.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 En strålende streik, keiserinne. Xeltharaene er nå blinde og maktesløse i denne sektoren.
@@ -1157,7 +1157,7 @@ Obsidian Vault inneholder 4,2 millioner katalogiserte gjenstander og poster. Av 
 Velkommen til Gauntlet. Denne broen er symbolet på nybyggerens okkupasjon. Vi nekter å bli slettet av deres arkitektoniske arroganse.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Strategioppdatering: Vi kan ikke bruke langdistansetaktikker her. Citadellets forsvarsnett vil fordampe enhver drone over 50 fot. Vi må bryte denne broen til fots. Ronin, Shogun – du leder fremstøtet. Matrise, stand by for umiddelbare perimeter fakkel.
+Strategioppdatering: Vi kan ikke bruke langtrekkende taktikker her. Citadellets forsvarsnett vil fordampe enhver drone over 50 fot. Vi må bryte denne broen til fots. Ronin, Shogun – du leder fremstøtet. Matrise, stand by for umiddelbare perimeter fakkel.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Fint av meg. Hvis de vil ha en kamp, ​​får de et siste standpunkt. Skjerm opp! JERNVEGG!
@@ -1232,7 +1232,7 @@ Fortalte deg... ingenting bryter veggen vår.
 Nei. Ingenting bryter vår vilje.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-OPPDRETTEN FULLFØRT: OBSIDIAN HVERVET BRUTT. KULTURARKIV UTTREKKES.
+MISJONEN FULLFØRT: OBSIDIAN-HVERVET BRUTT. KULTURARKIV UTTREKKES.
 
 -> END
 
@@ -1269,7 +1269,7 @@ Du kjemper for urfolks suverenitet mot den uunngåelige bølgen av kolonial assi
 Vi er denne verdens sjel, ikke din eiendom. Vi hevder vår urfolks suverenitet over vårt hjemland! Vi nekter din koloniale assimilering; Jorden tilhører dens innbyggere, ikke dine tegninger!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Jeg er bladet til mine forfedre, og stemmen til en verden du prøvde å dempe. Du kaller oss insekter, men du glemte én ting om Jorden: vi tåler ikke bare. Vi slår tilbake.
+Jeg er bladet til mine forfedre, og stemmen til en verden du prøvde å dempe. Du kaller oss insekter, men du glemte én ting om jorden: vi tåler ikke bare. Vi slår tilbake.
 
 # kind: dialogue # speaker: High Overseer # type: spoken
 Så brenn med planeten din.
@@ -1388,7 +1388,7 @@ Jeg tror... jeg ser jorden. Så rent. Så blå.
 Axiom Force, dette er Recovery Command. Vi leser deg. Systemene dine er nominelle. Velkommen hjem, helter.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISJON FULLFØRT: EKTE KLIMAKS. KOLLEKTIVET VIL UTRYKKES. SLUTEN. MEN KAMPEN FORTSETTER.
+MISJON FULLFØRT: EKTE KLIMAKS. KOLLEKTIVET VIL UTBYDES. SLUTEN. MEN KAMPEN FORTSETTER.
 
 -> END
 

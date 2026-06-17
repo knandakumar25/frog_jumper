@@ -157,7 +157,7 @@ Bessere Chancen als in den Sicherheitslagern. Das ist eine einfache Fahrt, Junge
 FÜR DIE HEIMAT! ESSEN SIE BETON!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ronin? Aegis Ronin, antworte ... Ich habe ... Augen auf eine Unterschrift gerichtet ... Der Schild hielt. Die Wand ist sicher.
+Ronin? Aegis Ronin, antworte ... Ich habe ... eine Unterschrift im Blick ... Der Schild hielt. Die Wand ist sicher.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 MISSION ABGESCHLOSSEN: DIE UNZERBRUCHBARE MAUER. AEGIS RONIN TRITT DEM HLF BEI.
@@ -168,7 +168,7 @@ MISSION ABGESCHLOSSEN: DIE UNZERBRUCHBARE MAUER. AEGIS RONIN TRITT DEM HLF BEI.
 # kind: level # level: 3 # title: Neonrost und Datenstaub # dialogue_status: scripted
 
 # kind: setting
-Die buchstäbliche „Unterstadt“ – ein Netzwerk von Wartungsschächten unter einer glänzenden, neonbeleuchteten Xelthara-Siedlung. Oben genießen die Bewohner terraformierte Luft; Unten suchen die marginalisierten Menschen nach ozonverseuchtem Sauerstoff.
+Die buchstäbliche „Unterstadt“ – ein Netzwerk von Wartungsschächten unter einer glänzenden, neonbeleuchteten Xelthara-Siedlung. Oben genießen die Bewohner terraformierte Luft; Unten sind die marginalisierten Menschen auf der Suche nach ozonverseuchtem Sauerstoff.
 
 # kind: objective
 Entziehen Sie Energie aus dem kolonialen Stromnetz, um die Lebenserhaltungssysteme der marginalisierten Bevölkerung mit Strom zu versorgen, und entgehen Sie gleichzeitig den „Purity Patrols“, die nach menschlichen Streunern jagen.
@@ -224,7 +224,7 @@ MISSION ABGESCHLOSSEN: DER GEIST IN DER MASCHINE. ONI MATRIX TRITT DEM HLF BEI.
 Die zerstörten Überreste des Pacific Defense Hub. Die stolze, traditionelle militärische Infrastruktur wird von den Xelthara recycelt, was Siren dazu zwingt, ein dezentrales Netzwerk versteckter Zellen zu koordinieren.
 
 # kind: objective
-Zerlegen Sie den letzten militärischen Sendemast und verteilen Sie seine Frequenzchips an zivile Widerstandszellen, um den Übergang zum Guerillakrieg abzuschließen.
+Zerlegen Sie den letzten Militärsendeturm und verteilen Sie seine Frequenzchips an zivile Widerstandszellen, um den Übergang zum Guerillakrieg abzuschließen.
 
 # kind: solo_monologue # character: Empress Siren # type: radio
 Das Zeitalter der stehenden Heere ist vorbei. Wir können ihnen nicht auf dem Feld begegnen, also werden wir zum Feld. Teilen Sie das Signal. Dezentralisieren Sie den Befehl. Wenn es keinen Kopf zum Abschlagen gibt, kann der Widerstand nicht sterben.
@@ -397,7 +397,7 @@ PHASE 2-A: ONI-MATRIX BEI SPIRE BETA – 5. UND FRÜHLING
 Da ist es. Der Baum ist immer noch da. Meine Großmutter sagte immer, der Baum sei älter als das Rathaus der Stadt, und ich habe ihr nie geglaubt.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-47 Tage nach dem Mauerbau reichte sie einen Antrag auf Genehmigung für den Grenzübertritt ein. Sie füllte die Formulare aus. In dreifacher Ausfertigung. Weil sie an Prozesse glaubte. Sie glaubte, wenn man die Dinge richtig machte, würde jemand zuhören. Sie bekam nie eine Antwort. Sie starb zwei Monate später in der Sicherheitszone. Komplikationen durch Unterernährung. Auf der anderen Seite der Mauer befand sich ihr Lieblingslebensmittelgeschäft. Sie reichte ein Formular ein, um Essen zu kaufen.
+Siebenundvierzig Tage nach dem Bau der Mauer reichte sie einen Antrag auf eine Überquerungsgenehmigung ein. Sie füllte die Formulare aus. In dreifacher Ausfertigung. Weil sie an Prozesse glaubte. Sie glaubte, wenn man die Dinge richtig machte, würde jemand zuhören. Sie bekam nie eine Antwort. Sie starb zwei Monate später in der Sicherheitszone. Komplikationen durch Unterernährung. Auf der anderen Seite der Mauer befand sich ihr Lieblingslebensmittelladen. Sie reichte ein Formular ein, um Essen zu kaufen.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Ich werde dieses Ding sehr vorsichtig auseinandernehmen, damit ich den Baum nicht verletze.
@@ -478,7 +478,7 @@ Dann handelt es sich hier nicht nur um Infrastruktursabotage. Es handelt sich hi
 Spires Alpha, Beta und Gamma offline. Integrität der Energiemembran: 25 %. Spire Delta am Fluss ist der letzte Anker. Nach dem Sturz von Delta kommen alle Teams zusammen. Dann: Pershing Square. Der Genehmigungskern.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-PHASE 2-C: SPIRE DELTA – DER SÜDLICHE TERMINUS AM FLUSS
+PHASE 2-C: SPIRE DELTA – DER SÜDLICHE ENDE AM FLUSS
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spire Delta ist der tragende Anker der Wand. Es wird vom Grenzkommandanten Vyss bewacht, der die Elektrifizierung des Flusses angeordnet hat, nachdem in der ersten Woche des Mauerbaus drei Familien versucht hatten, das Wasser zu überqueren. Vyss hat ihre Inhaftierung nicht angeordnet. Vyss befahl, das Wasser zu elektrisieren.
@@ -511,7 +511,7 @@ Ghosting rechts. Dumm. Turmkontrolle erreicht. Alle drei töten. EMP-PULSE – V
 Drohnenflotte, vollständige Unterdrückung. Priorisieren Sie die Formation – durchbrechen Sie ihre Linie. FEUER.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Commander Vyss zieht sich in den Kommandoposten hinter dem Turm zurück. Er löst ein Notsignal aus. Reaktionszeit: acht Minuten.
+Kommandant Vyss zieht sich in den Kommandoposten hinter dem Turm zurück. Er löst ein Notsignal aus. Reaktionszeit: acht Minuten.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Wir haben acht Minuten. Mehr als genug. Ronin – der Turm.
@@ -520,7 +520,7 @@ Wir haben acht Minuten. Mehr als genug. Ronin – der Turm.
 KINETISCHE ÜBERLASTUNG – VOLLSTÄNDIGE FREIGABE!!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Die Energiemembran ist komplett offline. Die administrative Grenzbarriere wurde aufgehoben. Die Pufferzone ist... Menschen überqueren die Pufferzone. Etwa 12.000 Menschen zogen in Richtung der ehemaligen Mauerlinie. Sie überqueren es.
+Die Energiemembran ist komplett offline. Die administrative Grenzbarriere wurde aufgehoben. Die Pufferzone ist... Menschen überqueren die Pufferzone. Etwa 12.000 Personen zogen in Richtung der ehemaligen Mauerlinie. Sie überqueren es.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Sie gehen einfach.... Sie gehen einfach durch.
@@ -595,7 +595,7 @@ Was Sie „strukturiertes Bevölkerungsmanagement“ nennen, nennen wir das Rech
 Konsole zwei: fertig. Meine Großmutter beantragte eine Genehmigung zum Lebensmitteleinkauf. Sie wollen über Verwaltungsordnung sprechen?
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Konsole drei: bereit. 4.400 Namen. Jeder von ihnen ist ein Mensch, der einfach nur nach Hause wollte. Davor schützte diese Mauer.
+Konsole drei: fertig. 4.400 Namen. Jeder von ihnen ist ein Mensch, der einfach nur nach Hause wollte. Davor schützte diese Mauer.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Bestätigt. Alle drei Eingabekonsolen sind vorbereitet. Bei gleichzeitiger Autorisierung wird der Speicher gelöscht und das Wiederherstellungsprotokoll des Cores dauerhaft deaktiviert. Auf Ihr Zeichen, Kaiserin.
@@ -622,7 +622,7 @@ Struktureller Scan wird ausgeführt. Die Etagen eins bis vier sind intakt. Das F
 Gut. Gut.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Die Mauer ist weg, Matrix. Aber was wir jetzt tun – wie wir das wieder aufbauen, was die Mauer trennte – das ist die schwierigere Arbeit. Und es beginnt heute Abend.
+Die Mauer ist weg, Matrix. Aber was wir jetzt tun – wie wir das wieder aufbauen, was die Mauer trennte –, das ist die schwierigere Arbeit. Und es beginnt heute Abend.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Fühlt sich Gewinnen so an? Weil es sich nicht so anfühlt, wie ich es erwartet habe.
@@ -678,7 +678,7 @@ Drohnen drei und vier, Unterdrückungsfeuer auf der linken Flanke! Zeichne ihre 
 Für den Naturschutz ist es zu spät! ZERSCHLAGEN! Sag Matrix, sie soll sich beeilen!
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
-Ruhig, Fleischschild! Ich führe eine digitale Nadel durch ihr Kernhirn! Nur... ein bisschen... weiter...
+Ruhig, Fleischschild! Ich führe eine digitale Nadel durch ihr Kernhirn! Nur... ein wenig... weiter...
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Warnung: Der Datendownload ist zu 95 % abgeschlossen. Xelthara-Gegenangriff eingeleitet. Matrix, der Spire sperrt alle internen Zugangspunkte!
@@ -710,7 +710,7 @@ MISSION ABGESCHLOSSEN: INDUSTRIELLE VERWÜSTUNG. DIE SHADO-GRID SPIRE-DATEN GEH�
 # kind: level # level: 7 # title: Cyber-Grave Labs (Untergrundanlage) # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Unterhalb des ehemaligen Kongresszentrums haben die Xelthara die Cyber-Grave Labs Sector-Omega-7 eingerichtet – eine geheime Forschungseinrichtung zur Verhaltensänderung, die öffentlich als „Wellnesszentrum für die Wiedereingliederung des Menschen“ bezeichnet wird. Hier werden gefangene menschliche Widerstandsführer und Gemeinschaftsorganisatoren verarbeitet. Sie zeigen sich gefügig, unverbunden und können sich nicht erinnern, warum sie wütend waren.
+Unterhalb des ehemaligen Kongresszentrums haben die Xelthara die Cyber-Grave Labs Sector-Omega-7 eingerichtet – eine geheime Forschungseinrichtung zur Verhaltensänderung, die öffentlich als „Wellnesszentrum für die Wiedereingliederung des Menschen“ bezeichnet wird. Hier werden gefangene menschliche Widerstandsführer und Gemeindeorganisatoren verarbeitet. Sie zeigen sich gefügig, unverbunden und können sich nicht erinnern, warum sie wütend waren.
 
 # kind: objective
 Extrahieren Sie das vollständige Archiv des Konditionierungsprotokolls und zerstören Sie den zentralen neuronalen Uplink, um die neuronale Autonomie von Hunderten von konditionierten Personen wiederherzustellen, die derzeit in den Eindämmungszonen leben.
@@ -805,7 +805,7 @@ Sie verlangen von uns Sauerstoffrationen. Sie haben unsere Luft unatembar gemach
 Der atmosphärische Schaden im Umkreis von 40 Kilometern um diese Gießerei stellt einen Verstoß gegen das Universelle Umweltschutzabkommen von 2089 dar – ein Vertrag, den das Xelthara-Kollektiv ratifiziert hat. Ich habe im Namen der HLF einen formellen Verstoßbericht beim Galaktischen Verwaltungsgericht eingereicht. Die geschätzte Reaktionszeit des Gerichts beträgt elf Jahre. Die von der Gießerei geschätzte Zeit bis zur dauerhaften atmosphärischen Irreversibilität: vier Monate. Wir warten nicht auf das Gericht.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Dabei handelt es sich um eine unternehmensbürokratische Extraktionsanlage. Sie bauen den Erdkern im Tagebau ab, um ihn in andere Welten zu exportieren. Jede Lieferung ist ein weiteres verkauftes Stück unserer Welt. Ziel: Sabotage der Förderanlagen, um den ��kologischen Kollaps zu stoppen.
+Dabei handelt es sich um eine unternehmensbürokratische Extraktionsanlage. Sie bauen den Erdkern im Tagebau ab, um ihn in andere Welten zu exportieren. Jede Lieferung ist ein weiteres verkauftes Stück unserer Welt. Ziel: Sabotage der Förderanlagen, um den ökologischen Kollaps zu stoppen.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Ich entdecke schwere Erdbebendämpfer auf diesen Stützen. Direktes Energiefeuer wird nicht funktionieren. Ronin, das ist deine Spezialität. Es ist kinetische Kraft erforderlich.
@@ -867,7 +867,7 @@ MISSION ABGESCHLOSSEN: INDUSTRIELLE VERWÜSTUNG. Die Gießereischmiede ist still
 # kind: level # level: 9 # title: Aquanaut Abyss (Untergetauchte Ruinen) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Der Pazifische Ozean wird systematisch durch Tiefsee-Wasserstoff-Siphonleitungen entlang des Festlandsockels entwässert. Überhitzte Soleausflüsse haben einen 300 Kilometer langen Küstenabschnitt versauert und Fischerdörfer zerstört, die sich über Generationen hinweg ernährt haben.
+Der Pazifische Ozean wird systematisch durch Tiefseewasserstoff-Siphonleitungen entlang des Festlandsockels entwässert. Überhitzte Soleausflüsse haben einen 300 Kilometer langen Küstenabschnitt versauert und Fischerd��rfer zerstört, die sich über Generationen hinweg ernährt haben.
 
 # kind: objective
 Lokalisieren und zerstören Sie die drei primären Tiefsee-Siphon-Leitungsknotenpunkte, um die Ozean-Siphon-Operation dauerhaft zu stoppen und mit der Erholung der Ozeane zu beginnen.
@@ -1110,7 +1110,7 @@ Zum Ruhm der Erde!
 EINS. ZIEHEN!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Die Kerntemperatur steigt! Katastrophale Überlastung erreicht! Kaiserin, Sie haben 30 Sekunden Zeit, um die Sequenz zu sperren und zu extrahieren!
+Die Kerntemperatur steigt! Katastrophale Überlastung erreicht! Kaiserin, Sie haben 30 Sekunden Zeit, um die Sequenz zu speichern und zu extrahieren!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Ronin, begib dich zum Extraktionspunkt! Ich sperre den endgültigen Code!
@@ -1269,7 +1269,7 @@ Sie kämpfen für die Souveränität der Ureinwohner gegen die unvermeidliche Fl
 Wir sind die Seele dieser Welt, nicht Ihr Eigentum. Wir behaupten unsere indigene Souveränität über unser Heimatland! Wir lehnen Ihre koloniale Assimilation ab; Die Erde gehört ihren Bewohnern, nicht Ihren Bauplänen!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Ich bin die Klinge meiner Vorfahren und die Stimme einer Welt, die du zum Schweigen bringen wolltest. Sie nennen uns Insekten, aber Sie haben eines über die Erde vergessen: Wir ertragen nicht einfach so. Wir schlagen zurück.
+Ich bin die Klinge meiner Vorfahren und die Stimme einer Welt, die du zum Schweigen bringen wolltest. Sie nennen uns Insekten, aber Sie haben eines über die Erde vergessen: Wir ertragen es nicht einfach. Wir schlagen zurück.
 
 # kind: dialogue # speaker: High Overseer # type: spoken
 Dann brenne mit deinem Planeten.
@@ -1319,7 +1319,7 @@ MISSION ABGESCHLOSSEN: TAG DES Jüngsten Gerichts. Der Hohe Aufseher ist besiegt
 Die Singularity Engine-Kammer des Xelthara-Mutterschiffs – eine Kammer aus reiner instabiler Energie im Herzen der Macht des Kollektivs, in der sich der kollektive Wille selbst manifestiert.
 
 # kind: objective
-Zerstören Sie den Kern der Singularitätsmaschine des Collective Will, indem Sie Generatorüberlastungen und einen letzten kombinierten Angriff koordinieren, bevor das Mutterschiff seine Auslöschung der Erde abschließt.
+Zerstören Sie den Kern der Singularitätsmaschine des Collective Will, indem Sie Generatorüberlastungen und einen letzten kombinierten Schlag koordinieren, bevor das Mutterschiff seine Auslöschung der Erde abschließt.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Dies liegt außerhalb einer Eindämmungszone. Meine Instrumente versagen. Das Raumgefüge selbst ist hier instabil. Das muss das wahre Herz des Mutterschiffs sein.
@@ -1334,7 +1334,7 @@ Ich kann den reinen Datenstrom spüren, Shogun. Es versucht, meinen neuronalen K
 Sie sind eine lokalisierte Anomalie in einem großartigen Design. Alle Existenz ist eine fungible Ressource für unsere Expansion. Ihr Heimatland ist bereits in unserer endgültigen Gleichung der Auslöschung berücksichtigt.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-Existenz, nicht wahr? Dann zeigen wir der Existenz, was passiert, wenn man sich mit der Erde anlegt! Ronin, greift die Perimeterwächter an!
+Existenz, nicht wahr? Dann zeigen wir der Existenz, was passiert, wenn man sich mit der Erde anlegt! Ronin, greife die Perimeterwächter an!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Ronin, beschäftige diese Wächter! Matrix, Shogun, schalte die Generatoren an den oberen Türmen ein! Wir müssen das Magnetfeld stören, bevor ich den Kern anvisieren kann!

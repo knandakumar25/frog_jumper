@@ -18,7 +18,7 @@
     "act2_arc3": {
       "title": "HÀNH II - PHẦN 3: BỎ QUA QUẢN TRỊ DOANH NGHIỆP",
       "subtitle": "Cấp độ 12–14: Đi sâu vào trung tâm Nhà nước hành chính thuộc địa",
-      "description": "Các động cơ khai thác bị dừng lại. Lưới an ninh tối. Những bức tường ngăn cách bị nứt. Những gì còn lại là cơ cấu hành chính và chính trị của chính sự chiếm đóng. Phần 3 là trình tự trực tiếp về mặt chính trị nhất của chiến dịch: cuộc kháng chiến không còn chiến đấu với quân đội chiếm đóng nữa. Nó đang phá hủy một nhà nước thuộc địa, từng phần một, từ ngoài vào trong."
+      "description": "Các động cơ khai thác bị dừng lại. Lưới an ninh tối. Những bức tường ngăn cách bị nứt. Những gì còn lại là cơ cấu hành chính và chính trị của chính sự chiếm đóng. Phần 3 là trình tự trực ti���p về mặt chính trị nhất của chiến dịch: cuộc kháng chiến không còn chiến đấu với quân đội chiếm đóng nữa. Nó đang phá hủy một nhà nước thuộc địa, từng phần một, từ ngoài vào trong."
     }
   },
   "levels": {
@@ -106,7 +106,7 @@
       "title": "Cháy rừng bê tông",
       "arc": null,
       "setting": "Cổng vào khổng lồ, có cổng của Khu Quản thúc 4. Hàng nghìn gia đình đang bị chăn dắt như đàn gia súc qua hàng rào năng lượng. Phía sau họ, những ngôi nhà ở ngoại ô của họ đang bị san phẳng bởi xe tập đi mở rộng Xelthara.",
-      "objective": "Giữ 'Cây cầu cuối cùng' chống lại những người thực thi Xelthara đang chăn dắt dân cư, cho phép nhóm người tị nạn cuối cùng lẻn vào các khu ổ chuột chưa được lập bản đồ thay vì các trại có cổng kiểm soát.",
+      "objective": "Giữ 'Cây cầu cuối cùng' chống lại những người thực thi Xelthara đang chăn dắt dân số, cho phép nhóm người tị nạn cuối cùng lẻn vào các khu ổ chuột chưa được lập bản đồ thay vì các trại có cổng kiểm soát.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
@@ -178,7 +178,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin? Aegis Ronin, trả lời... T��i có... đang nhìn thấy chữ ký... Chiếc khiên được giữ. Bức tường được an toàn."
+          "text": "Ronin? Aegis Ronin, trả lời... Tôi có... đang nhìn thấy chữ ký... Chiếc khiên được giữ. Bức tường được an toàn."
         },
         {
           "speaker": "DISPLAY",
@@ -191,7 +191,7 @@
       "title": "Rỉ sét và bụi dữ liệu",
       "arc": null,
       "setting": "'Dưới thành phố' theo nghĩa đen—một mạng lưới các trục bảo trì bên dưới khu định cư Xelthara lấp lánh ánh đèn neon. Ở trên, những người cư ngụ tận hưởng không khí địa hình; bên dưới, những người bị thiệt thòi đang tìm kiếm oxy bị ô nhiễm ozone.",
-      "objective": "Hút năng lượng từ lưới điện thuộc địa để cung cấp năng lượng cho hệ thống hỗ trợ cuộc sống của những người dân bị thiệt thòi, đồng thời trốn tránh cuộc săn lùng con người đi lạc của 'Đội tuần tra thuần khiết'.",
+      "objective": "Hút năng lượng từ lưới điện thuộc địa để cung cấp năng lượng cho hệ thống hỗ trợ cuộc sống của những người dân bị thiệt thòi, đồng thời trốn tránh cuộc săn lùng con người lạc lối của 'Đội tuần tra thuần khiết'.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
@@ -201,7 +201,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Cảnh báo: Không nên tích hợp phần cứng Xelthara vào khung gầm dân dụng. Phản hồi thần kinh được dự đoán ở m��c không ổn định 40%. Matrix, nhịp tim của bạn đang vượt quá giới hạn an toàn."
+          "text": "Cảnh báo: Không nên tích hợp phần cứng Xelthara vào khung gầm dân sự. Phản hồi thần kinh được dự đoán ở mức không ổn định 40%. Matrix, nhịp tim của bạn đang vượt quá giới hạn an toàn."
         }
       ],
       "dialogue_status": "scripted",
@@ -244,7 +244,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Đó là một lối thoát rất ồn ào, Matrix. Tôi đã xem ch�� ký của bạn kể từ khi ở nhà máy lọc dầu."
+          "text": "Đó là một lối thoát rất ồn ào, Matrix. Tôi đã xem chữ ký của bạn kể từ khi ở nhà máy lọc dầu."
         },
         {
           "speaker": "Oni Matrix",
@@ -282,7 +282,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Hoàng hậu, việc phát sóng của người là một rủi ro lớn! Bạn đang phơi bày vị trí của mình và dạng tần số của điện trở. Đi���u này không tối ưu. Hãy hủy bỏ việc truyền tải."
+          "text": "Hoàng hậu, việc phát sóng của người là một rủi ro lớn! Bạn đang phơi bày vị trí của mình và dạng tần số của điện trở. Điều này không tối ưu. Hãy hủy bỏ việc truyền tải."
         }
       ],
       "dialogue_status": "scripted",
@@ -315,7 +315,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Đã tải thông số mới. Bây giờ đến phần khó khăn. AXIOM, chuyển nguồn điện từ thiết bị hỗ trợ sự sống phụ trợ của tôi sang mảng đồng bộ hóa máy bay không người lái."
+          "text": "Đã tải thông số mới. Bây giờ là phần khó khăn. AXIOM, chuyển nguồn điện từ thiết bị hỗ trợ sự sống phụ trợ của tôi sang mảng đồng bộ hóa máy bay không người lái."
         },
         {
           "speaker": "AXIOM-7",
@@ -340,7 +340,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Bị cấm là không liên quan. Tôi sẽ không nhìn họ chết. AXIOM, cấp cho tôi quyền truy cập ghi đè thủ công vào nguồn cấp d��� liệu quỹ đạo của Nền tảng Vệ tinh Kinetic. Tôi cần một phát bắn liều mạng duy nhất."
+          "text": "Bị cấm là không liên quan. Tôi sẽ không nhìn họ chết. AXIOM, cấp cho tôi quyền truy cập ghi đè thủ công vào nguồn cấp dữ liệu quỹ đạo của Nền tảng Vệ tinh Kinetic. Tôi cần một phát bắn liều mạng duy nhất."
         },
         {
           "speaker": "Empress Siren",
@@ -355,7 +355,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Việc rút lui đã được xác nhận. Mục tiêu nhiệm vụ—sự sống còn của dân thường—đã đạt được. Họ đã chiếm được bầu trời của chúng ta nhưng họ sẽ không bao giờ lấy được quyết tâm của chúng ta. Đang giải nén ngay bây giờ."
+          "text": "Việc rút lui đã được xác nhận. Mục tiêu nhiệm vụ—sự sống còn của dân thường—đã đạt được. Họ đã chiếm được bầu trời của chúng ta nhưng họ sẽ không bao giờ lấy được quyết tâm của chúng ta. Đang trích xuất bây giờ."
         },
         {
           "speaker": "DISPLAY",
@@ -411,7 +411,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Alpha nằm ở vị trí cũ của hành lang nghệ thuật Grand Avenue. Spire Beta được trồng ở góc đường số 5 và mùa xuân. Spire Gamma được gắn vào bức tường bên ngoài của Thư viện Trung tâm cũ. Spire Delta neo bến cuối phía nam của bức tường ở sông. Lõi xử lý giấy phép được đặt trong trạm kiểm soát tại nơi trước đây là Quảng trường Pershing. Tất cả bốn ngọn tháp phải bị vô hiệu hóa trước khi Lõi có thể bị xuyên thủng. Việc phá hủy Lõi sẽ làm sập toàn bộ màng năng lượng theo tầng."
+          "text": "Spire Alpha nằm ở vị trí cũ của hành lang nghệ thuật Grand Avenue. Spire Beta được trồng ở góc đường số 5 và mùa xuân. Spire Gamma được gắn vào bức tường bên ngoài của Thư viện Trung tâm cũ. Spire Delta neo bến cuối phía nam của bức tường ở sông. Lõi xử lý giấy phép được đặt trong trạm kiểm soát tại nơi trước đây là Quảng trường Pershing. Tất cả bốn ngọn tháp phải bị vô hiệu hóa trước khi Lõi có thể bị xuyên thủng. Việc phá hủy Lõi sẽ làm sập toàn bộ m��ng năng lượng theo tầng."
         },
         {
           "speaker": "Oni Matrix",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Tôi đã nói với mười hai gia đình cách tổ chức luân phiên canh gác cộng đồng trong căn phòng này. Có những chiếc ghế lười ở khu vực dành cho trẻ em. Ai đó đã dán những bức vẽ bằng bút màu lên bàn tham khảo. Một đứa trẻ vẽ một bức tranh về một siêu anh hùng. Sự khác biệt giữa thư viện và trung tâm dữ liệu là thư viện coi những người bước qua cửa đều có quyền ở đó."
+          "text": "Tôi đã nói với 12 gia đình cách tổ chức luân phiên canh gác cộng đồng trong căn phòng này. Có những chiếc ghế lười ở khu vực dành cho trẻ em. Ai đó đã dán những bức vẽ bằng bút màu lên bàn tham khảo. Một đứa trẻ vẽ một bức tranh về một siêu anh hùng. Sự khác biệt giữa thư viện và trung tâm dữ liệu là thư viện coi những người bước qua cửa đều có quyền ở đó."
         },
         {
           "speaker": "Empress Siren",
@@ -696,7 +696,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Delta là mỏ neo chịu lực của bức tường. Nó được canh giữ bởi Chỉ huy Biên giới Vyss — người đã ra lệnh điện khí hóa dòng sông sau khi ba gia đình cố gắng vượt qua vùng nước trong tuần đầu tiên của bức tường. Vyss không ra lệnh giam giữ họ. Vyss ra lệnh điện khí hóa nước."
+          "text": "Spire Delta là mỏ neo chịu lực của bức tường. Nó được canh giữ bởi Chỉ huy Biên giới Vyss — người đã ra lệnh điện khí hóa dòng sông sau khi ba gia đình cố gắng vượt qua vùng nước trong tuần đầu tiên của bức tường. Vyss không ra lệnh giam gi��� họ. Vyss ra lệnh điện khí hóa nước."
         },
         {
           "speaker": "Aegis Ronin",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Đây không phải là một cách tiếp cận lén lút. Delta là một vị trí kiên cố. Chúng tôi đánh nó như một đơn vị. Ronin—bạn giữ điểm, che chắn về phía trước, thu hút sự chú ý của họ và hấp thụ cú vô lê ban đầu của họ. Tướng quân, dọn sạch cánh trái. Ma trận, sử dụng Phase-Shift để tiếp cận bảng điều khiển tháp pháo ở phía ngoài cùng bên phải và tiêu diệt cả ba tháp pháo cùng lúc. Sau khi các tháp pháo đã chết, tôi cho máy bay không người lái bắn bão hòa vào đội thực thi. Chúng tôi đánh sập đồn trú, sau đó Ronin đặt ngọn tháp xuống đất."
+          "text": "Đây không phải là một cách tiếp cận lén lút. Delta là một vị trí kiên cố. Chúng tôi đánh nó như một đơn vị. Ronin—bạn giữ điểm, che chắn về phía trước, thu hút sự chú ý của họ và hấp thụ cú vô lê ban đầu của họ. Tướng quân, dọn sạch cánh trái. Ma trận, sử dụng Phase-Shift để tiếp cận bảng điều khiển tháp pháo ở ngoài cùng bên phải và tiêu diệt cả ba tháp pháo cùng lúc. Sau khi các tháp pháo đã chết, tôi cho máy bay không người lái bắn bão hòa vào đội thực thi. Chúng tôi đánh sập đồn trú, sau đó Ronin đặt ngọn tháp xuống đất."
         },
         {
           "speaker": "Aegis Ronin",
@@ -741,7 +741,7 @@
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Hạm đội Drone, đàn áp hoàn toàn. Ưu ti��n đội hình—phá vỡ hàng ngũ của họ. NGỌN LỬA."
+          "text": "Hạm đội Drone, đàn áp hoàn toàn. Ưu tiên đội hình—phá vỡ hàng ngũ của họ. NGỌN LỬA."
         },
         {
           "speaker": "AXIOM-7",
@@ -781,7 +781,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Bởi vì trong hai năm, hy vọng đã là cơ chế của sự thất vọng. Họ đã học được cách không tin vào những cánh cửa mở."
+          "text": "Bởi vì trong hai năm, hy vọng đã là cơ chế dẫn đến thất vọng. Họ đã học được cách không tin vào những cánh cửa mở."
         },
         {
           "speaker": "Aegis Ronin",
@@ -821,7 +821,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ba bảng điều khiển. Ba người chúng tôi. Matrix, Shogun, Ronin���mỗi người cầm một bảng điều khiển. Tôi sẽ quản lý vòng phòng thủ của Voss bằng việc trấn áp máy bay không người lái."
+          "text": "Ba bảng điều khiển. Ba người chúng tôi. Matrix, Shogun, Ronin—mỗi người cầm một bảng điều khiển. Tôi sẽ quản lý vòng phòng thủ của Voss bằng việc trấn áp máy bay không người lái."
         },
         {
           "speaker": "Voss",
@@ -881,7 +881,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Bảng điều khiển thứ hai: sẵn sàng. Bà tôi đã nộp giấy phép đi mua đồ tạp hóa. Bạn muốn nói về trật tự hành ch��nh?"
+          "text": "Bảng điều khiển thứ hai: sẵn sàng. Bà tôi đã nộp giấy phép đi mua đồ tạp hóa. Bạn muốn nói về trật tự hành chính?"
         },
         {
           "speaker": "Aegis Ronin",
@@ -906,7 +906,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Lõi xử lý giấy phép: ngoại tuyến. Giao thức khôi phục vĩnh viễn: bị vô hiệu hóa. Bức tường không thể được xây dựng lại từ nút này. Tất cả các hồ sơ ứng dụng đang chờ xử lý: đã bị xóa. Tất cả hồ sơ từ chối: đã bị xóa. Cơ sở hạ tầng hạn chế qua lại cho Khu-4 đã... không còn nữa."
+          "text": "Lõi xử lý giấy phép: ngoại tuyến. Giao thức khôi phục vĩnh viễn: bị vô hiệu hóa. Bức tường không thể được xây dựng lại từ nút này. Tất cả các hồ sơ ứng dụng đang chờ xử lý: đã bị xóa. Tất cả hồ sơ từ chối: đã bị xóa. Cơ sở hạ tầng hạn chế qua l��i cho Khu-4 đã... không còn nữa."
         },
         {
           "speaker": "Aegis Ronin",
@@ -916,7 +916,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "TAXIOM. Bạn có thể cho tôi biết liệu tòa nhà của bà tôi có đủ an toàn về mặt kết cấu để có người ở không? Tôi muốn biết liệu ai đó có thể quay trở lại không."
+          "text": "TAXIOM. Bạn có thể cho tôi biết tòa nhà của bà tôi có kết cấu đủ an toàn để ở không? Tôi muốn biết liệu ai đó có thể quay trở lại không."
         },
         {
           "speaker": "AXIOM-7",
@@ -936,7 +936,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Đây là cảm giác chiến thắng sao? Bởi vì nó không giống như tôi mong đợi."
+          "text": "Đây chính là cảm giác chiến thắng sao? Bởi vì nó không giống như tôi mong đợi."
         },
         {
           "speaker": "Empress Siren",
@@ -982,7 +982,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Năm phút? Miếng bánh. Nhưng tôi cần quyền truy cập rõ ràng. Tướng quân, ngài có thể cắt rốn chính được không?"
+          "text": "Năm phút? Miếng bánh. Nhưng tôi cần quyền truy cập rõ ràng. Tướng quân, ngài có thể cắt rốn chính đ��ợc không?"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1299,7 +1299,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mục tiêu nhiệm vụ hoàn thành. Sản lượng công nghiệp Xelthara trong lĩnh vực này đã giảm xuống b���ng không. Chúng tôi đánh vào chỗ đau của chúng."
+          "text": "Mục tiêu nhiệm vụ hoàn thành. Sản lượng công nghiệp Xelthara trong lĩnh vực này đã giảm xuống bằng không. Chúng tôi đánh vào chỗ đau của chúng."
         },
         {
           "speaker": "DISPLAY",
@@ -1322,7 +1322,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Mô hình hóa dòng thời gian phục hồi đại dương sau sự phá hủy ống dẫn: phục hồi một phần hệ sinh thái trong 18 tháng, bình thường hóa hoàn toàn độ pH trong 6 đến 8 năm. Nhiệm vụ này không khắc phục được thiệt hại ngay lập tức. Tôi muốn bạn hiểu điều đó. Những gì nó làm là ngăn chặn thiệt hại trở thành vĩnh viễn. Một số vết thương vẫn có thể lành nếu chúng ta ngừng mở chúng ra."
+          "text": "Lập mô hình dòng thời gian phục hồi đại dương sau sự phá hủy ống dẫn: phục hồi một phần hệ sinh thái trong 18 tháng, bình thường hóa hoàn toàn độ pH trong 6 đến 8 năm. Nhiệm vụ này không khắc phục được thiệt hại ngay lập tức. Tôi muốn bạn hiểu điều đó. Những gì nó làm là ngăn chặn thiệt hại trở thành vĩnh viễn. Một số vết thương vẫn có thể lành nếu chúng ta ngừng mở chúng ra."
         }
       ],
       "dialogue_status": "scripted",
@@ -1330,7 +1330,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Lưới điện này là nguồn chính của sức mạnh công nghiệp thuộc địa của họ. Chúng tôi đến đây để phá hoại kinh tế nhằm cắt đứt đường tiếp tế của thuộc địa. Nếu chúng ta phá vỡ mạng lưới hút nước, chúng ta sẽ làm sụp đổ nền kinh tế của ngành. Matrix, bộ điều khiển thoát nước được đặt phía sau lưới laser dưới nước."
+          "text": "Lưới điện này là nguồn chính của sức mạnh công nghiệp thuộc địa của họ. Chúng tôi đến đây để phá hoại kinh tế nhằm cắt đứt đường tiếp tế của thuộc địa. Nếu chúng ta phá vỡ mạng lưới hút nước, chúng ta sẽ làm sụp đổ nền kinh tế của ngành. Matrix, bộ điều khiển thoát n��ớc được đặt phía sau lưới laser dưới nước."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1340,7 +1340,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Đứng vững trên bục, Ronin. Máy bay không người lái đang quét dòng điện. Matrix, bạn sẽ phải dịch pha qua các chùm tia đó. Nếu tần số của bạn giảm dù chỉ một phần nghìn giây, mạng lưới sẽ đốt cháy liên kết thần kinh của bạn."
+          "text": "Đứng vững trên bục, Ronin. Máy bay không người lái đang quét dòng điện. Matrix, bạn sẽ phải dịch pha qua các chùm tia đ��. Nếu tần số của bạn giảm dù chỉ một phần nghìn giây, mạng lưới sẽ đốt cháy liên kết thần kinh của bạn."
         },
         {
           "speaker": "Oni Matrix",
@@ -1375,7 +1375,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "NHIỆM VỤ HOÀN THÀNH: CON GHOST DẪN ĐƯỜNG. THỦY VỰC THỦY SẢN RÚT NƯỚC."
+          "text": "NHIỆM VỤ HOÀN THÀNH: CON GHOST DẪN ĐƯỜNG. THỦY VỰC THỦY SẢN VỊT NƯỚC."
         }
       ]
     },
@@ -1401,7 +1401,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Chào mừng đến với Bến tàu Stratos. Đây là trung tâm xuất khẩu chính, nơi họ đang cướp hàng hóa thuộc địa và vận chuyển tài nguyên Trái đất đã được tinh chế ra ngoài thế giới. Việc chiếm đoạt phương tiện vận tải này sẽ cắt đứt các đường tiếp tế của thuộc địa và tài trợ cho cuộc kháng chiến."
+          "text": "Chào mừng đến với Bến tàu Stratos. Đây là trung tâm xuất khẩu chính, nơi họ đang cướp hàng hóa thuộc địa và vận chuyển tài nguyên Trái đất đã được tinh chế ra ngoài thế giới. Việc chiếm đoạt phư��ng tiện vận tải này sẽ cắt đứt các đường tiếp tế của thuộc địa và tài trợ cho cuộc kháng chiến."
         },
         {
           "speaker": "Empress Siren",
@@ -1648,7 +1648,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Sao chép. Nhưng thiết bị đầu cuối chính bị lộ. Hoàng hậu, người sẽ không thể bắt đầu chuỗi trận đấu nếu nó xảy ra một vụ nổ plasma."
+          "text": "Sao chép. Nhưng thiết bị đầu cuối chính bị lộ. Hoàng hậu, người sẽ không thể bắt đầu chuỗi nếu nó xảy ra vụ nổ plasma."
         },
         {
           "speaker": "Empress Siren",
@@ -1673,7 +1673,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Danh dự đòi hỏi sự hy sinh. Sẵn sàng rồi, thưa Nữ hoàng."
+          "text": "Danh dự đòi hỏi sự hy sinh. Sẵn sàng, thưa Nữ hoàng."
         },
         {
           "speaker": "Empress Siren",
@@ -1740,13 +1740,13 @@
     "13": {
       "title": "Hầm Obsidian (Kho lưu trữ văn hóa)",
       "arc": "act2_arc3",
-      "setting": "Nằm bên dưới Trung tâm Getty trước đây, Obsidian Vault là kho lưu trữ văn hóa chính của chính quyền thuộc địa. Cơ sở dữ liệu Hiệp ước Đất đai Nguyên bản—một hồ sơ toàn diện về quyền sở hữu đất đai của con người trước cuộc xâm lược cách đây 5 thế kỷ—được lưu trữ ở đây, được phân loại là 'Tài sản Di sản đã được Khám phá'.",
+      "setting": "Nằm bên dưới Trung tâm Getty trước đây, Obsidian Vault là kho lưu trữ văn hóa chính của chính quyền thuộc địa. Cơ sở dữ liệu Hiệp ước Đất đai Nguyên thủy—một hồ sơ toàn diện về quyền sở hữu đất đai của con người trước cuộc xâm lược cách đây 5 thế kỷ—được lưu trữ ở đây, được phân loại là 'Tài sản Di sản đã được Khám phá'.",
       "objective": "Xâm nhập vào Obsidian Vault, trích xuất Cơ sở dữ liệu Hiệp ước Vùng đất Nguyên thủy và tất cả các kho lưu trữ ngôn ngữ và lịch sử truyền miệng, đồng thời phá hủy hệ thống danh mục vật lý để ngăn chặn vĩnh viễn đường ống xử lý văn hóa thuộc địa.",
       "solo_monologues": [
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "Danh dự của một chiến binh được xác định bởi những gì anh ta bảo vệ cũng như những gì anh ta phá hủy. Tối nay, tôi bảo vệ một cái gì đó. Những ghi chép bên trong căn hầm này là bằng chứng cho thấy chúng tôi đã tồn tại ở đây trước khi họ đến - rằng chúng tôi đã đặt tên cho vùng đất này, được xây dựng trên đó, được chôn cất trong đó, kể những câu chuyện về nó trong nhiều thế kỷ. Nếu họ xóa bằng chứng đó, họ có thể viết bất kỳ lịch sử nào họ muốn. Tôi sẽ không để điều đó xảy ra."
+          "text": "Danh dự của một chiến binh được xác định bởi những gì anh ta bảo vệ cũng như những gì anh ta phá hủy. Tối nay, tôi bảo vệ một cái gì đó. Những ghi chép bên trong căn hầm này là bằng chứng cho thấy chúng tôi đã tồn t���i ở đây trước khi họ đến - rằng chúng tôi có tên cho vùng đất này, được xây dựng trên đó, được chôn cất trong đó, kể những câu chuyện về nó trong nhiều thế kỷ. Nếu họ xóa bằng chứng đó, họ có thể viết bất kỳ lịch sử nào họ muốn. Tôi sẽ không để điều đó xảy ra."
         },
         {
           "character": "AXIOM-7",
@@ -1869,7 +1869,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Đã đạt được bảng điều khiển! Bắt đầu gây bất ổn địa chấn!"
+          "text": "Đã đạt đến bảng điều khiển! Bắt đầu gây bất ổn địa chấn!"
         },
         {
           "speaker": "AXIOM-7",
@@ -1879,7 +1879,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Đã bảo rồi... không gì có thể phá vỡ đư���c bức tường của chúng ta."
+          "text": "Đã bảo rồi... không gì có thể phá vỡ được bức tường của chúng ta."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1896,7 +1896,7 @@
     "14": {
       "title": "Đường tiếp cận Thành cổ (Cầu Bộ Tư lệnh Tối cao)",
       "arc": "act2_arc3",
-      "setting": "Cây cầu kiên cố cuối cùng dài 400 mét bắc qua sông LA đã cạn nước—cách tiếp cận trên mặt đất duy nhất dẫn tới Thành chỉ huy tối cao Xelthara, được xây dựng trên cộng đồng Boyle Heights đã bị phá hủy. Xelthara đã thiết kế cách tiếp cận này để không thể vượt qua được.",
+      "setting": "Cây cầu kiên cố cuối cùng dài 400 mét bắc qua sông LA đã cạn nước—cách tiếp cận trên mặt đất duy nhất tới Thành chỉ huy tối cao Xelthara, được xây dựng trên cộng đồng Boyle Heights đã bị phá hủy. Xelthara đã thiết kế cách tiếp cận này để không thể vượt qua được.",
       "objective": "Vượt qua cây cầu dài 400 mét dưới hỏa lực pháo binh liên tục để đến cổng vào của Thành cổ—một cuộc tiến công không ngừng nghỉ bằng cách sử dụng khiên của Ronin và đòn tấn công bằng máy bay không người lái của Siren.",
       "solo_monologues": [
         {
@@ -2024,7 +2024,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Tôi có th��� cảm nhận được dòng dữ liệu thuần túy, Shogun. Nó đang cố gắng viết lại lõi thần kinh của tôi. Chúng ta không thuộc về nơi này Chúng ta cần nhấn động cơ đó và thoát ra."
+          "text": "Tôi có thể cảm nhận được dòng dữ liệu thuần túy, Shogun. Nó đang cố gắng viết lại lõi thần kinh của tôi. Chúng ta không thuộc về nơi này Chúng ta cần nhấn động cơ đó và thoát ra."
         },
         {
           "speaker": "The Collective Will",
@@ -2114,7 +2114,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Tôi nghĩ... tôi nhìn thấy Trái Đất. Thật sạch sẽ. Thật xanh."
+          "text": "Tôi nghĩ... tôi nhìn thấy Trái đất. Thật sạch sẽ. Thật xanh."
         },
         {
           "speaker": "Recovery Command",

@@ -77,7 +77,7 @@ Nem csak a földünket veszik el; kitörlik a lelkünket. Ez a palota egy évezr
 Figyelmeztetés: A kommunikációs tornyok szolgáltatásmegtagadást sugároznak. A felismerés kockázati valószínűsége 98,7%. A visszavonulás tanácsos.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-ARCHÍV NAPLÓ: NEO-TOKYO CULTURE-PURGE. HELYSZÍN: AZ ÖRÖK ZEN DOJO (KIJELÖLT HELYSZÍN: 01. TELEPÜLÉSTÖMB). ��LLAPOT: BONTÁS FOLYAMATBAN. ÉPÍTÉSZETI TÖRLÉS 42%-ON.
+ARCHÍV NAPLÓ: NEO-TOKYO CULTURE-PURGE. HELYSZÍN: AZ ÖRÖK ZEN DOJO (KIJELÖLT HELYSZÍN: 01. TELEPÜLÉSTÖMB). ÁLLAPOT: BONTÁS FOLYAMATBAN. ÉPÍTÉSZETI TÖRLÉS 42%-ON.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
 Ez a fa tízezer harcos leheletét szívta magába. Most úgy kezelik, mint a digitális rendetlenséget, amelyet a szemetesbe kell helyezni. A Xelthara számára őseink csak kényelmetlen akadályt jelentenek az adóhivatal tervrajzaiban.
@@ -92,7 +92,7 @@ A logika azoknak való, akiknek nincs múltjuk. Ezt "kiegyenlítésnek" hívod? 
 Ebben a fában minden forgács egy emlék, amelyet nem lehet törölni! KATA: ŐSSZTRÁK!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Nézd meg a "paradicsomjukat". Egy évezred sírj��ra épített üveg- és drótsír. Nem engedem, hogy az emberiség történelmét tisztára töröljék, hogy helyet adjak a táblázatainak. Amíg állok, Tokió emlékszik!
+Nézd meg a "paradicsomjukat". Egy évezred sírjára épített üveg- és drótsír. Nem engedem, hogy az emberiség történelmét tisztára töröljék, hogy helyet adjak a táblázatainak. Amíg állok, Tokió emlékszik!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Beacon semlegesített. A bontás elakadt, de a gyarmati hatóságok átirányítják a végrehajtó légiót. Szellemcsatát vívsz, Shogun.
@@ -171,7 +171,7 @@ KÜLDETÉS TELJES: A TÖRHETETLEN FAL. AEGIS RONIN CSATLAKOZTAT A HLF-hez.
 A szó szerinti „Under-City” – karbantartó aknák hálózata egy csillogó, neonfényben megvilágított Xelthara település alatt. Fent a megszállók terraformált levegőt élveznek; alul a marginalizált emberek ózonszennyezett oxigént keresnek.
 
 # kind: objective
-Szifon energiát a gyarmati hálózatról, hogy táplálja a marginalizált lakosság életfenntartó rendszereit, miközben elkerüli a kóbor emberiségre vadászó „tiszta őrjáratokat”.
+Szifon energiát a gyarmati hálózatból, hogy táplálja a marginalizált lakosság életfenntartó rendszereit, miközben elkerüli a „Tisztaság őrjáratait” a kóbor emberekre vadászva.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
 A mi mennyezetünkre építik a paradicsomukat, és azon tűnődnek, miért szivárog az alagsor. Azokban a szakadékokban élünk, amelyeket elfelejtettek kikövezni. Ez az erőelem nem csak nekem való; ez azért van, hogy bekapcsolva maradjanak a fűtőtestek a száz család számára, akiket „elfelejtettek” a tervrajzokban.
@@ -180,7 +180,7 @@ A mi mennyezetünkre építik a paradicsomukat, és azon tűnődnek, miért sziv
 Figyelmeztetés: A Xelthara hardver beépítése a polgári alvázba nem ajánlott. Az idegi visszacsatolás 40%-os instabilitásra vetítve. Mátrix, a pulzusszáma meghaladja a biztonságos paramétereket.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-MARGINALIZÁLT NAPLÓ: AL-SZINTŰ SZEMÉLYVÁROS. ÁLLAPOT: TÚLÉL. BETÖRÖKÖDŐ RIASZTÁS: NULLA ÉSZLELÉS. RENDSZERBIZALOM: 100%. CÉLKIT��ZÉS: ELLOPNI A GYARMATI SZIKRÁT. FELÜLT AZ ELLENÁLLÁST.
+MARGINALIZÁLT NAPLÓ: AL-SZINTŰ SZEMÉLYVÁROS. ÁLLAPOT: TÚLÉL. BETÖRÖKÖDŐ RIASZTÁS: NULLA ÉSZLELÉS. RENDSZERBIZALOM: 100%. CÉLKITŰZÉS: ELLOPNI A GYARMATI SZIKRÁT. FELÜLT AZ ELLENÁLLÁST.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 A mi mennyezetünkre építik a paradicsomukat, és azon tűnődnek, miért szivárog az alagsor. Azokban a szakadékokban élünk, amelyeket elfelejtettek kikövezni. Újrahasznosítom a saját hulladéktechnológiájukat a rácsuk sütéséhez. A margóról visszavágunk.
@@ -207,7 +207,7 @@ Ez nagyon hangos kilépés volt, Mátrix. A finomító óta figyelem az aláír�
 Ki ez? hogy állsz ezen a csatornán?
 
 # kind: dialogue # speaker: Unknown Voice # type: radio
-Szirén császárné vagyok. Mi vagyunk azok, akik azért harcolunk, hogy biztosak legyünk abban, hogy van még egy város, ahol aratni kell. Ajándékod van a dolgok összetörésére, szellem. Használhatnánk. Belefáradtál a rozsdába bújni?
+Szirén császárné vagyok. Mi vagyunk azok, akik azért harcolunk, hogy biztosak legyünk abban, hogy van még egy város, ahol aratni kell. Van egy ajándékod a dolgok összetörésére, szellem. Használhatnánk. Belefáradtál a rozsdába bújni?
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 A rozsda amúgy is kezdett unalmas lenni. Mutasd az utat, Siren.
@@ -370,7 +370,7 @@ Ronin, a második reflektor négy másodperc alatt elfordul. Költözzön a víz
 Átcsavarozták a mozaikon. Egy egész történelmet festettek abba a járdacsempébe. Portrék, nevek, dátumok. Közösségi projekt. Csak... átfúrták az arc közepét, hogy lehorgonyozzák az állásukat.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-A Ronin, a torony horgonyja egy mágneses kinetikus zár, amelyet úgy terveztek, hogy ellenálljon akár 8000 newton közvetlen erőnek. Az Ön kinetikus túlterhelési díja, amelyet a teljes három számlálásig tart, meghaladja ezt a küszöböt. Először is le kell tiltania a két biometrikus őrszem egységet a torony aljánál – ezek észlelik biometrikus aláírását abban a pillanatban, amikor a hatótávolságba lép.
+A Ronin, a torony horgonyja egy mágneses kinetikus zár, amelyet úgy terveztek, hogy ellenálljon akár 8000 newton közvetlen erőnek. Az Ön kinetikus túlterhelési díja, amelyet a teljes három számlálásig tart, meghaladja ezt a küszöböt. Először is le kell tiltania a két Biometrikus Sentinel egységet a torony aljánál – ezek észlelik biometrikus aláírását, amint a hatótávolságba lép.
 
 # kind: dialogue # speaker: Aegis Ronin # type: internal
 Biometrikus aláírás. A saját szívverésem riaszt, mert ember vagyok. Rendben van. Kezdjük a javítással.
@@ -397,7 +397,7 @@ Huszonöt százalék a kezdet. Sajnálom, hogy ilyen sokáig tartott. Most itt v
 Itt van. A fa még mindig ott van. A nagymamám azt szokta mondani, hogy a fa idősebb, mint a városháza, és soha nem hittem neki.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Negyvenhét nappal a fal felomlása után nyújtotta be az átkelés engedélyezési kérelmét. Kitöltötte az űrlapokat. Három példányban. Mert hitt a folyamatban. Azt hitte, ha jól csinálod a dolgokat, valaki meghallgat. Soha nem kapott választ. Két hónappal később az elzárt zónában halt meg. Az alultápláltság szövődményei. A fal másik oldalán volt a kedvenc élelmiszerboltjuk. Beadott egy űrlapot, hogy menjen élelmiszert vásárolni.
+Negyvenhét nappal a fal felomlása után nyújtott be átkelési engedély iránti kérelmet. Kitöltötte az űrlapokat. Három példányban. Mert hitt a folyamatban. Azt hitte, ha jól csinálod a dolgokat, valaki meghallgat. Soha nem kapott választ. Két hónappal később az elzárt zónában halt meg. Az alultápláltság szövődményei. A fal másik oldalán volt a kedvenc élelmiszerboltjuk. Beadott egy űrlapot, hogy menjen élelmiszert vásárolni.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Nagyon óvatosan fogom szétszedni ezt a dolgot, hogy ne bántsam a fát.
@@ -427,7 +427,7 @@ Hallottunk, Mátrix. Mi végig hallgattuk.
 Igen. tudom.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-2-B. FÁZIS: CYBER SHOGUN ÉS EMPRESS SZIRÉNA A SPIRE GAMMÁBAN – A KÖZPONTI KÖNYVTÁRBAN
+2-B FÁZIS: CYBER SHOGUN ÉS EMPRESS SZIRÉNA A SPIRE GAMMA-BAN – A KÖZPONTI KÖNYVTÁRBAN
 
 # kind: dialogue # speaker: Empress Siren # type: internal
 A könyvtár. Ott tartottam az első tisztképző szemináriumomat. Közösségvédelmi tanfolyamok, harmadik emeleti olvasóterem. Három évvel az invázió előtt. Az a geometria, ahogyan a gyarmatosítás saját infrastruktúránkat használja fel ellenünk, mindig feltűnő. Adatközpontjukat a könyvtárunkba helyezték. Átírják az iratainkat azon a helyen, ahol a nyilvántartásunkat vezettük.
@@ -463,7 +463,7 @@ A Spire Gamma a könyvtár belső hálózatából nyeri az energiát. A torony v
 Harmadik emelet. Természetesen. Mutasd az utat, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Tizenkét családnak elmondtam, hogyan kell megszervezni a közösségi őrjáratokat ebben a teremben. A gyerekrészlegben babzsákos székek voltak. Valaki zsírkréta rajzokat ragasztott a referenciapultra. Egy gyerek egy szuperhőst ábrázolt. A különbség a könyvtár és az adatközpont között az, hogy a könyvtár feltételezi, hogy az ajtón belépő embereknek joguk van ott lenni.
+Tizenkét családnak elmondtam, hogyan kell megszervezni a közösségi őrjáratokat ebben a teremben. A gyerekrészlegben babzsákos székek voltak. Valaki zsírkréta rajzokat ragasztott a referenciapultra. Egy gyerek lerajzolta egy szuperhős képét. A különbség a könyvtár és az adatközpont között az, hogy a könyvtár feltételezi, hogy az ajtón belépő embereknek joguk van ott lenni.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Rács csomópont található. A Spire Gamma tápellátás leválasztása. Ezzel törli az itt tárolt gyarmati ingatlan-nyilvántartási adatokat is.
@@ -493,7 +493,7 @@ Ne tedd. Még ne hagyd, hogy átvegye az irányítást. Először ezt hozzuk le.
 Igaz. Jobbra. A torony után. A fal után. nem fogom elfelejteni.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Ez nem egy lopakodó megközelítés. A Delta egy megerősített helyzet. Egységként találtuk el. Ronin – felveszed a pontot, pajzsot viszel előre, felhívod a figyelmüket és elnyeled a kezdeti lendületet. Shogun, tisztítsa meg a bal szárnyat. Mátrix, a Phase-Shift segítségével érd el a jobb szélen lévő torony vezérlőpultot, és öld meg mindhárom tornyot egyszerre. Amint a tornyok elpusztultak, drónokkal telítőtüzet küldök a végrehajtó osztagnak. Összedöntjük a helyőrséget, aztán Ronin a földbe teszi a tornyot.
+Ez nem egy lopakodó megközelítés. A Delta egy megerősített helyzet. Egységként találtuk el. Ronin – felveszed a pontot, pajzsot viszel előre, felhívod a figyelmüket és elnyeled a kezdeti lendületet. Shogun, ürítsd ki a bal szárnyat. Mátrix, a Phase-Shift segítségével érd el a jobb szélen lévő torony vezérlőpultot, és öld meg mindhárom tornyot egyszerre. Amint a tornyok elpusztultak, drónokkal telítőtüzet küldök a végrehajtó osztagnak. Összedöntjük a helyőrséget, aztán Ronin a földbe teszi a tornyot.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 PAJZS FEL. Hadd dobjanak rám mindent. Én vagyok a bejárati ajtó.
@@ -663,10 +663,10 @@ Elemzés kész. A gyarmati terjeszkedési tervrajzok és a telepesek logisztikai
 Késznek tekinthető. Ideiglenes útvonal létrehozása a konzolhoz. Ügyeljen a szögekre, császárnő. Ez a vágás minden drónt riaszt majd a szektorban.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Riasztás megerősítve! Nehéz Phalanx védőburkolatok ereszkednek le a felső karbantartó aknákból! Ronin, elöl és középen! Állítsd fel a védelmi vonalat a belépési ponton!
+Riasztás megerősítve! Nehéz Phalanx védőburkolatok ereszkednek le a felső karbantartó aknákból! Ronin, elöl és középen! Állítsd fel a védővonalat a belépési pontnál!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Itt az ideje, hogy meglendítsem ezt a dolgot. Pajzs fel! Ezen a ponton semmi sem megy, ti túlnőtt gyíkok!
+Ideje lenne meglendítenem ezt a dolgot. Pajzs fel! Ezen a ponton semmi sem megy, ti túlnőtt gyíkok!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Sziréna! Célozd meg a bal szárnyat! Megpróbálnak lenyomni!
@@ -793,7 +793,7 @@ A KÜLDETÉS BEFEJEZETT: A SÉTSÉGES KÓD. A CYBER-GRAVE LABOROK ELSÜLESZTETT�
 # kind: level # level: 8 # title: The Foundry Forge (ipari szektor) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-A Xelthara Thermal Conversion Array az egykori ipari kikötői negyedben 40 kilométeres körzetben mérgezővé tette a levegőt, és a légköri hulladékot a világtól eltérő üzemanyagként dolgozta fel, miközben az emberiség oxigénjét adagolt kannákban, családonként naponta egy alkalommal értékesítette.
+A Xelthara Thermal Conversion Array az egykori ipari kikötői negyedben 40 kilométeres körzetben mérgezővé tette a levegőt, a légköri hulladékot külvilágon kívüli üzemanyagként dolgozva fel, miközben az emberiség oxigénjét adagolt kannákban, családonként naponta egy alkalommal értékesíti.
 
 # kind: objective
 Fordítsa meg a Thermal Conversion Array polaritását, és váltson ki egy kaszkádos hőösszeomlást, amely visszafordíthatatlanul tönkreteszi az öntödét, és lehetővé teszi a 40 kilométeres légköri károsodási zóna természetes regenerálódását.
@@ -838,7 +838,7 @@ ISTENI Düh! MOST, RONIN!
 A HAZÁÉRT! Három lefelé! Még egy, AXIOM!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-A végső támogatás biztosított. Üsd meg, Ronin! Akkor FUSUNK!
+A végső támogatás biztosított. Üsd meg, Ronin! Akkor FUTUNK!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 SZABOTÁZS TELJES!
@@ -873,7 +873,7 @@ A Csendes-óceánt a kontinentális talapzat mentén mélytengeri hidrogénszifo
 Keresse meg és semmisítse meg a három elsődleges mélytengeri szifonvezeték-elosztót, hogy véglegesen leállítsa az óceáni szifont, és megkezdje az óceáni helyreállítást.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Vannak halászcsaládok a zárt zónákban, akik nem tudtak dolgozni, mióta a vezetékek bementek. A sóoldat kibocsátása mindent elpusztított, ami a parttól úszásra került. Azok az emberek, akik generációkon keresztül táplálták közösségeiket, most Xelthara takarmánycsomagban részesülnek. Elvett��k táplálékforrásukat, beszennyezték a vizüket, falat emeltek közéjük és a tenger közé, és ezt fejlődésnek nevezték. Ma este visszaadjuk nekik az óceánt.
+Vannak halászcsaládok a zárt zónákban, akik nem tudtak dolgozni, mióta a vezetékek bementek. A sóoldat kibocsátása mindent elpusztított, ami a parttól úszásra került. Azok az emberek, akik generációkon keresztül táplálták közösségeiket, most Xelthara takarmánycsomagban részesülnek. Elvették táplálékforrásukat, beszennyezték a vizüket, falat emeltek közéjük és a tenger közé, és ezt fejlődésnek nevezték. Ma este visszaadjuk nekik az óceánt.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Az óceáni felépülés idővonalának modellezése a vezetékpusztulás után: az ökoszisztéma részleges helyreállítása tizennyolc hónap alatt, a pH teljes normalizálása hat-nyolc év alatt. Ez a küldetés nem javítja azonnal a kárt. Szeretném, ha ezt megértené. Ez azt jelenti, hogy megakadályozza, hogy a károsodás állandósuljon. Néhány seb még begyógyulhat, ha abbahagyjuk a kinyitást.
@@ -1092,7 +1092,7 @@ Ronin, ez a te dolgod. Védenie kell a terminált, amíg beírom a hibakódokat.
 A terminál biztosított. Felkerült a pajzs! VÉDELMI PROTOKOLL AKTÍV! Megvan az ablaka, császárné!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Túlterhelési sorozat elindítva. Azonnali, szekvenciális stresszt igényel. Rúdcsapatok készüljenek a kitermelésre.
+Túlterhelési sorozat elindult. Azonnali, szekvenciális stresszt igényel. Rúdcsapatok, készüljetek a kitermelésre.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 Készen áll a Rod One-ra. Csúnya statikus kisülés tapasztalható itt. Ez fájni fog.
@@ -1160,7 +1160,7 @@ Az Obsidian Vault 4,2 millió katalogizált műtárgyat és rekordot tartalmaz. 
 Stratégiai frissítés: Itt nem alkalmazhatunk hosszú távú taktikát. A Citadella védelmi rácsja minden 50 láb feletti drónt elpárologtat. Ezt a hidat gyalog kell áttörnünk. Ronin, Shogun – te vezeted a lökést. Matrix, készenlétben az azonnali kerületi fáklyákra.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Rendben részemről. Ha harcot akarnak, végső állást kapnak. Pajzs fel! VASFAL!
+Rendben tőlem. Ha harcot akarnak, végső állást kapnak. Pajzs fel! VASFAL!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 A becsületet a tégelyben érdemlik ki. Tegyék próbára az erőnket.

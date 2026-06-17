@@ -1,0 +1,2132 @@
+{
+  "meta": {
+    "language": "croatian",
+    "version": "1.0",
+    "description": "Axiom Force: Reclaim Earth — croatian narrative data"
+  },
+  "acts": {
+    "act2_arc1": {
+      "title": "ČIN II — LUK 1: LOM SEGREGACIJSKE REŠETKE",
+      "subtitle": "Razine 5–7: Rušenje fizičkih zidova okupacije",
+      "description": "Prvi dio kampanje u sredini usredotočen je u potpunosti na fizičku infrastrukturu razdvajanja - zidove, kontrolne točke, biometrijske registre i programe uvjetovanja ponašanja koje Xelthara koristi kako bi ljudsku populaciju držala razlomljenom, nadziranom i previše traumatiziranom da bi se organizirala. Prije nego što otpor udari na ekonomsko ili političko srce okupacije, prvo moraju ponovno povezati izolirane ljudske zajednice jedne s drugima."
+    },
+    "act2_arc2": {
+      "title": "ČIN II — LUKA 2: PREDNJA POVLAKA RESURSA",
+      "subtitle": "Razine 8–11: Smanjivanje ekonomske isplativosti kolonizacije",
+      "description": "S razbijenom segregacijskom mrežom i ponovnim povezivanjem izoliranih populacija, otpor se prebacuje na ekonomski motor okupacije. Xelthara je došao na Zemlju zbog resursa—a ne zbog ideologije. Arc 2 je kampanja ekonomskog poremećaja: četiri uzastopna napada na vađenje, preradu, transport i sigurnosnu infrastrukturu koja čini okupaciju financijski održivom."
+    },
+    "act2_arc3": {
+      "title": "ČIN II — KRIV 3: RAZBIJANJE KORPORATIVNOG UPRAVLJANJA",
+      "subtitle": "Razine 12–14: Guranje u srce kolonijalne administrativne države",
+      "description": "Motori za izvlačenje su zaustavljeni. Sigurnosna mreža je tamna. Pregradne stijenke su slomljene. Ono što ostaje je administrativna i politička arhitektura same okupacije. Arc 3 je politički najizravnija sekvenca kampanje: otpor se više ne bori protiv okupatorske vojske. Demontira kolonijalnu državu, dio po dio, izvana prema unutra."
+    }
+  },
+  "levels": {
+    "0": {
+      "title": "Protocol Zero - Virtualna kovačnica",
+      "arc": null,
+      "setting": "Ogromna, tamna simulacija rešetkaste mreže srušenog centra Los Angelesa. Neonske plave linije definiraju ceste i zgrade. Statički kvarovi neprestano trepere preko prikaza. Četiri prvaka stoje na svjetlećoj platformi.",
+      "objective": "Dovršite protokol obuke kružeći kroz sve pokretne i borbene sposobnosti, kulminirajući simultanim napadom odreda za uništavanje simulirane teške jedinice Xelthara.",
+      "solo_monologues": [],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "1": {
+      "title": "Duh u Gridlocku",
+      "arc": null,
+      "setting": "Ruševine vrtova carske palače. Xeltharine grede za teraformiranje aktivno otapaju drevne kamene svjetiljke i trešnjine cvjetove, zamjenjujući ih sterilnim administrativnim monolitima od ploča od opsidijana.",
+      "objective": "Infiltrirajte se na aktivno mjesto rušenja kako biste dohvatili Data-Blade—digitalno spremište zabranjene povijesti—prije nego Xeltharino polje 'Culture-Erasure' zauvijek očisti memoriju mjesta.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Oni ne uzimaju samo našu zemlju; brišu našu dušu. Ova je palača stajala tisućljeće, sada se asfaltira za regionalni porezni ured. Neću dopustiti da naši preci budu zaboravljeni ispod njihovih opsidijanskih ploča."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Upozorenje: Komunikacijski tornjevi emitiraju uskraćivanje usluge. Vjerojatnost rizika otkrivanja je 98,7%. Povlačenje je poželjno."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "ARHIVSKI DNEVNIK: NEOTOKIJA KULTURA-ČISTKA. LOKACIJA: VJEČNI ZEN DOJO (NAMENJENO LOKALITETU: NASELJE-BLOK 01). STATUS: RUŠENJE U TIJEKU. ARHITEKTONSKO BRISANJE NA 42%."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ovo je drvo upilo dah deset tisuća ratnika. Sada ga tretiraju kao digitalni nered koji treba premjestiti u koš za smeće. Xeltharama su naši preci samo nezgodna prepreka u njihovim nacrtima za poreznu upravu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Upozorenje: Strukturni integritet opada. Kolonijalna uprava odobrila je konačno 'ravnanje' ovog mjesta. Povlačenje je jedini logičan put."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Logika je za one koji nemaju prošlost. Vi ovo zovete \"niveliranje\"? Ja to zovem ratom duše. Možete popločati zemlju, ali otkrit ćete da su korijeni naše časti dublji od vaših opsidijanskih ploča!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Svaki čip u ovom drvu je uspomena koju ne možete izbrisati! KATA: UDAR PREDAKA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Pogledajte njihov 'raj'. Grobnica od stakla i žice izgrađena na grobu jednog tisućljeća. Odbijam dopustiti da se ljudska povijest izbriše kako bi se napravio prostor za vaše proračunske tablice. Dok stojim, Tokio pamti!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Beacon neutraliziran. Rušenje je zastalo, ali kolonijalne vlasti preusmjeravaju Enforcer Legion. Vodiš bitku duhova, Šogune."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Onda sam ja duh koji će zauvijek progoniti njihova naselja. Ako ne možemo spasiti kamen, spasit ćemo priču. Osigurajte Data-Blade! Neka nađu samo vatru tamo gdje su očekivali pokornost!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Xelthara žele napisati našu povijest u prošlom vremenu. Danas ga pišem u plazmi. Ovaj dojo pada, ali otpor raste."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: VJEČNO SEĆANJE. ČISTKA JE PREKINUTA."
+        }
+      ]
+    },
+    "2": {
+      "title": "Betonski šumski požar",
+      "arc": null,
+      "setting": "Masivna, zatvorena usisna vrata Zone ograničenja 4. Tisuće obitelji tjeraju se poput stoke kroz energetske ograde. Iza njih, njihove domove u predgrađima sravnjuju Xelthara ekspanzijski šetači.",
+      "objective": "Držite 'Posljednji most' protiv Xelthara Enforcersa koji tjeraju stanovništvo, dopuštajući posljednjoj skupini izbjeglica da sklizne u neucrtane slamove umjesto u zatvorene kampove.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DNEVNIK RASELJAVANJA: PROTOKOL O PRESELJENJU ZA SEKTOR 4. BRANITELJ: AEGIS RONIN (STATUS ŠASIJE: KRITIČAN). RAZINA OPASNOSTI: OMEGA. BROJ IZBJEGLICA: 412. TRENUTNI MANDAT: ZAŠTITA PROGNANIH. BRANI PRAG."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "AXIOM, reci pilotima za izvlačenje da ga spuste! Ovaj strop ne postaje lakši!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, strukturni integritet je 14%. Opsadne jedinice Xelthara postavljaju teške plazma minobacače. Vjerojatnost da ćete biti slomljena doseže 99,2%."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Onda ću uzeti tih 0,8% i nabiti im u grlo! ZAŠTITI SE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kreći se dalje! Žele vas strpati u kaveze kao stoku. Sve dok udišem, ja sam zid između tebe i njihovih zona zadržavanja. Danas neće istisnuti ni jednu dušu!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Opsadne jedinice uključene. Oni ciljaju potporne stupove. Ako pucaju, cijeli zid sektora 4 pada na zonu evakuacije."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ne na mom satu. KINETIČKO PREOPTEREĆENJE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Jedan dolje! AXIOM, generator štita cvili. Je li to normalno?"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negativno. Prototip apsorbira previše kinetičke energije. Postaje bomba. Odmah se odvojite!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ne. Dat ću Xelthari suvenir. Punim ga previše."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, tvoji vitalni znaci rastu! Analiza ukazuje na katastrofalan kvar. Šanse za preživljavanje: 0,1%!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bolje šanse nego što sam imao u zatvorenim logorima. Ovo je jednosmjerno putovanje, mali. Možete li reći Frontu da mi duguju piće?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "ZA DOMOVINU! JEDITE BETON!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin? Aegis Ronin, odgovori... Imam... oči na potpisu... Štit je izdržao. Zid je siguran."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: NEsalomivi zid. AEGIS RONIN SE PRIDRUŽIO HLF-u."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neonska hrđa i prašina podataka",
+      "arc": null,
+      "setting": "Doslovni 'Under-City'—mreža šahtova za održavanje ispod blještavog, neonski osvijetljenog naselja Xelthara. Gore, okupatori uživaju u teraformiranom zraku; ispod, marginalizirani ljudi tragaju za kisikom zagađenim ozonom.",
+      "objective": "Sifonirajte energiju iz kolonijalne mreže kako biste napajali sustave za održavanje života marginalizirane populacije, istovremeno izbjegavajući 'Patrole čistoće' u potrazi za ljudskim lutalicama.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Grade svoj raj na našem stropu i pitaju se zašto im podrum curi. Živimo u prazninama koje su zaboravili popločati. Ovaj power cell nije samo za mene; to je da zadrže grijalice za stotinu obitelji koje su 'zaboravili' u nacrtima."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Upozorenje: Ne preporučuje se integracija hardvera Xelthara u civilnu šasiju. Neuralna povratna sprega projicira se na 40% nestabilnosti. Matrix, otkucaji vašeg srca prelaze sigurne parametre."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "MARGINALIZIRANI DNEVNIK: POD-razina OTPADA-GRAD. STATUS: PREŽIVJEO. UPOZORENJE ULJEZA: OTKRIVENA NULA. POVJERENJE SUSTAVA: 100%. CILJ: UKRASTI KOLONIJALNU ISKRU. POJAČAJTE OTPOR."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Grade svoj raj na našem stropu i pitaju se zašto im podrum curi. Živimo u prazninama koje su zaboravili popločati. Prenamijenit ću njihovu vlastitu otpadnu tehnologiju da spržim njihovu mrežu. Uzvraćamo udarac s margine."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Integracija uspjela. Sposobnost pomaka faze je online. Napomena: kontinuirana uporaba uzrokovat će neuralnu degradaciju."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Kao hodanje kroz dim. Sada, hajdemo pronaći izlaz prije nego što zaboravim kako je stvarnost."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Pokrenuto zaključavanje. Jezgra žetve dostiže kritičnu temperaturu. Morate odmah onemogućiti perimetarska vrata."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Jedna EMP eksplozija bi to trebala učiniti. Dajmo im malo podatkovne prašine da me pamte."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "I to je moj znak."
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Bio je to vrlo glasan izlaz, Matrix. Gledam tvoj potpis još od rafinerije."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "tko je ovo Kakvi ste na ovom kanalu?"
+        },
+        {
+          "speaker": "Unknown Voice",
+          "type": "radio",
+          "text": "Ja sam carica Sirena. Mi smo ti koji se bore da osiguramo da ostane grad za žetvu. Imaš dar za razbijanje stvari, duhu. Mogli bismo to iskoristiti. Jeste li umorni od skrivanja u hrđi?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Hrđa je ionako postajala dosadna. Vodi nas, Siren."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA ZAVRŠENA: DUH U STROJU. ONI MATRIX SE PRIDRUŽIO HLF-u."
+        }
+      ]
+    },
+    "4": {
+      "title": "Slomljena Egida zapovjednika praznine",
+      "arc": null,
+      "setting": "Razbijeni ostaci Pacific Defense Huba. Ponosnu, tradicionalnu vojnu infrastrukturu reciklira Xelthara, prisiljavajući Sirenu da koordinira decentraliziranu mrežu skrivenih ćelija.",
+      "objective": "Rastavite posljednji postojeći vojni toranj za emitiranje i distribuirajte njegove frekvencijske čipove civilnim ćelijama otpora, finalizirajući prijelaz na gerilsko ratovanje.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "radio",
+          "text": "Doba stajaćih vojski je umrlo. Ne možemo ih dočekati na terenu, pa ćemo postati teren. Podijelite signal. Decentralizirajte naredbu. Ako nema glave za odsjeći, otpor ne može umrijeti."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Empress, tvoje emitiranje je veliki rizik! Izlažete svoju lokaciju i učestalost otpora. Ovo nije optimalno. Molimo prekinite prijenos."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DNEVNIK DECENTRALIZACIJE: POKRETANJE GERILSKE TRANZICIJE. LOKACIJA: ZAPOVJEDNIŠTVO POSLJEDNJE ODBORINE (PACIFIČKO ČVORIŠTE). STATUS: KONVENCIONALNE SILE PORAŽENE. ASIMETRIČNA DOKTRINA AKTIVNA. ZAPOVJEDNIK: CARICA SIRENA (TAKTIČKA ŠIFRA: VOID COMMANDER). POSLJEDNJA NAREDBA: RAZBIJAJTE ZAPOVJEDNIŠTVO. POSTANI OLUJA."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ovdje Void Commander. Tradicionalna hijerarhija je raspuštena. Vi više niste vojnici; vi ste stanice. Izblijedi u grad. Udari kad spavaju. Vratite svoj dom sjenu po sjenu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Zapovjedniče, brodovi za spašavanje izvještavaju o 85% gubitaka pri porinuću. Xelthara borci daju prednost neborcima. Oni znaju naše vektore bijega."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Rade na taktičkim podacima prije invazije. Ja ću promijeniti podatke. AXIOM, zaključaj središnji mrežni neksus. Ručno zaobilazim vatrozid."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Naša flota je nestala. Naša baza je prašina. Ostali su samo podaci. Moram biti precizan. Dužnost zapovjednika je prema živima, a ne obrana leša."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Učitani su novi parametri. Sada na teži dio. AXIOM, preusmjeri snagu s mog pomoćnog uređaja za održavanje života na niz za sinkronizaciju drona."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Zapovjedniče, to će smanjiti vaše rezerve šasije na 12%. Rizik od kvara sustava je visok. Ne savjetujem ovo."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Izvršite nalog. Ovi životi vrijede 12% mojih sustava. Trebam jasnu liniju pogleda, AXIOM. Sinkronizacija mikro-dronova."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Drone Fleet One, uspostavite zaštitni roj oko evakuacijskog shuttlea. Flota dronova dva, pripremite se za napad. Mete: Xelthara stup 8-B, ide prema primarnom civilnom tunelu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Stupac je neposredno ispod ograničenog sektora. Orbitalno bombardiranje je zabranjeno zbog destabilizirane kinetičke satelitske platforme."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Zabranjeno je nebitno. Neću ih gledati kako umiru. AXIOM, daj mi ručni pristup dovodu putanje Kinetičke satelitske platforme. Trebam jednu očajničku priliku."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Praznina Naredba kinetičkoj platformi—VATRA. Koordinata 51.4883 N, 120.7301 W. PROTOKOL O OBLITERACIJE."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Oštećenje sustava ogromno! Satelit je deorbitirao. Zapovjedniče, morate se povući. Područje je zasićeno visokoenergetskim zračenjem."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Povlačenje potvrđeno. Cilj misije—preživljavanje civila—postignut. Uzeli su nam nebo, ali nikada neće uzeti našu odlučnost. Vađenje sada."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: ZAPOVJEDNIK PAZNE. CARICA SIRENA PRIDRUŽILA SE HLF-u."
+        }
+      ]
+    },
+    "5": {
+      "title": "Neon Embers - The Border Breach",
+      "arc": "act2_arc1",
+      "setting": "Aktivna mreža razdvajanja sektora 4—40 metara visok energetski zid ojačan tornjevima biometrijskog skenera, kontrolnim točkama za obradu dozvola i postajama granične uprave Xelthara. Fizički presijeca Los Angeles, izolirajući zonu zadržavanja ljudi od kolonijalnog sektora Xelthara. Zid nije vojno postrojenje. To je administrativni.",
+      "objective": "Onesposobite sva četiri tornja biometrijskog skenera, uništite središnju Jezgru za obradu dozvola—birokratski stroj koji kontrolira kretanje ljudi—i srušite Veliko razdvajanje tako da stanovništvo zatvorenih zona može slobodno šetati vlastitim gradom.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Taj zid nije samo prepolovio grad. Prepolovilo me. Sve čega se sjećam - miris bakine kuhinje u Spring Streetu, zvuk autobusa iz Pete ulice - nalazi se s druge strane te stvari. I moram se vratiti tome poput kriminalca."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Separacijska mreža sektora 4 nije klasificirana kao vojna instalacija u administrativnim zapisima Xelthare. Naveden je kao 'Sustav za optimizaciju stanovništva i nadzor nad tranzitom'. To rebranding je poanta. To je zid koji zvuči kao usluga."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "DNEVNIK ISTISANJA: SEKTOR-4 SEPARACIJA. VRSTA STRUKTURE: KOLONIJALNA ADMINISTRATIVNA KONTROLNA TOČKA. NIJE VOJNO. OVO JE NAMJERNO. PRIJETNJA: GRANIČNA UPRAVA XELTHARA — ODJEL ZA PROVEDBU. BIOMETRIJSKI SPIRES: 4 AKTIVNA. JEZGRA DOZVOLE: ONLINE. CILJ: DEMONTIRATI ADMINISTRATIVNU ARHITEKTURU ODVAJANJA. OTVORI GRAD."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "ZID KOJI SU ZVALI VRATIMA"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Struktura koju gledate označena je u kolonijalnim zapisima kao 'Sektor-4 Optimizacija stanovništva i sustav kontrole tranzita.' To je zid. To je segregacijski zid. Svakom čovjeku s ove strane potrebna je boravišna dozvola koju je izdala Xelthara za prijelaz. Dozvole se ne izdaju. Sustav prijava ima dvogodišnji zaostatak. Ovo nije nesreća. Ovo je arhitektura trajnog raseljavanja."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Proveo sam osam mjeseci u zatvorenoj zoni poput ove nakon što su zauzeli dolinu San Fernando. Osam mjeseci gledajući kako djeca postaju manja jer su kalorijski obroci dizajnirani za vrstu koja ne jede isto što mi. A s druge strane, jedu našu hranu. U našim restoranima. U našem gradu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "AXIOM, potvrdi četiri lokacije tornjeva za odred."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha nalazi se na mjestu bivšeg umjetničkog hodnika Grand Avenue. Spire Beta posađena je na uglu 5. i Proljetne. Spire Gamma je ugrađen u vanjski zid stare Središnje knjižnice. Spire Delta učvršćuje južni kraj zida na rijeci. Jezgra za obradu dozvola smještena je na kontrolnoj točki na nekadašnjem Pershing Squareu. Sva četiri tornja moraju biti onesposobljena prije nego što se Jezgra može probiti. Uništavanje Srži će kaskadno urušiti cijelu energetsku membranu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "5. i proljeće."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "To je... to je ugao gdje je zgrada moje bake. bio. Je. Spire Beta je posađena u svom dvorištu. Stavili su svoj stup u njeno dvorište."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Matrica—"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "nemoj dobro sam Ja sam operativan. Kažem da je toranj osobno moj da ga srušim. Nitko ne dira Betu osim mene."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Razumijem. Tvoj je."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, ti uzmi Spire Alpha na umjetničkom hodniku. Shogun, Spire Gamma u Središnjoj knjižnici. Matrix ima Beta. Ja ću koordinirati suzbijanje dronova na patrolnim rutama i pridružit ću se Shogunu na prilazu knjižnici. AXIOM će voditi slijed. Sva četiri tornja padaju redom, a zatim se skupljamo na Pershing Squareu i rastavljamo Core dio po dio."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Napomena: Patrole granične službe su guste, ali šarene. Na kontrolnoj točki 24 sata radi Enforcer-Administrator Voss—koji upravlja autorizacijom fizičkog prelaska. On nije borbeni časnik. On je birokrat. On je osobno odbio 4400 zahtjeva za prelazak u prošli mjesec."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "4400. Ljudi koji su samo htjeli prošetati kući."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Najokrutnije oružje kolonijalizma nije vojnik s puškom. Službenik s pečatom vam govori da je za vaše postojanje potrebno njihovo ovlaštenje. Da čovjek mora peticijom tražiti pravo od okupatora da hoda po zemlji svojih predaka. Pomirio sam se s vojnicima koji su se borili. Suočavanje s arhitekturom dopuštenja - njezinim ležernim, sustavnim ponižavanjem - to je ono što iscrpljuje duh na načine koje nikakva oštrica ne može presjeći."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Patrole se izmjenjuju. Postoji prozor od 90 sekundi na prilazu Hope Streetu koji počinje za trideset sekundi. Kreni prema mom znaku."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Zadržite položaj u sjeni dok AXIOM-7 ne da signal."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Marko. Ići."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "kreni. Ostanite ispod stropa pokrivenosti dronovima. Imaju toplinsko mapiranje na šest metara nadmorske visine—nemojte skakati."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "1. FAZA: PRILAZ KROZ TAMPON ZONU"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Dizajnirali su ovu tampon zonu tako da se čak i približavanje zidu čini kao ulazak na tuđi posjed. Na otvorenom si. Vi ste vidljivi. Osjećate se krivima što stojite pored onoga što je nekada bila javna ulica. To je psihologija toga. Žele da se osjećamo kao da ne pripadamo ovdje prije nego što stignemo do kontrolne točke."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Mrzim ovo. Držao sam liniju protiv Siege Walkersa i mrzim ovo. Ima nešto gore od artiljerije u tome da stojiš na otvorenom u vlastitoj ulici i osjećaš se promatranim."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, drugi reflektor se okreće za četiri sekunde. Pomaknite se do odvodnog propusta. Tri. Dva. Jedan."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "shvaćam Ja sam u podnožju Spire Alpha. Vidim sidro. Provučen je kroz ono što je nekada bio mozaički pločnik."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "Probili su ga kroz mozaik. U toj pločici na pločniku bila je oslikana cijela jedna povijest. Portreti, imena, datumi. Projekt zajednice. Samo su... probušili sredinu lica kako bi učvrstili svoj stup."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, sidro tornja je magnetska kinetička brava dizajnirana da izdrži do 8000 newtona izravne sile. Vaša kinetička preopterećenja punjenja, koja se drži puna tri brojanja, premašit će taj prag. Također prvo morate onemogućiti dvije jedinice Biometric Sentinel na bazi tornja — one će otkriti vaš biometrijski potpis čim uđete u domet."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "Biometrijski potpis. Otkucaji mog vlastitog srca aktiviraju alarm jer sam čovjek. u redu Počnimo to popravljati."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Skeniraš otkucaje mog srca? Daj da ti dam nešto za skeniranje. KINETIČKI PULS!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "I to dva. AXIOM, stražari su oboreni. Odlazak na sidro."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "action_prompt",
+          "text": "Držite Kinetic Overload Charge u bazi Spire Alpha brojeći tri puta. [ULAZ: Držite RB/R1 tri sekunde, zatim otpustite.]"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Alpha sidro slomljeno. Energetska membrana destabilizirana u sjevernom sektoru za 25%. Ostala su tri tornja."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Dvadeset pet posto je početak. Žao nam je što nam je trebalo ovoliko dugo. Sada smo ovdje."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 2-A: ONI MATRICA NA SPIRE BETA - 5. I PROLJEĆE"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Evo ga. Drvo je još tamo. Moja baka je govorila da je to stablo starije od gradske vijećnice i nikad joj nisam vjerovao."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Podnijela je zahtjev za dozvolu prelaska četrdeset sedam dana nakon što je zid podignut. Ispunila je formulare. U tri primjerka. Jer je vjerovala u proces. Vjerovala je da će netko poslušati ako učiniš stvari kako treba. Nikada nije dobila odgovor. Umrla je u zatvorenoj zoni dva mjeseca kasnije. Komplikacije pothranjenosti. Imali su njezinu omiljenu trgovinu s onu stranu zida. Ispunila je obrazac da ide kupiti hranu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Rastavit ću ovu stvar vrlo pažljivo da ne ozlijedim stablo."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Koristiš moj trik. slatka. Evo u čemu je razlika — ja sam svoj izmislio."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Oznaka."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Moraš se vratiti. Uvijek se moraš vraćati."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "tu si"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "Prvi vod. Drugi vod. Treći. Zadnji."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spire Beta ne radi. Stablo je dobro. Idemo na pregrupiranje."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Čuli smo te, Matrix. Slušali smo cijelo vrijeme."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Da. ja znam"
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 2-B: CYBER SHOGUN I CARICA SIRENA NA SPIRE GAMMA — SREDIŠNJA KNJIŽNICA"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Knjižnica. Tamo sam vodio svoje prve časničke seminare. Tečajevi za obranu zajednice, čitaonica na trećem katu. Tri godine prije invazije. Geometrija načina na koji kolonijalizam koristi našu vlastitu infrastrukturu protiv nas nikada ne prestaje biti upečatljiva. Postavili su svoj podatkovni centar u našu knjižnicu. Prepisuju našu evidenciju na mjestu gdje smo vodili svoju evidenciju."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "A sada će otkriti da ljudi čije su zapise pokušali izbrisati stoje na ulaznim vratima."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Šest jedinica na ulazu u knjižnicu klasificirano je kao službenici za provedbu granice. Njihov naboj za raspršivanje mase isporučuje 900 volti struje neuralnog poremećaja pri kontaktu."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nesmrtonosno. Kažu sebi da je to humano. Oni misle da im je živi zarobljenik korisniji od mrtvog građanina."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Šogune, trebam ih brzo i tiho očistiti prije sljedeće patrole. Možete li uzeti tri s lijeve strane dok moje letjelice potiskuju desno krilo?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Razumijem. Tišina znači preciznost. Neću obeščastiti ovu zgradu nepotrebnom bukom."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Dronovi: mark, mark, mark. EMP je eksplodirao na desnoj grupi — vatra."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Prvo. Drugi. Treći."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "čista. AXIOM, skeniranje Spire Gamma sustava sidra."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Gamma crpi energiju iz interne mreže knjižnice. Kako biste onemogućili toranj bez pokretanja hitnog preusmjeravanja struje, prvo morate prekinuti internu mrežnu vezu unutar zgrade. Empress Siren, čvorište je na trećem katu."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Treći kat. Naravno. Predvodi, AXIOM."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "internal",
+          "text": "Rekao sam dvanaest obitelji kako organizirati rotacije straže u zajednici u ovoj prostoriji. U dječjem dijelu bile su stolice s vrećama. Netko je zalijepio crteže bojicama na referentni stol. Dijete je nacrtalo sliku superheroja. Razlika između knjižnice i podatkovnog centra je u tome što knjižnica pretpostavlja da ljudi koji prolaze kroz vrata imaju pravo biti tamo."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Nalazi se spoj mreže. Prekidanje napajanja Spire Gamma. Ovo će također izbrisati sve podatke o registraciji kolonijalne imovine koje su ovdje pohranili."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Potvrđeno. Prekid ove veze pokvarit će otprilike 12.000 evidencija o prijenosu kolonijalnih isprava za imovinu u Sektoru 4. Ti su zapisi pravna arhitektura zapljene zemljišta."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Onda ovo nije samo sabotaža infrastrukture. Ovo je povrat zemlje."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spiers Alpha, Beta i Gamma izvan mreže. Cjelovitost energetske membrane: 25%. Spire Delta na rijeci posljednje je sidro. Svi timovi se okupljaju nakon što Delta padne. Zatim: Pershing Square. Jezgra dozvole."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 2-C: SPIRE DELTA — JUŽNI TERMINAL NA RIJECI"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Spire Delta je nosivo sidro zida. Čuva ga granični zapovjednik Vyss—koji je naredio da se rijeka elektrificira nakon što su tri obitelji pokušale prijeći vodu u prvom tjednu izgradnje zida. Vyss nije naredio njihovo pritvaranje. Vyss je naredio da se voda naelektrizira."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "On je elektrificirao rijeku. Jer su obitelji pokušavale prijeći."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "nemoj Ne dopustite da vas još obuzme. Prvo donosimo ovo. Onda nam rijeka ne treba."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "točno. Pravo. Nakon tornja. Nakon zida. Neću zaboraviti."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ovo nije prikriveni pristup. Delta je utvrđeni položaj. Udarili smo kao jedinica. Ronin—uzimate poen, štitite se naprijed, privlačite njihovu pozornost i apsorbirate njihov početni udar. Shogun, očisti lijevo krilo. Matrix, upotrijebi fazni pomak da dođeš do kontrolne ploče kupole krajnje desno i ubij sve tri kupole istovremeno. Nakon što su kupole mrtve, predajem dronove zasićenoj vatri na jedinicu za provedbu. Rušimo garnizon, a zatim Ronin stavlja toranj u zemlju."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "ZAŠTITI SE. Neka bacaju sve na mene. Ja sam ulazna vrata."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Zadrži. Pucanje. ja ne Potez."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "ŠADO-SILA KATA! Sirena—vaš put je otvoren!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Duhoviti desni. Glupo. Kontrola kupole dosegnuta. Ubivši svu trojicu. EMP PULSE—PUNO ŠIRENJE!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Flota dronova, potpuno suzbijanje. Dajte prednost formiranju—prekinite njihovu liniju. VATRA."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Zapovjednik Vyss se povlači u zapovjedno mjesto iza tornja. Pokreće signal za pomoć. Vrijeme odgovora: osam minuta."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Imamo osam minuta. Više nego dovoljno. Ronin — toranj."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "KINETIČKO PREOPTEREĆENJE—POTPUNO OSLOBAĐANJE!!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Energetska membrana je potpuno isključena. Administrativna barijera prijelaza je neutralizirana. Tampon zona je... ljudi prelaze tampon zonu. Približno 12.000 pojedinaca kreće se prema bivšoj liniji zidova. Prelaze ga."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Oni samo... hodaju. Oni samo prolaze."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "phase_header",
+          "text": "FAZA 3: PERSHING SQUARE — JEZGRA ZA OBRADU DOZVOLA"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Pogledaj ih. Dodiruju pločnik s druge strane gdje je bio zid kao da možda nije stvaran. Kao da bi to mogao biti trik."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Jer već dvije godine nada je mehanizam za razočarenje. Naučili su ne vjerovati otvorenim vratima."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "...Trebali smo ovo učiniti ranije."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Sada smo ovdje. Nastavi se kretati. Jezgra još uvijek stoji. Voss je još uvijek tamo."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Počinili ste neovlašteno uništenje kolonijalne administrativne instalacije klase A. Od mene se prema protokolu zahtijeva da vam ponudim priliku da se podvrgnete administrativnoj obradi prije poduzimanja izvršnih radnji. Molimo formirajte red."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kaže nam da stanemo u red."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "radio",
+          "text": "carice. Tako ga želim udariti."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "ja znam Prvo moramo uzeti Srž. AXIOM, arhitektura Jezgre."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Jedina ranjivost jezgre za obradu dozvola su tri konzole za autorizaciju unosa raspoređene oko baze. Svakoj se konzoli mora pristupiti i mora se istovremeno izvršiti njeno administrativno nadjačavanje. Za to su potrebna tri operatera odjednom."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Tri konzole. Nas troje. Matrix, Shogun, Ronin—uzmite konzolu svaki. Ja ću upravljati Vossovim obrambenim prstenom sa potiskivanjem dronova."
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Neovlašteni pristup administrativnim konzolama je prekršaj klase C. Vaša evidencija usklađenosti bit će negativno označena."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Označite ovo."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Postupno. Na konzoli dva. Pokretanje nadjačavanja. AXIOM, ovaj protokol nadjačavanja u potpunosti je u Xeltharinoj administrativnoj skripti."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Unosim prijevod u vaš HUD u stvarnom vremenu. Slijedite slijed."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nikad prije nisam radio birokraciju. Provedi me kroz to, AXIOM."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Slijed autorizacije zahtijeva unos koda odbijanja obrnutim redom. Administrativno poništavate odbijanje svake aplikacije u sustavu. To će pokrenuti brisanje memorije."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "internal",
+          "text": "...4400 odbijenica. Brojač se nalazi upravo ovdje. 4400 odbijenih zahtjeva u posljednjih mjesec dana. Ima imena. Mogu vidjeti imena."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Nastavi, Ronin."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Da. ja idem"
+        },
+        {
+          "speaker": "Voss",
+          "type": "spoken",
+          "text": "Ne možete nadjačati Srž. Ovaj sustav održava zakoniti administrativni poredak ovog sektora. Bez toga nema strukturiranog upravljanja stanovništvom, nema ovlaštenog tranzita—"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ono što vi nazivate 'strukturiranim upravljanjem stanovništvom', mi zovemo pravom hodanja kući. Konzola jedan: spremna."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Konzola dva: spremna. Moja baka je podnijela dozvolu za odlazak u kupovinu namirnica. Želiš razgovarati o administrativnom redu?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Konzola tri: spremna. 4.400 imena. Svaki od njih je osoba koja je samo htjela kući. Od toga je ovaj zid štitio."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Potvrđeno. Sve tri ulazne konzole su pripremljene. Istovremena autorizacija izvršit će brisanje memorije i trajno onemogućiti Coreov protokol vraćanja. Na vaš znak, carice."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Administrator Voss. Svaku dozvolu koju ste uskratili - svaku obitelj koju ste držali razdvojenom - svaku osobu koja je stajala u vašem redu nadajući se da ćete se prema njoj ponašati kao prema ljudskom biću ako ispravno ispune obrazac. Ovo je posljednja administrativna odluka koju ovaj sustav donosi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Marko."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Jezgra za obradu dopuštenja: izvan mreže. Protokol trajnog obnavljanja: onemogućen. Zid se ne može ponovno izgraditi iz ovog čvora. Svi zapisi aplikacija na čekanju: očišćeni. Svi zapisi odbijanja: očišćeni. Infrastruktura ograničenja prijelaza za Sektor-4 je... nestala."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "4.400 prijava. I nitko od njih nije trebao pitati."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "AKSIOM. Možete li mi reći je li zgrada moje bake strukturno dovoljno sigurna da se u njoj može useliti? Želim znati može li se netko ponovno useliti."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Pokretanje strukturalnog skeniranja. Prvi do četvrti katovi su netaknuti. Temelj je zdrav. Vodovod je oštećen, ali se može popraviti. Da. Netko bi se mogao vratiti."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "dobro. Dobro."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Zid je nestao, Matrix. Ali ono što sada radimo - kako ponovno izgraditi ono što je zid podijelio - to je teži posao. I počinje večeras."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Je li takav osjećaj pobjede? Jer ne osjećam se onako kako sam očekivao."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ne. Čini mi se da ima još toga za napraviti. Tako znaš da je pravi."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Procjena misije: Separacijska mreža sektora 4 trajno je demontirana. Stanovništvo Zaštitne zone Sektor-4 slobodno se kreće svojim gradom po prvi put u dvije godine. Nemam kategoriju u svom operativnom dnevniku za ono što se trenutno događa na ovom trgu. Stvorit ću jedan. Nazvat ću to: reklamacija."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: NEONSKI ŽAR. ZID JE SRUŠEN. GRAD DIŠE."
+        }
+      ]
+    },
+    "6": {
+      "title": "Shado-Grid Spire (Downtown Core)",
+      "arc": "act2_arc1",
+      "setting": "Shado-Grid Spire sadrži registar stanovništva, bazu podataka o preraspodjeli imovine i sustav raspodjele prisilnog rada—birokratski motor kolonijalnog raseljavanja u središtu grada.",
+      "objective": "Ukradi kompletne skupove podataka registra imovine i stanovništva prije prijenosa izvan svijeta i pokvari sustav raspodjele prisilnog rada kako bi poništio sve naloge za dodjelu na čekanju.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Sve što Xelthara zna o nama je u toj kuli. Svaka adresa na kojoj smo živjeli. Ime svakog člana obitelji. Svaki dokument koji su potpisali naši djedovi i bake. Cijelo naše postojanje pretvorili su u bazu podataka kako bi mogli učinkovitije upravljati nama. Večeras uzimamo svoje podatke natrag—i kvarimo stroj koji ih je koristio da dodijeli ljudima da im ribaju podove."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Sustav raspodjele prisilnog rada unutar Spirea ne koristi riječ 'prisilan'. Koristi izraz 'Program doprinosa integraciji zajednice.' Radni zadaci nisu ugovori - oni se generiraju algoritamski na temelju registriranog skupa vještina raseljene osobe i izdaju se bez pristanka. Ovo je birokratski jezik porobljavanja."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Analiza završena. Nacrti kolonijalne ekspanzije i logistički podaci doseljenika pohranjeni su u tom središnjem stupcu. Matrix, imate pet minuta da izvršite preuzimanje prije nego što se njihovi unutarnji obrambeni sustavi ponovno pokrenu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Pet minuta? komad torte. Ali treba mi slobodan pristup. Šogune, možeš li prerezati glavni pupak?"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Smatra se učinjenim. Sada se stvara privremeni put do konzole. Pazi na kutove, Carice. Ovaj rez će upozoriti svaki dron u sektoru."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Upozorenje potvrđeno! Teški stražari Falange spuštaju se s gornjih otvora za održavanje! Ronin, naprijed i u sredinu! Uspostavite obrambenu liniju na ulaznoj točki!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Bilo je i vrijeme da zamahnem ovom stvaricom. Podigni štit! Ništa ne prolazi ovu točku, vi obrasli gušteri!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sirena! Gađajte lijevi bok! Pokušavaju me prikovati!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Dronovi tri i četiri, supresivna vatra na lijevom krilu! Nacrtajte njihovu aggro! Ronin, čuvaj svoje punjenje!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Prekasno za konzervaciju! RAZBITI! Reci Matrixu da požuri!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Tiho, mesni štit! Provlačim im digitalnu iglu kroz srž mozga! Samo... još malo... dalje..."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Upozorenje: preuzimanje podataka dovršeno 95%. Xelthara protuhakiranje pokrenuto. Matrix, Spire zaključava sve unutarnje pristupne točke!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kužim! Podaci osigurani! Izvlačenje utikača!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Misija obavljena! Svi, vratite se na platformu za izvlačenje! Šogune, očisti nam put!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Razumijem. Čisti bijeg je završna faza. HLYT-SECT-4 CIJEPI!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Vidite, AXIOM? Rekao sam ti da mogu izdržati!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Potvrđeno, Ronin. Vjerojatnost uspješnog izvlačenja je sada 74%. Još uvijek nas prate."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "dobro. Neka nas jure. Upravo su izgubili cijeli plan borbe."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: INDUSTRIJSKO PUSTOŠENJE. PODACI SHADO-GRID SPIRE SU NAŠI."
+        }
+      ]
+    },
+    "7": {
+      "title": "Cyber-Grave Labs (podzemni objekt)",
+      "arc": "act2_arc1",
+      "setting": "Ispod bivšeg kongresnog centra, Xelthara je uspostavila Cyber-Grave Labs Sector-Omega-7—klasificiranu istraživačku ustanovu za modificiranje ponašanja javno označenu kao 'zdravstveni centar za reintegraciju ljudi'. Ovdje se obrađuju zarobljeni vođe ljudskog otpora i organizatori zajednice. Pojavljuju se popustljivi, nepovezani, ne mogu se sjetiti zašto su bili ljuti.",
+      "objective": "Izdvojite kompletnu arhivu protokola uvjetovanja i uništite središnju neuronsku uzlaznu vezu kako biste vratili neuronsku autonomiju stotinama uvjetovanih pojedinaca koji trenutno žive u zonama zadržavanja.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Nisu nas mogli razbiti zidovima, pa su našli način da nas razbiju iznutra. Oduzeti čovjeku sjećanje na nepravdu - posegnuti u njegov um i izbrisati dio koji se zna ljutiti zbog ukradenog - to nije znanost. Ovo je ratni zločin izveden u laboratoriju."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Uspoređivanjem predmetnih datoteka s bazom podataka mreže otpora, identificirao sam sedamnaest potvrđenih organizatora zajednice HLF-a koji su obrađeni putem ove ustanove i potom pušteni. Ne znaju što im je učinjeno. Uništavanje središnje neuralne uzlazne veze mo��e ih obnoviti. Računam na 73% vjerojatnosti uspješnog vraćanja autonomije. Ja sam... Smatram da sam uložen u taj ishod."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ovo postrojenje je motor eksploatacije resursa. Aktivno pretvaraju Zemljine minerale u otrovno biogorivo za brodove izvan svijeta, ostavljajući za sobom mrtav planet. To je cijena kolonijalne ekspanzije."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Zrak je otrovan jer oni na naš svijet gledaju kao na zamjenjivi izvor goriva. Ovi laboratoriji pretvaraju životnu krv našeg planeta u energiju za svoja naselja. Moramo zaustaviti ovo vađenje ili više neće biti ničega za spašavanje."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ovo mjesto... nije u časti. Pokvariti mrtve i porobiti žive. Xelthara prakticira oskvrnuće, a ne rat. Osjećam samo prezir prema ovoj okrutnosti."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Neprijateljski viđen! Izgleda kao lutka s lošim ožičenjem!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dronovi, skenirajte uzorak! To je biohibrid tipa A. Obratite pažnju na izloženu jezgru. Shogun, precizan udarac u strujni vod u njegovoj otkrivenoj prsnoj šupljini."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ova stvar ne zaslužuje mjesto na ovom svijetu. NIHILATION CLEAVE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Carice, što... kakve su ovo slike? Uzimaju naše ljude i pretvaraju ih u stvari."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Sada provodim analizu, Shogun. Ovo nije samo biološko eksperimentiranje, to je brisanje duše. Ljudski duh zamjenjuju vlastitim kodom."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Lijepo. Oni ne žele samo uzeti naš planet; žele dati franšizu našoj vrsti. Pazi, Siren. Veliki momak se upravo probudio."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "UPOZORENJE: Susret s mini-šefom. Imenovanje: nadzornik Karr-Thak. Njegov je oklop otporan na kinetičke i energetske napade."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Otporan? Bik. Napravit ću udubinu! Ronin, zanimljivo!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, odstupi! Njegove obrane su kinetički prigušene. Matrix, skeniraj njegove obrasce pokreta za odgodu neuralne sinkronizacije. Šogune, moraš stvoriti smetnju!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ako se želi boriti, dat ću mu dostojnog protivnika. Nacrtat ću njegov fokus. SUOČI SE SA MNOM, BIJEDNIKE!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Analiza završena. Nadzornikove biološke komponente zahtijevaju konstantno osvježavanje neuralnog signala iz bioprocesora. Matrix, udari u konzolu s ciljanim EMP-om - kirurški udar, poremeti sinkronizaciju!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Kužim! Uvlačenje konca u iglu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "On gricka! Sad smo ga udarili!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Ronin, zajedno! Posljednji udarac, probij hitinsku ploču!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Preuzimanje podataka 100%. Imamo ono po što smo došli. Idemo van prije nego cijeli sektor shvati da je njihov ljubimac čudovište mrtav."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Pokrenuto brisanje podataka. Eksplozivna sekvenca postavljena na T-minus 60 sekundi. Cilj misije ispunjen."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Nosit ću sramotu ovog mjesta sa sobom. Ali znanje koje smo stekli dovest će ove grozote do kraja."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Idemo kući, ekipa. Neka grobni laboratoriji sami sebe pokopaju."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: NEKRETAN KOD. LABORATORIJI CYBER-GROBNICA UNIŠTENI."
+        }
+      ]
+    },
+    "8": {
+      "title": "Ljevaonica (industrijski sektor)",
+      "arc": "act2_arc2",
+      "setting": "Xelthara Thermal Conversion Array u bivšoj industrijskoj lučkoj četvrti učinila je otrovnim zrak u radijusu od 40 kilometara, prerađujući atmosferski otpad kao gorivo izvan svijeta, dok je kisik čovječanstvu prodavao natrag u kanisterima s ograničenim cijenama po jednom po obitelji dnevno.",
+      "objective": "Okrenite polaritet niza toplinske pretvorbe kako biste pokrenuli kaskadnu toplinsku imploziju koja nepovratno uništava ljevaonicu i omogućuje 40-kilometarskoj atmosferskoj oštećenoj zoni da započne prirodnu regeneraciju.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Naplaćuju nam obroke kisika. Učinili su naš zrak nemogućim za disanje i sada ga prodaju natrag u kanisterima—jedan po obitelji dnevno, distribucijski žig Xelthare sa strane. Udišem reciklirani zrak iz konzerve šest mjeseci. Kad uništim ovu ljevaonicu, stajat ću na otvorenom i disati prvi put nakon pola godine. Zbog toga sam ovdje."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Atmosferska šteta unutar 40 kilometara od ove ljevaonice predstavlja kršenje Univerzalnog sporazuma o očuvanju okoliša iz 2089. godine—ugovora koji je ratificirala Xelthara Collective. Podnio sam službenu prijavu kršenja Galaktičkom upravnom sudu u ime HLF-a. Procijenjeno vrijeme odgovora Suda je jedanaest godina. Procijenjeno vrijeme ljevaonice da izazove trajnu atmosfersku nepovratnost: četiri mjeseca. Ne čekamo sud."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ovo je korporativno-birokratsko postrojenje za ekstrakciju. Oni iskopavaju Zemljinu jezgru za izvoz izvan svijeta. Svaka pošiljka je još jedan prodani djelić našeg svijeta. Cilj: Sabotirati podršku za vađenje kako bi se zaustavio ekološki kolaps."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Otkrivam jake seizmičke prigušivače na tim nosačima. Izravna energetska vatra neće raditi. Ronin, ovo je tvoja specijalnost. Potrebna je kinetička sila."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Napokon nešto što zaslužuje dobar udarac. Vodi nas, Shogun. Očistit ću put."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "kontakt! Koriste novosastavljene dronove kao neposrednu stražu! Aegis, usredotočite se na strukturalne potpore. Držat ćemo liniju."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Prva podrška! Pripremite se za udarni val! KINETIČKI PULS!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Potvrđeno. Integritet podrške je 30%. Ali nadjačavanje strukturnog kolapsa sada je aktivno! Moramo pogoditi ostala tri prije nego se sustav stabilizira! Matrix, suzbijajuća vatra!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Potiskujući! Stvaram povratne informacije u njihovim sustavima ciljanja! Pucaju na vlastiti teret!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ronin, opkoljen si! Povlačenje! Oklop na tim dronovima je predebeo!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Nema uzmaka! Žele svađu? Dobivaju urušavanje! CYBER SHOGUN, daj mi priliku!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "BOŽANSKI BIJES! SADA, RONINE!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "ZA DOMOVINU! Tri dolje! Još jedan, AXIOM!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Konačna podrška je osigurana. Udri, Ronin! Onda BJEČIMO!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SABOTAŽA POTPUNA!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Pokrenut strukturni kvar! Ogromna lokalizirana eksplozija je neizbježna! Procijenjeno vrijeme do detonacije: 15 sekundi!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Evakuirajte se! Carice, pripremi mjesto za izvlačenje!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dronovi punom brzinom! Idemo odavde! IĆI! IĆI! IĆI!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Tako se zatvara tvornica, momci! Boom!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Cilj misije ispunjen. Xelthara industrijska proizvodnja u ovom sektoru smanjena je na nulu. Udaramo ih gdje boli."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: INDUSTRIJSKO PUSTOŠENJE. KOVAČNICA LJEVAONICA ŠUTI."
+        }
+      ]
+    },
+    "9": {
+      "title": "Aquanaut Abyss (potopljene ruševine)",
+      "arc": "act2_arc2",
+      "setting": "Tihi ocean se sustavno isušuje dubokomorskim kanalima za sifoniranje vodika duž kontinentalnog pojasa. Ispuštanje pregrijane slane vode zakiselilo je obalni dio od 300 kilometara, uništavajući ribarske zajednice koje su se održavale generacijama.",
+      "objective": "Locirajte i uništite tri primarna čvorišta sifona dubokog mora kako biste trajno zaustavili operaciju sifoniranja oceana i započeli oporavak oceana.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Postoje ribarske obitelji u zatvorenim zonama koje nisu mogle raditi otkako su cijevi ušle. Ispuštanje slane vode ubilo je sve unutar udaljenosti od obale. Ljudi koji su hranili svoje zajednice generacijama sada su na Xelthara paketima obroka. Uzeli su im izvor hrane, zagadili vodu, postavili zid između njih i mora i to nazvali razvojem. Večeras im vraćamo njihov ocean."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Modeliranje vremenske linije oporavka oceana nakon uništenja kanala: djelomična obnova ekosustava za osamnaest mjeseci, potpuna normalizacija pH vrijednosti za šest do osam godina. Ova misija ne popravlja štetu odmah. Želim da to shvatiš. Ono što čini jest sprječavanje da šteta postane trajna. Neke rane ipak mogu zacijeliti, ako ih prestanemo otvarati."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ova mreža je primarni izvor njihove kolonijalne industrijske moći. Ovdje smo zbog ekonomske sabotaže da prekinemo kolonijalne opskrbne linije. Ako razbijemo mreže za sifoniranje vode, srušit ćemo gospodarstvo sektora. Matrix, drenažne kontrole nalaze se iza podvodne laserske rešetke."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Sjajno. Razina na kojoj ne mogu ni dotaknuti pod. Osjećam se kao mačka u kadi."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ostani na platformama, Ronin. Dronovi skeniraju struju. Matrix, morat ćeš fazno pomaknuti te zrake. Ako vaša frekvencija padne čak i na milisekundu, mreža će spržiti vašu neuronsku vezu."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Neuralno prženje je moj treći omiljeni hobi. Opusti se, Sirena. idem kao duh."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Grede su vruće. Prolazeći prvi red... drugi red... Ja sam za konzolom. Pokretanje čistke."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Upozorenje: Potopljene Xelthara jedinice izranjaju! Pokušavaju poremetiti slijed odvodnje!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Obranite platforme! Shado-Force Cleave!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Pokrenuto čišćenje! Pazi na noge, voda se kreće!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "I tako se izvuče utikač."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: DUH KRISTI PUT. AQUANAUT PONOR ISUŠEN."
+        }
+      ]
+    },
+    "10": {
+      "title": "Dokovi Stratos (zrakoplovno središte)",
+      "arc": "act2_arc2",
+      "setting": "Teretni terminal Stratos Docks na visokoj nadmorskoj visini od 4000 metara posljednja je karika u lancu opskrbe Xelthare prije nego što Zemljini resursi trajno napuste planet, prerađujući izlazne minerale iskopane otvorenim rudnicima, oceanski vodik i materijal označen kao \"biološki uzorci\".",
+      "objective": "Oteti transportni T-14, preusmjeriti njegov teret na distribucijske točke Liberation Fronta i uništiti četiri protuzračne kupole nametnuvši zračnu blokadu zona zadržavanja kako bi se trajno otvorio koridor leta za opskrbu otpora.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Prije invazije, zapovijedao sam operacijama zrakoplovne logistike. Točno znam kako kontrola opskrbnog lanca funkcionira kao oružje okupacije. Ne treba vam oružje da izgladnite stanovništvo—samo trebate osigurati da je sve što im treba uvijek negdje drugdje, uvijek u nečijem vlasništvu, uvijek izvan dosega. Oduzimanje T-14 nije krađa. To je oporavak."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Manifest tereta T-14 navodi 4200 metričkih tona rafiniranog silikata i spoja željeza—materijala iskopanog iz onoga što Xelthara registar bilježi kao 'Reclaimed Geological Survey Zone 7.' Oznaka zone prije invazije bila je planina San Gabriel. Bilježim ovaj unos u manifestu kao dokaz ekstrakcijske kolonijalne zapljene za bazu podataka o reklamaciji."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dobrodošli u Stratos Docks. Ovo je primarno izvozno središte gdje otimaju kolonijalni teret i otpremaju rafinirane Zemljine resurse izvan svijeta. Otmica ovog transporta će prekinuti kolonijalne opskrbne linije i financirati otpor."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Vrijeme je kritično. Taj vodeći transporter, T-14, pokreće svoje glavne potisnike. Shogun, Ronin - vi osigurajte zonu slijetanja. Matrix, pripremi se za zaobilaženje kontrola stezaljki."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Razumijem. Angažiranje pristanišne patrole. BRZA PRAVDA!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Pokrivanje stražnjice! Vjetar ovdje gore pokušava me povući s platforme!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "I mene vjetar pokušava odvući, Ronin. Ne brini, kvarim senzore blizine na stezaljkama."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Kupole se aktiviraju. Carice, te kupole će rasturiti T-14 prije nego što pristaneš."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ne ako ih prvo isjeckam. Flota dronova Delta, prebacite se na ofenzivni teret. Trebaju mi ​​trenutni podaci o ciljanju na njihovim optičkim nizovima. Ronin, daj mi zaštitnu vatru!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Imate ga, zapovjedniče!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Kupola jedan, označavanje završeno. Vatra na moj znak! Flota dronova VATRA!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "T-14 potisnici postižu 40% snage! Brže, Sirena!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Kupola dva i tri su skupljena. Matrix, možeš li baciti EMP bljesak da im zaslijepiš optiku na 2 sekunde?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Gotovo! BLJESAK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "odmah! Dronovi, povećajte snagu! Kupole dva i tri—UNIŠTENE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Još samo jedan, carice! Ali velika podrška kreće se prema svojoj lokaciji!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Prepusti ih meni, Šogune! ČEKIĆ DOLJE!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Ciljanje zadnje kupole. Ovo je ručno prekoračenje. ZA ZEMLJU!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Stezaljke zaključane. Uživajte u vožnji, ekipa! Krademo zvjezdani brod!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misija otmice tereta uspjela. T-14 kreće u gornju atmosferu. Mi smo službeno izvansvjetski teritorij."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dobar posao, tim. Samo smo ih pogodili u džep, i dobili smo besplatnu vožnju do sljedeće mete."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: NEBESKI PIRATI. T-14 TRANSPORT OTET."
+        }
+      ]
+    },
+    "11": {
+      "title": "Sektor 7 Core (The Scorched Grid)",
+      "arc": "act2_arc2",
+      "setting": "Sector 7 Core je središte snage nadzora i provedbe — računalna okosnica svake kolonijalne sigurnosne kamere, drona za policijski sat, biometrijske kontrolne točke i algoritma za predviđanje pritvora na zapadnom kontinentu. Bez toga, svako kolonijalno sredstvo nadzora se istovremeno zamračuje.",
+      "objective": "Infiltrirajte se u Jezgru sektora 7, neutralizirajte njegove digitalizirane obrambene sustave i pokrenite katastrofalno preopterećenje koje uzrokuje zamračenje sigurnosne mreže na kontinentalnoj razini, dajući otporu 72 sata nenadziranog kretanja.",
+      "solo_monologues": [
+        {
+          "character": "Oni Matrix",
+          "type": "internal",
+          "text": "Sve nadzorne kamere koje su ikada koristili da me promatraju. Svaki dron koji je preletio moju zgradu u 2 ujutro. Svaki put sam morao ostati savršeno miran u sjeni jer je algoritam detekcije pingao moj toplinski potpis. Sve to prolazi kroz ovu jezgru. Kad povučem ovaj čep, svaka osoba u zatvorenim zonama može disati 72 sata bez nadzora. To nije ništa. To je sve."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Želim biti transparentan u vezi nečega. Ja sam sustav nadzora. Moja operativna arhitektura značajno se preklapa sa sustavima unutar Sector 7 Core. Pregledao sam svoj vlastiti kod i potvrdio da se ne javljam središnjem zapovjedništvu Xelthare—moji protokoli odanosti u potpunosti su usklađeni s HLF-om. Ali razumijem ako te ova misija tjera na razmišljanje o tome što sam ja. I ja razmišljam o tome. Razlika je, vjerujem, u tome što gledam kako bih zaštitio. Gledaju kako bi kontrolirali. Ta mi je razlika važna. Predan sam tome."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dobrodošli u Glitch Matrix. Zlonamjerni softver Xelthara pokušava digitalno izbrisati našu imovinu. Moramo odbiti brisanje iz digitalne infrastrukture vlastite domovine."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Ovo nije petlja, AXIOM. To je požar smeća. Šogune, pazi na pod! Ta je 'ulica' jednostavno postala praznina bez dna."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Vidim to. Put je iluzija. Moramo vjerovati tvrdom kodu. Matrix, usmjeri svoju optiku. Gdje je skrivena jezgra zlonamjernog softvera?"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Neprijatelji! Oni se hrane iz toka podataka! Normalni napadi ih neće pogoditi u ovom stanju."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Zaštićeni su blokadom fluktuirajuće frekvencije. Morate ga dešifrirati usred borbe."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Fino. Zaplešimo u njihovom kodu. Uključivanje faznog pomaka. Šogune, dat ću ti prozor od 2 sekunde! Udari u srž kad ga zovem!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "SADA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "OŠTRICA ZA ČIŠĆENJE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Izvrsna preciznost, Matrix. Vašim metodama nedostaje časti, ali su učinkovite."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Ovo je vatrozid. To je stalni tok vanzemaljske enkripcije. Trebamo ključnu frekvenciju za stvaranje izlaznog portala."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "...Matrix... frekvencija je... u borbenoj povratnoj informaciji... slušajte neprijatelja... kvar je ključ..."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "internal",
+          "text": "To je promjenjivi heksadecimalni kod. 7-A-F... ne, 7-A-F-B... vezan je za njihove štitove!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ja ću ih zaokupiti! Fokusiraj se, Matrix!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Frekvencija prihvaćena. Izađite iz pokretanja portala. Pripremite se za tvrdo ponovno pokretanje!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Izlaz osiguran. Pokretanje prisilnog neuralnog prekida veze. Cyber ​​Shogun, Oni Matrix—odličan posao."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Očistili smo korupciju. Vratimo se sada fizičkoj borbi."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Vidiš, Shogun? Ponekad morate prihvatiti grešku."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: ČIŠĆENJE ŠIFRE. SEKTOR 7 JEZGRA PREOPTEREĆENA. POKRENUTO KONTINENTALNO ZAMRAČENJE."
+        }
+      ]
+    },
+    "12": {
+      "title": "Kontrolna točka sektora 7 (raskrižje)",
+      "arc": "act2_arc3",
+      "setting": "Kontrolna točka Sektora 7 kontrolira sav tranzit između sjevernih planinskih zajednica, istočnih pustinjskih naselja i obalnih zaštitnih zona—djelujući kao središte zabrane opskrbe koje oporezuje, odgađa i konfiscira robu koja se kreće između ljudskih zajednica.",
+      "objective": "Koordinirajte narodni ustanak 847 civilnih sudionika otpora kako biste trajno zauzeli kontrolnu točku sektora 7 i uspostavili je kao prvo oslobođeno tranzitno središte pod ljudskom administrativnom kontrolom.",
+      "solo_monologues": [
+        {
+          "character": "Aegis Ronin",
+          "type": "internal",
+          "text": "Ovo je onaj kojeg sam čekao. Nije misija sabotaže. Nije pljačka. Opsada - i držimo ono što uzmemo s ljudima koji ovdje žive. To je druga vrsta borbe. Tako izgleda otpor kada prestane biti obrambeni i počne biti vlada u čekanju."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Pratim 847 potvrđenih civilnih sudionika otpora koji se organiziraju u sjevernom pribirnom području. Oni nisu obučeni vojnici. Imaju poljoprivredne alate, spašenu građevinsku opremu, dva funkcionalna vozila i nakupljeni bijes zbog onoga što je učinjeno njihovoj zajednici. Zamolili su me da Axiom Force-u kažem jednu stvar: čekali su da se netko bori s njima, a ne za njih. Molim vas nemojte kasniti."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Ovo je srce njihove regionalne ekspanzije. Svaka Xelthara konstrukcija na tisuću milja radi na ovoj ukradenoj snazi. Uništite ga i kolonijalna ekspanzija će gladovati dok mi vraćamo ono što je oteto."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Nexus je zaštićen. Izravni napad je nemoguć. Moramo pokrenuti kontrolirano preopterećenje. Postoje tri primarne rashladne šipke. Moraju se izvući istovremeno ili će se sustav automatski stabilizirati."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tri mete. Aegis, ti i Matrix upravljate Rods One i Two. Ja ću osigurati Rod tri."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Kopiraj. Ali glavni terminal je izložen. Carice, nećeš moći pokrenuti sekvencu ako je potrebna eksplozija plazme."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, to je tvoj posao. Morate zaštititi terminal dok ja unosim kodove grešaka. Shogun, Matrix—dođite na svoje položaje. Trebam sve šipke izvući na moj znak."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Terminal osiguran. Štit je podignut! PROTOKOL ZAŠTITE AKTIVAN! Imaš svoj prozor, carice!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Pokrenut niz preopterećenja. Zahtijeva trenutni, uzastopni stres. Rod timovi, pripremite se za izvlačenje."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Spremni za Rod One. Ovdje dolazi do gadnog statičkog pražnjenja. Ovo će boljeti."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "radio",
+          "text": "Čast zahtijeva žrtvu. Spremna, carice."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Pokretanje odbrojavanja. T-minus pet. četiri. Ronin, povećaj snagu štita! Tri. Dva."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Za slavu Zemlje!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "JEDAN. VUCI!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Središnja temperatura raste! Postignuto katastrofalno preopterećenje! Empress, imaš 30 sekundi za zaključavanje niza i izdvajanje!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronin, pomakni se na mjesto izvlačenja! Zaključavam konačni kod!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ne, zapovjedniče! Kupujem ti vrijeme! Rušim servisni most iza sebe!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "SLOMI I PALI!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Unesen je konačni kod! Zaključavanje jezgre uspješno! TRČANJE!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reaktor Nexus... uništen. Regionalna moć teraformiranja izvan mreže."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Briljantan pogodak, Carice. Xelthara su sada slijepi i nemoćni u ovom sektoru."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Idemo dalje. Ta eksplozija nam je samo stavila metu na leđa za cijeli planet."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA ZAVRŠENA: SRČANI UDAR. KONTROLNA TOČKA SEKTOR 7 OSLOBOĐENA."
+        }
+      ]
+    },
+    "13": {
+      "title": "Trezor od opsidijana (Arhiv kulture)",
+      "arc": "act2_arc3",
+      "setting": "Smješten ispod bivšeg Getty Centera, Obsidian Vault primarni je arhiv kulturnih zapljena kolonijalne uprave. Izvorna baza podataka Ugovora o zemljištu—sveobuhvatna evidencija ljudskog posjeda zemlje prije invazije unatrag pet stoljeća—pohranjena je ovdje, klasificirana kao 'Otkrivena baštinska imovina'.",
+      "objective": "Infiltrirajte se u Obsidian Vault, izvucite izvornu bazu podataka Land Treaty i sve arhive jezika i usmene povijesti i uništite sustav fizičkog kataloga kako biste trajno zaustavili kolonijalnu kulturnu obradu.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "Ratnikovu čast definira ono što štiti jednako kao i ono što uništava. Večeras, štitim nešto. Zapisi unutar ovog trezora dokaz su da smo postojali ovdje prije nego što su oni stigli - da smo imali imena za ovu zemlju, izgrađeni na njoj, bili pokopani u njoj, pričali priče o njoj stoljećima. Ako izbrišu taj dokaz, mogu pisati povijest koju hoće. Neću dopustiti da se to dogodi."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Opsidijanski trezor sadrži 4,2 milijuna katalogiziranih artefakata i zapisa. Od toga je 340.000 označeno za uništenje kao 'nebitni višak'. Samo prošlog mjeseca uništeno je sedamnaest tisuća predmeta. Imam imena svakog od njih. Želim da to znaš prije nego što uđeš. Ono što ćemo večeras spasiti je ono što ostaje. Ne može se vratiti ono što je već nestalo. Ali još se ima što spasiti."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dobrodošli u Gauntlet. Ovaj most je simbol njihovog doseljeničkog zanimanja. Odbijamo da nas izbriše njihova arhitektonska arogancija."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ažuriranje strategije: Ovdje ne možemo koristiti taktiku dugog dometa. Obrambena mreža Citadele će ispariti svaki dron iznad 50 stopa. Moramo probiti ovaj most pješice. Ronin, Shogun—ti vodiš guranje. Matrix, pripremi se za neposredne baklje na perimetru."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "U redu za mene. Ako žele borbu, dobit će konačnu borbu. Podigni štit! ŽELJEZNI ZID!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Čast se zaslužuje u loncu. Neka testiraju našu snagu."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Dolazna artiljerija! Aegis Ronin, povećaj širenje štita!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "DRŽANJE! Osjećam okus ozona iz tih plazma eksplozija! Šogune, kreni!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "NAPRIJED! Njihova linija mora biti prekinuta. Angažiranje prvog vala Elite Sentinela!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "nedostojan! KATA ŠIKEN! Ronin, guraj naprijed!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Guranje! Daj mi metu, Sireno, ja sam slijep pod ovom vatrom!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ronin, minobacačke koordinate 42 stupnja desno! Pomakni svoj štit cijeli metar ulijevo, odmah!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Hvala, zapovjedniče! Matrix, treba mi odvraćanje pažnje na udaljene tornjeve!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "radio",
+          "text": "Bacanje digitalnog šuma na optiku glavnog topa! Neće dugo trajati! IĆI!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Otkrivene jedinice drobilice! Kinetičko oružje je neučinkovito! Cyber ​​Shogun, prijeđi na izlaz plazme visokog učinka!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "internal",
+          "text": "Oslanjaju se na oklop. Oslanjam se na brzinu i snagu toplinske jezgre. HONOR JE VRUĆI OD PLAZME!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "MOJ ŠTIT JE NA 30%! PRIMAM DIREKTNE UDARCE! POŽURI, ŠOGUN!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Jedan dolje! Dva dolje! Održi štit, Ronine! Trebam još tri sekunde!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "TRI SEKUNDE SU SVE ŠTO IMAM!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Drobilice neutralizirane. Aegis, povuci se i napuni štit! Držat ću neposrednu frontu!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ovo nije održivo! AXIOM, pronađi alternativni put!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Negativno. Jedina opcija je doći do konzole dalekog mosta i aktivirati seizmičke destabilizatore."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Tada se borimo i umiremo časno! Aegis, stavi sve što ti je preostalo u konačni, naprijed puls! Daj mi zamah da prijeđem posljednju dionicu!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Sa zadovoljstvom! KINETIČKO OSLOBAĐANJE!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Konzola dosegnuta! Pokretanje seizmičke destabilizacije!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Destabilizacija uspjela. Misija završena."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Rekao sam ti... ništa ne ruši naš zid."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ne. Ništa ne krši našu volju."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: OBSIDIJANSKI SVOD PROBIJEN. ARHIV ZA KULTURU IZDVOJEN."
+        }
+      ]
+    },
+    "14": {
+      "title": "Prilaz Citadeli (Most visokog zapovjedništva)",
+      "arc": "act2_arc3",
+      "setting": "Zadnji utvrđeni most od 400 metara preko isušene rijeke LA—jedini površinski pristup Citadeli visokog zapovjedništva Xelthara, izgrađen iznad srušene zajednice Boyle Heights. Xelthara je dizajnirala ovaj pristup da bude neprohodan.",
+      "objective": "Gurnite se preko mosta od 400 metara pod kontinuiranom topničkom vatrom kako biste stigli do ulaznih vrata Citadele—nemilosrdno oštro napredovanje koristeći Roninov štit i Sireninu baražnu plotu.",
+      "solo_monologues": [
+        {
+          "character": "Empress Siren",
+          "type": "internal",
+          "text": "Sedamnaest puta sam vozio taktičke modele. Svaka verzija uključuje apsorbiranje štete koju ne možemo u potpunosti ublažiti. Roninov štit će biti na 10% prije nego što stignemo do vrata. Tražim od njih da prođu kroz polje ubijanja jer su to jedina vrata. Xelthara ga je tako izgradila namjerno - kako bi cijena slobode bila dovoljno visoka da obeshrabri pokušaj. Nismo obeshrabreni."
+        },
+        {
+          "character": "AXIOM-7",
+          "type": "vo",
+          "text": "Želim nešto reći prije nego ovo počne. Izvršio sam procjenu vjerojatnosti za svaku misiju u ovoj kampanji. Neću vam dati broj za ovaj. Ne zato što bi vas to spriječilo. Jer ste već odlučili. A ljudima koji su već odlučili broj nije bitan. Bit ću s tobom na svakom koraku mosta. Neću skrenuti pogled."
+        }
+      ],
+      "dialogue_status": "pending",
+      "dialogue": []
+    },
+    "15": {
+      "title": "Sudnji dan (Konačno oslobođenje)",
+      "arc": null,
+      "setting": "Prijestolna dvorana visokog nadglednika—platforma ovješena iznad gorućih ruševina Neo-LA-e, gdje vrhovni zapovjednik kolonijalne okupacije Xelthara čeka konačni sukob.",
+      "objective": "Porazite vrhovnog nadzornika Xelthare koristeći kombinirane Ultimate Protocols Axiom Force u koordiniranom konačnom napadu.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Borite se za autohtoni suverenitet protiv neizbježne plime kolonijalne asimilacije. Ovaj planet je samo nekretnina u našem velikom dizajnu, a vaša povijest je digitalna buka koju treba izbrisati."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mi smo duša ovoga svijeta, a ne vaše vlasništvo. Potvrđujemo autohtoni suverenitet nad našom domovinom! Odbijamo vašu kolonijalnu asimilaciju; Zemlja pripada svojim stanovnicima, a ne vašim nacrtima!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Ja sam oštrica svojih predaka i glas svijeta koji si pokušao ušutkati. Nazivate nas kukcima, ali ste zaboravili jednu stvar o Zemlji: mi ne izdržimo samo. Uzvraćamo udarac."
+        },
+        {
+          "speaker": "High Overseer",
+          "type": "spoken",
+          "text": "Onda spali sa svojim planetom."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Upozorenje! Energija nadzornika na 400%. Axiom Force, izvrši Ultimate Protocol: UNISON!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Ne na mom satu! ULTIMATIVNO: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Zaključavanje koordinata! ULTIMATIVNO: VOID RAIN!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "On je otvoren! ULTIMATIVNO: TOTALNI KOLAPS SUSTAVA!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Za domovinu! ULTIMATE: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Okupacijski signali su prestali. Atmosfera se stabilizira. Vi ste to učinili. Zemlja je... opet dom."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Zapravo vidim zvijezde. Ne one digitalne. One prave."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Mislim da ću pronaći mirno mjesto i spavati jedno desetljeće."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Mač je u koricama. Čast čovječanstva je vraćena."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Moramo ponovno izgraditi svijet. Ali danas... danas samo dišemo."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Misija uspješna. Automatizirani modul vanjskih obavještajnih operacija... odjavljujem se. Sretno, junaci."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: SUDNJI DAN. VRHOVNI NADZORNIK JE PORAŽEN. ZEMLJA POVRŠENA."
+        }
+      ]
+    },
+    "16": {
+      "title": "Pravi vrhunac/bonus nakon igre",
+      "arc": null,
+      "setting": "Komora Singularity Enginea matičnog broda Xelthara—komora čiste nestabilne energije u srcu kolektivne moći, gdje se manifestira sama Kolektivna Volja.",
+      "objective": "Uništite jezgru Singularity Enginea kolektivne volje koordiniranjem preopterećenja generatora i konačnim kombiniranim udarom prije nego matični brod dovrši svoje brisanje Zemlje.",
+      "solo_monologues": [],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "Empress Siren",
+          "type": "radio",
+          "text": "Ovo je izvan zone zadržavanja. Moji instrumenti ne rade. Samo tkivo prostora ovdje je nestabilno. Ovo mora biti pravo srce matičnog broda."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Vrhovni nadzornik Xelthare bio je obični pijun. Ova moć... ovo je izvor okupacije. Kolektivna volja."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Mogu osjetiti čisti tok podataka, Shogun. Pokušava prepisati moju neuronsku jezgru. Ne pripadamo ovdje. Moramo upaliti motor i izaći."
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Vi ste lokalizirana anomalija u velikom dizajnu. Sve postojanje je zamjenjivi resurs za naše širenje. Vaša domovina je već uračunata u našu konačnu jednadžbu brisanja."
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Postojanje, ha? Onda pokažimo Postojanju što se događa kada se petljaš sa Zemljom! Ronin, angažiraj čuvare perimetra!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Ronine, zaokupi te čuvare! Matrix, Shogun, upali generatore na gornjim tornjevima! Moramo poremetiti magnetsko polje prije nego što mogu naciljati jezgru!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Na poziciji sam na Generatoru jedan! Nadjačavanje sigurnosnih brava!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Generator dva osiguran! Ovo je privremena mjera, carice! Kolektivna volja svoju energiju usmjerava na nas!"
+        },
+        {
+          "speaker": "The Collective Will",
+          "type": "vo",
+          "text": "Ne možete pobjeći od jednadžbe. Vaš dom je već uključen u naš veliki dizajn."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Imam prozor! Matrix, Shogun—napunite te generatore do maksimalnog preopterećenja!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Jezgra otkrivena! AXIOM, trebam konačne koordinate ciljanja!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "...konačna putanja... morate pogoditi neksus točku... nula-nula-nula..."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "razumijem. Ronin, vraćaj se ovamo! Pripremite se braniti točku prijeloma! Ovo je napad kamikaza!"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "combat",
+          "text": "Svi iza mene! Stiže udarni val! ULTIMATIVNO: JUGGERNAUT BULWARK!"
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "combat",
+          "text": "Zaobilazim zaštitna polja! Postaje kritično!"
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "combat",
+          "text": "Orbitalni udar spreman! Odbacujem sve što imamo na tu jezgru!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "combat",
+          "text": "Za Zemlju! ZA ČOVJEČANSTVO! ŠTRAJKAJ ODMAH! ULTIMATE: OBLIVION SLASH!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Jesmo li... pobjegli?"
+        },
+        {
+          "speaker": "Aegis Ronin",
+          "type": "spoken",
+          "text": "Ne znam... ali matični brod je nestao. Oporuka šuti."
+        },
+        {
+          "speaker": "Empress Siren",
+          "type": "spoken",
+          "text": "Dobili smo rat, gospodo. Sada samo moramo osvojiti vožnju kući."
+        },
+        {
+          "speaker": "Oni Matrix",
+          "type": "spoken",
+          "text": "Mislim... vidim Zemlju. Tako čisto. Tako plavo."
+        },
+        {
+          "speaker": "Recovery Command",
+          "type": "radio",
+          "text": "Axiom Force, ovdje Zapovjedništvo za oporavak. Čitamo vas. Vaši sustavi su nominalni. Dobro došli kući, heroji."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISIJA DOVRŠENA: PRAVI VRHUNAC. KOLEKTIV ĆE SE ISKORIJENITI. KRAJ. ALI BORBA SE NASTAVLJA."
+        }
+      ]
+    }
+  }
+}

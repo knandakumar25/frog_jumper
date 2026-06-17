@@ -74,7 +74,7 @@ Zinfiltruj aktywne miejsce rozbiórki, aby odzyskać Data-Blade — cyfrowe repo
 Nie tylko zabierają naszą ziemię; usuwają naszą duszę. Pałac ten stał przez tysiąclecie, obecnie jest wybrukowany dla regionalnego urzędu skarbowego. Nie pozwolę, aby nasi przodkowie zostali zapomniani pod obsydianowymi płytami.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Ostrzeżenie: Wieże komunikacyjne transmitują informację o odmowie usługi. Prawdopodobieństwo wykrycia ryzyka wynosi 98,7%. Zalecany jest odwrót.
+Ostrzeżenie: Wieże komunikacyjne transmitują informację o odmowie usługi. Prawdopodobieństwo wykrycia ryzyka wynosi 98,7%. Wskazany jest odwrót.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 DZIENNIK ARCHIWALNY: CZYSTKA KULTURY NEO-TOKIO. LOKALIZACJA: WIECZNE DOJO ZEN (WYZNACZONE MIEJSCE: BLOK OSADOWY 01). STATUS: TRWA ROZBIÓRKA. USUWANIE ARCHITEKTONICZNE 42%.
@@ -115,7 +115,7 @@ MISJA UKOŃCZONA: WIECZNA PAMIĘĆ. Czystka została przerwana.
 Masywna, ogrodzona brama wlotowa Strefy Przechowawczej 4. Tysiące rodzin jest przepędzanych jak bydło przez ogrodzenia energetyczne. Za nimi ich podmiejskie domy są zrównane z ziemią przez maszyny ekspansji Xelthara.
 
 # kind: objective
-Utrzymuj „Ostatni most” przeciwko Enforcerom Xelthara gromadzącym populację, pozwalając ostatniej grupie uchodźców wśliznąć się do nieoznaczonych na mapie slumsów zamiast do zamkniętych obozów.
+Utrzymaj „Ostatni most” przeciwko Enforcerom Xelthara gromadzącym populację, pozwalając ostatniej grupie uchodźców wśliznąć się do nieoznaczonych na mapie slumsów zamiast do zamkniętych obozów.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 DZIENNIK PRZEMIESZCZEŃ: SEKTOR 4 PROTOKÓŁ PRZESIEDLEŃSTWA. Obrońca: AEGIS RONIN (STAN PODWOZIA: KRYTYCZNY). POZIOM ZAGROŻENIA: OMEGA. LICZBA UCHODŹCÓW: 412. OBECNY MANDAT: OCHRONA WYSIEDLEŃCÓW. BROŃ PRÓGU.
@@ -174,7 +174,7 @@ Dosłowne „Podziemne Miasto” – sieć szybów konserwacyjnych pod błyszcz�
 Wysysaj energię z sieci kolonialnej, aby zasilać systemy podtrzymywania życia marginalizowanej populacji, unikając jednocześnie „Patroli Czystości” polujących na bezdomnych ludzi.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Budują swój raj na naszym suficie i dziwią się, że piwnica przecieka. Żyjemy w dziurach, które zapomnieli wybrukować. To ogniwo energetyczne jest nie tylko dla mnie; chodzi o to, żeby włączyć grzejniki dla stu rodzin, o których „zapomniały” w planach.
+Budują swój raj na naszym suficie i dziwią się, że piwnica przecieka. Żyjemy w dziurach, które zapomnieli wybrukować. To ogniwo zasilające jest nie tylko dla mnie; chodzi o to, żeby włączyć grzejniki dla stu rodzin, o których „zapomniały” w planach.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Ostrzeżenie: nie zaleca się integracji sprzętu Xelthara z podwoziem cywilnym. Przewiduje się, że sprzężenie zwrotne neuronowe będzie wynosić 40% niestabilności. Matrix, Twoje tętno przekracza bezpieczne parametry.
@@ -221,7 +221,7 @@ MISJA UKOŃCZONA: DUCH W MASZYNIE. ONI MATRIX DOŁĄCZYŁ DO HLF.
 # kind: level # level: 4 # title: Zniszczona Egida Dowódcy Pustki # dialogue_status: scripted
 
 # kind: setting
-Zniszczone pozostałości Centrum Obrony Pacyfiku. Xelthara poddaje recyklingowi dumną, tradycyjną infrastrukturę wojskową, zmuszając Syrenę do koordynowania zdecentralizowanej sieci ukrytych komórek.
+Zniszczone pozostałości Centrum Obrony Pacyfiku. Dumna, tradycyjna infrastruktura wojskowa jest poddawana recyklingowi przez Xelthara, zmuszając Syrenę do koordynowania zdecentralizowanej sieci ukrytych komórek.
 
 # kind: objective
 Zdemontuj ostatnią stojącą wojskową wieżę nadawczą i rozdaj jej chipy częstotliwości cywilnym komórkom ruchu oporu, finalizując przejście do wojny partyzanckiej.
@@ -364,10 +364,10 @@ Nienawidzę tego. Utrzymałem linię przeciwko Siege Walkers i nienawidzę tego.
 Ronin, drugi reflektor wyłączy się za cztery sekundy. Przejdź do przepustu odwadniającego. Trzy. Dwa. Jeden.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Rozumiem. Jestem u podstawy Iglicy Alpha. Widzę kotwicę. Jest przykręcona przez coś, co kiedyś było mozaikowym chodnikiem.
+Rozumiem. Jestem u podstawy Iglicy Alfa. Widzę kotwicę. Jest przykręcona przez coś, co kiedyś było mozaikowym chodnikiem.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Przebili go przez mozaikę. Na tej płytce chodnika była namalowana cała historia. Portrety, imiona, daty. Projekt społecznościowy. Po prostu... przewiercili środek twarzy, żeby zakotwiczyć swój słup.
+Przebili go przez mozaikę. Na tej płytce chodnika była namalowana cała historia. Portrety, imiona, daty. Projekt społecznościowy. Po prostu... przewiercili środek twarzy, ��eby zakotwiczyć swój słup.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Ronin, kotwica iglicy to magnetyczny zamek kinetyczny zaprojektowany tak, aby wytrzymać bezpośrednią siłę do 8000 niutonów. Twoje obciążenie za przeciążenie kinetyczne, wstrzymane przez pełne trzy odliczenie, przekroczy ten próg. Musisz także najpierw wyłączyć dwie jednostki Strażników Biometrycznych u podstawy iglicy — wykryją one Twój podpis biometryczny, gdy tylko znajdziesz się w ich zasięgu.
@@ -445,7 +445,7 @@ Nieśmiercionośny. Wmawiają sobie, że to humanitarne. Chodzi im o to, że ży
 Shogun, muszę je szybko i cicho oczyścić przed następnym patrolem. Czy możecie zająć trzy pozycje z lewej strony, podczas gdy moje drony będą tłumić prawą flankę?
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Zrozumiałem. Cichy oznacza precyzję. Nie będę hańbił tego budynku niepotrzebnym hałasem.
+Zrozumiałem. Cichy oznacza precyzję. Nie będ�� hańbił tego budynku niepotrzebnym hałasem.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Drony: zaznacz, zaznacz, zaznacz. EMP eksplodował w prawej gromadzie – ogień.
@@ -463,13 +463,13 @@ Spire Gamma pobiera energię z wewnętrznej sieci biblioteki. Aby wyłączyć ig
 Trzecie piętro. Oczywiście. Prowadź, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Powiedziałem dwunastu rodzinom, jak organizować rotacje straży społecznej w tym pokoju. W części dla dzieci stały krzesła z workami fasolowymi. Ktoś przykleił rysunki kredkami do biurka. Dziecko narysowało superbohatera. Różnica między biblioteką a centrum danych polega na tym, że w bibliotece zakłada się, że ludzie, którzy przechodzą przez jej drzwi, mają prawo tam przebywać.
+Powiedziałem dwunastu rodzinom, jak organizować rotacje straży społecznej w tym pokoju. W części dla dzieci znajdowały się krzesła z workami fasolowymi. Ktoś przykleił rysunki kredkami do biurka. Dziecko narysowało superbohatera. Różnica między biblioteką a centrum danych polega na tym, że w bibliotece zakłada się, że ludzie, którzy przechodzą przez jej drzwi, mają prawo tam przebywać.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Zlokalizowano węzeł sieciowy. Odcięcie zasilania Iglicy Gamma. Spowoduje to również usunięcie wszelkich przechowywanych tutaj danych rejestracyjnych nieruchomości kolonialnych.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Potwierdzone. Zerwanie tego połączenia spowoduje uszkodzenie około 12 000 aktów przeniesienia własności kolonii dotyczących nieruchomości w sektorze 4. Te zapisy stanowią podstawę prawną zajęcia ziemi.
+Potwierdzone. Zerwanie tego połączenia spowoduje uszkodzenie około 12 000 aktów przeniesienia własności kolonii dotyczących nieruchomości w sektorze 4. Te zapisy stanowią podstawę prawną zajęcia gruntów.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Zatem nie jest to tylko sabotaż infrastrukturalny. To jest zwrot ziemi.
@@ -493,7 +493,7 @@ Nie. Nie pozwól, żeby to cię jeszcze przejęło. Najpierw to obniżamy. W tak
 Jasne. Prawidłowy. Po iglicy. Po ścianie. Nie zapomnę.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-To nie jest podejście ukryte. Delta to ufortyfikowana pozycja. Uderzyliśmy jako całość. Ronin — przejmujesz punkt, chronisz się do przodu, przyciągasz ich uwagę i absorbujesz ich początkową salwę. Shogun, oczyść lewą flankę. Matrix, użyj Przesunięcia Fazowego, aby dotrzeć do panelu sterowania wieżyczką po prawej stronie i zabij wszystkie trzy wieżyczki jednocześnie. Gdy wieże zostaną zniszczone, wysyłam drony do ognia nasycającego oddział egzekucyjny. Rozwalamy garnizon, po czym Ronin wbija iglicę w ziemię.
+To nie jest podejście ukryte. Delta to ufortyfikowana pozycja. Uderzyliśmy jako całość. Ronin — przejmujesz punkt, chronisz się do przodu, przyciągasz ich uwagę i absorbujesz ich początkową salwę. Shogun, oczyść lewą flankę. Matrix, użyj Przesunięcia Fazowego, aby dotrzeć do panelu sterowania wieżyczką po prawej stronie i zabij wszystkie trzy wieżyczki jednocześnie. Gdy wieże zostaną zniszczone, wysyłam drony do ognia nasycającego oddział egzekucyjny. Rozbijamy garnizon, po czym Ronin wbija iglicę w ziemię.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 TARCZA W GÓRĘ. Niech rzucą na mnie wszystko. Jestem drzwiami wejściowymi.
@@ -799,7 +799,7 @@ Instalacja konwersji termicznej Xelthara w dawnej dzielnicy portu przemysłowego
 Odwróć polaryzację układu konwersji termicznej, aby wywołać kaskadową implozję termiczną, która nieodwracalnie zniszczy odlewnię i umożliwi naturalną regenerację 40-kilometrowej strefy uszkodzeń atmosferycznych.
 
 # kind: solo_monologue # character: Aegis Ronin # type: internal
-Pobierają nam racje tlenu. Sprawili, że naszym powietrzem nie da się oddychać i teraz sprzedają je z powrotem w kanistrach – po jednym na rodzinę dziennie, ze znaczkiem dystrybucji Xelthara na boku. Od sześciu miesięcy oddycham przetworzonym powietrzem z puszki. Kiedy zniszczę tę odlewnię, stanę na otwartej przestrzeni i pierwszy raz od pół roku będę oddychał. Po to tu jestem.
+Pobierają nam racje tlenu. Sprawili, że naszym powietrzem nie da się oddychać i teraz sprzedają je z powrotem w kanistrach – po jednym na rodzinę dziennie, ze znaczkiem dystrybucji Xelthara na boku. Od sześciu miesięcy oddycham przetworzonym powietrzem z puszki. Kiedy zniszczę t�� odlewnię, stanę na otwartej przestrzeni i pierwszy raz od pół roku będę oddychał. Po to tu jestem.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Uszkodzenia atmosferyczne w promieniu 40 kilometrów od tej odlewni stanowią naruszenie Powszechnych Porozumień o Ochronie Środowiska z 2089 roku – traktatu ratyfikowanego przez Kolektyw Xelthara. W imieniu HLF złożyłem formalny raport o naruszeniu zasad w Galaktycznym Sądzie Administracyjnym. Szacowany czas udzielenia odpowiedzi przez Trybunał wynosi jedenaście lat. Szacowany czas, w którym odlewnia może spowodować trwałą nieodwracalność atmosferyczną: cztery miesiące. Nie czekamy na sąd.
@@ -873,7 +873,7 @@ Ocean Spokojny jest systematycznie osuszany przez głębinowe przewody odprowadz
 Zlokalizuj i zniszcz trzy główne koncentratory przewodów syfonów głębinowych, aby trwale zatrzymać operację zasysania oceanu i rozpocząć jego odbudowę.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-W strefach przechowawczych żyją rodziny rybackie, które nie są w stanie pracować od czasu, gdy uruchomiono przewody. Wyciek solanki zabił wszystko w zasięgu pływania od brzegu. Ludzie, którzy od pokoleń karmili swoje społeczności, teraz korzystają z pakietów racji żywnościowych Xelthara. Zabrali im źródło pożywienia, zanieczyścili wodę, postawili mur między nimi a morzem i nazwali to rozwojem. Dziś wieczorem oddamy im ocean.
+W strefach przechowawczych żyją rodziny rybackie, które nie są w stanie pracować od czasu, gdy wprowadzono przewody. Wyciek solanki zabił wszystko w zasięgu pływania od brzegu. Ludzie, którzy od pokoleń karmili swoje społeczności, teraz korzystają z pakietów racji żywnościowych Xelthara. Zabrali im źródło pożywienia, zanieczyścili wodę, postawili mur między nimi a morzem i nazwali to rozwojem. Dziś wieczorem oddamy im ocean.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Modelowanie harmonogramu odbudowy oceanów po zniszczeniu przewodu: częściowe przywrócenie ekosystemu w ciągu osiemnastu miesięcy, pełna normalizacja pH w ciągu sześciu do ośmiu lat. Ta misja nie naprawia szkód od razu. Chcę, żebyś to zrozumiał. Jedyne, co powoduje, to zapobieganie trwałemu uszkodzeniu. Niektóre rany mogą się jeszcze zagoić, jeśli przestaniemy je otwierać.
@@ -929,7 +929,7 @@ W manifeście ładunkowym T-14 wyszczególniono 4200 ton rafinowanych krzemianó
 Witamy w dokach Stratos. Jest to główny węzeł eksportowy, do którego porywają ładunki kolonialne i wysyłają rafinowane zasoby Ziemi poza świat. Przejęcie tego transportu odetnie kolonialne linie zaopatrzenia i sfinansuje ruch oporu.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Czas jest krytyczny. Transporter ołowiu, T-14, zasila swoje główne silniki odrzutowe. Shogun, Ronin – zabezpieczacie strefę lądowania. Matrix, przygotuj się na ominięcie kontroli zacisku.
+Czas jest krytyczny. Transporter ołowiu, T-14, zasila swoje główne silniki odrzutowe. Shogun, Ronin – zabezpieczacie strefę lądowania. Matrix, przygotuj się do ominięcia kontroli zacisku.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Zrozumiałem. Angażowanie patrolu dokującego. SZYBKA SPRAWIEDLIWOŚĆ!

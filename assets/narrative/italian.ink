@@ -98,7 +98,7 @@ Guarda il loro "paradiso". Una tomba di vetro e filo costruita sulla tomba di un
 Faro neutralizzato. La demolizione è in fase di stallo, ma le autorità coloniali stanno dirottando una Legione di Enforcer. Stai combattendo una battaglia tra fantasmi, Shogun.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Allora sono un fantasma che perseguiterà per sempre i loro insediamenti. Se non possiamo salvare la pietra, salveremo la storia. Proteggi il Data Blade! Lasciamo che trovino il fuoco solo dove si aspettavano obbedienza!
+Allora sono un fantasma che perseguiterà per sempre i loro insediamenti. Se non possiamo salvare la pietra, salveremo la storia. Proteggi il Data-Blade! Lasciamo che trovino il fuoco solo dove si aspettavano obbedienza!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Gli Xelthara vogliono scrivere la nostra storia al passato. Oggi lo scrivo al plasma. Questo dojo cade, ma la resistenza aumenta.
@@ -115,7 +115,7 @@ MISSIONE COMPLETATA: LA MEMORIA ETERNA. LO SPURGO È STATO INTERROTTO.
 L'enorme cancello di ingresso della Zona di Contenimento 4. Migliaia di famiglie vengono ammassate come bestiame attraverso recinzioni energetiche. Dietro di loro, le loro case suburbane vengono rase al suolo dai vaganti dell'espansione Xelthara.
 
 # kind: objective
-Difendi l'"Ultimo Ponte" contro gli Esecutori di Xelthara che radunano la popolazione, permettendo a un ultimo gruppo di rifugiati di scivolare nei bassifondi non mappati invece che nei campi recintati.
+Difendi l'"Ultimo Ponte" contro gli Esecutori di Xelthara che radunano la popolazione, permettendo a un ultimo gruppo di rifugiati di insinuarsi nei bassifondi non mappati invece che nei campi recintati.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 REGISTRO DEGLI SPOSTAMENTI: PROTOCOLLO DI REINSEDIAMENTO DEL SETTORE 4. DIFENSORE: AEGIS RONIN (STATO TELAIO: CRITICO). LIVELLO DI MINACCIA: OMEGA. NUMERO DI RIFUGIATI: 412. MANDATO ATTUALE: PROTEGGERE GLI SFOLLATI. DIFENDERE LA SOGLIA.
@@ -310,7 +310,7 @@ Ho trascorso otto mesi in una zona di contenimento come questa dopo che hanno pr
 AXIOM, conferma la posizione delle quattro guglie per la squadra.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Alpha si trova nell'ex sito del corridoio artistico della Grand Avenue. Spire Beta è piantata all'angolo tra la 5th e la Spring. La Guglia Gamma è incastonata nel muro esterno della vecchia Biblioteca Centrale. Spire Delta fissa l'estremità meridionale del muro al fiume. Il centro di elaborazione dei permessi è ospitato nella stazione del checkpoint in quella che un tempo era Pershing Square. Tutte e quattro le guglie devono essere disabilitate prima che il Nucleo possa essere violato. Distruggere il Nucleo farà collassare a cascata l'intera membrana energetica.
+Spire Alpha si trova nell'ex sito del corridoio artistico della Grand Avenue. Spire Beta è piantata all'angolo tra la 5th e la Spring. La Guglia Gamma è incastonata nel muro esterno della vecchia Biblioteca Centrale. Spire Delta fissa l'estremità meridionale del muro al fiume. Il centro di elaborazione dei permessi è ospitato nella stazione del checkpoint in quella che un tempo era Pershing Square. Tutte e quattro le guglie devono essere disabilitate prima che il Nucleo possa essere violato. La distruzione del Nucleo provocherà il collasso a cascata dell'intera membrana energetica.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 5 e Primavera.
@@ -493,13 +493,13 @@ Non farlo. Non lasciare che ti prenda ancora il sopravvento. Prima abbattiamo qu
 Giusto. Giusto. Dopo la guglia. Dopo il muro. Non lo dimenticherò.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Questo non è un approccio furtivo. Delta è una posizione fortificata. Lo colpiamo come unità. Ronin: prendi il punto, fai scudo in avanti, attiri la loro attenzione e assorbi il loro tiro al volo iniziale. Shogun, libera il fianco sinistro. Matrix, usa Phase-Shift per raggiungere il pannello di controllo della torretta all'estrema destra e uccidi tutte e tre le torrette contemporaneamente. Una volta che le torrette sono disattivate, incarico i droni per il fuoco saturato sulla squadra di polizia. Facciamo crollare la guarnigione, poi Ronin mette la guglia nel terreno.
+Questo non è un approccio furtivo. Delta è una posizione fortificata. Lo colpiamo come unità. Ronin: prendi il punto, fai scudo in avanti, attiri la loro attenzione e assorbi il loro tiro al volo iniziale. Shogun, libera il fianco sinistro. Matrix, usa Phase-Shift per raggiungere il pannello di controllo della torretta all'estrema destra e uccidi tutte e tre le torrette contemporaneamente. Una volta che le torrette sono disattivate, metto i droni nel fuoco di saturazione sulla squadra di polizia. Facciamo crollare la guarnigione, poi Ronin mette la guglia nel terreno.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 SCUDO SU. Lascia che mi scaglino tutto addosso. Sono la porta d'ingresso.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-Tieni. Sparare. Io non. Mossa.
+Tieni. Cottura. Io non. Mossa.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 KATA SHADO-FORCE! Sirena: la tua strada è aperta!
@@ -962,7 +962,7 @@ Le torrette due e tre sono raggruppate. Matrix, puoi lanciare un flash EMP per a
 Fatto! FLASHBANG!
 
 # kind: dialogue # speaker: Empress Siren # type: combat
-Ora! Droni, massimizza la potenza! Torrette Due e Tre: DISTRUTTE!
+Adesso! Droni, massimizza la potenza! Torrette Due e Tre: DISTRUTTE!
 
 # kind: dialogue # speaker: Cyber Shogun # type: radio
 Ne rimane solo uno, Imperatrice! Ma un forte sostegno si sta muovendo verso la sua posizione!
@@ -1240,16 +1240,16 @@ MISSIONE COMPLETATA: LA VOLTA DI OSSIDIANA VIOLATA. ARCHIVI CULTURALI ESTRATTI.
 # kind: level # level: 14 # title: Avvicinamento alla Cittadella (Ponte dell'Alto Comando) # arc: act2_arc3 # dialogue_status: pending
 
 # kind: setting
-L'ultimo ponte fortificato di 400 metri sul fiume LA prosciugato: l'unico accesso a livello di superficie alla cittadella dell'Alto Comando di Xelthara, costruito sulla comunità demolita di Boyle Heights. Gli Xelthara hanno progettato questo approccio in modo che fosse impraticabile.
+L'ultimo ponte fortificato di 400 metri sul fiume LA prosciugato: l'unico accesso a livello di superficie alla cittadella dell'Alto Comando di Xelthara, costruito sulla comunità demolita di Boyle Heights. The Xelthara designed this approach to be impassable.
 
 # kind: objective
 Attraversa il ponte di 400 metri sotto il fuoco sostenuto dell'artiglieria per raggiungere il cancello d'ingresso della Cittadella: un'avanzata implacabile e devastante usando lo scudo di Ronin e la raffica di droni di Siren.
 
 # kind: solo_monologue # character: Empress Siren # type: internal
-Ho eseguito i modelli tattici diciassette volte. Ogni versione comporta l’assorbimento di danni che non possiamo mitigare completamente. Lo scudo di Ronin sarà al 10% prima di raggiungere il cancello. Chiedo loro di attraversare un campo di sterminio perché è l'unica porta. Gli Xelthara l'hanno costruito apposta in questo modo, in modo che il costo della libertà fosse abbastanza alto da scoraggiare il tentativo. Non siamo scoraggiati.
+Ho eseguito i modelli tattici diciassette volte. Every version involves absorbing damage we cannot fully mitigate. Ronin's shield will be at 10% before we reach the gate. I am asking them to walk through a killing field because it is the only door. The Xelthara built it that way on purpose—so that the cost of freedom would be high enough to discourage the attempt. Non siamo scoraggiati.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Voglio dire qualcosa prima che tutto questo abbia inizio. Ho eseguito valutazioni delle probabilità su ogni missione di questa campagna. Non ti sto dando il numero per questo. Non perché ti fermerebbe. Perché hai già deciso. E il numero non conta per chi ha già deciso. Sarò con te ad ogni passo del ponte. Non distoglierò lo sguardo.
+Voglio dire qualcosa prima che tutto questo abbia inizio. I have run probability assessments on every mission in this campaign. Non ti sto dando il numero per questo. Non perché ti fermerebbe. Perché hai già deciso. And the number doesn't matter to people who have already decided. Sarò con te ad ogni passo del ponte. Non distoglierò lo sguardo.
 
 -> END
 
@@ -1260,16 +1260,16 @@ Voglio dire qualcosa prima che tutto questo abbia inizio. Ho eseguito valutazion
 La sala del trono dell'Alto Sorvegliante: una piattaforma sospesa sulle rovine in fiamme di Neo-LA, dove il comandante supremo dell'occupazione coloniale di Xelthara attende lo scontro finale.
 
 # kind: objective
-Sconfiggi l'Alto Sorvegliante di Xelthara utilizzando i Protocolli definitivi combinati della Forza Axiom in un assalto finale coordinato.
+Defeat the Xelthara High Overseer using the Axiom Force's combined Ultimate Protocols in a coordinated final assault.
 
 # kind: dialogue # speaker: High Overseer # type: spoken
-Lotti per la sovranità indigena contro l’inevitabile ondata di assimilazione coloniale. Questo pianeta è semplicemente un bene immobile nel nostro grande disegno, e la vostra storia è rumore digitale da cancellare.
+You struggle for indigenous sovereignty against the inevitable tide of colonial assimilation. This planet is merely real estate in our grand design, and your history is digital noise to be erased.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Siamo l'anima di questo mondo, non la tua proprietà. Affermiamo la nostra sovranità indigena sulla nostra patria! Rifiutiamo la vostra assimilazione coloniale; La Terra appartiene ai suoi abitanti, non ai tuoi progetti!
+We are the soul of this world, not your property. We assert our indigenous sovereignty over our homeland! Rifiutiamo la tua assimilazione coloniale; Earth belongs to its inhabitants, not your blueprints!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Sono la lama dei miei antenati e la voce di un mondo che hai cercato di mettere a tacere. Ci chiami insetti, ma hai dimenticato una cosa sulla Terra: non ci limitiamo a resistere. Noi contrattacchiamo.
+I am the blade of my ancestors, and the voice of a world you tried to silence. You call us insects, but you forgot one thing about Earth: we don't just endure. Noi contrattacchiamo.
 
 # kind: dialogue # speaker: High Overseer # type: spoken
 Quindi brucia con il tuo pianeta.

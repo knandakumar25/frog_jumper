@@ -340,7 +340,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Prohibido es irrelevante. No los veré morir. AXIOM, dame acceso manual a la trayectoria de la plataforma Kinetic Satellite. Necesito un único disparo desesperado."
+          "text": "Prohibido es irrelevante. No los veré morir. AXIOM, dame acceso de anulación manual a la transmisión de trayectoria de la Plataforma Satélite Cinética. Necesito un único disparo desesperado."
         },
         {
           "speaker": "Empress Siren",
@@ -396,7 +396,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "La estructura que está viendo está designada en los registros coloniales como 'Sistema de Control de Autoridad de Tránsito y Optimización de la Población del Sector 4'. Es un muro. Es un muro de segregación. Cada ser humano de este lado requiere un permiso de residencia emitido por Xelthara para cruzar. Los permisos no se expiden. El sistema de postulación tiene un retraso de dos años. Esto no es un accidente. Esta es la arquitectura del desplazamiento permanente."
+          "text": "La estructura que está viendo está designada en los registros coloniales como 'Sistema de Control de Autoridad de Tránsito y Optimización de la Población del Sector 4'. Es un muro. Es un muro de segregación. Cada ser humano de este lado requiere un permiso de residencia emitido por Xelthara para cruzar. Los permisos no se expiden. El sistema de postulación tiene un retraso de dos años. Esto no es un accidente. Ésta es la arquitectura del desplazamiento permanente."
         },
         {
           "speaker": "Aegis Ronin",
@@ -446,7 +446,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Nota: Las patrullas de la Autoridad Fronteriza son densas pero estructuradas. El puesto de control cuenta con personal las 24 horas del Enforcer-Administrator Voss, quien gestiona la autorización de cruce físico. No es un oficial de combate. Es un burócrata. Él personalmente rechazó 4.400 solicitudes de cruce en el último mes."
+          "text": "Nota: Las patrullas de la Autoridad Fronteriza son densas pero estructuradas. El puesto de control cuenta con personal las 24 horas del ejecutor-administrador Voss, quien gestiona la autorización de cruce físico. No es un oficial de combate. Es un burócrata. Él personalmente rechazó 4.400 solicitudes de cruce en el último mes."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1064,7 +1064,7 @@
     "7": {
       "title": "Cyber-Grave Labs (instalación subterránea)",
       "arc": "act2_arc1",
-      "setting": "Debajo del antiguo Centro de Convenciones, los Xelthara han establecido Cyber-Grave Labs Sector-Omega-7, un centro de investigación de modificaci��n del comportamiento clasificado y designado públicamente como \"centro de bienestar y reintegración humana\". Aquí se procesa a los líderes de la resistencia humana y a los organizadores comunitarios capturados. Surgen dóciles, desconectados, incapaces de recordar por qué estaban enojados.",
+      "setting": "Debajo del antiguo Centro de Convenciones, los Xelthara han establecido Cyber-Grave Labs Sector-Omega-7, un centro de investigación de modificación del comportamiento clasificado y designado públicamente como \"centro de bienestar y reintegración humana\". Aquí se procesa a los líderes de la resistencia humana y a los organizadores comunitarios capturados. Surgen dóciles, desconectados, incapaces de recordar por qué estaban enojados.",
       "objective": "Extraiga el archivo completo del protocolo de acondicionamiento y destruya el enlace ascendente neuronal central para restaurar la autonomía neuronal de cientos de individuos condicionados que actualmente viven en las zonas de contención.",
       "solo_monologues": [
         {
@@ -1088,7 +1088,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "El aire es tóxico porque ven nuestro mundo como una fuente de combustible fungible. Estos laboratorios están convirtiendo el elemento vital de nuestro planeta en energía para sus asentamientos. Debemos detener esta extracción o no quedará nada que salvar."
+          "text": "El aire es tóxico porque ven nuestro mundo como una fuente de combustible fungible. Estos laboratorios están convirtiendo el elemento vital de nuestro planeta en energía para sus asentamientos. Debemos detener esta extracción o no quedar�� nada que salvar."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1673,7 +1673,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "El honor exige el sacrificio. Listo, emperatriz."
+          "text": "El honor exige el sacrificio. Listo, Emperatriz."
         },
         {
           "speaker": "Empress Siren",
@@ -1740,7 +1740,7 @@
     "13": {
       "title": "La Bóveda de Obsidiana (Archivos Culturales)",
       "arc": "act2_arc3",
-      "setting": "Ubicada debajo del antiguo Centro Getty, la Bóveda de Obsidiana es el principal archivo de incautación cultural de la administración colonial. La base de datos de tratados de tierras originales, un registro completo de la tenencia de la tierra humana antes de la invasión que se remonta a cinco siglos atrás, se almacena aquí, clasificada como \"Bienes patrimoniales descubiertos\".",
+      "setting": "Ubicada debajo del antiguo Centro Getty, la Bóveda de Obsidiana es el principal archivo de incautación cultural de la administración colonial. La base de datos de tratados de tierras originales, un registro completo de la tenencia de tierras humana antes de la invasión que se remonta a cinco siglos atrás, se almacena aquí, clasificada como \"Bienes patrimoniales descubiertos\".",
       "objective": "Infíltrate en la Bóveda de Obsidiana, extrae la base de datos del Tratado de Tierras Original y todos los archivos de lengua e historia oral, y destruye el sistema de catálogo físico para detener permanentemente el proceso de procesamiento cultural colonial.",
       "solo_monologues": [
         {

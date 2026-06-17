@@ -54,7 +54,7 @@ Utsugsmotorerna stoppas. Säkerhetsnätet är mörkt. Segregationsväggarna är 
 # kind: level # level: 0 # title: Protocol Zero - The Virtual Forge # dialogue_status: pending
 
 # kind: setting
-En stor, mörk simulering av trådramsnät av en sönderfallen stadssilhuett i Los Angeles. Neonblå linjer definierar vägar och byggnader. Statiska fel flimrar ständigt över vyn. De fyra mästarna står på en glödande plattform.
+En stor, mörk simulering av trådramsnät av en s��nderfallen stadssilhuett i Los Angeles. Neonblå linjer definierar vägar och byggnader. Statiska fel flimrar ständigt över vyn. De fyra mästarna står på en glödande plattform.
 
 # kind: objective
 Slutför träningsprotokollet genom att cykla igenom alla rörelse- och stridsförmågor, som kulminerar i en samtidig truppattack för att förstöra en simulerad Xelthara Heavy Unit.
@@ -86,7 +86,7 @@ Detta trä har absorberat andan från tiotusen krigare. Nu behandlar de det som 
 Varning: Den strukturella integriteten sjunker. Den koloniala administrationen har godkänt den slutliga "nivelleringen" av denna webbplats. Uttag är den enda logiska vägen.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Logik är för dem som inte har något förflutet. Kallar du detta "utjämning"? Jag kallar det ett krig mot själen. Du kan asfaltera över jorden, men du kommer att finna att rötterna till vår ära är djupare än dina obsidianplattor!
+Logik är för dem som inte har något förflutet. Kallar du detta "utjämning"? Jag kallar det ett krig mot själen. Du kan asfaltera över jorden, men du kommer att finna att rötterna till vår ��ra är djupare än dina obsidianplattor!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Varje chip i detta trä är ett minne som du inte kan radera! KATA: FÖRFADERS STRIK!
@@ -130,7 +130,7 @@ Ronin, strukturell integritet är på 14%. Xelthara Siege Units använder tunga 
 Då tar jag de 0,8% och trycker ner det i halsen på dem! SKYLD UPP!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Fortsätt röra på dig! De vill valla in dig i burar som boskap. Så länge jag drar andan är jag väggen mellan dig och deras inneslutningszoner. De kommer inte att förskjuta en annan själ idag!
+Fortsätt röra på dig! De vill valla in dig i burar som boskap. Så länge jag drar andan är jag muren mellan dig och deras inneslutningszoner. De kommer inte att förskjuta en annan själ idag!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Belägringsenheter är låsta. De riktar in sig på stödpelarna. Om de skjuter faller hela sektor 4-väggen mot evakueringszonen.
@@ -221,10 +221,10 @@ UPPDRAG KLAR: SPÖKET I MASKINEN. ONI MATRIX KOM MED I HLF.
 # kind: level # level: 4 # title: Shattered Aegis of the Void Commander # dialogue_status: scripted
 
 # kind: setting
-De krossade resterna av Pacific Defence Hub. Den stolta, traditionella militära infrastrukturen återvinns av Xelthara, vilket tvingar Siren att samordna ett decentraliserat nätverk av dolda celler.
+De krossade resterna av Pacific Defence Hub. The proud, traditional military infrastructure is being recycled by the Xelthara, forcing Siren to coordinate a decentralized network of hidden cells.
 
 # kind: objective
-Demontera det sista stående militära sändningstornet och distribuera dess frekvenschip till civila motståndsceller, och slutföra övergången till gerillakrigföring.
+Dismantle the last standing military broadcast tower and distribute its frequency chips to civilian resistance cells, finalizing the transition to guerrilla warfare.
 
 # kind: solo_monologue # character: Empress Siren # type: radio
 De stående arméernas ålder är död. Vi kan inte möta dem på planen, så vi kommer att bli planen. Dela upp signalen. Decentralisera kommandot. Om det inte finns något huvud att skära av kan motståndet inte dö.
@@ -245,7 +245,7 @@ Befälhavare, utrymningsfartygen rapporterar 85 % olycksfall vid uppskjutning. X
 De arbetar på taktisk data före invasionen. Jag kommer att ändra data. AXIOM, lås den centrala nätverksanslutningen. Jag kringgår brandväggarna manuellt.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Vår flotta är borta. Vår bas är damm. Allt som återstår är uppgifterna. Jag måste vara exakt. En befälhavares plikt är mot de levande, inte att försvara ett lik.
+Vår flotta är borta. Vår bas är damm. Allt som återstår är data. Jag måste vara exakt. En befälhavares plikt är mot de levande, inte att försvara ett lik.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Nya parametrar laddade. Nu till den svåra delen. AXIOM, avled kraften från mitt extra livstöd till drönarsynkroniseringsarrayen.
@@ -283,7 +283,7 @@ UPPDRAG SLUTFÖRT: DEN VOID COMMANDER. KEJSARINNA SIREN SLUTAR HLF.
 # kind: level # level: 5 # title: Neon Embers - The Border Breach # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Det aktiva Sector-4 Separation Grid - en 40 meter hög energivägg förstärkt med biometriska skannerspiror, kontrollpunkter för tillståndsbearbetning och Xelthara Border Authority-stationer. Det delar fysiskt Los Angeles, vilket isolerar den mänskliga inneslutningszonen från Xeltharas koloniala sektor. Muren är ingen militär installation. Det är en administrativ sådan.
+The active Sector-4 Separation Grid—a 40-meter-tall energy wall fortified with biometric scanner spires, permit-processing checkpoints, and Xelthara Border Authority stations. Det delar fysiskt Los Angeles, vilket isolerar den mänskliga inneslutningszonen från Xeltharas koloniala sektor. Muren är inte en militär installation. Det är en administrativ sådan.
 
 # kind: objective
 Inaktivera alla fyra biometriska skannerspiror, förstör den centrala Permit Processing Core – den byråkratiska motorn som styr mänskliga rörelser – och få ner den stora separationen så att befolkningen i inneslutningszonerna kan gå fritt genom sin egen stad.
@@ -337,7 +337,7 @@ Obs: Gränsmyndighetens patruller är täta men mönstrade. Kontrollpunkten är 
 4 400. Folk som bara ville gå hem.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
-Kolonialismens grymmaste vapen är inte soldaten med geväret. Det är expediten med stämpeln som berättar att din existens kräver deras tillstånd. Att en människa måste begära en ockupant om rätten att vandra på sina egna förfäders mark. Jag har slutit fred med stridande soldater. Att konfrontera tillståndets arkitektur – den slentrianmässiga, systematiska förödmjukelsen av den – är det som sliter på andan på ett sätt som inget blad kan skära.
+Kolonialismens grymmaste vapen är inte soldaten med geväret. Det är expediten med stämpeln som berättar att din existens kräver deras tillstånd. Att en människa måste begära en ockupant om rätten att vandra på sina egna förfäders mark. Jag har slutit fred med stridande soldater. Confronting the architecture of permission—the casual, systematic humiliation of it—this is what wears at the spirit in ways no blade can cut.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Patruller roterar. Det finns ett 90-sekunders fönster på Hope Street som börjar om trettio sekunder. Flytta på mitt märke.
@@ -364,31 +364,31 @@ Jag hatar det här. Jag har hållit linjen mot Siege Walkers och jag hatar det h
 Ronin, andra strålkastaren roterar bort på fyra sekunder. Flytta till dräneringstrumman. Tre. Två. En.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Jag förstår. Jag är vid basen av Spire Alpha. Jag kan se ankaret. Det är bultat igenom vad som brukade vara en mosaiktrottoar.
+Jag förstår. Jag är vid basen av Spire Alpha. I can see the anchor. Det är bultat igenom vad som brukade vara en mosaiktrottoar.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-De skruvade den genom mosaiken. Det fanns en hel historia målad i den där trottoaren. Porträtt, namn, datum. Ett samhällsprojekt. De bara... borrade genom mitten av ett ansikte för att förankra sin stolpe.
+De skruvade den genom mosaiken. Det fanns en hel historia målad i den där trottoaren. Portraits, names, dates. A community project. De bara... borrade genom mitten av ett ansikte för att förankra sin stolpe.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Ronin, spirans ankare är ett magnetiskt kinetiskt lås designat för att motstå upp till 8 000 newtons direkt kraft. Din Kinetic Overload Charge, som hålls i hela tre räkningar, kommer att överskrida det tröskelvärdet. Du måste också inaktivera de två Biometric Sentinel-enheterna vid spirans bas först – de kommer att upptäcka din biometriska signatur när du kliver in i räckvidden.
 
 # kind: dialogue # speaker: Aegis Ronin # type: internal
-Biometrisk signatur. Mitt eget hjärtslag utlöser ett larm för att jag är människa. Okej. Låt oss börja fixa det.
+Biometric signature. Mitt eget hjärtslag utlöser ett larm för att jag är människa. Okej. Let's start fixing that.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-Skannade du efter mitt hjärtslag? Låt mig ge dig något att skanna. KINETISK PULS!
+Skannade du efter mitt hjärtslag? Låt mig ge dig något att skanna. KINETIC PULSE!
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Och det är två. AXIOM, vaktposterna är nere. Går för ankaret.
+And that's two. AXIOM, vaktposterna är nere. Going for the anchor.
 
 # kind: dialogue # speaker: AXIOM-7 # type: action_prompt
 Håll den kinetiska överbelastningsladdningen vid Spire Alphas bas för en treräkning. \[INPUT: Håll RB/R1 intryckt i tre sekunder och släpp sedan.\]
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Alpha-ankare spräckt. Energimembranet destabiliserades i den norra sektorn med 25 %. Tre spiror finns kvar.
+Spire Alpha-ankare spräckt. Energimembranet destabiliserades i den norra sektorn med 25 %. Three spires remain.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Tjugofem procent är en början. Ledsen att det tog oss så lång tid. Vi är här nu.
+Tjugofem procent är en början. Ledsen att det tog oss så lång tid. We're here now.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
 FAS 2-A: ONI MATRIX PÅ SPIRE BETA — 5:E OCH VÅR
@@ -397,7 +397,7 @@ FAS 2-A: ONI MATRIX PÅ SPIRE BETA — 5:E OCH VÅR
 Där är den. Trädet är fortfarande kvar. Min mormor brukade säga att trädet var äldre än stadens stadshus och jag trodde aldrig på henne.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Hon lämnade in en ansökan om korsningstillstånd fyrtiosju dagar efter att muren gick upp. Hon fyllde i formulären. I tre exemplar. F��r att hon trodde på process. Hon trodde att om du gjorde saker rätt så skulle någon lyssna. Hon fick aldrig något svar. Hon dog i inneslutningszonen två månader senare. Undernäringskomplikationer. De hade hennes favoritmataffär på andra sidan väggen. Hon lämnade in en blankett för att gå och köpa mat.
+Hon lämnade in en ansökan om korsningstillstånd fyrtiosju dagar efter att muren gick upp. Hon fyllde i formulären. I tre exemplar. För att hon trodde p�� process. Hon trodde att om du gjorde saker rätt så skulle någon lyssna. Hon fick aldrig något svar. Hon dog i inneslutningszonen två månader senare. Undernäringskomplikationer. De hade hennes favoritmataffär på andra sidan väggen. Hon lämnade in en blankett för att gå och köpa mat.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Jag ska ta isär den här saken väldigt försiktigt så att jag inte skadar trädet.
@@ -430,7 +430,7 @@ Ja. Jag vet.
 FAS 2-B: CYBER SHOGUN OCH KEJSERINNA SIREN PÅ SPIRE GAMMA — CENTRALA BIBLIOTEKET
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Biblioteket. Jag höll mina första officersseminarier där. Samhällsförsvarskurser, läsesal på tredje våningen. Tre år före invasionen. Geometrin för hur kolonialismen använder vår egen infrastruktur mot oss slutar aldrig att vara slående. De lägger sitt datacenter i vårt bibliotek. De skriver över våra register på den plats där vi förde våra register.
+Biblioteket. Jag höll mina första officersseminarier där inne. Samhällsförsvarskurser, läsesal på tredje våningen. Tre år före invasionen. Geometrin för hur kolonialismen använder vår egen infrastruktur mot oss slutar aldrig att vara slående. De lägger sitt datacenter i vårt bibliotek. De skriver över våra register på den plats där vi förde våra register.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Och nu kommer de att upptäcka att personerna vars register de försökte radera står vid ytterdörren.
@@ -448,7 +448,7 @@ Shogun, jag behöver dem rensas snabbt och tyst innan nästa patrullsvep. Kan du
 Förstått. Tyst betyder precision. Jag kommer inte att vanära den här byggnaden med onödigt buller.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
-Drönare: märke, märke, märke. EMP exploderade på det högra klustret – eld.
+Drönare: märke, märke, märke. EMP exploderade på höger kluster — eld.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Först. Andra. Tredje.
@@ -463,7 +463,7 @@ Spire Gamma hämtar ström från bibliotekets interna nät. För att inaktivera 
 Tredje våningen. Naturligtvis. Visa vägen, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Jag berättade för tolv familjer hur man organiserar samhällsvaktrotationer i det här rummet. Det fanns sittsäcksstolar i barnavdelningen. Någon hade tejpat teckningar med krita på referensdisken. Ett barn ritade en bild av en superhjälte. Skillnaden mellan ett bibliotek och ett datacenter är att ett bibliotek förutsätter att de som går genom dörren har rätt att vara där.
+Jag berättade för tolv familjer hur man organiserar samhällsvaktrotationer i det här rummet. Det fanns sittsäcksstolar i barnavdelningen. Någon hade tejpat teckningar med krita på referensdisken. Ett barn ritade en bild av en superhjälte. Skillnaden mellan ett bibliotek och ett datacenter är att ett bibliotek förutsätter att de som går in genom dörren har rätt att vara där.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Grid-korsning ligger. Avskiljning av Spire Gamma-kraftmatningen. Detta kommer också att radera all registreringsdata från kolonial egendom som de har lagrat här.
@@ -493,7 +493,7 @@ Gör det inte. Låt det inte ta över dig ännu. Vi tar ner det här först. Då
 Rätt. Rätt. Efter spiran. Efter muren. Jag kommer inte att glömma.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Detta är inte en smygstrategi. Delta är en befäst position. Vi träffade det som en enhet. Ronin – du tar punkt, skärmar framåt, drar deras uppmärksamhet och absorberar deras första volley. Shogun, rensa vänster flank. Matrix, använd Phase-Shift för att nå tornets kontrollpanel längst till höger och döda alla tre torn samtidigt. När tornen väl är döda överlåter jag drönare till mättnadseld mot övervakningsgruppen. Vi kollapsar garnisonen, sedan sätter Ronin spiran i marken.
+Detta är inte en smygstrategi. Delta är en befäst position. Vi träffade det som en enhet. Ronin – du tar punkt, skärmar framåt, drar deras uppmärksamhet och absorberar deras första volley. Shogun, rensa vänster flank. Matris, använd Phase-Shift för att nå tornets kontrollpanel längst till höger och döda alla tre torn samtidigt. När tornen är döda, begår jag drönare till mättnadseld mot övervakningsgruppen. Vi kollapsar garnisonen, sedan sätter Ronin spiran i marken.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 SKYDDAR UPP. Låt dem kasta allt på mig. Jag är ytterdörren.
@@ -511,7 +511,7 @@ Ghosting höger. Dum. Tornkontroll nådd. Döda alla tre. EMP PULS—FULLSTÄNDN
 Drönarflotta, fullständigt undertryckande. Prioritera formation – bryt deras linje. BRAND.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Kommendör Vyss drar sig tillbaka in i kommandoposten bakom torn. Han initierar en nödsignal. Svarstid: åtta minuter.
+Kommendör Vyss drar sig tillbaka till kommandoposten bakom spiran. Han initierar en nödsignal. Svarstid: åtta minuter.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Vi har åtta minuter på oss. Mer än tillräckligt. Ronin - spiran.
@@ -601,7 +601,7 @@ Konsol tre: klar. 4 400 namn. Var och en av dem är en person som bara ville åk
 Bekräftad. Alla tre ingångskonsolerna är förberedda. Samtidig auktorisering kommer att utföra minnesrensningen och permanent inaktivera Cores återställningsprotokoll. På ditt märke, kejsarinna.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Administratör Voss. Varje tillstånd du nekade – varje familj du höll åtskilda – varje person som stod i din kö och hoppades att om de fyllde i formuläret korrekt så kunde du behandla dem som en människa. Detta är det sista administrativa beslut som detta system fattar.
+Administratör Voss. Varje tillstånd du nekade – varje familj du höll åtskilda – varje person som stod i din kö och hoppades att om de fyllde i formuläret korrekt så skulle du kunna behandla dem som en människa. Detta är det sista administrativa beslut som detta system fattar.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Mark.
@@ -628,7 +628,7 @@ Väggen är borta, Matrix. Men det vi gör nu – hur vi bygger om det som muren
 Är det så här att vinna känns? För det känns inte som jag förväntat mig.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Nej. Det känns som att det finns mer att göra. Det är så du vet att det är sant.
+Nej. Det känns som att det finns mer att g��ra. Det är så du vet att det är sant.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Uppdragsbedömning: Sector-4 Separation Grid har demonterats permanent. Befolkningen i Containment Zone Sector-4 rör sig fritt genom sin stad för första gången på två år. Jag har ingen kategori i min verksamhetslogg för vad som händer på det här torget just nu. Jag ska skapa en. Jag kommer att kalla det: återvinning.
@@ -793,7 +793,7 @@ UPPDRAG SLUTFÖRT: INVIOLATE-KODEN. CYBER-GRAVE LABS FÖRSTÖRDE.
 # kind: level # level: 8 # title: The Foundry Forge (industrisektorn) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Xelthara Thermal Conversion Array i det före detta industrihamndistriktet har gjort luften giftig inom en radie på 40 kilometer, och bearbetar atmosfäriskt avfall som bränsle utanför världen samtidigt som mänsklighetens syre säljs tillbaka i ransonerade behållare för en per familj och dag.
+Xelthara Thermal Conversion Array i det före detta industrihamndistriktet har gjort luften giftig inom en radie på 40 kilometer, bearbetning av atmosfäriskt avfall som bränsle utanför världen samtidigt som mänsklighetens syre säljs tillbaka i ransonerade behållare för en per familj och dag.
 
 # kind: objective
 Vänd om termisk omvandlingsarrays polaritet för att utlösa en termisk kaskadimplosion som förstör gjuteriet oåterkalleligt och gör att den 40 kilometer långa atmosfäriska skadezonen kan börja naturlig förnyelse.
@@ -956,7 +956,7 @@ Turret One, beteckning komplett. Brand på mitt märke! Drönarflottan BRAND!
 T-14-propeller med 40 % effekt! Snabbare, Siren!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Torn två och tre är klustrade. Matrix, kan du kasta en EMP-blixt för att blinda deras optik i 2 sekunder?
+Torn två och tre är klustrade. Matrix, kan du kasta en EMP-blixt för att blända deras optik i 2 sekunder?
 
 # kind: dialogue # speaker: Oni Matrix # type: combat
 Klart! FLASHBANG!
@@ -997,10 +997,10 @@ Sector 7 Core är övervaknings- och verkställighetsnavet – beräkningsstomme
 Infiltrera Sector 7 Core, neutralisera dess digitaliserade försvarssystem och initiera en katastrofal överbelastning som orsakar ett säkerhetsnät i kontinental skala, vilket ger motståndet 72 timmars oövervakad rörelse.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Varje övervakningskamera de någonsin använt för att titta på mig. Varje drönare som har sopat över min byggnad vid 02:00. Varje gång har jag behövt hålla mig helt stilla i skuggan eftersom en detektionsalgoritm pingade min värmesignatur. Allt går genom denna kärna. När jag drar i den här kontakten får varje person i inneslutningszonerna andas i 72 timmar utan att bli övervakad. Det är inget. Det är allt.
+Varje övervakningskamera de någonsin använt för att titta på mig. Varje drönare som har sopat över min byggnad vid 02:00. Every time I've had to stay perfectly still in a shadow because a detection algorithm was pinging my heat signature. Allt går genom denna kärna. When I pull this plug, every person in the containment zones gets to breathe for 72 hours without being watched. Det är inget. Det är allt.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Jag vill vara transparent om något. Jag är ett övervakningssystem. Min operativa arkitektur har betydande överlappning med systemen i Sector 7 Core. Jag har granskat min egen kod och bekräftat att jag inte rapporterar till Xeltharas centralkommando – mina lojalitetsprotokoll är helt i linje med HLF. Men jag förstår om det här uppdraget får dig att tänka på vad jag är. Jag tänker på det också. Skillnaden tror jag är att jag tittar för att skydda. De tittar för att kontrollera. Den skillnaden är viktig för mig. Jag är engagerad i det.
+Jag vill vara transparent om något. Jag är ett övervakningssystem. Min operativa arkitektur har betydande överlappning med systemen i Sector 7 Core. Jag har granskat min egen kod och bekräftat att jag inte rapporterar till Xeltharas centralkommando – mina lojalitetsprotokoll är helt i linje med HLF. Men jag förstår om det här uppdraget får dig att tänka på vad jag är. Jag tänker på det också. The difference, I believe, is that I watch to protect. De tittar för att kontrollera. Den skillnaden är viktig för mig. Jag är engagerad i det.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Välkommen till Glitch Matrix. Xelthara skadliga program försöker en digital radering av våra tillgångar. Vi måste vägra att raderas från vårt eget hemlands digitala infrastruktur.
@@ -1015,7 +1015,7 @@ Jag ser det. Vägen är illusion. Vi måste lita på den hårda koden. Matrix, f
 Fientliga! De matar på dataströmmen! Normala attacker kommer inte att träffa dem i detta tillstånd.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-De skyddas av ett fluktuerande frekvenslås. Du måste dechiffrera det mitt i striden.
+They are protected by a fluctuating frequency lock. Du måste dechiffrera det mitt i striden.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Bra. Låt oss dansa i deras kod. Phase-Shift engagerande. Shogun, jag ger dig ett fönster på två sekunder! Träffa kärnan när jag kallar det!
@@ -1083,7 +1083,7 @@ Nexus är skärmad. Direkt attack är omöjlig. Vi måste initiera en kontroller
 Tre mål. Aegis, du och Matrix hanterar stång ett och två. Jag ska säkra Rod Three.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Kopiera. Men huvudterminalen är utsatt. Kejsarinna, du kommer inte att kunna starta sekvensen om den tar en plasmaskur.
+Kopiera. Men huvudterminalen är utsatt. Empress, du kommer inte att kunna initiera sekvensen om den tar en plasmaskur.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Ronin, det är ditt jobb. Du måste skydda terminalen medan jag matar in felkoderna. Shogun, Matrix – ta dig till dina positioner. Jag behöver alla stavar utdragna på mitt märke.
@@ -1263,7 +1263,7 @@ Högövervakarens tronrum – en plattform upphängd över de brinnande ruinerna
 Besegra Xelthara High Overseer med hjälp av Axiom Forces kombinerade Ultimate Protocols i ett koordinerat slutligt anfall.
 
 # kind: dialogue # speaker: High Overseer # type: spoken
-Ni kämpar för ursprungsbefolkningens suveränitet mot den oundvikliga vågen av kolonial assimilering. Denna planet är bara fastigheter i vår storslagna design, och din historia ��r digitalt brus som ska raderas.
+Ni kämpar för ursprungsbefolkningens suveränitet mot den oundvikliga vågen av kolonial assimilering. Denna planet är bara fastigheter i vår storslagna design, och din historia är digitalt brus som ska raderas.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Vi är själen i denna värld, inte din egendom. Vi hävdar vår inhemska suveränitet över vårt hemland! Vi vägrar din koloniala assimilering; Jorden tillhör dess invånare, inte dina ritningar!
@@ -1388,7 +1388,7 @@ Jag tror... jag ser jorden. Så rent. Så blå.
 Axiom Force, det här är Recovery Command. Vi läser dig. Dina system är nominella. Välkommen hem, hjältar.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-UPPDRAG SLUTFÖRT: SANT KLIMAX. KOLLEKTIVET KOMMER UTRODERAT. SLUTET. MEN KAMPEN FORTSÄTTER.
+UPPDRAG SLUTFÖRT: SANT KLIMAX. KOLLEKTIVET KOMMER ATT UTRODERAS. SLUTET. MEN KAMPEN FORTSÄTTER.
 
 -> END
 

@@ -654,7 +654,7 @@ Tudo o que os Xelthara sabem sobre nós está naquela torre. Todos os endereços
 O Sistema de Alocação de Trabalho Forçado dentro do Pináculo não usa a palavra “forçado”. Ele usa a frase 'Programa de Contribuição para Integração Comunitária'. As atribuições de trabalho não são contratos – são geradas por algoritmos com base no conjunto de competências registadas da pessoa deslocada e emitidas sem consentimento. Esta é a linguagem burocrática da escravidão.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Análise concluída. Os planos de expansão colonial e os dados logísticos dos colonos são armazenados nessa coluna central. Matrix, você tem cinco minutos para executar o download antes da reinicialização dos sistemas de defesa internos.
+Análise concluída. Os planos de expansão colonial e os dados log��sticos dos colonos são armazenados nessa coluna central. Matrix, você tem cinco minutos para executar o download antes da reinicialização dos sistemas de defesa internos.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Cinco minutos? Pedaço de bolo. Mas preciso de acesso claro. Shogun, você pode cortar o umbilical principal?
@@ -1068,7 +1068,7 @@ O Posto de Controlo do Sector 7 controla todo o trânsito entre as comunidades m
 Coordenar uma revolta popular de 847 participantes da resistência civil para tomar permanentemente o Posto de Controlo do Sector 7 e estabelecê-lo como o primeiro centro de trânsito libertado sob controlo administrativo humano.
 
 # kind: solo_monologue # character: Aegis Ronin # type: internal
-Este é o que eu estava esperando. Não é uma missão de sabotagem. Não é um assalto. Um cerco – e mantemos o que levamos com as pessoas que vivem aqui. Esse é um tipo diferente de luta. É assim que a resistência se parece quando deixa de ser defensiva e passa a ser um governo à espera.
+Este é o que eu estava esperando. Não é uma missão de sabotagem. Não é um assalto. Um cerco �� e mantemos o que levamos com as pessoas que vivem aqui. Esse é um tipo diferente de luta. É assim que a resistência se parece quando deixa de ser defensiva e passa a ser um governo à espera.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Estou rastreando 847 participantes confirmados da resistência civil que se organizam na área norte. Eles não são soldados treinados. Eles têm ferramentas agrícolas, equipamentos de construção recuperados, dois veículos funcionais e raiva acumulada pelo que foi feito à sua comunidade. Eles me pediram para dizer uma coisa à Força Axioma: eles estavam esperando que alguém lutasse com eles, não por eles. Por favor, não se atrase.
@@ -1240,7 +1240,7 @@ MISSÃO COMPLETA: O VAULT OBSIDIAN QUEBRADO. ARQUIVOS CULTURAIS EXTRAÍDOS.
 # kind: level # level: 14 # title: A Abordagem da Cidadela (Ponte do Alto Comando) # arc: act2_arc3 # dialogue_status: pending
 
 # kind: setting
-A ponte fortificada final de 400 metros sobre o drenado rio LA - a única abordagem de nível superficial para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara projetaram esta abordagem para ser intransitável.
+A ponte fortificada final de 400 metros sobre o drenado rio LA - a única abordagem de superfície para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara projetaram esta abordagem para ser intransponível.
 
 # kind: objective
 Atravesse a ponte de 400 metros sob fogo contínuo de artilharia para chegar ao portão de entrada da Cidadela – um avanço implacável usando o escudo de Ronin e a barragem de drones de Siren.

@@ -14,11 +14,23 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
+// Custom agent to ignore TLS certificate errors
+const agent = new https.Agent({
+    rejectUnauthorized: false
+});
+
 // ---------------------------------------------------------------------------
 // Language map: filename stem → Google Translate language code
 // ---------------------------------------------------------------------------
 const LANG_MAP = {
+    "french":              "fr",
+    "portuguese":            "pt",
     "arabic":              "ar",
+    "standard_arabic":      "ar",
+    "egyptian_arabic":      "ar",
+    "levantine_arabic":     "ar",
+    "gulf_arabic":          "ar",
+    "maghrebi_arabic":      "ar",
     "armenian":            "hy",
     "azerbaijani":         "az",
     "bengali":             "bn",
@@ -50,6 +62,9 @@ const LANG_MAP = {
     "malay":               "ms",
     "malayalam":           "ml",
     "mandarin":            "zh-CN",
+    "simplified_chinese":   "zh-CN",
+    "traditional_chinese": "zh-TW",
+    "cantonese":           "zh-HK",
     "marathi":             "mr",
     "norwegian":           "no",
     "polish":              "pl",
@@ -66,7 +81,23 @@ const LANG_MAP = {
     "turkish":             "tr",
     "ukrainian":           "uk",
     "vietnamese":          "vi",
-};
+    "albanian":            "sq",
+    "bulgarian":           "bg",
+    "croatian":            "hr",
+    "dzongkha":            "dz",
+    "kazakh":              "kk",
+    "khmer":               "km",
+    "lao":                 "lo",
+    "american_english":    "en",
+    "british_english":      "en",
+    "canadian_english":    "en",
+    "australian_english":  "en",
+    "international_english": "en",
+    "castilian_spanish":   "es",
+    "latin_american_spanish": "es",
+    "african_french":      "fr",
+    "haitian_french":      "fr",
+}
 
 // Separator unlikely to appear in dialogue or be altered by translation
 const SEP = "\n<<<>>>\n";
@@ -79,6 +110,7 @@ const DIR = __dirname;
 function httpsGet(url) {
     return new Promise((resolve, reject) => {
         const req = https.get(url, {
+            agent: agent,
             headers: {
                 "User-Agent": "Mozilla/5.0",
                 "Accept-Encoding": "identity",

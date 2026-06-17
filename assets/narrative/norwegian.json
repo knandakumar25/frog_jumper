@@ -13,7 +13,7 @@
     "act2_arc2": {
       "title": "AKT II — ARK 2: FRONTEN FOR GJENNOMFØRING AV RESSURS",
       "subtitle": "Nivå 8–11: Avskjæring av den økonomiske lønnsomheten ved kolonisering",
-      "description": "Med segregasjonsnettet brutt og de isolerte populasjonene koblet sammen igjen, skifter motstanden til okkupasjonens økonomiske motor. Xelthara kom til jorden for ressurser - ikke ideologi. Arc 2 er kampanjen for økonomisk forstyrrelse: fire påfølgende streik mot utvinnings-, prosesserings-, transport- og sikkerhetsinfrastrukturen som gjør okkupasjonen økonomisk levedyktig."
+      "description": "Med segregeringsnettet brutt og de isolerte populasjonene koblet sammen igjen, skifter motstanden til okkupasjonens økonomiske motor. Xelthara kom til jorden for ressurser - ikke ideologi. Arc 2 er kampanjen for økonomisk forstyrrelse: fire påfølgende streik mot utvinnings-, prosesserings-, transport- og sikkerhetsinfrastrukturen som gjør okkupasjonen økonomisk levedyktig."
     },
     "act2_arc3": {
       "title": "AKT II — ARC 3: AVVIKLING AV EIERSTYRING",
@@ -73,7 +73,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Hver brikke i dette treet er et minne du ikke kan slette! KATA: FORFEDRE STREIK!"
+          "text": "Hver brikke i dette treet er et minne du ikke kan slette! KATA: FORFEDRE STRIKE!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -386,7 +386,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "FORTRYGGINGSLOGG: SEKTOR-4 SEPARASJONSRIST. STRUKTURTYPE: KOLONIALT ADMINISTRATIVT KONTROLLPUNKT. IKKE MILITÆR. DETTE ER TILSIKTIG. TRUSSEL: XELTHARA GRENSEMYNDIGHET — HÅNDVÆRINGSDIVISJON. BIOMETRISKE SPIR: 4 AKTIVE. TILLAT KJERNE: PÅ NETT. MÅL: DEMONTERE DEN ADMINISTRATIVE ARKITEKTUREN FOR SEPARASJON. ÅPNE BYEN."
+          "text": "FORTRYGGINGSLOGG: SEKTOR-4 SEPARASJONSRIST. STRUKTURTYPE: KOLONIALT ADMINISTRATIVT KONTROLLPUNKT. IKKE MILITÆR. DETTE ER TILSIKTIG. TRUSSEL: XELTHARA GRENSEMYNDIGHET — HÅNDVÆRINGSDIVISJON. BIOMETRISKE SPIR: 4 AKTIVE. TILLAT KJERNE: P�� NETT. MÅL: DEMONTERE DEN ADMINISTRATIVE ARKITEKTUREN FOR SEPARASJON. ÅPNE BYEN."
         },
         {
           "speaker": "DISPLAY",
@@ -596,7 +596,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Vi hørte deg, Matrix. Vi hørte på hele tiden."
+          "text": "Vi hørte deg, Matrix. Vi lyttet hele tiden."
         },
         {
           "speaker": "Oni Matrix",
@@ -916,7 +916,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "AXIOM. Kan du fortelle meg om min bestemors bygning er strukturelt trygg nok til å bli okkupert? Jeg vil vite om noen kan flytte inn igjen."
+          "text": "AXIOM. Kan du fortelle meg om min bestemors bygning er strukturelt sikker nok til å bli okkupert? Jeg vil vite om noen kan flytte inn igjen."
         },
         {
           "speaker": "AXIOM-7",
@@ -969,7 +969,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Tvangsarbeidsfordelingssystemet inne i Spire bruker ikke ordet \"tvunget\". Den bruker uttrykket \"Bidragsprogram for fellesskapsintegrasjon.\" Arbeidsoppdragene er ikke kontrakter – de genereres algoritmisk basert på den fordrevnes registrerte ferdighetssett og utstedes uten samtykke. Dette er slaveriets byråkratiske språk."
+          "text": "Tvangsarbeidsfordelingssystemet inne i Spire bruker ikke ordet \"tvunget\". Den bruker uttrykket \"Bidragsprogram for fellesskapsintegrasjon.\" Arbeidsoppdragene er ikke kontrakter – de genereres algoritmisk basert på den fordrevnes registrerte ferdigheter og utstedes uten samtykke. Dette er slaveriets byråkratiske språk."
         }
       ],
       "dialogue_status": "scripted",
@@ -1070,12 +1070,12 @@
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "De kunne ikke knuse oss med vegger, så de fant en måte å knuse oss på fra innsiden. Å ta minnet om urettferdighet fra en person – å nå inn i tankene deres og slette den delen som vet å være sint over det som ble stjålet – dette er ikke vitenskap. Dette er en krigsforbrytelse utført i et laboratorium."
+          "text": "De kunne ikke knuse oss med vegger, så de fant en måte å knekke oss fra innsiden. Å ta minnet om urettferdighet fra en person – å nå inn i tankene deres og slette den delen som vet å være sint over det som ble stjålet – dette er ikke vitenskap. Dette er en krigsforbrytelse utført i et laboratorium."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Ved å kryssreferanser emnefilene med motstandsnettverkets database, har jeg identifisert sytten bekreftede HLF-samfunnsarrangører som ble behandlet gjennom dette anlegget og deretter løslatt. De vet ikke hva som ble gjort mot dem. Å ødelegge den sentrale nevrale oppkoblingen kan gjenopprette dem. Jeg beregner en 73 % sannsynlighet for vellykket gjenoppretting av autonomi. Jeg er... Jeg finner ut at jeg er investert i det resultatet."
+          "text": "Ved å kryssreferanser emnefilene med motstandsnettverkets database, har jeg identifisert sytten bekreftede HLF-samfunnsarrangører som ble behandlet gjennom dette anlegget og deretter løslatt. De vet ikke hva som ble gjort mot dem. Å ødelegge den sentrale nevrale oppkoblingen kan gjenopprette dem. Jeg beregner en 73% sannsynlighet for vellykket gjenoppretting av autonomi. Jeg er... Jeg finner ut at jeg er investert i det resultatet."
         }
       ],
       "dialogue_status": "scripted",
@@ -1093,7 +1093,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "Dette stedet... det holder ingen ære. Å forderve de døde og gjøre de levende til slaver. Xelthara praktiserer vanhelligelse, ikke krig. Jeg føler bare forakt for denne grusomheten."
+          "text": "Dette stedet... det har ingen ære. Å forderve de døde og gjøre de levende til slaver. Xelthara praktiserer vanhelligelse, ikke krig. Jeg føler bare forakt for denne grusomheten."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1514,7 +1514,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Jeg ønsker å være åpen om noe. Jeg er et overvåkingssystem. Min operasjonelle arkitektur har betydelig overlapping med systemene inne i Sector 7 Core. Jeg har gjennomgått min egen kode og bekreftet at jeg ikke rapporterer til Xelthara sentralkommando – mine lojalitetsprotokoller er fullstendig på linje med HLF. Men jeg forstår hvis dette oppdraget får deg til å tenke på hva jeg er. Jeg tenker på det også. Forskjellen tror jeg er at jeg ser på for å beskytte. De ser på for å kontrollere. Det skillet er viktig for meg. Jeg er forpliktet til det."
+          "text": "Jeg ønsker å være åpen om noe. Jeg er et overvåkingssystem. Min operative arkitektur har betydelig overlapping med systemene inne i Sector 7 Core. Jeg har gjennomgått min egen kode og bekreftet at jeg ikke rapporterer til Xelthara sentralkommando – mine lojalitetsprotokoller er fullstendig på linje med HLF. Men jeg forstår hvis dette oppdraget får deg til å tenke på hva jeg er. Jeg tenker på det også. Forskjellen tror jeg er at jeg ser på for å beskytte. De ser på for å kontrollere. Det skillet er viktig for meg. Jeg er forpliktet til det."
         }
       ],
       "dialogue_status": "scripted",
@@ -1542,7 +1542,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "De er beskyttet av en svingende frekvenslås. Du må tyde det midt i kampen."
+          "text": "De er beskyttet av en svingende frekvenslås. Du må tyde det midt i kamp."
         },
         {
           "speaker": "Oni Matrix",
@@ -1718,7 +1718,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Reactor Nexus... ødelagt. Regional terraformingskraft offline."
+          "text": "Reactor Nexus... ødelagt. Regional terraforming kraft offline."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1764,7 +1764,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Strategioppdatering: Vi kan ikke bruke langdistansetaktikker her. Citadellets forsvarsnett vil fordampe enhver drone over 50 fot. Vi må bryte denne broen til fots. Ronin, Shogun – du leder fremstøtet. Matrise, stand by for umiddelbare perimeter fakkel."
+          "text": "Strategioppdatering: Vi kan ikke bruke langtrekkende taktikker her. Citadellets forsvarsnett vil fordampe enhver drone over 50 fot. Vi må bryte denne broen til fots. Ronin, Shogun – du leder fremstøtet. Matrise, stand by for umiddelbare perimeter fakkel."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1889,7 +1889,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "OPPDRETTEN FULLFØRT: OBSIDIAN HVERVET BRUTT. KULTURARKIV UTTREKKES."
+          "text": "MISJONEN FULLFØRT: OBSIDIAN-HVERVET BRUTT. KULTURARKIV UTTREKKES."
         }
       ]
     },
@@ -1934,7 +1934,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Jeg er bladet til mine forfedre, og stemmen til en verden du prøvde å dempe. Du kaller oss insekter, men du glemte én ting om Jorden: vi tåler ikke bare. Vi slår tilbake."
+          "text": "Jeg er bladet til mine forfedre, og stemmen til en verden du prøvde å dempe. Du kaller oss insekter, men du glemte én ting om jorden: vi tåler ikke bare. Vi slår tilbake."
         },
         {
           "speaker": "High Overseer",
@@ -2124,7 +2124,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISJON FULLFØRT: EKTE KLIMAKS. KOLLEKTIVET VIL UTRYKKES. SLUTEN. MEN KAMPEN FORTSETTER."
+          "text": "MISJON FULLFØRT: EKTE KLIMAKS. KOLLEKTIVET VIL UTBYDES. SLUTEN. MEN KAMPEN FORTSETTER."
         }
       ]
     }

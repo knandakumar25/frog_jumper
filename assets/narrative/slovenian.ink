@@ -115,7 +115,7 @@ MISIJA KONČANA: VEČNI SPOMIN. ČISTKA JE BILA PREKINENA.
 Ogromna, zaprta dovodna vrata zadrževalnega območja 4. Na tisoče družin se kot živina preganjajo skozi energetske ograje. Za njimi njihove predmestne domove sploščijo ekspanzijski sprehajalci Xelthara.
 
 # kind: objective
-Držite 'Zadnji most' pred Izsiljevalci Xelthare, ki preganjajo prebivalstvo, s čimer omogočite zadnji skupini beguncev, da zdrsnejo v neoznačena barakarska naselja namesto v zaprta taborišča.
+Držite 'Zadnji most' proti Xelthara Enforcers, ki preganjajo prebivalstvo, s čimer omogočite zadnji skupini beguncev, da zdrsnejo v neoznačena barakarska naselja namesto v zaprta taborišča.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 DNEVNIK RAZSELJEVANJ: PROTOKOL O PRESELITVI SEKTOR 4. BRANILO: AEGIS RONIN (STATUS ŠASIJE: KRITIČNO). STOPNJA NEVARNOSTI: OMEGA. ŠTEVILO BEGUNCEV: 412. TRENUTNI MANDAT: ZAŠČITA RAZSELJENIH. BRANI PRAG.
@@ -207,7 +207,7 @@ To je bil zelo glasen izhod, Matrix. Gledam tvoj podpis že od rafinerije.
 kdo je to Kako si na tem kanalu?
 
 # kind: dialogue # speaker: Unknown Voice # type: radio
-Jaz sem cesarica sirena. Mi smo tisti, ki se borimo, da bi zagotovili, da ostane mesto za žetev. Imaš dar za razbijanje stvari, duhec. To bi lahko uporabili. Ste utrujeni od skrivanja v rji?
+Jaz sem carica sirena. Mi smo tisti, ki se borimo, da bi zagotovili, da ostane mesto za žetev. Imaš dar za razbijanje stvari, duhec. To bi lahko uporabili. Ste utrujeni od skrivanja v rji?
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Rja je tako ali tako postajala dolgočasna. Vodi, Siren.
@@ -221,10 +221,10 @@ MISIJA KONČANA: DUH V STROJU. ONI MATRIX SE PRIDRUŽIL HLF.
 # kind: level # level: 4 # title: Razbiti Aegis poveljnika praznine # dialogue_status: scripted
 
 # kind: setting
-Razbiti ostanki pacifiškega obrambnega središča. Ponosno tradicionalno vojaško infrastrukturo reciklira Xelthara, zaradi česar mora Siren koordinirati decentralizirano mrežo skritih celic.
+Razbiti ostanki pacifiškega obrambnega središča. Ponosno, tradicionalno vojaško infrastrukturo reciklira Xelthara, zaradi česar mora Siren koordinirati decentralizirano mrežo skritih celic.
 
 # kind: objective
-Razstavite zadnji vojaški oddajni stolp in razdelite njegove frekvenčne čipe civilnim odporniškim celicam, s čimer dokončate prehod na gverilsko vojno.
+Razstavite zadnji vojaški oddajni stolp in razdelite njegove frekvenčne čipe civilnim odporniškim celicam ter tako dokončajte prehod na gverilsko vojno.
 
 # kind: solo_monologue # character: Empress Siren # type: radio
 Doba stalnih vojsk je mrtva. Ne moremo jih srečati na igrišču, zato bomo postali igrišče. Razdelite signal. Decentralizirajte ukaz. Če ni glave za odrezati, upor ne more umreti.
@@ -242,7 +242,7 @@ Tukaj Void Commander. Tradicionalna hierarhija je razpuščena. Niste več vojak
 Poveljnik, reševalna plovila poročajo o 85% stopnji žrtev ob izstrelitvi. Borci Xelthare dajejo prednost neborcem. Poznajo naše vektorje pobega.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Delujejo na podlagi taktičnih podatkov pred invazijo. Spremenil bom podatke. AXIOM, zakleni osrednji omrežni neksus. Ročno zaobidem požarne zidove.
+Delujejo na podlagi taktičnih podatkov pred invazijo. Spremenil bom podatke. AXIOM, zakleni neksus osrednjega omrežja. Ročno zaobidem požarne zidove.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
 Naše flote ni več. Naša osnova je prah. Vse, kar ostane, so podatki. Moram biti natančen. Poveljnikova dolžnost je do živih, ne do obrambe trupla.
@@ -283,7 +283,7 @@ MISIJA KONČANA: PAZNI VODNIK. CESARICA SIRENA SE JE PRIDRUŽILA HLF.
 # kind: level # level: 5 # title: Neon Embers - The Border Breach # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Aktivna ločilna mreža sektorja 4—40 metrov visoka energetska stena, utrjena z biometričnimi skenerji, kontrolnimi točkami za obdelavo dovoljenj in postajami mejnega organa Xelthara. Fizično razpolovi Los Angeles in izolira območje zadrževanja ljudi od kolonialnega sektorja Xelthara. Zid ni vojaški objekt. Je administrativna.
+Aktivna ločevalna mreža sektorja 4—40 metrov visok energijski zid, utrjen z biometričnimi skenerji, kontrolnimi točkami za obdelavo dovoljenj in postajami mejne oblasti Xelthara. Fizično razpolovi Los Angeles in izolira območje zadrževanja ljudi od kolonialnega sektorja Xelthara. Zid ni vojaški objekt. Je administrativna.
 
 # kind: objective
 Onemogočite vse štiri vrhove biometričnega optičnega bralnika, uničite osrednje jedro za obdelavo dovoljenj – birokratski motor, ki nadzoruje človeško gibanje – in uničite Veliko ločitev, da se lahko prebivalstvo zadrževalnih območij svobodno sprehaja skozi svoje mesto.
@@ -394,10 +394,10 @@ Petindvajset odstotkov je začetek. Žal nam je vzelo tako dolgo. Zdaj smo tukaj
 FAZA 2-A: MATRICA ONI NA SPIRE BETA — 5. IN POMLAD
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Tukaj je. Drevo je še vedno tam. Moja babica je govorila, da je to drevo starejše od mestne hiše in nikoli ji nisem verjela.
+Tukaj je. Drevo je še vedno tam. Moja babica je rekla, da je to drevo starejše od mestne hiše in nikoli ji nisem verjel.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Prošnjo za dovoljenje za prehod je vložila sedeminštirideset dni po dvigu zidu. Izpolnila je obrazce. V trojniku. Ker je verjela v proces. Verjela je, da bo nekdo poslušal, če boš naredil stvari prav. Nikoli ni dobila odgovora. Dva meseca kasneje je umrla v zaprtem območju. Zapleti zaradi podhranjenosti. Na drugi strani zidu so imeli njeno najljubšo trgovino z živili. Vložila je obrazec za nakup hrane.
+Prošnjo za dovoljenje za prehod je vložila sedeminštirideset dni po tem, ko se je zid dvignil. Izpolnila je obrazce. V trojniku. Ker je verjela v proces. Verjela je, da bo nekdo poslušal, če boš naredil stvari prav. Nikoli ni dobila odgovora. Dva meseca pozneje je umrla v zaprtem območju. Zapleti zaradi podhranjenosti. Na drugi strani zidu so imeli njeno najljubšo trgovino z živili. Vložila je obrazec za nakup hrane.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 To stvar bom zelo previdno razstavil, da ne poškodujem drevesa.
@@ -430,7 +430,7 @@ ja vem
 FAZA 2-B: KIBER ŠOGUN IN CESARICA SIRENA NA SPIRE GAMMA — CENTRALNA KNJIŽNICA
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Knjižnica. Tam sem vodil svoje prve seminarje za usposabljanje častnikov. Obrambni tečaji skupnosti, čitalnica v tretjem nadstropju. Tri leta pred invazijo. Geometrija tega, kako kolonializem uporablja našo infrastrukturo proti nam, je vedno presenetljiva. Svoj podatkovni center so postavili v naši knjižnici. Prepisujejo našo evidenco na mestu, kjer smo hranili svojo evidenco.
+Knjižnica. Tam sem vodil svoje prve seminarje za usposabljanje častnikov. Obrambni tečaji skupnosti, čitalnica v tretjem nadstropju. Tri leta pred invazijo. Geometrija tega, kako kolonializem uporablja našo infrastrukturo proti nam, je vedno presenetljiva. V naši knjižnici so postavili svoj podatkovni center. Prepisujejo našo evidenco na mestu, kjer smo hranili svojo evidenco.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 In zdaj bodo odkrili, da ljudje, katerih zapise so poskušali izbrisati, stojijo pred vhodnimi vrati.
@@ -526,7 +526,7 @@ Energetska membrana je popolnoma brez povezave. Administrativna ovira na prehodu
 Samo... hodijo. Samo hodijo skozi.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-3. FAZA: PERSHING SQUARE — JEDRO OBDELAVE DOVOLJENJ
+FAZA 3: PERSHING SQUARE — JEDRO OBDELAVE DOVOLJENJ
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Poglej jih. Dotikajo se pločnika na drugi strani, kjer je bil zid, kot da morda ne bi bil resničen. Kot bi lahko bil trik.
@@ -574,7 +574,7 @@ Prevod posredujem v vaš HUD v realnem času. Sledite zaporedju.
 Nikoli prej se nisem ukvarjal z birokracijo. Povej mi skozi to, AXIOM.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Zaporedje avtorizacije zahteva vnos kode za zavrnitev v obratni smeri. Administrativno razveljavite zavrnitev vsake aplikacije v sistemu. To bo sprožilo brisanje pomnilnika.
+Zaporedje avtorizacije zahteva, da kodo za zavrnitev vnesete v obratni smeri. Administrativno razveljavite zavrnitev vsake aplikacije v sistemu. To bo sprožilo brisanje pomnilnika.
 
 # kind: dialogue # speaker: Aegis Ronin # type: internal
 ...4400 zavrnitev. Pult je tukaj. V zadnjem mesecu 4400 zavrnjenih prošenj. Obstajajo imena. Vidim imena.
@@ -601,7 +601,7 @@ Konzola tri: pripravljena. 4.400 imen. Vsak od njih je oseba, ki si je samo žel
 Potrjeno. Vse tri vhodne konzole so pripravljene. Hkratna avtorizacija bo izvedla brisanje pomnilnika in trajno onemogočila obnovitveni protokol Core. Na vaš znak, cesarica.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Administrator Voss. Vsako dovoljenje, ki ste ga zavrnili – vsaka družina, ki ste jo ločevali – vsaka oseba, ki je stala v vaši čakalni vrsti v upanju, da boste z njo ravnali kot s človeškim bitjem, če bo pravilno izpolnil obrazec. To je zadnja upravna odločitev tega sistema.
+Administrator Voss. Vsako dovoljenje, ki ste ga zavrnili - vsaka družina, ki ste jo ločili - vsaka oseba, ki je stala v vaši čakalni vrsti v upanju, da boste z njo ravnali kot s človeškim bitjem, če bo pravilno izpolnila obrazec. To je zadnja upravna odločitev tega sistema.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Mark.
@@ -613,7 +613,7 @@ Jedro za obdelavo dovoljenj: brez povezave. Protokol trajne obnovitve: onemogoč
 4.400 prijav. In nobenemu od njih ne bi bilo treba vprašati.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-AKSIOM. Mi lahko poveste, ali je stavba moje babice strukturno dovolj varna, da se vanjo vseli? Zanima me, ali se lahko kdo vseli nazaj.
+AKSIOM. Mi lahko poveste, ali je stavba moje babice konstrukcijsko dovolj varna, da bi jo vselili? Zanima me, ali se lahko kdo vseli nazaj.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Izvajanje strukturnega skeniranja. Nadstropja od prvega do četrtega so nedotaknjena. Temelj je zdrav. Vodovod je poškodovan, vendar ga je mogoče popraviti. ja Nekdo bi se lahko vselil nazaj.
@@ -631,7 +631,7 @@ Je takšen občutek zmage? Ker se mi ne zdi tako, kot sem pričakoval.
 Ne. Zdi se, kot da je treba narediti še več. Tako veš, da je resnično.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ocena misije: Ločevalna mreža sektorja 4 je bila trajno razstavljena. Prebivalstvo sektorja zadrževalne cone 4 se prvič v dveh letih svobodno giblje skozi svoje mesto. V svojem operativnem dnevniku nimam kategorije za to, kar se trenutno dogaja v tem kvadratu. Ustvaril bom enega. Poimenoval ga bom: reklamacija.
+Ocena misije: Ločevalna mreža sektorja 4 je bila trajno razstavljena. Prebivalstvo sektorja zadrževalne cone 4 se prvič po dveh letih svobodno giblje skozi svoje mesto. V svojem operativnem dnevniku nimam kategorije za to, kar se trenutno dogaja v tem kvadratu. Ustvaril bom enega. Poimenoval ga bom: reklamacija.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 MISIJA KONČANA: NEONSKA ŽERICA. ZID JE PODAT. MESTO DIHA.
@@ -651,7 +651,7 @@ Ukradi celotne nabore podatkov o lastnini in registru prebivalstva pred prenosom
 Vse, kar Xelthara ve o nas, je v tem stolpu. Vsak naslov, na katerem smo kdaj živeli. Ime vsakega družinskega člana. Vsako listino, ki so jo podpisali naši stari starši. Naš celoten obstoj so spremenili v vnos v bazo podatkov, da bi lahko z nami učinkoviteje upravljali. Nocoj vzamemo svoje podatke nazaj – in pokvarimo stroj, ki jih je uporabljal za dodelitev ljudem, da jim pomijejo tla.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Sistem dodeljevanja prisilnega dela znotraj Spire ne uporablja besede 'prisilno'. Uporablja besedno zvezo 'Program prispevkov za integracijo skupnosti.' Delovne naloge niso pogodbe – ustvarjene so algoritemsko na podlagi registriranega nabora spretnosti razseljene osebe in izdane brez soglasja. To je birokratski jezik zasužnjevanja.
+Sistem dodeljevanja prisilnega dela znotraj Spire ne uporablja besede 'prisilno'. Uporablja besedno zvezo 'Program prispevkov za integracijo skupnosti.' Delovne naloge niso pogodbe – ustvarjene so algoritemsko na podlagi registriranega nabora znanj in spretnosti razseljene osebe ter izdane brez soglasja. To je birokratski jezik zasužnjevanja.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Analiza končana. Načrti kolonialne širitve in logistični podatki o naseljencih so shranjeni v tem osrednjem stolpcu. Matrix, imate pet minut časa, da izvedete prenos, preden se njihovi notranji obrambni sistemi znova zaženejo.
@@ -696,7 +696,7 @@ Razumem. Čisti pobeg je zadnja faza. HLYT-SECT-4 CLEAVE!
 Vidite, AXIOM? Rekel sem ti, da zdržim!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Confirmed, Ronin. Verjetnost uspešne ekstrakcije je zdaj 74%. Še vedno nas spremljajo.
+Potrjeno, Ronin. Verjetnost uspešne ekstrakcije je zdaj 74%. Še vedno nas spremljajo.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Dobro. Naj nas lovijo. Pravkar so izgubili celoten bojni načrt.
@@ -746,7 +746,7 @@ Carica, kaj ... kakšne so te slike? Jemljejo naše ljudi in jih spreminjajo v s
 Zdaj izvajam analizo, Shogun. To ni le biološko eksperimentiranje, je izbris duše. Človeški duh nadomeščajo z lastno kodo.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Lepo. Ne želijo samo vzeti našega planeta; hočejo dati franšizo naši vrsti. Pozor, Siren. Pravkar se je zbudil velik fant.
+Lepo. Ne želijo le vzeti našega planeta; hočejo dati franšizo naši vrsti. Pozor, Siren. Pravkar se je zbudil velik fant.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 OPOZORILO: Srečanje z mini šefom. Imenovanje: nadzornik Karr-Thak. Njegov oklep je odporen na kinetični in energijski napad.
@@ -758,7 +758,7 @@ Odporen? Bik. Naredil bom udrtino! Ronin, zanimivo!
 Ronin, umakni se! Njegova obramba je kinetično dušena. Matrix, skeniraj njegove gibalne vzorce za zakasnitev nevronske sinhronizacije. Shogun, moraš ustvariti motnjo!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Če se želi boriti, mu bom dal dostojnega nasprotnika. Narisal bom njegov fokus. SOOČI SE Z MENOJ, BEDNIK!
+Če se želi boriti, mu dam dostojnega nasprotnika. Narisal bom njegov fokus. SOOČI SE Z MENOJ, BEDNIK!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Analiza končana. Nadzornikove biološke komponente zahtevajo nenehno osveževanje živčnega signala iz bioprocesorja. Matrix, zadeni konzolo s ciljanim EMP-kirurškim udarcem, prekini sinhronizacijo!
@@ -770,7 +770,7 @@ Razumem! Vdevanje niti v iglo!
 Zavaja se! Zdaj smo ga udarili!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Ronin, skupaj! Končni udarec, zlomite hitinasto plo��čo!
+Ronin, skupaj! Končni udarec, zlomite hitinasto ploščo!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Prenos podatkov 100 %. Imamo, po kar smo prišli. Pojdimo ven, preden celoten sektor ugotovi, da je njihova hišna pošast mrtva.
@@ -793,13 +793,13 @@ MISIJA KONČANA: NEKRŠLJIVA KODA. LABORATORIJI ZA KIBERGROBE UNIČENI.
 # kind: level # level: 8 # title: Livarna kovačnica (industrijski sektor) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Xelthara Thermal Conversion Array v nekdanjem industrijskem pristaniškem okrožju je naredila strupen zrak v polmeru 40 kilometrov, predeluje atmosferske odpadke kot nezemeljsko gorivo, hkrati pa prodaja kisik človeštvu nazaj v odmerjenih kanistrih po enega na družino na dan.
+Xelthara Thermal Conversion Array v nekdanjem industrijskem pristaniškem okrožju je naredila strupen zrak v radiju 40 kilometrov, pri čemer predeluje atmosferske odpadke kot nezemeljsko gorivo, hkrati pa prodaja kisik človeštvu nazaj v dozirnih kanisterjih po enega na družino na dan.
 
 # kind: objective
 Obrnite polarnost niza toplotne pretvorbe, da sprožite kaskadno toplotno implozijo, ki nepovratno uniči livarno in omogoči, da se 40-kilometrsko atmosfersko poškodovano območje začne naravno obnavljati.
 
 # kind: solo_monologue # character: Aegis Ronin # type: internal
-Zaračunavajo nam obroke kisika. Našega zraka so naredili nesposobnega za dihanje in zdaj ga prodajajo nazaj v kanistrih – enega na družino na dan, distribucijski žig Xelthara ob strani. Že šest mesecev diham recikliran zrak. Ko bom uničil to livarno, bom prvič po pol leta stal na prostem in dihal. Za to sem tukaj.
+Zaračunavajo nam obroke kisika. Našega zraka so naredili nesposobnega za dihanje in zdaj ga prodajajo nazaj v kanistrih – enega na družino na dan, distribucijski žig Xelthara na strani. Že šest mesecev diham recikliran zrak. Ko bom uničil to livarno, bom prvič po pol leta stal na prostem in dihal. Za to sem tukaj.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Atmosferska škoda v krogu 40 kilometrov od te livarne pomeni kršitev Univerzalnega sporazuma o ohranjanju okolja iz leta 2089 – pogodbe, ki jo je ratificiral Xelthara Collective. V imenu HLF sem vložil uradno poročilo o kršitvi pri galaktičnem upravnem sodišču. Ocenjeni odzivni čas sodišča je enajst let. Ocenjeni čas livarne, da povzroči trajno atmosfersko nepopravljivost: štiri mesece. Ne čakamo na sodišče.
@@ -873,7 +873,7 @@ Tihi ocean se sistematično izsušuje z globokomorskimi vodikovimi kanali za odv
 Poiščite in uničite tri glavna globokomorska sifonska vozlišča, da trajno ustavite operacijo sifoniranja oceana in začnete oceansko okrevanje.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-V zadrževalnih območjih so ribiške družine, ki niso mogle delati, odkar so vanje vstopili vodi. Izpust slanice je pobil vse, kar je plavalo od obale. Ljudje, ki so generacije hranili svoje skupnosti, zdaj prejemajo obroke Xelthara. Vzeli so jim vir hrane, jim onesnažili vodo, postavili zid med njimi in morjem in temu rekli razvoj. Nocoj jim vrnemo njihov ocean.
+V zadrževalnih območjih so ribiške družine, ki niso mogle delati, odkar so vanje prispeli vodi. Izpust slanice je uničil vse, kar je plavalo od obale. Ljudje, ki so generacije hranili svoje skupnosti, zdaj prejemajo obroke Xelthara. Vzeli so jim vir hrane, jim onesnažili vodo, postavili zid med njimi in morjem in temu rekli razvoj. Nocoj jim vrnemo njihov ocean.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Modeliranje časovne osi oceanskega okrevanja po uničenju cevi: delna obnova ekosistema v osemnajstih mesecih, popolna normalizacija pH v šestih do osmih letih. Ta misija ne popravi škode takoj. Želim, da to razumeš. Kar naredi je, da prepreči, da bi škoda postala trajna. Nekatere rane se lahko še zacelijo, če jih nehamo odpirati.
@@ -938,7 +938,7 @@ Razumem. Vključevanje pristaniške patrulje. HITRO PRAVOSODJE!
 Pokrivanje zadnje strani! Veter tukaj zgoraj me poskuša potegniti s perona!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Tudi mene skuša veter odvaditi, Ronin. Ne skrbi, zamašil sem senzorje bližine na sponkah.
+Tudi mene skuša veter odvaditi, Ronin. Ne skrbi, zamašil sem senzorje bli��ine na sponkah.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Aktiviranje kupol. Cesarica, te kupole bodo razrezale T-14, preden boste lahko pristali.
@@ -1214,7 +1214,7 @@ To ni vzdržno! AXIOM, poišči alternativno pot!
 Negativno. Edina možnost je, da dosežete konzolo oddaljenega mostu in aktivirate seizmične destabilizatorje.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Potem se borimo in umremo častno! Aegis, daj vse, kar ti je ostalo, v zadnji, naprej utrip! Daj mi zagon, da prečkam zadnji del!
+Potem se borimo in umremo častno! Aegis, daj vse, kar ti je ostalo, v končni, naprej utrip! Daj mi zagon, da prečkam zadnji del!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Z veseljem! KINETIČNO SPROŠČANJE!
@@ -1243,7 +1243,7 @@ MISIJA KONČANA: OBSIDIANSKI OBOK JE VDOR. KULTURNI ARHIV IZLUŠČEN.
 Zadnji 400-metrski utrjeni most čez izsušeno reko LA—edini površinski pristop do citadele visokega poveljstva Xelthara, zgrajen nad porušeno skupnostjo Boyle Heights. Xelthara je ta pristop zasnoval tako, da je neprehoden.
 
 # kind: objective
-Porinite se čez 400-metrski most pod stalnim topniškim ognjem, da dosežete vhodna vrata Citadele – neusmiljeno brušenje z uporabo Roninovega ščita in Sireninega brezpilotnega letala.
+Pod trajnim topniškim ognjem se podajte čez 400-metrski most, da dosežete vhodna vrata Citadele – neusmiljeno brušenje z uporabo Roninovega ščita in Sireninega brezpilotnega letala.
 
 # kind: solo_monologue # character: Empress Siren # type: internal
 Sedemnajstkrat sem pretekel taktične modele. Vsaka različica vključuje absorpcijo škode, ki je ne moremo popolnoma ublažiti. Roninov ščit bo na 10%, preden pridemo do vrat. Prosim jih, naj hodijo skozi morilsko polje, ker so to edina vrata. Xelthara ga je namenoma zgradila tako - da bi bila cena svobode dovolj visoka, da bi odvrnila poskus. Nismo malodušni.
@@ -1328,10 +1328,10 @@ To je zunaj zadrževalnega območja. Moji instrumenti odpovedujejo. Samo tkivo p
 Visoki nadzornik Xelthare je bil le kmet. Ta moč... to je vir okupacije. Kolektivna volja.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Čutim tok čistih podatkov, Shogun. Poskuša na novo napisati moje živčno jedro. Ne spadamo sem. Moramo zagnati ta motor in priti ven.
+Čutim tok čistih podatkov, Shogun. Poskuša na novo napisati moje živčno jedro. Ne spadamo sem. Moramo zadeti ta motor in priti ven.
 
 # kind: dialogue # speaker: The Collective Will # type: vo
-Ste lokalizirana anomalija v velikem dizajnu. Ves obstoj je zamenljiv vir za našo širitev. Vaša domovina je že vključena v našo končno enačbo izbrisa.
+Vi ste lokalizirana anomalija v velikem dizajnu. Ves obstoj je zamenljiv vir za našo širitev. Vaša domovina je že vključena v našo končno enačbo izbrisa.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Obstoj, kaj? Potem pa pokažimo Obstoju, kaj se zgodi, ko se zajebavaš z Zemljo! Ronin, vključi varuhe perimetra!

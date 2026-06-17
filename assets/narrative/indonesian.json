@@ -105,7 +105,7 @@
     "2": {
       "title": "Kebakaran Beton",
       "arc": null,
-      "setting": "Gerbang masuk yang besar dan berpagar di Zona Penahanan 4. Ribuan keluarga digiring seperti ternak melewati pagar energi. Di belakang mereka, rumah mereka di pinggiran kota diratakan oleh pejalan kaki ekspansi Xelthara.",
+      "setting": "Gerbang masuk yang besar dan berpagar di Zona Penahanan 4. Ribuan keluarga digiring seperti ternak melalui pagar energi. Di belakang mereka, rumah mereka di pinggiran kota diratakan oleh pejalan kaki ekspansi Xelthara.",
       "objective": "Pegang 'Jembatan Terakhir' melawan Penegak Xelthara yang menggiring penduduk, yang memungkinkan kelompok pengungsi terakhir untuk menyelinap ke daerah kumuh yang belum dipetakan, bukan ke kamp-kamp yang terjaga keamanannya.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
@@ -254,7 +254,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Saya Permaisuri Siren. Kamilah yang berjuang untuk memastikan masih ada kota yang tersisa untuk dipanen. Kamu punya bakat untuk memecahkan sesuatu, hantu. Kita bisa menggunakannya. Apakah Anda lelah bersembunyi di balik karat?"
+          "text": "Saya Permaisuri Sirene. Kamilah yang berjuang untuk memastikan masih ada kota yang tersisa untuk dipanen. Kamu punya bakat untuk memecahkan sesuatu, hantu. Kita bisa menggunakannya. Apakah Anda lelah bersembunyi di balik karat?"
         },
         {
           "speaker": "Oni Matrix",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ini bukan pendekatan yang sembunyi-sembunyi. Delta adalah posisi yang dibentengi. Kami memukulnya sebagai satu kesatuan. Ronin—Anda mengambil poin, melindungi ke depan, menarik perhatian mereka dan menyerap tendangan awal mereka. Shogun, bersihkan sayap kiri. Matrix, gunakan Phase-Shift untuk mencapai panel kontrol menara di paling kanan dan membunuh ketiga menara secara bersamaan. Setelah menaranya mati, saya mengirimkan drone untuk menembakkan saturasi ke pasukan penegak hukum. Kami meruntuhkan garnisun, lalu Ronin meletakkan puncak menara di tanah."
+          "text": "Ini bukan pendekatan yang sembunyi-sembunyi. Delta adalah posisi yang dibentengi. Kami memukulnya sebagai satu kesatuan. Ronin—Anda mengambil poin, melindungi ke depan, menarik perhatian mereka dan menyerap tendangan awal mereka. Shogun, bersihkan sayap kiri. Matrix, gunakan Phase-Shift untuk mencapai panel kontrol turret di paling kanan dan bunuh ketiga turret secara bersamaan. Setelah menaranya mati, saya mengirimkan drone untuk menembakkan saturasi ke pasukan penegak hukum. Kami meruntuhkan garnisun, lalu Ronin meletakkan puncak menara di tanah."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1206,7 +1206,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Kerusakan atmosfer dalam jarak 40 kilometer dari pengecoran ini merupakan pelanggaran terhadap Perjanjian Pelestarian Lingkungan Universal tahun 2089—perjanjian yang diratifikasi oleh Xelthara Collective. Saya telah mengajukan laporan pelanggaran formal ke Pengadilan Administratif Galaksi atas nama HLF. Perkiraan waktu tanggapan Pengadilan adalah sebelas tahun. Perkiraan waktu yang dibutuhkan oleh pabrik pengecoran untuk menyebabkan atmosfer tidak dapat diubah secara permanen: empat bulan. Kami tidak menunggu pengadilan."
+          "text": "Kerusakan atmosfer dalam jarak 40 kilometer dari pengecoran ini merupakan pelanggaran terhadap Perjanjian Pelestarian Lingkungan Hidup Universal tahun 2089—perjanjian yang diratifikasi oleh Xelthara Collective. Saya telah mengajukan laporan pelanggaran formal ke Pengadilan Administratif Galaksi atas nama HLF. Perkiraan waktu tanggapan Pengadilan adalah sebelas tahun. Perkiraan waktu yang dibutuhkan oleh pabrik pengecoran untuk menyebabkan atmosfer tidak dapat diubah secara permanen: empat bulan. Kami tidak menunggu pengadilan."
         }
       ],
       "dialogue_status": "scripted",
@@ -1219,7 +1219,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Saya mendeteksi peredam seismik tugas berat pada penyangga tersebut. Api energi langsung tidak akan berhasil. Ronin, ini keahlianmu. Diperlukan gaya kinetik."
+          "text": "Saya mendeteksi peredam seismik tugas berat pada penyangga tersebut. Api energi langsung tidak akan berfungsi. Ronin, ini keahlianmu. Diperlukan gaya kinetik."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1751,7 +1751,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Gudang Obsidian berisi 4,2 juta artefak dan catatan yang dikatalogkan. Dari jumlah tersebut, 340.000 telah ditandai untuk dimusnahkan sebagai 'kelebihan yang tidak penting'. Tujuh belas ribu barang hancur pada bulan lalu saja. Saya punya nama semuanya. Saya ingin Anda mengetahuinya sebelum Anda masuk. Apa yang kita selamatkan malam ini adalah apa yang tersisa. Tidak ada cara untuk memulihkan apa yang sudah hilang. Tapi masih ada sesuatu yang tersisa untuk diselamatkan."
+          "text": "Gudang Obsidian berisi 4,2 juta artefak dan catatan yang dikatalogkan. Dari jumlah tersebut, 340.000 telah ditandai untuk dimusnahkan sebagai 'kelebihan yang tidak penting'. Tujuh belas ribu barang hancur pada bulan lalu saja. Saya punya nama semuanya. Saya ingin Anda mengetahuinya sebelum Anda masuk. Apa yang kita selamatkan malam ini adalah apa yang tersisa. Tidak ada cara untuk memulihkan apa yang telah hilang. Tapi masih ada sesuatu yang tersisa untuk diselamatkan."
         }
       ],
       "dialogue_status": "scripted",
@@ -2014,7 +2014,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ini berada di luar zona pembendungan. Instrumen saya rusak. Tatanan ruang tidak stabil di sini. Ini pastilah hati Induk yang sesungguhnya."
+          "text": "Ini berada di luar zona pembendungan. Instrumen saya rusak. Tatanan ruang tidak stabil di sini. Ini pastilah hati Induk yang sebenarnya."
         },
         {
           "speaker": "Cyber Shogun",

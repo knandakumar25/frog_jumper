@@ -146,7 +146,7 @@ Hawakan ang 'Huling Tulay' laban sa Mga Enforcer ng Xelthara na nagpapastol sa p
 <
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-DISPLACEMENT LOG: SECTOR 4 RESETTLEMENT PROTOCOL. DEFENDER: AEGIS RONIN (CHASSIS STATUS: CRITICAL). ANTAS NG BANTA: OMEGA. REFUGEE COUNT: 412. KASALUKUYANG MANDATO: PROTEKSIHAN ANG MGA INILIS. IPAGTANGGOL ANG THRESHOLD.
+DISPLACEMENT LOG: SECTOR 4 RESETTLEMENT PROTOCOL. DEFENDER: AEGIS RONIN (CHASSIS STATUS: CRITICAL). ANTAS NG BANTA: OMEGA. REFUGEE COUNT: 412. KASALUKUYANG MANDATO: PROTEKTAHAN ANG MGA INILIS. IPAGTANGGOL ANG THRESHOLD.
 <
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
@@ -291,11 +291,11 @@ Ang edad ng mga nakatayong hukbo ay patay na. Hindi natin sila makikilala sa fie
 <
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Empress, ang iyong broadcast ay isang napakalaking panganib! Inilalantad mo ang iyong lokasyon at ang pattern ng dalas ng paglaban. Hindi ito pinakamainam. Paki-abort ang transmission.
+Empress, ang iyong broadcast ay isang napakalaking panganib! Inilalantad mo ang iyong lokasyon at ang pattern ng dalas ng paglaban. Hindi ito pinakamainam. Mangyaring i-abort ang transmission.
 <
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-DESENTRALISASYON LOG: GUERILLA TRANSITION INITIATED. LOKASYON: LAST STAND COMMAND (PACIFIC HUB). STATUS: CONVENTIONAL FORCE NATALO. ASYMETRICAL DOCTRINE ACTIVE. COMMANDER: EMPRESS SIREN (TACTICAL CODE: VOID COMMANDER). LAST ORDER: SHATTER THE COMMAND. MAGING BAGYO.
+DESENTRALISASYON LOG: GUERILLA TRANSITION INITIATED. LOKASYON: LAST STAND COMMAND (PACIFIC HUB). STATUS: CONVENTIONAL FORCE NATALO. AKTIBO ANG ASYMMETRICAL DOCTRINE. COMMANDER: EMPRESS SIREN (TACTICAL CODE: VOID COMMANDER). LAST ORDER: SHATTER THE COMMAND. MAGING BAGYO.
 <
 
 # kind: dialogue # speaker: Empress Siren # type: radio
@@ -360,7 +360,7 @@ KUMPLETO ANG MISYON: ANG WALANG KATAPUSAN. SUMALI SI EMPRESS SIREN SA HLF.
 < # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Ang aktibong Sector-4 Separation Grid—isang 40-meter-taas na energy wall na pinatibay ng biometric scanner spires, permit-processing checkpoints, at mga istasyon ng Xelthara Border Authority. Pisikal nitong hinahati-hati ang Los Angeles, na ibinubukod ang human containment zone mula sa kolonyal na sektor ng Xelthara. Ang pader ay hindi isang pag-install ng militar. Ito ay isang administratibo.
+Ang aktibong Sector-4 Separation Grid—isang 40-meter-taas na energy wall na pinatibay ng biometric scanner spire, permit-processing checkpoints, at Xelthara Border Authority stations. Pisikal nitong hinahati-hati ang Los Angeles, na ibinubukod ang human containment zone mula sa kolonyal na sektor ng Xelthara. Ang pader ay hindi isang pag-install ng militar. Ito ay isang administratibo.
 
 # kind: objective
 I-disable ang lahat ng apat na biometric scanner spires, sirain ang gitnang Permit Processing Core—ang burukratikong makina na kumokontrol sa paggalaw ng tao—at ibagsak ang Great Separation para malayang makalakad ang populasyon ng mga containment zone sa kanilang sariling lungsod.
@@ -383,7 +383,7 @@ ANG PADER NA TINAWAG NILA NA PINTO
 <
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ang istraktura na iyong tinitingnan ay itinalaga sa mga kolonyal na rekord bilang 'Sector-4 Population Optimization at Transit Authority Control System.' Ito ay isang pader. Isa itong segregation wall. Ang bawat tao sa bahaging ito ay nangangailangan ng Residency Permit na ibinigay ng Xelthara upang tumawid. Ang mga permit ay hindi inisyu. Ang sistema ng aplikasyon ay may dalawang taong backlog. Hindi ito aksidente. Ito ang arkitektura ng permanenteng displacement.
+Ang istraktura na iyong tinitingnan ay itinalaga sa mga kolonyal na rekord bilang 'Sector-4 Population Optimization at Transit Authority Control System.' Ito ay isang pader. Isa itong segregation wall. Ang bawat isang tao sa bahaging ito ay nangangailangan ng Xelthara-issued Residency Permit upang tumawid. Ang mga permit ay hindi inisyu. Ang sistema ng aplikasyon ay may dalawang taong backlog. Hindi ito aksidente. Ito ang arkitektura ng permanenteng displacement.
 <
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
@@ -418,7 +418,7 @@ Naintindihan. Ito ay sa iyo.
 <
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Ronin, dalhin mo ang Spire Alpha sa arts corridor. Shogun, Spire Gamma sa Central Library. May Beta ang Matrix. Iko-coordinate ko ang pagsugpo sa drone sa mga ruta ng patrol at sasama ako sa Shogun at the Library approach. Gagabayan ng AXIOM ang sequencing. Ang lahat ng apat na spire ay magkakasunod-sunod, pagkatapos ay magsalubong kami sa Pershing Square at pinaghiwa-hiwalay ang Core.
+Ronin, dalhin mo ang Spire Alpha sa arts corridor. Shogun, Spire Gamma sa Central Library. May Beta ang Matrix. Iko-coordinate ko ang pagsugpo sa drone sa mga ruta ng patrol at sasama ako sa Shogun at the Library approach. Gagabayan ng AXIOM ang sequencing. Ang lahat ng apat na spier ay magkakasunod-sunod, pagkatapos ay magtatagpo kami sa Pershing Square at pinaghiwa-hiwalay ang Core.
 <
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
@@ -454,7 +454,7 @@ PHASE 1: DUMATING SA PAMAMAGITAN NG BUFFER ZONE
 <
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Dinisenyo nila ang buffer zone na ito para kahit na malapit sa pader ay parang trespassing. Ikaw ay nasa bukas. Ikaw ay nakikita. Nakonsensya ka sa pagtayo sa tabi ng dating pampublikong kalye. Iyan ang sikolohiya nito. Gusto nilang maramdaman natin na hindi tayo bagay dito bago pa man tayo makarating sa checkpoint.
+Dinisenyo nila ang buffer zone na ito para kahit na malapit sa pader ay parang trespassing. Ikaw ay nasa bukas. Ikaw ay nakikita. Nakonsensya ka sa pagtayo sa tabi ng dating pampublikong kalye. Iyan ang sikolohiya nito. Gusto nilang maramdaman natin na hindi tayo bagay dito bago pa man makarating sa checkpoint.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 Ayaw ko dito. Hinawakan ko ang linya laban sa Siege Walkers at kinasusuklaman ko ito. May isang bagay tungkol sa pagtayo sa bukas sa sarili mong kalye at pakiramdam na binabantayan ako na mas masahol pa sa artilerya.
@@ -618,7 +618,7 @@ PHASE 2-C: SPIRE DELTA — ANG SOUTHERN TERMINUS SA ILOG
 <
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ang Spire Delta ang angkla na nagdadala ng pagkarga ng pader. Ito ay binabantayan ni Border Commander Vyss—na nag-utos na ang ilog ay nakuryente matapos ang tatlong pamilya ay nagtangkang tumawid sa tubig sa unang linggo ng pader. Hindi sila inutusan ni Vyss na ikulong. Inutusan ni Vyss ang tubig na nakuryente.
+Ang Spire Delta ay ang angkla na nagdadala ng pagkarga ng pader. Ito ay binabantayan ni Border Commander Vyss—na nag-utos na ang ilog ay nakuryente matapos ang tatlong pamilya ay nagtangkang tumawid sa tubig sa unang linggo ng pader. Hindi sila inutusan ni Vyss na ikulong. Inutusan ni Vyss ang tubig na nakuryente.
 <
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
@@ -1024,7 +1024,7 @@ KUMPLETO NA ANG MISYON: ANG LABAS NA KODE. CYBER-GRAVE LABS NASIRA.
 < # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Ang Xelthara Thermal Conversion Array sa dating industrial port district ay ginawang nakakalason ang hangin sa 40-kilometrong radius, pinoproseso ang mga basura sa atmospera bilang panggatong sa labas ng mundo habang ibinebenta ang oxygen ng sangkatauhan pabalik sa nirarasyon na mga canister sa isa bawat pamilya bawat araw.
+Ang Xelthara Thermal Conversion Array sa dating industrial port district ay ginawang nakakalason ang hangin sa 40-kilometrong radius, pinoproseso ang mga basura sa atmospera bilang panggatong sa labas ng mundo habang ibinebenta ang oxygen ng sangkatauhan pabalik sa mga nirarasyon na canisters sa isa bawat pamilya bawat araw.
 
 # kind: objective
 Baligtarin ang polarity ng Thermal Conversion Array upang mag-trigger ng cascade thermal implosion na sumisira sa pandayan nang hindi maibabalik at nagbibigay-daan sa 40-kilometrong atmospheric damage zone na magsimula ng natural na pagbabagong-buhay.
@@ -1120,7 +1120,7 @@ KUMPLETO ANG MISYON: PAGSASABALA SA INDUSTRIYA. TAHIMIK ANG FOUNDRY FORGE.
 < # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Ang Karagatang Pasipiko ay sistematikong pinatuyo ng Deep-Sea Hydrogen Siphoning Conduits sa kahabaan ng continental shelf. Ang sobrang init na brine discharge ay nag-acidified ng 300-kilometrong kahabaan sa baybayin, na sinisira ang mga pamayanan ng pangingisda na nagpapanatili ng kanilang sarili sa mga henerasyon.
+Ang Karagatang Pasipiko ay sistematikong pinatuyo ng Deep-Sea Hydrogen Siphoning Conduits sa kahabaan ng continental shelf. Ang sobrang init na brine discharge ay nag-acidify sa isang 300-kilometrong kahabaan sa baybayin, na sinisira ang mga pamayanan ng pangingisda na nagpapanatili ng kanilang sarili sa mga henerasyon.
 
 # kind: objective
 Hanapin at sirain ang tatlong pangunahing Deep-Sea Siphon Conduit Hub upang permanenteng ihinto ang operasyon ng pagsipsip sa karagatan at simulan ang pagbawi ng karagatan.
@@ -1701,7 +1701,7 @@ KUMPLETO ANG MISYON: ARAW NG PAGHUHUKOM. NATALO ANG MATAAS NA OVERSEER. LUPA ANG
 # kind: level # level: 16 # title: True Climax / Post-Game Bonus # dialogue_status: scripted
 
 # kind: setting
-The Xelthara Mothership's Singularity Engine chamber—isang silid ng purong hindi matatag na enerhiya sa puso ng kapangyarihan ng kolektibo, kung saan ang Collective Will mismo ay nagpapakita.
+Ang Singularity Engine chamber ng Xelthara Mothership—isang silid ng purong hindi matatag na enerhiya sa gitna ng kapangyarihan ng kolektibo, kung saan ang Collective Will mismo ay nagpapakita.
 <
 
 # kind: objective

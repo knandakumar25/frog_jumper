@@ -304,7 +304,7 @@ LE MUR QU'ILS APPELENT UNE PORTE
 La structure que vous regardez est désignée dans les archives coloniales comme le « Système d'optimisation de la population et de contrôle des autorités de transport du secteur 4 ». C'est un mur. C'est un mur de ségrégation. Chaque humain de ce côté-ci a besoin d'un permis de séjour délivré par Xelthara pour traverser. Les permis ne sont pas délivrés. Le système de candidature accuse un retard de deux ans. Ce n'est pas un accident. C’est l’architecture du déplacement permanent.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-J'ai passé huit mois dans une zone de confinement comme celle-ci après la prise de la vallée de San Fernando. Huit mois à regarder les enfants devenir plus petits parce que les rations caloriques sont con��ues pour une espèce qui ne mange pas les mêmes choses que nous. Et de l’autre côté, ils mangent notre nourriture. Dans nos restaurants. Dans notre ville.
+J'ai passé huit mois dans une zone de confinement comme celle-ci après la prise de la vallée de San Fernando. Huit mois à regarder les enfants devenir plus petits parce que les rations caloriques sont conçues pour une espèce qui ne mange pas les mêmes choses que nous. Et de l’autre côté, ils mangent notre nourriture. Dans nos restaurants. Dans notre ville.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 AXIOM, confirmez les quatre emplacements des flèches pour l'équipe.
@@ -331,7 +331,7 @@ Compris. C'est le vôtre.
 Ronin, tu emmènes Spire Alpha dans le couloir des arts. Shogun, Spire Gamma à la Bibliothèque centrale. Matrix a une version bêta. Je coordonnerai la suppression des drones sur les itinéraires de patrouille et rejoindrai Shogun à l'approche de la bibliothèque. AXIOM guidera le séquençage. Les quatre flèches tombent en séquence, puis nous convergeons vers Pershing Square et démontons le noyau pièce par pièce.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Remarque : Les patrouilles des autorités frontalières sont denses mais structurées. Le point de contrôle est géré 24 heures sur 24 par l'administrateur-exécuteur Voss, qui gère les autorisations de passage physique. Ce n'est pas un officier de combat. C'est un bureaucrate. Il a personnellement rejeté 4 400 demandes de passage au cours du mois dernier.
+Remarque : Les patrouilles des autorités frontalières sont denses mais structurées. Le point de contrôle est géré 24 heures sur 24 par l'administrateur-ex��cuteur Voss, qui gère les autorisations de passage physique. Ce n'est pas un officier de combat. C'est un bureaucrate. Il a personnellement rejeté 4 400 demandes de passage au cours du mois dernier.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 4 400. Des gens qui voulaient juste rentrer chez eux à pied.
@@ -355,7 +355,7 @@ Bougez. Restez sous le plafond de couverture des drones. Ils ont une cartographi
 PHASE 1 : APPROCHE PAR LA ZONE TAMPON
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Ils ont conçu cette zone tampon de telle sorte que même s’approcher du mur donne l’impression d’entrer dans la propriété. Vous êtes à découvert. Vous êtes visible. Vous vous sentez coupable de vous trouver à côté de ce qui était autrefois une voie publique. C'est la psychologie de la chose. Ils veulent que nous ayons le sentiment de ne pas avoir notre place ici avant même d'avoir atteint le point de contrôle.
+Ils ont conçu cette zone tampon de telle sorte que même s’approcher du mur donne l’impression d’entrer dans la propriété. Vous êtes à découvert. Vous êtes visible. Vous vous sentez coupable de vous tenir à côté de ce qui était autrefois une voie publique. C'est la psychologie de la chose. Ils veulent que nous ayons le sentiment de ne pas avoir notre place ici avant même d'avoir atteint le point de contrôle.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 Je déteste ça. J'ai tenu le coup contre les Siege Walkers et je déteste ça. Il y a quelque chose de pire dans le fait de se tenir à découvert dans sa propre rue et de se sentir surveillé que l'artillerie.
@@ -538,7 +538,7 @@ Car depuis deux ans, l’espoir est un mécanisme de déception. Ils ont appris 
 ...Nous aurions dû le faire plus tôt.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Nous sommes ici maintenant. Continuez à bouger. Le Core est toujours debout. Voss est toujours là.
+Nous sommes ici maintenant. Continuez à avancer. Le Core est toujours debout. Voss est toujours là.
 
 # kind: dialogue # speaker: Voss # type: spoken
 Vous avez commis la destruction non autorisée d'une installation administrative coloniale de classe A. Je suis tenu par le protocole de vous offrir la possibilité de vous soumettre à une procédure administrative avant que des mesures coercitives ne soient prises. Veuillez former une file d'attente.
@@ -894,7 +894,7 @@ La friture neuronale est mon troisième passe-temps préféré. Détendez-vous, 
 Les poutres sont chaudes. Passons la première rangée... la deuxième rangée... Je suis à la console. Lancement de la purge.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Attention : des unités Xelthara submergées font surface ! Ils tentent de perturber la séquence de drainage !
+Attention : des unités Xelthara submergées font surface ! Ils tentent de perturber la séquence de drainage !
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Défendez les plateformes ! Coupe de Force Shado !
@@ -991,7 +991,7 @@ MISSION COMPLÈTE : PIRATES DU CIEL. Transport T-14 détourné.
 # kind: level # level: 11 # title: Noyau du secteur 7 (La grille brûlée) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Sector 7 Core est le centre du pouvoir de surveillance et d��application de la loi – l’épine dorsale informatique de chaque caméra de sécurité coloniale, drone de couvre-feu, point de contrôle biométrique et algorithme de détention prédictive sur le continent occidental. Sans cela, tous les moyens de surveillance coloniale s’éteignent simultanément.
+Sector 7 Core est le centre du pouvoir de surveillance et d’application de la loi – l’épine dorsale informatique de chaque caméra de sécurité coloniale, drone de couvre-feu, point de contrôle biométrique et algorithme de détention prédictive sur le continent occidental. Sans cela, tous les moyens de surveillance coloniale s’éteignent simultanément.
 
 # kind: objective
 Infiltrez le noyau du secteur 7, neutralisez ses systèmes de défense numérisés et déclenchez une surcharge catastrophique qui provoque une panne du réseau de sécurité à l'échelle continentale, donnant à la résistance 72 heures de mouvement sans surveillance.
@@ -1151,7 +1151,7 @@ Infiltrez le coffre-fort d'obsidienne, extrayez la base de données originale de
 L'honneur d'un guerrier se définit autant par ce qu'il protège que par ce qu'il détruit. Ce soir, je protège quelque chose. Les archives contenues dans ce coffre-fort sont la preuve que nous existions ici avant leur arrivée – que nous avions des noms pour cette terre, que nous y étions construits, que nous y étions enterrés et que nous racontions des histoires à son sujet pendant des siècles. S’ils effacent cette preuve, ils peuvent écrire l’histoire qu’ils veulent. Je ne laisserai pas cela arriver.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-L'Obsidian Vault contient 4,2 millions d'artefacts et de documents catalogués. Parmi eux, 340 000 ont été destinés à être détruits en tant que « licenciements non essentiels ». Dix-sept mille objets ont été détruits rien que le mois dernier. J'ai les noms de chacun. Je veux que vous le sachiez avant d'entrer. Ce que nous sauvons ce soir, c'est ce qui reste. Il n’est pas possible de récupérer ce qui a déjà disparu. Mais il reste encore quelque chose à sauver.
+L'Obsidian Vault contient 4,2 millions d'artefacts et de documents catalogués. Parmi ceux-ci, 340 000 ont été destinés à être détruits en tant que « licenciements non essentiels ». Dix-sept mille objets ont été détruits rien que le mois dernier. J'ai les noms de chacun. Je veux que vous le sachiez avant d'entrer. Ce que nous sauvons ce soir, c'est ce qui reste. Il n’est pas possible de récupérer ce qui a déjà disparu. Mais il reste encore quelque chose à sauver.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Bienvenue au Gauntlet. Ce pont est le symbole de leur occupation coloniale. Nous refusons de nous laisser effacer par leur arrogance architecturale.
@@ -1246,7 +1246,7 @@ Le dernier pont fortifié de 400 mètres au-dessus de la rivière LA asséchée,
 Traversez le pont de 400 mètres sous des tirs d'artillerie soutenus pour atteindre la porte d'entrée de la Citadelle : une avancée implacable utilisant le bouclier de Ronin et le barrage de drones de Siren.
 
 # kind: solo_monologue # character: Empress Siren # type: internal
-J'ai exécuté les modèles tactiques dix-sept fois. Chaque version implique d’absorber des dégâts que nous ne pouvons pas entièrement atténuer. Le bouclier de Ronin sera à 10% avant que nous atteignions la porte. Je leur demande de traverser un champ de bataille parce que c'est la seule porte. Les Xelthara l'ont construit ainsi exprès, afin que le coût de la liberté soit suffisamment élevé pour décourager toute tentative. Nous ne sommes pas découragés.
+J'ai exécuté les modèles tactiques dix-sept fois. Chaque version implique d’absorber des dégâts que nous ne pouvons pas entièrement atténuer. Le bouclier de Ronin sera à 10% avant que nous atteignions la porte. Je leur demande de traverser un champ de bataille parce que c'est la seule porte. Les Xelthara l'ont construit de cette façon exprès, afin que le coût de la liberté soit suffisamment élevé pour décourager toute tentative. Nous ne sommes pas découragés.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Je veux dire quelque chose avant que cela commence. J'ai effectué des évaluations de probabilité sur chaque mission de cette campagne. Je ne vous donne pas le numéro de celui-ci. Pas parce que cela vous arrêterait. Parce que vous avez déjà décidé. Et le nombre n'a pas d'importance pour ceux qui ont déjà décidé. Je serai avec vous à chaque étape du pont. Je ne détournerai pas le regard.
@@ -1287,7 +1287,7 @@ Coordonnées de verrouillage ! ULTIME : PLUIE VIDE !
 Il est ouvert ! ULTIME : EFFONDREMENT TOTAL DU SYSTÈME !
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Pour la patrie ! ULTIME : OBLIVION SLASH !
+Pour la patrie ! ULTIME : OBLIVION SLASH !
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Les signaux d'occupation ont cessé. L'atmosphère se stabilise. Vous l'avez fait. La Terre est... à nouveau chez elle.
@@ -1367,10 +1367,10 @@ Tout le monde derrière moi ! L'onde de choc arrive ! ULTIME : REMPLACEMENT DE 
 Je dépasse les champs de confinement ! Ça devient critique !
 
 # kind: dialogue # speaker: Empress Siren # type: combat
-Frappe orbitale prête ! Je laisse tomber tout ce que nous avons sur ce noyau !
+Frappe orbitale prête ! Je laisse tomber tout ce que nous avons sur ce noyau��!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Pour la Terre ! POUR L'HUMANITÉ ! GRÈVE MAINTENANT ! ULTIME : OBLIVION SLASH !
+Pour la Terre ! POUR L'HUMANITÉ ! GRÈVE MAINTENANT ! ULTIME : OBLIVION SLASH !
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Est-ce que... nous nous sommes échappés ?
@@ -1388,7 +1388,7 @@ Je pense... je vois la Terre. Tellement propre. Tellement bleu.
 Axiom Force, ici le Commandement de Récupération. Nous vous lisons. Vos systèmes sont nominaux. Bienvenue à la maison, héros.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISSION COMPLÈTE : VRAI CLIMAX. LE COLLECTIF SERA ERADIQUE. LA FIN. MAIS LE COMBAT CONTINUE.
+MISSION COMPLÈTE : VRAI CLIMAX. LE COLLECTIF SERA ÉRADIQUE. LA FIN. MAIS LE COMBAT CONTINUE.
 
 -> END
 

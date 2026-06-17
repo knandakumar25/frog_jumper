@@ -221,7 +221,7 @@ MISSÃO COMPLETA: O FANTASMA NA MÁQUINA. ONI MATRIX juntou-se ao HLF.
 # kind: level # level: 4 # title: Égide Despedaçada do Comandante do Vazio # dialogue_status: scripted
 
 # kind: setting
-Os restos destruídos do Centro de Defesa do Pacífico. A orgulhosa e tradicional infra-estrutura militar está a ser reciclada pelos Xelthara, obrigando Siren a coordenar uma rede descentralizada de células ocultas.
+Os restos destruídos do Centro de Defesa do Pacífico. A orgulhosa e tradicional infra-estrutura militar está a ser reciclada pelos Xelthara, forçando Siren a coordenar uma rede descentralizada de células ocultas.
 
 # kind: objective
 Desmantelar a última torre de transmissão militar existente e distribuir os seus chips de frequência às células de resistência civil, finalizando a transição para a guerra de guerrilha.
@@ -289,16 +289,16 @@ A ativa Rede de Separação do Setor 4 – uma parede de energia de 40 metros de
 Desative todas as quatro torres do scanner biométrico, destrua o Núcleo Central de Processamento de Permissões – o mecanismo burocrático que controla o movimento humano – e derrube a Grande Separação para que a população das zonas de contenção possa caminhar livremente pela sua própria cidade.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Este muro não cortou apenas a cidade ao meio. Cortou-me ao meio. Tudo o que me lembro — o cheiro da cozinha da minha avó na Spring Street, o som do autocarro da 5th Street — está do outro lado daquela coisa. E tenho de voltar furtivamente como um criminoso.
+Esse muro não apenas cortou a cidade ao meio. Cortou-me ao meio. Tudo o que me lembro — o cheiro da cozinha da minha avó na Spring Street, o som do autocarro da 5th Street — está do outro lado daquela coisa. E tenho de voltar furtivamente como um criminoso.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-A Grelha de Separação do Setor 4 não está classificada como instalação militar nos registos administrativos de Xelthara. Está listado como um 'Sistema de Otimização da População e Controlo da Autoridade de Trânsito'. Esta reformulação da marca é o ponto. É um muro que se faz soar como um serviço.
+A Grelha de Separação do Setor 4 não está classificada como instalação militar nos registos administrativos de Xelthara. Está listado como um 'Sistema de Otimização da População e Controlo da Autoridade de Trânsito'. Essa reformulação da marca é o ponto. É um muro que se faz soar como um serviço.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 REGISTO DE DESLOCAÇÃO: GRADE DE SEPARAÇÃO DO SETOR-4. TIPO DE ESTRUTURA: PONTO DE VERIFICAÇÃO ADMINISTRATIVA COLONIAL. NÃO MILITAR. ISTO É INTENCIONAL. AMEAÇA: AUTORIDADE DE FRONTEIRA DE XELTHARA — DIVISÃO DE EXECUÇÃO. PINÇAS BIOMÉTRICAS: 4 ATIVAS. NÚCLEO DE PERMISSÃO: ONLINE. OBJECTIVO: DESMONTAR A ARQUITECTURA ADMINISTRATIVA DE SEPARAÇÃO. ABRA A CIDADE.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-A PAREDE A QUE CHAMARAM PORTA
+A PAREDE QUE CHAMARAM DE PORTA
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 A estrutura que está a ver está designada nos registos coloniais como 'Sistema de Otimização da População e Controlo da Autoridade de Trânsito do Setor 4'. É uma parede. É um muro de segregação. Cada humano deste lado requer uma autorização de residência emitida por Xelthara para atravessar. As licenças não são emitidas. O sistema de aplicação tem um atraso de dois anos. Isto não é um acidente. Esta é a arquitetura do deslocamento permanente.
@@ -316,7 +316,7 @@ O Spire Alpha fica no antigo local do corredor de artes da Grand Avenue. A Spire
 5 e Primavera.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
-Esta é... esta é a esquina onde está o prédio da minha avó. Era. É. A Spire Beta está plantada no seu jardim. Colocaram um poste na parede no jardim da frente dela.
+Esta é... esta é a esquina onde está o prédio da minha avó. Era. É. Spire Beta está plantada em seu jardim. Colocaram um poste na parede no jardim da frente dela.
 
 # kind: dialogue # speaker: Cyber Shogun # type: radio
 Matriz—
@@ -1240,7 +1240,7 @@ MISSÃO COMPLETA: O VAULT OBSIDIANO PARTIDO. ARQUIVOS CULTURAIS EXTRAÍDOS.
 # kind: level # level: 14 # title: A Abordagem da Cidadela (Ponte do Alto Comando) # arc: act2_arc3 # dialogue_status: pending
 
 # kind: setting
-A ponte fortificada final de 400 metros sobre o drenado rio LA - a única abordagem de nível superficial para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara conceberam esta abordagem para ser intransitável.
+A ponte fortificada final de 400 metros sobre o drenado rio LA - a única aproximação de superfície para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara conceberam esta abordagem para ser intransponível.
 
 # kind: objective
 Atravesse a ponte de 400 metros sob fogo contínuo de artilharia para chegar ao portão de entrada da Cidadela – um avanço implacável usando o escudo de Ronin e a barragem de drones de Siren.

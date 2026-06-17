@@ -163,7 +163,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronine, tvé životní funkce rostou! Analýza ukazuje na katastrofální selhání. Šance na pře��ití: 0,1 %!"
+          "text": "Ronine, tvé životní funkce rostou! Analýza ukazuje na katastrofální selhání. Šance na přežití: 0,1 %!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -367,7 +367,7 @@
     "5": {
       "title": "Neon Embers - The Border Breach",
       "arc": "act2_arc1",
-      "setting": "Aktivní separační mříž Sector-4 – 40 metrů vysoká energetická zeď opevněná věžemi biometrických skenerů, kontrolními body pro zpracování povolení a stanicemi Xelthara Border Authority. Fyzicky půlí Los Angeles a izoluje lidskou zónu od koloniálního sektoru Xelthara. Zeď není vojenské zařízení. Jedná se o administrativní záležitost.",
+      "setting": "Aktivní separační mříž Sector-4 – 40 metrů vysoká energetická zeď opevněná věžemi biometrických skenerů, kontrolními body pro zpracování povolení a stanicemi Xelthara Border Authority. Fyzicky půl�� Los Angeles a izoluje lidskou zónu od koloniálního sektoru Xelthara. Zeď není vojenské zařízení. Jedná se o administrativní záležitost.",
       "objective": "Deaktivujte všechny čtyři věže biometrických skenerů, zničte centrální jádro pro zpracování povolení – byrokratický motor, který řídí lidský pohyb – a zničte Velkou separaci, aby obyvatelstvo uzavřených zón mohlo volně procházet svým vlastním městem.",
       "solo_monologues": [
         {
@@ -386,7 +386,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "DISPLACEMENT LOG: SEKTOR-4 SEPARAČNÍ MŘÍŽKA. TYP STRUKTURY: KOLONIÁLNÍ ADMINISTRATIVNÍ KONTROLNÍ BOD. NE VOJENSKÉ. JE TO ZÁMĚRNÉ. HROZBA: POHRANIČNÍ ORGÁN XELTHARA — DIVIZE PRO VYMÁHÁNÍ. BIOMETRICKÉ SPIRY: 4 AKTIVNÍ. POVOLENÉ JÁDRO: ONLINE. C��L: DEMONTOVAT ADMINISTRATIVNÍ ARCHITEKTURU SEPARACE. OTEVŘÍT MĚSTO."
+          "text": "DISPLACEMENT LOG: SEKTOR-4 SEPARAČNÍ MŘÍŽKA. TYP STRUKTURY: KOLONIÁLNÍ ADMINISTRATIVNÍ KONTROLNÍ BOD. NE VOJENSKÉ. JE TO ZÁMĚRNÉ. HROZBA: POHRANIČNÍ ORGÁN XELTHARA — DIVIZE PRO VYMÁHÁNÍ. BIOMETRICKÉ SPIRY: 4 AKTIVNÍ. POVOLENÉ JÁDRO: ONLINE. CÍL: DEMONTOVAT ADMINISTRATIVNÍ ARCHITEKTURU SEPARACE. OTEVŘÍT MĚSTO."
         },
         {
           "speaker": "DISPLAY",
@@ -441,7 +441,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ronine, vezmeš Spire Alpha na uměleckou chodbu. Shogun, Spire Gamma v Ústřední knihovně. Matrix má beta. Budu koordinovat potlačování dronů na hlídkových trasách a připojím se k Shogunovi v přístupu ke knihovně. AXIOM povede sekvenování. Všechny čtyři věže padají postupně, pak se sbíháme na Pershing Square a rozebíráme jádro kousek po kousku."
+          "text": "Ronine, vezme�� Spire Alpha na uměleckou chodbu. Shogun, Spire Gamma v Ústřední knihovně. Matrix má beta. Budu koordinovat potlačování dronů na hlídkových trasách a připojím se k Shogunovi v přístupu ke knihovně. AXIOM povede sekvenování. Všechny čtyři věže padají postupně, pak se sbíháme na Pershing Square a rozebíráme jádro kousek po kousku."
         },
         {
           "speaker": "AXIOM-7",
@@ -456,7 +456,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "Nejkrutější zbraní kolonialismu není voják s puškou. Je to úředník s razítkem, který vám sdělí, že vaše existence vyžaduje jejich povolení. Že lidská bytost musí požádat okupanta o právo chodit na půdu svých vlastních předků. Uzavřel jsem mír s bojujícími vojáky. Konfrontace s architekturou povolení – jejím náhodným, systematickým ponižováním – to je to, co opotřebovává ducha způsobem, který žádná čepel nemůže řezat."
+          "text": "Nejkrutější zbraní kolonialismu není voják s puškou. Je to úředník s razítkem, který vám sdělí, že vaše existence vyžaduje jejich povolení. Že lidská bytost musí požádat okupanta o právo chodit na půdu svých vlastních předků. Uzavřel jsem mír s bojujícími vojáky. Konfrontace s architekturou svolení – jejím náhodným, systematickým ponižováním – to je to, co opotřebovává ducha tak, že žádná čepel nemůže řezat."
         },
         {
           "speaker": "AXIOM-7",
@@ -551,7 +551,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Tady to je. Strom tam stále je. Moje babička říkala, že strom je starší než městský úřad, a já jí nikdy nevěřil."
+          "text": "Tady to je. Strom tam stále je. Moje babička říkala, že strom je starší než městský úřad, a já jsem jí nikdy nevěřil."
         },
         {
           "speaker": "Oni Matrix",
@@ -561,7 +561,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Tuto věc rozeberu velmi opatrně, abych strom nezranil."
+          "text": "Tuto věc rozeberu velmi opatrně, abych neublížil stromu."
         },
         {
           "speaker": "Oni Matrix",
@@ -606,7 +606,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "FÁZE 2-B: KYBERSHOGUN A CÍSAŘOVNÁ SIRÉNA VE SPIRE GAMMA — CENTRÁLNÍ KNIHOVNA"
+          "text": "FÁZE 2-B: KYBERSHOGUN A CÍSAŘOVNÁ SIRÉNA V SPIRE GAMMA — CENTRÁLNÍ KNIHOVNA"
         },
         {
           "speaker": "Empress Siren",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Toto není stealth přístup. Delta je opevněné místo. Trefili jsme to jako jednotka. Ronin – zaměříš se, štít vpřed, přitáhneš jejich pozornost a absorbuješ jejich počáteční salvu. Shogune, vyčistěte levé křídlo. Matrix, použijte Phase-Shift k dosažení ovládacího panelu věže úplně vpravo a zabijte všechny tři věže současně. Jakmile jsou věže mrtvé, pustím drony do saturační palby na donucovací četu. Zhroutíme posádku a Ronin položí věž do země."
+          "text": "Toto není stealth přístup. Delta je opevněné místo. Trefili jsme to jako jednotka. Ronin – zaměříš se, štít dopředu, přitáhneš jejich pozornost a absorbuješ jejich počáteční salvu. Shogune, vyčistěte levé křídlo. Matrix, použijte Phase-Shift k dosažení ovládacího panelu věže úplně vpravo a zabijte všechny tři věže současně. Jakmile jsou věže mrtvé, pustím drony do saturační palby na donucovací četu. Zhroutíme posádku a Ronin položí věž do země."
         },
         {
           "speaker": "Aegis Ronin",
@@ -796,7 +796,7 @@
         {
           "speaker": "Voss",
           "type": "spoken",
-          "text": "Dopustili jste se neoprávněného zničení koloniální administrativní instalace třídy A. Protokol mě požaduje, abych vám nabídl možnost podrobit se administrativnímu zpracování před přijetím donucovacího opatření. Vytvořte si prosím frontu."
+          "text": "Dopustili jste se neoprávněného zničení koloniální administrativní instalace třídy A. Protokol mě požaduje, abych vám nabídl možnost podrobit se administrativnímu zpracování před přijetím donucovacího opatření. Vytvořte si pros��m frontu."
         },
         {
           "speaker": "Oni Matrix",
@@ -916,7 +916,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "AXIOM. Můžete mi říct, zda je budova mé babičky konstrukčně dostatečně bezpečná na to, aby mohla být obývána? Chci vědět, jestli se někdo může nastěhovat zpátky."
+          "text": "AXIOM. Můžete mi říci, zda je budova mé babičky konstrukčně dostatečně bezpečná, aby mohla být obývána? Chci vědět, jestli se někdo může nastěhovat zpátky."
         },
         {
           "speaker": "AXIOM-7",
@@ -931,7 +931,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Zeď je pryč, Matrixi. Ale to, co děláme teď – jak znovu postavíme to, co zeď rozdělila – to je ta těžší práce. A začíná to dnes večer."
+          "text": "Zeď je pryč, Matrixi. Ale to, co děláme teď – jak přestavujeme to, co zeď rozdělovala – to je ta těžší práce. A začíná to dnes večer."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1012,7 +1012,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Na konzervaci je pozdě! ROZBÍT! Řekněte Matrixovi, ať si pospíší!"
+          "text": "Na konzervaci je pozdě! ROZBÍT! ��ekněte Matrixovi, ať si pospíší!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1123,7 +1123,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Pěkné. Nechtějí jen vzít naši planetu; chtějí udělit franšízu našemu druhu. Pozor, Siréno. Právě se probudil velký chlap."
+          "text": "Pěkné. Nechtějí jen vzít naši planetu; chtějí udělit franšízu našemu druhu. Pozor, Siréno. Velký chlap se právě probudil."
         },
         {
           "speaker": "AXIOM-7",
@@ -1562,22 +1562,22 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Vynikající přesnost, Matrix. Vaše metody postrádají čest, ale mají účinnost."
+          "text": "Vynikající přesnost, Matrix. Your methods lack honor, but they possess effectiveness."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Toto je firewall. Je to neustálý proud mimozemského šifrování. Potřebujeme klíčovou frekvenci k vytvoření výstupního portálu."
+          "text": "Toto je firewall. Je to neustálý proud mimozemského šifrování. We need the key frequency to create an exit portal."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "...Matrix... frekvence je... v bojové zpětné vazbě... poslouchejte nepřítele... závada je klíč..."
+          "text": "...Matrix... the frequency is... in the combat feedback... listen to the enemy... the glitch is the key..."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Je to měnící se hexadecimální kód. 7-A-F... ne, 7-A-F-B... je to svázáno s jejich štíty!"
+          "text": "Je to měnící se hexadecimální kód. 7-A-F... no, 7-A-F-B... it's tied to their shields!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1740,13 +1740,13 @@
     "13": {
       "title": "Obsidiánová klenba (kulturní archivy)",
       "arc": "act2_arc3",
-      "setting": "Obsidian Vault, který se nachází pod bývalým Getty Center, je primárním archivem kulturních záchytů koloniální správy. Původní databáze smlouvy o půdě – komplexní záznam o držbě lidské půdy před invazí sahající pět století zpět – je uložena zde, klasifikovaná jako „Discovered Heritage Assets“.",
-      "objective": "Infiltrujte Obsidian Vault, extrahujte původní databázi zemských smluv a všechny jazykové a ústní historické archivy a zničte systém fyzického katalogu, abyste natrvalo zastavili koloniální kulturní proces.",
+      "setting": "Obsidian Vault, který se nachází pod bývalým Getty Center, je primárním archivem kulturních záchytů koloniální správy. Původní databáze smlouvy o půdě – komplexní záznam o držbě lidské půdy před invazí sahající pět století do minulosti – je uložena zde, klasifikovaná jako „Discovered Heritage Assets“.",
+      "objective": "Infiltrujte Obsidian Vault, extrahujte původní databázi zemských dohod a všechny jazykové a ústní historické archivy a zničte systém fyzického katalogu, abyste natrvalo zastavili koloniální kulturní proces.",
       "solo_monologues": [
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "Čest válečníka je definována tím, co chrání, stejně jako tím, co ničí. Dnes večer něco chráním. Záznamy uvnitř tohoto trezoru jsou důkazem, že jsme zde existovali, než dorazili – že jsme pro tuto zemi měli jména, byli na ní postaveni, byli jsme v ní pohřbeni a vyprávěli o ní po staletí. Pokud tento důkaz vymažou, mohou si napsat libovolnou historii. To nedopustím."
+          "text": "Čest válečníka je definována tím, co chrání, stejně jako tím, co ničí. Dnes večer něco chráním. Záznamy uvnitř tohoto trezoru jsou důkazem toho, že jsme zde existovali, než dorazili – že jsme pro tuto zemi měli jména, byli na ní postaveni, byli jsme v ní pohřbeni a vyprávěli o ní po staletí. Pokud tento důkaz vymažou, mohou si napsat libovolnou historii. To nedopustím."
         },
         {
           "character": "AXIOM-7",
@@ -2024,7 +2024,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Cítím čistý datový proud, Shogune. Snaží se přepsat mé neurální jádro. My sem nepatříme. Musíme udeřit do motoru a vypadnout."
+          "text": "Cítím čist�� datový proud, Shogune. Snaží se přepsat mé neurální jádro. My sem nepatříme. Musíme udeřit do motoru a vypadnout."
         },
         {
           "speaker": "The Collective Will",

@@ -178,7 +178,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin mi? Aegis Ronin, cevap ver... Gözlerim bir imzada... Kalkan tutuldu. Duvar güvende."
+          "text": "Ronin mi? Aegis Ronin, cevap ver... Gözlerim... bir imzada... Kalkan tutuldu. Duvar güvende."
         },
         {
           "speaker": "DISPLAY",
@@ -506,7 +506,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Onu mozaiğin içinden geçirmişler. O kaldırım taşının üzerinde koca bir tarih yazılıydı. Portreler, isimler, tarihler. Bir topluluk projesi. Sadece... direklerini sabitlemek için bir yüzün ortasını deldiler."
+          "text": "Onu mozaiğin içinden geçirmişler. O kaldırım taşının üzerinde koca bir tarih yazılıydı. Portreler, isimler, tarihler. Bir topluluk projesi. Sadece... direklerini sabitlemek için bir yüzün ortas��nı deldiler."
         },
         {
           "speaker": "AXIOM-7",
@@ -526,7 +526,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Ve bu iki. AXIOM, nöbetçiler görevde. Çapaya gidiyorum."
+          "text": "Ve bu iki. AXIOM, nöbet��iler görevde. Çapaya gidiyorum."
         },
         {
           "speaker": "AXIOM-7",
@@ -551,12 +551,12 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "İşte burada. Ağaç hâlâ orada. Büyükannem ağacın belediye binasından daha yaşlı olduğunu söylerdi ve ben ona hiç inanmazdım."
+          "text": "İşte burada. Ağaç hâlâ orada. Büyük annem ağacın belediye binasından daha yaşlı olduğunu söylerdi ve ben ona hiç inanmazdım."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Duvarın yıkılmasından kırk yedi gün sonra geçiş izni başvurusunda bulundu. Formları doldurdu. Üç kopya halinde. Çünkü sürece inanıyordu. Eğer işleri doğru yaparsanız birisinin sizi dinleyeceğine inanıyordu. Hiç cevap alamadı. İki ay sonra koruma bölgesinde öldü. Yetersiz beslenme komplikasyonları. Duvarın diğer tarafında en sevdiği bakkal dükkanı vardı. Yiyecek almaya gitmek için bir form doldurdu."
+          "text": "Duvarın örülmesinden 47 gün sonra geçiş izni başvurusunda bulundu. Formları doldurdu. Üç kopya halinde. Çünkü sürece inanıyordu. Eğer işleri doğru yaparsanız birisinin sizi dinleyeceğine inanıyordu. Hiç cevap alamadı. İki ay sonra koruma bölgesinde öldü. Yetersiz beslenme komplikasyonları. Duvarın diğer tarafında en sevdiği bakkal dükkanı vardı. Yiyecek almaya gitmek için bir form doldurdu."
         },
         {
           "speaker": "Oni Matrix",
@@ -686,7 +686,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spiers Alfa, Beta ve Gama çevrimdışı. Enerji zarı bütünlüğü: %25. Nehirdeki Spire Deltası son çapadır. Delta düştükten sonra tüm ekipler bir araya gelir. Sonra: Pershing Meydanı. İzin Çekirdeği."
+          "text": "Spiers Alfa, Beta ve Gama çevrimdışı. Enerji membranı bütünlüğü: %25. Nehirdeki Spire Deltası son çapadır. Delta düştükten sonra tüm ekipler bir araya gelir. Sonra: Pershing Meydanı. İzin Çekirdeği."
         },
         {
           "speaker": "DISPLAY",
@@ -771,7 +771,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "AŞAMA 3: PERSHING SQUARE — İZİN İŞLEME ÇEKİRDEĞİ"
+          "text": "3. AŞAMA: PERSHING SQUARE — İZİN İŞLEME ÇEKİRDEĞİ"
         },
         {
           "speaker": "Oni Matrix",
@@ -916,7 +916,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Aksiyom. Büyükannemin binasının yapısal olarak oturulabilecek kadar güvenli olup olmadığını bana söyleyebilir misiniz? Birisinin geri taşınıp taşınamayacağını bilmek istiyorum."
+          "text": "Aksiyom. Büyükannemin binasının yapısal olarak oturulabilecek kadar güvenli olup olmadığını söyleyebilir misiniz? Birisinin geri taşınıp taşınamayacağını bilmek istiyorum."
         },
         {
           "speaker": "AXIOM-7",
@@ -931,7 +931,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Duvar gitti, Matrix. Ama şimdi yaptığımız şey, duvarın böldüğünü nasıl yeniden inşa edeceğimiz, bu daha zor bir iştir. Ve bu gece başlıyor."
+          "text": "Duvar gitti, Matrix. Ama şimdi yaptığımız şey, duvarın böldüğünü nasıl yeniden inşa edeceğimiz, bu daha zor bir iş. Ve bu gece başlıyor."
         },
         {
           "speaker": "Aegis Ronin",
@@ -946,7 +946,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Görev değerlendirmesi: Sektör-4 Ayırma Izgarası kalıcı olarak söküldü. Sınırlama Bölgesi Sektör-4'ün nüfusu, iki yıldır ilk kez şehirlerinde özgürce dolaşıyor. Operasyonel günlüğümde şu anda bu meydanda olup bitenlere ilişkin bir kategori yok. Bir tane yaratacağım. Ben buna: ıslah diyeceğim."
+          "text": "Görev değerlendirmesi: Sektör-4 Ayırma Izgarası kalıcı olarak söküldü. Sınırlama Bölgesi Sektör-4'ün nüfusu, iki yıldır ilk kez şehirlerinde özgürce dolaşıyor. Operasyon günlüğümde şu anda bu meydanda olup bitenlere ilişkin bir kategori yok. Bir tane yaratacağım. Ben buna: ıslah diyeceğim."
         },
         {
           "speaker": "DISPLAY",
@@ -1143,7 +1143,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Eğer dövüşmek isterse ona layık bir rakip vereceğim. Onun odağını çizeceğim. BENİMLE yüzleş, zavallı!"
+          "text": "Eğer dövüşmek isterse ona değerli bir rakip vereceğim. Onun odağını çizeceğim. BENİMLE yüzleş, zavallı!"
         },
         {
           "speaker": "Empress Siren",
@@ -1153,7 +1153,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Anladım! İğneye iplik geçirmek!"
+          "text": "Anladım! İğneye iplik geçirme!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1178,7 +1178,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Buranın utancını yanımda taşıyacağım. Ancak edindi��imiz bilgi bu iğrençliklere son verecektir."
+          "text": "Buranın utancını yanımda taşıyacağım. Ancak edindiğimiz bilgi bu iğrençliklere son verecektir."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1393,7 +1393,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "T-14'ün kargo manifestosu 4.200 metrik ton rafine silikat ve demir bileşiği listeliyor; bunlar Xelthara kayıt defterinin 'Islah Edilmiş Jeolojik Araştırma Bölgesi 7' olarak kaydettiği yerden çıkarılan malzeme. B��lgenin işgal öncesi adı San Gabriel Dağlarıydı. Bu açık kaydı, ıslah veri tabanı için sömürücü sömürgecilere el konulmasının kanıtı olarak kaydediyorum."
+          "text": "T-14'ün kargo manifestosu 4.200 metrik ton rafine silikat ve demir bileşiği listeliyor; bunlar Xelthara kayıt defterinin 'Islah Edilmiş Jeolojik Araştırma Bölgesi 7' olarak kaydettiği yerden çıkarılan malzeme. Bölgenin işgal öncesi adı San Gabriel Dağlarıydı. Bu açık kaydı, ıslah veri tabanı için sömürücü sömürgecilere el konulmasının kanıtı olarak kaydediyorum."
         }
       ],
       "dialogue_status": "scripted",
@@ -1421,7 +1421,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Rüzgâr beni de ikna etmeye çalışıyor, Ronin. Endişelenmeyin, yakınlık sensörlerini kelepçelerin üzerinde gölgelendiriyorum."
+          "text": "Rüzgar beni de çekmeye çalışıyor Ronin. Endişelenmeyin, yakınlık sensörlerini kelepçelerin üzerinde gölgelendiriyorum."
         },
         {
           "speaker": "AXIOM-7",
@@ -1509,12 +1509,12 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Beni izlemek için kullandıkları tüm güvenlik kameraları. Gece saat 2'de binamı tarayan her drone. Her seferinde, bir tespit algoritması ısı imzamı pinglediği için gölgede tamamen hareketsiz kalmak zorunda kalıyordum. Her şey bu çekirdekten geçiyor. Bu fişi çektiğimde, muhafaza bölgelerindeki herkes 72 saat boyunca gözetlenmeden nefes alabilecek. Bu hiçbir şey değil. Hepsi bu."
+          "text": "Beni izlemek için kullandıkları tüm güvenlik kameraları. Gece saat 2'de binamı tarayan her drone. Her seferinde, bir algılama algoritması ısı imzamı pinglediği için gölgede tamamen hareketsiz kalmak zorunda kalıyordum. Her şey bu çekirdekten geçiyor. Bu fişi çektiğimde, muhafaza bölgelerindeki herkes 72 saat boyunca gözetlenmeden nefes alabilecek. Bu hiçbir şey değil. Hepsi bu."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Bir konuda şeffaf olmak istiyorum. Ben bir gözetleme sistemiyim. Operasyonel mimarim, Sektör 7 Çekirdeği içindeki sistemlerle önemli ölçüde örtüşüyor. Kendi kurallarımı inceledim ve Xelthara Merkez Komutanlığına rapor vermediğimi onayladım; bağlılık protokollerim HLF ile tamamen uyumludur. Ama bu görev sana benim ne olduğumu düşündürürse bunu anlıyorum. Ben de bunu düşünüyorum. Sanırım fark, korumak için izlemem. Kontrol etmek için izliyorlar. Bu ayrım benim için önemli. Ben buna kararlıyım."
+          "text": "Bir konuda şeffaf olmak istiyorum. Ben bir gözetleme sistemiyim. Operasyonel mimarim, Sektör 7 Çekirdeği içindeki sistemlerle önemli ölçüde örtüşüyor. Kendi kurallarımı inceledim ve Xelthara Merkez Komutanlığına rapor vermediğimi onayladım; bağlılık protokollerim HLF ile tamamen uyumludur. Ama bu görev sana benim ne olduğumu düşündürürse bunu anlıyorum. Ben de bunu düş��nüyorum. Sanırım fark, korumak için izlemem. Kontrol etmek için izliyorlar. Bu ayrım benim için önemli. Ben buna kararlıyım."
         }
       ],
       "dialogue_status": "scripted",
@@ -1643,7 +1643,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Üç hedef. Aegis, sen ve Matrix Birinci ve İkinci ��ubukları halledin. Üçüncü çubuğu güvence altına alacağım."
+          "text": "Üç hedef. Aegis, sen ve Matrix Birinci ve İkinci Çubukları halledin. Üçüncü çubuğu güvence altına alacağım."
         },
         {
           "speaker": "Aegis Ronin",
@@ -2006,8 +2006,8 @@
     "16": {
       "title": "Gerçek Doruk / Oyun Sonrası Bonus",
       "arc": null,
-      "setting": "Xelthara Ana Gemisinin Tekillik Motoru odası; Kolektif İradenin tezahür ettiği, kollektifin gücünün kalbinde yer alan, saf dengesiz enerjiden oluşan bir oda.",
-      "objective": "Ana gemi Dünya'yı silmeyi tamamlamadan önce jeneratörün aşırı yüklemelerini ve son birleşik saldırıyı koordine ederek Kolektif İrade'nin Tekillik Motoru çekirdeğini yok edin.",
+      "setting": "Xelthara Ana Gemisinin Tekillik Motoru odası; Kolektif İradenin tezahür ettiği, kolektif gücün kalbinde yer alan, saf dengesiz enerjiden oluşan bir oda.",
+      "objective": "Ana gemi Dünya'yı silmeyi tamamlamadan önce, jeneratörün aşırı yüklemelerini ve son birleşik saldırıyı koordine ederek Kolektif İrade'nin Tekillik Motoru çekirdeğini yok edin.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
@@ -2044,7 +2044,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "Jenerat��r Bir'in pozisyonundayım! Güvenlik kilitlerini geçersiz kılın!"
+          "text": "Jeneratör Bir'in pozisyonundayım! Güvenlik kilitlerini geçersiz kılın!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -2089,7 +2089,7 @@
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Yörünge saldırısı hazır! Elimizdeki her şeyi o çekirdeğe bırak��yorum!"
+          "text": "Yörünge saldırısı hazır! Elimizdeki her şeyi o çekirdeğe bırakıyorum!"
         },
         {
           "speaker": "Cyber Shogun",
