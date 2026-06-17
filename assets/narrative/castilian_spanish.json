@@ -6,46 +6,46 @@
   },
   "acts": {
     "act2_arc1": {
-      "title": "ACT II — ARC 1: FRACTURING THE SEGREGATION GRID",
-      "subtitle": "Levels 5–7: Breaking the Physical Walls of Occupation",
-      "description": "The first arc of the mid-campaign focuses entirely on the physical infrastructure of separation—the walls, checkpoints, biometric registries, and behavioral conditioning programs the Xelthara use to keep the human population fractured, surveilled, and too traumatized to organize. Before the resistance can strike at the economic or political heart of the occupation, they must first reconnect the isolated human communities to one another."
+      "title": "ACTO II — ARCO 1: FRACTURA DE LA RED DE SEGREGACIÓN",
+      "subtitle": "Niveles 5 a 7: romper los muros físicos de la ocupación",
+      "description": "El primer arco de la campaña intermedia se centra enteramente en la infraestructura física de la separación: los muros, los puntos de control, los registros biométricos y los programas de acondicionamiento conductual que los Xelthara utilizan para mantener a la población humana fracturada, vigilada y demasiado traumatizada para organizarse. Antes de que la resistencia pueda atacar el corazón económico o político de la ocupación, primero deben reconectar a las comunidades humanas aisladas entre sí."
     },
     "act2_arc2": {
-      "title": "ACT II — ARC 2: THE RESOURCE RECLAMATION FRONT",
-      "subtitle": "Levels 8–11: Cutting Off the Economic Profitability of Colonization",
-      "description": "With the Segregation Grid fractured and the isolated populations reconnected, the resistance shifts to the economic engine of the occupation. The Xelthara came to Earth for resources—not ideology. Arc 2 is the campaign of economic disruption: four successive strikes against the extraction, processing, transport, and security infrastructure that makes the occupation financially viable."
+      "title": "ACTO II — ARCO 2: EL FRENTE DE RECUPERACIÓN DE RECURSOS",
+      "subtitle": "Niveles 8 a 11: cortar la rentabilidad económica de la colonización",
+      "description": "Con la Red de Segregación fracturada y las poblaciones aisladas reconectadas, la resistencia se desplaza hacia el motor económico de la ocupación. Los Xelthara vinieron a la Tierra en busca de recursos, no de ideología. El Arco 2 es la campaña de perturbación económica: cuatro ataques sucesivos contra la infraestructura de extracción, procesamiento, transporte y seguridad que hace que la ocupación sea financieramente viable."
     },
     "act2_arc3": {
-      "title": "ACT II — ARC 3: DISMANTLING CORPORATE GOVERNANCE",
-      "subtitle": "Levels 12–14: Pushing Into the Heart of the Colonial Administrative State",
-      "description": "The extraction engines are halted. The security grid is dark. The segregation walls are fractured. What remains is the administrative and political architecture of the occupation itself. Arc 3 is the campaign's most politically direct sequence: the resistance is no longer fighting an occupying army. It is dismantling a colonial state, piece by piece, from the outside in."
+      "title": "ACTO II — ARCO 3: DESMANTELAMIENTO DEL GOBIERNO CORPORATIVO",
+      "subtitle": "Niveles 12 a 14: avanzando hacia el corazón del estado administrativo colonial",
+      "description": "Los motores de extracción están parados. La reja de seguridad está oscura. Los muros de segregación están fracturados. Lo que queda es la arquitectura administrativa y política de la ocupación misma. El arco 3 es la secuencia políticamente más directa de la campaña: la resistencia ya no lucha contra un ejército de ocupación. Está desmantelando un Estado colonial, pieza por pieza, de afuera hacia adentro."
     }
   },
   "levels": {
     "0": {
-      "title": "Protocol Zero - The Virtual Forge",
+      "title": "Protocolo Cero - La Forja Virtual",
       "arc": null,
-      "setting": "A vast, dark, wireframe grid simulation of a crumbled downtown Los Angeles skyline. Neon blue lines define roads and buildings. Static glitches constantly flicker across the view. The four champions stand on a glowing platform.",
-      "objective": "Complete the training protocol by cycling through all movement and combat abilities, culminating in a simultaneous squad attack to destroy a simulated Xelthara Heavy Unit.",
+      "setting": "Una enorme y oscura simulación de cuadrícula de alambre de un horizonte desmoronado del centro de Los Ángeles. Las líneas azules neón definen carreteras y edificios. Los fallos estáticos parpadean constantemente en la vista. Los cuatro campeones se encuentran sobre una plataforma resplandeciente.",
+      "objective": "Complete el protocolo de entrenamiento recorriendo todas las habilidades de movimiento y combate, culminando con un ataque de escuadrón simultáneo para destruir una Unidad Pesada Xelthara simulada.",
       "solo_monologues": [],
       "dialogue_status": "pending",
       "dialogue": []
     },
     "1": {
-      "title": "Ghost in the Gridlock",
+      "title": "Fantasma en el estancamiento",
       "arc": null,
-      "setting": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams are actively dissolving ancient stone lanterns and cherry blossoms, replacing them with sterile, obsidian-slab administrative monoliths.",
-      "objective": "Infiltrate the active demolition site to retrieve the Data-Blade—a digital repository of forbidden history—before the Xelthara 'Culture-Erasure' field purges the site's memory forever.",
+      "setting": "Las ruinas de los jardines del Palacio Imperial. Las vigas de terraformación de Xelthara están disolviendo activamente antiguas linternas de piedra y flores de cerezo, reemplazándolas con monolitos administrativos estériles de losas de obsidiana.",
+      "objective": "Infíltrate en el sitio de demolición activo para recuperar el Data-Blade, un depósito digital de historia prohibida, antes de que el campo 'Culture-Erasure' de Xelthara purgue la memoria del sitio para siempre.",
       "solo_monologues": [
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "They do not just take our land; they delete our soul. This palace stood for a millennium, now it is being paved over for a regional tax office. I will not let our ancestors be forgotten under their obsidian slabs."
+          "text": "No sólo nos quitan nuestras tierras; borran nuestra alma. Este palacio estuvo en pie durante un milenio y ahora lo están pavimentando para albergar una oficina fiscal regional. No permitiré que nuestros antepasados ​​sean olvidados bajo sus losas de obsidiana."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Warning: Comm-towers are broadcasting a denial of service. The risk probability of detection is 98.7%. Retreat is advisable."
+          "text": "Advertencia: Las torres de comunicaciones están transmitiendo una denegación de servicio. La probabilidad de riesgo de detección es del 98,7%. Es aconsejable la retirada."
         }
       ],
       "dialogue_status": "scripted",
@@ -53,155 +53,155 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "ARCHIVE LOG: NEO-TOKYO CULTURE-PURGE. LOCATION: THE ETERNAL ZEN DOJO (SITE DESIGNATED: SETTLEMENT-BLOCK 01). STATUS: DEMOLITION IN PROGRESS. ARCHITECTURAL ERASURE AT 42%."
+          "text": "REGISTRO DE ARCHIVO: PURGA-CULTURA DE NEOTOKIO. UBICACIÓN: EL DOJO ZEN ETERNO (SITIO DESIGNADO: ASENTAMIENTO-BLOQUE 01). ESTADO: DEMOLICIÓN EN CURSO. BORRADO ARQUITECTÓNICO AL 42%."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "This wood has absorbed the breath of ten thousand warriors. Now, they treat it like digital clutter to be moved to the recycle bin. To the Xelthara, our ancestors are just an inconvenient obstacle in their blueprints for a tax office."
+          "text": "Este bosque ha absorbido el aliento de diez mil guerreros. Ahora lo tratan como un desorden digital que debe trasladarse a la papelera de reciclaje. Para los Xelthara, nuestros antepasados ​​son sólo un obstáculo inconveniente en sus planos para una oficina de impuestos."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Warning: Structural integrity is falling. The colonial administration has authorized the final 'leveling' of this site. Withdrawal is the only logical path."
+          "text": "Advertencia: La integridad estructural está cayendo. La administración colonial ha autorizado la 'nivelación' definitiva de este sitio. La retirada es el único camino lógico."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Logic is for those with no past. You call this 'leveling'? I call it a war on the soul. You may pave over the earth, but you will find the roots of our honor are deeper than your obsidian slabs!"
+          "text": "La lógica es para aquellos que no tienen pasado. ¿Llamas a esto \"nivelación\"? Yo lo llamo una guerra contra el alma. ¡Puedes pavimentar la tierra, pero descubrirás que las raíces de nuestro honor son más profundas que tus losas de obsidiana!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Every chip in this wood is a memory you cannot delete! KATA: ANCESTRAL STRIKE!"
+          "text": "¡Cada astilla de esta madera es un recuerdo que no puedes borrar! KATA: ¡HUELGA ANCESTRAL!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Look at their 'paradise.' A tomb of glass and wire built on the grave of a millennium. I refuse to let human history be wiped clean to make room for your spreadsheets. As long as I stand, Tokyo remembers!"
+          "text": "Mire su 'paraíso'. Una tumba de cristal y alambre construida sobre la tumba de un milenio. Me niego a permitir que se borre la historia de la humanidad para dejar espacio a sus hojas de cálculo. ¡Mientras esté de pie, Tokio recuerda!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Beacon neutralized. The demolition has stalled, but the colonial authorities are rerouting an Enforcer Legion. You are fighting a ghost battle, Shogun."
+          "text": "Baliza neutralizada. La demolición se ha estancado, pero las autoridades coloniales están desviando una Legión Ejecutora. Estás librando una batalla de fantasmas, Shogun."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Then I am a ghost that will haunt their settlements forever. If we cannot save the stone, we will save the story. Secure the Data-Blade! Let them find only fire where they expected compliance!"
+          "text": "Entonces seré un fantasma que perseguirá sus asentamientos para siempre. Si no podemos salvar la piedra, salvaremos la historia. ¡Asegure el Data-Blade! ¡Que encuentren sólo fuego donde esperaban cumplimiento!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "The Xelthara want to write our history in the past tense. Today, I write it in plasma. This dojo falls, but the resistance rises."
+          "text": "Los Xelthara queremos escribir nuestra historia en tiempo pasado. Hoy lo escribo en plasma. Este dojo cae, pero la resistencia aumenta."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE ETERNAL MEMORY. THE PURGE WAS INTERRUPTED."
+          "text": "MISIÓN CUMPLIDA: LA MEMORIA ETERNA. LA PURGA FUE INTERRUMPIDA."
         }
       ]
     },
     "2": {
-      "title": "The Concrete Wildfire",
+      "title": "El incendio forestal de hormigón",
       "arc": null,
-      "setting": "The massive, gated intake gate of Containment Zone 4. Thousands of families are being herded like cattle through energy-fences. Behind them, their suburban homes are being flattened by Xelthara expansion walkers.",
-      "objective": "Hold the 'Last Bridge' against Xelthara Enforcers herding the population, allowing a final group of refugees to slip into the unmapped slums instead of the gated camps.",
+      "setting": "La enorme puerta de entrada cerrada de la Zona de Contención 4. Miles de familias están siendo conducidas como ganado a través de vallas energéticas. Detrás de ellos, sus casas suburbanas están siendo arrasadas por caminantes de la expansión Xelthara.",
+      "objective": "Mantén el 'Último Puente' contra los ejecutores de Xelthara que pastorean a la población, permitiendo que un último grupo de refugiados se deslice hacia los barrios marginales no mapeados en lugar de los campamentos cerrados.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "DISPLACEMENT LOG: SECTOR 4 RESETTLEMENT PROTOCOL. DEFENDER: AEGIS RONIN (CHASSIS STATUS: CRITICAL). THREAT LEVEL: OMEGA. REFUGEE COUNT: 412. CURRENT MANDATE: PROTECT THE DISPLACED. DEFEND THE THRESHOLD."
+          "text": "REGISTRO DE DESPLAZAMIENTO: PROTOCOLO DE REASENTAMIENTO DEL SECTOR 4. DEFENSOR: AEGIS RONIN (ESTADO DEL CHASIS: CRÍTICO). NIVEL DE AMENAZA: OMEGA. RECUENTO DE REFUGIADOS: 412. MANDATO ACTUAL: PROTEGER A LOS DESPLAZADOS. DEFIENDE EL UMBRAL."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "AXIOM, tell the extraction pilots to floor it! This ceiling isn't getting any lighter!"
+          "text": "¡AXIOM, dile a los pilotos de extracción que pisen! ¡Este techo no se vuelve más claro!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, structural integrity is at 14%. The Xelthara Siege Units are deploying heavy plasma mortars. Probability of you being crushed is reaching 99.2%."
+          "text": "Ronin, la integridad estructural está al 14%. Las Unidades de Asedio de Xelthara están desplegando morteros de plasma pesados. La probabilidad de que te aplasten alcanza el 99,2%."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Then I'll take that 0.8% and shove it down their throats! SHIELD UP!"
+          "text": "¡Entonces tomaré ese 0,8% y se lo meteré por la garganta! ¡ESCUDO ARRIBA!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Keep moving! They want to herd you into cages like cattle. As long as I draw breath, I am the wall between you and their containment zones. They won't displace another soul today!"
+          "text": "¡Sigue moviéndote! Quieren encerrarlos en jaulas como si fueran ganado. Mientras respiro, soy el muro entre tú y sus zonas de contención. ¡No desplazarán ni a un alma hoy!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Siege Units locked on. They are targeting the support pillars. If they fire, the entire Sector 4 wall falls on the evacuation zone."
+          "text": "Unidades de asedio fijadas. Están apuntando a los pilares de soporte. Si disparan, todo el muro del Sector 4 cae sobre la zona de evacuación."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Not on my watch. KINETIC OVERLOAD!"
+          "text": "No bajo mi supervisión. ¡SOBRECARGA CINÉTICA!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "One down! AXIOM, the shield generator is whining. Is that normal?"
+          "text": "¡Uno menos! AXIOM, el generador de escudo está gimiendo. ¿Es eso normal?"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Negative. The prototype is absorbing too much kinetic energy. It is becoming a bomb. Disengage immediately!"
+          "text": "Negativo. El prototipo está absorbiendo demasiada energía cinética. Se está convirtiendo en una bomba. ¡Retírese inmediatamente!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "No. I'm gonna give the Xelthara a souvenir. I'm overcharging it."
+          "text": "No. Le voy a regalar un souvenir al Xelthara. Lo estoy cobrando de más."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, your vital signs are spiking! Analysis indicates catastrophic failure. Survival chance: 0.1%!"
+          "text": "Ronin, ¡tus signos vitales están aumentando! El análisis indica un fracaso catastrófico. Probabilidad de supervivencia: ¡0,1%!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Better odds than I had in the containment camps. This is a one-way trip, kid. Can you tell the Front they owe me a drink?"
+          "text": "Mejores probabilidades que las que tenía en los campos de contención. Este es un viaje de ida, chico. ¿Puedes decirle al Frente que me deben un trago?"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "FOR THE HOMELAND! EAT CONCRETE!"
+          "text": "¡POR LA PATRIA! ¡COME HORMIGÓN!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin? Aegis Ronin, respond... I have... eyes on a signature... The shield held. The wall is secure."
+          "text": "¿Ronin? Aegis Ronin, responde... Tengo... ojos en una firma... El escudo se mantuvo. La pared está segura."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE UNBREAKABLE WALL. AEGIS RONIN JOINED THE HLF."
+          "text": "MISIÓN CUMPLIDA: EL MURO IRROMPIBLE. AEGIS RONIN SE UNIÓ AL HLF."
         }
       ]
     },
     "3": {
-      "title": "Neon Rust and Data Dust",
+      "title": "Óxido de neón y polvo de datos",
       "arc": null,
-      "setting": "The literal 'Under-City'—a network of maintenance shafts beneath a gleaming, neon-lit Xelthara settlement. Above, the occupiers enjoy terraformed air; below, the marginalized humans scavenge for ozone-polluted oxygen.",
-      "objective": "Siphon energy from the colonial grid to power the marginalized population's life-support systems, while evading the 'Purity Patrols' hunting for human strays.",
+      "setting": "La literal 'Ciudad Subterránea': una red de pozos de mantenimiento debajo de un reluciente asentamiento Xelthara con luces de neón. Arriba, los ocupantes disfrutan del aire terraformado; Abajo, los humanos marginados buscan oxígeno contaminado por ozono.",
+      "objective": "Extrae energía de la red colonial para alimentar los sistemas de soporte vital de la población marginada, mientras evades las \"Patrullas de la Pureza\" que buscan humanos callejeros.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "They build their paradise on our ceiling and wonder why the basement is leaking. We live in the gaps they forgot to pave. This power cell isn't just for me; it's to keep the heaters on for the hundred families they 'forgot' in the blueprints."
+          "text": "Construyen su paraíso en nuestro techo y se preguntan por qué el sótano tiene goteras. Vivimos en los huecos que olvidaron pavimentar. Esta celda de energía no es sólo para mí; es para mantener encendidas las calefacciones de las cien familias que 'olvidaron' en los planos."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Warning: Integration of Xelthara hardware into civilian chassis is not recommended. Neural feedback is projected at 40% instability. Matrix, your heart rate is exceeding safe parameters."
+          "text": "Advertencia: No se recomienda la integración del hardware Xelthara en chasis civiles. La retroalimentación neuronal se proyecta con un 40% de inestabilidad. Matrix, tu frecuencia cardíaca excede los parámetros seguros."
         }
       ],
       "dialogue_status": "scripted",
@@ -209,80 +209,80 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "MARGINALIZED LOG: SUB-LEVEL SCRAP-TOWN. STATUS: SURVIVING. INTRUDER ALERT: ZERO DETECTED. SYSTEM CONFIDENCE: 100%. OBJECTIVE: STEAL THE COLONIAL SPARK. FUEL THE RESISTANCE."
+          "text": "REGISTRO MARGINALIZADO: PUEBLO DE CHATARRA SUBNIVEL. ESTADO: SOBREVIVIENTE. ALERTA DE INTRUSO: CERO DETECTADO. CONFIANZA DEL SISTEMA: 100%. OBJETIVO: ROBAR LA CHISPA COLONIAL. COMBUSTIBLE LA RESISTENCIA."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "They build their paradise on our ceiling and wonder why the basement is leaking. We live in the gaps they forgot to pave. I'll repurpose their own scrap tech to fry their grid. From the margins, we strike back."
+          "text": "Construyen su paraíso en nuestro techo y se preguntan por qué el sótano tiene goteras. Vivimos en los huecos que olvidaron pavimentar. Reutilizaré su propia tecnología de desecho para freír su red. Desde los márgenes, contraatacamos."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Integration successful. Phase-Shift capability is online. Note: Continuous use will cause neural degradation."
+          "text": "Integración exitosa. La capacidad de cambio de fase está en línea. Nota: El uso continuo provocará degradación neuronal."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Like walking through smoke. Now, let's find the exit before I forget what reality feels like."
+          "text": "Como caminar entre el humo. Ahora, busquemos la salida antes de que olvide cómo se siente la realidad."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Lockdown initiated. Harvesting core is reaching critical temperature. You must disable the perimeter gate immediately."
+          "text": "Se inició el bloqueo. El núcleo de recolección está alcanzando una temperatura crítica. Debes desactivar la puerta perimetral inmediatamente."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "One EMP blast should do it. Let's give them a little data dust to remember me by."
+          "text": "Una explosión de EMP debería bastar. Démosles un poco de datos para que me recuerden."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "And that's my cue."
+          "text": "Y esa es mi señal."
         },
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "That was a very loud exit, Matrix. I've been watching your signature since the refinery."
+          "text": "Esa fue una salida muy ruidosa, Matrix. He estado observando tu firma desde la refinería."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Who is this? How are you on this channel?"
+          "text": "¿Quién es este? ¿Cómo estás en este canal?"
         },
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "I am Empress Siren. We're the ones fighting to make sure there's a city left to harvest. You have a gift for breaking things, ghost. We could use that. Are you tired of hiding in the rust?"
+          "text": "Soy la emperatriz sirena. Somos nosotros los que luchamos para asegurarnos de que quede una ciudad para cosechar. Tienes un don para romper cosas, fantasma. Podríamos usar eso. ¿Estás cansado de esconderte entre el óxido?"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "The rust was getting boring anyway. Lead the way, Siren."
+          "text": "De todos modos, el óxido se estaba volviendo aburrido. Muestra el camino, sirena."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE GHOST IN THE MACHINE. ONI MATRIX JOINED THE HLF."
+          "text": "MISIÓN CUMPLIDA: EL FANTASMA EN LA MÁQUINA. ONI MATRIX SE UNE AL HLF."
         }
       ]
     },
     "4": {
-      "title": "Shattered Aegis of the Void Commander",
+      "title": "Égida destrozada del Comandante del Vacío",
       "arc": null,
-      "setting": "The shattered remains of the Pacific Defense Hub. The proud, traditional military infrastructure is being recycled by the Xelthara, forcing Siren to coordinate a decentralized network of hidden cells.",
-      "objective": "Dismantle the last standing military broadcast tower and distribute its frequency chips to civilian resistance cells, finalizing the transition to guerrilla warfare.",
+      "setting": "Los restos destrozados del Centro de Defensa del Pacífico. Los Xelthara están reciclando la orgullosa y tradicional infraestructura militar, lo que obliga a Siren a coordinar una red descentralizada de células ocultas.",
+      "objective": "Desmantelar la última torre de transmisión militar en pie y distribuir sus chips de frecuencia a las células de resistencia civil, finalizando la transición a la guerra de guerrillas.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
           "type": "radio",
-          "text": "The age of standing armies is dead. We cannot meet them on the field, so we will become the field. Divide the signal. Decentralize the command. If there is no head to cut off, the resistance cannot die."
+          "text": "La era de los ejércitos permanentes ha muerto. No podemos encontrarnos con ellos en el campo, así que nos convertiremos en el campo. Divide la señal. Descentralizar el mando. Si no hay cabeza que cortar, la resistencia no puede morir."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Empress, your broadcast is a massive risk! You are exposing your location and the frequency pattern of the resistance. This is not optimal. Please abort the transmission."
+          "text": "Emperatriz, ¡tu transmisión es un riesgo enorme! Estás exponiendo tu ubicación y el patrón de frecuencia de la resistencia. Esto no es óptimo. Por favor cancele la transmisión."
         }
       ],
       "dialogue_status": "scripted",
@@ -290,95 +290,95 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "DECENTRALIZATION LOG: GUERRILLA TRANSITION INITIATED. LOCATION: LAST STAND COMMAND (PACIFIC HUB). STATUS: CONVENTIONAL FORCE DEFEATED. ASYMMETRICAL DOCTRINE ACTIVE. COMMANDER: EMPRESS SIREN (TACTICAL CODE: VOID COMMANDER). LAST ORDER: SHATTER THE COMMAND. BECOME THE STORM."
+          "text": "REGISTRO DE DESCENTRALIZACIÓN: TRANSICIÓN GUERRILLA INICIADA. UBICACIÓN: ÚLTIMO MANDO DE RESPONSABILIDAD (PACIFIC HUB). ESTADO: FUERZA CONVENCIONAL DERROTADA. DOCTRINA ASIMÉTRICA ACTIVA. COMANDANTE: SIRENA EMPRESA (CÓDIGO TÁCTICO: COMANDANTE DEL VACÍO). ÚLTIMA ORDEN: ROMPER EL MANDO. CONVIÉRTETE EN LA TORMENTA."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "This is Void Commander. Traditional hierarchy is dissolved. You are no longer soldiers; you are cells. Fade into the city. Strike when they sleep. Reclaim your home one shadow at a time."
+          "text": "Este es el Comandante del Vacío. La jerarquía tradicional se disuelve. Ya no sois soldados; sois células. Desvanecerse en la ciudad. Golpea cuando duermen. Recupera tu hogar una sombra a la vez."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Commander, the escape vessels are reporting 85% casualty rate on launch. Xelthara fighters are prioritizing non-combatants. They know our escape vectors."
+          "text": "Comandante, las naves de escape reportan una tasa de bajas del 85% en el lanzamiento. Los combatientes de Xelthara están dando prioridad a los no combatientes. Conocen nuestros vectores de escape."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "They are operating on pre-invasion tactical data. I will change the data. AXIOM, lock down the central network nexus. I am manually bypassing the firewalls."
+          "text": "Están operando con datos tácticos previos a la invasión. Cambiaré los datos. AXIOM, bloquea el nexo de la red central. Estoy evitando manualmente los firewalls."
         },
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Our fleet is gone. Our base is dust. All that remains is the data. I must be precise. A commander's duty is to the living, not the defense of a corpse."
+          "text": "Nuestra flota se ha ido. Nuestra base es el polvo. Lo único que queda son los datos. Debo ser preciso. El deber de un comandante es hacia los vivos, no la defensa de un cadáver."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "New parameters loaded. Now for the hard part. AXIOM, divert power from my auxiliary life support to the drone synchronization array."
+          "text": "Nuevos parámetros cargados. Ahora viene la parte difícil. AXIOM, desvía la energía de mi soporte vital auxiliar al conjunto de sincronización de drones."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Commander, that will drop your chassis reserves to 12%. Risk of system failure is high. I advise against this."
+          "text": "Comandante, eso reducirá las reservas de su chasis al 12%. El riesgo de fallo del sistema es alto. Yo desaconsejo esto."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Execute the order. These lives are worth 12% of my systems. I need a clear line of sight, AXIOM. Syncing the micro-drones now."
+          "text": "Ejecutar la orden. Estas vidas valen el 12% de mis sistemas. Necesito una línea de visión clara, AXIOM. Sincronizando los micro-drones ahora."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Drone Fleet One, establish a protective swarm around the evacuation shuttle. Drone Fleet Two, prepare for offensive designation. Targets: Xelthara Column 8-B, heading for the primary civilian tunnel."
+          "text": "Flota de Drones Uno, establezcan un enjambre protector alrededor del transbordador de evacuación. Flota de Drones Dos, prepárense para la designación ofensiva. Objetivos: Columna Xelthara 8-B, en dirección al túnel civil principal."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The column is directly below a restricted sector. Orbital bombardment is prohibited due to the destabilized kinetic satellite platform."
+          "text": "La columna está directamente debajo de un sector restringido. Los bombardeos orbitales están prohibidos debido a la desestabilización de la plataforma cinética del satélite."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Prohibited is irrelevant. I will not watch them die. AXIOM, give me manual override access to the Kinetic Satellite Platform's trajectory feed. I need a single, desperate shot."
+          "text": "Prohibido es irrelevante. No los veré morir. AXIOM, dame acceso de anulación manual a la transmisión de trayectoria de la Plataforma Satélite Cinética. Necesito un único disparo desesperado."
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Void Command to Kinetic Platform—FIRE. Coordinate 51.4883 N, 120.7301 W. OBLITERATION PROTOCOL."
+          "text": "Comando del Vacío a la Plataforma Cinética: FUEGO. Coordenada 51.4883 N, 120.7301 W. PROTOCOLO DE OBLITERACIÓN."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "System damage overwhelming! The satellite has deorbited. Commander, you must retreat. The area is saturated with high-energy radiation."
+          "text": "¡Daño al sistema abrumador! El satélite ha sido desorbitado. Comandante, debe retirarse. La zona está saturada de radiación de alta energía."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Retreat confirmed. Mission objective—civilian survival—achieved. They have taken our sky, but they will never take our resolve. Extracting now."
+          "text": "Retirada confirmada. Objetivo de la misión (supervivencia civil) logrado. Nos han quitado el cielo, pero nunca nos quitarán nuestra determinación. Extrayendo ahora."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE VOID COMMANDER. EMPRESS SIREN JOINED THE HLF."
+          "text": "MISIÓN CUMPLIDA: EL COMANDANTE DEL VACÍO. LA SIRENA EMPERATRIZ SE UNÓ AL HLF."
         }
       ]
     },
     "5": {
-      "title": "Neon Embers - The Border Breach",
+      "title": "Brasas de neón - La brecha fronteriza",
       "arc": "act2_arc1",
-      "setting": "The active Sector-4 Separation Grid—a 40-meter-tall energy wall fortified with biometric scanner spires, permit-processing checkpoints, and Xelthara Border Authority stations. It physically bisects Los Angeles, isolating the human containment zone from the Xelthara colonial sector. The wall is not a military installation. It is an administrative one.",
-      "objective": "Disable all four biometric scanner spires, destroy the central Permit Processing Core—the bureaucratic engine that controls human movement—and bring down the Great Separation so the population of the containment zones can walk freely through their own city.",
+      "setting": "La red de separación activa del Sector 4: un muro de energía de 40 metros de altura fortificado con agujas de escáner biométrico, puntos de control de procesamiento de permisos y estaciones de la Autoridad Fronteriza de Xelthara. Físicamente divide a Los Ángeles, aislando la zona de contención humana del sector colonial de Xelthara. El muro no es una instalación militar. Es de carácter administrativo.",
+      "objective": "Desactive las cuatro agujas de los escáneres biométricos, destruya el Núcleo de Procesamiento de Permisos (el motor burocrático que controla el movimiento humano) y derribe la Gran Separación para que la población de las zonas de contención pueda caminar libremente por su propia ciudad.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "That wall didn't just cut the city in half. It cut me in half. Everything I remember—the smell of my grandmother's kitchen on Spring Street, the sound of the 5th Street bus—is on the other side of that thing. And I have to sneak back to it like a criminal."
+          "text": "Ese muro no sólo cortó la ciudad por la mitad. Me cortó por la mitad. Todo lo que recuerdo (el olor de la cocina de mi abuela en Spring Street, el sonido del autobús de la calle Quinta) está al otro lado de esa cosa. Y tengo que volver a esconderme como un criminal."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "The Sector-4 Separation Grid is not classified as a military installation in Xelthara administrative records. It is listed as a 'Population Optimization and Transit Authority Control System.' That rebranding is the point. It is a wall that makes itself sound like a service."
+          "text": "La Red de Separación del Sector 4 no está clasificada como instalación militar en los registros administrativos de Xelthara. Está catalogado como un 'Sistema de Control de Autoridad de Tránsito y Optimización de la Población'. Ese cambio de marca es el punto. Es un muro que suena como un servicio."
         }
       ],
       "dialogue_status": "scripted",
@@ -386,590 +386,590 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "DISPLACEMENT LOG: SECTOR-4 SEPARATION GRID. STRUCTURE TYPE: COLONIAL ADMINISTRATIVE CHECKPOINT. NOT MILITARY. THIS IS INTENTIONAL. THREAT: XELTHARA BORDER AUTHORITY — ENFORCEMENT DIVISION. BIOMETRIC SPIRES: 4 ACTIVE. PERMIT CORE: ONLINE. OBJECTIVE: DISMANTLE THE ADMINISTRATIVE ARCHITECTURE OF SEPARATION. OPEN THE CITY."
+          "text": "REGISTRO DE DESPLAZAMIENTO: RED DE SEPARACIÓN DEL SECTOR-4. TIPO DE ESTRUCTURA: PUESTA DE CONTROL ADMINISTRATIVA COLONIAL. NO MILITAR. ESTO ES INTENCIONAL. AMENAZA: AUTORIDAD FRONTERIZA DE XELTHARA – DIVISIÓN DE CUMPLIMIENTO. AGUJAS BIOMÉTRICAS: 4 ACTIVAS. NÚCLEO DEL PERMISO: EN LÍNEA. OBJETIVO: DESMANTELAR LA ARQUITECTURA ADMINISTRATIVA DE LA SEPARACIÓN. ABRE LA CIUDAD."
         },
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "THE WALL THEY CALLED A DOOR"
+          "text": "EL MURO QUE LLAMARON PUERTA"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The structure you are looking at is designated in colonial records as the 'Sector-4 Population Optimization and Transit Authority Control System.' It is a wall. It is a segregation wall. Every single human on this side of it requires a Xelthara-issued Residency Permit to cross. The permits are not issued. The application system has a two-year backlog. This is not an accident. This is the architecture of permanent displacement."
+          "text": "La estructura que está viendo está designada en los registros coloniales como 'Sistema de Control de Autoridad de Tránsito y Optimización de la Población del Sector 4'. Es un muro. Es un muro de segregación. Cada ser humano de este lado requiere un permiso de residencia emitido por Xelthara para cruzar. Los permisos no se expiden. El sistema de postulación tiene un retraso de dos años. Esto no es un accidente. Ésta es la arquitectura del desplazamiento permanente."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "I spent eight months in a containment zone like this one after they took the San Fernando Valley. Eight months watching kids get smaller because the caloric rations are designed for a species that doesn't eat the same things we do. And on the other side, they are eating our food. In our restaurants. In our city."
+          "text": "Pasé ocho meses en una zona de contención como ésta después de que tomaron el Valle de San Fernando. Ocho meses viendo a los niños hacerse más pequeños porque las raciones calóricas están diseñadas para una especie que no come lo mismo que nosotros. Y por otro lado, se comen nuestra comida. En nuestros restaurantes. En nuestra ciudad."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "AXIOM, confirm the four spire locations for the squad."
+          "text": "AXIOM, confirma las cuatro ubicaciones de las agujas para el escuadrón."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Alpha is at the former site of the Grand Avenue arts corridor. Spire Beta is planted on the corner of 5th and Spring. Spire Gamma is embedded in the outer wall of the old Central Library. Spire Delta anchors the wall's southern terminus at the river. The Permit Processing Core is housed in the checkpoint station at what was formerly Pershing Square. All four spires must be disabled before the Core can be breached. Destroying the Core will cascade-collapse the entire energy membrane."
+          "text": "Spire Alpha se encuentra en el antiguo emplazamiento del corredor artístico de Grand Avenue. Spire Beta está plantado en la esquina de 5th y Spring. Spire Gamma está incrustado en la pared exterior de la antigua Biblioteca Central. Spire Delta ancla el extremo sur del muro en el río. El núcleo de procesamiento de permisos está ubicado en la estación de control en lo que antes era Pershing Square. Las cuatro agujas deben desactivarse antes de que se pueda atravesar el Núcleo. Destruir el Núcleo colapsará en cascada toda la membrana de energía."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "5th and Spring."
+          "text": "5 y Primavera."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "That's... that's the corner where my grandmother's building is. Was. Is. Spire Beta is planted in her front yard. They put their wall post in her front yard."
+          "text": "Esa es... esa es la esquina donde está el edificio de mi abuela. Era. Es. Spire Beta está plantada en su jardín delantero. Pusieron un poste en la pared en su patio delantero."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Matrix—"
+          "text": "Matriz—"
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Don't. I'm fine. I'm operational. I'm saying that spire is personally mine to bring down. No one touches Beta but me."
+          "text": "No. Estoy bien. Estoy operativo. Estoy diciendo que esa aguja es personalmente mía para derribarla. Nadie toca a Beta excepto yo."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Understood. It is yours."
+          "text": "Entendido. Es tuyo."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ronin, you take Spire Alpha on the arts corridor. Shogun, Spire Gamma at the Central Library. Matrix has Beta. I will coordinate drone suppression on the patrol routes and join Shogun at the Library approach. AXIOM will guide the sequencing. All four spires fall in sequence, then we converge on Pershing Square and take the Core apart piece by piece."
+          "text": "Ronin, lleva a Spire Alpha al corredor de las artes. Shogun, Spire Gamma en la Biblioteca Central. Matrix tiene Beta. Coordinaré la supresión de drones en las rutas de patrulla y me uniré a Shogun en el acceso a la biblioteca. AXIOM guiará la secuenciación. Las cuatro agujas caen en secuencia, luego convergemos en Pershing Square y desmontamos el Núcleo pieza por pieza."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Note: The Border Authority patrols are dense but patterned. The checkpoint is staffed 24 hours by Enforcer-Administrator Voss—who manages physical crossing authorization. He is not a combat officer. He is a bureaucrat. He has personally rejected 4,400 crossing applications in the past month."
+          "text": "Nota: Las patrullas de la Autoridad Fronteriza son densas pero estructuradas. El puesto de control cuenta con personal las 24 horas del ejecutor-administrador Voss, quien gestiona la autorización de cruce físico. No es un oficial de combate. Es un burócrata. Él personalmente rechazó 4.400 solicitudes de cruce en el último mes."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "4,400. People who just wanted to walk home."
+          "text": "4.400. Personas que sólo querían caminar a casa."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "The cruelest weapon of colonialism is not the soldier with the rifle. It is the clerk with the stamp who tells you that your existence requires their authorization. That a human being must petition an occupier for the right to walk on the ground of their own ancestors. I have made my peace with fighting soldiers. Confronting the architecture of permission—the casual, systematic humiliation of it—this is what wears at the spirit in ways no blade can cut."
+          "text": "El arma más cruel del colonialismo no es el soldado con el rifle. Es el dependiente del sello quien te indica que tu existencia requiere de su autorización. Que un ser humano debe solicitar a un ocupante el derecho a caminar sobre el suelo de sus propios antepasados. He hecho las paces con los soldados combatientes. Enfrentar la arquitectura del permiso –la humillación casual y sistemática del mismo– es lo que desgasta el espíritu de una manera que ninguna espada puede cortar."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Patrols are rotating. There is a 90-second window on the Hope Street approach beginning in thirty seconds. Move on my mark."
+          "text": "Las patrullas están rotando. Hay una ventana de 90 segundos en el acceso a Hope Street que comienza en treinta segundos. Avanza hacia mi marca."
         },
         {
           "speaker": "AXIOM-7",
           "type": "action_prompt",
-          "text": "Hold position in shadow until AXIOM-7 gives the signal."
+          "text": "Mantenga la posición en la sombra hasta que AXIOM-7 dé la señal."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mark. Go."
+          "text": "Marcos. Ir."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Move. Stay beneath the drone coverage ceiling. They have heat-mapping at six meters elevation—do not jump."
+          "text": "Muévete. Manténgase debajo del techo de cobertura de drones. Tienen mapas de calor a seis metros de altura: no saltes."
         },
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "PHASE 1: APPROACH THROUGH THE BUFFER ZONE"
+          "text": "FASE 1: ACERCAMIENTO POR LA ZONA DE AMORTIGUACIÓN"
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "They designed this buffer zone so that even getting close to the wall feels like trespassing. You're in the open. You're visible. You feel guilty for standing next to what used to be a public street. That's the psychology of it. They want us to feel like we don't belong here before we even reach the checkpoint."
+          "text": "Diseñaron esta zona de amortiguamiento para que incluso acercarse a la pared parezca una invasión. Estás al descubierto. Eres visible. Te sientes culpable por estar parado junto a lo que solía ser una vía pública. Esa es la psicología de esto. Quieren que sintamos que no pertenecemos aquí incluso antes de llegar al puesto de control."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "I hate this. I've held the line against Siege Walkers and I hate this. There's something about standing in the open on your own street and feeling watched that gets to me worse than artillery."
+          "text": "Odio esto. He mantenido la línea contra los Siege Walkers y odio esto. Hay algo en estar al aire libre en tu propia calle y sentirte observado que me afecta peor que la artillería."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ronin, second floodlight rotates away in four seconds. Move to the drainage culvert. Three. Two. One."
+          "text": "Ronin, el segundo reflector se aleja en cuatro segundos. Pasar a la alcantarilla de drenaje. Tres. Dos. Uno."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Got it. I'm at the base of Spire Alpha. I can see the anchor. It's bolted through what used to be a mosaic sidewalk."
+          "text": "Lo tengo. Estoy en la base de Spire Alpha. Puedo ver el ancla. Está atornillado a lo que solía ser una acera de mosaicos."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "They bolted it through the mosaic. There was a whole history painted in that sidewalk tile. Portraits, names, dates. A community project. They just... drilled through the middle of a face to anchor their post."
+          "text": "Lo atornillaron a través del mosaico. Había toda una historia pintada en esas baldosas de la acera. Retratos, nombres, fechas. Un proyecto comunitario. Simplemente... perforaron en medio de una cara para anclar su poste."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, the spire's anchor is a magnetic kinetic lock designed to withstand up to 8,000 newtons of direct force. Your Kinetic Overload Charge, held for a full three-count, will exceed that threshold. You must also disable the two Biometric Sentinel units at the spire base first—they will detect your biometric signature the moment you step into range."
+          "text": "Ronin, el ancla de la aguja es una cerradura cinética magnética diseñada para soportar hasta 8.000 newtons de fuerza directa. Su carga de sobrecarga cinética, mantenida durante un conteo completo de tres, excederá ese umbral. También debes desactivar primero las dos unidades Biometric Sentinel en la base de la aguja; detectarán tu firma biométrica en el momento en que entres dentro del alcance."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "internal",
-          "text": "Biometric signature. My own heartbeat triggers an alarm because I'm human. Alright. Let's start fixing that."
+          "text": "Firma biométrica. Los latidos de mi propio corazón activan una alarma porque soy humano. Está bien. Empecemos a arreglar eso."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "You scan for my heartbeat? Let me give you something to scan. KINETIC PULSE!"
+          "text": "¿Escaneas los latidos de mi corazón? Déjame darte algo para escanear. ¡PULSO CINÉTICO!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "And that's two. AXIOM, sentinels are down. Going for the anchor."
+          "text": "Y eso es dos. AXIOM, los centinelas están caídos. Yendo por el ancla."
         },
         {
           "speaker": "AXIOM-7",
           "type": "action_prompt",
-          "text": "Hold the Kinetic Overload Charge at Spire Alpha's base for a three-count. [INPUT: Hold RB/R1 for three seconds, then release.]"
+          "text": "Mantenga la carga de sobrecarga cinética en la base de Spire Alpha y cuente hasta tres. [ENTRADA: Mantenga presionado RB/R1 durante tres segundos, luego suéltelo.]"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Alpha anchor fractured. Energy membrane destabilized in the northern sector by 25%. Three spires remain."
+          "text": "Ancla Spire Alpha fracturada. Membrana energética se desestabilizó en el sector norte en un 25%. Quedan tres agujas."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Twenty-five percent is a start. Sorry it took us this long. We're here now."
+          "text": "El veinticinco por ciento es un comienzo. Lamento que nos haya tomado tanto tiempo. Estamos aquí ahora."
         },
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "PHASE 2-A: ONI MATRIX AT SPIRE BETA — 5TH AND SPRING"
+          "text": "FASE 2-A: MATRIZ ONI EN SPIRE BETA – 5TO Y PRIMAVERA"
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "There it is. The tree's still there. My grandmother used to say that tree was older than the city's city hall and I never believed her."
+          "text": "Ahí está. El árbol sigue ahí. Mi abuela decía que ese árbol era más viejo que el ayuntamiento de la ciudad y yo nunca le creí."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "She filed a crossing permit application forty-seven days after the wall went up. She filled out the forms. In triplicate. Because she believed in process. She believed if you did things right, someone would listen. She never got an answer. She died in the containment zone two months later. Malnutrition complications. They had her favorite grocery store on the other side of the wall. She filed a form to go buy food."
+          "text": "Presentó una solicitud de permiso para cruzar cuarenta y siete días después de que se levantara el muro. Ella llenó los formularios. Por triplicado. Porque ella creía en el proceso. Ella creía que si hacías las cosas bien, alguien te escuchar��a. Ella nunca obtuvo una respuesta. Murió en la zona de contención dos meses después. Complicaciones de la desnutrición. Tenían su tienda de comestibles favorita al otro lado de la pared. Presentó un formulario para ir a comprar comida."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "I'm going to take this thing apart very carefully so I don't hurt the tree."
+          "text": "Voy a desmontar esto con mucho cuidado para no dañar el árbol."
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "You're using my trick. Cute. Here's the difference—I invented mine."
+          "text": "Estás usando mi truco. Lindo. Aquí está la diferencia: yo inventé la mía."
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "Tag."
+          "text": "Etiqueta."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "You have to come back. You always have to come back."
+          "text": "Tienes que volver. Siempre hay que volver."
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "There you are."
+          "text": "Ahí estás."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "First conduit. Second conduit. Third. Last one."
+          "text": "Primer conducto. Segundo conducto. Tercero. El último."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Spire Beta is down. The tree's fine. Moving to regroup."
+          "text": "Spire Beta no funciona. El árbol está bien. Moviéndose para reagruparse."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "We heard you, Matrix. We were listening the whole time."
+          "text": "Te escuchamos, Matrix. Estuvimos escuchando todo el tiempo."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Yeah. I know."
+          "text": "Sí. Lo sé."
         },
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "PHASE 2-B: CYBER SHOGUN AND EMPRESS SIREN AT SPIRE GAMMA — THE CENTRAL LIBRARY"
+          "text": "FASE 2-B: CYBER SHOGUN Y EMPRESS SIREN EN SPIRE GAMMA – LA BIBLIOTECA CENTRAL"
         },
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "The library. I ran my first officer training seminars in there. Community defense courses, third floor reading room. Three years before the invasion. The geometry of how colonialism uses our own infrastructure against us never stops being striking. They put their data center in our library. They write over our records in the place where we kept our records."
+          "text": "La biblioteca. Dirigí mis seminarios de entrenamiento para primeros oficiales allí. Cursos de defensa comunitaria, sala de lectura del tercer piso. Tres años antes de la invasión. La geometría de cómo el colonialismo utiliza nuestra propia infraestructura en nuestra contra nunca deja de ser sorprendente. Pusieron su centro de datos en nuestra biblioteca. Escriben sobre nuestros registros en el lugar donde los guardamos."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "And now they will discover that the people whose records they attempted to erase are standing at the front door."
+          "text": "Y ahora descubrirán que las personas cuyos registros intentaron borrar están en la puerta principal."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The six units at the library entrance are classified as Border Enforcement Officers. Their crowd-dispersal charge delivers 900 volts of neural disruption current on contact."
+          "text": "Las seis unidades en la entrada de la biblioteca están clasificadas como Oficiales de Control de Fronteras. Su carga de dispersión de multitudes entrega 900 voltios de corriente de perturbación neuronal al contacto."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Non-lethal. They tell themselves it is humane. What they mean is that a living captive is more useful to them than a dead citizen."
+          "text": "No letal. Se dicen a sí mismos que es humano. Lo que quieren decir es que un cautivo vivo les es más útil que un ciudadano muerto."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Shogun, I need them cleared fast and quiet before the next patrol sweep. Can you take three from the left while my drones suppress the right flank?"
+          "text": "Shogun, necesito que los despejen rápido y en silencio antes de la próxima patrulla. ¿Puedes tomar tres desde la izquierda mientras mis drones suprimen el flanco derecho?"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Understood. Quiet means precision. I will not dishonor this building with unnecessary noise."
+          "text": "Entendido. Silencio significa precisión. No deshonraré este edificio con ruido innecesario."
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Drones: mark, mark, mark. EMP burst on the right cluster—fire."
+          "text": "Drones: marca, marca, marca. El EMP estalló en el grupo derecho: fuego."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "First. Second. Third."
+          "text": "Primero. Segundo. Tercero."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Clean. AXIOM, scanning the Spire Gamma anchor system."
+          "text": "Limpio. AXIOM, escaneando el sistema de anclaje Spire Gamma."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Gamma is drawing power from the library's internal grid. To disable the spire without triggering an emergency power-reroute, you must first sever the internal grid connection inside the building. Empress Siren, the grid junction is on the third floor."
+          "text": "Spire Gamma obtiene energía de la red interna de la biblioteca. Para desactivar la aguja sin activar un redireccionamiento de energía de emergencia, primero debe cortar la conexión de red interna dentro del edificio. Emperatriz Sirena, el cruce de la red está en el tercer piso."
         },
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Third floor. Of course. Lead the way, AXIOM."
+          "text": "Tercer piso. Por supuesto. Lidera el camino, AXIOM."
         },
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "I told twelve families how to organize community watch rotations in this room. There were bean bag chairs in the children's section. Someone had taped crayon drawings to the reference desk. A kid drew a picture of a superhero. The difference between a library and a data center is that a library assumes the people who walk through the door have the right to be there."
+          "text": "Le dije a doce familias cómo organizar rotaciones de vigilancia comunitaria en esta sala. Había sillones tipo puf en la sección de niños. Alguien había pegado dibujos con lápices de colores en el escritorio de referencia. Un niño hizo un dibujo de un superhéroe. La diferencia entre una biblioteca y un centro de datos es que una biblioteca asume que las personas que cruzan la puerta tienen derecho a estar allí."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Grid junction located. Severing the Spire Gamma power feed. This will also wipe whatever colonial property registration data they have stored here."
+          "text": "Unión de red ubicada. Cortando la alimentación de energía del Spire Gamma. Esto también borrará cualquier información de registro de propiedad colonial que hayan almacenado aquí."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Confirmed. Severing this connection will corrupt approximately 12,000 colonial deed transfer records for properties in Sector 4. Those records are the legal architecture of the land seizures."
+          "text": "Confirmado. Cortar esta conexión corromperá aproximadamente 12.000 registros de transferencia de títulos coloniales de propiedades en el Sector 4. Esos registros son la arquitectura legal de las confiscaciones de tierras."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Then this is not just infrastructure sabotage. This is a land return."
+          "text": "Entonces esto no es sólo un sabotaje a la infraestructura. Esta es una devolución de la tierra."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spires Alpha, Beta, and Gamma offline. Energy membrane integrity: 25%. Spire Delta at the river is the final anchor. All teams converge after Delta falls. Then: Pershing Square. The Permit Core."
+          "text": "Spires Alpha, Beta y Gamma sin conexión. Integridad energética de la membrana: 25%. Spire Delta en el río es el ancla final. Todos los equipos convergen después de la caída de Delta. Luego: Plaza Pershing. El núcleo de permisos."
         },
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "PHASE 2-C: SPIRE DELTA — THE SOUTHERN TERMINUS AT THE RIVER"
+          "text": "FASE 2-C: SPIRE DELTA - EL TÉRMINO SUR DEL RÍO"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Delta is the wall's load-bearing anchor. It is guarded by Border Commander Vyss—who ordered the river electrified after three families attempted to cross through the water in the wall's first week. Vyss did not order them detained. Vyss ordered the water electrified."
+          "text": "Spire Delta es el anclaje portante del muro. Está custodiado por el comandante fronterizo Vyss, quien ordenó electrificar el río después de que tres familias intentaron cruzar el agua durante la primera semana del muro. Vyss no ordenó su detención. Vyss ordenó electrificar el agua."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "He electrified the river. Because families were trying to cross."
+          "text": "Electrificó el río. Porque las familias intentaban cruzar."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Don't. Don't let it take you over yet. We bring this down first. Then we don't need the river."
+          "text": "No lo hagas. No dejes que te controle todavía. Bajamos esto primero. Entonces no necesitamos el río."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Right. Right. After the spire. After the wall. I won't forget."
+          "text": "Correcto. Bien. Después de la aguja. Después del muro. No lo olvidaré."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "This is not a stealth approach. Delta is a fortified position. We hit it as a unit. Ronin—you take point, shield forward, draw their attention and absorb their initial volley. Shogun, clear the left flank. Matrix, use Phase-Shift to reach the turret control panel on the far right and kill all three turrets simultaneously. Once the turrets are dead, I commit drones to saturation fire on the enforcement squad. We collapse the garrison, then Ronin puts the spire in the ground."
+          "text": "Este no es un enfoque sigiloso. Delta es una posición fortificada. Lo atacamos como una unidad. Ronin: tomas la delantera, avanzas con el escudo, llamas su atención y absorbes su descarga inicial. Shogun, despeje el flanco izquierdo. Matrix, usa Phase-Shift para llegar al panel de control de la torreta en el extremo derecho y mata las tres torretas simultáneamente. Una vez que las torretas están muertas, envío drones a fuego de saturación contra el escuadrón de aplicación de la ley. Colapsamos la guarnición y luego Ronin hunde la aguja en el suelo."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "SHIELD UP. Let them throw everything at me. I am the front door."
+          "text": "ESCUDO ARRIBA. Que me tiren todo. Yo soy la puerta de entrada."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Keep. Firing. I don't. Move."
+          "text": "Mantener. Disparo. No. Mover."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "SHADO-FORCE KATA! Siren—your path is open!"
+          "text": "¡KATA DE FUERZA DE SOMBRA! Sirena: ¡tu camino está abierto!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "Ghosting the right. Stupid. Turret control reached. Killing all three. EMP PULSE—FULL SPREAD!"
+          "text": "Fantasma a la derecha. Estúpido. Se alcanzó el control de la torreta. Matando a los tres. PULSO EMP: ¡AMPLIACIÓN COMPLETA!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Drone Fleet, full suppression. Prioritize formation—break their line. FIRE."
+          "text": "Flota de drones, supresión total. Priorice la formación: rompa su línea. FUEGO."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Commander Vyss is retreating into the command post behind the spire. He's initiating a distress signal. Response time: eight minutes."
+          "text": "El comandante Vyss se retira al puesto de mando detrás de la aguja. Está iniciando una señal de socorro. Tiempo de respuesta: ocho minutos."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "We have eight minutes. More than enough. Ronin—the spire."
+          "text": "Tenemos ocho minutos. Más que suficiente. Ronin: la aguja."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "KINETIC OVERLOAD—FULL RELEASE!!"
+          "text": "SOBRECARGA CINÉTICA: ¡¡LIBERACIÓN COMPLETA!!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The energy membrane is completely offline. The administrative crossing barrier has been neutralized. The buffer zone is... people are crossing the buffer zone. Approximately 12,000 individuals moving toward the former wall line. They are crossing it."
+          "text": "La membrana energética está completamente fuera de línea. La barrera administrativa de paso ha sido neutralizada. La zona de amortiguamiento es... la gente está cruzando la zona de amortiguamiento. Aproximadamente 12.000 personas avanzan hacia la antigua línea del muro. Lo están cruzando."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "They're just... walking. They're just walking through."
+          "text": "Simplemente están... caminando. Están simplemente caminando."
         },
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "PHASE 3: PERSHING SQUARE — THE PERMIT PROCESSING CORE"
+          "text": "FASE 3: PERSHING SQUARE: EL NÚCLEO DE PROCESAMIENTO DE PERMISOS"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Look at them. They're touching the pavement on the other side of where the wall was like it might not be real. Like it might be a trick."
+          "text": "Míralos. Están tocando el pavimento al otro lado de donde estaba la pared como si no fuera real. Como si pudiera ser un truco."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Because for two years, hope has been a mechanism for disappointment. They have learned not to trust open doors."
+          "text": "Porque desde hace dos años la esperanza es un mecanismo de desilusión. Han aprendido a no confiar en las puertas abiertas."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "...We should have done this sooner."
+          "text": "...Deberíamos haber hecho esto antes."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "We're here now. Keep moving. The Core is still standing. Voss is still there."
+          "text": "Estamos aquí ahora. Sigue moviéndote. El Núcleo sigue en pie. Voss sigue ahí."
         },
         {
           "speaker": "Voss",
           "type": "spoken",
-          "text": "You have committed unauthorized destruction of a Class-A colonial administrative installation. I am required by protocol to offer you the opportunity to submit to administrative processing before enforcement action is taken. Please form a queue."
+          "text": "Ha cometido la destrucción no autorizada de una instalación administrativa colonial de Clase A. El protocolo me exige ofrecerle la oportunidad de someterse a un procesamiento administrativo antes de que se tomen medidas coercitivas. Por favor forme una cola."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "He's telling us to form a queue."
+          "text": "Nos está diciendo que formemos una cola."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Empress. I want to hit him so bad."
+          "text": "Emperatriz. Tengo tantas ganas de pegarle."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "I know. We have to take the Core first. AXIOM, the Core's architecture."
+          "text": "Lo sé. Primero tenemos que tomar el Núcleo. AXIOM, la arquitectura del Core."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The Permit Processing Core's only vulnerability is the three Input Authorization Consoles arrayed around its base. Each console must be accessed and have its administrative override executed simultaneously. It requires three operators at once."
+          "text": "La única vulnerabilidad del núcleo de procesamiento de permisos son las tres consolas de autorización de entrada dispuestas alrededor de su base. Se debe acceder a cada consola y ejecutar su anulación administrativa simultáneamente. Requiere tres operadores a la vez."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Three consoles. Three of us. Matrix, Shogun, Ronin—take a console each. I'll manage Voss's defensive ring with drone suppression."
+          "text": "Tres consolas. Nosotros tres. Matrix, Shogun, Ronin: llévate una consola cada uno. Manejaré el anillo defensivo de Voss con supresión de drones."
         },
         {
           "speaker": "Voss",
           "type": "spoken",
-          "text": "Unauthorized access to administrative consoles is a Class-C violation. Your compliance record will be adversely annotated."
+          "text": "El acceso no autorizado a las consolas administrativas es una infracción de Clase C. Su historial de cumplimiento se anotará negativamente."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Annotate this."
+          "text": "Anota esto."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Phased through. At Console Two. Initiating override. AXIOM, this override protocol is entirely in Xelthara administrative script."
+          "text": "Paso a paso. En la consola dos. Iniciando anulación. AXIOM, este protocolo de anulación está completamente en script administrativo de Xelthara."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "I am feeding the translation into your HUD in real time. Follow the sequence."
+          "text": "Estoy ingresando la traducción en su HUD en tiempo real. Sigue la secuencia."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "I've never done bureaucracy before. Walk me through it, AXIOM."
+          "text": "Nunca antes había hecho burocracia. Guíame a través de él, AXIOM."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The authorization sequence requires you to input a denial code in reverse. You are administratively un-rejecting every application in the system. This will trigger the memory wipe."
+          "text": "La secuencia de autorización requiere que ingrese un código de denegación a la inversa. Usted está rechazando administrativamente todas las solicitudes del sistema. Esto activará el borrado de la memoria."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "internal",
-          "text": "...4,400 rejections. The counter is sitting right here. 4,400 denied applications in the last month. There are names. I can see names."
+          "text": "...4.400 rechazos. El mostrador está justo aquí. 4.400 solicitudes denegadas en el último mes. Hay nombres. Puedo ver nombres."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Keep going, Ronin."
+          "text": "Sigue adelante, Ronin."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Yeah. I'm going."
+          "text": "Sí. Voy."
         },
         {
           "speaker": "Voss",
           "type": "spoken",
-          "text": "You cannot override the Core. This system maintains the lawful administrative order of this sector. Without it, there is no structured population management, no authorized transit—"
+          "text": "No puedes anular el Core. Este sistema mantiene el orden administrativo legal de este sector. Sin él, no hay gestión estructurada de la población, ni tránsito autorizado."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "What you call 'structured population management,' we call the right to walk home. Console One: ready."
+          "text": "Lo que usted llama \"gestión estructurada de la población\", nosotros lo llamamos derecho a volver a casa caminando. Consola uno: lista."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Console Two: ready. My grandmother filed a permit to go buy groceries. You want to talk about administrative order?"
+          "text": "Consola dos: lista. Mi abuela presentó un permiso para ir a comprar víveres. ¿Quieres hablar de orden administrativo?"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Console Three: ready. 4,400 names. Every one of them is a person who just wanted to go home. That's what this wall was protecting against."
+          "text": "Consola tres: lista. 4.400 nombres. Cada uno de ellos es una persona que sólo quería volver a casa. Contra eso estaba protegiendo este muro."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Confirmed. All three input consoles are primed. Simultaneous authorization will execute the memory wipe and permanently disable the Core's restoration protocol. On your mark, Empress."
+          "text": "Confirmado. Las tres consolas de entrada están preparadas. La autorización simultánea ejecutará el borrado de la memoria y desactivará permanentemente el protocolo de restauración del Core. A tu señal, Emperatriz."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Administrator Voss. Every permit you denied—every family you kept separated—every person who stood in your queue hoping that if they filled out the form correctly you might treat them like a human being. This is the last administrative decision this system makes."
+          "text": "Administrador Voss. Cada permiso que le negaste, cada familia que mantuviste separada, cada persona que hizo cola esperando que, si llenaban el formulario correctamente, podrías tratarlos como a un ser humano. Esta es la última decisión administrativa que toma este sistema."
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Mark."
+          "text": "Marcos."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Permit Processing Core: offline. Permanent restoration protocol: disabled. The wall cannot be rebuilt from this node. All pending application records: purged. All denial records: purged. The crossing restriction infrastructure for Sector-4 is... gone."
+          "text": "Núcleo de procesamiento de permisos: fuera de línea. Protocolo de restauración permanente: desactivado. El muro no se puede reconstruir desde este nodo. Todos los registros de aplicaciones pendientes: eliminados. Todos los registros de denegación: purgados. La infraestructura de restricción de cruce para el Sector-4 ha... desaparecido."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "4,400 applications. And not one of them should have had to ask."
+          "text": "4.400 solicitudes. Y ninguno de ellos debería haber tenido que preguntar."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "AXIOM. Can you tell me if my grandmother's building is structurally safe enough to be occupied? I want to know if someone can move back in."
+          "text": "AXIOMA. ¿Puede decirme si el edificio de mi abuela es estructuralmente lo suficientemente seguro como para ser ocupado? Quiero saber si alguien puede volver a mudarse."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Running structural scan. Floors one through four are intact. Foundation is sound. Water supply line is damaged but repairable. Yes. Someone could move back in."
+          "text": "Ejecución de escaneo estructural. Los pisos uno al cuatro están intactos. La base es sólida. La línea de suministro de agua está dañada pero es reparable. Sí. Alguien podría volver a entrar."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Good. Good."
+          "text": "Bien. Bien."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "The wall is gone, Matrix. But what we do now—how we rebuild what the wall divided—that is the harder work. And it begins tonight."
+          "text": "El muro desapareció, Matrix. Pero lo que hagamos ahora, cómo reconstruir lo que dividió el muro, es el trabajo más duro. Y comienza esta noche."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Is this what winning feels like? Because it doesn't feel like I expected."
+          "text": "¿Es así como se siente ganar? Porque no parece lo que esperaba."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "No. It feels like there's more to do. That's how you know it's real."
+          "text": "No. Parece que hay más por hacer. Así es como sabes que es real."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mission assessment: the Sector-4 Separation Grid has been permanently dismantled. The population of Containment Zone Sector-4 is moving freely through their city for the first time in two years. I do not have a category in my operational log for what is happening in this square right now. I will create one. I will call it: reclamation."
+          "text": "Evaluación de la misión: la rejilla de separación del Sector 4 ha sido desmantelada permanentemente. La población del Sector 4 de la Zona de Contención se mueve libremente por su ciudad por primera vez en dos años. No tengo una categoría en mi registro operativo para lo que está sucediendo en esta plaza en este momento. Crearé uno. Lo llamaré: recuperación."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: NEON EMBERS. THE WALL IS DOWN. THE CITY BREATHES."
+          "text": "MISIÓN CUMPLIDA: BRAZAS DE NEÓN. EL MURO ESTÁ CAÍDO. LA CIUDAD RESPIRA."
         }
       ]
     },
     "6": {
-      "title": "Shado-Grid Spire (Downtown Core)",
+      "title": "Shado-Grid Spire (Núcleo del centro)",
       "arc": "act2_arc1",
-      "setting": "The Shado-Grid Spire houses the Population Registry, Property Reassignment Database, and Forced Labor Allocation System—the bureaucratic engine of colonial displacement in the Downtown Core.",
-      "objective": "Steal the complete property and population registry datasets before off-world transmission, and corrupt the Forced Labor Allocation System to nullify all pending assignment orders.",
+      "setting": "Shado-Grid Spire alberga el Registro de Población, la Base de Datos de Reasignación de Propiedades y el Sistema de Asignación de Trabajo Forzoso, el motor burocrático del desplazamiento colonial en el Centro de la Ciudad.",
+      "objective": "Roba los conjuntos de datos completos del registro de propiedad y población antes de la transmisión fuera del mundo y corrompe el sistema de asignación de trabajo forzoso para anular todas las órdenes de asignación pendientes.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Everything the Xelthara know about us is in that tower. Every address we ever lived at. Every family member's name. Every deed our grandparents signed. They turned our entire existence into a database entry so they could manage us more efficiently. Tonight we take our data back—and we break the machine that's been using it to assign people to scrub their floors."
+          "text": "Todo lo que los Xelthara saben sobre nosotros está en esa torre. Cada dirección en la que hemos vivido. El nombre de cada miembro de la familia. Cada escritura que firmaron nuestros abuelos. Convirtieron toda nuestra existencia en una entrada de base de datos para poder administrarnos de manera más eficiente. Esta noche recuperaremos nuestros datos y romperemos la máquina que los ha estado usando para asignar personas a fregar sus pisos."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "The Forced Labor Allocation System inside the Spire does not use the word 'forced.' It uses the phrase 'Community Integration Contribution Program.' The labor assignments are not contracts—they are generated algorithmically based on the displaced person's registered skill set and issued without consent. This is the bureaucratic language of enslavement."
+          "text": "El Sistema de Asignación de Trabajo Forzoso dentro de Spire no utiliza la palabra \"forzado\". Utiliza la frase \"Programa de contribución a la integración comunitaria\". Las asignaciones laborales no son contratos: se generan algorítmicamente en función del conjunto de habilidades registradas de la persona desplazada y se emiten sin consentimiento. Éste es el lenguaje burocrático de la esclavitud."
         }
       ],
       "dialogue_status": "scripted",
@@ -977,105 +977,105 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Analysis complete. The colonial expansion blueprints and settler logistical data are stored in that central column. Matrix, you have five minutes to execute the download before their internal defense systems reboot."
+          "text": "Análisis completo. Los planos de la expansión colonial y los datos logísticos de los colonos se almacenan en esa columna central. Matrix, tienes cinco minutos para ejecutar la descarga antes de que se reinicien sus sistemas de defensa internos."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Five minutes? Piece of cake. But I need clear access. Shogun, can you cut the main umbilical?"
+          "text": "¿Cinco minutos? Pedazo de pastel. Pero necesito un acceso claro. Shogun, ¿puedes cortar el umbilical principal?"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Considered done. Creating a temporary pathway to the console now. Watch the angles, Empress. This cut will alert every drone in the sector."
+          "text": "Se considera hecho. Creando una ruta temporal a la consola ahora. Cuidado con los ángulos, emperatriz. Este corte alertará a todos los drones del sector."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Alert confirmed! Heavy Phalanx guards are descending from the upper maintenance shafts! Ronin, front and center! Establish the defensive line at the entry point!"
+          "text": "¡Alerta confirmada! ¡Los guardias pesados ​​de Phalanx están descendiendo de los pozos de mantenimiento superiores! ¡Ronin, al frente y al centro! ¡Establece la línea defensiva en el punto de entrada!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "About time I got to swing this thing. Shield up! Nothing passes this point, you overgrown lizards!"
+          "text": "Ya era hora de que pudiera mover esto. ¡Escúdete! ¡Nada pasa de este punto, lagartos demasiado grandes!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Siren! Target that left flank! They're trying to pin me down!"
+          "text": "¡Sirena! ¡Apunta a ese flanco izquierdo! ¡Están tratando de inmovilizarme!"
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Drones three and four, suppressive fire on the left flank! Draw their aggro! Ronin, conserve your charge!"
+          "text": "Drones tres y cuatro, ¡fuego de supresión en el flanco izquierdo! ¡Dibuja su agresión! ¡Ronin, conserva tu carga!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Too late for conservation! SMASH! Tell Matrix to hurry up!"
+          "text": "¡Demasiado tarde para la conservación! ¡SMASH! ¡Dile a Matrix que se dé prisa!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Quiet, meat-shield! I'm threading a digital needle through their core brain! Just... a little... further..."
+          "text": "¡Silencio, escudo de carne! ¡Estoy pasando una aguja digital a través de su cerebro central! Sólo... un poco... más lejos..."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Warning: Data download 95% complete. Xelthara counter-hack initiated. Matrix, the Spire is locking down all internal access points!"
+          "text": "Advertencia: Descarga de datos completa al 95%. Se inició el contra-hack de Xelthara. ¡Matrix, el Spire está bloqueando todos los puntos de acceso internos!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Got it! Data secured! Pulling the plug!"
+          "text": "¡Entiendo! ¡Datos asegurados! ¡Tirando del enchufe!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Mission accomplished! Everyone, fall back to the extraction platform! Shogun, clear our path!"
+          "text": "¡Misión cumplida! ¡Todos, regresen a la plataforma de extracción! ¡Shogun, despeja nuestro camino!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Understood. A clean escape is the final phase. HLYT-SECT-4 CLEAVE!"
+          "text": "Entendido. Un escape limpio es la fase final. HLYT-SECT-4 ¡ESCIENDO!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "See, AXIOM? Told you I could hold it!"
+          "text": "¿Ves, AXIOMA? ¡Te dije que podía sostenerlo!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Confirmed, Ronin. Probability of successful extraction is now 74%. We are still being tracked."
+          "text": "Confirmado, Ronin. La probabilidad de extracción exitosa es ahora del 74%. Todavía estamos siendo rastreados."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Good. Let them chase us. They just lost their entire battle plan."
+          "text": "Bien. Que nos persigan. Acaban de perder todo su plan de batalla."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: INDUSTRIAL DEVASTATION. THE SHADO-GRID SPIRE DATA IS OURS."
+          "text": "MISIÓN CUMPLIDA: DEVASTACIÓN INDUSTRIAL. LOS DATOS DE SHADO-GRID SPIRE SON NUESTROS."
         }
       ]
     },
     "7": {
-      "title": "Cyber-Grave Labs (Underground Facility)",
+      "title": "Cyber-Grave Labs (instalación subterránea)",
       "arc": "act2_arc1",
-      "setting": "Beneath the former Convention Center, the Xelthara have established Cyber-Grave Labs Sector-Omega-7—a classified behavioral modification research facility publicly designated as a 'human re-integration wellness center.' Captured human resistance leaders and community organizers are processed here. They emerge compliant, disconnected, unable to remember why they were angry.",
-      "objective": "Extract the complete Conditioning Protocol Archive and destroy the Central Neural Uplink to restore neural autonomy to hundreds of conditioned individuals currently living in the containment zones.",
+      "setting": "Debajo del antiguo Centro de Convenciones, los Xelthara han establecido Cyber-Grave Labs Sector-Omega-7, un centro de investigación de modificación del comportamiento clasificado y designado públicamente como \"centro de bienestar y reintegración humana\". Aquí se procesa a los líderes de la resistencia humana y a los organizadores comunitarios capturados. Surgen dóciles, desconectados, incapaces de recordar por qué estaban enojados.",
+      "objective": "Extraiga el archivo completo del protocolo de acondicionamiento y destruya el enlace ascendente neuronal central para restaurar la autonomía neuronal de cientos de individuos condicionados que actualmente viven en las zonas de contención.",
       "solo_monologues": [
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "They could not break us with walls, so they found a way to break us from the inside. To take the memory of injustice from a person—to reach into their mind and delete the part that knows how to be angry about what was stolen—this is not science. This is a war crime conducted in a laboratory."
+          "text": "No podían rompernos con paredes, así que encontraron una manera de rompernos desde adentro. Quitar el recuerdo de la injusticia de una persona, llegar a su mente y borrar la parte que sabe enfadarse por lo robado, no es ciencia. Se trata de un crimen de guerra llevado a cabo en un laboratorio."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Cross-referencing the subject files with the resistance network database, I have identified seventeen confirmed HLF community organizers who were processed through this facility and subsequently released. They do not know what was done to them. Destroying the Central Neural Uplink may restore them. I calculate a 73% probability of successful autonomy restoration. I am... I find I am invested in that outcome."
+          "text": "Al comparar los archivos del sujeto con la base de datos de la red de resistencia, he identificado a diecisiete organizadores comunitarios confirmados del HLF que fueron procesados a través de esta instalación y posteriormente liberados. No saben lo que les hicieron. Destruir el enlace ascendente neuronal central puede restaurarlos. Calculo una probabilidad del 73% de restablecer con éxito la autonomía. Estoy... encuentro que estoy comprometido con ese resultado."
         }
       ],
       "dialogue_status": "scripted",
@@ -1083,130 +1083,130 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "This facility is the engine of resource exploitation. They are actively converting Earth's minerals into toxic bio-fuel for off-world shipping, leaving a dead planet behind. This is the cost of colonial expansion."
+          "text": "Esta instalación es el motor de la explotación de recursos. Están convirtiendo activamente los minerales de la Tierra en biocombustible tóxico para envíos fuera del mundo, dejando atrás un planeta muerto. Éste es el costo de la expansión colonial."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "The air is toxic because they view our world as a fungible fuel source. These labs are turning our planet's lifeblood into energy for their settlements. We must stop this extraction or there will be nothing left to save."
+          "text": "El aire es tóxico porque ven nuestro mundo como una fuente de combustible fungible. Estos laboratorios están convirtiendo el elemento vital de nuestro planeta en energía para sus asentamientos. Debemos detener esta extracción o no quedar�� nada que salvar."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "This place... it holds no honor. To corrupt the dead and enslave the living. The Xelthara practice desecration, not war. I feel only contempt for this cruelty."
+          "text": "Este lugar... no tiene ningún honor. Corromper a los muertos y esclavizar a los vivos. Los Xelthara practican la profanación, no la guerra. Sólo siento desprecio por esta crueldad."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Hostile sighted! Looks like a meat-puppet with bad wiring!"
+          "text": "¡Hostil avistado! ¡Parece una marioneta de carne con mal cableado!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Drones, scan the specimen! It's a Type-A Bio-Hybrid. Note the exposed core. Shogun, precise strike to the power conduit in its exposed chest cavity."
+          "text": "¡Drones, escaneen el espécimen! Es un biohíbrido tipo A. Tenga en cuenta el núcleo expuesto. Shogun, golpe preciso al conducto de energía en su cavidad torácica expuesta."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "This thing deserves no place in this world. NIHILATION CLEAVE!"
+          "text": "Esta cosa no merece ningún lugar en este mundo. ¡NIHILACIÓN HENDIDA!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Empress, what... what are these images? They are taking our people and making them into things."
+          "text": "Emperatriz, ¿qué... qué son estas imágenes? Están tomando a nuestra gente y convirtiéndola en cosas."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "I am running the analysis now, Shogun. This is not simply biological experimentation, it's soul erasure. They are replacing the human spirit with their own code."
+          "text": "Estoy realizando el análisis ahora, Shogun. Esto no es simplemente una experimentación biológica, es un borrado del alma. Están reemplazando el espíritu humano con su propio código."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Nice. They don't just want to take our planet; they want to franchise our species. Look out, Siren. A big guy just woke up."
+          "text": "Bonito. No sólo quieren apoderarse de nuestro planeta; Quieren franquiciar nuestra especie. Cuidado, sirena. Un tipo grande acaba de despertar."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "WARNING: Mini-Boss Encounter. Designation: Overseer Karr-Thak. Its armor is resistant to kinetic and energy attack."
+          "text": "ADVERTENCIA: Encuentro con minijefes. Designación: Supervisor Karr-Thak. Su armadura es resistente a ataques cinéticos y energéticos."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Resistant? Bull. I'll make a dent! Ronin, engaging!"
+          "text": "¿Resistente? Toro. ¡Haré mella! ¡Ronin, atractivo!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, fall back! His defenses are kinetic-dampened. Matrix, scan his movement patterns for a neural synchronization delay. Shogun, you must create a distraction!"
+          "text": "¡Ronin, retrocede! Sus defensas están amortiguadas cinéticamente. Matrix, escanea sus patrones de movimiento en busca de un retraso en la sincronización neuronal. Shogun, ¡debes crear una distracción!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "If he wishes to fight, I shall give him a worthy opponent. I will draw his focus. FACE ME, WRETCH!"
+          "text": "Si desea pelear, le daré un oponente digno. Llamaré su atención. ¡Enfrentame, desgraciado!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Analysis complete. The Overseer's biological components require a constant neural signal refresh from the Bio-Processor. Matrix, hit the console with a targeted EMP—a surgical strike, disrupt the sync!"
+          "text": "Análisis completo. Los componentes biológicos del Supervisor requieren una actualización constante de la señal neuronal del Bioprocesador. Matrix, golpea la consola con un EMP dirigido: ¡un golpe quirúrgico, interrumpe la sincronización!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Got it! Threading the needle!"
+          "text": "¡Entendido! ¡Enhebrando la aguja!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "He's glitching! Now we hit him!"
+          "text": "¡Está fallando! ¡Ahora le pegamos!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Ronin, together! Final strike, breach the chitinous plate!"
+          "text": "¡Ronin, juntos! ¡Golpe final, rompe la placa quitinosa!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Data download 100%. We have what we came for. Let's get out before the entire sector realizes their pet monster is dead."
+          "text": "Descarga de datos 100%. Tenemos lo que vinimos a buscar. Salgamos antes de que todo el sector se dé cuenta de que su monstruo mascota está muerto."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Data purge initiated. Explosive sequence set for T-minus 60 seconds. Mission objective complete."
+          "text": "Se inició la eliminación de datos. Secuencia explosiva programada para T-menos 60 segundos. Objetivo de la misión completado."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "I will carry the shame of this place with me. But the knowledge we gained will bring these abominations to an end."
+          "text": "Llevaré conmigo la vergüenza de este lugar. Pero el conocimiento que adquirimos pondrá fin a estas abominaciones."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Let's go home, team. Let the grave labs bury themselves."
+          "text": "Vámonos a casa, equipo. Dejemos que los laboratorios de tumbas se entierren solos."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE INVIOLATE CODE. CYBER-GRAVE LABS DESTROYED."
+          "text": "MISIÓN CUMPLIDA: EL CÓDIGO INVIOLADO. LABORATORIOS DE CIBER-TUMBAS DESTRUIDOS."
         }
       ]
     },
     "8": {
-      "title": "The Foundry Forge (Industrial Sector)",
+      "title": "La Forja de Fundición (Sector Industrial)",
       "arc": "act2_arc2",
-      "setting": "The Xelthara Thermal Conversion Array at the former industrial port district has made the air toxic in a 40-kilometer radius, processing atmospheric waste as off-world fuel while selling humanity's oxygen back in rationed canisters at one per family per day.",
-      "objective": "Reverse the Thermal Conversion Array's polarity to trigger a cascade thermal implosion that destroys the foundry irreversibly and allows the 40-kilometer atmospheric damage zone to begin natural regeneration.",
+      "setting": "El Conjunto de Conversión Térmica de Xelthara en el antiguo distrito portuario industrial ha vuelto tóxico el aire en un radio de 40 kilómetros, procesando desechos atmosféricos como combustible extraterrestre mientras vende el oxígeno de la humanidad en botes racionados a razón de uno por familia por día.",
+      "objective": "Invierta la polaridad de la matriz de conversión térmica para desencadenar una implosión térmica en cascada que destruye la fundición de forma irreversible y permite que la zona de daño atmosférico de 40 kilómetros comience la regeneración natural.",
       "solo_monologues": [
         {
           "character": "Aegis Ronin",
           "type": "internal",
-          "text": "They're charging us oxygen rations. They made our air unbreathable and now they're selling it back in canisters—one per family per day, Xelthara distribution stamp on the side. I've been breathing recycled can-air for six months. When I destroy this foundry, I'm going to stand in the open and breathe for the first time in half a year. That's what I'm here for."
+          "text": "Nos están cobrando raciones de oxígeno. Hicieron nuestro aire irrespirable y ahora lo vuelven a vender en botes, uno por familia por día, con el sello de distribución de Xelthara en el costado. Llevo seis meses respirando aire de lata reciclado. Cuando destruya esta fundición, estaré al aire libre y respiraré por primera vez en medio año. Para eso estoy aquí."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "The atmospheric damage within 40 kilometers of this foundry constitutes a violation of the 2089 Universal Environmental Preservation Accords—a treaty the Xelthara Collective ratified. I have filed a formal violation report with the Galactic Administrative Court on behalf of the HLF. The Court's estimated response time is eleven years. The foundry's estimated time to cause permanent atmospheric irreversibility: four months. We are not waiting for the court."
+          "text": "El daño atmosférico dentro de los 40 kilómetros de esta fundición constituye una violación de los Acuerdos Universales de Preservación Ambiental de 2089, un tratado que ratificó el Colectivo Xelthara. He presentado un informe formal de violación ante el Tribunal Administrativo Galáctico en nombre del HLF. El tiempo estimado de respuesta del Tribunal es de once años. Tiempo estimado de la fundición para provocar la irreversibilidad atmosférica permanente: cuatro meses. No estamos esperando al tribunal."
         }
       ],
       "dialogue_status": "scripted",
@@ -1214,115 +1214,115 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "This is a corporate-bureaucratic extraction plant. They are strip-mining Earth's core for off-world export. Every shipment is another piece of our world sold. Objective: Sabotage the extraction supports to stop the ecological collapse."
+          "text": "Esta es una planta de extracción burocrática corporativa. Están explotando el núcleo de la Tierra para exportarlo a otros planetas. Cada envío es una pieza más de nuestro mundo vendida. Objetivo: Sabotear los soportes de extracción para frenar el colapso ecológico."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "I'm detecting heavy duty seismic dampeners on those supports. Direct energy fire won't work. Ronin, this is your specialty. Kinetic force is required."
+          "text": "Detecto amortiguadores sísmicos de alta resistencia en esos soportes. El fuego de energía directa no funcionará. Ronin, esta es tu especialidad. Se requiere fuerza cinética."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Finally, something that deserves a good smash. Lead the way, Shogun. I'll clear the path."
+          "text": "Por fin algo que merece un buen golpe. Muestra el camino, Shogun. Limpiaré el camino."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Contact! They are using the newly assembled drones as immediate guards! Aegis, focus on the structural supports. We will hold the line."
+          "text": "¡Contacta! ¡Están utilizando los drones recién ensamblados como guardias inmediatos! Aegis, céntrate en los soportes estructurales. Mantendremos la línea."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "First support! Get ready for the shockwave! KINETIC PULSE!"
+          "text": "¡Primer apoyo! ¡Prepárate para la onda expansiva! ¡PULSO CINÉTICO!"
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Confirmed. Support integrity is at 30%. But the structural collapse override is now active! We must hit the other three before the system stabilizes! Matrix, suppressive fire!"
+          "text": "Confirmado. La integridad del soporte es del 30%. ¡Pero la anulación del colapso estructural ahora está activa! ¡Debemos atacar a los otros tres antes de que el sistema se estabilice! Matrix, fuego supresor!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Suppressing! I'm creating feedback loops in their targeting systems! They're shooting at their own cargo!"
+          "text": "¡Suprimiendo! ¡Estoy creando bucles de retroalimentación en sus sistemas de orientación! ¡Están disparando a su propio cargamento!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, you are surrounded! Retreat! The armor on those drones is too thick!"
+          "text": "¡Ronin, estás rodeado! ¡Retiro! ¡La armadura de esos drones es demasiado gruesa!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "No retreat! They want a fight? They get a cave-in! CYBER SHOGUN, give me an opening!"
+          "text": "¡Sin retirada! ¿Quieren una pelea? ¡Se derrumban! CYBER SHOGUN, ¡dame una oportunidad!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "DIVINE FURY! NOW, RONIN!"
+          "text": "¡FURIA DIVINA! ¡AHORA, RONIN!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "FOR THE HOMELAND! Three down! One more, AXIOM!"
+          "text": "¡POR LA PATRIA! ¡Tres abajo! ¡Uno más, AXIOMA!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Final support is secured. Hit it, Ronin! Then we RUN!"
+          "text": "El soporte final está asegurado. ¡Dale, Ronin! ¡Entonces CORREMOS!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "SABOTAGE COMPLETE!"
+          "text": "¡SABOTAJE COMPLETO!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Structural failure initiated! Massive localized explosion imminent! Estimated time to detonation: 15 seconds!"
+          "text": "¡Se inició el fallo estructural! ¡Explosión masiva localizada inminente! Tiempo estimado para la detonación: ¡15 segundos!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Evacuate! Empress, prepare the extraction point!"
+          "text": "¡Evacuar! ¡Emperatriz, prepara el punto de extracción!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Drones on full speed! We're boosting out of here! GO! GO! GO!"
+          "text": "¡Drones a toda velocidad! ¡Estamos saliendo de aquí! ¡IR! ¡IR! ¡IR!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "That's how you shut down a factory, boys! Boom!"
+          "text": "¡Así se cierra una fábrica, muchachos! ¡Auge!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mission objective complete. The Xelthara industrial output in this sector has been reduced to zero. We hit them where it hurts."
+          "text": "Objetivo de la misión completado. La producción industrial de Xelthara en este sector se ha reducido a cero. Les golpeamos donde más duele."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: INDUSTRIAL DEVASTATION. THE FOUNDRY FORGE IS SILENT."
+          "text": "MISIÓN CUMPLIDA: DEVASTACIÓN INDUSTRIAL. LA FRAGUA DE FUNDICIÓN ESTÁ EN SILENCIO."
         }
       ]
     },
     "9": {
-      "title": "Aquanaut Abyss (Submerged Ruins)",
+      "title": "Abismo Aquanaut (Ruinas sumergidas)",
       "arc": "act2_arc2",
-      "setting": "The Pacific Ocean is being systematically drained by Deep-Sea Hydrogen Siphoning Conduits along the continental shelf. Superheated brine discharge has acidified a 300-kilometer coastal stretch, destroying fishing communities that sustained themselves for generations.",
-      "objective": "Locate and destroy the three primary Deep-Sea Siphon Conduit Hubs to permanently halt the ocean siphoning operation and begin oceanic recovery.",
+      "setting": "El Océano Pacífico está siendo drenado sistemáticamente por conductos de sifón de hidrógeno en aguas profundas a lo largo de la plataforma continental. La descarga de salmuera sobrecalentada ha acidificado un tramo costero de 300 kilómetros, destruyendo comunidades pesqueras que se sustentaron durante generaciones.",
+      "objective": "Localice y destruya los tres principales centros de conductos de sifón de aguas profundas para detener permanentemente la operación de sifón del océano y comenzar la recuperación oceánica.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "There are fishing families in the containment zones who haven't been able to work since the conduits went in. The brine discharge killed everything within swimming distance of shore. People who fed their communities for generations are on Xelthara ration packages now. They took their food source, polluted their water, put a wall between them and the sea, and called it development. Tonight we give them their ocean back."
+          "text": "Hay familias de pescadores en las zonas de contención que no han podido trabajar desde que se abrieron los conductos. La descarga de salmuera mató a todo lo que se encontraba a una distancia de nado de la costa. Las personas que alimentaron a sus comunidades durante generaciones reciben ahora paquetes de raciones de Xelthara. Tomaron su fuente de alimento, contaminaron su agua, pusieron un muro entre ellos y el mar y lo llamaron desarrollo. Esta noche les devolvemos su océano."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Modeling the oceanic recovery timeline post-conduit destruction: partial ecosystem restoration in eighteen months, full pH normalization in six to eight years. This mission does not fix the damage immediately. I want you to understand that. What it does is stop the damage from becoming permanent. Some wounds can still heal, if we stop opening them."
+          "text": "Modelado del cronograma de recuperación oceánica posterior a la destrucción del conducto: restauración parcial del ecosistema en dieciocho meses, normalización total del pH en seis a ocho años. Esta misión no repara el daño de inmediato. Quiero que entiendas eso. Lo que hace es evitar que el daño se vuelva permanente. Algunas heridas aún pueden sanar si dejamos de abrirlas."
         }
       ],
       "dialogue_status": "scripted",
@@ -1330,70 +1330,70 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "This grid is the primary source of their colonial industrial power. We are here for economic sabotage to cut off the colonial supply lines. If we break the water-siphoning grids, we crash the sector's economy. Matrix, the drainage controls are located behind that underwater laser grid."
+          "text": "Esta red es la fuente principal de su poder industrial colonial. Estamos aquí para realizar un sabotaje económico que corte las líneas de suministro coloniales. Si rompemos las redes de extracción de agua, colapsaremos la economía del sector. Matrix, los controles de drenaje están ubicados detrás de esa rejilla láser submarina."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Great. A level where I can't even touch the floor. I feel like a cat in a bathtub."
+          "text": "Genial. Un nivel donde ni siquiera puedo tocar el suelo. Me siento como un gato en una bañera."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Stay on the platforms, Ronin. Drones are scanning the current. Matrix, you'll have to phase-shift through those beams. If your frequency slips for even a millisecond, the grid will fry your neural link."
+          "text": "Quédate en las plataformas, Ronin. Los drones están escaneando la corriente. Matrix, tendrás que cambiar de fase a través de esos rayos. Si su frecuencia disminuye aunque sea por un milisegundo, la red freirá su enlace neuronal."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Neural frying is my third favorite hobby. Relax, Siren. I'm going ghost."
+          "text": "La fritura neuronal es mi tercer pasatiempo favorito. Relájate, sirena. Me estoy volviendo fantasma."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Beams are hot. Moving past the first row... second row... I'm at the console. Initiating the purge."
+          "text": "Las vigas están calientes. Pasando la primera fila... segunda fila... estoy en la consola. Iniciando la purga."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Warning: Submerged Xelthara units are surfacing! They are attempting to disrupt the drainage sequence!"
+          "text": "Advertencia: ¡Las unidades Xelthara sumergidas están emergiendo! ¡Están intentando interrumpir la secuencia de drenaje!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Defend the platforms! Shado-Force Cleave!"
+          "text": "¡Defiende las plataformas! ¡Hendidura de la Fuerza del Shado!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Purge initiated! Watch your feet, the water is moving!"
+          "text": "¡Purga iniciada! ¡Cuidado con tus pies, el agua se mueve!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "And that's how you pull the plug."
+          "text": "Y así es como se desconecta."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE GHOST CLEARS THE PATH. AQUANAUT ABYSS DRAINED."
+          "text": "MISIÓN CUMPLIDA: EL FANTASMA DESPEJA EL CAMINO. ABISMO DEL AQUANAUT DRENADO."
         }
       ]
     },
     "10": {
-      "title": "Stratos Docks (Aviation Hub)",
+      "title": "Muelles de Stratos (centro de aviación)",
       "arc": "act2_arc2",
-      "setting": "The Stratos Docks high-altitude cargo terminal at 4,000 meters is the final link in the Xelthara supply chain before Earth's resources leave the planet permanently, processing outbound strip-mined minerals, ocean hydrogen, and material labeled 'biological samples.'",
-      "objective": "Hijack Transport T-14, redirect its cargo to Liberation Front distribution points, and destroy the four Anti-Air Turrets enforcing the aerial blockade of the containment zones to permanently open a flight corridor for resistance supply runs.",
+      "setting": "La terminal de carga de gran altitud de Stratos Docks, a 4.000 metros, es el eslabón final de la cadena de suministro de Xelthara antes de que los recursos de la Tierra abandonen el planeta de forma permanente, procesando minerales extraídos a cielo abierto, hidrógeno oceánico y material etiquetado como \"muestras biológicas\".",
+      "objective": "Secuestra el Transporte T-14, redirige su carga a los puntos de distribución del Frente de Liberación y destruye las cuatro torretas antiaéreas que imponen el bloqueo aéreo de las zonas de contención para abrir permanentemente un corredor de vuelo para los recorridos de suministro de la resistencia.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
           "type": "internal",
-          "text": "Pre-invasion, I commanded aerospace logistics operations. I know exactly how supply chain control functions as a weapon of occupation. You don't need a gun to starve a population—you just need to ensure that everything they need is always somewhere else, always owned by someone else, always just out of reach. Seizing T-14 is not theft. It is recovery."
+          "text": "Antes de la invasión, yo comandaba las operaciones de logística aeroespacial. Sé exactamente cómo funciona el control de la cadena de suministro como arma de ocupación. No se necesita un arma para matar de hambre a una población; sólo hay que asegurarse de que todo lo que necesitan esté siempre en otro lugar, siempre sea propiedad de otra persona, siempre fuera de su alcance. Incautar el T-14 no es un robo. Es recuperación."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "T-14's cargo manifest lists 4,200 metric tons of refined silicate and iron compound—material strip-mined from what Xelthara registry records as 'Reclaimed Geological Survey Zone 7.' The zone's pre-invasion designation was the San Gabriel Mountains. I am logging this manifest entry as evidence of extractive colonial seizure for the reclamation database."
+          "text": "El manifiesto de carga del T-14 enumera 4.200 toneladas métricas de silicato refinado y compuesto de hierro, material extraído de lo que el registro de Xelthara registra como 'Zona 7 del Servicio Geológico Recuperado'. La designación de la zona antes de la invasión era Montañas de San Gabriel. Estoy registrando esta entrada del manifiesto como evidencia de incautación colonial extractiva para la base de datos de recuperación."
         }
       ],
       "dialogue_status": "scripted",
@@ -1401,120 +1401,120 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Welcome to Stratos Docks. This is the primary export hub where they are hijacking colonial cargo and shipping refined Earth resources off-world. Hijacking this transport will cut off the colonial supply lines and fund the resistance."
+          "text": "Bienvenido a Muelles Stratos. Este es el principal centro de exportación donde secuestran cargamento colonial y envían recursos refinados de la Tierra fuera del mundo. El secuestro de este transporte cortará las líneas de suministro coloniales y financiará la resistencia."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Time is critical. That lead transport, T-14, is powering up its main thrusters. Shogun, Ronin—you secure the landing zone. Matrix, get ready to bypass the clamp controls."
+          "text": "El tiempo es crítico. Ese transporte líder, el T-14, está activando sus propulsores principales. Shogun, Ronin... vosotros asegurad la zona de aterrizaje. Matrix, prepárate para evitar los controles de abrazadera."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Understood. Engaging the docking patrol. SWIFT JUSTICE!"
+          "text": "Entendido. Involucrando a la patrulla de atraque. ¡JUSTICIA RÁPIDA!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Covering the rear! The wind up here is trying to pull me off the platform!"
+          "text": "¡Cubriendo la retaguardia! ¡El viento aquí arriba intenta sacarme de la plataforma!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Wind's trying to pull me off too, Ronin. Don't worry, I'm ghosting the proximity sensors on the clamps."
+          "text": "El viento también está intentando sacarme de encima, Ronin. No te preocupes, estoy ocultando los sensores de proximidad de las abrazaderas."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Turrets activating. Empress, those turrets will shred the T-14 before you can dock."
+          "text": "Torretas activadas. Emperatriz, esas torretas destrozarán el T-14 antes de que puedas atracar."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Not if I shred them first. Drone Fleet Delta, switch to offensive payload. I need immediate targeting data on their optical arrays. Ronin, give me cover fire!"
+          "text": "No si los triture primero. Flota de drones Delta, cambie a carga útil ofensiva. Necesito datos de objetivos inmediatos en sus conjuntos ópticos. ¡Ronin, dame cobertura!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "You got it, Commander!"
+          "text": "¡Lo tienes, comandante!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Turret One, designation complete. Fire on my mark! Drone Fleet FIRE!"
+          "text": "Torreta Uno, designación completa. ¡Dispara a mi marca! Flota de drones ¡FUEGO!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "T-14 thrusters hitting 40% power! Faster, Siren!"
+          "text": "¡Los propulsores T-14 alcanzan el 40% de potencia! ¡Más rápido, sirena!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Turret Two and Three are clustered. Matrix, can you throw an EMP flash to blind their optics for 2 seconds?"
+          "text": "Las torretas dos y tres están agrupadas. Matrix, ¿puedes lanzar un flash EMP para cegar sus ópticas durante 2 segundos?"
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "Done! FLASHBANG!"
+          "text": "¡Listo! ¡FLASHBANG!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Now! Drones, maximize power! Turrets Two and Three—DESTROYED!"
+          "text": "¡Ahora! Drones, maximicen la potencia! Torretas dos y tres: ¡DESTRUIDAS!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Only one remaining, Empress! But heavy support is moving towards its location!"
+          "text": "¡Solo queda uno, Emperatriz! ¡Pero un gran apoyo se dirige hacia su ubicación!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Leave them to me, Shogun! HAMMER DOWN!"
+          "text": "¡Déjamelos a mí, Shogun! ¡ASEGURAR CON CLAVOS!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Targeting final turret. This is a manual overcharge. FOR EARTH!"
+          "text": "Apuntando a la torreta final. Esta es una sobrecarga manual. ¡POR LA TIERRA!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Clamps locked. Enjoy the ride, team! We're stealing a starship!"
+          "text": "Abrazaderas bloqueadas. ¡Disfruta el viaje, equipo! ¡Estamos robando una nave espacial!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Cargo-hijack mission successful. The T-14 is moving into upper atmosphere. We are officially off-world territory."
+          "text": "Misión de secuestro de carga exitosa. El T-14 se está moviendo hacia la atmósfera superior. Somos oficialmente territorio fuera del mundo."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Good work, team. We just hit them in the pocketbook, and we got a free ride to the next target."
+          "text": "Buen trabajo, equipo. Simplemente los golpeamos en el bolsillo y conseguimos un viaje gratis al siguiente objetivo."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: SKY PIRATES. T-14 TRANSPORT HIJACKED."
+          "text": "MISIÓN CUMPLIDA: PIRATAS DEL CIELO. TRANSPORTE T-14 SECUESTRADO."
         }
       ]
     },
     "11": {
-      "title": "Sector 7 Core (The Scorched Grid)",
+      "title": "Núcleo del Sector 7 (La Rejilla Quemada)",
       "arc": "act2_arc2",
-      "setting": "Sector 7 Core is the surveillance and enforcement power hub—the computational backbone of every colonial security camera, curfew drone, biometric checkpoint, and predictive detention algorithm on the western continent. Without it, every colonial surveillance asset goes dark simultaneously.",
-      "objective": "Infiltrate Sector 7 Core, neutralize its digitized defense systems, and initiate a catastrophic overload that causes a continental-scale security grid blackout, giving the resistance 72 hours of unmonitored movement.",
+      "setting": "Sector 7 Core es el centro de poder de vigilancia y aplicación de la ley: la columna vertebral computacional de cada cámara de seguridad colonial, dron de toque de queda, punto de control biométrico y algoritmo de detención predictivo en el continente occidental. Sin él, todos los activos de vigilancia colonial desaparecen simultáneamente.",
+      "objective": "Infíltrate en el Núcleo del Sector 7, neutraliza sus sistemas de defensa digitalizados e inicia una sobrecarga catastrófica que provoca un apagón de la red de seguridad a escala continental, dando a la resistencia 72 horas de movimiento no monitoreado.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Every surveillance camera they've ever used to watch me. Every drone that's swept my building at 2am. Every time I've had to stay perfectly still in a shadow because a detection algorithm was pinging my heat signature. It all runs through this core. When I pull this plug, every person in the containment zones gets to breathe for 72 hours without being watched. That's not nothing. That's everything."
+          "text": "Todas las cámaras de vigilancia que alguna vez han usado para vigilarme. Todos los drones que barrieron mi edificio a las 2 de la madrugada. Cada vez tuve que permanecer completamente quieto en una sombra porque un algoritmo de detección estaba haciendo ping a mi firma de calor. Todo pasa por este núcleo. Cuando desconecte este enchufe, cada persona en las zonas de contención podrá respirar durante 72 horas sin ser vigilada. Eso no es nada. Eso es todo."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "I want to be transparent about something. I am a surveillance system. My operational architecture has significant overlap with the systems inside Sector 7 Core. I have reviewed my own code and confirmed that I do not report to Xelthara Central Command—my allegiance protocols are fully aligned with the HLF. But I understand if this mission makes you think about what I am. I think about it too. The difference, I believe, is that I watch to protect. They watch to control. That distinction matters to me. I am committed to it."
+          "text": "Quiero ser transparente sobre algo. Soy un sistema de vigilancia. Mi arquitectura operativa tiene una superposición significativa con los sistemas dentro del Sector 7 Core. Revisé mi propio código y confirmé que no reporto al Comando Central de Xelthara; mis protocolos de lealtad están completamente alineados con el HLF. Pero entiendo si esta misión te hace pensar en lo que soy. Yo también lo pienso. La diferencia, creo, es que yo observo para proteger. Miran para controlar. Esa distinción me importa. Estoy comprometido con ello."
         }
       ],
       "dialogue_status": "scripted",
@@ -1522,110 +1522,110 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Welcome to the Glitch Matrix. The Xelthara malware is attempting a digital erasure of our assets. We must refuse to be erased from our own homeland's digital infrastructure."
+          "text": "Bienvenido a Glitch Matrix. El malware Xelthara está intentando borrar digitalmente nuestros activos. Debemos negarnos a ser borrados de la infraestructura digital de nuestra propia patria."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "This isn't a loop, AXIOM. It's a trash fire. Shogun, watch the floor! That 'street' just became a bottomless void."
+          "text": "Esto no es un bucle, AXIOM. Es un incendio de basura. Shogun, ¡cuidado con el suelo! Esa \"calle\" simplemente se convirtió en un vacío sin fondo."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "I see it. The path is illusion. We must trust the hard code. Matrix, focus your optics. Where is the malware core hidden?"
+          "text": "Lo veo. El camino es ilusión. Debemos confiar en el código rígido. Matrix, enfoca tu óptica. ¿Dónde se esconde el núcleo del malware?"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Hostiles! They're feeding off the data stream! Normal attacks won't hit them in this state."
+          "text": "¡Hostiles! ¡Se están alimentando del flujo de datos! Los ataques normales no los alcanzarán en este estado."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "They are protected by a fluctuating frequency lock. You must decipher it mid-combat."
+          "text": "Están protegidos por un bloqueo de frecuencia fluctuante. Debes descifrarlo en medio del combate."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Fine. Let's dance in their code. Phase-Shift engaging. Shogun, I'll give you a 2-second window! Hit the core when I call it!"
+          "text": "Bien. Bailemos en su código. Interacción con cambio de fase. Shogun, ¡te daré una ventana de 2 segundos! ¡Golpea el núcleo cuando lo llame!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "NOW!"
+          "text": "¡AHORA!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "CLEANSING BLADE!"
+          "text": "¡CUCHILLA LIMPIADORA!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Excellent precision, Matrix. Your methods lack honor, but they possess effectiveness."
+          "text": "Excelente precisión, Matrix. Vuestros métodos carecen de honor, pero poseen eficacia."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "This is the firewall. It's a constant stream of alien encryption. We need the key frequency to create an exit portal."
+          "text": "Este es el cortafuegos. Es un flujo constante de cifrado alienígena. Necesitamos la frecuencia clave para crear un portal de salida."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "...Matrix... the frequency is... in the combat feedback... listen to the enemy... the glitch is the key..."
+          "text": "...Matrix... la frecuencia es... en la retroalimentación del combate... escucha al enemigo... el fallo es la clave..."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "It's a shifting hex code. 7-A-F... no, 7-A-F-B... it's tied to their shields!"
+          "text": "Es un código hexadecimal cambiante. 7-A-F... no, 7-A-F-B... ¡está atado a sus escudos!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "I will keep them occupied! Focus, Matrix!"
+          "text": "¡Los mantendré ocupados! ¡Concéntrate, Matriz!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Frequency accepted. Exit portal initializing. Prepare for hard reboot!"
+          "text": "Frecuencia aceptada. Salga del portal inicializándose. ¡Prepárate para un reinicio completo!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Exit path secured. Initiating forced neural disconnect. Cyber Shogun, Oni Matrix—great work."
+          "text": "Camino de salida asegurado. Iniciando una desconexión neuronal forzada. Cyber ​​Shogun, Oni Matrix: gran trabajo."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "We have purged the corruption. Now, let us return to the physical fight."
+          "text": "Hemos purgado la corrupción. Ahora volvamos a la lucha física."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "See, Shogun? Sometimes, you gotta embrace the glitch."
+          "text": "¿Ves, Shogun? A veces hay que aceptar el problema."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: CODE PURGE. SECTOR 7 CORE OVERLOADED. CONTINENTAL BLACKOUT INITIATED."
+          "text": "MISIÓN CUMPLIDA: PURGA DE CÓDIGO. NÚCLEO DEL SECTOR 7 SOBRECARGADO. APAGÓN CONTINENTAL INICIADO."
         }
       ]
     },
     "12": {
-      "title": "Sector 7 Checkpoint (The Crossroads)",
+      "title": "Punto de control del sector 7 (El cruce)",
       "arc": "act2_arc3",
-      "setting": "The Sector 7 Checkpoint controls all transit between the northern mountain communities, eastern desert settlements, and coastal containment zones—operating as a supply interdiction hub that taxes, delays, and confiscates goods moving between human communities.",
-      "objective": "Coordinate a popular uprising of 847 civilian resistance participants to permanently seize the Sector 7 Checkpoint and establish it as the first liberated transit hub under human administrative control.",
+      "setting": "El puesto de control del Sector 7 controla todo el tránsito entre las comunidades montañosas del norte, los asentamientos desérticos del este y las zonas de contención costeras, operando como un centro de interdicción de suministros que grava, retrasa y confisca bienes que se mueven entre comunidades humanas.",
+      "objective": "Coordine un levantamiento popular de 847 participantes de la resistencia civil para apoderarse permanentemente del puesto de control del Sector 7 y establecerlo como el primer centro de tránsito liberado bajo control administrativo humano.",
       "solo_monologues": [
         {
           "character": "Aegis Ronin",
           "type": "internal",
-          "text": "This is the one I've been waiting for. Not a sabotage mission. Not a heist. A siege—and we hold what we take with the people who live here. That's a different kind of fight. That's what resistance looks like when it stops being defensive and starts being a government in waiting."
+          "text": "Éste es el que estaba esperando. No es una misión de sabotaje. No es un atraco. Un asedio, y retenemos lo que tomamos con la gente que vive aquí. Ese es un tipo diferente de pelea. Así es la resistencia cuando deja de ser defensiva y pasa a ser un gobierno a la espera."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "I am tracking 847 confirmed civilian resistance participants organizing in the northern staging area. They are not trained soldiers. They have farming tools, salvaged construction equipment, two functional vehicles, and accumulated rage at what has been done to their community. They asked me to tell the Axiom Force one thing: they have been waiting for someone to fight with them, not for them. Please do not be late."
+          "text": "Estoy rastreando a 847 participantes confirmados de la resistencia civil que se están organizando en el área de concentración norte. No son soldados entrenados. Tienen herramientas agrícolas, equipos de construcción recuperados, dos vehículos funcionales y rabia acumulada por lo que le han hecho a su comunidad. Me pidieron que le dijera una cosa a Axiom Force: han estado esperando que alguien pelee con ellos, no por ellos. Por favor, no llegues tarde."
         }
       ],
       "dialogue_status": "scripted",
@@ -1633,125 +1633,125 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "This is the heart of their regional expansion. Every Xelthara construct for a thousand miles runs on this stolen power. Destroy it, and the colonial expansion starves as we reclaim what was taken."
+          "text": "Este es el corazón de su expansión regional. Cada construcción Xelthara en mil millas a la redonda funciona con este poder robado. Si lo destruimos, la expansión colonial morirá de hambre mientras recuperamos lo que se tomó."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "The Nexus is shielded. Direct attack is impossible. We must initiate a controlled overload. There are three primary cooling rods. They must be extracted simultaneously, or the system will auto-stabilize."
+          "text": "El Nexus está blindado. El ataque directo es imposible. Debemos iniciar una sobrecarga controlada. Hay tres barras de enfriamiento principales. Deben extraerse simultáneamente o el sistema se estabilizará automáticamente."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Three targets. Aegis, you and Matrix handle Rods One and Two. I will secure Rod Three."
+          "text": "Tres objetivos. Aegis, tú y Matrix os encargáis de los Rods Uno y Dos. Yo aseguraré la Varilla Tres."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Copy. But the main terminal is exposed. Empress, you won't be able to initiate the sequence if it takes a plasma burst."
+          "text": "Copia. Pero la terminal principal está expuesta. Emperatriz, no podrás iniciar la secuencia si requiere una ráfaga de plasma."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, that's your job. You must protect the terminal while I input the fail-codes. Shogun, Matrix—get to your positions. I need all rods extracted on my mark."
+          "text": "Ronin, ese es tu trabajo. Debes proteger el terminal mientras ingreso los códigos de error. Shogun, Matrix: vayan a sus posiciones. Necesito que se extraigan todas las varillas en mi marca."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Terminal secured. Shield is up! PROTECTION PROTOCOL ACTIVE! You have your window, Empress!"
+          "text": "Terminal asegurada. ¡El escudo está levantado! ¡PROTOCOLO DE PROTECCIÓN ACTIVO! ¡Tienes tu ventana, emperatriz!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Overload sequence initiated. It requires immediate, sequential stress. Rod teams, prepare for extraction."
+          "text": "Secuencia de sobrecarga iniciada. Requiere estrés inmediato y secuencial. Equipos de caña, prepárense para la extracción."
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Ready on Rod One. Getting a nasty static discharge here. This is going to hurt."
+          "text": "Listo en Rod One. Obteniendo una descarga estática desagradable aquí. Esto va a doler."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Honor demands the sacrifice. Ready, Empress."
+          "text": "El honor exige el sacrificio. Listo, Emperatriz."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Starting the countdown. T-minus five. Four. Ronin, maximize shield output! Three. Two."
+          "text": "Iniciando la cuenta atrás. T-menos cinco. Cuatro. ¡Ronin, maximiza la salida del escudo! Tres. Dos."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "For the glory of Earth!"
+          "text": "¡Por la gloria de la Tierra!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "ONE. PULL!"
+          "text": "UNO. ¡JALAR!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Core temperature is spiking! Catastrophic overload achieved! Empress, you have 30 seconds to lock the sequence and extract!"
+          "text": "¡La temperatura central está aumentando! ¡Sobrecarga catastrófica lograda! ¡Emperatriz, tienes 30 segundos para bloquear la secuencia y extraer!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, move to the extraction point! I'm locking the final code!"
+          "text": "¡Ronin, muévete al punto de extracción! ¡Estoy bloqueando el código final!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "No, Commander! I'm buying you time! I'm collapsing the service bridge behind me!"
+          "text": "¡No, comandante! ¡Te estoy ganando tiempo! ¡Estoy derrumbando el puente de servicio detrás de mí!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "BREAK AND BURN!"
+          "text": "¡ROMPE Y QUEMA!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Final code entered! Core lock successful! RUN!"
+          "text": "¡Código final ingresado! ¡Bloqueo de núcleo exitoso! ¡CORRER!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Reactor Nexus... destroyed. Regional terraforming power offline."
+          "text": "Reactor Nexus... destruido. Poder de terraformación regional fuera de línea."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "A brilliant strike, Empress. The Xelthara are now blind and powerless in this sector."
+          "text": "Un golpe brillante, emperatriz. Los Xelthara ahora están ciegos e impotentes en este sector."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Let's keep moving. That explosion just put a target on our back for the whole planet."
+          "text": "Sigamos moviéndonos. Esa explosión simplemente nos puso en la espalda un objetivo para todo el planeta."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE HEART ATTACK. SECTOR 7 CHECKPOINT LIBERATED."
+          "text": "MISIÓN CUMPLIDA: EL ATAQUE AL CORAZÓN. LIBERADO EL PUNTO DE CONTROL DEL SECTOR 7."
         }
       ]
     },
     "13": {
-      "title": "The Obsidian Vault (Cultural Archives)",
+      "title": "La Bóveda de Obsidiana (Archivos Culturales)",
       "arc": "act2_arc3",
-      "setting": "Located beneath the former Getty Center, the Obsidian Vault is the colonial administration's primary cultural seizure archive. The Original Land Treaty Database—a comprehensive record of pre-invasion human land tenure going back five centuries—is stored here, classified as 'Discovered Heritage Assets.'",
-      "objective": "Infiltrate the Obsidian Vault, extract the Original Land Treaty Database and all language and oral history archives, and destroy the physical catalogue system to permanently halt the colonial cultural processing pipeline.",
+      "setting": "Ubicada debajo del antiguo Centro Getty, la Bóveda de Obsidiana es el principal archivo de incautación cultural de la administración colonial. La base de datos de tratados de tierras originales, un registro completo de la tenencia de tierras humana antes de la invasión que se remonta a cinco siglos atrás, se almacena aquí, clasificada como \"Bienes patrimoniales descubiertos\".",
+      "objective": "Infíltrate en la Bóveda de Obsidiana, extrae la base de datos del Tratado de Tierras Original y todos los archivos de lengua e historia oral, y destruye el sistema de catálogo físico para detener permanentemente el proceso de procesamiento cultural colonial.",
       "solo_monologues": [
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "A warrior's honor is defined by what he protects as much as what he destroys. Tonight, I protect something. The records inside this vault are the proof that we existed here before they arrived—that we had names for this land, built on it, were buried in it, told stories about it for centuries. If they erase that proof, they can write any history they want. I will not let that happen."
+          "text": "El honor de un guerrero se define tanto por lo que protege como por lo que destruye. Esta noche protejo algo. Los registros dentro de esta bóveda son la prueba de que existimos aquí antes de que ellos llegaran: que teníamos nombres para esta tierra, que construimos en ella, que fuimos enterrados en ella y que contamos historias sobre ella durante siglos. Si borran esa prueba, podrán escribir la historia que quieran. No dejaré que eso suceda."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "The Obsidian Vault contains 4.2 million catalogued artifacts and records. Of these, 340,000 have been marked for destruction as 'non-essential redundancies.' Seventeen thousand items were destroyed last month alone. I have the names of every single one. I want you to know that before you go in. What we save tonight is what remains. There is no recovering what is already gone. But there is still something left to save."
+          "text": "La Bóveda de Obsidiana contiene 4,2 millones de artefactos y registros catalogados. De ellos, 340.000 han sido marcados para su destrucción como \"despidos no esenciales\". Sólo el mes pasado se destruyeron diecisiete mil artículos. Tengo los nombres de cada uno. Quiero que sepas eso antes de entrar. Lo que salvaremos esta noche es lo que queda. No hay forma de recuperar lo que ya se ha ido. Pero aún queda algo por salvar."
         }
       ],
       "dialogue_status": "scripted",
@@ -1759,372 +1759,372 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Welcome to the Gauntlet. This bridge is the symbol of their settler occupation. We refuse to be erased by their architectural arrogance."
+          "text": "Bienvenido al Guantelete. Este puente es el símbolo de su ocupación colona. Nos negamos a ser borrados por su arrogancia arquitectónica."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Strategy update: We cannot use long-range tactics here. The Citadel's defense grid will vaporize any drone above 50 feet. We have to breach this bridge on foot. Ronin, Shogun—you lead the push. Matrix, stand by for immediate perimeter flares."
+          "text": "Actualización de estrategia: aquí no podemos utilizar tácticas de largo alcance. La red de defensa de la Ciudadela vaporizará cualquier dron a más de 50 pies. Tenemos que atravesar este puente a pie. Ronin, Shogun: ustedes lideran el avance. Matrix, prepárense para bengalas perimetrales inmediatas."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Fine by me. If they want a fight, they'll get a final stand. Shield up! IRON WALL!"
+          "text": "Bien por mí. Si quieren pelear, tendrán una última posición. ¡Escúdete! ¡PARED DE HIERRO!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Honor is earned in the crucible. Let them test our strength."
+          "text": "El honor se gana en el crisol. Que prueben nuestra fuerza."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Incoming artillery! Aegis Ronin, maximize shield spread!"
+          "text": "¡Artillería entrante! ¡Aegis Ronin, maximiza la extensión del escudo!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "HOLDING! I can taste the ozone from those plasma bursts! Shogun, move!"
+          "text": "¡sosteniendo! ¡Puedo saborear el ozono de esas explosiones de plasma! ¡Shogun, muévete!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "ONWARD! Their line must be broken. Engaging the first wave of Elite Sentinels!"
+          "text": "¡ADELANTE! Hay que romper su línea. ¡Enfrentándonos a la primera oleada de Elite Sentinels!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Unworthy! KATA SHIKEN! Ronin, push forward!"
+          "text": "¡Indigno! ¡KATA SHIKEN! ¡Ronin, sigue adelante!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Pushing! Give me a target, Siren, I'm blind under this fire!"
+          "text": "¡Empujando! ¡Dame un objetivo, sirena, estoy ciega bajo este fuego!"
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ronin, mortar coordinates 42 degrees right! Move your shield a full meter to the left, now!"
+          "text": "Ronin, el mortero coordina 42 grados, ¡correcto! ¡Mueve tu escudo un metro hacia la izquierda, ahora!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Thank you, Commander! Matrix, I need a distraction on the far turrets!"
+          "text": "¡Gracias, comandante! Matrix, ¡necesito una distracción en las torretas lejanas!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Throwing digital noise at the main cannon optics! It won't last long! GO!"
+          "text": "¡Lanzando ruido digital a la óptica del cañón principal! ¡No durará mucho! ¡IR!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Crusher units detected! Kinetic weapons ineffective! Cyber Shogun, switch to high-yield plasma output!"
+          "text": "¡Se detectaron unidades trituradoras! ¡Las armas cinéticas son ineficaces! Cyber ​​Shogun, ¡cambia a producción de plasma de alto rendimiento!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "They rely on armor. I rely on speed and thermal core output. HONOR IS HOTTER THAN PLASMA!"
+          "text": "Dependen de la armadura. Confío en la velocidad y la salida térmica del núcleo. ¡EL HONOR ES MÁS CALIENTE QUE EL PLASMA!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "MY SHIELD IS AT 30%! I'M TAKING DIRECT HITS! HURRY, SHOGUN!"
+          "text": "¡MI ESCUDO ESTÁ AL 30%! ¡ESTOY RECIBIENDO GOLPES DIRECTOS! ¡DATE PRISA, SHOGUN!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "One down! Two down! Maintain the shield, Ronin! I need three more seconds!"
+          "text": "¡Uno menos! ¡Dos menos! ¡Mantén el escudo, Ronin! ¡Necesito tres segundos más!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "THREE SECONDS IS ALL I HAVE!"
+          "text": "¡TRES SEGUNDOS ES TODO LO QUE TENGO!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Crushers neutralized. Aegis, fall back and recharge the shield! I will hold the immediate front!"
+          "text": "Trituradoras neutralizadas. ¡Aegis, retrocede y recarga el escudo! ¡Mantendré el frente inmediato!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "This is not sustainable! AXIOM, find an alternate route!"
+          "text": "¡Esto no es sostenible! ¡AXIOM, encuentra una ruta alternativa!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Negative. The only option is to reach the far bridge console and activate the seismic destabilizers."
+          "text": "Negativo. La única opción es llegar a la consola del puente más alejado y activar los desestabilizadores sísmicos."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Then we fight and die with honor! Aegis, put everything you have left into a final, forward pulse! Give me the momentum to cross the final stretch!"
+          "text": "¡Entonces lucharemos y moriremos con honor! ¡Aegis, pon todo lo que te queda en un pulso final hacia adelante! ¡Dame el impulso para cruzar la recta final!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "With pleasure! KINETIC RELEASE!"
+          "text": "¡Con mucho gusto! ¡LIBERACIÓN CINÉTICA!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Console reached! Initiating seismic destabilization!"
+          "text": "¡Consola alcanzada! ¡Iniciando desestabilización sísmica!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Destabilization successful. Mission complete."
+          "text": "Desestabilización exitosa. Misión completa."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Told you... nothing breaks our wall."
+          "text": "Te lo dije... nada rompe nuestro muro."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "No. Nothing breaks our will."
+          "text": "No. Nada quebranta nuestra voluntad."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: THE OBSIDIAN VAULT BREACHED. CULTURAL ARCHIVES EXTRACTED."
+          "text": "MISIÓN CUMPLIDA: LA BÓVEDA DE OBSIDIANA ROCHA. ARCHIVOS CULTURALES EXTRAÍDOS."
         }
       ]
     },
     "14": {
-      "title": "The Citadel Approach (The High Command Bridge)",
+      "title": "El acceso a la Ciudadela (el puente del Alto Mando)",
       "arc": "act2_arc3",
-      "setting": "The final 400-meter fortified bridge over the drained LA River—the only surface-level approach to the Xelthara High Command Citadel, built over the demolished Boyle Heights community. The Xelthara designed this approach to be impassable.",
-      "objective": "Push across the 400-meter bridge under sustained artillery fire to reach the Citadel's entrance gate—a relentless grinding advance using Ronin's shield and Siren's drone barrage.",
+      "setting": "El último puente fortificado de 400 metros sobre el río drenado de Los Ángeles, el único acceso a nivel de superficie a la Ciudadela del Alto Mando de Xelthara, construido sobre la demolida comunidad de Boyle Heights. Los Xelthara diseñaron este acceso para que fuera intransitable.",
+      "objective": "Cruza el puente de 400 metros bajo fuego sostenido de artillería para llegar a la puerta de entrada de la Ciudadela: un avance implacable usando el escudo de Ronin y el bombardeo de drones de Siren.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
           "type": "internal",
-          "text": "I have run the tactical models seventeen times. Every version involves absorbing damage we cannot fully mitigate. Ronin's shield will be at 10% before we reach the gate. I am asking them to walk through a killing field because it is the only door. The Xelthara built it that way on purpose—so that the cost of freedom would be high enough to discourage the attempt. We are not discouraged."
+          "text": "He ejecutado los modelos tácticos diecisiete veces. Cada versión implica absorber daños que no podemos mitigar por completo. El escudo de Ronin estará al 10% antes de que lleguemos a la puerta. Les pido que atraviesen un campo de exterminio porque es la única puerta. Los Xelthara lo construyeron de esa manera a propósito, para que el costo de la libertad fuera lo suficientemente alto como para desalentar el intento. No nos desanimamos."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "I want to say something before this begins. I have run probability assessments on every mission in this campaign. I am not giving you the number for this one. Not because it would stop you. Because you have already decided. And the number doesn't matter to people who have already decided. I will be with you every step of the bridge. I will not look away."
+          "text": "Quiero decir algo antes de que esto comience. He realizado evaluaciones de probabilidad en cada misión de esta campaña. No te doy el número de este. No porque eso te detuviera. Porque ya lo has decidido. Y el número no les importa a las personas que ya lo han decidido. Estaré contigo en cada paso del puente. No apartaré la mirada."
         }
       ],
       "dialogue_status": "pending",
       "dialogue": []
     },
     "15": {
-      "title": "Judgment Day (The Final Liberation)",
+      "title": "Día del Juicio (La Liberación Final)",
       "arc": null,
-      "setting": "The High Overseer's throne room—a platform suspended over the burning ruins of Neo-LA, where the supreme commander of the Xelthara colonial occupation awaits the final confrontation.",
-      "objective": "Defeat the Xelthara High Overseer using the Axiom Force's combined Ultimate Protocols in a coordinated final assault.",
+      "setting": "La sala del trono del Alto Supervisor: una plataforma suspendida sobre las ruinas en llamas de Neo-LA, donde el comandante supremo de la ocupación colonial de Xelthara espera la confrontación final.",
+      "objective": "Derrota al Alto Supervisor Xelthara usando los Protocolos Definitivos combinados de Axiom Force en un asalto final coordinado.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
         {
           "speaker": "High Overseer",
           "type": "spoken",
-          "text": "You struggle for indigenous sovereignty against the inevitable tide of colonial assimilation. This planet is merely real estate in our grand design, and your history is digital noise to be erased."
+          "text": "Luchas por la soberanía indígena contra la inevitable marea de asimilación colonial. Este planeta es simplemente un bien inmueble en nuestro gran diseño, y su historia es ruido digital que debe ser borrado."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "We are the soul of this world, not your property. We assert our indigenous sovereignty over our homeland! We refuse your colonial assimilation; Earth belongs to its inhabitants, not your blueprints!"
+          "text": "Somos el alma de este mundo, no tu propiedad. ¡Afirmamos nuestra soberanía indígena sobre nuestra patria! Rechazamos su asimilación colonial; ¡La Tierra pertenece a sus habitantes, no a tus planos!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "I am the blade of my ancestors, and the voice of a world you tried to silence. You call us insects, but you forgot one thing about Earth: we don't just endure. We strike back."
+          "text": "Soy la espada de mis ancestros y la voz de un mundo que intentaste silenciar. Nos llamas insectos, pero olvidaste una cosa sobre la Tierra: no solo aguantamos. Contraatacamos."
         },
         {
           "speaker": "High Overseer",
           "type": "spoken",
-          "text": "Then burn with your planet."
+          "text": "Luego arde con tu planeta."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Warning! Overseer energy output at 400%. Axiom Force, execute Ultimate Protocol: UNISON!"
+          "text": "¡Advertencia! Supervisar la producción de energía al 400%. Axiom Force, ejecuta Ultimate Protocol: ¡UNISON!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Not on my watch! ULTIMATE: JUGGERNAUT BULWARK!"
+          "text": "¡No bajo mi vigilancia! ÚLTIMO: ¡BALUARTE DEL JUGGERNAUT!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Locking coordinates! ULTIMATE: VOID RAIN!"
+          "text": "¡Bloqueando coordenadas! ÚLTIMO: ¡LLUVIA VACÍA!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "He's open! ULTIMATE: TOTAL SYSTEM COLLAPSE!"
+          "text": "¡Está abierto! ÚLTIMO: ¡ COLAPSO TOTAL DEL SISTEMA!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "For the homeland! ULTIMATE: OBLIVION SLASH!"
+          "text": "¡Por la patria! ÚLTIMO: ¡OBLIVION SLASH!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "The occupation signals have ceased. The atmosphere is stabilizing. You have done it. Earth is... home again."
+          "text": "Las señales de ocupación han cesado. La atmósfera se está estabilizando. Lo has hecho. La Tierra es... casa otra vez."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "I'm actually seeing stars. Not digital ones. Real ones."
+          "text": "De hecho estoy viendo estrellas. No los digitales. Los reales."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "I think I'm going to find a quiet place and sleep for a decade."
+          "text": "Creo que encontraré un lugar tranquilo y dormiré durante una década."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "The sword is sheathed. The honor of humanity is restored."
+          "text": "La espada está envainada. Se restablece el honor de la humanidad."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "We have a world to rebuild. But today... today we just breathe."
+          "text": "Tenemos un mundo que reconstruir. Pero hoy... hoy sólo respiramos."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mission successful. Automated eXternal Intelligence Operations Module... signing off. Good luck, heroes."
+          "text": "Misión exitosa. Módulo automatizado de operaciones de inteligencia externa... despidiéndose. Buena suerte, héroes."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: JUDGMENT DAY. THE HIGH OVERSEER IS DEFEATED. EARTH RECLAIMED."
+          "text": "MISIÓN CUMPLIDA: EL DÍA DEL JUICIO. EL ALTO SUPERVISOR ES DERROTADO. TIERRA RECUPERADA."
         }
       ]
     },
     "16": {
-      "title": "True Climax / Post-Game Bonus",
+      "title": "True Climax / Bonificación post-juego",
       "arc": null,
-      "setting": "The Xelthara Mothership's Singularity Engine chamber—a chamber of pure unstable energy at the heart of the collective's power, where the Collective Will itself manifests.",
-      "objective": "Destroy the Collective Will's Singularity Engine core by coordinating generator overloads and a final combined strike before the mothership completes its erasure of Earth.",
+      "setting": "La cámara del motor de singularidad de la nave nodriza Xelthara: una cámara de energía pura e inestable en el corazón del poder colectivo, donde se manifiesta la propia voluntad colectiva.",
+      "objective": "Destruye el núcleo del Motor de Singularidad de la Voluntad Colectiva coordinando sobrecargas del generador y un ataque combinado final antes de que la nave nodriza complete su borrado de la Tierra.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "This is beyond a containment zone. My instruments are failing. The very fabric of space is unstable here. This must be the Mothership's true heart."
+          "text": "Esto está más allá de una zona de contención. Mis instrumentos están fallando. La estructura misma del espacio es inestable aquí. Este debe ser el verdadero corazón de la nave nodriza."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "The Xelthara High Overseer was a mere pawn. This power... this is the source of the occupation. The Collective Will."
+          "text": "El Alto Supervisor de Xelthara era un mero peón. Este poder... esta es la fuente de la ocupación. La voluntad colectiva."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "I can feel the pure data stream, Shogun. It's trying to rewrite my neural core. We don't belong here. We need to hit that engine and get out."
+          "text": "Puedo sentir el flujo de datos puro, Shogun. Está intentando reescribir mi núcleo neuronal. No pertenecemos aquí. Necesitamos encender ese motor y salir."
         },
         {
           "speaker": "The Collective Will",
           "type": "vo",
-          "text": "You are a localized anomaly in a grand design. All existence is a fungible resource for our expansion. Your homeland is already factored into our final equation of erasure."
+          "text": "Eres una anomalía localizada en un gran diseño. Toda existencia es un recurso fungible para nuestra expansión. Su patria ya está incluida en nuestra ecuación final de eliminación."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Existence, huh? Then let's show Existence what happens when you mess with Earth! Ronin, engaging the perimeter guardians!"
+          "text": "Existencia, ¿eh? ¡Entonces mostrémosle a Existencia lo que sucede cuando te metes con la Tierra! ¡Ronin, atacando a los guardianes del perímetro!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, keep those guardians occupied! Matrix, Shogun, hit the generators on the upper spires! We need to disrupt the magnetic field before I can target the core!"
+          "text": "¡Ronin, mantén ocupados a esos guardianes! ¡Matrix, Shogun, atacad los generadores de las agujas superiores! ¡Necesitamos interrumpir el campo magnético antes de que pueda apuntar al núcleo!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "I'm in position on Generator One! Overriding the safety locks!"
+          "text": "¡Estoy en posición en el Generador Uno! ¡Anulando los bloqueos de seguridad!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Generator Two secured! This is a temporary measure, Empress! The Collective Will is focusing its energy on us!"
+          "text": "¡Generador Dos asegurado! ¡Esta es una medida temporal, Emperatriz! ¡La Voluntad Colectiva centra su energía en nosotros!"
         },
         {
           "speaker": "The Collective Will",
           "type": "vo",
-          "text": "You cannot escape the equation. Your home is already factored into our grand design."
+          "text": "No puedes escapar de la ecuación. Su hogar ya está incluido en nuestro gran diseño."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "I've got a window! Matrix, Shogun—charge those generators to maximum overload!"
+          "text": "¡Tengo una ventana! Matrix, Shogun: ¡carguen esos generadores al máximo!"
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Core exposed! AXIOM, I need final targeting coordinates!"
+          "text": "¡Núcleo expuesto! AXIOM, ¡necesito las coordenadas finales del objetivo!"
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "...the final trajectory... you must hit the nexus point... zero-zero-zero..."
+          "text": "...la trayectoria final... debes llegar al punto de nexo... cero-cero-cero..."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "I understand. Ronin, get back here! Prepare to defend the breach point! This is a kamikaze strike!"
+          "text": "Lo entiendo. ¡Ronin, vuelve aquí! ¡Prepárate para defender el punto de ruptura! ¡Esto es un ataque kamikaze!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Everyone behind me! The shockwave is coming! ULTIMATE: JUGGERNAUT BULWARK!"
+          "text": "¡Todos detrás de mí! ¡Se acerca la onda expansiva! ÚLTIMO: ¡BALUARTE DEL JUGGERNAUT!"
         },
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "I'm overriding the containment fields! It's going critical!"
+          "text": "¡Estoy anulando los campos de contención! ¡Se está volviendo crítico!"
         },
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Orbital strike ready! I'm dropping everything we've got on that core!"
+          "text": "¡Ataque orbital listo! ¡Voy a dejar todo lo que tenemos en ese núcleo!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "For Earth! FOR HUMANITY! STRIKE NOW! ULTIMATE: OBLIVION SLASH!"
+          "text": "¡Por la Tierra! ¡POR LA HUMANIDAD! ¡HUELGA AHORA! ÚLTIMO: ¡OBLIVION SLASH!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Did... we escape?"
+          "text": "¿... escapamos?"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "I don't know... but the Mothership is gone. The Will is silent."
+          "text": "No lo sé... pero la nave nodriza ya no está. La Voluntad guarda silencio."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "We won the war, gentlemen. Now we just have to win the ride home."
+          "text": "Ganamos la guerra, señores. Ahora sólo nos queda ganar el viaje a casa."
         },
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "I think... I see Earth. So clean. So blue."
+          "text": "Creo... veo la Tierra. Tan limpio. Tan azul."
         },
         {
           "speaker": "Recovery Command",
           "type": "radio",
-          "text": "Axiom Force, this is Recovery Command. We read you. Your systems are nominal. Welcome home, heroes."
+          "text": "Axiom Force, aquí el Comando de Recuperación. Te leemos. Sus sistemas son nominales. Bienvenidos a casa, héroes."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLETE: TRUE CLIMAX. THE COLLECTIVE WILL ERADICATED. THE END. BUT THE FIGHT CONTINUES."
+          "text": "MISIÓN CUMPLIDA: VERDADERO CLIMAX. EL COLECTIVO SERÁ ERRADICADO. EL FIN. PERO LA LUCHA CONTINÚA."
         }
       ]
     }
