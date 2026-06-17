@@ -263,7 +263,7 @@ Flota de Drones Uno, establezcan un enjambre protector alrededor del transbordad
 La columna está directamente debajo de un sector restringido. Los bombardeos orbitales están prohibidos debido a la desestabilización de la plataforma cinética del satélite.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Prohibido es irrelevante. No los veré morir. AXIOM, dame acceso manual a la trayectoria de la plataforma Kinetic Satellite. Necesito un único disparo desesperado.
+Prohibido es irrelevante. No los veré morir. AXIOM, dame acceso de anulación manual a la transmisión de trayectoria de la Plataforma Satélite Cinética. Necesito un único disparo desesperado.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Comando del Vacío a la Plataforma Cinética: FUEGO. Coordenada 51.4883 N, 120.7301 W. PROTOCOLO DE OBLITERACIÓN.
@@ -301,7 +301,7 @@ REGISTRO DE DESPLAZAMIENTO: RED DE SEPARACIÓN DEL SECTOR-4. TIPO DE ESTRUCTURA:
 EL MURO QUE LLAMARON PUERTA
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-La estructura que está viendo está designada en los registros coloniales como 'Sistema de Control de Autoridad de Tránsito y Optimización de la Población del Sector 4'. Es un muro. Es un muro de segregación. Cada ser humano de este lado requiere un permiso de residencia emitido por Xelthara para cruzar. Los permisos no se expiden. El sistema de postulación tiene un retraso de dos años. Esto no es un accidente. Esta es la arquitectura del desplazamiento permanente.
+La estructura que está viendo está designada en los registros coloniales como 'Sistema de Control de Autoridad de Tránsito y Optimización de la Población del Sector 4'. Es un muro. Es un muro de segregación. Cada ser humano de este lado requiere un permiso de residencia emitido por Xelthara para cruzar. Los permisos no se expiden. El sistema de postulación tiene un retraso de dos años. Esto no es un accidente. Ésta es la arquitectura del desplazamiento permanente.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 Pasé ocho meses en una zona de contención como ésta después de que tomaron el Valle de San Fernando. Ocho meses viendo a los niños hacerse más pequeños porque las raciones calóricas están diseñadas para una especie que no come lo mismo que nosotros. Y por otro lado, se comen nuestra comida. En nuestros restaurantes. En nuestra ciudad.
@@ -331,7 +331,7 @@ Entendido. Es tuyo.
 Ronin, lleva a Spire Alpha al corredor de las artes. Shogun, Spire Gamma en la Biblioteca Central. Matrix tiene Beta. Coordinaré la supresión de drones en las rutas de patrulla y me uniré a Shogun en el acceso a la biblioteca. AXIOM guiará la secuenciación. Las cuatro agujas caen en secuencia, luego convergemos en Pershing Square y desmontamos el Núcleo pieza por pieza.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Nota: Las patrullas de la Autoridad Fronteriza son densas pero estructuradas. El puesto de control cuenta con personal las 24 horas del Enforcer-Administrator Voss, quien gestiona la autorización de cruce físico. No es un oficial de combate. Es un burócrata. Él personalmente rechazó 4.400 solicitudes de cruce en el último mes.
+Nota: Las patrullas de la Autoridad Fronteriza son densas pero estructuradas. El puesto de control cuenta con personal las 24 horas del ejecutor-administrador Voss, quien gestiona la autorización de cruce físico. No es un oficial de combate. Es un burócrata. Él personalmente rechazó 4.400 solicitudes de cruce en el último mes.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 4.400. Personas que sólo querían caminar a casa.
@@ -710,7 +710,7 @@ MISIÓN CUMPLIDA: DEVASTACIÓN INDUSTRIAL. LOS DATOS DE SHADO-GRID SPIRE SON NUE
 # kind: level # level: 7 # title: Cyber-Grave Labs (instalación subterránea) # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Debajo del antiguo Centro de Convenciones, los Xelthara han establecido Cyber-Grave Labs Sector-Omega-7, un centro de investigación de modificaci��n del comportamiento clasificado y designado públicamente como "centro de bienestar y reintegración humana". Aquí se procesa a los líderes de la resistencia humana y a los organizadores comunitarios capturados. Surgen dóciles, desconectados, incapaces de recordar por qué estaban enojados.
+Debajo del antiguo Centro de Convenciones, los Xelthara han establecido Cyber-Grave Labs Sector-Omega-7, un centro de investigación de modificación del comportamiento clasificado y designado públicamente como "centro de bienestar y reintegración humana". Aquí se procesa a los líderes de la resistencia humana y a los organizadores comunitarios capturados. Surgen dóciles, desconectados, incapaces de recordar por qué estaban enojados.
 
 # kind: objective
 Extraiga el archivo completo del protocolo de acondicionamiento y destruya el enlace ascendente neuronal central para restaurar la autonomía neuronal de cientos de individuos condicionados que actualmente viven en las zonas de contención.
@@ -725,7 +725,7 @@ Al comparar los archivos del sujeto con la base de datos de la red de resistenci
 Esta instalación es el motor de la explotación de recursos. Están convirtiendo activamente los minerales de la Tierra en biocombustible tóxico para envíos fuera del mundo, dejando atrás un planeta muerto. Éste es el costo de la expansión colonial.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-El aire es tóxico porque ven nuestro mundo como una fuente de combustible fungible. Estos laboratorios están convirtiendo el elemento vital de nuestro planeta en energía para sus asentamientos. Debemos detener esta extracción o no quedará nada que salvar.
+El aire es tóxico porque ven nuestro mundo como una fuente de combustible fungible. Estos laboratorios están convirtiendo el elemento vital de nuestro planeta en energía para sus asentamientos. Debemos detener esta extracción o no quedar�� nada que salvar.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
 Este lugar... no tiene ningún honor. Corromper a los muertos y esclavizar a los vivos. Los Xelthara practican la profanación, no la guerra. Sólo siento desprecio por esta crueldad.
@@ -1098,7 +1098,7 @@ Secuencia de sobrecarga iniciada. Requiere estrés inmediato y secuencial. Equip
 Listo en Rod One. Obteniendo una descarga estática desagradable aquí. Esto va a doler.
 
 # kind: dialogue # speaker: Cyber Shogun # type: radio
-El honor exige el sacrificio. Listo, emperatriz.
+El honor exige el sacrificio. Listo, Emperatriz.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Iniciando la cuenta atrás. T-menos cinco. Cuatro. ¡Ronin, maximiza la salida del escudo! Tres. Dos.
@@ -1142,7 +1142,7 @@ MISIÓN CUMPLIDA: EL ATAQUE AL CORAZÓN. LIBERADO EL PUNTO DE CONTROL DEL SECTOR
 # kind: level # level: 13 # title: La Bóveda de Obsidiana (Archivos Culturales) # arc: act2_arc3 # dialogue_status: scripted
 
 # kind: setting
-Ubicada debajo del antiguo Centro Getty, la Bóveda de Obsidiana es el principal archivo de incautación cultural de la administración colonial. La base de datos de tratados de tierras originales, un registro completo de la tenencia de la tierra humana antes de la invasión que se remonta a cinco siglos atrás, se almacena aquí, clasificada como "Bienes patrimoniales descubiertos".
+Ubicada debajo del antiguo Centro Getty, la Bóveda de Obsidiana es el principal archivo de incautación cultural de la administración colonial. La base de datos de tratados de tierras originales, un registro completo de la tenencia de tierras humana antes de la invasión que se remonta a cinco siglos atrás, se almacena aquí, clasificada como "Bienes patrimoniales descubiertos".
 
 # kind: objective
 Infíltrate en la Bóveda de Obsidiana, extrae la base de datos del Tratado de Tierras Original y todos los archivos de lengua e historia oral, y destruye el sistema de catálogo físico para detener permanentemente el proceso de procesamiento cultural colonial.

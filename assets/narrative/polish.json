@@ -45,7 +45,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Ostrzeżenie: Wieże komunikacyjne transmitują informację o odmowie usługi. Prawdopodobieństwo wykrycia ryzyka wynosi 98,7%. Zalecany jest odwrót."
+          "text": "Ostrzeżenie: Wieże komunikacyjne transmitują informację o odmowie usługi. Prawdopodobieństwo wykrycia ryzyka wynosi 98,7%. Wskazany jest odwrót."
         }
       ],
       "dialogue_status": "scripted",
@@ -106,7 +106,7 @@
       "title": "Betonowy pożar",
       "arc": null,
       "setting": "Masywna, ogrodzona brama wlotowa Strefy Przechowawczej 4. Tysiące rodzin jest przepędzanych jak bydło przez ogrodzenia energetyczne. Za nimi ich podmiejskie domy są zrównane z ziemią przez maszyny ekspansji Xelthara.",
-      "objective": "Utrzymuj „Ostatni most” przeciwko Enforcerom Xelthara gromadzącym populację, pozwalając ostatniej grupie uchodźców wśliznąć się do nieoznaczonych na mapie slumsów zamiast do zamkniętych obozów.",
+      "objective": "Utrzymaj „Ostatni most” przeciwko Enforcerom Xelthara gromadzącym populację, pozwalając ostatniej grupie uchodźców wśliznąć się do nieoznaczonych na mapie slumsów zamiast do zamkniętych obozów.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
@@ -196,7 +196,7 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Budują swój raj na naszym suficie i dziwią się, że piwnica przecieka. Żyjemy w dziurach, które zapomnieli wybrukować. To ogniwo energetyczne jest nie tylko dla mnie; chodzi o to, żeby włączyć grzejniki dla stu rodzin, o których „zapomniały” w planach."
+          "text": "Budują swój raj na naszym suficie i dziwią się, że piwnica przecieka. Żyjemy w dziurach, które zapomnieli wybrukować. To ogniwo zasilające jest nie tylko dla mnie; chodzi o to, żeby włączyć grzejniki dla stu rodzin, o których „zapomniały” w planach."
         },
         {
           "character": "AXIOM-7",
@@ -271,7 +271,7 @@
     "4": {
       "title": "Zniszczona Egida Dowódcy Pustki",
       "arc": null,
-      "setting": "Zniszczone pozostałości Centrum Obrony Pacyfiku. Xelthara poddaje recyklingowi dumną, tradycyjną infrastrukturę wojskową, zmuszając Syrenę do koordynowania zdecentralizowanej sieci ukrytych komórek.",
+      "setting": "Zniszczone pozostałości Centrum Obrony Pacyfiku. Dumna, tradycyjna infrastruktura wojskowa jest poddawana recyklingowi przez Xelthara, zmuszając Syrenę do koordynowania zdecentralizowanej sieci ukrytych komórek.",
       "objective": "Zdemontuj ostatnią stojącą wojskową wieżę nadawczą i rozdaj jej chipy częstotliwości cywilnym komórkom ruchu oporu, finalizując przejście do wojny partyzanckiej.",
       "solo_monologues": [
         {
@@ -501,12 +501,12 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Rozumiem. Jestem u podstawy Iglicy Alpha. Widzę kotwicę. Jest przykręcona przez coś, co kiedyś było mozaikowym chodnikiem."
+          "text": "Rozumiem. Jestem u podstawy Iglicy Alfa. Widzę kotwicę. Jest przykręcona przez coś, co kiedyś było mozaikowym chodnikiem."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Przebili go przez mozaikę. Na tej płytce chodnika była namalowana cała historia. Portrety, imiona, daty. Projekt społecznościowy. Po prostu... przewiercili środek twarzy, żeby zakotwiczyć swój słup."
+          "text": "Przebili go przez mozaikę. Na tej płytce chodnika była namalowana cała historia. Portrety, imiona, daty. Projekt społecznościowy. Po prostu... przewiercili środek twarzy, ��eby zakotwiczyć swój słup."
         },
         {
           "speaker": "AXIOM-7",
@@ -636,7 +636,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Zrozumiałem. Cichy oznacza precyzję. Nie będę hańbił tego budynku niepotrzebnym hałasem."
+          "text": "Zrozumiałem. Cichy oznacza precyzję. Nie będ�� hańbił tego budynku niepotrzebnym hałasem."
         },
         {
           "speaker": "Empress Siren",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Powiedziałem dwunastu rodzinom, jak organizować rotacje straży społecznej w tym pokoju. W części dla dzieci stały krzesła z workami fasolowymi. Ktoś przykleił rysunki kredkami do biurka. Dziecko narysowało superbohatera. Różnica między biblioteką a centrum danych polega na tym, że w bibliotece zakłada się, że ludzie, którzy przechodzą przez jej drzwi, mają prawo tam przebywać."
+          "text": "Powiedziałem dwunastu rodzinom, jak organizować rotacje straży społecznej w tym pokoju. W części dla dzieci znajdowały się krzesła z workami fasolowymi. Ktoś przykleił rysunki kredkami do biurka. Dziecko narysowało superbohatera. Różnica między biblioteką a centrum danych polega na tym, że w bibliotece zakłada się, że ludzie, którzy przechodzą przez jej drzwi, mają prawo tam przebywać."
         },
         {
           "speaker": "Empress Siren",
@@ -676,7 +676,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Potwierdzone. Zerwanie tego połączenia spowoduje uszkodzenie około 12 000 aktów przeniesienia własności kolonii dotyczących nieruchomości w sektorze 4. Te zapisy stanowią podstawę prawną zajęcia ziemi."
+          "text": "Potwierdzone. Zerwanie tego połączenia spowoduje uszkodzenie około 12 000 aktów przeniesienia własności kolonii dotyczących nieruchomości w sektorze 4. Te zapisy stanowią podstawę prawną zajęcia gruntów."
         },
         {
           "speaker": "Empress Siren",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "To nie jest podejście ukryte. Delta to ufortyfikowana pozycja. Uderzyliśmy jako całość. Ronin — przejmujesz punkt, chronisz się do przodu, przyciągasz ich uwagę i absorbujesz ich początkową salwę. Shogun, oczyść lewą flankę. Matrix, użyj Przesunięcia Fazowego, aby dotrzeć do panelu sterowania wieżyczką po prawej stronie i zabij wszystkie trzy wieżyczki jednocześnie. Gdy wieże zostaną zniszczone, wysyłam drony do ognia nasycającego oddział egzekucyjny. Rozwalamy garnizon, po czym Ronin wbija iglicę w ziemię."
+          "text": "To nie jest podejście ukryte. Delta to ufortyfikowana pozycja. Uderzyliśmy jako całość. Ronin — przejmujesz punkt, chronisz się do przodu, przyciągasz ich uwagę i absorbujesz ich początkową salwę. Shogun, oczyść lewą flankę. Matrix, użyj Przesunięcia Fazowego, aby dotrzeć do panelu sterowania wieżyczką po prawej stronie i zabij wszystkie trzy wieżyczki jednocześnie. Gdy wieże zostaną zniszczone, wysyłam drony do ognia nasycającego oddział egzekucyjny. Rozbijamy garnizon, po czym Ronin wbija iglicę w ziemię."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1201,7 +1201,7 @@
         {
           "character": "Aegis Ronin",
           "type": "internal",
-          "text": "Pobierają nam racje tlenu. Sprawili, że naszym powietrzem nie da się oddychać i teraz sprzedają je z powrotem w kanistrach – po jednym na rodzinę dziennie, ze znaczkiem dystrybucji Xelthara na boku. Od sześciu miesięcy oddycham przetworzonym powietrzem z puszki. Kiedy zniszczę tę odlewnię, stanę na otwartej przestrzeni i pierwszy raz od pół roku będę oddychał. Po to tu jestem."
+          "text": "Pobierają nam racje tlenu. Sprawili, że naszym powietrzem nie da się oddychać i teraz sprzedają je z powrotem w kanistrach – po jednym na rodzinę dziennie, ze znaczkiem dystrybucji Xelthara na boku. Od sześciu miesięcy oddycham przetworzonym powietrzem z puszki. Kiedy zniszczę t�� odlewnię, stanę na otwartej przestrzeni i pierwszy raz od pół roku będę oddychał. Po to tu jestem."
         },
         {
           "character": "AXIOM-7",
@@ -1317,7 +1317,7 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "W strefach przechowawczych żyją rodziny rybackie, które nie są w stanie pracować od czasu, gdy uruchomiono przewody. Wyciek solanki zabił wszystko w zasięgu pływania od brzegu. Ludzie, którzy od pokoleń karmili swoje społeczności, teraz korzystają z pakietów racji żywnościowych Xelthara. Zabrali im źródło pożywienia, zanieczyścili wodę, postawili mur między nimi a morzem i nazwali to rozwojem. Dziś wieczorem oddamy im ocean."
+          "text": "W strefach przechowawczych żyją rodziny rybackie, które nie są w stanie pracować od czasu, gdy wprowadzono przewody. Wyciek solanki zabił wszystko w zasięgu pływania od brzegu. Ludzie, którzy od pokoleń karmili swoje społeczności, teraz korzystają z pakietów racji żywnościowych Xelthara. Zabrali im źródło pożywienia, zanieczyścili wodę, postawili mur między nimi a morzem i nazwali to rozwojem. Dziś wieczorem oddamy im ocean."
         },
         {
           "character": "AXIOM-7",
@@ -1406,7 +1406,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Czas jest krytyczny. Transporter ołowiu, T-14, zasila swoje główne silniki odrzutowe. Shogun, Ronin – zabezpieczacie strefę lądowania. Matrix, przygotuj się na ominięcie kontroli zacisku."
+          "text": "Czas jest krytyczny. Transporter ołowiu, T-14, zasila swoje główne silniki odrzutowe. Shogun, Ronin – zabezpieczacie strefę lądowania. Matrix, przygotuj się do ominięcia kontroli zacisku."
         },
         {
           "speaker": "Cyber Shogun",

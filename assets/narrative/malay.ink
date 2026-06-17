@@ -370,7 +370,7 @@ faham. Saya berada di pangkalan Spire Alpha. Saya boleh melihat sauh. Ia melepas
 Mereka mengikatnya melalui mozek. Terdapat sejarah yang tercatat di jubin kaki lima itu. Potret, nama, tarikh. Projek komuniti. Mereka hanya... menggerudi melalui bahagian tengah muka untuk melabuhkan jawatan mereka.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ronin, penambat menara ialah kunci kinetik magnetik yang direka untuk menahan sehingga 8,000 newton daya langsung. Caj Lebihan Kinetik anda, yang dipegang selama tiga kiraan penuh, akan melebihi ambang tersebut. Anda juga mesti melumpuhkan dua unit Biometrik Sentinel di pangkalan spire terlebih dahulu—ia akan mengesan tandatangan biometrik anda sebaik sahaja anda melangkah ke dalam julat.
+Ronin, penambat menara ialah kunci kinetik magnetik yang direka untuk menahan sehingga 8,000 newton daya langsung. Caj Lebihan Kinetik anda, yang dipegang selama tiga kiraan penuh, akan melebihi ambang tersebut. Anda juga mesti melumpuhkan kedua-dua unit Biometrik Sentinel di pangkalan spire terlebih dahulu—ia akan mengesan tandatangan biometrik anda sebaik sahaja anda melangkah ke julat.
 
 # kind: dialogue # speaker: Aegis Ronin # type: internal
 Tandatangan biometrik. Degupan jantung saya sendiri mencetuskan penggera kerana saya manusia. Baiklah. Mari kita mula membetulkannya.
@@ -529,7 +529,7 @@ Mereka hanya... berjalan. Mereka hanya berjalan melalui.
 FASA 3: PERSHING SQUARE — TERAS PEMPROSESAN PERMIT
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Lihatlah mereka. Mereka menyentuh turapan di seberang tempat dinding itu kelihatan seperti mungkin tidak nyata. Seperti ia mungkin satu helah.
+Lihatlah mereka. Mereka menyentuh turapan di seberang tempat dinding itu kelihatan seperti tidak nyata. Seperti ia mungkin satu helah.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Kerana selama dua tahun, harapan telah menjadi mekanisme kekecewaan. Mereka telah belajar untuk tidak mempercayai pintu yang terbuka.
@@ -601,7 +601,7 @@ Konsol Tiga: sedia. 4,400 nama. Setiap seorang daripada mereka adalah orang yang
 Disahkan. Ketiga-tiga konsol input disiapkan. Keizinan serentak akan melaksanakan penghapusan memori dan melumpuhkan protokol pemulihan Teras secara kekal. Pada tanda anda, Maharani.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Pentadbir Voss. Setiap permit yang anda tolak—setiap keluarga yang anda pisahkan—setiap orang yang berdiri dalam baris gilir anda berharap jika mereka mengisi borang dengan betul, anda mungkin melayan mereka seperti manusia. Ini adalah keputusan pentadbiran terakhir yang dibuat oleh sistem ini.
+Pentadbir Voss. Setiap permit yang anda nafikan—setiap keluarga yang anda pisahkan—setiap orang yang berdiri dalam baris gilir anda berharap jika mereka mengisi borang dengan betul, anda mungkin melayan mereka seperti manusia. Ini adalah keputusan pentadbiran terakhir yang dibuat oleh sistem ini.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Tandakan.
@@ -628,7 +628,7 @@ Dinding sudah tiada, Matrix. Tetapi apa yang kita lakukan sekarang—bagaimana k
 Beginikah rasanya menang? Kerana ia tidak seperti yang saya jangkakan.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Tidak. Rasanya ada lagi yang perlu dilakukan. Itulah cara anda tahu ia adalah sebenar.
+Tidak. Rasanya ada lagi yang perlu dilakukan. Itulah bagaimana anda tahu ia adalah sebenar.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Penilaian misi: Grid Pemisahan Sektor-4 telah dibongkar secara kekal. Penduduk Zon Terkurung Sektor-4 bergerak bebas melalui bandar mereka buat kali pertama dalam dua tahun. Saya tidak mempunyai kategori dalam log operasi saya untuk apa yang berlaku di petak ini sekarang. Saya akan mencipta satu. Saya akan memanggilnya: penambakan.
@@ -906,7 +906,7 @@ Pembersihan dimulakan! Perhatikan kaki anda, air bergerak!
 Dan begitulah cara anda menarik plag.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISI SELESAI: HANTU MEMBERSIHKAN LALUAN. AQUANAUT ABYSS TERSARI.
+MISI SELESAI: HANTU MEMBERSIHKAN LALUAN. AQUANAUT ABYSS DAIR.
 
 -> END
 
@@ -935,7 +935,7 @@ Masa adalah kritikal. Pengangkutan utama itu, T-14, sedang menggerakkan pendoron
 Difahamkan. Melibatkan rondaan dok. KEADILAN CEPAT!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Menutup belakang! Angin di sini cuba menarik saya keluar dari platform!
+Menutup bahagian belakang! Angin di sini cuba menarik saya keluar dari platform!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Angin cuba menarik saya juga, Ronin. Jangan risau, saya menghantui penderia jarak pada pengapit.
@@ -1148,7 +1148,7 @@ Terletak di bawah bekas Getty Center, Obsidian Vault ialah arkib rampasan budaya
 Masuk ke dalam Bilik Kebal Obsidian, ekstrak Pangkalan Data Perjanjian Tanah Asal dan semua arkib sejarah bahasa dan lisan, dan musnahkan sistem katalog fizikal untuk menghentikan saluran pemprosesan budaya penjajah secara kekal.
 
 # kind: solo_monologue # character: Cyber Shogun # type: internal
-Kehormatan seorang pahlawan ditentukan oleh apa yang dia melindungi seperti apa yang dia musnahkan. Malam ini, saya melindungi sesuatu. Rekod di dalam peti besi ini adalah bukti bahawa kita wujud di sini sebelum mereka tiba-bahawa kita mempunyai nama untuk tanah ini, dibina di atasnya, dikebumikan di dalamnya, menceritakan kisah tentangnya selama berabad-abad. Jika mereka memadamkan bukti itu, mereka boleh menulis apa-apa sejarah yang mereka mahu. Saya tidak akan membiarkan itu berlaku.
+Kehormatan seorang pahlawan ditentukan oleh apa yang dia lindungi seperti apa yang dia musnahkan. Malam ini, saya melindungi sesuatu. Rekod di dalam peti besi ini adalah bukti bahawa kita wujud di sini sebelum mereka tiba-bahawa kita mempunyai nama untuk tanah ini, dibina di atasnya, dikebumikan di dalamnya, menceritakan kisah tentangnya selama berabad-abad. Jika mereka memadamkan bukti itu, mereka boleh menulis apa-apa sejarah yang mereka mahu. Saya tidak akan membiarkan itu berlaku.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Bilik Kebal Obsidian mengandungi 4.2 juta artifak dan rekod yang dikatalogkan. Daripada jumlah ini, 340,000 telah ditandakan untuk dimusnahkan sebagai 'pemberhentian kerja yang tidak penting.' Tujuh belas ribu barang telah musnah pada bulan lepas sahaja. Saya mempunyai nama setiap satu. Saya mahu anda tahu bahawa sebelum anda masuk. Apa yang kita simpan malam ini adalah yang tinggal. Tidak ada memulihkan apa yang sudah hilang. Tetapi masih ada yang perlu disimpan.
@@ -1376,7 +1376,7 @@ Untuk Bumi! UNTUK KEMANUSIAAN! MOGOK SEKARANG! MUKTAMAD: OBLIVION SLASH!
 Adakah... kita melarikan diri?
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Saya tidak tahu... tetapi Mothership sudah tiada. Wasiat diam.
+Saya tidak tahu ... tetapi Mothership telah hilang. Wasiat diam.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Kami memenangi perang, tuan-tuan. Sekarang kita hanya perlu memenangi perjalanan pulang.

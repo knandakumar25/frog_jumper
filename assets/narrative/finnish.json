@@ -128,7 +128,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Sitten otan tuon 0,8 % ja työnän sen heidän kurkkuunsa! SUOJAA!"
+          "text": "Sitten otan sen 0,8% ja työnnän sen heidän kurkkuunsa! SUOJAA!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -272,7 +272,7 @@
       "title": "Shattered Aegis of the Void Commander",
       "arc": null,
       "setting": "Tyynenmeren puolustuskeskuksen särkyneet jäänteet. Xelthara kierrättää ylpeää, perinteistä sotilaallista infrastruktuuria, mikä pakottaa Sirenin koordinoimaan piilotettujen solujen hajautettua verkostoa.",
-      "objective": "Pura viimeinen seisova sotilaslähetystorni ja jaa sen taajuussirut siviilien vastarintasoluille, jolloin siirtyminen sissisotaan saadaan päätökseen.",
+      "objective": "Pura viimeinen seisova sotilaslähetystorni ja jaa sen taajuussiruja siviilien vastarintasoluille, jolloin siirtyminen sissisotaan saadaan päätökseen.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
@@ -300,7 +300,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Komentaja, pakoalukset raportoivat 85 %:n uhrimäärän laukaisussa. Xelthara-taistelijat asettavat etusijalle ei-taistelijat. He tietävät pakovektorimme."
+          "text": "Komentaja, pakoalukset raportoivat 85 %:n uhrimäärän laukaisussa. Xelthara-taistelijat asettavat etusijalle ei-taistelijat. He tuntevat pakovektorimme."
         },
         {
           "speaker": "Empress Siren",
@@ -315,7 +315,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Uudet parametrit ladattu. Nyt vaikeimpaan osaan. AXIOM, käännä virta ylimääräisestä elämisen tuesta drone-synkronointijärjestelmään."
+          "text": "Uudet parametrit ladattu. Nyt vaikeimpaan osaan. AXIOM, käännä virta ylimääräisestä henkisestä tukijärjestelmästäni drone-synkronointijärjestelmään."
         },
         {
           "speaker": "AXIOM-7",
@@ -401,7 +401,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Vietin kahdeksan kuukautta tämän kaltaisella suojavyöhykkeellä sen jälkeen, kun he valloittivat San Fernandon laakson. Kahdeksan kuukautta katsomassa, kuinka lapset pienenevät, koska kaloriannokset on suunniteltu lajille, joka ei syö samoja asioita kuin me. Ja toisaalta he syövät meidän ruokaamme. Meidän ravintoloissa. Meidän kaupungissamme."
+          "text": "Vietin kahdeksan kuukautta tämän kaltaisella suojavyöhykkeellä sen jälkeen, kun he valloittivat San Fernandon laakson. Kahdeksan kuukautta katsomassa, kuinka lapset pienenevät, koska kaloriannokset on suunniteltu lajeille, jotka eivät syö samoja asioita kuin me. Ja toisaalta he syövät meidän ruokaamme. Meidän ravintoloissa. Meidän kaupungissamme."
         },
         {
           "speaker": "Empress Siren",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Kerroin kahdelletoista perheelle, kuinka järjestää yhteisövahtikierrokset tässä huoneessa. Lastenosastolla oli säkkituoleja. Joku oli teipannut värikynäpiirroksia referenssipöytään. Lapsi piirsi kuvan supersankarista. Ero kirjaston ja datakeskuksen välillä on se, että kirjasto olettaa, että ovesta kävelevillä ihmisillä on oikeus olla siellä."
+          "text": "Kerroin kahdelletoista perheelle, kuinka järjestää yhteisövahtikierrokset tässä huoneessa. Lastenosastolla oli säkkituolit. Joku oli teipannut värikynäpiirroksia referenssipöytään. Lapsi piirsi kuvan supersankarista. Ero kirjaston ja datakeskuksen välillä on se, että kirjasto olettaa, että ovesta kävelevillä ihmisillä on oikeus olla siellä."
         },
         {
           "speaker": "Empress Siren",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Tämä ei ole salakavala lähestymistapa. Delta on linnoitettu asema. Löysimme sen yksikkönä. Ronin – otat pisteen, suojaat eteenpäin, kiinnität heidän huomionsa ja imetät heidän alkuperäisen volleynsa. Shogun, tyhjennä vasen kylki. Matrix, käytä Phase-Shiftiä päästäksesi tornin ohjauspaneeliin äärioikealla ja tappaa kaikki kolme tornia samanaikaisesti. Kun tornit ovat kuolleet, teen drooneja kyllästystulitukseen valvontaryhmää vastaan. Romutamme varuskunnan, sitten Ronin laittaa tornin maahan."
+          "text": "Tämä ei ole salakavala lähestymistapa. Delta on linnoitettu asema. Löysimme sen yksikkönä. Ronin – otat pisteen, suojaat eteenpäin, kiinnität heidän huomionsa ja imetät heidän alkuperäisen volleynsa. Shogun, tyhjennä vasen kylki. Matrix, käytä Phase-Shiftiä päästäksesi tornin ohjauspaneeliin äärioikealla ja tappaa kaikki kolme tornia samanaikaisesti. Kun tornit ovat kuolleet, annan drooneja kyllästystuleen valvontaryhmää vastaan. Romutamme varuskunnan, sitten Ronin laittaa tornin maahan."
         },
         {
           "speaker": "Aegis Ronin",
@@ -761,7 +761,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Energiakalvo on täysin offline-tilassa. Hallinnollinen risteyseste on neutraloitu. Puskurivyöhyke on... ihmiset ylittävät puskurivyöhykkeen. Noin 12 000 ihmistä liikkuu kohti entistä muuria. He ylittävät sen."
+          "text": "Energiakalvo on täysin offline-tilassa. Hallinnollinen risteyseste on neutraloitu. Puskurivyöhyke on... ihmiset ylitt��vät puskurivyöhykkeen. Noin 12 000 ihmistä liikkuu kohti entistä muuria. He ylittävät sen."
         },
         {
           "speaker": "Aegis Ronin",
@@ -921,7 +921,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Suoritetaan rakennetarkistus. Kerrokset 1-4 ovat ehjiä. Perustus on kunnossa. Vesijohto on vaurioitunut, mutta korjattavissa. Kyllä. Joku voisi muuttaa takaisin."
+          "text": "Rakennetarkistus käynnissä. Kerrokset 1-4 ovat ehjiä. Perustus on kunnossa. Vesijohto on vaurioitunut, mutta korjattavissa. Kyllä. Joku voisi muuttaa takaisin."
         },
         {
           "speaker": "Oni Matrix",
@@ -982,7 +982,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Viisi minuuttia? Kakun pala. Mutta tarvitsen selkeän pääsyn. Shogun, voitko leikata päänavan?"
+          "text": "Viisi minuuttia? Kakun pala. Mutta tarvitsen selke��n pääsyn. Shogun, voitko leikata päänavan?"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1317,7 +1317,7 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Suojavyöhykkeillä on kalastajaperheitä, jotka eivät ole voineet työskennellä sen jälkeen, kun kanavat menivät sisään. Suuvesipurkaus tappoi kaiken uimaetäisyydellä rannasta. Ihmiset, jotka ruokkivat yhteisöjään sukupolvien ajan, ovat nyt Xelthara-annospaketeissa. He ottivat ravintolähteensä, saastuttivat vesinsä, asettivat muurin meren väliin ja kutsuivat sitä kehitykseksi. Tänä iltana annamme heille heidän valtamerensä takaisin."
+          "text": "Suojavyöhykkeillä on kalastajaperheitä, jotka eivät ole voineet työskennellä sen jälkeen, kun kanavat menivät sisään. Suuvesipurkaus tappoi kaiken uimaetäisyydellä rannasta. Ihmiset, jotka ruokkivat yhteisöjään sukupolvien ajan, ovat nyt Xelthara-annospaketeissa. He ottivat ravintolähteensä, saastuttivat vesinsä, asettivat muurin meren v��liin ja kutsuivat sitä kehitykseksi. Tänä iltana annamme heille heidän valtamerensä takaisin."
         },
         {
           "character": "AXIOM-7",
@@ -1799,7 +1799,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Työntää! Anna minulle kohde, Sireeni, olen sokea tämän tulen alla!"
+          "text": "Työntää! Anna minulle kohde, Siren, olen sokea tämän tulen alla!"
         },
         {
           "speaker": "Empress Siren",
@@ -1879,7 +1879,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Sanoin... mikään ei riko seinäämme."
+          "text": "Kerroin sinulle... mikään ei riko seinäämme."
         },
         {
           "speaker": "Cyber Shogun",

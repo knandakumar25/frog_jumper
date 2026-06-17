@@ -511,7 +511,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, smailės inkaras yra magnetinis kinetinis užraktas, sukurtas atlaikyti iki 8000 niutonų tiesioginės jėgos. J��sų kinetinės perkrovos mokestis, laikomas tris kartus, viršys tą slenkstį. Taip pat pirmiausia turite išjungti du biometrinius sentinel įrenginius, esančius smailės pagrinde – jie aptiks jūsų biometrinį parašą, kai pateksite į diapazoną."
+          "text": "Ronin, smailės inkaras yra magnetinis kinetinis užraktas, sukurtas atlaikyti iki 8000 niutonų tiesioginės jėgos. Jūsų kinetinės perkrovos mokestis, laikomas tris kartus, viršys tą slenkstį. Taip pat pirmiausia turite išjungti du biometrinius sentinel įrenginius, esančius smailės pagrinde – jie aptiks jūsų biometrinį parašą, kai pateksite į diapazoną."
         },
         {
           "speaker": "Aegis Ronin",
@@ -626,7 +626,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Nemirtina. Jie sako sau, kad tai humaniška. Jie turi omenyje tai, kad gyvas belaisvis jiems yra naudingesnis nei miręs pilietis."
+          "text": "Nemirtina. Jie sako sau, kad tai yra humaniška. Jie turi omenyje tai, kad gyvas belaisvis jiems yra naudingesnis nei miręs pilietis."
         },
         {
           "speaker": "Empress Siren",
@@ -651,7 +651,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Švarus. AXIOM, nuskaito Spire Gamma inkaro sistemą."
+          "text": "Švarus. AXIOM, nuskaitęs Spire Gamma inkaro sistemą."
         },
         {
           "speaker": "AXIOM-7",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Tai nėra slaptas požiūris. Delta yra įtvirtinta padėtis. Pataikėm kaip vienetas. Ronin – tu patrauki tašką, skydu į priekį, atkreipi jų dėmesį ir sugeria jų pradinį šūvį. Šogun, išvalykite kairįjį šoną. Matrica, naudokite fazės poslinkį, kad pasiektumėte bokštelio valdymo pultą dešinėje ir nužudytumėte visus tris bokštelius vienu metu. Kai bokšteliai miršta, aš pavedu bepiločius orlaivius, kad prisotinčiau vykdytojų būrį. Sugriuname garnizoną, tada Roninas įkiša smailę į žemę."
+          "text": "Tai nėra slaptas požiūris. Delta yra įtvirtinta padėtis. Pataikėm kaip vienetas. Ronin – tu patrauki tašką, skydu į priekį, atkreipi jų dėmesį ir įsisavini pradinį šūvį. Šogun, išvalykite kairįjį šoną. Matrica, naudokite fazės poslinkį, kad pasiektumėte bokštelio valdymo skydelį dešinėje ir nužudytumėte visus tris bokštelius vienu metu. Bokšteliams žuvus, aš pavedu bepiločius orlaivius, kad būtų sušaudytas vykdytojų būrys. Sugriuname garnizoną, tada Roninas įkiša smaigalį į žemę."
         },
         {
           "speaker": "Aegis Ronin",
@@ -921,7 +921,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Vykdomas struktūrinis nuskaitymas. Nuo vieno iki ketvirto aukštai yra nepažeisti. Pamatas tvirtas. Vandentiekio linija pažeista, bet remontuotina. Taip. Kažkas galėtų grįžti atgal."
+          "text": "Vykdomas struktūrinis nuskaitymas. Nuo vieno iki ketvirto aukštai yra nepažeisti. Pagrindas tvirtas. Vandentiekio linija pažeista, bet remontuotina. Taip. Kažkas galėtų grįžti atgal."
         },
         {
           "speaker": "Oni Matrix",
@@ -931,7 +931,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Sienos nebėra, Matrix. Tačiau tai, ką darome dabar – kaip atstatome tai, ką siena padalija – tai yra sunkesnis darbas. Ir prasideda šį vakarą."
+          "text": "Sienos nebėra, Matrix. Tačiau tai, ką mes darome dabar – kaip atstatome tai, ką padalija siena – yra sunkesnis darbas. Ir prasideda šį vakarą."
         },
         {
           "speaker": "Aegis Ronin",
@@ -946,12 +946,12 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Misijos įvertinimas: 4 sektoriaus atskyrimo tinklas buvo visam laikui išmontuotas. 4-ojo izoliavimo zonos sektoriaus gyventojai pirmą kartą per dvejus metus laisvai juda per savo miestą. Savo veiklos žurnale neturiu kategorijos, kas šiuo metu vyksta šioje aikštėje. Aš sukursiu vieną. Aš tai pavadinsiu: melioracija."
+          "text": "Misijos įvertinimas: 4 sektoriaus atskyrimo tinklas buvo visam laikui išmontuotas. Apribotos zonos sektoriaus-4 gyventojai pirmą kartą per dvejus metus laisvai juda per savo miestą. Savo veiklos žurnale neturiu kategorijos, kas šiuo metu vyksta šioje aikštėje. Aš sukursiu vieną. Aš tai pavadinsiu: melioracija."
         },
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISIJA BAIGTA: NEONINIAI EMBERS. SIENA NUgriuvo. MIESTAS KVĖPUOJA."
+          "text": "MISIJA BAIGTA: NEONINIAI EMBERS. SIENA NULEIDA. MIESTAS KVĖPUOJA."
         }
       ]
     },
@@ -1083,7 +1083,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ši priemonė yra išteklių naudojimo variklis. Jie aktyviai paverčia Žemės mineralus toksišku biokuru, skirtu gabenimui už pasaulio ribų, palikdami negyvą planetą. Tai yra kolonijinės ekspansijos kaina."
+          "text": "Ši priemonė yra išteklių naudojimo variklis. Jie aktyviai paverčia Žemės mineralus toksišku biokuru, skirtu gabenimui už pasaulio ribų, palikdami negyvą planetą. Tai kolonijinės ekspansijos kaina."
         },
         {
           "speaker": "Empress Siren",
@@ -1148,7 +1148,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Analizė baigta. Biologiniams prižiūrėtojo komponentams reikalingas nuolatinis neuroninio signalo atnaujinimas iš bioprocesoriaus. Matrix, paspauskite konsolę tiksline EMP – chirurginis smūgis, sutrikdykite sinchronizavimą!"
+          "text": "Analizė baigta. Biologiniams prižiūrėtojo komponentams reikalingas nuolatinis neuroninio signalo atnaujinimas iš bioprocesoriaus. Matrix, paspauskite konsolę su tiksline EMP - chirurginis smūgis, sutrikdykite sinchronizavimą!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1311,7 +1311,7 @@
     "9": {
       "title": "Aquanaut Abyss (panardinti griuvėsiai)",
       "arc": "act2_arc2",
-      "setting": "Ramusis vandenynas sistemingai nusausinamas giliavandeniais vandenilio vamzdžiais palei žemyninį šelfą. Perkaitintas sūrymas parūgštino 300 kilometrų pakrantės ruožą, sunaikindamas žvejų bendruomenes, kurios išgyveno ištisas kartas.",
+      "setting": "Ramusis vandenynas sistemingai nusausinamas giliavandeniais vandenilio vamzdžiais palei žemyninį šelfą. Perkaitintas sūrymas parūgštino 300 kilometrų pakrantės ruožą, sunaikindamas žvejų bendruomenes, kurios išsilaikė ištisas kartas.",
       "objective": "Suraskite ir sunaikinkite tris pagrindinius giliavandenių sifonų kanalų mazgus, kad visam laikui sustabdytumėte vandenyno sifono operaciją ir pradėtumėte vandenyno atsigavimą.",
       "solo_monologues": [
         {
@@ -1592,7 +1592,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Išvažiavimo kelias apsaugotas. Inicijuoja priverstinį nervinį atsijungimą. „Cyber ​​Shogun“, „Oni Matrix“ – puikus darbas."
+          "text": "Išvažiavimo kelias apsaugotas. Inicijuoja priverstinį nervinį atsijungimą. ��Cyber ​​Shogun“, „Oni Matrix“ – puikus darbas."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1633,7 +1633,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Tai yra jų regioninės plėtros esmė. Kiekviena Xelthara konstrukcija tūkstantį mylių veikia su šia pavogta galia. Sunaikink jį, o kolonijinė ekspansija badauja, kai atgauname tai, kas buvo paimta."
+          "text": "Tai yra jų regioninės plėtros esm��. Kiekviena Xelthara konstrukcija tūkstantį mylių veikia su šia pavogta galia. Sunaikink jį, o kolonijinė ekspansija badauja, kai atgauname tai, kas buvo paimta."
         },
         {
           "speaker": "Empress Siren",
@@ -1693,7 +1693,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Pagrindinė temperatūra šoktelėjo! Pasiekta katastrofiška perkrova! Imperatore, turite 30 sekundži�� užrakinti seką ir išgauti!"
+          "text": "Pagrindinė temperatūra šoktelėjo! Pasiekta katastrofiška perkrova! Imperatore, turite 30 sekundžių užrakinti seką ir išgauti!"
         },
         {
           "speaker": "Empress Siren",

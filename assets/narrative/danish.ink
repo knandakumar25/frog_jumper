@@ -233,7 +233,7 @@ De stående hæres tidsalder er død. Vi kan ikke møde dem på banen, så vi bl
 Kejserinde, din udsendelse er en enorm risiko! Du blotlægger din placering og modstandens frekvensmønster. Dette er ikke optimalt. Afbryd venligst transmissionen.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-DECENTRALISERINGSLOG: GUERILLAOVERGANG INITIERT. PLACERING: LAST STAND KOMMANDO (PACIFIC HUB). STATUS: KONVENTIONEL KRAFT SLAGET. ASYMMETRISK LÆRE AKTIV. KOMMANDO: KEJERINDESIRENE (TAKTISK KODE: Ugyldig KOMMANDO). SIDSTE ORDRE: STRØM KOMMANDOEN. BLIV STORMEN.
+DECENTRALISERINGSLOG: GUERILLAOVERGANG INITIERT. PLACERING: SIDSTE STANDKOMMANDO (PACIFIC HUB). STATUS: KONVENTIONEL KRAFT SLAGET. ASYMMETRISK LÆRE AKTIV. KOMMANDO: KEJERINDESIRENE (TAKTISK KODE: Ugyldig KOMMANDO). SIDSTE ORDRE: STRØM KOMMANDOEN. BLIV STORMEN.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Dette er Void Commander. Traditionelt hierarki er opløst. I er ikke længere soldater; I er celler. Fald ind i byen. Slå til, når de sover. Genvind dit hjem en skygge ad gangen.
@@ -245,7 +245,7 @@ Kommandør, flugtfartøjerne rapporterer 85% tab ved opsendelsen. Xelthara-krige
 De opererer på taktiske data før invasionen. Jeg vil ændre dataene. AXIOM, lås den centrale netværksforbindelse. Jeg omgår manuelt firewalls.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Vores flåde er væk. Vores base er st��v. Det eneste, der er tilbage, er dataene. Jeg må være præcis. En kommandørs pligt er over for de levende, ikke forsvaret af et lig.
+Vores flåde er væk. Vores base er støv. Det eneste, der er tilbage, er dataene. Jeg må være præcis. En kommandørs pligt er over for de levende, ikke forsvaret af et lig.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Nye parametre indlæst. Nu til den svære del. AXIOM, afled strøm fra min ekstra livsstøtte til dronesynkroniseringsarrayet.
@@ -275,7 +275,7 @@ Systemskader overvældende! Satellitten har deorbiteret. Kommandør, du må træ
 Tilbagetog bekræftet. Missionsmål - civil overlevelse - nået. De har taget vores himmel, men de vil aldrig tage vores beslutsomhed. Uddrager nu.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISSION FULDFØRT: DEN Ugyldige KOMMANDO. KEJERINDE SIRENE TILSLUTTEDE HLF.
+MISSION FULDFØRT: DEN Ugyldige Kommandør. KEJERINDE SIRENE TILSLUTTEDE HLF.
 
 -> END
 
@@ -283,7 +283,7 @@ MISSION FULDFØRT: DEN Ugyldige KOMMANDO. KEJERINDE SIRENE TILSLUTTEDE HLF.
 # kind: level # level: 5 # title: Neon Embers - The Border Breach # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Det aktive Sector-4 Separation Grid - en 40 meter høj energivæg befæstet med biometriske scannerspir, kontrolpunkter til behandling af tilladelser og Xelthara-grænsemyndighedens stationer. Det halverer fysisk Los Angeles og isolerer den menneskelige indeslutningszone fra Xelthara-kolonialsektoren. Muren er ikke en militær installation. Det er administrativt.
+Det aktive Sector-4 Separation Grid - en 40 meter høj energivæg befæstet med biometriske scannerspir, kontrolpunkter til behandling af tilladelser og Xelthara Border Authority-stationer. Det halverer fysisk Los Angeles og isolerer den menneskelige indeslutningszone fra Xelthara-kolonialsektoren. Muren er ikke en militær installation. Det er administrativt.
 
 # kind: objective
 Deaktiver alle fire biometriske scannerspir, ødelægge den centrale Permit Processing Core - den bureaukratiske motor, der styrer menneskelig bevægelse - og sænk den Store Adskillelse, så befolkningen i indeslutningszonerne kan gå frit gennem deres egen by.
@@ -397,7 +397,7 @@ FASE 2-A: ONI MATRIX VED SPIRE BETA — 5. OG FORÅR
 Der er den. Træet er der stadig. Min bedstemor plejede at sige, at træet var ældre end byens rådhus, og jeg troede aldrig på hende.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Hun indgav en ansøgning om tilladelse til at krydse 47 dage efter, at muren gik op. Hun udfyldte skemaerne. I tre eksemplarer. Fordi hun troede p�� processen. Hun troede, at hvis du gjorde tingene rigtigt, ville nogen lytte. Hun fik aldrig svar. Hun døde i indeslutningszonen to måneder senere. Underernæringskomplikationer. De havde hendes yndlingskøbmand på den anden side af væggen. Hun indgav en formular for at gå og købe mad.
+Hun indgav en ansøgning om tilladelse til at krydse 47 dage efter, at muren gik op. Hun udfyldte skemaerne. I tre eksemplarer. Fordi hun troede på processen. Hun troede, at hvis du gjorde tingene rigtigt, ville nogen lytte. Hun fik aldrig svar. Hun døde i indeslutningszonen to måneder senere. Underernæringskomplikationer. De havde hendes yndlingskøbmand på den anden side af væggen. Hun indgav en formular for at gå og købe mad.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Jeg vil skille denne ting fra hinanden meget forsigtigt, så jeg ikke skader træet.
@@ -463,7 +463,7 @@ Spire Gamma trækker strøm fra bibliotekets interne net. For at deaktivere spir
 Tredje sal. Selvfølgelig. Vis vejen, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Jeg fortalte tolv familier, hvordan man organiserer samfundsvagter i dette rum. Der var sækkestole i børneafdelingen. Nogen havde tapet tegninger med farveblyanter til referencepulten. Et barn tegnede et billede af en superhelt. Forskellen på et bibliotek og et datacenter er, at et bibliotek antager, at de mennesker, der går gennem døren, har ret til at være der.
+Jeg fortalte tolv familier, hvordan man organiserer samfundsvagter i dette rum. Der var sækkestole i børneafdelingen. Nogen havde tapet tegninger med farvekridt til referencepulten. Et barn tegnede et billede af en superhelt. Forskellen på et bibliotek og et datacenter er, at et bibliotek antager, at de mennesker, der går gennem døren, har ret til at være der.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Netkryds placeret. Afskæring af Spire Gamma-strømforsyningen. Dette vil også slette alle registreringsdata fra koloniejendomme, de har gemt her.
@@ -478,7 +478,7 @@ Så er der ikke kun tale om infrastruktursabotage. Dette er en jordafkast.
 Spires Alpha, Beta og Gamma offline. Energimembranintegritet: 25%. Spire Delta ved floden er det sidste anker. Alle hold mødes efter Delta-faldet. Derefter: Pershing Square. Tilladelseskernen.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-FASE 2-C: SPIRE DELTA — DEN SYDLIGE ENDEMIDDEL VED FLVEN
+FASE 2-C: SPIRE DELTA — DEN SYDLIGE ENDEMIDDEL VED ELVEN
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spire Delta er væggens bærende anker. Det er bevogtet af grænsekommandør Vyss - som beordrede floden elektrificeret efter tre familier forsøgte at krydse gennem vandet i murens første uge. Vyss beordrede dem ikke tilbageholdt. Vyss beordrede vandet elektrificeret.
@@ -493,7 +493,7 @@ Lad være. Lad det ikke overtage dig endnu. Vi tager det ned først. Så har vi 
 Højre. Højre. Efter spiret. Efter muren. Jeg glemmer det ikke.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Dette er ikke en stealth-tilgang. Delta er en befæstet position. Vi ramte det som en enhed. Ronin – du tager spidsen, skærmer fremad, tiltrækker deres opmærksomhed og absorberer deres første volley. Shogun, ryd venstre flanke. Matrix, brug Phase-Shift til at nå tårnets kontrolpanel yderst til højre og dræbe alle tre tårne ​​samtidigt. Når først tårnene er døde, begår jeg droner til mætning af ild mod håndhævelsesgruppen. Vi kollapser garnisonen, så sætter Ronin spiret i jorden.
+Dette er ikke en stealth-tilgang. Delta er en befæstet position. Vi ramte det som en enhed. Ronin – du tager spidsen, skærmer fremad, tiltrækker deres opmærksomhed og absorberer deres første volley. Shogun, ryd venstre flanke. Matrix, brug Phase-Shift til at nå tårnets kontrolpanel yderst til højre og dræbe alle tre tårne ​​samtidigt. Når først tårnene er døde, begår jeg droner til mætning af håndhævelsesgruppen. Vi kollapser garnisonen, så sætter Ronin spiret i jorden.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 SKÆRM OP. Lad dem smide alt efter mig. Jeg er hoveddøren.
@@ -719,7 +719,7 @@ Udpak det komplette Conditioning Protocol Archive og ødelæg Central Neural Upl
 De kunne ikke bryde os med mure, så de fandt en måde at bryde os indefra. At tage mindet om uretfærdighed fra en person - at række ind i deres sind og slette den del, der ved, hvordan man bliver vred over det, der blev stjålet - det er ikke videnskab. Dette er en krigsforbrydelse udført i et laboratorium.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Ved at krydshenvise emnefilerne til modstandsnetværkets database, har jeg identificeret sytten bekræftede HLF-fællesskabsarrangører, som blev behandlet gennem denne facilitet og efterfølgende frigivet. De ved ikke, hvad der blev gjort ved dem. Ødelæggelse af Central Neural Uplink kan genoprette dem. Jeg beregner en 73% sandsynlighed for vellykket genoprettelse af autonomi. Jeg er... Jeg synes, jeg er investeret i det resultat.
+Ved at krydshenvise emnefilerne til modstandsnetværkets database, har jeg identificeret sytten bekræftede HLF-fællesskabsarrangører, som blev behandlet gennem denne facilitet og efterfølgende frigivet. De ved ikke, hvad der blev gjort ved dem. Ødelæggelse af det centrale neurale uplink kan muligvis genoprette dem. Jeg beregner en 73% sandsynlighed for vellykket genoprettelse af autonomi. Jeg er... Jeg synes, jeg er investeret i det resultat.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Denne facilitet er motoren til ressourceudnyttelse. De omdanner aktivt Jordens mineraler til giftigt biobrændstof til skibsfart uden for verden, og efterlader en død planet bag sig. Dette er omkostningerne ved kolonial ekspansion.
@@ -761,7 +761,7 @@ Ronin, fald tilbage! Hans forsvar er kinetisk dæmpet. Matrix, scan hans bevæge
 Hvis han ønsker at kæmpe, vil jeg give ham en værdig modstander. Jeg vil tegne hans fokus. OVERSIGT MIG, STANDE!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Analyse færdig. Overseerens biologiske komponenter kræver en konstant neural signalopdatering fra bioprocessoren. Matrix, ram på konsollen med en målrettet EMP - et kirurgisk angreb, forstyrre synkroniseringen!
+Analyse færdig. Overseerens biologiske komponenter kræver en konstant neural signalopdatering fra bioprocessoren. Matrix, ram konsollen med en målrettet EMP - et kirurgisk angreb, forstyrre synkroniseringen!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Forstår det! Tråder nålen!
@@ -876,7 +876,7 @@ Find og ødelæg de tre primære Deep-Sea Siphon Conduit Hubs for permanent at s
 Der er fiskerfamilier i indeslutningszonerne, som ikke har været i stand til at arbejde, siden ledningerne gik ind. Udledningen af saltlage dræbte alt inden for svømmeafstand fra kysten. Folk, der brødføde deres lokalsamfund i generationer, er på Xelthara-rationeringspakker nu. De tog deres fødekilde, forurenede deres vand, satte en mur mellem dem og havet og kaldte det udvikling. I aften giver vi dem deres hav tilbage.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Modellering af den oceaniske genopretningstidslinje efter ødelæggelse af ledninger: delvis genopretning af økosystemet på atten måneder, fuld pH-normalisering på seks til otte år. Denne mission løser ikke skaden med det samme. Jeg vil have dig til at forstå det. Det, det gør, er at stoppe skaden i at blive permanent. Nogle sår kan stadig hele, hvis vi holder op med at åbne dem.
+Modellering af den oceaniske genopretningstidslinje efter ødelæggelse af ledninger: delvis genopretning af økosystemet på atten måneder, fuld pH-normalisering om seks til otte år. Denne mission løser ikke skaden med det samme. Jeg vil have dig til at forstå det. Det, det gør, er at stoppe skaden i at blive permanent. Nogle sår kan stadig hele, hvis vi holder op med at åbne dem.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Dette net er den primære kilde til deres koloniale industrielle magt. Vi er her for økonomisk sabotage for at afskære de koloniale forsyningslinjer. Hvis vi bryder vandhævertnettene, styrter vi sektorens økonomi. Matrix, dræningskontrollerne er placeret bag det undervands lasergitter.
@@ -932,7 +932,7 @@ Velkommen til Stratos Docks. Dette er det primære eksportcenter, hvor de kaprer
 Tiden er kritisk. Den blytransport, T-14, forstærker sine vigtigste thrustere. Shogun, Ronin - du sikrer landingszonen. Matrix, gør dig klar til at omgå klemmekontrollerne.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
-Forstået. Engagerer dockingpatruljen. HURTIG RETfærdighed!
+Forstået. Engagerer docking patruljen. HURTIG RETfærdighed!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Dækker bagsiden! Vinden heroppe prøver at trække mig ned fra platformen!
@@ -1086,7 +1086,7 @@ Tre mål. Aegis, du og Matrix håndterer stang 1 og 2. Jeg vil sikre Rod Three.
 Kopiér. Men hovedterminalen er udsat. Kejserinde, du vil ikke være i stand til at starte sekvensen, hvis den tager et plasmaudbrud.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Ronin, det er dit job. Du skal beskytte terminalen, mens jeg indtaster fejlkoderne. Shogun, Matrix – kom til dine positioner. Jeg skal have alle stænger udtrukket på mit mærke.
+Ronin, det er dit job. Du skal beskytte terminalen, mens jeg indtaster fejlkoderne. Shogun, Matrix - kom til dine positioner. Jeg skal have alle stænger udtrukket på mit mærke.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Terminal sikret. Skjoldet er oppe! BESKYTTELSESPROTOKOL AKTIV! Du har dit vindue, kejserinde!

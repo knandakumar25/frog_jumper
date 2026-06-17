@@ -209,7 +209,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "MARGINALISEERITUD PALGI: ALL-TASME LAMMUNUD LINN. STATUS: ELLUJÄÄN. SISSETUNGIJA HOIATUS: TUVASTATUD NULL. SÜSTEEMI KINNITUS: 100%. EESMÄRK: VARASTA KOLONIAALSÄDE. KÜTITA VASTU."
+          "text": "MARGINALISEERITUD PALGI: ALL-TASME LAMMUNUD LINN. SEISUKORD: ELLUJÄEV. SISSETUNGIJA HOIATUS: TUVASTATUD NULL. SÜSTEEMI KINNITUS: 100%. EESMÄRK: VARASTA KOLONIAALSÄDE. KÜTITA VASTU."
         },
         {
           "speaker": "Oni Matrix",
@@ -271,8 +271,8 @@
     "4": {
       "title": "Purustatud Eegis of the Void Commander",
       "arc": null,
-      "setting": "Vaikse ookeani kaitsekeskuse purustatud jäänused. Uhke traditsioonilise sõjalise infrastruktuuri taaskasutab Xelthara, sundides Sireeni koordineerima peidetud rakkude detsentraliseeritud võrku.",
-      "objective": "Demonteerige viimane seisev sõjaväe ringhäälingutorn ja jagage selle sageduskiibid tsiviilvastupanuüksustele, viies lõpule ülemineku sissisõjale.",
+      "setting": "Vaikse ookeani kaitsekeskuse purustatud jäänused. Xelthara kasutab uhket traditsioonilist sõjalist infrastruktuuri, sundides Sireeni koordineerima peidetud rakkude detsentraliseeritud võrku.",
+      "objective": "Demonteerige viimane seisev sõjaväe saatetorn ja jagage selle sageduskiibid tsiviilvastupanuüksustele, viimaks lõpule üleminek sissisõjale.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
@@ -411,7 +411,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Alpha asub Grand Avenue kunstikoridori endises kohas. Spire Beta on istutatud 5. ja kevade nurgale. Spire Gamma on põimitud vana keskraamatukogu välisseinasse. Spire Delta kinnitab müüri lõunapoolse otsa jõe äärde. Lubade töötlemise tuum asub endise Pershingi väljakul asuvas kontrollpunktis. Kõik neli torni tuleb enne Core'i murdmist keelata. Tuuma hävitamine viib kogu energiamembraani kaskaad-kokkuvarisemiseni."
+          "text": "Spire Alpha asub Grand Avenue kunstikoridori endises kohas. Spire Beta on istutatud 5. ja kevade nurgale. Spire Gamma on põimitud vana keskraamatukogu välisseinasse. Spire Delta kinnitab müüri lõunapoolse otsa jõe äärde. Lubade töötlemise südamik asub endise Pershingi väljaku kontrollpunktis. Enne Core'i murdmist tuleb kõik neli torni välja lülitada. Tuuma hävitamine viib kogu energiamembraani kaskaad-kokkuvarisemiseni."
         },
         {
           "speaker": "Oni Matrix",
@@ -531,7 +531,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "action_prompt",
-          "text": "Hoidke kineetilist ülekoormuslaengut Spire Alpha baasil kolmekordseks loendamiseks. [SISEND: hoidke RB/R1 kolm sekundit all, seejärel vabastage.]"
+          "text": "Hoidke kineetilist ülekoormuslaengut Spire Alpha baasil kolmekordseks loendamiseks. [SISEND: hoidke nuppu RB/R1 kolm sekundit all, seejärel vabastage.]"
         },
         {
           "speaker": "AXIOM-7",
@@ -611,7 +611,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "raamatukogu. Viisin seal oma esimesed ohvitseride koolitusseminarid. Kogukonnakaitse kursused, III korruse lugemissaal. Kolm aastat enne invasiooni. Geomeetria selle kohta, kuidas kolonialism kasutab meie enda infrastruktuuri meie vastu, ei lakka kunagi olema rabav. Nad panid oma andmekeskuse meie raamatukokku. Nad kirjutavad meie dokumendid üle kohta, kus me oma dokumente hoidsime."
+          "text": "raamatukogu. Ma korraldasin seal oma esimesed ohvitseride koolitusseminarid. Kogukonnakaitse kursused, III korruse lugemissaal. Kolm aastat enne invasiooni. Geomeetria selle kohta, kuidas kolonialism kasutab meie enda infrastruktuuri meie vastu, ei lakka kunagi olema rabav. Nad panid oma andmekeskuse meie raamatukokku. Nad kirjutavad meie dokumendid üle kohta, kus me oma dokumente hoidsime."
         },
         {
           "speaker": "Cyber Shogun",
@@ -651,7 +651,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Puhas. AXIOM, skaneerib Spire Gamma ankrusüsteemi."
+          "text": "Puhas. AXIOM, skannib Spire Gamma ankrusüsteemi."
         },
         {
           "speaker": "AXIOM-7",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Rääkisin kaheteistkümnele perele, kuidas selles ruumis kogukonnavahi rotatsioone korraldada. Lasteosas olid kott-toolid. Keegi oli teibinud värvipliiatsiga joonised tugilauale. Laps joonistas superkangelase pildi. Raamatukogu ja andmekeskuse erinevus seisneb selles, et raamatukogu eeldab, et inimestel, kes uksest sisse astuvad, on õigus seal viibida."
+          "text": "Rääkisin kaheteistkümnele perele, kuidas korraldada kogukonna valvekordi selles ruumis. Lasteosas olid kott-toolid. Keegi oli teibinud värvipliiatsiga joonised tugilauale. Laps joonistas superkangelase pildi. Raamatukogu ja andmekeskuse erinevus seisneb selles, et raamatukogu eeldab, et inimestel, kes uksest sisse astuvad, on õigus seal viibida."
         },
         {
           "speaker": "Empress Siren",
@@ -691,7 +691,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "FAAS 2-C: SPIRE DELTA – LÕUNATERMINUS JÕE JÄRELE"
+          "text": "FAAS 2-C: SPIRE DELTA – LÕUNATERMINUS JÕE JÄRAS"
         },
         {
           "speaker": "AXIOM-7",
@@ -1064,7 +1064,7 @@
     "7": {
       "title": "Cyber-Grave Labs (maa-alune rajatis)",
       "arc": "act2_arc1",
-      "setting": "Endise konverentsikeskuse alla on Xelthara asutanud Cyber-Grave Labs Sector-Omega-7 – salastatud käitumise muutmise uurimisasutuse, mis on avalikult määratud \"inimeste taasintegreerimise tervisekeskuseks\". Siin töödeldakse tabatud inimvastupanu juhte ja kogukonna organisaatoreid. Nad tunduvad olevat nõus, eraldatud, ei suuda meenutada, miks nad vihased olid.",
+      "setting": "Endise konverentsikeskuse alla on Xelthara asutanud Cyber-Grave Labs Sector-Omega-7 – salastatud käitumise muutmise uurimisasutuse, mis on avalikult määratud \"inimeste taasintegreerimise tervisekeskuseks\". Siin töödeldakse tabatud inimvastupanu juhte ja kogukonna organisaatoreid. Nad näivad olevat nõus, katkendlikud ega suuda meenutada, miks nad vihased olid.",
       "objective": "Ekstraheerige täielik konditsioneerimisprotokolli arhiiv ja hävitage keskneuraalne üleslink, et taastada närvi autonoomia sadadele konditsioneeritud isikutele, kes praegu isolatsioonitsoonides elavad.",
       "solo_monologues": [
         {
@@ -1311,7 +1311,7 @@
     "9": {
       "title": "Aquanaut Abyss (veealused varemed)",
       "arc": "act2_arc2",
-      "setting": "Vaikse ookeani kuivendatakse süstemaatiliselt mööda mandrilava süvamere vesiniku sifoontorusid. Ülekuumenenud soolvee heide on hapestanud 300-kilomeetrise rannikuala, hävitades kalurikogukonnad, mis püsisid põlvkondade jooksul.",
+      "setting": "Vaikse ookeani kuivendatakse süstemaatiliselt mööda mandrilava süvamere vesiniku sifoonitorusid. Ülekuumenenud soolvee heide on hapestanud 300-kilomeetrise rannikuala, hävitades kalurikogukonnad, mis püsisid põlvkondade kaupa.",
       "objective": "Otsige üles ja hävitage kolm peamist süvamere sifoonikanali jaoturit, et peatada jäädavalt ookeanide sifoonimine ja alustada ookeani taastumist.",
       "solo_monologues": [
         {
@@ -1365,7 +1365,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Puhastamine on algatatud! Jälgi oma jalgu, vesi liigub!"
+          "text": "Puhastamine on alanud! Jälgi oma jalgu, vesi liigub!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1375,7 +1375,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSIOON TÄITUD: KUMMITUS PUHASTAB RAJA. AQUANAUT ABYSS TÜHENDATUD."
+          "text": "MISSIOON TÄITUD: KUMMITUS PUHASTAB TEED. AQUANAUT ABYSS TÜHENDATUD."
         }
       ]
     },
@@ -1406,7 +1406,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Aeg on kriitiline. See pliitransport T-14 käivitab oma peamised tõukurid. Shogun, Ronin – kindlustate maandumistsooni. Matrix, ole valmis klambri juhtnuppudest mööda minema."
+          "text": "Aeg on kriitiline. See pliitransport T-14 käivitab oma peamised tõukurid. Shogun, Ronin – kindlustate maandumistsooni. Matrix, valmistuge klambri juhtnuppudest mööda minema."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1592,7 +1592,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Väljasõidutee on turvatud. Sunnitud närvikatkestuse käivitamine. Cyber ​​Shogun, Oni Matrix – suurepärane töö."
+          "text": "Väljasõidutee on kindlustatud. Sunnitud närvikatkestuse käivitamine. Cyber ​​Shogun, Oni Matrix – suurepärane t��ö."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1663,7 +1663,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ülekoormusjada käivitati. See nõuab kohest järjestikust stressi. Varraste meeskonnad, valmistuge väljatõmbamiseks."
+          "text": "Ülekoormusjada algatati. See nõuab kohest järjestikust stressi. Varraste meeskonnad, valmistuge väljatõmbamiseks."
         },
         {
           "speaker": "Oni Matrix",
@@ -1718,7 +1718,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Reaktor Nexus... hävinud. Piirkondlik terraformeerimine võrguühenduseta."
+          "text": "Reaktor Nexus... hävitatud. Piirkondlik terraformeerimine võrguühenduseta."
         },
         {
           "speaker": "Cyber Shogun",

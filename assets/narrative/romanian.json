@@ -25,7 +25,7 @@
     "0": {
       "title": "Protocol Zero - Forja virtuală",
       "arc": null,
-      "setting": "O simulare vastă, întunecată, cu cadru de sârmă a unui orizont prăbușit din centrul orașului Los Angeles. Liniile albastre neon definesc drumurile și clădirile. Defecțiuni statice pâlpâie în mod constant peste vedere. Cei patru campioni stau pe o platformă strălucitoare.",
+      "setting": "O simulare vastă, întunecată, de tip grilă, a unui orizont prăbușit din centrul orașului Los Angeles. Liniile albastre neon definesc drumurile și clădirile. Defecțiuni statice pâlpâie în mod constant peste vedere. Cei patru campioni stau pe o platformă strălucitoare.",
       "objective": "Finalizați protocolul de antrenament parcurgând toate abilitățile de mișcare și luptă, culminând cu un atac simultan de echipă pentru a distruge o unitate grea Xelthara simulată.",
       "solo_monologues": [],
       "dialogue_status": "pending",
@@ -128,7 +128,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Atunci voi lua acel 0,8% și le voi băga în gât! SCURTĂ-TE!"
+          "text": "Atunci voi lua acel 0,8% și le voi băga în gât! SCUT SUS!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -191,7 +191,7 @@
       "title": "Neon Rust și Data Dust",
       "arc": null,
       "setting": "Literal „Under-City” — o rețea de puțuri de întreținere sub o așezare strălucitoare, iluminată cu neon, Xelthara. Deasupra, ocupanții se bucură de aer terraformat; mai jos, oamenii marginalizați caută oxigen poluat cu ozon.",
-      "objective": "Sifonează energia din rețeaua colonială pentru a alimenta sistemele de susținere a vieții populației marginalizate, evitând în același timp „Patrulele Purității” care vânează oameni maidanezi.",
+      "objective": "Sifonează energia din rețeaua colonială pentru a alimenta sistemele de susținere a vieții populației marginalizate, evitând în același timp „Patrulele Purității” care vânează oameni fără stăpân.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
@@ -290,7 +290,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "JURNAL DE DESCENTRALIZARE: TRANZIȚIA DE GUERRILA INIȚIE. LOCAȚIE: COMANDA ULTIMĂ STAND (HUB PACIFIC). STAT: FORȚĂ CONVENȚIONALĂ ÎNVINSĂ. DOCTRINA ASIMETRICA ACTIVA. COMANDANT: SIRENĂ IMPĂRATEASĂ (COD TACTIC: COMANDANT VOID). ULTIMA COMANDĂ: SFARAȚI COMANDA. DEVENI FURTUNA."
+          "text": "JURNAL DE DESCENTRALIZARE: TRANZIȚIA DE GUERRILA INIȚIE. LOCALIZARE: COMANDA ULTIMULUI STAND (HUB PACIFIC). STATUS: FORȚĂ CONVENȚIONALĂ ÎNVINSĂ. DOCTRINA ASIMETRICA ACTIVA. COMANDANT: SIRENĂ IMPĂRATEASĂ (COD TACTIC: COMANDANT VOID). ULTIMA COMANDĂ: SFARAȚI COMANDA. DEVENI FURTUNA."
         },
         {
           "speaker": "Empress Siren",
@@ -367,7 +367,7 @@
     "5": {
       "title": "Neon Embers - Încălcarea frontierei",
       "arc": "act2_arc1",
-      "setting": "Rețeaua de separare activă a sectorului 4 — un zid energetic de 40 de metri înălțime fortificat cu turle de scanare biometrice, puncte de control pentru procesarea permiselor și stații ale autorității de frontieră Xelthara. El divide fizic Los Angeles-ul, izolând zona de izolare umană de sectorul colonial Xelthara. Zidul nu este o instalație militară. Este unul administrativ.",
+      "setting": "Rețeaua de separare activă a sectorului 4 — un zid energetic de 40 de metri înălțime, fortificat cu turle de scanare biometrice, puncte de control pentru procesarea permiselor și stații ale autorității de frontieră Xelthara. El divide fizic Los Angeles-ul, izolând zona de izolare umană de sectorul colonial Xelthara. Zidul nu este o instalație militară. Este unul administrativ.",
       "objective": "Dezactivați toate cele patru turle de scanare biometrică, distrugeți miezul central de procesare a permiselor - motorul birocratic care controlează mișcarea umană - și doborâți Marea Separație, astfel încât populația din zonele de izolare să poată merge liber prin propriul oraș.",
       "solo_monologues": [
         {
@@ -511,7 +511,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, ancora turlei este un blocaj cinetic magnetic conceput pentru a rezista până la 8.000 de newtoni de forță directă. Încărcarea dvs. de supraîncărcare cinetică, reținută pentru o numărare completă de trei, va depăși acel prag. De asemenea, trebuie să dezactivați mai întâi cele două unități Biometric Sentinel de la baza turnului – acestea vă vor detecta semnătura biometrică în momentul în care pășiți în raza de acțiune."
+          "text": "Ronin, ancora turlei este un blocaj cinetic magnetic conceput pentru a rezista până la 8.000 de newtoni de forță directă. Încărcarea dvs. de supraîncărcare cinetică, reținută pentru o numărare completă de trei, va depăși acel prag. De asemenea, trebuie să dezactivați mai întâi cele două unități Biometric Sentinel de la baza turnului – acestea vă vor detecta semnătura biometrică în momentul în care intrați în raza de acțiune."
         },
         {
           "speaker": "Aegis Ronin",
@@ -556,7 +556,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Ea a depus o cerere de permis de trecere la patruzeci și șapte de zile după ce zidul s-a ridicat. Ea a completat formularele. În triplu exemplar. Pentru că a crezut în proces. Ea credea că dacă faci lucrurile bine, cineva te-ar asculta. Nu a primit niciodată un răspuns. Ea a murit în zona de izolare două luni mai târziu. Complicații ale malnutriției. Aveau magazinul ei favorit de cealaltă parte a zidului. Ea a depus un formular pentru a merge să cumpere mâncare."
+          "text": "Ea a depus o cerere de permis de trecere la patruzeci și șapte de zile după ce zidul s-a ridicat. Ea a completat formularele. În triplu exemplar. Pentru că ea a crezut în proces. Ea credea că dacă faci lucrurile bine, cineva te-ar asculta. Nu a primit niciodată un răspuns. Ea a murit în zona de izolare două luni mai târziu. Complicații ale malnutriției. Aveau magazinul ei favorit de cealaltă parte a zidului. Ea a depus un formular pentru a merge să cumpere mâncare."
         },
         {
           "speaker": "Oni Matrix",
@@ -656,12 +656,12 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Gamma preia energie din rețeaua internă a bibliotecii. Pentru a dezactiva turnul fără a declanșa o redirecționare a energiei de urgență, trebuie mai întâi să întrerupeți conexiunea internă la rețeaua din interiorul clădirii. Împărăteasa Siren, joncțiunea cu grilă este la etajul trei."
+          "text": "Spire Gamma consumă energie din rețeaua internă a bibliotecii. Pentru a dezactiva turnul fără a declanșa o redirecționare a energiei de urgență, trebuie mai înt��i să întrerupeți conexiunea internă la rețeaua din interiorul clădirii. Împărăteasa Siren, joncțiunea cu grilă este la etajul trei."
         },
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Al treilea etaj. Desigur. Conduceți drumul, AXIOM."
+          "text": "Etajul al treilea. Desigur. Conduceți drumul, AXIOM."
         },
         {
           "speaker": "Empress Siren",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Aceasta nu este o abordare ascunsă. Delta este o poziție fortificată. L-am lovit ca unitate. Ronin — iei punctul, te protejezi, le atragi atenția și le absorbi salba inițială. Shogun, eliberează flancul stâng. Matrix, folosește Phase-Shift pentru a ajunge la panoul de control al turelei din extrema dreaptă și a ucide toate cele trei turelete simultan. Odată ce turnulele sunt moarte, pun dronele să tragă de saturație asupra echipei de aplicare. Prăbușim garnizoana, apoi Ronin pune turla în pământ."
+          "text": "Aceasta nu este o abordare ascunsă. Delta este o poziție fortificată. L-am lovit ca unitate. Ronin — iei punctul, te protejezi înainte, le atragi atenția și le absorbi salba inițială. Shogun, eliberează flancul stâng. Matrix, folosește Phase-Shift pentru a ajunge la panoul de control al turelei din extrema dreaptă și a ucide toate cele trei turelete simultan. Odată ce turnulele sunt moarte, pun dronele să tragă de saturație asupra echipei de aplicare. Prăbușim garnizoana, apoi Ronin pune turla în pământ."
         },
         {
           "speaker": "Aegis Ronin",
@@ -741,7 +741,7 @@
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Flotă de drone, suprimare completă. Prioritizează formarea - rupe linia lor. FOC."
+          "text": "Flotă de drone, suprimare complet��. Prioritizează formarea - rupe linia lor. FOC."
         },
         {
           "speaker": "AXIOM-7",
@@ -811,7 +811,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "stiu. Mai întâi trebuie să luăm Miezul. AXIOM, arhitectura Core."
+          "text": "stiu. Mai întâi trebuie să luăm Miezul. AXIOM, arhitectura Core-ului."
         },
         {
           "speaker": "AXIOM-7",
@@ -821,7 +821,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Trei console. Trei dintre noi. Matrix, Shogun, Ronin - ia fiecare câte o consolă. Voi gestiona inelul defensiv al lui Voss cu suprimarea dronei."
+          "text": "Trei console. Trei dintre noi. Matrix, Shogun, Ronin - luați câte o consolă. Voi gestiona inelul defensiv al lui Voss cu suprimarea dronei."
         },
         {
           "speaker": "Voss",
@@ -1195,7 +1195,7 @@
     "8": {
       "title": "Forja Turnătoriei (sectorul industrial)",
       "arc": "act2_arc2",
-      "setting": "Xelthara Thermal Conversion Array din fostul district portuar industrial a făcut ca aerul să fie toxic pe o rază de 40 de kilometri, procesând deșeurile atmosferice ca combustibil din afara lumii, în timp ce vinde oxigenul umanității înapoi în recipiente raționale cu câte unul per familie pe zi.",
+      "setting": "Sistemul de conversie termică Xelthara din fostul district portuar industrial a făcut ca aerul să fie toxic pe o rază de 40 de kilometri, procesând deșeurile atmosferice ca combustibil din afara lumii, în timp ce vinde oxigenul umanității înapoi în recipiente ra��ionale cu câte unul per familie pe zi.",
       "objective": "Inversați polaritatea matricei de conversie termică pentru a declanșa o implozie termică în cascadă care distruge turnătoria ireversibil și permite zonei de deteriorare a atmosferei de 40 de kilometri să înceapă regenerarea naturală.",
       "solo_monologues": [
         {
@@ -1317,7 +1317,7 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Există familii de pescuiți în zonele de izolare care nu au mai putut lucra de când au intrat conductele. Deversarea saramură a ucis totul la distanță de înot de țărm. Oamenii care și-au hrănit comunitățile timp de generații sunt acum pe pachetele de rație Xelthara. Și-au luat sursa de hrană, și-au poluat apa, au pus un zid între ei și mare și au numit-o dezvoltare. În seara asta le dăm oceanul înapoi."
+          "text": "Există familii de pescari în zonele de izolare care nu au putut lucra de când au intrat conductele. Deversarea de saramură a ucis totul la distanță de înot de țărm. Oamenii care și-au hrănit comunitățile timp de generații sunt acum pe pachetele de rație Xelthara. Și-au luat sursa de hrană, și-au poluat apa, au pus un zid între ei și mare și au numit-o dezvoltare. În seara asta le dăm oceanul înapoi."
         },
         {
           "character": "AXIOM-7",
@@ -1401,12 +1401,12 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Bun venit la Stratos Docks. Acesta este principalul centru de export unde deturnează mărfurile coloniale și expediază resurse rafinate ale Pământului în afara lumii. Deturnarea acestui transport va întrerupe liniile de aprovizionare coloniale și va finanța rezistența."
+          "text": "Bun venit la Stratos Docks. Acesta este principalul centru de export unde deturnează mărfurile coloniale și transportă resurse rafinate ale Pământului în afara lumii. Deturnarea acestui transport va întrerupe liniile de aprovizionare coloniale și va finanța rezistența."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Timpul este critic. Transportul de plumb, T-14, își alimentează propulsoarele principale. Shogun, Ronin — tu asiguri zona de aterizare. Matrix, pregătește-te să ocolești comenzile clemei."
+          "text": "Timpul este critic. Transportul de plumb, T-14, își alimentează propulsoarele principale. Shogun, Ronin — tu asiguri zona de aterizare. Matrix, pregătiți-vă să ocoliți comenzile clemei."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1562,7 +1562,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Precizie excelentă, Matrix. Metodele tale sunt lipsite de onoare, dar au eficacitate."
+          "text": "Precizie excelentă, Matrix. Metodelor tale le lipsește onoare, dar au eficacitate."
         },
         {
           "speaker": "Oni Matrix",
@@ -1607,7 +1607,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISIUNE FINALIZATĂ: PURARE COD. SECTORUL 7 SUPRAÎNCĂRCAT. BLACKUP CONTINENTAL INIȚIAT."
+          "text": "MISIUNE FINALIZATĂ: PURARE COD. SECTORUL 7 SUPRAÎNCĂRCAT. BLACKUP CONTINENTAL INITIAT."
         }
       ]
     },
@@ -1708,7 +1708,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "RUPȚI ��I ARDE!"
+          "text": "RUPȚI ȘI ARDE!"
         },
         {
           "speaker": "Empress Siren",
@@ -1902,7 +1902,7 @@
         {
           "character": "Empress Siren",
           "type": "internal",
-          "text": "Am rulat modelele tactice de șaptesprezece ori. Fiecare versiune implică absorbția daunelor pe care nu le putem atenua complet. Scutul lui Ronin va fi la 10% înainte să ajungem la poartă. Le rog să treacă printr-un câmp de ucidere pentru că este singura ușă. Xelthara a construit-o așa intenționat – astfel încât costul libertății să fie suficient de mare pentru a descuraja încercarea. Nu suntem descurajati."
+          "text": "Am rulat modelele tactice de șaptesprezece ori. Fiecare versiune implică absorbția daunelor pe care nu le putem atenua complet. Scutul lui Ronin va fi la 10% înainte să ajungem la poartă. Le rog să treacă printr-un câmp de ucidere pentru că este singura ușă. Xelthara a construit-o așa intenționat – astfel încât costul libertății să fie suficient de mare pentru a descuraja încercarea. Nu suntem descurajați."
         },
         {
           "character": "AXIOM-7",
@@ -1999,7 +1999,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISIUNE FINALĂ: ZIUA JUDECĂȚII. ÎNALTUL SUPRAVEGHATOR ESTE ÎNVINS. PĂMÂNT RECUPERAT."
+          "text": "MISIUNE FINALĂ: ZIUA JUDECĂȚII. ÎNALTUL SUPRAVEGHATOR ESTE ÎNVINS. PĂMÂNTUL RECUPERAT."
         }
       ]
     },

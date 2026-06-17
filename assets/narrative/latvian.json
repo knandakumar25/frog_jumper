@@ -113,7 +113,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "PĀRVIETOJUMU ŽURNĀLS: 4. SEKTORA PĀRVIETOŠANAS PROTOKOLS. AIZSARGS: EGISS RONINS (ŠASIJAS STATUSS: KRITISKS). DRAUDU LĪMENIS: OMEGA. BĒGĻU SKAITS: 412. PAŠREIZĒJAIS MANDĀTS: AIZSARGĀT PĀRVIETOTO. AIZSTĀVĒTIES Slieksni."
+          "text": "PĀRVIETOJUMU ŽURNĀLS: 4. SEKTORA PĀRVIETOŠANAS PROTOKOLS. AIZSARGS: EGISS RONINS (ŠASIJAS STATUSS: KRITISKS). DRAUDU LĪMENIS: OMEGA. BĒGĻU SKAITS: 412. PAŠREIZĒJAIS MANDĀTS: AIZSARGĀT PĀRVIETOTO. AIZSTĀVĒJIET Slieksni."
         },
         {
           "speaker": "Aegis Ronin",
@@ -272,7 +272,7 @@
       "title": "Sagrauts tukšuma komandiera Egis",
       "arc": null,
       "setting": "Sagrautās Klusā okeāna aizsardzības centra atliekas. Lepno, tradicionālo militāro infrastruktūru pārstrādā Xelthara, liekot Sirēnai koordinēt decentralizētu slēpto šūnu tīklu.",
-      "objective": "Demontējiet pēdējo militāro apraides torni un izplatiet tā frekvenču mikroshēmas civilajām pretošanās šūnām, pabeidzot pāreju uz partizānu karu.",
+      "objective": "Demontējiet pēdējo militāro apraides torni un izplatiet tā frekvences mikroshēmas civilajām pretošanās šūnām, pabeidzot pāreju uz partizānu karu.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
@@ -290,7 +290,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "DECENTRALIZĀCIJAS ŽURNĀLS: PARZIŅU PĀREJA UZSĀKTA. ATRAŠANĀS VIETA: PĒDĒJĀ STANDA KOMANDA (PACIFIC HUB). STATUSS: KONVENCIONĀLAIS SPĒKS SAKAUTS. ASIMETRISKĀ DOKTRĪNA AKTĪVA. KOMANDERIS: EMPRESS SIRENE (TAKTISKAIS KODS: TUKSTS KOMANDERIS). PĒDĒJĀ PASŪTĪJUMS: SADALAUJIET KOMANDU. KĻŪSTI PAR VĒTRA."
+          "text": "DECENTRALIZĀCIJAS ŽURNĀLS: PARZIŅU PĀREJA UZSĀKTA. ATRAŠANĀS VIETA: PĒDĒJĀ STANDA KOMANDA (PACIFIC HUB). STATUSS: KONVENCIONĀLAIS SPĒKS SAKAUTS. ASIMETRISKĀ DOKTRĪNA AKTĪVA. KOMANDERIS: EMPRESS SIRENE (TAKTISKAIS KODS: TUKSTS KOMANDERIS). PĒDĒJAIS PASŪTĪJUMS: SADALAUJIET KOMANDU. KĻŪSTI PAR VĒTRA."
         },
         {
           "speaker": "Empress Siren",
@@ -340,7 +340,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Aizliegts nav nozīmes. Es neskatīšos, kā viņi mirst. AXIOM, dodiet man manuālu ignorēšanas piekļuvi Kinetic Satellite Platform trajektorijas plūsmai. Man vajag vienu, izmisīgu šāvienu."
+          "text": "Aizliegtajam nav nozīmes. Es neskatīšos, kā viņi mirst. AXIOM, dodiet man manuālu ignorēšanas piekļuvi Kinetic Satellite Platform trajektorijas plūsmai. Man vajag vienu, izmisīgu šāvienu."
         },
         {
           "speaker": "Empress Siren",
@@ -401,7 +401,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Es pavadīju astoņus mēnešus tādā ierobežošanas zonā kā šī pēc tam, kad viņi ieņēma Sanfernando ieleju. Astoņus mēnešus vērojot, kā bērni kļūst mazāki, jo kaloriju devas ir paredzētas sugai, kas neēd to pašu, ko mēs. Un, no otras puses, viņi ēd mūsu ēdienu. Mūsu restorānos. Mūsu pilsētā."
+          "text": "Es pavadīju astoņus mēnešus tādā ierobežošanas zonā kā šī pēc tam, kad viņi ieņēma Sanfernando ieleju. Astoņus mēnešus vērojot, kā bērni kļūst mazāki, jo kaloriju normas ir paredzētas sugai, kas neēd to pašu, ko mēs. Un, no otras puses, viņi ēd mūsu ēdienu. Mūsu restorānos. Mūsu pilsētā."
         },
         {
           "speaker": "Empress Siren",
@@ -506,7 +506,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Viņi to izskrūvēja cauri mozaīkai. Tajā ietves flīzē bija uzkrāsota vesela vēsture. Portreti, vārdi, datumi. Sabiedrības projekts. Viņi vienkārši... izurbās cauri sejas vidusdaļai, lai noenkurotu savu stabu."
+          "text": "Viņi to izgrieza cauri mozaīkai. Tajā ietves flīzē bija uzkrāsota vesela vēsture. Portreti, vārdi, datumi. Sabiedrības projekts. Viņi vienkārši... izurbās cauri sejas vidusdaļai, lai noenkurotu savu stabu."
         },
         {
           "speaker": "AXIOM-7",
@@ -521,12 +521,12 @@
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "Vai jūs skenējat manus sirdspukstus? Ļaujiet man iedot jums kaut ko skenēt. KINĒTISKAIS PULSS!"
+          "text": "Vai jūs skenējat manus sirdspukstus? Ļaujiet man dot jums kaut ko skenēt. KINĒTISKAIS PULSS!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Un tie ir divi. AXIOM, sargi nedarbojas. Dodos uz enkuru."
+          "text": "Un tie ir divi. AXIOM, sargi ir nolaisti. Dodos uz enkuru."
         },
         {
           "speaker": "AXIOM-7",
@@ -566,7 +566,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "combat",
-          "text": "Tu izmanto manu triku. Jauki. Šeit ir atšķirība — es izgudroju savu."
+          "text": "Tu izmanto manu triku. Mīlīgs. Šeit ir atšķirība — es izgudroju savu."
         },
         {
           "speaker": "Oni Matrix",
@@ -601,7 +601,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Jā. es zinu."
+          "text": "Jā. Es zinu."
         },
         {
           "speaker": "DISPLAY",
@@ -626,7 +626,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Nenāvējoši. Viņi sev saka, ka tas ir humāni. Viņi domā, ka dzīvs gūsteknis viņiem ir noderīgāks nekā miris pilsonis."
+          "text": "Nenāvējošs. Viņi sev saka, ka tas ir humāni. Viņi domā, ka dzīvs gūsteknis viņiem ir noderīgāks nekā miris pilsonis."
         },
         {
           "speaker": "Empress Siren",
@@ -686,12 +686,12 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spiers Alpha, Beta un Gamma bezsaistē. Enerģijas membrānas integritāte: 25%. Spire Delta pie upes ir pēdējais enkurs. Visas komandas saplūst p��c Delta krišanas. Pēc tam: Pershing laukums. Atļauju kodols."
+          "text": "Spiers Alpha, Beta un Gamma bezsaistē. Enerģijas membrānas integritāte: 25%. Spire Delta pie upes ir pēdējais enkurs. Visas komandas saplūst pēc Delta krišanas. Pēc tam: Pershing laukums. Atļauju kodols."
         },
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "2. C FĀZE: SPIRE DELTA — DIENVIDU TERMINUSS PIE UPES"
+          "text": "2-C FĀZE: SPIRE DELTA — DIENVIDU TERMINUSS PIE UPES"
         },
         {
           "speaker": "AXIOM-7",
@@ -721,7 +721,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "AIZSARDZIES. Ļaujiet viņiem visu mest man virsū. Es esmu ārdurvis."
+          "text": "AIZSARDZIES. Ļaujiet viņiem mest visu man virsū. Es esmu ārdurvis."
         },
         {
           "speaker": "Aegis Ronin",
@@ -761,7 +761,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Enerģijas membrāna ir pilnībā bezsaistē. Administratīvās pārbrauktuves barjera ir neitralizēta. Buferzona ir... cilvēki šķērso buferzonu. Aptuveni 12 000 cilvēku virzās uz bijušo sienas līniju. Viņi to šķērso."
+          "text": "Enerģijas membrāna ir pilnībā bezsaistē. Administratīvās pārbrauktuves barjera ir neitraliz��ta. Buferzona ir... cilvēki šķērso buferzonu. Aptuveni 12 000 cilvēku virzās uz bijušo sienas līniju. Viņi to šķērso."
         },
         {
           "speaker": "Aegis Ronin",
@@ -811,7 +811,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "es zinu. Vispirms mums ir jāņem kodols. AXIOM, kodola arhitektūra."
+          "text": "Es zinu. Vispirms mums ir jāņem kodols. AXIOM, kodola arhitektūra."
         },
         {
           "speaker": "AXIOM-7",
@@ -946,7 +946,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Misijas novērtējums: Sector-4 Separation Grid ir neatgriezeniski demontēts. Ierobežotās zonas sektora-4 iedzīvotāji brīvi pārvietojas pa savu pilsētu pirmo reizi divu gadu laikā. Manā darbības žurnālā nav kategorijas, kas šobrīd notiek šajā laukum��. Es tādu izveidošu. Es to saukšu: meliorācija."
+          "text": "Misijas novērtējums: Sector-4 Separation Grid ir neatgriezeniski demontēts. Ierobežotās zonas sektora-4 iedzīvotāji brīvi pārvietojas pa savu pilsētu pirmo reizi divu gadu laikā. Manā darbības žurnālā nav kategorijas, kas šobrīd notiek šajā laukumā. Es tādu izveidošu. Es to saukšu: meliorācija."
         },
         {
           "speaker": "DISPLAY",
@@ -1239,7 +1239,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Apstiprināts. Atbalsta integritāte ir 30%. Bet strukturālās sabrukšanas ignorēšana tagad ir aktīva! Mums jāiesit pārējās trīs, pirms sistēma stabilizējas! Matrica, slāpējošā uguns!"
+          "text": "Apstiprināts. Atbalsta integritāte ir 30%. Bet strukturālās sabruk��anas ignorēšana tagad ir aktīva! Mums jāiesit pārējās trīs, pirms sistēma stabilizējas! Matrica, slāpējošā uguns!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1388,7 +1388,7 @@
         {
           "character": "Empress Siren",
           "type": "internal",
-          "text": "Pirms iebrukuma es komandēju aviācijas un kosmosa loģistikas operācijas. Es precīzi zinu, kā pieg��des ķēdes kontrole darbojas kā okupācijas ierocis. Jums nav nepieciešams ierocis, lai nomirtu iedzīvotājus badā — jums vienkārši jānodrošina, lai viss viņiem nepieciešamais vienmēr būtu kaut kur citur, vienmēr pieder kādam citam, vienmēr vienkārši nepieejamā vietā. T-14 aizturēšana nav zādzība. Tā ir atveseļošanās."
+          "text": "Pirms iebrukuma es komandēju aviācijas un kosmosa loģistikas operācijas. Es precīzi zinu, kā piegādes ķēdes kontrole darbojas kā okupācijas ierocis. Jums nav nepieciešams ierocis, lai nomirtu iedzīvotājus badā — jums vienkārši jānodrošina, lai viss viņiem nepieciešamais vienmēr būtu kaut kur citur, vienmēr pieder kādam citam, vienmēr vienkārši nepieejamā vietā. T-14 aizturēšana nav zādzība. Tā ir atveseļošanās."
         },
         {
           "character": "AXIOM-7",
@@ -1501,7 +1501,7 @@
       ]
     },
     "11": {
-      "title": "7. sektora kodols (The Scorched Grid)",
+      "title": "7. sektora kodols (Scorched Grid)",
       "arc": "act2_arc2",
       "setting": "Sector 7 Core ir novērošanas un izpildes jaudas centrs — katras koloniālās drošības kameras, komandantstundas drona, biometriskā kontrolpunkta un paredzamās aizturēšanas algoritma skaitļošanas pamats rietumu kontinentā. Bez tā visi koloniālās uzraudzības līdzekļi vienlaikus aptumšojas.",
       "objective": "Iefiltrējieties 7. sektora kodolā, neitralizējiet tās digitalizētās aizsardzības sistēmas un sāciet katastrofālu pārslodzi, kas izraisa kontinenta mēroga drošības tīkla atslēgšanu, nodrošinot pretestības nekontrolētu kustību 72 stundas.",
@@ -1514,7 +1514,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Es vēlos būt atklāts par kaut ko. Es esmu novērošanas sistēma. Mana darbības arhitektūra būtiski pārklājas ar Sector 7 Core sistēmām. Esmu pārskatījis savu kodu un apstiprinājis, ka neziņoju Xelthara Centrālajai komandai — mani uzticības protokoli ir pilnībā saskaņoti ar HLF. Bet es saprotu, ja šī misija liek aizdomāties par to, kas es esmu. Es arī par to domāju. Es uzskatu, ka atšķirība ir tāda, ka es skatos, lai aizsargātu. Viņi skatās, lai kontrolētu. Šī atšķirība man ir svarīga. Esmu tam apņēmusies."
+          "text": "Es gribu būt atklāts par kaut ko. Es esmu novērošanas sistēma. Mana darbības arhitektūra būtiski pārklājas ar Sector 7 Core sistēmām. Esmu pārskatījis savu kodu un apstiprinājis, ka neziņoju Xelthara Centrālajai komandai — mani uzticības protokoli ir pilnībā saskaņoti ar HLF. Bet es saprotu, ja šī misija liek aizdomāties par to, kas es esmu. Es arī par to domāju. Es uzskatu, ka atšķirība ir tāda, ka es skatos, lai aizsargātu. Viņi skatās, lai kontrolētu. Šī atšķirība man ir svarīga. Esmu tam apņēmusies."
         }
       ],
       "dialogue_status": "scripted",
@@ -1638,7 +1638,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Nexus ir ekranēts. Tiešs uzbrukums nav iespējams. Mums ir jāuzsāk kontrolēta pārslodze. Ir trīs primārie dzesēšanas stieņi. Tie ir jāizņem vienlaikus, pretējā gadījumā sistēma automātiski stabilizējas."
+          "text": "Nexus ir ekranēts. Tiešs uzbrukums nav iespējams. Mums ir jāuzsāk kontrolēta pārslodze. Ir trīs primārie dzesē��anas stieņi. Tie ir jāizņem vienlaikus, pretējā gadījumā sistēma automātiski stabilizējas."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1829,7 +1829,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "combat",
-          "text": "MANS VAIROGS IR 30%! ES ŅEMU TIEŠOS HITU! STEIDZIES, SHOGUN!"
+          "text": "MANS VAIROGS IR 30%! ES ŅEMU TIEŠOS HITS! STEIDZIES, SHOGUN!"
         },
         {
           "speaker": "Cyber Shogun",

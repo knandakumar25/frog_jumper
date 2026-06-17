@@ -207,7 +207,7 @@ Dat was een zeer luide uitgang, Matrix. Ik let al op je handtekening sinds de ra
 Wie is dit? Hoe is het met jou op dit kanaal?
 
 # kind: dialogue # speaker: Unknown Voice # type: radio
-Ik ben keizerin Sirene. Wij zijn degenen die vechten om ervoor te zorgen dat er nog een stad over is om te oogsten. Je hebt een gave om dingen kapot te maken, geest. Dat kunnen we gebruiken. Ben je het zat om je te verstoppen in de roest?
+Ik ben keizerin Sirene. Wij zijn degenen die vechten om ervoor te zorgen dat er nog een stad over is om te oogsten. Je hebt een gave om dingen kapot te maken, geest. Dat kunnen we gebruiken. Ben je het beu om je te verstoppen in de roest?
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 De roest begon toch saai te worden. Wijs de weg, sirene.
@@ -272,7 +272,7 @@ Annuleer opdracht naar kinetisch platform: FIRE. Coördinaat 51.4883 N, 120.7301
 Systeemschade overweldigend! De satelliet is uit zijn baan geraakt. Commandant, u moet zich terugtrekken. Het gebied is verzadigd met hoogenergetische straling.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Terugtrekking bevestigd. Missiedoelstelling – overleven van de burgerbevolking – bereikt. Ze hebben ons luchtruim ingenomen, maar ze zullen nooit ons besluit overnemen. Nu aan het extraheren.
+Terugtrekking bevestigd. Missiedoelstelling – overleven van de burgerbevolking – bereikt. Ze hebben ons luchtruim ingenomen, maar ze zullen nooit ons besluit overnemen. Nu aan het uitpakken.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 MISSIE VOLTOOID: DE VOID COMMANDANT. KEIZERIN SIRENE SLUIT ZICH AAN BIJ HET HLF.
@@ -337,7 +337,7 @@ Opmerking: de patrouilles van de grensautoriteiten zijn druk maar hebben een pat
 4.400. Mensen die gewoon naar huis wilden lopen.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
-Het wreedste wapen van het kolonialisme is niet de soldaat met het geweer. Het is de klerk met de stempel die u vertelt dat uw bestaan ​​hun toestemming vereist. Dat een mens een bezetter moet verzoeken om het recht om op het terrein van zijn eigen voorouders te lopen. Ik heb vrede gesloten met vechtende soldaten. Het confronteren van de architectuur van toestemming – de nonchalante, systematische vernedering ervan – dit is wat de geest aantast op een manier die geen mes kan doorsnijden.
+Het wreedste wapen van het kolonialisme is niet de soldaat met het geweer. Het is de klerk met de stempel die u vertelt dat uw bestaan ​​hun toestemming vereist. Dat een mens een bezetter moet verzoeken om het recht om op het terrein van zijn eigen voorouders te lopen. Ik heb vrede gesloten met vechtende soldaten. Het confronteren van de architectuur van toestemming – de nonchalante, systematische vernedering ervan – is wat de geest aantast op een manier die geen mes kan doorsnijden.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Patrouilles draaien. Er is een venster van 90 seconden op de nadering van Hope Street, die over dertig seconden begint. Ga op mijn doel af.
@@ -430,7 +430,7 @@ Ja. Ik weet.
 FASE 2-B: CYBER SHOGUN EN KEIZERIN SIRENE BIJ SPIRE GAMMA – DE CENTRALE BIBLIOTHEEK
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-De bibliotheek. Ik gaf daar mijn eerste officierstrainingsseminars. Gemeenschappelijke verdedigingscursussen, leeszaal op de derde verdieping. Drie jaar voor de invasie. De geometrie van de manier waarop het kolonialisme onze eigen infrastructuur tegen ons gebruikt, blijft opvallend. Ze hebben hun datacenter in onze bibliotheek geplaatst. Ze schrijven over onze gegevens heen op de plaats waar wij onze gegevens bewaarden.
+De bibliotheek. Ik gaf daar mijn eerste officierstrainingen. Gemeenschappelijke verdedigingscursussen, leeszaal op de derde verdieping. Drie jaar voor de invasie. De geometrie van de manier waarop het kolonialisme onze eigen infrastructuur tegen ons gebruikt, blijft opvallend. Ze hebben hun datacenter in onze bibliotheek geplaatst. Ze schrijven over onze gegevens heen op de plaats waar wij onze gegevens bewaarden.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 En nu zullen ze ontdekken dat de mensen van wie ze de gegevens probeerden te wissen, bij de voordeur staan.
@@ -466,7 +466,7 @@ Derde verdieping. Natuurlijk. Wijs de weg, AXIOM.
 Ik vertelde twaalf gezinnen hoe ze in deze kamer gemeenschapswachtrotaties moesten organiseren. In het kindergedeelte stonden zitzakken. Iemand had krijttekeningen op het referentiebureau geplakt. Een kind maakte een tekening van een superheld. Het verschil tussen een bibliotheek en een datacenter is dat een bibliotheek ervan uitgaat dat de mensen die binnenkomen het recht hebben om daar te zijn.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Rasterknooppunt gelegen. Het verbreken van de Spire Gamma-stroomtoevoer. Hiermee worden ook alle gegevens over de registratie van koloniale eigendommen gewist die ze hier hebben opgeslagen.
+Rasterknooppunt gelegen. Het verbreken van de Spire Gamma-stroomtoevoer. Hiermee worden ook alle registratiegegevens van koloniale eigendommen gewist die ze hier hebben opgeslagen.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Bevestigd. Het verbreken van deze verbinding zal ongeveer 12.000 overdrachtsgegevens van koloniale akten voor eigendommen in Sector 4 beschadigen. Deze gegevens vormen de juridische structuur van de landbeslagleggingen.
@@ -493,7 +493,7 @@ Niet doen. Laat het je nog niet overnemen. Wij brengen dit eerst naar beneden. D
 Juist. Rechts. Na de torenspits. Na de muur. Ik zal het niet vergeten.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Dit is geen stealth-aanpak. Delta is een versterkte positie. We hebben het als een eenheid getroffen. Ronin: jij pakt het punt, beschermt naar voren, trekt hun aandacht en absorbeert hun eerste salvo. Shogun, maak de linkerflank vrij. Matrix, gebruik Phase-Shift om het geschutsbedieningspaneel uiterst rechts te bereiken en alle drie de geschutskoepels tegelijkertijd te doden. Zodra de geschutskoepels dood zijn, geef ik drones opdracht tot verzadigingsvuur op het handhavingsteam. We laten het garnizoen instorten, waarna Ronin de torenspits in de grond steekt.
+Dit is geen stealth-aanpak. Delta is een versterkte positie. We hebben het als een eenheid getroffen. Ronin: jij pakt het punt, beschermt naar voren, trekt hun aandacht en absorbeert hun eerste salvo. Shogun, maak de linkerflank vrij. Matrix, gebruik Phase-Shift om het geschutsbedieningspaneel uiterst rechts te bereiken en alle drie de geschutskoepels tegelijkertijd te doden. Zodra de geschutskoepels dood zijn, geef ik drones het vuur op het handhavingsteam. We laten het garnizoen instorten, waarna Ronin de torenspits in de grond steekt.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 SCHILD OMHOOG. Laat ze alles naar mij gooien. Ik ben de voordeur.
@@ -648,13 +648,13 @@ De Shado-Grid Spire herbergt het bevolkingsregister, de database voor eigendomso
 Steel de volledige datasets van eigendoms- en bevolkingsregisters voordat deze buiten de wereld worden verzonden, en corrumpeer het Forced Labour Allocation System om alle lopende toewijzingsbevelen ongeldig te verklaren.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
-Everything the Xelthara know about us is in that tower. Elk adres waar we ooit hebben gewoond. De naam van elk familielid. Elke akte die onze grootouders ondertekenden. They turned our entire existence into a database entry so they could manage us more efficiently. Tonight we take our data back—and we break the machine that's been using it to assign people to scrub their floors.
+Alles wat de Xelthara over ons weten, zit in die toren. Elk adres waar we ooit hebben gewoond. De naam van elk familielid. Elke akte die onze grootouders ondertekenden. Ze veranderden ons hele bestaan ​​in een database-invoer, zodat ze ons efficiënter konden beheren. Vanavond nemen we onze gegevens terug en breken we de machine die deze gebruikt om mensen de opdracht te geven hun vloeren te schrobben.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-The Forced Labor Allocation System inside the Spire does not use the word 'forced.' It uses the phrase 'Community Integration Contribution Program.' De arbeidsopdrachten zijn geen contracten; ze worden algoritmisch gegenereerd op basis van de geregistreerde vaardigheden van de ontheemde en zonder toestemming uitgegeven. This is the bureaucratic language of enslavement.
+Het systeem voor de toewijzing van dwangarbeid binnen de Spire gebruikt het woord 'gedwongen' niet. Het gebruikt de uitdrukking 'Community Integration Contribution Program'. De arbeidsopdrachten zijn geen contracten; ze worden algoritmisch gegenereerd op basis van de geregistreerde vaardigheden van de ontheemde en zonder toestemming uitgegeven. Dit is de bureaucratische taal van slavernij.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Analyse voltooid. The colonial expansion blueprints and settler logistical data are stored in that central column. Matrix, you have five minutes to execute the download before their internal defense systems reboot.
+Analyse voltooid. De blauwdrukken van de koloniale expansie en de logistieke gegevens van de kolonisten worden in die centrale kolom opgeslagen. Matrix, je hebt vijf minuten om de download uit te voeren voordat hun interne verdedigingssystemen opnieuw opstarten.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Vijf minuten? Een fluitje van een cent. Maar ik heb duidelijke toegang nodig. Shogun, kun je de navelstreng doorknippen?
@@ -663,25 +663,25 @@ Vijf minuten? Een fluitje van een cent. Maar ik heb duidelijke toegang nodig. Sh
 Beschouwd als gedaan. Creëer nu een tijdelijk pad naar de console. Let op de hoeken, keizerin. Deze bezuiniging zal elke drone in de sector waarschuwen.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Waarschuwing bevestigd! Heavy Phalanx guards are descending from the upper maintenance shafts! Ronin, vooraan en in het midden! Vestig de verdedigingslinie bij het toegangspunt!
+Waarschuwing bevestigd! Uit de bovenste onderhoudsschachten komen zware Phalanx-bewakers naar beneden! Ronin, vooraan en in het midden! Vestig de verdedigingslinie bij het toegangspunt!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Het werd tijd dat ik dit ding ging slingeren. Schild omhoog! Nothing passes this point, you overgrown lizards!
+Het werd tijd dat ik dit ding ging slingeren. Schild omhoog! Niets passeert dit punt, jullie overwoekerde hagedissen!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Sirene! Richt je op die linkerflank! Ze proberen mij vast te pinnen!
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Drones three and four, suppressive fire on the left flank! Teken hun aggro! Ronin, spaar je lading!
+Drones drie en vier, onderdrukkend vuur op de linkerflank! Teken hun aggro! Ronin, spaar je lading!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Te laat voor natuurbehoud! SMASH! Vertel Matrix dat ze op moet schieten!
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
-Stil, vleesschild! I'm threading a digital needle through their core brain! Nog even... een stukje... verder...
+Stil, vleesschild! Ik rijg een digitale naald door hun kernbrein! Nog even... een stukje... verder...
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Waarschuwing: gegevensdownload is voor 95% voltooid. Xelthara-tegenhack gestart. Matrix, the Spire is locking down all internal access points!
+Waarschuwing: gegevensdownload is voor 95% voltooid. Xelthara-tegenhack gestart. Matrix, de Spire vergrendelt alle interne toegangspunten!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Begrepen! Gegevens beveiligd! De stekker eruit trekken!
@@ -867,7 +867,7 @@ MISSIE VOLTOOID: INDUSTRIËLE VERWOESTING. DE GIETERIJSSMEDTE IS STIL.
 # kind: level # level: 9 # title: Aquanaut Abyss (ondergedompelde ruïnes) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-De Stille Oceaan wordt systematisch drooggelegd door diepzeewaterstofhevelleidingen langs het continentaal plat. Oververhitte pekelafvoer heeft een kuststrook van 300 kilometer verzuurd, waardoor vissersgemeenschappen die generaties lang in hun levensonderhoud hebben voorzien, zijn vernietigd.
+De Stille Oceaan wordt systematisch drooggelegd door diepzeewaterstofhevelleidingen langs het continentaal plat. Oververhitte pekelafvoer heeft een kuststrook van 300 kilometer verzuurd, waardoor vissersgemeenschappen die zichzelf generaties lang in stand hielden, zijn vernietigd.
 
 # kind: objective
 Lokaliseer en vernietig de drie primaire Deep-Sea Siphon Conduit Hubs om het overhevelen van de oceaan permanent te stoppen en het herstel van de oceaan te beginnen.
@@ -1148,7 +1148,7 @@ De Obsidian Vault, gelegen onder het voormalige Getty Center, is het belangrijks
 Infiltreer de Obsidian Vault, extraheer de Original Land Treaty Database en alle taal- en mondelinge geschiedenisarchieven, en vernietig het fysieke catalogussysteem om de koloniale culturele verwerkingspijplijn permanent te stoppen.
 
 # kind: solo_monologue # character: Cyber Shogun # type: internal
-De eer van een krijger wordt zowel bepaald door wat hij beschermt als door wat hij vernietigt. Vanavond bescherm ik iets. De documenten in deze kluis zijn het bewijs dat we hier bestonden voordat ze arriveerden – dat we namen hadden voor dit land, erop gebouwd waren, erin begraven waren en er eeuwenlang verhalen over vertelden. Als ze dat bewijs wissen, kunnen ze elke geschiedenis schrijven die ze willen. Dat zal ik niet laten gebeuren.
+De eer van een krijger wordt zowel bepaald door wat hij beschermt als door wat hij vernietigt. Vanavond bescherm ik iets. De gegevens in deze kluis zijn het bewijs dat we hier bestonden voordat ze arriveerden – dat we namen hadden voor dit land, erop gebouwd waren, erin begraven waren en er eeuwenlang verhalen over vertelden. Als ze dat bewijs wissen, kunnen ze elke geschiedenis schrijven die ze willen. Dat zal ik niet laten gebeuren.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 De Obsidian Vault bevat 4,2 miljoen gecatalogiseerde artefacten en records. Hiervan zijn er 340.000 aangemerkt voor vernietiging als 'niet-essentiële ontslagen'. Alleen al de afgelopen maand werden zeventienduizend voorwerpen vernietigd. Ik heb van iedereen de namen. Ik wil dat je dat weet voordat je naar binnen gaat. Wat we vanavond redden, is wat overblijft. Er is geen herstel mogelijk van wat al weg is. Maar er valt nog iets te redden.

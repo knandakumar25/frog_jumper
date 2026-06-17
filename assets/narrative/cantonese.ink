@@ -1,0 +1,1396 @@
+// Narrative source — Axiom Force: Reclaim Earth
+// locale: cantonese
+// meta.language: cantonese
+// meta.version: 1.0
+// meta.description: Axiom Force: Reclaim Earth — cantonese narrative data
+
+// Generated from JSON narrative data. Compile with inklecate to produce .ink.json.
+
+=== acts ===
+-> act_act2_arc1
+-> act_act2_arc2
+-> act_act2_arc3
+-> END
+
+=== act_act2_arc1 ===
+# kind: act # key: act2_arc1 # title: 第二幕 — 弧線 1：打破隔離網格 # subtitle: 第 5-7 級：打破職業的物理壁壘
+中期戰役的第一部分完全集中在隔離的物理基礎設施上——圍牆、檢查站、生物識別登記和行為調節程序，澤爾塔拉用來讓人類分裂、受到監視，並因受到創傷而無法組織。在抵抗運動攻擊佔領的經濟或政治核心之前，他們必須先將孤立的人類社群重新連結起來。
+
+-> END
+
+=== act_act2_arc2 ===
+# kind: act # key: act2_arc2 # title: 第二幕 — ARC 2：資源回收前沿 # subtitle: 第 8-11 級：切斷殖民化的經濟獲利能力
+隨著隔離網格的破裂和孤立人群的重新聯繫，抵抗轉向了佔領的經濟引擎。澤爾塔拉來到地球是為了資源，而不是意識形態。 Arc 2 是經濟破壞運動：對使佔領在經濟上可行的開採、加工、運輸和安全基礎設施進行四次連續打擊。
+
+-> END
+
+=== act_act2_arc3 ===
+# kind: act # key: act2_arc3 # title: 第二幕—弧線 3：廢除公司治理 # subtitle: 第 12 至 14 級：深入殖民地行政國家的中心
+抽氣引擎已停止。安全柵格一片漆黑。隔離牆破裂。剩下的就是佔領本身的行政和政治架構。第三弧是戰役在政治上最直接的序列：抵抗運動不再與佔領軍作戰。它正在從外向內一點一點地瓦解一個殖民國家。
+
+-> END
+
+=== levels ===
+-> level_0
+-> level_1
+-> level_2
+-> level_3
+-> level_4
+-> level_5
+-> level_6
+-> level_7
+-> level_8
+-> level_9
+-> level_10
+-> level_11
+-> level_12
+-> level_13
+-> level_14
+-> level_15
+-> level_16
+-> END
+
+=== level_0 ===
+# kind: level # level: 0 # title: 零號協議 - 虛擬鍛造 # dialogue_status: pending
+
+# kind: setting
+巨大、黑暗的線框網格模擬了破碎的洛杉磯市中心天際線。霓虹藍線定義了道路和建築物。靜態故障不斷在視圖中閃爍。四位冠軍站在一個發光的平台上。
+
+# kind: objective
+透過循環使用所有移動和戰鬥能力來完成訓練協議，最終以同時小隊攻擊摧毀模擬的澤爾塔拉重型部隊。
+
+-> END
+
+=== level_1 ===
+# kind: level # level: 1 # title: 僵局中的幽靈 # dialogue_status: scripted
+
+# kind: setting
+故宮花園遺址。澤爾塔拉地形改造梁正在積極溶解古老的石燈籠和櫻花，代之以貧瘠的黑曜石板行政巨石。
+
+# kind: objective
+潛入活躍的拆除現場，在 Xelthara 的「文化擦除」場永久清除現場記憶之前取回資料刀片——一個禁止歷史的數位儲存庫。
+
+# kind: solo_monologue # character: Cyber Shogun # type: internal
+他們不僅奪取我們的土地，也奪取我們的土地。他們刪除了我們的靈魂。這座宮殿已經矗立了一千年，現在正在為地區稅務局鋪平道路。我不會讓我們的祖先被遺忘在黑曜石板下。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+警告：通訊塔正在廣播拒絕服務。檢測風險機率為98.7%。建議撤退。
+
+# kind: dialogue # speaker: DISPLAY # type: title_card
+檔案日誌：新東京文化清洗。地點：永恆禪宗道場（指定地點：定居點 01 號街區）。狀態：拆除正在進行中。架構擦除率為 42%。
+
+# kind: dialogue # speaker: Cyber Shogun # type: internal
+這木頭吸收了萬武者的氣息。現在，他們將其視為需要移至回收站的數位雜物。對澤爾塔拉人來說，我們的祖先只是他們稅務局藍圖中的一個不方便的障礙。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+警告：結構完整性正在下降。殖民政府已授權對該地點進行最終「平整」。撤軍是唯一合乎邏輯的路徑。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+邏輯是為那些沒有過去的人���備的。你管這叫「練等」？我稱之為靈魂的戰爭。你可能鋪滿了大地，但你會發現我們榮譽的根比你的黑曜石石板還要深！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+這片木頭上的每一片碎片都是你無法刪除的記憶！卡塔：祖傳之擊！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+看看他們的“天堂”。一座用玻璃和鐵絲建造的墳墓，建在千年墳墓上。我拒絕讓人類歷史被抹去，以便為電子表格騰出空間。只要我還站著，東京就會記得！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+信標失效。拆除行動已經停止，但殖民當局正在改變執法者軍團的路線。你正在進行一場幽靈之戰，幕府將軍。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+那麼我就是一個將永遠出沒於他們定居點的幽靈。如果我們不能拯救石頭，我們就能拯救故事。確保資料刀片安全！讓他們在期望遵守的地方只找到火！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+澤爾塔拉希望用過去式來書寫我們的歷史。今天，我用等離子寫下它。這個道場倒下了，但是抵抗力卻上升了。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：永恆的記憶。清洗被中斷。
+
+-> END
+
+=== level_2 ===
+# kind: level # level: 2 # title: 混凝土野火 # dialogue_status: scripted
+
+# kind: setting
+4 號收容區巨大的大門。成千上萬的家庭像牛一樣被趕過能源圍欄。在他們身後，他們郊區的房屋正被澤爾塔拉擴張步行者夷為平地。
+
+# kind: objective
+守住“最後一座橋樑”，對抗澤爾塔拉執法者對民眾的驅趕，讓最後一批難民溜進未繪製地圖的貧民窟，而不是封閉的營地。
+
+# kind: dialogue # speaker: DISPLAY # type: title_card
+流離失所日誌：第 4 部分重新安置協議。後衛：AEGIS Ronin（底盤狀態：嚴重）。威脅等級：歐米茄。難民人數：412。目前任務：保護流離失所者。捍衛門檻。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+AXIOM，告訴撤離飛行員將其落地！這個天花板並沒有變得更輕！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Ronin，結構完整性為14%。澤爾塔拉攻城部隊正在部署重型等離子迫擊砲。你被壓垮的機率達到99.2%。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+那我就把那0.8%塞進他們的喉嚨！保護盾！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+繼續前進！他們想把你像牛一樣趕進籠子裡。只要我還有一口氣，我就是你和他們收容區之間的牆。他們今天不會取代另一個靈魂！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+攻城單位鎖定。他們的目標是支柱。如果他們開火，整個第 4 區的牆壁就會落在疏散區上。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+不在我的監視之下。動力學過載！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+一落！ AXIOM，護盾產生器發出嗚嗚聲。這樣正常嗎？
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+陰性。原型吸收了過多的動能。它正在變成一顆炸彈。立即脫離！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+不，我要給澤爾塔拉一份紀念品。我超費了。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+羅寧，你的生命徵象正在飆升！分析顯示發生了災難性故障。生存幾率：0.1%！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+比我在收容營的機會還要好。這是一趟單程旅行，孩子。你能告訴前線他們欠我一杯酒嗎？
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+為了祖國！吃混凝土！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+羅寧？宙斯盾浪人，回應……我……注視著簽名……盾牌舉起。牆是安全的。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：堅不可摧的牆。 AEGIS Ronin 加入 HLF。
+
+-> END
+
+=== level_3 ===
+# kind: level # level: 3 # title: 霓虹燈鏽跡與數據灰塵 # dialogue_status: scripted
+
+# kind: setting
+名副其實的「地下城」——在閃爍著霓虹燈的澤爾塔拉定居點下方的維護豎井網絡。在上面，居住者享受著改造後的空氣；下面，邊緣化的人類尋找被臭氧污染的氧氣。
+
+# kind: objective
+從殖民電網吸取能量，為邊緣化人群的生命維持系統提供動力，同時躲避「純潔巡邏隊」追捕流浪者的行為。
+
+# kind: solo_monologue # character: Oni Matrix # type: internal
+他們在我們的天花板上建造了他們的天堂，並想知道為什麼地下室會漏水。我們生活在他們忘記鋪平的縫隙中。這款電池不僅適合我，也適合我。這是為了讓他們在藍圖中「忘記」的一百個家庭保持暖氣開著。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+警告：不建議將 Xelthara 硬體整合到民用機殼中。神經反饋預計有 40% 的不穩定性。 Matrix，您的心率超出了安全參數。
+
+# kind: dialogue # speaker: DISPLAY # type: title_card
+邊緣化原木：地下廢料城。狀態：倖存。入侵者警報：零偵測到。系統信賴度：100%。目標：竊取殖民火花。激發抵抗力。
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+他們在我們的天花板上建造了他們的天堂，並想知道為什麼地下室會漏水。我們生活在他們忘記鋪平的縫隙中。我將重新利用他們自己的廢棄技術來炸毀他們的網格。我們從邊緣發動反擊。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+整合成功。相移功能已上線。注意：連續使用會導致神經退化。
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+就像走過煙霧一樣。現在，讓我們在我忘記現實是什麼樣子之前找到出口。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+封鎖已啟動。收穫核心已達到臨界溫度。您必須立即停用周界門。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+一次 EMP 爆炸就可以了。讓我們給他們一些數據灰塵來記住我。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+這��是我的提示。
+
+# kind: dialogue # speaker: Unknown Voice # type: radio
+那是一個非常大聲的退出，Matrix。從煉油廠開始我就一直在看你的簽名。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+這是誰？你在這個頻道上怎麼樣？
+
+# kind: dialogue # speaker: Unknown Voice # type: radio
+我是塞壬女皇。我們是為確保還有一座城市有待收割而奮鬥的人。你有打破東西的天賦，幽靈。我們可以用它。您厭倦了躲在鐵鏽中嗎？
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+無論如何，生鏽已經變得無聊了。帶路吧，塞壬。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：機器中的幽靈。 ONI MATRIX 加入 HLF。
+
+-> END
+
+=== level_4 ===
+# kind: level # level: 4 # title: 虛空指揮官的破碎聖盾 # dialogue_status: scripted
+
+# kind: setting
+太平洋防禦中心的破碎殘骸。令人自豪的傳統軍事基礎設施正在被澤爾塔拉回收，迫使海妖協調一個分散的隱藏細胞網路。
+
+# kind: objective
+拆除最後一座軍事廣播塔，並將其頻率晶片分發給平民抵抗組織，完成向遊擊戰爭的過渡。
+
+# kind: solo_monologue # character: Empress Siren # type: radio
+常備軍的時代已經結束。我們無法在球場上遇見他們，所以我們就成為了球場。劃分信號。分散指揮。如果沒有頭可砍，抵抗就不會消亡。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+女王陛下，您的廣播是一個巨大的風險！您正在暴露您的位置和阻力的頻率模式。這不是最佳的。請中止傳輸。
+
+# kind: dialogue # speaker: DISPLAY # type: title_card
+權力下放日誌：遊擊式過渡已啟動。地點：最後堅守指揮部（太平洋樞紐）。現狀：常規部隊被擊敗。不對稱主義活躍。指揮官：海妖女皇（戰術代碼：虛空指揮官）。最後命令：粉碎命令。成為風暴。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+這是虛空指揮官。傳統的等級制度被瓦解了。你們不再是士兵；你們是細胞。淡入城市。當他們睡覺時罷工。一次一點點���奪回你的家園。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+指揮官，逃生船報告發射時傷亡率為 85%。澤爾塔拉戰士優先考慮非戰鬥人員。他們知道我們的逃逸向量。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+他們正在根據入侵前的戰術數據進行操作。我會改變數據。 AXIOM，鎖定中央網路連線。我手動繞過防火牆。
+
+# kind: dialogue # speaker: Empress Siren # type: internal
+我們的艦隊不見了。我們的基地是灰塵。剩下的就是數據了。我一定要準確。指揮官的職責是保護生者，而不是保衛屍體。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+已載入新參數。現在是困難的部分。 AXIOM，將動力從我的輔助生命維持轉移到無人機同步陣列。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+指揮官，這會讓你的底盤儲備減少到12%。系統故障的風險很高。我建議不要這樣做。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+執行命令。這些生命值我係統的 12%。我需要清晰的視線，AXIOM。現在正在同步微型無人機。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+無人機艦隊一號，在疏散太空梭周圍建立保護群。無人機第二艦隊，準備進攻。目標：澤爾塔拉縱隊 8-B，前往主要民用隧道。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+此列位於限制扇區的正下方。由於動能衛星平台不穩定，軌道轟炸被禁止。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+禁止是無關緊要的。我不會看著他們死。 AXIOM，讓我能夠手動覆蓋動能衛星平台的軌跡饋送。我需要一次絕望的射擊。
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+對動能平台的虛空命令－FIRE。座標北緯 51.4883，西經 120.7301。 抹除協議。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+系統損壞嚴重！衛星已脫離軌道。指揮官，您必須撤退了。該區域充滿了高能量輻射。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+確認撤退。任務目標——平民生存——實現了。他們奪走了我們的天空，但他們永遠奪走我們的決心。現在正在提取。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：虛空指揮官。塞壬女皇加入 HLF。
+
+-> END
+
+=== level_5 ===
+# kind: level # level: 5 # title: 霓虹餘燼 - 邊境突破 # arc: act2_arc1 # dialogue_status: scripted
+
+# kind: setting
+活躍的第 4 區分離網格——一座 40 公尺高的能量牆，配有生物識別掃描儀尖塔、許可證處理檢查站和 Xelthara 邊境管理局站。它實際上將洛杉磯一分為二，將人類收容區與塞爾塔拉殖民區隔離。這堵牆不是軍事設施。這是一種行政性的。
+
+# kind: objective
+禁用所有四個生物識別掃描儀尖塔，摧毀中央許可證處理核心（控制人類活動的官僚引擎）並摧毀大分離，以便收容區的人們可以在自己的城市中自由行走。
+
+# kind: solo_monologue # character: Oni Matrix # type: internal
+那堵牆不僅僅將城市切成兩半。它把我切成兩半。我記得的一切——春天街祖母廚房的味道，第五街公車的聲音——都在那件事的另一邊。我必須像罪犯一樣偷偷溜回來。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+在塞爾塔拉行政記錄中，第 4 區隔離柵格並未被歸類為軍事設施。它被列為“人口優化和交通當局控制系統”。品牌重塑才是重點。這堵牆聽起來像是一種服務。
+
+# kind: dialogue # speaker: DISPLAY # type: title_card
+位移記錄：第 4 區分離網格。結構類型：殖民地行政檢查站。不是軍事的。這是故意的。威脅：塞爾塔拉邊境管理局－執法部門。生物特徵尖塔：4 個活躍。許可證核心：線上。目標：拆除分離的行政架構。打開城市。
+
+# kind: dialogue # speaker: DISPLAY # type: title_card
+他們稱之為門的牆
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+您所看到的結構在殖民記錄中被指定為「第 4 區人口優化和運輸當局控制系統」。它是一堵牆。這是隔離牆。這邊的每一個人都需要有 Xelthara 頒發的居住許可證才能穿越。許可證不予核發。該應用系統積壓了兩年。這並非偶然。這是一座永久流離失所的建築。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+他們佔領聖費爾南多谷後，我在這樣的收容區待了八個月。在八個月的時間裡，我們看著孩子們變得越來越小，因為熱量配給是為那些不吃與我們相同食物的物種而設計的。而在另一邊，他們正在吃我們的食物。在我們的餐廳裡。在我們的城市。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+AXIOM，確認小隊的四個尖塔位置。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Spire Alpha 位於 Grand Avenue 藝術走廊的舊址。 Spire Beta 種植在第 5 街和 Spring 街角。 Spire Gamma 鑲嵌在舊中央圖書館的外牆上。尖塔三角洲將長城的南部終點錨定在河流上。許可證處理核心位於原潘興廣場的檢查站內。在突破核心之前，必須先停用所有四個尖塔。摧毀核心將使整個能量膜級聯崩潰。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+5號和春天。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+那是……那是我祖母的大樓所在的轉角。曾是。是。 Spire Beta 種在她的前院。他們把牆柱放在她的前院。
+
+# kind: dialogue # speaker: Cyber Shogun # type: radio
+矩陣—
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+不。我很好。我可操作了我是說，這座尖塔是我親自推倒的。除了我之外沒有人接觸貝塔。
+
+# kind: dialogue # speaker: Cyber Shogun # type: radio
+明白了。這是你的。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+Ronin，你帶著 Spire Alpha 去藝術走廊。幕府將軍，尖塔伽瑪，位於中央圖書館。矩陣有貝塔版。我將協調巡邏路線上的無人機壓制，並在圖書館入口處與將軍會合。 AXIOM 將指導排序。所有四個尖塔依序倒塌，然後我們在潘興廣場匯合，將核心部分一塊一塊地拆開。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+註：邊境管理局巡邏人員密集但有規律。檢查站由執法者兼管理員 Voss 24 小時值守，負責管理實體過境授權。他不是戰鬥軍官。他是一個官僚。過去一個月他親自拒絕了4,400份越境申請。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+4,400。只想步行回家的人。
+
+# kind: dialogue # speaker: Cyber Shogun # type: internal
+殖民主義最殘酷的武器不是拿著步槍的士兵。蓋有印章的職員會告訴你，你的存在需要他們的授權。人類必須向佔領者請求在自己祖先的土地上行走的權利。我已經與戰鬥的士兵講和了。面對許可的建築——對它的隨意、系統的羞辱——這就是刀刃無法切割的精神磨損。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+巡邏隊輪流進行。在 30 秒後開始的希望街引道上有一個 90 秒的窗口。朝著我的目標前進。
+
+# kind: dialogue # speaker: AXIOM-7 # type: action_prompt
+保持在陰影中的位置，直到 AXIOM-7 發出訊號。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+馬克。去。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+移動。保持在無人機覆蓋範圍上限以下。他們有六米高度的熱圖——不要跳。
+
+# kind: dialogue # speaker: DISPLAY # type: phase_header
+第一階段：突破緩衝區
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+他們設計了這個緩衝區，這樣即使靠近牆壁也感覺像是非法侵入。你是在公開場合。你是可見的。你會因為站在曾經是公共街道的地方而感到內疚。這就是它的心理學。他們希望我們在到達檢查站之前就感覺自己不屬於這裡。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+我討厭這個。我一直在對抗攻城步行者，我討厭這樣。站在自己的街道上，感覺自己被監視，這種感覺比大砲更讓我難受。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+Ronin，第二個泛光燈在四秒後旋轉消失。移至排水涵洞。三。二。一。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+明白了。我在阿爾法尖塔的基地。我可以看到錨。它用螺栓固定在曾經的馬賽克人行道上。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+他們用螺栓將它穿過馬賽克。那塊人行道磁磚上描繪了一段完整的歷史。肖像、姓名、日期。一個社區項目。他們只是……鑽穿一張臉的中間來固定他們的柱子。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Ronin，尖塔的錨是一個磁動鎖，設計可承受高達 8,000 牛頓的直接力。您的動能過載電荷保持完整的三次計數，將超過該閾值。您還必須先停用尖塔底部的兩個生物辨識哨兵裝置—它們會在您進入範圍時偵測到您的生物辨識簽名。
+
+# kind: dialogue # speaker: Aegis Ronin # type: internal
+生物識別簽名。我自己的心跳會觸發警報，因為我是人類。好吧。讓我們開始解決這個問題。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+你掃描我的心跳嗎？讓我給你一些要掃描的東西。動能脈衝！
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+那是兩個。 AXIOM，哨兵已倒下。去尋找錨。
+
+# kind: dialogue # speaker: AXIOM-7 # type: action_prompt
+在 Spire Alpha 的基地保持動能過載電��三數。 \[輸入：按住 RB/R1 三秒鐘，然後放開。 \]
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Spire Alpha 錨斷裂。北部地區的能量膜不穩定了 25%。剩下三個尖塔。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+百分之二十五是一個開始。抱歉我們花了這麼長時間。我們現在就在這裡。
+
+# kind: dialogue # speaker: DISPLAY # type: phase_header
+第 2-A 階段：Spire Beta 的 ONI MaTRIX — 第五期和春季
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+就在那裡。樹還在那裡。我祖母常說那棵樹比這座城市的市政廳還古老，但我從不相信她。
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+隔離牆建成四十七天后，她提交了穿越許可證申請。她填寫了表格。一式三份。因為她相信過程。她相信，如果你做對了事情，就會有人傾聽。她始終沒有得到答案。兩個月後，她在收容區去世。營養不良併發症。他們在牆的另一邊有她最喜歡的雜貨店。她填寫了一份表格去買食物。
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+我會非常小心地把這個東西拆開，這樣我就不會傷害那棵樹。
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+你正在使用我的伎倆。可愛的。這就是區別——我發明了我的。
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+標籤。
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+你必須回來。你總是必須回來。
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+你就在那裡。
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+第一個管道。第二導管。第三。最後一張。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+Spire Beta 已關閉。樹還好啊搬去重組。
+
+# kind: dialogue # speaker: Cyber Shogun # type: radio
+我們聽到了你的聲音，矩陣。我們一直在聽。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+是的。我知道。
+
+# kind: dialogue # speaker: DISPLAY # type: phase_header
+第 2-B 階段：SPIRE GAMMA 的網路將軍與海妖女皇 — 中央圖書館
+
+# kind: dialogue # speaker: Empress Siren # type: internal
+圖書館。我在那裡舉辦了副駕駛訓練研討會。社區防禦課程，三樓閱覽室。入侵前三年。殖民主義如何利用我們自己的基礎設施來對付我們，其幾何學從未停止引人注目。他們把他們的資料中心放在我們的圖書館裡。他們在我們保存記錄的地方重寫了我們的記錄。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+現在他們會發現他們試圖刪除其記錄的人就站在前門。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+圖書館入口處的六個單位被歸類為邊境執法人員。它們的人群分散電荷在接觸時會產生 900 伏特的神經幹擾電流。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+非致命性。他們告訴自己這是人道的。他們的意思是，一個活著的俘虜對他們來說比一個死去的公民更有用。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+幕府將軍，我需要在下次巡邏之前快速安靜地清理他們。當我的無人機壓制右翼時，你能從左邊拿下三個嗎？
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+明白了。安靜意味著精確。我不會用不必要的噪音來羞辱這棟建築。
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+無人機：標記，標記，標記。電磁脈衝在右側集群上爆發——起火。
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+首先。第二。第三。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+乾淨。 AXIOM，掃描 Spire Gamma 錨定係統。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Spire Gamma 正在從圖書館的內部��網獲取電力。若要在不觸發緊急電源重新路由的情況下停用尖塔，必須先切斷建築物內的內部電網連接。海妖女皇，網格連接處在第三層。
+
+# kind: dialogue # speaker: Empress Siren # type: internal
+三樓。當然。帶路，AXIOM。
+
+# kind: dialogue # speaker: Empress Siren # type: internal
+我告訴十二個家庭如何在這個房間裡組織社區輪值。兒童區有豆袋椅。有人把蠟筆畫貼在參考桌上。一個孩子畫了一張超級英雄的照片。圖書館和資料中心之間的區別在於，圖書館假設進門的人有權進入那裡。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+位於網格交界處。切斷 Spire Gamma 供電。這也將擦除他們儲存在這裡的任何殖民地財產登記資料。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+已確認。切斷這種聯繫將破壞第 4 區財產的約 12,000 份殖民地契約轉讓記錄。這些記錄是土地徵用的法律架構。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+那麼這不僅僅是基礎設施破壞。這是土地歸還。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Spires Alpha、Beta 和 Gamma 離線。能量膜完整性：25%。河邊的尖塔三角洲是最後的錨點。達美航空陷落後，所有團隊都聚集在一起。然後：潘興廣場。許可證核心。
+
+# kind: dialogue # speaker: DISPLAY # type: phase_header
+2-C 階段：Spire Delta — 河流南端終點站
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+Spire Delta 是牆的承重錨。它由邊境指揮官維斯看守——在隔離牆成立的第一周，三個家庭試圖渡河後，他下令為河流通電。維斯並沒有下令拘留他們。維斯下令將水通電。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+他使河流通電。因為家人都在試圖穿越。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+不要。不要讓它接管你。我們先把這個放下來。那我們就不需要這條河了。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+對。正確的。尖塔之後。牆後。我不會忘記。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+這不是一種隱密的方法。三角洲是個堅固的陣地。我們作為一個整體來擊球。浪人－你佔據位置，向前護盾，吸引他們的注意力並吸收他們最初的齊射。幕府將軍，清理左翼。矩陣，使用相移到達最右邊的砲塔控制面板並同時殺死所有三個砲塔。一旦砲塔被消滅，我就會用無人機對執法小隊進行飽和射擊。我們摧毀了要塞，然後羅寧將尖塔埋入地下。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+屏蔽。讓他們把一切都丟給我吧。我是前門。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+保留。射擊。我不知道。移動。
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+影之力型！塞壬－你的道路已敞開！
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+向右鬼影。愚蠢的。已達到砲塔控制。將三人全部殺死。電磁脈衝－全面傳播！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+無人機艦隊，全面壓制。優先排列－打破他們的防線。火。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+維斯指揮官正在撤退到尖塔後面的指揮所。他正在發出求救訊號。反應時間：八分鐘。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+我們有八分鐘時間。綽綽有餘。浪人——尖塔。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+動能過載－全面釋放！ ！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+能量膜完全離線。行政跨越障礙已被消除。緩衝區是…人們正在穿越緩衝區。大約 12,000 人向以前的圍牆線移動。他們正在穿越它。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+他們只是……走路。他們只是路過。
+
+# kind: dialogue # speaker: DISPLAY # type: phase_header
+第三階段：潘興廣場 — 許可證處理核心
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+看看他們。他們正在觸摸牆另一側的人行道，就像它可能不是真的一樣。好像這可能是個詭計。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+因為兩年來，希望一直是失望的機制。他們學會了不要相信敞開的大門。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+……我們應該早點做這件事。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+我們現在就在這裡。繼續前進。核心仍然矗立著。沃斯還在。
+
+# kind: dialogue # speaker: Voss # type: spoken
+你未經授權破壞了 A 級殖民行政設施。根據協議，我需要在採取強制措施之前為您提供接受行政處理的機會。請排隊。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+他告訴我們要排隊。
+
+# kind: dialogue # speaker: Aegis Ronin # type: radio
+皇后。我真想打他。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+我知道。我們必須先攻克核心。 AXIOM，Core 的架構。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+許可處理核心的唯一漏洞是圍繞其底座排列的三個輸入授權控制台。必須同時存取每個控制台並執行其管理覆蓋。它同時需要三個操作員。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+三個控制台。我們三個人。 《駭客任務》、《幕府將軍》、《浪人》——各拿一台遊戲機。我將透過無人機壓制來管理沃斯的防禦圈。
+
+# kind: dialogue # speaker: Voss # type: spoken
+未經授權存取管理控制台屬於 C 類違規行為。您的合規記錄將受到負面註釋。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+對此進行註釋。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+分階段通過。在二號控制台。啟動覆蓋。 AXIOM，此覆蓋協定完全採用 Xelthara 管理腳本。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+我正在將翻譯即時輸入到您的 HUD 中。遵循順序。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+我以前從來沒有做過官僚主義。請帶我��解一下，AXIOM。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+授權序列要求您反向輸入拒絕代碼。您可以透過管理方式取消拒絕系統中的每個申請。這將觸發記憶體擦除。
+
+# kind: dialogue # speaker: Aegis Ronin # type: internal
+...4,400 次拒絕。櫃檯就坐在這裡。上個月有 4,400 份申請被拒絕。有名字。我可以看到名字。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+繼續前進，羅寧。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+是的。我要去。
+
+# kind: dialogue # speaker: Voss # type: spoken
+您無法覆蓋核心。該制度維護了本行業的合法行政秩序。沒有它，就沒有結構化的人口管理，就沒有授權的交通——
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+你所說的“結構化人口管理”，我們稱之為步行回家的權利。控制台一：準備就緒。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+控制台二：準備就緒。我祖母申請了去買雜貨的許可證。你想談談行政命令嗎？
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+控制台三：準備就緒。 4,400 個名字。他們每個人都是一個只想回家的人。這就是這堵牆所防禦的。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+已確認。所有三個輸入控制台均已準備就緒。同時授權將執行記憶體抹除並永久停用 Core 的復原協定。遵命，皇后。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+管理員沃斯。你拒絕的每一個許可證——你分開的每個家庭——每一個排隊的人，希望如果他們正確填寫表格，你就能像對待人一樣對待他們。這��該系統做出的最後一次行政決定。
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+馬克。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+許可證處理核心：離線。永久恢復協定：停用。牆無法從此節點重建。所有待處理的申請記錄：已清除。所有否認記錄：已清除。第 4 區的穿越限制基礎設施已經…消失了。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+4,400 份申請。他們誰也不該問。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+公理。你能告訴我我祖母的建築在結構上是否足夠安全，可以居住嗎？我想知道是否有人可以搬回來。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+運行結構掃描。一樓到四樓完好無損。基礎紮實。供水管已損壞但可修復。是的。有人可以搬回來。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+很好。好的。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+牆消失了，矩陣。但我們現在所做的事──如何重建隔離牆所劃分的部分──才是更艱鉅的工作。今晚就開始了。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+這就是勝利的感覺嗎？因為感覺跟我預想的不太一樣。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+不，感覺還有更多事情要做。這樣你就知道它是真的。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+任務評估：4區隔離柵格已永久拆除。第四區收容區的人口兩年來首次在他們的城市中自由流動。我的操作日誌中沒有關於這個廣場目前正在發生的事情的類別。我將創建一個。我稱之為：回收。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：霓虹餘燼。牆倒塌了。城市的呼吸。
+
+-> END
+
+=== level_6 ===
+# kind: level # level: 6 # title: 暗影網格尖塔（市中心） # arc: act2_arc1 # dialogue_status: scripted
+
+# kind: setting
+暗影網格尖塔設有人口登記處、財產重新分配資料庫和強迫勞動分配系統——市中心殖民流離失所的官僚引擎。
+
+# kind: objective
+在地外傳輸之前竊取完整的財產和人口登記資料集，並破壞強迫勞動分配系統以使所有待處理的分配命令無效。
+
+# kind: solo_monologue # character: Oni Matrix # type: internal
+澤爾塔拉所知道的關於我們的一切都在那座塔裡。我們住過的每一個地址。每個家庭成員的名字。我們祖父母簽署的每一份契約。他們把我們的整個存在變成了一個資料庫條目，這樣他們就可以更有效地管理我們。今晚，我們取回了數據，並且破壞了用來指派人們擦洗地板的機器。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+尖塔內的強迫勞動分配系統不使用「強迫」一詞。它使用“社區融合貢獻計劃”這一短語。勞務分配不是合約——它們是根據移民登記的技能透過演算法產生的，並未經同意而簽發。這是奴役的官僚語言。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+分析完成。殖民擴張藍圖和定居者後勤資料儲存在該中心列中。 Matrix，在他們的內部防禦系統重新啟動之前，你有五分鐘的時間來執行下載。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+五分鐘？小菜一碟。但我需要明確的存取權限。將軍，你能剪斷主臍嗎？
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+視為完成。現在建立一個到控制台的臨時路徑。注意角度，皇后。此次削減將提醒該領域的每架無人機。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+警報已確認！重型方陣守衛正從上部維修井下降！浪人，前面和中間！在入口處建立防禦線！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+是時候我該搖擺這個東西了。護盾起來！沒有什麼能超越這一點，你���這些長得太大的蜥蜴！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+警報器！目標左翼！他們想壓制我！
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+三架和四架無人機，對左翼進行火力壓制！畫出他們的仇恨！羅寧，保存你的能量！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+保護太晚了！粉碎！告訴Matrix快點！
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+安靜，肉盾！我正在將一根數位針穿過他們的核心大腦！只是……一點點……再進一步……
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+警告：資料下載已完成 95%。澤爾塔拉反黑客行動啟動。矩陣，尖塔正在鎖定所有內部存取點！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+知道了！資料安全！拔掉插頭！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+任務完成！所有人，退回撤離平台！幕府將軍，清理我們的道路！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+明白了。乾淨俐落地逃脫是最後階段。 HLYT-SECT-4 劈砍！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+看到了嗎，公理？告訴過你我能撐住！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+確認了，羅寧。目前提取成功的機率為 74%。我們仍在被追蹤。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+很好。讓他們追我們吧。他們剛剛失去了整個作戰計畫。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：工業破壞。暗影網格尖塔資料是我們的。
+
+-> END
+
+=== level_7 ===
+# kind: level # level: 7 # title: Cyber-Grave 實驗室（地下設施） # arc: act2_arc1 # dialogue_status: scripted
+
+# kind: setting
+Xelthara 在前會議中心下方建立了 Cyber-Grave Labs Sector-Omega-7——一個被公開指定為「人類重新融入健康中心」的機密行為矯正研究設施。被俘虜的人類抵抗領袖和社區組織者都在這裡處理。他們表現得很順從，與世隔絕，不記得自己為何生氣。
+
+# kind: objective
+提取完整的條件反射協議檔案並摧毀中央神經上行鏈路，以恢復目前居住在收容區的數百名條件反射個體的神經自主權。
+
+# kind: solo_monologue # character: Cyber Shogun # type: internal
+他們無法用牆壁擊垮我們，所以他們找到了從內部擊垮我們的方法。從一個人身上奪走不公正的記憶——進入他們的大腦並刪除那些知道如何對被盜的東西感到憤怒的部分——這不是科學。這是在實驗室進行的戰爭罪。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+透過將主題檔案與抵抗網路資料庫進行交叉引用，我確定了 17 名已確認的 HLF 社區組織者，他們透過該設施進行了處理，隨後被釋放。他們不知道對他們做了什麼。摧毀中央神經上行鏈路可能會恢復它們。我計算出自主恢復成功的機率為 73%。我……我發現我對這個結果投入了精力。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+該設施是資源開發的引擎。他們正在積極地將地球上的礦物質轉化為有毒的生物燃料，用於地外運輸，留下一個死去的星球。這就是殖民擴張的代價。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+空氣有毒，因為他們將我們的世界視為可替代的燃料來源。這些實驗室正在將我們星球的命脈轉化為他們的定居點的能源。我們必須停止這種開採，否則就沒有什麼可以拯救的了。
+
+# kind: dialogue # speaker: Cyber Shogun # type: internal
+這個地方……沒有任何榮譽。腐化死者，奴役生者。澤爾塔拉實行的是褻瀆，而不是戰爭。我對這種殘忍行為只有鄙視。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+充滿敵意的目光！看起來就像一個接線不良的肉傀儡！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+無人機，掃描標本！它是 A 型生物混合體。注意裸露的核心。幕府將軍，精確打擊其暴露的胸腔中的電源導管。
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+這東西在這個世界上不值得擁有一席之地。虛無斬！
+
+# kind: dialogue # speaker: Cyber Shogun # type: radio
+皇后娘娘，這……這些是什麼圖像？他們正在把我們的人民變成現實。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+我現在正在進行分析，幕府將軍。這不僅僅是生物實驗，這是靈魂抹除。他們正在用自己的程式碼取代人類精神。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+不錯。他們不僅想佔領我們的星球，還想佔領我們的星球。他們想要特許經營我們的物種。小心，塞壬。一個大漢剛醒來。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+警告：遭遇小 Boss。職務：督軍卡爾-塔克。它的裝甲可以抵抗動能和能量攻擊。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+抗藥性嗎？公牛。我會留下痕跡！羅寧，迷人！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+羅寧，退後！他的防禦受到動能削弱。矩陣，掃描他的運動模式是否有神經同步延遲。幕府將軍，你必須製造幹擾！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+如果他想戰鬥，我會給他一個有價值的對手。我會吸引他的注意。面對我，壞蛋！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+分析完成。監督者的生物組件需要生物處理器不斷刷新神經訊號。矩陣，用有針對性的電磁脈衝攻擊控制台－外科手術式打擊，破壞同步！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+明白了！穿針引線！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+他出故障了！現在我們打他了！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+羅寧，一起！最後一擊，突破甲殼板！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+資料下載100%。我們已經得到了我們來的目的。我們要在整個部門意識到他們的寵物怪物死了之前離開。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+資料清除已啟動。爆炸順序設定為 T-60 秒。任務目標完成。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+我將帶著這個地方的恥辱。但我們所獲得的知識將會結束這些可憎的行為。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+我們回家吧，團隊。讓墳墓實驗室自己埋葬吧。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：不可侵犯的密碼。網路墳墓實驗室被毀。
+
+-> END
+
+=== level_8 ===
+# kind: level # level: 8 # title: 鑄造鍛造廠（工業部門） # arc: act2_arc2 # dialogue_status: scripted
+
+# kind: setting
+位於前工業港口區的 Xelthara 熱轉換陣列使 40 公里半徑範圍內的空氣變得有毒，將大氣廢物處理為外星燃料，同時以每個家庭每天一個的配給罐形式向人類出售氧氣。
+
+# kind: objective
+反轉熱轉換陣列的極性會觸發級聯熱內爆，不可逆轉地摧毀鑄造廠，並使 40 公里的大氣破壞區開始自然再生。
+
+# kind: solo_monologue # character: Aegis Ronin # type: internal
+他們向我們收取氧氣口糧。他們讓我們的空氣變得難以呼吸，現在他們把它裝在罐子裡賣回來——每個家庭每天一個，側面貼著 Xelthara 的分發印章。我已經呼吸回收罐空氣六個月了。當我摧毀這個鑄造廠時，我半年來第一次站在空曠的地方呼吸。這就是我來這裡的目的。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+該鑄造廠 40 公里範圍內的大氣破壞違反了 2089 年《全球環境保護協議》（Xelthara Collective 批准的一項條約）。我已代表 HLF 向銀河行政法院提交了正式的違規報告。法院預計答覆時間為十一年。鑄造廠估計造成永久大氣不可逆的時間：四個月。我們不是在等待法庭。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+這是一家企業官僚萃取工廠。他們正在地球核心進行露天採礦，以便向地外出口。每一批貨物都是我們所售出的世界的另一部分。目標：破壞開採支架以阻止生態崩潰。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+我正在檢測這些支架上的重型減震器。直接的能量火是行不通的。羅寧，這是你的專長。需要動力。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+最後，值得好好粉碎的東西。帶路吧，將軍。我會清理道路。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+聯繫！他們正在使用新組裝的無人機作為直接警衛！宙斯盾，重點在於結構支撐。我們將堅守陣地。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+先支持一下！準備好迎接衝擊波吧！動能脈衝！
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+已確認。支持完整性為 30%。但結構倒塌超控現在已啟動！我們必須在系統穩定之前擊中另外三個！矩陣，火力壓制！
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+鎮壓！我正在他們的目標系統中創建反饋循環！他們正在向自己的貨物射擊！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+羅寧，你被包圍了！撤退！那些無人機的裝甲太厚了！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+沒有退路！他們想打架嗎？他們陷入了塌方！網路將軍，給我一個機會！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+神聖之怒！現在，羅寧！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+為了祖國！三落！再來一張，公理！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+最終的支持得到了保障。打吧，羅寧！然後我們跑！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+破壞完成！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+結構性破壞開始！大規模局部爆炸即將發生！預計爆炸時間：15秒！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+撤離！皇后，準備撤離點！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+無人機全速前進！我們要離開這裡了！去！去！去！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+孩子們，這就是你們關閉工廠的方式！繁榮！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+任務目標完成。 Xelthara 該部門的工業產出已降至零。我們擊中了他們的痛處。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：工業破壞。鑄造廠一片寂靜。
+
+-> END
+
+=== level_9 ===
+# kind: level # level: 9 # title: Aquanaut Abyss（水下遺跡） # arc: act2_arc2 # dialogue_status: scripted
+
+# kind: setting
+沿著大陸棚的深海虹吸導管正在有系統地抽乾太平洋。過熱的鹽水排放使 300 公里的沿海地區酸化，摧毀了世世代代生存的漁業社區。
+
+# kind: objective
+找到並摧毀三個主要的深海虹吸導管中心，永久停止海洋虹吸作業並開始海洋復原。
+
+# kind: solo_monologue # character: Oni Matrix # type: internal
+自從管道投入以來，隔離區內的一些捕魚家庭就無法工作。鹽水排放殺死了海岸游泳距離內的所有生物。世世代代為社區提供食物的人們現在靠的是 Xelthara 口糧包。他們奪走了他們的食物來源，污染了他們的水源，在他們和海洋之間築起一道牆，並稱之為發展。今晚我們把海洋還給他們。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+模擬管道破壞後的海洋恢復時間表：十八個月內部分生態系統恢復，六到八年內 pH 值完全正常化。此任務不會立即修復損壞。我想讓你明白這一點。它的作用是阻止損害成為永久性的。如果我們停止撕開某些傷口，它們仍然可以癒合。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+這個電網是他們殖民地工業電力的主要來源。我們來這裡是為了經濟破壞，切斷殖民地的補給線。如果我們破壞虹吸水網，我們就會破壞該產業的經濟。矩陣，排水控制位於水下雷射網格後面。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+太棒了。我什至無法接觸地板的水平。我感覺自己像一隻浴缸裡的貓。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+留在平台上，羅寧。無人機正在掃描當前情況。矩陣，你必須透過這些光束進行相移。如果你的頻率下降哪怕一毫秒，網格就���炸毀你的神經連結。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+神經煎炸是我的第三大嗜好。放鬆點，塞壬。我要變成鬼了
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+光束很熱。越過第一排…第二排…我在控制台前。開始清洗。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+警告：淹沒的澤爾塔拉單位正在浮出水面！他們正試圖破壞排水順序！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+保衛平台！影力順劈！
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+清洗行動啟動！小心你的腳，水在流動！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+這就是你拔掉插頭的方法。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：幽靈掃清道路。 AQUANAUT 深淵已排幹。
+
+-> END
+
+=== level_10 ===
+# kind: level # level: 10 # title: 斯特拉托斯碼頭（航空樞紐） # arc: act2_arc2 # dialogue_status: scripted
+
+# kind: setting
+Stratos Docks 高空貨運碼頭位於海拔 4,000 公尺處，是 Xelthara 供應鏈中地球資源永久離開地球之前的最後一環，負責處理向外開採的露天開採礦物、海洋氫和標有「生物樣本」的材料。
+
+# kind: objective
+劫持 T-14 運輸機，將其貨物重定向至解放陣線分發點，並摧毀對收容區實施空中封鎖的四座防空砲塔，以永久打開抵抗補給的飛行走廊。
+
+# kind: solo_monologue # character: Empress Siren # type: internal
+入侵前，我負責指揮航空航天後勤行動。我確切地知道供應鏈控制如何作為佔領武器發揮作用。你不需要槍來讓人們挨餓——你只需要確保他們需要的一切總是在其他地方，總是由別人擁有，總是遙不可及。奪取 T-14 不屬於竊盜。這是恢復。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+T-14 的貨物清單列出了 4,200 噸精煉矽酸鹽和鐵化合物，這些材料是從 Xelthara 登記處記錄為「再生地質調查區 7」的地帶開採出來的。該地區在入侵前被指定為聖蓋博山脈。我正在將此清單條目記錄為回收資料庫中提取的殖民地扣押的證據。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+歡迎來到斯特拉托斯碼頭。這是他們劫持殖民地貨物並將精煉地球資源運送到世界以外的主要出口樞紐。劫持這艘運輸工具將切斷殖民地的補給線並為抵抗運動提供資金。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+時間至關重要。領先的運輸機 T-14 正在為其主推進器提供動力。幕府將軍、浪人——你們保衛著陸區。矩陣，準備好繞過箝位控制。
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+明白了。參與對接巡邏。迅速伸張正義！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+覆蓋後方！這裡的風正試圖把我從平台上拉下來！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+風也想把我拉下來，羅寧。別擔心，我會在夾具上隱藏接近感應器。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+砲塔啟動。女皇，在你停靠之前這些砲塔會粉碎 T-14。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+如果我先把它們撕碎就不會了。三角洲無人機艦隊，切換到進攻性有效載荷。我需要他們的光學陣列的即時目標數據。羅寧，給我掩護火力！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+明白了，指揮官！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+一號砲塔，指定完成。向我的目標開火！無人機艦隊著火了！
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+T-14推進器功率達40%！快一點，塞壬！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+二號砲塔和三號砲塔密集。 Matrix，你能丟出 EMP 閃光來讓他們的光學系統失明 2 秒嗎？
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+完成！閃光彈！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+現在！無人機，發揮最大威力！二號和三號砲塔－被摧毀！
+
+# kind: dialogue # speaker: Cyber Shogun # type: radio
+只剩下一個了，皇后！但強大的支持正在朝著它的位置移動！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+把它們交給我吧，幕府將軍！錘子落下！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+瞄準最後的砲塔。這是手動過度充電。為了地球！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+夾鉗已鎖定。享受旅程，團隊！我們正在偷一艘星艦！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+貨物劫持任務成功。 T-14 正進入高層大氣。我們正式屬於地外領土。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+幹得好，團隊。我們剛剛擊中了他們的錢包，我們就可以搭便車到達下一個目標。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：空賊。 T-14 運輸機被劫持。
+
+-> END
+
+=== level_11 ===
+# kind: level # level: 11 # title: 第 7 區核心（焦土網格） # arc: act2_arc2 # dialogue_status: scripted
+
+# kind: setting
+第 7 區核心是監視和執法權力中心，是西大陸上每個殖民地安全攝影機、宵禁無人機、生物辨識檢查站和預測性拘留演算法的計算骨幹。如果沒有它，所有殖民監視資產都會同時變暗。
+
+# kind: objective
+滲透第 7 區核心，瓦解其數位化防禦系統，並引發災難性過載，導致全大陸範圍的安全網格停電，使抵抗組織在 72 小時內無法進行不受監控的活動。
+
+# kind: solo_monologue # character: Oni Matrix # type: internal
+他們用過的每一個監視器都在監視我。凌晨 2 點掃過我大樓的每架無人機。每次我都必須在陰影中保持完全靜止，因為檢測演算法正在檢測我的熱訊號。這一切都貫穿這個核心。當我拔掉這個插頭時，收容區內的每個人都可以在無人監視的情況下呼吸 72 小時。那不是什麼。這就是一切。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+我想對某事保持透明。我是一個監控系統。我的營運架構與 Sector 7 Core 內的系統有很大的重疊。我已經審查了自己的程式碼並確認我不向塞爾塔拉中央指揮部報告——我的效忠協議與 HLF 完全一致。但如果這個任務讓你思考我是誰，我能理解。我也想。我相信，不同之處在於我的觀察是為了保護。他們透過觀察來​​控制。這種區別對我來說很重要。我致力於此。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+歡迎來到故障矩陣。 Xelthara 惡意軟體正在嘗試對我們的資產進行數位擦除。我們必須拒絕從我們祖國的數位基礎設施中被抹去。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+這不是循環，AXIOM。這是一場垃圾火災。將軍，看好地板！那條「街道」就這樣變成了無底洞。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+我看到了。道路是幻象。我們必須相信硬程式碼。矩陣，聚焦你的光學。惡意軟體核心隱藏在哪裡？
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+敵對者！他們正在以數據流為食！在這種狀態下，普通攻擊不會擊中他們。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+它們受到波動頻率鎖定的保護。你必須在戰鬥中破解它。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+美好的。讓我們在他們的代碼中跳舞。相移引人入勝。 Shogun，我給你2秒的時間！當我召喚它時擊中核心！
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+現在！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+清潔刀片！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+出色的精度，矩陣。你的方法雖然缺乏榮譽，但卻有效。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+這是防火牆。這是源源不絕的外星加密。我們需要關鍵頻率來建立退出入口網站。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+...矩陣...頻率是...在戰鬥回饋中...聽敵人的聲音...故障是關鍵...
+
+# kind: dialogue # speaker: Oni Matrix # type: internal
+這是一個移位的十六進位代碼。 7-A-F...不，7-A-F-B...它綁在他們的盾牌上！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+我會讓他們忙起來的！聚焦，矩陣！
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+接受頻率。退出門戶初始化。準備硬重啟！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+出口路徑已固定。啟動強制神經斷開。 Cyber​​ Shogun、Oni Matrix——偉大的作品。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+我們已經肅清了腐敗。現在，讓我們回到身體對抗上來。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+看到了嗎，將軍？有時，你必須接受故障。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：程式碼清除。第 7 區核心超載。大陸開始停電。
+
+-> END
+
+=== level_12 ===
+# kind: level # level: 12 # title: 第 7 區檢查站（十字路口） # arc: act2_arc3 # dialogue_status: scripted
+
+# kind: setting
+第 7 區檢查站控制著北部山區社區、東部沙漠定居點和沿海隔離區之間的所有過境——作為供應攔截中心，對人類社區之間流動的貨物徵稅、延誤和沒收。
+
+# kind: objective
+協調 847 名平民抵抗運動參與者的民眾起義，永久佔領第 7 區檢查站，並將其建成第一個在人類行政控制下解放的交通樞紐。
+
+# kind: solo_monologue # character: Aegis Ronin # type: internal
+這就是我一直在等待的人。不是破壞任務。不是搶劫。一場圍攻——我們保住了住在這裡的人們所奪取的一切。那是一種不同的戰鬥。這就是當抵抗不再防禦並開始成為等待政府時的樣子。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+我正在追蹤 847 名已確認在北部集結地組織起來的平民抵抗運動參與者。他們不是訓練有素的士兵。他們擁有農具、回收的建築設備、兩輛功能性車輛，並對社區所遭受的一切感到憤怒。他們要我告訴公理力量一件事：他們一直在等待有人與他們一起戰鬥，而不是為他們而戰。請不要遲到。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+這是他們區域擴張的核心。每個澤爾塔拉建築都依靠這種偷來的力量來運作一千英里。摧毀它，當我們收回被奪走的東西時���殖民擴張就會陷入飢餓。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+Nexus 受到屏蔽。直接攻擊是不可能的。我們必須啟動受控的超載。共有三個主冷卻棒。它們必須同時提取，否則系統將自動穩定。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+三個目標。安吉斯，你和矩陣處理一號桿和二號桿。我會保護好三號桿。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+複製。但主終端是暴露的。女皇，如果需要等離子爆發，您將無法啟動該序列。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+羅寧，那是你的工作。當我輸入失敗代碼時，你必須保護終端。幕府將軍、矩陣－各就各位。我需要在我的標記上拔出所有的棒子。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+終端已安全。盾牌上來了！保護協議已啟動！你有你的窗戶，皇后！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+過載序列已啟動。它需要立即、連續的壓力。棒隊，準備撤離。
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+準備好一號桿。這裡產生令人討厭的靜電放電。這會很痛。
+
+# kind: dialogue # speaker: Cyber Shogun # type: radio
+榮譽需要犧牲。準備好了，皇后。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+開始倒數計時。 T-5。四。浪人，盾牌輸出最大化！三。二。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+為了地球的榮耀！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+一。拉！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+核心溫度飆升！實現了災難性的超載！皇后，您有30秒的時間鎖定順序並提取！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+浪人，前往撤離點！我正在鎖定最終代碼！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+不，指揮官！我在為你爭取時間！我身後的服務橋要塌了！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+破碎並燃燒！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+輸入最終代碼！核心鎖定成功！跑步！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+反應爐 Nexus...被摧毀。區域改造能力離線。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+太棒了，皇后。澤爾塔拉現在在這個領域是盲目而無能為力的。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+讓我們繼續前進。那次爆炸讓整個地球成為了我們的目標。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：心臟病發作。第 7 區檢查站已解放。
+
+-> END
+
+=== level_13 ===
+# kind: level # level: 13 # title: 黑曜石金庫（文化檔案館） # arc: act2_arc3 # dialogue_status: scripted
+
+# kind: setting
+黑曜石金庫位於前蓋提中心下方，是殖民政府扣押的主要文化檔案館。原始土地條約資料庫——五個世紀前入侵前人類土地保有權的綜合記錄——存放在這裡，被歸類為「已發現的遺產資產」。
+
+# kind: objective
+滲透黑曜石寶庫，提取原始土地條約資料庫以及所有語言和口述歷史檔案，並摧毀物理目錄系統以永久停止殖民文化處理管道。
+
+# kind: solo_monologue # character: Cyber Shogun # type: internal
+戰士的榮譽取決於他所保護的事物和他所摧毀的事物。今晚，我要保護一些東西。這個金庫內的記錄證明了我們在他們到達之前就已經存在於此——我們為這片土地命名，在其上建造，埋在其中，講述了幾個世紀的故事。如果他們刪除了該證據，他們就可以書寫任何他們想要的歷史。我不會讓這種事發生。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+黑曜石寶庫包含 420 萬件編目文物和記錄。其中，34 萬人已被標記為「非必要裁員」而需要銷毀。光是上個月就���一萬七千件物品被銷毀。我有每個人的名字。我想讓你在進去之前知道這一點。今晚我們保存的就是剩下的。已經消失的東西是無法恢復的。但仍有一些東西需要保存。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+歡迎來到挑戰。這座橋是他們定居者職業的象徵。我們拒絕被他們的建築傲慢所抹去。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+策略更新：我們不能在這裡使用遠程戰術。城堡的防禦網格將蒸發 50 英尺以上的任何無人機。我們必須步行衝破這座橋。浪人、幕府將軍－你們帶頭推動。矩陣，待命應對週邊照明彈。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+對我來說很好。如果他們想打架，他們就會做出最後的抵抗。護盾起來！鐵牆！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+榮譽是在坩堝中贏得的。讓他們檢驗一下我們的實力。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+大砲來襲！宙斯盾浪人，最大化護盾擴散！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+控股！我能嚐到等離子體爆炸中的臭氧味！將軍，行動！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+前進！他們的界線必須被打破。招募第一波精英哨兵！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+不值得！形似劍！羅寧，前進！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+推！給我一個目標，塞壬，我在這火光下瞎了！
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+浪人，迫擊砲座標42度對吧！現在，將你的盾牌向左移動一公尺！
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+謝謝你，指揮官！矩陣，我需要分散遠處砲塔的注意力！
+
+# kind: dialogue # speaker: Oni Matrix # type: radio
+向主砲光學系統投擲數位雜訊！它不會持續太久！去！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+偵測到破碎機！動能武器無效！網路幕府將軍，切換到高強度等離子輸出！
+
+# kind: dialogue # speaker: Cyber Shogun # type: internal
+他們依靠的是盔甲。我依賴速度和熱核心輸出。榮譽比等離子更熱！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+我的護盾只有 30%！我受到直接打擊！快點，幕府將軍！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+一落！兩下！保持盾牌，浪人！我還需要三秒鐘！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+我只有三秒！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+破碎機失效。聖盾，撤退並為護盾充電！我將堅守最前線！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+這是不可持續的！ AXIOM，尋找替代路線！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+陰性。唯一的選擇是到達遠處的駕駛台控制台並啟動地震不穩定裝置。
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+然後我們光榮地戰鬥並死去！安吉斯，將你剩下的一切投入最後的前進脈衝！給我衝過最後衝刺的動力！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+很高興！動能釋放！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+控制台已到達！引發地震不穩定！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+破壞穩定成功。任務完成。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+告訴過你...沒有什麼能打破我們的牆。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+不，沒有什麼能違背我們的意志。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：黑曜石金庫被突破。提取文化檔案。
+
+-> END
+
+=== level_14 ===
+# kind: level # level: 14 # title: 城堡通道（最高指揮橋） # arc: act2_arc3 # dialogue_status: pending
+
+# kind: setting
+排幹的洛杉磯河上最後一座 400 公尺的加固橋是通往 Xelthara 高級指揮城堡的唯一地面通道，建在拆除的博伊爾高地社區上。 Xelthara將這條道路設計為無法通行。
+
+# kind: objective
+在持續的砲火下衝過 400 公尺長的橋樑，到達城堡的大門——使用浪人的盾牌和海妖的無人機彈幕進行無情的推進。
+
+# kind: solo_monologue # character: Empress Siren # type: internal
+我已經運行了戰術模型十七次。每個版本都涉及吸收我們無法完全減輕的傷害。在我們到達大門之前，浪人的護盾將會達到 10%。我要求他們穿過殺戮場，因為這是唯一的門。澤爾塔拉是故意這樣建造的——這樣自由的成本就足以阻止這種嘗試。我們並不氣餒。
+
+# kind: solo_monologue # character: AXIOM-7 # type: vo
+在這開始之前我想說些什麼。我對這次戰役中的每個任務都進行了機率評估。我不會給你這個號碼。不是因為它會阻止你。因為你已經決定了。對於已經決定的人來說，這個數字並不重要。我會在橋上的每一步與你同在。我不會移開目光。
+
+-> END
+
+=== level_15 ===
+# kind: level # level: 15 # title: 審判日（最終解放） # dialogue_status: scripted
+
+# kind: setting
+高級督軍的王座室－一個懸掛在新洛杉磯燃燒廢墟上的平台，澤爾塔拉殖民佔領區的最高指揮官在這裡等待最後的對抗。
+
+# kind: objective
+使用 Axiom Force 的綜合終極協議在協調一致的最終攻擊���擊敗澤爾塔拉高級督軍。
+
+# kind: dialogue # speaker: High Overseer # type: spoken
+你們為原住民主權而鬥爭，反對不可避免的殖民同化浪潮。這個星球只是我們宏偉設計中的不動產，而你們的歷史是需要擦除的數位噪音。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+我們是這個世界的靈魂，而不是你的財產。我們維護對我們祖國的土著主權！我們拒絕你們的殖民同化；地球屬於它的居民，而不是你們的藍圖！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+我是我祖先的利刃，也是你試圖壓制的世界的聲音。你稱我們為昆蟲，但你忘了關於地球的一件事：我們不只是忍受。我們反擊。
+
+# kind: dialogue # speaker: High Overseer # type: spoken
+然後與你的星球一起燃燒。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+警告！監督能量輸出 400%。 Axiom Force，執行終極協定：UNISON！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+不在我的監視之下！終極：劍聖壁壘！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+鎖定座標！終極：虛空之雨！
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+他開放了！最終：整個系統崩潰！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+為了祖國！終極：遺忘斬！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+佔領訊號已經停止。氣氛逐漸穩定。你已經做到了。地球……又回家了。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+我真的看到星星了不是數字的。真實的。
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+我想我會找一個安靜的地方，睡上十年。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+劍已入鞘。人類的榮譽得到恢復。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+我們有一個需要重建的世界。但今天……今天我們只是呼吸。
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+任務成功。自動外部情報操作模組...簽署。祝你好運，英雄們。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：審判日。高級督軍被擊敗。地球被收回。
+
+-> END
+
+=== level_16 ===
+# kind: level # level: 16 # title: 真正的高潮/賽後獎勵 # dialogue_status: scripted
+
+# kind: setting
+澤爾塔拉母艦的奇點引擎室－一個充滿純粹不穩定能量的房間，位於集體力量的核心，集體意志本身在這裡得以體現。
+
+# kind: objective
+在母艦完成對地球的抹除之前，透過協調發電機過載和最後的聯合打擊來摧毀集體意志的奇點引擎核心。
+
+# kind: dialogue # speaker: Empress Siren # type: radio
+這超出了收容區。我的儀器故障了。這裡的空間結構是不穩定的。這一定是母艦的真心。
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+澤爾塔拉高級督軍只是一顆棋子。這股力量……這就是佔領的泉源。集體意志。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+我能感覺到純粹的資料流，幕府將軍。它試圖重寫我的神經核心。我們不屬於這裡。我們需要啟動引擎並離開。
+
+# kind: dialogue # speaker: The Collective Will # type: vo
+你是宏偉設計中的局部異常。所有的存在都是我們擴張的可替代資源。你的祖國已經被納入我們最終的抹除方程式中。
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+存在吧？那麼讓我們向存在展示當你擾亂地球時會發生什麼！浪人，與外圍守衛交戰！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+羅寧，讓那些守護者忙起來吧！矩陣，幕府將軍，擊中塔尖上的發電機！我們需要擾亂磁場，然後我才能瞄準核心！
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+我已就位在一號發電機上！超越安全鎖！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+二號發電機��安全！這是皇后陛下的臨時措施！集體意志將其能量集中在我們身上！
+
+# kind: dialogue # speaker: The Collective Will # type: vo
+你無法逃脫這個等式。您的家已經納入我們宏偉的設計之中。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+我有一扇窗戶！矩陣，幕府將軍－為這些發電機充電至最大過載！
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+核心暴露！ AXIOM，我需要最終目標座標！
+
+# kind: dialogue # speaker: AXIOM-7 # type: vo
+....最終軌跡...你必須到達連接點...零-零-零...
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+我明白了。羅寧，快回來吧！準備保衛突破點！這是一場神風特攻隊攻擊！
+
+# kind: dialogue # speaker: Aegis Ronin # type: combat
+大家都在我身後！衝擊波來了！終極：劍聖壁壘！
+
+# kind: dialogue # speaker: Oni Matrix # type: combat
+我正在超越收容場！情況即將危急！
+
+# kind: dialogue # speaker: Empress Siren # type: combat
+軌道打擊準備就緒！我將放棄我們在那個核心上所擁有的一切！
+
+# kind: dialogue # speaker: Cyber Shogun # type: combat
+為了地球！為了人類！立即罷工！終極：遺忘斬！
+
+# kind: dialogue # speaker: Cyber Shogun # type: spoken
+難道……我們逃走了？
+
+# kind: dialogue # speaker: Aegis Ronin # type: spoken
+我不知道……但母艦已經消失了。意志沉默了。
+
+# kind: dialogue # speaker: Empress Siren # type: spoken
+我們贏得了戰爭，先生們。現在我們只需要贏得回家的機會。
+
+# kind: dialogue # speaker: Oni Matrix # type: spoken
+我想……我看到地球了。這麼乾淨。那麼藍。
+
+# kind: dialogue # speaker: Recovery Command # type: radio
+Axiom Force，這是恢復指揮部。我們讀懂你。您的系統是名義上的。歡迎回家，英雄們。
+
+# kind: dialogue # speaker: DISPLAY # type: mission_complete
+任務完成：真正的高潮。集體意志將被消滅。結束。但戰鬥仍在繼續。
+
+-> END
+
+=== END ===
+-> DONE

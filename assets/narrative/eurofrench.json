@@ -401,7 +401,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "J'ai passé huit mois dans une zone de confinement comme celle-ci après la prise de la vallée de San Fernando. Huit mois à regarder les enfants devenir plus petits parce que les rations caloriques sont con��ues pour une espèce qui ne mange pas les mêmes choses que nous. Et de l’autre côté, ils mangent notre nourriture. Dans nos restaurants. Dans notre ville."
+          "text": "J'ai passé huit mois dans une zone de confinement comme celle-ci après la prise de la vallée de San Fernando. Huit mois à regarder les enfants devenir plus petits parce que les rations caloriques sont conçues pour une espèce qui ne mange pas les mêmes choses que nous. Et de l’autre côté, ils mangent notre nourriture. Dans nos restaurants. Dans notre ville."
         },
         {
           "speaker": "Empress Siren",
@@ -446,7 +446,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Remarque : Les patrouilles des autorités frontalières sont denses mais structurées. Le point de contrôle est géré 24 heures sur 24 par l'administrateur-exécuteur Voss, qui gère les autorisations de passage physique. Ce n'est pas un officier de combat. C'est un bureaucrate. Il a personnellement rejeté 4 400 demandes de passage au cours du mois dernier."
+          "text": "Remarque : Les patrouilles des autorités frontalières sont denses mais structurées. Le point de contrôle est géré 24 heures sur 24 par l'administrateur-ex��cuteur Voss, qui gère les autorisations de passage physique. Ce n'est pas un officier de combat. C'est un bureaucrate. Il a personnellement rejeté 4 400 demandes de passage au cours du mois dernier."
         },
         {
           "speaker": "Aegis Ronin",
@@ -486,7 +486,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Ils ont conçu cette zone tampon de telle sorte que même s’approcher du mur donne l’impression d’entrer dans la propriété. Vous êtes à découvert. Vous êtes visible. Vous vous sentez coupable de vous trouver à côté de ce qui était autrefois une voie publique. C'est la psychologie de la chose. Ils veulent que nous ayons le sentiment de ne pas avoir notre place ici avant même d'avoir atteint le point de contrôle."
+          "text": "Ils ont conçu cette zone tampon de telle sorte que même s’approcher du mur donne l’impression d’entrer dans la propriété. Vous êtes à découvert. Vous êtes visible. Vous vous sentez coupable de vous tenir à côté de ce qui était autrefois une voie publique. C'est la psychologie de la chose. Ils veulent que nous ayons le sentiment de ne pas avoir notre place ici avant même d'avoir atteint le point de contrôle."
         },
         {
           "speaker": "Aegis Ronin",
@@ -791,7 +791,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Nous sommes ici maintenant. Continuez à bouger. Le Core est toujours debout. Voss est toujours là."
+          "text": "Nous sommes ici maintenant. Continuez à avancer. Le Core est toujours debout. Voss est toujours là."
         },
         {
           "speaker": "Voss",
@@ -1355,7 +1355,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Attention : des unités Xelthara submergées font surface ! Ils tentent de perturber la séquence de drainage !"
+          "text": "Attention : des unités Xelthara submergées font surface ! Ils tentent de perturber la séquence de drainage !"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1503,7 +1503,7 @@
     "11": {
       "title": "Noyau du secteur 7 (La grille brûlée)",
       "arc": "act2_arc2",
-      "setting": "Sector 7 Core est le centre du pouvoir de surveillance et d��application de la loi – l’épine dorsale informatique de chaque caméra de sécurité coloniale, drone de couvre-feu, point de contrôle biométrique et algorithme de détention prédictive sur le continent occidental. Sans cela, tous les moyens de surveillance coloniale s’éteignent simultanément.",
+      "setting": "Sector 7 Core est le centre du pouvoir de surveillance et d’application de la loi – l’épine dorsale informatique de chaque caméra de sécurité coloniale, drone de couvre-feu, point de contrôle biométrique et algorithme de détention prédictive sur le continent occidental. Sans cela, tous les moyens de surveillance coloniale s’éteignent simultanément.",
       "objective": "Infiltrez le noyau du secteur 7, neutralisez ses systèmes de défense numérisés et déclenchez une surcharge catastrophique qui provoque une panne du réseau de sécurité à l'échelle continentale, donnant à la résistance 72 heures de mouvement sans surveillance.",
       "solo_monologues": [
         {
@@ -1751,7 +1751,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "L'Obsidian Vault contient 4,2 millions d'artefacts et de documents catalogués. Parmi eux, 340 000 ont été destinés à être détruits en tant que « licenciements non essentiels ». Dix-sept mille objets ont été détruits rien que le mois dernier. J'ai les noms de chacun. Je veux que vous le sachiez avant d'entrer. Ce que nous sauvons ce soir, c'est ce qui reste. Il n’est pas possible de récupérer ce qui a déjà disparu. Mais il reste encore quelque chose à sauver."
+          "text": "L'Obsidian Vault contient 4,2 millions d'artefacts et de documents catalogués. Parmi ceux-ci, 340 000 ont été destinés à être détruits en tant que « licenciements non essentiels ». Dix-sept mille objets ont été détruits rien que le mois dernier. J'ai les noms de chacun. Je veux que vous le sachiez avant d'entrer. Ce que nous sauvons ce soir, c'est ce qui reste. Il n’est pas possible de récupérer ce qui a déjà disparu. Mais il reste encore quelque chose à sauver."
         }
       ],
       "dialogue_status": "scripted",
@@ -1902,7 +1902,7 @@
         {
           "character": "Empress Siren",
           "type": "internal",
-          "text": "J'ai exécuté les modèles tactiques dix-sept fois. Chaque version implique d’absorber des dégâts que nous ne pouvons pas entièrement atténuer. Le bouclier de Ronin sera à 10% avant que nous atteignions la porte. Je leur demande de traverser un champ de bataille parce que c'est la seule porte. Les Xelthara l'ont construit ainsi exprès, afin que le coût de la liberté soit suffisamment élevé pour décourager toute tentative. Nous ne sommes pas découragés."
+          "text": "J'ai exécuté les modèles tactiques dix-sept fois. Chaque version implique d’absorber des dégâts que nous ne pouvons pas entièrement atténuer. Le bouclier de Ronin sera à 10% avant que nous atteignions la porte. Je leur demande de traverser un champ de bataille parce que c'est la seule porte. Les Xelthara l'ont construit de cette façon exprès, afin que le coût de la liberté soit suffisamment élevé pour décourager toute tentative. Nous ne sommes pas découragés."
         },
         {
           "character": "AXIOM-7",
@@ -1964,7 +1964,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Pour la patrie ! ULTIME : OBLIVION SLASH !"
+          "text": "Pour la patrie ! ULTIME : OBLIVION SLASH !"
         },
         {
           "speaker": "AXIOM-7",
@@ -2089,12 +2089,12 @@
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Frappe orbitale prête ! Je laisse tomber tout ce que nous avons sur ce noyau !"
+          "text": "Frappe orbitale prête ! Je laisse tomber tout ce que nous avons sur ce noyau��!"
         },
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Pour la Terre ! POUR L'HUMANITÉ ! GRÈVE MAINTENANT ! ULTIME : OBLIVION SLASH !"
+          "text": "Pour la Terre ! POUR L'HUMANITÉ ! GRÈVE MAINTENANT ! ULTIME : OBLIVION SLASH !"
         },
         {
           "speaker": "Cyber Shogun",
@@ -2124,7 +2124,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION COMPLÈTE : VRAI CLIMAX. LE COLLECTIF SERA ERADIQUE. LA FIN. MAIS LE COMBAT CONTINUE."
+          "text": "MISSION COMPLÈTE : VRAI CLIMAX. LE COLLECTIF SERA ÉRADIQUE. LA FIN. MAIS LE COMBAT CONTINUE."
         }
       ]
     }

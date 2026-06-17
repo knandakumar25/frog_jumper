@@ -53,7 +53,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "ARCHÍV NAPLÓ: NEO-TOKYO CULTURE-PURGE. HELYSZÍN: AZ ÖRÖK ZEN DOJO (KIJELÖLT HELYSZÍN: 01. TELEPÜLÉSTÖMB). ��LLAPOT: BONTÁS FOLYAMATBAN. ÉPÍTÉSZETI TÖRLÉS 42%-ON."
+          "text": "ARCHÍV NAPLÓ: NEO-TOKYO CULTURE-PURGE. HELYSZÍN: AZ ÖRÖK ZEN DOJO (KIJELÖLT HELYSZÍN: 01. TELEPÜLÉSTÖMB). ÁLLAPOT: BONTÁS FOLYAMATBAN. ÉPÍTÉSZETI TÖRLÉS 42%-ON."
         },
         {
           "speaker": "Cyber Shogun",
@@ -78,7 +78,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Nézd meg a \"paradicsomjukat\". Egy évezred sírj��ra épített üveg- és drótsír. Nem engedem, hogy az emberiség történelmét tisztára töröljék, hogy helyet adjak a táblázatainak. Amíg állok, Tokió emlékszik!"
+          "text": "Nézd meg a \"paradicsomjukat\". Egy évezred sírjára épített üveg- és drótsír. Nem engedem, hogy az emberiség történelmét tisztára töröljék, hogy helyet adjak a táblázatainak. Amíg állok, Tokió emlékszik!"
         },
         {
           "speaker": "AXIOM-7",
@@ -191,7 +191,7 @@
       "title": "Neon Rust és Data Dust",
       "arc": null,
       "setting": "A szó szerinti „Under-City” – karbantartó aknák hálózata egy csillogó, neonfényben megvilágított Xelthara település alatt. Fent a megszállók terraformált levegőt élveznek; alul a marginalizált emberek ózonszennyezett oxigént keresnek.",
-      "objective": "Szifon energiát a gyarmati hálózatról, hogy táplálja a marginalizált lakosság életfenntartó rendszereit, miközben elkerüli a kóbor emberiségre vadászó „tiszta őrjáratokat”.",
+      "objective": "Szifon energiát a gyarmati hálózatból, hogy táplálja a marginalizált lakosság életfenntartó rendszereit, miközben elkerüli a „Tisztaság őrjáratait” a kóbor emberekre vadászva.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
@@ -209,7 +209,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "MARGINALIZÁLT NAPLÓ: AL-SZINTŰ SZEMÉLYVÁROS. ÁLLAPOT: TÚLÉL. BETÖRÖKÖDŐ RIASZTÁS: NULLA ÉSZLELÉS. RENDSZERBIZALOM: 100%. CÉLKIT��ZÉS: ELLOPNI A GYARMATI SZIKRÁT. FELÜLT AZ ELLENÁLLÁST."
+          "text": "MARGINALIZÁLT NAPLÓ: AL-SZINTŰ SZEMÉLYVÁROS. ÁLLAPOT: TÚLÉL. BETÖRÖKÖDŐ RIASZTÁS: NULLA ÉSZLELÉS. RENDSZERBIZALOM: 100%. CÉLKITŰZÉS: ELLOPNI A GYARMATI SZIKRÁT. FELÜLT AZ ELLENÁLLÁST."
         },
         {
           "speaker": "Oni Matrix",
@@ -254,7 +254,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Szirén császárné vagyok. Mi vagyunk azok, akik azért harcolunk, hogy biztosak legyünk abban, hogy van még egy város, ahol aratni kell. Ajándékod van a dolgok összetörésére, szellem. Használhatnánk. Belefáradtál a rozsdába bújni?"
+          "text": "Szirén császárné vagyok. Mi vagyunk azok, akik azért harcolunk, hogy biztosak legyünk abban, hogy van még egy város, ahol aratni kell. Van egy ajándékod a dolgok összetörésére, szellem. Használhatnánk. Belefáradtál a rozsdába bújni?"
         },
         {
           "speaker": "Oni Matrix",
@@ -511,7 +511,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "A Ronin, a torony horgonyja egy mágneses kinetikus zár, amelyet úgy terveztek, hogy ellenálljon akár 8000 newton közvetlen erőnek. Az Ön kinetikus túlterhelési díja, amelyet a teljes három számlálásig tart, meghaladja ezt a küszöböt. Először is le kell tiltania a két biometrikus őrszem egységet a torony aljánál – ezek észlelik biometrikus aláírását abban a pillanatban, amikor a hatótávolságba lép."
+          "text": "A Ronin, a torony horgonyja egy mágneses kinetikus zár, amelyet úgy terveztek, hogy ellenálljon akár 8000 newton közvetlen erőnek. Az Ön kinetikus túlterhelési díja, amelyet a teljes három számlálásig tart, meghaladja ezt a küszöböt. Először is le kell tiltania a két Biometrikus Sentinel egységet a torony aljánál – ezek észlelik biometrikus aláírását, amint a hatótávolságba lép."
         },
         {
           "speaker": "Aegis Ronin",
@@ -556,7 +556,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Negyvenhét nappal a fal felomlása után nyújtotta be az átkelés engedélyezési kérelmét. Kitöltötte az űrlapokat. Három példányban. Mert hitt a folyamatban. Azt hitte, ha jól csinálod a dolgokat, valaki meghallgat. Soha nem kapott választ. Két hónappal később az elzárt zónában halt meg. Az alultápláltság szövődményei. A fal másik oldalán volt a kedvenc élelmiszerboltjuk. Beadott egy űrlapot, hogy menjen élelmiszert vásárolni."
+          "text": "Negyvenhét nappal a fal felomlása után nyújtott be átkelési engedély iránti kérelmet. Kitöltötte az űrlapokat. Három példányban. Mert hitt a folyamatban. Azt hitte, ha jól csinálod a dolgokat, valaki meghallgat. Soha nem kapott választ. Két hónappal később az elzárt zónában halt meg. Az alultápláltság szövődményei. A fal másik oldalán volt a kedvenc élelmiszerboltjuk. Beadott egy űrlapot, hogy menjen élelmiszert vásárolni."
         },
         {
           "speaker": "Oni Matrix",
@@ -606,7 +606,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "2-B. FÁZIS: CYBER SHOGUN ÉS EMPRESS SZIRÉNA A SPIRE GAMMÁBAN – A KÖZPONTI KÖNYVTÁRBAN"
+          "text": "2-B FÁZIS: CYBER SHOGUN ÉS EMPRESS SZIRÉNA A SPIRE GAMMA-BAN – A KÖZPONTI KÖNYVTÁRBAN"
         },
         {
           "speaker": "Empress Siren",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Tizenkét családnak elmondtam, hogyan kell megszervezni a közösségi őrjáratokat ebben a teremben. A gyerekrészlegben babzsákos székek voltak. Valaki zsírkréta rajzokat ragasztott a referenciapultra. Egy gyerek egy szuperhőst ábrázolt. A különbség a könyvtár és az adatközpont között az, hogy a könyvtár feltételezi, hogy az ajtón belépő embereknek joguk van ott lenni."
+          "text": "Tizenkét családnak elmondtam, hogyan kell megszervezni a közösségi őrjáratokat ebben a teremben. A gyerekrészlegben babzsákos székek voltak. Valaki zsírkréta rajzokat ragasztott a referenciapultra. Egy gyerek lerajzolta egy szuperhős képét. A különbség a könyvtár és az adatközpont között az, hogy a könyvtár feltételezi, hogy az ajtón belépő embereknek joguk van ott lenni."
         },
         {
           "speaker": "Empress Siren",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ez nem egy lopakodó megközelítés. A Delta egy megerősített helyzet. Egységként találtuk el. Ronin – felveszed a pontot, pajzsot viszel előre, felhívod a figyelmüket és elnyeled a kezdeti lendületet. Shogun, tisztítsa meg a bal szárnyat. Mátrix, a Phase-Shift segítségével érd el a jobb szélen lévő torony vezérlőpultot, és öld meg mindhárom tornyot egyszerre. Amint a tornyok elpusztultak, drónokkal telítőtüzet küldök a végrehajtó osztagnak. Összedöntjük a helyőrséget, aztán Ronin a földbe teszi a tornyot."
+          "text": "Ez nem egy lopakodó megközelítés. A Delta egy megerősített helyzet. Egységként találtuk el. Ronin – felveszed a pontot, pajzsot viszel előre, felhívod a figyelmüket és elnyeled a kezdeti lendületet. Shogun, ürítsd ki a bal szárnyat. Mátrix, a Phase-Shift segítségével érd el a jobb szélen lévő torony vezérlőpultot, és öld meg mindhárom tornyot egyszerre. Amint a tornyok elpusztultak, drónokkal telítőtüzet küldök a végrehajtó osztagnak. Összedöntjük a helyőrséget, aztán Ronin a földbe teszi a tornyot."
         },
         {
           "speaker": "Aegis Ronin",
@@ -992,12 +992,12 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Riasztás megerősítve! Nehéz Phalanx védőburkolatok ereszkednek le a felső karbantartó aknákból! Ronin, elöl és középen! Állítsd fel a védelmi vonalat a belépési ponton!"
+          "text": "Riasztás megerősítve! Nehéz Phalanx védőburkolatok ereszkednek le a felső karbantartó aknákból! Ronin, elöl és középen! Állítsd fel a védővonalat a belépési pontnál!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Itt az ideje, hogy meglendítsem ezt a dolgot. Pajzs fel! Ezen a ponton semmi sem megy, ti túlnőtt gyíkok!"
+          "text": "Ideje lenne meglendítenem ezt a dolgot. Pajzs fel! Ezen a ponton semmi sem megy, ti túlnőtt gyíkok!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1195,7 +1195,7 @@
     "8": {
       "title": "The Foundry Forge (ipari szektor)",
       "arc": "act2_arc2",
-      "setting": "A Xelthara Thermal Conversion Array az egykori ipari kikötői negyedben 40 kilométeres körzetben mérgezővé tette a levegőt, és a légköri hulladékot a világtól eltérő üzemanyagként dolgozta fel, miközben az emberiség oxigénjét adagolt kannákban, családonként naponta egy alkalommal értékesítette.",
+      "setting": "A Xelthara Thermal Conversion Array az egykori ipari kikötői negyedben 40 kilométeres körzetben mérgezővé tette a levegőt, a légköri hulladékot külvilágon kívüli üzemanyagként dolgozva fel, miközben az emberiség oxigénjét adagolt kannákban, családonként naponta egy alkalommal értékesíti.",
       "objective": "Fordítsa meg a Thermal Conversion Array polaritását, és váltson ki egy kaszkádos hőösszeomlást, amely visszafordíthatatlanul tönkreteszi az öntödét, és lehetővé teszi a 40 kilométeres légköri károsodási zóna természetes regenerálódását.",
       "solo_monologues": [
         {
@@ -1269,7 +1269,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "A végső támogatás biztosított. Üsd meg, Ronin! Akkor FUSUNK!"
+          "text": "A végső támogatás biztosított. Üsd meg, Ronin! Akkor FUTUNK!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1317,7 +1317,7 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Vannak halászcsaládok a zárt zónákban, akik nem tudtak dolgozni, mióta a vezetékek bementek. A sóoldat kibocsátása mindent elpusztított, ami a parttól úszásra került. Azok az emberek, akik generációkon keresztül táplálták közösségeiket, most Xelthara takarmánycsomagban részesülnek. Elvett��k táplálékforrásukat, beszennyezték a vizüket, falat emeltek közéjük és a tenger közé, és ezt fejlődésnek nevezték. Ma este visszaadjuk nekik az óceánt."
+          "text": "Vannak halászcsaládok a zárt zónákban, akik nem tudtak dolgozni, mióta a vezetékek bementek. A sóoldat kibocsátása mindent elpusztított, ami a parttól úszásra került. Azok az emberek, akik generációkon keresztül táplálták közösségeiket, most Xelthara takarmánycsomagban részesülnek. Elvették táplálékforrásukat, beszennyezték a vizüket, falat emeltek közéjük és a tenger közé, és ezt fejlődésnek nevezték. Ma este visszaadjuk nekik az óceánt."
         },
         {
           "character": "AXIOM-7",
@@ -1663,7 +1663,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Túlterhelési sorozat elindítva. Azonnali, szekvenciális stresszt igényel. Rúdcsapatok készüljenek a kitermelésre."
+          "text": "Túlterhelési sorozat elindult. Azonnali, szekvenciális stresszt igényel. Rúdcsapatok, készüljetek a kitermelésre."
         },
         {
           "speaker": "Oni Matrix",
@@ -1769,7 +1769,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Rendben részemről. Ha harcot akarnak, végső állást kapnak. Pajzs fel! VASFAL!"
+          "text": "Rendben tőlem. Ha harcot akarnak, végső állást kapnak. Pajzs fel! VASFAL!"
         },
         {
           "speaker": "Cyber Shogun",

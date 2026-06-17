@@ -290,7 +290,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "DECENTRALISERINGSLOG: GUERILLAOVERGANG INITIERT. PLACERING: LAST STAND KOMMANDO (PACIFIC HUB). STATUS: KONVENTIONEL KRAFT SLAGET. ASYMMETRISK LÆRE AKTIV. KOMMANDO: KEJERINDESIRENE (TAKTISK KODE: Ugyldig KOMMANDO). SIDSTE ORDRE: STRØM KOMMANDOEN. BLIV STORMEN."
+          "text": "DECENTRALISERINGSLOG: GUERILLAOVERGANG INITIERT. PLACERING: SIDSTE STANDKOMMANDO (PACIFIC HUB). STATUS: KONVENTIONEL KRAFT SLAGET. ASYMMETRISK LÆRE AKTIV. KOMMANDO: KEJERINDESIRENE (TAKTISK KODE: Ugyldig KOMMANDO). SIDSTE ORDRE: STRØM KOMMANDOEN. BLIV STORMEN."
         },
         {
           "speaker": "Empress Siren",
@@ -310,7 +310,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Vores flåde er væk. Vores base er st��v. Det eneste, der er tilbage, er dataene. Jeg må være præcis. En kommandørs pligt er over for de levende, ikke forsvaret af et lig."
+          "text": "Vores flåde er væk. Vores base er støv. Det eneste, der er tilbage, er dataene. Jeg må være præcis. En kommandørs pligt er over for de levende, ikke forsvaret af et lig."
         },
         {
           "speaker": "Empress Siren",
@@ -360,14 +360,14 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISSION FULDFØRT: DEN Ugyldige KOMMANDO. KEJERINDE SIRENE TILSLUTTEDE HLF."
+          "text": "MISSION FULDFØRT: DEN Ugyldige Kommandør. KEJERINDE SIRENE TILSLUTTEDE HLF."
         }
       ]
     },
     "5": {
       "title": "Neon Embers - The Border Breach",
       "arc": "act2_arc1",
-      "setting": "Det aktive Sector-4 Separation Grid - en 40 meter høj energivæg befæstet med biometriske scannerspir, kontrolpunkter til behandling af tilladelser og Xelthara-grænsemyndighedens stationer. Det halverer fysisk Los Angeles og isolerer den menneskelige indeslutningszone fra Xelthara-kolonialsektoren. Muren er ikke en militær installation. Det er administrativt.",
+      "setting": "Det aktive Sector-4 Separation Grid - en 40 meter høj energivæg befæstet med biometriske scannerspir, kontrolpunkter til behandling af tilladelser og Xelthara Border Authority-stationer. Det halverer fysisk Los Angeles og isolerer den menneskelige indeslutningszone fra Xelthara-kolonialsektoren. Muren er ikke en militær installation. Det er administrativt.",
       "objective": "Deaktiver alle fire biometriske scannerspir, ødelægge den centrale Permit Processing Core - den bureaukratiske motor, der styrer menneskelig bevægelse - og sænk den Store Adskillelse, så befolkningen i indeslutningszonerne kan gå frit gennem deres egen by.",
       "solo_monologues": [
         {
@@ -556,7 +556,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Hun indgav en ansøgning om tilladelse til at krydse 47 dage efter, at muren gik op. Hun udfyldte skemaerne. I tre eksemplarer. Fordi hun troede p�� processen. Hun troede, at hvis du gjorde tingene rigtigt, ville nogen lytte. Hun fik aldrig svar. Hun døde i indeslutningszonen to måneder senere. Underernæringskomplikationer. De havde hendes yndlingskøbmand på den anden side af væggen. Hun indgav en formular for at gå og købe mad."
+          "text": "Hun indgav en ansøgning om tilladelse til at krydse 47 dage efter, at muren gik op. Hun udfyldte skemaerne. I tre eksemplarer. Fordi hun troede på processen. Hun troede, at hvis du gjorde tingene rigtigt, ville nogen lytte. Hun fik aldrig svar. Hun døde i indeslutningszonen to måneder senere. Underernæringskomplikationer. De havde hendes yndlingskøbmand på den anden side af væggen. Hun indgav en formular for at gå og købe mad."
         },
         {
           "speaker": "Oni Matrix",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Jeg fortalte tolv familier, hvordan man organiserer samfundsvagter i dette rum. Der var sækkestole i børneafdelingen. Nogen havde tapet tegninger med farveblyanter til referencepulten. Et barn tegnede et billede af en superhelt. Forskellen på et bibliotek og et datacenter er, at et bibliotek antager, at de mennesker, der går gennem døren, har ret til at være der."
+          "text": "Jeg fortalte tolv familier, hvordan man organiserer samfundsvagter i dette rum. Der var sækkestole i børneafdelingen. Nogen havde tapet tegninger med farvekridt til referencepulten. Et barn tegnede et billede af en superhelt. Forskellen på et bibliotek og et datacenter er, at et bibliotek antager, at de mennesker, der går gennem døren, har ret til at være der."
         },
         {
           "speaker": "Empress Siren",
@@ -691,7 +691,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "FASE 2-C: SPIRE DELTA — DEN SYDLIGE ENDEMIDDEL VED FLVEN"
+          "text": "FASE 2-C: SPIRE DELTA — DEN SYDLIGE ENDEMIDDEL VED ELVEN"
         },
         {
           "speaker": "AXIOM-7",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Dette er ikke en stealth-tilgang. Delta er en befæstet position. Vi ramte det som en enhed. Ronin – du tager spidsen, skærmer fremad, tiltrækker deres opmærksomhed og absorberer deres første volley. Shogun, ryd venstre flanke. Matrix, brug Phase-Shift til at nå tårnets kontrolpanel yderst til højre og dræbe alle tre tårne ​​samtidigt. Når først tårnene er døde, begår jeg droner til mætning af ild mod håndhævelsesgruppen. Vi kollapser garnisonen, så sætter Ronin spiret i jorden."
+          "text": "Dette er ikke en stealth-tilgang. Delta er en befæstet position. Vi ramte det som en enhed. Ronin – du tager spidsen, skærmer fremad, tiltrækker deres opmærksomhed og absorberer deres første volley. Shogun, ryd venstre flanke. Matrix, brug Phase-Shift til at nå tårnets kontrolpanel yderst til højre og dræbe alle tre tårne ​​samtidigt. Når først tårnene er døde, begår jeg droner til mætning af håndhævelsesgruppen. Vi kollapser garnisonen, så sætter Ronin spiret i jorden."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1075,7 +1075,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Ved at krydshenvise emnefilerne til modstandsnetværkets database, har jeg identificeret sytten bekræftede HLF-fællesskabsarrangører, som blev behandlet gennem denne facilitet og efterfølgende frigivet. De ved ikke, hvad der blev gjort ved dem. Ødelæggelse af Central Neural Uplink kan genoprette dem. Jeg beregner en 73% sandsynlighed for vellykket genoprettelse af autonomi. Jeg er... Jeg synes, jeg er investeret i det resultat."
+          "text": "Ved at krydshenvise emnefilerne til modstandsnetværkets database, har jeg identificeret sytten bekræftede HLF-fællesskabsarrangører, som blev behandlet gennem denne facilitet og efterfølgende frigivet. De ved ikke, hvad der blev gjort ved dem. Ødelæggelse af det centrale neurale uplink kan muligvis genoprette dem. Jeg beregner en 73% sandsynlighed for vellykket genoprettelse af autonomi. Jeg er... Jeg synes, jeg er investeret i det resultat."
         }
       ],
       "dialogue_status": "scripted",
@@ -1148,7 +1148,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Analyse færdig. Overseerens biologiske komponenter kræver en konstant neural signalopdatering fra bioprocessoren. Matrix, ram på konsollen med en målrettet EMP - et kirurgisk angreb, forstyrre synkroniseringen!"
+          "text": "Analyse færdig. Overseerens biologiske komponenter kræver en konstant neural signalopdatering fra bioprocessoren. Matrix, ram konsollen med en målrettet EMP - et kirurgisk angreb, forstyrre synkroniseringen!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1322,7 +1322,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Modellering af den oceaniske genopretningstidslinje efter ødelæggelse af ledninger: delvis genopretning af økosystemet på atten måneder, fuld pH-normalisering på seks til otte år. Denne mission løser ikke skaden med det samme. Jeg vil have dig til at forstå det. Det, det gør, er at stoppe skaden i at blive permanent. Nogle sår kan stadig hele, hvis vi holder op med at åbne dem."
+          "text": "Modellering af den oceaniske genopretningstidslinje efter ødelæggelse af ledninger: delvis genopretning af økosystemet på atten måneder, fuld pH-normalisering om seks til otte år. Denne mission løser ikke skaden med det samme. Jeg vil have dig til at forstå det. Det, det gør, er at stoppe skaden i at blive permanent. Nogle sår kan stadig hele, hvis vi holder op med at åbne dem."
         }
       ],
       "dialogue_status": "scripted",
@@ -1411,7 +1411,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Forstået. Engagerer dockingpatruljen. HURTIG RETfærdighed!"
+          "text": "Forstået. Engagerer docking patruljen. HURTIG RETfærdighed!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1653,7 +1653,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, det er dit job. Du skal beskytte terminalen, mens jeg indtaster fejlkoderne. Shogun, Matrix – kom til dine positioner. Jeg skal have alle stænger udtrukket på mit mærke."
+          "text": "Ronin, det er dit job. Du skal beskytte terminalen, mens jeg indtaster fejlkoderne. Shogun, Matrix - kom til dine positioner. Jeg skal have alle stænger udtrukket på mit mærke."
         },
         {
           "speaker": "Aegis Ronin",

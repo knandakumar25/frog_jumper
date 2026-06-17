@@ -254,7 +254,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Ik ben keizerin Sirene. Wij zijn degenen die vechten om ervoor te zorgen dat er nog een stad over is om te oogsten. Je hebt een gave om dingen kapot te maken, geest. Dat kunnen we gebruiken. Ben je het zat om je te verstoppen in de roest?"
+          "text": "Ik ben keizerin Sirene. Wij zijn degenen die vechten om ervoor te zorgen dat er nog een stad over is om te oogsten. Je hebt een gave om dingen kapot te maken, geest. Dat kunnen we gebruiken. Ben je het beu om je te verstoppen in de roest?"
         },
         {
           "speaker": "Oni Matrix",
@@ -355,7 +355,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Terugtrekking bevestigd. Missiedoelstelling – overleven van de burgerbevolking – bereikt. Ze hebben ons luchtruim ingenomen, maar ze zullen nooit ons besluit overnemen. Nu aan het extraheren."
+          "text": "Terugtrekking bevestigd. Missiedoelstelling – overleven van de burgerbevolking – bereikt. Ze hebben ons luchtruim ingenomen, maar ze zullen nooit ons besluit overnemen. Nu aan het uitpakken."
         },
         {
           "speaker": "DISPLAY",
@@ -456,7 +456,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "Het wreedste wapen van het kolonialisme is niet de soldaat met het geweer. Het is de klerk met de stempel die u vertelt dat uw bestaan ​​hun toestemming vereist. Dat een mens een bezetter moet verzoeken om het recht om op het terrein van zijn eigen voorouders te lopen. Ik heb vrede gesloten met vechtende soldaten. Het confronteren van de architectuur van toestemming – de nonchalante, systematische vernedering ervan – dit is wat de geest aantast op een manier die geen mes kan doorsnijden."
+          "text": "Het wreedste wapen van het kolonialisme is niet de soldaat met het geweer. Het is de klerk met de stempel die u vertelt dat uw bestaan ​​hun toestemming vereist. Dat een mens een bezetter moet verzoeken om het recht om op het terrein van zijn eigen voorouders te lopen. Ik heb vrede gesloten met vechtende soldaten. Het confronteren van de architectuur van toestemming – de nonchalante, systematische vernedering ervan – is wat de geest aantast op een manier die geen mes kan doorsnijden."
         },
         {
           "speaker": "AXIOM-7",
@@ -611,7 +611,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "De bibliotheek. Ik gaf daar mijn eerste officierstrainingsseminars. Gemeenschappelijke verdedigingscursussen, leeszaal op de derde verdieping. Drie jaar voor de invasie. De geometrie van de manier waarop het kolonialisme onze eigen infrastructuur tegen ons gebruikt, blijft opvallend. Ze hebben hun datacenter in onze bibliotheek geplaatst. Ze schrijven over onze gegevens heen op de plaats waar wij onze gegevens bewaarden."
+          "text": "De bibliotheek. Ik gaf daar mijn eerste officierstrainingen. Gemeenschappelijke verdedigingscursussen, leeszaal op de derde verdieping. Drie jaar voor de invasie. De geometrie van de manier waarop het kolonialisme onze eigen infrastructuur tegen ons gebruikt, blijft opvallend. Ze hebben hun datacenter in onze bibliotheek geplaatst. Ze schrijven over onze gegevens heen op de plaats waar wij onze gegevens bewaarden."
         },
         {
           "speaker": "Cyber Shogun",
@@ -671,7 +671,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Rasterknooppunt gelegen. Het verbreken van de Spire Gamma-stroomtoevoer. Hiermee worden ook alle gegevens over de registratie van koloniale eigendommen gewist die ze hier hebben opgeslagen."
+          "text": "Rasterknooppunt gelegen. Het verbreken van de Spire Gamma-stroomtoevoer. Hiermee worden ook alle registratiegegevens van koloniale eigendommen gewist die ze hier hebben opgeslagen."
         },
         {
           "speaker": "AXIOM-7",
@@ -716,7 +716,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Dit is geen stealth-aanpak. Delta is een versterkte positie. We hebben het als een eenheid getroffen. Ronin: jij pakt het punt, beschermt naar voren, trekt hun aandacht en absorbeert hun eerste salvo. Shogun, maak de linkerflank vrij. Matrix, gebruik Phase-Shift om het geschutsbedieningspaneel uiterst rechts te bereiken en alle drie de geschutskoepels tegelijkertijd te doden. Zodra de geschutskoepels dood zijn, geef ik drones opdracht tot verzadigingsvuur op het handhavingsteam. We laten het garnizoen instorten, waarna Ronin de torenspits in de grond steekt."
+          "text": "Dit is geen stealth-aanpak. Delta is een versterkte positie. We hebben het als een eenheid getroffen. Ronin: jij pakt het punt, beschermt naar voren, trekt hun aandacht en absorbeert hun eerste salvo. Shogun, maak de linkerflank vrij. Matrix, gebruik Phase-Shift om het geschutsbedieningspaneel uiterst rechts te bereiken en alle drie de geschutskoepels tegelijkertijd te doden. Zodra de geschutskoepels dood zijn, geef ik drones het vuur op het handhavingsteam. We laten het garnizoen instorten, waarna Ronin de torenspits in de grond steekt."
         },
         {
           "speaker": "Aegis Ronin",
@@ -964,12 +964,12 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Everything the Xelthara know about us is in that tower. Elk adres waar we ooit hebben gewoond. De naam van elk familielid. Elke akte die onze grootouders ondertekenden. They turned our entire existence into a database entry so they could manage us more efficiently. Tonight we take our data back—and we break the machine that's been using it to assign people to scrub their floors."
+          "text": "Alles wat de Xelthara over ons weten, zit in die toren. Elk adres waar we ooit hebben gewoond. De naam van elk familielid. Elke akte die onze grootouders ondertekenden. Ze veranderden ons hele bestaan ​​in een database-invoer, zodat ze ons efficiënter konden beheren. Vanavond nemen we onze gegevens terug en breken we de machine die deze gebruikt om mensen de opdracht te geven hun vloeren te schrobben."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "The Forced Labor Allocation System inside the Spire does not use the word 'forced.' It uses the phrase 'Community Integration Contribution Program.' De arbeidsopdrachten zijn geen contracten; ze worden algoritmisch gegenereerd op basis van de geregistreerde vaardigheden van de ontheemde en zonder toestemming uitgegeven. This is the bureaucratic language of enslavement."
+          "text": "Het systeem voor de toewijzing van dwangarbeid binnen de Spire gebruikt het woord 'gedwongen' niet. Het gebruikt de uitdrukking 'Community Integration Contribution Program'. De arbeidsopdrachten zijn geen contracten; ze worden algoritmisch gegenereerd op basis van de geregistreerde vaardigheden van de ontheemde en zonder toestemming uitgegeven. Dit is de bureaucratische taal van slavernij."
         }
       ],
       "dialogue_status": "scripted",
@@ -977,7 +977,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Analyse voltooid. The colonial expansion blueprints and settler logistical data are stored in that central column. Matrix, you have five minutes to execute the download before their internal defense systems reboot."
+          "text": "Analyse voltooid. De blauwdrukken van de koloniale expansie en de logistieke gegevens van de kolonisten worden in die centrale kolom opgeslagen. Matrix, je hebt vijf minuten om de download uit te voeren voordat hun interne verdedigingssystemen opnieuw opstarten."
         },
         {
           "speaker": "Oni Matrix",
@@ -992,12 +992,12 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Waarschuwing bevestigd! Heavy Phalanx guards are descending from the upper maintenance shafts! Ronin, vooraan en in het midden! Vestig de verdedigingslinie bij het toegangspunt!"
+          "text": "Waarschuwing bevestigd! Uit de bovenste onderhoudsschachten komen zware Phalanx-bewakers naar beneden! Ronin, vooraan en in het midden! Vestig de verdedigingslinie bij het toegangspunt!"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Het werd tijd dat ik dit ding ging slingeren. Schild omhoog! Nothing passes this point, you overgrown lizards!"
+          "text": "Het werd tijd dat ik dit ding ging slingeren. Schild omhoog! Niets passeert dit punt, jullie overwoekerde hagedissen!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1007,7 +1007,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Drones three and four, suppressive fire on the left flank! Teken hun aggro! Ronin, spaar je lading!"
+          "text": "Drones drie en vier, onderdrukkend vuur op de linkerflank! Teken hun aggro! Ronin, spaar je lading!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1017,12 +1017,12 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Stil, vleesschild! I'm threading a digital needle through their core brain! Nog even... een stukje... verder..."
+          "text": "Stil, vleesschild! Ik rijg een digitale naald door hun kernbrein! Nog even... een stukje... verder..."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Waarschuwing: gegevensdownload is voor 95% voltooid. Xelthara-tegenhack gestart. Matrix, the Spire is locking down all internal access points!"
+          "text": "Waarschuwing: gegevensdownload is voor 95% voltooid. Xelthara-tegenhack gestart. Matrix, de Spire vergrendelt alle interne toegangspunten!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1311,7 +1311,7 @@
     "9": {
       "title": "Aquanaut Abyss (ondergedompelde ruïnes)",
       "arc": "act2_arc2",
-      "setting": "De Stille Oceaan wordt systematisch drooggelegd door diepzeewaterstofhevelleidingen langs het continentaal plat. Oververhitte pekelafvoer heeft een kuststrook van 300 kilometer verzuurd, waardoor vissersgemeenschappen die generaties lang in hun levensonderhoud hebben voorzien, zijn vernietigd.",
+      "setting": "De Stille Oceaan wordt systematisch drooggelegd door diepzeewaterstofhevelleidingen langs het continentaal plat. Oververhitte pekelafvoer heeft een kuststrook van 300 kilometer verzuurd, waardoor vissersgemeenschappen die zichzelf generaties lang in stand hielden, zijn vernietigd.",
       "objective": "Lokaliseer en vernietig de drie primaire Deep-Sea Siphon Conduit Hubs om het overhevelen van de oceaan permanent te stoppen en het herstel van de oceaan te beginnen.",
       "solo_monologues": [
         {
@@ -1746,7 +1746,7 @@
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "De eer van een krijger wordt zowel bepaald door wat hij beschermt als door wat hij vernietigt. Vanavond bescherm ik iets. De documenten in deze kluis zijn het bewijs dat we hier bestonden voordat ze arriveerden – dat we namen hadden voor dit land, erop gebouwd waren, erin begraven waren en er eeuwenlang verhalen over vertelden. Als ze dat bewijs wissen, kunnen ze elke geschiedenis schrijven die ze willen. Dat zal ik niet laten gebeuren."
+          "text": "De eer van een krijger wordt zowel bepaald door wat hij beschermt als door wat hij vernietigt. Vanavond bescherm ik iets. De gegevens in deze kluis zijn het bewijs dat we hier bestonden voordat ze arriveerden – dat we namen hadden voor dit land, erop gebouwd waren, erin begraven waren en er eeuwenlang verhalen over vertelden. Als ze dat bewijs wissen, kunnen ze elke geschiedenis schrijven die ze willen. Dat zal ik niet laten gebeuren."
         },
         {
           "character": "AXIOM-7",

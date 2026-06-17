@@ -54,7 +54,7 @@ Extrakčné motory sú zastavené. Bezpečnostná mriežka je tmavá. Segregačn
 # kind: level # level: 0 # title: Protocol Zero - The Virtual Forge # dialogue_status: pending
 
 # kind: setting
-Obrovská, tmavá, drôtená sieťová simulácia rozpadajúceho sa panorámy centra Los Angeles. Neónové modr�� čiary definujú cesty a budovy. V zobrazení neustále blikajú statické poruchy. Štyria šampióni stoja na žiariacej plošine.
+Obrovská, tmavá, drôtená sieťová simulácia rozpadajúceho sa panorámy centra Los Angeles. Neónové modré čiary definujú cesty a budovy. V zobrazení neustále blikajú statické poruchy. Štyria šampióni stoja na žiariacej plošine.
 
 # kind: objective
 Dokončite tréningový protokol prejazdom všetkých pohybových a bojových schopností, ktoré vyvrcholia súčasným tímovým útokom na zničenie simulovanej ťažkej jednotky Xelthara.
@@ -115,7 +115,7 @@ MISIA DOKONČENÁ: VEČNÁ SPOMIENKA. OČISTKA BOLA PRERUŠENÁ.
 Masívna vstupná brána uzavretej zóny 4. Tisíce rodín sú hnané ako dobytok cez energetické ploty. Za nimi sú ich predmestské domy sploštené expanznými chodcami Xelthara.
 
 # kind: objective
-Držte 'Posledný most' proti Xelthara Enforcers, ktorí ženú populáciu, čo umožňuje poslednej skupine utečencov vkĺznuť do nezmapovaných slumov namiesto ohradených táborov.
+Podržte 'Posledný most' proti Xelthara Enforcers, ktorí ženú obyvateľstvo, čím umožníte poslednej skupine utečencov vkĺznuť do nezmapovaných slumov namiesto uzavretých táborov.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 ZÁZNAM O VYSÍLENÍ: PROTOKOL PRESÍDLENIA SEKTORA 4. Obranca: AEGIS RONIN (STAV PODVOZKU: KRITICKÝ). STUPEŇ OHROZENIA: OMEGA. POČET UTEČENCOV: 412. SÚČASNÝ MANDÁT: CHRÁŇTE VYSÍDNUTÉ. BRÁŇTE PRAHU.
@@ -180,7 +180,7 @@ Stavajú si svoj raj na našom strope a čudujú sa, prečo pivnica zateká. Ži
 Upozornenie: Integrácia hardvéru Xelthara do civilného šasi sa neodporúča. Nervová spätná väzba je projektovaná pri 40% nestabilite. Matrix, váš srdcový tep prekračuje bezpečné parametre.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-MARGINALIZOVANÝ DENNÍK: PODÚROVŇOVÉ ŠROTOVNÉ MESTO. STAV: PREŽIJE. UPOZORNENIE VOĽBUDITEĽOV: NULOVÉ ZISTENIE. SYSTÉMOVÁ DÔVERA: 100%. CIEĽ: Ukradnúť KOLONIÁLNU ISKRU. PALIVA ODPORU.
+MARGINALIZOVANÝ DENNÍK: PODÚROVŇOVÉ ŠROTOVNÉ MESTO. STAV: PREŽIJE. UPOZORNENIE VOĽBUDITEĽOV: NULOVÉ ZISTENIE. SYSTÉMOVÁ DÔVERA: 100%. CIEĽ: Ukradnúť KOLONIÁLNU ISKRU. PALIVO ODPORU.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Stavajú si svoj raj na našom strope a čudujú sa, prečo pivnica zateká. Žijeme v medzerách, ktoré zabudli vydláždiť. Znova použijem ich vlastnú šrotovú technológiu na vyprážanie ich mriežky. Z okraja vraciame úder.
@@ -242,7 +242,7 @@ Toto je Void Commander. Tradičná hierarchia je rozpustená. Už nie ste vojakm
 Veliteľ, únikové plavidlá hlásia 85 % obetí pri štarte. Bojovníci Xelthara uprednostňujú nebojujúcich. Poznajú naše únikové vektory.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Operujú na základe predinváznych taktických údajov. Údaje zmením. AXIOM, uzamknite centrálnu sieťovú linku. Ručne obchádzam firewally.
+Operujú na základe predinváznych taktických údajov. Údaje zmením. AXIOM, uzamknite centrálny sieťový spoj. Ručne obchádzam firewally.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
 Naša flotila je preč. Našou základňou je prach. Zostávajú len dáta. Musím byť presný. Povinnosťou veliteľa je k živým, nie obrana mŕtvoly.
@@ -295,7 +295,7 @@ Ten múr nielenže rozpolil mesto. Rozrezalo ma to na polovicu. Všetko, čo si 
 Separačná mriežka Sektor-4 nie je klasifikovaná ako vojenské zariadenie v administratívnych záznamoch Xelthara. Je uvedený ako „Systém kontroly optimalizácie populácie a tranzitného úradu“. O ten rebranding ide. Je to stena, ktorá sa ozýva ako služba.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-ZÁZNAM POSUNUTÍ: SEKTOR-4 SEPARAČNÁ mriežka. TYP ŠTRUKTÚRY: KOLONIÁLNY ADMINISTRATÍVNY KONTROLNÝ BOD. NIE VOJENSKÉ. TOTO JE ZÁMERNÉ. HROZBA: HRANIČNÝ ORGÁN XELTHARA — DIVÍZIA PRESADZOVANIA. BIOMETRICKÉ VEŽE: 4 AKTÍVNE. POVOLENÉ JADR: ONLINE. CIE��: DEMONTOVAŤ ADMINISTRATÍVNU ARCHITEKTÚRU ODDELENIA. OTVORIŤ MESTO.
+ZÁZNAM POSUNUTÍ: SEKTOR-4 SEPARAČNÁ mriežka. TYP ŠTRUKTÚRY: KOLONIÁLNY ADMINISTRATÍVNY KONTROLNÝ BOD. NIE VOJENSKÉ. TOTO JE ZÁMERNÉ. HROZBA: HRANIČNÝ ORGÁN XELTHARA — DIVÍZIA PRESADZOVANIA. BIOMETRICKÉ VEŽE: 4 AKTÍVNE. POVOLENÉ JADR: ONLINE. CIEĽ: DEMONTOVAŤ ADMINISTRATÍVNU ARCHITEKTÚRU ODDELENIA. OTVORIŤ MESTO.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 STENU, KTORÚ NAZVALI DVERE
@@ -337,7 +337,7 @@ Poznámka: Hliadky hraničného úradu sú husté, ale vzorované. Kontrolný bo
 4 400. Ľudia, ktorí chceli ísť domov pešo.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
-Najkrutejšou zbraňou kolonializmu nie je vojak s puškou. Je to úradník s pečiatkou, ktorý vám povie, že vaša existencia si vyžaduje ich autorizáciu. Že ľudská bytosť musí požiadať okupanta o právo chodiť na pôdu svojich vlastných predkov. Uzavrel som mier s bojujúcimi vojakmi. Konfrontácia s architektúrou povolenia – s jej náhodným, systematickým ponižovaním – to je to, čo zaťažuje ducha tak, že žiadna čepeľ nemôže prerezať.
+Najkrutejšou zbraňou kolonializmu nie je vojak s puškou. Je to úradník s pečiatkou, ktorý vám povie, že vaša existencia si vyžaduje ich autorizáciu. Že ľudská bytosť musí požiadať okupanta o právo chodiť na pôdu svojich vlastných predkov. Uzavrel som mier s bojujúcimi vojakmi. Konfrontácia s architektúrou dovolenia – s jej náhodným, systematickým ponižovaním – to je to, čo zaťažuje ducha tak, že žiadna čepeľ nemôže prerezať.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Hliadky sa striedajú. Na prístupovej ulici Hope Street je 90-sekundové okno, ktoré začína o tridsať sekúnd. Choď na moju značku.
@@ -367,7 +367,7 @@ Ronin, druhý reflektor sa otočí preč za štyri sekundy. Presuňte sa do dren
 Dobre. Som na základni Spire Alpha. Vidím kotvu. Je to priskrutkované cez to, čo bývalo mozaikovým chodníkom.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Zaskrutkovali to cez mozaiku. V tej dlažbe na chodníku bola namaľovaná celá história. Portréty, mená, dátumy. Komunitný projekt. Len... prevŕtali stred tváre, aby ukotvili svoj stĺpik.
+Zaskrutkovali to cez mozaiku. V tej dlažbe na chodníku bola namaľovaná celá hist��ria. Portréty, mená, dátumy. Komunitný projekt. Len... prevŕtali stred tváre, aby ukotvili svoj stĺpik.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Ronin, kotva veže, je magnetický kinetický zámok navrhnutý tak, aby vydržal až 8 000 newtonov priamej sily. Váš poplatok za kinetické preťaženie, zadržaný na celý trojnásobok, prekročí túto hranicu. Najprv musíte deaktivovať dve biometrické jednotky Sentinel na základni veže – detegujú váš biometrický podpis v momente, keď vstúpite do dosahu.
@@ -388,7 +388,7 @@ Podržte Kinetic Overload Charge na základni Spire Alpha a započítajte tri. \
 Zlomená kotva Spire Alpha. Energetická membrána sa destabilizovala v severnom sektore o 25 %. Zostávajú tri veže.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Dvadsaťpäť percent je začiatok. Prepáčte, že nám to trvalo tak dlho. Teraz sme tu.
+Dvadsaťpäť percent je začiatok. Prepáčte, že n��m to trvalo tak dlho. Teraz sme tu.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
 FÁZA 2-A: ONI MATRIX NA SPIRE BETA – 5. A JAR
@@ -481,7 +481,7 @@ Spires Alpha, Beta a Gamma offline. Integrita energetickej membrány: 25 %. Delt
 FÁZA 2-C: DELTA VEŽE – JUŽNÝ TERMINUS PRI RIEKE
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Delta je nosná kotva do steny. Stráži ju hraničný veliteľ Vyss, ktorý nariadil elektrifikáciu rieky po tom, čo sa tri rodiny pokúsili prejsť cez vodu v prvom týždni múru. Vyss nenariadil ich zadržanie. Vyss nariadil elektrifikáciu vody.
+Spire Delta je nosná kotva do steny. Stráži ho hraničný veliteľ Vyss, ktorý nariadil elektrifikáciu rieky po tom, čo sa tri rodiny pokúsili prejsť cez vodu v prvom týždni múru. Vyss nenariadil ich zadržanie. Vyss nariadil elektrifikáciu vody.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 Zelektrizoval rieku. Pretože rodiny sa snažili prejsť.
@@ -526,7 +526,7 @@ Energetická membrána je úplne offline. Administratívna prechodová bariéra 
 Len... chodia. Len prechádzajú.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-FÁZA 3: PERSHING SQUARE – JADRO SPRACOVANIA POVOLENÍ
+3. FÁZA: PERSHING SQUARE – JADRO SPRACOVANIA POVOLENÍ
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Pozrite sa na ne. Dotýkajú sa chodníka na druhej strane steny, ako keby to nebolo skutočné. Akoby to mohol byť trik.
@@ -625,7 +625,7 @@ Dobre. Dobre.
 Stena je preč, Matrix. Ale to, čo robíme teraz – ako prestavujeme to, čo múr rozdelil – to je ťažšia práca. A začína to dnes večer.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Je takýto pocit z víťazstva? Pretože to nie je také, aké som očakával.
+Je takýto pocit z víťazstva? Pretože sa mi to nezdá tak, ako som očakával.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Nie. Zdá sa mi, že je potrebné urobiť viac. Takto viete, že je to skutočné.
@@ -657,13 +657,13 @@ Systém prideľovania nútenej práce vo veži nepoužíva slovo „nútený“.
 Analýza dokončená. V tomto centrálnom stĺpci sú uložené plány koloniálnej expanzie a logistické údaje osadníkov. Matrix, máte päť minút na vykonanie sťahovania, kým sa ich vnútorné obranné systémy reštartujú.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Päť minút? Kúsok koláča. Potrebujem však jasný prístup. Shogun, môžeš prerezať hlavnú pupočnú?
+Päť minút? Kúsok koláča. Potrebujem však jasný prístup. Shogun, môžeš prerezať hlavnú pupočnú hlavu?
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Považované za hotové. Teraz sa vytvára dočasná cesta ku konzole. Sledujte uhly, cisárovná. Tento strih upozorní každého drona v sektore.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Upozornenie potvrdené! Ťažké stráže Phalanx zostupujú z horných údržbárskych š��cht! Ronin, vpredu a v strede! Vytvorte obrannú líniu na mieste vstupu!
+Upozornenie potvrdené! Ťažké stráže Phalanx zostupujú z horných údržbárskych šácht! Ronin, vpredu a v strede! Vytvorte obrannú líniu na mieste vstupu!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Nastal čas, aby som túto vec rozkýval. Štít hore! Týmto bodom nič neprejde, vy prerastené jašterice!
@@ -722,10 +722,10 @@ Nemohli nás rozbiť múrmi, tak našli spôsob, ako nás rozbiť zvnútra. Zobr
 Krížovým odkazom na predmetné súbory s databázou siete odporu som identifikoval sedemnásť potvrdených komunitných organizátorov HLF, ktorí boli spracovaní prostredníctvom tohto zariadenia a následne prepustení. Nevedia, čo sa s nimi stalo. Zničenie centrálneho neurónového uplinku ich môže obnoviť. Počítam 73% pravdepodobnosť úspešného obnovenia autonómie. Ja som... Zistil som, že som investovaný do tohto výsledku.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-This facility is the engine of resource exploitation. They are actively converting Earth's minerals into toxic bio-fuel for off-world shipping, leaving a dead planet behind. To sú náklady na koloniálnu expanziu.
+Toto zariadenie je motorom využívania zdrojov. Aktívne premieňajú nerasty Zeme na toxické biopalivo pre námornú dopravu, pričom za sebou zanechávajú mŕtvu planétu. To sú náklady na koloniálnu expanziu.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-The air is toxic because they view our world as a fungible fuel source. These labs are turning our planet's lifeblood into energy for their settlements. We must stop this extraction or there will be nothing left to save.
+Vzduch je toxický, pretože vnímajú náš svet ako zameniteľný zdroj paliva. Tieto laboratóriá premieňajú životnú miazgu našej planéty na energiu pre svoje osady. Túto ťažbu musíme zastaviť, inak už nebude čo zachraňovať.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
 Toto miesto... nemá žiadnu česť. Skaziť mŕtvych a zotročiť živých. Xelthara praktizuje znesvätenie, nie vojnu. Cítim len pohŕdanie touto krutosťou.
@@ -734,28 +734,28 @@ Toto miesto... nemá žiadnu česť. Skaziť mŕtvych a zotročiť živých. Xel
 Nepriateľsky videný! Vyzerá to ako bábka so zlým zapojením!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Drony, naskenujte vzorku! Je to biohybrid typu A. Všimnite si odkryté jadro. Shogun, precise strike to the power conduit in its exposed chest cavity.
+Drony, naskenujte vzorku! Je to biohybrid typu A. Všimnite si odkryté jadro. Shogun, presný zásah do elektrického vedenia v jeho odhalenej hrudnej dutine.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Táto vec si nezaslúži miesto na tomto svete. NIHILAČNÁ ŠTIPKA!
 
 # kind: dialogue # speaker: Cyber Shogun # type: radio
-Cisárovná, čo... čo sú to za obrázky? They are taking our people and making them into things.
+Cisárovná, čo... čo sú to za obrázky? Berú našich ľudí a robia z nich veci.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Teraz vykonávam analýzu, Shogun. This is not simply biological experimentation, it's soul erasure. They are replacing the human spirit with their own code.
+Teraz vykonávam analýzu, Shogun. Toto nie je len biologické experimentovanie, je to vymazanie duše. Nahrádzajú ľudského ducha vlastným kódom.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Pekne. Nechcú len vziať našu planétu; chcú udeliť franšízu nášmu druhu. Pozor, Siréna. Veľký chlap sa práve zobudil.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-UPOZORNENIE: Mini-Boss Encounter. Označenie: dozorca Karr-Thak. Its armor is resistant to kinetic and energy attack.
+UPOZORNENIE: Mini-Boss Encounter. Označenie: dozorca Karr-Thak. Jeho pancier je odolný voči kinetickému a energetickému útoku.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Odolný? Bull. Urobím priehlbinu! Ronin, pútavé!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Ronin, ustúp! Jeho obrana je kineticky tlmená. Matrix, scan his movement patterns for a neural synchronization delay. Shogun, musíš rozptýliť pozornosť!
+Ronin, ustúp! Jeho obrana je kineticky tlmená. Matrix, naskenujte jeho pohybové vzorce, či nedochádza k oneskoreniu neurálnej synchronizácie. Shogun, musíš rozptýliť pozornosť!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Ak chce bojovať, dám mu dôstojného súpera. Nakreslím jeho zameranie. Postavte sa mi tvárou v tvár, chátra!
@@ -793,7 +793,7 @@ MISIA DOKONČENÁ: KÓD INVOLÁCIE. CYBER-GRAVE LABS ZNIČENÉ.
 # kind: level # level: 8 # title: The Foundry Forge (priemyselný sektor) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Xelthara Thermal Conversion Array v bývalej priemyselnej prístavnej štvrti spôsobila toxicitu vzduchu v okruhu 40 kilometrov, pričom spracovával atmosférický odpad ako mimozemské palivo a zároveň predával ľudstvu kyslík späť v kanistroch na prídel po jednej na rodinu denne.
+Xelthara Thermal Conversion Array v bývalej priemyselnej prístavnej štvrti spôsobila toxicitu vzduchu v okruhu 40 kilometrov, pričom spracovával atmosférický odpad ako mimozemské palivo a zároveň predával ľudský kyslík späť v určených nádobách po jednej na rodinu denne.
 
 # kind: objective
 Obráťte polaritu termokonverzného poľa, aby sa spustila kaskádová tepelná implózia, ktorá nenávratne zničí zlieváreň a umožní 40-kilometrovej zóne atmosférického poškodenia začať prirodzenú regeneráciu.
@@ -829,7 +829,7 @@ Potláčanie! Vytváram spätnú väzbu v ich systémoch zacielenia! Strieľajú
 Ronin, si obklopený! Ustúpiť! Pancier na tých dronoch je príliš hrubý!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Žiadny ústup! Chcú bojovať? Dostanú jaskyňu! CYBER SHOGUN, dajte mi otvorenie!
+Žiadny ústup! Chcú bojovať? Dostanú jaskyňu! CYBER SHOGUN, otvorte mi to!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 BOŽSKÁ FURY! TERAZ, RONIN!
@@ -891,7 +891,7 @@ Zostaň na nástupištiach, Ronin. Drony skenujú prúd. Matrix, budete musieť 
 Neurónové vyprážanie je môj tretí obľúbený koníček. Kľud, Siréna. Idem duch.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
-Nosníky sú horúce. Prechádzam cez prvý rad... druh�� rad... Som pri konzole. Spustenie očisty.
+Nosníky sú horúce. Prechádzam cez prvý rad... druhý rad... Som pri konzole. Spustenie očisty.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Varovanie: Ponorené jednotky Xelthara sa vynárajú na povrch! Pokúšajú sa narušiť odvodňovaciu sekvenciu!
@@ -906,7 +906,7 @@ Bráňte platformy! Shado-Force Cleave!
 A takto vytiahnete zástrčku.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISIA DOKONČENÁ: DUCHA ČISTÍ CESTU. AQUANAUT ABYSS ODVODNENÝ.
+MISIA DOKONČENÁ: DUCHA VYČISTÍ CESTU. AQUANAUT ABYSS ODVODNENÝ.
 
 -> END
 
@@ -929,7 +929,7 @@ Manifest nákladu T-14 obsahuje 4 200 metrických ton rafinovaného kremičitanu
 Vitajte v Stratos Docks. Toto je primárne exportné centrum, kde unášajú koloniálny náklad a prepravujú rafinované pozemské zdroje mimo sveta. Únos tohto transportu preruší koloniálne zásobovacie linky a financuje odpor.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Čas je kritický. Vedúci transportér, T-14, napája svoje hlavné trysky. Šógun, Ronin – zabezpečíte pristávaciu zónu. Matrix, priprav sa obísť ovládacie prvky svorky.
+Čas je kritický. Vedúci transportér, T-14, napája svoje hlavné trysky. Šógun, Ronin – zabezpečíte pristávaciu zónu. Matrix, priprav sa obísť ovládacie prvky svoriek.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Rozumel. Zapojenie dokovacej hliadky. RÝCHLA SPRAVODLIVOSŤ!
@@ -1148,7 +1148,7 @@ Nachádza sa pod bývalým Gettyho centrom, Obsidian Vault je primárnym archív
 Infiltrujte Obsidian Vault, extrahujte pôvodnú databázu pozemkových zmlúv a všetky jazykové a ústne historické archívy a zničte systém fyzického katalógu, aby ste natrvalo zastavili koloniálne spracovanie kultúry.
 
 # kind: solo_monologue # character: Cyber Shogun # type: internal
-Česť bojovníka je definovaná tým, čo chráni, ako aj tým, čo ničí. Dnes večer niečo chránim. Záznamy v tomto trezore sú dôkazom toho, že sme tu existovali predtým, ako prišli – ��e sme mali mená pre túto krajinu, boli na nej vybudovaní, boli sme v nej pochovaní, rozprávali o nej príbehy po stáročia. Ak tento dôkaz vymažú, môžu si napísať históriu, akú chcú. To nedovolím.
+Česť bojovníka je definovaná tým, čo chráni, ako aj tým, čo ničí. Dnes večer niečo chránim. Záznamy v tomto trezore sú dôkazom toho, že sme tu existovali predtým, ako prišli – že sme mali mená pre túto krajinu, boli na nej vybudovaní, boli sme v nej pochovaní, rozprávali o nej príbehy po stáročia. Ak tento dôkaz vymažú, môžu si napísať históriu, akú chcú. To nedovolím.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Obsidiánový trezor obsahuje 4,2 milióna katalogizovaných artefaktov a záznamov. Z nich bolo 340 000 označených na zničenie ako „nepodstatné prepúšťanie“. Len minulý mesiac bolo zničených sedemnásťtisíc predmetov. Mám mená každého jedného. Chcem, aby ste to vedeli predtým, ako pôjdete dnu. To, čo dnes večer zachránime, zostáva. Nie je možné obnoviť to, čo je už preč. Stále je však čo zachraňovať.

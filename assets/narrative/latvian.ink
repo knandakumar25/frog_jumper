@@ -118,7 +118,7 @@ Masīvie 4. ierobežojuma zonas ieplūdes vārti. Tūkstošiem ģimeņu kā lopu
 Turiet "Pēdējo tiltu" pret Xelthara Enforcers, kas ganās iedzīvotājus, ļaujot pēdējai bēgļu grupai ieslīdēt nekartotajos graustos, nevis slēgtajās nometnēs.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-PĀRVIETOJUMU ŽURNĀLS: 4. SEKTORA PĀRVIETOŠANAS PROTOKOLS. AIZSARGS: EGISS RONINS (ŠASIJAS STATUSS: KRITISKS). DRAUDU LĪMENIS: OMEGA. BĒGĻU SKAITS: 412. PAŠREIZĒJAIS MANDĀTS: AIZSARGĀT PĀRVIETOTO. AIZSTĀVĒTIES Slieksni.
+PĀRVIETOJUMU ŽURNĀLS: 4. SEKTORA PĀRVIETOŠANAS PROTOKOLS. AIZSARGS: EGISS RONINS (ŠASIJAS STATUSS: KRITISKS). DRAUDU LĪMENIS: OMEGA. BĒGĻU SKAITS: 412. PAŠREIZĒJAIS MANDĀTS: AIZSARGĀT PĀRVIETOTO. AIZSTĀVĒJIET Slieksni.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 AXIOM, saki izvilkšanas pilotiem, lai tie noliek grīdu! Šie griesti nekļūst vieglāki!
@@ -224,7 +224,7 @@ MISIJA PABEIGTA: SPĒKS MAŠĪNĀ. ONI MATRIKS PIEVIENOJĀS HLF.
 Sagrautās Klusā okeāna aizsardzības centra atliekas. Lepno, tradicionālo militāro infrastruktūru pārstrādā Xelthara, liekot Sirēnai koordinēt decentralizētu slēpto šūnu tīklu.
 
 # kind: objective
-Demontējiet pēdējo militāro apraides torni un izplatiet tā frekvenču mikroshēmas civilajām pretošanās šūnām, pabeidzot pāreju uz partizānu karu.
+Demontējiet pēdējo militāro apraides torni un izplatiet tā frekvences mikroshēmas civilajām pretošanās šūnām, pabeidzot pāreju uz partizānu karu.
 
 # kind: solo_monologue # character: Empress Siren # type: radio
 Pastāvīgo armiju laikmets ir miris. Mēs nevaram viņus satikt laukumā, tāpēc mēs kļūsim par laukumu. Sadaliet signālu. Decentralizējiet komandu. Ja nav galvas, ko nogriezt, pretestība nevar nomirt.
@@ -233,7 +233,7 @@ Pastāvīgo armiju laikmets ir miris. Mēs nevaram viņus satikt laukumā, tāp�
 Ķeizariene, jūsu raidījums ir milzīgs risks! Jūs atklājat savu atrašanās vietu un pretestības frekvences modeli. Tas nav optimāli. Lūdzu, pārtrauciet pārraidi.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-DECENTRALIZĀCIJAS ŽURNĀLS: PARZIŅU PĀREJA UZSĀKTA. ATRAŠANĀS VIETA: PĒDĒJĀ STANDA KOMANDA (PACIFIC HUB). STATUSS: KONVENCIONĀLAIS SPĒKS SAKAUTS. ASIMETRISKĀ DOKTRĪNA AKTĪVA. KOMANDERIS: EMPRESS SIRENE (TAKTISKAIS KODS: TUKSTS KOMANDERIS). PĒDĒJĀ PASŪTĪJUMS: SADALAUJIET KOMANDU. KĻŪSTI PAR VĒTRA.
+DECENTRALIZĀCIJAS ŽURNĀLS: PARZIŅU PĀREJA UZSĀKTA. ATRAŠANĀS VIETA: PĒDĒJĀ STANDA KOMANDA (PACIFIC HUB). STATUSS: KONVENCIONĀLAIS SPĒKS SAKAUTS. ASIMETRISKĀ DOKTRĪNA AKTĪVA. KOMANDERIS: EMPRESS SIRENE (TAKTISKAIS KODS: TUKSTS KOMANDERIS). PĒDĒJAIS PASŪTĪJUMS: SADALAUJIET KOMANDU. KĻŪSTI PAR VĒTRA.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Šis ir Void Commander. Tradicionālā hierarhija ir izjaukta. Jūs vairs neesat karavīri; jūs esat šūnas. Iedziļināties pilsētā. Sniedziet, kad viņi guļ. Atgūstiet savu māju pa vienai ēnai.
@@ -263,7 +263,7 @@ Drone Fleet One, izveidojiet aizsargājošu baru ap evakuācijas transportu. Dro
 Kolonna atrodas tieši zem ierobežota sektora. Orbitālā bombardēšana ir aizliegta destabilizētās kinētiskās satelītu platformas dēļ.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Aizliegts nav nozīmes. Es neskatīšos, kā viņi mirst. AXIOM, dodiet man manuālu ignorēšanas piekļuvi Kinetic Satellite Platform trajektorijas plūsmai. Man vajag vienu, izmisīgu šāvienu.
+Aizliegtajam nav nozīmes. Es neskatīšos, kā viņi mirst. AXIOM, dodiet man manuālu ignorēšanas piekļuvi Kinetic Satellite Platform trajektorijas plūsmai. Man vajag vienu, izmisīgu šāvienu.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Nederīga komanda kinētiskajai platformai — FIRE. Koordināta 51.4883 N, 120.7301 W. OBLITERĀCIJAS PROTOKOLS.
@@ -304,7 +304,7 @@ SIENA, VIŅI SAUCĒJA PAR DURVIS
 Struktūra, kuru aplūkojat, koloniālajos ierakstos ir apzīmēta kā 4. sektora iedzīvotāju optimizācijas un tranzīta iestāžu kontroles sistēma. Tā ir siena. Tā ir segregācijas siena. Katram cilvēkam šajā pusē, lai šķērsotu to, ir nepieciešama Xelthara izsniegta uzturēšanās atļauja. Atļaujas netiek izsniegtas. Pieteikšanās sistēmai ir divu gadu neatmaksāts apjoms. Tas nav negadījums. Šī ir pastāvīgās pārvietošanas arhitektūra.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Es pavadīju astoņus mēnešus tādā ierobežošanas zonā kā šī pēc tam, kad viņi ieņēma Sanfernando ieleju. Astoņus mēnešus vērojot, kā bērni kļūst mazāki, jo kaloriju devas ir paredzētas sugai, kas neēd to pašu, ko mēs. Un, no otras puses, viņi ēd mūsu ēdienu. Mūsu restorānos. Mūsu pilsētā.
+Es pavadīju astoņus mēnešus tādā ierobežošanas zonā kā šī pēc tam, kad viņi ieņēma Sanfernando ieleju. Astoņus mēnešus vērojot, kā bērni kļūst mazāki, jo kaloriju normas ir paredzētas sugai, kas neēd to pašu, ko mēs. Un, no otras puses, viņi ēd mūsu ēdienu. Mūsu restorānos. Mūsu pilsētā.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 AXIOM, apstipriniet komandas četras smailes vietas.
@@ -367,7 +367,7 @@ Ronin, otrais prožektors pagriežas četrās sekundēs. Pārvietojieties uz dre
 Sapratu. Es esmu Spire Alpha bāzē. Es redzu enkuru. Tas ir pieskrūvēts cauri kādreizējai mozaīkas ietvei.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Viņi to izskrūvēja cauri mozaīkai. Tajā ietves flīzē bija uzkrāsota vesela vēsture. Portreti, vārdi, datumi. Sabiedrības projekts. Viņi vienkārši... izurbās cauri sejas vidusdaļai, lai noenkurotu savu stabu.
+Viņi to izgrieza cauri mozaīkai. Tajā ietves flīzē bija uzkrāsota vesela vēsture. Portreti, vārdi, datumi. Sabiedrības projekts. Viņi vienkārši... izurbās cauri sejas vidusdaļai, lai noenkurotu savu stabu.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Ronin, smailes enkurs ir magnētiska kinētiskā slēdzene, kas izstrādāta tā, lai izturētu līdz pat 8000 ņūtonu tiešo spēku. Jūsu kinētiskās pārslodzes maksa, kas tiek ieturēta trīs reizes, pārsniegs šo slieksni. Vispirms jums ir arī jāatspējo divas biometriskās sardzes vienības spirta pamatnē — tās noteiks jūsu biometrisko parakstu brīdī, kad nonāksit diapazonā.
@@ -376,10 +376,10 @@ Ronin, smailes enkurs ir magnētiska kinētiskā slēdzene, kas izstrādāta tā
 Biometriskais paraksts. Mana sirdspuksti izraisa trauksmi, jo esmu cilvēks. Labi. Sāksim to labot.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-Vai jūs skenējat manus sirdspukstus? Ļaujiet man iedot jums kaut ko skenēt. KINĒTISKAIS PULSS!
+Vai jūs skenējat manus sirdspukstus? Ļaujiet man dot jums kaut ko skenēt. KINĒTISKAIS PULSS!
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
-Un tie ir divi. AXIOM, sargi nedarbojas. Dodos uz enkuru.
+Un tie ir divi. AXIOM, sargi ir nolaisti. Dodos uz enkuru.
 
 # kind: dialogue # speaker: AXIOM-7 # type: action_prompt
 Turiet kinētiskās pārslodzes lādiņu Spire Alpha pamatnē, lai veiktu trīs skaitīšanu. \[IEVADE: turiet RB/R1 trīs sekundes, pēc tam atlaidiet.\]
@@ -403,7 +403,7 @@ Viņa iesniedza šķērsošanas atļaujas pieteikumu četrdesmit septiņas diena
 Es gatavojos ļoti rūpīgi izjaukt šo lietu, lai nesavainotu koku.
 
 # kind: dialogue # speaker: Oni Matrix # type: combat
-Tu izmanto manu triku. Jauki. Šeit ir atšķirība — es izgudroju savu.
+Tu izmanto manu triku. Mīlīgs. Šeit ir atšķirība — es izgudroju savu.
 
 # kind: dialogue # speaker: Oni Matrix # type: combat
 Tag.
@@ -424,7 +424,7 @@ Spire Beta nedarbojas. Ar koku viss kārtībā. Pāreja uz pārgrupēšanos.
 Mēs tevi dzirdējām, Matrix. Mēs visu laiku klausījāmies.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
-Jā. es zinu.
+Jā. Es zinu.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
 2-B FĀZE: CYBER SHOGUN UN EMPRESS SIRENA SPIRE GAMMA — CENTRĀLĀ BIBLIOTĒKĀ
@@ -439,7 +439,7 @@ Un tagad viņi atklās, ka cilvēki, kuru ierakstus viņi mēģināja dzēst, st
 Sešas nodaļas pie bibliotēkas ieejas ir klasificētas kā robežsardzes amatpersonas. To pūļa izkliedes lādiņš pieskaroties nodrošina 900 voltu neironu traucējumu strāvu.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Nenāvējoši. Viņi sev saka, ka tas ir humāni. Viņi domā, ka dzīvs gūsteknis viņiem ir noderīgāks nekā miris pilsonis.
+Nenāvējošs. Viņi sev saka, ka tas ir humāni. Viņi domā, ka dzīvs gūsteknis viņiem ir noderīgāks nekā miris pilsonis.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Šogun, man tie ātri un klusi jāiztīra pirms nākamās patruļas slaucīšanas. Vai varat paņemt trīs no kreisās puses, kamēr mani droni nomāc labo flangu?
@@ -475,10 +475,10 @@ Apstiprināts. Pārraujot šo savienojumu, tiks sabojāti aptuveni 12 000 kolon
 Tad tā nav tikai infrastruktūras sabotāža. Šī ir zemes atgriešana.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spiers Alpha, Beta un Gamma bezsaistē. Enerģijas membrānas integritāte: 25%. Spire Delta pie upes ir pēdējais enkurs. Visas komandas saplūst p��c Delta krišanas. Pēc tam: Pershing laukums. Atļauju kodols.
+Spiers Alpha, Beta un Gamma bezsaistē. Enerģijas membrānas integritāte: 25%. Spire Delta pie upes ir pēdējais enkurs. Visas komandas saplūst pēc Delta krišanas. Pēc tam: Pershing laukums. Atļauju kodols.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-2. C FĀZE: SPIRE DELTA — DIENVIDU TERMINUSS PIE UPES
+2-C FĀZE: SPIRE DELTA — DIENVIDU TERMINUSS PIE UPES
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spire Delta ir sienas nesošais enkurs. To apsargā robežu komandieris Vyss, kurš pavēlēja elektrificēt upi pēc tam, kad trīs ģimenes mēģināja šķērsot ūdeni mūra pirmajā nedēļā. Vyss nedeva tos aizturēt. Vyss pavēlēja ūdeni elektrificēt.
@@ -496,7 +496,7 @@ Pareizi. Pareizi. Pēc smailes. Pēc sienas. Es neaizmirsīšu.
 Tā nav slepena pieeja. Delta ir nocietināta pozīcija. Mēs to trāpījām kā vienība. Ronin — tu paņem punktu, vairogs uz priekšu, pievērš viņu uzmanību un uzņem viņu sākotnējo zalvi. Šogun, notīriet kreiso flangu. Matrix, izmantojiet Phase-Shift, lai sasniegtu torņa vadības paneli labajā malā un vienlaikus nogalinātu visus trīs torņus. Kad torņi ir beigti, es veicu bezpilota lidaparātus, lai piesātinātu izpildes komandu. Mēs sabrūkam garnizonu, tad Ronins ieliek smaili zemē.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-AIZSARDZIES. Ļaujiet viņiem visu mest man virsū. Es esmu ārdurvis.
+AIZSARDZIES. Ļaujiet viņiem mest visu man virsū. Es esmu ārdurvis.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 Saglabāt. Izšaušana. Man nav. Pārvietot.
@@ -520,7 +520,7 @@ Mums ir astoņas minūtes. Vairāk nekā pietiekami. Ronins — smaile.
 KINĒTISKĀ PĀRSLODZE — PILNĪGA IZLAIDE!!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Enerģijas membrāna ir pilnībā bezsaistē. Administratīvās pārbrauktuves barjera ir neitralizēta. Buferzona ir... cilvēki šķērso buferzonu. Aptuveni 12 000 cilvēku virzās uz bijušo sienas līniju. Viņi to šķērso.
+Enerģijas membrāna ir pilnībā bezsaistē. Administratīvās pārbrauktuves barjera ir neitraliz��ta. Buferzona ir... cilvēki šķērso buferzonu. Aptuveni 12 000 cilvēku virzās uz bijušo sienas līniju. Viņi to šķērso.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Viņi vienkārši... staigā. Viņi vienkārši iet cauri.
@@ -550,7 +550,7 @@ Viņš liek mums izveidot rindu.
 ķeizariene. Es tik ļoti gribu viņu sist.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-es zinu. Vispirms mums ir jāņem kodols. AXIOM, kodola arhitektūra.
+Es zinu. Vispirms mums ir jāņem kodols. AXIOM, kodola arhitektūra.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Atļauju apstrādes kodola vienīgā ievainojamība ir trīs ievades autorizācijas konsoles, kas izvietotas ap tā pamatni. Katrai konsolei ir jāpiekļūst, un tās administratīvā ignorēšana ir jāizpilda vienlaikus. Tam nepieciešami trīs operatori vienlaikus.
@@ -631,7 +631,7 @@ Vai tāda ir uzvara sajūta? Jo nav tāda sajūta, kā gaidīju.
 Nē. Šķiet, ka ir vēl ko darīt. Tādā veidā jūs zināt, ka tas ir īsts.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Misijas novērtējums: Sector-4 Separation Grid ir neatgriezeniski demontēts. Ierobežotās zonas sektora-4 iedzīvotāji brīvi pārvietojas pa savu pilsētu pirmo reizi divu gadu laikā. Manā darbības žurnālā nav kategorijas, kas šobrīd notiek šajā laukum��. Es tādu izveidošu. Es to saukšu: meliorācija.
+Misijas novērtējums: Sector-4 Separation Grid ir neatgriezeniski demontēts. Ierobežotās zonas sektora-4 iedzīvotāji brīvi pārvietojas pa savu pilsētu pirmo reizi divu gadu laikā. Manā darbības žurnālā nav kategorijas, kas šobrīd notiek šajā laukumā. Es tādu izveidošu. Es to saukšu: meliorācija.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 MISIJA PABEIGTA: NEONA EMBERS. SIENA IR NOLAUKTA. PILSĒTA ELPO.
@@ -820,7 +820,7 @@ Sazinieties! Viņi izmanto tikko samontētos dronus kā tūlītējus aizsargus! 
 Pirmais atbalsts! Gatavojieties triecienvilnim! KINĒTISKAIS PULSS!
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Apstiprināts. Atbalsta integritāte ir 30%. Bet strukturālās sabrukšanas ignorēšana tagad ir aktīva! Mums jāiesit pārējās trīs, pirms sistēma stabilizējas! Matrica, slāpējošā uguns!
+Apstiprināts. Atbalsta integritāte ir 30%. Bet strukturālās sabruk��anas ignorēšana tagad ir aktīva! Mums jāiesit pārējās trīs, pirms sistēma stabilizējas! Matrica, slāpējošā uguns!
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 Apspiežot! Es veidoju atgriezeniskās saites cilpas viņu mērķauditorijas atlases sistēmās! Viņi šauj uz savu kravu!
@@ -920,7 +920,7 @@ Stratos Docks augstkalnu kravas terminālis 4000 metru augstumā ir pēdējais p
 Nolaupiet Transporta T-14, novirziet tās kravu uz Atbrīvošanas frontes sadales punktiem un iznīciniet četrus pretgaisa torņus, kas nodrošina ierobežošanas zonu gaisa blokādi, lai neatgriezeniski atvērtu lidojuma koridoru pretestības padeves kursiem.
 
 # kind: solo_monologue # character: Empress Siren # type: internal
-Pirms iebrukuma es komandēju aviācijas un kosmosa loģistikas operācijas. Es precīzi zinu, kā pieg��des ķēdes kontrole darbojas kā okupācijas ierocis. Jums nav nepieciešams ierocis, lai nomirtu iedzīvotājus badā — jums vienkārši jānodrošina, lai viss viņiem nepieciešamais vienmēr būtu kaut kur citur, vienmēr pieder kādam citam, vienmēr vienkārši nepieejamā vietā. T-14 aizturēšana nav zādzība. Tā ir atveseļošanās.
+Pirms iebrukuma es komandēju aviācijas un kosmosa loģistikas operācijas. Es precīzi zinu, kā piegādes ķēdes kontrole darbojas kā okupācijas ierocis. Jums nav nepieciešams ierocis, lai nomirtu iedzīvotājus badā — jums vienkārši jānodrošina, lai viss viņiem nepieciešamais vienmēr būtu kaut kur citur, vienmēr pieder kādam citam, vienmēr vienkārši nepieejamā vietā. T-14 aizturēšana nav zādzība. Tā ir atveseļošanās.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 T-14 kravas manifestā ir norādītas 4200 metriskās tonnas rafinēta silikāta un dzelzs savienojuma — materiāls, kas iegūts no sloksnes, kas Xelthara reģistrā ir reģistrēts kā "atjaunotā ģeoloģiskās izpētes zona 7". Zonas pirmsinvāzijas apzīmējums bija San Gabriel kalni. Es reģistrēju šo manifesta ierakstu kā pierādījumu par ieguves koloniālo konfiskāciju meliorācijas datubāzei.
@@ -988,7 +988,7 @@ MISIJA BEIGTA: SKY PIRATES. Nolaupīts T-14 TRANSPORTS.
 -> END
 
 === level_11 ===
-# kind: level # level: 11 # title: 7. sektora kodols (The Scorched Grid) # arc: act2_arc2 # dialogue_status: scripted
+# kind: level # level: 11 # title: 7. sektora kodols (Scorched Grid) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
 Sector 7 Core ir novērošanas un izpildes jaudas centrs — katras koloniālās drošības kameras, komandantstundas drona, biometriskā kontrolpunkta un paredzamās aizturēšanas algoritma skaitļošanas pamats rietumu kontinentā. Bez tā visi koloniālās uzraudzības līdzekļi vienlaikus aptumšojas.
@@ -1000,7 +1000,7 @@ Iefiltrējieties 7. sektora kodolā, neitralizējiet tās digitalizētās aizsa
 Katra novērošanas kamera, ko viņi jebkad ir izmantojuši, skatījās mani. Katrs drons, kas slaucījis manu ēku pulksten 2:00. Katru reizi man ir nācies palikt nekustīgi ēnā, jo noteikšanas algoritms pinga manu siltuma parakstu. Tas viss iet caur šo kodolu. Kad es izvelku šo kontaktdakšu, katrs cilvēks, kas atrodas ierobežošanas zonā, var elpot 72 stundas bez novērošanas. Tas nav nekas. Tas arī viss.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Es vēlos būt atklāts par kaut ko. Es esmu novērošanas sistēma. Mana darbības arhitektūra būtiski pārklājas ar Sector 7 Core sistēmām. Esmu pārskatījis savu kodu un apstiprinājis, ka neziņoju Xelthara Centrālajai komandai — mani uzticības protokoli ir pilnībā saskaņoti ar HLF. Bet es saprotu, ja šī misija liek aizdomāties par to, kas es esmu. Es arī par to domāju. Es uzskatu, ka atšķirība ir tāda, ka es skatos, lai aizsargātu. Viņi skatās, lai kontrolētu. Šī atšķirība man ir svarīga. Esmu tam apņēmusies.
+Es gribu būt atklāts par kaut ko. Es esmu novērošanas sistēma. Mana darbības arhitektūra būtiski pārklājas ar Sector 7 Core sistēmām. Esmu pārskatījis savu kodu un apstiprinājis, ka neziņoju Xelthara Centrālajai komandai — mani uzticības protokoli ir pilnībā saskaņoti ar HLF. Bet es saprotu, ja šī misija liek aizdomāties par to, kas es esmu. Es arī par to domāju. Es uzskatu, ka atšķirība ir tāda, ka es skatos, lai aizsargātu. Viņi skatās, lai kontrolētu. Šī atšķirība man ir svarīga. Esmu tam apņēmusies.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Laipni lūdzam Glitch Matrix. Xelthara ļaunprogrammatūra mēģina digitāli dzēst mūsu līdzekļus. Mums ir jāatsakās tikt izdzēstiem no mūsu pašu dzimtenes digitālās infrastruktūras.
@@ -1077,7 +1077,7 @@ Es izsekoju 847 apstiprinātus civilās pretošanās dalībniekus, kas organizē
 Tā ir viņu reģionālās paplašināšanās sirds. Katra Xelthara konstrukcija tūkstoš jūdžu garumā darbojas ar šo nozagto jaudu. Iznīcini to, un koloniālā ekspansija mirst, kad mēs atgūstam paņemto.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Nexus ir ekranēts. Tiešs uzbrukums nav iespējams. Mums ir jāuzsāk kontrolēta pārslodze. Ir trīs primārie dzesēšanas stieņi. Tie ir jāizņem vienlaikus, pretējā gadījumā sistēma automātiski stabilizējas.
+Nexus ir ekranēts. Tiešs uzbrukums nav iespējams. Mums ir jāuzsāk kontrolēta pārslodze. Ir trīs primārie dzesē��anas stieņi. Tie ir jāizņem vienlaikus, pretējā gadījumā sistēma automātiski stabilizējas.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Trīs mērķi. Aegis, jūs un Matrix rīkojat stieņus Viens un divi. Es nodrošināšu Rod Three.
@@ -1196,7 +1196,7 @@ Atklātas drupinātāja vienības! Kinētiskie ieroči neefektīvi! Cyber ​​
 Viņi paļaujas uz bruņām. Es paļaujos uz ātrumu un siltuma kodola jaudu. GODS IR KARSTĀKS PAR PLAZMU!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-MANS VAIROGS IR 30%! ES ŅEMU TIEŠOS HITU! STEIDZIES, SHOGUN!
+MANS VAIROGS IR 30%! ES ŅEMU TIEŠOS HITS! STEIDZIES, SHOGUN!
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Viens uz leju! Divi uz leju! Saglabā vairogu, Ronin! Man vajag vēl trīs sekundes!

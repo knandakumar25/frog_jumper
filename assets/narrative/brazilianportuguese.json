@@ -977,7 +977,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Análise concluída. Os planos de expansão colonial e os dados logísticos dos colonos são armazenados nessa coluna central. Matrix, você tem cinco minutos para executar o download antes da reinicialização dos sistemas de defesa internos."
+          "text": "Análise concluída. Os planos de expansão colonial e os dados log��sticos dos colonos são armazenados nessa coluna central. Matrix, você tem cinco minutos para executar o download antes da reinicialização dos sistemas de defesa internos."
         },
         {
           "speaker": "Oni Matrix",
@@ -1620,7 +1620,7 @@
         {
           "character": "Aegis Ronin",
           "type": "internal",
-          "text": "Este é o que eu estava esperando. Não é uma missão de sabotagem. Não é um assalto. Um cerco – e mantemos o que levamos com as pessoas que vivem aqui. Esse é um tipo diferente de luta. É assim que a resistência se parece quando deixa de ser defensiva e passa a ser um governo à espera."
+          "text": "Este é o que eu estava esperando. Não é uma missão de sabotagem. Não é um assalto. Um cerco �� e mantemos o que levamos com as pessoas que vivem aqui. Esse é um tipo diferente de luta. É assim que a resistência se parece quando deixa de ser defensiva e passa a ser um governo à espera."
         },
         {
           "character": "AXIOM-7",
@@ -1896,7 +1896,7 @@
     "14": {
       "title": "A Abordagem da Cidadela (Ponte do Alto Comando)",
       "arc": "act2_arc3",
-      "setting": "A ponte fortificada final de 400 metros sobre o drenado rio LA - a única abordagem de nível superficial para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara projetaram esta abordagem para ser intransitável.",
+      "setting": "A ponte fortificada final de 400 metros sobre o drenado rio LA - a única abordagem de superfície para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara projetaram esta abordagem para ser intransponível.",
       "objective": "Atravesse a ponte de 400 metros sob fogo contínuo de artilharia para chegar ao portão de entrada da Cidadela – um avanço implacável usando o escudo de Ronin e a barragem de drones de Siren.",
       "solo_monologues": [
         {

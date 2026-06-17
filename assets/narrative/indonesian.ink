@@ -112,7 +112,7 @@ MISI SELESAI: MEMORI KEKAL. PEMBERSIHAN TERGANGGU.
 # kind: level # level: 2 # title: Kebakaran Beton # dialogue_status: scripted
 
 # kind: setting
-Gerbang masuk yang besar dan berpagar di Zona Penahanan 4. Ribuan keluarga digiring seperti ternak melewati pagar energi. Di belakang mereka, rumah mereka di pinggiran kota diratakan oleh pejalan kaki ekspansi Xelthara.
+Gerbang masuk yang besar dan berpagar di Zona Penahanan 4. Ribuan keluarga digiring seperti ternak melalui pagar energi. Di belakang mereka, rumah mereka di pinggiran kota diratakan oleh pejalan kaki ekspansi Xelthara.
 
 # kind: objective
 Pegang 'Jembatan Terakhir' melawan Penegak Xelthara yang menggiring penduduk, yang memungkinkan kelompok pengungsi terakhir untuk menyelinap ke daerah kumuh yang belum dipetakan, bukan ke kamp-kamp yang terjaga keamanannya.
@@ -207,7 +207,7 @@ Itu jalan keluar yang sangat keras, Matrix. Saya telah memperhatikan tanda tanga
 Siapa ini? Bagaimana kabarmu di saluran ini?
 
 # kind: dialogue # speaker: Unknown Voice # type: radio
-Saya Permaisuri Siren. Kamilah yang berjuang untuk memastikan masih ada kota yang tersisa untuk dipanen. Kamu punya bakat untuk memecahkan sesuatu, hantu. Kita bisa menggunakannya. Apakah Anda lelah bersembunyi di balik karat?
+Saya Permaisuri Sirene. Kamilah yang berjuang untuk memastikan masih ada kota yang tersisa untuk dipanen. Kamu punya bakat untuk memecahkan sesuatu, hantu. Kita bisa menggunakannya. Apakah Anda lelah bersembunyi di balik karat?
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Lagi pula, karatnya semakin membosankan. Pimpin jalannya, Sirene.
@@ -493,7 +493,7 @@ Jangan. Jangan biarkan hal itu menguasai Anda. Kita turunkan ini dulu. Maka kita
 Benar. Benar. Setelah puncak menara. Setelah tembok. saya tidak akan lupa.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Ini bukan pendekatan yang sembunyi-sembunyi. Delta adalah posisi yang dibentengi. Kami memukulnya sebagai satu kesatuan. Ronin—Anda mengambil poin, melindungi ke depan, menarik perhatian mereka dan menyerap tendangan awal mereka. Shogun, bersihkan sayap kiri. Matrix, gunakan Phase-Shift untuk mencapai panel kontrol menara di paling kanan dan membunuh ketiga menara secara bersamaan. Setelah menaranya mati, saya mengirimkan drone untuk menembakkan saturasi ke pasukan penegak hukum. Kami meruntuhkan garnisun, lalu Ronin meletakkan puncak menara di tanah.
+Ini bukan pendekatan yang sembunyi-sembunyi. Delta adalah posisi yang dibentengi. Kami memukulnya sebagai satu kesatuan. Ronin—Anda mengambil poin, melindungi ke depan, menarik perhatian mereka dan menyerap tendangan awal mereka. Shogun, bersihkan sayap kiri. Matrix, gunakan Phase-Shift untuk mencapai panel kontrol turret di paling kanan dan bunuh ketiga turret secara bersamaan. Setelah menaranya mati, saya mengirimkan drone untuk menembakkan saturasi ke pasukan penegak hukum. Kami meruntuhkan garnisun, lalu Ronin meletakkan puncak menara di tanah.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 PERISAI. Biarkan mereka melemparkan segalanya padaku. Aku adalah pintu depan.
@@ -802,13 +802,13 @@ Membalikkan polaritas Array Konversi Termal untuk memicu ledakan termal bertingk
 Mereka menagih jatah oksigen kepada kami. Mereka membuat udara kami tidak dapat dihirup dan sekarang mereka menjualnya kembali dalam bentuk tabung—satu tabung per keluarga per hari, dengan stempel distribusi Xelthara di sampingnya. Saya telah menghirup udara kaleng daur ulang selama enam bulan. Saat saya menghancurkan pabrik pengecoran ini, saya akan berdiri di tempat terbuka dan bernapas untuk pertama kalinya dalam setengah tahun. Untuk itulah saya di sini.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Kerusakan atmosfer dalam jarak 40 kilometer dari pengecoran ini merupakan pelanggaran terhadap Perjanjian Pelestarian Lingkungan Universal tahun 2089—perjanjian yang diratifikasi oleh Xelthara Collective. Saya telah mengajukan laporan pelanggaran formal ke Pengadilan Administratif Galaksi atas nama HLF. Perkiraan waktu tanggapan Pengadilan adalah sebelas tahun. Perkiraan waktu yang dibutuhkan oleh pabrik pengecoran untuk menyebabkan atmosfer tidak dapat diubah secara permanen: empat bulan. Kami tidak menunggu pengadilan.
+Kerusakan atmosfer dalam jarak 40 kilometer dari pengecoran ini merupakan pelanggaran terhadap Perjanjian Pelestarian Lingkungan Hidup Universal tahun 2089—perjanjian yang diratifikasi oleh Xelthara Collective. Saya telah mengajukan laporan pelanggaran formal ke Pengadilan Administratif Galaksi atas nama HLF. Perkiraan waktu tanggapan Pengadilan adalah sebelas tahun. Perkiraan waktu yang dibutuhkan oleh pabrik pengecoran untuk menyebabkan atmosfer tidak dapat diubah secara permanen: empat bulan. Kami tidak menunggu pengadilan.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Ini adalah pabrik ekstraksi birokrasi perusahaan. Mereka menambang inti bumi untuk diekspor ke luar dunia. Setiap pengiriman adalah bagian lain dari dunia kita yang terjual. Tujuan: Menyabotase dukungan ekstraksi untuk menghentikan keruntuhan ekologi.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Saya mendeteksi peredam seismik tugas berat pada penyangga tersebut. Api energi langsung tidak akan berhasil. Ronin, ini keahlianmu. Diperlukan gaya kinetik.
+Saya mendeteksi peredam seismik tugas berat pada penyangga tersebut. Api energi langsung tidak akan berfungsi. Ronin, ini keahlianmu. Diperlukan gaya kinetik.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Akhirnya, sesuatu yang layak mendapat pukulan telak. Pimpin jalannya, Shogun. Aku akan membersihkan jalannya.
@@ -1151,7 +1151,7 @@ Menyusup ke Gudang Obsidian, mengekstrak Basis Data Perjanjian Tanah Asli dan se
 Kehormatan seorang pejuang ditentukan oleh apa yang dia lindungi dan juga apa yang dia hancurkan. Malam ini, aku melindungi sesuatu. Catatan di dalam brankas ini adalah bukti bahwa kita sudah ada di sini sebelum mereka tiba—bahwa kita mempunyai nama untuk tanah ini, dibangun di atasnya, dikuburkan di dalamnya, dan diceritakan kisah-kisah tentangnya selama berabad-abad. Jika mereka menghapus bukti itu, mereka bisa menulis sejarah apapun yang mereka inginkan. Saya tidak akan membiarkan hal itu terjadi.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Gudang Obsidian berisi 4,2 juta artefak dan catatan yang dikatalogkan. Dari jumlah tersebut, 340.000 telah ditandai untuk dimusnahkan sebagai 'kelebihan yang tidak penting'. Tujuh belas ribu barang hancur pada bulan lalu saja. Saya punya nama semuanya. Saya ingin Anda mengetahuinya sebelum Anda masuk. Apa yang kita selamatkan malam ini adalah apa yang tersisa. Tidak ada cara untuk memulihkan apa yang sudah hilang. Tapi masih ada sesuatu yang tersisa untuk diselamatkan.
+Gudang Obsidian berisi 4,2 juta artefak dan catatan yang dikatalogkan. Dari jumlah tersebut, 340.000 telah ditandai untuk dimusnahkan sebagai 'kelebihan yang tidak penting'. Tujuh belas ribu barang hancur pada bulan lalu saja. Saya punya nama semuanya. Saya ingin Anda mengetahuinya sebelum Anda masuk. Apa yang kita selamatkan malam ini adalah apa yang tersisa. Tidak ada cara untuk memulihkan apa yang telah hilang. Tapi masih ada sesuatu yang tersisa untuk diselamatkan.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Selamat datang di Tantangan. Jembatan ini merupakan simbol pendudukan pemukim mereka. Kami menolak terhapus oleh arogansi arsitektural mereka.
@@ -1322,7 +1322,7 @@ Ruang Mesin Singularitas Kapal Induk Xelthara—ruang energi murni yang tidak st
 Hancurkan inti Mesin Singularitas Kehendak Kolektif dengan mengoordinasikan kelebihan beban generator dan serangan gabungan terakhir sebelum kapal induk menyelesaikan penghapusannya di Bumi.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Ini berada di luar zona pembendungan. Instrumen saya rusak. Tatanan ruang tidak stabil di sini. Ini pastilah hati Induk yang sesungguhnya.
+Ini berada di luar zona pembendungan. Instrumen saya rusak. Tatanan ruang tidak stabil di sini. Ini pastilah hati Induk yang sebenarnya.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Pengawas Tinggi Xelthara hanyalah pion belaka. Kekuatan ini... inilah sumber pendudukan. Kehendak Kolektif.

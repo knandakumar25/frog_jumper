@@ -19,14 +19,14 @@ Kampaniyanın ortasındakı birinci qövs tamamilə ayrılığın fiziki infrast
 -> END
 
 === act_act2_arc2 ===
-# kind: act # key: act2_arc2 # title: HƏRƏKƏT II — QQS 2: RESURSLARIN REALAMASI CƏBHƏSİ # subtitle: Səviyyə 8-11: Kolonizasiyanın İqtisadi Gəlirliliyinin Kəsilməsi
+# kind: act # key: act2_arc2 # title: ACT II — QQS 2: RESURSLARIN REALAMASI CƏBBƏSİ # subtitle: Səviyyə 8-11: Kolonizasiyanın İqtisadi Gəlirliliyinin Kəsilməsi
 Seqreqasiya Şəbəkəsinin qırılması və təcrid olunmuş populyasiyaların yenidən birləşdirilməsi ilə müqavimət işğalın iqtisadi mühərrikinə keçir. Xelthara Yerə ideologiya üçün deyil, resurslar üçün gəldi. Arc 2 iqtisadi pozulma kampaniyasıdır: işğalı maliyyə cəhətdən əlverişli edən hasilat, emal, nəqliyyat və təhlükəsizlik infrastrukturuna qarşı ardıcıl dörd zərbə.
 
 -> END
 
 === act_act2_arc3 ===
 # kind: act # key: act2_arc3 # title: ACT II — ARC 3: KORPORATİV İDARƏETMƏNİN SÖNDÜLMƏSİ # subtitle: Səviyyə 12-14: Müstəmləkə İnzibati Dövlətinin Qəlbinə İtilmə
-Çıxarma mühərrikləri dayandırılıb. Təhlükəsizlik şəbəkəsi qaranlıqdır. Seqreqasiya divarları qırılıb. Qalan işğalın özünün inzibati və siyasi arxitekturasıdır. Qövs 3 kampaniyanın ən siyasi ardıcıllığıdır: müqavimət artıq işğalçı ordu ilə vuruşmur. O, bir müstəmləkə dövlətini xaricdən içəri parça-parça sökür.
+Çıxarma mühərrikləri dayandırılıb. Təhlükəsizlik şəbəkəsi qaranlıqdır. Ayrılıq divarları qırılıb. Qalan işğalın özünün inzibati və siyasi arxitekturasıdır. Qövs 3 kampaniyanın ən siyasi ardıcıllığıdır: müqavimət artıq işğalçı ordu ilə vuruşmur. O, bir müstəmləkə dövlətini xaricdən içəri parça-parça sökür.
 
 -> END
 
@@ -101,7 +101,7 @@ Mayak zərərsizləşdirilib. Söküntü dayandı, lakin müstəmləkə hakimiyy
 Onda mən onların məskənlərini əbədi olaraq təqib edəcək bir kabusam. Daşı xilas edə bilməsək, hekayəni xilas edəcəyik. Data-Blade-i qoruyun! Uyğunluq gözlədikləri yerdə ancaq atəş tapsınlar!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Xelthara bizim tariximizi keçmiş zamanda yazmaq istəyir. Bu gün onu plazma ilə yazıram. Bu dojo düşür, amma müqavimət yüksəlir.
+Xelthara bizim tariximizi keçmiş zamanda yazmaq istəyir. Bu gün onu plazma ilə yazıram. Bu dojo düşür, amma m��qavimət yüksəlir.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 TAMAMLANAN MİSYON: ƏBƏDİ YADDAŞ. TƏMİZLƏMƏ KESİDİ.
@@ -133,7 +133,7 @@ Onda mən o 0,8%-i götürüb onların boğazına soxacağam! QALQAN!
 Hərəkət etməyə davam edin! Sizi mal-qara kimi qəfəsə salmaq istəyirlər. Nəfəs aldığım müddətdə mən sizinlə onların mühafizə zonaları arasında divaram. Bu gün başqa bir ruhu yerindən tərpətməyəcəklər!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Mühasirə Bölmələri bağlandı. Onlar dəstək s��tunlarını hədəfləyirlər. Əgər onlar atəş açsalar, bütün Sektor 4 divarı evakuasiya zonasına düşür.
+Mühasirə Bölmələri bağlandı. Onlar dəstək sütunlarını hədəfləyirlər. Əgər onlar atəş açsalar, bütün Sektor 4 divarı evakuasiya zonasına düşür.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Mənim saatımda deyil. KİNETİK HƏDDƏN YÜKLƏMƏ!
@@ -165,10 +165,10 @@ MİSSİYASI TAMAMDIR: QIRILMAZ DİVVAR. AEGIS RONIN HLF-ə QOŞULDU.
 -> END
 
 === level_3 ===
-# kind: level # level: 3 # title: Neon Pas və Məlumat Tozu # dialogue_status: scripted
+# kind: level # level: 3 # title: Neon Pas və M��lumat Tozu # dialogue_status: scripted
 
 # kind: setting
-Sözün əsl mənasında “Şəhər Altı” - parıldayan, neon işıqlı Xelthara qəsəbəsinin altındakı texniki xidmət şaftları şəbəkəsidir. Yuxarıda, işğalçılar terraformasiya edilmiş havadan həzz alırlar; aşağıda, marjinal insanlar ozonla çirklənmiş oksigeni təmizləyirlər.
+Sözün əsl mənasında "Şəhər Altı" - parıldayan, neon işıqlı Xelthara qəsəbəsinin altındakı texniki xidmət valları şəbəkəsidir. Yuxarıda, işğalçılar terraformasiya edilmiş havadan həzz alırlar; aşağıda, marjinal insanlar ozonla çirklənmiş oksigeni təmizləyirlər.
 
 # kind: objective
 Müstəmləkə şəbəkəsindən enerjini sifonla təcrid olunmuş əhalinin həyati dəstək sistemlərini gücləndirir, eyni zamanda 'Saflıq Patrulları'ndan qaçan insan ovundan qaçır.
@@ -201,7 +201,7 @@ Bir EMP partlayışı bunu etməlidir. Məni xatırlamaq üçün onlara bir az m
 Və bu mənim işarəmdir.
 
 # kind: dialogue # speaker: Unknown Voice # type: radio
-Bu, çox yüksək bir çıxış idi, Matrix. Zavoddan bəri imzanıza baxıram.
+Bu, çox yüksək səsli bir çıxış idi, Matrix. Zavoddan bəri imzanıza baxıram.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Bu kimdir? Bu kanalda necesiz?
@@ -230,10 +230,10 @@ Son dayanan hərbi yayım qülləsini sökün və onun tezlik çiplərini mülki
 Daimi orduların yaşı ölüb. Meydanda onlarla qarşılaşa bilmərik, ona görə də meydançaya çevriləcəyik. Siqnalı bölün. Komandanı mərkəzləşdirin. Əgər kəsiləcək baş yoxdursa, müqavimət ölə bilməz.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-İmperator, yayımınız böyük riskdir! Siz yerinizi v�� müqavimətin tezliyini ifşa edirsiniz. Bu optimal deyil. Zəhmət olmasa ötürülməni dayandırın.
+İmperator, yayımınız böyük riskdir! Siz yerinizi və müqavimətin tezliyini ifşa edirsiniz. Bu optimal deyil. Zəhmət olmasa ötürülməni dayandırın.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-MƏRKƏZLƏRİYYƏLƏŞDİRİLMƏ KAYNAĞI: PARTİZAN KEÇİDİ BAŞLADI. YER: SON STAND ƏMƏLİYYAT (PASİF HUB). STATUS: KONVENSİYONAL QÜVVƏ MƏLUM OLDU. ASİMMETRİK DOKTRİNA AKTİVDİR. Komandir: İmperator siren (taktiki kodu: ETKİN KOMANDER). SON SİFARİŞ: KOMANDANI PARÇALAR. FIRTINA OLUN.
+MƏRKƏZLƏRİYYƏLƏŞDİRİLMƏ KAYNAĞI: PARTİZAN KEÇİDİ BAŞLADI. YER: SON DAYANMA KOMANDASI ​​(PASİF HUB). STATUS: KONVENSİYONAL QÜVVƏ MƏLUM OLDU. ASİMMETRİK DOKTRİNA AKTİVDİR. Komandir: İmperator siren (taktiki kodu: ETKİN KOMANDER). SON SİFARİŞ: KOMANDANI PARÇALAR. FIRTINA OLUN.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Bu, Boş Komandirdir. Ənənəvi iyerarxiya ləğv edilir. Siz artıq əsgər deyilsiniz; siz hüceyrəsiniz. Şəhərə girmək. Onlar yatarkən vur. Evinizi hər dəfə bir kölgəyə qaytarın.
@@ -310,7 +310,7 @@ Onlar San Fernando Vadisini ələ keçirdikdən sonra səkkiz ay belə bir qorum
 AXIOM, heyət üçün dörd şaquli yeri təsdiqləyin.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Alpha Grand Avenue incəsənət dəhlizinin keçmiş yerindədir. Spire Beta 5-ci və Bahar küncündə əkilir. Spire Gamma köhnə Mərkəzi Kitabxananın xarici divarında quraşdırılmışdır. Spire Delta divarın cənub ucunu çayda lövbərləyir. İcazə Emalı Əsası keçmiş Perşinq Meydanı olan keçid məntəqəsində yerləşir. Nüvəni pozmazdan əvvəl bütün dörd qüllə söndürülməlidir. Nüvənin məhv edilməsi bütün enerji membranını dağıdacaq.
+Spire Alpha Grand Avenue incəsənət dəhlizinin keçmiş yerindədir. Spire Beta 5-ci və Bahar küncündə əkilir. Spire Gamma köhnə Mərkəzi Kitabxananın xarici divarında quraşdırılmışdır. Spire Delta divarın cənub ucunu çayda lövbərləyir. İcazə Emalı Əsası keçmiş Perşinq Meydanı olan keçid məntəqəsində yerləşir. Nüvəni pozmazdan əvvəl bütün dörd qüllə söndürülməlidir. Nüvənin məhv edilməsi bütün enerji membranını çaxnaşmaya gətirib çıxaracaq.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 5 və Bahar.
@@ -349,7 +349,7 @@ AXIOM-7 siqnal verənə qədər mövqeyi kölgədə saxlayın.
 Mark. Get.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Hərəkət edin. Dronun əhatə dairəsi tavanının altında qalın. Altı metr yüksəklikdə istilik xərit��si var - tullanmayın.
+Hərəkət edin. Dronun əhatə dairəsi tavanının altında qalın. Altı metr yüksəklikdə istilik xəritəsi var - tullanmayın.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
 MƏRHƏLƏ 1: BAFER ZONA İLƏ YAXŞIŞ
@@ -397,7 +397,7 @@ FAZA 2-A: SPIRE BETA-DA ONI MATRİS - 5-Cİ VƏ YAZ
 Budur. Ağac hələ də oradadır. Nənəm deyirdi ki, ağac şəhərin meriyasından böyükdür və mən heç vaxt ona inanmadım.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-O, divar qalxdıqdan qırx yeddi gün sonra keçid üçün icazə ərizəsi verdi. O, formaları doldurdu. Üç nüsxədə. Çünki prosesə inanırdı. O, hər şeyi düzgün etsəniz, kimsə qulaq asacağına inanırdı. O, heç vaxt cavab ala bilməyib. O, iki ay sonra mühafizə zonasında öldü. Qidalanmanın ağırlaşmaları. Divarın o biri tərəfində onun sevimli ərzaq dükanı var idi. O, yemək almaq üçün ərizə doldurdu.
+O, divar qalxdıqdan qırx yeddi gün sonra keçid üçün icazə ərizəsi verdi. O, formaları doldurdu. Üç nüsxədə. Çünki prosesə inanırdı. O, hər şeyi düzgün etsəniz, kimsə qulaq asacağına inanırdı. O, heç vaxt cavab ala bilməyib. O, iki ay sonra mühafizə zonasında öldü. Qidalanmanın ağırlaşmaları. Divarın o biri tərəfində onun sevimli ərzaq dükanı var idi. O, yemək almaq üçün ərizə verdi.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Mən ağaca zərər verməmək üçün bu şeyi çox diqqətlə ayıracağam.
@@ -457,13 +457,13 @@ Birinci. İkinci. üçüncü.
 Təmiz. AXIOM, Spire Gamma anker sistemini skan edir.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Gamma kitabxananın daxili şəbəkəsindən enerji çəkir. Fövqəladə enerji marşrutunu işə salmadan şpili söndürmək üçün əvvəlcə binanın daxili şəbəkə bağlantısını kəsməlisiniz. Empress Siren, şəbəkə qovşağı üçüncü mərtəbədədir.
+Spire Gamma kitabxananın daxili şəbəkəsindən enerji çəkir. Fövqəladə enerji marşrutunu işə salmadan şpili söndürmək üçün əvvəlcə binanın daxilindəki daxili şəbəkə bağlantısını kəsməlisiniz. Empress Siren, şəbəkə qovşağı üçüncü mərtəbədədir.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
 Üçüncü mərtəbə. Əlbəttə. Yol göstər, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Mən on iki ailəyə bu otaqda icma növbələrinin necə təşkil olunacağını söylədim. Uşaq bölməsində lobya stulları var idi. Kimsə istinad masasına karandaşla rəsmlər yapışdırmışdı. Bir uşaq super qəhrəmanın şəklini çəkdi. Kitabxana ilə məlumat mərkəzi arasındakı fərq, kitabxananın qapıdan keçən insanların orada olmaq hüququna sahib olmasıdır.
+Mən on iki ailəyə bu otaqda icma növbələrinin necə təşkil olunacağını söylədim. Uşaq bölməsində lobya stulları var idi. Kimsə istinad masasına karandaşla rəsmləri yapışdırmışdı. Bir uşaq super qəhrəmanın şəklini çəkdi. Kitabxana ilə məlumat mərkəzi arasındakı fərq, kitabxananın qapıdan keçən insanların orada olmaq hüququna sahib olmasıdır.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Şəbəkə qovşağı yerləşir. Spire Gamma enerji təchizatının kəsilməsi. Bu, həmçinin burada saxladıqları müstəmləkə mülkiyyətinin qeydiyyat məlumatlarını siləcək.
@@ -574,10 +574,10 @@ Tərcüməni real vaxt rejimində HUD-a çatdırıram. Ardıcıllığa əməl ed
 Mən heç vaxt bürokratiya ilə məşğul olmamışam. Məni bu yolda gəzdir, AXIOM.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Avtorizasiya ardıcıllığı sizdən inkar kodunu tərsinə daxil etməyi tələb edir. Sistemdəki hər bir müraciəti inzibati olaraq rədd edirsiniz. Bu yaddaşın silinməsinə səbəb olacaq.
+Avtorizasiya ardıcıllığı sizdən inkar kodunu tərsinə daxil etməyi tələb edir. Sistemdəki hər bir müraciəti inzibati olaraq rədd edirsiniz. This will trigger the memory wipe.
 
 # kind: dialogue # speaker: Aegis Ronin # type: internal
-...4400 rədd cavabı. Sayğac elə burada oturur. Son bir ayda 4400 müraciət rədd edilib. adlar var. adları görə bilirəm.
+...4400 rədd cavabı. The counter is sitting right here. 4,400 denied applications in the last month. adlar var. adları görə bilirəm.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Davam et, Ronin.
@@ -586,19 +586,19 @@ Davam et, Ronin.
 Bəli. mən gedirəm.
 
 # kind: dialogue # speaker: Voss # type: spoken
-Siz Core-i ləğv edə bilməzsiniz. Bu sistem bu sektorun qanuni inzibati qaydasını qoruyur. Bunsuz əhalinin strukturlaşdırılmış idarə edilməsi, səlahiyyətli tranzit yoxdur—
+You cannot override the Core. Bu sistem bu sektorun qanuni inzibati qaydasını qoruyur. Bunsuz əhalinin strukturlaşdırılmış idarə edilməsi, səlahiyyətli tranzit yoxdur—
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Sizin 'strukturlaşdırılmış əhali idarəçiliyi' dediyinizə biz evə piyada getmək hüququ deyirik. Birinci Konsol: hazırdır.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-İkinci Konsol: hazırdır. Nənəm ərzaq almağa getmək üçün icazə verdi. İnzibati qaydadan danışmaq istəyirsiniz?
+İkinci Konsol: hazırdır. Nənəm ərzaq almağa getmək üçün icazə verdi. You want to talk about administrative order?
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Konsol Üçüncü: hazırdır. 4400 ad. Onların hər biri sadəcə evə getmək istəyən insanlardır. Bu divar bundan qorunurdu.
+Konsol Üçüncü: hazırdır. 4400 ad. Onların hər biri sadəcə evə getmək istəyən insanlardır. That's what this wall was protecting against.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Təsdiq edildi. Hər üç giriş konsolu hazırlanıb. Eyni vaxtda avtorizasiya yaddaşın silinməsini həyata keçirəcək və Core-un bərpa protokolunu həmişəlik qeyri-aktiv edəcək. Sizin nişanənizlə, İmperator.
+Təsdiq edildi. All three input consoles are primed. Eyni vaxtda avtorizasiya yaddaşın silinməsini həyata keçirəcək və Core-un bərpa protokolunu həmişəlik qeyri-aktiv edəcək. Sizin nişanənizlə, İmperator.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Administrator Voss. İnkar etdiyiniz hər icazəni - ayrı saxladığınız hər ailəni - növbənizdə dayanan hər bir insan formanı düzgün doldursalar, onlarla insan kimi davrana biləcəyinizi ümid edərək. Bu, sistemin qəbul etdiyi son inzibati qərardır.
@@ -607,7 +607,7 @@ Administrator Voss. İnkar etdiyiniz hər icazəni - ayrı saxladığınız hər
 Mark.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-İcazə Emalı Əsası: oflayn. Daimi bərpa protokolu: əlil. Bu qovşaqdan divarı bərpa etmək mümkün deyil. Bütün gözlənilən tətbiq qeydləri: təmizləndi. Bütün inkar qeydləri: təmizləndi. Sektor-4 üçün keçidin məhdudlaşdırılması infrastrukturu... getdi.
+Permit Processing Core: offline. Permanent restoration protocol: disabled. The wall cannot be rebuilt from this node. All pending application records: purged. All denial records: purged. Sektor-4 üçün keçidin məhdudlaşdırılması infrastrukturu... getdi.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 4400 müraciət. Və onlardan heç biri soruşmamalı idi.
@@ -619,7 +619,7 @@ AKSİOM. Mənə deyə bilərsənmi, nənəmin binası zəbt etmək üçün kifay
 Struktur skan edilir. 1-4 mərtəbələri tamdır. Fond sağlamdır. Su xətti zədələnib, lakin təmir edilə bilər. Bəli. Kimsə içəri girə bilər.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Yaxşı. Yaxşı.
+yaxşı. yaxşı.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Divar getdi, Matrix. Ancaq indi nə edirik - divarın parçaladığını necə bərpa edirik - bu, daha çətin işdir. Və bu axşam başlayır.
@@ -699,7 +699,7 @@ Bax, AXIOM? Mən tuta biləcəyimi söylədim!
 Təsdiq olundu, Ronin. Uğurlu hasilat ehtimalı indi 74% -dir. Biz hələ də izlənirik.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Yaxşı. Qoy bizi qovsunlar. Onlar sadəcə olaraq bütün döyüş planlarını itirdilər.
+yaxşı. Qoy bizi qovsunlar. Onlar sadəcə olaraq bütün döyüş planlarını itirdilər.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 MİSSİYASI TAMAMDIR: SƏNAYƏTİN DÖNÜŞÜ. SHADO-GRID SPIRE MƏLUMATLARI BİZİMDİR.
@@ -719,7 +719,7 @@ Tam Kondisioner Protokol Arxivini çıxarın və hazırda saxlama zonalarında y
 Bizi divarlarla sındıra bilmədilər, ona görə də içəridən sındırmağın yolunu tapdılar. Bir insandan haqsızlıq xatirəsini almaq - onun ağlına əlini uzatmaq və oğurlanana qəzəblənməyi bilən hissəni silmək - bu elm deyil. Bu, laboratoriyada aparılan hərbi cinayətdir.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Mövzu fayllarına müqavimət şəbəkəsi verilənlər bazası ilə çarpaz istinad edərək, mən bu qurğu vasitəsilə işlənmiş və sonradan buraxılmış on yeddi təsdiqlənmiş HLF icma təşkilatçısını müəyyən etdim. Onlara nə edildiyini bilmirlər. Mərk��zi Neyron Uplinkinin məhv edilməsi onları bərpa edə bilər. Uğurlu muxtariyyətin bərpası üçün 73% ehtimalı hesablayıram. Mən... Mən bu nəticəyə sərmayə qoyduğumu görürəm.
+Mövzu fayllarına müqavimət şəbəkəsi verilənlər bazası ilə çarpaz istinad edərək, mən bu qurğu vasitəsilə işlənmiş və sonradan buraxılmış on yeddi təsdiqlənmiş HLF icma təşkilatçısını müəyyən etdim. Onlara nə edildiyini bilmirlər. Mərkəzi Sinir Uplinkinin məhv edilməsi onları bərpa edə bilər. Uğurlu muxtariyyətin bərpası üçün 73% ehtimalı hesablayıram. Mən... Mən bu nəticəyə sərmayə qoyduğumu görürəm.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Bu obyekt resurs istismarının mühərrikidir. Onlar ölü planeti geridə qoyaraq, Yer kürəsinin minerallarını dünyadan kənar daşınmalar üçün fəal şəkildə zəhərli bio-yanacaqa çevirirlər. Bu, müstəmləkə genişlənməsinin bahasıdır.
@@ -808,7 +808,7 @@ Bu tökmə zavodunun 40 kilometrliyində atmosferin zədələnməsi, Xelthara Ko
 Bu, korporativ-bürokratik hasilat zavodudur. Onlar dünyadan kənar ixrac üçün Yerin nüvəsini çıxarır. Hər göndəriş dünyamızın satılan başqa bir parçasıdır. Məqsəd: Ekoloji çöküşü dayandırmaq üçün hasilat dayaqlarını sabotaj etmək.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Həmin dayaqlarda ağır seysmik amortizatorlar aşkar edirəm. Birbaşa enerji yanğını işləməyəcək. Ronin, bu sənin ixtisasındır. Kinetik qüvvə tələb olunur.
+Həmin dayaqlarda ağır seysmik amortizatorları aşkar edirəm. Birbaşa enerji yanğını işləməyəcək. Ronin, bu sənin ixtisasındır. Kinetik qüvvə tələb olunur.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Nəhayət, yaxşı bir zərbəyə layiq bir şey. Yol göstər, Şoqun. Mən yolu təmizləyəcəm.
@@ -879,7 +879,7 @@ Su boruları içəri girəndən bəri işləyə bilməyən mühafizə zonaların
 Kəmərin məhvindən sonra okeanın bərpası qrafikinin modelləşdirilməsi: on səkkiz ayda ekosistemin qismən bərpası, altı-səkkiz il ərzində tam pH normallaşması. Bu missiya zərəri dərhal aradan qaldırmır. Bunu başa düşməyinizi istəyirəm. Onun etdiyi zərərin qalıcı olmasını dayandırmaqdır. Bəzi yaraları açmağı dayandırsaq, hələ də sağala bilər.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Bu şəbəkə onların müstəmləkə sənaye gücünün əsas mənbəyidir. Biz müstəmləkə tədarük xətlərini kəsmək üçün iqtisadi təxribat üçün buradayıq. Su sifon şəbəkələrini sındırsaq, sektorun iqtisadiyyatını çökdürürük. Matrix, drenaj nəzarətləri sualtı lazer şəbəkəsinin arxasında yerləşir.
+Bu şəbəkə onların müstəmləkə sənaye gücünün əsas mənbəyidir. Biz müstəmləkə tədarük xətlərini kəsmək üçün iqtisadi təxribat üçün buradayıq. Su sifon şəbəkələrini sındırsaq, sektorun iqtisadiyyatını çökdürürük. Matrix, drenaj nəzarətləri sualtı lazer şəb��kəsinin arxasında yerləşir.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Əla. Döşəməyə belə toxuna bilməyəcəyim səviyyə. Özümü vannadakı pişik kimi hiss edirəm.
@@ -1077,7 +1077,7 @@ Mən şimal səhnəsində təşkilatlanan 847 təsdiqlənmiş mülki müqavimət
 Bu, onların regional genişlənməsinin ürəyidir. Min mil boyunca hər Xelthara konstruksiyası bu oğurlanmış güclə işləyir. Onu məhv edin və müstəmləkə genişlənməsi biz alınanı geri alarkən aclıqdan ölür.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Nexus qorunur. Birbaşa hücum mümkün deyil. Nəzarət olunan həddindən artıq yüklənməyə başlamalıyıq. Üç əsas soyuducu çubuq var. Onlar eyni vaxtda çıxarılmalıdır, əks halda sistem avtomatik stabilləşəcək.
+Nexus qorunur. Birbaşa hücum mümkün deyil. Nəzarət olunan həddindən artıq yüklənməyə başlamalıyıq. Üç əsas soyutma çubuğu var. Onlar eyni vaxtda çıxarılmalıdır, əks halda sistem avtomatik stabilləşəcək.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Üç hədəf. Aegis, siz və Matrix Bir və İki Çubuqları idarə edirsiniz. Mən Çubuq Üçü təmin edəcəm.
@@ -1269,7 +1269,7 @@ Siz müstəmləkə assimilyasiyasının qaçılmaz axınına qarşı yerlilərin
 Biz bu dünyanın canıyıq, sənin malın deyil. Biz öz vətənimiz üzərində yerli suverenliyimizi müdafiə edirik! Biz sizin müstəmləkə assimilyasiyanızdan imtina edirik; Yer onun sakinlərinə məxsusdur, planlarınıza deyil!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Mən əcdadlarımın bıçağıyam, susdurmağa çalışdığın dünyanın s��siyəm. Siz bizə həşərat deyirsiniz, amma Yer haqqında bir şeyi unutmusunuz: biz sadəcə dözmürük. Biz geri zərbə vururuq.
+Mən əcdadlarımın bıçağıyam, susdurmağa çalışdığın dünyanın səsiyəm. Siz bizə həşərat deyirsiniz, amma Yer haqqında bir şeyi unutmusunuz: biz sadəcə dözmürük. Biz geri zərbə vururuq.
 
 # kind: dialogue # speaker: High Overseer # type: spoken
 Sonra planetinizlə birlikdə yandırın.

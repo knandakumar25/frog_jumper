@@ -148,7 +148,7 @@ Negativní. Prototyp absorbuje příliš mnoho kinetické energie. Stává se z 
 Ne. Dám Xelthaře suvenýr. Přebíjím to.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ronine, tvé životní funkce rostou! Analýza ukazuje na katastrofální selhání. Šance na pře��ití: 0,1 %!
+Ronine, tvé životní funkce rostou! Analýza ukazuje na katastrofální selhání. Šance na přežití: 0,1 %!
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Lepší šance, než jsem měl v zadržovacích táborech. Tohle je jednosměrná cesta, chlapče. Můžete říct Frontě, že mi dluží drink?
@@ -283,7 +283,7 @@ Mise SPLNĚNA: VELITEL VOID. CÍSAŘOVÁ SIRÉNA SE PŘIPOJILA K HLF.
 # kind: level # level: 5 # title: Neon Embers - The Border Breach # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Aktivní separační mříž Sector-4 – 40 metrů vysoká energetická zeď opevněná věžemi biometrických skenerů, kontrolními body pro zpracování povolení a stanicemi Xelthara Border Authority. Fyzicky půlí Los Angeles a izoluje lidskou zónu od koloniálního sektoru Xelthara. Zeď není vojenské zařízení. Jedná se o administrativní záležitost.
+Aktivní separační mříž Sector-4 – 40 metrů vysoká energetická zeď opevněná věžemi biometrických skenerů, kontrolními body pro zpracování povolení a stanicemi Xelthara Border Authority. Fyzicky půl�� Los Angeles a izoluje lidskou zónu od koloniálního sektoru Xelthara. Zeď není vojenské zařízení. Jedná se o administrativní záležitost.
 
 # kind: objective
 Deaktivujte všechny čtyři věže biometrických skenerů, zničte centrální jádro pro zpracování povolení – byrokratický motor, který řídí lidský pohyb – a zničte Velkou separaci, aby obyvatelstvo uzavřených zón mohlo volně procházet svým vlastním městem.
@@ -295,7 +295,7 @@ Ta zeď nejen rozpůlila město. Rozpůlilo mě to. Všechno, co si pamatuji –
 Separační mřížka Sektor-4 není v administrativních záznamech Xelthary klasifikována jako vojenské zařízení. Je uveden jako „Systém kontroly optimalizace populace a tranzitního úřadu“. O ten rebranding jde. Je to zeď, která sama o sobě zní jako služba.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-DISPLACEMENT LOG: SEKTOR-4 SEPARAČNÍ MŘÍŽKA. TYP STRUKTURY: KOLONIÁLNÍ ADMINISTRATIVNÍ KONTROLNÍ BOD. NE VOJENSKÉ. JE TO ZÁMĚRNÉ. HROZBA: POHRANIČNÍ ORGÁN XELTHARA — DIVIZE PRO VYMÁHÁNÍ. BIOMETRICKÉ SPIRY: 4 AKTIVNÍ. POVOLENÉ JÁDRO: ONLINE. C��L: DEMONTOVAT ADMINISTRATIVNÍ ARCHITEKTURU SEPARACE. OTEVŘÍT MĚSTO.
+DISPLACEMENT LOG: SEKTOR-4 SEPARAČNÍ MŘÍŽKA. TYP STRUKTURY: KOLONIÁLNÍ ADMINISTRATIVNÍ KONTROLNÍ BOD. NE VOJENSKÉ. JE TO ZÁMĚRNÉ. HROZBA: POHRANIČNÍ ORGÁN XELTHARA — DIVIZE PRO VYMÁHÁNÍ. BIOMETRICKÉ SPIRY: 4 AKTIVNÍ. POVOLENÉ JÁDRO: ONLINE. CÍL: DEMONTOVAT ADMINISTRATIVNÍ ARCHITEKTURU SEPARACE. OTEVŘÍT MĚSTO.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 ZEĎ, KTEROU ŘÍKALI DVEŘE
@@ -328,7 +328,7 @@ Ne. jsem v pohodě. Jsem provozuschopný. Říkám, že ta věž je osobně moje
 Rozuměl. Je to tvoje.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Ronine, vezmeš Spire Alpha na uměleckou chodbu. Shogun, Spire Gamma v Ústřední knihovně. Matrix má beta. Budu koordinovat potlačování dronů na hlídkových trasách a připojím se k Shogunovi v přístupu ke knihovně. AXIOM povede sekvenování. Všechny čtyři věže padají postupně, pak se sbíháme na Pershing Square a rozebíráme jádro kousek po kousku.
+Ronine, vezme�� Spire Alpha na uměleckou chodbu. Shogun, Spire Gamma v Ústřední knihovně. Matrix má beta. Budu koordinovat potlačování dronů na hlídkových trasách a připojím se k Shogunovi v přístupu ke knihovně. AXIOM povede sekvenování. Všechny čtyři věže padají postupně, pak se sbíháme na Pershing Square a rozebíráme jádro kousek po kousku.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Poznámka: Hlídky pohraničního úřadu jsou husté, ale vzorované. Kontrolní bod obsluhuje 24 hodin správce Enforcer-Administrator Voss, který spravuje fyzickou autorizaci přechodu. Není to bojový důstojník. Je to byrokrat. Za poslední měsíc osobně odmítl 4400 žádostí o přechod.
@@ -337,7 +337,7 @@ Poznámka: Hlídky pohraničního úřadu jsou husté, ale vzorované. Kontroln�
 4 400. Lidé, kteří chtěli jít domů pěšky.
 
 # kind: dialogue # speaker: Cyber Shogun # type: internal
-Nejkrutější zbraní kolonialismu není voják s puškou. Je to úředník s razítkem, který vám sdělí, že vaše existence vyžaduje jejich povolení. Že lidská bytost musí požádat okupanta o právo chodit na půdu svých vlastních předků. Uzavřel jsem mír s bojujícími vojáky. Konfrontace s architekturou povolení – jejím náhodným, systematickým ponižováním – to je to, co opotřebovává ducha způsobem, který žádná čepel nemůže řezat.
+Nejkrutější zbraní kolonialismu není voják s puškou. Je to úředník s razítkem, který vám sdělí, že vaše existence vyžaduje jejich povolení. Že lidská bytost musí požádat okupanta o právo chodit na půdu svých vlastních předků. Uzavřel jsem mír s bojujícími vojáky. Konfrontace s architekturou svolení – jejím náhodným, systematickým ponižováním – to je to, co opotřebovává ducha tak, že žádná čepel nemůže řezat.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Hlídky se točí. Na přibližovací ulici Hope Street je 90sekundové okno, které začíná za třicet sekund. Jděte na mou značku.
@@ -394,13 +394,13 @@ Dvacet pět procent je začátek. Omlouvám se, že nám to trvalo tak dlouho. T
 FÁZE 2-A: ONI MATRIX V BETA SPIRE – 5. A JARO
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Tady to je. Strom tam stále je. Moje babička říkala, že strom je starší než městský úřad, a já jí nikdy nevěřil.
+Tady to je. Strom tam stále je. Moje babička říkala, že strom je starší než městský úřad, a já jsem jí nikdy nevěřil.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Čtyřicet sedm dní poté, co zeď vyrostla, podala žádost o povolení k přechodu. Vyplnila formuláře. V trojím vyhotovení. Protože věřila v proces. Věřila, že když uděláš věci správně, někdo tě bude poslouchat. Nikdy nedostala odpověď. Zemřela v ochranné zóně o dva měsíce později. Komplikace podvýživy. Na druhé straně zdi měli její oblíbený obchod s potravinami. Vyplnila formulář, aby šla koupit jídlo.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Tuto věc rozeberu velmi opatrně, abych strom nezranil.
+Tuto věc rozeberu velmi opatrně, abych neublížil stromu.
 
 # kind: dialogue # speaker: Oni Matrix # type: combat
 Používáš můj trik. Roztomilý. Zde je rozdíl – vymyslel jsem svůj.
@@ -427,7 +427,7 @@ Slyšeli jsme tě, Matrixi. Celou dobu jsme poslouchali.
 Ano. já vím.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-FÁZE 2-B: KYBERSHOGUN A CÍSAŘOVNÁ SIRÉNA VE SPIRE GAMMA — CENTRÁLNÍ KNIHOVNA
+FÁZE 2-B: KYBERSHOGUN A CÍSAŘOVNÁ SIRÉNA V SPIRE GAMMA — CENTRÁLNÍ KNIHOVNA
 
 # kind: dialogue # speaker: Empress Siren # type: internal
 Knihovna. Vedl jsem tam své první důstojnické výcvikové semináře. Komunitní obranné kurzy, čítárna ve třetím patře. Tři roky před invazí. Geometrie toho, jak kolonialismus proti nám využívá naši vlastní infrastrukturu, nepřestává být zarážející. Umístili své datové centrum do naší knihovny. Přepisují naše záznamy v místě, kde jsme vedli naše záznamy.
@@ -493,7 +493,7 @@ Ne. Nenech se tím ještě zmocnit. Nejprve stáhneme toto. Pak řeku nepotřebu
 Správně. Právo. Po věži. Po zdi. nezapomenu.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Toto není stealth přístup. Delta je opevněné místo. Trefili jsme to jako jednotka. Ronin – zaměříš se, štít vpřed, přitáhneš jejich pozornost a absorbuješ jejich počáteční salvu. Shogune, vyčistěte levé křídlo. Matrix, použijte Phase-Shift k dosažení ovládacího panelu věže úplně vpravo a zabijte všechny tři věže současně. Jakmile jsou věže mrtvé, pustím drony do saturační palby na donucovací četu. Zhroutíme posádku a Ronin položí věž do země.
+Toto není stealth přístup. Delta je opevněné místo. Trefili jsme to jako jednotka. Ronin – zaměříš se, štít dopředu, přitáhneš jejich pozornost a absorbuješ jejich počáteční salvu. Shogune, vyčistěte levé křídlo. Matrix, použijte Phase-Shift k dosažení ovládacího panelu věže úplně vpravo a zabijte všechny tři věže současně. Jakmile jsou věže mrtvé, pustím drony do saturační palby na donucovací četu. Zhroutíme posádku a Ronin položí věž do země.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 ŠTÍT NAHORU. Ať na mě hodí všechno. Já jsem přední dveře.
@@ -541,7 +541,7 @@ Protože po dva roky byla naděje mechanismem zklamání. Naučili se nedůvěř
 Teď jsme tady. Pokračujte v pohybu. Jádro stále stojí. Voss je stále tam.
 
 # kind: dialogue # speaker: Voss # type: spoken
-Dopustili jste se neoprávněného zničení koloniální administrativní instalace třídy A. Protokol mě požaduje, abych vám nabídl možnost podrobit se administrativnímu zpracování před přijetím donucovacího opatření. Vytvořte si prosím frontu.
+Dopustili jste se neoprávněného zničení koloniální administrativní instalace třídy A. Protokol mě požaduje, abych vám nabídl možnost podrobit se administrativnímu zpracování před přijetím donucovacího opatření. Vytvořte si pros��m frontu.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Říká nám, abychom vytvořili frontu.
@@ -613,7 +613,7 @@ Povolit jádro zpracování: offline. Protokol trvalého obnovení: zakázán. Z
 4 400 žádostí. A ani jeden z nich se nemusel ptát.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-AXIOM. Můžete mi říct, zda je budova mé babičky konstrukčně dostatečně bezpečná na to, aby mohla být obývána? Chci vědět, jestli se někdo může nastěhovat zpátky.
+AXIOM. Můžete mi říci, zda je budova mé babičky konstrukčně dostatečně bezpečná, aby mohla být obývána? Chci vědět, jestli se někdo může nastěhovat zpátky.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spuštění strukturálního skenování. Patra jedna až čtyři jsou nepoškozená. Základ je zdravý. Vodovodní potrubí je poškozené, ale opravitelné. Ano. Někdo by se mohl vrátit.
@@ -622,7 +622,7 @@ Spuštění strukturálního skenování. Patra jedna až čtyři jsou nepoškoz
 Dobře. Dobrý.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Zeď je pryč, Matrixi. Ale to, co děláme teď – jak znovu postavíme to, co zeď rozdělila – to je ta těžší práce. A začíná to dnes večer.
+Zeď je pryč, Matrixi. Ale to, co děláme teď – jak přestavujeme to, co zeď rozdělovala – to je ta těžší práce. A začíná to dnes večer.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Je to takový pocit z vítězství? Protože mi to nepřijde tak, jak jsem čekal.
@@ -675,7 +675,7 @@ Siréna! Cíl na levé křídlo! Snaží se mě přichytit!
 Drony tři a čtyři, potlačovací palba na levém křídle! Nakreslete jejich aggro! Ronine, šetři svůj náboj!
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
-Na konzervaci je pozdě! ROZBÍT! Řekněte Matrixovi, ať si pospíší!
+Na konzervaci je pozdě! ROZBÍT! ��ekněte Matrixovi, ať si pospíší!
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 Ticho, masový štít! Propíchnu jim digitální jehlu mozkem! Jen... trochu... dále...
@@ -746,7 +746,7 @@ Císařovno, co... co je to za obrázky? Berou naše lidi a dělají z nich věc
 Nyní provádím analýzu, Shogune. To není jen biologické experimentování, je to vymazání duše. Nahrazují lidského ducha svým vlastním kódem.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Pěkné. Nechtějí jen vzít naši planetu; chtějí udělit franšízu našemu druhu. Pozor, Siréno. Právě se probudil velký chlap.
+Pěkné. Nechtějí jen vzít naši planetu; chtějí udělit franšízu našemu druhu. Pozor, Siréno. Velký chlap se právě probudil.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 VAROVÁNÍ: Mini-Boss Encounter. Označení: Dozorce Karr-Thak. Jeho pancíř je odolný vůči kinetickému a energetickému útoku.
@@ -1027,16 +1027,16 @@ HNED!
 ČISTÍCÍ ČEPEL!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Vynikající přesnost, Matrix. Vaše metody postrádají čest, ale mají účinnost.
+Vynikající přesnost, Matrix. Your methods lack honor, but they possess effectiveness.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Toto je firewall. Je to neustálý proud mimozemského šifrování. Potřebujeme klíčovou frekvenci k vytvoření výstupního portálu.
+Toto je firewall. Je to neustálý proud mimozemského šifrování. We need the key frequency to create an exit portal.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-...Matrix... frekvence je... v bojové zpětné vazbě... poslouchejte nepřítele... závada je klíč...
+...Matrix... the frequency is... in the combat feedback... listen to the enemy... the glitch is the key...
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
-Je to měnící se hexadecimální kód. 7-A-F... ne, 7-A-F-B... je to svázáno s jejich štíty!
+Je to měnící se hexadecimální kód. 7-A-F... no, 7-A-F-B... it's tied to their shields!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Zaměstnám je! Soustřeď se, Matrix!
@@ -1142,13 +1142,13 @@ Mise SPLNĚNA: SRDCE. SEKTOR 7 KONTROLNÍ BOD UVOLNĚN.
 # kind: level # level: 13 # title: Obsidiánová klenba (kulturní archivy) # arc: act2_arc3 # dialogue_status: scripted
 
 # kind: setting
-Obsidian Vault, který se nachází pod bývalým Getty Center, je primárním archivem kulturních záchytů koloniální správy. Původní databáze smlouvy o půdě – komplexní záznam o držbě lidské půdy před invazí sahající pět století zpět – je uložena zde, klasifikovaná jako „Discovered Heritage Assets“.
+Obsidian Vault, který se nachází pod bývalým Getty Center, je primárním archivem kulturních záchytů koloniální správy. Původní databáze smlouvy o půdě – komplexní záznam o držbě lidské půdy před invazí sahající pět století do minulosti – je uložena zde, klasifikovaná jako „Discovered Heritage Assets“.
 
 # kind: objective
-Infiltrujte Obsidian Vault, extrahujte původní databázi zemských smluv a všechny jazykové a ústní historické archivy a zničte systém fyzického katalogu, abyste natrvalo zastavili koloniální kulturní proces.
+Infiltrujte Obsidian Vault, extrahujte původní databázi zemských dohod a všechny jazykové a ústní historické archivy a zničte systém fyzického katalogu, abyste natrvalo zastavili koloniální kulturní proces.
 
 # kind: solo_monologue # character: Cyber Shogun # type: internal
-Čest válečníka je definována tím, co chrání, stejně jako tím, co ničí. Dnes večer něco chráním. Záznamy uvnitř tohoto trezoru jsou důkazem, že jsme zde existovali, než dorazili – že jsme pro tuto zemi měli jména, byli na ní postaveni, byli jsme v ní pohřbeni a vyprávěli o ní po staletí. Pokud tento důkaz vymažou, mohou si napsat libovolnou historii. To nedopustím.
+Čest válečníka je definována tím, co chrání, stejně jako tím, co ničí. Dnes večer něco chráním. Záznamy uvnitř tohoto trezoru jsou důkazem toho, že jsme zde existovali, než dorazili – že jsme pro tuto zemi měli jména, byli na ní postaveni, byli jsme v ní pohřbeni a vyprávěli o ní po staletí. Pokud tento důkaz vymažou, mohou si napsat libovolnou historii. To nedopustím.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Obsidian Vault obsahuje 4,2 milionu katalogizovaných artefaktů a záznamů. Z toho bylo 340 000 označeno ke zničení jako „nepodstatné propouštění“. Jen minulý měsíc bylo zničeno sedmnáct tisíc předmětů. Mám jména všech. Chci, abyste to věděli, než půjdete dovnitř. To, co dnes večer zachráníme, je to, co zůstane. Není možné obnovit to, co je již pryč. Pořád je ale co zachraňovat.
@@ -1328,7 +1328,7 @@ Toto je mimo uzavřenou zónu. Moje nástroje selhávají. Samotná struktura pr
 Xelthara vrchní dozorce byl pouhý pěšák. Tato síla... toto je zdroj okupace. Kolektivní vůle.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Cítím čistý datový proud, Shogune. Snaží se přepsat mé neurální jádro. My sem nepatříme. Musíme udeřit do motoru a vypadnout.
+Cítím čist�� datový proud, Shogune. Snaží se přepsat mé neurální jádro. My sem nepatříme. Musíme udeřit do motoru a vypadnout.
 
 # kind: dialogue # speaker: The Collective Will # type: vo
 Jste lokalizovaná anomálie ve velkolepém designu. Veškerá existence je zastupitelným zdrojem pro naši expanzi. Vaše vlast je již započítána do naší konečné rovnice vymazání.

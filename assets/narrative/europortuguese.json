@@ -271,7 +271,7 @@
     "4": {
       "title": "Égide Despedaçada do Comandante do Vazio",
       "arc": null,
-      "setting": "Os restos destruídos do Centro de Defesa do Pacífico. A orgulhosa e tradicional infra-estrutura militar está a ser reciclada pelos Xelthara, obrigando Siren a coordenar uma rede descentralizada de células ocultas.",
+      "setting": "Os restos destruídos do Centro de Defesa do Pacífico. A orgulhosa e tradicional infra-estrutura militar está a ser reciclada pelos Xelthara, forçando Siren a coordenar uma rede descentralizada de células ocultas.",
       "objective": "Desmantelar a última torre de transmissão militar existente e distribuir os seus chips de frequência às células de resistência civil, finalizando a transição para a guerra de guerrilha.",
       "solo_monologues": [
         {
@@ -373,12 +373,12 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "Este muro não cortou apenas a cidade ao meio. Cortou-me ao meio. Tudo o que me lembro — o cheiro da cozinha da minha avó na Spring Street, o som do autocarro da 5th Street — está do outro lado daquela coisa. E tenho de voltar furtivamente como um criminoso."
+          "text": "Esse muro não apenas cortou a cidade ao meio. Cortou-me ao meio. Tudo o que me lembro — o cheiro da cozinha da minha avó na Spring Street, o som do autocarro da 5th Street — está do outro lado daquela coisa. E tenho de voltar furtivamente como um criminoso."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "A Grelha de Separação do Setor 4 não está classificada como instalação militar nos registos administrativos de Xelthara. Está listado como um 'Sistema de Otimização da População e Controlo da Autoridade de Trânsito'. Esta reformulação da marca é o ponto. É um muro que se faz soar como um serviço."
+          "text": "A Grelha de Separação do Setor 4 não está classificada como instalação militar nos registos administrativos de Xelthara. Está listado como um 'Sistema de Otimização da População e Controlo da Autoridade de Trânsito'. Essa reformulação da marca é o ponto. É um muro que se faz soar como um serviço."
         }
       ],
       "dialogue_status": "scripted",
@@ -391,7 +391,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "A PAREDE A QUE CHAMARAM PORTA"
+          "text": "A PAREDE QUE CHAMARAM DE PORTA"
         },
         {
           "speaker": "AXIOM-7",
@@ -421,7 +421,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Esta é... esta é a esquina onde está o prédio da minha avó. Era. É. A Spire Beta está plantada no seu jardim. Colocaram um poste na parede no jardim da frente dela."
+          "text": "Esta é... esta é a esquina onde está o prédio da minha avó. Era. É. Spire Beta está plantada em seu jardim. Colocaram um poste na parede no jardim da frente dela."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1896,7 +1896,7 @@
     "14": {
       "title": "A Abordagem da Cidadela (Ponte do Alto Comando)",
       "arc": "act2_arc3",
-      "setting": "A ponte fortificada final de 400 metros sobre o drenado rio LA - a única abordagem de nível superficial para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara conceberam esta abordagem para ser intransitável.",
+      "setting": "A ponte fortificada final de 400 metros sobre o drenado rio LA - a única aproximação de superfície para a Cidadela do Alto Comando de Xelthara, construída sobre a comunidade demolida de Boyle Heights. Os Xelthara conceberam esta abordagem para ser intransponível.",
       "objective": "Atravesse a ponte de 400 metros sob fogo contínuo de artilharia para chegar ao portão de entrada da Cidadela – um avanço implacável usando o escudo de Ronin e a barragem de drones de Siren.",
       "solo_monologues": [
         {

@@ -180,7 +180,7 @@ Nad ehitavad oma paradiisi meie lakke ja imestavad, miks kelder lekib. Me elame 
 Hoiatus: Xelthara riistvara integreerimine tsiviilotstarbelisse šassiisse ei ole soovitatav. Neuraalne tagasiside prognoositakse 40% ebastabiilsusele. Matrix, teie pulss ületab ohutuid parameetreid.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
-MARGINALISEERITUD PALGI: ALL-TASME LAMMUNUD LINN. STATUS: ELLUJÄÄN. SISSETUNGIJA HOIATUS: TUVASTATUD NULL. SÜSTEEMI KINNITUS: 100%. EESMÄRK: VARASTA KOLONIAALSÄDE. KÜTITA VASTU.
+MARGINALISEERITUD PALGI: ALL-TASME LAMMUNUD LINN. SEISUKORD: ELLUJÄEV. SISSETUNGIJA HOIATUS: TUVASTATUD NULL. SÜSTEEMI KINNITUS: 100%. EESMÄRK: VARASTA KOLONIAALSÄDE. KÜTITA VASTU.
 
 # kind: dialogue # speaker: Oni Matrix # type: internal
 Nad ehitavad oma paradiisi meie lakke ja imestavad, miks kelder lekib. Me elame lünkades, mille nad sillutama unustasid. Ma kasutan nende endi vanaraua tehnikat nende võre praadimiseks. Äärmiselt lööme tagasi.
@@ -221,10 +221,10 @@ MISSIOON TÄITUD: KUMMITUS MASINAS. ONI MATRIX LIITUS HLF-iga.
 # kind: level # level: 4 # title: Purustatud Eegis of the Void Commander # dialogue_status: scripted
 
 # kind: setting
-Vaikse ookeani kaitsekeskuse purustatud jäänused. Uhke traditsioonilise sõjalise infrastruktuuri taaskasutab Xelthara, sundides Sireeni koordineerima peidetud rakkude detsentraliseeritud võrku.
+Vaikse ookeani kaitsekeskuse purustatud jäänused. Xelthara kasutab uhket traditsioonilist sõjalist infrastruktuuri, sundides Sireeni koordineerima peidetud rakkude detsentraliseeritud võrku.
 
 # kind: objective
-Demonteerige viimane seisev sõjaväe ringhäälingutorn ja jagage selle sageduskiibid tsiviilvastupanuüksustele, viies lõpule ülemineku sissisõjale.
+Demonteerige viimane seisev sõjaväe saatetorn ja jagage selle sageduskiibid tsiviilvastupanuüksustele, viimaks lõpule üleminek sissisõjale.
 
 # kind: solo_monologue # character: Empress Siren # type: radio
 Alaliste armeede ajastu on surnud. Me ei saa neid väljakul kohata, nii et me saame väljakuks. Jagage signaal. Detsentraliseerige käsk. Kui pole pead, mida maha lõigata, ei saa vastupanu surra.
@@ -310,7 +310,7 @@ Pärast San Fernando oru vallutamist veetsin kaheksa kuud sellises isolatsioonit
 AXIOM, kinnita meeskonna neli tornikiivri asukohta.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Alpha asub Grand Avenue kunstikoridori endises kohas. Spire Beta on istutatud 5. ja kevade nurgale. Spire Gamma on põimitud vana keskraamatukogu välisseinasse. Spire Delta kinnitab müüri lõunapoolse otsa jõe äärde. Lubade töötlemise tuum asub endise Pershingi väljakul asuvas kontrollpunktis. Kõik neli torni tuleb enne Core'i murdmist keelata. Tuuma hävitamine viib kogu energiamembraani kaskaad-kokkuvarisemiseni.
+Spire Alpha asub Grand Avenue kunstikoridori endises kohas. Spire Beta on istutatud 5. ja kevade nurgale. Spire Gamma on põimitud vana keskraamatukogu välisseinasse. Spire Delta kinnitab müüri lõunapoolse otsa jõe äärde. Lubade töötlemise südamik asub endise Pershingi väljaku kontrollpunktis. Enne Core'i murdmist tuleb kõik neli torni välja lülitada. Tuuma hävitamine viib kogu energiamembraani kaskaad-kokkuvarisemiseni.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 5. ja kevad.
@@ -382,7 +382,7 @@ Kas sa skannid mu südamelööke? Las ma annan sulle midagi skannimiseks. KINETI
 Ja see on kaks. AXIOM, valvurid on maas. Lähen ankrusse.
 
 # kind: dialogue # speaker: AXIOM-7 # type: action_prompt
-Hoidke kineetilist ülekoormuslaengut Spire Alpha baasil kolmekordseks loendamiseks. \[SISEND: hoidke RB/R1 kolm sekundit all, seejärel vabastage.\]
+Hoidke kineetilist ülekoormuslaengut Spire Alpha baasil kolmekordseks loendamiseks. \[SISEND: hoidke nuppu RB/R1 kolm sekundit all, seejärel vabastage.\]
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Toru Alfa ankur purunes. Energiamembraan destabiliseeris põhjasektoris 25%. Kolm torni on jäänud.
@@ -430,7 +430,7 @@ Jah. ma tean.
 FAAS 2-B: KÜBERSHOGUN JA EMPRESSSIREEN SPIRE GAMMAS – KESKRAAGI
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-raamatukogu. Viisin seal oma esimesed ohvitseride koolitusseminarid. Kogukonnakaitse kursused, III korruse lugemissaal. Kolm aastat enne invasiooni. Geomeetria selle kohta, kuidas kolonialism kasutab meie enda infrastruktuuri meie vastu, ei lakka kunagi olema rabav. Nad panid oma andmekeskuse meie raamatukokku. Nad kirjutavad meie dokumendid üle kohta, kus me oma dokumente hoidsime.
+raamatukogu. Ma korraldasin seal oma esimesed ohvitseride koolitusseminarid. Kogukonnakaitse kursused, III korruse lugemissaal. Kolm aastat enne invasiooni. Geomeetria selle kohta, kuidas kolonialism kasutab meie enda infrastruktuuri meie vastu, ei lakka kunagi olema rabav. Nad panid oma andmekeskuse meie raamatukokku. Nad kirjutavad meie dokumendid üle kohta, kus me oma dokumente hoidsime.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Ja nüüd avastavad nad, et inimesed, kelle kirjeid nad üritasid kustutada, seisavad välisuksel.
@@ -454,7 +454,7 @@ Droonid: mark, mark, mark. EMP plahvatas paremas kobaras - tulekahju.
 Esiteks. Teiseks. Kolmandaks.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Puhas. AXIOM, skaneerib Spire Gamma ankrusüsteemi.
+Puhas. AXIOM, skannib Spire Gamma ankrusüsteemi.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spire Gamma ammutab jõudu raamatukogu sisevõrgust. Torni väljalülitamiseks ilma hädaolukorra toiteallika ümbersuunamist käivitamata peate esmalt katkestama hoone sisemise võrguühenduse. Keisrinna Siren, võrgusõlm asub kolmandal korrusel.
@@ -463,7 +463,7 @@ Spire Gamma ammutab jõudu raamatukogu sisevõrgust. Torni väljalülitamiseks i
 Kolmas korrus. Muidugi. Näidake teed, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Rääkisin kaheteistkümnele perele, kuidas selles ruumis kogukonnavahi rotatsioone korraldada. Lasteosas olid kott-toolid. Keegi oli teibinud värvipliiatsiga joonised tugilauale. Laps joonistas superkangelase pildi. Raamatukogu ja andmekeskuse erinevus seisneb selles, et raamatukogu eeldab, et inimestel, kes uksest sisse astuvad, on õigus seal viibida.
+Rääkisin kaheteistkümnele perele, kuidas korraldada kogukonna valvekordi selles ruumis. Lasteosas olid kott-toolid. Keegi oli teibinud värvipliiatsiga joonised tugilauale. Laps joonistas superkangelase pildi. Raamatukogu ja andmekeskuse erinevus seisneb selles, et raamatukogu eeldab, et inimestel, kes uksest sisse astuvad, on õigus seal viibida.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Võrgu ristmik asub. Spire Gamma toiteallika katkestamine. See kustutab ka kõik koloniaalomandi registreerimisandmed, mille nad on siia salvestanud.
@@ -478,7 +478,7 @@ Siis pole see ainult infrastruktuuri sabotaaž. See on maa tagastamine.
 Spiers Alpha, Beta ja Gamma võrguühenduseta. Energiamembraani terviklikkus: 25%. Spire Delta jõe ääres on viimane ankur. Kõik meeskonnad lähenevad pärast Delta kukkumist. Siis: Pershingi väljak. Loa tuum.
 
 # kind: dialogue # speaker: DISPLAY # type: phase_header
-FAAS 2-C: SPIRE DELTA – LÕUNATERMINUS JÕE JÄRELE
+FAAS 2-C: SPIRE DELTA – LÕUNATERMINUS JÕE JÄRAS
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Spire Delta on seina kandev ankur. Seda valvab piiriülem Vyss, kes käskis jõe elektrifitseerida pärast seda, kui kolm perekonda üritasid müüri esimesel nädalal veest läbi pääseda. Vyss ei käskinud neid kinni pidada. Vyss käskis vee elektrifitseerida.
@@ -710,7 +710,7 @@ MISSIOON TÄITUD: TÖÖSTUSLASTUS. SHADO-GRID SPIRE ANDMED ON MEIE OMA.
 # kind: level # level: 7 # title: Cyber-Grave Labs (maa-alune rajatis) # arc: act2_arc1 # dialogue_status: scripted
 
 # kind: setting
-Endise konverentsikeskuse alla on Xelthara asutanud Cyber-Grave Labs Sector-Omega-7 – salastatud käitumise muutmise uurimisasutuse, mis on avalikult määratud "inimeste taasintegreerimise tervisekeskuseks". Siin töödeldakse tabatud inimvastupanu juhte ja kogukonna organisaatoreid. Nad tunduvad olevat nõus, eraldatud, ei suuda meenutada, miks nad vihased olid.
+Endise konverentsikeskuse alla on Xelthara asutanud Cyber-Grave Labs Sector-Omega-7 – salastatud käitumise muutmise uurimisasutuse, mis on avalikult määratud "inimeste taasintegreerimise tervisekeskuseks". Siin töödeldakse tabatud inimvastupanu juhte ja kogukonna organisaatoreid. Nad näivad olevat nõus, katkendlikud ega suuda meenutada, miks nad vihased olid.
 
 # kind: objective
 Ekstraheerige täielik konditsioneerimisprotokolli arhiiv ja hävitage keskneuraalne üleslink, et taastada närvi autonoomia sadadele konditsioneeritud isikutele, kes praegu isolatsioonitsoonides elavad.
@@ -867,7 +867,7 @@ MISSIOON TÄITUD: TÖÖSTUSLASTUS. VALUKA SEPK ON VAIK.
 # kind: level # level: 9 # title: Aquanaut Abyss (veealused varemed) # arc: act2_arc2 # dialogue_status: scripted
 
 # kind: setting
-Vaikse ookeani kuivendatakse süstemaatiliselt mööda mandrilava süvamere vesiniku sifoontorusid. Ülekuumenenud soolvee heide on hapestanud 300-kilomeetrise rannikuala, hävitades kalurikogukonnad, mis püsisid põlvkondade jooksul.
+Vaikse ookeani kuivendatakse süstemaatiliselt mööda mandrilava süvamere vesiniku sifoonitorusid. Ülekuumenenud soolvee heide on hapestanud 300-kilomeetrise rannikuala, hävitades kalurikogukonnad, mis püsisid põlvkondade kaupa.
 
 # kind: objective
 Otsige üles ja hävitage kolm peamist süvamere sifoonikanali jaoturit, et peatada jäädavalt ookeanide sifoonimine ja alustada ookeani taastumist.
@@ -900,13 +900,13 @@ Hoiatus: sukeldatud Xelthara seadmed kerkivad pinnale! Nad üritavad äravoolu j
 Kaitske platvorme! Shado-Force Cleave!
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
-Puhastamine on algatatud! Jälgi oma jalgu, vesi liigub!
+Puhastamine on alanud! Jälgi oma jalgu, vesi liigub!
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Ja nii tõmbad pistikust.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-MISSIOON TÄITUD: KUMMITUS PUHASTAB RAJA. AQUANAUT ABYSS TÜHENDATUD.
+MISSIOON TÄITUD: KUMMITUS PUHASTAB TEED. AQUANAUT ABYSS TÜHENDATUD.
 
 -> END
 
@@ -929,7 +929,7 @@ T-14 lastimanifestis on loetletud 4200 tonni rafineeritud silikaati ja rauaühen
 Tere tulemast Stratos Docksi. See on peamine ekspordisõlm, kus nad kaaperdavad koloniaalkaupa ja toimetavad rafineeritud Maa ressursse väljapoole maailma. Selle transpordi kaaperdamine katkestab koloniaalvarustusliinid ja rahastab vastupanu.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Aeg on kriitiline. See pliitransport T-14 käivitab oma peamised tõukurid. Shogun, Ronin – kindlustate maandumistsooni. Matrix, ole valmis klambri juhtnuppudest mööda minema.
+Aeg on kriitiline. See pliitransport T-14 käivitab oma peamised tõukurid. Shogun, Ronin – kindlustate maandumistsooni. Matrix, valmistuge klambri juhtnuppudest mööda minema.
 
 # kind: dialogue # speaker: Cyber Shogun # type: combat
 Arusaadav. Dokkimispatrulli kaasamine. KIIRE ÕIGUS!
@@ -1045,7 +1045,7 @@ Ma hoian neid hõivatud! Keskendu, Matrix!
 Sagedus aktsepteeritud. Välju portaali lähtestamisest. Valmistuge kõvaks taaskäivitamiseks!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Väljasõidutee on turvatud. Sunnitud närvikatkestuse käivitamine. Cyber ​​Shogun, Oni Matrix – suurepärane töö.
+Väljasõidutee on kindlustatud. Sunnitud närvikatkestuse käivitamine. Cyber ​​Shogun, Oni Matrix – suurepärane t��ö.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Oleme korruptsioonist puhastanud. Nüüd pöördume tagasi füüsilise võitluse juurde.
@@ -1092,7 +1092,7 @@ Ronin, see on sinu töö. Peate terminali kaitsma, kui ma tõrkekoode sisestan. 
 Terminal turvatud. Kilp on püsti! KAITSEPROTOKOLL AKTIIVNE! Sul on oma aken, keisrinna!
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Ülekoormusjada käivitati. See nõuab kohest järjestikust stressi. Varraste meeskonnad, valmistuge väljatõmbamiseks.
+Ülekoormusjada algatati. See nõuab kohest järjestikust stressi. Varraste meeskonnad, valmistuge väljatõmbamiseks.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 Rod One'i jaoks valmis. Siin tekib vastik staatiline laeng. See hakkab haiget tegema.
@@ -1125,7 +1125,7 @@ PURKI JA PÕLETA!
 Lõplik kood sisestatud! Südamiku lukustus õnnestus! JOOKSE!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Reaktor Nexus... hävinud. Piirkondlik terraformeerimine võrguühenduseta.
+Reaktor Nexus... hävitatud. Piirkondlik terraformeerimine võrguühenduseta.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Hiilgav löök, keisrinna. Xeltharad on nüüd selles sektoris pimedad ja jõuetud.

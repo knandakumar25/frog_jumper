@@ -106,7 +106,7 @@
       "title": "Betonski gozdni požar",
       "arc": null,
       "setting": "Ogromna, zaprta dovodna vrata zadrževalnega območja 4. Na tisoče družin se kot živina preganjajo skozi energetske ograje. Za njimi njihove predmestne domove sploščijo ekspanzijski sprehajalci Xelthara.",
-      "objective": "Držite 'Zadnji most' pred Izsiljevalci Xelthare, ki preganjajo prebivalstvo, s čimer omogočite zadnji skupini beguncev, da zdrsnejo v neoznačena barakarska naselja namesto v zaprta taborišča.",
+      "objective": "Držite 'Zadnji most' proti Xelthara Enforcers, ki preganjajo prebivalstvo, s čimer omogočite zadnji skupini beguncev, da zdrsnejo v neoznačena barakarska naselja namesto v zaprta taborišča.",
       "solo_monologues": [],
       "dialogue_status": "scripted",
       "dialogue": [
@@ -254,7 +254,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Jaz sem cesarica sirena. Mi smo tisti, ki se borimo, da bi zagotovili, da ostane mesto za žetev. Imaš dar za razbijanje stvari, duhec. To bi lahko uporabili. Ste utrujeni od skrivanja v rji?"
+          "text": "Jaz sem carica sirena. Mi smo tisti, ki se borimo, da bi zagotovili, da ostane mesto za žetev. Imaš dar za razbijanje stvari, duhec. To bi lahko uporabili. Ste utrujeni od skrivanja v rji?"
         },
         {
           "speaker": "Oni Matrix",
@@ -271,8 +271,8 @@
     "4": {
       "title": "Razbiti Aegis poveljnika praznine",
       "arc": null,
-      "setting": "Razbiti ostanki pacifiškega obrambnega središča. Ponosno tradicionalno vojaško infrastrukturo reciklira Xelthara, zaradi česar mora Siren koordinirati decentralizirano mrežo skritih celic.",
-      "objective": "Razstavite zadnji vojaški oddajni stolp in razdelite njegove frekvenčne čipe civilnim odporniškim celicam, s čimer dokončate prehod na gverilsko vojno.",
+      "setting": "Razbiti ostanki pacifiškega obrambnega središča. Ponosno, tradicionalno vojaško infrastrukturo reciklira Xelthara, zaradi česar mora Siren koordinirati decentralizirano mrežo skritih celic.",
+      "objective": "Razstavite zadnji vojaški oddajni stolp in razdelite njegove frekvenčne čipe civilnim odporniškim celicam ter tako dokončajte prehod na gverilsko vojno.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
@@ -305,7 +305,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Delujejo na podlagi taktičnih podatkov pred invazijo. Spremenil bom podatke. AXIOM, zakleni osrednji omrežni neksus. Ročno zaobidem požarne zidove."
+          "text": "Delujejo na podlagi taktičnih podatkov pred invazijo. Spremenil bom podatke. AXIOM, zakleni neksus osrednjega omrežja. Ročno zaobidem požarne zidove."
         },
         {
           "speaker": "Empress Siren",
@@ -367,7 +367,7 @@
     "5": {
       "title": "Neon Embers - The Border Breach",
       "arc": "act2_arc1",
-      "setting": "Aktivna ločilna mreža sektorja 4—40 metrov visoka energetska stena, utrjena z biometričnimi skenerji, kontrolnimi točkami za obdelavo dovoljenj in postajami mejnega organa Xelthara. Fizično razpolovi Los Angeles in izolira območje zadrževanja ljudi od kolonialnega sektorja Xelthara. Zid ni vojaški objekt. Je administrativna.",
+      "setting": "Aktivna ločevalna mreža sektorja 4—40 metrov visok energijski zid, utrjen z biometričnimi skenerji, kontrolnimi točkami za obdelavo dovoljenj in postajami mejne oblasti Xelthara. Fizično razpolovi Los Angeles in izolira območje zadrževanja ljudi od kolonialnega sektorja Xelthara. Zid ni vojaški objekt. Je administrativna.",
       "objective": "Onemogočite vse štiri vrhove biometričnega optičnega bralnika, uničite osrednje jedro za obdelavo dovoljenj – birokratski motor, ki nadzoruje človeško gibanje – in uničite Veliko ločitev, da se lahko prebivalstvo zadrževalnih območij svobodno sprehaja skozi svoje mesto.",
       "solo_monologues": [
         {
@@ -551,12 +551,12 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Tukaj je. Drevo je še vedno tam. Moja babica je govorila, da je to drevo starejše od mestne hiše in nikoli ji nisem verjela."
+          "text": "Tukaj je. Drevo je še vedno tam. Moja babica je rekla, da je to drevo starejše od mestne hiše in nikoli ji nisem verjel."
         },
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Prošnjo za dovoljenje za prehod je vložila sedeminštirideset dni po dvigu zidu. Izpolnila je obrazce. V trojniku. Ker je verjela v proces. Verjela je, da bo nekdo poslušal, če boš naredil stvari prav. Nikoli ni dobila odgovora. Dva meseca kasneje je umrla v zaprtem območju. Zapleti zaradi podhranjenosti. Na drugi strani zidu so imeli njeno najljubšo trgovino z živili. Vložila je obrazec za nakup hrane."
+          "text": "Prošnjo za dovoljenje za prehod je vložila sedeminštirideset dni po tem, ko se je zid dvignil. Izpolnila je obrazce. V trojniku. Ker je verjela v proces. Verjela je, da bo nekdo poslušal, če boš naredil stvari prav. Nikoli ni dobila odgovora. Dva meseca pozneje je umrla v zaprtem območju. Zapleti zaradi podhranjenosti. Na drugi strani zidu so imeli njeno najljubšo trgovino z živili. Vložila je obrazec za nakup hrane."
         },
         {
           "speaker": "Oni Matrix",
@@ -611,7 +611,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Knjižnica. Tam sem vodil svoje prve seminarje za usposabljanje častnikov. Obrambni tečaji skupnosti, čitalnica v tretjem nadstropju. Tri leta pred invazijo. Geometrija tega, kako kolonializem uporablja našo infrastrukturo proti nam, je vedno presenetljiva. Svoj podatkovni center so postavili v naši knjižnici. Prepisujejo našo evidenco na mestu, kjer smo hranili svojo evidenco."
+          "text": "Knjižnica. Tam sem vodil svoje prve seminarje za usposabljanje častnikov. Obrambni tečaji skupnosti, čitalnica v tretjem nadstropju. Tri leta pred invazijo. Geometrija tega, kako kolonializem uporablja našo infrastrukturo proti nam, je vedno presenetljiva. V naši knjižnici so postavili svoj podatkovni center. Prepisujejo našo evidenco na mestu, kjer smo hranili svojo evidenco."
         },
         {
           "speaker": "Cyber Shogun",
@@ -771,7 +771,7 @@
         {
           "speaker": "DISPLAY",
           "type": "phase_header",
-          "text": "3. FAZA: PERSHING SQUARE — JEDRO OBDELAVE DOVOLJENJ"
+          "text": "FAZA 3: PERSHING SQUARE — JEDRO OBDELAVE DOVOLJENJ"
         },
         {
           "speaker": "Oni Matrix",
@@ -851,7 +851,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Zaporedje avtorizacije zahteva vnos kode za zavrnitev v obratni smeri. Administrativno razveljavite zavrnitev vsake aplikacije v sistemu. To bo sprožilo brisanje pomnilnika."
+          "text": "Zaporedje avtorizacije zahteva, da kodo za zavrnitev vnesete v obratni smeri. Administrativno razveljavite zavrnitev vsake aplikacije v sistemu. To bo sprožilo brisanje pomnilnika."
         },
         {
           "speaker": "Aegis Ronin",
@@ -896,7 +896,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Administrator Voss. Vsako dovoljenje, ki ste ga zavrnili – vsaka družina, ki ste jo ločevali – vsaka oseba, ki je stala v vaši čakalni vrsti v upanju, da boste z njo ravnali kot s človeškim bitjem, če bo pravilno izpolnil obrazec. To je zadnja upravna odločitev tega sistema."
+          "text": "Administrator Voss. Vsako dovoljenje, ki ste ga zavrnili - vsaka družina, ki ste jo ločili - vsaka oseba, ki je stala v vaši čakalni vrsti v upanju, da boste z njo ravnali kot s človeškim bitjem, če bo pravilno izpolnila obrazec. To je zadnja upravna odločitev tega sistema."
         },
         {
           "speaker": "Empress Siren",
@@ -916,7 +916,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "AKSIOM. Mi lahko poveste, ali je stavba moje babice strukturno dovolj varna, da se vanjo vseli? Zanima me, ali se lahko kdo vseli nazaj."
+          "text": "AKSIOM. Mi lahko poveste, ali je stavba moje babice konstrukcijsko dovolj varna, da bi jo vselili? Zanima me, ali se lahko kdo vseli nazaj."
         },
         {
           "speaker": "AXIOM-7",
@@ -946,7 +946,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ocena misije: Ločevalna mreža sektorja 4 je bila trajno razstavljena. Prebivalstvo sektorja zadrževalne cone 4 se prvič v dveh letih svobodno giblje skozi svoje mesto. V svojem operativnem dnevniku nimam kategorije za to, kar se trenutno dogaja v tem kvadratu. Ustvaril bom enega. Poimenoval ga bom: reklamacija."
+          "text": "Ocena misije: Ločevalna mreža sektorja 4 je bila trajno razstavljena. Prebivalstvo sektorja zadrževalne cone 4 se prvič po dveh letih svobodno giblje skozi svoje mesto. V svojem operativnem dnevniku nimam kategorije za to, kar se trenutno dogaja v tem kvadratu. Ustvaril bom enega. Poimenoval ga bom: reklamacija."
         },
         {
           "speaker": "DISPLAY",
@@ -969,7 +969,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Sistem dodeljevanja prisilnega dela znotraj Spire ne uporablja besede 'prisilno'. Uporablja besedno zvezo 'Program prispevkov za integracijo skupnosti.' Delovne naloge niso pogodbe – ustvarjene so algoritemsko na podlagi registriranega nabora spretnosti razseljene osebe in izdane brez soglasja. To je birokratski jezik zasužnjevanja."
+          "text": "Sistem dodeljevanja prisilnega dela znotraj Spire ne uporablja besede 'prisilno'. Uporablja besedno zvezo 'Program prispevkov za integracijo skupnosti.' Delovne naloge niso pogodbe – ustvarjene so algoritemsko na podlagi registriranega nabora znanj in spretnosti razseljene osebe ter izdane brez soglasja. To je birokratski jezik zasužnjevanja."
         }
       ],
       "dialogue_status": "scripted",
@@ -1047,7 +1047,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Confirmed, Ronin. Verjetnost uspešne ekstrakcije je zdaj 74%. Še vedno nas spremljajo."
+          "text": "Potrjeno, Ronin. Verjetnost uspešne ekstrakcije je zdaj 74%. Še vedno nas spremljajo."
         },
         {
           "speaker": "Empress Siren",
@@ -1123,7 +1123,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Lepo. Ne želijo samo vzeti našega planeta; hočejo dati franšizo naši vrsti. Pozor, Siren. Pravkar se je zbudil velik fant."
+          "text": "Lepo. Ne želijo le vzeti našega planeta; hočejo dati franšizo naši vrsti. Pozor, Siren. Pravkar se je zbudil velik fant."
         },
         {
           "speaker": "AXIOM-7",
@@ -1143,7 +1143,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Če se želi boriti, mu bom dal dostojnega nasprotnika. Narisal bom njegov fokus. SOOČI SE Z MENOJ, BEDNIK!"
+          "text": "Če se želi boriti, mu dam dostojnega nasprotnika. Narisal bom njegov fokus. SOOČI SE Z MENOJ, BEDNIK!"
         },
         {
           "speaker": "Empress Siren",
@@ -1163,7 +1163,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Ronin, skupaj! Končni udarec, zlomite hitinasto plo��čo!"
+          "text": "Ronin, skupaj! Končni udarec, zlomite hitinasto ploščo!"
         },
         {
           "speaker": "Empress Siren",
@@ -1195,13 +1195,13 @@
     "8": {
       "title": "Livarna kovačnica (industrijski sektor)",
       "arc": "act2_arc2",
-      "setting": "Xelthara Thermal Conversion Array v nekdanjem industrijskem pristaniškem okrožju je naredila strupen zrak v polmeru 40 kilometrov, predeluje atmosferske odpadke kot nezemeljsko gorivo, hkrati pa prodaja kisik človeštvu nazaj v odmerjenih kanistrih po enega na družino na dan.",
+      "setting": "Xelthara Thermal Conversion Array v nekdanjem industrijskem pristaniškem okrožju je naredila strupen zrak v radiju 40 kilometrov, pri čemer predeluje atmosferske odpadke kot nezemeljsko gorivo, hkrati pa prodaja kisik človeštvu nazaj v dozirnih kanisterjih po enega na družino na dan.",
       "objective": "Obrnite polarnost niza toplotne pretvorbe, da sprožite kaskadno toplotno implozijo, ki nepovratno uniči livarno in omogoči, da se 40-kilometrsko atmosfersko poškodovano območje začne naravno obnavljati.",
       "solo_monologues": [
         {
           "character": "Aegis Ronin",
           "type": "internal",
-          "text": "Zaračunavajo nam obroke kisika. Našega zraka so naredili nesposobnega za dihanje in zdaj ga prodajajo nazaj v kanistrih – enega na družino na dan, distribucijski žig Xelthara ob strani. Že šest mesecev diham recikliran zrak. Ko bom uničil to livarno, bom prvič po pol leta stal na prostem in dihal. Za to sem tukaj."
+          "text": "Zaračunavajo nam obroke kisika. Našega zraka so naredili nesposobnega za dihanje in zdaj ga prodajajo nazaj v kanistrih – enega na družino na dan, distribucijski žig Xelthara na strani. Že šest mesecev diham recikliran zrak. Ko bom uničil to livarno, bom prvič po pol leta stal na prostem in dihal. Za to sem tukaj."
         },
         {
           "character": "AXIOM-7",
@@ -1317,7 +1317,7 @@
         {
           "character": "Oni Matrix",
           "type": "internal",
-          "text": "V zadrževalnih območjih so ribiške družine, ki niso mogle delati, odkar so vanje vstopili vodi. Izpust slanice je pobil vse, kar je plavalo od obale. Ljudje, ki so generacije hranili svoje skupnosti, zdaj prejemajo obroke Xelthara. Vzeli so jim vir hrane, jim onesnažili vodo, postavili zid med njimi in morjem in temu rekli razvoj. Nocoj jim vrnemo njihov ocean."
+          "text": "V zadrževalnih območjih so ribiške družine, ki niso mogle delati, odkar so vanje prispeli vodi. Izpust slanice je uničil vse, kar je plavalo od obale. Ljudje, ki so generacije hranili svoje skupnosti, zdaj prejemajo obroke Xelthara. Vzeli so jim vir hrane, jim onesnažili vodo, postavili zid med njimi in morjem in temu rekli razvoj. Nocoj jim vrnemo njihov ocean."
         },
         {
           "character": "AXIOM-7",
@@ -1421,7 +1421,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Tudi mene skuša veter odvaditi, Ronin. Ne skrbi, zamašil sem senzorje bližine na sponkah."
+          "text": "Tudi mene skuša veter odvaditi, Ronin. Ne skrbi, zamašil sem senzorje bli��ine na sponkah."
         },
         {
           "speaker": "AXIOM-7",
@@ -1859,7 +1859,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Potem se borimo in umremo častno! Aegis, daj vse, kar ti je ostalo, v zadnji, naprej utrip! Daj mi zagon, da prečkam zadnji del!"
+          "text": "Potem se borimo in umremo častno! Aegis, daj vse, kar ti je ostalo, v končni, naprej utrip! Daj mi zagon, da prečkam zadnji del!"
         },
         {
           "speaker": "Aegis Ronin",
@@ -1897,7 +1897,7 @@
       "title": "Pristop Citadel (Most visokega poveljstva)",
       "arc": "act2_arc3",
       "setting": "Zadnji 400-metrski utrjeni most čez izsušeno reko LA—edini površinski pristop do citadele visokega poveljstva Xelthara, zgrajen nad porušeno skupnostjo Boyle Heights. Xelthara je ta pristop zasnoval tako, da je neprehoden.",
-      "objective": "Porinite se čez 400-metrski most pod stalnim topniškim ognjem, da dosežete vhodna vrata Citadele – neusmiljeno brušenje z uporabo Roninovega ščita in Sireninega brezpilotnega letala.",
+      "objective": "Pod trajnim topniškim ognjem se podajte čez 400-metrski most, da dosežete vhodna vrata Citadele – neusmiljeno brušenje z uporabo Roninovega ščita in Sireninega brezpilotnega letala.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
@@ -2024,12 +2024,12 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Čutim tok čistih podatkov, Shogun. Poskuša na novo napisati moje živčno jedro. Ne spadamo sem. Moramo zagnati ta motor in priti ven."
+          "text": "Čutim tok čistih podatkov, Shogun. Poskuša na novo napisati moje živčno jedro. Ne spadamo sem. Moramo zadeti ta motor in priti ven."
         },
         {
           "speaker": "The Collective Will",
           "type": "vo",
-          "text": "Ste lokalizirana anomalija v velikem dizajnu. Ves obstoj je zamenljiv vir za našo širitev. Vaša domovina je že vključena v našo končno enačbo izbrisa."
+          "text": "Vi ste lokalizirana anomalija v velikem dizajnu. Ves obstoj je zamenljiv vir za našo širitev. Vaša domovina je že vključena v našo končno enačbo izbrisa."
         },
         {
           "speaker": "Aegis Ronin",

@@ -11,21 +11,21 @@
       "description": "Fyrsti hringur miðherferðarinnar beinist alfarið að líkamlegum innviðum aðskilnaðar - veggjum, eftirlitsstöðvum, líffræðilegum tölfræðiskrám og hegðunarskilyrðum sem Xelthara notar til að halda mannfjöldanum brotnum, eftirliti og of áverka til að skipuleggja. Áður en andspyrnan nær að ráðast á efnahagslegt eða pólitískt hjarta hernámsins verða þeir fyrst að tengja einangruð mannleg samfélög hvert við annað."
     },
     "act2_arc2": {
-      "title": "II. GJÖR — 2. BÓG: AÐALDAGRÆÐSLAFRÆÐIN",
+      "title": "II. GJÖR — 2. BÓG: AÐALDAGRÆÐSLA",
       "subtitle": "Stig 8–11: Að skera niður efnahagslega arðsemi landnáms",
       "description": "Þegar aðskilnaðarnetið er rofið og einangruðu íbúarnir tengdir aftur, færist mótspyrnan að efnahagslegum vél hernámsins. Xelthara kom til jarðar fyrir auðlindir - ekki hugmyndafræði. Arc 2 er herferð efnahagslegrar truflunar: Fjögur verkföll í röð gegn vinnslu, vinnslu, flutningum og öryggisinnviðum sem gera hernámið fjárhagslega hagkvæmt."
     },
     "act2_arc3": {
       "title": "II. GÉR — 3. ARC: AÐ taka í sundur STJÓRNSÝSLA FYRIRTÆKJA",
       "subtitle": "Stig 12–14: Þrýsta inn í hjarta nýlendustjórnarríkisins",
-      "description": "Útdráttarvélarnar eru stöðvaðar. Öryggisnetið er dimmt. Aðskilnaðarveggir eru brotnir. Eftir stendur stjórnsýslulegur og pólit��skur arkitektúr hernámsins sjálfs. Arc 3 er pólitískasta röð herferðarinnar: andspyrnin berst ekki lengur við hernámsher. Það er að brjóta niður nýlenduríki, stykki fyrir stykki, utan frá og inn."
+      "description": "Útdráttarvélarnar eru stöðvaðar. Öryggisnetið er dimmt. Aðskilnaðarveggir eru brotnir. Eftir stendur stjórnsýslulegur og pólitískur arkitektúr hernámsins sjálfs. Arc 3 er pólitískasta röð herferðarinnar: andspyrnan berst ekki lengur við hernámsher. Það er að brjóta niður nýlenduríki, stykki fyrir stykki, utan frá og inn."
     }
   },
   "levels": {
     "0": {
       "title": "Protocol Zero - The Virtual Forge",
       "arc": null,
-      "setting": "Stórt, dökkt, vírramma rist eftirlíkingu af hrunnum sjóndeildarhring Los Angeles í miðbænum. Neon bláar línur skilgreina vegi og byggingar. Statískir gallar flökta stöðugt yfir útsýnið. Meistararnir fjórir standa á glóandi palli.",
+      "setting": "Stór, dökk, vírramma rist eftirlíking af molnuðum sjóndeildarhring Los Angeles í miðbænum. Neonbláar línur skilgreina vegi og byggingar. Statískir gallar flökta stöðugt yfir útsýnið. Meistararnir fjórir standa á glóandi palli.",
       "objective": "Ljúktu við þjálfunaraðferðina með því að hjóla í gegnum allar hreyfingar og bardagahæfileika, sem lýkur með samtímis árás liðsins til að eyðileggja herma Xelthara Heavy Unit.",
       "solo_monologues": [],
       "dialogue_status": "pending",
@@ -73,7 +73,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "combat",
-          "text": "Sérhver flís í þessum við er minning sem þú getur ekki eytt! KATA: FORFÆÐRAVERKFALL!"
+          "text": "Sérhver flís í þessum viði er minning sem þú getur ekki eytt! KATA: FORFÆÐRAVERKFALL!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -103,7 +103,7 @@
       ]
     },
     "2": {
-      "title": "Steinsteypuskógareldurinn",
+      "title": "Steinsteypa skógareldurinn",
       "arc": null,
       "setting": "Hið gríðarstóra, hliðaða inntakshlið innilokunarsvæðis 4. Þúsundum fjölskyldna er smalað eins og nautgripum í gegnum orkugirðingar. Fyrir aftan þá eru úthverfisheimili þeirra flatt út af Xelthara stækkunargöngumönnum.",
       "objective": "Haltu „Síðasta brúnni“ gegn Xelthara Enforcers sem hirða íbúana og leyfa síðasta hópi flóttamanna að smeygja sér inn í ókortlögð fátækrahverfi í stað lokuðu búðanna.",
@@ -123,7 +123,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, burðarvirki er 14%. Xelthara Siege Units eru að beita þungum plasmamortélum. Líkur á að þú verðir kremaður eru að ná 99,2%."
+          "text": "Ronin, burðarvirki er 14%. Xelthara umsáturseiningarnar eru að senda þunga plasmamortéler. Líkur á að þú verðir kremaður eru að ná 99,2%."
         },
         {
           "speaker": "Aegis Ronin",
@@ -191,7 +191,7 @@
       "title": "Neon Ryð og Data Dust",
       "arc": null,
       "setting": "Hið bókstaflega „Under-City“—net viðhaldssköfta undir glitrandi, neonlýstri Xelthara-byggð. Hér að ofan njóta hernámsmennirnir terraformed loft; fyrir neðan, jaðarsettu mennirnir leita að ósonmenguðu súrefni.",
-      "objective": "Sæktu orku frá nýlendukerfinu til að knýja lífsbjörgunarkerfi jaðarsettra íbúa á sama tíma og forðast „Purity Patrols“ sem leita að villumönnum.",
+      "objective": "Sæktu orku frá nýlenduretinu til að knýja lífstuðningskerfi jaðarsettra íbúa á sama tíma og forðast „Purity Patrols“ sem leita að villumönnum.",
       "solo_monologues": [
         {
           "character": "Oni Matrix",
@@ -219,7 +219,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Samþætting tókst. Phase-Shift möguleiki er á netinu. Athugið: Stöðug notkun mun valda tauganiðurbroti."
+          "text": "Samþætting tókst. Phase-Shift möguleiki er á netinu. Note: Continuous use will cause neural degradation."
         },
         {
           "speaker": "Oni Matrix",
@@ -244,7 +244,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Þetta var mjög hávær útgangur, Matrix. Ég hef fylgst með undirskriftinni þinni síðan í súrálsframleiðslunni."
+          "text": "Þetta var mjög hávær útgangur, Matrix. I've been watching your signature since the refinery."
         },
         {
           "speaker": "Oni Matrix",
@@ -271,18 +271,18 @@
     "4": {
       "title": "Shattered Aegis of the Void Commander",
       "arc": null,
-      "setting": "Brotnar leifar Kyrrahafsvarnamiðstöðvarinnar. Hin stolta, hefðbundnu herinnviði er endurunnin af Xelthara, sem neyðir Siren til að samræma dreifð net falinna frumna.",
+      "setting": "The shattered remains of the Pacific Defense Hub. Hin stolta, hefðbundnu herinnviði er endurunnin af Xelthara, sem neyðir Siren til að samræma dreifð net falinna frumna.",
       "objective": "Taktu í sundur síðasta uppistandandi útvarpsturn hersins og dreifðu tíðniflísum hans til borgaralegra andspyrnuselja, og kláraðu umskiptin yfir í skæruhernað.",
       "solo_monologues": [
         {
           "character": "Empress Siren",
           "type": "radio",
-          "text": "Öld standandi herja er dauð. Við getum ekki mætt þeim á vellinum, þannig að við verðum völlurinn. Skiptu merkinu. Dreifðu stjórninni. Ef það er ekkert höfuð til að skera af getur viðnámið ekki dáið."
+          "text": "Öld standandi herja er dauð. We cannot meet them on the field, so we will become the field. Skiptu merkinu. Dreifðu stjórninni. If there is no head to cut off, the resistance cannot die."
         },
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Keisaraynja, útsendingin þín er gríðarleg áhætta! Þú ert að afhjúpa staðsetningu þína og tíðnimynstur viðnámsins. Þetta er ekki ákjósanlegt. Vinsamlegast hættið við sendingu."
+          "text": "Keisaraynja, útsendingin þín er gríðarleg áhætta! You are exposing your location and the frequency pattern of the resistance. Þetta er ekki ákjósanlegt. Vinsamlegast hættið við sendingu."
         }
       ],
       "dialogue_status": "scripted",
@@ -290,7 +290,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "AFMIÐJUNARLOG: Skæruliðaumskipti hafin. STAÐSETNING: LAST STAND COMMAND (PACIFIC HUB). STÖÐUMYND: HEÐBÆÐISLEGUR AFLAÐUR Ósigur. ÓSAMVERKKENNING VIRK. FORSTJÓRI: SÍRENA EMPRESS (HÆTTISKÓÐI: Ógildur yfirmaður). SÍÐASTA PÖNNUN: BREYTTU skipunina. VERÐI STORMURINN."
+          "text": "DECENTRALIZATION LOG: GUERRILLA TRANSITION INITIATED. STAÐSETNING: LAST STAND COMMAND (PACIFIC HUB). STÖÐUMYND: HEÐBÆÐISLEGUR AFLAÐUR Ósigur. ÓSAMVERKKENNING VIRK. COMMANDER: EMPRESS SIREN (TACTICAL CODE: VOID COMMANDER). SÍÐASTA PÖNNUN: BREYTTU skipunina. VERÐI STORMURINN."
         },
         {
           "speaker": "Empress Siren",
@@ -300,17 +300,17 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Yfirmaður, flóttaskipin tilkynna um 85% mannfall við sjósetningu. Xelthara bardagamenn eru að forgangsraða þeim sem ekki eru hermenn. Þeir þekkja flóttavektora okkar."
+          "text": "Commander, the escape vessels are reporting 85% casualty rate on launch. Xelthara fighters are prioritizing non-combatants. Þeir þekkja flóttavektora okkar."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Þeir starfa á taktískum gögnum fyrir innrásina. Ég mun breyta gögnunum. AXIOM, læstu miðlægu netsambandinu. Ég er að fara framhjá eldveggjunum handvirkt."
+          "text": "They are operating on pre-invasion tactical data. Ég mun breyta gögnunum. AXIOM, læstu miðlægu netsambandinu. Ég er að fara framhjá eldveggjunum handvirkt."
         },
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Flotinn okkar er farinn. Grunnurinn okkar er ryk. Það eina sem er eftir eru gögnin. Ég hlýt að vera nákvæmur. Skylda herforingja er gagnvart þeim sem lifa, ekki vörn líks."
+          "text": "Flotinn okkar er farinn. Grunnurinn okkar er ryk. Það eina sem er eftir eru gögnin. Ég hlýt að vera nákvæmur. A commander's duty is to the living, not the defense of a corpse."
         },
         {
           "speaker": "Empress Siren",
@@ -325,12 +325,12 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Framkvæmdu pöntunina. Þessi líf eru 12% virði af kerfum mínum. Ég þarf skýra sjónlínu, AXIOM. Samstillir ördróna núna."
+          "text": "Framkvæmdu pöntunina. These lives are worth 12% of my systems. Ég þarf skýra sjónlínu, AXIOM. Samstillir ördróna núna."
         },
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Drone Fleet One, komið á verndarsveimi í kringum rýmingarferjuna. Drone Fleet Two, undirbúa sig fyrir móðgandi tilnefningu. Markmið: Xelthara dálkur 8-B, á leið í aðal borgaralegu göngin."
+          "text": "Drone Fleet One, komið á verndarsveimi í kringum rýmingarferjuna. Drone Fleet Two, undirbúa sig fyrir móðgandi tilnefningu. Markmi��: Xelthara dálkur 8-B, á leið í aðal borgaralegu göngin."
         },
         {
           "speaker": "AXIOM-7",
@@ -340,7 +340,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Bannað skiptir engu máli. Ég mun ekki horfa á þá deyja. AXIOM, gefðu mér handvirkan aðgang að ferilstraumi Kinetic Satellite Platforms. Mig vantar eitt, örvæntingarfullt skot."
+          "text": "Bannað kemur málinu ekkert við. Ég mun ekki horfa á þá deyja. AXIOM, gefðu mér handvirkan aðgang að ferilstraumi Kinetic Satellite Platforms. Mig vantar eitt, örvæntingarfullt skot."
         },
         {
           "speaker": "Empress Siren",
@@ -378,7 +378,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Sector-4 aðskilnaðarnetið er ekki flokkað sem herstöð í stjórnsýsluskrám Xelthara. Það er skráð sem „íbúahagræðing og eftirlitskerfi fyrir umflutningsyfirvöld“. Sú endurflokkun er aðalatriðið. Það er veggur sem lætur hljóma eins og þjónustu."
+          "text": "The Sector-4 Separation Grid is not classified as a military installation in Xelthara administrative records. It is listed as a 'Population Optimization and Transit Authority Control System.' Sú endurflokkun er aðalatriðið. Það er veggur sem lætur hljóma eins og þjónustu."
         }
       ],
       "dialogue_status": "scripted",
@@ -386,7 +386,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "TILLEGNINGARLOG: SECTOR-4 AÐSKILNUNARNET. UPPBYGGINGARGERÐ: NÝLUSTA STJÓRNSTJÓRN. EKKI HER. ÞETTA ER viljandi. HÓTUN: XELTHARA-LANDARMÆRAYFIRVÖLD — AÐFÖLLUN. LÍFFRÆÐI SPÓR: 4 VIRK. LEYFISKJARNI: ONLINE. MARKMIÐ: AÐ taka í sundur STJÓRNSÝSLA ARKIKTÚR AÐSKILDARNAR. OPNA BORGINA."
+          "text": "TILLEGNINGARLOG: SECTOR-4 AÐSKILNUNARNET. STRUCTURE TYPE: COLONIAL ADMINISTRATIVE CHECKPOINT. EKKI HER. ÞETTA ER viljandi. THREAT: XELTHARA BORDER AUTHORITY — ENFORCEMENT DIVISION. LÍFFRÆÐI SPÓR: 4 VIRK. LEYFISKJARNI: ONLINE. MARKMIÐ: AÐ taka í sundur STJÓRNSÝSLA ARKIKTÚR AÐSKILDARNAR. OPNA BORGINA."
         },
         {
           "speaker": "DISPLAY",
@@ -396,22 +396,22 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Uppbyggingin sem þú ert að skoða er tilnefnd í nýlenduskrám sem „Sector-4 íbúahagræðing og eftirlitskerfi með flutningsyfirvöldum“. Það er veggur. Það er aðskilnaðarmúr. Hver einasti maður hérna megin við það þarf Xelthara-útgefið dvalarleyfi til að fara yfir. Leyfin eru ekki gefin út. Umsóknarkerfið er með tveggja ára eftirbátur. Þetta er ekki slys. Þetta er arkitektúr varanlegrar tilfærslu."
+          "text": "Uppbyggingin sem þú ert að skoða er tilnefnd í nýlenduskrám sem „Sector-4 íbúahagræðing og eftirlitskerfi með flutningsyfirvöldum“. Það er veggur. Það er aðskilnaðarmúr. Every single human on this side of it requires a Xelthara-issued Residency Permit to cross. Leyfin eru ekki gefin út. Umsóknarkerfið er með tveggja ára eftirbátur. Þetta er ekki slys. This is the architecture of permanent displacement."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "Ég eyddi átta mánuðum á innilokunarsvæði eins og þessu eftir að þeir tóku San Fernando-dalinn. Átta mánuðir að horfa á krakka minnka við sig vegna þess að kaloríuskammtarnir eru hannaðir fyrir tegund sem borðar ekki það sama og við gerum. Og hinum megin eru þeir að borða matinn okkar. Á veitingastöðum okkar. Í borginni okkar."
+          "text": "I spent eight months in a containment zone like this one after they took the San Fernando Valley. Eight months watching kids get smaller because the caloric rations are designed for a species that doesn't eat the same things we do. Og hinum megin eru þeir að borða matinn okkar. Á veitingastöðum okkar. Í borginni okkar."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "AXIOM, staðfestu fjórar spíra staðsetningar fyrir hópinn."
+          "text": "AXIOM, confirm the four spire locations for the squad."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Alpha er á fyrrum stað Grand Avenue listagangsins. Spire Beta er gróðursett á horni 5. og vor. Spire Gamma er innbyggt í ytri vegg gamla aðalbókasafnsins. Spire Delta festir suðurenda múrsins við ána. Leyfisvinnslukjarni er til húsa í eftirlitsstöðinni á því sem áður var Pershing Square. Allar fjórar spírurnar verða að vera óvirkar áður en hægt er að brjóta kjarnann. Að eyðileggja kjarnann mun hrynja niður alla orkuhimnuna."
+          "text": "Spire Alpha er á fyrrum stað Grand Avenue listagangsins. Spire Beta er gróðursett á horni 5. og vor. Spire Gamma is embedded in the outer wall of the old Central Library. Spire Delta anchors the wall's southern terminus at the river. The Permit Processing Core is housed in the checkpoint station at what was formerly Pershing Square. Allar fjórar spírurnar verða að vera óvirkar áður en hægt er að brjóta kjarnann. Destroying the Core will cascade-collapse the entire energy membrane."
         },
         {
           "speaker": "Oni Matrix",
@@ -431,52 +431,52 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Ekki gera það. Mér líður vel. Ég er starfhæfur. Ég er að segja að spíra sé persónulega mitt að fella niður. Enginn snertir Beta nema ég."
+          "text": "Ekki gera það. I'm fine. I'm operational. I'm saying that spire is personally mine to bring down. Enginn snertir Beta nema ég."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "radio",
-          "text": "Skildi. Það er þitt."
+          "text": "Skildi. It is yours."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Ronin, þú ferð með Spire Alpha á listaganginum. Shogun, Spire Gamma á Aðalbókasafninu. Matrix er með Beta. Ég mun samræma drónabælingu á eftirlitsleiðunum og taka þátt í Shogun við bókasafnsaðflugið. AXIOM mun leiðbeina röðuninni. Allar fjórar spírurnar falla í röð, síðan sameinumst við Pershing Square og tökum kjarnann í sundur bit fyrir bit."
+          "text": "Ronin, you take Spire Alpha on the arts corridor. Shogun, Spire Gamma á Aðalbókasafninu. Matrix has Beta. I will coordinate drone suppression on the patrol routes and join Shogun at the Library approach. AXIOM mun leiðbeina röðuninni. All four spires fall in sequence, then we converge on Pershing Square and take the Core apart piece by piece."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Athugið: Landamæraeftirlitið er þétt en munstrað. Eftirlitsstöðin er mönnuð allan sólarhringinn af Enforcer-Administrator Voss—sem hefur umsjón með líkamlegri yfirferðarheimild. Hann er ekki bardagaforingi. Hann er embættismaður. Hann hefur persónulega hafnað 4.400 umsóknum um yfirferð síðasta mánuðinn."
+          "text": "Note: The Border Authority patrols are dense but patterned. The checkpoint is staffed 24 hours by Enforcer-Administrator Voss—who manages physical crossing authorization. Hann er ekki bardagaforingi. He is a bureaucrat. He has personally rejected 4,400 crossing applications in the past month."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "radio",
-          "text": "4.400. Fólk sem vildi bara labba heim."
+          "text": "4,400. Fólk sem vildi bara labba heim."
         },
         {
           "speaker": "Cyber Shogun",
           "type": "internal",
-          "text": "Grimmilegasta vopn nýlendustefnunnar er ekki hermaðurinn með riffilinn. Það er afgreiðslumaðurinn með stimpilinn sem segir þér að tilvera þín krefst leyfis þeirra. Að mannvera verði að biðja umráðamann um réttinn til að ganga á jörðu forfeðra sinna. Ég hef samið frið við stríðandi hermenn. Að horfast í augu við byggingarlist leyfisins - hina frjálslegu, kerfisbundnu niðurlægingu þess - þetta er það sem þreytir andann á þann hátt sem ekkert blað getur skorið."
+          "text": "The cruelest weapon of colonialism is not the soldier with the rifle. It is the clerk with the stamp who tells you that your existence requires their authorization. That a human being must petition an occupier for the right to walk on the ground of their own ancestors. Ég hef samið frið við stríðandi hermenn. Confronting the architecture of permission—the casual, systematic humiliation of it—this is what wears at the spirit in ways no blade can cut."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Vaktir snúast. Það er 90 sekúndna gluggi á Hope Street aðfluginu sem hefst eftir þrjátíu sekúndur. Farðu á mark mitt."
+          "text": "Patrols are rotating. There is a 90-second window on the Hope Street approach beginning in thirty seconds. Move on my mark."
         },
         {
           "speaker": "AXIOM-7",
           "type": "action_prompt",
-          "text": "Haltu stöðu í skugga þar til AXIOM-7 gefur merki."
+          "text": "Hold position in shadow until AXIOM-7 gives the signal."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mark. Farðu."
+          "text": "Mark. Go."
         },
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Færa. Vertu undir þaki dróna. Þeir hafa hitakortlagningu í sex metra hæð - ekki hoppa."
+          "text": "Move. Vertu undir þaki dróna. They have heat-mapping at six meters elevation—do not jump."
         },
         {
           "speaker": "DISPLAY",
@@ -486,7 +486,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Þeir hönnuðu þetta stuðpúðasvæði þannig að jafnvel að komast nálægt veggnum líður eins og að brjótast inn. Þú ert í lausu lofti. Þú ert sýnilegur. Þú finnur fyrir samviskubiti fyrir að standa við hliðina á því sem áður var almenningsgata. Það er sálfræðin í því. Þeir vilja að okkur líði eins og við eigum ekki heima hér áður en við komum að eftirlitsstöðinni."
+          "text": "They designed this buffer zone so that even getting close to the wall feels like trespassing. You're in the open. You're visible. You feel guilty for standing next to what used to be a public street. Það er sálfræðin í því. They want us to feel like we don't belong here before we even reach the checkpoint."
         },
         {
           "speaker": "Aegis Ronin",
@@ -556,7 +556,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "Hún lagði inn umsókn um akstursleyfi fjörutíu og sjö dögum eftir að múrinn fór upp. Hún fyllti út eyðublöðin. Í þríriti. Vegna þess að hún trúði á ferli. Hún trúði því að ef þú gerðir hlutina rétt myndi einhver hlusta. Hún fékk aldrei svar. Hún lést á innilokunarsvæðinu tveimur mánuðum síðar. Fylgikvillar næringarskorts. Þau áttu uppáhaldsmatvöruverslunina hennar hinum megin við vegginn. Hún lagði inn eyðublað til að fara að kaupa mat."
+          "text": "Hún lagði inn umsókn um akstursleyfi fjörutíu og sjö dögum eftir að múrinn fór upp. Hún fyllti út eyðublöðin. Í þríriti. Vegna þess að hún trúði �� ferli. Hún trúði því að ef þú gerðir hlutina rétt myndi einhver hlusta. Hún fékk aldrei svar. Hún lést á innilokunarsvæðinu tveimur mánuðum síðar. Fylgikvillar næringarskorts. Þau áttu uppáhaldsmatvöruverslunina hennar hinum megin við vegginn. Hún lagði inn eyðublað til að fara að kaupa mat."
         },
         {
           "speaker": "Oni Matrix",
@@ -631,7 +631,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Shogun, ég þarf að hreinsa þá hratt og rólega fyrir næstu eftirlitsferð. Geturðu tekið þrjá frá vinstri á meðan drónar mínar bæla niður hægri hliðina?"
+          "text": "Shogun, ég þarf að hreinsa þá hratt og rólega fyrir næstu eftirlitsferð. Geturðu tekið þrjá frá vinstri á meðan drónarnir mínir bæla niður hægri hliðina?"
         },
         {
           "speaker": "Cyber Shogun",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Ég sagði tólf fjölskyldum hvernig ætti að skipuleggja samfélagsvaktina í þessu herbergi. Það voru baunapokastólar í barnadeildinni. Einhver hafði límt teikningar með tússlitum við afgreiðsluborðið. Krakki teiknaði mynd af ofurhetju. Munurinn á bókasafni og gagnaveri er sá að bókasafn gerir ráð fyrir að fólkið sem gengur inn um dyrnar eigi rétt á að vera þar."
+          "text": "Ég sagði tólf fjölskyldum hvernig ætti að skipuleggja samfélagsvaktina í þessu herbergi. Í barnadeildinni voru baunpokastólar. Einhver hafði límt teikningar með tússlitum við afgreiðsluborðið. Krakki teiknaði mynd af ofurhetju. Munurinn á bókasafni og gagnaveri er sá að bókasafn gerir ráð fyrir að fólkið sem gengur inn um dyrnar eigi rétt á að vera þar."
         },
         {
           "speaker": "Empress Siren",
@@ -686,7 +686,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spires Alpha, Beta og Gamma offline. Heilleiki orkuhimnu: 25%. Spire Delta við ána er síðasta akkerið. Öll lið mætast eftir fall Delta. Síðan: Pershing Square. Leyfiskjarninn."
+          "text": "Spires Alpha, Beta og Gamma offline. Heilleiki orkuhimnu: 25%. Spire Delta við ána er síðasta akkerið. Öll lið ná saman eftir fall Delta. Síðan: Pershing Square. Leyfiskjarninn."
         },
         {
           "speaker": "DISPLAY",
@@ -891,7 +891,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Staðfest. Allar þrjár inntakstölvurnar eru grunnaðar. Samtímis heimild mun framkvæma minnisþurrkuna og gera endurreisnarsamskiptareglur Core varanlega óvirkar. Á merki þitt, keisaraynja."
+          "text": "Staðfest. Allar þrjár inntakstölvurnar eru grunnaðar. Samtímis heimild mun framkvæma minnisþurrkunina og gera endurreisnarsamskiptareglur Core varanlega óvirkar. Á merki þitt, keisaraynja."
         },
         {
           "speaker": "Empress Siren",
@@ -906,7 +906,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Leyfa vinnslukjarna: án nettengingar. Varanleg endurreisnaraðferð: óvirk. Ekki er hægt að endurbyggja vegginn frá þessum hnút. Allar umsóknarskrár sem bíða: hreinsaðar. Allar afneitunarskrár: hreinsaðar. Innviði til takmörkunar á þverun fyrir Sector-4 er... farinn."
+          "text": "Leyfa vinnslukjarna: án nettengingar. Varanleg endurreisnaraðferð: óvirk. Ekki er hægt að endurbyggja vegginn frá þessum hnút. Allar umsóknarskrár sem bíða: hreinsaðar. Öll afneitun: hreinsuð. Innviði til takmörkunar á þverun fyrir Sector-4 er... farinn."
         },
         {
           "speaker": "Aegis Ronin",
@@ -969,7 +969,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Úthlutunarkerfið fyrir nauðungarvinnu inni í Spírunni notar ekki orðið „þvingað“. Það notar setninguna „Samfélagsaðlögunarframlagsáætlun“. Vinnuverkefnin eru ekki samningar - þau eru mynduð með reiknirit byggt á skráðri kunnáttu hins flótta einstaklings og gefin út án samþykkis. Þetta er skrifræðismál þrælahaldsins."
+          "text": "Nauðungarvinnuúthlutunarkerfið inni í Spírunni notar ekki orðið „þvingað“. Það notar setninguna „Samfélagsaðlögunarframlagsáætlun“. Vinnuverkefnin eru ekki samningar - þau eru mynduð með reiknirit byggt á skráðri kunnáttu hins flótta einstaklings og gefin út án samþykkis. Þetta er skrifræðismál þrælahaldsins."
         }
       ],
       "dialogue_status": "scripted",
@@ -1103,7 +1103,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Drónar, skannaðu eintakið! Það er tegund A Bio-Hybrid. Taktu eftir óvarnum kjarna. Shogun, nákvæmt högg á rafmagnsleiðsluna í óvarnum brjóstholi þess."
+          "text": "Drónar, skannaðu eintakið! Þetta er Bio-Hybrid af gerð A. Taktu eftir óvarnum kjarna. Shogun, nákvæmt högg á rafmagnsleiðsluna í óvarnum brjóstholi þess."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1138,7 +1138,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ronin, farðu aftur! Varnir hans eru hreyfihamlandi. Matrix, skannaðu hreyfimynstur hans fyrir seinkun á taugasamstillingu. Shogun, þú verður að búa til truflun!"
+          "text": "Ronin, farðu aftur! Varnir hans eru hreyfihamlandi. Matrix, skannaðu hreyfimynstur hans fyrir taugasamstillingu seinkun. Shogun, þú verður að búa til truflun!"
         },
         {
           "speaker": "Cyber Shogun",
@@ -1148,7 +1148,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Greiningu lokið. Líffræðilegir þættir umsjónarmannsins krefjast stöðugrar endurnýjunar taugamerkis frá lífvinnsluvélinni. Matrix, smelltu á stjórnborðið með markvissu EMP—skurðaðgerð, truflaðu samstillinguna!"
+          "text": "Greiningu lokið. Líffræðilegir þættir umsjónarmannsins krefjast stöðugrar endurnýjunar taugamerkis frá lífvinnsluforritinu. Matrix, smelltu á stjórnborðið með markvissu EMP—skurðaðgerð, truflaðu samstillinguna!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1168,7 +1168,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Gögn niðurhal 100%. Við höfum það sem við komum fyrir. Við skulum komast út áður en allur geirinn áttar sig á gæludýraskrímslinu þeirra er dáið."
+          "text": "Gögn niðurhal 100%. Við höfum það sem við komum fyrir. Við skulum komast út áður en allur geirinn áttar sig á gæludýraskrímsliðinu þeirra er dáið."
         },
         {
           "speaker": "AXIOM-7",
@@ -1195,13 +1195,13 @@
     "8": {
       "title": "The Foundry Forge (iðnaðargeirinn)",
       "arc": "act2_arc2",
-      "setting": "The Xelthara Thermal Conversion Array í fyrrum iðnaðarhafnarhverfinu hefur gert loftið eitrað í 40 kílómetra radíus, meðhöndlað andrúmsloftsúrgang sem eldsneyti utan heimsins á sama tíma og súrefni mannkyns er selt til baka í skömmtuðum brúsum fyrir einn á fjölskyldu á dag.",
+      "setting": "The Xelthara Thermal Conversion Array í fyrrum iðnaðarhafnarhverfinu hefur gert loftið eitrað í 40 kílómetra radíus, meðhöndlað andrúmsloftsúrgang sem eldsneyti utan heimsins á sama tíma og súrefni mannkyns er selt til baka í skömmtuðum dósum á einn á fjölskyldu á dag.",
       "objective": "Snúið við pólun hitabreytingarflokksins til að koma af stað hitauppstreymi sem eyðileggur steypuna óafturkræft og gerir 40 kílómetra loftskemmdasvæðinu kleift að hefja náttúrulega endurnýjun.",
       "solo_monologues": [
         {
           "character": "Aegis Ronin",
           "type": "internal",
-          "text": "Þeir eru að rukka okkur súrefnisskammta. Þeir gerðu loftið okkar óöndunarlaust og nú eru þeir að selja það aftur í dósum — einn á fjölskyldu á dag, Xelthara dreifingarstimpill á hliðinni. Ég hef andað að mér endurunnu dósalofti í sex mánuði. Þegar ég eyðilegg þessa steypu, ætla ég að standa undir berum himni og anda í fyrsta skipti í hálft ár. Til þess er ég hér."
+          "text": "Þeir eru að rukka okkur súrefnisskammta. Þeir gerðu loftið okkar óöndunarlaust og nú eru þeir að selja það aftur í dósum — einn á fjölskyldu á dag, Xelthara dreifingarstimpill á hliðinni. Ég hef andað að mér endurunnu loftdós í sex mánuði. Þegar ég eyðilegg þessa steypu, ætla ég að standa undir berum himni og anda í fyrsta skipti í hálft ár. Til þess er ég hér."
         },
         {
           "character": "AXIOM-7",
@@ -1638,7 +1638,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Nexus er varið. Bein árás er ómöguleg. Við verðum að hefja stjórnað ofhleðslu. Það eru þrjár aðal kælistangir. Þeir verða að draga út samtímis, annars verður kerfið sjálfkrafa stöðugt."
+          "text": "Nexus er varið. Bein árás er ómöguleg. Við verðum að hefja stjórnað ofhleðslu. Það eru þrjár aðal k��listangir. Þeir verða að draga út samtímis, annars verður kerfið sjálfkrafa stöðugt."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1648,7 +1648,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Afrita. En aðalstöðin er afhjúpuð. Keisaraynja, þú munt ekki geta hafið röðina ef það tekur plasma springa."
+          "text": "Afrita. En aðalflugstöðin er afhjúpuð. Keisaraynja, þú munt ekki geta hafið röðina ef það tekur plasma springa."
         },
         {
           "speaker": "Empress Siren",
@@ -1663,7 +1663,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Ofhleðslu röð hafin. Það krefst tafarlausrar streitu í röð. Stangarliðir, búðu þig undir útdrátt."
+          "text": "Ofhleðsluröð hafin. Það krefst tafarlausrar streitu í röð. Stangarliðir, búðu þig undir útdrátt."
         },
         {
           "speaker": "Oni Matrix",
@@ -1693,7 +1693,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Kjarnahiti hækkar! Hrikalegu ofhleðslu náð! Keisaraynja, þú hefur 30 sekúndur til að læsa röðinni og draga út!"
+          "text": "Kjarnahiti hækkar! Hrikalegu ofhleðsla náð! Keisaraynja, þú hefur 30 sekúndur til að læsa röðinni og draga út!"
         },
         {
           "speaker": "Empress Siren",
@@ -1814,7 +1814,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "radio",
-          "text": "Að kasta stafrænum hávaða í aðalbyssuljóstæknina! Það mun ekki endast lengi! ÁFRAM!"
+          "text": "Að kasta stafrænum hávaða í aðalsjónaukann! Það mun ekki endast lengi! ÁFRAM!"
         },
         {
           "speaker": "AXIOM-7",
@@ -1994,7 +1994,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Verkefni tókst. Sjálfvirk ytri upplýsingaöflunaraðgerðareining... skráir sig út. Gangi þér vel, hetjur."
+          "text": "Verkefni tókst. Sjálfvirk ytri upplýsingaöflunareining... skráir sig út. Gangi þér vel, hetjur."
         },
         {
           "speaker": "DISPLAY",
@@ -2019,7 +2019,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Xelthara yfirumsjónarmaður var aðeins peð. Þetta vald... þetta er uppspretta hernámsins. Sameiginlega viljinn."
+          "text": "Xelthara yfirumsjónarmaður var aðeins peð. Þetta vald... þetta er uppspretta hernámsins. Sameiginlegur vilji."
         },
         {
           "speaker": "Oni Matrix",
@@ -2089,7 +2089,7 @@
         {
           "speaker": "Empress Siren",
           "type": "combat",
-          "text": "Orbital verkfall tilbúið! Ég er að sleppa öllu sem við höfum á þessum kjarna!"
+          "text": "Orbital strike tilbúið! Ég er að sleppa öllu sem við höfum á þessum kjarna!"
         },
         {
           "speaker": "Cyber Shogun",

@@ -511,7 +511,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Ronin, penambat menara ialah kunci kinetik magnetik yang direka untuk menahan sehingga 8,000 newton daya langsung. Caj Lebihan Kinetik anda, yang dipegang selama tiga kiraan penuh, akan melebihi ambang tersebut. Anda juga mesti melumpuhkan dua unit Biometrik Sentinel di pangkalan spire terlebih dahulu—ia akan mengesan tandatangan biometrik anda sebaik sahaja anda melangkah ke dalam julat."
+          "text": "Ronin, penambat menara ialah kunci kinetik magnetik yang direka untuk menahan sehingga 8,000 newton daya langsung. Caj Lebihan Kinetik anda, yang dipegang selama tiga kiraan penuh, akan melebihi ambang tersebut. Anda juga mesti melumpuhkan kedua-dua unit Biometrik Sentinel di pangkalan spire terlebih dahulu—ia akan mengesan tandatangan biometrik anda sebaik sahaja anda melangkah ke julat."
         },
         {
           "speaker": "Aegis Ronin",
@@ -776,7 +776,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Lihatlah mereka. Mereka menyentuh turapan di seberang tempat dinding itu kelihatan seperti mungkin tidak nyata. Seperti ia mungkin satu helah."
+          "text": "Lihatlah mereka. Mereka menyentuh turapan di seberang tempat dinding itu kelihatan seperti tidak nyata. Seperti ia mungkin satu helah."
         },
         {
           "speaker": "Cyber Shogun",
@@ -896,7 +896,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Pentadbir Voss. Setiap permit yang anda tolak—setiap keluarga yang anda pisahkan—setiap orang yang berdiri dalam baris gilir anda berharap jika mereka mengisi borang dengan betul, anda mungkin melayan mereka seperti manusia. Ini adalah keputusan pentadbiran terakhir yang dibuat oleh sistem ini."
+          "text": "Pentadbir Voss. Setiap permit yang anda nafikan—setiap keluarga yang anda pisahkan—setiap orang yang berdiri dalam baris gilir anda berharap jika mereka mengisi borang dengan betul, anda mungkin melayan mereka seperti manusia. Ini adalah keputusan pentadbiran terakhir yang dibuat oleh sistem ini."
         },
         {
           "speaker": "Empress Siren",
@@ -941,7 +941,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Tidak. Rasanya ada lagi yang perlu dilakukan. Itulah cara anda tahu ia adalah sebenar."
+          "text": "Tidak. Rasanya ada lagi yang perlu dilakukan. Itulah bagaimana anda tahu ia adalah sebenar."
         },
         {
           "speaker": "AXIOM-7",
@@ -1375,7 +1375,7 @@
         {
           "speaker": "DISPLAY",
           "type": "mission_complete",
-          "text": "MISI SELESAI: HANTU MEMBERSIHKAN LALUAN. AQUANAUT ABYSS TERSARI."
+          "text": "MISI SELESAI: HANTU MEMBERSIHKAN LALUAN. AQUANAUT ABYSS DAIR."
         }
       ]
     },
@@ -1416,7 +1416,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Menutup belakang! Angin di sini cuba menarik saya keluar dari platform!"
+          "text": "Menutup bahagian belakang! Angin di sini cuba menarik saya keluar dari platform!"
         },
         {
           "speaker": "Oni Matrix",
@@ -1746,7 +1746,7 @@
         {
           "character": "Cyber Shogun",
           "type": "internal",
-          "text": "Kehormatan seorang pahlawan ditentukan oleh apa yang dia melindungi seperti apa yang dia musnahkan. Malam ini, saya melindungi sesuatu. Rekod di dalam peti besi ini adalah bukti bahawa kita wujud di sini sebelum mereka tiba-bahawa kita mempunyai nama untuk tanah ini, dibina di atasnya, dikebumikan di dalamnya, menceritakan kisah tentangnya selama berabad-abad. Jika mereka memadamkan bukti itu, mereka boleh menulis apa-apa sejarah yang mereka mahu. Saya tidak akan membiarkan itu berlaku."
+          "text": "Kehormatan seorang pahlawan ditentukan oleh apa yang dia lindungi seperti apa yang dia musnahkan. Malam ini, saya melindungi sesuatu. Rekod di dalam peti besi ini adalah bukti bahawa kita wujud di sini sebelum mereka tiba-bahawa kita mempunyai nama untuk tanah ini, dibina di atasnya, dikebumikan di dalamnya, menceritakan kisah tentangnya selama berabad-abad. Jika mereka memadamkan bukti itu, mereka boleh menulis apa-apa sejarah yang mereka mahu. Saya tidak akan membiarkan itu berlaku."
         },
         {
           "character": "AXIOM-7",
@@ -2104,7 +2104,7 @@
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Saya tidak tahu... tetapi Mothership sudah tiada. Wasiat diam."
+          "text": "Saya tidak tahu ... tetapi Mothership telah hilang. Wasiat diam."
         },
         {
           "speaker": "Empress Siren",

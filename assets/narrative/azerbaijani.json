@@ -11,14 +11,14 @@
       "description": "Kampaniyanın ortasındakı birinci qövs tamamilə ayrılığın fiziki infrastrukturuna - divarlar, nəzarət məntəqələri, biometrik qeydlər və Xelthara-nın insan əhalisini qırıq, nəzarət altında saxlamaq və təşkil etmək üçün çox travmatik saxlamaq üçün istifadə etdiyi davranış kondisioner proqramlarına diqqət yetirir. Müqavimət işğalın iqtisadi və ya siyasi ürəyinə zərbə vurmazdan əvvəl, ilk növbədə təcrid olunmuş insan icmalarını bir-biri ilə birləşdirməlidir."
     },
     "act2_arc2": {
-      "title": "HƏRƏKƏT II — QQS 2: RESURSLARIN REALAMASI CƏBHƏSİ",
+      "title": "ACT II — QQS 2: RESURSLARIN REALAMASI CƏBBƏSİ",
       "subtitle": "Səviyyə 8-11: Kolonizasiyanın İqtisadi Gəlirliliyinin Kəsilməsi",
       "description": "Seqreqasiya Şəbəkəsinin qırılması və təcrid olunmuş populyasiyaların yenidən birləşdirilməsi ilə müqavimət işğalın iqtisadi mühərrikinə keçir. Xelthara Yerə ideologiya üçün deyil, resurslar üçün gəldi. Arc 2 iqtisadi pozulma kampaniyasıdır: işğalı maliyyə cəhətdən əlverişli edən hasilat, emal, nəqliyyat və təhlükəsizlik infrastrukturuna qarşı ardıcıl dörd zərbə."
     },
     "act2_arc3": {
       "title": "ACT II — ARC 3: KORPORATİV İDARƏETMƏNİN SÖNDÜLMƏSİ",
       "subtitle": "Səviyyə 12-14: Müstəmləkə İnzibati Dövlətinin Qəlbinə İtilmə",
-      "description": "Çıxarma mühərrikləri dayandırılıb. Təhlükəsizlik şəbəkəsi qaranlıqdır. Seqreqasiya divarları qırılıb. Qalan işğalın özünün inzibati və siyasi arxitekturasıdır. Qövs 3 kampaniyanın ən siyasi ardıcıllığıdır: müqavimət artıq işğalçı ordu ilə vuruşmur. O, bir müstəmləkə dövlətini xaricdən içəri parça-parça sökür."
+      "description": "Çıxarma mühərrikləri dayandırılıb. Təhlükəsizlik şəbəkəsi qaranlıqdır. Ayrılıq divarları qırılıb. Qalan işğalın özünün inzibati və siyasi arxitekturasıdır. Qövs 3 kampaniyanın ən siyasi ardıcıllığıdır: müqavimət artıq işğalçı ordu ilə vuruşmur. O, bir müstəmləkə dövlətini xaricdən içəri parça-parça sökür."
     }
   },
   "levels": {
@@ -93,7 +93,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Xelthara bizim tariximizi keçmiş zamanda yazmaq istəyir. Bu gün onu plazma ilə yazıram. Bu dojo düşür, amma müqavimət yüksəlir."
+          "text": "Xelthara bizim tariximizi keçmiş zamanda yazmaq istəyir. Bu gün onu plazma ilə yazıram. Bu dojo düşür, amma m��qavimət yüksəlir."
         },
         {
           "speaker": "DISPLAY",
@@ -138,7 +138,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Mühasirə Bölmələri bağlandı. Onlar dəstək s��tunlarını hədəfləyirlər. Əgər onlar atəş açsalar, bütün Sektor 4 divarı evakuasiya zonasına düşür."
+          "text": "Mühasirə Bölmələri bağlandı. Onlar dəstək sütunlarını hədəfləyirlər. Əgər onlar atəş açsalar, bütün Sektor 4 divarı evakuasiya zonasına düşür."
         },
         {
           "speaker": "Aegis Ronin",
@@ -188,9 +188,9 @@
       ]
     },
     "3": {
-      "title": "Neon Pas və Məlumat Tozu",
+      "title": "Neon Pas və M��lumat Tozu",
       "arc": null,
-      "setting": "Sözün əsl mənasında “Şəhər Altı” - parıldayan, neon işıqlı Xelthara qəsəbəsinin altındakı texniki xidmət şaftları şəbəkəsidir. Yuxarıda, işğalçılar terraformasiya edilmiş havadan həzz alırlar; aşağıda, marjinal insanlar ozonla çirklənmiş oksigeni təmizləyirlər.",
+      "setting": "Sözün əsl mənasında \"Şəhər Altı\" - parıldayan, neon işıqlı Xelthara qəsəbəsinin altındakı texniki xidmət valları şəbəkəsidir. Yuxarıda, işğalçılar terraformasiya edilmiş havadan həzz alırlar; aşağıda, marjinal insanlar ozonla çirklənmiş oksigeni təmizləyirlər.",
       "objective": "Müstəmləkə şəbəkəsindən enerjini sifonla təcrid olunmuş əhalinin həyati dəstək sistemlərini gücləndirir, eyni zamanda 'Saflıq Patrulları'ndan qaçan insan ovundan qaçır.",
       "solo_monologues": [
         {
@@ -244,7 +244,7 @@
         {
           "speaker": "Unknown Voice",
           "type": "radio",
-          "text": "Bu, çox yüksək bir çıxış idi, Matrix. Zavoddan bəri imzanıza baxıram."
+          "text": "Bu, çox yüksək səsli bir çıxış idi, Matrix. Zavoddan bəri imzanıza baxıram."
         },
         {
           "speaker": "Oni Matrix",
@@ -282,7 +282,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "İmperator, yayımınız böyük riskdir! Siz yerinizi v�� müqavimətin tezliyini ifşa edirsiniz. Bu optimal deyil. Zəhmət olmasa ötürülməni dayandırın."
+          "text": "İmperator, yayımınız böyük riskdir! Siz yerinizi və müqavimətin tezliyini ifşa edirsiniz. Bu optimal deyil. Zəhmət olmasa ötürülməni dayandırın."
         }
       ],
       "dialogue_status": "scripted",
@@ -290,7 +290,7 @@
         {
           "speaker": "DISPLAY",
           "type": "title_card",
-          "text": "MƏRKƏZLƏRİYYƏLƏŞDİRİLMƏ KAYNAĞI: PARTİZAN KEÇİDİ BAŞLADI. YER: SON STAND ƏMƏLİYYAT (PASİF HUB). STATUS: KONVENSİYONAL QÜVVƏ MƏLUM OLDU. ASİMMETRİK DOKTRİNA AKTİVDİR. Komandir: İmperator siren (taktiki kodu: ETKİN KOMANDER). SON SİFARİŞ: KOMANDANI PARÇALAR. FIRTINA OLUN."
+          "text": "MƏRKƏZLƏRİYYƏLƏŞDİRİLMƏ KAYNAĞI: PARTİZAN KEÇİDİ BAŞLADI. YER: SON DAYANMA KOMANDASI ​​(PASİF HUB). STATUS: KONVENSİYONAL QÜVVƏ MƏLUM OLDU. ASİMMETRİK DOKTRİNA AKTİVDİR. Komandir: İmperator siren (taktiki kodu: ETKİN KOMANDER). SON SİFARİŞ: KOMANDANI PARÇALAR. FIRTINA OLUN."
         },
         {
           "speaker": "Empress Siren",
@@ -411,7 +411,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Alpha Grand Avenue incəsənət dəhlizinin keçmiş yerindədir. Spire Beta 5-ci və Bahar küncündə əkilir. Spire Gamma köhnə Mərkəzi Kitabxananın xarici divarında quraşdırılmışdır. Spire Delta divarın cənub ucunu çayda lövbərləyir. İcazə Emalı Əsası keçmiş Perşinq Meydanı olan keçid məntəqəsində yerləşir. Nüvəni pozmazdan əvvəl bütün dörd qüllə söndürülməlidir. Nüvənin məhv edilməsi bütün enerji membranını dağıdacaq."
+          "text": "Spire Alpha Grand Avenue incəsənət dəhlizinin keçmiş yerindədir. Spire Beta 5-ci və Bahar küncündə əkilir. Spire Gamma köhnə Mərkəzi Kitabxananın xarici divarında quraşdırılmışdır. Spire Delta divarın cənub ucunu çayda lövbərləyir. İcazə Emalı Əsası keçmiş Perşinq Meydanı olan keçid məntəqəsində yerləşir. Nüvəni pozmazdan əvvəl bütün dörd qüllə söndürülməlidir. Nüvənin məhv edilməsi bütün enerji membranını çaxnaşmaya gətirib çıxaracaq."
         },
         {
           "speaker": "Oni Matrix",
@@ -476,7 +476,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Hərəkət edin. Dronun əhatə dairəsi tavanının altında qalın. Altı metr yüksəklikdə istilik xərit��si var - tullanmayın."
+          "text": "Hərəkət edin. Dronun əhatə dairəsi tavanının altında qalın. Altı metr yüksəklikdə istilik xəritəsi var - tullanmayın."
         },
         {
           "speaker": "DISPLAY",
@@ -556,7 +556,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "internal",
-          "text": "O, divar qalxdıqdan qırx yeddi gün sonra keçid üçün icazə ərizəsi verdi. O, formaları doldurdu. Üç nüsxədə. Çünki prosesə inanırdı. O, hər şeyi düzgün etsəniz, kimsə qulaq asacağına inanırdı. O, heç vaxt cavab ala bilməyib. O, iki ay sonra mühafizə zonasında öldü. Qidalanmanın ağırlaşmaları. Divarın o biri tərəfində onun sevimli ərzaq dükanı var idi. O, yemək almaq üçün ərizə doldurdu."
+          "text": "O, divar qalxdıqdan qırx yeddi gün sonra keçid üçün icazə ərizəsi verdi. O, formaları doldurdu. Üç nüsxədə. Çünki prosesə inanırdı. O, hər şeyi düzgün etsəniz, kimsə qulaq asacağına inanırdı. O, heç vaxt cavab ala bilməyib. O, iki ay sonra mühafizə zonasında öldü. Qidalanmanın ağırlaşmaları. Divarın o biri tərəfində onun sevimli ərzaq dükanı var idi. O, yemək almaq üçün ərizə verdi."
         },
         {
           "speaker": "Oni Matrix",
@@ -656,7 +656,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Spire Gamma kitabxananın daxili şəbəkəsindən enerji çəkir. Fövqəladə enerji marşrutunu işə salmadan şpili söndürmək üçün əvvəlcə binanın daxili şəbəkə bağlantısını kəsməlisiniz. Empress Siren, şəbəkə qovşağı üçüncü mərtəbədədir."
+          "text": "Spire Gamma kitabxananın daxili şəbəkəsindən enerji çəkir. Fövqəladə enerji marşrutunu işə salmadan şpili söndürmək üçün əvvəlcə binanın daxilindəki daxili şəbəkə bağlantısını kəsməlisiniz. Empress Siren, şəbəkə qovşağı üçüncü mərtəbədədir."
         },
         {
           "speaker": "Empress Siren",
@@ -666,7 +666,7 @@
         {
           "speaker": "Empress Siren",
           "type": "internal",
-          "text": "Mən on iki ailəyə bu otaqda icma növbələrinin necə təşkil olunacağını söylədim. Uşaq bölməsində lobya stulları var idi. Kimsə istinad masasına karandaşla rəsmlər yapışdırmışdı. Bir uşaq super qəhrəmanın şəklini çəkdi. Kitabxana ilə məlumat mərkəzi arasındakı fərq, kitabxananın qapıdan keçən insanların orada olmaq hüququna sahib olmasıdır."
+          "text": "Mən on iki ailəyə bu otaqda icma növbələrinin necə təşkil olunacağını söylədim. Uşaq bölməsində lobya stulları var idi. Kimsə istinad masasına karandaşla rəsmləri yapışdırmışdı. Bir uşaq super qəhrəmanın şəklini çəkdi. Kitabxana ilə məlumat mərkəzi arasındakı fərq, kitabxananın qapıdan keçən insanların orada olmaq hüququna sahib olmasıdır."
         },
         {
           "speaker": "Empress Siren",
@@ -851,12 +851,12 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Avtorizasiya ardıcıllığı sizdən inkar kodunu tərsinə daxil etməyi tələb edir. Sistemdəki hər bir müraciəti inzibati olaraq rədd edirsiniz. Bu yaddaşın silinməsinə səbəb olacaq."
+          "text": "Avtorizasiya ardıcıllığı sizdən inkar kodunu tərsinə daxil etməyi tələb edir. Sistemdəki hər bir müraciəti inzibati olaraq rədd edirsiniz. This will trigger the memory wipe."
         },
         {
           "speaker": "Aegis Ronin",
           "type": "internal",
-          "text": "...4400 rədd cavabı. Sayğac elə burada oturur. Son bir ayda 4400 müraciət rədd edilib. adlar var. adları görə bilirəm."
+          "text": "...4400 rədd cavabı. The counter is sitting right here. 4,400 denied applications in the last month. adlar var. adları görə bilirəm."
         },
         {
           "speaker": "Empress Siren",
@@ -871,7 +871,7 @@
         {
           "speaker": "Voss",
           "type": "spoken",
-          "text": "Siz Core-i ləğv edə bilməzsiniz. Bu sistem bu sektorun qanuni inzibati qaydasını qoruyur. Bunsuz əhalinin strukturlaşdırılmış idarə edilməsi, səlahiyyətli tranzit yoxdur—"
+          "text": "You cannot override the Core. Bu sistem bu sektorun qanuni inzibati qaydasını qoruyur. Bunsuz əhalinin strukturlaşdırılmış idarə edilməsi, səlahiyyətli tranzit yoxdur—"
         },
         {
           "speaker": "Cyber Shogun",
@@ -881,17 +881,17 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "İkinci Konsol: hazırdır. Nənəm ərzaq almağa getmək üçün icazə verdi. İnzibati qaydadan danışmaq istəyirsiniz?"
+          "text": "İkinci Konsol: hazırdır. Nənəm ərzaq almağa getmək üçün icazə verdi. You want to talk about administrative order?"
         },
         {
           "speaker": "Aegis Ronin",
           "type": "spoken",
-          "text": "Konsol Üçüncü: hazırdır. 4400 ad. Onların hər biri sadəcə evə getmək istəyən insanlardır. Bu divar bundan qorunurdu."
+          "text": "Konsol Üçüncü: hazırdır. 4400 ad. Onların hər biri sadəcə evə getmək istəyən insanlardır. That's what this wall was protecting against."
         },
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Təsdiq edildi. Hər üç giriş konsolu hazırlanıb. Eyni vaxtda avtorizasiya yaddaşın silinməsini həyata keçirəcək və Core-un bərpa protokolunu həmişəlik qeyri-aktiv edəcək. Sizin nişanənizlə, İmperator."
+          "text": "Təsdiq edildi. All three input consoles are primed. Eyni vaxtda avtorizasiya yaddaşın silinməsini həyata keçirəcək və Core-un bərpa protokolunu həmişəlik qeyri-aktiv edəcək. Sizin nişanənizlə, İmperator."
         },
         {
           "speaker": "Empress Siren",
@@ -906,7 +906,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "İcazə Emalı Əsası: oflayn. Daimi bərpa protokolu: əlil. Bu qovşaqdan divarı bərpa etmək mümkün deyil. Bütün gözlənilən tətbiq qeydləri: təmizləndi. Bütün inkar qeydləri: təmizləndi. Sektor-4 üçün keçidin məhdudlaşdırılması infrastrukturu... getdi."
+          "text": "Permit Processing Core: offline. Permanent restoration protocol: disabled. The wall cannot be rebuilt from this node. All pending application records: purged. All denial records: purged. Sektor-4 üçün keçidin məhdudlaşdırılması infrastrukturu... getdi."
         },
         {
           "speaker": "Aegis Ronin",
@@ -926,7 +926,7 @@
         {
           "speaker": "Oni Matrix",
           "type": "spoken",
-          "text": "Yaxşı. Yaxşı."
+          "text": "yaxşı. yaxşı."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1052,7 +1052,7 @@
         {
           "speaker": "Empress Siren",
           "type": "spoken",
-          "text": "Yaxşı. Qoy bizi qovsunlar. Onlar sadəcə olaraq bütün döyüş planlarını itirdilər."
+          "text": "yaxşı. Qoy bizi qovsunlar. Onlar sadəcə olaraq bütün döyüş planlarını itirdilər."
         },
         {
           "speaker": "DISPLAY",
@@ -1075,7 +1075,7 @@
         {
           "character": "AXIOM-7",
           "type": "vo",
-          "text": "Mövzu fayllarına müqavimət şəbəkəsi verilənlər bazası ilə çarpaz istinad edərək, mən bu qurğu vasitəsilə işlənmiş və sonradan buraxılmış on yeddi təsdiqlənmiş HLF icma təşkilatçısını müəyyən etdim. Onlara nə edildiyini bilmirlər. Mərk��zi Neyron Uplinkinin məhv edilməsi onları bərpa edə bilər. Uğurlu muxtariyyətin bərpası üçün 73% ehtimalı hesablayıram. Mən... Mən bu nəticəyə sərmayə qoyduğumu görürəm."
+          "text": "Mövzu fayllarına müqavimət şəbəkəsi verilənlər bazası ilə çarpaz istinad edərək, mən bu qurğu vasitəsilə işlənmiş və sonradan buraxılmış on yeddi təsdiqlənmiş HLF icma təşkilatçısını müəyyən etdim. Onlara nə edildiyini bilmirlər. Mərkəzi Sinir Uplinkinin məhv edilməsi onları bərpa edə bilər. Uğurlu muxtariyyətin bərpası üçün 73% ehtimalı hesablayıram. Mən... Mən bu nəticəyə sərmayə qoyduğumu görürəm."
         }
       ],
       "dialogue_status": "scripted",
@@ -1219,7 +1219,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Həmin dayaqlarda ağır seysmik amortizatorlar aşkar edirəm. Birbaşa enerji yanğını işləməyəcək. Ronin, bu sənin ixtisasındır. Kinetik qüvvə tələb olunur."
+          "text": "Həmin dayaqlarda ağır seysmik amortizatorları aşkar edirəm. Birbaşa enerji yanğını işləməyəcək. Ronin, bu sənin ixtisasındır. Kinetik qüvvə tələb olunur."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1330,7 +1330,7 @@
         {
           "speaker": "AXIOM-7",
           "type": "vo",
-          "text": "Bu şəbəkə onların müstəmləkə sənaye gücünün əsas mənbəyidir. Biz müstəmləkə tədarük xətlərini kəsmək üçün iqtisadi təxribat üçün buradayıq. Su sifon şəbəkələrini sındırsaq, sektorun iqtisadiyyatını çökdürürük. Matrix, drenaj nəzarətləri sualtı lazer şəbəkəsinin arxasında yerləşir."
+          "text": "Bu şəbəkə onların müstəmləkə sənaye gücünün əsas mənbəyidir. Biz müstəmləkə tədarük xətlərini kəsmək üçün iqtisadi təxribat üçün buradayıq. Su sifon şəbəkələrini sındırsaq, sektorun iqtisadiyyatını çökdürürük. Matrix, drenaj nəzarətləri sualtı lazer şəb��kəsinin arxasında yerləşir."
         },
         {
           "speaker": "Aegis Ronin",
@@ -1638,7 +1638,7 @@
         {
           "speaker": "Empress Siren",
           "type": "radio",
-          "text": "Nexus qorunur. Birbaşa hücum mümkün deyil. Nəzarət olunan həddindən artıq yüklənməyə başlamalıyıq. Üç əsas soyuducu çubuq var. Onlar eyni vaxtda çıxarılmalıdır, əks halda sistem avtomatik stabilləşəcək."
+          "text": "Nexus qorunur. Birbaşa hücum mümkün deyil. Nəzarət olunan həddindən artıq yüklənməyə başlamalıyıq. Üç əsas soyutma çubuğu var. Onlar eyni vaxtda çıxarılmalıdır, əks halda sistem avtomatik stabilləşəcək."
         },
         {
           "speaker": "Cyber Shogun",
@@ -1934,7 +1934,7 @@
         {
           "speaker": "Cyber Shogun",
           "type": "spoken",
-          "text": "Mən əcdadlarımın bıçağıyam, susdurmağa çalışdığın dünyanın s��siyəm. Siz bizə həşərat deyirsiniz, amma Yer haqqında bir şeyi unutmusunuz: biz sadəcə dözmürük. Biz geri zərbə vururuq."
+          "text": "Mən əcdadlarımın bıçağıyam, susdurmağa çalışdığın dünyanın səsiyəm. Siz bizə həşərat deyirsiniz, amma Yer haqqında bir şeyi unutmusunuz: biz sadəcə dözmürük. Biz geri zərbə vururuq."
         },
         {
           "speaker": "High Overseer",

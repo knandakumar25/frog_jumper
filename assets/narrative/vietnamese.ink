@@ -26,7 +26,7 @@ Khi Lưới phân cách bị phá vỡ và các quần thể bị cô lập đư
 
 === act_act2_arc3 ===
 # kind: act # key: act2_arc3 # title: HÀNH II - PHẦN 3: BỎ QUA QUẢN TRỊ DOANH NGHIỆP # subtitle: Cấp độ 12–14: Đi sâu vào trung tâm Nhà nước hành chính thuộc địa
-Các động cơ khai thác bị dừng lại. Lưới an ninh tối. Những bức tường ngăn cách bị nứt. Những gì còn lại là cơ cấu hành chính và chính trị của chính sự chiếm đóng. Phần 3 là trình tự trực tiếp về mặt chính trị nhất của chiến dịch: cuộc kháng chiến không còn chiến đấu với quân đội chiếm đóng nữa. Nó đang phá hủy một nhà nước thuộc địa, từng phần một, từ ngoài vào trong.
+Các động cơ khai thác bị dừng lại. Lưới an ninh tối. Những bức tường ngăn cách bị nứt. Những gì còn lại là cơ cấu hành chính và chính trị của chính sự chiếm đóng. Phần 3 là trình tự trực ti���p về mặt chính trị nhất của chiến dịch: cuộc kháng chiến không còn chiến đấu với quân đội chiếm đóng nữa. Nó đang phá hủy một nhà nước thuộc địa, từng phần một, từ ngoài vào trong.
 
 -> END
 
@@ -115,7 +115,7 @@ SỨ MỆNH HOÀN THÀNH: KÝ ỨC VĨ ĐẠI. CUỘC THANH TRA ĐÃ BỊ GIÁN 
 Cổng vào khổng lồ, có cổng của Khu Quản thúc 4. Hàng nghìn gia đình đang bị chăn dắt như đàn gia súc qua hàng rào năng lượng. Phía sau họ, những ngôi nhà ở ngoại ô của họ đang bị san phẳng bởi xe tập đi mở rộng Xelthara.
 
 # kind: objective
-Giữ 'Cây cầu cuối cùng' chống lại những người thực thi Xelthara đang chăn dắt dân cư, cho phép nhóm người tị nạn cuối cùng lẻn vào các khu ổ chuột chưa được lập bản đồ thay vì các trại có cổng kiểm soát.
+Giữ 'Cây cầu cuối cùng' chống lại những người thực thi Xelthara đang chăn dắt dân số, cho phép nhóm người tị nạn cuối cùng lẻn vào các khu ổ chuột chưa được lập bản đồ thay vì các trại có cổng kiểm soát.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 NHẬT KÝ DI CHUYỂN: GIAO THỨC TÁI ĐỊNH CƯ KHU VỰC 4. HẬU VỆ: AEGIS RONIN (TRẠNG THÁI KHUNG XE: QUAN TRỌNG). MỨC ĐỘ Đe dọa: OMEGA. SỐ NGƯỜI TỊ NẠN: 412. NHIỆM VỤ HIỆN TẠI: BẢO VỆ NGƯỜI TỊ NẠN. BẢO VỆ NGƯỠNG.
@@ -157,7 +157,7 @@ Tỷ lệ cược tốt hơn tôi có trong các trại ngăn chặn. Đây là 
 VÌ TỔ QUỐC! ĂN BÊ TÔNG!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Ronin? Aegis Ronin, trả lời... T��i có... đang nhìn thấy chữ ký... Chiếc khiên được giữ. Bức tường được an toàn.
+Ronin? Aegis Ronin, trả lời... Tôi có... đang nhìn thấy chữ ký... Chiếc khiên được giữ. Bức tường được an toàn.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 NHIỆM VỤ HOÀN THÀNH: BỨC TƯỜNG KHÔNG THỂ PHÁ VỠ. AEGIS RONIN THAM GIA HLF.
@@ -171,13 +171,13 @@ NHIỆM VỤ HOÀN THÀNH: BỨC TƯỜNG KHÔNG THỂ PHÁ VỠ. AEGIS RONIN TH
 'Dưới thành phố' theo nghĩa đen—một mạng lưới các trục bảo trì bên dưới khu định cư Xelthara lấp lánh ánh đèn neon. Ở trên, những người cư ngụ tận hưởng không khí địa hình; bên dưới, những người bị thiệt thòi đang tìm kiếm oxy bị ô nhiễm ozone.
 
 # kind: objective
-Hút năng lượng từ lưới điện thuộc địa để cung cấp năng lượng cho hệ thống hỗ trợ cuộc sống của những người dân bị thiệt thòi, đồng thời trốn tránh cuộc săn lùng con người đi lạc của 'Đội tuần tra thuần khiết'.
+Hút năng lượng từ lưới điện thuộc địa để cung cấp năng lượng cho hệ thống hỗ trợ cuộc sống của những người dân bị thiệt thòi, đồng thời trốn tránh cuộc săn lùng con người lạc lối của 'Đội tuần tra thuần khiết'.
 
 # kind: solo_monologue # character: Oni Matrix # type: internal
 Họ xây dựng thiên đường của họ trên trần nhà của chúng tôi và thắc mắc tại sao tầng hầm lại bị dột. Chúng ta đang sống trong những khoảng trống mà họ quên lát. Pin năng lượng này không chỉ dành cho tôi; đó là để bật máy sưởi cho hàng trăm gia đình mà họ 'bỏ quên' trong bản thiết kế.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Cảnh báo: Không nên tích hợp phần cứng Xelthara vào khung gầm dân dụng. Phản hồi thần kinh được dự đoán ở m��c không ổn định 40%. Matrix, nhịp tim của bạn đang vượt quá giới hạn an toàn.
+Cảnh báo: Không nên tích hợp phần cứng Xelthara vào khung gầm dân sự. Phản hồi thần kinh được dự đoán ở mức không ổn định 40%. Matrix, nhịp tim của bạn đang vượt quá giới hạn an toàn.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 LOG BÊN NGOÀI: THỊ TRẤN PHẾ LIỆU CẤP CẤP. TÌNH TRẠNG: SỐNG. CẢNH BÁO XÂM NHẬP: KHÔNG PHÁT HIỆN. ĐỘ TIN CẬY CỦA HỆ THỐNG: 100%. MỤC TIÊU: KIẾM TAY LẠI THUỘC ĐẠO. TIẾP TỤC SỨC KHỎE.
@@ -201,7 +201,7 @@ Một vụ nổ EMP sẽ làm được điều đó. Hãy cho họ một ít d�
 Và đó là gợi ý của tôi.
 
 # kind: dialogue # speaker: Unknown Voice # type: radio
-Đó là một lối thoát rất ồn ào, Matrix. Tôi đã xem ch�� ký của bạn kể từ khi ở nhà máy lọc dầu.
+Đó là một lối thoát rất ồn ào, Matrix. Tôi đã xem chữ ký của bạn kể từ khi ở nhà máy lọc dầu.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Đây là ai? Bạn thấy kênh này thế nào?
@@ -230,7 +230,7 @@ Phá bỏ tháp phát sóng quân sự còn tồn tại cuối cùng và phân p
 Thời đại của quân đội thường trực đã chết. Chúng ta không thể gặp họ trên sân nên chúng ta sẽ trở thành sân đấu. Chia tín hiệu. Phân cấp lệnh. Nếu không có đầu để chặt thì sự phản kháng không thể chết được.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Hoàng hậu, việc phát sóng của người là một rủi ro lớn! Bạn đang phơi bày vị trí của mình và dạng tần số của điện trở. Đi���u này không tối ưu. Hãy hủy bỏ việc truyền tải.
+Hoàng hậu, việc phát sóng của người là một rủi ro lớn! Bạn đang phơi bày vị trí của mình và dạng tần số của điện trở. Điều này không tối ưu. Hãy hủy bỏ việc truyền tải.
 
 # kind: dialogue # speaker: DISPLAY # type: title_card
 NHẬT KÝ PHI TẬP TRUNG: BẮT ĐẦU CHUYỂN GIAO DU LỊCH. VỊ TRÍ: LAST STAND COMMAND (PACIFIC HUB). TÌNH TRẠNG: LỰC LƯỢNG THÔNG THƯỜNG BỊ ĐÁNH BẠI. HỌC LẬP BẤT ĐỐI XƯỢNG HOẠT ĐỘNG. Chỉ huy: Còi báo động hoàng hậu (Mã chiến thuật: chỉ huy vô hiệu). LỆNH CUỐI CÙNG: BỎ LỆNH. TRỞ THÀNH CƠN BÃO.
@@ -248,7 +248,7 @@ Họ đang hoạt động dựa trên dữ liệu chiến thuật trước cuộ
 Hạm đội của chúng tôi đã biến mất. Căn cứ của chúng tôi là bụi. Tất cả những gì còn lại là dữ liệu. Tôi phải chính xác. Nhiệm vụ của người chỉ huy là bảo vệ người sống chứ không phải bảo vệ một xác chết.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Đã tải thông số mới. Bây giờ đến phần khó khăn. AXIOM, chuyển nguồn điện từ thiết bị hỗ trợ sự sống phụ trợ của tôi sang mảng đồng bộ hóa máy bay không người lái.
+Đã tải thông số mới. Bây giờ là phần khó khăn. AXIOM, chuyển nguồn điện từ thiết bị hỗ trợ sự sống phụ trợ của tôi sang mảng đồng bộ hóa máy bay không người lái.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Chỉ huy, điều đó sẽ làm giảm lượng dự trữ khung gầm của anh xuống 12%. Nguy cơ lỗi hệ thống rất cao. Tôi khuyên bạn nên chống lại điều này.
@@ -263,7 +263,7 @@ Hạm đội Máy bay Không người lái Một, thiết lập một đội b�
 Cột nằm ngay bên dưới một khu vực bị hạn chế. Việc bắn phá quỹ đạo bị cấm do nền tảng vệ tinh động học không ổn định.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Bị cấm là không liên quan. Tôi sẽ không nhìn họ chết. AXIOM, cấp cho tôi quyền truy cập ghi đè thủ công vào nguồn cấp d��� liệu quỹ đạo của Nền tảng Vệ tinh Kinetic. Tôi cần một phát bắn liều mạng duy nhất.
+Bị cấm là không liên quan. Tôi sẽ không nhìn họ chết. AXIOM, cấp cho tôi quyền truy cập ghi đè thủ công vào nguồn cấp dữ liệu quỹ đạo của Nền tảng Vệ tinh Kinetic. Tôi cần một phát bắn liều mạng duy nhất.
 
 # kind: dialogue # speaker: Empress Siren # type: combat
 Lệnh vô hiệu đối với nền tảng động học—CHÁY. Tọa độ 51.4883 N, 120.7301 W. GIAO THỨC XÓA.
@@ -272,7 +272,7 @@ Lệnh vô hiệu đối với nền tảng động học—CHÁY. Tọa độ 5
 Thiệt hại hệ thống áp đảo! Vệ tinh đã mất tín hiệu. Chỉ huy, bạn phải rút lui. Khu vực này đang bão hòa với bức xạ năng lượng cao.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Việc rút lui đã được xác nhận. Mục tiêu nhiệm vụ—sự sống còn của dân thường—đã đạt được. Họ đã chiếm được bầu trời của chúng ta nhưng họ sẽ không bao giờ lấy được quyết tâm của chúng ta. Đang giải nén ngay bây giờ.
+Việc rút lui đã được xác nhận. Mục tiêu nhiệm vụ—sự sống còn của dân thường—đã đạt được. Họ đã chiếm được bầu trời của chúng ta nhưng họ sẽ không bao giờ lấy được quyết tâm của chúng ta. Đang trích xuất bây giờ.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 NHIỆM VỤ HOÀN THÀNH: VOID COMMANDER. EMPRESS SIREN THAM GIA HLF.
@@ -310,7 +310,7 @@ Tôi đã trải qua tám tháng trong khu vực ngăn chặn như khu vực nà
 AXIOM, xác nhận bốn vị trí ngọn tháp cho đội.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Alpha nằm ở vị trí cũ của hành lang nghệ thuật Grand Avenue. Spire Beta được trồng ở góc đường số 5 và mùa xuân. Spire Gamma được gắn vào bức tường bên ngoài của Thư viện Trung tâm cũ. Spire Delta neo bến cuối phía nam của bức tường ở sông. Lõi xử lý giấy phép được đặt trong trạm kiểm soát tại nơi trước đây là Quảng trường Pershing. Tất cả bốn ngọn tháp phải bị vô hiệu hóa trước khi Lõi có thể bị xuyên thủng. Việc phá hủy Lõi sẽ làm sập toàn bộ màng năng lượng theo tầng.
+Spire Alpha nằm ở vị trí cũ của hành lang nghệ thuật Grand Avenue. Spire Beta được trồng ở góc đường số 5 và mùa xuân. Spire Gamma được gắn vào bức tường bên ngoài của Thư viện Trung tâm cũ. Spire Delta neo bến cuối phía nam của bức tường ở sông. Lõi xử lý giấy phép được đặt trong trạm kiểm soát tại nơi trước đây là Quảng trường Pershing. Tất cả bốn ngọn tháp phải bị vô hiệu hóa trước khi Lõi có thể bị xuyên thủng. Việc phá hủy Lõi sẽ làm sập toàn bộ m��ng năng lượng theo tầng.
 
 # kind: dialogue # speaker: Oni Matrix # type: radio
 Thứ 5 và mùa xuân.
@@ -463,7 +463,7 @@ Spire Gamma đang lấy điện từ lưới điện nội bộ của thư việ
 Tầng ba. Tất nhiên rồi. Hãy dẫn đường, AXIOM.
 
 # kind: dialogue # speaker: Empress Siren # type: internal
-Tôi đã nói với mười hai gia đình cách tổ chức luân phiên canh gác cộng đồng trong căn phòng này. Có những chiếc ghế lười ở khu vực dành cho trẻ em. Ai đó đã dán những bức vẽ bằng bút màu lên bàn tham khảo. Một đứa trẻ vẽ một bức tranh về một siêu anh hùng. Sự khác biệt giữa thư viện và trung tâm dữ liệu là thư viện coi những người bước qua cửa đều có quyền ở đó.
+Tôi đã nói với 12 gia đình cách tổ chức luân phiên canh gác cộng đồng trong căn phòng này. Có những chiếc ghế lười ở khu vực dành cho trẻ em. Ai đó đã dán những bức vẽ bằng bút màu lên bàn tham khảo. Một đứa trẻ vẽ một bức tranh về một siêu anh hùng. Sự khác biệt giữa thư viện và trung tâm dữ liệu là thư viện coi những người bước qua cửa đều có quyền ở đó.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Lưới điện nằm ở vị trí giao nhau. Cắt đứt nguồn cấp năng lượng Spire Gamma. Điều này cũng sẽ xóa sạch mọi dữ liệu đăng ký tài sản thuộc địa mà họ đã lưu trữ ở đây.
@@ -481,7 +481,7 @@ Spiers Alpha, Beta và Gamma ngoại tuyến. Tính toàn vẹn của màng năn
 GIAI ĐOẠN 2-C: ĐỒNG BẰNG SPIRE — TRÒ CHUYỆN PHÍA NAM TẠI SÔNG
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Spire Delta là mỏ neo chịu lực của bức tường. Nó được canh giữ bởi Chỉ huy Biên giới Vyss — người đã ra lệnh điện khí hóa dòng sông sau khi ba gia đình cố gắng vượt qua vùng nước trong tuần đầu tiên của bức tường. Vyss không ra lệnh giam giữ họ. Vyss ra lệnh điện khí hóa nước.
+Spire Delta là mỏ neo chịu lực của bức tường. Nó được canh giữ bởi Chỉ huy Biên giới Vyss — người đã ra lệnh điện khí hóa dòng sông sau khi ba gia đình cố gắng vượt qua vùng nước trong tuần đầu tiên của bức tường. Vyss không ra lệnh giam gi��� họ. Vyss ra lệnh điện khí hóa nước.
 
 # kind: dialogue # speaker: Aegis Ronin # type: radio
 Anh ta đã điện hóa dòng sông. Bởi vì các gia đình đang cố gắng vượt qua.
@@ -493,7 +493,7 @@ Anh ta đã điện hóa dòng sông. Bởi vì các gia đình đang cố gắn
 Đúng. Phải. Sau ngọn tháp. Sau bức tường. Tôi sẽ không quên.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
-Đây không phải là một cách tiếp cận lén lút. Delta là một vị trí kiên cố. Chúng tôi đánh nó như một đơn vị. Ronin—bạn giữ điểm, che chắn về phía trước, thu hút sự chú ý của họ và hấp thụ cú vô lê ban đầu của họ. Tướng quân, dọn sạch cánh trái. Ma trận, sử dụng Phase-Shift để tiếp cận bảng điều khiển tháp pháo ở phía ngoài cùng bên phải và tiêu diệt cả ba tháp pháo cùng lúc. Sau khi các tháp pháo đã chết, tôi cho máy bay không người lái bắn bão hòa vào đội thực thi. Chúng tôi đánh sập đồn trú, sau đó Ronin đặt ngọn tháp xuống đất.
+Đây không phải là một cách tiếp cận lén lút. Delta là một vị trí kiên cố. Chúng tôi đánh nó như một đơn vị. Ronin—bạn giữ điểm, che chắn về phía trước, thu hút sự chú ý của họ và hấp thụ cú vô lê ban đầu của họ. Tướng quân, dọn sạch cánh trái. Ma trận, sử dụng Phase-Shift để tiếp cận bảng điều khiển tháp pháo ở ngoài cùng bên phải và tiêu diệt cả ba tháp pháo cùng lúc. Sau khi các tháp pháo đã chết, tôi cho máy bay không người lái bắn bão hòa vào đội thực thi. Chúng tôi đánh sập đồn trú, sau đó Ronin đặt ngọn tháp xuống đất.
 
 # kind: dialogue # speaker: Aegis Ronin # type: combat
 LÊN LÊN. Hãy để họ ném mọi thứ vào tôi. Tôi là cửa trước.
@@ -508,7 +508,7 @@ SHADO-FORCE KATA! Còi báo động—con đường của bạn đang rộng m�
 Bóng ma bên phải. Ngốc nghếch. Đã đạt được quyền kiểm soát tháp pháo. Giết cả ba. EMP PULSE—PHÁT TRIỂN ĐẦY ĐỦ!
 
 # kind: dialogue # speaker: Empress Siren # type: combat
-Hạm đội Drone, đàn áp hoàn toàn. Ưu ti��n đội hình—phá vỡ hàng ngũ của họ. NGỌN LỬA.
+Hạm đội Drone, đàn áp hoàn toàn. Ưu tiên đội hình—phá vỡ hàng ngũ của họ. NGỌN LỬA.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Chỉ huy Vyss đang rút lui vào trạm chỉ huy phía sau ngọn tháp. Anh ta đang phát tín hiệu cấp cứu. Thời gian đáp ứng: tám phút.
@@ -532,7 +532,7 @@ GIAI ĐOẠN 3: PERSHING SQUARE — LÕI XỬ LÝ GIẤY PHÉP
 Hãy nhìn họ. Họ đang chạm vào vỉa hè phía bên kia nơi có bức tường như thể nó không có thật. Giống như đó có thể là một trò lừa.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Bởi vì trong hai năm, hy vọng đã là cơ chế của sự thất vọng. Họ đã học được cách không tin vào những cánh cửa mở.
+Bởi vì trong hai năm, hy vọng đã là cơ chế dẫn đến thất vọng. Họ đã học được cách không tin vào những cánh cửa mở.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 ...Đáng lẽ chúng ta nên làm điều này sớm hơn.
@@ -556,7 +556,7 @@ Tôi biết. Chúng ta phải lấy Core trước. AXIOM, kiến ​​trúc c�
 Lỗ hổng duy nhất của Lõi xử lý giấy phép là ba Bảng điều khiển cấp phép đầu vào được bố trí xung quanh đế của nó. Mỗi bảng điều khiển phải được truy cập và thực hiện ghi đè quản trị đồng thời. Nó đòi hỏi ba toán tử cùng một lúc.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Ba bảng điều khiển. Ba người chúng tôi. Matrix, Shogun, Ronin���mỗi người cầm một bảng điều khiển. Tôi sẽ quản lý vòng phòng thủ của Voss bằng việc trấn áp máy bay không người lái.
+Ba bảng điều khiển. Ba người chúng tôi. Matrix, Shogun, Ronin—mỗi người cầm một bảng điều khiển. Tôi sẽ quản lý vòng phòng thủ của Voss bằng việc trấn áp máy bay không người lái.
 
 # kind: dialogue # speaker: Voss # type: spoken
 Truy cập trái phép vào bảng điều khiển quản trị là vi phạm Loại-C. Hồ sơ tuân thủ của bạn sẽ bị chú thích bất lợi.
@@ -592,7 +592,7 @@ Bạn không thể ghi đè Core. Hệ thống này duy trì trật tự hành c
 Cái mà bạn gọi là 'quản lý dân số có cấu trúc', chúng tôi gọi là quyền đi bộ về nhà. Bảng điều khiển Một: sẵn sàng.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Bảng điều khiển thứ hai: sẵn sàng. Bà tôi đã nộp giấy phép đi mua đồ tạp hóa. Bạn muốn nói về trật tự hành ch��nh?
+Bảng điều khiển thứ hai: sẵn sàng. Bà tôi đã nộp giấy phép đi mua đồ tạp hóa. Bạn muốn nói về trật tự hành chính?
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Bảng điều khiển thứ ba: sẵn sàng. 4.400 cái tên. Mỗi người trong số họ là một người chỉ muốn về nhà. Đó là thứ mà bức tường này đang bảo vệ.
@@ -607,13 +607,13 @@ Quản trị viên Voss. Mọi giấy phép mà bạn từ chối - mọi gia đ
 Đánh dấu.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Lõi xử lý giấy phép: ngoại tuyến. Giao thức khôi phục vĩnh viễn: bị vô hiệu hóa. Bức tường không thể được xây dựng lại từ nút này. Tất cả các hồ sơ ứng dụng đang chờ xử lý: đã bị xóa. Tất cả hồ sơ từ chối: đã bị xóa. Cơ sở hạ tầng hạn chế qua lại cho Khu-4 đã... không còn nữa.
+Lõi xử lý giấy phép: ngoại tuyến. Giao thức khôi phục vĩnh viễn: bị vô hiệu hóa. Bức tường không thể được xây dựng lại từ nút này. Tất cả các hồ sơ ứng dụng đang chờ xử lý: đã bị xóa. Tất cả hồ sơ từ chối: đã bị xóa. Cơ sở hạ tầng hạn chế qua l��i cho Khu-4 đã... không còn nữa.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 4.400 đơn đăng ký. Và lẽ ra không ai trong số họ phải hỏi.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-TAXIOM. Bạn có thể cho tôi biết liệu tòa nhà của bà tôi có đủ an toàn về mặt kết cấu để có người ở không? Tôi muốn biết liệu ai đó có thể quay trở lại không.
+TAXIOM. Bạn có thể cho tôi biết tòa nhà của bà tôi có kết cấu đủ an toàn để ở không? Tôi muốn biết liệu ai đó có thể quay trở lại không.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Chạy quét cấu trúc. Tầng một đến tầng bốn còn nguyên vẹn. Nền tảng là âm thanh. Đường cấp nước bị hỏng nhưng có thể sửa chữa được. Đúng. Ai đó có thể chuyển vào lại.
@@ -625,7 +625,7 @@ Tốt. Tốt.
 Bức tường đã biến mất rồi, Matrix. Nhưng những gì chúng ta làm bây giờ – cách chúng ta xây dựng lại những gì bức tường đã chia cắt – mới là công việc khó khăn hơn. Và nó bắt đầu vào tối nay.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Đây là cảm giác chiến thắng sao? Bởi vì nó không giống như tôi mong đợi.
+Đây chính là cảm giác chiến thắng sao? Bởi vì nó không giống như tôi mong đợi.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Không. Có vẻ như còn nhiều việc phải làm. Đó là cách bạn biết nó là thật.
@@ -657,7 +657,7 @@ Hệ thống phân bổ lao động cưỡng bức bên trong Spire không sử 
 Phân tích hoàn tất. Các kế hoạch mở rộng thuộc địa và dữ liệu hậu cần của người định cư được lưu trữ ở cột trung tâm đó. Matrix, bạn có năm phút để thực hiện tải xuống trước khi hệ thống phòng thủ nội bộ của họ khởi động lại.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Năm phút? Miếng bánh. Nhưng tôi cần quyền truy cập rõ ràng. Tướng quân, ngài có thể cắt rốn chính được không?
+Năm phút? Miếng bánh. Nhưng tôi cần quyền truy cập rõ ràng. Tướng quân, ngài có thể cắt rốn chính đ��ợc không?
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Coi như xong. Tạo đường dẫn tạm thời tới bảng điều khiển ngay bây giờ. Hãy chú ý các góc độ, Hoàng hậu. Việc cắt giảm này sẽ cảnh báo mọi máy bay không người lái trong lĩnh vực này.
@@ -856,7 +856,7 @@ Máy bay không người lái ở tốc độ tối đa! Chúng tôi đang tăng
 Đó là cách các bạn đóng cửa một nhà máy, các bạn! Bùm!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Mục tiêu nhiệm vụ hoàn thành. Sản lượng công nghiệp Xelthara trong lĩnh vực này đã giảm xuống b���ng không. Chúng tôi đánh vào chỗ đau của chúng.
+Mục tiêu nhiệm vụ hoàn thành. Sản lượng công nghiệp Xelthara trong lĩnh vực này đã giảm xuống bằng không. Chúng tôi đánh vào chỗ đau của chúng.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
 SỨ MỆNH HOÀN THÀNH: Tàn phá công nghiệp. LÒ THUYỀN FOUNDRY LÀ TUYỆT VỜI.
@@ -876,16 +876,16 @@ Xác định vị trí và phá hủy ba Trung tâm ống dẫn nước biển s
 Có những gia đình ngư dân trong khu vực ngăn chặn đã không thể làm việc kể từ khi ống dẫn đi vào. Nước muối xả đã giết chết mọi thứ trong phạm vi bơi được vào bờ. Những người đã nuôi sống cộng đồng của họ qua nhiều thế hệ hiện đang sử dụng các gói khẩu phần Xelthara. Họ lấy đi nguồn thức ăn, làm ô nhiễm nguồn nước, dựng một bức tường ngăn cách họ với biển và gọi đó là sự phát triển. Tối nay chúng ta sẽ trả lại đại dương cho họ.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
-Mô hình hóa dòng thời gian phục hồi đại dương sau sự phá hủy ống dẫn: phục hồi một phần hệ sinh thái trong 18 tháng, bình thường hóa hoàn toàn độ pH trong 6 đến 8 năm. Nhiệm vụ này không khắc phục được thiệt hại ngay lập tức. Tôi muốn bạn hiểu điều đó. Những gì nó làm là ngăn chặn thiệt hại trở thành vĩnh viễn. Một số vết thương vẫn có thể lành nếu chúng ta ngừng mở chúng ra.
+Lập mô hình dòng thời gian phục hồi đại dương sau sự phá hủy ống dẫn: phục hồi một phần hệ sinh thái trong 18 tháng, bình thường hóa hoàn toàn độ pH trong 6 đến 8 năm. Nhiệm vụ này không khắc phục được thiệt hại ngay lập tức. Tôi muốn bạn hiểu điều đó. Những gì nó làm là ngăn chặn thiệt hại trở thành vĩnh viễn. Một số vết thương vẫn có thể lành nếu chúng ta ngừng mở chúng ra.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Lưới điện này là nguồn chính của sức mạnh công nghiệp thuộc địa của họ. Chúng tôi đến đây để phá hoại kinh tế nhằm cắt đứt đường tiếp tế của thuộc địa. Nếu chúng ta phá vỡ mạng lưới hút nước, chúng ta sẽ làm sụp đổ nền kinh tế của ngành. Matrix, bộ điều khiển thoát nước được đặt phía sau lưới laser dưới nước.
+Lưới điện này là nguồn chính của sức mạnh công nghiệp thuộc địa của họ. Chúng tôi đến đây để phá hoại kinh tế nhằm cắt đứt đường tiếp tế của thuộc địa. Nếu chúng ta phá vỡ mạng lưới hút nước, chúng ta sẽ làm sụp đổ nền kinh tế của ngành. Matrix, bộ điều khiển thoát n��ớc được đặt phía sau lưới laser dưới nước.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
 Tuyệt vời. Một cấp độ mà tôi thậm chí không thể chạm vào sàn nhà. Tôi cảm thấy mình giống như một con mèo trong bồn tắm.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
-Đứng vững trên bục, Ronin. Máy bay không người lái đang quét dòng điện. Matrix, bạn sẽ phải dịch pha qua các chùm tia đó. Nếu tần số của bạn giảm dù chỉ một phần nghìn giây, mạng lưới sẽ đốt cháy liên kết thần kinh của bạn.
+Đứng vững trên bục, Ronin. Máy bay không người lái đang quét dòng điện. Matrix, bạn sẽ phải dịch pha qua các chùm tia đ��. Nếu tần số của bạn giảm dù chỉ một phần nghìn giây, mạng lưới sẽ đốt cháy liên kết thần kinh của bạn.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
 Chiên thần kinh là sở thích yêu thích thứ ba của tôi. Thư giãn đi, Siren. Tôi đang đi ma.
@@ -906,7 +906,7 @@ Cuộc thanh trừng bắt đầu! Hãy cẩn thận đôi chân của bạn, n�
 Và đó là cách bạn rút phích cắm.
 
 # kind: dialogue # speaker: DISPLAY # type: mission_complete
-NHIỆM VỤ HOÀN THÀNH: CON GHOST DẪN ĐƯỜNG. THỦY VỰC THỦY SẢN RÚT NƯỚC.
+NHIỆM VỤ HOÀN THÀNH: CON GHOST DẪN ĐƯỜNG. THỦY VỰC THỦY SẢN VỊT NƯỚC.
 
 -> END
 
@@ -926,7 +926,7 @@ Trước cuộc xâm lược, tôi chỉ huy các hoạt động hậu cần hà
 Bản kê khai hàng hóa của T-14 liệt kê 4.200 tấn hợp chất sắt và silicat tinh chế—vật liệu được khai thác lộ thiên từ nơi mà cơ quan đăng ký Xelthara ghi là 'Khu Khảo sát Địa chất Khai hoang 7'. Tên gọi trước cuộc xâm lược của khu vực này là Dãy núi San Gabriel. Tôi đang ghi lại mục kê khai này làm bằng chứng về việc chiếm giữ thuộc địa mang tính khai thác cho cơ sở dữ liệu khai hoang.
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
-Chào mừng đến với Bến tàu Stratos. Đây là trung tâm xuất khẩu chính, nơi họ đang cướp hàng hóa thuộc địa và vận chuyển tài nguyên Trái đất đã được tinh chế ra ngoài thế giới. Việc chiếm đoạt phương tiện vận tải này sẽ cắt đứt các đường tiếp tế của thuộc địa và tài trợ cho cuộc kháng chiến.
+Chào mừng đến với Bến tàu Stratos. Đây là trung tâm xuất khẩu chính, nơi họ đang cướp hàng hóa thuộc địa và vận chuyển tài nguyên Trái đất đã được tinh chế ra ngoài thế giới. Việc chiếm đoạt phư��ng tiện vận tải này sẽ cắt đứt các đường tiếp tế của thuộc địa và tài trợ cho cuộc kháng chiến.
 
 # kind: dialogue # speaker: Empress Siren # type: radio
 Thời gian là rất quan trọng. Chiếc máy bay vận tải dẫn đầu, T-14, đang vận hành động cơ đẩy chính của nó. Shogun, Ronin—các bạn đảm bảo an toàn cho bãi đáp. Ma trận, sẵn sàng bỏ qua bộ điều khiển kẹp.
@@ -1083,7 +1083,7 @@ Nexus được bảo vệ. Tấn công trực tiếp là không thể. Chúng ta
 Ba mục tiêu. Aegis, cậu và Matrix xử lý Rods One và Two. Tôi sẽ bảo vệ Rod Ba.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Sao chép. Nhưng thiết bị đầu cuối chính bị lộ. Hoàng hậu, người sẽ không thể bắt đầu chuỗi trận đấu nếu nó xảy ra một vụ nổ plasma.
+Sao chép. Nhưng thiết bị đầu cuối chính bị lộ. Hoàng hậu, người sẽ không thể bắt đầu chuỗi nếu nó xảy ra vụ nổ plasma.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Ronin, đó là công việc của bạn. Bạn phải bảo vệ thiết bị đầu cuối trong khi tôi nhập mã lỗi. Tướng quân, Ma trận—vào vị trí của mình. Tôi cần tất cả các thanh được rút ra trên nhãn hiệu của tôi.
@@ -1098,7 +1098,7 @@ Trình tự quá tải bắt đầu. Nó đòi hỏi sự căng thẳng ngay l�
 Sẵn sàng ở Rod One. Ở đây có hiện tượng phóng tĩnh điện khó chịu. Điều này sẽ bị tổn thương.
 
 # kind: dialogue # speaker: Cyber Shogun # type: radio
-Danh dự đòi hỏi sự hy sinh. Sẵn sàng rồi, thưa Nữ hoàng.
+Danh dự đòi hỏi sự hy sinh. Sẵn sàng, thưa Nữ hoàng.
 
 # kind: dialogue # speaker: Empress Siren # type: spoken
 Bắt đầu đếm ngược. T-trừ năm. Bốn. Ronin, tối đa hóa hiệu suất của lá chắn! Ba. Hai.
@@ -1142,13 +1142,13 @@ NHIỆM VỤ HOÀN THÀNH: ĐÒN TIM. ĐIỂM KIỂM SOÁT KHU 7 ĐƯỢC GIẢI
 # kind: level # level: 13 # title: Hầm Obsidian (Kho lưu trữ văn hóa) # arc: act2_arc3 # dialogue_status: scripted
 
 # kind: setting
-Nằm bên dưới Trung tâm Getty trước đây, Obsidian Vault là kho lưu trữ văn hóa chính của chính quyền thuộc địa. Cơ sở dữ liệu Hiệp ước Đất đai Nguyên bản—một hồ sơ toàn diện về quyền sở hữu đất đai của con người trước cuộc xâm lược cách đây 5 thế kỷ—được lưu trữ ở đây, được phân loại là 'Tài sản Di sản đã được Khám phá'.
+Nằm bên dưới Trung tâm Getty trước đây, Obsidian Vault là kho lưu trữ văn hóa chính của chính quyền thuộc địa. Cơ sở dữ liệu Hiệp ước Đất đai Nguyên thủy—một hồ sơ toàn diện về quyền sở hữu đất đai của con người trước cuộc xâm lược cách đây 5 thế kỷ—được lưu trữ ở đây, được phân loại là 'Tài sản Di sản đã được Khám phá'.
 
 # kind: objective
 Xâm nhập vào Obsidian Vault, trích xuất Cơ sở dữ liệu Hiệp ước Vùng đất Nguyên thủy và tất cả các kho lưu trữ ngôn ngữ và lịch sử truyền miệng, đồng thời phá hủy hệ thống danh mục vật lý để ngăn chặn vĩnh viễn đường ống xử lý văn hóa thuộc địa.
 
 # kind: solo_monologue # character: Cyber Shogun # type: internal
-Danh dự của một chiến binh được xác định bởi những gì anh ta bảo vệ cũng như những gì anh ta phá hủy. Tối nay, tôi bảo vệ một cái gì đó. Những ghi chép bên trong căn hầm này là bằng chứng cho thấy chúng tôi đã tồn tại ở đây trước khi họ đến - rằng chúng tôi đã đặt tên cho vùng đất này, được xây dựng trên đó, được chôn cất trong đó, kể những câu chuyện về nó trong nhiều thế kỷ. Nếu họ xóa bằng chứng đó, họ có thể viết bất kỳ lịch sử nào họ muốn. Tôi sẽ không để điều đó xảy ra.
+Danh dự của một chiến binh được xác định bởi những gì anh ta bảo vệ cũng như những gì anh ta phá hủy. Tối nay, tôi bảo vệ một cái gì đó. Những ghi chép bên trong căn hầm này là bằng chứng cho thấy chúng tôi đã tồn t���i ở đây trước khi họ đến - rằng chúng tôi có tên cho vùng đất này, được xây dựng trên đó, được chôn cất trong đó, kể những câu chuyện về nó trong nhiều thế kỷ. Nếu họ xóa bằng chứng đó, họ có thể viết bất kỳ lịch sử nào họ muốn. Tôi sẽ không để điều đó xảy ra.
 
 # kind: solo_monologue # character: AXIOM-7 # type: vo
 Hầm Obsidian chứa 4,2 triệu hiện vật và hồ sơ được phân loại. Trong số này, 340.000 chiếc đã được đánh dấu để tiêu hủy vì 'dư thừa không cần thiết'. Chỉ riêng tháng trước đã có 17 nghìn món đồ bị tiêu hủy. Tôi có tên của từng người một. Tôi muốn bạn biết điều đó trước khi bước vào. Những gì chúng ta để dành tối nay là những gì còn lại. Không có cách nào lấy lại được những gì đã qua. Nhưng vẫn còn một cái gì đó để cứu.
@@ -1220,13 +1220,13 @@ Sau đó chúng ta chiến đấu và chết trong danh dự! Aegis, hãy dồn 
 Với niềm vui! PHÁT HÀNH ĐỘNG!
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
-Đã đạt được bảng điều khiển! Bắt đầu gây bất ổn địa chấn!
+Đã đạt đến bảng điều khiển! Bắt đầu gây bất ổn địa chấn!
 
 # kind: dialogue # speaker: AXIOM-7 # type: vo
 Quá trình khử ổn định thành công. Nhiệm vụ hoàn thành.
 
 # kind: dialogue # speaker: Aegis Ronin # type: spoken
-Đã bảo rồi... không gì có thể phá vỡ đư���c bức tường của chúng ta.
+Đã bảo rồi... không gì có thể phá vỡ được bức tường của chúng ta.
 
 # kind: dialogue # speaker: Cyber Shogun # type: spoken
 Không. Không có gì phá vỡ ý chí của chúng tôi.
@@ -1240,7 +1240,7 @@ NHIỆM VỤ HOÀN THÀNH: VAULT OBSIDIAN BỊ VI PHẠM. TỔ CHỨC VĂN HÓA 
 # kind: level # level: 14 # title: Đường tiếp cận Thành cổ (Cầu Bộ Tư lệnh Tối cao) # arc: act2_arc3 # dialogue_status: pending
 
 # kind: setting
-Cây cầu kiên cố cuối cùng dài 400 mét bắc qua sông LA đã cạn nước—cách tiếp cận trên mặt đất duy nhất dẫn tới Thành chỉ huy tối cao Xelthara, được xây dựng trên cộng đồng Boyle Heights đã bị phá hủy. Xelthara đã thiết kế cách tiếp cận này để không thể vượt qua được.
+Cây cầu kiên cố cuối cùng dài 400 mét bắc qua sông LA đã cạn nước—cách tiếp cận trên mặt đất duy nhất tới Thành chỉ huy tối cao Xelthara, được xây dựng trên cộng đồng Boyle Heights đã bị phá hủy. Xelthara đã thiết kế cách tiếp cận này để không thể vượt qua được.
 
 # kind: objective
 Vượt qua cây cầu dài 400 mét dưới hỏa lực pháo binh liên tục để đến cổng vào của Thành cổ—một cuộc tiến công không ngừng nghỉ bằng cách sử dụng khiên của Ronin và đòn tấn công bằng máy bay không người lái của Siren.
@@ -1328,7 +1328,7 @@ Phá hủy lõi Động cơ Đơn kỳ của Ý chí Tập thể bằng cách ph
 Tổng giám đốc Xelthara chỉ là một con tốt. Sức mạnh này... đây là nguồn gốc của sự chiếm đóng. Ý chí tập thể.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Tôi có th��� cảm nhận được dòng dữ liệu thuần túy, Shogun. Nó đang cố gắng viết lại lõi thần kinh của tôi. Chúng ta không thuộc về nơi này Chúng ta cần nhấn động cơ đó và thoát ra.
+Tôi có thể cảm nhận được dòng dữ liệu thuần túy, Shogun. Nó đang cố gắng viết lại lõi thần kinh của tôi. Chúng ta không thuộc về nơi này Chúng ta cần nhấn động cơ đó và thoát ra.
 
 # kind: dialogue # speaker: The Collective Will # type: vo
 Bạn là một kẻ dị thường cục bộ trong một thiết kế vĩ đại. Tất cả sự tồn tại đều là một nguồn tài nguyên có thể thay thế được cho sự mở rộng của chúng ta. Quê hương của bạn đã được đưa vào phương trình xóa bỏ cuối cùng của chúng tôi.
@@ -1382,7 +1382,7 @@ Tôi không biết... nhưng tàu mẹ đã biến mất. Di chúc im lặng.
 Chúng ta đã thắng cuộc chiến, thưa các bạn. Bây giờ chúng ta chỉ cần giành chiến thắng trên đường về nhà.
 
 # kind: dialogue # speaker: Oni Matrix # type: spoken
-Tôi nghĩ... tôi nhìn thấy Trái Đất. Thật sạch sẽ. Thật xanh.
+Tôi nghĩ... tôi nhìn thấy Trái đất. Thật sạch sẽ. Thật xanh.
 
 # kind: dialogue # speaker: Recovery Command # type: radio
 Axiom Force, đây là Lệnh Phục hồi. Chúng tôi đọc bạn. Hệ thống của bạn là danh nghĩa. Chào mừng về nhà, các anh hùng.
