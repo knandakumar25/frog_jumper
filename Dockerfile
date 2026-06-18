@@ -87,12 +87,78 @@ WORKDIR /app
 # Copy built project from builder
 COPY --from=builder /app ./
 
-# Export the game for Linux (headless)
+# Export the game for Linux (headless client)
 RUN mkdir -p /app/build/linux \
     && godot --headless --export-release "Linux/X11" /app/build/linux/AxiomForceReclaimEarth.x86_64
 
-# Final stage - minimal runtime for running the exported game
-FROM ubuntu:22.04 AS runtime
+# Export the dedicated server (headless)
+RUN mkdir -p /app/build/linux_server \
+    && godot --headless --export-release "Linux Server" /app/build/linux_server/AxiomForceReclaimEarth_Server.x86_64
+
+# Export the Web build (HTML5)
+RUN mkdir -p /app/build/web \
+    && godot --headless --export-release "Web" /app/build/web/index.html
+
+# Final stage - minimal runtime for running the exported game client
+FROM ubuntu:22.04 AS runtime-client
+
+# Install minimal dependencies to run Godot exported game
+RUN apt-get update && apt-get install -y \
+    libglib2.0-0 \
+    libx11-6 \
+    libxcursor1 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxxf86vm1 \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy exported client game from exporter
+COPY --from=exporter /app/build/linux ./build/linux
+
+# Set entrypoint for client
+ENTRYPOINT ["./build/linux/AxiomForceReclaimEarth.x86_64"]
+
+# Dedicated server runtime stage
+FROM ubuntu:22.04 AS runtime-server
+
+# Install minimal dependencies for headless server
+RUN apt-get update && apt-get install -y \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy exported server binary from exporter
+COPY --from=exporter /app/build/linux_server ./build/linux_server
+
+# Ensure executable
+RUN chmod +x ./build/linux_server/AxiomForceReclaimEarth_Server.x86_64
+
+# Set entrypoint for dedicated server
+ENTRYPOINT ["./build/linux_server/AxiomForceReclaimEarth_Server.x86_64"]
+
+# Web runtime stage - Nginx serving HTML5 export with COOP/COEP headers
+FROM nginx:alpine AS runtime-web
+
+# Copy custom nginx config with COOP/COEP headers for SharedArrayBuffer
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Copy exported web build from exporter
+COPY --from=exporter /app/build/web /usr/share/nginx/html
+
+# Expose port 8080
+EXPOSE 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
+
+# Default command
+CMD ["nginx", "-g", "daemon off;"]
 
 # Install minimal dependencies to run Godot exported game
 RUN apt-get update && apt-get install -y \

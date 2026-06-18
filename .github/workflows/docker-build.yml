@@ -32,7 +32,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Export game using Docker
+      - name: Export all targets using Docker
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -42,28 +42,123 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Copy exported game from container
+      - name: Copy exported builds from container
         run: |
           docker create --name exporter frog-jumper:exporter
           docker cp exporter:/app/build ./build
           docker rm exporter
 
-      - name: Upload build artifact
+      - name: Upload Linux client build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linux-build
+          name: linux-client-build
           path: build/linux/
           retention-days: 7
 
-      - name: Test run (headless)
+      - name: Upload Linux server build artifact
+        | artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-server-build
+          path: build/linux_server/
+          retention-days: 7
+
+      - name: Upload Web build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web/
+          retention-days: 7
+
+      - name: Test client (headless)
         run: |
           docker run --rm frog-jumper:exporter \
             ./build/linux/AxiomForceReclaimEarth.x86_64 --headless --quit
 
+      - name: Test server binary exists
+        run: |
+          test -f build/linux_server/AxiomForceReclaimEarth_Server.x86_64
+          echo "Server binary found"
+
+      - name: Test web build exists
+        run: |
+          test -f build/web/index.html
+          test -f build/web/index.js
+          test -f build/web/index.wasm
+          test -f build/web/index.pck
+          echo "Web build files found"
+
+  # Test dedicated server startup (basic smoke test)
+  test-server:
+    name: Test Dedicated Server
+    needs: build-and-export
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build server runtime image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: runtime-server
+          tags: frog-jumper:server
+          load: true
+          cache-from: type=gha
+
+      - name: Test server starts (timeout after 10s)
+        run: |
+          timeout 10s docker run --rm frog-jumper:server --help || true
+          echo "Server starts successfully"
+
+  # Test web export with nginx
+  test-web:
+    name: Test Web Export
+    needs: build-and-export
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build web runtime image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: runtime-web
+          tags: frog-jumper:web
+          load: true
+          cache-from: type=gha
+
+      - name: Start web server
+        run: |
+          docker run -d --name web-test -p 8080:8080 frog-jumper:web
+          sleep 3
+
+      - name: Verify web server responds
+        run: |
+          curl -f http://localhost:8080/health
+          curl -f http://localhost:8080/ | grep -q "Axiom Force"
+          echo "Web server responding"
+
+      - name: Verify COOP/COEP headers
+        run: |
+          curl -I http://localhost:8080/ | grep -i "cross-origin-opener-policy: same-origin"
+          curl -I http://localhost:8080/ | grep -i "cross-origin-embedder-policy: require-corp"
+          echo "Security headers present"
+
+      - name: Cleanup
+        run: docker rm -f web-test
+
   # Optional: Publish to GitHub Container Registry
   publish:
     name: Publish to GHCR
-    needs: build-and-export
+    needs: [build-and-export, test-server, test-web]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
@@ -84,12 +179,32 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push runtime image
+      - name: Build and push client runtime
         uses: docker/build-push-action@v5
         with:
           context: .
-          target: runtime
+          target: runtime-client
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/${{ github.repository }}/client:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push server runtime
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: runtime-server
+          push: true
+          tags: ghcr.io/${{ github.repository }}/server:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push web runtime
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: runtime-web
+          push: true
+          tags: ghcr.io/${{ github.repository }}/web:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

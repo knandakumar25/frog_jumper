@@ -1,7 +1,9 @@
 version: '3.8'
 
 services:
-  # Build and export the game
+  # ==========================================
+  # BUILD STAGE: Build and export all targets
+  # ==========================================
   build:
     build:
       context: .
@@ -11,23 +13,55 @@ services:
       - ./build:/app/build
     command: ["true"]
 
-  # Run the exported game (headless for CI/testing)
-  run:
+  # ==========================================
+  # USE CASE 1: CI/CD - Run headless test
+  # ==========================================
+  test:
     build:
       context: .
       dockerfile: Dockerfile
-      target: runtime
+      target: runtime-client
     depends_on:
       - build
-    # For headless testing, uncomment the following:
-    # entrypoint: ["./build/linux/AxiomForceReclaimEarth.x86_64", "--headless"]
-    # For interactive running with display (requires X11 forwarding):
-    # environment:
-    #   - DISPLAY=${DISPLAY}
-    # volumes:
-    #   - /tmp/.X11-unix:/tmp/.X11-unix
+    entrypoint: ["./build/linux/AxiomForceReclaimEarth.x86_64", "--headless", "--quit"]
 
-  # Development environment with Godot editor
+  # ==========================================
+  # USE CASE 2: Dedicated Multiplayer Server
+  # ==========================================
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime-server
+    depends_on:
+      - build
+    # Run server on port 7777 (configure as needed)
+    ports:
+      - "7777:7777/udp"
+      - "7777:7777/tcp"
+    # Server command line args (adjust for your game)
+    # entrypoint: ["./build/linux_server/AxiomForceReclaimEarth_Server.x86_64", "--port", "7777"]
+    # For now, keep container running for manual testing
+    command: ["tail", "-f", "/dev/null"]
+
+  # ==========================================
+  # USE CASE 3: Local Web Testing (HTML5)
+  # ==========================================
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime-web
+    depends_on:
+      - build
+    ports:
+      - "8080:8080"
+    # Access at http://localhost:8080
+    # Serves with COOP/COEP headers for SharedArrayBuffer support
+
+  # ==========================================
+  # DEVELOPMENT: Full dev environment
+  # ==========================================
   dev:
     build:
       context: .
@@ -38,7 +72,25 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY=${DISPLAY:-:0}
-    # Run Godot editor
-    # command: ["godot", "--editor"]
-    # For headless development/testing:
+    # Run Godot editor: docker compose run dev godot --editor
+    # Run headless export: docker compose run dev godot --headless --export-release "Linux/X11" ...
+    command: ["tail", "-f", "/dev/null"]
+
+  # ==========================================
+  # PRODUCTION: Client runtime (minimal)
+  # ==========================================
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime-client
+    depends_on:
+      - build
+    # For headless testing:
+    # entrypoint: ["./build/linux/AxiomForceReclaimEarth.x86_64", "--headless"]
+    # For interactive with display (requires X11):
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    # volumes:
+    #   - /tmp/.X11-unix:/tmp/.X11-unix
     command: ["tail", "-f", "/dev/null"]
