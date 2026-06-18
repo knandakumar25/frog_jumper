@@ -2,7 +2,7 @@
 
 This document describes the Docker setup for building, exporting, and running the Godot 4.6.3 C# project.
 
-## 🎯 Three Major Use Cases (Why Docker for Godot?)
+## 🎯 Four Major Use Cases (Why Docker for Godot?)
 
 > **Important**: You should develop your game directly on your host machine using the native Godot editor. Docker is for **automation and deployment**, not for daily development.
 
@@ -11,12 +11,13 @@ This document describes the Docker setup for building, exporting, and running th
 | **1. CI/CD Build Pipelines** | Automated builds on every push, multi-platform exports, artifact uploads | `exporter`, `runtime-client` |
 | **2. Dedicated Multiplayer Servers** | Headless server binaries in lightweight containers for cloud hosting | `runtime-server` |
 | **3. Local Web Testing (HTML5)** | Nginx container serving Web export with COOP/COEP headers for SharedArrayBuffer | `runtime-web` |
+| **4. Android Builds (APK/AAB)** | Automated Android builds with SDK/NDK/Gradle in CI, no local Android Studio needed | `exporter-android`, `android-artifact` |
 
 ---
 
 ## Dockerfile Overview
 
-The `Dockerfile` uses a **multi-stage build** with **five stages**:
+The `Dockerfile` uses a **multi-stage build** with **six stages**:
 
 ### 1. Builder Stage (`builder`)
 - **Base**: `mcr.microsoft.com/dotnet/sdk:10.0` (matches project's `net10.0` target)
@@ -42,20 +43,36 @@ The `Dockerfile` uses a **multi-stage build** with **five stages**:
     - **Linux Server** (dedicated) → `build/linux_server/AxiomForceReclaimEarth_Server.x86_64`
     - **Web (HTML5)** → `build/web/index.html`
 
-### 3. Client Runtime Stage (`runtime-client`)
+### 3. Android Exporter Stage (`exporter-android`)
+- **Extends**: `exporter` stage
+- **Installs**:
+  - Android SDK Command Line Tools
+  - Android SDK Platform 35, Build Tools 35.0.1
+  - Android NDK 28.1.13356709
+  - Gradle 8.13.2
+- **Actions**:
+  - Copies Android gradle project from builder
+  - Runs `./gradlew assembleRelease` to build signed APK
+  - Outputs to `build/android/AxiomForceReclaimEarth.apk`
+
+### 4. Client Runtime Stage (`runtime-client`)
 - **Base**: `ubuntu:22.04` (minimal)
 - **Installs**: Only runtime dependencies for Godot exported game
 - **Actions**: Copies exported client binary from exporter
 
-### 4. Server Runtime Stage (`runtime-server`)
+### 5. Server Runtime Stage (`runtime-server`)
 - **Base**: `ubuntu:22.04` (minimal, no X11 deps)
 - **Installs**: Only `libglib2.0-0` for headless server
 - **Actions**: Copies exported server binary from exporter
 
-### 5. Web Runtime Stage (`runtime-web`)
+### 6. Web Runtime Stage (`runtime-web`)
 - **Base**: `nginx:alpine` (tiny ~20MB)
 - **Config**: Custom `nginx.conf` with **COOP/COEP headers** required for Godot 4 Web exports
 - **Actions**: Copies exported web build, serves on port 8080
+
+### 7. Android Artifact Stage (`android-artifact`)
+- **Base**: `scratch` (empty)
+- **Actions**: Copies APK from `exporter-android` for minimal artifact image
 
 ---
 
@@ -63,10 +80,10 @@ The `Dockerfile` uses a **multi-stage build** with **five stages**:
 
 | File | Purpose |
 |------|---------|
-| `Dockerfile` | 5-stage multi-target build definition |
+| `Dockerfile` | 7-stage multi-target build definition |
 | `docker-compose.yml` | Service definitions for all use cases |
 | `.dockerignore` | Optimized build context exclusions |
-| `export_presets.cfg` | Godot export configs (Client, Server, Web) |
+| `export_presets.cfg` | Godot export configs (Client, Server, Web, Android) |
 | `docker/nginx/nginx.conf` | Nginx config with COOP/COEP headers |
 | `.github/workflows/docker-build.yml` | CI/CD pipeline for GitHub Actions |
 | `DOCKER_SETUP.md` | This documentation |
@@ -94,6 +111,18 @@ ls -la build/
 #     ├── index.wasm
 #     ├── index.pck
 #     └── ...
+```
+
+### Build Android (Use Case 4)
+```bash
+# Build Android exporter (requires ~8GB RAM)
+docker compose build build-android
+docker compose run build-android
+
+# Verify APK
+ls -la build/android/
+# build/android/
+# └── AxiomForceReclaimEarth.apk
 ```
 
 ### Test Client (Headless)
@@ -142,10 +171,12 @@ godot --headless --export-release "Linux/X11" /app/build/linux/...
 
 | Service | Target Stage | Purpose | Ports |
 |---------|--------------|---------|-------|
-| `build` | `exporter` | Build & export all targets | - |
+| `build` | `exporter` | Build & export Linux/Web targets | - |
+| `build-android` | `exporter-android` | Build Android APK | - |
 | `test` | `runtime-client` | CI headless test | - |
 | `server` | `runtime-server` | Dedicated multiplayer server | 7777/tcp, 7777/udp |
 | `web` | `runtime-web` | Local HTML5 testing (nginx) | 8080 |
+| `android` | `android-artifact` | Android APK artifact | - |
 | `dev` | `builder` | Full dev environment | - |
 | `client` | `runtime-client` | Production client runtime | - |
 
@@ -162,19 +193,32 @@ godot --headless --export-release "Linux/X11" /app/build/linux/...
    - HTTP 200 response
    - Game content loads
    - **COOP/COEP headers present** for SharedArrayBuffer
-4. **publish** (on `main` push): Pushes all 3 runtime images to GHCR
+4. **test-android**: Builds `exporter-android`, runs Gradle build, verifies:
+   - APK exists and is valid
+   - APK structure (classes.dex, resources, native libs)
+   - APK signing (debug keystore)
+5. **publish** (on `main` push): Pushes all 3 runtime images to GHCR
 
 ---
 
 ## Export Presets (`export_presets.cfg`)
 
-Three presets configured:
+Four presets configured:
 
 | Preset | Platform | Dedicated Server | Output Path |
 |--------|----------|------------------|-------------|
 | `Linux/X11` | Linux/X11 | `false` | `build/linux/AxiomForceReclaimEarth.x86_64` |
 | `Linux Server` | Linux/X11 | `true` | `build/linux_server/AxiomForceReclaimEarth_Server.x86_64` |
 | `Web` | Web | `false` | `build/web/index.html` |
+| `Android` | Android | `false` | `build/android/AxiomForceReclaimEarth.apk` |
+
+**Android preset options** (matching `android/build/config.gradle`):
+- `android/export_format=0` (APK, use 1 for AAB)
+- `android/architectures=["armeabi-v7a", "arm64-v8a"]`
+- `android/min_sdk=24`, `android/target_sdk=35`, `android/sdk_version=35`
+- `android/ndk_version="28.1.13356709"`, `android/gradle_version="8.13.2"`
+- `android/gradle_build_type="release"`, `android/export_edition="mono"`
+- `android/package_name="com.godot.game"`
 
 **Web preset options**:
 - `web/compression=1` (gzip)
@@ -203,6 +247,7 @@ Without these headers, browsers block `SharedArrayBuffer` and your game fails to
 - Docker Desktop / Docker Engine 20.10+
 - Docker Compose v2+
 - For `dev` service: X11 display (Linux) or X11 forwarding (WSL/macOS/Windows)
+- For Android builds: ~8GB RAM available
 
 ---
 
@@ -212,6 +257,9 @@ Without these headers, browsers block `SharedArrayBuffer` and your game fails to
 |----------|---------|-------------|
 | `DISPLAY` | `:0` | X11 display for GUI apps (dev service) |
 | `GODOT_VERSION` | `4.6.3` | Godot version (in Dockerfile) |
+| `ANDROID_SDK_ROOT` | `/opt/android-sdk` | Android SDK path (in Dockerfile) |
+| `ANDROID_NDK_VERSION` | `28.1.13356709` | NDK version (in Dockerfile) |
+| `GRADLE_VERSION` | `8.13.2` | Gradle version (in Dockerfile) |
 
 ---
 
@@ -219,6 +267,13 @@ Without these headers, browsers block `SharedArrayBuffer` and your game fails to
 
 ### Change Godot Version
 Edit `GODOT_VERSION` in `Dockerfile` (both builder and exporter stages)
+
+### Change Android SDK/NDK/Gradle Versions
+Edit the corresponding `ENV` variables in the `exporter-android` stage:
+- `ANDROID_SDK_VERSION`
+- `ANDROID_NDK_VERSION`
+- `ANDROID_BUILD_TOOLS_VERSION`
+- `GRADLE_VERSION`
 
 ### Add Export Platforms
 1. Add new preset to `export_presets.cfg`
@@ -229,6 +284,15 @@ Currently uses `openjdk-21-jdk-headless`. Change in both `apt-get install` lines
 
 ### Server Port
 Edit `docker-compose.yml` server service ports (default 7777)
+
+### Android Keystore (Release Builds)
+For production releases, add keystore credentials via GitHub Secrets and update `export_presets.cfg`:
+```ini
+android/keystore/release="path/to/keystore.jks"
+android/keystore/release_user="key_alias"
+android/keystore/release_pass="keystore_password"
+android/keystore/mode=1  # 1 = release keystore
+```
 
 ---
 
@@ -248,10 +312,17 @@ Edit `docker-compose.yml` server service ports (default 7777)
 - Basic `python -m http.server` will NOT work (no COOP/COEP)
 - Check browser console for `Cross-Origin-Opener-Policy` errors
 
+### Android Build Fails
+- Ensure `android/build/gradlew` exists and is executable
+- Check NDK version matches `config.gradle` (28.1.13356709)
+- Increase Docker memory limit (8GB+ recommended)
+- Check Gradle daemon isn't causing issues: `./gradlew --stop` before build
+
 ### Large Image Size
 - Use `docker system prune` to clean unused layers
 - Consider `docker-slim` for production runtime images
 - `runtime-server` and `runtime-web` are already minimal (~50MB, ~20MB)
+- Android exporter stage is large (~5GB) due to SDK/NDK - expected for CI
 
 ---
 
@@ -262,24 +333,31 @@ Edit `docker-compose.yml` server service ports (default 7777)
    docker compose build builder
    ```
 
-2. **Export all targets**:
+2. **Export Linux/Web targets**:
    ```bash
    docker compose run build
    ls -la build/linux/ build/linux_server/ build/web/
    ```
 
-3. **Client runtime verification**:
+3. **Export Android target**:
+   ```bash
+   docker compose build build-android
+   docker compose run build-android
+   ls -la build/android/
+   ```
+
+4. **Client runtime verification**:
    ```bash
    docker compose run test
    ```
 
-4. **Server runtime verification**:
+5. **Server runtime verification**:
    ```bash
    docker compose build server
    docker compose run server ./build/linux_server/AxiomForceReclaimEarth_Server.x86_64 --help
    ```
 
-5. **Web runtime verification**:
+6. **Web runtime verification**:
    ```bash
    docker compose up -d web
    curl -I http://localhost:8080/ | grep -i "cross-origin"
@@ -288,4 +366,13 @@ Edit `docker-compose.yml` server service ports (default 7777)
    # cross-origin-embedder-policy: require-corp
    ```
 
-6. **CI verification**: Push to GitHub and check Actions tab
+7. **Android APK verification**:
+   ```bash
+   # Check APK structure
+   unzip -l build/android/AxiomForceReclaimEarth.apk
+   
+   # Verify signing
+   jarsigner -verify -verbose -certs build/android/AxiomForceReclaimEarth.apk
+   ```
+
+8. **CI verification**: Push to GitHub and check Actions tab

@@ -56,7 +56,6 @@ jobs:
           retention-days: 7
 
       - name: Upload Linux server build artifact
-        | artifact
         uses: actions/upload-artifact@v4
         with:
           name: linux-server-build
@@ -155,10 +154,62 @@ jobs:
       - name: Cleanup
         run: docker rm -f web-test
 
+  # Test Android export
+  test-android:
+    name: Test Android Export
+    needs: build-and-export
+    runs-on: ubuntu-latest
+    # Android builds need more resources
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Android export (exporter-android stage)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: exporter-android
+          tags: frog-jumper:android-exporter
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Copy Android build from container
+        run: |
+          docker create --name android-exporter frog-jumper:android-exporter
+          docker cp android-exporter:/app/build/android ./build
+          docker rm android-exporter
+
+      - name: Upload Android build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build
+          path: build/android/
+          retention-days: 7
+
+      - name: Verify APK exists and is valid
+        run: |
+          test -f build/android/AxiomForceReclaimEarth.apk
+          echo "APK found"
+
+      - name: Verify APK structure
+        run: |
+          unzip -l build/android/AxiomForceReclaimEarth.apk | head -30
+          echo "APK structure verified"
+
+      - name: Verify APK signing (debug)
+        run: |
+          jarsigner -verify -verbose -certs build/android/AxiomForceReclaimEarth.apk 2>&1 | head -20
+          echo "APK signing verified"
+
   # Optional: Publish to GitHub Container Registry
   publish:
     name: Publish to GHCR
-    needs: [build-and-export, test-server, test-web]
+    needs: [build-and-export, test-server, test-web, test-android]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:

@@ -13,6 +13,21 @@ services:
       - ./build:/app/build
     command: ["true"]
 
+  # Android export (requires more resources)
+  build-android:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: exporter-android
+    volumes:
+      - ./build:/app/build
+    # Android builds need more memory
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    command: ["true"]
+
   # ==========================================
   # USE CASE 1: CI/CD - Run headless test
   # ==========================================
@@ -58,6 +73,19 @@ services:
       - "8080:8080"
     # Access at http://localhost:8080
     # Serves with COOP/COEP headers for SharedArrayBuffer support
+
+  # ==========================================
+  # USE CASE 4: Android Build (APK/AAB)
+  # ==========================================
+  android:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: android-artifact
+    depends_on:
+      - build-android
+    # Artifact is copied to ./build/android/ via volume
+    command: ["true"]
 
   # ==========================================
   # DEVELOPMENT: Full dev environment

@@ -48,7 +48,7 @@ RUN dotnet restore "2d Platformer game.csproj"
 # Build the project
 RUN dotnet build "2d Platformer game.csproj" -c Release --no-restore
 
-# Export stage - export the game for Linux
+# Export stage - export the game for Linux, Web, and Android
 FROM mcr.microsoft.com/dotnet/runtime:10.0 AS exporter
 
 # Install Godot for export
@@ -99,6 +99,57 @@ RUN mkdir -p /app/build/linux_server \
 RUN mkdir -p /app/build/web \
     && godot --headless --export-release "Web" /app/build/web/index.html
 
+# ==========================================
+# ANDROID EXPORT STAGE
+# ==========================================
+FROM exporter AS exporter-android
+
+# Android SDK/NDK versions (from config.gradle)
+ENV ANDROID_SDK_ROOT=/opt/android-sdk
+ENV ANDROID_NDK_VERSION=28.1.13356709
+ENV ANDROID_SDK_VERSION=35
+ENV ANDROID_BUILD_TOOLS_VERSION=35.0.1
+ENV ANDROID_CMDLINE_TOOLS_VERSION=13114758
+ENV GRADLE_VERSION=8.13.2
+ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/build-tools/${ANDROID_BUILD_TOOLS_VERSION}:/opt/gradle/gradle-${GRADLE_VERSION}/bin
+
+# Install Android SDK command line tools
+RUN mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools \
+    && wget -q https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CMDLINE_TOOLS_VERSION}_latest.zip -O /tmp/cmdline-tools.zip \
+    && unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_SDK_ROOT}/cmdline-tools \
+    && mv ${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools ${ANDROID_SDK_ROOT}/cmdline-tools/latest \
+    && rm /tmp/cmdline-tools.zip
+
+# Accept licenses and install SDK components
+RUN yes | sdkmanager --licenses \
+    && sdkmanager "platforms;android-${ANDROID_SDK_VERSION}" \
+    && sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" \
+    && sdkmanager "platform-tools" \
+    && sdkmanager "ndk;${ANDROID_NDK_VERSION}"
+
+# Install Gradle
+RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -O /tmp/gradle.zip \
+    && unzip -q /tmp/gradle.zip -d /opt/gradle \
+    && rm /tmp/gradle.zip \
+    && ln -s /opt/gradle/gradle-${GRADLE_VERSION}/bin/gradle /usr/local/bin/gradle
+
+# Verify installations
+RUN sdkmanager --list_installed \
+    && gradle --version \
+    && ${ANDROID_SDK_ROOT}/ndk/${ANDROID_NDK_VERSION}/ndk-build --version
+
+# Copy Android gradle project
+COPY --from=builder /app/android ./android
+
+# Export Android (requires Godot to generate gradle project first, then build with gradle)
+# Godot exports to android/build which uses the gradle wrapper
+RUN mkdir -p /app/build/android \
+    && cd /app/android/build \
+    && chmod +x gradlew \
+    && ./gradlew assembleRelease -Pexport_package_name=com.godot.game -Pexport_version_code=1 -Pexport_version_name=1.0 -Pexport_enabled_abis="armeabi-v7a|arm64-v8a" -Pexport_format=apk -Pexport_build_type=release -Pexport_edition=mono \
+    && cp app/build/outputs/apk/mono/release/android_mono-release.apk /app/build/android/AxiomForceReclaimEarth.apk
+
+# ==========================================
 # Final stage - minimal runtime for running the exported game client
 FROM ubuntu:22.04 AS runtime-client
 
@@ -160,22 +211,8 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 # Default command
 CMD ["nginx", "-g", "daemon off;"]
 
-# Install minimal dependencies to run Godot exported game
-RUN apt-get update && apt-get install -y \
-    libglib2.0-0 \
-    libx11-6 \
-    libxcursor1 \
-    libxi6 \
-    libxrandr2 \
-    libxrender1 \
-    libxxf86vm1 \
-    libgl1-mesa-glx \
-    && rm -rf /var/lib/apt/lists/*
+# Android artifact stage - just copies the APK for artifact upload
+FROM scratch AS android-artifact
 
-WORKDIR /app
-
-# Copy exported game from exporter
-COPY --from=exporter /app/build/linux ./build/linux
-
-# Set entrypoint
-ENTRYPOINT ["./build/linux/AxiomForceReclaimEarth.x86_64"]
+# Copy APK from exporter-android
+COPY --from=exporter-android /app/build/android/AxiomForceReclaimEarth.apk /AxiomForceReclaimEarth.apk
