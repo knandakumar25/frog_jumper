@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Build and export the game
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: exporter
+    volumes:
+      - ./build:/app/build
+    command: ["true"]
+
+  # Run the exported game (headless for CI/testing)
+  run:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    depends_on:
+      - build
+    # For headless testing, uncomment the following:
+    # entrypoint: ["./build/linux/AxiomForceReclaimEarth.x86_64", "--headless"]
+    # For interactive running with display (requires X11 forwarding):
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    # volumes:
+    #   - /tmp/.X11-unix:/tmp/.X11-unix
+
+  # Development environment with Godot editor
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    # Run Godot editor
+    # command: ["godot", "--editor"]
+    # For headless development/testing:
+    command: ["tail", "-f", "/dev/null"]

@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.sln
+*.csproj.user
+
+# Godot
+.godot
+*.uid
+.import
+*.import
+
+# Build outputs
+build/
+bin/
+obj/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+!README.md
+!DOCKER_SETUP.md
+
+# Website (separate project)
+website/
+
+# Android build
+android/build/
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+coverage/
+
+# Docker (keep these are kept in context for building)
+# Dockerfile*
+# docker-compose*
+# .dockerignore
