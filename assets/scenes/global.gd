@@ -14,13 +14,14 @@ func _ready() -> void:
 	print("Global: Locale set to 'english'")
 	print("Global: Available translations:", TranslationServer.get_loaded_locales())
 	
-	# Create persistent menu music player
-	menu_music_player = AudioStreamPlayer.new()
-	menu_music_player.name = "MenuMusicPlayer"
-	menu_music_player.stream = load("res://assets/music/Dystopian_Dawn_FULL_SONG_MusicGPT (2).mp3")
-	menu_music_player.volume_db = 24.0
-	menu_music_player.bus = "Master"
-	add_child(menu_music_player)
+	# Create persistent menu music player only if not in headless mode
+	if DisplayServer.get_name() != "headless":
+		menu_music_player = AudioStreamPlayer.new()
+		menu_music_player.name = "MenuMusicPlayer"
+		menu_music_player.stream = load("res://assets/music/Dystopian_Dawn_FULL_SONG_MusicGPT (2).mp3")
+		menu_music_player.volume_db = 24.0
+		menu_music_player.bus = "Master"
+		add_child(menu_music_player)
 	
 func play_menu_music() -> void:
 	if menu_music_player and not menu_music_player.playing:
