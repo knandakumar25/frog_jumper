@@ -6,7 +6,6 @@
 # IDE
 .vscode
 .idea
-*.sln
 *.csproj.user
 
 # Godot
