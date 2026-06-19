@@ -17,18 +17,25 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     libxxf86vm1 \
     libgl1-mesa-glx \
+    python3 \
+    python3-pip \
     && rm -rf /var/lib/apt/lists/*
+
+# Install graphify for analysis
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Verify Java installation
 RUN java --version
 
-# Install Godot 4.6.3
+# Install Godot 4.6.3 MONO (C# Version)
 ENV GODOT_VERSION=4.6.3
-RUN wget -q https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip \
-    && unzip -q Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip \
-    && mv Godot_v${GODOT_VERSION}-stable_linux.x86_64 /usr/local/bin/godot \
+RUN wget -q https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip \
+    && unzip -q Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip \
+    && mv Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64/Godot_v${GODOT_VERSION}-stable_mono_linux.x86_64 /usr/local/bin/godot \
+    && mv Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64/GodotSharp /usr/local/bin/GodotSharp \
     && chmod +x /usr/local/bin/godot \
-    && rm Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+    && rm -rf Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64
 
 # Verify Godot installation
 RUN godot --version
@@ -49,9 +56,9 @@ RUN dotnet restore "2d Platformer game.csproj"
 RUN dotnet build "2d Platformer game.csproj" -c Release --no-restore
 
 # Export stage - export the game for Linux, Web, and Android
-FROM mcr.microsoft.com/dotnet/runtime:10.0 AS exporter
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS exporter
 
-# Install Godot for export
+# Install Godot Mono for Export Execution
 ENV GODOT_VERSION=4.6.3
 RUN apt-get update && apt-get install -y \
     wget \
@@ -70,17 +77,21 @@ RUN apt-get update && apt-get install -y \
 # Verify Java installation
 RUN java --version
 
-RUN wget -q https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip \
-    && unzip -q Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip \
-    && mv Godot_v${GODOT_VERSION}-stable_linux.x86_64 /usr/local/bin/godot \
+# Install Godot Mono for Export Execution
+RUN wget -q https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip \
+    && unzip -q Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip \
+    && mv Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64/Godot_v${GODOT_VERSION}-stable_mono_linux.x86_64 /usr/local/bin/godot \
+    && mv Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64/GodotSharp /usr/local/bin/GodotSharp \
     && chmod +x /usr/local/bin/godot \
-    && rm Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+    && rm -rf Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64
 
-# Install export templates
-RUN wget -q https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz \
+# Install and Correctly Extract Export Templates
+RUN wget -q https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz \
+    && mkdir -p /tmp/templates \
+    && unzip -q Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz -d /tmp/templates \
     && mkdir -p /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable \
-    && unzip -q Godot_v${GODOT_VERSION}-stable_export_templates.tpz -d /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable \
-    && rm Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+    && mv /tmp/templates/templates/* /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable/ \
+    && rm -rf Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz /tmp/templates
 
 WORKDIR /app
 
@@ -153,16 +164,10 @@ RUN mkdir -p /app/build/android \
 # Final stage - minimal runtime for running the exported game client
 FROM ubuntu:22.04 AS runtime-client
 
-# Install minimal dependencies to run Godot exported game
+# Add .NET 10 Runtime to execute the C# game binary assemblies
 RUN apt-get update && apt-get install -y \
-    libglib2.0-0 \
-    libx11-6 \
-    libxcursor1 \
-    libxi6 \
-    libxrandr2 \
-    libxrender1 \
-    libxxf86vm1 \
-    libgl1-mesa-glx \
+    libglib2.0-0 libx11-6 libxcursor1 libxi6 libxrandr2 libxrender1 libxxf86vm1 libgl1-mesa-glx \
+    ca-certificates libc6 libgcc1 libgssapi-krb5-2 libicu70 libssl3 libstdc++6 zlib1g \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -177,8 +182,10 @@ ENTRYPOINT ["./build/linux/AxiomForceReclaimEarth.x86_64"]
 FROM ubuntu:22.04 AS runtime-server
 
 # Install minimal dependencies for headless server
+# Add .NET 10 Runtime dependencies to execute the C# server binary
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
+    ca-certificates libc6 libgcc1 libgssapi-krb5-2 libicu70 libssl3 libstdc++6 zlib1g \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
