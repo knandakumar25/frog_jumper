@@ -154,17 +154,29 @@ function findGeoMatch(countryCode) {
 }
 
 async function detectGeoDefault() {
-  try {
-    const res = await fetch('https://ip-api.com/json/?fields=countryCode', {
-      signal: AbortSignal.timeout(4000),
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (!data.countryCode) return null;
-    return findGeoMatch(data.countryCode);
-  } catch {
-    return null;
+  const providers = [
+    async () => {
+      const res = await fetch('https://ip-api.com/json/?fields=countryCode', { signal: AbortSignal.timeout(3000) });
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.countryCode;
+    },
+    async () => {
+      const res = await fetch('https://ipapi.co/country/', { signal: AbortSignal.timeout(3000) });
+      if (!res.ok) return null;
+      return await res.text(); // Returns 2-letter code directly
+    }
+  ];
+
+  for (const provider of providers) {
+    try {
+      const countryCode = await provider();
+      if (countryCode) return findGeoMatch(countryCode);
+    } catch {
+      continue;
+    }
   }
+  return null;
 }
 
 function detectBrowserDefault() {
