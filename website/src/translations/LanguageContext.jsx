@@ -154,17 +154,29 @@ function findGeoMatch(countryCode) {
 }
 
 async function detectGeoDefault() {
-  try {
-    const res = await fetch('https://ip-api.com/json/?fields=countryCode', {
-      signal: AbortSignal.timeout(4000),
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (!data.countryCode) return null;
-    return findGeoMatch(data.countryCode);
-  } catch {
-    return null;
+  const providers = [
+    async () => {
+      const res = await fetch('https://ip-api.com/json/?fields=countryCode', { signal: AbortSignal.timeout(3000) });
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.countryCode;
+    },
+    async () => {
+      const res = await fetch('https://ipapi.co/country/', { signal: AbortSignal.timeout(3000) });
+      if (!res.ok) return null;
+      return await res.text(); // Returns 2-letter code directly
+    }
+  ];
+
+  for (const provider of providers) {
+    try {
+      const countryCode = await provider();
+      if (countryCode) return findGeoMatch(countryCode);
+    } catch {
+      continue;
+    }
   }
+  return null;
 }
 
 function detectBrowserDefault() {
@@ -236,26 +248,35 @@ export function LanguageProvider({ children }) {
       hasMounted.current = true;
       return;
     }
-    if (!isModalOpen && !selectedCountry && needsGeoFallback.current) {
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+    if (!isModalOpen && needsGeoFallback.current) {
       needsGeoFallback.current = false;
       detectGeoDefault().then(match => {
-        const browserDefault = detectBrowserDefault();
-        const fallback = match || browserDefault || { langId: 'english', countryName: 'United States' };
-        const lang = LANGUAGE_CONFIG.languages.find(l => l.id === fallback.langId);
-        const country =
-          lang?.countries.find(c => c.name === fallback.countryName) ||
-          lang?.countries[0];
-        if (lang && country) {
-          localStorage.setItem('userSelectedLocale', '1');
-          setSelectedLanguage(fallback.langId);
-          setSelectedCountry(country.name);
-          const newLocale = getLocaleCode(fallback.langId, country.name, LANGUAGE_CONFIG);
-          const pathParts = location.pathname.split('/');
-          const restOfPath = pathParts.slice(2).join('/');
-          navigate(`/${newLocale}/${restOfPath}`);
+        if (match) {
+          // If we found a geo-match, it overrides the browser guess
+          const lang = LANGUAGE_CONFIG.languages.find(l => l.id === match.langId);
+          const country =
+            lang?.countries.find(c => c.name === match.countryName) ||
+            lang?.countries[0];
+
+          if (lang && country) {
+            localStorage.setItem('userSelectedLocale', '1');
+            setSelectedLanguage(match.langId);
+            setSelectedCountry(country.name);
+            const newLocale = getLocaleCode(match.langId, country.name, LANGUAGE_CONFIG);
+            const pathParts = location.pathname.split('/');
+            const restOfPath = pathParts.slice(2).join('/');
+            const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+            navigate(targetPath);
+          }
         }
       });
     }
+  }, [isModalOpen]);
   }, [isModalOpen]);
 
 
