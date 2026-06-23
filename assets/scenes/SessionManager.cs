@@ -28,23 +28,45 @@ public partial class SessionManager : Node
     // ─── Database initialisation ─────────────────────────────────────────────
     public void InitDatabase()
     {
-        _db = ClassDB.Instantiate("SQLite").As<GodotObject>();
-        _db.Set("path", _dbPath);
-        _db.Call("open_db");
-
-        var tableDict = new Dictionary
+        GD.Print("SessionManager: Initializing database...");
+        try
         {
-            { "id",            new Dictionary { { "data_type", "INTEGER" }, { "primary_key", true  }, { "auto_increment", true } } },
-            { "character",     new Dictionary { { "data_type", "TEXT"    }, { "not_null",     true  } } },
-            { "current_level", new Dictionary { { "data_type", "INTEGER" }, { "not_null",     true  }, { "default", 1 } } },
-            { "total_score",   new Dictionary { { "data_type", "INTEGER" }, { "not_null",     true  }, { "default", 0 } } },
-            { "collectables",  new Dictionary { { "data_type", "INTEGER" }, { "not_null",     true  }, { "default", 0 } } },
-            { "created_at",    new Dictionary { { "data_type", "TEXT"    }, { "not_null",     true  } } },
-            { "last_played",   new Dictionary { { "data_type", "TEXT"    }, { "not_null",     true  } } },
-        };
+            var dbInstance = ClassDB.Instantiate("SQLite");
+            if (dbInstance.Obj == null)
+            {
+                GD.PrintErr("SessionManager: ClassDB.Instantiate('SQLite') returned null! SQLite GDExtension might not be loaded.");
+                return;
+            }
+            _db = dbInstance.As<GodotObject>();
+            if (_db == null)
+            {
+                GD.PrintErr("SessionManager: Failed to cast SQLite instance to GodotObject!");
+                return;
+            }
+            GD.Print("SessionManager: SQLite class instantiated successfully. Setting path...");
+            _db.Set("path", _dbPath);
+            GD.Print("SessionManager: Database path set to: ", _dbPath, ". Opening database...");
+            _db.Call("open_db");
+            GD.Print("SessionManager: Database opened. Creating table...");
 
-        _db.Call("create_table", "game_sessions", tableDict);
-        GD.Print("SessionManager: Database initialized at ", _dbPath);
+            var tableDict = new Dictionary
+            {
+                { "id",            new Dictionary { { "data_type", "INTEGER" }, { "primary_key", true  }, { "auto_increment", true } } },
+                { "character",     new Dictionary { { "data_type", "TEXT"    }, { "not_null",     true  } } },
+                { "current_level", new Dictionary { { "data_type", "INTEGER" }, { "not_null",     true  }, { "default", 1 } } },
+                { "total_score",   new Dictionary { { "data_type", "INTEGER" }, { "not_null",     true  }, { "default", 0 } } },
+                { "collectables",  new Dictionary { { "data_type", "INTEGER" }, { "not_null",     true  }, { "default", 0 } } },
+                { "created_at",    new Dictionary { { "data_type", "TEXT"    }, { "not_null",     true  } } },
+                { "last_played",   new Dictionary { { "data_type", "TEXT"    }, { "not_null",     true  } } },
+            };
+
+            _db.Call("create_table", "game_sessions", tableDict);
+            GD.Print("SessionManager: Database initialized at ", _dbPath);
+        }
+        catch (System.Exception ex)
+        {
+            GD.PrintErr("SessionManager: Exception caught during InitDatabase: ", ex.ToString());
+        }
     }
 
     // ─── CRUD ────────────────────────────────────────────────────────────────

@@ -10,8 +10,8 @@ services:
       dockerfile: Dockerfile
       target: exporter
     volumes:
-      - ./build:/app/build
-    command: ["true"]
+      - ./build:/mnt/build
+    command: ["cp", "-r", "/app/build/.", "/mnt/build/"]
 
   # Android export (requires more resources)
   build-android:
@@ -20,13 +20,13 @@ services:
       dockerfile: Dockerfile
       target: exporter-android
     volumes:
-      - ./build:/app/build
+      - ./build:/mnt/build
     # Android builds need more memory
     deploy:
       resources:
         limits:
           memory: 8G
-    command: ["true"]
+    command: ["cp", "-r", "/app/build/.", "/mnt/build/"]
 
   # ==========================================
   # USE CASE 1: CI/CD - Run headless test
