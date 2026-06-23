@@ -141,49 +141,7 @@ export function parseLocaleCode(locale, languageConfig) {
   return null;
 }
 
-// Find the best language+country match for a given 2-letter country code
-function findGeoMatch(countryCode) {
-  const code = countryCode.toLowerCase();
-  for (const lang of LANGUAGE_CONFIG.languages) {
-    const country = lang.countries.find(c => c.code.toLowerCase() === code);
-    if (country) {
-      return { langId: country.langId || lang.id, countryName: country.name };
-    }
-  }
-  return null; // country not in our config
-}
 
-async function detectGeoDefault() {
-  const providers = [
-    async () => {
-      const res = await fetch('https://freeipapi.com/api/json', { signal: AbortSignal.timeout(3000) });
-      if (!res.ok) return null;
-      const data = await res.json();
-      return data.countryCode;
-    },
-    async () => {
-      const res = await fetch('https://ipapi.co/country/', { signal: AbortSignal.timeout(3000) });
-      if (!res.ok) return null;
-      return await res.text(); // Returns 2-letter code directly
-    },
-    async () => {
-      const res = await fetch('https://ipinfo.io/json', { signal: AbortSignal.timeout(3000) });
-      if (!res.ok) return null;
-      const data = await res.json();
-      return data.country; // Returns 2-letter code in 'country' field
-    }
-  ];
-
-  for (const provider of providers) {
-    try {
-      const countryCode = await provider();
-      if (countryCode) return findGeoMatch(countryCode);
-    } catch {
-      continue;
-    }
-  }
-  return null;
-}
 
 function detectBrowserDefault() {
   const navLang = (navigator.languages && navigator.languages[0]) || navigator.language;
@@ -215,7 +173,7 @@ export function LanguageProvider({ children }) {
     if (browser) {
       return browser.countryName;
     }
-    return null;
+    return 'United States';
   });
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     const stored = localStorage.getItem('selectedLanguage');
@@ -231,55 +189,6 @@ export function LanguageProvider({ children }) {
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Track whether the modal was opened for a first-time visitor (no stored country)
-  const needsGeoFallback = useRef(false);
-  // Skip the geo-detection effect on the very first render (isModalOpen starts false)
-  const hasMounted = useRef(false);
-
-  useEffect(() => {
-    // Only treat a stored country as valid if the user (or geo-detection) explicitly confirmed it
-    const userConfirmed = localStorage.getItem('userSelectedLocale') === '1';
-    if (!userConfirmed) {
-      // Clear any stale auto-detected data from previous sessions
-      localStorage.removeItem('selectedCountry');
-      needsGeoFallback.current = true;
-      setIsModalOpen(true);
-    }
-  }, []);
-
-  // When modal closes without the user picking a country, geo-detect and apply a default
-  useEffect(() => {
-    if (!hasMounted.current) {
-      hasMounted.current = true;
-      return;
-    }
-
-    if (!isModalOpen && needsGeoFallback.current) {
-      needsGeoFallback.current = false;
-      detectGeoDefault().then(match => {
-        // Fallback to browser defaults or English/US if geolocation detection failed or is unsupported
-        const finalMatch = match || detectBrowserDefault() || { langId: 'english', countryName: 'United States' };
-        
-        const lang = LANGUAGE_CONFIG.languages.find(l => l.id === finalMatch.langId);
-        const country =
-          lang?.countries.find(c => c.name === finalMatch.countryName) ||
-          lang?.countries[0];
-
-        if (lang && country) {
-          localStorage.setItem('userSelectedLocale', '1');
-          setSelectedLanguage(finalMatch.langId);
-          setSelectedCountry(country.name);
-          const newLocale = getLocaleCode(finalMatch.langId, country.name, LANGUAGE_CONFIG);
-          const pathParts = location.pathname.split('/');
-          const restOfPath = pathParts.slice(2).join('/');
-          const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
-          navigate(targetPath);
-        }
-      });
-    }
-  }, [isModalOpen]);
-
 
   useEffect(() => {
     localStorage.setItem('selectedCountry', selectedCountry || '');
@@ -303,8 +212,6 @@ export function LanguageProvider({ children }) {
 
   const chooseLanguageAndCountry = (langId, country) => {
     const actualLangId = country.langId || langId;
-    needsGeoFallback.current = false; // user made an explicit choice
-    localStorage.setItem('userSelectedLocale', '1');
     setSelectedLanguage(actualLangId);
     setSelectedCountry(country.name);
     setIsModalOpen(false);
