@@ -191,6 +191,36 @@ export function LanguageProvider({ children }) {
   const location = useLocation();
 
   useEffect(() => {
+    const userConfirmed = localStorage.getItem('userSelectedLocale') === '1';
+    if (!userConfirmed) {
+      setIsModalOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const userConfirmed = localStorage.getItem('userSelectedLocale') === '1';
+    if (!isModalOpen && !userConfirmed) {
+      const finalMatch = detectBrowserDefault() || { langId: 'english', countryName: 'United States' };
+      
+      const lang = LANGUAGE_CONFIG.languages.find(l => l.id === finalMatch.langId);
+      const country =
+        lang?.countries.find(c => c.name === finalMatch.countryName) ||
+        lang?.countries[0];
+
+      if (lang && country) {
+        localStorage.setItem('userSelectedLocale', '1');
+        setSelectedLanguage(finalMatch.langId);
+        setSelectedCountry(country.name);
+        const newLocale = getLocaleCode(finalMatch.langId, country.name, LANGUAGE_CONFIG);
+        const pathParts = location.pathname.split('/');
+        const restOfPath = pathParts.slice(2).join('/');
+        const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+        navigate(targetPath);
+      }
+    }
+  }, [isModalOpen]);
+
+  useEffect(() => {
     localStorage.setItem('selectedCountry', selectedCountry || '');
     localStorage.setItem('selectedLanguage', selectedLanguage);
   }, [selectedCountry, selectedLanguage]);
@@ -212,6 +242,7 @@ export function LanguageProvider({ children }) {
 
   const chooseLanguageAndCountry = (langId, country) => {
     const actualLangId = country.langId || langId;
+    localStorage.setItem('userSelectedLocale', '1');
     setSelectedLanguage(actualLangId);
     setSelectedCountry(country.name);
     setIsModalOpen(false);
