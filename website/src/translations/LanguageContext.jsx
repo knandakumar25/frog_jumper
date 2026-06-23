@@ -236,27 +236,35 @@ export function LanguageProvider({ children }) {
       hasMounted.current = true;
       return;
     }
-    if (!isModalOpen && !selectedCountry && needsGeoFallback.current) {
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+    if (!isModalOpen && needsGeoFallback.current) {
       needsGeoFallback.current = false;
       detectGeoDefault().then(match => {
-        const browserDefault = detectBrowserDefault();
-        const fallback = match || browserDefault || { langId: 'english', countryName: 'United States' };
-        const lang = LANGUAGE_CONFIG.languages.find(l => l.id === fallback.langId);
-        const country =
-          lang?.countries.find(c => c.name === fallback.countryName) ||
-          lang?.countries[0];
-        if (lang && country) {
-          localStorage.setItem('userSelectedLocale', '1');
-          setSelectedLanguage(fallback.langId);
-          setSelectedCountry(country.name);
-          const newLocale = getLocaleCode(fallback.langId, country.name, LANGUAGE_CONFIG);
-          const pathParts = location.pathname.split('/');
-          const restOfPath = pathParts.slice(2).join('/');
-          const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
-          navigate(targetPath);
+        if (match) {
+          // If we found a geo-match, it overrides the browser guess
+          const lang = LANGUAGE_CONFIG.languages.find(l => l.id === match.langId);
+          const country =
+            lang?.countries.find(c => c.name === match.countryName) ||
+            lang?.countries[0];
+
+          if (lang && country) {
+            localStorage.setItem('userSelectedLocale', '1');
+            setSelectedLanguage(match.langId);
+            setSelectedCountry(country.name);
+            const newLocale = getLocaleCode(match.langId, country.name, LANGUAGE_CONFIG);
+            const pathParts = location.pathname.split('/');
+            const restOfPath = pathParts.slice(2).join('/');
+            const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+            navigate(targetPath);
+          }
         }
       });
     }
+  }, [isModalOpen]);
   }, [isModalOpen]);
 
 
