@@ -252,7 +252,8 @@ export function LanguageProvider({ children }) {
           const newLocale = getLocaleCode(fallback.langId, country.name, LANGUAGE_CONFIG);
           const pathParts = location.pathname.split('/');
           const restOfPath = pathParts.slice(2).join('/');
-          navigate(`/${newLocale}/${restOfPath}`);
+          const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+          navigate(targetPath);
         }
       });
     }
