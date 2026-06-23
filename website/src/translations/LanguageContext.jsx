@@ -156,7 +156,7 @@ function findGeoMatch(countryCode) {
 async function detectGeoDefault() {
   const providers = [
     async () => {
-      const res = await fetch('https://ip-api.com/json/?fields=countryCode', { signal: AbortSignal.timeout(3000) });
+      const res = await fetch('https://freeipapi.com/api/json', { signal: AbortSignal.timeout(3000) });
       if (!res.ok) return null;
       const data = await res.json();
       return data.countryCode;
@@ -165,6 +165,12 @@ async function detectGeoDefault() {
       const res = await fetch('https://ipapi.co/country/', { signal: AbortSignal.timeout(3000) });
       if (!res.ok) return null;
       return await res.text(); // Returns 2-letter code directly
+    },
+    async () => {
+      const res = await fetch('https://ipinfo.io/json', { signal: AbortSignal.timeout(3000) });
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.country; // Returns 2-letter code in 'country' field
     }
   ];
 
@@ -248,35 +254,30 @@ export function LanguageProvider({ children }) {
       hasMounted.current = true;
       return;
     }
-  useEffect(() => {
-    if (!hasMounted.current) {
-      hasMounted.current = true;
-      return;
-    }
+
     if (!isModalOpen && needsGeoFallback.current) {
       needsGeoFallback.current = false;
       detectGeoDefault().then(match => {
-        if (match) {
-          // If we found a geo-match, it overrides the browser guess
-          const lang = LANGUAGE_CONFIG.languages.find(l => l.id === match.langId);
-          const country =
-            lang?.countries.find(c => c.name === match.countryName) ||
-            lang?.countries[0];
+        // Fallback to browser defaults or English/US if geolocation detection failed or is unsupported
+        const finalMatch = match || detectBrowserDefault() || { langId: 'english', countryName: 'United States' };
+        
+        const lang = LANGUAGE_CONFIG.languages.find(l => l.id === finalMatch.langId);
+        const country =
+          lang?.countries.find(c => c.name === finalMatch.countryName) ||
+          lang?.countries[0];
 
-          if (lang && country) {
-            localStorage.setItem('userSelectedLocale', '1');
-            setSelectedLanguage(match.langId);
-            setSelectedCountry(country.name);
-            const newLocale = getLocaleCode(match.langId, country.name, LANGUAGE_CONFIG);
-            const pathParts = location.pathname.split('/');
-            const restOfPath = pathParts.slice(2).join('/');
-            const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
-            navigate(targetPath);
-          }
+        if (lang && country) {
+          localStorage.setItem('userSelectedLocale', '1');
+          setSelectedLanguage(finalMatch.langId);
+          setSelectedCountry(country.name);
+          const newLocale = getLocaleCode(finalMatch.langId, country.name, LANGUAGE_CONFIG);
+          const pathParts = location.pathname.split('/');
+          const restOfPath = pathParts.slice(2).join('/');
+          const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+          navigate(targetPath);
         }
       });
     }
-  }, [isModalOpen]);
   }, [isModalOpen]);
 
 
