@@ -167,12 +167,47 @@ async function detectGeoDefault() {
   }
 }
 
+function detectBrowserDefault() {
+  const navLang = (navigator.languages && navigator.languages[0]) || navigator.language;
+  if (!navLang) return null;
+
+  const [langCode, countryCode] = navLang.toLowerCase().split('-');
+
+  for (const lang of LANGUAGE_CONFIG.languages) {
+    if (LANGUAGE_ID_TO_CODE[lang.id] === langCode) {
+      if (countryCode) {
+        const country = lang.countries.find(c => c.code.toLowerCase() === countryCode);
+        if (country) {
+          return { langId: country.langId || lang.id, countryName: country.name };
+        }
+      }
+      // Fallback to first country of this language
+      return { langId: lang.countries[0]?.langId || lang.id, countryName: lang.countries[0]?.name };
+    }
+  }
+  return null;
+}
+
 export function LanguageProvider({ children }) {
   const [selectedCountry, setSelectedCountry] = useState(() => {
-    return localStorage.getItem('selectedCountry') || null;
+    const stored = localStorage.getItem('selectedCountry');
+    if (stored) return stored;
+
+    const browser = detectBrowserDefault();
+    if (browser) {
+      return browser.countryName;
+    }
+    return null;
   });
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    return localStorage.getItem('selectedLanguage') || 'english';
+    const stored = localStorage.getItem('selectedLanguage');
+    if (stored) return stored;
+
+    const browser = detectBrowserDefault();
+    if (browser) {
+      return browser.langId;
+    }
+    return 'english';
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -204,7 +239,8 @@ export function LanguageProvider({ children }) {
     if (!isModalOpen && !selectedCountry && needsGeoFallback.current) {
       needsGeoFallback.current = false;
       detectGeoDefault().then(match => {
-        const fallback = match || { langId: 'english', countryName: 'United States' };
+        const browserDefault = detectBrowserDefault();
+        const fallback = match || browserDefault || { langId: 'english', countryName: 'United States' };
         const lang = LANGUAGE_CONFIG.languages.find(l => l.id === fallback.langId);
         const country =
           lang?.countries.find(c => c.name === fallback.countryName) ||
