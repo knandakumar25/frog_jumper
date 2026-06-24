@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5n8qw7j8yak2"]
 
-[ext_resource type="Script" path="res://assets/scenes/story_intro.cs" id="1_story_intro_script"]
+[ext_resource type="Script" path="res://assets/scenes/StoryIntro.cs" id="1_story_intro_script"]
 [ext_resource type="Texture2D" uid="uid://bdpjelaxkre4f" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_robot_image"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
@@ -206,5 +206,3 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Skip >>>"
 
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
