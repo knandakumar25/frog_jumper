@@ -1,4 +1,4 @@
-﻿using Godot;
+using Godot;
 using System.Collections.Generic;
 
 public partial class StoryIntro : Control
@@ -16,6 +16,7 @@ public partial class StoryIntro : Control
     private string currentText = "";
     private int currentCharIndex = 0;
     private float typewriterTimer = 0f;
+    private AudioStreamPlayer? voicePlayer;
 
     public override void _Ready()
     {
@@ -26,35 +27,31 @@ public partial class StoryIntro : Control
         continueButton = GetNodeOrNull<Button>("ContinueButton");
         skipButton = GetNodeOrNull<Button>("SkipButton");
 
-        // Load dialogue from InkManager
-        var inkManager = InkManager.Instance;
-        if (inkManager != null)
+        // Stop home screen music to make voice recordings audible
+        var global = GetNodeOrNull<Node>("/root/Global");
+        if (global != null)
         {
-            // If there's an active story, gather its continuations into lines.
-            if (inkManager.HasStory())
-            {
-                var parts = new List<string>();
-                while (inkManager.CanContinue())
-                {
-                    var part = inkManager.Continue();
-                    if (!string.IsNullOrEmpty(part))
-                        parts.Add(part);
-                }
+            global.Call("stop_menu_music");
+            GD.Print("StoryIntro: Stopped menu music via Global");
+        }
 
-                if (parts.Count > 0)
-                    dialogueLines = parts;
-                else
-                    dialogueLines = new List<string> {"[color=red]No story found.[/color]"};
-            }
-            else
-            {
-                dialogueLines = new List<string> {"[color=red]No story found.[/color]"};
-            }
-        }
-        else
+        // Setup audio player
+        voicePlayer = new AudioStreamPlayer();
+        AddChild(voicePlayer);
+
+        // Setup dialogue lines using translation keys
+        dialogueLines = new List<string>
         {
-            dialogueLines = new List<string> {"[color=red]InkManager not found.[/color]"};
-        }
+            $"[center][color=#00FF00]{TranslationServer.Translate("STORY_LINE_1")}[/color][/center]\n\n{TranslationServer.Translate("STORY_LINE_1_INTRO")}",
+            TranslationServer.Translate("STORY_LINE_2"),
+            TranslationServer.Translate("STORY_LINE_3"),
+            TranslationServer.Translate("STORY_LINE_4"),
+            TranslationServer.Translate("STORY_LINE_5"),
+            TranslationServer.Translate("STORY_LINE_6"),
+            TranslationServer.Translate("STORY_LINE_7"),
+            TranslationServer.Translate("STORY_LINE_8"),
+            TranslationServer.Translate("STORY_LINE_9")
+        };
 
         // Initialize UI state defensively
         if (continueButton != null)
@@ -122,6 +119,21 @@ public partial class StoryIntro : Control
                 continueButton.Visible = false;
 
             typewriterTimer = 0f;
+
+            // Play corresponding voice recording
+            string audioPath = $"res://assets/speech/AXIOM-7/AXIOM-7-{currentLineIndex + 1} (ENG).mp3";
+            GD.Print($"StoryIntro: Attempting to load audio: {audioPath}");
+            AudioStream stream = GD.Load<AudioStream>(audioPath);
+            if (stream != null && voicePlayer != null)
+            {
+                GD.Print($"StoryIntro: Successfully loaded and playing: {audioPath}");
+                voicePlayer.Stream = stream;
+                voicePlayer.Play();
+            }
+            else
+            {
+                GD.PrintErr($"StoryIntro: Failed to load audio stream at {audioPath}");
+            }
         }
         else
         {
@@ -153,7 +165,11 @@ public partial class StoryIntro : Control
 
     private void ProceedToLevelSelection()
     {
-        GetTree().ChangeSceneToFile("res://assets/scenes/training_protocol.tscn");
+        // Stop all voice audio immediately
+        if (voicePlayer != null)
+            voicePlayer.Stop();
+
+        LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/training_protocol.tscn");
     }
 
     public override void _Input(InputEvent @event)
@@ -178,4 +194,3 @@ public partial class StoryIntro : Control
         }
     }
 }
-

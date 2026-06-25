@@ -116,9 +116,38 @@ services:
       - build
     # For headless testing:
     # entrypoint: ["./build/linux/AxiomForceReclaimEarth.x86_64", "--headless"]
-    # For interactive with display (requires X11):
-    # environment:
-    #   - DISPLAY=${DISPLAY}
-    # volumes:
-    #   - /tmp/.X11-unix:/tmp/.X11-unix
     command: ["tail", "-f", "/dev/null"]
+
+  # ==========================================
+  # SHARED ACCOUNTS BACKEND
+  # ==========================================
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=accounts_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - backend_net
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings
+    depends_on:
+      - db
+    networks:
+      - backend_net
+
+networks:
+  backend_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
