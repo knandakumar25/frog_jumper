@@ -23,6 +23,7 @@ public partial class MainMenu : Node
     private GridContainer _languageGrid;
     private VBoxContainer _scoresTable;
     private HBoxContainer _titleContainer;
+    private Button       _browserLoginButton;
 
     // Session management
     private Panel           _newGamePopup;
@@ -81,6 +82,8 @@ public partial class MainMenu : Node
         _continueButton     = GetNode<Button>("ButtonContainer/ContinueButton");
         _confirmPopup       = GetNode<Panel>("ConfirmPopup");
         _confirmLabel       = GetNode<Label>("ConfirmPopup/VBoxContainer/ConfirmLabel");
+
+        SetupBrowserLoginButton();
 
         PopulateLanguageButtons();
         _ = SetupFloatingTitleAsync();
@@ -740,6 +743,50 @@ public partial class MainMenu : Node
         _continuePopup.Visible = true;
     }
 
-    public void _on_continue_back_pressed() => _continuePopup.Visible = false;
+    private void SetupBrowserLoginButton()
+    {
+        var row2 = GetNode<HBoxContainer>("ButtonContainer/Row2");
+
+        _browserLoginButton = new Button
+        {
+            Text               = Tr("Login via Browser"),
+            CustomMinimumSize  = new Vector2(200, 50),
+            SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+        };
+
+        var settingsBtn = GetNode<Button>("ButtonContainer/Row2/Settings");
+        _browserLoginButton.AddThemeStyleboxOverride("normal",  settingsBtn.GetThemeStylebox("normal",  "Button"));
+        _browserLoginButton.AddThemeStyleboxOverride("hover",   settingsBtn.GetThemeStylebox("hover",   "Button"));
+        _browserLoginButton.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal",  "Button"));
+        _browserLoginButton.AddThemeFontSizeOverride("font_size", 20);
+        _browserLoginButton.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
+
+        _browserLoginButton.Pressed += OnBrowserLoginPressed;
+        row2.AddChild(_browserLoginButton);
+    }
+
+    private async void OnBrowserLoginPressed()
+    {
+        _browserLoginButton.Disabled = true;
+        _browserLoginButton.Text = Tr("Waiting for Browser...");
+
+        bool success = await AuthManager.Instance.StartBrowserLoginAsync();
+
+        if (success)
+        {
+            GD.Print("Browser login successful!");
+            _browserLoginButton.Text = Tr("Logged In!");
+            // Optionally trigger a profile popup or a visual indicator
+        }
+        else
+        {
+            GD.PrintErr("Browser login failed or timed out.");
+            _browserLoginButton.Text = Tr("Login Failed");
+            await System.Threading.Tasks.Task.Delay(3000);
+        }
+
+        _browserLoginButton.Disabled = false;
+        _browserLoginButton.Text = Tr("Login via Browser");
+    }
 }
 
