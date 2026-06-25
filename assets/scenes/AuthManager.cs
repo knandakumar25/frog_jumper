@@ -3,14 +3,13 @@ using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 
 public partial class AuthManager : Node
 {
     public static AuthManager Instance { get; private set; }
 
-    private readonly HttpClient _httpClient = new HttpClient();
+    private readonly System.Net.Http.HttpClient _httpClient = new System.Net.Http.HttpClient();
     private const string API_BASE_URL = "http://localhost:8000/api";
     private const string AUTH_CONFIG_PATH = "user://auth.cfg";
 
@@ -27,7 +26,7 @@ public partial class AuthManager : Node
     public async Task<bool> LoginAsync(string username, string password)
     {
         var payload = new { username, password };
-        var json = JsonConvert.SerializeObject(payload);
+        var json = JsonSerializer.Serialize(payload);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         try
@@ -36,11 +35,14 @@ public partial class AuthManager : Node
             if (response.IsSuccessStatusCode)
             {
                 var responseString = await response.Content.ReadAsStringAsync();
-                var data = JObject.Parse(responseString);
+                using var doc = JsonDocument.Parse(responseString);
+                var root = doc.RootElement;
 
-                AccessToken = data["access"]?.ToString();
-                RefreshToken = data["refresh"]?.ToString();
-                CurrentUser = data["user"].ToObject<UserProfile>();
+                AccessToken = root.GetProperty("access").GetString();
+                RefreshToken = root.GetProperty("refresh").GetString();
+
+                var userJson = root.GetProperty("user").GetRawText();
+                CurrentUser = JsonSerializer.Deserialize<UserProfile>(userJson);
 
                 SaveAuthData();
                 return true;
@@ -56,7 +58,7 @@ public partial class AuthManager : Node
     public async Task<bool> RegisterAsync(string username, string email, string password)
     {
         var payload = new { username, email, password };
-        var json = JsonConvert.SerializeObject(payload);
+        var json = JsonSerializer.Serialize(payload);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         try
@@ -84,7 +86,7 @@ public partial class AuthManager : Node
             if (response.IsSuccessStatusCode)
             {
                 var responseString = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<UserProfile>(responseString);
+                return JsonSerializer.Deserialize<UserProfile>(responseString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
         }
         catch (Exception e)
