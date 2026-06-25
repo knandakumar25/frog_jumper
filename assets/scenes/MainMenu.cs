@@ -32,6 +32,7 @@ public partial class MainMenu : Node
     private Panel           _confirmPopup;
     private Label           _confirmLabel;
 
+
     // ─── Cloud data ──────────────────────────────────────────────────────────
     private readonly Texture2D _cloudTexture =
         GD.Load<Texture2D>("res://assets/images/clouds.png");
