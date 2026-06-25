@@ -58,7 +58,7 @@ export default function Navbar() {
                 t('hero.title_line1')
               )}
             </span>
-          </NavLink
+          </NavLink>
 
           {/* Desktop Links */}
           <div className="hidden lg:flex gap-6 items-center">
