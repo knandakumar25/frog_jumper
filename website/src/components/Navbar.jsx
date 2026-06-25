@@ -174,7 +174,7 @@ export default function Navbar() {
               >
                 {playNowText}
               </a>
-            </div}
+            </div>
           </div>
         </div>
       </nav>
