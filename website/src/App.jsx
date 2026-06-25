@@ -4,6 +4,7 @@ import { LanguageProvider, useLanguage } from './translations/LanguageContext';
 import LanguageModal from './translations/LanguageModal';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { AuthProvider } from './context/AuthContext';
 
 // Pages
 import Home from './pages/Home';
@@ -11,6 +12,7 @@ import Gameplay from './pages/Gameplay';
 import Squad from './pages/Squad';
 import TechHub from './pages/TechHub';
 import DesignSystem from './pages/DesignSystem';
+import BrowserAuth from './pages/BrowserAuth';
 
 // Redirect helper to default or stored locale
 function LocaleRedirect() {
@@ -33,6 +35,7 @@ function MainLayout() {
           <Route path="/:locale/squad" element={<Squad />} />
           <Route path="/:locale/tech-hub" element={<TechHub />} />
           <Route path="/:locale/design-system" element={<DesignSystem />} />
+          <Route path="/auth/browser-confirm" element={<BrowserAuth />} />
           <Route path="*" element={<LocaleRedirect />} />
         </Routes>
       </main>
@@ -45,9 +48,11 @@ function MainLayout() {
 export default function App() {
   return (
     <Router>
-      <LanguageProvider>
-        <MainLayout />
-      </LanguageProvider>
+      <AuthProvider>
+        <LanguageProvider>
+          <MainLayout />
+        </LanguageProvider>
+      </AuthProvider>
     </Router>
   );
 }
