@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Collections.Generic;
 
 public partial class AuthManager : Node
 {
@@ -52,6 +53,73 @@ public partial class AuthManager : Node
         {
             GD.PrintErr($"Login failed: {e.Message}");
         }
+        return false;
+    }
+
+    public async Task<bool> StartBrowserLoginAsync()
+    {
+        try
+        {
+            var response = await _httpClient.PostAsync($"{API_BASE_URL}/auth/browser-start/", null);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseString = await response.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(responseString);
+                var root = doc.RootElement;
+
+                string sessionId = root.GetProperty("session_id").GetString();
+                string authUrl = root.GetProperty("auth_url").GetString();
+
+                OS.ShellOpen(authUrl);
+                return await PollBrowserLoginAsync(sessionId);
+            }
+        }
+        catch (Exception e)
+        {
+            GD.PrintErr($"Browser login start failed: {e.Message}");
+        }
+        return false;
+    }
+
+    private async Task<bool> PollBrowserLoginAsync(string sessionId)
+    {
+        int attempts = 0;
+        const int maxAttempts = 60; // Poll for 60 seconds (1 per second)
+
+        while (attempts < maxAttempts)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"{API_BASE_URL}/auth/browser-poll/?session_id={sessionId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    using var doc = JsonDocument.Parse(responseString);
+                    var root = doc.RootElement;
+
+                    if (root.TryGetProperty("access", out var accessProp))
+                    {
+                        AccessToken = accessProp.GetString();
+                        RefreshToken = root.GetProperty("refresh").GetString();
+
+                        var userJson = root.GetProperty("user").GetRawText();
+                        CurrentUser = JsonSerializer.Deserialize<UserProfile>(userJson);
+
+                        SaveAuthData();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                GD.PrintErr($"Polling error: {e.Message}");
+            }
+
+            attempts++;
+            await Task.Delay(1000);
+        }
+
+        GD.PrintErr("Browser login timed out.");
         return false;
     }
 
