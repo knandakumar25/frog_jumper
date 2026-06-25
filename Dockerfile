@@ -1,15 +1,14 @@
 # Dockerfile for Godot 4.6.3 C# Project
 # Multi-stage build for building and exporting the game
 
-# Build stage - uses .NET 10 SDK since project targets net10.0
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS builder
+# Build stage - uses .NET 8 SDK
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS builder
 
 # Install dependencies for Godot, Java, and .NET 8 SDK
 RUN apt-get update && apt-get install -y \
-    dotnet-sdk-8.0 \
     wget \
     unzip \
-    openjdk-21-jdk-headless \
+    default-jdk-headless \
     libglib2.0-0 \
     libx11-6 \
     libxcursor1 \
@@ -57,15 +56,14 @@ RUN dotnet restore "2d Platformer game.csproj" -p:GodotTargetPlatform=linuxbsd
 RUN dotnet build "2d Platformer game.csproj" -c Release --no-restore -p:GodotTargetPlatform=linuxbsd
 
 # Export stage - export the game for Linux, Web, and Android
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS exporter
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS exporter
 
 # Install Godot Mono, Java, and .NET 8 SDK for Export Execution
 ENV GODOT_VERSION=4.6.3
 RUN apt-get update && apt-get install -y \
-    dotnet-sdk-8.0 \
     wget \
     unzip \
-    openjdk-21-jdk-headless \
+    default-jdk-headless \
     libglib2.0-0 \
     libx11-6 \
     libxcursor1 \
@@ -128,7 +126,7 @@ ENV ANDROID_NDK_VERSION=28.1.13356709
 ENV ANDROID_SDK_VERSION=35
 ENV ANDROID_BUILD_TOOLS_VERSION=35.0.1
 ENV ANDROID_CMDLINE_TOOLS_VERSION=13114758
-ENV GRADLE_VERSION=8.13.2
+ENV GRADLE_VERSION=8.14.4
 ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/build-tools/${ANDROID_BUILD_TOOLS_VERSION}:/opt/gradle/gradle-${GRADLE_VERSION}/bin
 
 # Install Android SDK command line tools
@@ -165,20 +163,16 @@ RUN mkdir -p /app/build/android \
     && cd /app/android/build \
     && chmod +x gradlew \
     && ./gradlew assembleRelease -Pexport_package_name=com.godot.game -Pexport_version_code=1 -Pexport_version_name=1.0 -Pexport_enabled_abis="armeabi-v7a|arm64-v8a" -Pexport_format=apk -Pexport_build_type=release -Pexport_edition=mono \
-    && cp app/build/outputs/apk/mono/release/android_mono-release.apk /app/build/android/AxiomForceReclaimEarth.apk
+    && cp build/outputs/apk/mono/release/android_monoRelease.apk /app/build/android/AxiomForceReclaimEarth.apk
 
 # ==========================================
 # Final stage - minimal runtime for running the exported game client
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS runtime-client
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS runtime-client
 
-# Install system dependencies and .NET 8 Runtime required by Godot
+# Install system dependencies required by Godot
 RUN apt-get update && apt-get install -y \
-    dotnet-runtime-8.0 \
     libglib2.0-0 libx11-6 libxcursor1 libxi6 libxrandr2 libxrender1 libxxf86vm1 libgl1 \
     && rm -rf /var/lib/apt/lists/*
-
-# Set DOTNET_ROOT to point to the .NET 8 installation directory
-ENV DOTNET_ROOT=/usr/lib/dotnet
 
 WORKDIR /app
 
@@ -189,16 +183,12 @@ COPY --from=exporter /app/build/linux ./build/linux
 ENTRYPOINT ["./build/linux/AxiomForceReclaimEarth.x86_64"]
 
 # Dedicated server runtime stage
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS runtime-server
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS runtime-server
 
-# Install minimal dependencies and .NET 8 Runtime for headless server
+# Install minimal dependencies for headless server
 RUN apt-get update && apt-get install -y \
-    dotnet-runtime-8.0 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
-
-# Set DOTNET_ROOT to point to the .NET 8 installation directory
-ENV DOTNET_ROOT=/usr/lib/dotnet
 
 WORKDIR /app
 
@@ -231,7 +221,7 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 CMD ["nginx", "-g", "daemon off;"]
 
 # Android artifact stage - just copies the APK for artifact upload
-FROM scratch AS android-artifact
+FROM alpine AS android-artifact
 
 # Copy APK from exporter-android
 COPY --from=exporter-android /app/build/android/AxiomForceReclaimEarth.apk /AxiomForceReclaimEarth.apk

@@ -41,4 +41,7 @@ graphify-out/
 
 # Codex output
 .codex/
+
+# Built Android binaries
+build/android/
 

@@ -32,7 +32,9 @@ Thumbs.db
 website/
 
 # Android build
-android/build/
+android/build/.gradle/
+android/build/build/
+android/build/local.properties
 
 # Logs
 *.log

@@ -13,6 +13,8 @@ import Squad from './pages/Squad';
 import TechHub from './pages/TechHub';
 import DesignSystem from './pages/DesignSystem';
 import BrowserAuth from './pages/BrowserAuth';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 // Redirect helper to default or stored locale
 function LocaleRedirect() {
@@ -35,6 +37,8 @@ function MainLayout() {
           <Route path="/:locale/squad" element={<Squad />} />
           <Route path="/:locale/tech-hub" element={<TechHub />} />
           <Route path="/:locale/design-system" element={<DesignSystem />} />
+          <Route path="/:locale/login" element={<Login />} />
+          <Route path="/:locale/signup" element={<Signup />} />
           <Route path="/auth/browser-confirm" element={<BrowserAuth />} />
           <Route path="*" element={<LocaleRedirect />} />
         </Routes>

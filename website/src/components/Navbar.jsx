@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../translations/LanguageSelector';
 import { useLanguage } from '../translations/LanguageContext';
 import { useAuth } from '../context/AuthContext';
-import AuthModal from './auth/AuthModal';
 
 const NAV_LINKS = [
   { key: 'home', to: '' },
@@ -15,7 +14,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const location = useLocation();
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
   const currentLocale = getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
@@ -83,7 +81,18 @@ export default function Navbar() {
           {/* Desktop Right Side CTA & Lang */}
           <div className="hidden lg:flex items-center gap-4">
             {user ? (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                {user.profile_picture ? (
+                  <img
+                    src={user.profile_picture}
+                    alt="User Avatar"
+                    className="w-8 h-8 rounded-none border-2 border-primary-container object-cover shadow-[0_0_10px_rgba(0,243,255,0.3)]"
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded-none border-2 border-primary-container/45 flex items-center justify-center bg-surface-container-highest text-primary-container font-bold font-mono text-xs shadow-[0_0_5px_rgba(0,243,255,0.1)]">
+                    {user.username.substring(0, 2).toUpperCase()}
+                  </div>
+                )}
                 <span className="text-xs font-bold text-primary-container uppercase tracking-tighter">
                   {user.username}
                 </span>
@@ -95,12 +104,20 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => setIsAuthOpen(true)}
-                className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary transition-colors underline"
-              >
-                Login / Sign Up
-              </button>
+              <div className="flex items-center gap-4">
+                <NavLink
+                  to={`/${currentLocale}/login`}
+                  className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary transition-colors underline"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to={`/${currentLocale}/signup`}
+                  className="text-xs font-bold uppercase text-primary-container bg-primary-container/10 border-2 border-primary-container/45 hover:bg-primary-container/20 px-3 py-1.5 transition-all duration-150 active:scale-95 font-body-md"
+                >
+                  Sign Up
+                </NavLink>
+              </div>
             )}
             <LanguageSelector />
             <a
@@ -152,19 +169,47 @@ export default function Navbar() {
             <div className="flex flex-col gap-4 items-center w-full">
               <LanguageSelector />
               {user ? (
-                <button
-                  onClick={logout}
-                  className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
-                >
-                  Logout ({user.username})
-                </button>
+                <div className="flex flex-col gap-3 items-center w-full">
+                  <div className="flex items-center gap-3">
+                    {user.profile_picture ? (
+                      <img
+                        src={user.profile_picture}
+                        alt="User Avatar"
+                        className="w-10 h-10 rounded-none border-2 border-primary-container object-cover shadow-[0_0_10px_rgba(0,243,255,0.3)]"
+                      />
+                    ) : (
+                      <div className="w-10 h-10 rounded-none border-2 border-primary-container/45 flex items-center justify-center bg-surface-container-highest text-primary-container font-bold font-mono text-sm">
+                        {user.username.substring(0, 2).toUpperCase()}
+                      </div>
+                    )}
+                    <span className="text-sm font-bold text-primary-container uppercase tracking-wider">
+                      {user.username}
+                    </span>
+                  </div>
+                  <button
+                    onClick={logout}
+                    className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
-                <button
-                  onClick={() => setIsAuthOpen(true)}
-                  className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
-                >
-                  Login / Sign Up
-                </button>
+                <div className="flex flex-col gap-3 w-full">
+                  <NavLink
+                    to={`/${currentLocale}/login`}
+                    onClick={() => setMenuOpen(false)}
+                    className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    to={`/${currentLocale}/signup`}
+                    onClick={() => setMenuOpen(false)}
+                    className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase bg-primary-container text-void-black hover:bg-secondary-container hover:text-on-secondary-container"
+                  >
+                    Sign Up
+                  </NavLink>
+                </div>
               )}
               <a
                 href="https://github.com/knandakumar25/frog_jumper"
@@ -178,7 +223,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </>
   );
 }

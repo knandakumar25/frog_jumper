@@ -49,7 +49,7 @@ The `Dockerfile` uses a **multi-stage build** with **six stages**:
   - Android SDK Command Line Tools
   - Android SDK Platform 35, Build Tools 35.0.1
   - Android NDK 28.1.13356709
-  - Gradle 8.13.2
+  - Gradle 8.14.4
 - **Actions**:
   - Copies Android gradle project from builder
   - Runs `./gradlew assembleRelease` to build signed APK
@@ -216,7 +216,7 @@ Four presets configured:
 - `android/export_format=0` (APK, use 1 for AAB)
 - `android/architectures=["armeabi-v7a", "arm64-v8a"]`
 - `android/min_sdk=24`, `android/target_sdk=35`, `android/sdk_version=35`
-- `android/ndk_version="28.1.13356709"`, `android/gradle_version="8.13.2"`
+- `android/ndk_version="28.1.13356709"`, `android/gradle_version="8.14.4"`
 - `android/gradle_build_type="release"`, `android/export_edition="mono"`
 - `android/package_name="com.godot.game"`
 

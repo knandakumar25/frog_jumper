@@ -6,6 +6,7 @@ from .serializers import UserSerializer, UserProfileSerializer
 from .models import BrowserSession
 from rest_framework_simplejwt.tokens import RefreshToken
 import uuid
+from django.conf import settings
 
 User = get_user_model()
 
@@ -50,8 +51,8 @@ class BrowserStartView(APIView):
 
     def post(self, request):
         session = BrowserSession.objects.create()
-        # In a real scenario, the domain would be an environment variable
-        auth_url = f"http://localhost:5173/auth/browser-confirm?session_id={session.session_id}"
+        frontend_url = getattr(settings, 'FRONTEND_URL', 'http://localhost:5173').rstrip('/')
+        auth_url = f"{frontend_url}/auth/browser-confirm?session_id={session.session_id}"
         return Response({
             'session_id': session.session_id,
             'auth_url': auth_url

@@ -6,6 +6,7 @@ class User(AbstractUser):
     # Add custom fields here if needed in the future
     # For now, we use the standard Django user fields (username, email, password)
     email = models.EmailField(unique=True)
+    profile_picture = models.TextField(blank=True, default='')
 
     def __str__(self):
         return self.username

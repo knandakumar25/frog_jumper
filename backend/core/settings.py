@@ -107,3 +107,6 @@ SIMPLE_JWT = {
 
 # CORS Settings
 CORS_ALLOW_ALL_ORIGINS = True # For development
+
+# Frontend URL for browser login flow
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')

@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   # ==========================================
@@ -140,10 +139,20 @@ services:
       - "8000:8000"
     environment:
       - DJANGO_SETTINGS_MODULE=core.settings
+      - FRONTEND_URL=http://localhost:5173
     depends_on:
       - db
     networks:
       - backend_net
+
+  website:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./website:/app
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev -- --host"
 
 networks:
   backend_net:

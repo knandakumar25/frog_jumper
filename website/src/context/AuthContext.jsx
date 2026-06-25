@@ -32,8 +32,15 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
   };
 
-  const register = async (username, email, password) => {
-    await apiClient.post('/auth/register/', { username, email, password });
+  const register = async (username, email, password, firstName = '', lastName = '', profilePicture = '') => {
+    await apiClient.post('/auth/register/', {
+      username,
+      email,
+      password,
+      first_name: firstName,
+      last_name: lastName,
+      profile_picture: profilePicture
+    });
   };
 
   const logout = () => {

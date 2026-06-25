@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 public partial class AuthManager : Node
@@ -16,12 +17,33 @@ public partial class AuthManager : Node
 
     public string AccessToken { get; private set; }
     public string RefreshToken { get; private set; }
-    public UserProfile CurrentUser { get; private set; }
+
+    public event Action OnProfileUpdated;
+
+    private UserProfile _currentUser;
+    public UserProfile CurrentUser
+    {
+        get => _currentUser;
+        private set
+        {
+            _currentUser = value;
+            OnProfileUpdated?.Invoke();
+        }
+    }
 
     public override void _Ready()
     {
         Instance = this;
         LoadAuthData();
+        _ = InitializeProfileAsync();
+    }
+
+    private async Task InitializeProfileAsync()
+    {
+        if (!string.IsNullOrEmpty(AccessToken))
+        {
+            CurrentUser = await GetProfileAsync();
+        }
     }
 
     public async Task<bool> LoginAsync(string username, string password)
@@ -201,4 +223,13 @@ public class UserProfile
     public int Id { get; set; }
     public string Username { get; set; }
     public string Email { get; set; }
+
+    [JsonPropertyName("first_name")]
+    public string FirstName { get; set; }
+
+    [JsonPropertyName("last_name")]
+    public string LastName { get; set; }
+
+    [JsonPropertyName("profile_picture")]
+    public string ProfilePicture { get; set; }
 }
