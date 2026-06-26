@@ -154,7 +154,7 @@ services:
       - backend_net
 
   website:
-    image: node:20-alpine
+    image: node:26-slim
     working_dir: /app
     volumes:
       - ./website:/app
