@@ -88,6 +88,33 @@ The `Dockerfile` uses a **multi-stage build** with **six stages**:
 | `.github/workflows/docker-build.yml` | CI/CD pipeline for GitHub Actions |
 | `DOCKER_SETUP.md` | This documentation |
 
+## 👥 Docker Compose Profiles
+
+To prevent heavy Godot game exporting services from compiling and running during web development, all game-related services are isolated under the `"game"` profile.
+
+### Web/Auth Development (Default)
+By default, running a standard compose command:
+```bash
+docker compose up -d
+```
+will **only** compile and start the core web services:
+- `db` (Postgres Database)
+- `backend` (Django API Server)
+- `website` (Vite React Frontend)
+
+This bypasses all Godot setup, starting your environment in about 2 seconds.
+
+### Game Development & Exports (Profiles)
+To run, build, or test the Godot game targets, simply include the `--profile game` flag in your compose commands:
+```bash
+# Start all services (web and game export containers)
+docker compose --profile game up -d
+
+# Build or run a specific game service
+docker compose --profile game run build
+docker compose --profile game up web
+```
+
 ---
 
 ## Quick Start
