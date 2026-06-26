@@ -4,6 +4,7 @@ services:
   # BUILD STAGE: Build and export all targets
   # ==========================================
   build:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,6 +15,7 @@ services:
 
   # Android export (requires more resources)
   build-android:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -31,6 +33,7 @@ services:
   # USE CASE 1: CI/CD - Run headless test
   # ==========================================
   test:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -43,6 +46,7 @@ services:
   # USE CASE 2: Dedicated Multiplayer Server
   # ==========================================
   server:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -62,6 +66,7 @@ services:
   # USE CASE 3: Local Web Testing (HTML5)
   # ==========================================
   web:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -77,6 +82,7 @@ services:
   # USE CASE 4: Android Build (APK/AAB)
   # ==========================================
   android:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -90,6 +96,7 @@ services:
   # DEVELOPMENT: Full dev environment
   # ==========================================
   dev:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -107,6 +114,7 @@ services:
   # PRODUCTION: Client runtime (minimal)
   # ==========================================
   client:
+    profiles: ["game"]
     build:
       context: .
       dockerfile: Dockerfile
