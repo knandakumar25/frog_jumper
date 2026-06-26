@@ -134,7 +134,7 @@ class EpicLoginRedirectView(APIView):
         if not client_id:
             return Response({'error': 'Epic Client ID is not configured on the backend'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        redirect_uri = 'http://localhost:8000/api/auth/epic/callback/'
+        redirect_uri = request.build_absolute_uri(reverse('epic_callback'))
         state = request.GET.get('redirect', '')
 
         # Construct authorization URL
@@ -166,7 +166,7 @@ class EpicLoginCallbackView(APIView):
         if not client_id or not client_secret:
             return Response({'error': 'Epic credentials are not configured on the backend'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        redirect_uri = 'http://localhost:8000/api/auth/epic/callback/'
+        redirect_uri = request.build_absolute_uri(reverse('epic_callback'))
 
         # 1. Exchange authorization code for access token
         try:
@@ -257,7 +257,7 @@ class DiscordLoginRedirectView(APIView):
         if not client_id:
             return Response({'error': 'Discord Client ID is not configured on the backend'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        redirect_uri = 'http://localhost:8000/api/auth/discord/callback/'
+        redirect_uri = request.build_absolute_uri(reverse('discord_callback'))
         state = request.GET.get('redirect', '')
 
         # Construct authorization URL
@@ -288,7 +288,7 @@ class DiscordLoginCallbackView(APIView):
         if not client_id or not client_secret:
             return Response({'error': 'Discord credentials are not configured on the backend'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        redirect_uri = 'http://localhost:8000/api/auth/discord/callback/'
+        redirect_uri = request.build_absolute_uri(reverse('discord_callback'))
 
         # 1. Exchange authorization code for access token
         try:
@@ -374,17 +374,18 @@ class SteamLoginRedirectView(APIView):
 
     def get(self, request):
         import urllib.parse
-        redirect_uri = 'http://localhost:8000/api/auth/steam/callback/'
+        redirect_uri = request.build_absolute_uri(reverse('steam_callback'))
         state = request.GET.get('redirect', '')
 
         if state:
             redirect_uri += f"?state={urllib.parse.quote(state)}"
 
+        realm = request.build_absolute_uri('/')
         params = {
             'openid.ns': 'http://specs.openid.net/auth/2.0',
             'openid.mode': 'checkid_setup',
             'openid.return_to': redirect_uri,
-            'openid.realm': 'http://localhost:8000/',
+            'openid.realm': realm,
             'openid.claimed_id': 'http://specs.openid.net/auth/2.0/identifier_select',
             'openid.identity': 'http://specs.openid.net/auth/2.0/identifier_select',
         }

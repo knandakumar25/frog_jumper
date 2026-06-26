@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../translations/LanguageContext';
-import apiClient from '../api/client';
+import apiClient, { BACKEND_URL } from '../api/client';
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -24,19 +24,19 @@ export default function Login() {
 
   const handleEpicLogin = () => {
     setIsSubmitting(true);
-    const epicLoginUrl = `http://localhost:8000/api/auth/epic/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
+    const epicLoginUrl = `${BACKEND_URL}/api/auth/epic/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
     window.location.href = epicLoginUrl;
   };
 
   const handleDiscordLogin = () => {
     setIsSubmitting(true);
-    const discordLoginUrl = `http://localhost:8000/api/auth/discord/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
+    const discordLoginUrl = `${BACKEND_URL}/api/auth/discord/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
     window.location.href = discordLoginUrl;
   };
 
   const handleSteamLogin = () => {
     setIsSubmitting(true);
-    const steamLoginUrl = `http://localhost:8000/api/auth/steam/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
+    const steamLoginUrl = `${BACKEND_URL}/api/auth/steam/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
     window.location.href = steamLoginUrl;
   };
 
