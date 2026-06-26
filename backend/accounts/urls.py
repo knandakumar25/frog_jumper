@@ -1,6 +1,12 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenRefreshView
-from .views import RegisterView, LoginView, ProfileView, BrowserStartView, BrowserConfirmView, BrowserPollView, SocialLoginRedirectView, SocialAuthCallbackView, EpicLoginRedirectView, EpicLoginCallbackView
+from .views import (
+    RegisterView, LoginView, ProfileView, BrowserStartView, BrowserConfirmView, BrowserPollView,
+    SocialLoginRedirectView, SocialAuthCallbackView,
+    EpicLoginRedirectView, EpicLoginCallbackView,
+    DiscordLoginRedirectView, DiscordLoginCallbackView,
+    SteamLoginRedirectView, SteamLoginCallbackView
+)
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
@@ -14,4 +20,8 @@ urlpatterns = [
     path('social/callback/', SocialAuthCallbackView.as_view(), name='social_callback'),
     path('auth/epic/login/', EpicLoginRedirectView.as_view(), name='epic_login'),
     path('auth/epic/callback/', EpicLoginCallbackView.as_view(), name='epic_callback'),
+    path('auth/discord/login/', DiscordLoginRedirectView.as_view(), name='discord_login'),
+    path('auth/discord/callback/', DiscordLoginCallbackView.as_view(), name='discord_callback'),
+    path('auth/steam/login/', SteamLoginRedirectView.as_view(), name='steam_login'),
+    path('auth/steam/callback/', SteamLoginCallbackView.as_view(), name='steam_callback'),
 ]

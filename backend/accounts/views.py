@@ -247,3 +247,228 @@ class EpicLoginCallbackView(APIView):
             target_url += f"&redirect={urllib.parse.quote(state)}"
 
         return redirect(target_url)
+
+class DiscordLoginRedirectView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        import urllib.parse
+        client_id = getattr(settings, 'DISCORD_CLIENT_ID', None)
+        if not client_id:
+            return Response({'error': 'Discord Client ID is not configured on the backend'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        redirect_uri = 'http://localhost:8000/api/auth/discord/callback/'
+        state = request.GET.get('redirect', '')
+
+        # Construct authorization URL
+        url = (
+            f"https://discord.com/oauth2/authorize"
+            f"?client_id={client_id}"
+            f"&redirect_uri={urllib.parse.quote(redirect_uri)}"
+            f"&response_type=code"
+            f"&scope=identify+email"
+            f"&state={urllib.parse.quote(state)}"
+        )
+        return redirect(url)
+
+class DiscordLoginCallbackView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        import urllib.parse
+
+        code = request.GET.get('code')
+        state = request.GET.get('state', '')
+        
+        if not code:
+            return Response({'error': 'Authorization code is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        client_id = getattr(settings, 'DISCORD_CLIENT_ID', None)
+        client_secret = getattr(settings, 'DISCORD_CLIENT_SECRET', None)
+        if not client_id or not client_secret:
+            return Response({'error': 'Discord credentials are not configured on the backend'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        redirect_uri = 'http://localhost:8000/api/auth/discord/callback/'
+
+        # 1. Exchange authorization code for access token
+        try:
+            token_url = "https://discord.com/api/oauth2/token"
+            data = urllib.parse.urlencode({
+                'client_id': client_id,
+                'client_secret': client_secret,
+                'grant_type': 'authorization_code',
+                'code': code,
+                'redirect_uri': redirect_uri,
+            }).encode('utf-8')
+
+            req = urllib.request.Request(token_url, data=data)
+            req.add_header('Content-Type', 'application/x-www-form-urlencoded')
+
+            with urllib.request.urlopen(req) as response:
+                token_data = json.loads(response.read().decode('utf-8'))
+        except urllib.error.HTTPError as e:
+            error_body = e.read().decode('utf-8') if e.fp else str(e)
+            return Response({'error': f'Failed to exchange Discord token: {error_body}'}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': f'Discord token exchange error: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        access_token = token_data.get('access_token')
+        if not access_token:
+            return Response({'error': 'No access token returned by Discord'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # 2. Retrieve user information
+        try:
+            userinfo_url = "https://discord.com/api/users/@me"
+            userinfo_req = urllib.request.Request(userinfo_url)
+            userinfo_req.add_header('Authorization', f'Bearer {access_token}')
+
+            with urllib.request.urlopen(userinfo_req) as response:
+                userinfo_data = json.loads(response.read().decode('utf-8'))
+        except urllib.error.HTTPError as e:
+            error_body = e.read().decode('utf-8') if e.fp else str(e)
+            return Response({'error': f'Failed to fetch Discord userinfo: {error_body}'}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': f'Discord userinfo error: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        discord_id = userinfo_data.get('id')
+        username = userinfo_data.get('username', f"discord_{discord_id}")
+        email = userinfo_data.get('email')
+
+        if not discord_id:
+            return Response({'error': 'Invalid user info from Discord'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if not email:
+            email = f"{discord_id}@discord.placeholder.com"
+        
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            base_username = username
+            final_username = base_username
+            counter = 1
+            while User.objects.filter(username=final_username).exists():
+                final_username = f"{base_username}_{counter}"
+                counter += 1
+
+            user = User.objects.create_user(
+                username=final_username,
+                email=email,
+                password=User.objects.make_random_password()
+            )
+
+        # 4. Generate JWT tokens
+        refresh = RefreshToken.for_user(user)
+        access_jwt = str(refresh.access_token)
+        refresh_jwt = str(refresh)
+
+        # 5. Redirect browser back to React frontend
+        frontend_url = getattr(settings, 'FRONTEND_URL', 'http://localhost:5173').rstrip('/')
+        target_url = f"{frontend_url}/auth-callback?access={access_jwt}&refresh={refresh_jwt}"
+        if state:
+            target_url += f"&redirect={urllib.parse.quote(state)}"
+
+        return redirect(target_url)
+
+class SteamLoginRedirectView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        import urllib.parse
+        redirect_uri = 'http://localhost:8000/api/auth/steam/callback/'
+        state = request.GET.get('redirect', '')
+
+        if state:
+            redirect_uri += f"?state={urllib.parse.quote(state)}"
+
+        params = {
+            'openid.ns': 'http://specs.openid.net/auth/2.0',
+            'openid.mode': 'checkid_setup',
+            'openid.return_to': redirect_uri,
+            'openid.realm': 'http://localhost:8000/',
+            'openid.claimed_id': 'http://specs.openid.net/auth/2.0/identifier_select',
+            'openid.identity': 'http://specs.openid.net/auth/2.0/identifier_select',
+        }
+        
+        steam_auth_url = f"https://steamcommunity.com/openid/login?{urllib.parse.urlencode(params)}"
+        return redirect(steam_auth_url)
+
+class SteamLoginCallbackView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        import urllib.parse
+        import re
+
+        state = request.GET.get('state', '')
+        
+        # 1. Validate the OpenID assertion by posting back to Steam
+        params = {k: v for k, v in request.GET.items()}
+        params['openid.mode'] = 'check_authentication'
+        
+        try:
+            validate_url = "https://steamcommunity.com/openid/login"
+            data = urllib.parse.urlencode(params).encode('utf-8')
+            req = urllib.request.Request(validate_url, data=data)
+            req.add_header('Content-Type', 'application/x-www-form-urlencoded')
+
+            with urllib.request.urlopen(req) as response:
+                validation_response = response.read().decode('utf-8')
+        except Exception as e:
+            return Response({'error': f'Steam OpenID validation failed to request: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        if 'is_valid:true' not in validation_response:
+            return Response({'error': 'Invalid Steam OpenID assertion'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # 2. Extract Steam ID from openid.claimed_id
+        claimed_id = request.GET.get('openid.claimed_id', '')
+        match = re.search(r'openid/id/(\d+)', claimed_id)
+        if not match:
+            return Response({'error': 'Failed to extract Steam ID from openid.claimed_id'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        steam_id = match.group(1)
+        
+        # 3. Retrieve user information from Steam API
+        username = f"steam_{steam_id}"
+        steam_api_key = getattr(settings, 'STEAM_API_KEY', '')
+
+        if steam_api_key:
+            try:
+                profile_url = f"https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={steam_api_key}&steamids={steam_id}"
+                with urllib.request.urlopen(profile_url) as response:
+                    profile_data = json.loads(response.read().decode('utf-8'))
+                    players = profile_data.get('response', {}).get('players', [])
+                    if players:
+                        username = players[0].get('personaname', username)
+            except Exception as e:
+                pass
+
+        # 4. Create or login user
+        email = f"{steam_id}@steam.placeholder.com"
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            base_username = username
+            final_username = base_username
+            counter = 1
+            while User.objects.filter(username=final_username).exists():
+                final_username = f"{base_username}_{counter}"
+                counter += 1
+
+            user = User.objects.create_user(
+                username=final_username,
+                email=email,
+                password=User.objects.make_random_password()
+            )
+
+        # 5. Generate JWT tokens
+        refresh = RefreshToken.for_user(user)
+        access_jwt = str(refresh.access_token)
+        refresh_jwt = str(refresh)
+
+        # 6. Redirect browser back to React frontend
+        frontend_url = getattr(settings, 'FRONTEND_URL', 'http://localhost:5173').rstrip('/')
+        target_url = f"{frontend_url}/auth-callback?access={access_jwt}&refresh={refresh_jwt}"
+        if state:
+            target_url += f"&redirect={urllib.parse.quote(state)}"
+
+        return redirect(target_url)

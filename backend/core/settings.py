@@ -71,6 +71,11 @@ DATABASES = {
 EPIC_CLIENT_ID = os.environ.get('EPIC_CLIENT_ID', 'xyza7891g76bMoT7LRbXiajbp1ZynDUf')
 EPIC_CLIENT_SECRET = os.environ.get('EPIC_CLIENT_SECRET', 'DvsZrhk6V1YxjWFgBZ8c1EJZqigg2kyF0kxL+9Xk2RA')
 
+DISCORD_CLIENT_ID = os.environ.get('DISCORD_CLIENT_ID', '1519971724869894197')
+DISCORD_CLIENT_SECRET = os.environ.get('DISCORD_CLIENT_SECRET', 'm0Zs7KUvEW49tqisij-cQs4caSY9wEC0')
+STEAM_API_KEY = os.environ.get('STEAM_API_KEY', '')
+
+
 AUTH_USER_MODEL = 'accounts.User'
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -113,3 +118,7 @@ CORS_ALLOW_ALL_ORIGINS = True # For development
 
 # Frontend URL for browser login flow
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
+
+# Email Configuration
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Frog Jumper <welcome@frogjumper.dev>')
