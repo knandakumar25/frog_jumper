@@ -68,6 +68,15 @@ DATABASES = {
     }
 }
 
+GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID', '108181092442-n5ncn13mt2c5dst38dk8hh1rceargkpi.apps.googleusercontent.com')
+GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET', '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')
+
+FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '1331327648423029')
+FACEBOOK_APP_SECRET = os.environ.get('FACEBOOK_APP_SECRET', '7c786bb2f87d8c24a65ae1dc064cd99b')
+
+EPIC_CLIENT_ID = os.environ.get('EPIC_CLIENT_ID', 'xyza7891g76bMoT7LRbXiajbp1ZynDUf')
+EPIC_CLIENT_SECRET = os.environ.get('EPIC_CLIENT_SECRET', 'DvsZrhk6V1YxjWFgBZ8c1EJZqigg2kyF0kxL+9Xk2RA')
+
 AUTH_USER_MODEL = 'accounts.User'
 
 AUTH_PASSWORD_VALIDATORS = [

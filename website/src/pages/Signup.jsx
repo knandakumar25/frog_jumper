@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../translations/LanguageContext';
+import apiClient from '../api/client';
 
 export default function Signup() {
   const [username, setUsername] = useState('');
@@ -36,7 +37,7 @@ export default function Signup() {
     setPreviewUrl('');
   };
 
-  const { register, login } = useAuth();
+  const { register, login, setUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
@@ -45,6 +46,132 @@ export default function Signup() {
   // Extract redirect parameter
   const params = new URLSearchParams(location.search);
   const redirectTarget = params.get('redirect');
+
+  const handleGoogleLoginCallback = async (response) => {
+    setErrorMsg('');
+    setIsSubmitting(true);
+    try {
+      const res = await apiClient.post('/auth/google/', { token: response.credential });
+      const { access, refresh, user: userData } = res.data;
+      
+      localStorage.setItem('accessToken', access);
+      localStorage.setItem('refreshToken', refresh);
+      setUser(userData);
+
+      if (redirectTarget) {
+        navigate(redirectTarget);
+      } else {
+        navigate(`/${currentLocale}`);
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg('Google login failed. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleFacebookLoginCallback = async (authResponse) => {
+    setErrorMsg('');
+    setIsSubmitting(true);
+    try {
+      const res = await apiClient.post('/auth/facebook/', { token: authResponse.accessToken });
+      const { access, refresh, user: userData } = res.data;
+      
+      localStorage.setItem('accessToken', access);
+      localStorage.setItem('refreshToken', refresh);
+      setUser(userData);
+
+      if (redirectTarget) {
+        navigate(redirectTarget);
+      } else {
+        navigate(`/${currentLocale}`);
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg('Facebook login failed. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleFacebookLogin = () => {
+    if (!window.FB) {
+      setErrorMsg('Facebook SDK is loading, please try again in a moment.');
+      return;
+    }
+    window.FB.login((response) => {
+      if (response.authResponse) {
+        handleFacebookLoginCallback(response.authResponse);
+      } else {
+        setErrorMsg('Facebook login was cancelled.');
+      }
+    }, { scope: 'email' });
+  };
+
+  const handleEpicLogin = () => {
+    setIsSubmitting(true);
+    const epicLoginUrl = `http://localhost:8000/api/auth/epic/login/${redirectTarget ? `?redirect=${encodeURIComponent(redirectTarget)}` : ''}`;
+    window.location.href = epicLoginUrl;
+  };
+
+  useEffect(() => {
+    const scriptId = 'google-gsi-client-script';
+    let script = document.getElementById(scriptId);
+    
+    const initializeGoogleSignIn = () => {
+      if (window.google) {
+        window.google.accounts.id.initialize({
+          client_id: '108181092442-n5ncn13mt2c5dst38dk8hh1rceargkpi.apps.googleusercontent.com',
+          callback: handleGoogleLoginCallback,
+        });
+        window.google.accounts.id.renderButton(
+          document.getElementById('google-signin-btn'),
+          { theme: 'dark', size: 'large', type: 'standard', text: 'signup_with', shape: 'rectangular', logo_alignment: 'left' }
+        );
+      }
+    };
+
+    if (!script) {
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://accounts.google.com/gsi/client';
+      script.async = true;
+      script.defer = true;
+      script.onload = initializeGoogleSignIn;
+      document.body.appendChild(script);
+    } else {
+      initializeGoogleSignIn();
+    }
+  }, []);
+
+  useEffect(() => {
+    const fbScriptId = 'facebook-jssdk';
+    let fbScript = document.getElementById(fbScriptId);
+
+    const initializeFacebookSignIn = () => {
+      if (window.FB) {
+        window.FB.init({
+          appId: '1331327648423029',
+          cookie: true,
+          xfbml: true,
+          version: 'v19.0'
+        });
+      }
+    };
+
+    if (!fbScript) {
+      fbScript = document.createElement('script');
+      fbScript.id = fbScriptId;
+      fbScript.src = 'https://connect.facebook.net/en_US/sdk.js';
+      fbScript.async = true;
+      fbScript.defer = true;
+      fbScript.onload = initializeFacebookSignIn;
+      document.body.appendChild(fbScript);
+    } else {
+      initializeFacebookSignIn();
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -218,6 +345,40 @@ export default function Signup() {
             {isSubmitting ? 'Registering...' : 'Initialize Profile'}
           </button>
         </form>
+
+        <div className="flex items-center gap-3 my-5">
+          <div className="h-[1px] bg-outline-variant/30 flex-grow"></div>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant/60">OR</span>
+          <div className="h-[1px] bg-outline-variant/30 flex-grow"></div>
+        </div>
+
+        <div className="flex flex-col gap-3 w-full">
+          <div id="google-signin-btn" className="w-full flex justify-center shadow-[0_0_15px_rgba(0,243,255,0.05)] border-2 border-primary-container/20 p-0.5 bg-surface-container-highest"></div>
+          
+          <button
+            type="button"
+            onClick={handleFacebookLogin}
+            disabled={isSubmitting}
+            className="flex items-center justify-center gap-3 w-full py-2.5 px-4 bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border-2 border-[#1877F2]/30 hover:border-[#1877F2]/60 text-on-surface font-bold text-sm tracking-wider uppercase transition-all duration-150 hover:skew-x-[-4deg] active:scale-95 disabled:opacity-50"
+          >
+            <svg className="w-4 h-4 fill-[#1877F2]" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span>Facebook Login</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleEpicLogin}
+            disabled={isSubmitting}
+            className="flex items-center justify-center gap-3 w-full py-2.5 px-4 bg-[#313131]/20 hover:bg-[#313131]/45 border-2 border-[#313131]/40 hover:border-[#313131]/70 text-on-surface font-bold text-sm tracking-wider uppercase transition-all duration-150 hover:skew-x-[-4deg] active:scale-95 disabled:opacity-50"
+          >
+            <svg className="w-4 h-4 fill-on-surface" viewBox="0 0 24 24">
+              <path d="M12 .002L1.832 3.18C1.458 3.296 1.2 3.64 1.2 4.032V12.18c0 5.485 3.929 10.395 10.4 11.82a.82.82 0 0 0 .4 0c6.471-1.425 10.4-6.335 10.4-11.82V4.032c0-.392-.258-.736-.632-.852L12 .002zm5.798 12.178c0 3.493-2.316 6.643-5.798 7.643c-3.482-1-5.798-4.15-5.798-7.643V5.986l5.798-1.812l5.798 1.812v6.194z" />
+            </svg>
+            <span>Epic Games Login</span>
+          </button>
+        </div>
 
         <div className="mt-8 text-center text-xs font-body-md border-t border-primary-container/10 pt-6">
           <span className="text-on-surface-variant">Already have an account? </span>
