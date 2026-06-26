@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenRefreshView
-from .views import RegisterView, LoginView, ProfileView, BrowserStartView, BrowserConfirmView, BrowserPollView, SocialLoginRedirectView, SocialAuthCallbackView, GoogleLoginView, FacebookLoginView, EpicLoginRedirectView, EpicLoginCallbackView
+from .views import RegisterView, LoginView, ProfileView, BrowserStartView, BrowserConfirmView, BrowserPollView, SocialLoginRedirectView, SocialAuthCallbackView, EpicLoginRedirectView, EpicLoginCallbackView
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
@@ -12,8 +12,6 @@ urlpatterns = [
     path('browser-poll/', BrowserPollView.as_view(), name='browser_poll'),
     path('social/login/<str:provider>/', SocialLoginRedirectView.as_view(), name='social_login'),
     path('social/callback/', SocialAuthCallbackView.as_view(), name='social_callback'),
-    path('auth/google/', GoogleLoginView.as_view(), name='google_login'),
-    path('auth/facebook/', FacebookLoginView.as_view(), name='facebook_login'),
     path('auth/epic/login/', EpicLoginRedirectView.as_view(), name='epic_login'),
     path('auth/epic/callback/', EpicLoginCallbackView.as_view(), name='epic_callback'),
 ]
