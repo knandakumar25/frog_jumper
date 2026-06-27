@@ -29,14 +29,16 @@ const Account = () => {
 
   useEffect(() => {
     const fetchCountriesAndInitialize = async () => {
+      console.log('fetchCountriesAndInitialize: Start fetching countries...');
       let loadedCountries = [];
       try {
         const res = await apiClient.get('/auth/countries/');
         const data = res.data;
+        console.log('fetchCountriesAndInitialize: Successfully loaded', data.length, 'countries from backend.');
         loadedCountries = data.sort((a, b) => a.name.common.localeCompare(b.name.common));
         setCountries(loadedCountries);
       } catch (e) {
-        console.error('Failed to fetch countries', e);
+        console.error('fetchCountriesAndInitialize: Failed to fetch countries', e);
       }
 
       if (user) {
@@ -63,14 +65,16 @@ const Account = () => {
           }
         }
 
-        setFormData({
+        const initialForm = {
           first_name: user.first_name || '',
           last_name: user.last_name || '',
           email: user.email || '',
           phone_number: phoneNum,
           country: user.country || '',
           country_code: code,
-        });
+        };
+        console.log('fetchCountriesAndInitialize: Initializing formData with:', initialForm);
+        setFormData(initialForm);
       }
     };
 
@@ -95,10 +99,12 @@ const Account = () => {
         phone_number: combinedPhoneNumber,
         country: formData.country,
       };
+      console.log('handleSubmit: Sending patch payload:', payload);
       const response = await apiClient.patch('/auth/profile/', payload);
       setUser(response.data);
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
     } catch (error) {
+      console.error('handleSubmit: Error updating profile:', error);
       setMessage({ type: 'error', text: 'Failed to update profile.' });
     } finally {
       setIsLoading(false);
