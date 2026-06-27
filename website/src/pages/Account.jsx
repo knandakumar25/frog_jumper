@@ -29,16 +29,14 @@ const Account = () => {
 
   useEffect(() => {
     const fetchCountriesAndInitialize = async () => {
-      console.log('fetchCountriesAndInitialize: Start fetching countries...');
       let loadedCountries = [];
       try {
         const res = await apiClient.get('/auth/countries/');
         const data = res.data;
-        console.log('fetchCountriesAndInitialize: Successfully loaded', data.length, 'countries from backend.');
         loadedCountries = data.sort((a, b) => a.name.common.localeCompare(b.name.common));
         setCountries(loadedCountries);
       } catch (e) {
-        console.error('fetchCountriesAndInitialize: Failed to fetch countries', e);
+        console.error('Failed to fetch countries', e);
       }
 
       if (user) {
@@ -65,16 +63,14 @@ const Account = () => {
           }
         }
 
-        const initialForm = {
+        setFormData({
           first_name: user.first_name || '',
           last_name: user.last_name || '',
           email: user.email || '',
           phone_number: phoneNum,
           country: user.country || '',
           country_code: code,
-        };
-        console.log('fetchCountriesAndInitialize: Initializing formData with:', initialForm);
-        setFormData(initialForm);
+        });
       }
     };
 
@@ -99,12 +95,11 @@ const Account = () => {
         phone_number: combinedPhoneNumber,
         country: formData.country,
       };
-      console.log('handleSubmit: Sending patch payload:', payload);
       const response = await apiClient.patch('/auth/profile/', payload);
       setUser(response.data);
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
     } catch (error) {
-      console.error('handleSubmit: Error updating profile:', error);
+      console.error('Failed to update profile', error);
       setMessage({ type: 'error', text: 'Failed to update profile.' });
     } finally {
       setIsLoading(false);
@@ -119,14 +114,6 @@ const Account = () => {
         <h1 className="text-headline-md text-primary-container font-bold uppercase tracking-tighter mb-8 border-l-4 border-primary-container pl-4">
           My Account
         </h1>
-
-        {/* Diagnostic Debug Box */}
-        <div className="bg-surface-container-highest border border-error p-3 font-mono text-xs text-error mb-6">
-          DEBUG INFO:
-          <br />• Countries loaded: {countries.length}
-          <br />• Current Country Code dropdown value: "{formData.country_code || 'None'}"
-          <br />• Current Country dropdown value: "{formData.country || 'None'}"
-        </div>
 
         <form onSubmit={handleSubmit} className="bg-surface-container-highest border-2 border-primary-container p-6 shadow-[8px_8px_0px_rgba(0,243,255,0.3)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
