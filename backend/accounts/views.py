@@ -5,7 +5,8 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import redirect
 from django.urls import reverse
 from .serializers import UserSerializer, UserProfileSerializer
-from .models import BrowserSession
+from .models import BrowserSession, TwoFactorCode
+from .utils import generate_2fa_code, send_2fa_email, verify_2fa_code
 from rest_framework_simplejwt.tokens import RefreshToken
 import uuid
 import json
@@ -33,6 +34,26 @@ class LoginView(APIView):
         try:
             user = User.objects.get(username=username)
             if user.check_password(password):
+                if user.is_2fa_enabled:
+                    # 2FA Flow
+                    session_id = uuid.uuid4()
+                    code = generate_2fa_code()
+
+                    TwoFactorCode.objects.create(
+                        user=user,
+                        code=code,
+                        purpose='login',
+                        session_id=session_id
+                    )
+
+                    send_2fa_email(user, code, 'login')
+
+                    return Response({
+                        'status': '2fa_required',
+                        'login_session_id': str(session_id)
+                    })
+
+                # Regular Login
                 refresh = RefreshToken.for_user(user)
                 return Response({
                     'refresh': str(refresh),
@@ -401,11 +422,11 @@ class SteamLoginCallbackView(APIView):
         import re
 
         state = request.GET.get('state', '')
-        
+
         # 1. Validate the OpenID assertion by posting back to Steam
         params = {k: v for k, v in request.GET.items()}
         params['openid.mode'] = 'check_authentication'
-        
+
         try:
             validate_url = "https://steamcommunity.com/openid/login"
             data = urllib.parse.urlencode(params).encode('utf-8')
@@ -425,9 +446,9 @@ class SteamLoginCallbackView(APIView):
         match = re.search(r'openid/id/(\d+)', claimed_id)
         if not match:
             return Response({'error': 'Failed to extract Steam ID from openid.claimed_id'}, status=status.HTTP_400_BAD_REQUEST)
-        
+
         steam_id = match.group(1)
-        
+
         # 3. Retrieve user information from Steam API
         username = f"steam_{steam_id}"
         steam_api_key = getattr(settings, 'STEAM_API_KEY', '')
@@ -473,3 +494,76 @@ class SteamLoginCallbackView(APIView):
             target_url += f"&redirect={urllib.parse.quote(state)}"
 
         return redirect(target_url)
+
+class TwoFactorEnableView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        user = request.user
+        code = generate_2fa_code()
+
+        TwoFactorCode.objects.create(
+            user=user,
+            code=code,
+            purpose='opt_in'
+        )
+
+        send_2fa_email(user, code, 'opt_in')
+        return Response({'message': 'Verification code sent to your email.'})
+
+class TwoFactorVerifyEnableView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        code = request.data.get('code')
+        if not code:
+            return Response({'error': 'Code is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = request.user
+        if verify_2fa_code(user, code, 'opt_in'):
+            user.is_2fa_enabled = True
+            user.save()
+            return Response({'message': '2FA enabled successfully.'})
+
+        return Response({'error': 'Invalid or expired code'}, status=status.HTTP_400_BAD_REQUEST)
+
+class TwoFactorLoginVerifyView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        login_session_id = request.data.get('login_session_id')
+        code = request.data.get('code')
+
+        if not login_session_id or not code:
+            return Response({'error': 'login_session_id and code are required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Find the code object associated with this session
+            code_obj = TwoFactorCode.objects.get(session_id=login_session_id, is_verified=False)
+            user = code_obj.user
+
+            if verify_2fa_code(user, code, 'login', session_id=login_session_id):
+                refresh = RefreshToken.for_user(user)
+                return Response({
+                    'refresh': str(refresh),
+                    'access': str(refresh.access_token),
+                    'user': UserProfileSerializer(user).data
+                })
+
+            return Response({'error': 'Invalid or expired code'}, status=status.HTTP_400_BAD_REQUEST)
+        except TwoFactorCode.DoesNotExist:
+            return Response({'error': 'Invalid or expired session'}, status=status.HTTP_400_BAD_REQUEST)
+
+class CountryListView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        try:
+            import os
+            file_path = os.path.join(os.path.dirname(__file__), 'countries.json')
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return Response(data)
+        except Exception as e:
+            return Response({'error': f'Failed to load countries: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+

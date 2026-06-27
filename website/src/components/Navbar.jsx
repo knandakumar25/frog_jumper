@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../translations/LanguageSelector';
@@ -14,6 +14,8 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef(null);
   const location = useLocation();
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
   const currentLocale = getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
@@ -30,6 +32,16 @@ export default function Navbar() {
     setMenuOpen(false);
     window.scrollTo({ top: 0 });
   }, [location.pathname]);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const getNavLabel = (key) => {
     return t(`nav.${key}`, key.toUpperCase().replace('_', ' '));
@@ -81,27 +93,47 @@ export default function Navbar() {
           {/* Desktop Right Side CTA & Lang */}
           <div className="hidden lg:flex items-center gap-4">
             {user ? (
-              <div className="flex items-center gap-3">
-                {user.profile_picture ? (
-                  <img
-                    src={user.profile_picture}
-                    alt="User Avatar"
-                    className="w-8 h-8 rounded-none border-2 border-primary-container object-cover shadow-[0_0_10px_rgba(0,243,255,0.3)]"
-                  />
-                ) : (
-                  <div className="w-8 h-8 rounded-none border-2 border-primary-container/45 flex items-center justify-center bg-surface-container-highest text-primary-container font-bold font-mono text-xs shadow-[0_0_5px_rgba(0,243,255,0.1)]">
-                    {user.username.substring(0, 2).toUpperCase()}
+              <div className="relative" ref={profileRef}>
+                <div
+                  className="flex items-center gap-3 cursor-pointer p-1 hover:bg-primary-container/10 transition-colors"
+                  onClick={() => setProfileOpen(!profileOpen)}
+                >
+                  {user.profile_picture ? (
+                    <img
+                      src={user.profile_picture}
+                      alt="User Avatar"
+                      className="w-8 h-8 rounded-none border-2 border-primary-container object-cover shadow-[0_0_10px_rgba(0,243,255,0.3)]"
+                    />
+                  ) : (
+                    <div className="w-8 h-8 rounded-none border-2 border-primary-container/45 flex items-center justify-center bg-surface-container-highest text-primary-container font-bold font-mono text-xs shadow-[0_0_5px_rgba(0,243,255,0.1)]">
+                      {user.username.substring(0, 2).toUpperCase()}
+                    </div>
+                  )}
+                  <span className="text-xs font-bold text-primary-container uppercase tracking-tighter">
+                    {user.username}
+                  </span>
+                </div>
+
+                {profileOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-surface-container-highest border-2 border-primary-container shadow-[4px_4px_0px_rgba(0,243,255,0.5)] z-50">
+                    <div className="flex flex-col p-2 gap-1">
+                      <NavLink
+                        to={`/${currentLocale}/account`}
+                        onClick={() => setProfileOpen(false)}
+                        className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 transition-colors"
+                      >
+                        My Account
+                      </NavLink>
+                      <div className="h-[1px] bg-outline-variant/30 my-1"></div>
+                      <button
+                        onClick={logout}
+                        className="text-left text-xs font-bold uppercase text-on-surface-variant hover:text-error px-3 py-2 transition-colors"
+                      >
+                        Logout
+                      </button>
+                    </div>
                   </div>
                 )}
-                <span className="text-xs font-bold text-primary-container uppercase tracking-tighter">
-                  {user.username}
-                </span>
-                <button
-                  onClick={logout}
-                  className="text-xs uppercase font-bold text-on-surface-variant hover:text-error transition-colors underline"
-                >
-                  Logout
-                </button>
               </div>
             ) : (
               <div className="flex items-center gap-4">

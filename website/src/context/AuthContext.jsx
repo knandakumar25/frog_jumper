@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('accessToken');
       if (token) {
         try {
-          const response = await apiClient.get('/profile/');
+          const response = await apiClient.get('/auth/profile/');
           setUser(response.data);
         } catch (error) {
           console.error('Failed to fetch user profile', error);

@@ -15,6 +15,7 @@ import DesignSystem from './pages/DesignSystem';
 import BrowserAuth from './pages/BrowserAuth';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Account from './pages/Account';
 
 // Redirect helper to default or stored locale
 function LocaleRedirect() {
@@ -39,6 +40,7 @@ function MainLayout() {
           <Route path="/:locale/design-system" element={<DesignSystem />} />
           <Route path="/:locale/login" element={<Login />} />
           <Route path="/:locale/signup" element={<Signup />} />
+          <Route path="/:locale/account" element={<Account />} />
           <Route path="/auth/browser-confirm" element={<BrowserAuth />} />
           <Route path="*" element={<LocaleRedirect />} />
         </Routes>

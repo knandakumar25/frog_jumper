@@ -21,4 +21,5 @@ class UserSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'profile_picture')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'profile_picture', 'is_2fa_enabled', 'phone_number', 'country')
+        read_only_fields = ('is_2fa_enabled',)
