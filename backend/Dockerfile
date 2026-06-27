@@ -1,5 +1,7 @@
 FROM registry.gitlab.com/python-devs/ci-images:active
 
+USER root
+
 # Prevent Python from writing .pyc files and enable unbuffered logging
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
