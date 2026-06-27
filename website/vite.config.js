@@ -11,6 +11,9 @@ export default defineConfig({
   },
   // Allow importing from parent directory
   server: {
+    watch: {
+      usePolling: true,
+    },
     fs: {
       allow: ['..'],
     },
