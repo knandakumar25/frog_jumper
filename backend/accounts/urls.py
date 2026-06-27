@@ -5,7 +5,9 @@ from .views import (
     SocialLoginRedirectView, SocialAuthCallbackView,
     EpicLoginRedirectView, EpicLoginCallbackView,
     DiscordLoginRedirectView, DiscordLoginCallbackView,
-    SteamLoginRedirectView, SteamLoginCallbackView
+    SteamLoginRedirectView, SteamLoginCallbackView,
+    TwoFactorEnableView, TwoFactorVerifyEnableView, TwoFactorLoginVerifyView,
+    CountryListView
 )
 
 urlpatterns = [
@@ -24,4 +26,8 @@ urlpatterns = [
     path('discord/callback/', DiscordLoginCallbackView.as_view(), name='discord_callback'),
     path('steam/login/', SteamLoginRedirectView.as_view(), name='steam_login'),
     path('steam/callback/', SteamLoginCallbackView.as_view(), name='steam_callback'),
+    path('2fa/enable/', TwoFactorEnableView.as_view(), name='two_factor_enable'),
+    path('2fa/verify-enable/', TwoFactorVerifyEnableView.as_view(), name='two_factor_verify_enable'),
+    path('2fa/verify-login/', TwoFactorLoginVerifyView.as_view(), name='two_factor_verify_login'),
+    path('countries/', CountryListView.as_view(), name='country_list'),
 ]
