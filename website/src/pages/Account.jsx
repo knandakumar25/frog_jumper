@@ -3,6 +3,15 @@ import { useParams, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import apiClient from '../api/client';
 
+const getCallingCode = (c) => {
+  if (!c.idd || !c.idd.root) return '';
+  const suffixes = c.idd.suffixes || [];
+  if (suffixes.length === 1) {
+    return `${c.idd.root}${suffixes[0]}`;
+  }
+  return c.idd.root;
+};
+
 const Account = () => {
   const { locale } = useParams();
   const { user, setUser } = useAuth();
@@ -19,28 +28,53 @@ const Account = () => {
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
-    if (user) {
-      setFormData({
-        first_name: user.first_name || '',
-        last_name: user.last_name || '',
-        email: user.email || '',
-        phone_number: user.phone_number || '',
-        country: user.country || '',
-      });
-    }
-
-    const fetchCountries = async () => {
+    const fetchCountriesAndInitialize = async () => {
+      let loadedCountries = [];
       try {
         const res = await apiClient.get('/auth/countries/');
         const data = res.data;
-        // Sort countries alphabetically by common name
-        const sorted = data.sort((a, b) => a.name.common.localeCompare(b.name.common));
-        setCountries(sorted);
+        loadedCountries = data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        setCountries(loadedCountries);
       } catch (e) {
         console.error('Failed to fetch countries', e);
       }
+
+      if (user) {
+        let phoneNum = user.phone_number || '';
+        let code = '';
+
+        if (phoneNum.startsWith('+') && loadedCountries.length > 0) {
+          let bestMatch = null;
+          let longestMatchLength = 0;
+
+          loadedCountries.forEach(c => {
+            const callingCode = getCallingCode(c);
+            if (callingCode && phoneNum.startsWith(callingCode)) {
+              if (callingCode.length > longestMatchLength) {
+                longestMatchLength = callingCode.length;
+                bestMatch = callingCode;
+              }
+            }
+          });
+
+          if (bestMatch) {
+            code = bestMatch;
+            phoneNum = phoneNum.slice(bestMatch.length).trim();
+          }
+        }
+
+        setFormData({
+          first_name: user.first_name || '',
+          last_name: user.last_name || '',
+          email: user.email || '',
+          phone_number: phoneNum,
+          country: user.country || '',
+          country_code: code,
+        });
+      }
     };
-    fetchCountries();
+
+    fetchCountriesAndInitialize();
   }, [user]);
 
   const handleInputChange = (e) => {
@@ -53,7 +87,15 @@ const Account = () => {
     setIsLoading(true);
     setMessage(null);
     try {
-      const response = await apiClient.patch('/auth/profile/', formData);
+      const combinedPhoneNumber = (formData.country_code + formData.phone_number.trim()).trim();
+      const payload = {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        email: formData.email,
+        phone_number: combinedPhoneNumber,
+        country: formData.country,
+      };
+      const response = await apiClient.patch('/auth/profile/', payload);
       setUser(response.data);
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
     } catch (error) {
@@ -112,11 +154,15 @@ const Account = () => {
                     onChange={(e) => setFormData(prev => ({...prev, country_code: e.target.value}))}
                   >
                     <option value="">Code</option>
-                    {countries.map(c => (
-                      <option key={c.cca3} value={c.idd.root}>
-                        {c.name.common} ({c.idd.root})
-                      </option>
-                    ))}
+                    {countries.map(c => {
+                      const callingCode = getCallingCode(c);
+                      if (!callingCode) return null;
+                      return (
+                        <option key={c.cca3} value={callingCode}>
+                          {c.name.common} ({callingCode})
+                        </option>
+                      );
+                    })}
                   </select>
                 </div>
                 <input
