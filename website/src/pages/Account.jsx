@@ -120,6 +120,14 @@ const Account = () => {
           My Account
         </h1>
 
+        {/* Diagnostic Debug Box */}
+        <div className="bg-surface-container-highest border border-error p-3 font-mono text-xs text-error mb-6">
+          DEBUG INFO:
+          <br />• Countries loaded: {countries.length}
+          <br />• Current Country Code dropdown value: "{formData.country_code || 'None'}"
+          <br />• Current Country dropdown value: "{formData.country || 'None'}"
+        </div>
+
         <form onSubmit={handleSubmit} className="bg-surface-container-highest border-2 border-primary-container p-6 shadow-[8px_8px_0px_rgba(0,243,255,0.3)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
