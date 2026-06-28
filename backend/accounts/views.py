@@ -16,54 +16,69 @@ from django.conf import settings
 
 User = get_user_model()
 
+
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
 
+    def perform_create(self, serializer):
+        try:
+            serializer.save()
+        except Exception as e:
+            # Convert any lower-level DB errors (e.g., IntegrityError) into a readable ValidationError
+            from rest_framework.exceptions import ValidationError
+            raise ValidationError({'detail': str(e)})
+
+
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-
-        if not username or not password:
-            return Response({'error': 'Username and password are required'}, status=status.HTTP_400_BAD_REQUEST)
-
         try:
-            user = User.objects.get(username=username)
-            if user.check_password(password):
-                if user.is_2fa_enabled:
-                    # 2FA Flow
-                    session_id = uuid.uuid4()
-                    code = generate_2fa_code()
+            username = request.data.get('username')
+            password = request.data.get('password')
 
-                    TwoFactorCode.objects.create(
-                        user=user,
-                        code=code,
-                        purpose='login',
-                        session_id=session_id
-                    )
+            if not username or not password:
+                return Response({'error': 'Username and password are required'}, status=status.HTTP_400_BAD_REQUEST)
 
-                    send_2fa_email(user, code, 'login')
+            try:
+                user = User.objects.get(username=username)
+                if user.check_password(password):
+                    if user.is_2fa_enabled:
+                        # 2FA Flow
+                        session_id = uuid.uuid4()
+                        code = generate_2fa_code()
 
+                        TwoFactorCode.objects.create(
+                            user=user,
+                            code=code,
+                            purpose='login',
+                            session_id=session_id
+                        )
+
+                        send_2fa_email(user, code, 'login')
+
+                        return Response({
+                            'status': '2fa_required',
+                            'login_session_id': str(session_id)
+                        })
+
+                    # Regular Login
+                    refresh = RefreshToken.for_user(user)
                     return Response({
-                        'status': '2fa_required',
-                        'login_session_id': str(session_id)
+                        'refresh': str(refresh),
+                        'access': str(refresh.access_token),
+                        'user': UserProfileSerializer(user).data
                     })
-
-                # Regular Login
-                refresh = RefreshToken.for_user(user)
-                return Response({
-                    'refresh': str(refresh),
-                    'access': str(refresh.access_token),
-                    'user': UserProfileSerializer(user).data
-                })
-            else:
-                return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-        except User.DoesNotExist:
-            return Response({'error': 'User not found'}, status=status.HTTP_401_UNAUTHORIZED)
+                else:
+                    return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+            except User.DoesNotExist:
+                return Response({'error': 'User not found'}, status=status.HTTP_401_UNAUTHORIZED)
+        except Exception as e:
+            # Log error and return a generic 500 response
+            from rest_framework.exceptions import APIException
+            raise APIException(str(e))
 
 class ProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = UserProfileSerializer

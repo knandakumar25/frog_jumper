@@ -26,11 +26,33 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     const response = await apiClient.post('/auth/login/', { username, password });
+    const data = response.data;
+
+    // Handle 2FA requirement
+    if (data.status === '2fa_required') {
+      // Caller will handle verification; just return the payload
+      return data;
+    }
+
+    const { access, refresh, user: userData } = data;
+    localStorage.setItem('accessToken', access);
+    localStorage.setItem('refreshToken', refresh);
+    setUser(userData);
+    return data;
+  };
+
+  const verifyLogin2FA = async (loginSessionId, code) => {
+    const response = await apiClient.post('/auth/2fa/verify-login/', {
+      login_session_id: loginSessionId,
+      code,
+    });
     const { access, refresh, user: userData } = response.data;
     localStorage.setItem('accessToken', access);
     localStorage.setItem('refreshToken', refresh);
     setUser(userData);
+    return response.data;
   };
+
 
   const register = async (username, email, password, firstName = '', lastName = '', profilePicture = '') => {
     await apiClient.post('/auth/register/', {

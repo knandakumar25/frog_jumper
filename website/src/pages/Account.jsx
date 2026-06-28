@@ -106,6 +106,7 @@ const Account = () => {
     }
   };
 
+
   if (!user) return <Navigate to={`/${locale}/login`} />;
 
   return (
@@ -178,19 +179,21 @@ const Account = () => {
 
             <div className="flex flex-col gap-2 md:col-span-2">
               <label className="text-xs font-bold uppercase text-on-surface-variant">Country</label>
-              <select
-                name="country"
-                value={formData.country}
-                onChange={handleInputChange}
-                className="w-full bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
-              >
-                <option value="">Select Country</option>
-                {countries.map(c => (
-                  <option key={c.cca3} value={c.name.common}>
-                    {c.name.common}
-                  </option>
-                ))}
-              </select>
+              <div className="flex items-center gap-2">
+                <select
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  className="flex-grow bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
+                >
+                  <option value="">Select Country</option>
+                  {countries.map(c => (
+                    <option key={c.cca3} value={c.name.common}>
+                      {c.name.common}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
 

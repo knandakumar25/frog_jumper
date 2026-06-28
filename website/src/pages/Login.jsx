@@ -10,7 +10,62 @@ export default function Login() {
   const [errorMsg, setErrorMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { login, setUser } = useAuth();
+  const { login, verifyLogin2FA, setUser } = useAuth();
+  const [loginSessionId, setLoginSessionId] = useState(null);
+  const [twoFactorCode, setTwoFactorCode] = useState('');
+  const [is2FARequired, setIs2FARequired] = useState(false);
+
+  // ... (rest unchanged)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMsg('');
+    setIsSubmitting(true);
+
+    try {
+      const data = await login(username, password);
+      if (data.status === '2fa_required') {
+        setLoginSessionId(data.login_session_id);
+        setIs2FARequired(true);
+        setErrorMsg('Two‑Factor Authentication required – please enter the verification code sent to your email.');
+        setIsSubmitting(false);
+        return;
+      }
+      if (redirectTarget) {
+        navigate(redirectTarget);
+      } else {
+        navigate(`/${currentLocale}`);
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg('Authentication failed. Please verify your credentials.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handle2FASubmit = async (e) => {
+    e.preventDefault();
+    setErrorMsg('');
+    setIsSubmitting(true);
+    try {
+      await verifyLogin2FA(loginSessionId, twoFactorCode);
+      // Successful login after 2FA
+      if (redirectTarget) {
+        navigate(redirectTarget);
+      } else {
+        navigate(`/${currentLocale}`);
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg('Invalid verification code.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // ... (rest unchanged)
+
   const navigate = useNavigate();
   const location = useLocation();
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
@@ -42,25 +97,6 @@ export default function Login() {
 
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErrorMsg('');
-    setIsSubmitting(true);
-
-    try {
-      await login(username, password);
-      if (redirectTarget) {
-        navigate(redirectTarget);
-      } else {
-        navigate(`/${currentLocale}`);
-      }
-    } catch (err) {
-      console.error(err);
-      setErrorMsg('Authentication failed. Please verify your credentials.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
@@ -83,45 +119,71 @@ export default function Login() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <label className="text-xs uppercase font-bold tracking-wider text-on-surface-variant">
-              Username
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your username"
-              className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              disabled={isSubmitting}
-            />
-          </div>
+{is2FARequired ? (
+            <form onSubmit={handle2FASubmit} className="flex flex-col gap-5 mt-6">
+              <div className="flex flex-col gap-2">
+                <label className="text-xs uppercase font-bold tracking-wider text-on-surface-variant">
+                  Verification Code
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter 2FA code"
+                  className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
+                  value={twoFactorCode}
+                  onChange={(e) => setTwoFactorCode(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="brutal-btn py-4 font-headline-md text-headline-md uppercase font-bold text-void-black bg-primary-container hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-150 hover:skew-x-[-8deg] active:scale-95 disabled:opacity-50 mt-2"
+              >
+                {isSubmitting ? 'Verifying...' : 'Verify Code'}
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <label className="text-xs uppercase font-bold tracking-wider text-on-surface-variant">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your username"
+                  className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="text-xs uppercase font-bold tracking-wider text-on-surface-variant">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              disabled={isSubmitting}
-            />
-          </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-xs uppercase font-bold tracking-wider text-on-surface-variant">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="brutal-btn py-4 font-headline-md text-headline-md uppercase font-bold text-void-black bg-primary-container hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-150 hover:skew-x-[-8deg] active:scale-95 disabled:opacity-50 mt-2"
-          >
-            {isSubmitting ? 'Authenticating...' : 'Access Terminal'}
-          </button>
-        </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="brutal-btn py-4 font-headline-md text-headline-md uppercase font-bold text-void-black bg-primary-container hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-150 hover:skew-x-[-8deg] active:scale-95 disabled:opacity-50 mt-2"
+              >
+                {isSubmitting ? 'Authenticating...' : 'Access Terminal'}
+              </button>
+            </form>
+          )}
 
         <div className="flex items-center gap-3 my-5">
           <div className="h-[1px] bg-outline-variant/30 flex-grow"></div>

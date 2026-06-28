@@ -124,6 +124,13 @@ export default function Navbar() {
                       >
                         My Account
                       </NavLink>
+                      <NavLink
+                        to={`/${currentLocale}/account/2fa`}
+                        onClick={() => setProfileOpen(false)}
+                        className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 transition-colors"
+                      >
+                        Two-Factor Auth
+                      </NavLink>
                       <div className="h-[1px] bg-outline-variant/30 my-1"></div>
                       <button
                         onClick={logout}
