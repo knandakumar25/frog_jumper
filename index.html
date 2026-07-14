@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Axiom Force: Reclaim Earth — A 3D action platformer. Battle through dystopian levels, collect cherries, and fight for humanity's survival as one of four elite warriors." />
+    <meta name="keywords" content="Axiom Force, Reclaim Earth, platformer game, Godot, pixel art, action game" />
+    <meta property="og:title" content="Axiom Force: Reclaim Earth" />
+    <meta property="og:description" content="Fight for humanity's survival in this epic 3D platformer." />
+    <meta property="og:type" content="website" />
+    <title>Axiom Force: Reclaim Earth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-secondary-container": "#500050",
+              "primary-fixed-dim": "#00dce6",
+              "on-error-container": "#ffdad6",
+              "surface-bright": "#3a3939",
+              "surface": "#131313",
+              "warning-orange": "#FF4D00",
+              "tertiary-container": "#36fd0f",
+              "secondary": "#ffabf3",
+              "inverse-surface": "#e5e2e1",
+              "on-secondary-fixed": "#380038",
+              "on-secondary-fixed-variant": "#810081",
+              "surface-variant": "#353534",
+              "on-primary-fixed-variant": "#004f53",
+              "inverse-on-surface": "#313030",
+              "surface-container-low": "#1c1b1b",
+              "outline-variant": "#3a494b",
+              "on-tertiary-fixed": "#022100",
+              "on-surface-variant": "#b9cacb",
+              "secondary-fixed-dim": "#ffabf3",
+              "error-container": "#93000a",
+              "on-error": "#690005",
+              "inverse-primary": "#00696f",
+              "outline": "#849495",
+              "surface-tint": "#00dce6",
+              "primary-fixed": "#6ff6ff",
+              "on-tertiary-container": "#107000",
+              "void-black": "#050505",
+              "on-primary-container": "#006b71",
+              "tertiary-fixed": "#79ff5b",
+              "tertiary-fixed-dim": "#2ae500",
+              "scanline-overlay": "rgba(0, 243, 255, 0.05)",
+              "on-tertiary": "#053900",
+              "surface-container-lowest": "#0e0e0e",
+              "secondary-container": "#fe00fe",
+              "on-primary-fixed": "#002022",
+              "surface-container-highest": "#353534",
+              "background": "#131313",
+              "on-primary": "#00373a",
+              "tertiary": "#e8ffda",
+              "surface-container": "#201f1f",
+              "on-surface": "#e5e2e1",
+              "on-background": "#e5e2e1",
+              "deep-grey": "#1A1A1A",
+              "error": "#ffb4ab",
+              "surface-dim": "#131313",
+              "primary": "#e3fdff",
+              "secondary-fixed": "#ffd7f5",
+              "primary-container": "#00f3ff",
+              "on-secondary": "#5b005b",
+              "on-tertiary-fixed-variant": "#095300",
+              "surface-container-high": "#2a2a2a"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "margin-mobile": "20px",
+              "unit": "4px",
+              "container-max-width": "1440px",
+              "gutter": "16px",
+              "margin-desktop": "64px"
+            },
+            "fontFamily": {
+              "headline-md": ["Space Grotesk"],
+              "body-md": ["JetBrains Mono"],
+              "headline-lg": ["Space Grotesk"],
+              "display-hero": ["Space Grotesk"],
+              "label-caps": ["Space Mono"],
+              "headline-lg-mobile": ["Space Grotesk"],
+              "body-lg": ["JetBrains Mono"]
+            },
+            "fontSize": {
+              "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+              "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+              "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "display-hero": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.05em", "fontWeight": "700"}],
+              "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "700"}],
+              "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+              "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
