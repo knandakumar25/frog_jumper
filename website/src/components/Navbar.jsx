@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { key: 'home', to: '' },
   { key: 'gameplay', to: '/gameplay' },
   { key: 'squad', to: '/squad' },
+  { key: 'faq', to: '/faq' },
 ];
 
 export default function Navbar() {

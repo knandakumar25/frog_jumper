@@ -21,7 +21,11 @@ export default function LanguageModal() {
       });
     });
     return Array.from(countriesMap.values())
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .sort((a, b) => {
+        if (a.name === 'United States') return -1;
+        if (b.name === 'United States') return 1;
+        return a.name.localeCompare(b.name);
+      });
   };
 
   const getAvailableLanguages = () => {

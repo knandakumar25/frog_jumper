@@ -17,6 +17,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import TwoFactor from './pages/TwoFactor';
 import Account from './pages/Account';
+import FAQ from './pages/FAQ';
 
 // Redirect helper to default or stored locale
 function LocaleRedirect() {
@@ -39,6 +40,7 @@ function MainLayout() {
           <Route path="/:locale/squad" element={<Squad />} />
           <Route path="/:locale/tech-hub" element={<TechHub />} />
           <Route path="/:locale/design-system" element={<DesignSystem />} />
+          <Route path="/:locale/faq" element={<FAQ />} />
           <Route path="/:locale/login" element={<Login />} />
           <Route path="/:locale/signup" element={<Signup />} />
           <Route path="/:locale/account" element={<Account />} />
