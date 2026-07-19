@@ -19,10 +19,8 @@ public partial class MainMenu : Node
 	private ColorRect   _quitBackground;
 	private Panel       _settingsPopup;
 	private Panel       _instructionsPopup;
-	private Panel       _leaderboardPopup;
 	private Panel       _languagePopup;
 	private GridContainer _languageGrid;
-	private VBoxContainer _scoresTable;
 	private HBoxContainer _titleContainer;
 	private Button       _browserLoginButton;
 	private HBoxContainer _profileDisplayContainer;
@@ -61,9 +59,6 @@ public partial class MainMenu : Node
 	private const float SpawnIntervalMin = 0.5f;
 	private const float SpawnIntervalMax = 2.0f;
 
-	// ─── Leaderboard DB ──────────────────────────────────────────────────────
-	private GodotObject _db = null;
-
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
 	public override void _Ready()
 	{
@@ -75,10 +70,8 @@ public partial class MainMenu : Node
 		_quitBackground     = GetNode<ColorRect>("QuitBackground");
 		_settingsPopup      = GetNode<Panel>("SettingsPopup");
 		_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
-		_leaderboardPopup   = GetNode<Panel>("LeaderboardPopup");
 		_languagePopup      = GetNode<Panel>("LanguagePopup");
 		_languageGrid       = GetNode<GridContainer>("LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid");
-		_scoresTable        = GetNode<VBoxContainer>("LeaderboardPopup/VBoxContainer/ScrollContainer/ScoresTable");
 		_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
 		_newGamePopup       = GetNode<Panel>("NewGamePopup");
 		_continuePopup      = GetNode<Panel>("ContinuePopup");
@@ -97,6 +90,8 @@ public partial class MainMenu : Node
 		PopulateLanguageButtons();
 		_ = SetupFloatingTitleAsync();
 		ResetSpawnTimer();
+
+		MoveChild(_titleContainer, GetChildCount() - 1);
 
 		_continueButton.Visible = SessionManager.Instance.HasSessions();
 
@@ -356,6 +351,7 @@ public partial class MainMenu : Node
 		button.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal",  "Button"));
 
 		button.Pressed += () => OnLanguageSelected(langName);
+		button.MouseFilter = Control.MouseFilterEnum.Stop;
 		_languageGrid.AddChild(button);
 
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
@@ -439,71 +435,7 @@ public partial class MainMenu : Node
 	}
 
 	// ─── Leaderboard ─────────────────────────────────────────────────────────
-	private void InitDatabase()
-	{
-		_db = ClassDB.Instantiate("SQLite").As<GodotObject>();
-		_db.Set("path", "user://scores.db");
-		_db.Call("open_db");
-
-		var tableDict = new Dictionary
-		{
-			{ "id",         new Dictionary { { "data_type", "INTEGER" }, { "primary_key", true }, { "auto_increment", true } } },
-			{ "level_name", new Dictionary { { "data_type", "TEXT"    }, { "not_null",    true } } },
-			{ "score",      new Dictionary { { "data_type", "INTEGER" }, { "not_null",    true } } },
-		};
-		_db.Call("create_table", "scores", tableDict);
-	}
-
-	private void LoadScores()
-	{
-		foreach (Node child in _scoresTable.GetChildren())
-			child.QueueFree();
-
-		_db.Call("query", "SELECT level_name, score FROM scores ORDER BY score DESC");
-		var results = (Godot.Collections.Array)_db.Get("query_result");
-
-		AddRow(Tr("Level"), Tr("Points"), true);
-		foreach (var item in results)
-		{
-			var row = (Dictionary)item;
-			AddRow((string)row["level_name"], row["score"].ToString(), false);
-		}
-	}
-
-	private void AddRow(string level, string score, bool isHeader)
-	{
-		var row = new HBoxContainer { CustomMinimumSize = new Vector2(0, 40) };
-
-		var boldFont    = GD.Load<Font>("res://assets/fonts/ComicNeue-Bold.ttf");
-		var regularFont = GD.Load<Font>("res://assets/fonts/ComicNeue-Regular.ttf");
-
-		row.AddChild(MakeScoreLabel(level, isHeader, boldFont, regularFont));
-		row.AddChild(MakeScoreLabel(score, isHeader, boldFont, regularFont));
-		_scoresTable.AddChild(row);
-	}
-
-	private static Label MakeScoreLabel(string text, bool isHeader, Font bold, Font regular)
-	{
-		var lbl = new Label
-		{
-			Text              = text,
-			CustomMinimumSize = new Vector2(300, 0),
-			HorizontalAlignment = HorizontalAlignment.Center,
-		};
-		if (isHeader)
-		{
-			lbl.AddThemeColorOverride("font_color", new Color(0, 0.8f, 0, 1));
-			lbl.AddThemeFontSizeOverride("font_size", 24);
-			lbl.AddThemeFontOverride("font", bold);
-		}
-		else
-		{
-			lbl.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
-			lbl.AddThemeFontSizeOverride("font_size", 20);
-			lbl.AddThemeFontOverride("font", regular);
-		}
-		return lbl;
-	}
+	
 
 	// ─── Session list ────────────────────────────────────────────────────────
 	private void PopulateSessions()
@@ -609,24 +541,31 @@ public partial class MainMenu : Node
 	}
 
 	// ─── Signal / button handlers ────────────────────────────────────────────
-	public void _on_language_button_pressed()  => _languagePopup.Visible = true;
+	public void _on_language_button_pressed()
+	{
+		_languagePopup.ZIndex = 120;
+		_languagePopup.MouseFilter = Control.MouseFilterEnum.Stop;
+		_languagePopup.Visible = true;
+	}
 	public void _on_close_language_popup_pressed() => _languagePopup.Visible = false;
-	public void _on_play_pressed()             => _newGamePopup.Visible = true;
+	public void _on_play_pressed()
+	{
+		_newGamePopup.Visible = true;
+		MoveChild(_newGamePopup, GetChildCount() - 1);
+	}
 
 	public void _on_instructions_pressed()
 	{
 		UpdateInstructionsAlignment();
 		_instructionsPopup.Visible = true;
+		MoveChild(_instructionsPopup, GetChildCount() - 1);
 	}
 
-	public void _on_leaderboard_pressed()
-	{
-		if (_db == null) InitDatabase();
-		LoadScores();
-		_leaderboardPopup.Visible = true;
+	public void _on_settings_pressed() 
+	{ 
+		_settingsPopup.Visible = true; 
+		MoveChild(_settingsPopup, GetChildCount() - 1);
 	}
-
-	public void _on_settings_pressed() => _settingsPopup.Visible = true;
 
 	public void _on_apply_settings_pressed()
 	{
@@ -651,9 +590,11 @@ public partial class MainMenu : Node
 	{
 		_quitBackground.Visible = true;
 		_quitPopup.Visible = true;
+		MoveChild(_quitPopup, GetChildCount() - 1);
+		MoveChild(_quitBackground, GetChildCount() - 2);
 	}
 	public void _on_close_instructions_pressed()  => _instructionsPopup.Visible = false;
-	public void _on_close_leaderboard_pressed()   => _leaderboardPopup.Visible = false;
+	// Leaderboard popup close handler removed.
 
 	public void _on_new_game_confirm_pressed()
 	{
@@ -667,6 +608,7 @@ public partial class MainMenu : Node
 	{
 		PopulateSessions();
 		_continuePopup.Visible = true;
+		MoveChild(_continuePopup, GetChildCount() - 1);
 	}
 
 	private void OnDeleteOnePressed(int sessionId)

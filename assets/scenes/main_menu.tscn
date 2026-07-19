@@ -403,9 +403,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -700.0
-offset_top = -300.0
+offset_top = -150.0
 offset_right = 700.0
-offset_bottom = -100.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -473,21 +473,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "How to Play"
 
-[node name="Leaderboard" type="Button" parent="ButtonContainer/Row1" unique_id=485867091]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(350, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-text = "Leaderboard"
-
 [node name="Row2" type="HBoxContainer" parent="ButtonContainer" unique_id=1415807042]
 layout_mode = 2
 theme_override_constants/separation = 15
@@ -531,6 +516,7 @@ offset_bottom = 40.0
 
 [node name="QuitBackground" type="ColorRect" parent="." unique_id=454912470]
 visible = false
+z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -540,6 +526,7 @@ color = Color(0, 0, 0, 0.5)
 
 [node name="QuitPopup" type="Panel" parent="." unique_id=1222892908]
 visible = false
+z_index = 101
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -621,6 +608,8 @@ layout_mode = 2
 
 [node name="SettingsPopup" type="Panel" parent="." unique_id=228723333]
 visible = false
+z_index = 50
+mouse_filter = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -636,6 +625,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup" unique_id=403408098]
 layout_mode = 1
+mouse_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -935,80 +925,9 @@ text = "Exit"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="LeaderboardPopup" type="Panel" parent="." unique_id=458061956]
-visible = false
-z_index = 10
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -300.0
-offset_right = 400.0
-offset_bottom = 300.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardPopup" unique_id=1162780498]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TopSpacer" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=454259885]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="Title" type="Label" parent="LeaderboardPopup/VBoxContainer" unique_id=146239336]
-auto_translate_mode = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0.3, 1)
-theme_override_fonts/font = ExtResource("4_comic_bold")
-theme_override_font_sizes/font_size = 42
-text = "Leaderboard"
-horizontal_alignment = 1
-
-[node name="Spacer1" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=1319924905]
-custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="LeaderboardPopup/VBoxContainer" unique_id=2044559638]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ScoresTable" type="VBoxContainer" parent="LeaderboardPopup/VBoxContainer/ScrollContainer" unique_id=1833180463]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Spacer2" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=1283761196]
-custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="LeaderboardPopup/VBoxContainer" unique_id=1311873185]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(180, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_comic_regular")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-text = "Exit"
-
-[node name="BottomSpacer" type="Control" parent="LeaderboardPopup/VBoxContainer" unique_id=1493364678]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
 [node name="LanguagePopup" type="Panel" parent="." unique_id=719324461]
 visible = false
+mouse_filter = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1024,6 +943,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_settings_panel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LanguagePopup" unique_id=471580111]
 layout_mode = 1
+mouse_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1049,10 +969,12 @@ layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="LanguagePopup/VBoxContainer" unique_id=89242338]
 layout_mode = 2
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="LanguageGrid" type="GridContainer" parent="LanguagePopup/VBoxContainer/ScrollContainer" unique_id=974073795]
 layout_mode = 2
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/h_separation = 15
@@ -1352,7 +1274,6 @@ text = "No"
 [connection signal="pressed" from="ButtonContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonContainer/ContinueButton" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="ButtonContainer/Row1/Instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="ButtonContainer/Row1/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="ButtonContainer/Row2/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonContainer/Row2/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_yes_pressed"]
@@ -1361,7 +1282,6 @@ text = "No"
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/ApplyButton" to="." method="_on_apply_settings_pressed"]
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_settings_pressed"]
 [connection signal="pressed" from="InstructionsPopup/VBoxContainer/CloseButton" to="." method="_on_close_instructions_pressed"]
-[connection signal="pressed" from="LeaderboardPopup/VBoxContainer/CloseButton" to="." method="_on_close_leaderboard_pressed"]
 [connection signal="pressed" from="LanguagePopup/VBoxContainer/CloseButton" to="." method="_on_close_language_popup_pressed"]
 [connection signal="pressed" from="NewGamePopup/VBoxContainer/ButtonContainer/ConfirmButton" to="." method="_on_new_game_confirm_pressed"]
 [connection signal="pressed" from="NewGamePopup/VBoxContainer/ButtonContainer/CancelButton" to="." method="_on_new_game_cancel_pressed"]

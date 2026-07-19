@@ -38,7 +38,7 @@ mouse_cursor/tooltip_position_offset=Vector2(1, 1)
 
 [dotnet]
 
-project/assembly_name="2d Platformer game"
+project/assembly_name="FrogJumper"
 
 [editor_plugins]
 
