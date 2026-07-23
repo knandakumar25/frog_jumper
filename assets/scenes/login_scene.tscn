@@ -1,56 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1u2v3w4x5y6"]
 
+[ext_resource type="Environment" uid="uid://cyber_glow_env" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" uid="uid://cyber_shogun_theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Script" path="res://assets/scenes/LoginScene.cs" id="1_login_script"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="2_font_reg"]
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_font_bold"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 40.0
-content_margin_top = 40.0
-content_margin_right = 40.0
-content_margin_bottom = 40.0
-bg_color = Color(0.1, 0.1, 0.12, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.96, 0.08, 0.56, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 0.5)
-shadow_size = 10
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
-content_margin_left = 15.0
-content_margin_top = 10.0
-content_margin_right = 15.0
-content_margin_bottom = 10.0
-bg_color = Color(0.2, 0.2, 0.25, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.4, 0.4, 0.45, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
-content_margin_left = 15.0
-content_margin_top = 10.0
-content_margin_right = 15.0
-content_margin_bottom = 10.0
-bg_color = Color(0.96, 0.08, 0.56, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [node name="LoginScreen" type="Control"]
+theme = ExtResource("10_cyber_theme")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,6 +16,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_login_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000002]
+environment = ExtResource("11_cyber_glow")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -79,63 +40,43 @@ grow_vertical = 2
 [node name="AuthPanel" type="PanelContainer" parent="CenterContainer"]
 custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VBox" type="VBoxContainer" parent="CenterContainer/AuthPanel"]
 layout_mode = 2
-theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="CenterContainer/AuthPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_font_bold")
-theme_override_font_sizes/font_size = 48
 text = "Welcome"
 horizontal_alignment = 1
 
 [node name="InputGroup" type="VBoxContainer" parent="CenterContainer/AuthPanel/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 15
 
 [node name="EmailInput" type="LineEdit" parent="CenterContainer/AuthPanel/VBox/InputGroup"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 22
 placeholder_text = "Email"
 
 [node name="UsernameInput" type="LineEdit" parent="CenterContainer/AuthPanel/VBox/InputGroup"]
 visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 22
 placeholder_text = "Username"
 
 [node name="PasswordInput" type="LineEdit" parent="CenterContainer/AuthPanel/VBox/InputGroup"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 22
 placeholder_text = "Password"
 secret = true
 
 [node name="SubmitButton" type="Button" parent="CenterContainer/AuthPanel/VBox"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 22
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "Login"
 
 [node name="ErrorLabel" type="Label" parent="CenterContainer/AuthPanel/VBox"]
 visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 18
 text = "Error occurred"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -143,10 +84,6 @@ autowrap_mode = 2
 [node name="ToggleModeButton" type="Button" parent="CenterContainer/AuthPanel/VBox"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "Need an account? Sign Up"
 
 [node name="WebsiteButton" type="Button" parent="."]
@@ -159,11 +96,6 @@ offset_top = -70.0
 offset_right = 260.0
 offset_bottom = -20.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "Visit Website"
 
 [node name="LanguageSelector" type="OptionButton" parent="."]
@@ -179,11 +111,6 @@ offset_right = -20.0
 offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 
 [node name="NetworkErrorPopup" type="Control" parent="."]
 visible = false
@@ -215,25 +142,17 @@ grow_vertical = 2
 [node name="DialogPanel" type="PanelContainer" parent="NetworkErrorPopup/CenterContainer"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VBox" type="VBoxContainer" parent="NetworkErrorPopup/CenterContainer/DialogPanel"]
 layout_mode = 2
-theme_override_constants/separation = 20
 
 [node name="PopupTitle" type="Label" parent="NetworkErrorPopup/CenterContainer/DialogPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
-theme_override_fonts/font = ExtResource("3_font_bold")
-theme_override_font_sizes/font_size = 32
 text = "Connection Error"
 horizontal_alignment = 1
 
 [node name="PopupMessage" type="Label" parent="NetworkErrorPopup/CenterContainer/DialogPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 20
 text = "No internet connection. Please check your network and try again."
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -242,9 +161,4 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_font_reg")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button")
 text = "OK"

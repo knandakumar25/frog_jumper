@@ -8,7 +8,7 @@ using System.Collections.Generic;
 /// settings, language selection, and falling-character decoration.
 /// Converted from main_menu.gd.
 /// </summary>
-public partial class MainMenu : Node
+public partial class MainMenu : Control
 {
 	// ─── Cached packed scene ─────────────────────────────────────────────────
 	private static readonly PackedScene FallingCharacterScene =
