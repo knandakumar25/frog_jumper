@@ -21,8 +21,17 @@ public partial class SessionManager : Node
     // ─── Lifecycle ───────────────────────────────────────────────────────────
     public override void _Ready()
     {
+        GD.Print("SessionManager: _ready() start");
         Instance = this;
-        InitDatabase();
+        try
+        {
+            InitDatabase();
+        }
+        catch (System.Exception ex)
+        {
+            GD.PrintErr($"SessionManager: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
+        }
+        GD.Print("SessionManager: _ready() complete");
     }
 
     // ─── Database initialisation ─────────────────────────────────────────────

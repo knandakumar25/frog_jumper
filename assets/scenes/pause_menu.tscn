@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dscsic47d81gv"]
 
-[ext_resource type="Theme" uid="uid://cyber_shogun_theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
-[ext_resource type="Environment" uid="uid://cyber_glow_env" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" uid="uid://djgnbpvl8k1ga" path="res://assets/scenes/pause_menu.gd" id="1_0d1qr"]
 [ext_resource type="Shader" uid="uid://c4gsbwxau2efu" path="res://assets/scenes/pause_menu.gdshader" id="1_pbo1x"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_comic_bold"]

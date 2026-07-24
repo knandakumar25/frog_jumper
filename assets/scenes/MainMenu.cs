@@ -63,53 +63,96 @@ public partial class MainMenu : Control
 	public override void _Ready()
 	{
 		GD.Print("main_menu: _ready() start");
-		GetNode<Node>("/root/Global").Call("play_menu_music");
-
-		// Resolve node references
-		_quitPopup          = GetNode<Panel>("QuitPopup");
-		_quitBackground     = GetNode<ColorRect>("QuitBackground");
-		_settingsPopup      = GetNode<Panel>("SettingsPopup");
-		_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
-		_languagePopup      = GetNode<Panel>("LanguagePopup");
-		_languageGrid       = GetNode<GridContainer>("LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid");
-		_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
-		_newGamePopup       = GetNode<Panel>("NewGamePopup");
-		_continuePopup      = GetNode<Panel>("ContinuePopup");
-		_sessionsContainer  = GetNode<VBoxContainer>("ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer");
-		_continueButton     = GetNode<Button>("ButtonContainer/ContinueButton");
-		_confirmPopup       = GetNode<Panel>("ConfirmPopup");
-		_confirmLabel       = GetNode<Label>("ConfirmPopup/VBoxContainer/ConfirmLabel");
-		SetupBrowserLoginButton();
-		SetupProfileUI();
-		if (AuthManager.Instance != null)
+		try
 		{
-			AuthManager.Instance.OnProfileUpdated += UpdateAuthUI;
+			GD.Print("main_menu: calling Global.play_menu_music()");
+			GetNode<Node>("/root/Global").Call("play_menu_music");
+
+			// Resolve node references
+			GD.Print("main_menu: resolving node references...");
+			_quitPopup          = GetNode<Panel>("QuitPopup");
+			GD.Print("main_menu: resolved QuitPopup");
+			_quitBackground     = GetNode<ColorRect>("QuitBackground");
+			GD.Print("main_menu: resolved QuitBackground");
+			_settingsPopup      = GetNode<Panel>("SettingsPopup");
+			GD.Print("main_menu: resolved SettingsPopup");
+			_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
+			GD.Print("main_menu: resolved InstructionsPopup");
+			_languagePopup      = GetNode<Panel>("LanguagePopup");
+			GD.Print("main_menu: resolved LanguagePopup");
+			_languageGrid       = GetNode<GridContainer>("LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid");
+			GD.Print("main_menu: resolved LanguageGrid");
+			_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
+			GD.Print("main_menu: resolved TitleContainer");
+			_newGamePopup       = GetNode<Panel>("NewGamePopup");
+			GD.Print("main_menu: resolved NewGamePopup");
+			_continuePopup      = GetNode<Panel>("ContinuePopup");
+			GD.Print("main_menu: resolved ContinuePopup");
+			_sessionsContainer  = GetNode<VBoxContainer>("ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer");
+			GD.Print("main_menu: resolved SessionsContainer");
+			_continueButton     = GetNode<Button>("ButtonContainer/ContinueButton");
+			GD.Print("main_menu: resolved ContinueButton");
+			_confirmPopup       = GetNode<Panel>("ConfirmPopup");
+			GD.Print("main_menu: resolved ConfirmPopup");
+			_confirmLabel       = GetNode<Label>("ConfirmPopup/VBoxContainer/ConfirmLabel");
+			GD.Print("main_menu: resolved ConfirmLabel");
+
+			SetupBrowserLoginButton();
+			GD.Print("main_menu: SetupBrowserLoginButton complete");
+			SetupProfileUI();
+			GD.Print("main_menu: SetupProfileUI complete");
+
+			if (AuthManager.Instance != null)
+			{
+				GD.Print("main_menu: AuthManager.Instance is not null");
+				AuthManager.Instance.OnProfileUpdated += UpdateAuthUI;
+			}
+			else
+			{
+				GD.PrintErr("main_menu: AuthManager.Instance is NULL!");
+			}
+
+			UpdateAuthUI();
+			GD.Print("main_menu: UpdateAuthUI complete");
+
+			PopulateLanguageButtons();
+			GD.Print("main_menu: PopulateLanguageButtons complete");
+
+			_ = SetupFloatingTitleAsync();
+			GD.Print("main_menu: SetupFloatingTitleAsync started");
+
+			ResetSpawnTimer();
+			GD.Print("main_menu: ResetSpawnTimer complete");
+
+			MoveChild(_titleContainer, GetChildCount() - 1);
+			GD.Print("main_menu: MoveChild TitleContainer complete");
+
+			_continueButton.Visible = SessionManager.Instance.HasSessions();
+			GD.Print("main_menu: updated _continueButton.Visible");
+
+			// Ensure CloudsLayer exists
+			if (!HasNode("CloudsLayer"))
+			{
+				GD.Print("main_menu: CloudsLayer not found — creating runtime CloudsLayer node");
+				var layer = new Node2D { Name = "CloudsLayer" };
+				AddChild(layer);
+				MoveChild(layer, Mathf.Clamp(1, 0, GetChildCount() - 1));
+			}
+
+			if (_cloudTexture == null)
+				GD.PushError("main_menu: cloud_scene texture failed to load (null).");
+			else
+			{
+				SpawnInitialClouds();
+				GD.Print("main_menu: SpawnInitialClouds complete");
+			}
+
+			GD.Print("main_menu: _ready() complete successfully");
 		}
-		UpdateAuthUI();
-
-		PopulateLanguageButtons();
-		_ = SetupFloatingTitleAsync();
-		ResetSpawnTimer();
-
-		MoveChild(_titleContainer, GetChildCount() - 1);
-
-		_continueButton.Visible = SessionManager.Instance.HasSessions();
-
-		// Ensure CloudsLayer exists
-		if (!HasNode("CloudsLayer"))
+		catch (System.Exception ex)
 		{
-			GD.Print("main_menu: CloudsLayer not found — creating runtime CloudsLayer node");
-			var layer = new Node2D { Name = "CloudsLayer" };
-			AddChild(layer);
-			MoveChild(layer, Mathf.Clamp(1, 0, GetChildCount() - 1));
+			GD.PrintErr($"main_menu: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
 		}
-
-		if (_cloudTexture == null)
-			GD.PushError("main_menu: cloud_scene texture failed to load (null).");
-		else
-			SpawnInitialClouds();
-
-		GD.Print("main_menu: _ready() complete");
 	}
 
 	// ─── Cloud spawning ──────────────────────────────────────────────────────

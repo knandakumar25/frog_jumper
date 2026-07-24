@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://cwp7b6o11ii16"]
+[gd_scene load_steps=11 format=4]
 
-[ext_resource type="Environment" uid="uid://cyber_glow_env" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
-[ext_resource type="Theme" uid="uid://cyber_shogun_theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Script" uid="uid://s2aukf1vgcnf" path="res://assets/scenes/MainMenu.cs" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://dh3lam2n5p8q1" path="res://assets/images/Gemini_Generated_Image_t8s2p4t8s2p4t8s2.png" id="2_v0073"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://assets/scenes/audio_options.gd" id="3_audio_options"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
 [ext_resource type="FontFile" uid="uid://5haj7i3kmsn6" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+[ext_resource type="Texture2D" path="res://assets/images/world_tileset.png" id="9_worldtiles"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="8_terrain"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
@@ -294,6 +295,12 @@ sources/1 = SubResource("TileSetAtlasSource_world")
 
 
 [node name="MainMenu" type="Control" unique_id=529692672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("10_cyber_theme")
 script = ExtResource("1_hgd46")
 
@@ -303,6 +310,7 @@ environment = ExtResource("11_cyber_glow")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1292908816]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -318,6 +326,7 @@ tile_map_data = PackedByteArray("AAAAABMAAAAGAAAAAAABABMAAAAHAAAAAAACABMAAAAHAAA
 tile_set = SubResource("TileSet_mainmenu")
 
 [node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -332,6 +341,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=350939543]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -395,6 +405,7 @@ offset_bottom = 40.0
 [node name="QuitBackground" type="ColorRect" parent="." unique_id=454912470]
 visible = false
 z_index = 100
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -405,6 +416,7 @@ color = Color(0, 0, 0, 0.5)
 [node name="QuitPopup" type="Panel" parent="." unique_id=1222892908]
 visible = false
 z_index = 101
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -468,6 +480,7 @@ layout_mode = 2
 visible = false
 z_index = 50
 mouse_filter = 2
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -579,6 +592,7 @@ layout_mode = 2
 [node name="InstructionsPopup" type="Panel" parent="." unique_id=922019136]
 visible = false
 z_index = 10
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -702,7 +716,7 @@ layout_mode = 2
 
 [node name="LanguagePopup" type="Panel" parent="." unique_id=719324461]
 visible = false
-mouse_filter = 3
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -767,6 +781,7 @@ layout_mode = 2
 
 [node name="NewGamePopup" type="Panel" parent="." unique_id=993984160]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -828,6 +843,7 @@ layout_mode = 2
 
 [node name="ContinuePopup" type="Panel" parent="." unique_id=976346447]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -888,6 +904,7 @@ layout_mode = 2
 
 [node name="ConfirmPopup" type="Panel" parent="." unique_id=1936297070]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

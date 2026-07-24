@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1u2v3w4x5y6"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Environment" uid="uid://cyber_glow_env" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
-[ext_resource type="Theme" uid="uid://cyber_shogun_theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Script" path="res://assets/scenes/LoginScene.cs" id="1_login_script"]
-[ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="2_font_reg"]
-[ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_font_bold"]
 
 
 [node name="LoginScreen" type="Control"]
