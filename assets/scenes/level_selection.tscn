@@ -2,97 +2,188 @@
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
-[ext_resource type="Texture2D" uid="uid://byabotociwvdv" path="res://assets/images/Gray.png" id="1_ahwel"]
-[ext_resource type="Script" uid="uid://c8cdjl7cfya32" path="res://assets/scenes/level_selection.gd" id="1_eqe0b"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="2_comic_bold"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
-
+[ext_resource type="Script" path="res://assets/scenes/level_selection.gd" id="1_eqe0b"]
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 
 [node name="Node" type="Control"]
 theme = ExtResource("10_cyber_theme")
-script = ExtResource("1_eqe0b")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000003]
-environment = ExtResource("11_cyber_glow")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ahwel")
-stretch_mode = 1
+script = ExtResource("1_eqe0b")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -180.0
-offset_right = 480.0
-offset_bottom = 180.0
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000003]
+environment = ExtResource("11_cyber_glow")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bg_texture")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Title" type="Label" parent="VBoxContainer"]
-auto_translate_mode = 1
-layout_mode = 2
-text = "CHOOSE LEVEL"
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.07, 0.82)
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.85)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 36
+text = "TACTICAL OPERATIONS DIRECTORY"
 horizontal_alignment = 1
-text_direction = 2
-structured_text_bidi_override = 1
 
-[node name="Spacer1" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.08
+anchor_top = 0.16
+anchor_right = 0.92
+anchor_bottom = 0.92
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="SectorGrid" type="GridContainer" parent="MainLayout"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 2
+alignment = 1
+
+[node name="Sector1" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 200)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector1"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/separation = 10
 
-[node name="Level1" type="Button" parent="VBoxContainer/HBoxContainer"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(200, 70)
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector1/VBox"]
 layout_mode = 2
-text = "Level 1"
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "SECTOR 01: TRAINING PROTOCOL"
 
-[node name="Level2" type="Button" parent="VBoxContainer/HBoxContainer"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(140, 50)
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector1/VBox"]
 layout_mode = 2
-text = "Level 2"
+theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
+text = "Master movement mechanics and test jump calibration."
 
-[node name="Level3" type="Button" parent="VBoxContainer/HBoxContainer"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(140, 50)
+[node name="Level1" type="Button" parent="MainLayout/SectorGrid/Sector1/VBox"]
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-text = "Level 3"
+text = "LAUNCH SECTOR 01"
 
-[node name="Level4" type="Button" parent="VBoxContainer/HBoxContainer"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(140, 50)
-layout_mode = 2
-text = "Level 4"
-
-[node name="BottomSpacer" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="Sector2" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 200)
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "SECTOR 02: CYBER DUSK"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
+text = "Infiltrate high-risk rooftop corridors under twilight cover."
+
+[node name="Level2" type="Button" parent="MainLayout/SectorGrid/Sector2/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH SECTOR 02"
+
+[node name="Sector3" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 200)
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="VBoxContainer/CenterContainer"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(140, 50)
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector3"]
 layout_mode = 2
-text = "Back"
+theme_override_constants/separation = 10
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="VBoxContainer/CenterContainer/BackButton" to="." method="_on_back_button_pressed"]
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "SECTOR 03: NEON HEIGHTS"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
+text = "Navigate elevated platform grids and laser obstacles."
+
+[node name="Level3" type="Button" parent="MainLayout/SectorGrid/Sector3/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH SECTOR 03"
+
+[node name="Sector4" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 200)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector4"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector4/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "SECTOR 04: ORBITAL CORE"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector4/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
+text = "Final breach operation against central command server."
+
+[node name="Level4" type="Button" parent="MainLayout/SectorGrid/Sector4/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH SECTOR 04"
+
+[node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MainLayout/CenterContainer"]
+custom_minimum_size = Vector2(220, 54)
+layout_mode = 2
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector1/VBox/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector2/VBox/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector3/VBox/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector4/VBox/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="MainLayout/CenterContainer/BackButton" to="." method="_on_back_button_pressed"]

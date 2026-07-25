@@ -327,74 +327,70 @@ tile_set = SubResource("TileSet_mainmenu")
 
 [node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
+anchors_preset = 0
+anchor_left = 0.04
+anchor_top = 0.05
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -700.0
-offset_top = -150.0
-offset_right = 700.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
+anchor_bottom = 0.22
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=350939543]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = 80.0
-offset_right = 300.0
-offset_bottom = 500.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+anchor_left = 0.04
+anchor_top = 0.25
+anchor_right = 0.36
+anchor_bottom = 0.88
+theme_override_constants/separation = 18
 
 [node name="Play" type="Button" parent="ButtonContainer" unique_id=1183083552]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(500, 120)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 text = "Play"
 
 [node name="ContinueButton" type="Button" parent="ButtonContainer" unique_id=1219863040]
 auto_translate_mode = 1
 visible = false
-custom_minimum_size = Vector2(500, 120)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 text = "Continue"
 
-[node name="Row1" type="HBoxContainer" parent="ButtonContainer" unique_id=832959731]
-layout_mode = 2
-alignment = 1
-
-[node name="Instructions" type="Button" parent="ButtonContainer/Row1" unique_id=2063356946]
+[node name="Instructions" type="Button" parent="ButtonContainer" unique_id=2063356946]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(350, 100)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-size_flags_horizontal = 4
 text = "How to Play"
 
-[node name="Row2" type="HBoxContainer" parent="ButtonContainer" unique_id=1415807042]
-layout_mode = 2
-alignment = 1
-
-[node name="Settings" type="Button" parent="ButtonContainer/Row2" unique_id=1423822794]
+[node name="Settings" type="Button" parent="ButtonContainer" unique_id=1423822794]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(350, 100)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-size_flags_horizontal = 4
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="ButtonContainer/Row2" unique_id=1176693379]
+[node name="QuitButton" type="Button" parent="ButtonContainer" unique_id=1176693379]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(350, 100)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-size_flags_horizontal = 4
 text = "Quit"
+
+[node name="ProfileContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.68
+anchor_top = 0.04
+anchor_right = 0.96
+anchor_bottom = 0.16
+
+[node name="StatusTicker" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.04
+anchor_top = 0.93
+anchor_right = 0.6
+anchor_bottom = 0.97
+theme_override_colors/font_color = Color(0, 0.94, 1, 0.75)
+theme_override_font_sizes/font_size = 18
+text = "AXIOM NET // STATUS: ONLINE // VERSION 4.7.1 // SYSTEM READY"
 
 [node name="Control" type="Control" parent="." unique_id=1634546171]
 layout_mode = 3
@@ -997,9 +993,9 @@ text = "No"
 
 [connection signal="pressed" from="ButtonContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonContainer/ContinueButton" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="ButtonContainer/Row1/Instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="ButtonContainer/Row2/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="ButtonContainer/Row2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="ButtonContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton" to="." method="_on_language_button_pressed"]

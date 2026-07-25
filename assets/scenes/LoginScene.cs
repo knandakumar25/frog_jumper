@@ -29,14 +29,14 @@ public partial class LoginScene : Control
 	public override void _Ready()
 	{
 		// Resolve node references
-		_title = GetNode<Label>("CenterContainer/AuthPanel/VBox/Title");
-		_emailInput = GetNode<LineEdit>("CenterContainer/AuthPanel/VBox/InputGroup/EmailInput");
-		_usernameInput = GetNode<LineEdit>("CenterContainer/AuthPanel/VBox/InputGroup/UsernameInput");
-		_passwordInput = GetNode<LineEdit>("CenterContainer/AuthPanel/VBox/InputGroup/PasswordInput");
-		_submitButton = GetNode<Button>("CenterContainer/AuthPanel/VBox/SubmitButton");
+		_title = GetNode<Label>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/Title");
+		_emailInput = GetNode<LineEdit>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup/EmailInput");
+		_usernameInput = GetNode<LineEdit>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup/UsernameInput");
+		_passwordInput = GetNode<LineEdit>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup/PasswordInput");
+		_submitButton = GetNode<Button>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/SubmitButton");
 		_websiteButton = GetNode<Button>("WebsiteButton");
-		_toggleModeButton = GetNode<Button>("CenterContainer/AuthPanel/VBox/ToggleModeButton");
-		_errorLabel = GetNode<Label>("CenterContainer/AuthPanel/VBox/ErrorLabel");
+		_toggleModeButton = GetNode<Button>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/ToggleModeButton");
+		_errorLabel = GetNode<Label>("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/ErrorLabel");
 		_languageSelector = GetNode<OptionButton>("LanguageSelector");
 
 		// Popup node references
@@ -54,6 +54,7 @@ public partial class LoginScene : Control
 
 		SetupUI();
 		PopulateLanguageSelector();
+		UISoundManager.AutoWireButtons(this);
 
 		// Signals
 		_submitButton.Pressed += OnSubmitPressed;

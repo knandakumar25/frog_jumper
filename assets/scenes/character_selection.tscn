@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7gy8mqw3hxvd"]
+[gd_scene load_steps=5 format=3 uid="uid://b7gy8mqw3hxvd"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://assets/scenes/CharacterSelection.cs" id="1_char_select_script"]
-[ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_comic_bold"]
-[ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="4_comic_regular"]
-
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 
 [node name="CharacterSelection" type="Control"]
 theme = ExtResource("10_cyber_theme")
@@ -20,133 +19,156 @@ script = ExtResource("1_char_select_script")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000006]
 environment = ExtResource("11_cyber_glow")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="BackgroundTexture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_bg_texture")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="DarkOverlay" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -240.0
-offset_right = 480.0
-offset_bottom = 240.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.02, 0.03, 0.07, 0.82)
 
-[node name="Title" type="Label" parent="VBoxContainer"]
-auto_translate_mode = 1
-layout_mode = 2
-text = "Choose your character"
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.85)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 36
+text = "OPERATIVE SELECTION MATRIX"
 horizontal_alignment = 1
-autowrap_mode = 2
 
-[node name="Spacer1" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="MainLayout" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.05
+anchor_top = 0.16
+anchor_right = 0.95
+anchor_bottom = 0.9
+theme_override_constants/separation = 30
+
+[node name="LeftListPanel" type="PanelContainer" parent="MainLayout"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 
-[node name="CharacterGrid" type="GridContainer" parent="VBoxContainer"]
+[node name="VBox" type="VBoxContainer" parent="MainLayout/LeftListPanel"]
 layout_mode = 2
-columns = 4
+theme_override_constants/separation = 14
 
-[node name="NinjaFrog" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
-custom_minimum_size = Vector2(180, 240)
+[node name="ListTitle" type="Label" parent="MainLayout/LeftListPanel/VBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "AVAILABLE OPERATIVES"
 
-[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/NinjaFrog"]
-custom_minimum_size = Vector2(140, 140)
+[node name="CharacterGrid" type="VBoxContainer" parent="MainLayout/LeftListPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NinjaFrog" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Ninja Frog [RECON]"
+
+[node name="MaskDude" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Mask Dude [ASSAULT]"
+
+[node name="PinkMan" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Pink Man [HEAVY]"
+
+[node name="VirtualGuy" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Virtual Guy [CYBER]"
+
+[node name="RightShowcasePanel" type="PanelContainer" parent="MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SelectedName" type="Label" parent="MainLayout/RightShowcasePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 32
+text = "NINJA FROG"
+horizontal_alignment = 1
+
+[node name="ClassTag" type="Label" parent="MainLayout/RightShowcasePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.6, 0.95)
+theme_override_font_sizes/font_size = 20
+text = "// CLASS: RECON INFILTRATOR"
+horizontal_alignment = 1
+
+[node name="PreviewFrame" type="Control" parent="MainLayout/RightShowcasePanel/VBox"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-flat = true
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton"]
-position = Vector2(64, 64)
-scale = Vector2(4, 4)
+[node name="PreviewSprite" type="AnimatedSprite2D" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame"]
+position = Vector2(0, 100)
+scale = Vector2(6, 6)
 
-[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/NinjaFrog"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 50)
+[node name="StatsBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
 layout_mode = 2
-text = "Ninja Frog"
-horizontal_alignment = 1
-autowrap_mode = 2
+theme_override_constants/separation = 10
 
-[node name="MaskDude" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
-custom_minimum_size = Vector2(150, 200)
+[node name="SpeedLabel" type="Label" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
 layout_mode = 2
+text = "SPEED: 85 / 100"
 
-[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/MaskDude"]
-custom_minimum_size = Vector2(128, 128)
+[node name="SpeedBar" type="ProgressBar" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-size_flags_horizontal = 4
-flat = true
+value = 85.0
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/MaskDude/CharacterButton"]
-position = Vector2(64, 64)
-scale = Vector2(4, 4)
-
-[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/MaskDude"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 50)
+[node name="AgilityLabel" type="Label" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
 layout_mode = 2
-text = "Mask Dude"
-horizontal_alignment = 1
-autowrap_mode = 2
+text = "AGILITY: 95 / 100"
 
-[node name="PinkMan" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
-custom_minimum_size = Vector2(150, 200)
+[node name="AgilityBar" type="ProgressBar" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+value = 95.0
 
-[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/PinkMan"]
-custom_minimum_size = Vector2(128, 128)
+[node name="DeployButton" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
+custom_minimum_size = Vector2(280, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-flat = true
+text = "DEPLOY OPERATIVE"
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/PinkMan/CharacterButton"]
-position = Vector2(64, 64)
-scale = Vector2(4, 4)
-
-[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/PinkMan"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "Pink Man"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="VirtualGuy" type="VBoxContainer" parent="VBoxContainer/CharacterGrid"]
-custom_minimum_size = Vector2(150, 200)
-layout_mode = 2
-
-[node name="CharacterButton" type="Button" parent="VBoxContainer/CharacterGrid/VirtualGuy"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 4
-flat = true
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton"]
-position = Vector2(64, 64)
-scale = Vector2(4, 4)
-
-[node name="Name" type="Label" parent="VBoxContainer/CharacterGrid/VirtualGuy"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "Virtual Guy"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton" to="." method="_on_ninja_frog_pressed"]
-[connection signal="pressed" from="VBoxContainer/CharacterGrid/MaskDude/CharacterButton" to="." method="_on_mask_dude_pressed"]
-[connection signal="pressed" from="VBoxContainer/CharacterGrid/PinkMan/CharacterButton" to="." method="_on_pink_man_pressed"]
-[connection signal="pressed" from="VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton" to="." method="_on_virtual_guy_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog" to="." method="_on_ninja_frog_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/MaskDude" to="." method="_on_mask_dude_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/PinkMan" to="." method="_on_pink_man_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/VirtualGuy" to="." method="_on_virtual_guy_pressed"]
+[connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/DeployButton" to="." method="_on_deploy_pressed"]

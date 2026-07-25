@@ -21,8 +21,8 @@ public partial class LoadingScreen : Control
     // ─── Lifecycle ───────────────────────────────────────────────────────────
     public override void _Ready()
     {
-        _progressBar  = GetNode<ProgressBar>("CenterContainer/VBoxContainer/ProgressBar");
-        _statusLabel  = GetNode<Label>("CenterContainer/VBoxContainer/StatusLabel");
+        _progressBar  = GetNode<ProgressBar>("CenterContainer/MainPanel/VBoxContainer/ProgressBar");
+        _statusLabel  = GetNode<Label>("CenterContainer/MainPanel/VBoxContainer/StatusLabel");
         _fadeOverlay  = GetNode<ColorRect>("FadeOverlay");
 
         if (string.IsNullOrEmpty(TargetScenePath))

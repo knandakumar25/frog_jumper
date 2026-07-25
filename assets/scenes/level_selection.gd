@@ -2,10 +2,10 @@ extends Node
 
 const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
 
-@onready var level_1_button: Button = $VBoxContainer/HBoxContainer/Level1
-@onready var level_2_button: Button = $VBoxContainer/HBoxContainer/Level2
-@onready var level_3_button: Button = $VBoxContainer/HBoxContainer/Level3
-@onready var level_4_button: Button = $VBoxContainer/HBoxContainer/Level4
+@onready var level_1_button: Button = $MainLayout/SectorGrid/Sector1/VBox/Level1
+@onready var level_2_button: Button = $MainLayout/SectorGrid/Sector2/VBox/Level2
+@onready var level_3_button: Button = $MainLayout/SectorGrid/Sector3/VBox/Level3
+@onready var level_4_button: Button = $MainLayout/SectorGrid/Sector4/VBox/Level4
 
 
 func _ready() -> void:

@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dscsic47d81gv"]
+[gd_scene load_steps=9 format=3 uid="uid://dscsic47d81gv"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
-[ext_resource type="Script" uid="uid://djgnbpvl8k1ga" path="res://assets/scenes/pause_menu.gd" id="1_0d1qr"]
-[ext_resource type="Shader" uid="uid://c4gsbwxau2efu" path="res://assets/scenes/pause_menu.gdshader" id="1_pbo1x"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Bold.ttf" id="3_comic_bold"]
-[ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Regular.ttf" id="4_comic_regular"]
-
+[ext_resource type="Script" path="res://assets/scenes/pause_menu.gd" id="1_0d1qr"]
+[ext_resource type="Shader" path="res://assets/scenes/pause_menu.gdshader" id="1_pbo1x"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="2_orbitron"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s1nw1"]
 shader = ExtResource("1_pbo1x")
@@ -71,103 +69,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.313726)
+color = Color(0.02, 0.03, 0.08, 0.65)
 
-[node name="ColorRect2" type="Panel" parent="."]
+[node name="ColorRect2" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -300.0
-offset_right = 320.0
-offset_bottom = 300.0
+offset_left = -260.0
+offset_top = -220.0
+offset_right = 260.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="ColorRect2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="ColorRect2/VBoxContainer"]
 auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -260.0
-offset_right = 100.0
-offset_bottom = -200.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Paused"
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 32
+text = "SYSTEM PAUSED"
 horizontal_alignment = 1
-vertical_alignment = 1
-text_direction = 2
-structured_text_bidi_override = 1
 
-[node name="Resume" type="Button" parent="ColorRect2"]
+[node name="Resume" type="Button" parent="ColorRect2/VBoxContainer"]
 auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -140.0
-offset_right = 200.0
-offset_bottom = -80.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Resume"
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+text = "Resume Mission"
 
-[node name="Restart" type="Button" parent="ColorRect2"]
+[node name="Restart" type="Button" parent="ColorRect2/VBoxContainer"]
 auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -60.0
-offset_right = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Restart"
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+text = "Restart Level"
 
-[node name="LevelSelection" type="Button" parent="ColorRect2"]
+[node name="LevelSelection" type="Button" parent="ColorRect2/VBoxContainer"]
 auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 20.0
-offset_right = 200.0
-offset_bottom = 80.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
 text = "Return to Level Selection"
 
-[node name="MainMenu" type="Button" parent="ColorRect2"]
+[node name="MainMenu" type="Button" parent="ColorRect2/VBoxContainer"]
 auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 100.0
-offset_right = 200.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
 text = "Return to Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -175,7 +131,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_bf6of")
 }
 
-[connection signal="pressed" from="ColorRect2/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="ColorRect2/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="ColorRect2/LevelSelection" to="." method="_on_level_selection_pressed"]
-[connection signal="pressed" from="ColorRect2/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/LevelSelection" to="." method="_on_level_selection_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

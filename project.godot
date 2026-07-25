@@ -25,6 +25,7 @@ Global="*res://assets/scenes/global.gd"
 SessionManager="*res://assets/scenes/SessionManager.cs"
 NarrativeManager="*res://assets/narrative/NarrativeManager.gd"
 AuthManager="*res://assets/scenes/AuthManager.cs"
+UISoundManager="*res://assets/scenes/UISoundManager.cs"
 
 [display]
 

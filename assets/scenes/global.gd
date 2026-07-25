@@ -32,8 +32,9 @@ func _ready() -> void:
 		print("Global: Headless mode detected, skipping music player")
 
 func play_menu_music() -> void:
-	if menu_music_player and not menu_music_player.playing:
-		menu_music_player.play()
+	# Menu background music disabled per user request
+	if menu_music_player and menu_music_player.playing:
+		menu_music_player.stop()
 
 func stop_menu_music() -> void:
 	if menu_music_player and menu_music_player.playing:
