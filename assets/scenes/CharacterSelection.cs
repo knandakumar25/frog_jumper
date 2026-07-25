@@ -9,10 +9,8 @@ public partial class CharacterSelection : Control
 	private Label _selectedNameLabel;
 	private Label _classTagLabel;
 	private AnimatedSprite2D _previewSprite;
-	private Label _speedLabel;
-	private ProgressBar _speedBar;
-	private Label _agilityLabel;
-	private ProgressBar _agilityBar;
+	private SegmentedStatBar _speedMeter;
+	private SegmentedStatBar _agilityMeter;
 
 	private string _currentSelectedCharacter = "Ninja Frog";
 
@@ -23,10 +21,8 @@ public partial class CharacterSelection : Control
 		_selectedNameLabel = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/SelectedName");
 		_classTagLabel     = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/ClassTag");
 		_previewSprite     = GetNode<AnimatedSprite2D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/PreviewSprite");
-		_speedLabel        = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedLabel");
-		_speedBar          = GetNode<ProgressBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedBar");
-		_agilityLabel      = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityLabel");
-		_agilityBar        = GetNode<ProgressBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityBar");
+		_speedMeter        = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedMeter");
+		_agilityMeter      = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityMeter");
 
 		SelectOperative("Ninja Frog");
 		UISoundManager.AutoWireButtons(this);
@@ -47,34 +43,26 @@ public partial class CharacterSelection : Control
 			case "Ninja Frog":
 				_selectedNameLabel.Text = "NINJA FROG";
 				_classTagLabel.Text     = "// CLASS: RECON INFILTRATOR";
-				_speedLabel.Text        = "SPEED: 92 / 100";
-				_speedBar.Value         = 92.0f;
-				_agilityLabel.Text      = "AGILITY: 95 / 100";
-				_agilityBar.Value       = 95.0f;
+				_speedMeter?.SetStat("SPEED", 92f);
+				_agilityMeter?.SetStat("AGILITY", 95f);
 				break;
 			case "Mask Dude":
 				_selectedNameLabel.Text = "MASK DUDE";
 				_classTagLabel.Text     = "// CLASS: TACTICAL ASSAULT";
-				_speedLabel.Text        = "SPEED: 85 / 100";
-				_speedBar.Value         = 85.0f;
-				_agilityLabel.Text      = "AGILITY: 88 / 100";
-				_agilityBar.Value       = 88.0f;
+				_speedMeter?.SetStat("SPEED", 85f);
+				_agilityMeter?.SetStat("AGILITY", 88f);
 				break;
 			case "Pink Man":
 				_selectedNameLabel.Text = "PINK MAN";
 				_classTagLabel.Text     = "// CLASS: HEAVY SPECIALIST";
-				_speedLabel.Text        = "SPEED: 78 / 100";
-				_speedBar.Value         = 78.0f;
-				_agilityLabel.Text      = "AGILITY: 80 / 100";
-				_agilityBar.Value       = 80.0f;
+				_speedMeter?.SetStat("SPEED", 78f);
+				_agilityMeter?.SetStat("AGILITY", 80f);
 				break;
 			case "Virtual Guy":
 				_selectedNameLabel.Text = "VIRTUAL GUY";
 				_classTagLabel.Text     = "// CLASS: CYBERNETIC INFILTRATOR";
-				_speedLabel.Text        = "SPEED: 90 / 100";
-				_speedBar.Value         = 90.0f;
-				_agilityLabel.Text      = "AGILITY: 92 / 100";
-				_agilityBar.Value       = 92.0f;
+				_speedMeter?.SetStat("SPEED", 90f);
+				_agilityMeter?.SetStat("AGILITY", 92f);
 				break;
 		}
 

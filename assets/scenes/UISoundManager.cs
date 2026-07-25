@@ -122,6 +122,10 @@ public partial class UISoundManager : Node
 				button.MouseEntered += () => Instance.PlayHoverSound();
 				button.Pressed      += () => Instance.PlayClickSound();
 			}
+			else if (child is CyberButton cyberBtn)
+			{
+				cyberBtn.Pressed += () => Instance.PlayClickSound();
+			}
 
 			AutoWireButtons(child);
 		}

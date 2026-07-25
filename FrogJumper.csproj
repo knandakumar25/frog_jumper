@@ -3,23 +3,5 @@
     <TargetFramework>net10.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>enable</Nullable>
-    <NoWarn>$(NoWarn);MSB3552</NoWarn>
-    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="**/*.cs" />
-    <Compile Remove="**/obj/**/*.cs" />
-    <Compile Remove="addons/ink/ink-master/InkTestBed/**/*.cs" />
-    <Content Include="addons\ink\ink-master\tests\Tests.cs.disabled" />
-    <Content Include="assets\scenes\InkManager.tscn" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources.resx" />
-    <EmbeddedResource Include="Root.resx" />
-    <EmbeddedResource Include="src\Resources.resx" />
-    <EmbeddedResource Include="Properties\Resources.resx" />
-  </ItemGroup>
 </Project>

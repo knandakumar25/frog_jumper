@@ -9,290 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
 [ext_resource type="FontFile" uid="uid://5haj7i3kmsn6" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
 [ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
-[ext_resource type="Texture2D" path="res://assets/images/world_tileset.png" id="9_worldtiles"]
-[ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="8_terrain"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
-texture = ExtResource("8_terrain")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
-17:1/0 = 0
-18:1/0 = 0
-19:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-17:2/0 = 0
-18:2/0 = 0
-19:2/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-17:4/0 = 0
-18:4/0 = 0
-19:4/0 = 0
-20:4/0 = 0
-21:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-17:5/0 = 0
-18:5/0 = 0
-19:5/0 = 0
-20:5/0 = 0
-21:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-17:6/0 = 0
-18:6/0 = 0
-19:6/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-17:8/0 = 0
-18:8/0 = 0
-19:8/0 = 0
-20:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
-19:9/0 = 0
-20:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-18:10/0 = 0
-19:10/0 = 0
-20:10/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_world"]
-texture = ExtResource("9_worldtiles")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-3:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-6:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_mainmenu"]
-sources/0 = SubResource("TileSetAtlasSource_terrain")
-sources/1 = SubResource("TileSetAtlasSource_world")
-
+[ext_resource type="Script" path="res://assets/scenes/CyberButton.cs" id="4_cyber_btn_script"]
 
 [node name="MainMenu" type="Control" unique_id=529692672]
 layout_mode = 3
@@ -319,19 +36,13 @@ grow_vertical = 2
 texture = ExtResource("2_v0073")
 stretch_mode = 6
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2031219896]
-texture_filter = 1
-scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAAABMAAAAGAAAAAAABABMAAAAHAAAAAAACABMAAAAHAAAAAAADABMAAAAHAAAAAAAEABMAAAAHAAAAAAAFABMAAAAHAAAAAAAGABMAAAAHAAAAAAAHABMAAAAHAAAAAAAIABEAAAAGAAAAAAAJABEAAAAHAAAAAAAKABEAAAAHAAAAAAALABEAAAAHAAAAAAAMABEAAAAHAAAAAAANABEAAAAHAAAAAAAOABEAAAAHAAAAAAAPABEAAAAHAAAAAAAQABEAAAAHAAAAAAARABEAAAAHAAAAAAASABEAAAAHAAAAAAATABEAAAAHAAAAAAAUABEAAAAGAAEAAAAUABAAAAAGAAAAAAAVABAAAAAHAAAAAAAWABAAAAAIAAAAAAAVABEAAAAHAAEAAAAWABEAAAAIAAEAAAAXABEAAAAHAAAAAAAYABEAAAAHAAAAAAAZABEAAAAHAAAAAAAaABEAAAAHAAAAAAAbABEAAAAHAAAAAAAcABEAAAAHAAAAAAAdABEAAAAIAAAAAAAeABIAAAAHAAAAAAAfABIAAAAHAAAAAAAgABIAAAAHAAAAAAAhABIAAAAHAAAAAAAiABIAAAAHAAAAAAAjABIAAAAHAAAAAAAkABIAAAAHAAAAAAAlABIAAAAHAAAAAAAmABMAAAAGAAAAAAAnABMAAAAIAAAAAAAAABQAAAAGAAEAAAAAABUAAAAGAAEAAAABABQAAAAHAAEAAAABABUAAAAHAAEAAAACABQAAAAHAAEAAAACABUAAAAHAAEAAAADABQAAAAHAAEAAAADABUAAAAHAAEAAAAEABQAAAAHAAEAAAAEABUAAAAHAAEAAAAFABQAAAAHAAEAAAAFABUAAAAHAAEAAAAGABQAAAAHAAEAAAAGABUAAAAHAAEAAAAHABQAAAAHAAEAAAAHABUAAAAHAAEAAAAIABQAAAAHAAEAAAAIABUAAAAHAAEAAAAJABQAAAAHAAEAAAAJABUAAAAHAAEAAAAKABQAAAAHAAEAAAAKABUAAAAHAAEAAAALABQAAAAHAAEAAAALABUAAAAHAAEAAAAMABQAAAAHAAEAAAAMABUAAAAHAAEAAAANABQAAAAHAAEAAAANABUAAAAHAAEAAAAOABQAAAAHAAEAAAAOABUAAAAHAAEAAAAPABQAAAAHAAEAAAAPABUAAAAHAAEAAAAQABQAAAAHAAEAAAAQABUAAAAHAAEAAAARABQAAAAHAAEAAAARABUAAAAHAAEAAAASABQAAAAHAAEAAAASABUAAAAHAAEAAAATABQAAAAHAAEAAAATABUAAAAHAAEAAAAUABQAAAAHAAEAAAAUABUAAAAHAAEAAAAVABQAAAAHAAEAAAAVABUAAAAHAAEAAAAWABQAAAAHAAEAAAAWABUAAAAHAAEAAAAXABQAAAAHAAEAAAAXABUAAAAHAAEAAAAYABQAAAAHAAEAAAAYABUAAAAHAAEAAAAZABQAAAAHAAEAAAAZABUAAAAHAAEAAAAaABQAAAAHAAEAAAAaABUAAAAHAAEAAAAbABQAAAAHAAEAAAAbABUAAAAHAAEAAAAcABQAAAAHAAEAAAAcABUAAAAHAAEAAAAdABQAAAAHAAEAAAAdABUAAAAHAAEAAAAeABQAAAAHAAEAAAAeABUAAAAHAAEAAAAfABQAAAAHAAEAAAAfABUAAAAHAAEAAAAgABQAAAAHAAEAAAAgABUAAAAHAAEAAAAhABQAAAAHAAEAAAAhABUAAAAHAAEAAAAiABQAAAAHAAEAAAAiABUAAAAHAAEAAAAjABQAAAAHAAEAAAAjABUAAAAHAAEAAAAkABQAAAAHAAEAAAAkABUAAAAHAAEAAAAlABQAAAAHAAEAAAAlABUAAAAHAAEAAAAmABQAAAAHAAEAAAAmABUAAAAHAAEAAAAnABQAAAAIAAEAAAAnABUAAAAIAAEAAAAIABMAAAAGAAEAAAAIABIAAAAGAAEAAAAJABIAAAAHAAEAAAAKABIAAAAHAAEAAAAKABMAAAAHAAEAAAAJABMAAAAHAAEAAAALABIAAAAHAAEAAAAMABIAAAAHAAEAAAANABIAAAAHAAEAAAAOABIAAAAHAAEAAAAPABIAAAAHAAEAAAAQABIAAAAHAAEAAAARABIAAAAHAAEAAAASABIAAAAHAAEAAAATABIAAAAHAAEAAAAUABIAAAAHAAEAAAAVABIAAAAHAAEAAAAWABIAAAAHAAEAAAAXABIAAAAHAAEAAAAYABIAAAAHAAEAAAAZABIAAAAHAAEAAAAaABIAAAAHAAEAAAAbABIAAAAHAAEAAAAcABIAAAAHAAEAAAAdABIAAAAHAAEAAAALABMAAAAHAAEAAAAMABMAAAAHAAEAAAANABMAAAAHAAEAAAAOABMAAAAHAAEAAAAPABMAAAAHAAEAAAAQABMAAAAHAAEAAAARABMAAAAHAAEAAAASABMAAAAHAAEAAAATABMAAAAHAAEAAAAUABMAAAAHAAEAAAAVABMAAAAHAAEAAAAWABMAAAAHAAEAAAAXABMAAAAHAAEAAAAYABMAAAAHAAEAAAAZABMAAAAHAAEAAAAaABMAAAAHAAEAAAAbABMAAAAHAAEAAAAcABMAAAAHAAEAAAAdABMAAAAHAAEAAAAeABMAAAAHAAEAAAAfABMAAAAHAAEAAAAgABMAAAAHAAEAAAAhABMAAAAHAAEAAAAiABMAAAAHAAEAAAAjABMAAAAHAAEAAAAkABMAAAAHAAEAAAAlABMAAAAHAAEAAAAAABYAAAAGAAIAAAAnABYAAAAIAAIAAAABABYAAAAHAAIAAAACABYAAAAHAAIAAAADABYAAAAHAAIAAAAEABYAAAAHAAIAAAAFABYAAAAHAAIAAAAGABYAAAAHAAIAAAAHABYAAAAHAAIAAAAIABYAAAAHAAIAAAAJABYAAAAHAAIAAAAKABYAAAAHAAIAAAALABYAAAAHAAIAAAAMABYAAAAHAAIAAAANABYAAAAHAAIAAAAOABYAAAAHAAIAAAAPABYAAAAHAAIAAAAQABYAAAAHAAIAAAARABYAAAAHAAIAAAASABYAAAAHAAIAAAATABYAAAAHAAIAAAAUABYAAAAHAAIAAAAVABYAAAAHAAIAAAAWABYAAAAHAAIAAAAXABYAAAAHAAIAAAAYABYAAAAHAAIAAAAZABYAAAAHAAIAAAAaABYAAAAHAAIAAAAbABYAAAAHAAIAAAAcABYAAAAHAAIAAAAdABYAAAAHAAIAAAAeABYAAAAHAAIAAAAfABYAAAAHAAIAAAAgABYAAAAHAAIAAAAhABYAAAAHAAIAAAAiABYAAAAHAAIAAAAjABYAAAAHAAIAAAAkABYAAAAHAAIAAAAlABYAAAAHAAIAAAAmABYAAAAHAAIAAAA=")
-tile_set = SubResource("TileSet_mainmenu")
-
 [node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.04
-anchor_top = 0.05
-anchor_right = 0.5
-anchor_bottom = 0.22
+anchor_top = 0.03
+anchor_right = 0.58
+anchor_bottom = 0.23
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=350939543]
 layout_mode = 1
@@ -340,38 +51,48 @@ anchor_left = 0.04
 anchor_top = 0.25
 anchor_right = 0.36
 anchor_bottom = 0.88
-theme_override_constants/separation = 18
+theme_override_constants/separation = 16
 
-[node name="Play" type="Button" parent="ButtonContainer" unique_id=1183083552]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 72)
+[node name="Play" type="Control" parent="ButtonContainer" unique_id=1183083552]
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-text = "Play"
+script = ExtResource("4_cyber_btn_script")
+IndexText = "01"
+MainText = "PLAY"
+SubText = "// DEPLOY MISSION"
 
-[node name="ContinueButton" type="Button" parent="ButtonContainer" unique_id=1219863040]
-auto_translate_mode = 1
+[node name="ContinueButton" type="Control" parent="ButtonContainer" unique_id=1219863040]
 visible = false
-custom_minimum_size = Vector2(0, 72)
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-text = "Continue"
+script = ExtResource("4_cyber_btn_script")
+IndexText = "02"
+MainText = "CONTINUE"
+SubText = "// RESUME OPERATION"
 
-[node name="Instructions" type="Button" parent="ButtonContainer" unique_id=2063356946]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 72)
+[node name="Instructions" type="Control" parent="ButtonContainer" unique_id=2063356946]
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-text = "How to Play"
+script = ExtResource("4_cyber_btn_script")
+IndexText = "03"
+MainText = "HOW TO PLAY"
+SubText = "// TACTICAL MANUAL"
 
-[node name="Settings" type="Button" parent="ButtonContainer" unique_id=1423822794]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 72)
+[node name="Settings" type="Control" parent="ButtonContainer" unique_id=1423822794]
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-text = "Settings"
+script = ExtResource("4_cyber_btn_script")
+IndexText = "04"
+MainText = "SETTINGS"
+SubText = "// SYSTEM CALIBRATION"
 
-[node name="QuitButton" type="Button" parent="ButtonContainer" unique_id=1176693379]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 72)
+[node name="QuitButton" type="Control" parent="ButtonContainer" unique_id=1176693379]
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-text = "Quit"
+script = ExtResource("4_cyber_btn_script")
+IndexText = "05"
+MainText = "QUIT"
+SubText = "// EXIT TO SYSTEM"
 
 [node name="ProfileContainer" type="Control" parent="."]
 layout_mode = 1

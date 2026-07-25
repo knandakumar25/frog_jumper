@@ -31,7 +31,7 @@ public partial class MainMenu : Control
 	private Panel           _newGamePopup;
 	private Panel           _continuePopup;
 	private VBoxContainer   _sessionsContainer;
-	private Button          _continueButton;
+	private Control         _continueButton;
 	private Panel           _confirmPopup;
 	private Label           _confirmLabel;
 
@@ -87,7 +87,7 @@ public partial class MainMenu : Control
 			GD.Print("main_menu: resolved ContinuePopup");
 			_sessionsContainer  = GetNode<VBoxContainer>("ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer");
 			GD.Print("main_menu: resolved SessionsContainer");
-			_continueButton     = GetNode<Button>("ButtonContainer/ContinueButton");
+			_continueButton     = GetNode<Control>("ButtonContainer/ContinueButton");
 			GD.Print("main_menu: resolved ContinueButton");
 			_confirmPopup       = GetNode<Panel>("ConfirmPopup");
 			GD.Print("main_menu: resolved ConfirmPopup");
@@ -278,7 +278,7 @@ public partial class MainMenu : Control
 	private async System.Threading.Tasks.Task SetupFloatingTitleAsync()
 	{
 		string mainTitle = "AXIOM FORCE";
-		string subTitle  = "// RECLAIM EARTH - OPERATIVE SYSTEM";
+		string subTitle  = "[ RECLAIM EARTH ]  // TACTICAL OPERATIVE SYSTEM";
 		var orbitronFont = GD.Load<FontFile>("res://assets/fonts/Orbitron-VariableFont.ttf");
 		var rajdhaniFont = GD.Load<FontFile>("res://assets/fonts/Rajdhani-Bold.ttf");
 
@@ -288,11 +288,23 @@ public partial class MainMenu : Control
 		var vbox = new VBoxContainer
 		{
 			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-			CustomMinimumSize   = new Vector2(0, 140),
+			CustomMinimumSize   = new Vector2(0, 160),
 		};
-		vbox.AddThemeConstantOverride("separation", 2);
+		vbox.AddThemeConstantOverride("separation", 6);
 		_titleContainer.AddChild(vbox);
 
+		// 1. Top Tech Header Tag Line
+		var topFrameLabel = new Label
+		{
+			Text = "┌─── // AXIOM FORCE COMMAND ENGINE  ───  SYSTEM ONLINE [●] ───┐",
+			HorizontalAlignment = HorizontalAlignment.Left,
+		};
+		topFrameLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.65f));
+		topFrameLabel.AddThemeFontOverride("font", rajdhaniFont);
+		topFrameLabel.AddThemeFontSizeOverride("font_size", 14);
+		vbox.AddChild(topFrameLabel);
+
+		// 2. Main Title (AXIOM FORCE)
 		var mainLabel = new Label
 		{
 			Text                = mainTitle,
@@ -300,19 +312,29 @@ public partial class MainMenu : Control
 			VerticalAlignment   = VerticalAlignment.Center,
 		};
 		mainLabel.AddThemeColorOverride("font_color",         new Color(0f, 0.94f, 1f, 1f));
-		mainLabel.AddThemeColorOverride("font_outline_color", new Color(1f, 0f, 0.5f, 0.85f));
-		mainLabel.AddThemeConstantOverride("outline_size", 14);
+		mainLabel.AddThemeColorOverride("font_outline_color", new Color(1f, 0f, 0.5f, 0.95f));
+		mainLabel.AddThemeConstantOverride("outline_size", 18);
 		mainLabel.AddThemeFontOverride("font", orbitronFont);
-		mainLabel.AddThemeFontSizeOverride("font_size", 64);
+		mainLabel.AddThemeFontSizeOverride("font_size", 72);
 		vbox.AddChild(mainLabel);
 
+		// 3. Neon Accent Separator Bar
+		var separator = new ColorRect
+		{
+			CustomMinimumSize = new Vector2(480, 3),
+			Color = new Color(1f, 0f, 0.5f, 0.9f),
+			SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin
+		};
+		vbox.AddChild(separator);
+
+		// 4. Tactical Subtitle Badge
 		var subLabel = new Label
 		{
 			Text                = subTitle,
 			HorizontalAlignment = HorizontalAlignment.Left,
 			VerticalAlignment   = VerticalAlignment.Center,
 		};
-		subLabel.AddThemeColorOverride("font_color", new Color(1f, 0.2f, 0.6f, 0.95f));
+		subLabel.AddThemeColorOverride("font_color", new Color(1f, 0.3f, 0.65f, 0.98f));
 		subLabel.AddThemeFontOverride("font", rajdhaniFont);
 		subLabel.AddThemeFontSizeOverride("font_size", 22);
 		vbox.AddChild(subLabel);
@@ -393,11 +415,6 @@ public partial class MainMenu : Control
 		button.AddThemeColorOverride("font_hover_color",  new Color(1, 1, 1, 1));
 		button.AddThemeColorOverride("font_pressed_color",new Color(0.9f, 0.9f, 0.9f, 1));
 		button.AddThemeFontSizeOverride("font_size", 20);
-
-		var settingsBtn = GetNode<Button>("ButtonContainer/Settings");
-		button.AddThemeStyleboxOverride("normal",  settingsBtn.GetThemeStylebox("normal",  "Button"));
-		button.AddThemeStyleboxOverride("hover",   settingsBtn.GetThemeStylebox("hover",   "Button"));
-		button.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal",  "Button"));
 
 		button.Pressed += () => OnLanguageSelected(langName);
 		button.MouseFilter = Control.MouseFilterEnum.Stop;
@@ -808,10 +825,6 @@ public partial class MainMenu : Control
 			SizeFlagsVertical = Control.SizeFlags.ShrinkCenter
 		};
 		
-		var settingsBtn = GetNode<Button>("ButtonContainer/Settings");
-		_logoutButton.AddThemeStyleboxOverride("normal", settingsBtn.GetThemeStylebox("normal", "Button"));
-		_logoutButton.AddThemeStyleboxOverride("hover", settingsBtn.GetThemeStylebox("hover", "Button"));
-		_logoutButton.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal", "Button"));
 		_logoutButton.AddThemeFontSizeOverride("font_size", 16);
 		_logoutButton.Pressed += OnLogoutPressed;
 		_profileDisplayContainer.AddChild(_logoutButton);

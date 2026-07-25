@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://assets/scenes/CharacterSelection.cs" id="1_char_select_script"]
 [ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
+[ext_resource type="Script" path="res://assets/scenes/SegmentedStatBar.cs" id="4_segmented_stat_script"]
 
 [node name="CharacterSelection" type="Control"]
 theme = ExtResource("10_cyber_theme")
@@ -141,25 +142,21 @@ scale = Vector2(6, 6)
 
 [node name="StatsBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
-[node name="SpeedLabel" type="Label" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
+[node name="SpeedMeter" type="Control" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-text = "SPEED: 85 / 100"
+script = ExtResource("4_segmented_stat_script")
+StatName = "SPEED"
+Value = 92.0
 
-[node name="SpeedBar" type="ProgressBar" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
-custom_minimum_size = Vector2(0, 20)
+[node name="AgilityMeter" type="Control" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-value = 85.0
-
-[node name="AgilityLabel" type="Label" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
-layout_mode = 2
-text = "AGILITY: 95 / 100"
-
-[node name="AgilityBar" type="ProgressBar" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-value = 95.0
+script = ExtResource("4_segmented_stat_script")
+StatName = "AGILITY"
+Value = 95.0
 
 [node name="DeployButton" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
 custom_minimum_size = Vector2(280, 60)

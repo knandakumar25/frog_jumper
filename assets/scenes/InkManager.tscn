@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqtv08g1vorq1"]
-
-[ext_resource type="Script" uid="uid://bqtv08g1vorqb" path="res://assets/scenes/InkManager.cs" id="1_ink_script"]
-
-[node name="InkManager" type="Node"]
-script = ExtResource("1_ink_script")
-
