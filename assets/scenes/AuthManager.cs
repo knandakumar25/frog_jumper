@@ -33,9 +33,18 @@ public partial class AuthManager : Node
 
     public override void _Ready()
     {
+        GD.Print("AuthManager: _ready() start");
         Instance = this;
-        LoadAuthData();
-        _ = InitializeProfileAsync();
+        try
+        {
+            LoadAuthData();
+            _ = InitializeProfileAsync();
+            GD.Print("AuthManager: _ready() complete");
+        }
+        catch (System.Exception ex)
+        {
+            GD.PrintErr($"AuthManager: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
+        }
     }
 
     private async Task InitializeProfileAsync()

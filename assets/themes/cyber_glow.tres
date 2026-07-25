@@ -1,4 +1,4 @@
-[gd_resource type="Environment" uid="uid://cyber_glow_env"]
+[gd_resource type="Environment"]
 
 [resource]
 background_mode = 1

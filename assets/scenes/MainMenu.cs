@@ -63,53 +63,94 @@ public partial class MainMenu : Control
 	public override void _Ready()
 	{
 		GD.Print("main_menu: _ready() start");
-		GetNode<Node>("/root/Global").Call("play_menu_music");
-
-		// Resolve node references
-		_quitPopup          = GetNode<Panel>("QuitPopup");
-		_quitBackground     = GetNode<ColorRect>("QuitBackground");
-		_settingsPopup      = GetNode<Panel>("SettingsPopup");
-		_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
-		_languagePopup      = GetNode<Panel>("LanguagePopup");
-		_languageGrid       = GetNode<GridContainer>("LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid");
-		_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
-		_newGamePopup       = GetNode<Panel>("NewGamePopup");
-		_continuePopup      = GetNode<Panel>("ContinuePopup");
-		_sessionsContainer  = GetNode<VBoxContainer>("ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer");
-		_continueButton     = GetNode<Button>("ButtonContainer/ContinueButton");
-		_confirmPopup       = GetNode<Panel>("ConfirmPopup");
-		_confirmLabel       = GetNode<Label>("ConfirmPopup/VBoxContainer/ConfirmLabel");
-		SetupBrowserLoginButton();
-		SetupProfileUI();
-		if (AuthManager.Instance != null)
+		try
 		{
-			AuthManager.Instance.OnProfileUpdated += UpdateAuthUI;
+			// Resolve node references
+			GD.Print("main_menu: resolving node references...");
+			_quitPopup          = GetNode<Panel>("QuitPopup");
+			GD.Print("main_menu: resolved QuitPopup");
+			_quitBackground     = GetNode<ColorRect>("QuitBackground");
+			GD.Print("main_menu: resolved QuitBackground");
+			_settingsPopup      = GetNode<Panel>("SettingsPopup");
+			GD.Print("main_menu: resolved SettingsPopup");
+			_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
+			GD.Print("main_menu: resolved InstructionsPopup");
+			_languagePopup      = GetNode<Panel>("LanguagePopup");
+			GD.Print("main_menu: resolved LanguagePopup");
+			_languageGrid       = GetNode<GridContainer>("LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid");
+			GD.Print("main_menu: resolved LanguageGrid");
+			_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
+			GD.Print("main_menu: resolved TitleContainer");
+			_newGamePopup       = GetNode<Panel>("NewGamePopup");
+			GD.Print("main_menu: resolved NewGamePopup");
+			_continuePopup      = GetNode<Panel>("ContinuePopup");
+			GD.Print("main_menu: resolved ContinuePopup");
+			_sessionsContainer  = GetNode<VBoxContainer>("ContinuePopup/VBoxContainer/ScrollContainer/SessionsContainer");
+			GD.Print("main_menu: resolved SessionsContainer");
+			_continueButton     = GetNode<Button>("ButtonContainer/ContinueButton");
+			GD.Print("main_menu: resolved ContinueButton");
+			_confirmPopup       = GetNode<Panel>("ConfirmPopup");
+			GD.Print("main_menu: resolved ConfirmPopup");
+			_confirmLabel       = GetNode<Label>("ConfirmPopup/VBoxContainer/ConfirmLabel");
+			GD.Print("main_menu: resolved ConfirmLabel");
+
+			SetupProfileUI();
+			GD.Print("main_menu: SetupProfileUI complete");
+
+			if (AuthManager.Instance != null)
+			{
+				GD.Print("main_menu: AuthManager.Instance is not null");
+				AuthManager.Instance.OnProfileUpdated += UpdateAuthUI;
+			}
+			else
+			{
+				GD.PrintErr("main_menu: AuthManager.Instance is NULL!");
+			}
+
+			UpdateAuthUI();
+			GD.Print("main_menu: UpdateAuthUI complete");
+
+			PopulateLanguageButtons();
+			GD.Print("main_menu: PopulateLanguageButtons complete");
+
+			_ = SetupFloatingTitleAsync();
+			GD.Print("main_menu: SetupFloatingTitleAsync started");
+
+			ResetSpawnTimer();
+			GD.Print("main_menu: ResetSpawnTimer complete");
+
+			MoveChild(_titleContainer, GetChildCount() - 1);
+			GD.Print("main_menu: MoveChild TitleContainer complete");
+
+			_continueButton.Visible = SessionManager.Instance.HasSessions();
+			GD.Print("main_menu: updated _continueButton.Visible");
+
+			EnsureUISoundManager();
+			UISoundManager.AutoWireButtons(this);
+
+			// Ensure CloudsLayer exists
+			if (!HasNode("CloudsLayer"))
+			{
+				GD.Print("main_menu: CloudsLayer not found — creating runtime CloudsLayer node");
+				var layer = new Node2D { Name = "CloudsLayer" };
+				AddChild(layer);
+				MoveChild(layer, Mathf.Clamp(1, 0, GetChildCount() - 1));
+			}
+
+			if (_cloudTexture == null)
+				GD.PushError("main_menu: cloud_scene texture failed to load (null).");
+			else
+			{
+				SpawnInitialClouds();
+				GD.Print("main_menu: SpawnInitialClouds complete");
+			}
+
+			GD.Print("main_menu: _ready() complete successfully");
 		}
-		UpdateAuthUI();
-
-		PopulateLanguageButtons();
-		_ = SetupFloatingTitleAsync();
-		ResetSpawnTimer();
-
-		MoveChild(_titleContainer, GetChildCount() - 1);
-
-		_continueButton.Visible = SessionManager.Instance.HasSessions();
-
-		// Ensure CloudsLayer exists
-		if (!HasNode("CloudsLayer"))
+		catch (System.Exception ex)
 		{
-			GD.Print("main_menu: CloudsLayer not found — creating runtime CloudsLayer node");
-			var layer = new Node2D { Name = "CloudsLayer" };
-			AddChild(layer);
-			MoveChild(layer, Mathf.Clamp(1, 0, GetChildCount() - 1));
+			GD.PrintErr($"main_menu: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
 		}
-
-		if (_cloudTexture == null)
-			GD.PushError("main_menu: cloud_scene texture failed to load (null).");
-		else
-			SpawnInitialClouds();
-
-		GD.Print("main_menu: _ready() complete");
 	}
 
 	// ─── Cloud spawning ──────────────────────────────────────────────────────
@@ -236,59 +277,67 @@ public partial class MainMenu : Control
 	// ─── Floating title ──────────────────────────────────────────────────────
 	private async System.Threading.Tasks.Task SetupFloatingTitleAsync()
 	{
-		string titleText = Tr("PIXEL JUMPERS");
-		var boldFont = GD.Load<FontFile>("res://assets/fonts/ComicNeue-Bold.ttf");
+		string mainTitle = "AXIOM FORCE";
+		string subTitle  = "// RECLAIM EARTH - OPERATIVE SYSTEM";
+		var orbitronFont = GD.Load<FontFile>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		var rajdhaniFont = GD.Load<FontFile>("res://assets/fonts/Rajdhani-Bold.ttf");
 
 		foreach (Node child in _titleContainer.GetChildren())
 			child.QueueFree();
 
-		var wrapper = new Control
+		var vbox = new VBoxContainer
 		{
 			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-			CustomMinimumSize   = new Vector2(0, 120),
+			CustomMinimumSize   = new Vector2(0, 140),
 		};
-		_titleContainer.AddChild(wrapper);
+		vbox.AddThemeConstantOverride("separation", 2);
+		_titleContainer.AddChild(vbox);
 
-		var label = new Label
+		var mainLabel = new Label
 		{
-			Text               = titleText,
-			HorizontalAlignment = HorizontalAlignment.Center,
+			Text                = mainTitle,
+			HorizontalAlignment = HorizontalAlignment.Left,
 			VerticalAlignment   = VerticalAlignment.Center,
-			AnchorLeft         = 0.5f,
-			AnchorRight        = 0.5f,
-			AnchorTop          = 0.5f,
-			AnchorBottom       = 0.5f,
-			GrowHorizontal     = Control.GrowDirection.Both,
-			GrowVertical       = Control.GrowDirection.Both,
 		};
-		label.AddThemeColorOverride("font_color",         new Color(1, 1, 1, 1));
-		label.AddThemeColorOverride("font_outline_color", new Color(0, 0.4f, 0, 1));
-		label.AddThemeConstantOverride("outline_size", 12);
-		label.AddThemeFontOverride("font", boldFont);
-		label.AddThemeFontSizeOverride("font_size", 80);
-		wrapper.AddChild(label);
+		mainLabel.AddThemeColorOverride("font_color",         new Color(0f, 0.94f, 1f, 1f));
+		mainLabel.AddThemeColorOverride("font_outline_color", new Color(1f, 0f, 0.5f, 0.85f));
+		mainLabel.AddThemeConstantOverride("outline_size", 14);
+		mainLabel.AddThemeFontOverride("font", orbitronFont);
+		mainLabel.AddThemeFontSizeOverride("font_size", 64);
+		vbox.AddChild(mainLabel);
+
+		var subLabel = new Label
+		{
+			Text                = subTitle,
+			HorizontalAlignment = HorizontalAlignment.Left,
+			VerticalAlignment   = VerticalAlignment.Center,
+		};
+		subLabel.AddThemeColorOverride("font_color", new Color(1f, 0.2f, 0.6f, 0.95f));
+		subLabel.AddThemeFontOverride("font", rajdhaniFont);
+		subLabel.AddThemeFontSizeOverride("font_size", 22);
+		vbox.AddChild(subLabel);
 
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-		label.PivotOffset = label.Size / 2f;
+		vbox.PivotOffset = vbox.Size / 2f;
 
-		await AnimateFloatingTitleAsync(label);
+		await AnimateFloatingTitleAsync(vbox);
 	}
 
-	private async System.Threading.Tasks.Task AnimateFloatingTitleAsync(Label label)
+	private async System.Threading.Tasks.Task AnimateFloatingTitleAsync(Control node)
 	{
-		label.Scale   = new Vector2(0.1f, 0.1f);
-		label.Modulate = label.Modulate with { A = 0f };
+		node.Scale    = new Vector2(0.1f, 0.1f);
+		node.Modulate = node.Modulate with { A = 0f };
 
 		var zoom = CreateTween();
 		zoom.SetParallel(true);
-		zoom.TweenProperty(label, "scale",      Vector2.One, 1.5)
+		zoom.TweenProperty(node, "scale",      Vector2.One, 1.2)
 			.SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Back);
-		zoom.TweenProperty(label, "modulate:a", 1.0f,        1.0)
+		zoom.TweenProperty(node, "modulate:a", 1.0f,        0.8)
 			.SetEase(Tween.EaseType.Out);
 		await ToSignal(zoom, Tween.SignalName.Finished);
 
-		float origY = label.Position.Y;
-		StartFloatLoop(label, origY);
+		float origY = node.Position.Y;
+		StartFloatLoop(node, origY);
 	}
 
 	private async void StartFloatLoop(Node label, float origY)
@@ -345,7 +394,7 @@ public partial class MainMenu : Control
 		button.AddThemeColorOverride("font_pressed_color",new Color(0.9f, 0.9f, 0.9f, 1));
 		button.AddThemeFontSizeOverride("font_size", 20);
 
-		var settingsBtn = GetNode<Button>("ButtonContainer/Row2/Settings");
+		var settingsBtn = GetNode<Button>("ButtonContainer/Settings");
 		button.AddThemeStyleboxOverride("normal",  settingsBtn.GetThemeStylebox("normal",  "Button"));
 		button.AddThemeStyleboxOverride("hover",   settingsBtn.GetThemeStylebox("hover",   "Button"));
 		button.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal",  "Button"));
@@ -694,63 +743,9 @@ public partial class MainMenu : Control
 		_continuePopup.Visible = true;
 	}
 
-	private void SetupBrowserLoginButton()
-	{
-		var row2 = GetNode<HBoxContainer>("ButtonContainer/Row2");
-
-		_browserLoginButton = new Button
-		{
-			Text               = Tr("Login via Browser"),
-			CustomMinimumSize  = new Vector2(200, 50),
-			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-		};
-
-		var settingsBtn = GetNode<Button>("ButtonContainer/Row2/Settings");
-		_browserLoginButton.AddThemeStyleboxOverride("normal",  settingsBtn.GetThemeStylebox("normal",  "Button"));
-		_browserLoginButton.AddThemeStyleboxOverride("hover",   settingsBtn.GetThemeStylebox("hover",   "Button"));
-		_browserLoginButton.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal",  "Button"));
-		_browserLoginButton.AddThemeFontSizeOverride("font_size", 20);
-		_browserLoginButton.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
-
-		_browserLoginButton.Pressed += OnBrowserLoginPressed;
-		row2.AddChild(_browserLoginButton);
-	}
-
-	private async void OnBrowserLoginPressed()
-	{
-		_browserLoginButton.Disabled = true;
-		_browserLoginButton.Text = Tr("Waiting for Browser...");
-
-		bool success = await AuthManager.Instance.StartBrowserLoginAsync();
-
-		if (success)
-		{
-			GD.Print("Browser login successful!");
-			_browserLoginButton.Text = Tr("Logged In!");
-			// Optionally trigger a profile popup or a visual indicator
-		}
-		else
-		{
-			GD.PrintErr("Browser login failed or timed out.");
-			_browserLoginButton.Text = Tr("Login Failed");
-			await System.Threading.Tasks.Task.Delay(3000);
-		}
-
-		_browserLoginButton.Disabled = false;
-		_browserLoginButton.Text = Tr("Login via Browser");
-	}
-
-	public override void _ExitTree()
-	{
-		if (AuthManager.Instance != null)
-		{
-			AuthManager.Instance.OnProfileUpdated -= UpdateAuthUI;
-		}
-	}
-
 	private void SetupProfileUI()
 	{
-		var row2 = GetNode<HBoxContainer>("ButtonContainer/Row2");
+		var profileContainer = GetNode<Control>("ProfileContainer");
 
 		_profileDisplayContainer = new HBoxContainer
 		{
@@ -813,7 +808,7 @@ public partial class MainMenu : Control
 			SizeFlagsVertical = Control.SizeFlags.ShrinkCenter
 		};
 		
-		var settingsBtn = GetNode<Button>("ButtonContainer/Row2/Settings");
+		var settingsBtn = GetNode<Button>("ButtonContainer/Settings");
 		_logoutButton.AddThemeStyleboxOverride("normal", settingsBtn.GetThemeStylebox("normal", "Button"));
 		_logoutButton.AddThemeStyleboxOverride("hover", settingsBtn.GetThemeStylebox("hover", "Button"));
 		_logoutButton.AddThemeStyleboxOverride("pressed", settingsBtn.GetThemeStylebox("normal", "Button"));
@@ -821,7 +816,7 @@ public partial class MainMenu : Control
 		_logoutButton.Pressed += OnLogoutPressed;
 		_profileDisplayContainer.AddChild(_logoutButton);
 
-		row2.AddChild(_profileDisplayContainer);
+		profileContainer.AddChild(_profileDisplayContainer);
 	}
 
 	private Button _logoutButton;
@@ -886,8 +881,15 @@ public partial class MainMenu : Control
 		{
 			if (_profileDisplayContainer != null)
 				_profileDisplayContainer.Visible = false;
-			if (_browserLoginButton != null)
-				_browserLoginButton.Visible = true;
+		}
+	}
+
+	private void EnsureUISoundManager()
+	{
+		if (UISoundManager.Instance == null && !HasNode("UISoundManager"))
+		{
+			var snd = new UISoundManager { Name = "UISoundManager" };
+			GetTree().Root.CallDeferred(Node.MethodName.AddChild, snd);
 		}
 	}
 }

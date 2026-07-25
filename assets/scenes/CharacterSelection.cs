@@ -1,97 +1,124 @@
 using Godot;
 
 /// <summary>
-/// Character selection screen. Builds sprite animations, creates a new session
-/// in SessionManager, then transitions to the story intro via LoadingScreen.
-/// Converted from character_selection.gd.
+/// Character selection screen. Manages operative selection cards, updates live preview showcase,
+/// creates a new session in SessionManager, and transitions to story intro.
 /// </summary>
 public partial class CharacterSelection : Control
 {
-    // ─── Lifecycle ───────────────────────────────────────────────────────────
-    public override void _Ready()
-    {
-        GetNode<Node>("/root/Global").Call("play_menu_music");
-        SetupCharacterAnimations();
-    }
+	private Label _selectedNameLabel;
+	private Label _classTagLabel;
+	private AnimatedSprite2D _previewSprite;
+	private Label _speedLabel;
+	private ProgressBar _speedBar;
+	private Label _agilityLabel;
+	private ProgressBar _agilityBar;
 
-    // ─── Button callbacks ────────────────────────────────────────────────────
-    public void _on_ninja_frog_pressed()    => CreateSessionAndStart("Ninja Frog");
-    public void _on_mask_dude_pressed()     => CreateSessionAndStart("Mask Dude");
-    public void _on_pink_man_pressed()      => CreateSessionAndStart("Pink Man");
-    public void _on_virtual_guy_pressed()   => CreateSessionAndStart("Virtual Guy");
+	private string _currentSelectedCharacter = "Ninja Frog";
 
-    // ─── Session creation ────────────────────────────────────────────────────
-    private void CreateSessionAndStart(string characterName)
-    {
-        var global = GetNode<Node>("/root/Global");
-        global.Set("selected_character", characterName);
+	public override void _Ready()
+	{
+		GetNode<Node>("/root/Global").Call("play_menu_music");
 
-        int sessionId = SessionManager.Instance.CreateNewSession(characterName);
-        if (sessionId > 0)
-            GD.Print("Created new session: ", sessionId, " for character: ", characterName);
-        else
-            GD.Print("Error creating session!");
+		_selectedNameLabel = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/SelectedName");
+		_classTagLabel     = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/ClassTag");
+		_previewSprite     = GetNode<AnimatedSprite2D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/PreviewSprite");
+		_speedLabel        = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedLabel");
+		_speedBar          = GetNode<ProgressBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedBar");
+		_agilityLabel      = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityLabel");
+		_agilityBar        = GetNode<ProgressBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityBar");
 
-        // Always proceed to story intro
-        LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/story_intro.tscn");
-    }
+		SelectOperative("Ninja Frog");
+		UISoundManager.AutoWireButtons(this);
+	}
 
-    // ─── Sprite animation setup ──────────────────────────────────────────────
-    private void SetupCharacterAnimations()
-    {
-        var characters = new[]
-        {
-            ("Ninja Frog",   GetNode<AnimatedSprite2D>("VBoxContainer/CharacterGrid/NinjaFrog/CharacterButton/AnimatedSprite")),
-            ("Mask Dude",    GetNode<AnimatedSprite2D>("VBoxContainer/CharacterGrid/MaskDude/CharacterButton/AnimatedSprite")),
-            ("Pink Man",     GetNode<AnimatedSprite2D>("VBoxContainer/CharacterGrid/PinkMan/CharacterButton/AnimatedSprite")),
-            ("Virtual Guy",  GetNode<AnimatedSprite2D>("VBoxContainer/CharacterGrid/VirtualGuy/CharacterButton/AnimatedSprite")),
-        };
+	public void _on_ninja_frog_pressed()    => SelectOperative("Ninja Frog");
+	public void _on_mask_dude_pressed()     => SelectOperative("Mask Dude");
+	public void _on_pink_man_pressed()      => SelectOperative("Pink Man");
+	public void _on_virtual_guy_pressed()   => SelectOperative("Virtual Guy");
+	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
-        foreach (var (name, sprite) in characters)
-        {
-            var frames = new SpriteFrames();
-            var tex    = GD.Load<Texture2D>("res://assets/images/" + name + "/Idle (32x32).png");
-            if (tex == null) { GD.Print("Error: Idle texture not found for ", name); continue; }
+	private void SelectOperative(string characterName)
+	{
+		_currentSelectedCharacter = characterName;
 
-            AddAnimationFrames(frames, "idle", tex, 11, 10f);
-            sprite.SpriteFrames = frames;
-            sprite.Play("idle");
-        }
-    }
+		switch (characterName)
+		{
+			case "Ninja Frog":
+				_selectedNameLabel.Text = "NINJA FROG";
+				_classTagLabel.Text     = "// CLASS: RECON INFILTRATOR";
+				_speedLabel.Text        = "SPEED: 92 / 100";
+				_speedBar.Value         = 92.0f;
+				_agilityLabel.Text      = "AGILITY: 95 / 100";
+				_agilityBar.Value       = 95.0f;
+				break;
+			case "Mask Dude":
+				_selectedNameLabel.Text = "MASK DUDE";
+				_classTagLabel.Text     = "// CLASS: TACTICAL ASSAULT";
+				_speedLabel.Text        = "SPEED: 85 / 100";
+				_speedBar.Value         = 85.0f;
+				_agilityLabel.Text      = "AGILITY: 88 / 100";
+				_agilityBar.Value       = 88.0f;
+				break;
+			case "Pink Man":
+				_selectedNameLabel.Text = "PINK MAN";
+				_classTagLabel.Text     = "// CLASS: HEAVY SPECIALIST";
+				_speedLabel.Text        = "SPEED: 78 / 100";
+				_speedBar.Value         = 78.0f;
+				_agilityLabel.Text      = "AGILITY: 80 / 100";
+				_agilityBar.Value       = 80.0f;
+				break;
+			case "Virtual Guy":
+				_selectedNameLabel.Text = "VIRTUAL GUY";
+				_classTagLabel.Text     = "// CLASS: CYBERNETIC INFILTRATOR";
+				_speedLabel.Text        = "SPEED: 90 / 100";
+				_speedBar.Value         = 90.0f;
+				_agilityLabel.Text      = "AGILITY: 92 / 100";
+				_agilityBar.Value       = 92.0f;
+				break;
+		}
 
-    // ─── Atlas helpers ───────────────────────────────────────────────────────
-    private static void AddAnimationFrames(
-        SpriteFrames frames, string animName, Texture2D texture,
-        int frameCount, float speed)
-    {
-        frames.AddAnimation(animName);
-        frames.SetAnimationLoop(animName, true);
-        frames.SetAnimationSpeed(animName, speed);
+		UpdatePreviewSprite(characterName);
+	}
 
-        for (int i = 0; i < frameCount; i++)
-        {
-            var atlas = new AtlasTexture { Atlas = texture };
-            atlas.Region = new Rect2(i * 32, 0, 32, 32);
-            frames.AddFrame(animName, atlas);
-        }
-    }
+	private void UpdatePreviewSprite(string characterName)
+	{
+		var frames = new SpriteFrames();
+		var tex    = GD.Load<Texture2D>("res://assets/images/" + characterName + "/Idle (32x32).png");
+		if (tex == null) return;
 
-    private static void AddGridAnimationFrames(
-        SpriteFrames frames, string animName, Texture2D texture,
-        Vector2I frameSize, int columns, int frameCount, float speed)
-    {
-        frames.AddAnimation(animName);
-        frames.SetAnimationLoop(animName, true);
-        frames.SetAnimationSpeed(animName, speed);
+		AddAnimationFrames(frames, "idle", tex, 11, 10f);
+		_previewSprite.SpriteFrames = frames;
+		_previewSprite.Play("idle");
+	}
 
-        for (int i = 0; i < frameCount; i++)
-        {
-            var atlas = new AtlasTexture { Atlas = texture };
-            float x = (i % columns) * frameSize.X;
-            float y = (i / columns) * frameSize.Y;
-            atlas.Region = new Rect2(x, y, frameSize.X, frameSize.Y);
-            frames.AddFrame(animName, atlas);
-        }
-    }
+	private void CreateSessionAndStart(string characterName)
+	{
+		var global = GetNode<Node>("/root/Global");
+		global.Set("selected_character", characterName);
+
+		int sessionId = SessionManager.Instance.CreateNewSession(characterName);
+		if (sessionId > 0)
+			GD.Print("Created new session: ", sessionId, " for character: ", characterName);
+		else
+			GD.Print("Error creating session!");
+
+		LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/story_intro.tscn");
+	}
+
+	private static void AddAnimationFrames(
+		SpriteFrames frames, string animName, Texture2D texture,
+		int frameCount, float speed)
+	{
+		frames.AddAnimation(animName);
+		frames.SetAnimationLoop(animName, true);
+		frames.SetAnimationSpeed(animName, speed);
+
+		for (int i = 0; i < frameCount; i++)
+		{
+			var atlas = new AtlasTexture { Atlas = texture };
+			atlas.Region = new Rect2(i * 32, 0, 32, 32);
+			frames.AddFrame(animName, atlas);
+		}
+	}
 }
-

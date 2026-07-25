@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Axiom Force: Reclaim Earth"
-run/main_scene="res://assets/scenes/login_scene.tscn"
+run/main_scene="res://assets/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.7", "C#", "Mobile")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,7 @@ Global="*res://assets/scenes/global.gd"
 SessionManager="*res://assets/scenes/SessionManager.cs"
 NarrativeManager="*res://assets/narrative/NarrativeManager.gd"
 AuthManager="*res://assets/scenes/AuthManager.cs"
+UISoundManager="*res://assets/scenes/UISoundManager.cs"
 
 [display]
 

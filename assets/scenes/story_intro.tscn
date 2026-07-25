@@ -1,11 +1,13 @@
-[gd_scene format=3 uid="uid://b5n8qw7j8yak2"]
+[gd_scene load_steps=14 format=3 uid="uid://b5n8qw7j8yak2"]
 
-[ext_resource type="Theme" uid="uid://cyber_shogun_theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
-[ext_resource type="Environment" uid="uid://cyber_glow_env" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://assets/scenes/StoryIntro.cs" id="1_story_intro_script"]
 [ext_resource type="Texture2D" uid="uid://bdpjelaxkre4f" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_robot_image"]
-[ext_resource type="FontFile" uid="uid://cufqwoc742wsk" path="res://assets/fonts/ComicNeue-Regular.ttf" id="3_comic_regular"]
-[ext_resource type="FontFile" uid="uid://bn2f632anqd62" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="3_bg_texture"]
+[ext_resource type="FontFile" uid="uid://orbitron_font" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="4_orbitron"]
+[ext_resource type="FontFile" uid="uid://rajdhani_med" path="res://assets/fonts/Rajdhani-Medium.ttf" id="5_rajdhani_med"]
+[ext_resource type="FontFile" uid="uid://rajdhani_bold" path="res://assets/fonts/Rajdhani-Bold.ttf" id="6_rajdhani_bold"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qraa2"]
 atlas = ExtResource("2_robot_image")
@@ -57,7 +59,6 @@ animations = [{
 "speed": 8.0
 }]
 
-
 [node name="StoryIntro" type="Control" unique_id=828138138]
 theme = ExtResource("10_cyber_theme")
 layout_mode = 3
@@ -71,14 +72,43 @@ script = ExtResource("1_story_intro_script")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000008]
 environment = ExtResource("11_cyber_glow")
 
-[node name="Background" type="ColorRect" parent="." unique_id=360379746]
+[node name="BackgroundTexture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.02, 0.02, 0.08, 1)
+texture = ExtResource("3_bg_texture")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.08, 0.82)
+
+[node name="TitleBanner" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 36.0
+offset_right = 350.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_orbitron")
+theme_override_font_sizes/font_size = 32
+text = "MISSION BRIEFING TRANSMISSION"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=379804377]
 layout_mode = 1
@@ -87,39 +117,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -450.0
-offset_top = -200.0
-offset_right = 450.0
-offset_bottom = 200.0
+offset_left = -460.0
+offset_top = -180.0
+offset_right = 460.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
 [node name="RobotContainer" type="Control" parent="HBoxContainer" unique_id=201232567]
-custom_minimum_size = Vector2(350, 400)
+custom_minimum_size = Vector2(320, 380)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RobotSprite" type="AnimatedSprite2D" parent="HBoxContainer/RobotContainer" unique_id=604603518]
-position = Vector2(175, 200)
-scale = Vector2(2, 2)
+position = Vector2(160, 190)
+scale = Vector2(2.2, 2.2)
 sprite_frames = SubResource("SpriteFrames_robot")
 autoplay = "default"
 
-[node name="DialogueBox" type="Panel" parent="HBoxContainer" unique_id=805034983]
-custom_minimum_size = Vector2(500, 350)
+[node name="DialogueBox" type="PanelContainer" parent="HBoxContainer" unique_id=805034983]
+custom_minimum_size = Vector2(540, 360)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DialogueBox" unique_id=209902631]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -127,9 +152,9 @@ theme_override_constants/margin_bottom = 20
 
 [node name="DialogueLabel" type="RichTextLabel" parent="HBoxContainer/DialogueBox/MarginContainer" unique_id=1423319273]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.9, 0.95, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_comic_regular")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0.92, 0.96, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_rajdhani_med")
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Initializing dialogue..."
 fit_content = true
@@ -142,14 +167,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -100.0
+offset_left = -240.0
+offset_top = -90.0
 offset_right = -40.0
-offset_bottom = -40.0
+offset_bottom = -34.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_comic_bold")
+theme_override_fonts/font = ExtResource("6_rajdhani_bold")
 theme_override_font_sizes/font_size = 24
 text = "Continue"
 
@@ -158,13 +182,11 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -140.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 70.0
+offset_left = -160.0
+offset_top = 28.0
+offset_right = -40.0
+offset_bottom = 74.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
-theme_override_fonts/font = ExtResource("3_comic_regular")
+theme_override_fonts/font = ExtResource("5_rajdhani_med")
 theme_override_font_sizes/font_size = 20
 text = "Skip >>>"
-
