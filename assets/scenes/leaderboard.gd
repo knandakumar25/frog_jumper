@@ -2,44 +2,32 @@ extends Control
 
 const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
 
-var db: SQLite
-var db_path = "user://scores.db"
-
 @onready var scores_table = $VBoxContainer/ScrollContainer/ScoresTable
 
 func _ready() -> void:
 	Global.play_menu_music()
-	init_database()
 	load_scores()
-
-func init_database() -> void:
-	db = SQLite.new()
-	db.path = db_path
-	db.open_db()
-	
-	# Create scores table if it doesn't exist
-	var table_dict = {
-		"id": {"data_type": "INTEGER", "primary_key": true, "auto_increment": true},
-		"level_name": {"data_type": "TEXT", "not_null": true},
-		"score": {"data_type": "INTEGER", "not_null": true}
-	}
-	db.create_table("scores", table_dict)
 
 func load_scores() -> void:
 	# Clear existing rows
 	for child in scores_table.get_children():
 		child.queue_free()
 	
-	# Query database sorted by highest score first
-	db.query("SELECT level_name, score FROM scores ORDER BY score DESC")
-	var results = db.query_result
-	
 	# Add header row
-	add_row(tr("Level"), tr("Points"), true)
+	add_row(tr("Operative"), tr("Total Score"), true)
 	
+	# Query sessions from SessionManager
+	var sessions = SessionManager.get_all_sessions()
+	
+	if sessions.is_empty():
+		add_row("NO DATA", "0", false)
+		return
+		
 	# Add data rows
-	for row in results:
-		add_row(row["level_name"], str(row["score"]), false)
+	for session in sessions:
+		var character_name = session.get("character", "Operative")
+		var score = str(session.get("total_score", 0))
+		add_row(character_name, score, false)
 
 func add_row(level: String, score: String, is_header: bool) -> void:
 	var row_container = HBoxContainer.new()
@@ -50,7 +38,7 @@ func add_row(level: String, score: String, is_header: bool) -> void:
 	level_label.custom_minimum_size = Vector2(300, 0)
 	level_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	if is_header:
-		level_label.add_theme_color_override("font_color", Color(0, 0.4, 0, 1))
+		level_label.add_theme_color_override("font_color", Color(0, 0.94, 1, 1))
 		level_label.add_theme_font_size_override("font_size", 24)
 	
 	var score_label = Label.new()
@@ -58,7 +46,7 @@ func add_row(level: String, score: String, is_header: bool) -> void:
 	score_label.custom_minimum_size = Vector2(300, 0)
 	score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	if is_header:
-		score_label.add_theme_color_override("font_color", Color(0, 0.4, 0, 1))
+		score_label.add_theme_color_override("font_color", Color(0, 0.94, 1, 1))
 		score_label.add_theme_font_size_override("font_size", 24)
 	
 	row_container.add_child(level_label)
