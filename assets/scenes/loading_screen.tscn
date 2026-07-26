@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://assets/scenes/LoadingScreen.cs" id="1_loading_script"]
 [ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
+[ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_logo.jpg" id="4_title_logo_texture"]
 
 [node name="LoadingScreen" type="Control"]
 theme = ExtResource("10_cyber_theme")
@@ -63,6 +64,13 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MainPanel"]
 layout_mode = 2
 theme_override_constants/separation = 16
+
+[node name="TitleLogoBanner" type="TextureRect" parent="CenterContainer/MainPanel/VBoxContainer"]
+custom_minimum_size = Vector2(620, 260)
+layout_mode = 2
+texture = ExtResource("4_title_logo_texture")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="LoadingLabel" type="Label" parent="CenterContainer/MainPanel/VBoxContainer"]
 layout_mode = 2

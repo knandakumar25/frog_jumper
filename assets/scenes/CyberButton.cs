@@ -153,11 +153,13 @@ public partial class CyberButton : Control
 		// Main Label
 		float mainX = contentX + 44f;
 		Color mainColor = IsDisabled ? new Color(0.5f, 0.55f, 0.65f, 0.6f) : new Color(0.95f, 0.98f, 1f, 1f);
-		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f - 4f), MainText.ToUpper(), HorizontalAlignment.Left, -1, 22, mainColor);
+		string translatedMain = Tr(MainText).ToUpper();
+		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f - 4f), translatedMain, HorizontalAlignment.Left, -1, 22, mainColor);
 
 		// Sub Label
 		Color subColor = IsDisabled ? new Color(0.3f, 0.35f, 0.45f, 0.5f) : (new Color(0f, 0.94f, 1f, 0.7f)).Lerp(new Color(1f, 0.3f, 0.65f, 0.9f), _hoverProgress);
-		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f + 16f), SubText, HorizontalAlignment.Left, -1, 14, subColor);
+		string translatedSub = Tr(SubText);
+		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f + 16f), translatedSub, HorizontalAlignment.Left, -1, 14, subColor);
 
 		// 7. Corner Reticle Accent (+) at top-right
 		if (!IsDisabled)

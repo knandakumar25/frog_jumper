@@ -19,8 +19,7 @@ public partial class MainMenu : Control
 	private ColorRect   _quitBackground;
 	private Panel       _settingsPopup;
 	private Panel       _instructionsPopup;
-	private Panel       _languagePopup;
-	private GridContainer _languageGrid;
+	private CyberDropdown _languageDropdown;
 	private HBoxContainer _titleContainer;
 	private Button       _browserLoginButton;
 	private HBoxContainer _profileDisplayContainer;
@@ -34,6 +33,7 @@ public partial class MainMenu : Control
 	private Control         _continueButton;
 	private Panel           _confirmPopup;
 	private Label           _confirmLabel;
+	private string          _pendingSelectedLanguage = "";
 
 
 	// ─── Cloud data ──────────────────────────────────────────────────────────
@@ -75,10 +75,8 @@ public partial class MainMenu : Control
 			GD.Print("main_menu: resolved SettingsPopup");
 			_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
 			GD.Print("main_menu: resolved InstructionsPopup");
-			_languagePopup      = GetNode<Panel>("LanguagePopup");
-			GD.Print("main_menu: resolved LanguagePopup");
-			_languageGrid       = GetNode<GridContainer>("LanguagePopup/VBoxContainer/ScrollContainer/LanguageGrid");
-			GD.Print("main_menu: resolved LanguageGrid");
+			_languageDropdown   = GetNode<CyberDropdown>("SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageDropdown");
+			GD.Print("main_menu: resolved LanguageDropdown");
 			_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
 			GD.Print("main_menu: resolved TitleContainer");
 			_newGamePopup       = GetNode<Panel>("NewGamePopup");
@@ -280,75 +278,113 @@ public partial class MainMenu : Control
 		MoveChild(character, 1);
 	}
 
+	private Texture2D LoadImageTexture(string resPath, bool makeTransparent = false)
+	{
+		try
+		{
+			string globalPath = ProjectSettings.GlobalizePath(resPath);
+			if (System.IO.File.Exists(globalPath))
+			{
+				var img = Image.LoadFromFile(globalPath);
+				if (img != null)
+				{
+					if (makeTransparent)
+					{
+						img = MakeImageTransparent(img, 0.14f);
+					}
+					return ImageTexture.CreateFromImage(img);
+				}
+			}
+
+			if (ResourceLoader.Exists(resPath))
+			{
+				var tex = GD.Load<Texture2D>(resPath);
+				if (tex != null) return tex;
+			}
+		}
+		catch (Exception ex)
+		{
+			GD.PrintErr($"MainMenu: Failed to load image texture '{resPath}': {ex.Message}");
+		}
+		return null;
+	}
+
+	private Image MakeImageTransparent(Image img, float darkThreshold)
+	{
+		if (img == null) return null;
+		img.Convert(Image.Format.Rgba8);
+
+		int width = img.GetWidth();
+		int height = img.GetHeight();
+
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width; x++)
+			{
+				Color color = img.GetPixel(x, y);
+				float brightness = Mathf.Max(color.R, Mathf.Max(color.G, color.B));
+
+				if (brightness < darkThreshold)
+				{
+					img.SetPixel(x, y, new Color(0, 0, 0, 0));
+				}
+				else if (brightness < darkThreshold + 0.18f)
+				{
+					float alpha = (brightness - darkThreshold) / 0.18f;
+					img.SetPixel(x, y, new Color(color.R, color.G, color.B, alpha));
+				}
+			}
+		}
+		return img;
+	}
+
 	// ─── Floating title ──────────────────────────────────────────────────────
 	private async System.Threading.Tasks.Task SetupFloatingTitleAsync()
 	{
-		string mainTitle = "AXIOM FORCE";
-		string subTitle  = "[ RECLAIM EARTH ]  // TACTICAL OPERATIVE SYSTEM";
-		var orbitronFont = GD.Load<FontFile>("res://assets/fonts/Orbitron-VariableFont.ttf");
-		var rajdhaniFont = GD.Load<FontFile>("res://assets/fonts/Rajdhani-Bold.ttf");
+		var audioOptions = GetNodeOrNull<Node>("SettingsPopup/VBoxContainer/AudioOptions");
+		string langName  = (audioOptions != null) ? (string)audioOptions.Get("selected_language") : "english";
+		var languages    = (audioOptions != null) ? (Dictionary)audioOptions.Get("languages") : null;
+		
+		string localeKey = (languages != null && languages.ContainsKey(Variant.From(langName)))
+			? (string)languages[langName] 
+			: TranslationServer.GetLocale().ToLower();
+
+		string[] candidates = new string[]
+		{
+			$"res://assets/images/axiom_force_title_logo_{localeKey}.jpg",
+			$"res://assets/images/axiom_force_title_logo_{langName.ToLower()}.jpg",
+			"res://assets/images/axiom_force_title_logo.jpg"
+		};
+
+		Texture2D titleTexture = null;
+		foreach (string path in candidates)
+		{
+			titleTexture = LoadImageTexture(path, makeTransparent: true);
+			if (titleTexture != null) break;
+		}
 
 		foreach (Node child in _titleContainer.GetChildren())
 			child.QueueFree();
 
-		var vbox = new VBoxContainer
+		if (titleTexture != null)
 		{
-			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-			CustomMinimumSize   = new Vector2(0, 160),
-		};
-		vbox.AddThemeConstantOverride("separation", 6);
-		_titleContainer.AddChild(vbox);
+			var logoRect = new TextureRect
+			{
+				Texture = titleTexture,
+				CustomMinimumSize = new Vector2(520, 200),
+				ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+				StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered,
+				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+				SizeFlagsVertical = Control.SizeFlags.ExpandFill
+			};
 
-		// 1. Top Tech Header Tag Line
-		var topFrameLabel = new Label
-		{
-			Text = "┌─── // AXIOM FORCE COMMAND ENGINE  ───  SYSTEM ONLINE [●] ───┐",
-			HorizontalAlignment = HorizontalAlignment.Left,
-		};
-		topFrameLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.65f));
-		topFrameLabel.AddThemeFontOverride("font", rajdhaniFont);
-		topFrameLabel.AddThemeFontSizeOverride("font_size", 14);
-		vbox.AddChild(topFrameLabel);
+			_titleContainer.AddChild(logoRect);
 
-		// 2. Main Title (AXIOM FORCE)
-		var mainLabel = new Label
-		{
-			Text                = mainTitle,
-			HorizontalAlignment = HorizontalAlignment.Left,
-			VerticalAlignment   = VerticalAlignment.Center,
-		};
-		mainLabel.AddThemeColorOverride("font_color",         new Color(0f, 0.94f, 1f, 1f));
-		mainLabel.AddThemeColorOverride("font_outline_color", new Color(1f, 0f, 0.5f, 0.95f));
-		mainLabel.AddThemeConstantOverride("outline_size", 18);
-		mainLabel.AddThemeFontOverride("font", orbitronFont);
-		mainLabel.AddThemeFontSizeOverride("font_size", 72);
-		vbox.AddChild(mainLabel);
+			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+			logoRect.PivotOffset = logoRect.Size / 2f;
 
-		// 3. Neon Accent Separator Bar
-		var separator = new ColorRect
-		{
-			CustomMinimumSize = new Vector2(480, 3),
-			Color = new Color(1f, 0f, 0.5f, 0.9f),
-			SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin
-		};
-		vbox.AddChild(separator);
-
-		// 4. Tactical Subtitle Badge
-		var subLabel = new Label
-		{
-			Text                = subTitle,
-			HorizontalAlignment = HorizontalAlignment.Left,
-			VerticalAlignment   = VerticalAlignment.Center,
-		};
-		subLabel.AddThemeColorOverride("font_color", new Color(1f, 0.3f, 0.65f, 0.98f));
-		subLabel.AddThemeFontOverride("font", rajdhaniFont);
-		subLabel.AddThemeFontSizeOverride("font_size", 22);
-		vbox.AddChild(subLabel);
-
-		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-		vbox.PivotOffset = vbox.Size / 2f;
-
-		await AnimateFloatingTitleAsync(vbox);
+			await AnimateFloatingTitleAsync(logoRect);
+		}
 	}
 
 	private async System.Threading.Tasks.Task AnimateFloatingTitleAsync(Control node)
@@ -380,23 +416,24 @@ public partial class MainMenu : Control
 			StartFloatLoop(label, origY);
 	}
 
-	// ─── Language buttons ────────────────────────────────────────────────────
+	// ─── Language dropdown ───────────────────────────────────────────────────
 	private void PopulateLanguageButtons()
 	{
 		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
 		var languages    = (Dictionary)audioOptions.Get("languages");
+		string currentLang = (string)audioOptions.Get("selected_language");
 
-		foreach (Node child in _languageGrid.GetChildren())
-			child.QueueFree();
+		_languageDropdown.Clear();
+		_languageDropdown.ItemSelected -= OnLanguageDropdownSelected;
+		_languageDropdown.ItemSelected += OnLanguageDropdownSelected;
 
-		// English first
 		string englishKey = "";
 		foreach (var key in languages.Keys)
 		{
 			if ((string)languages[key] == "english") { englishKey = (string)key; break; }
 		}
 		if (!string.IsNullOrEmpty(englishKey))
-			CreateLanguageButton(englishKey, (string)languages[englishKey]);
+			_languageDropdown.AddItem(englishKey);
 
 		var sorted = new List<string>();
 		foreach (var key in languages.Keys)
@@ -404,79 +441,15 @@ public partial class MainMenu : Control
 		sorted.Sort();
 
 		foreach (var langName in sorted)
-			CreateLanguageButton(langName, (string)languages[langName]);
+			_languageDropdown.AddItem(langName);
+
+		if (!string.IsNullOrEmpty(currentLang))
+			_languageDropdown.SelectItemByText(currentLang);
 	}
 
-	private async void CreateLanguageButton(string langName, string locale)
+	private void OnLanguageDropdownSelected(int index, string langName)
 	{
-		var button = new Button
-		{
-			Text               = langName,
-			CustomMinimumSize  = new Vector2(370, 50),
-			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-			ClipText           = false,
-			TextOverrunBehavior = TextServer.OverrunBehavior.NoTrimming,
-		};
-		button.AddThemeColorOverride("font_color",        new Color(1, 1, 1, 1));
-		button.AddThemeColorOverride("font_hover_color",  new Color(1, 1, 1, 1));
-		button.AddThemeColorOverride("font_pressed_color",new Color(0.9f, 0.9f, 0.9f, 1));
-		button.AddThemeFontSizeOverride("font_size", 20);
-
-		button.Pressed += () => OnLanguageSelected(langName);
-		button.MouseFilter = Control.MouseFilterEnum.Stop;
-		_languageGrid.AddChild(button);
-
-		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-
-		string[] rtlLocales = { "arabic", "hebrew" };
-		bool isRtl = locale != null && System.Array.Exists(rtlLocales,
-						l => l == locale.ToLower());
-
-		GD.Print("create_language_button: added", langName, " locale=", locale, " is_rtl=", isRtl);
-		foreach (Node child in button.GetChildren())
-		{
-			GD.Print("  child: ", child, " ", child.GetType());
-			if (child is Label lbl)
-			{
-				GD.Print("    before: text_direction=", lbl.TextDirection, " h_align=", lbl.HorizontalAlignment);
-				if (isRtl)
-				{
-					lbl.TextDirection       = Control.TextDirection.Rtl;
-					lbl.HorizontalAlignment = HorizontalAlignment.Right;
-				}
-				GD.Print("    after: text_direction=", lbl.TextDirection, " h_align=", lbl.HorizontalAlignment);
-			}
-		}
-	}
-
-	private void OnLanguageSelected(string langName)
-	{
-		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
-		audioOptions.Set("selected_language", langName);
-
-		var langButton = GetNode<Button>("SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton");
-		langButton.Text = langName;
-
-		var languages   = (Dictionary)audioOptions.Get("languages");
-		string locale   = languages.ContainsKey(Variant.From(langName)) ? (string)languages[langName] : "";
-		string[] rtlLocales = { "arabic", "hebrew" };
-		bool isRtl = !string.IsNullOrEmpty(locale) &&
-					 System.Array.Exists(rtlLocales, l => l == locale.ToLower());
-
-		if (isRtl)
-		{
-			foreach (Node child in langButton.GetChildren())
-			{
-				if (child is Label lbl)
-				{
-					lbl.TextDirection       = Control.TextDirection.Rtl;
-					lbl.HorizontalAlignment = HorizontalAlignment.Right;
-				}
-			}
-		}
-
-		if (_instructionsPopup.Visible) UpdateInstructionsAlignment();
-		_languagePopup.Visible = false;
+		_pendingSelectedLanguage = langName;
 	}
 
 	private void UpdateInstructionsAlignment()
@@ -613,13 +586,6 @@ public partial class MainMenu : Control
 	}
 
 	// ─── Signal / button handlers ────────────────────────────────────────────
-	public void _on_language_button_pressed()
-	{
-		_languagePopup.ZIndex = 120;
-		_languagePopup.MouseFilter = Control.MouseFilterEnum.Stop;
-		_languagePopup.Visible = true;
-	}
-	public void _on_close_language_popup_pressed() => _languagePopup.Visible = false;
 	public void _on_play_pressed()
 	{
 		_newGamePopup.Visible = true;
@@ -635,6 +601,13 @@ public partial class MainMenu : Control
 
 	public void _on_settings_pressed() 
 	{ 
+		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
+		_pendingSelectedLanguage = (string)audioOptions.Get("selected_language");
+		if (_languageDropdown != null && !string.IsNullOrEmpty(_pendingSelectedLanguage))
+		{
+			_languageDropdown.SelectItemByText(_pendingSelectedLanguage);
+		}
+
 		_settingsPopup.Visible = true; 
 		MoveChild(_settingsPopup, GetChildCount() - 1);
 	}
@@ -645,13 +618,29 @@ public partial class MainMenu : Control
 		AudioServer.SetBusVolumeDb(0, Mathf.LinearToDb((float)slider.Value));
 
 		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
-		audioOptions.Call("apply_language_change");
 
+		if (!string.IsNullOrEmpty(_pendingSelectedLanguage))
+		{
+			audioOptions.Set("selected_language", _pendingSelectedLanguage);
+			audioOptions.Call("apply_language_change");
+		}
+
+		if (_instructionsPopup.Visible) UpdateInstructionsAlignment();
 		_ = SetupFloatingTitleAsync();
 		_settingsPopup.Visible = false;
 	}
 
-	public void _on_close_settings_pressed()      => _settingsPopup.Visible = false;
+	public void _on_close_settings_pressed()
+	{
+		_settingsPopup.Visible = false;
+		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
+		string currentLang = (string)audioOptions.Get("selected_language");
+		_pendingSelectedLanguage = currentLang;
+		if (_languageDropdown != null && !string.IsNullOrEmpty(currentLang))
+		{
+			_languageDropdown.SelectItemByText(currentLang);
+		}
+	}
 	public void _on_yes_pressed()                 => GetTree().Quit();
 	public void _on_no_pressed()
 	{
@@ -685,7 +674,7 @@ public partial class MainMenu : Control
 
 	private void OnDeleteOnePressed(int sessionId)
 	{
-		_confirmLabel.Text = "Delete this saved game?\nThis cannot be undone.";
+		_confirmLabel.Text = Tr("Delete this saved game?") + "\n" + Tr("This cannot be undone.");
 		_confirmPopup.SetMeta("delete_mode",       "one");
 		_confirmPopup.SetMeta("delete_session_id", sessionId);
 		_continuePopup.Visible = false;
@@ -694,7 +683,7 @@ public partial class MainMenu : Control
 
 	private void OnDeleteAllPressed()
 	{
-		_confirmLabel.Text = "Delete ALL saved games?\nThis cannot be undone.";
+		_confirmLabel.Text = Tr("Delete ALL saved games?") + "\n" + Tr("This cannot be undone.");
 		_confirmPopup.SetMeta("delete_mode", "all");
 		_continuePopup.Visible = false;
 		_confirmPopup.Visible  = true;

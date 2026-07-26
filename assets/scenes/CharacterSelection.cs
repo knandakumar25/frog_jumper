@@ -41,28 +41,28 @@ public partial class CharacterSelection : Control
 		switch (characterName)
 		{
 			case "Ninja Frog":
-				_selectedNameLabel.Text = "NINJA FROG";
-				_classTagLabel.Text     = "// CLASS: RECON INFILTRATOR";
-				_speedMeter?.SetStat("SPEED", 92f);
-				_agilityMeter?.SetStat("AGILITY", 95f);
+				_selectedNameLabel.Text = Tr("Ninja Frog").ToUpper();
+				_classTagLabel.Text     = Tr("// CLASS: RECON INFILTRATOR");
+				_speedMeter?.SetStat(Tr("SPEED"), 92f);
+				_agilityMeter?.SetStat(Tr("AGILITY"), 95f);
 				break;
 			case "Mask Dude":
-				_selectedNameLabel.Text = "MASK DUDE";
-				_classTagLabel.Text     = "// CLASS: TACTICAL ASSAULT";
-				_speedMeter?.SetStat("SPEED", 85f);
-				_agilityMeter?.SetStat("AGILITY", 88f);
+				_selectedNameLabel.Text = Tr("Mask Dude").ToUpper();
+				_classTagLabel.Text     = Tr("// CLASS: TACTICAL ASSAULT");
+				_speedMeter?.SetStat(Tr("SPEED"), 85f);
+				_agilityMeter?.SetStat(Tr("AGILITY"), 88f);
 				break;
 			case "Pink Man":
-				_selectedNameLabel.Text = "PINK MAN";
-				_classTagLabel.Text     = "// CLASS: HEAVY SPECIALIST";
-				_speedMeter?.SetStat("SPEED", 78f);
-				_agilityMeter?.SetStat("AGILITY", 80f);
+				_selectedNameLabel.Text = Tr("Pink Man").ToUpper();
+				_classTagLabel.Text     = Tr("// CLASS: HEAVY SPECIALIST");
+				_speedMeter?.SetStat(Tr("SPEED"), 78f);
+				_agilityMeter?.SetStat(Tr("AGILITY"), 80f);
 				break;
 			case "Virtual Guy":
-				_selectedNameLabel.Text = "VIRTUAL GUY";
-				_classTagLabel.Text     = "// CLASS: CYBERNETIC INFILTRATOR";
-				_speedMeter?.SetStat("SPEED", 90f);
-				_agilityMeter?.SetStat("AGILITY", 92f);
+				_selectedNameLabel.Text = Tr("Virtual Guy").ToUpper();
+				_classTagLabel.Text     = Tr("// CLASS: CYBERNETIC INFILTRATOR");
+				_speedMeter?.SetStat(Tr("SPEED"), 90f);
+				_agilityMeter?.SetStat(Tr("AGILITY"), 92f);
 				break;
 		}
 

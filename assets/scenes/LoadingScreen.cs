@@ -25,6 +25,21 @@ public partial class LoadingScreen : Control
         _statusLabel  = GetNode<Label>("CenterContainer/MainPanel/VBoxContainer/StatusLabel");
         _fadeOverlay  = GetNode<ColorRect>("FadeOverlay");
 
+        if (HasNode("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner"))
+        {
+            var logoBanner = GetNode<TextureRect>("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner");
+            if (logoBanner.Texture == null)
+            {
+                string resPath = "res://assets/images/axiom_force_title_logo.jpg";
+                string globalPath = ProjectSettings.GlobalizePath(resPath);
+                if (System.IO.File.Exists(globalPath))
+                {
+                    var img = Image.LoadFromFile(globalPath);
+                    if (img != null) logoBanner.Texture = ImageTexture.CreateFromImage(img);
+                }
+            }
+        }
+
         if (string.IsNullOrEmpty(TargetScenePath))
         {
             GD.PushError("No target scene path set for loading screen");
