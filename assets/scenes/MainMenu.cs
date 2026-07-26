@@ -125,6 +125,12 @@ public partial class MainMenu : Control
 			_continueButton.Visible = SessionManager.Instance.HasSessions();
 			GD.Print("main_menu: updated _continueButton.Visible");
 
+			GetNode<CyberButton>("ButtonContainer/Play").Pressed += _on_play_pressed;
+			GetNode<CyberButton>("ButtonContainer/ContinueButton").Pressed += _on_continue_pressed;
+			GetNode<CyberButton>("ButtonContainer/Instructions").Pressed += _on_instructions_pressed;
+			GetNode<CyberButton>("ButtonContainer/Settings").Pressed += _on_settings_pressed;
+			GetNode<CyberButton>("ButtonContainer/QuitButton").Pressed += _on_quit_button_pressed;
+
 			EnsureUISoundManager();
 			UISoundManager.AutoWireButtons(this);
 
