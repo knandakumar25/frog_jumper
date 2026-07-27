@@ -20,6 +20,7 @@ public partial class MainMenu : Control
 	private Panel       _settingsPopup;
 	private Panel       _instructionsPopup;
 	private CyberDropdown _languageDropdown;
+	private CyberDropdown _displayDropdown;
 	private HBoxContainer _titleContainer;
 	private Button       _browserLoginButton;
 	private HBoxContainer _profileDisplayContainer;
@@ -34,6 +35,23 @@ public partial class MainMenu : Control
 	private Panel           _confirmPopup;
 	private Label           _confirmLabel;
 	private string          _pendingSelectedLanguage = "";
+	private string          _pendingSelectedDisplayMode = "";
+
+	// Keybindings management
+	private Button          _controlsButton;
+	private Panel           _keybindingsPopup;
+	private VBoxContainer   _keybindingRowsContainer;
+	private Button          _resetDefaultsButton;
+	private Button          _closeKeybindingsButton;
+
+	private Panel           _keyDetectModal;
+	private Label           _promptLabel;
+	private Label           _detectedKeyLabel;
+	private Button          _acceptKeyButton;
+	private Button          _cancelKeyButton;
+
+	private string          _remappingAction = "";
+	private InputEventKey   _proposedKey = null;
 
 
 	// ─── Cloud data ──────────────────────────────────────────────────────────
@@ -77,6 +95,8 @@ public partial class MainMenu : Control
 			GD.Print("main_menu: resolved InstructionsPopup");
 			_languageDropdown   = GetNode<CyberDropdown>("SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageDropdown");
 			GD.Print("main_menu: resolved LanguageDropdown");
+			_displayDropdown    = GetNodeOrNull<CyberDropdown>("SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/DisplayDropdown");
+			GD.Print("main_menu: resolved DisplayDropdown");
 			_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
 			GD.Print("main_menu: resolved TitleContainer");
 			_newGamePopup       = GetNode<Panel>("NewGamePopup");
@@ -91,6 +111,24 @@ public partial class MainMenu : Control
 			GD.Print("main_menu: resolved ConfirmPopup");
 			_confirmLabel       = GetNode<Label>("ConfirmPopup/VBoxContainer/ConfirmLabel");
 			GD.Print("main_menu: resolved ConfirmLabel");
+
+			_controlsButton          = GetNodeOrNull<Button>("SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/ControlsButton");
+			_keybindingsPopup        = GetNodeOrNull<Panel>("KeybindingsPopup");
+			_keybindingRowsContainer = GetNodeOrNull<VBoxContainer>("KeybindingsPopup/VBoxContainer/ScrollContainer/RowsContainer");
+			_resetDefaultsButton     = GetNodeOrNull<Button>("KeybindingsPopup/VBoxContainer/ButtonContainer/ResetDefaultsButton");
+			_closeKeybindingsButton  = GetNodeOrNull<Button>("KeybindingsPopup/VBoxContainer/ButtonContainer/CloseKeybindingsButton");
+
+			_keyDetectModal          = GetNodeOrNull<Panel>("KeyDetectModal");
+			_promptLabel             = GetNodeOrNull<Label>("KeyDetectModal/VBoxContainer/PromptLabel");
+			_detectedKeyLabel        = GetNodeOrNull<Label>("KeyDetectModal/VBoxContainer/DetectedKeyLabel");
+			_acceptKeyButton         = GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/AcceptButton");
+			_cancelKeyButton         = GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/CancelButton");
+
+			if (_controlsButton != null)          _controlsButton.Pressed += _on_controls_button_pressed;
+			if (_resetDefaultsButton != null)     _resetDefaultsButton.Pressed += _on_reset_defaults_pressed;
+			if (_closeKeybindingsButton != null)  _closeKeybindingsButton.Pressed += _on_close_keybindings_pressed;
+			if (_acceptKeyButton != null)         _acceptKeyButton.Pressed += _on_accept_key_pressed;
+			if (_cancelKeyButton != null)         _cancelKeyButton.Pressed += _on_cancel_key_pressed;
 
 			SetupProfileUI();
 			GD.Print("main_menu: SetupProfileUI complete");
@@ -110,6 +148,10 @@ public partial class MainMenu : Control
 
 			PopulateLanguageButtons();
 			GD.Print("main_menu: PopulateLanguageButtons complete");
+			PopulateDisplayModeButtons();
+			GD.Print("main_menu: PopulateDisplayModeButtons complete");
+
+			ApplyCustomCursor();
 
 			_ = SetupFloatingTitleAsync();
 			GD.Print("main_menu: SetupFloatingTitleAsync started");
@@ -122,6 +164,8 @@ public partial class MainMenu : Control
 
 			_continueButton.Visible = SessionManager.Instance.HasSessions();
 			GD.Print("main_menu: updated _continueButton.Visible");
+
+			ApplyCyberpunkPanelStyles();
 
 			GetNode<CyberButton>("ButtonContainer/Play").Pressed += _on_play_pressed;
 			GetNode<CyberButton>("ButtonContainer/ContinueButton").Pressed += _on_continue_pressed;
@@ -278,6 +322,23 @@ public partial class MainMenu : Control
 		MoveChild(character, 1);
 	}
 
+	private void ApplyCustomCursor()
+	{
+		try
+		{
+			var cursorTex = LoadImageTexture("res://assets/images/cursor.png");
+			if (cursorTex != null)
+			{
+				Input.SetCustomMouseCursor(cursorTex, Input.CursorShape.Arrow, new Vector2(4, 4));
+				GD.Print("main_menu: Custom cyber cursor applied at runtime successfully!");
+			}
+		}
+		catch (System.Exception ex)
+		{
+			GD.PrintErr($"main_menu: Failed to apply custom mouse cursor: {ex.Message}");
+		}
+	}
+
 	private Texture2D LoadImageTexture(string resPath, bool makeTransparent = false)
 	{
 		try
@@ -290,7 +351,7 @@ public partial class MainMenu : Control
 				{
 					if (makeTransparent)
 					{
-						img = MakeImageTransparent(img, 0.14f);
+						img = MakeImageTransparent(img, 0.28f);
 					}
 					return ImageTexture.CreateFromImage(img);
 				}
@@ -299,7 +360,19 @@ public partial class MainMenu : Control
 			if (ResourceLoader.Exists(resPath))
 			{
 				var tex = GD.Load<Texture2D>(resPath);
-				if (tex != null) return tex;
+				if (tex != null)
+				{
+					if (makeTransparent)
+					{
+						var img = tex.GetImage();
+						if (img != null)
+						{
+							img = MakeImageTransparent(img, 0.28f);
+							return ImageTexture.CreateFromImage(img);
+						}
+					}
+					return tex;
+				}
 			}
 		}
 		catch (Exception ex)
@@ -309,7 +382,7 @@ public partial class MainMenu : Control
 		return null;
 	}
 
-	private Image MakeImageTransparent(Image img, float darkThreshold)
+	private Image MakeImageTransparent(Image img, float darkThreshold = 0.28f)
 	{
 		if (img == null) return null;
 		img.Convert(Image.Format.Rgba8);
@@ -452,6 +525,37 @@ public partial class MainMenu : Control
 		_pendingSelectedLanguage = langName;
 	}
 
+	private void PopulateDisplayModeButtons()
+	{
+		if (_displayDropdown == null) return;
+		_displayDropdown.Clear();
+		_displayDropdown.ItemSelected -= OnDisplayDropdownSelected;
+		_displayDropdown.ItemSelected += OnDisplayDropdownSelected;
+
+		_displayDropdown.AddItem(Tr("Fullscreen"));
+		_displayDropdown.AddItem(Tr("Windowed Fullscreen"));
+		_displayDropdown.AddItem(Tr("Windowed"));
+
+		var globalNode = GetNodeOrNull<Node>("/root/Global");
+		string currentMode = "Fullscreen";
+		if (globalNode != null)
+		{
+			currentMode = (string)globalNode.Get("current_display_mode");
+		}
+		_pendingSelectedDisplayMode = currentMode;
+		_displayDropdown.SelectItemByText(Tr(currentMode));
+	}
+
+	private void OnDisplayDropdownSelected(int index, string modeName)
+	{
+		if (modeName == Tr("Windowed Fullscreen"))
+			_pendingSelectedDisplayMode = "Windowed Fullscreen";
+		else if (modeName == Tr("Windowed"))
+			_pendingSelectedDisplayMode = "Windowed";
+		else
+			_pendingSelectedDisplayMode = "Fullscreen";
+	}
+
 	private void UpdateInstructionsAlignment()
 	{
 		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
@@ -483,6 +587,7 @@ public partial class MainMenu : Control
 	
 
 	// ─── Session list ────────────────────────────────────────────────────────
+	// ─── Session list ────────────────────────────────────────────────────────
 	private void PopulateSessions()
 	{
 		foreach (Node child in _sessionsContainer.GetChildren())
@@ -493,27 +598,30 @@ public partial class MainMenu : Control
 		{
 			var empty = new Label
 			{
-				Text               = Tr("No saved games found"),
+				Text                = Tr("No saved games found"),
 				HorizontalAlignment = HorizontalAlignment.Center,
 			};
 			empty.AddThemeFontSizeOverride("font_size", 24);
-			empty.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
+			empty.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Rajdhani-Medium.ttf"));
+			empty.AddThemeColorOverride("font_color", new Color(0.7f, 0.8f, 0.95f, 0.8f));
 			_sessionsContainer.AddChild(empty);
 			return;
 		}
 
-		// Delete All button
-		var actionRow     = new HBoxContainer { Alignment = BoxContainer.AlignmentMode.End };
-		var deleteAllBtn  = MakeDeleteButton("Delete All");
+		// Header Action Bar: Purge All Records button
+		var actionRow    = new HBoxContainer { Alignment = BoxContainer.AlignmentMode.End };
+		var deleteAllBtn = MakeDeleteButton("// PURGE ALL RECORDS");
 		deleteAllBtn.Pressed += OnDeleteAllPressed;
 		actionRow.AddChild(deleteAllBtn);
 		_sessionsContainer.AddChild(actionRow);
 
-		var spacer = new Control { CustomMinimumSize = new Vector2(0, 6) };
+		var spacer = new Control { CustomMinimumSize = new Vector2(0, 10) };
 		_sessionsContainer.AddChild(spacer);
 
-		var regularFont = GD.Load<Font>("res://assets/fonts/ComicNeue-Regular.ttf");
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		var rajdhaniFont = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf");
 
+		int idx = 1;
 		foreach (var item in sessions)
 		{
 			var session    = (Dictionary)item;
@@ -524,22 +632,44 @@ public partial class MainMenu : Control
 			string lastPlayed = SessionManager.Instance.FormatDatetime((string)session["last_played"]);
 
 			var row = new HBoxContainer();
-			row.AddThemeConstantOverride("separation", 8);
+			row.AddThemeConstantOverride("separation", 12);
 
-			// Continue button
+			// Cyber Card Continue button
+			string cardTitle = $"[{idx:D2}]  {Tr(character).ToUpper()}   |   {Tr("Level")} {level}   |   {Tr("Score")}: {score}   |   {lastPlayed}";
 			var sessionBtn = new Button
 			{
-				Text               = character + "  |  " + Tr("Level") + " " + level +
-									 "  |  " + Tr("Score") + ": " + score + "  |  " + lastPlayed,
+				Text                = cardTitle,
 				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-				CustomMinimumSize  = new Vector2(0, 70),
+				CustomMinimumSize   = new Vector2(0, 68),
+				Alignment           = HorizontalAlignment.Left
 			};
-			sessionBtn.AddThemeFontSizeOverride("font_size", 22);
-			sessionBtn.AddThemeFontOverride("font", regularFont);
-			sessionBtn.AddThemeStyleboxOverride("normal",  MakeRoundedBox(new Color(0, 0.5f, 0, 0.8f)));
-			sessionBtn.AddThemeStyleboxOverride("hover",   MakeRoundedBox(new Color(0, 0.7f, 0, 0.9f)));
-			sessionBtn.AddThemeStyleboxOverride("pressed", MakeRoundedBox(new Color(0, 0.7f, 0, 0.9f)));
-			sessionBtn.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
+			sessionBtn.AddThemeFontSizeOverride("font_size", 19);
+			sessionBtn.AddThemeFontOverride("font", rajdhaniFont);
+
+			// Normal Style: Dark Cyber Glass with Cyan Border
+			var normalBox = new StyleBoxFlat
+			{
+				BgColor = new Color(0.04f, 0.08f, 0.18f, 0.92f),
+				BorderColor = new Color(0f, 0.94f, 1f, 0.70f),
+				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
+				ContentMarginLeft = 20, ContentMarginRight = 20
+			};
+			normalBox.SetCornerRadiusAll(8);
+
+			// Hover Style: Glowing Neon Pink Border
+			var hoverBox = new StyleBoxFlat
+			{
+				BgColor = new Color(0.08f, 0.14f, 0.32f, 0.98f),
+				BorderColor = new Color(1f, 0f, 0.5f, 1.0f),
+				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
+				ContentMarginLeft = 20, ContentMarginRight = 20
+			};
+			hoverBox.SetCornerRadiusAll(8);
+
+			sessionBtn.AddThemeStyleboxOverride("normal",  normalBox);
+			sessionBtn.AddThemeStyleboxOverride("hover",   hoverBox);
+			sessionBtn.AddThemeStyleboxOverride("pressed", hoverBox);
+			sessionBtn.AddThemeColorOverride("font_color", new Color(0.95f, 0.98f, 1f, 1f));
 
 			var capturedId   = sessionId;
 			var capturedSess = session;
@@ -550,50 +680,293 @@ public partial class MainMenu : Control
 			var delBtn = new Button
 			{
 				Text              = "✕",
-				CustomMinimumSize = new Vector2(60, 70),
+				CustomMinimumSize = new Vector2(60, 68),
 			};
-			delBtn.AddThemeFontSizeOverride("font_size", 28);
-			delBtn.AddThemeStyleboxOverride("normal",  MakeRoundedBox(new Color(0.75f, 0.1f, 0.1f, 0.95f)));
-			delBtn.AddThemeStyleboxOverride("hover",   MakeRoundedBox(new Color(0.9f,  0.15f, 0.15f, 1f)));
-			delBtn.AddThemeStyleboxOverride("pressed", MakeRoundedBox(new Color(0.9f,  0.15f, 0.15f, 1f)));
-			delBtn.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
+			delBtn.AddThemeFontSizeOverride("font_size", 22);
+			delBtn.AddThemeFontOverride("font", orbitronFont);
+
+			var delNormal = new StyleBoxFlat
+			{
+				BgColor = new Color(0.18f, 0.04f, 0.08f, 0.90f),
+				BorderColor = new Color(1f, 0f, 0.35f, 0.75f),
+				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2
+			};
+			delNormal.SetCornerRadiusAll(8);
+
+			var delHover = new StyleBoxFlat
+			{
+				BgColor = new Color(0.35f, 0.06f, 0.12f, 0.98f),
+				BorderColor = new Color(1f, 0.2f, 0.45f, 1.0f),
+				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2
+			};
+			delHover.SetCornerRadiusAll(8);
+
+			delBtn.AddThemeStyleboxOverride("normal",  delNormal);
+			delBtn.AddThemeStyleboxOverride("hover",   delHover);
+			delBtn.AddThemeStyleboxOverride("pressed", delHover);
+			delBtn.AddThemeColorOverride("font_color", new Color(1f, 0.3f, 0.45f, 1f));
 			delBtn.Pressed += () => OnDeleteOnePressed(capturedId);
 			row.AddChild(delBtn);
 
 			_sessionsContainer.AddChild(row);
-			_sessionsContainer.AddChild(new Control { CustomMinimumSize = new Vector2(0, 8) });
+			_sessionsContainer.AddChild(new Control { CustomMinimumSize = new Vector2(0, 10) });
+			idx++;
 		}
-	}
-
-	private static StyleBoxFlat MakeRoundedBox(Color color, int radius = 10)
-	{
-		var s = new StyleBoxFlat { BgColor = color };
-		s.SetCornerRadiusAll(radius);
-		return s;
 	}
 
 	private static Button MakeDeleteButton(string text)
 	{
 		var btn = new Button { Text = text };
-		btn.AddThemeFontSizeOverride("font_size", 20);
-		btn.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/ComicNeue-Regular.ttf"));
-		var style = new StyleBoxFlat { BgColor = new Color(0.55f, 0.05f, 0.05f, 0.95f) };
-		style.SetCornerRadiusAll(8);
+		btn.AddThemeFontSizeOverride("font_size", 15);
+		btn.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf"));
+		
+		var style = new StyleBoxFlat
+		{
+			BgColor = new Color(0.20f, 0.04f, 0.08f, 0.90f),
+			BorderColor = new Color(1f, 0f, 0.35f, 0.85f),
+			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
+			ContentMarginLeft = 16, ContentMarginRight = 16, ContentMarginTop = 8, ContentMarginBottom = 8
+		};
+		style.SetCornerRadiusAll(6);
+		
 		btn.AddThemeStyleboxOverride("normal", style);
 		btn.AddThemeStyleboxOverride("hover",  style);
-		btn.AddThemeColorOverride("font_color", new Color(1, 1, 1, 1));
+		btn.AddThemeColorOverride("font_color", new Color(1f, 0.4f, 0.5f, 1f));
 		return btn;
 	}
 
+	private void ApplyCyberpunkPanelStyles()
+	{
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		var rajdhaniFont = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf");
+
+		var cyberPanelStyle = new StyleBoxFlat
+		{
+			BgColor = new Color(0.04f, 0.08f, 0.18f, 0.95f),
+			BorderColor = new Color(0f, 0.94f, 1f, 0.85f),
+			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
+			ContentMarginLeft = 24, ContentMarginRight = 24, ContentMarginTop = 24, ContentMarginBottom = 24
+		};
+		cyberPanelStyle.SetCornerRadiusAll(12);
+
+		// Apply to ContinuePopup
+		if (_continuePopup != null)
+		{
+			_continuePopup.AddThemeStyleboxOverride("panel", cyberPanelStyle);
+			var title = _continuePopup.GetNodeOrNull<Label>("VBoxContainer/Title");
+			if (title != null)
+			{
+				title.Text = "// OPERATIVE RECORDS MATRIX //";
+				title.AddThemeFontOverride("font", orbitronFont);
+				title.AddThemeFontSizeOverride("font_size", 24);
+				title.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+			}
+			var backBtn = _continuePopup.GetNodeOrNull<Button>("VBoxContainer/BackButton");
+			if (backBtn != null)
+			{
+				StyleCyberButton(backBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+			}
+		}
+
+		// Apply to ConfirmPopup
+		if (_confirmPopup != null)
+		{
+			_confirmPopup.AddThemeStyleboxOverride("panel", cyberPanelStyle);
+			if (_confirmLabel != null)
+			{
+				_confirmLabel.AddThemeFontOverride("font", rajdhaniFont);
+				_confirmLabel.AddThemeFontSizeOverride("font_size", 22);
+				_confirmLabel.AddThemeColorOverride("font_color", new Color(0.95f, 0.98f, 1f, 1f));
+			}
+			var yesBtn = _confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/YesButton");
+			var noBtn  = _confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton");
+			if (yesBtn != null) StyleCyberButton(yesBtn, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
+			if (noBtn != null)  StyleCyberButton(noBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+		}
+
+		// Apply to NewGamePopup
+		if (_newGamePopup != null)
+		{
+			_newGamePopup.AddThemeStyleboxOverride("panel", cyberPanelStyle);
+			var msg = _newGamePopup.GetNodeOrNull<Label>("VBoxContainer/Message");
+			if (msg != null)
+			{
+				msg.AddThemeFontOverride("font", orbitronFont);
+				msg.AddThemeFontSizeOverride("font_size", 24);
+				msg.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+			}
+			var confirmBtn = _newGamePopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ConfirmButton");
+			var cancelBtn  = _newGamePopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/CancelButton");
+			if (confirmBtn != null) StyleCyberButton(confirmBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+			if (cancelBtn != null)  StyleCyberButton(cancelBtn, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
+		}
+
+		// Apply to SettingsPopup
+		if (_settingsPopup != null)
+		{
+			_settingsPopup.AddThemeStyleboxOverride("panel", cyberPanelStyle);
+			var settingsTitle = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/Title");
+			if (settingsTitle != null)
+			{
+				settingsTitle.Text = "// SYSTEM CALIBRATION //";
+				settingsTitle.AddThemeFontOverride("font", orbitronFont);
+				settingsTitle.AddThemeFontSizeOverride("font_size", 24);
+				settingsTitle.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+			}
+
+			var volLbl  = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/VolumeLabel");
+			var langLbl = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/LanguageLabel");
+			var dispLbl = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/DisplayLabel");
+			if (volLbl != null)
+			{
+				volLbl.AddThemeFontOverride("font", orbitronFont);
+				volLbl.AddThemeFontSizeOverride("font_size", 16);
+				volLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));
+			}
+			if (langLbl != null)
+			{
+				langLbl.Text = Tr("Language").ToUpper();
+				langLbl.AddThemeFontOverride("font", orbitronFont);
+				langLbl.AddThemeFontSizeOverride("font_size", 16);
+				langLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));
+			}
+			if (dispLbl != null)
+			{
+				dispLbl.Text = Tr("Display Mode").ToUpper();
+				dispLbl.AddThemeFontOverride("font", orbitronFont);
+				dispLbl.AddThemeFontSizeOverride("font_size", 16);
+				dispLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));
+			}
+
+			var slider = _settingsPopup.GetNodeOrNull<HSlider>("VBoxContainer/AudioOptions/VBoxContainer/MasterSlider");
+			if (slider != null)
+			{
+				StyleCyberSlider(slider);
+			}
+
+			var applyBtn = _settingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ApplyButton");
+			var closeBtn = _settingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/CloseButton");
+			if (applyBtn != null) StyleCyberButton(applyBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+			if (closeBtn != null) StyleCyberButton(closeBtn, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
+		}
+	}
+
+	private static void StyleCyberSlider(HSlider slider)
+	{
+		var trackNormal = new StyleBoxFlat
+		{
+			BgColor = new Color(0.04f, 0.08f, 0.18f, 0.95f),
+			BorderColor = new Color(0f, 0.94f, 1f, 0.65f),
+			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
+			ContentMarginTop = 6, ContentMarginBottom = 6
+		};
+		trackNormal.SetCornerRadiusAll(4);
+
+		var trackHighlight = new StyleBoxFlat
+		{
+			BgColor = new Color(0f, 0.85f, 1f, 0.90f),
+			BorderColor = new Color(1f, 0f, 0.5f, 1.0f),
+			BorderWidthLeft = 1, BorderWidthTop = 1, BorderWidthRight = 1, BorderWidthBottom = 1,
+			ContentMarginTop = 6, ContentMarginBottom = 6
+		};
+		trackHighlight.SetCornerRadiusAll(4);
+
+		slider.AddThemeStyleboxOverride("slider", trackNormal);
+		slider.AddThemeStyleboxOverride("grabber_area", trackHighlight);
+		slider.AddThemeStyleboxOverride("grabber_area_highlight", trackHighlight);
+
+		var grabberTex = CreateCyberGrabberTexture();
+		slider.AddThemeIconOverride("grabber", grabberTex);
+		slider.AddThemeIconOverride("grabber_highlight", grabberTex);
+	}
+
+	private static Texture2D CreateCyberGrabberTexture()
+	{
+		int w = 20, h = 28;
+		var img = Image.CreateEmpty(w, h, false, Image.Format.Rgba8);
+		img.Fill(new Color(0, 0, 0, 0));
+
+		Color cyan = new Color(0f, 0.94f, 1f, 1f);
+		Color pink = new Color(1f, 0f, 0.5f, 1f);
+		Color bg   = new Color(0.04f, 0.08f, 0.22f, 1f);
+
+		for (int y = 0; y < h; y++)
+		{
+			for (int x = 0; x < w; x++)
+			{
+				int dx = Math.Abs(x - w / 2);
+				int dy = Math.Abs(y - h / 2);
+				if (dx + dy / 2 <= w / 2 - 1)
+				{
+					if (dx + dy / 2 == w / 2 - 1 || x == 0 || x == w - 1 || y == 0 || y == h - 1)
+					{
+						img.SetPixel(x, y, cyan);
+					}
+					else if (dx <= 1 && dy <= 3)
+					{
+						img.SetPixel(x, y, pink);
+					}
+					else
+					{
+						img.SetPixel(x, y, bg);
+					}
+				}
+			}
+		}
+		return ImageTexture.CreateFromImage(img);
+	}
+
+	private static void StyleCyberButton(Button btn, Font font, Color borderColor)
+	{
+		btn.AddThemeFontOverride("font", font);
+		btn.AddThemeFontSizeOverride("font_size", 18);
+
+		var normal = new StyleBoxFlat
+		{
+			BgColor = new Color(0.06f, 0.10f, 0.22f, 0.90f),
+			BorderColor = borderColor,
+			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2
+		};
+		normal.SetCornerRadiusAll(8);
+
+		var hover = new StyleBoxFlat
+		{
+			BgColor = new Color(0.12f, 0.18f, 0.38f, 0.98f),
+			BorderColor = new Color(1f, 0f, 0.5f, 1.0f),
+			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2
+		};
+		hover.SetCornerRadiusAll(8);
+
+		btn.AddThemeStyleboxOverride("normal",  normal);
+		btn.AddThemeStyleboxOverride("hover",   hover);
+		btn.AddThemeStyleboxOverride("pressed", hover);
+		btn.AddThemeColorOverride("font_color", new Color(0.95f, 0.98f, 1f, 1f));
+	}
+
 	// ─── Signal / button handlers ────────────────────────────────────────────
+	private void CloseAllPopups()
+	{
+		if (_newGamePopup != null)      _newGamePopup.Visible = false;
+		if (_continuePopup != null)     _continuePopup.Visible = false;
+		if (_instructionsPopup != null) _instructionsPopup.Visible = false;
+		if (_settingsPopup != null)     _settingsPopup.Visible = false;
+		if (_quitPopup != null)         _quitPopup.Visible = false;
+		if (_quitBackground != null)    _quitBackground.Visible = false;
+		if (_confirmPopup != null)      _confirmPopup.Visible = false;
+		if (_keybindingsPopup != null) _keybindingsPopup.Visible = false;
+		if (_keyDetectModal != null)   _keyDetectModal.Visible = false;
+	}
+
 	public void _on_play_pressed()
 	{
+		CloseAllPopups();
 		_newGamePopup.Visible = true;
 		MoveChild(_newGamePopup, GetChildCount() - 1);
 	}
 
 	public void _on_instructions_pressed()
 	{
+		CloseAllPopups();
 		UpdateInstructionsAlignment();
 		_instructionsPopup.Visible = true;
 		MoveChild(_instructionsPopup, GetChildCount() - 1);
@@ -601,11 +974,20 @@ public partial class MainMenu : Control
 
 	public void _on_settings_pressed() 
 	{ 
+		CloseAllPopups();
 		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
 		_pendingSelectedLanguage = (string)audioOptions.Get("selected_language");
 		if (_languageDropdown != null && !string.IsNullOrEmpty(_pendingSelectedLanguage))
 		{
 			_languageDropdown.SelectItemByText(_pendingSelectedLanguage);
+		}
+
+		if (_displayDropdown != null)
+		{
+			var globalNode = GetNodeOrNull<Node>("/root/Global");
+			string currentMode = (globalNode != null) ? (string)globalNode.Get("current_display_mode") : "Fullscreen";
+			_pendingSelectedDisplayMode = currentMode;
+			_displayDropdown.SelectItemByText(Tr(currentMode));
 		}
 
 		_settingsPopup.Visible = true; 
@@ -625,9 +1007,29 @@ public partial class MainMenu : Control
 			audioOptions.Call("apply_language_change");
 		}
 
+		if (!string.IsNullOrEmpty(_pendingSelectedDisplayMode))
+		{
+			var globalNode = GetNodeOrNull<Node>("/root/Global");
+			if (globalNode != null)
+			{
+				globalNode.Call("apply_display_mode", _pendingSelectedDisplayMode);
+			}
+		}
+
 		if (_instructionsPopup.Visible) UpdateInstructionsAlignment();
 		_ = SetupFloatingTitleAsync();
 		_settingsPopup.Visible = false;
+
+		QueueRedrawAllButtons(this);
+	}
+
+	private void QueueRedrawAllButtons(Node node)
+	{
+		if (node is Control c) c.QueueRedraw();
+		foreach (Node child in node.GetChildren())
+		{
+			QueueRedrawAllButtons(child);
+		}
 	}
 
 	public void _on_close_settings_pressed()
@@ -649,6 +1051,7 @@ public partial class MainMenu : Control
 	}
 	public void _on_quit_button_pressed()
 	{
+		CloseAllPopups();
 		_quitBackground.Visible = true;
 		_quitPopup.Visible = true;
 		MoveChild(_quitPopup, GetChildCount() - 1);
@@ -667,6 +1070,7 @@ public partial class MainMenu : Control
 
 	public void _on_continue_pressed()
 	{
+		CloseAllPopups();
 		PopulateSessions();
 		_continuePopup.Visible = true;
 		MoveChild(_continuePopup, GetChildCount() - 1);
@@ -899,5 +1303,209 @@ public partial class MainMenu : Control
 			var snd = new UISoundManager { Name = "UISoundManager" };
 			GetTree().Root.CallDeferred(Node.MethodName.AddChild, snd);
 		}
+	}
+
+	// ─── Keybindings Remap System ───────────────────────────────────────────
+	private void PopulateKeybindingRows()
+	{
+		if (_keybindingRowsContainer == null) return;
+		foreach (Node child in _keybindingRowsContainer.GetChildren())
+			child.QueueFree();
+
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		var rajdhaniFont = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf");
+
+		var actions = new (string key, string title)[]
+		{
+			("left",   Tr("Move Left")),
+			("right",  Tr("Move Right")),
+			("jump",   Tr("Jump")),
+			("escape", Tr("Pause Game"))
+		};
+
+		foreach (var (actionKey, actionTitle) in actions)
+		{
+			var row = new HBoxContainer();
+			row.CustomMinimumSize = new Vector2(0, 56);
+			row.AddThemeConstantOverride("separation", 16);
+
+			var nameLbl = new Label
+			{
+				Text = actionTitle.ToUpper(),
+				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+				VerticalAlignment = VerticalAlignment.Center
+			};
+			nameLbl.AddThemeFontOverride("font", orbitronFont);
+			nameLbl.AddThemeFontSizeOverride("font_size", 16);
+			nameLbl.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+			row.AddChild(nameLbl);
+
+			string keyDisplay = GetBoundKeysString(actionKey);
+			var keysLbl = new Label
+			{
+				Text = $"[ {keyDisplay} ]",
+				CustomMinimumSize = new Vector2(240, 0),
+				HorizontalAlignment = HorizontalAlignment.Center,
+				VerticalAlignment = VerticalAlignment.Center
+			};
+			keysLbl.AddThemeFontOverride("font", rajdhaniFont);
+			keysLbl.AddThemeFontSizeOverride("font_size", 18);
+			keysLbl.AddThemeColorOverride("font_color", new Color(0.95f, 0.98f, 1f, 0.90f));
+			row.AddChild(keysLbl);
+
+			var rebindBtn = new Button
+			{
+				Text = Tr("Rebind").ToUpper(),
+				CustomMinimumSize = new Vector2(120, 44)
+			};
+			StyleCyberButton(rebindBtn, orbitronFont, new Color(1f, 0f, 0.5f, 0.9f));
+			string capturedKey = actionKey;
+			string capturedTitle = actionTitle;
+			rebindBtn.Pressed += () => OpenKeyDetectModal(capturedKey, capturedTitle);
+			row.AddChild(rebindBtn);
+
+			_keybindingRowsContainer.AddChild(row);
+			_keybindingRowsContainer.AddChild(new Control { CustomMinimumSize = new Vector2(0, 10) });
+		}
+	}
+
+	private string GetBoundKeysString(string actionName)
+	{
+		if (!InputMap.HasAction(actionName)) return Tr("None");
+		var events = InputMap.ActionGetEvents(actionName);
+		var keyNames = new List<string>();
+		foreach (var ev in events)
+		{
+			if (ev is InputEventKey keyEv)
+			{
+				string keyStr = OS.GetKeycodeString(keyEv.PhysicalKeycode);
+				if (string.IsNullOrEmpty(keyStr)) keyStr = OS.GetKeycodeString(keyEv.Keycode);
+				if (!string.IsNullOrEmpty(keyStr) && !keyNames.Contains(keyStr))
+					keyNames.Add(keyStr);
+			}
+		}
+		return keyNames.Count > 0 ? string.Join(" / ", keyNames) : Tr("None");
+	}
+
+	private void OpenKeyDetectModal(string actionKey, string actionTitle)
+	{
+		_remappingAction = actionKey;
+		_proposedKey = null;
+		GetViewport().GuiReleaseFocus();
+
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		var rajdhaniFont = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf");
+
+		if (_promptLabel != null)
+		{
+			_promptLabel.Text = $"{Tr("PRESS ANY KEY TO REBIND")} [{actionTitle.ToUpper()}]...";
+			_promptLabel.AddThemeFontOverride("font", orbitronFont);
+			_promptLabel.AddThemeFontSizeOverride("font_size", 18);
+			_promptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+		}
+		if (_detectedKeyLabel != null)
+		{
+			_detectedKeyLabel.Text = $"[ {Tr("AWAITING KEY INPUT...")} ]";
+			_detectedKeyLabel.AddThemeFontOverride("font", rajdhaniFont);
+			_detectedKeyLabel.AddThemeFontSizeOverride("font_size", 22);
+			_detectedKeyLabel.AddThemeColorOverride("font_color", new Color(0.7f, 0.8f, 0.95f, 0.8f));
+		}
+		if (_acceptKeyButton != null)
+		{
+			_acceptKeyButton.FocusMode = FocusModeEnum.None;
+			_acceptKeyButton.Disabled = true;
+			StyleCyberButton(_acceptKeyButton, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+		}
+		if (_cancelKeyButton != null)
+		{
+			_cancelKeyButton.FocusMode = FocusModeEnum.None;
+			StyleCyberButton(_cancelKeyButton, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
+		}
+
+		if (_keyDetectModal != null)
+		{
+			_keyDetectModal.Visible = true;
+			MoveChild(_keyDetectModal, GetChildCount() - 1);
+		}
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (_keyDetectModal != null && _keyDetectModal.Visible)
+		{
+			if (@event is InputEventKey keyEv && keyEv.Pressed && !keyEv.Echo)
+			{
+				_proposedKey = keyEv;
+				string keyName = OS.GetKeycodeString(keyEv.PhysicalKeycode);
+				if (string.IsNullOrEmpty(keyName)) keyName = OS.GetKeycodeString(keyEv.Keycode);
+
+				if (_detectedKeyLabel != null)
+				{
+					_detectedKeyLabel.Text = $"{Tr("PROPOSED KEY")}: [ {keyName.ToUpper()} ]";
+					_detectedKeyLabel.AddThemeColorOverride("font_color", new Color(1f, 0.9f, 0.2f, 1f));
+				}
+				if (_acceptKeyButton != null)
+				{
+					_acceptKeyButton.Disabled = false;
+				}
+				GetViewport().SetInputAsHandled();
+			}
+		}
+	}
+
+	private void _on_controls_button_pressed()
+	{
+		CloseAllPopups();
+		PopulateKeybindingRows();
+		if (_keybindingsPopup != null)
+		{
+			_keybindingsPopup.Visible = true;
+			MoveChild(_keybindingsPopup, GetChildCount() - 1);
+		}
+	}
+
+	private void _on_close_keybindings_pressed()
+	{
+		if (_keybindingsPopup != null) _keybindingsPopup.Visible = false;
+		if (_keyDetectModal != null)   _keyDetectModal.Visible = false;
+		if (_settingsPopup != null)
+		{
+			_settingsPopup.Visible = true;
+			MoveChild(_settingsPopup, GetChildCount() - 1);
+		}
+	}
+
+	private void _on_accept_key_pressed()
+	{
+		if (_proposedKey != null && !string.IsNullOrEmpty(_remappingAction))
+		{
+			InputMap.ActionEraseEvents(_remappingAction);
+			InputMap.ActionAddEvent(_remappingAction, _proposedKey);
+
+			var globalNode = GetNodeOrNull<Node>("/root/Global");
+			if (globalNode != null)
+			{
+				globalNode.Call("save_custom_keybindings");
+			}
+			PopulateKeybindingRows();
+		}
+		if (_keyDetectModal != null) _keyDetectModal.Visible = false;
+	}
+
+	private void _on_cancel_key_pressed()
+	{
+		_proposedKey = null;
+		if (_keyDetectModal != null) _keyDetectModal.Visible = false;
+	}
+
+	private void _on_reset_defaults_pressed()
+	{
+		InputMap.LoadFromProjectSettings();
+		var globalNode = GetNodeOrNull<Node>("/root/Global");
+		if (globalNode != null)
+		{
+			globalNode.Call("save_custom_keybindings");
+		}
+		PopulateKeybindingRows();
 	}
 }

@@ -31,10 +31,11 @@ UISoundManager="*res://assets/scenes/UISoundManager.cs"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
+window/size/resizable=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://assets/images/cursor.png"
+mouse_cursor/custom_image=""
 mouse_cursor/tooltip_position_offset=Vector2(1, 1)
 
 [dotnet]

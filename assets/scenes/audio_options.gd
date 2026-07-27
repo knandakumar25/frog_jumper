@@ -27,18 +27,36 @@ var selected_language = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$VBoxContainer/MasterSlider.value = db_to_linear(AudioServer.get_bus_volume_db(0))
+	var slider = get_node_or_null("VBoxContainer/MasterSlider")
+	if slider != null:
+		slider.value = db_to_linear(AudioServer.get_bus_volume_db(0))
+		_update_volume_label(slider.value)
+		if not slider.is_connected("value_changed", _on_volume_changed):
+			slider.connect("value_changed", _on_volume_changed)
 
 	# Load languages dynamically from the translations CSV
 	_load_languages_from_csv()
 
 	# Set initial language display
 	var current_locale = TranslationServer.get_locale()
+	var lang_btn = get_node_or_null("VBoxContainer/LanguageButton")
 	for lang_name in languages.keys():
 		if languages[lang_name] == current_locale:
 			selected_language = lang_name
-			$VBoxContainer/LanguageButton.text = lang_name
+			if lang_btn != null:
+				lang_btn.text = lang_name
 			break
+
+
+func _on_volume_changed(val: float) -> void:
+	_update_volume_label(val)
+
+
+func _update_volume_label(val: float) -> void:
+	var lbl = get_node_or_null("VBoxContainer/VolumeLabel")
+	if lbl != null:
+		var pct = int(round(val * 100.0))
+		lbl.text = tr("Volume").to_upper() + "   [ " + str(pct) + "% ]"
 
 
 func _load_languages_from_csv() -> void:
@@ -74,3 +92,7 @@ func apply_language_change() -> void:
 	if selected_language != "":
 		var locale = languages[selected_language]
 		TranslationServer.set_locale(locale)
+		var slider = get_node_or_null("VBoxContainer/MasterSlider")
+		if slider != null:
+			_update_volume_label(slider.value)
+		print("audio_options: TranslationServer.set_locale set to '", locale, "'. Active locale is now: '", TranslationServer.get_locale(), "'")

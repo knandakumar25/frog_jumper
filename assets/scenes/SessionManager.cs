@@ -316,14 +316,45 @@ public partial class SessionManager : Node
 	}
 
 	// ─── JSON Local Storage Fallback Helpers ─────────────────────────────────
+	private int ToInt(object val)
+	{
+		if (val == null) return 0;
+		if (val is System.Text.Json.JsonElement elem)
+		{
+			if (elem.ValueKind == System.Text.Json.JsonValueKind.Number && elem.TryGetInt32(out int i))
+				return i;
+			if (int.TryParse(elem.ToString(), out int parsed))
+				return parsed;
+			return 0;
+		}
+		try
+		{
+			return Convert.ToInt32(val);
+		}
+		catch
+		{
+			return 0;
+		}
+	}
+
+	private string ToStringVal(object val)
+	{
+		if (val == null) return "";
+		if (val is System.Text.Json.JsonElement elem)
+		{
+			return elem.ToString() ?? "";
+		}
+		return val.ToString() ?? "";
+	}
+
 	private int CreateJsonSession(string characterName, string now)
 	{
 		var sessions = LoadJsonList();
 		int maxId = 0;
 		foreach (var s in sessions)
 		{
-			if (s.ContainsKey("id") && Convert.ToInt32(s["id"]) > maxId)
-				maxId = Convert.ToInt32(s["id"]);
+			if (s.ContainsKey("id") && ToInt(s["id"]) > maxId)
+				maxId = ToInt(s["id"]);
 		}
 		int newId = maxId + 1;
 
@@ -354,13 +385,13 @@ public partial class SessionManager : Node
 		{
 			result.Add(new Dictionary
 			{
-				{ "id", Convert.ToInt32(s["id"]) },
-				{ "character", s["character"]?.ToString() ?? "" },
-				{ "current_level", Convert.ToInt32(s["current_level"]) },
-				{ "total_score", Convert.ToInt32(s["total_score"]) },
-				{ "collectables", Convert.ToInt32(s["collectables"]) },
-				{ "created_at", s["created_at"]?.ToString() ?? "" },
-				{ "last_played", s["last_played"]?.ToString() ?? "" }
+				{ "id", ToInt(s["id"]) },
+				{ "character", ToStringVal(s["character"]) },
+				{ "current_level", ToInt(s["current_level"]) },
+				{ "total_score", ToInt(s["total_score"]) },
+				{ "collectables", ToInt(s["collectables"]) },
+				{ "created_at", ToStringVal(s["created_at"]) },
+				{ "last_played", ToStringVal(s["last_played"]) }
 			});
 		}
 		return result;
@@ -371,17 +402,17 @@ public partial class SessionManager : Node
 		var sessions = LoadJsonList();
 		foreach (var s in sessions)
 		{
-			if (Convert.ToInt32(s["id"]) == sessionId)
+			if (ToInt(s["id"]) == sessionId)
 			{
 				return new Dictionary
 				{
-					{ "id", Convert.ToInt32(s["id"]) },
-					{ "character", s["character"]?.ToString() ?? "" },
-					{ "current_level", Convert.ToInt32(s["current_level"]) },
-					{ "total_score", Convert.ToInt32(s["total_score"]) },
-					{ "collectables", Convert.ToInt32(s["collectables"]) },
-					{ "created_at", s["created_at"]?.ToString() ?? "" },
-					{ "last_played", s["last_played"]?.ToString() ?? "" }
+					{ "id", ToInt(s["id"]) },
+					{ "character", ToStringVal(s["character"]) },
+					{ "current_level", ToInt(s["current_level"]) },
+					{ "total_score", ToInt(s["total_score"]) },
+					{ "collectables", ToInt(s["collectables"]) },
+					{ "created_at", ToStringVal(s["created_at"]) },
+					{ "last_played", ToStringVal(s["last_played"]) }
 				};
 			}
 		}
@@ -393,7 +424,7 @@ public partial class SessionManager : Node
 		var sessions = LoadJsonList();
 		foreach (var s in sessions)
 		{
-			if (Convert.ToInt32(s["id"]) == sessionId)
+			if (ToInt(s["id"]) == sessionId)
 			{
 				s["current_level"] = level;
 				s["total_score"] = score;
@@ -410,7 +441,7 @@ public partial class SessionManager : Node
 	private void DeleteJsonSession(int sessionId)
 	{
 		var sessions = LoadJsonList();
-		sessions.RemoveAll(s => Convert.ToInt32(s["id"]) == sessionId);
+		sessions.RemoveAll(s => ToInt(s["id"]) == sessionId);
 		SaveJsonList(sessions);
 		if (sessionId == CurrentSessionId)
 		{

@@ -94,6 +94,48 @@ public partial class CyberButton : Control
 		}
 	}
 
+	private string TranslateText(string input)
+	{
+		if (string.IsNullOrEmpty(input)) return "";
+		string clean = input.Trim();
+
+		// Handle leading "// " for subtitle tags
+		string prefix = "";
+		if (clean.StartsWith("// "))
+		{
+			prefix = "// ";
+			clean = clean.Substring(3).Trim();
+		}
+
+		// 1. Direct translation check
+		string trans = Tr(clean);
+		if (trans != clean) return prefix + trans;
+
+		// 2. Explicit match for "HOW TO PLAY" -> "How to Play"
+		if (clean.Equals("HOW TO PLAY", StringComparison.OrdinalIgnoreCase))
+		{
+			trans = Tr("How to Play");
+			if (trans != "How to Play") return prefix + trans;
+		}
+
+		// 3. Try Title Case (e.g. "PLAY" -> "Play")
+		string titleCase = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(clean.ToLower());
+		trans = Tr(titleCase);
+		if (trans != titleCase) return prefix + trans;
+
+		// 4. Try Title Case with lowercase preposition ("To" -> "to")
+		string titleCaseLowerTo = titleCase.Replace(" To ", " to ");
+		trans = Tr(titleCaseLowerTo);
+		if (trans != titleCaseLowerTo) return prefix + trans;
+
+		// 5. Try Capitalized first letter (e.g. "SETTINGS" -> "Settings")
+		string cap = clean.Length > 1 ? char.ToUpper(clean[0]) + clean.Substring(1).ToLower() : clean;
+		trans = Tr(cap);
+		if (trans != cap) return prefix + trans;
+
+		return prefix + clean;
+	}
+
 	public override void _Draw()
 	{
 		Vector2 size = Size;
@@ -153,12 +195,12 @@ public partial class CyberButton : Control
 		// Main Label
 		float mainX = contentX + 44f;
 		Color mainColor = IsDisabled ? new Color(0.5f, 0.55f, 0.65f, 0.6f) : new Color(0.95f, 0.98f, 1f, 1f);
-		string translatedMain = Tr(MainText).ToUpper();
+		string translatedMain = TranslateText(MainText).ToUpper();
 		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f - 4f), translatedMain, HorizontalAlignment.Left, -1, 22, mainColor);
 
 		// Sub Label
 		Color subColor = IsDisabled ? new Color(0.3f, 0.35f, 0.45f, 0.5f) : (new Color(0f, 0.94f, 1f, 0.7f)).Lerp(new Color(1f, 0.3f, 0.65f, 0.9f), _hoverProgress);
-		string translatedSub = Tr(SubText);
+		string translatedSub = TranslateText(SubText);
 		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f + 16f), translatedSub, HorizontalAlignment.Left, -1, 14, subColor);
 
 		// 7. Corner Reticle Accent (+) at top-right

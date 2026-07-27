@@ -112,7 +112,7 @@ anchor_right = 0.6
 anchor_bottom = 0.97
 theme_override_colors/font_color = Color(0, 0.94, 1, 0.75)
 theme_override_font_sizes/font_size = 18
-text = "AXIOM NET // STATUS: ONLINE // VERSION 4.7.1 // SYSTEM READY"
+text = "AXIOM NET // STATUS: ONLINE // SYSTEM READY"
 
 [node name="Control" type="Control" parent="." unique_id=1634546171]
 layout_mode = 3
@@ -205,9 +205,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -350.0
-offset_top = -250.0
+offset_top = -295.0
 offset_right = 350.0
-offset_bottom = 250.0
+offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -231,7 +231,7 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="Spacer1" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1091092357]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="AudioOptions" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1677392437]
@@ -247,9 +247,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -80.0
+offset_top = -120.0
 offset_right = 300.0
-offset_bottom = 80.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -265,7 +265,7 @@ max_value = 1.0
 step = 0.05
 
 [node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=489283737]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
 [node name="LanguageLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1177784798]
@@ -277,6 +277,31 @@ horizontal_alignment = 1
 [node name="LanguageDropdown" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=354102998]
 layout_mode = 2
 script = ExtResource("4_cyber_dropdown")
+
+[node name="Spacer3" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=984712034]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=741029381]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Display Mode"
+horizontal_alignment = 1
+
+[node name="DisplayDropdown" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=610928374]
+layout_mode = 2
+script = ExtResource("4_cyber_dropdown")
+
+[node name="Spacer4" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=984712035]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ControlsButton" type="Button" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=482910385]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "// REBIND CONTROLS"
 
 [node name="Spacer2" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1064379103]
 custom_minimum_size = Vector2(0, 20)
@@ -305,6 +330,139 @@ text = "Exit"
 [node name="BottomSpacer" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1200575657]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+
+[node name="KeybindingsPopup" type="Panel" parent="." unique_id=892301847]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -320.0
+offset_right = 400.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeybindingsPopup" unique_id=741029482]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820194]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="KeybindingsPopup/VBoxContainer" unique_id=983019284]
+auto_translate_mode = 1
+layout_mode = 2
+text = "// CUSTOM CONTROLS REBIND //"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820195]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="KeybindingsPopup/VBoxContainer" unique_id=583920194]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+
+[node name="RowsContainer" type="VBoxContainer" parent="KeybindingsPopup/VBoxContainer/ScrollContainer" unique_id=948201948]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer2" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820196]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="KeybindingsPopup/VBoxContainer" unique_id=384920194]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetDefaultsButton" type="Button" parent="KeybindingsPopup/VBoxContainer/ButtonContainer" unique_id=839201948]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(220, 54)
+layout_mode = 2
+text = "Reset Defaults"
+
+[node name="Spacer" type="Control" parent="KeybindingsPopup/VBoxContainer/ButtonContainer" unique_id=749201948]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CloseKeybindingsButton" type="Button" parent="KeybindingsPopup/VBoxContainer/ButtonContainer" unique_id=948201949]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 54)
+layout_mode = 2
+text = "Close"
+
+[node name="BottomSpacer" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820197]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="KeyDetectModal" type="Panel" parent="." unique_id=983019274]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeyDetectModal" unique_id=648201948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PromptLabel" type="Label" parent="KeyDetectModal/VBoxContainer" unique_id=184920194]
+auto_translate_mode = 1
+layout_mode = 2
+text = "PRESS ANY KEY TO REBIND..."
+horizontal_alignment = 1
+
+[node name="DetectedKeyLabel" type="Label" parent="KeyDetectModal/VBoxContainer" unique_id=284920194]
+auto_translate_mode = 1
+layout_mode = 2
+text = "[ AWAITING INPUT... ]"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="KeyDetectModal/VBoxContainer" unique_id=384920195]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="KeyDetectModal/VBoxContainer" unique_id=484920194]
+layout_mode = 2
+alignment = 1
+
+[node name="AcceptButton" type="Button" parent="KeyDetectModal/VBoxContainer/ButtonContainer" unique_id=584920194]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+text = "Accept"
+
+[node name="Spacer" type="Control" parent="KeyDetectModal/VBoxContainer/ButtonContainer" unique_id=684920194]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="KeyDetectModal/VBoxContainer/ButtonContainer" unique_id=784920194]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+text = "Cancel"
 
 [node name="InstructionsPopup" type="Panel" parent="." unique_id=922019136]
 visible = false
