@@ -60,15 +60,12 @@ export default function Navbar() {
       }`}>
         <div className="flex justify-between items-center px-4 md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
           {/* Logo */}
-          <NavLink to={`/${currentLocale}`} className="flex items-center gap-2 font-display-hero text-[20px] md:text-headline-md text-primary-container drop-shadow-[0_0_8px_rgba(0,243,255,0.8)] font-bold tracking-tighter uppercase select-none hover:opacity-95">
-            <span>⬡</span>
-            <span>
-              {t('hero.title_line1') === 'AXIOM FORCE' ? (
-                <>AXIOM <span className="text-secondary-container drop-shadow-[0_0_8px_rgba(254,0,254,0.8)]">FORCE</span></>
-              ) : (
-                t('hero.title_line1')
-              )}
-            </span>
+          <NavLink to={`/${currentLocale}`} className="flex items-center gap-2 select-none hover:opacity-95 transition-opacity">
+            <img 
+              src="/images/axiom_force_title_logo.jpg" 
+              alt="AXIOM FORCE: RECLAIM EARTH" 
+              className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,243,255,0.7)] rounded-md"
+            />
           </NavLink>
 
           {/* Desktop Links */}

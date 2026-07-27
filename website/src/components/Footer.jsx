@@ -16,15 +16,12 @@ export default function Footer() {
           
           {/* Brand & Status Column */}
           <div className="md:col-span-8 flex flex-col gap-4">
-            <div className="flex items-center gap-2 font-display-hero text-headline-md text-primary-container drop-shadow-[0_0_8px_rgba(0,243,255,0.6)] font-bold tracking-tighter uppercase select-none">
-              <span>⬡</span>
-              <span>
-                {t('hero.title_line1') === 'AXIOM FORCE' ? (
-                  <>AXIOM <span className="text-secondary-container drop-shadow-[0_0_8px_rgba(254,0,254,0.6)]">FORCE</span></>
-                ) : (
-                  t('hero.title_line1')
-                )}
-              </span>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/images/axiom_force_title_logo.jpg" 
+                alt="AXIOM FORCE" 
+                className="h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(0,243,255,0.5)] rounded-md"
+              />
             </div>
             
             <p className="text-on-surface-variant max-w-sm font-body-md leading-relaxed">

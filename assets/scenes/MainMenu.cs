@@ -556,6 +556,30 @@ public partial class MainMenu : Control
 			_pendingSelectedDisplayMode = "Fullscreen";
 	}
 
+	private void UpdateInstructionsControlsText()
+	{
+		if (_instructionsPopup == null) return;
+		var content = _instructionsPopup.GetNodeOrNull<Container>(
+			"VBoxContainer/ScrollContainer/MarginContainer/ContentContainer");
+		if (content == null) return;
+
+		var moveLbl  = content.GetNodeOrNull<Label>("ControlMove");
+		var jumpLbl  = content.GetNodeOrNull<Label>("ControlJump");
+		var pauseLbl = content.GetNodeOrNull<Label>("ControlPause");
+
+		string leftKeys  = GetBoundKeysString("left");
+		string rightKeys = GetBoundKeysString("right");
+		string jumpKeys  = GetBoundKeysString("jump");
+		string pauseKeys = GetBoundKeysString("escape");
+
+		if (moveLbl != null)
+			moveLbl.Text = $"{Tr("Move")}: {Tr("Left")} [ {leftKeys} ]  |  {Tr("Right")} [ {rightKeys} ]";
+		if (jumpLbl != null)
+			jumpLbl.Text = $"{Tr("Jump")}: [ {jumpKeys} ]";
+		if (pauseLbl != null)
+			pauseLbl.Text = $"{Tr("Pause")}: [ {pauseKeys} ]";
+	}
+
 	private void UpdateInstructionsAlignment()
 	{
 		var audioOptions = GetNode<Node>("SettingsPopup/VBoxContainer/AudioOptions");
@@ -967,6 +991,7 @@ public partial class MainMenu : Control
 	public void _on_instructions_pressed()
 	{
 		CloseAllPopups();
+		UpdateInstructionsControlsText();
 		UpdateInstructionsAlignment();
 		_instructionsPopup.Visible = true;
 		MoveChild(_instructionsPopup, GetChildCount() - 1);

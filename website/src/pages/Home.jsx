@@ -3,6 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
+const getOriginalTitleLogoPath = (lang) => {
+  const code = (lang || 'english').toLowerCase();
+  if (code.includes('ar') || code.includes('arabic')) return '/images/axiom_force_title_logo_arabic.jpg';
+  if (code.includes('pt') || code.includes('portuguese') || code.includes('brazilian')) return '/images/axiom_force_title_logo_brazilianportuguese.jpg';
+  if (code.includes('fr') || code.includes('french')) return '/images/axiom_force_title_logo_eurofrench.jpg';
+  if (code.includes('de') || code.includes('german')) return '/images/axiom_force_title_logo_german.jpg';
+  if (code.includes('he') || code.includes('hebrew')) return '/images/axiom_force_title_logo_hebrew.jpg';
+  if (code.includes('it') || code.includes('italian')) return '/images/axiom_force_title_logo_italian.jpg';
+  if (code.includes('ja') || code.includes('japanese')) return '/images/axiom_force_title_logo_japanese.jpg';
+  if (code.includes('ko') || code.includes('korean')) return '/images/axiom_force_title_logo_korean.jpg';
+  if (code.includes('zh') || code.includes('mandarin')) return '/images/axiom_force_title_logo_mandarin.jpg';
+  if (code.includes('pl') || code.includes('polish')) return '/images/axiom_force_title_logo_polish.jpg';
+  if (code.includes('es') || code.includes('spanish')) return '/images/axiom_force_title_logo_spanish.jpg';
+  if (code.includes('tr') || code.includes('turkish')) return '/images/axiom_force_title_logo_turkish.jpg';
+  return '/images/axiom_force_title_logo.jpg';
+};
+
 export default function Home() {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -37,12 +54,14 @@ export default function Home() {
             {t('story.live_feed', 'System Breach Detected')}
           </div>
           
-          <h1 className="font-display-hero text-[28px] sm:text-[40px] md:text-[54px] lg:text-[72px] text-primary-container drop-shadow-[0_0_15px_rgba(0,243,255,0.5)] mb-8 uppercase leading-tight font-extrabold select-none">
-            {t('hero.title_line2_prefix', 'RECLAIM ')}
-            <span className="text-secondary-container drop-shadow-[0_0_15px_rgba(254,0,254,0.5)] block sm:inline">
-              {t('hero.title_line2_highlight', 'EARTH')}
-            </span>
-          </h1>
+          <div className="flex justify-center mb-8">
+            <h1 className="sr-only">AXIOM FORCE: RECLAIM EARTH</h1>
+            <img 
+              src={getOriginalTitleLogoPath(selectedLanguage)} 
+              alt="AXIOM FORCE: RECLAIM EARTH Logo" 
+              className="w-full max-w-[650px] h-auto object-contain drop-shadow-[0_0_30px_rgba(0,243,255,0.9)] rounded-xl border border-primary-container/40 p-1 bg-void-black/60"
+            />
+          </div>
           
           <p className={`font-body-lg text-[14px] md:text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 pl-4 bg-void-black/70 py-4 border-primary-container ${
             isRtl ? 'border-r-4 text-right pr-4 pl-0' : 'border-l-4 text-left pl-4 pr-0'

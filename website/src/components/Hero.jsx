@@ -11,12 +11,29 @@ const TYPEWRITER_KEYS = [
   'story.timeline.mission_title'
 ];
 
+const getOriginalTitleLogoPath = (lang) => {
+  const code = (lang || 'english').toLowerCase();
+  if (code.includes('ar')) return '/images/axiom_force_title_logo_arabic.jpg';
+  if (code.includes('pt') || code.includes('brazilian')) return '/images/axiom_force_title_logo_brazilianportuguese.jpg';
+  if (code.includes('fr') || code.includes('french')) return '/images/axiom_force_title_logo_eurofrench.jpg';
+  if (code.includes('de') || code.includes('german')) return '/images/axiom_force_title_logo_german.jpg';
+  if (code.includes('he') || code.includes('hebrew')) return '/images/axiom_force_title_logo_hebrew.jpg';
+  if (code.includes('it') || code.includes('italian')) return '/images/axiom_force_title_logo_italian.jpg';
+  if (code.includes('ja') || code.includes('japanese')) return '/images/axiom_force_title_logo_japanese.jpg';
+  if (code.includes('ko') || code.includes('korean')) return '/images/axiom_force_title_logo_korean.jpg';
+  if (code.includes('zh') || code.includes('mandarin')) return '/images/axiom_force_title_logo_mandarin.jpg';
+  if (code.includes('pl') || code.includes('polish')) return '/images/axiom_force_title_logo_polish.jpg';
+  if (code.includes('es') || code.includes('spanish')) return '/images/axiom_force_title_logo_spanish.jpg';
+  if (code.includes('tr') || code.includes('turkish')) return '/images/axiom_force_title_logo_turkish.jpg';
+  return '/images/axiom_force_title_logo.jpg';
+};
+
 export default function Hero({ bgImage }) {
   const [displayText, setDisplayText] = useState('');
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const currentLine = t(TYPEWRITER_KEYS[lineIndex]);
@@ -85,12 +102,14 @@ export default function Hero({ bgImage }) {
           <span>{t('footer.status')}</span>
         </div>
 
-        <h1 className="hero__title">
-          <span className="hero__title-line1">{t('hero.title_line1')}</span>
-          <span className="hero__title-line2">
-            {t('hero.title_line2_prefix')}<span className="hero__title-accent">{t('hero.title_line2_highlight')}</span>
-          </span>
-        </h1>
+        <div className="hero__title-container flex justify-center my-4">
+          <h1 className="sr-only">{t('hero.title_line1')} {t('hero.title_line2_prefix')}{t('hero.title_line2_highlight')}</h1>
+          <img 
+            src={getOriginalTitleLogoPath(i18n.language)} 
+            alt="AXIOM FORCE: RECLAIM EARTH Logo" 
+            className="w-full max-w-[680px] h-auto object-contain drop-shadow-[0_0_24px_rgba(0,243,255,0.85)] rounded-xl"
+          />
+        </div>
 
         <div className="hero__typewriter" aria-live="polite">
           <span className="hero__typewriter-prompt">AXIOM-7 &gt;</span>
