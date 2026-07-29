@@ -101,9 +101,43 @@ func save_custom_keybindings() -> void:
 		file.store_string(JSON.stringify(bindings))
 		file.close()
 
+func load_mp3_stream(res_path: String) -> AudioStream:
+	if ResourceLoader.exists(res_path):
+		var res = load(res_path)
+		if res != null:
+			if res is AudioStreamMP3:
+				res.loop = true
+			return res
+	var global_path = ProjectSettings.globalize_path(res_path)
+	if FileAccess.file_exists(global_path):
+		var file = FileAccess.open(global_path, FileAccess.READ)
+		if file != null:
+			var buffer = file.get_buffer(file.get_length())
+			file.close()
+			if not buffer.is_empty():
+				var mp3 = AudioStreamMP3.new()
+				mp3.data = buffer
+				mp3.loop = true
+				return mp3
+	return null
+
+func play_audio_track(res_path: String) -> void:
+	if menu_music_player == null:
+		return
+	if menu_music_player.playing and menu_music_player.stream != null:
+		if menu_music_player.stream.resource_path == res_path:
+			return # Already playing this exact track
+	var stream = load_mp3_stream(res_path)
+	if stream != null:
+		menu_music_player.stream = stream
+		menu_music_player.volume_db = 0.0
+		menu_music_player.play()
+
+func play_home_music() -> void:
+	play_audio_track("res://assets/audio/Sub_Level_Three.mp3")
+
 func play_menu_music() -> void:
-	if menu_music_player and menu_music_player.playing:
-		menu_music_player.stop()
+	play_audio_track("res://assets/audio/Street_Level_Siege.mp3")
 
 func stop_menu_music() -> void:
 	if menu_music_player and menu_music_player.playing:

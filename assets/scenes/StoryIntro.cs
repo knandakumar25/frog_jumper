@@ -120,8 +120,28 @@ public partial class StoryIntro : Control
 
             typewriterTimer = 0f;
 
-            // Play corresponding voice recording
-            string audioPath = $"res://assets/speech/AXIOM-7/AXIOM-7-{currentLineIndex + 1} (ENG).mp3";
+            // Play corresponding voice recording from language subfolder
+            string currentLang = TranslationServer.GetLocale().ToLower();
+            string langFolder = "english";
+
+            if (currentLang.Contains("es") || currentLang.Contains("spanish")) langFolder = "spanish";
+            else if (currentLang.Contains("fr") || currentLang.Contains("french")) langFolder = "french";
+            else if (currentLang.Contains("de") || currentLang.Contains("german")) langFolder = "german";
+            else if (currentLang.Contains("ja") || currentLang.Contains("japanese")) langFolder = "japanese";
+            else if (currentLang.Contains("ko") || currentLang.Contains("korean")) langFolder = "korean";
+            else if (currentLang.Contains("zh") || currentLang.Contains("mandarin")) langFolder = "mandarin";
+            else if (currentLang.Contains("ar") || currentLang.Contains("arabic")) langFolder = "arabic";
+            else if (currentLang.Contains("he") || currentLang.Contains("hebrew")) langFolder = "hebrew";
+            else if (currentLang.Contains("it") || currentLang.Contains("italian")) langFolder = "italian";
+            else if (currentLang.Contains("pl") || currentLang.Contains("polish")) langFolder = "polish";
+            else if (currentLang.Contains("pt") || currentLang.Contains("portuguese")) langFolder = "portuguese";
+            else if (currentLang.Contains("tr") || currentLang.Contains("turkish")) langFolder = "turkish";
+
+            string speaker = "AXIOM-7";
+            string primaryPath = $"res://assets/speech/{speaker}/{langFolder}/AXIOM-7-{currentLineIndex + 1}.mp3";
+            string fallbackPath = $"res://assets/speech/{speaker}/english/AXIOM-7-{currentLineIndex + 1}.mp3";
+            string audioPath = System.IO.File.Exists(ProjectSettings.GlobalizePath(primaryPath)) ? primaryPath : fallbackPath;
+
             GD.Print($"StoryIntro: Attempting to load audio: {audioPath}");
             AudioStream stream = GD.Load<AudioStream>(audioPath);
             if (stream != null && voicePlayer != null)

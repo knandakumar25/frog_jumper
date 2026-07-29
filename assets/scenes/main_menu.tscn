@@ -38,6 +38,7 @@ texture = ExtResource("2_v0073")
 stretch_mode = 6
 
 [node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.04

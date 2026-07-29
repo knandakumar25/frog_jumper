@@ -81,6 +81,7 @@ public partial class MainMenu : Control
 	public override void _Ready()
 	{
 		GD.Print("main_menu: _ready() start");
+		GetNodeOrNull<Node>("/root/Global")?.Call("play_menu_music");
 		try
 		{
 			// Resolve node references
@@ -414,50 +415,8 @@ public partial class MainMenu : Control
 	// ─── Floating title ──────────────────────────────────────────────────────
 	private async System.Threading.Tasks.Task SetupFloatingTitleAsync()
 	{
-		var audioOptions = GetNodeOrNull<Node>("SettingsPopup/VBoxContainer/AudioOptions");
-		string langName  = (audioOptions != null) ? (string)audioOptions.Get("selected_language") : "english";
-		var languages    = (audioOptions != null) ? (Dictionary)audioOptions.Get("languages") : null;
-		
-		string localeKey = (languages != null && languages.ContainsKey(Variant.From(langName)))
-			? (string)languages[langName] 
-			: TranslationServer.GetLocale().ToLower();
-
-		string[] candidates = new string[]
-		{
-			$"res://assets/images/axiom_force_title_logo_{localeKey}.jpg",
-			$"res://assets/images/axiom_force_title_logo_{langName.ToLower()}.jpg",
-			"res://assets/images/axiom_force_title_logo.jpg"
-		};
-
-		Texture2D titleTexture = null;
-		foreach (string path in candidates)
-		{
-			titleTexture = LoadImageTexture(path, makeTransparent: true);
-			if (titleTexture != null) break;
-		}
-
-		foreach (Node child in _titleContainer.GetChildren())
-			child.QueueFree();
-
-		if (titleTexture != null)
-		{
-			var logoRect = new TextureRect
-			{
-				Texture = titleTexture,
-				CustomMinimumSize = new Vector2(520, 200),
-				ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
-				StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered,
-				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-				SizeFlagsVertical = Control.SizeFlags.ExpandFill
-			};
-
-			_titleContainer.AddChild(logoRect);
-
-			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-			logoRect.PivotOffset = logoRect.Size / 2f;
-
-			await AnimateFloatingTitleAsync(logoRect);
-		}
+		if (_titleContainer != null) _titleContainer.Visible = false;
+		await System.Threading.Tasks.Task.CompletedTask;
 	}
 
 	private async System.Threading.Tasks.Task AnimateFloatingTitleAsync(Control node)
