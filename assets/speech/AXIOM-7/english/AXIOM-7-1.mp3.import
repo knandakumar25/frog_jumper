@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c788bpb7v4ymc"
-path="res://.godot/imported/AXIOM-7-1.mp3-9338143fbe15703859f53ffb9b848020.mp3str"
+path="res://.godot/imported/AXIOM-7-1.mp3-fb8cfd52d0a4a4fe894da3998ae2f038.mp3str"
 
 [deps]
 
 source_file="res://assets/speech/AXIOM-7/english/AXIOM-7-1.mp3"
-dest_files=["res://.godot/imported/AXIOM-7-1.mp3-9338143fbe15703859f53ffb9b848020.mp3str"]
+dest_files=["res://.godot/imported/AXIOM-7-1.mp3-fb8cfd52d0a4a4fe894da3998ae2f038.mp3str"]
 
 [params]
 
