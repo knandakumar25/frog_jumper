@@ -593,7 +593,7 @@ public partial class MainMenu : Control
 
 		// Header Action Bar: Purge All Records button
 		var actionRow    = new HBoxContainer { Alignment = BoxContainer.AlignmentMode.End };
-		var deleteAllBtn = MakeDeleteButton("// PURGE ALL RECORDS");
+		var deleteAllBtn = MakeDeleteButton(Tr("// PURGE ALL RECORDS"));
 		deleteAllBtn.Pressed += OnDeleteAllPressed;
 		actionRow.AddChild(deleteAllBtn);
 		_sessionsContainer.AddChild(actionRow);
@@ -739,7 +739,7 @@ public partial class MainMenu : Control
 			var title = _continuePopup.GetNodeOrNull<Label>("VBoxContainer/Title");
 			if (title != null)
 			{
-				title.Text = "// OPERATIVE RECORDS MATRIX //";
+				title.Text = Tr("// OPERATIVE RECORDS MATRIX //");
 				title.AddThemeFontOverride("font", orbitronFont);
 				title.AddThemeFontSizeOverride("font_size", 24);
 				title.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));

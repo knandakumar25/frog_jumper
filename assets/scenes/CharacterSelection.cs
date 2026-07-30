@@ -24,8 +24,33 @@ public partial class CharacterSelection : Control
 		_speedMeter        = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedMeter");
 		_agilityMeter      = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityMeter");
 
+		TranslateUI();
 		SelectOperative("Ninja Frog");
 		UISoundManager.AutoWireButtons(this);
+	}
+
+	private void TranslateUI()
+	{
+		var header = GetNodeOrNull<Label>("Header");
+		if (header != null) header.Text = Tr("OPERATIVE SELECTION MATRIX");
+
+		var listTitle = GetNodeOrNull<Label>("MainLayout/LeftListPanel/VBox/ListTitle");
+		if (listTitle != null) listTitle.Text = Tr("AVAILABLE OPERATIVES");
+
+		var ninjaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog");
+		if (ninjaBtn != null) ninjaBtn.Text = Tr("Ninja Frog [RECON]");
+
+		var maskBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/MaskDude");
+		if (maskBtn != null) maskBtn.Text = Tr("Mask Dude [ASSAULT]");
+
+		var pinkBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/PinkMan");
+		if (pinkBtn != null) pinkBtn.Text = Tr("Pink Man [HEAVY]");
+
+		var virtualBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/VirtualGuy");
+		if (virtualBtn != null) virtualBtn.Text = Tr("Virtual Guy [CYBER]");
+
+		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
+		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
 	}
 
 	public void _on_ninja_frog_pressed()    => SelectOperative("Ninja Frog");

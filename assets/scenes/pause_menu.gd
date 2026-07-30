@@ -8,6 +8,24 @@ func _ready() -> void:
 	var panel = get_node_or_null("ColorRect2")
 	if panel != null:
 		panel.visible = false
+	_translate_ui()
+
+func _translate_ui() -> void:
+	var title = get_node_or_null("ColorRect2/VBoxContainer/Title")
+	if title != null:
+		title.text = tr("SYSTEM PAUSED")
+	var resume_btn = get_node_or_null("ColorRect2/VBoxContainer/Resume")
+	if resume_btn != null:
+		resume_btn.text = tr("Resume Mission")
+	var restart_btn = get_node_or_null("ColorRect2/VBoxContainer/Restart")
+	if restart_btn != null:
+		restart_btn.text = tr("Restart Level")
+	var lvl_btn = get_node_or_null("ColorRect2/VBoxContainer/LevelSelection")
+	if lvl_btn != null:
+		lvl_btn.text = tr("Return to Level Selection")
+	var menu_btn = get_node_or_null("ColorRect2/VBoxContainer/MainMenu")
+	if menu_btn != null:
+		menu_btn.text = tr("Return to Main Menu")
 
 func resume() -> void:
 	get_tree().paused = false

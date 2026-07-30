@@ -53,6 +53,11 @@ public partial class StoryIntro : Control
             TranslationServer.Translate("STORY_LINE_9")
         };
 
+        // Translate title banner
+        var titleBanner = GetNodeOrNull<Label>("TitleBanner");
+        if (titleBanner != null)
+            titleBanner.Text = TranslationServer.Translate("MISSION BRIEFING TRANSMISSION");
+
         // Initialize UI state defensively
         if (continueButton != null)
             continueButton.Visible = false;
@@ -143,7 +148,7 @@ public partial class StoryIntro : Control
             string audioPath = System.IO.File.Exists(ProjectSettings.GlobalizePath(primaryPath)) ? primaryPath : fallbackPath;
 
             GD.Print($"StoryIntro: Attempting to load audio: {audioPath}");
-            AudioStream stream = GD.Load<AudioStream>(audioPath);
+            AudioStream stream = LoadAudioStream(audioPath);
             if (stream != null && voicePlayer != null)
             {
                 GD.Print($"StoryIntro: Successfully loaded and playing: {audioPath}");
@@ -159,6 +164,28 @@ public partial class StoryIntro : Control
         {
             ProceedToLevelSelection();
         }
+    }
+
+    private AudioStream? LoadAudioStream(string resPath)
+    {
+        if (ResourceLoader.Exists(resPath))
+        {
+            var res = GD.Load<AudioStream>(resPath);
+            if (res != null) return res;
+        }
+
+        string globalPath = ProjectSettings.GlobalizePath(resPath);
+        if (System.IO.File.Exists(globalPath))
+        {
+            byte[] bytes = System.IO.File.ReadAllBytes(globalPath);
+            if (bytes.Length > 0)
+            {
+                var mp3 = new AudioStreamMP3();
+                mp3.Data = bytes;
+                return mp3;
+            }
+        }
+        return null;
     }
 
     private void OnContinueButtonPressed()

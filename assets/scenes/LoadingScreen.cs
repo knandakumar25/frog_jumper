@@ -25,18 +25,21 @@ public partial class LoadingScreen : Control
         _statusLabel  = GetNode<Label>("CenterContainer/MainPanel/VBoxContainer/StatusLabel");
         _fadeOverlay  = GetNode<ColorRect>("FadeOverlay");
 
+        var loadingLabel = GetNodeOrNull<Label>("CenterContainer/MainPanel/VBoxContainer/LoadingLabel");
+        if (loadingLabel != null)
+        {
+            loadingLabel.Text = Tr("INITIALIZING SYSTEM...");
+        }
+
         if (HasNode("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner"))
         {
             var logoBanner = GetNode<TextureRect>("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner");
-            if (logoBanner.Texture == null)
+            string resPath = GetLocalizedTitleLogoPath();
+            string globalPath = ProjectSettings.GlobalizePath(resPath);
+            if (System.IO.File.Exists(globalPath))
             {
-                string resPath = "res://assets/images/axiom_force_title_logo.jpg";
-                string globalPath = ProjectSettings.GlobalizePath(resPath);
-                if (System.IO.File.Exists(globalPath))
-                {
-                    var img = Image.LoadFromFile(globalPath);
-                    if (img != null) logoBanner.Texture = ImageTexture.CreateFromImage(img);
-                }
+                var img = Image.LoadFromFile(globalPath);
+                if (img != null) logoBanner.Texture = ImageTexture.CreateFromImage(img);
             }
         }
 
@@ -144,6 +147,33 @@ public partial class LoadingScreen : Control
         tree.Root.AddChild(screen);
         tree.CurrentScene.QueueFree();
         tree.CurrentScene = screen;
+    }
+
+    private string GetLocalizedTitleLogoPath()
+    {
+        string locale = TranslationServer.GetLocale().ToLower();
+        string langName = "english";
+        if (locale.Contains("es") || locale.Contains("spanish")) langName = "spanish";
+        else if (locale.Contains("fr") || locale.Contains("french")) langName = "eurofrench";
+        else if (locale.Contains("de") || locale.Contains("german")) langName = "german";
+        else if (locale.Contains("ja") || locale.Contains("japanese")) langName = "japanese";
+        else if (locale.Contains("ko") || locale.Contains("korean")) langName = "korean";
+        else if (locale.Contains("zh") || locale.Contains("mandarin")) langName = "mandarin";
+        else if (locale.Contains("ar") || locale.Contains("arabic")) langName = "arabic";
+        else if (locale.Contains("he") || locale.Contains("hebrew")) langName = "hebrew";
+        else if (locale.Contains("it") || locale.Contains("italian")) langName = "italian";
+        else if (locale.Contains("pl") || locale.Contains("polish")) langName = "polish";
+        else if (locale.Contains("pt") || locale.Contains("portuguese")) langName = "brazilianportuguese";
+        else if (locale.Contains("tr") || locale.Contains("turkish")) langName = "turkish";
+
+        if (langName == "english") return "res://assets/images/axiom_force_title_logo.jpg";
+
+        string localizedPath = $"res://assets/images/axiom_force_title_logo_{langName}.jpg";
+        if (System.IO.File.Exists(ProjectSettings.GlobalizePath(localizedPath)))
+        {
+            return localizedPath;
+        }
+        return "res://assets/images/axiom_force_title_logo.jpg";
     }
 }
 
