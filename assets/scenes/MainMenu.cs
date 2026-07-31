@@ -747,6 +747,9 @@ public partial class MainMenu : Control
 			var backBtn = _continuePopup.GetNodeOrNull<Button>("VBoxContainer/BackButton");
 			if (backBtn != null)
 			{
+				backBtn.Text = Tr("Back");
+				backBtn.Pressed -= OnContinueBackPressed;
+				backBtn.Pressed += OnContinueBackPressed;
 				StyleCyberButton(backBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
 			}
 		}
@@ -791,7 +794,7 @@ public partial class MainMenu : Control
 			var settingsTitle = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/Title");
 			if (settingsTitle != null)
 			{
-				settingsTitle.Text = "// SYSTEM CALIBRATION //";
+				settingsTitle.Text = Tr("// SYSTEM CALIBRATION //");
 				settingsTitle.AddThemeFontOverride("font", orbitronFont);
 				settingsTitle.AddThemeFontSizeOverride("font_size", 24);
 				settingsTitle.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
@@ -802,6 +805,7 @@ public partial class MainMenu : Control
 			var dispLbl = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/DisplayLabel");
 			if (volLbl != null)
 			{
+				volLbl.Text = Tr("Volume").ToUpper() + " [ 100% ]";
 				volLbl.AddThemeFontOverride("font", orbitronFont);
 				volLbl.AddThemeFontSizeOverride("font_size", 16);
 				volLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));
@@ -827,10 +831,41 @@ public partial class MainMenu : Control
 				StyleCyberSlider(slider);
 			}
 
+			if (_controlsButton != null)
+			{
+				_controlsButton.Text = Tr("// REBIND CONTROLS");
+				StyleCyberButton(_controlsButton, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+			}
+
 			var applyBtn = _settingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ApplyButton");
 			var closeBtn = _settingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/CloseButton");
 			if (applyBtn != null) StyleCyberButton(applyBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
 			if (closeBtn != null) StyleCyberButton(closeBtn, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
+		}
+
+		// Apply to KeybindingsPopup
+		if (_keybindingsPopup != null)
+		{
+			_keybindingsPopup.AddThemeStyleboxOverride("panel", cyberPanelStyle);
+			var keyTitle = _keybindingsPopup.GetNodeOrNull<Label>("VBoxContainer/Title");
+			if (keyTitle != null)
+			{
+				keyTitle.Text = Tr("// CUSTOM CONTROLS REBIND //");
+				keyTitle.AddThemeFontOverride("font", orbitronFont);
+				keyTitle.AddThemeFontSizeOverride("font_size", 24);
+				keyTitle.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+			}
+
+			if (_resetDefaultsButton != null)
+			{
+				_resetDefaultsButton.Text = Tr("Reset Defaults");
+				StyleCyberButton(_resetDefaultsButton, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
+			}
+			if (_closeKeybindingsButton != null)
+			{
+				_closeKeybindingsButton.Text = Tr("Close");
+				StyleCyberButton(_closeKeybindingsButton, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
+			}
 		}
 	}
 
@@ -1058,6 +1093,14 @@ public partial class MainMenu : Control
 		PopulateSessions();
 		_continuePopup.Visible = true;
 		MoveChild(_continuePopup, GetChildCount() - 1);
+	}
+
+	private void OnContinueBackPressed()
+	{
+		if (_continuePopup != null)
+		{
+			_continuePopup.Visible = false;
+		}
 	}
 
 	private void OnDeleteOnePressed(int sessionId)
