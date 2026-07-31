@@ -20,6 +20,10 @@ public partial class StoryIntro : Control
 
     public override void _Ready()
     {
+        // Ensure device screen does not dim or sleep during transmission briefing
+        DisplayServer.ScreenSetKeepOn(true);
+        GD.Print("StoryIntro: DisplayServer.ScreenSetKeepOn enabled");
+
         // Safely get nodes (will warn if missing instead of throwing)
         robotSprite = GetNodeOrNull<AnimatedSprite2D>("HBoxContainer/RobotContainer/RobotSprite");
         dialogueBox = GetNodeOrNull<Panel>("HBoxContainer/DialogueBox");

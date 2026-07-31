@@ -17,6 +17,8 @@ func _ready() -> void:
 	current_display_mode = "Fullscreen"
 	if DisplayServer.get_name() != "headless":
 		apply_display_mode("Fullscreen")
+		DisplayServer.screen_set_keep_on(true)
+		print("Global: Screen keep-awake enabled (prevents device sleep)")
 
 	# Set default locale to english (matching the CSV column name)
 	TranslationServer.set_locale("english")
