@@ -11,7 +11,7 @@ const LANGUAGE_OVERRIDES := {
 	"english": ["English", "English"],
 	"spanish": ["Spanish", "Español"],
 	"eurofrench": ["French", "Français"],
-	"brazilianportuguese": ["Portuguese - Brazil", "Português"],
+	"brazilianportuguese": ["Portuguese", "Português"],
 	"german": ["German", "Deutsch"],
 	"italian": ["Italian", "Italiano"],
 	"polish": ["Polish", "Polski"],
