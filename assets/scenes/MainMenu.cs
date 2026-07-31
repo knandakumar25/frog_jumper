@@ -867,6 +867,12 @@ public partial class MainMenu : Control
 				StyleCyberButton(_closeKeybindingsButton, orbitronFont, new Color(1f, 0f, 0.5f, 1f));
 			}
 		}
+
+		var statusTicker = GetNodeOrNull<Label>("StatusTicker");
+		if (statusTicker != null)
+		{
+			statusTicker.Text = Tr("AXIOM NET // STATUS: ONLINE // SYSTEM READY");
+		}
 	}
 
 	private static void StyleCyberSlider(HSlider slider)
@@ -1039,6 +1045,7 @@ public partial class MainMenu : Control
 		_ = SetupFloatingTitleAsync();
 		_settingsPopup.Visible = false;
 
+		ApplyCyberpunkPanelStyles();
 		QueueRedrawAllButtons(this);
 	}
 

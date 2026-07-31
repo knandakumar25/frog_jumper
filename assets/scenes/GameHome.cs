@@ -78,7 +78,7 @@ public partial class GameHome : Control
 
 		if (_versionLabel != null)
 		{
-			_versionLabel.Text = "v1.0.4  |  RESISTANCE PROTOCOL ACTIVE  |  AXIOM FORCE";
+			_versionLabel.Text = $"v1.0.4  |  {Tr("RESISTANCE PROTOCOL ACTIVE")}  |  {Tr("AXIOM FORCE")}";
 			if (rajdhaniFont != null) _versionLabel.AddThemeFontOverride("font", rajdhaniFont);
 			_versionLabel.AddThemeFontSizeOverride("font_size", 14);
 			_versionLabel.AddThemeColorOverride("font_color", new Color(0.7f, 0.8f, 0.95f, 0.6f));
