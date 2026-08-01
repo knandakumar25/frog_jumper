@@ -133,18 +133,18 @@ public partial class StoryIntro : Control
             string currentLang = TranslationServer.GetLocale().ToLower();
             string langFolder = "english";
 
-            if (currentLang.Contains("es") || currentLang.Contains("spanish")) langFolder = "spanish";
-            else if (currentLang.Contains("fr") || currentLang.Contains("french")) langFolder = "french";
-            else if (currentLang.Contains("de") || currentLang.Contains("german")) langFolder = "german";
-            else if (currentLang.Contains("ja") || currentLang.Contains("japanese")) langFolder = "japanese";
-            else if (currentLang.Contains("ko") || currentLang.Contains("korean")) langFolder = "korean";
-            else if (currentLang.Contains("zh") || currentLang.Contains("mandarin")) langFolder = "mandarin";
-            else if (currentLang.Contains("ar") || currentLang.Contains("arabic")) langFolder = "arabic";
-            else if (currentLang.Contains("he") || currentLang.Contains("hebrew")) langFolder = "hebrew";
-            else if (currentLang.Contains("it") || currentLang.Contains("italian")) langFolder = "italian";
-            else if (currentLang.Contains("pl") || currentLang.Contains("polish")) langFolder = "polish";
-            else if (currentLang.Contains("pt") || currentLang.Contains("portuguese")) langFolder = "portuguese";
-            else if (currentLang.Contains("tr") || currentLang.Contains("turkish")) langFolder = "turkish";
+            if (currentLang == "ja" || currentLang.Contains("japanese")) langFolder = "japanese";
+            else if (currentLang == "es" || currentLang.Contains("spanish") || currentLang.StartsWith("es_")) langFolder = "spanish";
+            else if (currentLang == "fr" || currentLang.Contains("french")) langFolder = "french";
+            else if (currentLang == "de" || currentLang.Contains("german")) langFolder = "german";
+            else if (currentLang == "ko" || currentLang.Contains("korean")) langFolder = "korean";
+            else if (currentLang == "zh" || currentLang.Contains("mandarin")) langFolder = "mandarin";
+            else if (currentLang == "ar" || currentLang.Contains("arabic")) langFolder = "arabic";
+            else if (currentLang == "he" || currentLang.Contains("hebrew")) langFolder = "hebrew";
+            else if (currentLang == "it" || currentLang.Contains("italian")) langFolder = "italian";
+            else if (currentLang == "pl" || currentLang.Contains("polish")) langFolder = "polish";
+            else if (currentLang == "pt" || currentLang.Contains("portuguese")) langFolder = "portuguese";
+            else if (currentLang == "tr" || currentLang.Contains("turkish")) langFolder = "turkish";
 
             string speaker = "AXIOM-7";
             string primaryPath = $"res://assets/speech/{speaker}/{langFolder}/AXIOM-7-{currentLineIndex + 1}.mp3";
