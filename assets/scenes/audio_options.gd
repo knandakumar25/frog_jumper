@@ -19,7 +19,12 @@ const LANGUAGE_OVERRIDES := {
 	"turkish": ["Turkish", "Türkçe"],
 	"japanese": ["Japanese", "日本語"],
 	"korean": ["Korean", "한국어"],
-	"mandarin": ["Mandarin", "中文"],
+	"mandarin": ["Mandarin", "簡體中文"],
+	"traditionalchinese": ["Traditional Chinese", "繁體中文"],
+	"hindi": ["Hindi", "हिन्दी"],
+	"indonesian": ["Indonesian", "Bahasa Indonesia"],
+	"vietnamese": ["Vietnamese", "Tiếng Việt"],
+	"thai": ["Thai", "ไทย"],
 	"hebrew": ["Hebrew", "עברית"]
 }
 

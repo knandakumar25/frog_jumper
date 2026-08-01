@@ -139,6 +139,11 @@ public partial class StoryIntro : Control
             else if (currentLang == "de" || currentLang == "german") langFolder = "german";
             else if (currentLang == "ko" || currentLang == "korean") langFolder = "korean";
             else if (currentLang == "zh" || currentLang == "mandarin") langFolder = "mandarin";
+            else if (currentLang == "traditionalchinese" || currentLang == "zh_tw" || currentLang == "zh_hk") langFolder = "traditionalchinese";
+            else if (currentLang == "hi" || currentLang == "hindi") langFolder = "hindi";
+            else if (currentLang == "id" || currentLang == "indonesian") langFolder = "indonesian";
+            else if (currentLang == "vi" || currentLang == "vietnamese") langFolder = "vietnamese";
+            else if (currentLang == "th" || currentLang == "thai") langFolder = "thai";
             else if (currentLang == "ar" || currentLang == "arabic") langFolder = "arabic";
             else if (currentLang == "he" || currentLang == "hebrew") langFolder = "hebrew";
             else if (currentLang == "it" || currentLang == "italian") langFolder = "italian";
