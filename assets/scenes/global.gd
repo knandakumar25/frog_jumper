@@ -25,13 +25,27 @@ func _ready() -> void:
 	print("Global: Locale set to 'english'")
 
 	# Configure Cairo & NotoSans as universal fallbacks for sci-fi fonts (Orbitron / Rajdhani) for Arabic, Hebrew, CJK support
+	update_font_for_locale(TranslationServer.get_locale())
+
+func update_font_for_locale(locale_code: String) -> void:
+	var loc = locale_code.to_lower()
+	var is_arabic = "ar" in loc
 	var cairo_font = load("res://assets/fonts/Cairo.ttf")
 	var arabic_font = load("res://assets/fonts/NotoSansArabic.ttf")
 	var noto_font = load("res://assets/fonts/NotoSans-Regular.ttf")
+	
 	var fallbacks_list = []
-	if cairo_font != null: fallbacks_list.append(cairo_font)
+	if is_arabic and cairo_font != null:
+		fallbacks_list.append(cairo_font)
 	if arabic_font != null: fallbacks_list.append(arabic_font)
 	if noto_font != null: fallbacks_list.append(noto_font)
+
+	if is_arabic and cairo_font != null:
+		ThemeDB.fallback_font = cairo_font
+		print("Global: Set ThemeDB.fallback_font to Cairo.ttf for Arabic")
+	elif noto_font != null:
+		ThemeDB.fallback_font = noto_font
+		print("Global: Set ThemeDB.fallback_font to NotoSans-Regular.ttf")
 
 	if fallbacks_list.size() > 0:
 		var fonts_to_patch = [

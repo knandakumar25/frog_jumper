@@ -92,6 +92,9 @@ func apply_language_change() -> void:
 	if selected_language != "":
 		var locale = languages[selected_language]
 		TranslationServer.set_locale(locale)
+		var global_node = get_node_or_null("/root/Global")
+		if global_node != null and global_node.has_method("update_font_for_locale"):
+			global_node.update_font_for_locale(locale)
 		var slider = get_node_or_null("VBoxContainer/MasterSlider")
 		if slider != null:
 			_update_volume_label(slider.value)
