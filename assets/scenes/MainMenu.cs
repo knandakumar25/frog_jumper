@@ -748,8 +748,10 @@ public partial class MainMenu : Control
 			if (backBtn != null)
 			{
 				backBtn.Text = Tr("Back");
-				backBtn.Pressed -= OnContinueBackPressed;
-				backBtn.Pressed += OnContinueBackPressed;
+				if (!backBtn.IsConnected(Button.SignalName.Pressed, Callable.From(OnContinueBackPressed)))
+				{
+					backBtn.Pressed += OnContinueBackPressed;
+				}
 				StyleCyberButton(backBtn, orbitronFont, new Color(0f, 0.94f, 1f, 0.85f));
 			}
 		}
