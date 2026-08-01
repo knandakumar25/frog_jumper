@@ -24,9 +24,16 @@ func _ready() -> void:
 	TranslationServer.set_locale("english")
 	print("Global: Locale set to 'english'")
 
-	# Configure NotoSans as universal fallback for sci-fi fonts (Orbitron / Rajdhani) for Arabic, Hebrew, CJK support
+	# Configure Cairo & NotoSans as universal fallbacks for sci-fi fonts (Orbitron / Rajdhani) for Arabic, Hebrew, CJK support
+	var cairo_font = load("res://assets/fonts/Cairo.ttf")
+	var arabic_font = load("res://assets/fonts/NotoSansArabic.ttf")
 	var noto_font = load("res://assets/fonts/NotoSans-Regular.ttf")
-	if noto_font != null:
+	var fallbacks_list = []
+	if cairo_font != null: fallbacks_list.append(cairo_font)
+	if arabic_font != null: fallbacks_list.append(arabic_font)
+	if noto_font != null: fallbacks_list.append(noto_font)
+
+	if fallbacks_list.size() > 0:
 		var fonts_to_patch = [
 			"res://assets/fonts/Orbitron-VariableFont.ttf",
 			"res://assets/fonts/Rajdhani-Bold.ttf",
@@ -37,8 +44,8 @@ func _ready() -> void:
 			if ResourceLoader.exists(font_path):
 				var f = load(font_path)
 				if f != null and f is FontFile:
-					f.fallbacks = [noto_font]
-		print("Global: Configured NotoSans font fallbacks for Orbitron & Rajdhani sci-fi fonts")
+					f.fallbacks = fallbacks_list
+		print("Global: Configured Cairo & Arabic font fallbacks for Orbitron & Rajdhani sci-fi fonts")
 
 	# Load and set custom cyber cursor at runtime
 	var cursor_path = ProjectSettings.globalize_path("res://assets/images/cursor.png")

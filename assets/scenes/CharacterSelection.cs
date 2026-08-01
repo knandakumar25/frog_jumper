@@ -34,15 +34,17 @@ public partial class CharacterSelection : Control
 	{
 		if (node == null) return;
 		string locale = TranslationServer.GetLocale().ToLower();
-		bool isNonLatin = locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") || 
+		bool isArabic = locale.Contains("ar");
+		bool isNonLatin = isArabic || locale.Contains("he") || locale.Contains("ja") || 
 		                  locale.Contains("ko") || locale.Contains("zh");
 
 		if (isNonLatin && node is Control c)
 		{
-			var notoFont = GD.Load<Font>("res://assets/fonts/NotoSans-Regular.ttf");
-			if (notoFont != null)
+			string fontPath = isArabic ? "res://assets/fonts/Cairo.ttf" : "res://assets/fonts/NotoSans-Regular.ttf";
+			var targetFont = GD.Load<Font>(fontPath);
+			if (targetFont != null)
 			{
-				c.AddThemeFontOverride("font", notoFont);
+				c.AddThemeFontOverride("font", targetFont);
 			}
 		}
 
