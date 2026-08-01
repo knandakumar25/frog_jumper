@@ -59,6 +59,18 @@ public partial class CharacterSelection : Control
 	public void _on_virtual_guy_pressed()   => SelectOperative("Virtual Guy");
 	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
+	private static string SafeToUpper(string text)
+	{
+		if (string.IsNullOrEmpty(text)) return "";
+		string locale = TranslationServer.GetLocale().ToLower();
+		if (locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") || 
+		    locale.Contains("ko") || locale.Contains("zh"))
+		{
+			return text;
+		}
+		return text.ToUpper();
+	}
+
 	private void SelectOperative(string characterName)
 	{
 		_currentSelectedCharacter = characterName;
@@ -66,25 +78,25 @@ public partial class CharacterSelection : Control
 		switch (characterName)
 		{
 			case "Ninja Frog":
-				_selectedNameLabel.Text = Tr("Ninja Frog").ToUpper();
+				_selectedNameLabel.Text = SafeToUpper(Tr("Ninja Frog"));
 				_classTagLabel.Text     = Tr("// CLASS: RECON INFILTRATOR");
 				_speedMeter?.SetStat(Tr("SPEED"), 92f);
 				_agilityMeter?.SetStat(Tr("AGILITY"), 95f);
 				break;
 			case "Mask Dude":
-				_selectedNameLabel.Text = Tr("Mask Dude").ToUpper();
+				_selectedNameLabel.Text = SafeToUpper(Tr("Mask Dude"));
 				_classTagLabel.Text     = Tr("// CLASS: TACTICAL ASSAULT");
 				_speedMeter?.SetStat(Tr("SPEED"), 85f);
 				_agilityMeter?.SetStat(Tr("AGILITY"), 88f);
 				break;
 			case "Pink Man":
-				_selectedNameLabel.Text = Tr("Pink Man").ToUpper();
+				_selectedNameLabel.Text = SafeToUpper(Tr("Pink Man"));
 				_classTagLabel.Text     = Tr("// CLASS: HEAVY SPECIALIST");
 				_speedMeter?.SetStat(Tr("SPEED"), 78f);
 				_agilityMeter?.SetStat(Tr("AGILITY"), 80f);
 				break;
 			case "Virtual Guy":
-				_selectedNameLabel.Text = Tr("Virtual Guy").ToUpper();
+				_selectedNameLabel.Text = SafeToUpper(Tr("Virtual Guy"));
 				_classTagLabel.Text     = Tr("// CLASS: CYBERNETIC INFILTRATOR");
 				_speedMeter?.SetStat(Tr("SPEED"), 90f);
 				_agilityMeter?.SetStat(Tr("AGILITY"), 92f);

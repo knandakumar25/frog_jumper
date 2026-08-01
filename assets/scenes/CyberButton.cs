@@ -136,6 +136,18 @@ public partial class CyberButton : Control
 		return prefix + clean;
 	}
 
+	private static string SafeToUpper(string text)
+	{
+		if (string.IsNullOrEmpty(text)) return "";
+		string locale = TranslationServer.GetLocale().ToLower();
+		if (locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") || 
+		    locale.Contains("ko") || locale.Contains("zh"))
+		{
+			return text;
+		}
+		return text.ToUpper();
+	}
+
 	public override void _Draw()
 	{
 		Vector2 size = Size;
@@ -195,7 +207,7 @@ public partial class CyberButton : Control
 		// Main Label
 		float mainX = contentX + 44f;
 		Color mainColor = IsDisabled ? new Color(0.5f, 0.55f, 0.65f, 0.6f) : new Color(0.95f, 0.98f, 1f, 1f);
-		string translatedMain = TranslateText(MainText).ToUpper();
+		string translatedMain = SafeToUpper(TranslateText(MainText));
 		DrawString(RajdhaniFont, new Vector2(mainX, size.Y / 2f - 4f), translatedMain, HorizontalAlignment.Left, -1, 22, mainColor);
 
 		// Sub Label
