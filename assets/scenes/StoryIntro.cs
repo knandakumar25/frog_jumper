@@ -141,6 +141,10 @@ public partial class StoryIntro : Control
             else if (currentLang == "zh" || currentLang == "mandarin") langFolder = "mandarin";
             else if (currentLang == "traditionalchinese" || currentLang == "zh_tw" || currentLang == "zh_hk") langFolder = "traditionalchinese";
             else if (currentLang == "hi" || currentLang == "hindi") langFolder = "hindi";
+            else if (currentLang == "ta" || currentLang == "tamil") langFolder = "tamil";
+            else if (currentLang == "te" || currentLang == "telugu") langFolder = "telugu";
+            else if (currentLang == "ml" || currentLang == "malayalam") langFolder = "malayalam";
+            else if (currentLang == "kn" || currentLang == "kannada") langFolder = "kannada";
             else if (currentLang == "id" || currentLang == "indonesian") langFolder = "indonesian";
             else if (currentLang == "vi" || currentLang == "vietnamese") langFolder = "vietnamese";
             else if (currentLang == "th" || currentLang == "thai") langFolder = "thai";
