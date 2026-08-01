@@ -9,7 +9,7 @@ const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
 
 
 func _ready() -> void:
-	Global.play_menu_music()
+	Global.stop_menu_music()
 	_update_level_buttons()
 
 

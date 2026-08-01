@@ -220,6 +220,12 @@ public partial class StoryIntro : Control
         if (voicePlayer != null)
             voicePlayer.Stop();
 
+        var global = GetNodeOrNull<Node>("/root/Global");
+        if (global != null)
+        {
+            global.Call("resume_menu_music_allowed");
+        }
+
         LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/training_protocol.tscn");
     }
 

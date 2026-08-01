@@ -16,7 +16,7 @@ public partial class CharacterSelection : Control
 
 	public override void _Ready()
 	{
-		GetNode<Node>("/root/Global").Call("play_menu_music");
+		GetNode<Node>("/root/Global").Call("stop_menu_music");
 
 		_selectedNameLabel = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/SelectedName");
 		_classTagLabel     = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/ClassTag");

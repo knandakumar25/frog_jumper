@@ -5,7 +5,7 @@ const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
 @onready var scores_table = $VBoxContainer/ScrollContainer/ScoresTable
 
 func _ready() -> void:
-	Global.play_menu_music()
+	Global.stop_menu_music()
 	load_scores()
 
 func load_scores() -> void:

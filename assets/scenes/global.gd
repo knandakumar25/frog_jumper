@@ -87,16 +87,8 @@ func update_font_for_locale(locale_code: String) -> void:
 			Input.set_custom_mouse_cursor(cursor_tex, Input.CURSOR_ARROW, Vector2(4, 4))
 			print("Global: Custom cyber cursor set successfully at runtime!")
 
-	# Create persistent menu music player only if not in headless mode
-	if DisplayServer.get_name() != "headless":
-		menu_music_player = AudioStreamPlayer.new()
-		menu_music_player.name = "MenuMusicPlayer"
-		var music_path = "res://assets/music/Dystopian_Dawn_FULL_SONG_MusicGPT (2).mp3"
-		if FileAccess.open(music_path, FileAccess.READ) != null:
-			menu_music_player.stream = load(music_path)
-		menu_music_player.volume_db = 24.0
-		menu_music_player.bus = "Master"
-		add_child(menu_music_player)
+	# Custom cyber cursor initialized
+	pass
 
 func apply_display_mode(mode_name: String) -> void:
 	current_display_mode = mode_name
@@ -178,26 +170,16 @@ func load_mp3_stream(res_path: String) -> AudioStream:
 	return null
 
 func play_audio_track(res_path: String) -> void:
-	if menu_music_player == null:
-		return
-	if menu_music_player.playing and menu_music_player.stream != null:
-		if menu_music_player.stream.resource_path == res_path:
-			return # Already playing this exact track
-	var stream = load_mp3_stream(res_path)
-	if stream != null:
-		menu_music_player.stream = stream
-		menu_music_player.volume_db = 0.0
-		menu_music_player.play()
+	pass
 
 func play_home_music() -> void:
-	play_audio_track("res://assets/audio/Sub_Level_Three.mp3")
+	pass
 
 func play_menu_music() -> void:
-	play_audio_track("res://assets/audio/Street_Level_Siege.mp3")
+	pass
 
 func stop_menu_music() -> void:
-	if menu_music_player and menu_music_player.playing:
-		menu_music_player.stop()
+	pass
 
 func unlock_next_level(current_level: int) -> void:
 	if current_level >= unlocked_levels and current_level < 4:

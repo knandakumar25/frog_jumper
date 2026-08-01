@@ -1544,4 +1544,10 @@ public partial class MainMenu : Control
 		}
 		PopulateKeybindingRows();
 	}
+
+	public override void _ExitTree()
+	{
+		base._ExitTree();
+		GetNodeOrNull<Node>("/root/Global")?.Call("stop_menu_music");
+	}
 }
