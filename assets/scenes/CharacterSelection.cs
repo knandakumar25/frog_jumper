@@ -26,7 +26,30 @@ public partial class CharacterSelection : Control
 
 		TranslateUI();
 		SelectOperative("Ninja Frog");
+		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
+	}
+
+	private static void FixFontForLocale(Node node)
+	{
+		if (node == null) return;
+		string locale = TranslationServer.GetLocale().ToLower();
+		bool isNonLatin = locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") || 
+		                  locale.Contains("ko") || locale.Contains("zh");
+
+		if (isNonLatin && node is Control c)
+		{
+			var notoFont = GD.Load<Font>("res://assets/fonts/NotoSans-Regular.ttf");
+			if (notoFont != null)
+			{
+				c.AddThemeFontOverride("font", notoFont);
+			}
+		}
+
+		foreach (Node child in node.GetChildren())
+		{
+			FixFontForLocale(child);
+		}
 	}
 
 	private void TranslateUI()
@@ -103,6 +126,7 @@ public partial class CharacterSelection : Control
 				break;
 		}
 
+		FixFontForLocale(this);
 		UpdatePreviewSprite(characterName);
 	}
 
