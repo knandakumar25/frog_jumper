@@ -23,8 +23,6 @@ const LANGUAGE_OVERRIDES := {
 	"traditionalchinese": ["Traditional Chinese", "繁體中文"],
 	"hindi": ["Hindi", "हिन्दी"],
 	"indonesian": ["Indonesian", "Bahasa Indonesia"],
-	"malay": ["Malay", "Bahasa Melayu"],
-	"tagalog": ["Tagalog / Filipino", "Tagalog"],
 	"vietnamese": ["Vietnamese", "Tiếng Việt"],
 	"thai": ["Thai", "ไทย"],
 	"hebrew": ["Hebrew", "עברית"]
