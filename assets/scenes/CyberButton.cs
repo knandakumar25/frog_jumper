@@ -148,6 +148,20 @@ public partial class CyberButton : Control
 		return text.ToUpper();
 	}
 
+	private static Font GetActiveFont(Font defaultFont)
+	{
+		string locale = TranslationServer.GetLocale().ToLower();
+		if (locale.Contains("ar"))
+		{
+			return GD.Load<Font>("res://assets/fonts/Cairo.ttf") ?? defaultFont;
+		}
+		if (locale.Contains("he") || locale.Contains("ja") || locale.Contains("ko") || locale.Contains("zh"))
+		{
+			return GD.Load<Font>("res://assets/fonts/NotoSans-Regular.ttf") ?? defaultFont;
+		}
+		return defaultFont;
+	}
+
 	public override void _Draw()
 	{
 		Vector2 size = Size;

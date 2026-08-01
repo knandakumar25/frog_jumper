@@ -32,26 +32,7 @@ public partial class CharacterSelection : Control
 
 	private static void FixFontForLocale(Node node)
 	{
-		if (node == null) return;
-		string locale = TranslationServer.GetLocale().ToLower();
-		bool isArabic = locale.Contains("ar");
-		bool isNonLatin = isArabic || locale.Contains("he") || locale.Contains("ja") || 
-		                  locale.Contains("ko") || locale.Contains("zh");
-
-		if (isNonLatin && node is Control c)
-		{
-			string fontPath = isArabic ? "res://assets/fonts/Cairo.ttf" : "res://assets/fonts/NotoSans-Regular.ttf";
-			var targetFont = GD.Load<Font>(fontPath);
-			if (targetFont != null)
-			{
-				c.AddThemeFontOverride("font", targetFont);
-			}
-		}
-
-		foreach (Node child in node.GetChildren())
-		{
-			FixFontForLocale(child);
-		}
+		// Native Orbitron & Rajdhani sci-fi fonts handle Arabic via Cairo font fallbacks configured in global.gd
 	}
 
 	private void TranslateUI()

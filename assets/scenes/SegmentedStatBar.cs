@@ -27,6 +27,32 @@ public partial class SegmentedStatBar : Control
 		QueueRedraw();
 	}
 
+	private static Font GetActiveFont(Font defaultFont)
+	{
+		string locale = TranslationServer.GetLocale().ToLower();
+		if (locale.Contains("ar"))
+		{
+			return GD.Load<Font>("res://assets/fonts/Cairo.ttf") ?? defaultFont;
+		}
+		if (locale.Contains("he") || locale.Contains("ja") || locale.Contains("ko") || locale.Contains("zh"))
+		{
+			return GD.Load<Font>("res://assets/fonts/NotoSans-Regular.ttf") ?? defaultFont;
+		}
+		return defaultFont;
+	}
+
+	private static string SafeToUpper(string text)
+	{
+		if (string.IsNullOrEmpty(text)) return "";
+		string locale = TranslationServer.GetLocale().ToLower();
+		if (locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") || 
+		    locale.Contains("ko") || locale.Contains("zh"))
+		{
+			return text;
+		}
+		return text.ToUpper();
+	}
+
 	public override void _Draw()
 	{
 		Vector2 size = Size;
@@ -35,7 +61,7 @@ public partial class SegmentedStatBar : Control
 		// 1. Label Header & Value Text
 		Color textColor = new Color(0.85f, 0.92f, 1f, 0.95f);
 		Color cyanColor = new Color(0f, 0.94f, 1f, 1f);
-		DrawString(RajdhaniFont, new Vector2(0, 16), StatName.ToUpper(), HorizontalAlignment.Left, -1, 16, textColor);
+		DrawString(RajdhaniFont, new Vector2(0, 16), SafeToUpper(StatName), HorizontalAlignment.Left, -1, 16, textColor);
 		DrawString(RajdhaniFont, new Vector2(size.X, 16), $"{(int)Value} / 100", HorizontalAlignment.Right, -1, 16, cyanColor);
 
 		// 2. LED Segment Bar Parameters

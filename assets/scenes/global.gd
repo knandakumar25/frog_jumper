@@ -47,6 +47,23 @@ func update_font_for_locale(locale_code: String) -> void:
 		ThemeDB.fallback_font = noto_font
 		print("Global: Set ThemeDB.fallback_font to NotoSans-Regular.ttf")
 
+	# Patch custom theme resource cyber_shogun.tres so Buttons and Labels in CharacterSelection switch fonts for Arabic
+	if ResourceLoader.exists("res://assets/themes/cyber_shogun.tres"):
+		var cyber_theme = load("res://assets/themes/cyber_shogun.tres")
+		if cyber_theme != null and cyber_theme is Theme:
+			if is_arabic and cairo_font != null:
+				cyber_theme.default_font = cairo_font
+				cyber_theme.set_font("font", "Label", cairo_font)
+				cyber_theme.set_font("font", "Button", cairo_font)
+				cyber_theme.set_font("font", "LineEdit", cairo_font)
+				print("Global: Updated cyber_shogun.tres theme fonts to Cairo.ttf for Arabic")
+			else:
+				var raj_med = load("res://assets/fonts/Rajdhani-Medium.ttf")
+				var raj_bold = load("res://assets/fonts/Rajdhani-Bold.ttf")
+				if raj_med != null: cyber_theme.default_font = raj_med
+				if raj_med != null: cyber_theme.set_font("font", "Label", raj_med)
+				if raj_bold != null: cyber_theme.set_font("font", "Button", raj_bold)
+
 	if fallbacks_list.size() > 0:
 		var fonts_to_patch = [
 			"res://assets/fonts/Orbitron-VariableFont.ttf",
