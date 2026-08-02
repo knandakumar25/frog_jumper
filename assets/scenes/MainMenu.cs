@@ -1073,6 +1073,12 @@ public partial class MainMenu : Control
 
 		ApplyCyberpunkPanelStyles();
 		QueueRedrawAllButtons(this);
+		RestoreMainMenuFocus();
+	}
+
+	private void RestoreMainMenuFocus()
+	{
+		GetNodeOrNull<CyberButton>("ButtonContainer/Play")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private void QueueRedrawAllButtons(Node node)
@@ -1094,13 +1100,18 @@ public partial class MainMenu : Control
 		{
 			_languageDropdown.SelectItemByText(currentLang);
 		}
+		RestoreMainMenuFocus();
 	}
-	public void _on_yes_pressed()                 => GetTree().Quit();
+
+	public void _on_yes_pressed() => GetTree().Quit();
+
 	public void _on_no_pressed()
 	{
 		_quitPopup.Visible = false;
 		_quitBackground.Visible = false;
+		RestoreMainMenuFocus();
 	}
+
 	public void _on_quit_button_pressed()
 	{
 		CloseAllPopups();
@@ -1110,8 +1121,12 @@ public partial class MainMenu : Control
 		MoveChild(_quitBackground, GetChildCount() - 2);
 		_quitPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
-	public void _on_close_instructions_pressed()  => _instructionsPopup.Visible = false;
-	// Leaderboard popup close handler removed.
+
+	public void _on_close_instructions_pressed()
+	{
+		_instructionsPopup.Visible = false;
+		RestoreMainMenuFocus();
+	}
 
 	public void _on_new_game_confirm_pressed()
 	{
@@ -1119,7 +1134,11 @@ public partial class MainMenu : Control
 		LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/character_selection.tscn");
 	}
 
-	public void _on_new_game_cancel_pressed() => _newGamePopup.Visible = false;
+	public void _on_new_game_cancel_pressed()
+	{
+		_newGamePopup.Visible = false;
+		RestoreMainMenuFocus();
+	}
 
 	private void FocusFirstSessionButton()
 	{
