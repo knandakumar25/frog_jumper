@@ -42,6 +42,13 @@ public partial class MainCharacter : CharacterBody2D
             if (key.Keycode == Key.Q && key.Pressed && !key.Echo)
                 _qPressed = true;
         }
+        else if (@event is InputEventJoypadButton jb && jb.Pressed)
+        {
+            if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.RightShoulder)
+                _mouseClicked = true;
+            else if (jb.ButtonIndex == JoyButton.Y || jb.ButtonIndex == JoyButton.LeftShoulder)
+                _qPressed = true;
+        }
     }
 
     // ─── Sprite loading ──────────────────────────────────────────────────────
