@@ -32,6 +32,9 @@ func resume() -> void:
 	var panel = get_node_or_null("ColorRect2")
 	if panel != null:
 		panel.visible = false
+	var vp = get_viewport()
+	if vp != null:
+		vp.gui_release_focus()
 
 func pause() -> void:
 	get_tree().paused = true

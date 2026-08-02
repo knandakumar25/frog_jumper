@@ -24,6 +24,7 @@ public partial class MainCharacter : CharacterBody2D
     // ─── Lifecycle ───────────────────────────────────────────────────────────
     public override void _Ready()
     {
+        GetViewport()?.GuiReleaseFocus();
         _sprite2d  = GetNode<AnimatedSprite2D>("Sprite2D");
         _jumpSound = GetNode<AudioStreamPlayer>("JumpSound");
         LoadCharacterSprites();
@@ -44,7 +45,7 @@ public partial class MainCharacter : CharacterBody2D
         }
         else if (@event is InputEventJoypadButton jb && jb.Pressed)
         {
-            if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.RightShoulder)
+            if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.B || jb.ButtonIndex == JoyButton.RightShoulder)
                 _mouseClicked = true;
             else if (jb.ButtonIndex == JoyButton.Y || jb.ButtonIndex == JoyButton.LeftShoulder)
                 _qPressed = true;
@@ -171,13 +172,36 @@ public partial class MainCharacter : CharacterBody2D
             _sprite2d.Animation = "jumping";
         }
 
-        if (Input.IsActionJustPressed("jump") && IsOnFloor())
+        bool isJumpPressed = Input.IsActionJustPressed("jump");
+        if (!isJumpPressed)
+        {
+            isJumpPressed = Input.IsJoyButtonPressed(0, JoyButton.A) || Input.IsJoyButtonPressed(0, JoyButton.DpadUp);
+        }
+
+        if (isJumpPressed && IsOnFloor())
         {
             Velocity = Velocity with { Y = JumpVelocity };
-            _jumpSound.Play();
+            _jumpSound?.Play();
         }
 
         float direction = Input.GetAxis("left", "right");
+        if (Mathf.IsZeroApprox(direction))
+        {
+            float joyX = Input.GetJoyAxis(0, JoyAxis.LeftX);
+            if (Mathf.Abs(joyX) > 0.25f)
+            {
+                direction = joyX;
+            }
+            else if (Input.IsJoyButtonPressed(0, JoyButton.DpadLeft))
+            {
+                direction = -1.0f;
+            }
+            else if (Input.IsJoyButtonPressed(0, JoyButton.DpadRight))
+            {
+                direction = 1.0f;
+            }
+        }
+
         Velocity = !Mathf.IsZeroApprox(direction)
             ? Velocity with { X = direction * Speed }
             : Velocity with { X = Mathf.MoveToward(Velocity.X, 0f, 12f) };
