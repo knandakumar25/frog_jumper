@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://assets/scenes/main_character.tscn" id="4_train"]
 [ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="5_train"]
 [ext_resource type="FontFile" uid="uid://5haj7i3kmsn6" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_train"]
-[ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="10_train"]
 [ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://assets/scenes/pause_menu.tscn" id="11_pause"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
@@ -122,8 +121,3 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("11_pause")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1454893616]
-stream = ExtResource("10_train")
-volume_db = 24.0
-autoplay = true
