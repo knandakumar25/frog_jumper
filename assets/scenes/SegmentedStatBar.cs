@@ -61,8 +61,8 @@ public partial class SegmentedStatBar : Control
 		// 1. Label Header & Value Text
 		Color textColor = new Color(0.85f, 0.92f, 1f, 0.95f);
 		Color cyanColor = new Color(0f, 0.94f, 1f, 1f);
-		DrawString(RajdhaniFont, new Vector2(0, 16), SafeToUpper(StatName), HorizontalAlignment.Left, -1, 16, textColor);
-		DrawString(RajdhaniFont, new Vector2(size.X, 16), $"{(int)Value} / 100", HorizontalAlignment.Right, -1, 16, cyanColor);
+		DrawString(RajdhaniFont, new Vector2(0, 16), SafeToUpper(StatName), HorizontalAlignment.Left, size.X, 16, textColor);
+		DrawString(RajdhaniFont, new Vector2(0, 16), $"{(int)Value} / 100", HorizontalAlignment.Right, size.X, 16, cyanColor);
 
 		// 2. LED Segment Bar Parameters
 		float startY = 22f;

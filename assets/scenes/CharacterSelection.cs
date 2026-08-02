@@ -28,6 +28,8 @@ public partial class CharacterSelection : Control
 		SelectOperative("Ninja Frog");
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
+
+		GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private static void FixFontForLocale(Node node)
@@ -44,16 +46,16 @@ public partial class CharacterSelection : Control
 		if (listTitle != null) listTitle.Text = Tr("AVAILABLE OPERATIVES");
 
 		var ninjaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog");
-		if (ninjaBtn != null) ninjaBtn.Text = Tr("Ninja Frog [RECON]");
+		if (ninjaBtn != null) ninjaBtn.Text = $"{Tr("Ninja Frog")} [{Tr("RECON")}]";
 
 		var maskBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/MaskDude");
-		if (maskBtn != null) maskBtn.Text = Tr("Mask Dude [ASSAULT]");
+		if (maskBtn != null) maskBtn.Text = $"{Tr("Mask Dude")} [{Tr("ASSAULT")}]";
 
 		var pinkBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/PinkMan");
-		if (pinkBtn != null) pinkBtn.Text = Tr("Pink Man [HEAVY]");
+		if (pinkBtn != null) pinkBtn.Text = $"{Tr("Pink Man")} [{Tr("HEAVY")}]";
 
 		var virtualBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/VirtualGuy");
-		if (virtualBtn != null) virtualBtn.Text = Tr("Virtual Guy [CYBER]");
+		if (virtualBtn != null) virtualBtn.Text = $"{Tr("Virtual Guy")} [{Tr("CYBER")}]";
 
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");

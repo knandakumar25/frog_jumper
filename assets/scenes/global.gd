@@ -27,6 +27,166 @@ func _ready() -> void:
 	# Configure Cairo & NotoSans as universal fallbacks for sci-fi fonts (Orbitron / Rajdhani) for Arabic, Hebrew, CJK support
 	update_font_for_locale(TranslationServer.get_locale())
 
+	# Connect Joypad detection signals for gamepad hardware (Logitech F310, Xbox, DualShock)
+	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	_check_initial_gamepads()
+	_setup_prompt_banner()
+
+func _check_initial_gamepads() -> void:
+	var joypads = Input.get_connected_joypads()
+	if not joypads.is_empty():
+		var device = joypads[0]
+		var joy_name = Input.get_joy_name(device)
+		print("Global: Detected connected gamepad: Device ", device, " - ", joy_name)
+
+signal input_device_changed(is_gamepad: bool)
+
+var is_gamepad_mode: bool = false
+var _prompt_label: Label = null
+
+func _setup_prompt_banner() -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	var canvas = CanvasLayer.new()
+	canvas.layer = 90
+	
+	var margin = MarginContainer.new()
+	margin.anchors_preset = Control.PRESET_BOTTOM_WIDE
+	margin.add_theme_constant_override("margin_bottom", 12)
+	margin.add_theme_constant_override("margin_left", 40)
+	margin.add_theme_constant_override("margin_right", 40)
+
+	var panel = PanelContainer.new()
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.02, 0.05, 0.12, 0.90) # Neon dark cyber panel
+	style.border_color = Color(0.0, 0.94, 1.0, 0.8) # Neon cyan border
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(6)
+	style.content_margin_top = 8
+	style.content_margin_bottom = 8
+	style.content_margin_left = 16
+	style.content_margin_right = 16
+	panel.add_theme_stylebox_override("panel", style)
+
+	_prompt_label = Label.new()
+	_prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_prompt_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	var orbitron_font = load("res://assets/fonts/Orbitron-VariableFont.ttf")
+	if orbitron_font != null:
+		_prompt_label.add_theme_font_override("font", orbitron_font)
+	_prompt_label.add_theme_font_size_override("font_size", 16)
+	_prompt_label.add_theme_color_override("font_color", Color(0.0, 0.94, 1.0, 0.95))
+	
+	panel.add_child(_prompt_label)
+	margin.add_child(panel)
+	canvas.add_child(margin)
+	add_child(canvas)
+	_update_prompt_text()
+
+func _update_prompt_text() -> void:
+	if _prompt_label == null: return
+	if is_gamepad_mode:
+		_prompt_label.text = tr("🎮 GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
+	else:
+		_prompt_label.text = tr("⌨️ KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+
+func _on_joy_connection_changed(device: int, connected: bool) -> void:
+	if connected:
+		var joy_name = Input.get_joy_name(device)
+		print("Global: Gamepad connected: Device ", device, " - ", joy_name)
+		show_gamepad_toast("🎮 GAMEPAD CONNECTED: " + joy_name)
+	else:
+		print("Global: Gamepad disconnected: Device ", device)
+		show_gamepad_toast("⚠️ GAMEPAD DISCONNECTED")
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		var is_pressed_or_moved = false
+		if event is InputEventJoypadButton and event.pressed:
+			is_pressed_or_moved = true
+		elif event is InputEventJoypadMotion and abs(event.axis_value) > 0.4:
+			is_pressed_or_moved = true
+
+		if is_pressed_or_moved and not is_gamepad_mode:
+			is_gamepad_mode = true
+			_update_prompt_text()
+			emit_signal("input_device_changed", true)
+			print("Global: Input device switched to -> GAMEPAD MODE 🎮")
+
+	elif event is InputEventKey or event is InputEventMouseButton:
+		if event.pressed and is_gamepad_mode:
+			is_gamepad_mode = false
+			_update_prompt_text()
+			emit_signal("input_device_changed", false)
+			print("Global: Input device switched to -> KEYBOARD/MOUSE MODE ⌨️")
+
+func get_nav_prompt() -> String:
+	if is_gamepad_mode:
+		return tr("[ 🎮 D-PAD / L-STICK: Navigate  |  (A): Select  |  (B): Back ]")
+	else:
+		return tr("[ ⌨️ ARROWS / WASD: Navigate  |  ENTER / SPACE: Select  |  ESC: Back ]")
+
+func get_home_prompt() -> String:
+	if is_gamepad_mode:
+		return tr("// PRESS (A) OR (START) ON GAMEPAD TO INITIALIZE //")
+	else:
+		return tr("// PRESS ANY KEY OR CLICK TO INITIALIZE SYSTEM //")
+
+func get_story_prompt() -> String:
+	if is_gamepad_mode:
+		return tr("Press (A) / (X) to Advance  |  Press (START) / (Y) to Skip")
+	else:
+		return tr("Press SPACE / ENTER to Advance  |  Press ESC to Skip")
+
+func show_gamepad_toast(message: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	var root = get_tree().root
+	if root == null: return
+	
+	var canvas = CanvasLayer.new()
+	canvas.layer = 100
+	
+	var margin = MarginContainer.new()
+	margin.anchors_preset = Control.PRESET_TOP_WIDE
+	margin.add_theme_constant_override("margin_top", 20)
+	margin.add_theme_constant_override("margin_left", 300)
+	margin.add_theme_constant_override("margin_right", 300)
+	
+	var panel = PanelContainer.new()
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.05, 0.15, 0.25, 0.95)
+	style.border_width_left = 2
+	style.border_width_top = 2
+	style.border_width_right = 2
+	style.border_width_bottom = 2
+	style.border_color = Color(0.0, 0.9, 1.0, 0.9) # Cyber cyan border
+	style.corner_radius_top_left = 6
+	style.corner_radius_top_right = 6
+	style.corner_radius_bottom_left = 6
+	style.corner_radius_bottom_right = 6
+	panel.add_theme_stylebox_override("panel", style)
+	
+	var label = Label.new()
+	label.text = message
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_color_override("font_color", Color(0.0, 1.0, 0.8)) # Bright cyber green/cyan
+	label.add_theme_font_size_override("font_size", 20)
+	
+	panel.add_child(label)
+	margin.add_child(panel)
+	canvas.add_child(margin)
+	root.add_child(canvas)
+	
+	# Animate fade in and fade out
+	var tween = canvas.create_tween()
+	tween.tween_property(margin, "modulate:a", 1.0, 0.3).from(0.0)
+	tween.tween_interval(2.5)
+	tween.tween_property(margin, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(canvas.queue_free)
+
 func update_font_for_locale(locale_code: String) -> void:
 	var loc = locale_code.to_lower()
 	var is_arabic = "ar" in loc

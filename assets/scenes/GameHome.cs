@@ -54,7 +54,11 @@ public partial class GameHome : Control
 			else if (lang.Contains("it")) logoFile = "axiom_force_title_logo_italian.jpg";
 			else if (lang.Contains("ja")) logoFile = "axiom_force_title_logo_japanese.jpg";
 			else if (lang.Contains("ko")) logoFile = "axiom_force_title_logo_korean.jpg";
-			else if (lang.Contains("zh")) logoFile = "axiom_force_title_logo_mandarin.jpg";
+			else if (lang.Contains("mandarin") || lang == "zh_cn") logoFile = "axiom_force_title_logo_mandarin.jpg";
+			else if (lang.Contains("traditionalchinese") || lang.Contains("tw") || lang.Contains("hk") || lang == "zh") logoFile = "axiom_force_title_logo_traditionalchinese.jpg";
+			else if (lang.Contains("indonesian") || lang.Contains("id")) logoFile = "axiom_force_title_logo_indonesian.jpg";
+			else if (lang.Contains("vietnamese") || lang.Contains("vi")) logoFile = "axiom_force_title_logo_vietnamese.jpg";
+			else if (lang.Contains("thai") || lang.Contains("th")) logoFile = "axiom_force_title_logo_thai.jpg";
 			else if (lang.Contains("pl")) logoFile = "axiom_force_title_logo_polish.jpg";
 			else if (lang.Contains("es")) logoFile = "axiom_force_title_logo_spanish.jpg";
 			else if (lang.Contains("tr")) logoFile = "axiom_force_title_logo_turkish.jpg";
@@ -68,13 +72,13 @@ public partial class GameHome : Control
 			}
 		}
 
-		if (_promptLabel != null)
+		var global = GetNodeOrNull<Node>("/root/Global");
+		if (global != null)
 		{
-			_promptLabel.Text = Tr("// PRESS ANY KEY OR CLICK TO INITIALIZE SYSTEM //");
-			if (orbitronFont != null) _promptLabel.AddThemeFontOverride("font", orbitronFont);
-			_promptLabel.AddThemeFontSizeOverride("font_size", 20);
-			_promptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
+			global.Connect("input_device_changed", Callable.From<bool>(OnInputDeviceChanged));
 		}
+
+		UpdatePromptLabel();
 
 		if (_versionLabel != null)
 		{
@@ -111,8 +115,12 @@ public partial class GameHome : Control
 	{
 		if (_isTransitioning) return;
 
+		bool isGamepadInput = (@event is InputEventJoypadButton joyBtn && joyBtn.Pressed) ||
+							  (@event is InputEventJoypadMotion joyMot && Mathf.Abs(joyMot.AxisValue) > 0.5f);
+
 		if ((@event is InputEventKey keyEv && keyEv.Pressed && !keyEv.Echo) ||
-			(@event is InputEventMouseButton mouseEv && mouseEv.Pressed))
+			(@event is InputEventMouseButton mouseEv && mouseEv.Pressed) ||
+			isGamepadInput)
 		{
 			TriggerStartTransition();
 			GetViewport().SetInputAsHandled();
@@ -144,5 +152,28 @@ public partial class GameHome : Control
 
 		// Transition into Main Menu
 		GetTree().ChangeSceneToFile("res://assets/scenes/main_menu.tscn");
+	}
+
+	private void OnInputDeviceChanged(bool isGamepad)
+	{
+		UpdatePromptLabel();
+	}
+
+	private void UpdatePromptLabel()
+	{
+		if (_promptLabel == null) return;
+		var global = GetNodeOrNull<Node>("/root/Global");
+		if (global != null && global.HasMethod("get_home_prompt"))
+		{
+			_promptLabel.Text = (string)global.Call("get_home_prompt");
+		}
+		else
+		{
+			_promptLabel.Text = Tr("// PRESS ANY KEY OR CLICK TO INITIALIZE SYSTEM //");
+		}
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		if (orbitronFont != null) _promptLabel.AddThemeFontOverride("font", orbitronFont);
+		_promptLabel.AddThemeFontSizeOverride("font_size", 20);
+		_promptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
 	}
 }

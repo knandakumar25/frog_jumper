@@ -38,6 +38,9 @@ func pause() -> void:
 	var panel = get_node_or_null("ColorRect2")
 	if panel != null:
 		panel.visible = true
+	var resume_btn = get_node_or_null("ColorRect2/VBoxContainer/Resume")
+	if resume_btn != null:
+		resume_btn.call_deferred("grab_focus")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape") or event.is_action_pressed("ui_cancel"):

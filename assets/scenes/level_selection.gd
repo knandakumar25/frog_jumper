@@ -11,6 +11,8 @@ const LoadingScreen = preload("res://assets/scenes/loading_screen.gd")
 func _ready() -> void:
 	Global.stop_menu_music()
 	_update_level_buttons()
+	if level_1_button != null:
+		level_1_button.call_deferred("grab_focus")
 
 
 func _update_level_buttons() -> void:

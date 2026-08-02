@@ -46,11 +46,58 @@ public partial class CyberButton : Control
 			_isPressed = false;
 			AnimateHover(false);
 		};
+
+		FocusEntered += () =>
+		{
+			GD.Print("[CYBERBUTTON DEBUG] FocusEntered on: ", MainText);
+			if (IsDisabled) return;
+			_isHovered = true;
+			AnimateHover(true);
+			UISoundManager.Instance?.PlayHoverSound();
+		};
+
+		FocusExited += () =>
+		{
+			GD.Print("[CYBERBUTTON DEBUG] FocusExited from: ", MainText);
+			if (IsDisabled) return;
+			_isHovered = false;
+			_isPressed = false;
+			AnimateHover(false);
+		};
+	}
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (IsDisabled) return;
+		if (!HasFocus()) return;
+
+		bool isAccept = @event.IsActionPressed("ui_accept") ||
+			(@event is InputEventJoypadButton jb && jb.Pressed && jb.ButtonIndex == JoyButton.A);
+
+		if (isAccept)
+		{
+			GD.Print("[CYBERBUTTON DEBUG] UnhandledInput Accept triggered on: ", MainText);
+			UISoundManager.Instance?.PlayClickSound();
+			EmitSignal(SignalName.Pressed);
+			GetViewport()?.SetInputAsHandled();
+		}
 	}
 
 	public override void _GuiInput(InputEvent @event)
 	{
 		if (IsDisabled) return;
+
+		bool isAccept = @event.IsActionPressed("ui_accept") ||
+			(@event is InputEventJoypadButton jb && jb.Pressed && jb.ButtonIndex == JoyButton.A);
+
+		if (isAccept)
+		{
+			GD.Print("[CYBERBUTTON DEBUG] GuiInput Accept triggered on: ", MainText);
+			UISoundManager.Instance?.PlayClickSound();
+			EmitSignal(SignalName.Pressed);
+			GetViewport()?.SetInputAsHandled();
+			return;
+		}
 
 		if (@event is InputEventMouseButton mb && mb.ButtonIndex == MouseButton.Left)
 		{

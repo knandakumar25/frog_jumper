@@ -23,6 +23,8 @@ mono_crash.*.json
 nuget.config
 # Temp DLLs (prefixed with ~)
 addons/**/~*.dll
+*.TMP
+~*.TMP
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
 

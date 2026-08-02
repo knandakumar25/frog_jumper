@@ -256,7 +256,7 @@ public partial class CyberDropdown : Control
 
 		// Animated Dropdown Arrow (▼ / ▲)
 		string arrow = _isOpen ? "▲" : "▼";
-		Vector2 arrowPos = new Vector2(size.X - 28, size.Y / 2.0f + 6);
-		DrawString(_font, arrowPos, arrow, HorizontalAlignment.Center, -1, 18, stroke);
+		Vector2 arrowPos = new Vector2(size.X - 38, size.Y / 2.0f + 6);
+		DrawString(_font, arrowPos, arrow, HorizontalAlignment.Center, 24, 18, stroke);
 	}
 }

@@ -73,16 +73,37 @@ public partial class StoryIntro : Control
         else
             GD.PrintErr("StoryIntro: DialogueLabel node not found");
 
-        if (robotSprite != null && robotSprite.SpriteFrames != null)
-            robotSprite.Play();
-
-        // Connect signals before starting the typewriter
         if (continueButton != null)
             continueButton.Pressed += OnContinueButtonPressed;
         if (skipButton != null)
             skipButton.Pressed += OnSkipButtonPressed;
 
+        if (robotSprite != null && robotSprite.SpriteFrames != null)
+            robotSprite.Play();
+
+        // Connect signals before starting the typewriter
+        if (global != null)
+        {
+            global.Connect("input_device_changed", Callable.From<bool>((isGamepad) => UpdateStoryPrompts()));
+        }
+
+        UpdateStoryPrompts();
         StartNextLine();
+    }
+
+    private void UpdateStoryPrompts()
+    {
+        var global = GetNodeOrNull<Node>("/root/Global");
+        bool isGamepad = (global != null && (bool)global.Get("is_gamepad_mode"));
+
+        if (skipButton != null)
+        {
+            skipButton.Text = isGamepad ? "Skip (START) >>>" : "Skip (ESC) >>>";
+        }
+        if (continueButton != null)
+        {
+            continueButton.Text = isGamepad ? "Continue (A) >>>" : "Continue (SPACE) >>>";
+        }
     }
 
     public override void _Process(double delta)
@@ -230,9 +251,9 @@ public partial class StoryIntro : Control
             voicePlayer.Stop();
 
         var global = GetNodeOrNull<Node>("/root/Global");
-        if (global != null)
+        if (global != null && global.HasMethod("resume_menu_music"))
         {
-            global.Call("resume_menu_music_allowed");
+            global.Call("resume_menu_music");
         }
 
         LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/training_protocol.tscn");
@@ -240,22 +261,50 @@ public partial class StoryIntro : Control
 
     public override void _Input(InputEvent @event)
     {
+        if (@event.IsActionPressed("escape") || @event.IsActionPressed("ui_cancel") ||
+            (@event is InputEventKey ke && ke.Pressed && !ke.Echo && ke.Keycode == Key.Escape))
+        {
+            ProceedToLevelSelection();
+            GetViewport()?.SetInputAsHandled();
+            return;
+        }
+
+        if (@event is InputEventJoypadButton jb && jb.Pressed)
+        {
+            if (jb.ButtonIndex == JoyButton.Start || jb.ButtonIndex == JoyButton.Back || jb.ButtonIndex == JoyButton.Y)
+            {
+                ProceedToLevelSelection();
+                GetViewport()?.SetInputAsHandled();
+                return;
+            }
+        }
+
+        bool isTriggered = false;
+
         if (@event is InputEventKey keyEvent && keyEvent.Pressed && !keyEvent.Echo)
         {
             if (keyEvent.Keycode == Key.Space || keyEvent.Keycode == Key.Enter)
+                isTriggered = true;
+        }
+        else if (@event is InputEventJoypadButton joyb && joyb.Pressed)
+        {
+            if (joyb.ButtonIndex == JoyButton.A || joyb.ButtonIndex == JoyButton.X)
+                isTriggered = true;
+        }
+
+        if (isTriggered)
+        {
+            if (continueButton != null && continueButton.Visible)
             {
-                if (continueButton != null && continueButton.Visible)
-                {
-                    OnContinueButtonPressed();
-                }
-                else if (isTyping)
-                {
-                    if (dialogueLabel != null)
-                        dialogueLabel.VisibleCharacters = -1;
-                    isTyping = false;
-                    if (continueButton != null)
-                        continueButton.Visible = true;
-                }
+                OnContinueButtonPressed();
+            }
+            else if (isTyping)
+            {
+                if (dialogueLabel != null)
+                    dialogueLabel.VisibleCharacters = -1;
+                isTyping = false;
+                if (continueButton != null)
+                    continueButton.Visible = true;
             }
         }
     }

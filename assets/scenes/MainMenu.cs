@@ -168,7 +168,12 @@ public partial class MainMenu : Control
 
 			ApplyCyberpunkPanelStyles();
 
-			GetNode<CyberButton>("ButtonContainer/Play").Pressed += _on_play_pressed;
+			var playBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Play");
+			if (playBtn != null)
+			{
+				playBtn.Pressed += _on_play_pressed;
+				playBtn.CallDeferred(Control.MethodName.GrabFocus);
+			}
 			GetNode<CyberButton>("ButtonContainer/ContinueButton").Pressed += _on_continue_pressed;
 			GetNode<CyberButton>("ButtonContainer/Instructions").Pressed += _on_instructions_pressed;
 			GetNode<CyberButton>("ButtonContainer/Settings").Pressed += _on_settings_pressed;
@@ -176,6 +181,8 @@ public partial class MainMenu : Control
 
 			EnsureUISoundManager();
 			UISoundManager.AutoWireButtons(this);
+
+			SetupNavPromptFooter();
 
 			// Ensure CloudsLayer exists
 			if (!HasNode("CloudsLayer"))
@@ -981,6 +988,20 @@ public partial class MainMenu : Control
 		if (_confirmPopup != null)      _confirmPopup.Visible = false;
 		if (_keybindingsPopup != null) _keybindingsPopup.Visible = false;
 		if (_keyDetectModal != null)   _keyDetectModal.Visible = false;
+
+		GetNodeOrNull<CyberButton>("ButtonContainer/Play")?.CallDeferred(Control.MethodName.GrabFocus);
+	}
+
+	private bool HasAnyOpenPopup()
+	{
+		return (_newGamePopup != null && _newGamePopup.Visible) ||
+			   (_continuePopup != null && _continuePopup.Visible) ||
+			   (_instructionsPopup != null && _instructionsPopup.Visible) ||
+			   (_settingsPopup != null && _settingsPopup.Visible) ||
+			   (_quitPopup != null && _quitPopup.Visible) ||
+			   (_confirmPopup != null && _confirmPopup.Visible) ||
+			   (_keybindingsPopup != null && _keybindingsPopup.Visible) ||
+			   (_keyDetectModal != null && _keyDetectModal.Visible);
 	}
 
 	public void _on_play_pressed()
@@ -988,6 +1009,7 @@ public partial class MainMenu : Control
 		CloseAllPopups();
 		_newGamePopup.Visible = true;
 		MoveChild(_newGamePopup, GetChildCount() - 1);
+		_newGamePopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ConfirmButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void _on_instructions_pressed()
@@ -997,6 +1019,7 @@ public partial class MainMenu : Control
 		UpdateInstructionsAlignment();
 		_instructionsPopup.Visible = true;
 		MoveChild(_instructionsPopup, GetChildCount() - 1);
+		_instructionsPopup.GetNodeOrNull<Button>("VBoxContainer/CloseButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void _on_settings_pressed() 
@@ -1019,6 +1042,7 @@ public partial class MainMenu : Control
 
 		_settingsPopup.Visible = true; 
 		MoveChild(_settingsPopup, GetChildCount() - 1);
+		_settingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ApplyButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void _on_apply_settings_pressed()
@@ -1084,6 +1108,7 @@ public partial class MainMenu : Control
 		_quitPopup.Visible = true;
 		MoveChild(_quitPopup, GetChildCount() - 1);
 		MoveChild(_quitBackground, GetChildCount() - 2);
+		_quitPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 	public void _on_close_instructions_pressed()  => _instructionsPopup.Visible = false;
 	// Leaderboard popup close handler removed.
@@ -1485,7 +1510,14 @@ public partial class MainMenu : Control
 					_acceptKeyButton.Disabled = false;
 				}
 				GetViewport().SetInputAsHandled();
+				return;
 			}
+		}
+
+		if (@event.IsActionPressed("ui_cancel") && HasAnyOpenPopup())
+		{
+			CloseAllPopups();
+			GetViewport()?.SetInputAsHandled();
 		}
 	}
 
@@ -1543,6 +1575,51 @@ public partial class MainMenu : Control
 			globalNode.Call("save_custom_keybindings");
 		}
 		PopulateKeybindingRows();
+	}
+
+	private Label _navPromptLabel;
+
+	private void SetupNavPromptFooter()
+	{
+		var footerContainer = new MarginContainer
+		{
+			Name = "NavPromptFooter",
+			CustomMinimumSize = new Vector2(0, 48)
+		};
+		footerContainer.SetAnchorsPreset(Control.LayoutPreset.BottomWide);
+		footerContainer.AddThemeConstantOverride("margin_bottom", 16);
+
+		_navPromptLabel = new Label
+		{
+			HorizontalAlignment = HorizontalAlignment.Center,
+			VerticalAlignment = VerticalAlignment.Center
+		};
+
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		if (orbitronFont != null) _navPromptLabel.AddThemeFontOverride("font", orbitronFont);
+		_navPromptLabel.AddThemeFontSizeOverride("font_size", 16);
+		_navPromptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.85f));
+
+		footerContainer.AddChild(_navPromptLabel);
+		AddChild(footerContainer);
+
+		var global = GetNodeOrNull<Node>("/root/Global");
+		if (global != null)
+		{
+			global.Connect("input_device_changed", Callable.From<bool>((isGamepad) => UpdateNavPromptFooter()));
+		}
+
+		UpdateNavPromptFooter();
+	}
+
+	private void UpdateNavPromptFooter()
+	{
+		if (_navPromptLabel == null) return;
+		var global = GetNodeOrNull<Node>("/root/Global");
+		if (global != null && global.HasMethod("get_nav_prompt"))
+		{
+			_navPromptLabel.Text = (string)global.Call("get_nav_prompt");
+		}
 	}
 
 	public override void _ExitTree()
