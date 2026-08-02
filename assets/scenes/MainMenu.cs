@@ -1121,12 +1121,38 @@ public partial class MainMenu : Control
 
 	public void _on_new_game_cancel_pressed() => _newGamePopup.Visible = false;
 
+	private void FocusFirstSessionButton()
+	{
+		if (_sessionsContainer == null) return;
+		foreach (Node child in _sessionsContainer.GetChildren())
+		{
+			if (child is HBoxContainer row)
+			{
+				foreach (Node c in row.GetChildren())
+				{
+					if (c is Button btn && btn.Visible && !btn.Disabled)
+					{
+						btn.CallDeferred(Control.MethodName.GrabFocus);
+						return;
+					}
+				}
+			}
+			else if (child is Button b && b.Visible && !b.Disabled)
+			{
+				b.CallDeferred(Control.MethodName.GrabFocus);
+				return;
+			}
+		}
+		_continuePopup?.GetNodeOrNull<Button>("VBoxContainer/BackButton")?.CallDeferred(Control.MethodName.GrabFocus);
+	}
+
 	public void _on_continue_pressed()
 	{
 		CloseAllPopups();
 		PopulateSessions();
 		_continuePopup.Visible = true;
 		MoveChild(_continuePopup, GetChildCount() - 1);
+		FocusFirstSessionButton();
 	}
 
 	private void OnContinueBackPressed()
@@ -1134,6 +1160,7 @@ public partial class MainMenu : Control
 		if (_continuePopup != null)
 		{
 			_continuePopup.Visible = false;
+			GetNodeOrNull<Control>("ButtonContainer/Play")?.CallDeferred(Control.MethodName.GrabFocus);
 		}
 	}
 
@@ -1144,6 +1171,8 @@ public partial class MainMenu : Control
 		_confirmPopup.SetMeta("delete_session_id", sessionId);
 		_continuePopup.Visible = false;
 		_confirmPopup.Visible  = true;
+		MoveChild(_confirmPopup, GetChildCount() - 1);
+		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private void OnDeleteAllPressed()
@@ -1152,6 +1181,8 @@ public partial class MainMenu : Control
 		_confirmPopup.SetMeta("delete_mode", "all");
 		_continuePopup.Visible = false;
 		_confirmPopup.Visible  = true;
+		MoveChild(_confirmPopup, GetChildCount() - 1);
+		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private void OnSessionSelected(int sessionId, Dictionary sessionData)
@@ -1169,6 +1200,8 @@ public partial class MainMenu : Control
 
 		_continuePopup.Visible = false;
 		_confirmPopup.Visible  = true;
+		MoveChild(_confirmPopup, GetChildCount() - 1);
+		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/YesButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void _on_confirm_yes_pressed()
@@ -1184,10 +1217,13 @@ public partial class MainMenu : Control
 			{
 				PopulateSessions();
 				_continuePopup.Visible = true;
+				MoveChild(_continuePopup, GetChildCount() - 1);
+				FocusFirstSessionButton();
 			}
 			else
 			{
 				_continuePopup.Visible = _continueButton.Visible = false;
+				GetNodeOrNull<Control>("ButtonContainer/Play")?.CallDeferred(Control.MethodName.GrabFocus);
 			}
 			return;
 		}
@@ -1198,6 +1234,7 @@ public partial class MainMenu : Control
 			_confirmPopup.Visible  = false;
 			_continuePopup.Visible = false;
 			_continueButton.Visible = false;
+			GetNodeOrNull<Control>("ButtonContainer/Play")?.CallDeferred(Control.MethodName.GrabFocus);
 			return;
 		}
 
@@ -1218,6 +1255,8 @@ public partial class MainMenu : Control
 	{
 		_confirmPopup.Visible  = false;
 		_continuePopup.Visible = true;
+		MoveChild(_continuePopup, GetChildCount() - 1);
+		FocusFirstSessionButton();
 	}
 
 	private void SetupProfileUI()

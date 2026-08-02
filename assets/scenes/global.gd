@@ -261,7 +261,7 @@ func apply_display_mode(mode_name: String) -> void:
 			DisplayServer.window_set_size(Vector2i(1280, 720))
 			var screen_size = DisplayServer.screen_get_size()
 			var window_size = Vector2i(1280, 720)
-			DisplayServer.window_set_position((screen_size - window_size) / 2)
+			DisplayServer.window_set_position(Vector2i((screen_size.x - window_size.x) / 2, (screen_size.y - window_size.y) / 2))
 		_: # "Fullscreen" (Default)
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
@@ -329,7 +329,7 @@ func load_mp3_stream(res_path: String) -> AudioStream:
 				return mp3
 	return null
 
-func play_audio_track(res_path: String) -> void:
+func play_audio_track(_res_path: String) -> void:
 	pass
 
 func play_home_music() -> void:
