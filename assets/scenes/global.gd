@@ -1,7 +1,7 @@
 extends Node
 
 var reached_finish = false
-var selected_character = "Ninja Frog"  # Default character
+var selected_character = "Cyber Shogun"  # Default character
 var unlocked_levels = 1  # Track highest unlocked level (1-4)
 var current_display_mode: String = "Fullscreen"
 const SETTINGS_PATH: String = "user://user_settings.json"

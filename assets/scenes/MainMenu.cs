@@ -317,7 +317,7 @@ public partial class MainMenu : Control
 	private void SpawnFallingCharacter()
 	{
 		var character = FallingCharacterScene.Instantiate<FallingCharacter>();
-		string[] names = { "Ninja Frog", "Mask Dude", "Pink Man", "Virtual Guy" };
+		string[] names = { "Cyber Shogun", "Mask Dude", "Pink Man", "Virtual Guy" };
 		character.CharacterName = names[GD.Randi() % (uint)names.Length];
 
 		float screenWidth = GetViewport().GetVisibleRect().Size.X;

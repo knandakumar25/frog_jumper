@@ -86,25 +86,10 @@ text = "AVAILABLE OPERATIVES"
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="NinjaFrog" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+[node name="CyberShogun" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
-text = "Ninja Frog [RECON]"
-
-[node name="MaskDude" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
-custom_minimum_size = Vector2(0, 68)
-layout_mode = 2
-text = "Mask Dude [ASSAULT]"
-
-[node name="PinkMan" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
-custom_minimum_size = Vector2(0, 68)
-layout_mode = 2
-text = "Pink Man [HEAVY]"
-
-[node name="VirtualGuy" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
-custom_minimum_size = Vector2(0, 68)
-layout_mode = 2
-text = "Virtual Guy [CYBER]"
+text = "Cyber Shogun [3D SHOGUN]"
 
 [node name="RightShowcasePanel" type="PanelContainer" parent="MainLayout"]
 layout_mode = 2
@@ -121,24 +106,45 @@ theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 32
-text = "NINJA FROG"
+text = "CYBER SHOGUN"
 horizontal_alignment = 1
 
 [node name="ClassTag" type="Label" parent="MainLayout/RightShowcasePanel/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.2, 0.6, 0.95)
 theme_override_font_sizes/font_size = 20
-text = "// CLASS: RECON INFILTRATOR"
+text = "// CLASS: 3D CYBERNETIC SHOGUN WARRIOR"
 horizontal_alignment = 1
 
-[node name="PreviewFrame" type="Control" parent="MainLayout/RightShowcasePanel/VBox"]
-custom_minimum_size = Vector2(0, 200)
+[node name="PreviewFrame" type="PanelContainer" parent="MainLayout/RightShowcasePanel/VBox"]
+custom_minimum_size = Vector2(280, 220)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="PreviewSprite" type="AnimatedSprite2D" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame"]
-position = Vector2(0, 100)
-scale = Vector2(6, 6)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport3D" type="SubViewport" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(280, 220)
+render_target_update_mode = 4
+own_world_3d = true
+
+[node name="World3D" type="Node3D" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer/SubViewport3D"]
+
+[node name="Camera3D" type="Camera3D" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer/SubViewport3D/World3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 1.9)
+fov = 45.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer/SubViewport3D/World3D"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+light_energy = 2.4
+
+[node name="WorldEnvironment3D" type="WorldEnvironment" parent="MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer/SubViewport3D/World3D"]
+environment = ExtResource("11_cyber_glow")
 
 [node name="StatsBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
 layout_mode = 2
@@ -149,14 +155,14 @@ custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 script = ExtResource("4_segmented_stat_script")
 StatName = "SPEED"
-Value = 92.0
+Value = 98.0
 
 [node name="AgilityMeter" type="Control" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 script = ExtResource("4_segmented_stat_script")
 StatName = "AGILITY"
-Value = 95.0
+Value = 96.0
 
 [node name="DeployButton" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
 custom_minimum_size = Vector2(280, 60)
@@ -164,8 +170,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "DEPLOY OPERATIVE"
 
-[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog" to="." method="_on_ninja_frog_pressed"]
-[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/MaskDude" to="." method="_on_mask_dude_pressed"]
-[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/PinkMan" to="." method="_on_pink_man_pressed"]
-[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/VirtualGuy" to="." method="_on_virtual_guy_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun" to="." method="_on_cyber_shogun_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/DeployButton" to="." method="_on_deploy_pressed"]

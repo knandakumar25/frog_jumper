@@ -12,7 +12,7 @@ public partial class CharacterSelection : Control
 	private SegmentedStatBar _speedMeter;
 	private SegmentedStatBar _agilityMeter;
 
-	private string _currentSelectedCharacter = "Ninja Frog";
+	private string _currentSelectedCharacter = "Cyber Shogun";
 
 	public override void _Ready()
 	{
@@ -25,11 +25,11 @@ public partial class CharacterSelection : Control
 		_agilityMeter      = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityMeter");
 
 		TranslateUI();
-		SelectOperative("Ninja Frog");
+		SelectOperative("Cyber Shogun");
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
 
-		GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog")?.CallDeferred(Control.MethodName.GrabFocus);
+		GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private static void FixFontForLocale(Node node)
@@ -45,26 +45,14 @@ public partial class CharacterSelection : Control
 		var listTitle = GetNodeOrNull<Label>("MainLayout/LeftListPanel/VBox/ListTitle");
 		if (listTitle != null) listTitle.Text = Tr("AVAILABLE OPERATIVES");
 
-		var ninjaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/NinjaFrog");
-		if (ninjaBtn != null) ninjaBtn.Text = $"{Tr("Ninja Frog")} [{Tr("RECON")}]";
-
-		var maskBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/MaskDude");
-		if (maskBtn != null) maskBtn.Text = $"{Tr("Mask Dude")} [{Tr("ASSAULT")}]";
-
-		var pinkBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/PinkMan");
-		if (pinkBtn != null) pinkBtn.Text = $"{Tr("Pink Man")} [{Tr("HEAVY")}]";
-
-		var virtualBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/VirtualGuy");
-		if (virtualBtn != null) virtualBtn.Text = $"{Tr("Virtual Guy")} [{Tr("CYBER")}]";
+		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
+		if (shogunBtn != null) shogunBtn.Text = $"{Tr("Cyber Shogun")} [{Tr("3D SHOGUN")}]";
 
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
 	}
 
-	public void _on_ninja_frog_pressed()    => SelectOperative("Ninja Frog");
-	public void _on_mask_dude_pressed()     => SelectOperative("Mask Dude");
-	public void _on_pink_man_pressed()      => SelectOperative("Pink Man");
-	public void _on_virtual_guy_pressed()   => SelectOperative("Virtual Guy");
+	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
 	private static string SafeToUpper(string text)
@@ -79,51 +67,80 @@ public partial class CharacterSelection : Control
 		return text.ToUpper();
 	}
 
+	private Node3D _cyberShogun3DModel;
+	private float _shogunRotationTimer = 0f;
+
 	private void SelectOperative(string characterName)
 	{
-		_currentSelectedCharacter = characterName;
+		_currentSelectedCharacter = "Cyber Shogun";
 
-		switch (characterName)
-		{
-			case "Ninja Frog":
-				_selectedNameLabel.Text = SafeToUpper(Tr("Ninja Frog"));
-				_classTagLabel.Text     = Tr("// CLASS: RECON INFILTRATOR");
-				_speedMeter?.SetStat(Tr("SPEED"), 92f);
-				_agilityMeter?.SetStat(Tr("AGILITY"), 95f);
-				break;
-			case "Mask Dude":
-				_selectedNameLabel.Text = SafeToUpper(Tr("Mask Dude"));
-				_classTagLabel.Text     = Tr("// CLASS: TACTICAL ASSAULT");
-				_speedMeter?.SetStat(Tr("SPEED"), 85f);
-				_agilityMeter?.SetStat(Tr("AGILITY"), 88f);
-				break;
-			case "Pink Man":
-				_selectedNameLabel.Text = SafeToUpper(Tr("Pink Man"));
-				_classTagLabel.Text     = Tr("// CLASS: HEAVY SPECIALIST");
-				_speedMeter?.SetStat(Tr("SPEED"), 78f);
-				_agilityMeter?.SetStat(Tr("AGILITY"), 80f);
-				break;
-			case "Virtual Guy":
-				_selectedNameLabel.Text = SafeToUpper(Tr("Virtual Guy"));
-				_classTagLabel.Text     = Tr("// CLASS: CYBERNETIC INFILTRATOR");
-				_speedMeter?.SetStat(Tr("SPEED"), 90f);
-				_agilityMeter?.SetStat(Tr("AGILITY"), 92f);
-				break;
-		}
+		_selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
+		_classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
+		_speedMeter?.SetStat(Tr("SPEED"), 98f);
+		_agilityMeter?.SetStat(Tr("AGILITY"), 96f);
 
 		FixFontForLocale(this);
-		UpdatePreviewSprite(characterName);
+		UpdatePreviewShowcase(_currentSelectedCharacter);
 	}
 
-	private void UpdatePreviewSprite(string characterName)
+	private void UpdatePreviewShowcase(string characterName)
 	{
-		var frames = new SpriteFrames();
-		var tex    = GD.Load<Texture2D>("res://assets/images/" + characterName + "/Idle (32x32).png");
-		if (tex == null) return;
+		var world3D = GetNodeOrNull<Node3D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer/SubViewport3D/World3D");
+		if (world3D == null) return;
 
-		AddAnimationFrames(frames, "idle", tex, 11, 10f);
-		_previewSprite.SpriteFrames = frames;
-		_previewSprite.Play("idle");
+		if (_cyberShogun3DModel == null)
+		{
+			string glbPath = "res://imported_models/meshy_model_1785773992.18.glb";
+			_cyberShogun3DModel = LoadGlbModel(glbPath);
+			if (_cyberShogun3DModel != null)
+			{
+				_cyberShogun3DModel.Scale = new Vector3(1.35f, 1.35f, 1.35f);
+				_cyberShogun3DModel.Position = new Vector3(0f, 0.2f, 0f);
+				world3D.AddChild(_cyberShogun3DModel);
+			}
+		}
+
+		if (_cyberShogun3DModel != null)
+		{
+			_cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
+		}
+	}
+
+	private Node3D LoadGlbModel(string resPath)
+	{
+		try
+		{
+			if (ResourceLoader.Exists(resPath))
+			{
+				var packed = GD.Load<PackedScene>(resPath);
+				if (packed != null) return packed.Instantiate<Node3D>();
+			}
+
+			string globalPath = ProjectSettings.GlobalizePath(resPath);
+			if (System.IO.File.Exists(globalPath))
+			{
+				var doc = new GltfDocument();
+				var state = new GltfState();
+				if (doc.AppendFromFile(globalPath, state) == Error.Ok)
+				{
+					return (Node3D)doc.GenerateScene(state);
+				}
+			}
+		}
+		catch (System.Exception ex)
+		{
+			GD.PrintErr($"CharacterSelection: GLB load error: {ex.Message}");
+		}
+		return null;
+	}
+
+	public override void _Process(double delta)
+	{
+		if (_cyberShogun3DModel != null && GodotObject.IsInstanceValid(_cyberShogun3DModel) && _cyberShogun3DModel.Visible)
+		{
+			_shogunRotationTimer += (float)delta;
+			_cyberShogun3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		}
 	}
 
 	private void CreateSessionAndStart(string characterName)
