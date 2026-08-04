@@ -29,7 +29,18 @@ public partial class CharacterSelection : Control
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
 
-		GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun")?.CallDeferred(Control.MethodName.GrabFocus);
+		var solariaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria");
+		if (solariaBtn != null)
+		{
+			solariaBtn.Pressed += () => SelectOperative("Solaria");
+		}
+		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
+		if (shogunBtn != null)
+		{
+			shogunBtn.Pressed += () => SelectOperative("Cyber Shogun");
+		}
+
+		shogunBtn?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private static void FixFontForLocale(Node node)
@@ -52,9 +63,6 @@ public partial class CharacterSelection : Control
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
 	}
 
-	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
-	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
-
 	private static string SafeToUpper(string text)
 	{
 		if (string.IsNullOrEmpty(text)) return "";
@@ -68,16 +76,31 @@ public partial class CharacterSelection : Control
 	}
 
 	private Node3D _cyberShogun3DModel;
+	private Node3D _solaria3DModel;
 	private float _shogunRotationTimer = 0f;
+
+	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
+	public void _on_solaria_pressed()       => SelectOperative("Solaria");
+	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
 	private void SelectOperative(string characterName)
 	{
-		_currentSelectedCharacter = "Cyber Shogun";
+		_currentSelectedCharacter = characterName;
 
-		_selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
-		_classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
-		_speedMeter?.SetStat(Tr("SPEED"), 98f);
-		_agilityMeter?.SetStat(Tr("AGILITY"), 96f);
+		if (characterName == "Solaria")
+		{
+			_selectedNameLabel.Text = SafeToUpper(Tr("Solaria"));
+			_classTagLabel.Text     = Tr("// CLASS: SOLAR FLARE MANIPULATOR");
+			_speedMeter?.SetStat(Tr("SPEED"), 95f);
+			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
+		}
+		else
+		{
+			_selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
+			_classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
+			_speedMeter?.SetStat(Tr("SPEED"), 98f);
+			_agilityMeter?.SetStat(Tr("AGILITY"), 96f);
+		}
 
 		FixFontForLocale(this);
 		UpdatePreviewShowcase(_currentSelectedCharacter);
@@ -85,24 +108,40 @@ public partial class CharacterSelection : Control
 
 	private void UpdatePreviewShowcase(string characterName)
 	{
-		var world3D = GetNodeOrNull<Node3D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/SubViewportContainer/SubViewport3D/World3D");
+		var world3D = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
 		if (world3D == null) return;
 
 		if (_cyberShogun3DModel == null)
 		{
-			string glbPath = "res://imported_models/meshy_model_1785773992.18.glb";
+			string glbPath = "res://assets/images/Cyber Shogun/cyber_shogun.glb";
 			_cyberShogun3DModel = LoadGlbModel(glbPath);
 			if (_cyberShogun3DModel != null)
 			{
-				_cyberShogun3DModel.Scale = new Vector3(1.35f, 1.35f, 1.35f);
-				_cyberShogun3DModel.Position = new Vector3(0f, 0.2f, 0f);
+				_cyberShogun3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
+				_cyberShogun3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
 				world3D.AddChild(_cyberShogun3DModel);
+			}
+		}
+
+		if (_solaria3DModel == null)
+		{
+			string glbPath = "res://assets/images/Solaria/Meshy_AI_solaris_heroine_remes_0804052921_texture.glb";
+			_solaria3DModel = LoadGlbModel(glbPath);
+			if (_solaria3DModel != null)
+			{
+				_solaria3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
+				_solaria3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				world3D.AddChild(_solaria3DModel);
 			}
 		}
 
 		if (_cyberShogun3DModel != null)
 		{
 			_cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
+		}
+		if (_solaria3DModel != null)
+		{
+			_solaria3DModel.Visible = (characterName == "Solaria");
 		}
 	}
 
@@ -136,10 +175,14 @@ public partial class CharacterSelection : Control
 
 	public override void _Process(double delta)
 	{
+		_shogunRotationTimer += (float)delta;
 		if (_cyberShogun3DModel != null && GodotObject.IsInstanceValid(_cyberShogun3DModel) && _cyberShogun3DModel.Visible)
 		{
-			_shogunRotationTimer += (float)delta;
 			_cyberShogun3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		}
+		if (_solaria3DModel != null && GodotObject.IsInstanceValid(_solaria3DModel) && _solaria3DModel.Visible)
+		{
+			_solaria3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
 		}
 	}
 
