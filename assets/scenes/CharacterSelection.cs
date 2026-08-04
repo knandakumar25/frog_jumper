@@ -7,6 +7,7 @@ using Godot;
 public partial class CharacterSelection : Control
 {
 	private Label _selectedNameLabel;
+	private Label _civilianNameLabel;
 	private Label _classTagLabel;
 	private AnimatedSprite2D _previewSprite;
 	private SegmentedStatBar _speedMeter;
@@ -19,8 +20,9 @@ public partial class CharacterSelection : Control
 		GetNode<Node>("/root/Global").Call("stop_menu_music");
 
 		_selectedNameLabel = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/SelectedName");
+		_civilianNameLabel = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/CivilianName");
 		_classTagLabel     = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/ClassTag");
-		_previewSprite     = GetNode<AnimatedSprite2D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/PreviewSprite");
+		_previewSprite     = GetNodeOrNull<AnimatedSprite2D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/PreviewSprite");
 		_speedMeter        = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedMeter");
 		_agilityMeter      = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityMeter");
 
@@ -29,6 +31,11 @@ public partial class CharacterSelection : Control
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
 
+		var oceanusBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus");
+		if (oceanusBtn != null)
+		{
+			oceanusBtn.Pressed += () => SelectOperative("Oceanus");
+		}
 		var solariaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria");
 		if (solariaBtn != null)
 		{
@@ -57,7 +64,13 @@ public partial class CharacterSelection : Control
 		if (listTitle != null) listTitle.Text = Tr("AVAILABLE OPERATIVES");
 
 		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
-		if (shogunBtn != null) shogunBtn.Text = $"{Tr("Cyber Shogun")} [{Tr("3D SHOGUN")}]";
+		if (shogunBtn != null) shogunBtn.Text = $"{Tr("Cyber Shogun")} [{Tr("Kaito Kurogane")}]";
+
+		var solariaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria");
+		if (solariaBtn != null) solariaBtn.Text = $"{Tr("Solaria")} [{Tr("Valentina Cruz")}]";
+
+		var oceanusBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus");
+		if (oceanusBtn != null) oceanusBtn.Text = $"{Tr("Oceanus")} [{Tr("Kiana Vaea")}]";
 
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
@@ -77,10 +90,12 @@ public partial class CharacterSelection : Control
 
 	private Node3D _cyberShogun3DModel;
 	private Node3D _solaria3DModel;
+	private Node3D _oceanus3DModel;
 	private float _shogunRotationTimer = 0f;
 
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_solaria_pressed()       => SelectOperative("Solaria");
+	public void _on_oceanus_pressed()       => SelectOperative("Oceanus");
 	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
 	private void SelectOperative(string characterName)
@@ -90,13 +105,23 @@ public partial class CharacterSelection : Control
 		if (characterName == "Solaria")
 		{
 			_selectedNameLabel.Text = SafeToUpper(Tr("Solaria"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: VALENTINA CRUZ"));
 			_classTagLabel.Text     = Tr("// CLASS: SOLAR FLARE MANIPULATOR");
 			_speedMeter?.SetStat(Tr("SPEED"), 95f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
 		}
+		else if (characterName == "Oceanus")
+		{
+			_selectedNameLabel.Text = SafeToUpper(Tr("Oceanus"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KIANA VAEA"));
+			_classTagLabel.Text     = Tr("// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
+			_speedMeter?.SetStat(Tr("SPEED"), 96f);
+			_agilityMeter?.SetStat(Tr("AGILITY"), 97f);
+		}
 		else
 		{
 			_selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KAITO KUROGANE"));
 			_classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
 			_speedMeter?.SetStat(Tr("SPEED"), 98f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 96f);
@@ -135,6 +160,18 @@ public partial class CharacterSelection : Control
 			}
 		}
 
+		if (_oceanus3DModel == null)
+		{
+			string glbPath = "res://assets/images/Oceanus/Meshy_AI_polynesian_superheroi_0804064602_image-to-3d-texture.glb";
+			_oceanus3DModel = LoadGlbModel(glbPath);
+			if (_oceanus3DModel != null)
+			{
+				_oceanus3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
+				_oceanus3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				world3D.AddChild(_oceanus3DModel);
+			}
+		}
+
 		if (_cyberShogun3DModel != null)
 		{
 			_cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
@@ -142,6 +179,10 @@ public partial class CharacterSelection : Control
 		if (_solaria3DModel != null)
 		{
 			_solaria3DModel.Visible = (characterName == "Solaria");
+		}
+		if (_oceanus3DModel != null)
+		{
+			_oceanus3DModel.Visible = (characterName == "Oceanus");
 		}
 	}
 
@@ -183,6 +224,10 @@ public partial class CharacterSelection : Control
 		if (_solaria3DModel != null && GodotObject.IsInstanceValid(_solaria3DModel) && _solaria3DModel.Visible)
 		{
 			_solaria3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		}
+		if (_oceanus3DModel != null && GodotObject.IsInstanceValid(_oceanus3DModel) && _oceanus3DModel.Visible)
+		{
+			_oceanus3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
 		}
 	}
 
