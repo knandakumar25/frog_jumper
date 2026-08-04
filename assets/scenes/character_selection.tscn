@@ -132,6 +132,21 @@ custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 text = "Oceanus [Kiana Vaea]"
 
+[node name="SuryaPrime" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Surya Prime [Arjun Varma]"
+
+[node name="MirageBlade" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Mirage Blade [Zayd Al-Mansoor]"
+
+[node name="ApexTitan" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Apex Titan [King Tariq Nzinga]"
+
 [node name="RightShowcasePanel" type="PanelContainer" parent="MainLayout"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -196,4 +211,7 @@ text = "DEPLOY OPERATIVE"
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun" to="." method="_on_cyber_shogun_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria" to="." method="_on_solaria_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus" to="." method="_on_oceanus_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime" to="." method="_on_surya_prime_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade" to="." method="_on_mirage_blade_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan" to="." method="_on_apex_titan_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/DeployButton" to="." method="_on_deploy_pressed"]

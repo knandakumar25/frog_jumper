@@ -31,6 +31,21 @@ public partial class CharacterSelection : Control
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
 
+		var apexTitanBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan");
+		if (apexTitanBtn != null)
+		{
+			apexTitanBtn.Pressed += () => SelectOperative("Apex Titan");
+		}
+		var mirageBladeBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade");
+		if (mirageBladeBtn != null)
+		{
+			mirageBladeBtn.Pressed += () => SelectOperative("Mirage Blade");
+		}
+		var suryaPrimeBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime");
+		if (suryaPrimeBtn != null)
+		{
+			suryaPrimeBtn.Pressed += () => SelectOperative("Surya Prime");
+		}
 		var oceanusBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus");
 		if (oceanusBtn != null)
 		{
@@ -72,6 +87,15 @@ public partial class CharacterSelection : Control
 		var oceanusBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus");
 		if (oceanusBtn != null) oceanusBtn.Text = $"{Tr("Oceanus")} [{Tr("Kiana Vaea")}]";
 
+		var suryaPrimeBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime");
+		if (suryaPrimeBtn != null) suryaPrimeBtn.Text = $"{Tr("Surya Prime")} [{Tr("Arjun Varma")}]";
+
+		var mirageBladeBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade");
+		if (mirageBladeBtn != null) mirageBladeBtn.Text = $"{Tr("Mirage Blade")} [{Tr("Zayd Al-Mansoor")}]";
+
+		var apexTitanBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan");
+		if (apexTitanBtn != null) apexTitanBtn.Text = $"{Tr("Apex Titan")} [{Tr("King Tariq Nzinga")}]";
+
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
 	}
@@ -91,11 +115,17 @@ public partial class CharacterSelection : Control
 	private Node3D _cyberShogun3DModel;
 	private Node3D _solaria3DModel;
 	private Node3D _oceanus3DModel;
+	private Node3D _suryaPrime3DModel;
+	private Node3D _mirageBlade3DModel;
+	private Node3D _apexTitan3DModel;
 	private float _shogunRotationTimer = 0f;
 
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_solaria_pressed()       => SelectOperative("Solaria");
 	public void _on_oceanus_pressed()       => SelectOperative("Oceanus");
+	public void _on_surya_prime_pressed()    => SelectOperative("Surya Prime");
+	public void _on_mirage_blade_pressed()   => SelectOperative("Mirage Blade");
+	public void _on_apex_titan_pressed()     => SelectOperative("Apex Titan");
 	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
 	private void SelectOperative(string characterName)
@@ -117,6 +147,30 @@ public partial class CharacterSelection : Control
 			_classTagLabel.Text     = Tr("// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
 			_speedMeter?.SetStat(Tr("SPEED"), 96f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 97f);
+		}
+		else if (characterName == "Surya Prime")
+		{
+			_selectedNameLabel.Text = SafeToUpper(Tr("Surya Prime"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ARJUN VARMA"));
+			_classTagLabel.Text     = Tr("// CLASS: COSMIC SOLAR VANGUARD");
+			_speedMeter?.SetStat(Tr("SPEED"), 97f);
+			_agilityMeter?.SetStat(Tr("AGILITY"), 98f);
+		}
+		else if (characterName == "Mirage Blade")
+		{
+			_selectedNameLabel.Text = SafeToUpper(Tr("Mirage Blade"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ZAYD AL-MANSOOR"));
+			_classTagLabel.Text     = Tr("// CLASS: CRYSTALLINE PHANTOM");
+			_speedMeter?.SetStat(Tr("SPEED"), 99f);
+			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
+		}
+		else if (characterName == "Apex Titan")
+		{
+			_selectedNameLabel.Text = SafeToUpper(Tr("Apex Titan"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KING TARIQ NZINGA"));
+			_classTagLabel.Text     = Tr("// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
+			_speedMeter?.SetStat(Tr("SPEED"), 93f);
+			_agilityMeter?.SetStat(Tr("AGILITY"), 94f);
 		}
 		else
 		{
@@ -172,6 +226,42 @@ public partial class CharacterSelection : Control
 			}
 		}
 
+		if (_suryaPrime3DModel == null)
+		{
+			string glbPath = "res://assets/images/Surya Prime/Meshy_AI_solar_guardian_0804150949_image-to-3d-texture.glb";
+			_suryaPrime3DModel = LoadGlbModel(glbPath);
+			if (_suryaPrime3DModel != null)
+			{
+				_suryaPrime3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
+				_suryaPrime3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				world3D.AddChild(_suryaPrime3DModel);
+			}
+		}
+
+		if (_mirageBlade3DModel == null)
+		{
+			string glbPath = "res://assets/images/Mirage Blade/Meshy_AI_arab_superhero_crysta_0804155043_image-to-3d-texture.glb";
+			_mirageBlade3DModel = LoadGlbModel(glbPath);
+			if (_mirageBlade3DModel != null)
+			{
+				_mirageBlade3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
+				_mirageBlade3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				world3D.AddChild(_mirageBlade3DModel);
+			}
+		}
+
+		if (_apexTitan3DModel == null)
+		{
+			string glbPath = "res://assets/images/Apex Titan/Meshy_AI_cyber_superhero_0804161932_image-to-3d-texture.glb";
+			_apexTitan3DModel = LoadGlbModel(glbPath);
+			if (_apexTitan3DModel != null)
+			{
+				_apexTitan3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
+				_apexTitan3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				world3D.AddChild(_apexTitan3DModel);
+			}
+		}
+
 		if (_cyberShogun3DModel != null)
 		{
 			_cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
@@ -183,6 +273,18 @@ public partial class CharacterSelection : Control
 		if (_oceanus3DModel != null)
 		{
 			_oceanus3DModel.Visible = (characterName == "Oceanus");
+		}
+		if (_suryaPrime3DModel != null)
+		{
+			_suryaPrime3DModel.Visible = (characterName == "Surya Prime");
+		}
+		if (_mirageBlade3DModel != null)
+		{
+			_mirageBlade3DModel.Visible = (characterName == "Mirage Blade");
+		}
+		if (_apexTitan3DModel != null)
+		{
+			_apexTitan3DModel.Visible = (characterName == "Apex Titan");
 		}
 	}
 
@@ -228,6 +330,18 @@ public partial class CharacterSelection : Control
 		if (_oceanus3DModel != null && GodotObject.IsInstanceValid(_oceanus3DModel) && _oceanus3DModel.Visible)
 		{
 			_oceanus3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		}
+		if (_suryaPrime3DModel != null && GodotObject.IsInstanceValid(_suryaPrime3DModel) && _suryaPrime3DModel.Visible)
+		{
+			_suryaPrime3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		}
+		if (_mirageBlade3DModel != null && GodotObject.IsInstanceValid(_mirageBlade3DModel) && _mirageBlade3DModel.Visible)
+		{
+			_mirageBlade3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		}
+		if (_apexTitan3DModel != null && GodotObject.IsInstanceValid(_apexTitan3DModel) && _apexTitan3DModel.Visible)
+		{
+			_apexTitan3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
 		}
 	}
 
