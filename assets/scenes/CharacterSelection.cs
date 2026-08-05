@@ -216,8 +216,9 @@ public partial class CharacterSelection : Control
 			if (_cyberShogun3DModel != null)
 			{
 				_cyberShogun3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_cyberShogun3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
+				_cyberShogun3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
 				world3D.AddChild(_cyberShogun3DModel);
+				PlayIdleAnimation(_cyberShogun3DModel);
 			}
 		}
 
@@ -228,8 +229,9 @@ public partial class CharacterSelection : Control
 			if (_solaria3DModel != null)
 			{
 				_solaria3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_solaria3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
+				_solaria3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
 				world3D.AddChild(_solaria3DModel);
+				PlayIdleAnimation(_solaria3DModel);
 			}
 		}
 
@@ -240,8 +242,9 @@ public partial class CharacterSelection : Control
 			if (_oceanus3DModel != null)
 			{
 				_oceanus3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_oceanus3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
+				_oceanus3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
 				world3D.AddChild(_oceanus3DModel);
+				PlayIdleAnimation(_oceanus3DModel);
 			}
 		}
 
@@ -252,8 +255,9 @@ public partial class CharacterSelection : Control
 			if (_suryaPrime3DModel != null)
 			{
 				_suryaPrime3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_suryaPrime3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
+				_suryaPrime3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
 				world3D.AddChild(_suryaPrime3DModel);
+				PlayIdleAnimation(_suryaPrime3DModel);
 			}
 		}
 
@@ -264,8 +268,9 @@ public partial class CharacterSelection : Control
 			if (_mirageBlade3DModel != null)
 			{
 				_mirageBlade3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_mirageBlade3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
+				_mirageBlade3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
 				world3D.AddChild(_mirageBlade3DModel);
+				PlayIdleAnimation(_mirageBlade3DModel);
 			}
 		}
 
@@ -276,8 +281,9 @@ public partial class CharacterSelection : Control
 			if (_apexTitan3DModel != null)
 			{
 				_apexTitan3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_apexTitan3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
+				_apexTitan3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
 				world3D.AddChild(_apexTitan3DModel);
+				PlayIdleAnimation(_apexTitan3DModel);
 			}
 		}
 
@@ -345,6 +351,51 @@ public partial class CharacterSelection : Control
 		catch (System.Exception ex)
 		{
 			GD.PrintErr($"CharacterSelection: GLB load error: {ex.Message}");
+		}
+		return null;
+	}
+
+	/// <summary>
+	/// Finds the first AnimationPlayer in the node tree and plays its first animation (looping).
+	/// </summary>
+	private static void PlayIdleAnimation(Node root)
+	{
+		var player = FindNodeRecursive<AnimationPlayer>(root);
+		if (player == null) return;
+
+		var list = player.GetAnimationList();
+		if (list.Length == 0) return;
+
+		// Prefer any animation whose name contains "idle" (case-insensitive),
+		// otherwise fall back to the first available one.
+		string clip = list[0];
+		foreach (var name in list)
+		{
+			if (name.ToString().ToLowerInvariant().Contains("idle"))
+			{
+				clip = name;
+				break;
+			}
+		}
+
+		// Force looping on the animation resource
+		var anim = player.GetAnimation(clip);
+		if (anim != null)
+			anim.LoopMode = Animation.LoopModeEnum.Linear;
+
+		player.Play(clip);
+	}
+
+	/// <summary>
+	/// Recursively searches for the first node of type T in the subtree.
+	/// </summary>
+	private static T FindNodeRecursive<T>(Node node) where T : Node
+	{
+		if (node is T match) return match;
+		foreach (Node child in node.GetChildren())
+		{
+			var result = FindNodeRecursive<T>(child);
+			if (result != null) return result;
 		}
 		return null;
 	}
