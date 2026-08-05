@@ -82,7 +82,7 @@
         "characters": {
             "briefing": "warrior selection",
             "title": "Choose Your Fighter",
-            "desc": "Four elite warriors stand against the Xelthara occupation. Each brings unique abilities to the fight for Earth's freedom.",
+            "desc": "Six elite warriors stand against the Xelthara occupation. Each brings unique abilities to the fight for Earth's freedom.",
             "abilities_title": "ABILITIES",
             "stats_title": "COMBAT STATS",
             "unlock": "Bonus unlockable character with sword & karate attacks. Complete the campaign to unlock this legendary warrior.",
@@ -93,25 +93,35 @@
                 "defense": "DEFENSE"
             },
             "warriors": {
-                "frog": {
-                    "role": "Infiltrator",
-                    "desc": "A master of stealth and agility. The Ninja Frog can wall-jump and double-jump to reach impossible positions. Lightning-fast movement makes this warrior the ideal scout.",
-                    "lore": "\"They do not see me until it is too late. In the margins between their spotlights, I exist.\""
+                "shogun": {
+                    "role": "Cybernetic Shogun Warrior",
+                    "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+                    "lore": "\"My blade is forged in code, but my honor is written in blood.\""
                 },
-                "dude": {
-                    "role": "Balanced Fighter",
-                    "desc": "The masked warrior offers the perfect balance of offense and defense. Reliable in all situations, Aegis Ronin is strategic and equipped with a Kinetic Hammer and Energy Tower Shield.",
-                    "lore": "\"The mask is not a disguise. It is a declaration that I refuse to be recognized by their systems.\""
+                "solaria": {
+                    "role": "Solar Flare Manipulator",
+                    "desc": "Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.",
+                    "lore": "\"The sun rises on our liberation. None can escape the light.\""
                 },
-                "pink": {
-                    "role": "Heavy Hitter",
-                    "desc": "A specialist in Phase-Shifting and EMP bursts, fighting to reclaim stolen identities from alien databases. Extremely fast and deadly at close quarters.",
-                    "lore": "\"They laugh at my color. They stop laughing very quickly.\""
+                "oceanus": {
+                    "role": "Hydrokinetic Plasma Manipulator",
+                    "desc": "Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.",
+                    "lore": "\"The oceans do not yield, and neither will we. Rise with the tide.\""
                 },
-                "guy": {
-                    "role": "Tech Specialist",
-                    "desc": "A digital consciousness embedded in a physical chassis. Virtual Guy can interface with enemy systems and exploit technical vulnerabilities that others cannot perceive.",
-                    "lore": "\"I live in the space between their firewalls. I am the ghost in their machine.\""
+                "surya": {
+                    "role": "Cosmic Solar Vanguard",
+                    "desc": "Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.",
+                    "lore": "\"In the heart of a star, there is only power. Let the cosmic flame burn.\""
+                },
+                "mirage": {
+                    "role": "Crystalline Phantom",
+                    "desc": "Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.",
+                    "lore": "\"I am the shadow in the crystal, the strike you never saw coming.\""
+                },
+                "apex": {
+                    "role": "Electro-Magnetic Storm Vanguard",
+                    "desc": "King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.",
+                    "lore": "\"The storm answers my call. Tremble before the thunder.\""
                 }
             }
         },
@@ -312,7 +322,12 @@
             "ronin": "AEGIS RONIN",
             "matrix": "ONI MATRIX",
             "frog": "NINJA FROG",
-            "guy": "VIRTUAL GUY"
+            "guy": "VIRTUAL GUY",
+            "solaria": "SOLARIA",
+            "oceanus": "OCEANUS",
+            "surya": "SURYA PRIME",
+            "mirage": "MIRAGE BLADE",
+            "apex": "APEX TITAN"
         },
         "gameplay": {
             "protocols": "CORE PROTOCOLS",
@@ -518,12 +533,12 @@
             }
         },
         "characters": {
-            "briefing": "selecciÃ³n de guerrero",
-            "title": "Elige a tu luchador",
-            "desc": "Cuatro guerreros de Ã©lite se oponen a la ocupaciÃ³n de los Xelthara. Cada uno aporta habilidades Ãºnicas a la lucha por la libertad de la Tierra.",
-            "abilities_title": "HABILIDADES",
-            "stats_title": "ESTADÃSTICAS DE COMBATE",
-            "unlock": "Personaje adicional desbloqueable con ataques de espada y kÃ¡rate. Completa la campaÃ±a para desbloquear a este guerrero legendario.",
+            "briefing": "selección de guerrero",
+            "title": "Elige tu luchador",
+            "desc": "Seis guerreros de élite se oponen a la ocupación de Xelthara. Cada uno aporta habilidades únicas a la lucha por la libertad de la Tierra.",
+            "abilities_title": "TALENTO",
+            "stats_title": "ESTADÍSTICAS DE COMBATE",
+            "unlock": "Personaje extra desbloqueable con ataques de espada y kárate. Completa la campaña para desbloquear a este guerrero legendario.",
             "stats": {
                 "speed": "VELOCIDAD",
                 "power": "PODER",
@@ -531,25 +546,35 @@
                 "defense": "DEFENSA"
             },
             "warriors": {
-                "frog": {
-                    "role": "Infiltrador",
-                    "desc": "Un maestro del sigilo y la agilidad. Ninja Frog puede saltar paredes y hacer doble salto para alcanzar posiciones imposibles. Los movimientos ultrarrÃ¡pidos convierten a este guerrero en el explorador ideal.",
-                    "lore": "\"No me ven hasta que es demasiado tarde. Existo en los mÃ¡rgenes entre sus reflectores.\""
+                "shogun": {
+                    "role": "Guerrero Shogun Cibernético",
+                    "desc": "Un maestro guerrero cibernético de Neo-Tokio, armado con una katana de energía. Combina bushido tradicional con tecnología militar futurista.",
+                    "lore": "\"Mi espada está forjada en código, pero mi honor está escrito con sangre\"."
                 },
-                "dude": {
-                    "role": "Luchador Equilibrado",
-                    "desc": "El guerrero enmascarado ofrece el equilibrio perfecto entre ataque y defensa. Fiable en todas las situaciones, Aegis Ronin es estratÃ©gico y estÃ¡ equipado con un martillo cinÃ©tico y un escudo de torre de energÃ­a.",
-                    "lore": "\"La mÃ¡scara no es un disguise. Es una declaraciÃ³n de que me niego a ser reconocido por sus sistemas.\""
+                "solaria": {
+                    "role": "Manipulador de llamaradas solares",
+                    "desc": "Valentina Cruz domina el espectro solar, proyectando escudos térmicos y abrasadoras láminas de luz de plasma puro.",
+                    "lore": "\"El sol sale con nuestra liberación. Nadie puede escapar de la luz\"."
                 },
-                "pink": {
-                    "role": "Atacante Pesado",
-                    "desc": "Un especialista en cambios de fase y explosiones EMP que lucha por recuperar identidades robadas de bases de datos alienÃ­genas. Extremadamente rÃ¡pido y mortal a corta distancia.",
-                    "lore": "\"Se rÃ­en de mi color. Dejan de reÃ­rse muy rÃ¡pido.\""
+                "oceanus": {
+                    "role": "Manipulador de plasma hidrocinético",
+                    "desc": "Kiana Vaea manipula mareas líquidas y ondas de presión oceánicas, controlando el campo de batalla con hidrojets de alta velocidad.",
+                    "lore": "\"Los océanos no ceden, y nosotros tampoco. Suben con la marea\"."
                 },
-                "guy": {
-                    "role": "Especialista TecnolÃ³gico",
-                    "desc": "Una conciencia digital incrustada en un chasis fÃ­sico. Virtual Guy puede interactuar con sistemas enemigos y explotar vulnerabilidades tÃ©cnicas que otros no pueden percibir.",
-                    "lore": "\"Vivo en el espacio entre sus cortafuegos. Soy el fantasma en su mÃ¡quina.\""
+                "surya": {
+                    "role": "Vanguardia Solar Cósmica",
+                    "desc": "Arjun Varma canaliza la energía de fusión cósmica para manipular campos gravimétricos y liberar fuertes pulsos solares AoE.",
+                    "lore": "\"En el corazón de una estrella sólo hay poder. Deja que arda la llama cósmica.\""
+                },
+                "mirage": {
+                    "role": "Fantasma cristalino",
+                    "desc": "Zayd Al-Mansoor usa refracciones de cristal para crear fantasmas que controlan la luz y atraviesan enemigos con espadas dobles sayf.",
+                    "lore": "\"Soy la sombra en el cristal, el golpe que nunca viste venir\"."
+                },
+                "apex": {
+                    "role": "Vanguardia de tormenta electromagnética",
+                    "desc": "El rey Tariq Nzinga es una potencia que canaliza nubes de tormenta electromagnéticas y se estrella con un devastador salto de escudo contra tormentas.",
+                    "lore": "\"La tormenta responde a mi llamado. Tiembla ante el trueno\"."
                 }
             }
         },
@@ -737,20 +762,25 @@
             }
         },
         "squad": {
-            "deploy": "DESPLEGAR OPERATIVO",
-            "deploying": "DESPLEGANDO...",
-            "syncComplete": "SINCRONIZACIÃ“N COMPLETA // OPERATIVO DESPLEGADO CON Ã‰XITO EN EL SECTOR",
+            "deploy": "IMPLEMENTAR OPERATIVO",
+            "deploying": "IMPLEMENTANDO...",
+            "syncComplete": "SINCRONIZACIÓN COMPLETA // OPERATIVO IMPLEMENTADO EXITOSAMENTE EN EL SECTOR OBJETIVO",
             "active": "ACTIVO",
-            "standby": "EN ESPERA",
-            "role": "ROL",
+            "standby": "APOYAR",
+            "role": "ROLE",
             "firepower": "POTENCIA DE FUEGO",
             "defense": "DEFENSA",
             "mobility": "MOVILIDAD",
-            "shogun": "CIBER SHOGUN",
+            "shogun": "SHOGUN CIBERNÉTICO",
             "ronin": "AEGIS RONIN",
             "matrix": "MATRIZ ONI",
             "frog": "RANA NINJA",
-            "guy": "CHICO VIRTUAL"
+            "guy": "CHICO VIRTUAL",
+            "solaria": "SOLANAS",
+            "oceanus": "OCÉANO",
+            "surya": "PRIMERA SURYA",
+            "mirage": "HOJA DE ESPEJISMO",
+            "apex": "TITAN APEX"
         },
         "gameplay": {
             "protocols": "PROTOCOLOS ESENCIALES",
@@ -956,12 +986,12 @@
             }
         },
         "characters": {
-            "briefing": "sÃ©lection du guerrier",
+            "briefing": "sélection de guerrier",
             "title": "Choisissez votre combattant",
-            "desc": "Quatre guerriers d'Ã©lite se dressent contre l'occupation Xelthara. Chacun apporte des capacitÃ©s uniques Ã  la lutte pour la libertÃ© de la Terre.",
-            "abilities_title": "CAPACITÃ‰S",
+            "desc": "Six guerriers d'élite s'opposent à l'occupation de Xelthara. Chacun apporte des capacités uniques dans la lutte pour la liberté de la Terre.",
+            "abilities_title": "CAPACITÉS",
             "stats_title": "STATISTIQUES DE COMBAT",
-            "unlock": "Personnage bonus dÃ©bloquable avec des combos d'attaques Ã  l'Ã©pÃ©e et au karatÃ©. Terminez la campagne pour dÃ©bloquer ce guerrier lÃ©gendaire.",
+            "unlock": "Personnage bonus à débloquer avec des attaques à l'épée et au karaté. Terminez la campagne pour débloquer ce guerrier légendaire.",
             "stats": {
                 "speed": "VITESSE",
                 "power": "PUISSANCE",
@@ -969,25 +999,35 @@
                 "defense": "DÃ‰FENSE"
             },
             "warriors": {
-                "frog": {
-                    "role": "Infiltrateur",
-                    "desc": "Un maÃ®tre de la furtivitÃ© et de l'agilitÃ©. La grenouille Ninja peut sauter au mur et faire un double saut pour atteindre des positions impossibles. Ses mouvements ultra-rapides font de ce guerrier l'Ã©claireur idÃ©al.",
-                    "lore": "\"Ils ne me voient pas avant qu'il ne soit trop tard. J'existe dans l'ombre de leurs projecteurs.\""
+                "shogun": {
+                    "role": "Guerrier Shogun Cybernétique",
+                    "desc": "Un maître guerrier cybernétique de Néo-Tokyo, armé d'un katana énergétique. Combine le bushido traditionnel avec une technologie militaire futuriste.",
+                    "lore": "\"Ma lame est forgée en code, mais mon honneur est écrit dans le sang.\""
                 },
-                "dude": {
-                    "role": "Combattant Ã‰quilibrÃ©",
-                    "desc": "Le guerrier masquÃ© offre lâ€™Ã©quilibre parfait entre attaque et dÃ©fense. Fiable dans toutes les situations, Aegis Ronin est stratÃ©gique et Ã©quipÃ© d'un Kinetic Hammer et d'un Energy Tower Shield.",
-                    "lore": "\"Le masque n'est pas un dÃ©guisement. C'est une dÃ©claration : je refuse d'Ãªtre reconnu par leurs systÃ¨mes.\""
+                "solaria": {
+                    "role": "Manipulateur d'éruption solaire",
+                    "desc": "Valentina Cruz maîtrise le spectre solaire, projetant des boucliers thermiques et des lames lumineuses brûlantes de plasma pur.",
+                    "lore": "\"Le soleil se lève lors de notre libération. Personne ne peut échapper à la lumière.\""
                 },
-                "pink": {
-                    "role": "Poids Lourd",
-                    "desc": "Un spÃ©cialiste du changement de phase et des rafales EMP, luttant pour rÃ©cupÃ©rer les identitÃ©s volÃ©es dans des bases de donnÃ©es extraterrestres. ExtrÃªmement rapide et mortel au corps Ã  corps.",
-                    "lore": "\"Ils rient de ma couleur. Ils s'arrÃªtent de rire trÃ¨s vite.\""
+                "oceanus": {
+                    "role": "Manipulateur de plasma hydrocinétique",
+                    "desc": "Kiana Vaea manipule les marées liquides et les ondes de pression océaniques, contrôlant le champ de bataille avec des hydrojets à grande vitesse.",
+                    "lore": "\"Les océans ne cèdent pas, et nous non plus. Montons avec la marée.\""
                 },
-                "guy": {
-                    "role": "SpÃ©cialiste Tech",
-                    "desc": "Une conscience numÃ©rique intÃ©grÃ©e dans un chÃ¢ssis physique. Virtual Guy peut s'interfacer avec les systÃ¨mes ennemis et exploiter des vulnÃ©rabilitÃ©s techniques que d'autres ne peuvent pas percevoir.",
-                    "lore": "\"Je vis dans l'espace entre leurs pare-feux. Je suis le fantÃ´me dans leur machine.\""
+                "surya": {
+                    "role": "Avant-garde solaire cosmique",
+                    "desc": "Arjun Varma canalise l'énergie de fusion cosmique pour manipuler les champs gravimétriques et libérer de lourdes impulsions solaires AoE.",
+                    "lore": "\"Au cœur d'une étoile, il n'y a que du pouvoir. Que la flamme cosmique brûle.\""
+                },
+                "mirage": {
+                    "role": "Fantôme cristallin",
+                    "desc": "Zayd Al-Mansoor utilise la réfraction des cristaux pour créer des fantômes qui maîtrisent la lumière et trancher les ennemis avec deux lames sayf.",
+                    "lore": "\"Je suis l'ombre dans le cristal, le coup que vous n'avez jamais vu venir.\""
+                },
+                "apex": {
+                    "role": "Avant-garde de tempête électromagnétique",
+                    "desc": "Le roi Tariq Nzinga est une centrale électrique qui canalise les nuages ​​d'orage électromagnétiques, s'écrasant avec un saut de bouclier anti-tempête dévastateur.",
+                    "lore": "\"La tempête répond à mon appel. Tremblez devant le tonnerre.\""
                 }
             }
         },
@@ -1175,20 +1215,25 @@
             }
         },
         "squad": {
-            "deploy": "DÃ‰PLOYER L'AGENT",
-            "deploying": "DÃ‰PLOIEMENT...",
-            "syncComplete": "SYNCHRONISATION TERMINÃ‰E // AGENT DÃ‰PLOYÃ‰ AVEC SUCCÃˆS DANS LE SECTEUR CIBLE",
+            "deploy": "OPÉRATEUR DE DÉPLOIEMENT",
+            "deploying": "DÉPLOYEMENT...",
+            "syncComplete": "SYNC COMPLÈTE // OPÉRATEUR DÉPLOYÉ AVEC SUCCÈS SUR LE SECTEUR CIBLE",
             "active": "ACTIF",
-            "standby": "EN ATTENTE",
-            "role": "RÃ”LE",
+            "standby": "ATTENDRE",
+            "role": "RÔLE",
             "firepower": "PUISSANCE DE FEU",
-            "defense": "DÃ‰FENSE",
-            "mobility": "MOBILITÃ‰",
+            "defense": "DÉFENSE",
+            "mobility": "MOBILITÉ",
             "shogun": "CYBERSHOGUN",
             "ronin": "AEGIS RONIN",
             "matrix": "MATRICE ONI",
             "frog": "GRENOUILLE NINJA",
-            "guy": "GARS VIRTUEL"
+            "guy": "GARS VIRTUEL",
+            "solaria": "SOLAIRE",
+            "oceanus": "OCÉANUS",
+            "surya": "SURYA PRIME",
+            "mirage": "LAME MIRAGE",
+            "apex": "APEX TITAN"
         },
         "gameplay": {
             "protocols": "PROTOCOLES FONDAMENTAUX",
@@ -1394,12 +1439,12 @@
             }
         },
         "characters": {
-            "briefing": "seleÃ§Ã£o de guerreiro",
+            "briefing": "seleção de guerreiro",
             "title": "Escolha seu lutador",
-            "desc": "Quatro guerreiros de elite se opÃµem Ã  ocupaÃ§Ã£o Xelthara. Cada um traz habilidades Ãºnicas para a luta pela liberdade da Terra.",
+            "desc": "Seis guerreiros de elite se opõem à ocupação Xelthara. Cada um traz habilidades únicas para a luta pela liberdade da Terra.",
             "abilities_title": "HABILIDADES",
-            "stats_title": "ESTATÃSTICAS DE COMBATE",
-            "unlock": "Personagem bÃ´nus desbloqueÃ¡vel com ataques de espada e caratÃª. Complete a campanha para desbloquear este guerreiro lendÃ¡rio.",
+            "stats_title": "ESTATÍSTICAS DE COMBATE",
+            "unlock": "Personagem bônus desbloqueável com ataques de espada e caratê. Complete a campanha para desbloquear este guerreiro lendário.",
             "stats": {
                 "speed": "VELOCIDADE",
                 "power": "PODER",
@@ -1407,25 +1452,35 @@
                 "defense": "DEFESA"
             },
             "warriors": {
-                "frog": {
-                    "role": "Infiltrador",
-                    "desc": "Um mestre da furtividade e da agilidade. O Ninja Frog pode pular na parede e dar salto duplo para alcanÃ§ar posiÃ§Ãµes impossÃ­veis. Movimentos extremamente rÃ¡pidos fazem deste guerreiro o batedor ideal.",
-                    "lore": "\"Eles nÃ£o me veem atÃ© que seja tarde demais. Nas margens entre seus holofotes, eu existo.\""
+                "shogun": {
+                    "role": "Guerreiro Shogun Cibernético",
+                    "desc": "Um mestre guerreiro cibernético de Neo-Tóquio, armado com uma katana de energia. Combina o bushido tradicional com tecnologia militar futurista.",
+                    "lore": "\"Minha lâmina é forjada em código, mas minha honra está escrita com sangue.\""
                 },
-                "dude": {
-                    "role": "Lutador Equilibrado",
-                    "desc": "O guerreiro mascarado oferece o equilÃ­brio perfeito entre ataque e defesa. ConfiÃ¡vel em todas as situaÃ§Ãµes, Aegis Ronin Ã© estratÃ©gico e equipado com um Martelo CinÃ©tico e um Escudo de Torre de Energia.",
-                    "lore": "â€œA mÃ¡scara nÃ£o Ã© um disfarce. Ã‰ uma declaraÃ§Ã£o de que me recuso a ser reconhecido pelos seus sistemas.â€"
+                "solaria": {
+                    "role": "Manipulador de explosão solar",
+                    "desc": "Valentina Cruz comanda o espectro solar, projetando escudos térmicos e lâminas de luz abrasadora de plasma puro.",
+                    "lore": "\"O sol nasce em nossa libertação. Ninguém pode escapar da luz.\""
                 },
-                "pink": {
-                    "role": "LanÃ§ador Pesado",
-                    "desc": "Um especialista em mudanÃ§a de fase e explosÃµes de EMP, lutando para recuperar identidades roubadas de bancos de dados alienÃ­genas. Extremamente rÃ¡pido e mortal de perto.",
-                    "lore": "\"Eles riem da minha cor. Eles param de rir muito rapidamente.\""
+                "oceanus": {
+                    "role": "Manipulador de Plasma Hidrocinético",
+                    "desc": "Kiana Vaea manipula marés líquidas e ondas de pressão oceânica, controlando o campo de batalha com hidrojatos de alta velocidade.",
+                    "lore": "\"Os oceanos não cederam e nós também não. Subimos com a maré.\""
                 },
-                "guy": {
-                    "role": "Especialista em tecnologia",
-                    "desc": "Uma consciÃªncia digital incorporada num chassis fÃ­sico. O Virtual Guy pode interagir com sistemas inimigos e explorar vulnerabilidades tÃ©cnicas que outros nÃ£o conseguem perceber.",
-                    "lore": "\"Eu moro no espaÃ§o entre os firewalls deles. Sou o fantasma da mÃ¡quina deles.\""
+                "surya": {
+                    "role": "Vanguarda Solar Cósmica",
+                    "desc": "Arjun Varma canaliza energia de fusão cósmica para manipular campos gravimétricos e liberar fortes pulsos solares AoE.",
+                    "lore": "\"No coração de uma estrela só existe poder. Deixe a chama cósmica queimar.\""
+                },
+                "mirage": {
+                    "role": "Fantasma Cristalino",
+                    "desc": "Zayd Al-Mansoor usa refrações de cristal para criar fantasmas que dobram a luz e destruir inimigos com lâminas duplas sayf.",
+                    "lore": "\"Eu sou a sombra no cristal, o ataque que você nunca imaginou chegar.\""
+                },
+                "apex": {
+                    "role": "Vanguarda da Tempestade Eletromagnética",
+                    "desc": "O Rei Tariq Nzinga é uma potência que canaliza nuvens de tempestade eletromagnéticas, desabando com um devastador salto de escudo contra tempestades.",
+                    "lore": "\"A tempestade responde ao meu chamado. Trema diante do trovão.\""
                 }
             }
         },
@@ -1613,20 +1668,25 @@
             }
         },
         "squad": {
-            "deploy": "IMPLANTAR OPERATIVO",
-            "deploying": "IMPLANTANDO...",
-            "syncComplete": "SINCRONIZAÃ‡ÃƒO CONCLUÃDA // OPERATIVO IMPLANTADO COM SUCESSO NO SETOR ALVO",
+            "deploy": "IMPLEMENTAR OPERATIVO",
+            "deploying": "IMPLEMENTANDO...",
+            "syncComplete": "SINCRONIZAÇÃO COMPLETA // OPERATIVO IMPLANTADO COM SUCESSO NO SETOR ALVO",
             "active": "ATIVO",
-            "standby": "EM ESPERA",
-            "role": "FUNÃ‡ÃƒO",
-            "firepower": "PODER DE FOGO",
+            "standby": "ESPERA",
+            "role": "PAPEL",
+            "firepower": "POTÊNCIA DE FOGO",
             "defense": "DEFESA",
             "mobility": "MOBILIDADE",
             "shogun": "CIBER SHOGUN",
             "ronin": "Ã‰GIDE RONIN",
             "matrix": "MATRIZ ONI",
             "frog": "SAPO NINJA",
-            "guy": "CARA VIRTUAL"
+            "guy": "CARA VIRTUAL",
+            "solaria": "SOLARIA",
+            "oceanus": "OCEANO",
+            "surya": "SURYA PRIME",
+            "mirage": "LÂMINA MIRAGEM",
+            "apex": "ÁPICE TITÃ"
         },
         "gameplay": {
             "protocols": "PROTOCOLOS BÃSICOS",
@@ -1833,11 +1893,11 @@
         },
         "characters": {
             "briefing": "Kriegerauswahl",
-            "title": "WÃ¤hlen Sie Ihren KÃ¤mpfer",
-            "desc": "Vier Elitekrieger stellen sich gegen die Xelthara-Besatzung. Jeder bringt einzigartige FÃ¤higkeiten in den Kampf fÃ¼r die Freiheit der Erde ein.",
-            "abilities_title": "FÃ„HIGKEITEN",
+            "title": "Wählen Sie Ihren Kämpfer",
+            "desc": "Sechs Elitekrieger stellen sich gegen die Xelthara-Besatzung. Jeder bringt einzigartige Fähigkeiten in den Kampf für die Freiheit der Erde ein.",
+            "abilities_title": "FÄHIGKEITEN",
             "stats_title": "KAMPFSTATISTIKEN",
-            "unlock": "Freischaltbarer Bonuscharakter mit Schwert- und Karate-Angriffen. SchlieÃŸe die Kampagne ab, um diesen legendÃ¤ren Krieger freizuschalten.",
+            "unlock": "Freischaltbarer Bonuscharakter mit Schwert- und Karate-Angriffen. Schließe die Kampagne ab, um diesen legendären Krieger freizuschalten.",
             "stats": {
                 "speed": "GESCHWINDIGKEIT",
                 "power": "KRAFT",
@@ -1845,25 +1905,35 @@
                 "defense": "VERTEIDIGUNG"
             },
             "warriors": {
-                "frog": {
-                    "role": "Eindringling",
-                    "desc": "Ein Meister der Heimlichkeit und Beweglichkeit. Der Ninja-Frosch kann Wand- und DoppelsprÃ¼nge ausfÃ¼hren, um unmÃ¶gliche Positionen zu erreichen. Blitzschnelle Bewegungen machen diesen Krieger zum idealen SpÃ¤her.",
-                    "lore": "â€žSie sehen mich erst, wenn es zu spÃ¤t ist. Am Rande zwischen ihren Scheinwerfern existiere ich.â€œ"
+                "shogun": {
+                    "role": "Kybernetischer Shogun-Krieger",
+                    "desc": "Ein meisterhafter kybernetischer Krieger aus Neo-Tokio, bewaffnet mit einem Energie-Katana. Kombiniert traditionelles Bushido mit futuristischer Militärtechnologie.",
+                    "lore": "„Meine Klinge ist im Code geschmiedet, aber meine Ehre ist im Blut geschrieben.“"
                 },
-                "dude": {
-                    "role": "Ausgeglichener KÃ¤mpfer",
-                    "desc": "Der maskierte Krieger bietet die perfekte Balance aus Angriff und Verteidigung. Aegis Ronin ist in allen Situationen zuverlÃ¤ssig, strategisch und mit einem kinetischen Hammer und einem Energieturmschild ausgestattet.",
-                    "lore": "â€žDie Maske ist keine Verkleidung. Sie ist eine ErklÃ¤rung, dass ich mich weigere, von ihren Systemen anerkannt zu werden.â€œ"
+                "solaria": {
+                    "role": "Manipulator für Sonneneruptionen",
+                    "desc": "Valentina Cruz beherrscht das Sonnenspektrum und projiziert Hitzeschilde und sengende Lichtklingen aus reinem Plasma.",
+                    "lore": "„Die Sonne geht mit unserer Befreiung auf. Niemand kann dem Licht entkommen.“"
                 },
-                "pink": {
-                    "role": "Schwerer Schlagmann",
-                    "desc": "Ein Spezialist fÃ¼r Phasenverschiebung und EMP-AusbrÃ¼che, der darum kÃ¤mpft, gestohlene IdentitÃ¤ten aus auÃŸerirdischen Datenbanken zurÃ¼ckzugewinnen. Extrem schnell und tÃ¶dlich aus nÃ¤chster NÃ¤he.",
-                    "lore": "â€žSie lachen Ã¼ber meine Farbe. Sie hÃ¶ren sehr schnell auf zu lachen.â€œ"
+                "oceanus": {
+                    "role": "Hydrokinetischer Plasmamanipulator",
+                    "desc": "Kiana Vaea manipuliert flüssige Gezeiten und ozeanische Druckwellen und kontrolliert das Schlachtfeld mit Hochgeschwindigkeits-Hydrojets.",
+                    "lore": "„Die Ozeane geben nicht nach, und wir auch nicht. Steigen Sie mit der Flut.“"
                 },
-                "guy": {
-                    "role": "Tech-Spezialist",
-                    "desc": "Ein digitales Bewusstsein, eingebettet in ein physisches GehÃ¤use. Virtual Guy kann mit feindlichen Systemen interagieren und technische Schwachstellen ausnutzen, die andere nicht erkennen kÃ¶nnen.",
-                    "lore": "â€žIch lebe im Raum zwischen ihren Firewalls. Ich bin der Geist in ihrer Maschine.â€œ"
+                "surya": {
+                    "role": "Kosmische Solar-Avantgarde",
+                    "desc": "Arjun Varma kanalisiert kosmische Fusionsenergie, um gravimetrische Felder zu manipulieren und starke AoE-Sonnenimpulse auszulösen.",
+                    "lore": "„Im Herzen eines Sterns ist nur Kraft. Lass die kosmische Flamme brennen.“"
+                },
+                "mirage": {
+                    "role": "Kristallines Phantom",
+                    "desc": "Zayd Al-Mansoor nutzt Kristallbrechungen, um lichtbeugende Phantome zu erschaffen und Feinde mit zwei Sayf-Klingen zu zerschneiden.",
+                    "lore": "„Ich bin der Schatten im Kristall, der Schlag, den du nie kommen sahst.“"
+                },
+                "apex": {
+                    "role": "Elektromagnetische Sturmvorhut",
+                    "desc": "König Tariq Nzinga ist ein Kraftpaket, das elektromagnetische Sturmwolken kanalisiert und mit einem verheerenden Sturmschild-Sprung herabstürzt.",
+                    "lore": "„Der Sturm beantwortet meinen Ruf. Zittere vor dem Donner.“"
                 }
             }
         },
@@ -2051,20 +2121,25 @@
             }
         },
         "squad": {
-            "deploy": "EINSATZKRAFT AKTIVIEREN",
-            "deploying": "AKTIVIERUNG...",
-            "syncComplete": "SYNCHRONISATION ABGESCHLOSSEN // EINSATZKRAFT ERFOLGREICH IM ZIELSEKTOR DEPLOYIERT",
+            "deploy": "OPERATIVE EINSETZEN",
+            "deploying": "Bereitstellen...",
+            "syncComplete": "SYNCHRONISATION ABGESCHLOSSEN // OPERATIV ERFOLGREICH IM ZIELSEKTOR ANGEBOT",
             "active": "AKTIV",
-            "standby": "BEREITSCHAFT",
+            "standby": "STEHEN ZU",
             "role": "ROLLE",
             "firepower": "FEUERKRAFT",
-            "defense": "ABWEHR",
-            "mobility": "MOBILITÃ„T",
+            "defense": "VERTEIDIGUNG",
+            "mobility": "MOBILITÄT",
             "shogun": "CYBER SHOGUN",
             "ronin": "Ã„GIS RONIN",
             "matrix": "ONI-MATRIX",
             "frog": "NINJA-FROSCH",
-            "guy": "VIRTUELLER KERL"
+            "guy": "VIRTUELLER KERL",
+            "solaria": "SOLARIA",
+            "oceanus": "OCEANUS",
+            "surya": "SURYA PRIME",
+            "mirage": "Trugbildklinge",
+            "apex": "APEX TITAN"
         },
         "gameplay": {
             "protocols": "KERNPROTOKOLLE",
@@ -2272,8 +2347,8 @@
         "characters": {
             "briefing": "selezione del guerriero",
             "title": "Scegli il tuo combattente",
-            "desc": "Quattro guerrieri d'Ã©lite si oppongono all'occupazione di Xelthara. Ognuno porta abilitÃ  uniche nella lotta per la libertÃ  della Terra.",
-            "abilities_title": "ABILITÃ€",
+            "desc": "Sei guerrieri d'élite si oppongono all'occupazione di Xelthara. Ognuno porta abilità uniche nella lotta per la libertà della Terra.",
+            "abilities_title": "ABILITÀ",
             "stats_title": "STATISTICHE DI COMBATTIMENTO",
             "unlock": "Personaggio bonus sbloccabile con attacchi con spada e karate. Completa la campagna per sbloccare questo leggendario guerriero.",
             "stats": {
@@ -2283,25 +2358,35 @@
                 "defense": "DIFESA"
             },
             "warriors": {
-                "frog": {
-                    "role": "Infiltratore",
-                    "desc": "Un maestro della furtivitÃ  e dell'agilitÃ . La Rana Ninja puÃ² saltare sul muro e fare un doppio salto per raggiungere posizioni impossibili. Il movimento fulmineo rende questo guerriero l'esploratore ideale.",
-                    "lore": "\"Non mi vedono finchÃ© non Ã¨ troppo tardi. Ai margini tra i loro riflettori, io esisto.\""
+                "shogun": {
+                    "role": "Guerriero Shogun Cibernetico",
+                    "desc": "Un maestro guerriero cibernetico di Neo-Tokyo, armato con una katana energetica. Combina il bushido tradizionale con la tecnologia militare futuristica.",
+                    "lore": "\"La mia lama è forgiata in codice, ma il mio onore è scritto nel sangue.\""
                 },
-                "dude": {
-                    "role": "Combattente equilibrato",
-                    "desc": "Il guerriero mascherato offre il perfetto equilibrio tra attacco e difesa. Affidabile in ogni situazione, Aegis Ronin Ã¨ strategico e dotato di Martello Cinetico e Scudo Torre Energetico.",
-                    "lore": "\"La maschera non Ã¨ un travestimento. Ãˆ una dichiarazione che rifiuto di essere riconosciuto dai loro sistemi.\""
+                "solaria": {
+                    "role": "Manipolatore del brillamento solare",
+                    "desc": "Valentina Cruz controlla lo spettro solare, proiettando scudi termici e brucianti lame di luce di puro plasma.",
+                    "lore": "\"Il sole sorge sulla nostra liberazione. Nessuno può sfuggire alla luce.\""
                 },
-                "pink": {
-                    "role": "Battitore Pesante",
-                    "desc": "Uno specialista in Phase-Shifting ed EMP irrompe, lottando per recuperare le identitÃ  rubate dai database alieni. Estremamente veloce e letale a distanza ravvicinata.",
-                    "lore": "\"Ridono del mio colore. Smettono di ridere molto velocemente.\""
+                "oceanus": {
+                    "role": "Manipolatore di plasma idrocinetico",
+                    "desc": "Kiana Vaea manipola le maree liquide e le onde di pressione oceaniche, controllando il campo di battaglia con idrogetti ad alta velocità.",
+                    "lore": "\"Gli oceani non si arrendono, e nemmeno noi. Saliremo con la marea.\""
                 },
-                "guy": {
-                    "role": "Specialista tecnologico",
-                    "desc": "Una coscienza digitale incorporata in un telaio fisico. Virtual Guy puÃ² interfacciarsi con i sistemi nemici e sfruttare vulnerabilitÃ  tecniche che gli altri non possono percepire.",
-                    "lore": "\"Vivo nello spazio tra i loro firewall. Sono il fantasma nella loro macchina.\""
+                "surya": {
+                    "role": "Avanguardia Solare Cosmica",
+                    "desc": "Arjun Varma canalizza l'energia di fusione cosmica per manipolare i campi gravimetrici e rilasciare pesanti impulsi solari AoE.",
+                    "lore": "\"Nel cuore di una stella c'è solo potere. Lascia che la fiamma cosmica bruci.\""
+                },
+                "mirage": {
+                    "role": "Fantasma cristallino",
+                    "desc": "Zayd Al-Mansoor utilizza le rifrazioni dei cristalli per creare fantasmi che piegano la luce e squarciano i nemici con doppie lame sayf.",
+                    "lore": "\"Io sono l'ombra nel cristallo, il colpo che non avresti mai previsto.\""
+                },
+                "apex": {
+                    "role": "Avanguardia della tempesta elettromagnetica",
+                    "desc": "Re Tariq Nzinga è un potente che incanala nubi temporalesche elettromagnetiche, che si abbattono con un devastante balzo dello scudo anti-tempesta.",
+                    "lore": "\"La tempesta risponde alla mia chiamata. Trema davanti al tuono.\""
                 }
             }
         },
@@ -2493,16 +2578,21 @@
             "deploying": "IMPLEMENTAZIONE...",
             "syncComplete": "SINCRONIZZAZIONE COMPLETATA // OPERATIVA IMPLEMENTATA CON SUCCESSO NEL SETTORE DESTINATO",
             "active": "ATTIVO",
-            "standby": "STANDBY",
+            "standby": "STAND-BY",
             "role": "RUOLO",
             "firepower": "POTENZA DI FUOCO",
             "defense": "DIFESA",
-            "mobility": "MOBILITÃ€",
+            "mobility": "MOBILITÀ",
             "shogun": "CYBERSHOGUN",
             "ronin": "EGIS RONIN",
             "matrix": "MATRICE ONI",
             "frog": "RANA NINJA",
-            "guy": "RAGAZZO VIRTUALE"
+            "guy": "RAGAZZO VIRTUALE",
+            "solaria": "SOLARIA",
+            "oceanus": "OCEANO",
+            "surya": "SURYA PRIMO",
+            "mirage": "LAMA MIRAGGIO",
+            "apex": "APICE TITANO"
         },
         "gameplay": {
             "protocols": "PROTOCOLLI FONDAMENTALI",
@@ -2708,12 +2798,12 @@
             }
         },
         "characters": {
-            "briefing": "wybÃ³r wojownika",
+            "briefing": "wybór wojownika",
             "title": "Wybierz swojego wojownika",
-            "desc": "Czterech elitarnych wojownikÃ³w sprzeciwia siÄ™ okupacji Xelthara. KaÅ¼dy z nich wnosi unikalne zdolnoÅ›ci do walki o wolnoÅ›Ä‡ Ziemi.",
-            "abilities_title": "ZDOLNOÅšCI",
+            "desc": "Sześciu elitarnych wojowników sprzeciwia się okupacji Xelthara. Każdy z nich wnosi unikalne zdolności do walki o wolność Ziemi.",
+            "abilities_title": "ZDOLNOŚCI",
             "stats_title": "STATYSTYKI WALKI",
-            "unlock": "Dodatkowa postaÄ‡ do odblokowania z atakami mieczem i karate. UkoÅ„cz kampaniÄ™, aby odblokowaÄ‡ tego legendarnego wojownika.",
+            "unlock": "Dodatkowa postać do odblokowania z atakami mieczem i karate. Ukończ kampanię, aby odblokować tego legendarnego wojownika.",
             "stats": {
                 "speed": "SZYBKOÅšÄ†",
                 "power": "MOC",
@@ -2721,25 +2811,35 @@
                 "defense": "OBRONA"
             },
             "warriors": {
-                "frog": {
-                    "role": "Infiltrator",
-                    "desc": "Mistrz skradania siÄ™ i zwinnoÅ›ci. Å»aba Ninja moÅ¼e skakaÄ‡ po Å›cianach i dwukrotnie skakaÄ‡, aby osiÄ…gnÄ…Ä‡ niemoÅ¼liwe pozycje. BÅ‚yskawiczny ruch czyni tego wojownika idealnym zwiadowcÄ….",
-                    "lore": "â€žNie widzÄ… mnie, dopÃ³ki nie jest za pÃ³Åºno. IstniejÄ™ na marginesie ich reflektorÃ³wâ€."
+                "shogun": {
+                    "role": "Cybernetyczny wojownik szoguna",
+                    "desc": "Mistrz cybernetycznego wojownika z Neo-Tokio, uzbrojony w katanę energetyczną. Łączy tradycyjne bushido z futurystyczną technologią wojskową.",
+                    "lore": "„Moje ostrze jest wykute w kodzie, ale mój honor jest zapisany krwią”."
                 },
-                "dude": {
-                    "role": "ZrÃ³wnowaÅ¼ony wojownik",
-                    "desc": "Zamaskowany wojownik zapewnia idealnÄ… rÃ³wnowagÄ™ ataku i obrony. Niezawodny w kaÅ¼dej sytuacji, Aegis Ronin jest strategiczny i wyposaÅ¼ony w MÅ‚ot Kinetyczny i TarczÄ™ WieÅ¼y Energetycznej.",
-                    "lore": "â€žMaska nie jest przebraniem. To deklaracja, Å¼e nie zgadzam siÄ™ na rozpoznanie przez ich systemyâ€."
+                "solaria": {
+                    "role": "Manipulator rozbłysków słonecznych",
+                    "desc": "Valentina Cruz włada widmem słonecznym, tworząc osłony termiczne i palące ostrza czystej plazmy.",
+                    "lore": "„Słońce wschodzi po naszym wyzwoleniu. Nikt nie może uciec przed światłem”."
                 },
-                "pink": {
-                    "role": "CiÄ™Å¼ki paÅ‚karz",
-                    "desc": "Specjalista od przesuniÄ™cia fazowego i wybuchÃ³w EMP, walczÄ…cy o odzyskanie skradzionych toÅ¼samoÅ›ci z baz danych obcych. Niezwykle szybki i zabÃ³jczy w walce na bliskim dystansie.",
-                    "lore": "â€žÅšmiejÄ… siÄ™ z mojego koloru skÃ³ry. Bardzo szybko przestajÄ… siÄ™ Å›miaÄ‡â€."
+                "oceanus": {
+                    "role": "Manipulator plazmy hydrokinetycznej",
+                    "desc": "Kiana Vaea manipuluje przypływami cieczy i falami ciśnienia oceanicznego, kontrolując pole bitwy za pomocą hydroodrzutowców o dużej prędkości.",
+                    "lore": "„Oceany nie ustąpią i my też nie. Podnosimy się wraz z przypływem”."
                 },
-                "guy": {
-                    "role": "Specjalista ds. technicznych",
-                    "desc": "Cyfrowa Å›wiadomoÅ›Ä‡ osadzona w fizycznej obudowie. Virtual Guy moÅ¼e Å‚Ä…czyÄ‡ siÄ™ z systemami wroga i wykorzystywaÄ‡ luki techniczne, ktÃ³rych inni nie dostrzegajÄ….",
-                    "lore": "â€žMieszkam w przestrzeni pomiÄ™dzy ich zaporami ogniowymi. Jestem duchem w ich maszynie.â€"
+                "surya": {
+                    "role": "Kosmiczna Słoneczna Straż Przednia",
+                    "desc": "Arjun Varma wykorzystuje kosmiczną energię termojądrową do manipulowania polami grawimetrycznymi i uwalniania silnych, obszarowych impulsów słonecznych.",
+                    "lore": "„W sercu gwiazdy jest tylko moc. Niech płonie kosmiczny płomień”."
+                },
+                "mirage": {
+                    "role": "Krystaliczny fantom",
+                    "desc": "Zayd Al-Mansoor wykorzystuje załamania kryształów, aby tworzyć zakrzywiające światło fantomy i przecinać wrogów podwójnymi ostrzami sayf.",
+                    "lore": "„Jestem cieniem w krysztale, uderzeniem, którego nigdy się nie spodziewałeś”."
+                },
+                "apex": {
+                    "role": "Straż Przednia Burzy Elektromagnetycznej",
+                    "desc": "Król Tariq Nzinga to potęga, która kieruje elektromagnetyczne chmury burzowe, rozbijając się niszczycielskim skokiem w tarczę burzową.",
+                    "lore": "„Burza odpowiada na moje wołanie. Drżyjcie przed grzmotem”."
                 }
             }
         },
@@ -2927,20 +3027,25 @@
             }
         },
         "squad": {
-            "deploy": "WYÅšLIJ OPERATORA",
-            "deploying": "WDROÅ»ENIE...",
-            "syncComplete": "SYNCHRONIZACJA ZAKOÅƒCZONA // OPERATOR UDOSTÄ˜PNIONY W SEKTORZE DOCELOWYM",
+            "deploy": "WYŚLIJ OPERATORA",
+            "deploying": "WDROŻENIE...",
+            "syncComplete": "SYNCHRONIZACJA ZAKOŃCZONA // OPERATOR UDOSTĘPNIONY W SEKTORZE DOCELOWYM",
             "active": "AKTYWNY",
-            "standby": "GOTOWOÅšÄ†",
+            "standby": "GOTOWOŚĆ",
             "role": "ROLA",
-            "firepower": "SIÅA OGNIA",
+            "firepower": "SIŁA OGNIA",
             "defense": "OBRONA",
-            "mobility": "MOBILNOÅšÄ†",
+            "mobility": "RUCHLIWOŚĆ",
             "shogun": "CYBER SHOGUN",
             "ronin": "AEGIS RONIN",
             "matrix": "MATRYCA ONI",
             "frog": "Å»ABA NINJA",
-            "guy": "WIRTUALNY CZÅOWIEK"
+            "guy": "WIRTUALNY CZÅOWIEK",
+            "solaria": "SOLARIA",
+            "oceanus": "OCEANUS",
+            "surya": "SURYA PRIME",
+            "mirage": "OSTRZE MIRAŻU",
+            "apex": "SZCZĘŚLIWY TYTAN"
         },
         "gameplay": {
             "protocols": "PODSTAWOWE PROTOKOÅY",
@@ -3146,12 +3251,12 @@
             }
         },
         "characters": {
-            "briefing": "savaÅŸÃ§Ä± seÃ§imi",
-            "title": "DÃ¶vÃ¼ÅŸÃ§Ã¼nÃ¼zÃ¼ SeÃ§in",
-            "desc": "DÃ¶rt seÃ§kin savaÅŸÃ§Ä± Xelthara iÅŸgaline karÅŸÄ± Ã§Ä±kÄ±yor. Her biri DÃ¼nya'nÄ±n Ã¶zgÃ¼rlÃ¼ÄŸÃ¼ iÃ§in verilen mÃ¼cadeleye benzersiz yetenekler katÄ±yor.",
+            "briefing": "savaşçı seçimi",
+            "title": "Dövüşçünüzü Seçin",
+            "desc": "Altı elit savaşçı Xelthara işgaline karşı çıkıyor. Her biri Dünya'nın özgürlüğü için verilen mücadeleye benzersiz yetenekler katıyor.",
             "abilities_title": "YETENEKLER",
-            "stats_title": "SAVAÅž Ä°STATÄ°STÄ°KLERÄ°",
-            "unlock": "KÄ±lÄ±Ã§ ve karate saldÄ±rÄ±larÄ±na sahip, kilidi aÃ§Ä±labilir bonus karakter. Bu efsanevi savaÅŸÃ§Ä±nÄ±n kilidini aÃ§mak iÃ§in harekatÄ± tamamlayÄ±n.",
+            "stats_title": "SAVAŞ İSTATİSTİKLERİ",
+            "unlock": "Kılıç ve karate saldırılarına sahip, kilidi açılabilir bonus karakter. Bu efsanevi savaşçının kilidini açmak için harekatı tamamlayın.",
             "stats": {
                 "speed": "HIZ",
                 "power": "GÃœÃ‡",
@@ -3159,25 +3264,35 @@
                 "defense": "SAVUNMA"
             },
             "warriors": {
-                "frog": {
-                    "role": "Casus",
-                    "desc": "Gizlilik ve Ã§eviklik ustasÄ±. Ninja KurbaÄŸa imkansÄ±z konumlara ulaÅŸmak iÃ§in duvardan atlayabilir ve Ã§ift zÄ±playabilir. YÄ±ldÄ±rÄ±m hÄ±zÄ±nda hareket etmesi bu savaÅŸÃ§Ä±yÄ± ideal izci yapar.",
-                    "lore": "\"Ã‡ok geÃ§ olana kadar beni gÃ¶rmÃ¼yorlar. Ben onlarÄ±n spot Ä±ÅŸÄ±klarÄ±nÄ±n arasÄ±ndaki kenarlarda varÄ±m.\""
+                "shogun": {
+                    "role": "Sibernetik Shogun Savaşçısı",
+                    "desc": "Neo-Tokyo'dan gelen, enerji katanasıyla silahlanmış usta bir sibernetik savaşçı. Geleneksel Bushido'yu fütüristik askeri teknolojiyle birleştiriyor.",
+                    "lore": "\"Kılıcım şifreyle dövüldü ama onurum kanla yazılmıştır.\""
                 },
-                "dude": {
-                    "role": "Dengeli SavaÅŸÃ§Ä±",
-                    "desc": "Maskeli savaÅŸÃ§Ä±, saldÄ±rÄ± ve savunma arasÄ±nda mÃ¼kemmel bir denge sunuyor. Her durumda gÃ¼venilir olan Aegis Ronin stratejiktir ve Kinetik Ã‡ekiÃ§ ve Enerji Kulesi KalkanÄ± ile donatÄ±lmÄ±ÅŸtÄ±r.",
-                    "lore": "\"Maske bir kÄ±lÄ±k deÄŸiÅŸtirme deÄŸil. Sistemleri tarafÄ±ndan tanÄ±nmayÄ± reddettiÄŸimin bir beyanÄ±dÄ±r.\""
+                "solaria": {
+                    "role": "Güneş Patlaması Manipülatörü",
+                    "desc": "Valentina Cruz, ısı kalkanları ve saf plazmanın yakıcı ışık bıçaklarını yansıtarak güneş spektrumunu yönetiyor.",
+                    "lore": "\"Kurtuluşumuz üzerine güneş doğuyor. Hiç kimse ışıktan kaçamaz.\""
                 },
-                "pink": {
-                    "role": "AÄŸÄ±r Vurucu",
-                    "desc": "Faz DeÄŸiÅŸtirme ve EMP patlamalarÄ± konusunda uzman, uzaylÄ± veritabanlarÄ±ndan Ã§alÄ±nan kimlikleri geri almak iÃ§in savaÅŸÄ±yor. YakÄ±n mesafelerde son derece hÄ±zlÄ± ve Ã¶lÃ¼mcÃ¼l.",
-                    "lore": "\"Benim rengime gÃ¼lÃ¼yorlar. GÃ¼lmeyi Ã§ok Ã§abuk bÄ±rakÄ±yorlar.\""
+                "oceanus": {
+                    "role": "Hidrokinetik Plazma Manipülatörü",
+                    "desc": "Kiana Vaea, sıvı gelgitleri ve okyanus basınç dalgalarını yöneterek savaş alanını yüksek hızlı hidrojetlerle kontrol ediyor.",
+                    "lore": "\"Okyanuslar boyun eğmez, biz de boyun eğmeyeceğiz. Gelgitle birlikte yükseleceğiz.\""
                 },
-                "guy": {
-                    "role": "Teknik Uzman",
-                    "desc": "Fiziksel bir kasaya yerleÅŸtirilmiÅŸ dijital bilinÃ§. Virtual Guy, dÃ¼ÅŸman sistemleriyle arayÃ¼z oluÅŸturabilir ve baÅŸkalarÄ±nÄ±n algÄ±layamayacaÄŸÄ± teknik aÃ§Ä±klardan yararlanabilir.",
-                    "lore": "\"OnlarÄ±n gÃ¼venlik duvarlarÄ± arasÄ±ndaki boÅŸlukta yaÅŸÄ±yorum. Ben onlarÄ±n makinesindeki hayaletim.\""
+                "surya": {
+                    "role": "Kozmik Güneş Öncüsü",
+                    "desc": "Arjun Varma, gravimetrik alanları manipüle etmek ve ağır AoE güneş darbelerini serbest bırakmak için kozmik füzyon enerjisini kanalize ediyor.",
+                    "lore": "\"Bir yıldızın kalbinde yalnızca güç vardır. Bırakın kozmik alev yansın.\""
+                },
+                "mirage": {
+                    "role": "Kristalin Hayalet",
+                    "desc": "Zayd Al-Mansoor, ışığı büken hayaletler oluşturmak ve çift sayf bıçağıyla düşmanları kesmek için kristal kırılmalarını kullanıyor.",
+                    "lore": "\"Ben kristaldeki gölgeyim, geleceğini hiç tahmin etmediğin saldırıyım.\""
+                },
+                "apex": {
+                    "role": "Elektro-Manyetik Fırtına Öncüleri",
+                    "desc": "Kral Tarık Nzinga, elektromanyetik fırtına bulutlarını yönlendiren ve yıkıcı bir fırtına kalkanı sıçramasıyla çöken bir güç merkezidir.",
+                    "lore": "\"Fırtına çağrıma cevap veriyor. Gök gürültüsünün önünde titre.\""
                 }
             }
         },
@@ -3365,20 +3480,25 @@
             }
         },
         "squad": {
-            "deploy": "OPERATÄ°FÄ° YERLEÅžTÄ°R",
-            "deploying": "DAÄžITILIYOR...",
-            "syncComplete": "SENKRONÄ°ZASYON TAMAMLANDI // OPERATÄ°F HEDEF SEKTÃ–RE BAÅžARIYLA YERLEÅžTÄ°RÄ°LDÄ°",
-            "active": "AKTÄ°F",
-            "standby": "BEKLEME",
-            "role": "ROLÃœ",
-            "firepower": "ATEÅž GÃœCÃœ",
+            "deploy": "OPERATİFİ YERLEŞTİR",
+            "deploying": "DAĞITILIYOR...",
+            "syncComplete": "SENKRONİZASYON TAMAMLANDI // OPERATİF HEDEF SEKTÖRE BAŞARIYLA YERLEŞTİRİLDİ",
+            "active": "AKTİF",
+            "standby": "YANINDA OLMAK",
+            "role": "ROLÜ",
+            "firepower": "ATEŞ GÜCÜ",
             "defense": "SAVUNMA",
-            "mobility": "HAREKETLÄ°LÄ°K",
-            "shogun": "SÄ°BER ÅžOGUN",
+            "mobility": "HAREKETLİLİK",
+            "shogun": "SİBER ŞOGUN",
             "ronin": "AEGIS RONIN",
             "matrix": "ONI MATRÄ°SÄ°",
             "frog": "NÄ°NJA KURBAÄžA",
-            "guy": "SANAL ADAM"
+            "guy": "SANAL ADAM",
+            "solaria": "SOLARYA",
+            "oceanus": "OKYANUS",
+            "surya": "SURYA PRIME",
+            "mirage": "SERBEST BIÇAK",
+            "apex": "APEX TİTANI"
         },
         "gameplay": {
             "protocols": "Ã‡EKÄ°RDEK PROTOKOLLER",
@@ -3584,12 +3704,12 @@
             }
         },
         "characters": {
-            "briefing": "æˆ¦å£«ã®é¸æŠž",
-            "title": "ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ã‚’é¸æŠžã—ã¦ãã ã•ã„",
-            "desc": "4äººã®ç²¾é‹­æˆ¦å£«ãŒã‚¼ãƒ«ã‚¿ãƒ©å é ˜ã«ç«‹ã¡å‘ã‹ã†ã€‚ãã‚Œãžã‚ŒãŒåœ°çƒã®è‡ªç”±ã®ãŸã‚ã®æˆ¦ã„ã«ãƒ¦ãƒ‹ãƒ¼ã‚¯ãªèƒ½åŠ›ã‚’ã‚‚ãŸã‚‰ã—ã¾ã™ã€‚",
-            "abilities_title": "èƒ½åŠ›",
-            "stats_title": "æˆ¦é—˜çµ±è¨ˆ",
-            "unlock": "å‰£ã¨ç©ºæ‰‹ã®æ”»æ’ƒã‚’å‚™ãˆãŸãƒœãƒ¼ãƒŠã‚¹ã®ãƒ­ãƒƒã‚¯è§£é™¤å¯èƒ½ãªã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã€‚ã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³ã‚’å®Œäº†ã—ã¦ã€ã“ã®ä¼èª¬ã®æˆ¦å£«ã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã—ã¦ãã ã•ã„ã€‚",
+            "briefing": "戦士の選択",
+            "title": "ファイターを選択してください",
+            "desc": "6人の精鋭戦士がゼルタラ占領に立ち向かう。それぞれが地球の自由のための戦いにユニークな能力をもたらします。",
+            "abilities_title": "能力",
+            "stats_title": "戦闘統計",
+            "unlock": "剣と空手の攻撃を備えたボーナスのロック解除可能なキャラクター。キャンペーンを完了して、この伝説の戦士のロックを解除してください。",
             "stats": {
                 "speed": "ã‚¹ãƒ”ãƒ¼ãƒ‰",
                 "power": "ãƒ‘ãƒ¯ãƒ¼",
@@ -3597,25 +3717,35 @@
                 "defense": "å®ˆå‚™"
             },
             "warriors": {
-                "frog": {
-                    "role": "ã‚¤ãƒ³ãƒ•ã‚£ãƒ«ãƒˆãƒ¬ãƒ¼ã‚¿ãƒ¼",
-                    "desc": "ã‚¹ãƒ†ãƒ«ã‚¹æ€§ã¨æ©Ÿæ•æ€§ã®é”äººã€‚ å¿è€…ãƒ•ãƒ­ãƒƒã‚° ã¯å£ã‚¸ãƒ£ãƒ³ãƒ—ã‚„ãƒ€ãƒ–ãƒ«ã‚¸ãƒ£ãƒ³ãƒ—ã§ä¸å¯èƒ½ãªä½ç½®ã«åˆ°é”ã§ãã¾ã™ã€‚é›»å…‰çŸ³ç«ã®å‹•ãã‚’ã™ã‚‹ã“ã®æˆ¦å£«ã¯ç†æƒ³çš„ãªåµå¯Ÿå…µã§ã™ã€‚",
-                    "lore": "ã€Œå½¼ã‚‰ã¯æ‰‹é…ã‚Œã«ãªã‚‹ã¾ã§ç§ï¿½ï¿½ï¿½æ°—ã¥ãã¾ã›ã‚“ã€‚å½¼ã‚‰ã®ã‚¹ãƒãƒƒãƒˆãƒ©ã‚¤ãƒˆã®éš™é–“ã«ç§ã¯å­˜åœ¨ã—ã¾ã™ã€‚ã€"
+                "shogun": {
+                    "role": "サイバネティック将軍戦士",
+                    "desc": "エネルギー刀を装備したネオ東京出身のマスターサイバネティック戦士。伝統的な武士道と未来的な軍事技術を組み合わせたものです。",
+                    "lore": "「私の刃は暗号で鍛えられていますが、私の名誉は血で刻まれています。」"
                 },
-                "dude": {
-                    "role": "ãƒãƒ©ãƒ³ã‚¹ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼",
-                    "desc": "ä»®é¢ã®æˆ¦å£«ã¯æ”»æ’ƒã¨é˜²å¾¡ã®å®Œç’§ãªãƒãƒ©ãƒ³ã‚¹ã‚’æä¾›ã—ã¾ã™ã€‚ã‚ã‚‰ã‚†ã‚‹çŠ¶æ³ã§ä¿¡é ¼ã§ãã‚‹ã‚¤ãƒ¼ã‚¸ã‚¹ ãƒ­ãƒ¼ãƒ‹ãƒ³ã¯æˆ¦ç•¥çš„ã§ã€ã‚­ãƒãƒ†ã‚£ãƒƒã‚¯ ãƒãƒ³ãƒžãƒ¼ã¨ã‚¨ãƒãƒ«ã‚®ãƒ¼ ã‚¿ãƒ¯ãƒ¼ ã‚·ãƒ¼ãƒ«ãƒ‰ã‚’è£…å‚™ã—ã¦ã„ã¾ã™ã€‚",
-                    "lore": "ã€Œãƒžï¿½ï¿½ã‚¯ã¯å¤‰è£…ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ç§ãŒå½¼ã‚‰ã®ã‚·ã‚¹ãƒ†ãƒ ã«ã‚ˆã£ã¦èªè­˜ã•ã‚Œã‚‹ã“ã¨ã‚’æ‹’å¦ã™ã‚‹ã¨ã„ã†å®£è¨€ã§ã™ã€‚ã€"
+                "solaria": {
+                    "role": "太陽フレアマニピュレーター",
+                    "desc": "ヴァレンティナ・クルスは太陽スペクトルを指揮し、純粋なプラズマの熱シールドと灼熱の光刃を投影します。",
+                    "lore": "「太陽は私たちの解放に昇る。誰も光から逃れることはできない。」"
                 },
-                "pink": {
-                    "role": "ãƒ˜ãƒ“ãƒ¼ãƒ’ãƒƒã‚¿ãƒ¼",
-                    "desc": "ãƒ•ã‚§ãƒ¼ã‚ºã‚·ãƒ•ãƒˆã¨EMPãƒãƒ¼ã‚¹ãƒˆãƒãƒ¼ã‚¹ãƒˆãƒãƒ¼ã‚¹ãƒˆã®å°‚é–€å®¶ãŒã€ã‚¨ã‚¤ãƒªã‚¢ãƒ³ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‹ã‚‰ç›—ã¾ã‚ŒãŸã‚¢ã‚¤ãƒ‡ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã‚’å–ã‚Šæˆ»ã™ãŸã‚ã«æˆ¦ã£ã¦ã„ã¾ã™ã€‚éžå¸¸ã«é€Ÿãã€è‡³è¿‘è·é›¢ã§ã¯è‡´å‘½çš„ã§ã™ã€‚",
-                    "lore": "ã€Œå½¼ã‚‰ã¯ç§ã®è‚Œã®è‰²ã‚’è¦‹ã¦ç¬‘ã„ã¾ã™ã€‚å½¼ã‚‰ã¯ã™ãã«ç¬‘ã„ã‚’ã‚„ã¿ã¾ã™ã€‚ã€"
+                "oceanus": {
+                    "role": "流体力学的プラズママニピュレーター",
+                    "desc": "Kiana Vaea は液潮と海洋圧力波を操作し、高速ハイドロ ジェットで戦場を制御します。",
+                    "lore": "「海は屈しない、そして私たちも屈しない。潮とともに上昇する。」"
                 },
-                "guy": {
-                    "role": "æŠ€è¡“ã‚¹ãƒšã‚·ãƒ£ãƒªã‚¹ãƒˆ",
-                    "desc": "ç‰©ç†çš„ãªã‚·ãƒ£ãƒ¼ã‚·ã«åŸ‹ã‚è¾¼ã¾ã‚ŒãŸãƒ‡ã‚¸ã‚¿ãƒ«æ„è­˜ã€‚ ãƒãƒ¼ãƒãƒ£ãƒ«ãƒ»ã‚¬ã‚¤ ã¯ã€æ•µã®ã‚·ã‚¹ãƒ†ãƒ ã¨æŽ¥ç¶šã—ã€ä»–ã®äººãŒèªè­˜ã§ããªã„æŠ€è¡“çš„ãªè„†å¼±æ€§ã‚’æ‚ªç”¨ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚",
-                    "lore": "ã€Œç§ã¯å½¼ã‚‰ã®ãƒ•ã‚¡ã‚¤ã‚¢ã‚¦ã‚©ãƒ¼ãƒ«ã®é–“ã«ä½ã‚“ã§ã„ã¾ã™ã€‚ç§ã¯å½¼ã‚‰ã®ãƒžã‚·ãƒ³ã®ä¸­ã®å¹½éœŠã§ã™ã€‚ã€"
+                "surya": {
+                    "role": "コズミック・ソーラー・バンガード",
+                    "desc": "アルジュン ヴァルマは宇宙融合エネルギーを導き、重力場を操作し、強力な AoE 太陽パルスを放出します。",
+                    "lore": "「星の中心にあるのは力だけ。宇宙の炎を燃やしましょう。」"
+                },
+                "mirage": {
+                    "role": "クリスタルファントム",
+                    "desc": "ザイド・アル・マンスールはクリスタルの屈折を利用して光を曲げるファントムを作り出し、デュアル・サイフ・ブレードで敵を切り裂きます。",
+                    "lore": "「私はクリスタルの中の影、あなたが来るのを見たことがなかった攻撃です。」"
+                },
+                "apex": {
+                    "role": "電磁嵐の前衛",
+                    "desc": "タリク・ンジンガ王は、電磁嵐雲を誘導し、破壊的な嵐の盾の跳躍で墜落させる強力な人物です。",
+                    "lore": "「嵐が私の呼びかけに応えます。雷の前に震えなさい。」"
                 }
             }
         },
@@ -3803,20 +3933,25 @@
             }
         },
         "squad": {
-            "deploy": "äººå“¡ã‚’é…ç½®ã™ã‚‹",
-            "deploying": "é…ç½®ä¸­...",
-            "syncComplete": "åŒæœŸå®Œäº† // å¯¾è±¡ã‚»ã‚¯ã‚¿ãƒ¼ã¸ã®äººå“¡é…ç½®ãŒå®Œäº†ã—ã¾ã—ãŸ",
-            "active": "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–",
-            "standby": "ã‚¹ã‚¿ãƒ³ãƒã‚¤",
-            "role": "å½¹å‰²",
-            "firepower": "ç«åŠ›",
-            "defense": "é˜²å¾¡",
-            "mobility": "æ©Ÿå‹•åŠ›",
-            "shogun": "ã‚µã‚¤ãƒãƒ¼å°†è»",
+            "deploy": "工作員を配備する",
+            "deploying": "導入中...",
+            "syncComplete": "同期が完了しました // 作戦はターゲットセクターに正常に展開されました",
+            "active": "アクティブ",
+            "standby": "待機する",
+            "role": "役割",
+            "firepower": "火力",
+            "defense": "防衛",
+            "mobility": "モビリティ",
+            "shogun": "サイバー将軍",
             "ronin": "ã‚¤ãƒ¼ã‚¸ã‚¹ãƒ»ãƒ­ãƒ¼ãƒ‹ãƒ³",
             "matrix": "ã‚ªãƒ‹ãƒ»ãƒžãƒˆãƒªã‚¯ã‚¹",
             "frog": "å¿è€…ãƒ•ãƒ­ãƒƒã‚°",
-            "guy": "ãƒãƒ¼ãƒãƒ£ãƒ«ãƒ»ã‚¬ã‚¤"
+            "guy": "ãƒãƒ¼ãƒãƒ£ãƒ«ãƒ»ã‚¬ã‚¤",
+            "solaria": "ソラリア",
+            "oceanus": "オシアナス",
+            "surya": "スーリヤプライム",
+            "mirage": "ミラージュブレード",
+            "apex": "アペックスタイタン"
         },
         "gameplay": {
             "protocols": "ã‚³ã‚¢ãƒ»ãƒ—ãƒ­ãƒˆã‚³ãƒ«",
@@ -4022,12 +4157,12 @@
             }
         },
         "characters": {
-            "briefing": "ì „ì‚¬ ì„ íƒ",
-            "title": "ë‹¹ì‹ ì˜ ì „íˆ¬ê¸°ë¥¼ ì„ íƒí•˜ì„¸ìš”",
-            "desc": "4ëª…ì˜ ì •ì˜ˆ ì „ì‚¬ê°€ ì ¤íƒ€ë¼ ì ë ¹ì— ë§žì„œ ì‹¸ì›ë‹ˆë‹¤. ê°ê°ì€ ì§€êµ¬ì˜ ìžìœ ë¥¼ ìœ„í•œ ì‹¸ì›€ì— ë…íŠ¹í•œ ëŠ¥ë ¥ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.",
-            "abilities_title": "ëŠ¥ë ¥",
-            "stats_title": "ì „íˆ¬ í†µê³„",
-            "unlock": "ê²€ê³¼ ê°€ë¼í…Œ ê³µê²©ìœ¼ë¡œ ìž ê¸ˆ í•´ì œ ê°€ëŠ¥í•œ ë³´ë„ˆìŠ¤ ìºë¦­í„°. ì´ ì „ì„¤ì ì¸ ì „ì‚¬ë¥¼ ìž ê¸ˆ í•´ì œí•˜ë ¤ë©´ ìº íŽ˜ì¸ì„ ì™„ë£Œí•˜ì„¸ìš”.",
+            "briefing": "전사 선택",
+            "title": "당신의 전투기를 선택하세요",
+            "desc": "여섯 명의 정예 전사들이 젤타라 점령에 맞서 싸웁니다. 각각은 지구의 자유를 위한 싸움에 독특한 능력을 가져옵니다.",
+            "abilities_title": "능력",
+            "stats_title": "전투 통계",
+            "unlock": "검과 가라테 공격으로 잠금 해제 가능한 보너스 캐릭터. 이 전설적인 전사를 잠금 해제하려면 캠페인을 완료하세요.",
             "stats": {
                 "speed": "ì†ë„",
                 "power": "íž˜",
@@ -4035,25 +4170,35 @@
                 "defense": "ë°©ì–´"
             },
             "warriors": {
-                "frog": {
-                    "role": "ì¹¨ìž…ìž",
-                    "desc": "ì€ì‹ ê³¼ ë¯¼ì²©ì„±ì˜ ë‹¬ì¸ìž…ë‹ˆë‹¤. ë‹Œìž ê°œêµ¬ë¦¬ëŠ” ë²½ ì í”„ì™€ ì´ì¤‘ ì í”„ë¥¼ í†µí•´ ë¶ˆê°€ëŠ¥í•œ ìœ„ì¹˜ì— ë„ë‹¬í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ë¹›ì²˜ëŸ¼ ë¹ ë¥¸ ì›€ì§ìž„ì„ ì§€ë‹Œ ì´ ì „ì‚¬ëŠ” ì´ìƒì ì¸ ì •ì°°ë³‘ìž…ë‹ˆë‹¤.",
-                    "lore": "\"ê·¸ë“¤ì€ ë„ˆë¬´ ëŠ¦ì„ ë•Œê¹Œì§€ ë‚˜ë¥¼ ë³´ì§€ ëª»í•œë‹¤. ê·¸ë“¤ì˜ ìŠ¤í¬íŠ¸ë¼ì´íŠ¸ ì‚¬ì´ì˜ ì—¬ë°±ì— ë‚˜ëŠ” ì¡´ìž¬í•œë‹¤.\""
+                "shogun": {
+                    "role": "사이버네틱 쇼군 전사",
+                    "desc": "에너지 카타나로 무장한 네오도쿄 출신의 사이버네틱스 전사. 전통적인 무사도와 미래적인 군사 기술을 결합합니다.",
+                    "lore": "\"내 검은 암호로 만들어졌지만, 내 명예는 피로 쓰여 있습니다.\""
                 },
-                "dude": {
-                    "role": "ê· í˜•ìž¡ížŒ íŒŒì´í„°",
-                    "desc": "ê°€ë©´ì„ ì“´ ì „ì‚¬ëŠ” ê³µê²©ê³¼ ë°©ì–´ì˜ ì™„ë²½í•œ ê· í˜•ì„ ì œê³µí•©ë‹ˆë‹¤. ëª¨ë“  ìƒí™©ì—ì„œ ì‹ ë¢°í•  ìˆ˜ ìžˆëŠ” ì´ì§€ìŠ¤ ë¡œë‹Œì€ ì „ëžµì ì´ë©° í‚¤ë„¤í‹± í•´ë¨¸ì™€ ì—ë„ˆì§€ íƒ€ì›Œ ì‹¤ë“œë¥¼ ê°–ì¶”ê³  ìžˆìŠµë‹ˆë‹¤.",
-                    "lore": "\"ë§ˆìŠ¤í¬ëŠ” ï¿½ï¿½ï¿½ìž¥ì´ ì•„ë‹™ë‹ˆë‹¤. ê·¸ë“¤ì˜ ì‹œìŠ¤í…œì—ì„œ ì¸ì‹ë˜ê¸°ë¥¼ ê±°ë¶€í•œë‹¤ëŠ” ì„ ì–¸ìž…ë‹ˆë‹¤.\""
+                "solaria": {
+                    "role": "태양 플레어 조작기",
+                    "desc": "발렌티나 크루즈(Valentina Cruz)는 태양 스펙트럼을 지휘하여 열 차단막을 투사하고 순수 플라즈마로 만든 불타는 듯한 빛의 칼날을 투사합니다.",
+                    "lore": "\"우리의 해방에 해가 뜬다. 그 누구도 빛을 피할 수 없다.\""
                 },
-                "pink": {
-                    "role": "í—¤ë¹„ížˆí„°",
-                    "desc": "ìœ„ìƒ ì´ë™ ë° EMP í­ë°œ í­ë°œ í­ë°œì˜ ì „ë¬¸ê°€ë¡œì„œ ì™¸ê³„ì¸ ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ í›”ì¹œ ì‹ ì›ì„ ë˜ì°¾ê¸° ìœ„í•´ ì‹¸ìš°ê³  ìžˆìŠµë‹ˆë‹¤. ê·¼ê±°ë¦¬ì—ì„œ ë§¤ìš° ë¹ ë¥´ê³  ì¹˜ëª…ì ìž…ë‹ˆë‹¤.",
-                    "lore": "\"ê·¸ë“¤ì€ ë‚´ ìƒ‰ê¹”ì„ ë¹„ì›ƒìŠµë‹ˆë‹¤. ê·¸ë“¤ì€ ì•„ì£¼ ë¹¨ë¦¬ ì›ƒìŒì„ ë©ˆì¶¥ë‹ˆë‹¤.\""
+                "oceanus": {
+                    "role": "유체역학적 플라즈마 조작기",
+                    "desc": "키아나 바에아(Kiana Vaea)는 액체 조수와 해양 기압파를 조작하여 고속 수력 제트로 전장을 통제합니다.",
+                    "lore": "\"바다는 굴복하지 않으며 우리도 마찬가지입니다. 조수와 함께 솟아오릅니다.\""
                 },
-                "guy": {
-                    "role": "ê¸°ìˆ  ì „ë¬¸ê°€",
-                    "desc": "ë¬¼ë¦¬ì  ì„€ì‹œì— ë””ì§€í„¸ ì˜ì‹ì´ ë‚´ìž¥ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. ë²„ì¶”ì–¼ ê°€ì´ëŠ” ì  ì‹œìŠ¤í…œê³¼ ì¸í„°íŽ˜ì´ìŠ¤í•˜ê³  ë‹¤ë¥¸ ì‚¬ëžŒë“¤ì´ ì¸ì‹í•  ìˆ˜ ì—†ëŠ” ê¸°ìˆ ì  ì·¨ì•½ì ì„ ì•…ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.",
-                    "lore": "\"ë‚˜ëŠ” ê·¸ë“¤ì˜ ë°©í™”ë²½ ì‚¬ì´ì˜ ê³µê°„ì— ì‚´ï¿½ï¿½ï¿½ ìžˆìŠµë‹ˆë‹¤. ë‚˜ëŠ” ê·¸ë“¤ì˜ ê¸°ê³„ ì†ì˜ ìœ ë ¹ìž…ë‹ˆë‹¤.\""
+                "surya": {
+                    "role": "우주 태양의 선봉대",
+                    "desc": "Arjun Varma는 우주 융합 에너지를 전달하여 중력장을 조작하고 무거운 AoE 태양 펄스를 방출합니다.",
+                    "lore": "\"별의 심장에는 오직 힘만이 있다. 우주의 불꽃이 타오르게 하라.\""
+                },
+                "mirage": {
+                    "role": "크리스탈 팬텀",
+                    "desc": "Zayd Al-Mansoor는 수정 굴절을 사용하여 빛을 구부리는 유령을 만들고 듀얼 세이프 블레이드로 적을 베었습니다.",
+                    "lore": "\"나는 수정 속의 그림자, 당신이 한 번도 본 적 없는 공격입니다.\""
+                },
+                "apex": {
+                    "role": "전자기 폭풍 선봉대",
+                    "desc": "King Tariq Nzinga는 전자기 폭풍 구름을 집중시켜 파괴적인 폭풍 보호막 도약으로 무너뜨리는 강자입니다.",
+                    "lore": "\"폭풍이 내 부름에 응답한다. 천둥 앞에 떨라.\""
                 }
             }
         },
@@ -4241,20 +4386,25 @@
             }
         },
         "squad": {
-            "deploy": "ìš”ì› ë°°ì¹˜",
-            "deploying": "ë°°ì¹˜ ì¤‘...",
-            "syncComplete": "ë™ê¸°í™” ì™„ë£Œ // ëŒ€ìƒ ì„¹í„°ì— ìš”ì› ë°°ì¹˜ê°€ ì„±ê³µì ìœ¼ë¡œ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤",
-            "active": "í™œì„±",
-            "standby": "ëŒ€ê¸°",
-            "role": "ì—­í• ",
-            "firepower": "í™”ë ¥",
-            "defense": "ë°©ì–´",
-            "mobility": "ê¸°ë™ì„±",
-            "shogun": "ì‚¬ì´ë²„ ì‡¼êµ°",
+            "deploy": "요원 배치",
+            "deploying": "배포 중...",
+            "syncComplete": "동기화 완료 // 작업이 대상 섹터에 성공적으로 배포되었습니다.",
+            "active": "활동적인",
+            "standby": "대기",
+            "role": "역할",
+            "firepower": "화력",
+            "defense": "방어",
+            "mobility": "유동성",
+            "shogun": "사이버 쇼군",
             "ronin": "ì´ì§€ìŠ¤ ë¡œë‹Œ",
             "matrix": "ì˜¤ë‹ˆ ë§¤íŠ¸ë¦­ìŠ¤",
             "frog": "ë‹Œìž ê°œêµ¬ë¦¬",
-            "guy": "ë²„ì¶”ì–¼ ê°€ì´"
+            "guy": "ë²„ì¶”ì–¼ ê°€ì´",
+            "solaria": "솔라리아",
+            "oceanus": "오션스",
+            "surya": "수리야 프라임",
+            "mirage": "미라지 블레이드",
+            "apex": "APEX 타이탄"
         },
         "gameplay": {
             "protocols": "í•µì‹¬ í”„ë¡œí† ì½œ",
@@ -4460,12 +4610,12 @@
             }
         },
         "characters": {
-            "briefing": "æˆ˜å£«é€‰æ‹©",
-            "title": "é€‰æ‹©ä½ çš„æˆ˜å£«",
-            "desc": "å››åç²¾è‹±æˆ˜å£«å¥‹èµ·åæŠ—æ³½å°”å¡”æ‹‰çš„å é¢†ã€‚æ¯ä¸ªäººéƒ½æ‹¥æœ‰ç‹¬ç‰¹çš„èƒ½åŠ›æ¥ä¸ºåœ°çƒçš„è‡ªç”±è€Œæˆ˜ã€‚",
-            "abilities_title": "èƒ½åŠ›",
-            "stats_title": "æˆ˜æ–—ç»Ÿè®¡",
-            "unlock": "å¥–åŠ±å¯è§£é”è§’è‰²ï¼Œå…·æœ‰å‰‘å’Œç©ºæ‰‹é“æ”»å‡»ã€‚å®Œæˆæˆ˜å½¹æ¥è§£é”è¿™ä½ä¼ å¥‡æˆ˜å£«ã€‚",
+            "briefing": "战士选择",
+            "title": "选择你的战士",
+            "desc": "六名精英战士奋起反抗泽尔塔拉的占领。每个人都拥有独特的能力来为地球的自由而战。",
+            "abilities_title": "能力",
+            "stats_title": "战斗统计",
+            "unlock": "奖励可解锁角色，具有剑和空手道攻击。完成战役来解锁这位传奇战士。",
             "stats": {
                 "speed": "é€Ÿåº¦",
                 "power": "ç”µæº",
@@ -4473,25 +4623,35 @@
                 "defense": "é˜²å¾¡"
             },
             "warriors": {
-                "frog": {
-                    "role": "æ¸—é€è€…",
-                    "desc": "éšç§˜å’Œæ•æ·çš„å¤§å¸ˆã€‚å¿è€…é’è›™å¯ä»¥è·³å¢™å’ŒäºŒæ®µè·³åˆ°è¾¾ä¸å¯èƒ½çš„ä½ç½®ã€‚é—ªç”µèˆ¬çš„ç§»åŠ¨é€Ÿåº¦ä½¿è¿™ä½æˆ˜å£«æˆä¸ºç†æƒ³çš„ä¾¦å¯Ÿå…µã€‚",
-                    "lore": "â€œç›´åˆ°ä¸ºæ—¶å·²æ™šï¼Œä»–ä»¬æ‰çœ‹åˆ°æˆ‘ã€‚åœ¨ä»–ä»¬èšå…‰ç¯çš„è¾¹ç¼˜ï¼Œæˆ‘å­˜åœ¨ã€‚â€"
+                "shogun": {
+                    "role": "控制论将军战士",
+                    "desc": "来自新东京的控制论战士大师，手持能量武士刀。将传统武士道与未来军事技术相结合。",
+                    "lore": "“我的剑是用密码铸造的，但我的荣誉是用血写成的。”"
                 },
-                "dude": {
-                    "role": "å¹³è¡¡æˆ˜æ–—æœº",
-                    "desc": "è’™é¢æ­¦å£«æä¾›äº†è¿›æ”»å’Œé˜²å®ˆçš„å®Œç¾Žå¹³è¡¡ã€‚å®™æ–¯ç›¾æµªäººåœ¨ä»»ä½•æƒ…å†µä¸‹éƒ½æ˜¯å¯é çš„ï¼Œå…·æœ‰æˆ˜ç•¥æ€§ï¼Œå¹¶é…å¤‡äº†åŠ¨èƒ½é”¤å’Œèƒ½é‡å¡”ç›¾ã€‚",
-                    "lore": "â€œé¢å…·ä¸æ˜¯ä¼ªè£…ã€‚å®ƒæ˜¯æˆ‘æ‹’ç»è¢«ä»–ä»¬çš„ç³»ç»Ÿè¯†åˆ«çš„å£°æ˜Žã€‚â€"
+                "solaria": {
+                    "role": "太阳耀斑操纵器",
+                    "desc": "瓦伦蒂娜·克鲁兹掌控着太阳光谱，投射出隔热罩和纯等离子体灼热光刃。",
+                    "lore": "“太阳在我们解放之际升起。没有人能逃脱光明。”"
                 },
-                "pink": {
-                    "role": "é‡ç£…å‡»çƒæ‰‹",
-                    "desc": "ä¸€ä½ç›¸ç§»å’Œç”µç£è„‰å†²çˆ†å‘ä¸“å®¶ï¼ŒåŠªåŠ›ä»Žå¤–æ˜Ÿæ•°æ®åº“ä¸­å¤ºå›žè¢«ç›—çš„èº«ä»½ã€‚è¿‘è·ç¦»æ—¶é€Ÿåº¦æžå¿«ä¸”è‡´å‘½ã€‚",
-                    "lore": "â€œä»–ä»¬å˜²ç¬‘æˆ‘çš„è‚¤è‰²ã€‚ä»–ä»¬å¾ˆå¿«å°±ä¸å†ç¬‘äº†ã€‚â€"
+                "oceanus": {
+                    "role": "流体动力等离子机械手",
+                    "desc": "Kiana Vaea 操纵液体潮汐和海洋压力波，用高速水力喷射控制战场。",
+                    "lore": "“海洋不会屈服，我们也不会。随潮起潮落。”"
                 },
-                "guy": {
-                    "role": "æŠ€æœ¯ä¸“å®¶",
-                    "desc": "åµŒå…¥ç‰©ç†åº•ç›˜çš„æ•°å­—æ„è¯†ã€‚è™šæ‹Ÿäººå¯ä»¥ä¸Žæ•Œæ–¹ç³»ç»Ÿäº¤äº’å¹¶åˆ©ç”¨å…¶ä»–äººæ— æ³•å¯Ÿè§‰çš„æŠ€æœ¯æ¼æ´žã€‚",
-                    "lore": "â€œæˆ‘ä½åœ¨ä»–ä»¬é˜²ç«å¢™ä¹‹é—´çš„ç©ºé—´é‡Œã€‚æˆ‘æ˜¯ä»–ä»¬æœºå™¨é‡Œçš„å¹½çµã€‚â€"
+                "surya": {
+                    "role": "宇宙太阳能先锋",
+                    "desc": "Arjun Varma 引导宇宙聚变能量来操纵重力场并释放重型 AoE 太阳脉冲。",
+                    "lore": "“恒星的心中，只有力量。让宇宙之火燃烧吧。”"
+                },
+                "mirage": {
+                    "role": "水晶幻影",
+                    "desc": "扎伊德·阿尔·曼苏尔 (Zayd Al-Mansoor) 使用水晶折射创造出光弯曲的幻影，并用双赛夫刀刃斩杀敌人。",
+                    "lore": "“我是水晶中的影子，是你从未预见到的攻击。”"
+                },
+                "apex": {
+                    "role": "电磁风暴先锋",
+                    "desc": "塔里克·恩津加国王是一位强大的力量，他可以引导电磁风暴云，并通过毁灭性的风暴护盾跳跃坠落下来。",
+                    "lore": "“暴风雨响应了我的召唤。在雷霆面前颤抖吧。”"
                 }
             }
         },
@@ -4679,20 +4839,25 @@
             }
         },
         "squad": {
-            "deploy": "éƒ¨ç½²ç‰¹å·¥",
-            "deploying": "æ­£åœ¨éƒ¨ç½²...",
-            "syncComplete": "åŒæ­¥å®Œæˆ // ç‰¹å·¥å·²æˆåŠŸéƒ¨ç½²è‡³ç›®æ ‡åŒºåŸŸ",
-            "active": "æ´»è·ƒ",
-            "standby": "å¾…å‘½",
-            "role": "è§’è‰²",
-            "firepower": "ç«åŠ›",
-            "defense": "é˜²å¾¡",
-            "mobility": "æœºåŠ¨æ€§",
-            "shogun": "èµ›åšå°†å†›",
+            "deploy": "部署特工",
+            "deploying": "正在部署...",
+            "syncComplete": "同步完成//操作员成功部署到目标部门",
+            "active": "积极的",
+            "standby": "支持",
+            "role": "角色",
+            "firepower": "火力",
+            "defense": "防御",
+            "mobility": "移动性",
+            "shogun": "网络将军",
             "ronin": "å®™æ–¯ç›¾æµªäºº",
             "matrix": "é¬¼çŸ©é˜µ",
             "frog": "å¿è€…é’è›™",
-            "guy": "è™šæ‹Ÿå°å­"
+            "guy": "è™šæ‹Ÿå°å­",
+            "solaria": "索拉利亚",
+            "oceanus": "奥西纳斯",
+            "surya": "苏里亚总理",
+            "mirage": "幻影之刃",
+            "apex": "巅峰泰坦"
         },
         "gameplay": {
             "protocols": "æ ¸å¿ƒåè®®",
@@ -4898,12 +5063,12 @@
             }
         },
         "characters": {
-            "briefing": "×‘×—×™×¨×ª ×œ×•×—×",
-            "title": "×‘×—×¨ ××ª ×”×œ×•×—× ×©×œ×š",
-            "desc": "××¨×‘×¢×” ×œ×•×—×ž×™ ×¢×™×œ×™×ª × ×™×¦×‘×™× × ×’×“ ×›×™×‘×•×© ×”×§×¡×œ×ª'××¨×”. ×›×œ ××—×“ ×ž×‘×™× ×™×›×•×œ×•×ª ×™×™×—×•×“×™×•×ª ×œ×ž××‘×§ ×¢×œ ×—×•×¤×© ×›×“×•×¨ ×”××¨×¥.",
-            "abilities_title": "×™×›×•×œ×•×ª",
-            "stats_title": "×¡×˜×˜×™×¡×˜×™×§×•×ª ×§×¨×‘",
-            "unlock": "×“×ž×•×ª ×‘×•× ×•×¡ ×”× ×™×ª× ×ª ×œ×¤×ª×™×—×” ×¢× ×”×ª×§×¤×•×ª ×—×¨×‘ ×•×§×¨××˜×” ×™×™×—×•×“×™×•×ª. ×”×©×œ× ××ª ×”×ž×¢×¨×›×” ×›×“×™ ×œ×¤×ª×•×— ×œ×•×—× ××’×“×™ ×–×”.",
+            "briefing": "בחירת לוחם",
+            "title": "בחר את הלוחם שלך",
+            "desc": "שישה לוחמי עילית עומדים נגד כיבוש קסלתארה. כל אחד מהם מביא יכולות ייחודיות למאבק על חירותו של כדור הארץ.",
+            "abilities_title": "יכולות",
+            "stats_title": "סטטיסטיקות לחימה",
+            "unlock": "דמות ניתנת לפתיחה בונוס עם התקפות חרב וקראטה. השלם את הקמפיין כדי לפתוח את הלוחם האגדי הזה.",
             "stats": {
                 "speed": "×ž×”×™×¨×•×ª",
                 "power": "×›×•×—",
@@ -4911,25 +5076,35 @@
                 "defense": "×”×’× ×”"
             },
             "warriors": {
-                "frog": {
-                    "role": "×ž×¡×ª× ×Ÿ",
-                    "desc": "××ž×Ÿ ×©×œ ×”×ª×’× ×‘×•×ª ×•×–×¨×™×–×•×ª. ×¦×¤×¨×“×¢ ×”× ×™× ×’'×” ×™×›×•×œ×” ×œ×§×¤×•×¥ ×¢×œ ×”×§×™×¨ ×•×œ×§×¤×•×¥ ×¤×¢×ž×™×™× ×›×“×™ ×œ×”×’×™×¢ ×œ×ž×¦×‘×™× ×‘×œ×ª×™ ××¤×©×¨×™×™×. ×ª× ×•×¢×” ×ž×”×™×¨×” ×‘×¨×§ ×”×•×¤×›×ª ××ª ×”×œ×•×—× ×”×–×” ×œ×¦×•×¤×™×ª ×”××™×“×™××œ×™×ª.",
-                    "lore": "\"×”× ×œ× ×¨×•××™× ××•×ª×™ ×¢×“ ×©×–×” ×ž××•×—×¨ ×ž×“×™. ×‘×©×•×œ×™×™× ×‘×™×Ÿ ×–×¨×§×•×¨×™ ×”××•×¨ ×©×œ×”×, ×× ×™ ×§×™×™×.\""
+                "shogun": {
+                    "role": "לוחם שוגון קיברנטי",
+                    "desc": "לוחם קיברנטי מאסטר מנאו-טוקיו, חמוש בקטאנה אנרגטית. משלב בושידו מסורתי עם טכנולוגיה צבאית עתידני.",
+                    "lore": "\"הלהב שלי מזויף בקוד, אבל הכבוד שלי כתוב בדם.\""
                 },
-                "dude": {
-                    "role": "×œ×•×—× ×ž××•×–×Ÿ",
-                    "desc": "×”×œ×•×—× ×¨×¢×•×œ ×”×¤× ×™× ×ž×¦×™×¢ ××ª ×”××™×–×•×Ÿ ×”×ž×•×©×œ× ×©×œ ×”×ª×§×¤×” ×•×”×’× ×”. ××ž×™×Ÿ ×‘×›×œ ×”×ž×¦×‘×™×, ××™×™×’'×™×¡ ×¨×•× ×™×Ÿ ×”×•× ××¡×˜×¨×˜×’×™ ×•×ž×¦×•×™×“ ×‘×¤×˜×™×© ×§×™× ×˜×™ ×•×ž×’×Ÿ ×ž×’×“×œ ×× ×¨×’×™×”.",
-                    "lore": "\"×”×ž×¡×›×” ××™× ×” ×ª×—×¤×•×©×ª. ×”×™× ×”×¦×”×¨×” ×©×× ×™ ×ž×¡×¨×‘ ×œ×”×™×•×ª ×ž×•×›×¨ ×¢×œ ×™×“×™ ×”×ž×¢×¨×›×•×ª ×©×œ×”×.\""
+                "solaria": {
+                    "role": "מניפולטור התלקחות שמש",
+                    "desc": "ולנטינה קרוז שולטת על הספקטרום הסולארי, מקרינה מגני חום ולהבי אור צורבים של פלזמה טהורה.",
+                    "lore": "\"השמש זורחת עם השחרור שלנו. אף אחד לא יכול להימלט מהאור.\""
                 },
-                "pink": {
-                    "role": "×—×•×‘×˜ ×›×‘×“",
-                    "desc": "×ž×•×ž×—×” ×‘-×ž×¢×‘×¨ ×¤××–×” ×•-×¤×•×œÕ½ ××œ×§×˜Ø±Ùˆ×žÐ³× ×˜×™ (×¤×•×œÕ½ ××œ×§×˜×¨×•×žÐ³× ×˜×™ (EMP)), × ×œ×—× ×›×“×™ ×œ×”×—×–×™×¨ ×–×”×•×™×•×ª ×’× ×•×‘×•×ª ×ž×ž××’×¨×™ ×ž×™×“×¢ ×©×œ ×—×™×™×–×¨×™×. ×ž×”×™×¨ ×‘×ž×™×•×—×“ ×•×§×˜×œ× ×™ ×‘×¡×‘×™×‘×” ×”×§×¨×•×‘×”.",
-                    "lore": "\"×”× ×¦×•×—×§×™× ×¢×œ ×”×¦×‘×¢ ×©×œ×™. ×”× ×ž×¤×¡×™×§×™× ×œ×¦×—×•×§ ×ž×”×¨ ×ž××•×“.\""
+                "oceanus": {
+                    "role": "מניפולטור פלזמה הידרוקינטי",
+                    "desc": "Kiana Vaea מתמרן גאות ושפל נוזלים וגלי לחץ אוקיינוסים, שולט בשדה הקרב עם מטוסי הידרו-סילוני מהירים.",
+                    "lore": "\"האוקיינוסים לא נכנעים, וגם אנחנו לא. קם עם הגאות\"."
                 },
-                "guy": {
-                    "role": "×ž×•×ž×—×” ×˜×›× ×•×œ×•×’×™",
-                    "desc": "×ª×•×“×¢×” ×“×™×’×™×˜×œ×™×ª ×ž×©×•×‘×¦×ª ×‘×©×œ×“×” ×¤×™×–×™×ª. ×•×™×¨×˜×•××œ ×’××™ ×™×›×•×œ ×œ×”×ª×ž×ž×©×§ ×¢× ×žï¿½ï¿½×¨×›×•×ª ××•×™×‘ ×•×œ× ×¦×œ ×¤×’×™×¢×•×™×•×ª ×˜×›× ×™×•×ª ×©××—×¨×™× ×œ× ×™×›×•×œ×™× ×œ×ª×¤×•×¡.",
-                    "lore": "\"×× ×™ ×—×™ ×‘×ž×¨×•×•×— ×©×‘×™×Ÿ ×—×•×ž×•×ª ×”××© ×©×œ×”×. ×× ×™ ×”×¨×•×— ×©×‘×ž×›×•× ×” ×©×œ×”×.\""
+                "surya": {
+                    "role": "Cosmic Solar Vanguard",
+                    "desc": "Arjun Varma מתעל אנרגיית היתוך קוסמית כדי לתפעל שדות גרבימטריים ולשחרר פולסי שמש כבדים AoE.",
+                    "lore": "\"בלבו של כוכב, יש רק כוח. תן ללהבה הקוסמית לבעור.\""
+                },
+                "mirage": {
+                    "role": "פנטום גבישי",
+                    "desc": "זאיד אל-מנסור משתמש בשבירות גבישים כדי ליצור פנטומים מכופפים אור ולחתוך דרך אויבים עם להבי אומר כפול.",
+                    "lore": "\"אני הצל שבגביש, המכה שמעולם לא ראית מגיעה.\""
+                },
+                "apex": {
+                    "role": "סופה ואנגארד אלקטרו-מגנטית",
+                    "desc": "המלך טאריק נזינגה הוא תחנת כוח שמתעלת ענני סערה אלקטרו-מגנטיים, מתרסקת בקפיצה הרסנית של מגן סערה.",
+                    "lore": "\"הסערה עונה לקריאתי. רעד לפני הרעם.\""
                 }
             }
         },
@@ -5117,20 +5292,25 @@
             }
         },
         "squad": {
-            "deploy": "×¤×¨×•×¡ ×¡×•×›×Ÿ",
-            "deploying": "×¤×•×¨×¡...",
-            "syncComplete": "×¡× ×›×¨×•×Ÿ ×”×•×©×œ× // ×”×¡×•×›×Ÿ × ×¤×¨×¡ ×‘×”×¦×œ×—×” ×‘×¡×§×˜×•×¨ ×”×™×¢×“",
-            "active": "×¤×¢×™×œ",
-            "standby": "×”×ž×ª× ×”",
-            "role": "×ª×¤×§×™×“",
-            "firepower": "×›×•×— ××©",
-            "defense": "×”×’× ×”",
-            "mobility": "× ×™×™×“×•×ª",
-            "shogun": "×¡×™×™×‘×¨ ×©×•×’×•×Ÿ",
+            "deploy": "פרוס אופרטיבי",
+            "deploying": "פורס...",
+            "syncComplete": "הסנכרון הושלם // המבצע נפרס בהצלחה במגזר היעד",
+            "active": "פָּעִיל",
+            "standby": "המתנה",
+            "role": "תַפְקִיד",
+            "firepower": "עָצמַת אֵשׁ",
+            "defense": "הֲגָנָה",
+            "mobility": "ניידות",
+            "shogun": "סייבר שוגון",
             "ronin": "××™×™×’'×™×¡ ×¨×•× ×™×Ÿ",
             "matrix": "××•× ×™ ×ž×˜×¨×™×§×¡",
             "frog": "× ×™× ×’'×” ×¤×¨×•×’",
-            "guy": "×•×™×¨×˜×•××œ ×’××™"
+            "guy": "×•×™×¨×˜×•××œ ×’××™",
+            "solaria": "SOLARIA",
+            "oceanus": "אוקיינוס",
+            "surya": "SURYA PRIME",
+            "mirage": "MIRAGE BLADE",
+            "apex": "APEX TITAN"
         },
         "gameplay": {
             "protocols": "×¤×¨×•×˜×•×§×•×œ×™ ×œ×™×‘×”",
@@ -5336,38 +5516,48 @@
             }
         },
         "characters": {
-            "briefing": "Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø­Ø§Ø±Ø¨",
-            "title": "Ø§Ø®ØªØ± Ù…Ù‚Ø§ØªÙ„Ùƒ",
-            "desc": "ÙŠÙ‚Ù Ø£Ø±Ø¨Ø¹Ø© Ù…Ø­Ø§Ø±Ø¨ÙŠÙ† Ù†Ø®Ø¨Ø© Ø¶Ø¯ Ø§Ø­ØªÙ„Ø§Ù„ Ø²ÙŠÙ„Ø«Ø§Ø±Ø§. ÙƒÙ„ Ù…Ù†Ù‡Ù… ÙŠÙ‚Ø¯Ù… Ù‚Ø¯Ø±Ø§Øª ÙØ±ÙŠØ¯Ø© Ù„Ù„Ù‚ØªØ§Ù„ Ù…Ù† Ø£Ø¬Ù„ Ø­Ø±ÙŠØ© Ø§Ù„Ø£Ø±Ø¶.",
-            "abilities_title": "Ø§Ù„Ù‚Ø¯Ø±Ø§Øª",
-            "stats_title": "Ø¥Ø­ØµØ§Ø¦ÙŠØ§Øª Ø§Ù„Ù‚ØªØ§Ù„",
+            "briefing": "اختيار المحارب",
+            "title": "اختر المقاتل الخاص بك",
+            "desc": "ستة محاربين من النخبة يقفون ضد احتلال Xelthara. كل منهم يجلب قدرات فريدة للنضال من أجل حرية الأرض.",
+            "abilities_title": "القدرات",
+            "stats_title": "إحصائيات القتال",
             "stats": {
                 "speed": "Ø§Ù„Ø³Ø±Ø¹Ø©",
                 "power": "Ø§Ù„Ù‚ÙˆØ©",
                 "agility": "Ø§Ù„Ø±Ø´Ø§Ù‚Ø©",
                 "defense": "Ø§Ù„Ø¯ÙØ§Ø¹"
             },
-            "unlock": "Ø´Ø®ØµÙŠØ© Ø¥Ø¶Ø§ÙÙŠØ© Ù‚Ø§Ø¨Ù„Ø© Ù„Ù„ÙØªØ­ Ø¨Ù‡Ø¬Ù…Ø§Øª Ø§Ù„Ø³ÙŠÙ ÙˆØ§Ù„ÙƒØ§Ø±Ø§ØªÙŠÙ‡. Ø£ÙƒÙ…Ù„ Ø§Ù„Ø­Ù…Ù„Ø© Ù„ÙØªØ­ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø­Ø§Ø±Ø¨ Ø§Ù„Ø£Ø³Ø·ÙˆØ±ÙŠ.",
+            "unlock": "شخصية إضافية غير قابلة للفتح مع هجمات السيف والكاراتيه. أكمل الحملة لفتح هذا المحارب الأسطوري.",
             "warriors": {
-                "frog": {
-                    "role": "Ù…ØªØ³Ù„Ù„",
-                    "desc": "Ø³ÙŠØ¯ Ø§Ù„ØªØ®ÙÙŠ ÙˆØ®ÙØ© Ø§Ù„Ø­Ø±ÙƒØ©. ÙŠÙ…ÙƒÙ† Ù„Ø¶ÙØ¯Ø¹ Ø§Ù„Ù†ÙŠÙ†Ø¬Ø§ Ø§Ù„Ù‚ÙØ² Ø¹Ù„Ù‰ Ø§Ù„Ø­Ø§Ø¦Ø· ÙˆØ§Ù„Ù‚ÙØ² Ø§Ù„Ù…Ø²Ø¯ÙˆØ¬ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ù…ÙˆØ§Ù‚Ù Ø§Ù„Ù…Ø³ØªØ­ÙŠÙ„Ø©. Ø§Ù„Ø­Ø±ÙƒØ© Ø§Ù„Ø³Ø±ÙŠØ¹Ø© Ù„Ù„ØºØ§ÙŠØ© ØªØ¬Ø¹Ù„ Ù…Ù† Ù‡Ø°Ø§ Ø§Ù„Ù…Ø­Ø§Ø±Ø¨ Ø§Ù„ÙƒØ´Ø§ÙØ© Ø§Ù„Ù…Ø«Ø§Ù„ÙŠØ©.",
-                    "lore": "\"Ø¥Ù†Ù‡Ù… Ù„Ø§ ÙŠØ±ÙˆÙ†Ù†ÙŠ Ø­ØªÙ‰ ÙŠÙÙˆØª Ø§Ù„Ø£ÙˆØ§Ù†. ÙÙŠ Ø§Ù„Ù‡ÙˆØ§Ù…Ø´ Ø¨ÙŠÙ† Ø£Ø¶ÙˆØ§Ø¡ ÙƒØ´Ø§ÙØ§ØªÙ‡Ù…ØŒ Ø£ØªÙˆØ§Ø¬Ø¯.\""
+                "shogun": {
+                    "role": "المحارب السيبراني شوغون",
+                    "desc": "محارب سيبراني محترف من طوكيو الجديدة، مسلح بكاتانا الطاقة. يجمع بين بوشيدو التقليدي والتكنولوجيا العسكرية المستقبلية.",
+                    "lore": "\"شفرتي مزورة بالشفرة، لكن شرفي مكتوب بالدم.\""
                 },
-                "dude": {
-                    "role": "Ù…Ù‚Ø§ØªÙ„ Ù…ØªÙˆØ§Ø²Ù†",
-                    "desc": "ÙŠÙ‚Ø¯Ù… Ø§Ù„Ù…Ø­Ø§Ø±Ø¨ Ø§Ù„Ù…Ù‚Ù†Ø¹ Ø§Ù„ØªÙˆØ§Ø²Ù† Ø§Ù„Ù…Ø«Ø§Ù„ÙŠ Ø¨ÙŠÙ† Ø§Ù„Ù‡Ø¬ÙˆÙ… ÙˆØ§Ù„Ø¯ÙØ§Ø¹. ÙŠÙ…ÙƒÙ† Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø¹Ù„ÙŠÙ‡ ÙÙŠ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…ÙˆØ§Ù‚ÙØŒ ÙˆÙŠØªÙ…ÙŠØ² Ø¥ÙŠØ¬ÙŠØ³ Ø±ÙˆÙ†ÙŠÙ† Ø¨Ø£Ù†Ù‡ Ø§Ø³ØªØ±Ø§ØªÙŠØ¬ÙŠ ÙˆÙ…Ø¬Ù‡Ø² Ø¨Ù…Ø·Ø±Ù‚Ø© Ø­Ø±ÙƒÙŠØ© ÙˆØ¯Ø±Ø¹ Ø¨Ø±Ø¬ Ø§Ù„Ø·Ø§Ù‚Ø©.",
-                    "lore": "\"Ø§Ù„Ù‚Ù†Ø§Ø¹ Ù„ÙŠØ³ ØªÙ†ÙƒØ±Ø§Ù‹. Ø¥Ù†Ù‡ Ø¥Ø¹Ù„Ø§Ù† Ø¨Ø£Ù†ÙŠ Ø£Ø±ÙØ¶ Ø£Ù† ÙŠØªÙ… Ø§Ù„ØªØ¹Ø±Ù Ø¹Ù„ÙŠ Ø¨ÙˆØ§Ø³Ø·Ø© Ø£Ù†Ø¸Ù…ØªÙ‡Ù….\""
+                "solaria": {
+                    "role": "مناور التوهج الشمسي",
+                    "desc": "تسيطر فالنتينا كروز على الطيف الشمسي، وتطلق دروعًا حرارية وشفرات ضوئية من البلازما النقية.",
+                    "lore": "\"تشرق الشمس على تحريرنا. لا أحد يستطيع الهروب من النور.\""
                 },
-                "pink": {
-                    "role": "Ù…Ù‡Ø§Ø¬Ù… Ø«Ù‚ÙŠÙ„",
-                    "desc": "Ù…ØªØ®ØµØµ ÙÙŠ ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø·ÙˆØ± ÙˆØ§Ù†ÙØ¬Ø§Ø±Ø§Øª Ø§Ù„Ù†Ø¨Ø¶Ø§Øª Ø§Ù„ÙƒÙ‡Ø±ÙˆÙ…ØºÙ†Ø§Ø·ÙŠØ³ÙŠØ©ØŒ ÙˆÙŠÙ‚Ø§ØªÙ„ Ù…Ù† Ø£Ø¬Ù„ Ø§Ø³ØªØ¹Ø§Ø¯Ø© Ø§Ù„Ù‡ÙˆÙŠØ§Øª Ø§Ù„Ù…Ø³Ø±ÙˆÙ‚Ø© Ù…Ù† Ù‚ÙˆØ§Ø¹Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ÙƒØ§Ø¦Ù†Ø§Øª Ø§Ù„ÙØ¶Ø§Ø¦ÙŠØ©. Ø³Ø±ÙŠØ¹ Ù„Ù„ØºØ§ÙŠØ© ÙˆÙ…Ù…ÙŠØª ÙÙŠ Ø£Ù…Ø§ÙƒÙ† Ù‚Ø±ÙŠØ¨Ø©.",
-                    "lore": "\"Ø¥Ù†Ù‡Ù… ÙŠØ¶Ø­ÙƒÙˆÙ† Ø¹Ù„Ù‰ Ù„ÙˆÙ†ÙŠ. ÙŠØªÙˆÙ‚ÙÙˆÙ† Ø¹Ù† Ø§Ù„Ø¶Ø­Ùƒ Ø¨Ø³Ø±Ø¹Ø© ÙƒØ¨ÙŠØ±Ø©.\""
+                "oceanus": {
+                    "role": "مناور البلازما الهيدروحركية",
+                    "desc": "تتلاعب كيانا فايا بالمد والجزر السائلة وموجات الضغط المحيطية، وتتحكم في ساحة المعركة بطائرات مائية عالية السرعة.",
+                    "lore": "\"المحيطات لا تستسلم، ولن نستسلم نحن أيضًا. ترتفع مع المد.\""
                 },
-                "guy": {
-                    "role": "Ø£Ø®ØµØ§Ø¦ÙŠ ØªÙ‚Ù†ÙŠ",
-                    "desc": "ÙˆØ¹ÙŠ Ø±Ù‚Ù…ÙŠ Ù…Ø¶Ù…Ù† ÙÙŠ Ù‡ÙŠÙƒÙ„ Ù…Ø§Ø¯ÙŠ. ÙŠØ³ØªØ·ÙŠØ¹ Ø§Ù„ÙØªÙ‰ Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠ Ø§Ù„ØªÙØ§Ø¹Ù„ Ù…Ø¹ Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø¹Ø¯Ùˆ ÙˆØ§Ø³ØªØºÙ„Ø§Ù„ Ù†Ù‚Ø§Ø· Ø§Ù„Ø¶Ø¹Ù Ø§Ù„ØªÙ‚Ù†ÙŠØ© Ø§Ù„ØªÙŠ Ù„Ø§ ÙŠØ³ØªØ·ÙŠØ¹ Ø§Ù„Ø¢Ø®Ø±ÙˆÙ† Ø¥Ø¯Ø±Ø§ÙƒÙ‡Ø§.",
-                    "lore": "\"Ø£Ø¹ÙŠØ´ ÙÙŠ Ø§Ù„ÙØ±Ø§Øº Ø¨ÙŠÙ† Ø¬Ø¯Ø±Ø§Ù† Ø§Ù„Ø­Ù…Ø§ÙŠØ© Ø§Ù„Ø®Ø§ØµØ© Ø¨Ù‡Ù…. Ø£Ù†Ø§ Ø§Ù„Ø´Ø¨Ø­ ÙÙŠ Ø¢Ù„ØªÙ‡Ù….\""
+                "surya": {
+                    "role": "الطليعة الشمسية الكونية",
+                    "desc": "يقوم أرجون فارما بتوجيه طاقة الاندماج الكونية لمعالجة مجالات الجاذبية وإطلاق نبضات شمسية ثقيلة من نوع AoE.",
+                    "lore": "\"في قلب النجم، لا يوجد سوى القوة. دع اللهب الكوني يحترق.\""
+                },
+                "mirage": {
+                    "role": "الوهمية البلورية",
+                    "desc": "يستخدم زيد المنصور انكسارات الكريستال لإنشاء أشباح منحنية للضوء وقطع الأعداء بشفرات سيف مزدوجة.",
+                    "lore": "\"أنا الظل في البلورة، الضربة التي لم تتوقعها أبدًا.\""
+                },
+                "apex": {
+                    "role": "طليعة العاصفة الكهرومغناطيسية",
+                    "desc": "الملك طارق نزينغا هو مصدر قوة يقوم بتوجيه السحب العاصفة الكهرومغناطيسية، وينهار بقفزة مدمرة على درع العاصفة.",
+                    "lore": "\"العاصفة تستجيب لندائي. ترتعد أمام الرعد.\""
                 }
             }
         },
@@ -5555,20 +5745,25 @@
             }
         },
         "squad": {
-            "deploy": "Ù†Ø´Ø± Ø§Ù„Ø¹Ù…ÙŠÙ„",
-            "deploying": "Ø¬Ø§Ø±ÙŠ Ø§Ù„Ù†Ø´Ø±...",
-            "syncComplete": "Ø§ÙƒØªÙ…Ù„ Ø§Ù„Ù…Ø²Ø§Ù…Ù†Ø© // ØªÙ… Ù†Ø´Ø± Ø§Ù„Ø¹Ù…ÙŠÙ„ Ø¨Ù†Ø¬Ø§Ø­ ÙÙŠ Ø§Ù„Ù‚Ø·Ø§Ø¹ Ø§Ù„Ù…Ø³ØªÙ‡Ø¯Ù",
-            "active": "Ù†Ø´Ø·",
-            "standby": "Ø§Ù„Ø§Ø³ØªØ¹Ø¯Ø§Ø¯",
-            "role": "Ø§Ù„Ø¯ÙˆØ±",
-            "firepower": "Ø§Ù„Ù‚ÙˆØ© Ø§Ù„Ù†Ø§Ø±ÙŠØ©",
-            "defense": "Ø§Ù„Ø¯ÙØ§Ø¹",
-            "mobility": "Ø§Ù„Ø­Ø±ÙƒÙŠØ©",
-            "shogun": "Ø§Ù„Ø³Ø§Ù…ÙˆØ±Ø§ÙŠ Ø§Ù„Ø³Ø§ÙŠØ¨ÙŠØ±ÙŠ",
+            "deploy": "نشر المنطوق",
+            "deploying": "جارٍ النشر...",
+            "syncComplete": "اكتملت المزامنة // تم نشر العملية بنجاح في القطاع المستهدف",
+            "active": "نشيط",
+            "standby": "تعليق",
+            "role": "دور",
+            "firepower": "القوة النارية",
+            "defense": "الدفاع",
+            "mobility": "التنقل",
+            "shogun": "سايبر شوغون",
             "ronin": "Ø±ÙˆÙ†ÙŠÙ† Ø§Ù„Ø­Ø§Ù…ÙŠ",
             "matrix": "Ù…ØµÙÙˆÙØ© Ø£ÙˆÙ†ÙŠ",
             "frog": "Ø§Ù„Ø¶ÙØ¯Ø¹ Ø§Ù„Ù†ÙŠÙ†Ø¬Ø§",
-            "guy": "Ø§Ù„ÙØªÙ‰ Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠ"
+            "guy": "Ø§Ù„ÙØªÙ‰ Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠ",
+            "solaria": "سولاريا",
+            "oceanus": "المحيط",
+            "surya": "سوريا برايم",
+            "mirage": "ميراج بليد",
+            "apex": "أبيكس تيتان"
         },
         "gameplay": {
             "protocols": "Ø§Ù„Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„Ø§Øª Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ©",

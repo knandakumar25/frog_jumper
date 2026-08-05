@@ -10,59 +10,76 @@ export default function Squad() {
 
   const characterRoster = {
     shogun: {
-      role: 'characters.warriors.frog.role',
-      roleDefault: 'ASSAULT COMMANDER',
-      descKey: 'characters.unlock',
-      descDefault: 'Heavy armor frontline combatant. Specializes in kinetic shielding and close-quarters energy blade strikes. System hack resistance 94%.',
-      loreKey: 'characters.warriors.dude.lore',
-      stats: { firepower: 88, defense: 95, mobility: 42 },
+      role: 'characters.warriors.shogun.role',
+      roleDefault: 'CYBERNETIC SHOGUN WARRIOR',
+      descKey: 'characters.warriors.shogun.desc',
+      descDefault: 'A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.',
+      loreKey: 'characters.warriors.shogun.lore',
+      stats: { firepower: 92, defense: 90, mobility: 88 },
       img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIOJe92QJCceV6o_YKqmiI-GXAnhu5wf7sA6AIbBITzGWrZS7X3NTLOwABvR15y_9COR-uxPlYSdowg3ZaiO-Gvysw-Dw6-7bDVbTgrlfNUq8bNbhqsI1wmlU5HQkRAQm8hb0kAJ_lV6FrBHv_LrC1q1-KUaadpj2wJ4vM5DaNSa-V80ZsaJ7Tb43fj_00TjXs2Nve4o-5ca5CEZs1wYQMLKDHHIJMEszvBg6wH5W-9I4H0DPW2a6ElPi0VvK9nQVnoph0P-zgAUg',
       status: 'ACTIVE',
-      icons: ['shield', 'bolt']
+      civilian: 'Kaito Kurogane',
+      icons: ['sword', 'bolt']
     },
-    ronin: {
-      role: 'characters.warriors.dude.role',
-      roleDefault: 'DEFENDER / TACTICIAN',
-      descKey: 'characters.warriors.dude.desc',
-      descDefault: 'The masked warrior offers the perfect balance of offense and defense. Reliable in all situations, Aegis Ronin is equipped with a Kinetic Hammer and Energy Tower Shield to protect refugees.',
-      loreKey: 'characters.warriors.dude.lore',
-      stats: { firepower: 68, defense: 85, mobility: 60 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtlOF-7UUy9KGe4IR4XM2WfPXPqdd9oIbGQLR06FnvuLzcch0sVZ9W9WaTo-Re1Kogtm3M5EEiYC-_jBqgghs4nQe3TwlCi1-xtQ61xrIUVDM5H-cqtO-VanT_Sdjnsth0oREpk2cBDGvgma1-9_IkrY_SU0WONyS9Mz7PnoO6XYHqMY0d-CArhCMyC2_H0Go26qHDiJ0rXbg-1NV7z44WcAEf2NY7wXSTZvyyubsRnekF3fvtKc3SuOywhOibP4uSdN1AXO8sNVE',
-      status: 'STANDBY',
-      icons: ['shield', 'visibility_off']
-    },
-    matrix: {
-      role: 'characters.warriors.pink.role',
-      roleDefault: 'INFILTRATOR / HACKER',
-      descKey: 'characters.warriors.pink.desc',
-      descDefault: 'A specialist in Phase-Shifting and EMP bursts, fighting to reclaim stolen identities from alien databases. Extremely fast and deadly at close quarters.',
-      loreKey: 'characters.warriors.pink.lore',
-      stats: { firepower: 75, defense: 50, mobility: 95 },
+    solaria: {
+      role: 'characters.warriors.solaria.role',
+      roleDefault: 'SOLAR FLARE MANIPULATOR',
+      descKey: 'characters.warriors.solaria.desc',
+      descDefault: 'Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.',
+      loreKey: 'characters.warriors.solaria.lore',
+      stats: { firepower: 97, defense: 72, mobility: 80 },
       img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3SqMdCra26sXgScQA8KUas5aanVtVlzTzaEz9krzf4Sa7UjkdXmqkUjGP-PnDaRvc7NaeeFMr6HAagKL4j0nfw2i-XeXwMi3ttg6s1b6Vv-1leenbDqtZlThZt7NZhKU-gIU-8pQRS52OnTUuTYPEPMBokqD_bgFPmvq1SPec59XGyM-aECpIT102Z4aDAKML32k_N1RN7wP3gpaCs0W-Z7u4L4Qh1JIUbGtIbqmJT8UfHoMJ9GN5lP1VICpTYlthLx2BLwCYeBo',
       status: 'STANDBY',
-      icons: ['terminal', 'visibility_off']
+      civilian: 'Valentina Cruz',
+      icons: ['flare', 'visibility_off']
     },
-    frog: {
-      role: 'characters.warriors.frog.role',
-      roleDefault: 'AGILE INFILTRATOR',
-      descKey: 'characters.warriors.frog.desc',
-      descDefault: 'A master of stealth and agility. The Ninja Frog can wall-jump and double-jump to reach impossible positions. Lightning-fast movement makes this warrior the ideal scout.',
-      loreKey: 'characters.warriors.frog.lore',
-      stats: { firepower: 55, defense: 40, mobility: 98 },
+    oceanus: {
+      role: 'characters.warriors.oceanus.role',
+      roleDefault: 'HYDROKINETIC PLASMA MANIPULATOR',
+      descKey: 'characters.warriors.oceanus.desc',
+      descDefault: 'Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.',
+      loreKey: 'characters.warriors.oceanus.lore',
+      stats: { firepower: 78, defense: 74, mobility: 91 },
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtlOF-7UUy9KGe4IR4XM2WfPXPqdd9oIbGQLR06FnvuLzcch0sVZ9W9WaTo-Re1Kogtm3M5EEiYC-_jBqgghs4nQe3TwlCi1-xtQ61xrIUVDM5H-cqtO-VanT_Sdjnsth0oREpk2cBDGvgma1-9_IkrY_SU0WONyS9Mz7PnoO6XYHqMY0d-CArhCMyC2_H0Go26qHDiJ0rXbg-1NV7z44WcAEf2NY7wXSTZvyyubsRnekF3fvtKc3SuOywhOibP4uSdN1AXO8sNVE',
+      status: 'STANDBY',
+      civilian: 'Kiana Vaea',
+      icons: ['water', 'visibility_off']
+    },
+    surya: {
+      role: 'characters.warriors.surya.role',
+      roleDefault: 'COSMIC SOLAR VANGUARD',
+      descKey: 'characters.warriors.surya.desc',
+      descDefault: 'Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.',
+      loreKey: 'characters.warriors.surya.lore',
+      stats: { firepower: 99, defense: 88, mobility: 75 },
       img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC6w3uU4tz9oN0J89xLYYIwCsoK0SMoEkj5QeajfgPozk_pXOYKy3FksE8zlM3rXHxlfGRNehdioNhgBMS1wF-PDEBA7oykkr3LEqOmohyH25bqccBqdM3jhLsUZSJu0l70XNJyRWr3ySu6mDP_KBVWDwem16LsECy--myVTq5xgLC7xfZ5RooX6wvsJemDE6H8TKR6JKD2W6Snj00h6gAQMhsTBcfwGfqw4l902oq8yY5B58nGe2TFaaHx3vUqe-5xh8qWWjhE41Q',
       status: 'STANDBY',
-      icons: ['bolt', 'visibility_off']
+      civilian: 'Arjun Varma',
+      icons: ['sunny', 'bolt']
     },
-    guy: {
-      role: 'characters.warriors.guy.role',
-      roleDefault: 'TECH SPECIALIST',
-      descKey: 'characters.warriors.guy.desc',
-      descDefault: 'A digital consciousness embedded in a physical chassis. Virtual Guy can interface with enemy systems and exploit technical vulnerabilities that others cannot perceive.',
-      loreKey: 'characters.warriors.guy.lore',
-      stats: { firepower: 70, defense: 65, mobility: 75 },
+    mirage: {
+      role: 'characters.warriors.mirage.role',
+      roleDefault: 'CRYSTALLINE PHANTOM',
+      descKey: 'characters.warriors.mirage.desc',
+      descDefault: 'Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.',
+      loreKey: 'characters.warriors.mirage.lore',
+      stats: { firepower: 82, defense: 58, mobility: 98 },
       img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCs4UuTUn4dvlRFUQUQfKMbJ8heyrPYI8GfvVzIaJTC5oVRz5qJ36XPawx237rkgp58A9xyrQhkewzFuexgL8X8jk6pdbEYfzn4_FPRl3HIO6uwryPNBgCCbkYnSEh6FjAOGROJ367WLlrsBmvH1O4hgtJw1_7dl4ny4n29_lKVegCOyF2sFw9f5I9dqlF5If_Hbz718U2NLZD3AlIDlu64KVEWi0KCPvFmnb2bxjyCJunCbkZk7WkouniML7biOf2K8Fbvw04XKaY',
       status: 'STANDBY',
-      icons: ['terminal', 'memory']
+      civilian: 'Zayd Al-Mansoor',
+      icons: ['diamond', 'visibility_off']
+    },
+    apex: {
+      role: 'characters.warriors.apex.role',
+      roleDefault: 'ELECTRO-MAGNETIC STORM VANGUARD',
+      descKey: 'characters.warriors.apex.desc',
+      descDefault: 'King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.',
+      loreKey: 'characters.warriors.apex.lore',
+      stats: { firepower: 95, defense: 85, mobility: 93 },
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIOJe92QJCceV6o_YKqmiI-GXAnhu5wf7sA6AIbBITzGWrZS7X3NTLOwABvR15y_9COR-uxPlYSdowg3ZaiO-Gvysw-Dw6-7bDVbTgrlfNUq8bNbhqsI1wmlU5HQkRAQm8hb0kAJ_lV6FrBHv_LrC1q1-KUaadpj2wJ4vM5DaNSa-V80ZsaJ7Tb43fj_00TjXs2Nve4o-5ca5CEZs1wYQMLKDHHIJMEszvBg6wH5W-9I4H0DPW2a6ElPi0VvK9nQVnoph0P-zgAUg',
+      status: 'STANDBY',
+      civilian: 'King Tariq Nzinga',
+      icons: ['electric_bolt', 'shield']
     }
   };
 
@@ -134,9 +151,14 @@ export default function Squad() {
                 </span>
               </div>
               
-              <h2 className="font-display-hero text-headline-lg text-primary-container mb-4 uppercase drop-shadow-[0_0_8px_rgba(0,243,255,0.4)]">
+              <h2 className="font-display-hero text-headline-lg text-primary-container mb-1 uppercase drop-shadow-[0_0_8px_rgba(0,243,255,0.4)]">
                 {activeName}
               </h2>
+              {activeChar.civilian && (
+                <p className="font-label-caps text-[10px] text-secondary-fixed-dim uppercase tracking-widest mb-4 opacity-60">
+                  ID: {activeChar.civilian}
+                </p>
+              )}
               
               <p className="font-body-md text-[14px] text-on-surface-variant mb-6 leading-relaxed">
                 {t(activeChar.descKey, activeChar.descDefault)}
