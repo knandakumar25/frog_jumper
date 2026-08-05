@@ -119,8 +119,11 @@ public partial class CharacterSelection : Control
 	private Node3D _mirageBlade3DModel;
 	private Node3D _apexTitan3DModel;
 	private Node3D _platform3DModel;
-	private float _shogunRotationTimer = 0f;
+
+	// User-controlled rotation (degrees, accumulated)
+	private float _charRotationY  = 0f;
 	private float _glowPulseTimer = 0f;
+	private const float RotationSpeed = 90f; // degrees per second
 
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_solaria_pressed()       => SelectOperative("Solaria");
@@ -198,8 +201,8 @@ public partial class CharacterSelection : Control
 			_cyberShogun3DModel = LoadGlbModel(glbPath);
 			if (_cyberShogun3DModel != null)
 			{
-				_cyberShogun3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
-				_cyberShogun3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				_cyberShogun3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_cyberShogun3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
 				world3D.AddChild(_cyberShogun3DModel);
 			}
 		}
@@ -210,8 +213,8 @@ public partial class CharacterSelection : Control
 			_solaria3DModel = LoadGlbModel(glbPath);
 			if (_solaria3DModel != null)
 			{
-				_solaria3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
-				_solaria3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				_solaria3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_solaria3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
 				world3D.AddChild(_solaria3DModel);
 			}
 		}
@@ -222,8 +225,8 @@ public partial class CharacterSelection : Control
 			_oceanus3DModel = LoadGlbModel(glbPath);
 			if (_oceanus3DModel != null)
 			{
-				_oceanus3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
-				_oceanus3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				_oceanus3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_oceanus3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
 				world3D.AddChild(_oceanus3DModel);
 			}
 		}
@@ -234,8 +237,8 @@ public partial class CharacterSelection : Control
 			_suryaPrime3DModel = LoadGlbModel(glbPath);
 			if (_suryaPrime3DModel != null)
 			{
-				_suryaPrime3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
-				_suryaPrime3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				_suryaPrime3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_suryaPrime3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
 				world3D.AddChild(_suryaPrime3DModel);
 			}
 		}
@@ -246,8 +249,8 @@ public partial class CharacterSelection : Control
 			_mirageBlade3DModel = LoadGlbModel(glbPath);
 			if (_mirageBlade3DModel != null)
 			{
-				_mirageBlade3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
-				_mirageBlade3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				_mirageBlade3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_mirageBlade3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
 				world3D.AddChild(_mirageBlade3DModel);
 			}
 		}
@@ -258,8 +261,8 @@ public partial class CharacterSelection : Control
 			_apexTitan3DModel = LoadGlbModel(glbPath);
 			if (_apexTitan3DModel != null)
 			{
-				_apexTitan3DModel.Scale = new Vector3(0.68f, 0.68f, 0.68f);
-				_apexTitan3DModel.Position = new Vector3(-0.45f, 3.2f, 0f);
+				_apexTitan3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_apexTitan3DModel.Position = new Vector3(-0.45f, 3.35f, 0f);
 				world3D.AddChild(_apexTitan3DModel);
 			}
 		}
@@ -334,33 +337,37 @@ public partial class CharacterSelection : Control
 
 	public override void _Process(double delta)
 	{
-		_shogunRotationTimer += (float)delta;
 		_glowPulseTimer += (float)delta;
 
-		// Hero rotation
-		if (_cyberShogun3DModel != null && GodotObject.IsInstanceValid(_cyberShogun3DModel) && _cyberShogun3DModel.Visible)
-			_cyberShogun3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
-		if (_solaria3DModel != null && GodotObject.IsInstanceValid(_solaria3DModel) && _solaria3DModel.Visible)
-			_solaria3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
-		if (_oceanus3DModel != null && GodotObject.IsInstanceValid(_oceanus3DModel) && _oceanus3DModel.Visible)
-			_oceanus3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
-		if (_suryaPrime3DModel != null && GodotObject.IsInstanceValid(_suryaPrime3DModel) && _suryaPrime3DModel.Visible)
-			_suryaPrime3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
-		if (_mirageBlade3DModel != null && GodotObject.IsInstanceValid(_mirageBlade3DModel) && _mirageBlade3DModel.Visible)
-			_mirageBlade3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
-		if (_apexTitan3DModel != null && GodotObject.IsInstanceValid(_apexTitan3DModel) && _apexTitan3DModel.Visible)
-			_apexTitan3DModel.RotationDegrees = new Vector3(0f, _shogunRotationTimer * 45f, 0f);
+		// --- User-controlled character rotation ---
+		float rotInput = 0f;
+		if (Input.IsActionPressed("ui_right")) rotInput += 1f;
+		if (Input.IsActionPressed("ui_left"))  rotInput -= 1f;
 
-		// Platform: slow counter-rotation + pulsing emissive glow
+		if (rotInput != 0f)
+			_charRotationY += rotInput * RotationSpeed * (float)delta;
+
+		var activeRotation = new Vector3(0f, _charRotationY, 0f);
+
+		if (_cyberShogun3DModel  != null && GodotObject.IsInstanceValid(_cyberShogun3DModel)  && _cyberShogun3DModel.Visible)
+			_cyberShogun3DModel.RotationDegrees  = activeRotation;
+		if (_solaria3DModel      != null && GodotObject.IsInstanceValid(_solaria3DModel)      && _solaria3DModel.Visible)
+			_solaria3DModel.RotationDegrees      = activeRotation;
+		if (_oceanus3DModel      != null && GodotObject.IsInstanceValid(_oceanus3DModel)      && _oceanus3DModel.Visible)
+			_oceanus3DModel.RotationDegrees      = activeRotation;
+		if (_suryaPrime3DModel   != null && GodotObject.IsInstanceValid(_suryaPrime3DModel)   && _suryaPrime3DModel.Visible)
+			_suryaPrime3DModel.RotationDegrees   = activeRotation;
+		if (_mirageBlade3DModel  != null && GodotObject.IsInstanceValid(_mirageBlade3DModel)  && _mirageBlade3DModel.Visible)
+			_mirageBlade3DModel.RotationDegrees  = activeRotation;
+		if (_apexTitan3DModel    != null && GodotObject.IsInstanceValid(_apexTitan3DModel)    && _apexTitan3DModel.Visible)
+			_apexTitan3DModel.RotationDegrees    = activeRotation;
+
+		// --- Platform: static position, pulsing glow only ---
 		if (_platform3DModel != null && GodotObject.IsInstanceValid(_platform3DModel))
 		{
-			// Slowly spin the platform in the opposite direction to the hero
-			_platform3DModel.RotationDegrees = new Vector3(0f, -_shogunRotationTimer * 18f, 0f);
-
-			// Pulsing glow: sine wave between 0.4 and 2.5 intensity over ~2 seconds
-			float pulse = 0.4f + 1.05f * (Mathf.Sin(_glowPulseTimer * Mathf.Pi) * 0.5f + 0.5f);
-			var glowColor = new Color(0.55f, 0.85f, 1.0f, 1.0f); // ice-blue
-
+			// No rotation — platform stays fixed
+			float pulse     = 0.4f + 1.05f * (Mathf.Sin(_glowPulseTimer * Mathf.Pi) * 0.5f + 0.5f);
+			var   glowColor = new Color(0.55f, 0.85f, 1.0f, 1.0f);
 			ApplyEmissivePulse(_platform3DModel, glowColor, pulse);
 		}
 	}
