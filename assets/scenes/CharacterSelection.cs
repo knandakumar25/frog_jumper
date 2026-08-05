@@ -6,6 +6,14 @@ using Godot;
 /// </summary>
 public partial class CharacterSelection : Control
 {
+	// ─── Input bindings ──────────────────────────────────────────────────────
+	private const Key          RotateLeftKey   = Key.Q;
+	private const Key          RotateRightKey  = Key.E;
+	private const JoyButton    RotateLeftBtn   = JoyButton.LeftShoulder;   // LB
+	private const JoyButton    RotateRightBtn  = JoyButton.RightShoulder;  // RB
+	private const float        RotationSpeed   = 90f; // degrees per second
+
+	// ─── Node refs ───────────────────────────────────────────────────────────
 	private Label _selectedNameLabel;
 	private Label _civilianNameLabel;
 	private Label _classTagLabel;
@@ -123,7 +131,13 @@ public partial class CharacterSelection : Control
 	// User-controlled rotation (degrees, accumulated)
 	private float _charRotationY  = 0f;
 	private float _glowPulseTimer = 0f;
-	private const float RotationSpeed = 90f; // degrees per second
+	private float _rotateInput    = 0f;  // -1 left, +1 right, 0 idle
+
+	// --- Arrow button signal handlers (hold-to-rotate) ---
+	public void _on_rotate_left_down()  => _rotateInput = -1f;
+	public void _on_rotate_left_up()    => _rotateInput =  0f;
+	public void _on_rotate_right_down() => _rotateInput =  1f;
+	public void _on_rotate_right_up()   => _rotateInput =  0f;
 
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_solaria_pressed()       => SelectOperative("Solaria");
@@ -339,10 +353,22 @@ public partial class CharacterSelection : Control
 	{
 		_glowPulseTimer += (float)delta;
 
-		// --- User-controlled character rotation ---
-		float rotInput = 0f;
-		if (Input.IsActionPressed("ui_right")) rotInput += 1f;
-		if (Input.IsActionPressed("ui_left"))  rotInput -= 1f;
+		// --- Rotation input: arrow buttons OR Q/E keyboard OR LB/RB gamepad ---
+		float rotInput = _rotateInput; // from held UI arrow buttons
+
+		if (rotInput == 0f)
+		{
+			// Keyboard
+			if (Input.IsKeyPressed(RotateLeftKey))       rotInput = -1f;
+			else if (Input.IsKeyPressed(RotateRightKey)) rotInput =  1f;
+		}
+
+		if (rotInput == 0f)
+		{
+			// Gamepad
+			if (Input.IsJoyButtonPressed(0, RotateLeftBtn))       rotInput = -1f;
+			else if (Input.IsJoyButtonPressed(0, RotateRightBtn)) rotInput =  1f;
+		}
 
 		if (rotInput != 0f)
 			_charRotationY += rotInput * RotationSpeed * (float)delta;

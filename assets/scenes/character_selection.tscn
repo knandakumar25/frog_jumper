@@ -208,6 +208,31 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "DEPLOY OPERATIVE"
 
+[node name="RotateRow" type="HBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="RotateLeftBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/RotateRow"]
+custom_minimum_size = Vector2(64, 52)
+layout_mode = 2
+text = "◄"
+tooltip_text = "Rotate Left  [ Q / LB ]"
+
+[node name="RotateHint" type="Label" parent="MainLayout/RightShowcasePanel/VBox/RotateRow"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "ROTATE"
+theme_override_font_sizes/font_size = 11
+
+[node name="RotateRightBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/RotateRow"]
+custom_minimum_size = Vector2(64, 52)
+layout_mode = 2
+text = "►"
+tooltip_text = "Rotate Right  [ E / RB ]"
+
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun" to="." method="_on_cyber_shogun_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria" to="." method="_on_solaria_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus" to="." method="_on_oceanus_pressed"]
@@ -215,3 +240,8 @@ text = "DEPLOY OPERATIVE"
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade" to="." method="_on_mirage_blade_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan" to="." method="_on_apex_titan_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/DeployButton" to="." method="_on_deploy_pressed"]
+[connection signal="button_down" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateLeftBtn" to="." method="_on_rotate_left_down"]
+[connection signal="button_up" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateLeftBtn" to="." method="_on_rotate_left_up"]
+[connection signal="button_down" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateRightBtn" to="." method="_on_rotate_right_down"]
+[connection signal="button_up" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateRightBtn" to="." method="_on_rotate_right_up"]
+

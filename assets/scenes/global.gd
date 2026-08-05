@@ -87,9 +87,9 @@ func _setup_prompt_banner() -> void:
 func _update_prompt_text() -> void:
 	if _prompt_label == null: return
 	if is_gamepad_mode:
-		_prompt_label.text = tr("🎮 GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = tr("🎮 GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
 	else:
-		_prompt_label.text = tr("⌨️ KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = tr("⌨️ KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "/" + tr("Rotate Left") + "  |  E: " + tr("Rotate Right") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
 
 func _on_joy_connection_changed(device: int, connected: bool) -> void:
 	if connected:
