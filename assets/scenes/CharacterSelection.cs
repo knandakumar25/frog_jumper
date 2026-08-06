@@ -216,7 +216,7 @@ public partial class CharacterSelection : Control
 			if (_cyberShogun3DModel != null)
 			{
 				_cyberShogun3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_cyberShogun3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
+				_cyberShogun3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_cyberShogun3DModel);
 				PlayIdleAnimation(_cyberShogun3DModel);
 			}
@@ -224,12 +224,12 @@ public partial class CharacterSelection : Control
 
 		if (_solaria3DModel == null)
 		{
-			string glbPath = "res://assets/images/Solaria/Meshy_AI_solaris_heroine_remes_0804052921_texture.glb";
+			string glbPath = "res://assets/images/Solaria/Meshy_AI_Solaris_Heroine_Rig_biped_Animation_Idle_02_withSkin.glb";
 			_solaria3DModel = LoadGlbModel(glbPath);
 			if (_solaria3DModel != null)
 			{
 				_solaria3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_solaria3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
+				_solaria3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_solaria3DModel);
 				PlayIdleAnimation(_solaria3DModel);
 			}
@@ -237,12 +237,12 @@ public partial class CharacterSelection : Control
 
 		if (_oceanus3DModel == null)
 		{
-			string glbPath = "res://assets/images/Oceanus/Meshy_AI_polynesian_superheroi_0804064602_image-to-3d-texture.glb";
+			string glbPath = "res://assets/images/Oceanus/Meshy_AI_Polynesian_Superheroi_biped_Animation_Idle_02_withSkin.glb";
 			_oceanus3DModel = LoadGlbModel(glbPath);
 			if (_oceanus3DModel != null)
 			{
 				_oceanus3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_oceanus3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
+				_oceanus3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_oceanus3DModel);
 				PlayIdleAnimation(_oceanus3DModel);
 			}
@@ -250,12 +250,12 @@ public partial class CharacterSelection : Control
 
 		if (_suryaPrime3DModel == null)
 		{
-			string glbPath = "res://assets/images/Surya Prime/Meshy_AI_solar_guardian_0804150949_image-to-3d-texture.glb";
+			string glbPath = "res://assets/images/Surya Prime/Meshy_AI_Solar_Guardian_Rig_biped_Animation_Idle_02_withSkin.glb";
 			_suryaPrime3DModel = LoadGlbModel(glbPath);
 			if (_suryaPrime3DModel != null)
 			{
 				_suryaPrime3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_suryaPrime3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
+				_suryaPrime3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_suryaPrime3DModel);
 				PlayIdleAnimation(_suryaPrime3DModel);
 			}
@@ -263,12 +263,12 @@ public partial class CharacterSelection : Control
 
 		if (_mirageBlade3DModel == null)
 		{
-			string glbPath = "res://assets/images/Mirage Blade/Meshy_AI_arab_superhero_crysta_0804155043_image-to-3d-texture.glb";
+			string glbPath = "res://assets/images/Mirage Blade/Meshy_AI_Arab_Superhero_Rig_biped_Animation_Idle_02_withSkin.glb";
 			_mirageBlade3DModel = LoadGlbModel(glbPath);
 			if (_mirageBlade3DModel != null)
 			{
 				_mirageBlade3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_mirageBlade3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
+				_mirageBlade3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_mirageBlade3DModel);
 				PlayIdleAnimation(_mirageBlade3DModel);
 			}
@@ -276,12 +276,12 @@ public partial class CharacterSelection : Control
 
 		if (_apexTitan3DModel == null)
 		{
-			string glbPath = "res://assets/images/Apex Titan/Meshy_AI_cyber_superhero_0804161932_image-to-3d-texture.glb";
+			string glbPath = "res://assets/images/Apex Titan/Meshy_AI_Cyber_Superhero_Rig_biped_Animation_Idle_02_withSkin.glb";
 			_apexTitan3DModel = LoadGlbModel(glbPath);
 			if (_apexTitan3DModel != null)
 			{
 				_apexTitan3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_apexTitan3DModel.Position = new Vector3(-0.45f, 2.65f, 0f);
+				_apexTitan3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_apexTitan3DModel);
 				PlayIdleAnimation(_apexTitan3DModel);
 			}
