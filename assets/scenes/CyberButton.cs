@@ -110,12 +110,13 @@ public partial class CyberButton : Control
 			{
 				_isPressed = false;
 				QueueRedraw();
-				if (_isHovered)
+				if (_isHovered || GetGlobalRect().HasPoint(mb.GlobalPosition))
 				{
 					UISoundManager.Instance?.PlayClickSound();
 					EmitSignal(SignalName.Pressed);
 				}
 			}
+
 		}
 	}
 

@@ -174,10 +174,35 @@ public partial class MainMenu : Control
 				playBtn.Pressed += _on_play_pressed;
 				playBtn.CallDeferred(Control.MethodName.GrabFocus);
 			}
-			GetNode<CyberButton>("ButtonContainer/ContinueButton").Pressed += _on_continue_pressed;
-			GetNode<CyberButton>("ButtonContainer/Instructions").Pressed += _on_instructions_pressed;
-			GetNode<CyberButton>("ButtonContainer/Settings").Pressed += _on_settings_pressed;
-			GetNode<CyberButton>("ButtonContainer/QuitButton").Pressed += _on_quit_button_pressed;
+			var contBtn = GetNodeOrNull<CyberButton>("ButtonContainer/ContinueButton");
+			if (contBtn != null) contBtn.Pressed += _on_continue_pressed;
+
+			var instBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Instructions");
+			if (instBtn != null) instBtn.Pressed += _on_instructions_pressed;
+
+			var setBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Settings");
+			if (setBtn != null) setBtn.Pressed += _on_settings_pressed;
+
+			var quitBtn = GetNodeOrNull<CyberButton>("ButtonContainer/QuitButton");
+			if (quitBtn != null) quitBtn.Pressed += _on_quit_button_pressed;
+
+			// Programmatically wire all popup sub-buttons for 100% fail-safe operation in all scene environments
+			WireButtonSignal(_quitPopup, "VBoxContainer/ButtonContainer/YesButton", _on_yes_pressed);
+			WireButtonSignal(_quitPopup, "VBoxContainer/ButtonContainer/NoButton", _on_no_pressed);
+
+			WireButtonSignal(_confirmPopup, "VBoxContainer/ButtonContainer/YesButton", _on_confirm_yes_pressed);
+			WireButtonSignal(_confirmPopup, "VBoxContainer/ButtonContainer/NoButton", _on_confirm_no_pressed);
+
+			WireButtonSignal(_settingsPopup, "VBoxContainer/ButtonContainer/ApplyButton", _on_apply_settings_pressed);
+			WireButtonSignal(_settingsPopup, "VBoxContainer/ButtonContainer/CloseButton", _on_close_settings_pressed);
+
+			WireButtonSignal(_instructionsPopup, "VBoxContainer/CloseButton", _on_close_instructions_pressed);
+
+			WireButtonSignal(_newGamePopup, "VBoxContainer/ButtonContainer/ConfirmButton", _on_new_game_confirm_pressed);
+			WireButtonSignal(_newGamePopup, "VBoxContainer/ButtonContainer/CancelButton", _on_new_game_cancel_pressed);
+
+			WireButtonSignal(_continuePopup, "VBoxContainer/ButtonContainer/CancelButton", OnContinueBackPressed);
+			WireButtonSignal(_continuePopup, "VBoxContainer/BackButton", OnContinueBackPressed);
 
 			EnsureUISoundManager();
 			UISoundManager.AutoWireButtons(this);
@@ -209,7 +234,22 @@ public partial class MainMenu : Control
 		}
 	}
 
+	private void WireButtonSignal(Node parent, string nodePath, Action callback)
+	{
+		if (parent == null) return;
+		var btn = parent.GetNodeOrNull<Button>(nodePath);
+		if (btn != null)
+		{
+			var callable = Callable.From(callback);
+			if (!btn.IsConnected(Button.SignalName.Pressed, callable))
+			{
+				btn.Pressed += callback;
+			}
+		}
+	}
+
 	// ─── Cloud spawning ──────────────────────────────────────────────────────
+
 	private void SpawnInitialClouds()
 	{
 		if (!HasNode("CloudsLayer")) { GD.PushError("main_menu: CloudsLayer missing."); return; }
