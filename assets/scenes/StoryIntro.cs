@@ -43,19 +43,15 @@ public partial class StoryIntro : Control
         voicePlayer = new AudioStreamPlayer();
         AddChild(voicePlayer);
 
-        // Setup dialogue lines using translation keys
+        // Setup dialogue lines using translation keys (Condensed 4-slide tactical transmission)
         dialogueLines = new List<string>
         {
             $"[center][color=#00FF00]{TranslationServer.Translate("STORY_LINE_1")}[/color][/center]\n\n{TranslationServer.Translate("STORY_LINE_1_INTRO")}",
             TranslationServer.Translate("STORY_LINE_2"),
             TranslationServer.Translate("STORY_LINE_3"),
-            TranslationServer.Translate("STORY_LINE_4"),
-            TranslationServer.Translate("STORY_LINE_5"),
-            TranslationServer.Translate("STORY_LINE_6"),
-            TranslationServer.Translate("STORY_LINE_7"),
-            TranslationServer.Translate("STORY_LINE_8"),
-            TranslationServer.Translate("STORY_LINE_9")
+            TranslationServer.Translate("STORY_LINE_4")
         };
+
 
         // Translate title banner
         var titleBanner = GetNodeOrNull<Label>("TitleBanner");
