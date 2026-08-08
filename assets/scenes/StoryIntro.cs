@@ -77,6 +77,8 @@ public partial class StoryIntro : Control
         if (robotSprite != null && robotSprite.SpriteFrames != null)
             robotSprite.Play();
 
+        Setup3DRobotBuddy();
+
         // Connect signals before starting the typewriter
         if (global != null)
         {
@@ -86,6 +88,72 @@ public partial class StoryIntro : Control
         UpdateStoryPrompts();
         StartNextLine();
     }
+
+    private void Setup3DRobotBuddy()
+    {
+        var robotContainer = GetNodeOrNull<Control>("HBoxContainer/RobotContainer");
+        if (robotContainer == null) return;
+
+        // Hide 2D sprite if present
+        if (robotSprite != null) robotSprite.Visible = false;
+
+        // Create SubViewportContainer & SubViewport for 3D Robot Buddy preview
+        var vpContainer = new SubViewportContainer
+        {
+            CustomMinimumSize = new Vector2(320, 380),
+            SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+            SizeFlagsVertical = Control.SizeFlags.ExpandFill,
+            Stretch = true
+        };
+
+        var viewport = new SubViewport
+        {
+            Size = new Vector2I(320, 380),
+            TransparentBg = true,
+            OwnWorld3D = true
+        };
+
+        var camera = new Camera3D
+        {
+            Position = new Vector3(0f, 0.1f, 1.85f),
+            Fov = 42f
+        };
+
+        var light = new DirectionalLight3D
+        {
+            Position = new Vector3(2f, 4f, 3f),
+            RotationDegrees = new Vector3(-35f, 30f, 0f),
+            LightColor = new Color(0.9f, 0.95f, 1.0f),
+            LightEnergy = 1.6f
+        };
+
+        var fillLight = new DirectionalLight3D
+        {
+            Position = new Vector3(-2f, -1f, 2f),
+            RotationDegrees = new Vector3(20f, -40f, 0f),
+            LightColor = new Color(0.0f, 0.6f, 1.0f),
+            LightEnergy = 0.8f
+        };
+
+        var robotBuddy = new FloatingRobotBuddy3D
+        {
+            Scale = new Vector3(1.1f, 1.1f, 1.1f),
+            Position = new Vector3(0f, -0.05f, 0f),
+            HoverSpeed = 2.8f,
+            HoverHeight = 0.08f,
+            PulseSpeed = 3.5f
+        };
+
+        viewport.AddChild(camera);
+        viewport.AddChild(light);
+        viewport.AddChild(fillLight);
+        viewport.AddChild(robotBuddy);
+
+        vpContainer.AddChild(viewport);
+        robotContainer.AddChild(vpContainer);
+        GD.Print("StoryIntro: Integrated 3D AXIOM-7 Floating Robot Buddy with emissive visor pulsing");
+    }
+
 
     private void UpdateStoryPrompts()
     {

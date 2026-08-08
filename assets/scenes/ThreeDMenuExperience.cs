@@ -400,14 +400,6 @@ public partial class ThreeDMenuExperience : MainMenu
 			world3D.AddChild(turretRight);
 		}
 
-		// 16. AXIOM-7: 3D Floating Robot Buddy (Hovering near Plaza view with emissive pulsing & thruster sparks)
-		var robotBuddy = new FloatingRobotBuddy3D
-		{
-			Scale = new Vector3(1.5f, 1.5f, 1.5f),
-			Position = new Vector3(4.8f, 3.2f, 12.5f),
-			RotationDegrees = new Vector3(0f, -25f, 0f)
-		};
-		world3D.AddChild(robotBuddy);
 
 
 		// 16. PLAZA_05: Holo-Projector Pedestals (Center Plaza Floor Node)
