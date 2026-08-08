@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3d_story_intro_01"]
+
+[ext_resource type="Script" path="res://assets/scenes/ThreeDStoryIntro.cs" id="1_threed_story_intro_script"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="2_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="3_cyber_theme"]
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="4_bg_texture"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="5_orbitron"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Medium.ttf" id="6_rajdhani_med"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="7_rajdhani_bold"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg"]
+shading_mode = 0
+albedo_color = Color(0.75, 0.8, 0.95, 1)
+albedo_texture = ExtResource("4_bg_texture")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bg"]
+material = SubResource("StandardMaterial3D_bg")
+size = Vector2(24, 13.5)
+
+[node name="ThreeDStoryIntro" type="Node3D"]
+script = ExtResource("1_threed_story_intro_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_cyber_glow")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4.5)
+current = true
+fov = 38.0
+
+[node name="DirectionalLight3D_Key" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 2.5, 4, 3.5)
+light_color = Color(0.95, 0.98, 1, 1)
+light_energy = 1.8
+
+[node name="DirectionalLight3D_Fill" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, 0.321394, -0.55667, 0, 0.866025, 0.5, 0.642788, -0.383022, 0.663414, -2.5, -1, 2.5)
+light_color = Color(0, 0.7, 1, 1)
+light_energy = 0.9
+
+[node name="CityBackgroundQuad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+mesh = SubResource("QuadMesh_bg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="UIOverlay" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_cyber_theme")
+
+[node name="DarkOverlay" type="ColorRect" parent="CanvasLayer/UIOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.08, 0.55)
+
+[node name="TitleBanner" type="Label" parent="CanvasLayer/UIOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 36.0
+offset_right = 350.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_orbitron")
+theme_override_font_sizes/font_size = 32
+text = "MISSION BRIEFING TRANSMISSION"
+horizontal_alignment = 1
+
+[node name="DialogueBox" type="PanelContainer" parent="CanvasLayer/UIOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -180.0
+offset_right = 620.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UIOverlay/DialogueBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer/UIOverlay/DialogueBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.92, 0.96, 1, 1)
+theme_override_fonts/normal_font = ExtResource("6_rajdhani_med")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Initializing dialogue..."
+fit_content = true
+scroll_active = false
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/UIOverlay"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -90.0
+offset_right = -50.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_rajdhani_bold")
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[node name="SkipButton" type="Button" parent="CanvasLayer/UIOverlay"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = 28.0
+offset_right = -40.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("6_rajdhani_med")
+theme_override_font_sizes/font_size = 20
+text = "Skip (ESC) >>>"

@@ -492,7 +492,7 @@ public partial class CharacterSelection : Control
 		else
 			GD.Print("Error creating session!");
 
-		LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/story_intro.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://assets/scenes/3d_story_intro.tscn");
 	}
 
 	private static void AddAnimationFrames(

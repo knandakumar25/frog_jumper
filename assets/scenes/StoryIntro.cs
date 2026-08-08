@@ -91,55 +91,49 @@ public partial class StoryIntro : Control
 
     private void Setup3DRobotBuddy()
     {
-        var robotContainer = GetNodeOrNull<Control>("HBoxContainer/RobotContainer");
-        if (robotContainer == null) return;
-
-        // Hide 2D sprite if present
-        if (robotSprite != null) robotSprite.Visible = false;
-
-        // Create SubViewportContainer & SubViewport for 3D Robot Buddy preview
+        // Create a full-screen unconstrained SubViewportContainer that spans 100% of the display window
         var vpContainer = new SubViewportContainer
         {
-            CustomMinimumSize = new Vector2(320, 380),
-            SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
-            SizeFlagsVertical = Control.SizeFlags.ExpandFill,
+            Name = "FullScreen3DRobotViewport",
+            MouseFilter = Control.MouseFilterEnum.Ignore,
             Stretch = true
         };
+        vpContainer.SetAnchorsPreset(LayoutPreset.FullRect);
 
         var viewport = new SubViewport
         {
-            Size = new Vector2I(320, 380),
             TransparentBg = true,
             OwnWorld3D = true
         };
 
+        // Framed 3D Camera positioned to view robot floating in open space on the left side of the screen
         var camera = new Camera3D
         {
-            Position = new Vector3(0f, 0.1f, 1.85f),
-            Fov = 42f
+            Position = new Vector3(-1.65f, -0.05f, 3.4f),
+            Fov = 32f
         };
 
         var light = new DirectionalLight3D
         {
-            Position = new Vector3(2f, 4f, 3f),
+            Position = new Vector3(2.5f, 4f, 3.5f),
             RotationDegrees = new Vector3(-35f, 30f, 0f),
-            LightColor = new Color(0.9f, 0.95f, 1.0f),
-            LightEnergy = 1.6f
+            LightColor = new Color(0.95f, 0.98f, 1.0f),
+            LightEnergy = 1.8f
         };
 
         var fillLight = new DirectionalLight3D
         {
-            Position = new Vector3(-2f, -1f, 2f),
+            Position = new Vector3(-2.5f, -1f, 2.5f),
             RotationDegrees = new Vector3(20f, -40f, 0f),
-            LightColor = new Color(0.0f, 0.6f, 1.0f),
-            LightEnergy = 0.8f
+            LightColor = new Color(0.0f, 0.7f, 1.0f),
+            LightEnergy = 0.9f
         };
 
         var robotBuddy = new FloatingRobotBuddy3D
         {
             Scale = new Vector3(1.1f, 1.1f, 1.1f),
-            Position = new Vector3(0f, -0.05f, 0f),
-            HoverSpeed = 2.8f,
+            Position = new Vector3(0f, 0f, 0f),
+            HoverSpeed = 2.6f,
             HoverHeight = 0.08f,
             PulseSpeed = 3.5f
         };
@@ -150,9 +144,16 @@ public partial class StoryIntro : Control
         viewport.AddChild(robotBuddy);
 
         vpContainer.AddChild(viewport);
-        robotContainer.AddChild(vpContainer);
-        GD.Print("StoryIntro: Integrated 3D AXIOM-7 Floating Robot Buddy with emissive visor pulsing");
+
+        // Add at index 1 so 3D robot floats seamlessly in open screen space behind 2D Dialogue UI overlay
+        AddChild(vpContainer);
+        MoveChild(vpContainer, 1);
+        GD.Print("StoryIntro: Integrated 3D AXIOM-7 Floating Robot Buddy across 100% full-screen 3D space (Zero 2D container box clipping)");
     }
+
+
+
+
 
 
     private void UpdateStoryPrompts()

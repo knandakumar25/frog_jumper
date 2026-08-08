@@ -743,26 +743,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="Title" type="Label" parent="NewGamePopup/VBoxContainer"]
+[node name="TopSpacer" type="Control" parent="NewGamePopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Message" type="Label" parent="NewGamePopup/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-text = "NEW OPERATION"
+text = "Start New Game?"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Spacer1" type="Control" parent="NewGamePopup/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="NewGamePopup/VBoxContainer"]
-custom_minimum_size = Vector2(400, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "ENTER OPERATIVE CALLSIGN..."
-alignment = 1
-
-[node name="Spacer2" type="Control" parent="NewGamePopup/VBoxContainer"]
+[node name="Spacer" type="Control" parent="NewGamePopup/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
@@ -772,19 +765,24 @@ alignment = 1
 
 [node name="ConfirmButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(160, 50)
+custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
-text = "Deploy"
+text = "Yes"
 
-[node name="Spacer" type="Control" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
-custom_minimum_size = Vector2(20, 0)
+[node name="ButtonSpacer" type="Control" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
 [node name="CancelButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(160, 50)
+custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
-text = "Cancel"
+text = "No"
+
+[node name="BottomSpacer" type="Control" parent="NewGamePopup/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
 
 [node name="ContinuePopup" type="Panel" parent="."]
 visible = false
