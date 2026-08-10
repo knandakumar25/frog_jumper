@@ -129,6 +129,11 @@ jobs:
           dotnet build FrogJumper.csproj -c Release
           godot --headless --editor --quit || true
 
+      - name: Generate Android Debug Keystore
+        run: |
+          mkdir -p ~/.android
+          keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore ~/.android/debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 || true
+
       - name: Export Android (.apk)
         run: |
           mkdir -p build/android
@@ -139,6 +144,7 @@ jobs:
         with:
           name: android-apk-build
           path: build/android/
+          if-no-files-found: warn
           retention-days: 14
 
   # 4. iOS App Export (.ipa / Xcode - macOS Runner)
@@ -170,7 +176,7 @@ jobs:
       - name: Export iOS Xcode Project
         run: |
           mkdir -p build/ios
-          godot --headless --export-release "iOS" build/ios/AxiomForceReclaimEarth.ipa || godot --headless --export-debug "iOS" build/ios/AxiomForceReclaimEarth.ipa || true
+          godot --headless --export-release "iOS" build/ios/AxiomForceReclaimEarth.zip || godot --headless --export-debug "iOS" build/ios/AxiomForceReclaimEarth.zip || true
 
       - name: Upload iOS Build Artifact
         uses: actions/upload-artifact@v4
@@ -246,7 +252,7 @@ jobs:
       - name: Export visionOS App
         run: |
           mkdir -p build/visionos
-          godot --headless --export-release "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.ipa || godot --headless --export-debug "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.ipa || true
+          godot --headless --export-release "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.zip || godot --headless --export-debug "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.zip || true
 
       - name: Upload visionOS Build Artifact
         uses: actions/upload-artifact@v4
@@ -291,5 +297,24 @@ jobs:
         with:
           name: xbox-build
           path: build/xbox/
+          retention-days: 14
+
+  # 8. All-In-One Single Bundle (Combines All 7 Platforms Into One Single Download)
+  bundle-all-builds:
+    name: Bundle All 7 Platforms Into One Zip
+    needs: [build-windows, build-linux, build-android, build-ios, build-macos, build-visionos, build-xbox]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download All Platform Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: build/
+
+      - name: Upload All-In-One Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: axiom-force-all-platforms-build
+          path: build/
           retention-days: 14
 
