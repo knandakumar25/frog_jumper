@@ -254,3 +254,42 @@ jobs:
           name: visionos-build
           path: build/visionos/
           retention-days: 14
+
+  # 7. Xbox / Windows GDK Export (Xbox Series X/S / Xbox One / Windows GDK)
+  build-xbox:
+    name: Build Xbox (Series X/S & Xbox One)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Setup Godot Engine 4.7.1
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.7.1
+          use-dotnet: true
+          include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
+
+      - name: Export Xbox App (.exe / GDK Profile)
+        run: |
+          mkdir -p build/xbox
+          godot --headless --export-release "Xbox / Windows GDK" build/xbox/AxiomForceReclaimEarth_Xbox.exe || godot --headless --export-debug "Xbox / Windows GDK" build/xbox/AxiomForceReclaimEarth_Xbox.exe
+
+      - name: Upload Xbox Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xbox-build
+          path: build/xbox/
+          retention-days: 14
+
