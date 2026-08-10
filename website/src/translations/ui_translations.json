@@ -39,7 +39,7 @@
       "credits_title": "Credits",
       "copyright": "Â© {{year}} AXIOM FORCE: RECLAIM EARTH â€” All Rights Reserved",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST",
-      "platform_desc": "Target Platforms: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Target Platforms: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Input: Gamepad / Keyboard",
       "status_desc": "Status: Insurgency Active",
       "version_desc": "Revision: v1.0.0 Release"
@@ -492,7 +492,7 @@
       "database_desc": "Base de datos: sincronizaciÃ³n de puntuaciÃ³n SQLite",
       "localization_desc": "LocalizaciÃ³n: mÃ¡s de 50 idiomas (listo para RTL)",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERACIONAL // TRANSMISIÃ“N SEGURA",
-      "platform_desc": "Plataformas objetivo: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Plataformas objetivo: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Entrada: Gamepad/teclado",
       "status_desc": "Estado: Insurgencia Activa",
       "version_desc": "RevisiÃ³n: versiÃ³n v1.0.0"
@@ -945,7 +945,7 @@
       "database_desc": "Base de donnÃ©esÂ : synchronisation des scores SQLite",
       "localization_desc": "LocalisationÂ : plus de 50Â langues (prÃªt pour RTL)",
       "broadcast_status": "v1.0.0 // NET-SYNC OPÃ‰RATIONNEL // DIFFUSION SÃ‰CURISÃ‰E",
-      "platform_desc": "Plateformes cibles: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Plateformes cibles: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "EntrÃ©eÂ : manette de jeu/clavier",
       "status_desc": "StatutÂ :Â Insurrection active",
       "version_desc": "RÃ©visionÂ : versionÂ v1.0.0"
@@ -1398,7 +1398,7 @@
       "database_desc": "Banco de dados: sincronizaÃ§Ã£o de pontuaÃ§Ã£o SQLite",
       "localization_desc": "LocalizaÃ§Ã£o: mais de 50 idiomas (pronto para RTL)",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERACIONAL // TRANSMISSÃƒO SEGURA",
-      "platform_desc": "Plataformas-alvo: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Plataformas-alvo: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Entrada: Gamepad/Teclado",
       "status_desc": "Status: InsurgÃªncia Ativa",
       "version_desc": "RevisÃ£o: versÃ£o v1.0.0"
@@ -1851,7 +1851,7 @@
       "database_desc": "Datenbank: SQLite Score Sync",
       "localization_desc": "Lokalisierung: 50+ Sprachen (RTL-ready)",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SICHERER BROADCAST",
-      "platform_desc": "Zielplattformen: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Zielplattformen: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Eingabe: Gamepad / Tastatur",
       "status_desc": "Status: Aufstand aktiv",
       "version_desc": "Revision: Version 1.0.0"
@@ -2304,7 +2304,7 @@
       "database_desc": "Database: sincronizzazione del punteggio SQLite",
       "localization_desc": "Localizzazione: oltre 50 lingue (pronto per RTL)",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERATIVO // BROADCAST SICURO",
-      "platform_desc": "Piattaforme di destinazione: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Piattaforme di destinazione: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Ingresso: gamepad/tastiera",
       "status_desc": "Stato: insurrezione attiva",
       "version_desc": "Revisione: versione v1.0.0"
@@ -2757,7 +2757,7 @@
       "database_desc": "Baza danych: synchronizacja wynikÃ³w SQLite",
       "localization_desc": "Lokalizacja: ponad 50 jÄ™zykÃ³w (gotowoÅ›Ä‡ RTL)",
       "broadcast_status": "v1.0.0 // NET-SYNC DZIAÅA // BEZPIECZNA TRANSMISJA",
-      "platform_desc": "Platformy docelowe: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Platformy docelowe: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "WejÅ›cie: Gamepad/klawiatura",
       "status_desc": "Status: Powstanie aktywne",
       "version_desc": "Wersja: wersja 1.0.0"
@@ -3210,7 +3210,7 @@
       "database_desc": "VeritabanÄ±: SQLite Puan Senkronizasyonu",
       "localization_desc": "YerelleÅŸtirme: 50+ Dil (RTL'ye HazÄ±r)",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERASYONEL // GÃœVENLÄ° YAYIN",
-      "platform_desc": "Hedef Platformlar: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "Hedef Platformlar: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "GiriÅŸ: Oyun KumandasÄ± / Klavye",
       "status_desc": "Durum: DireniÅŸ Aktif",
       "version_desc": "Revizyon: v1.0.0 SÃ¼rÃ¼mÃ¼"
@@ -3663,7 +3663,7 @@
       "database_desc": "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹: SQLite ã‚¹ã‚³ã‚¢åŒæœŸ",
       "localization_desc": "ãƒ­ãƒ¼ã‚«ãƒªã‚¼ãƒ¼ã‚·ãƒ§ãƒ³: 50 ä»¥ä¸Šã®è¨€èªž (RTL å¯¾å¿œ)",
       "broadcast_status": "v1.0.0 // NET-SYNC é‹ç”¨å¯èƒ½ // å®‰å…¨ãªãƒ–ãƒ­ãƒ¼ãƒ‰ã‚­ãƒ£ã‚¹ãƒˆ",
-      "platform_desc": "å¯¾è±¡ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ï¼šWindows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "対象プラットフォーム：Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "å…¥åŠ›: ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰/ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰",
       "status_desc": "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: åä¹±æ´»å‹•ä¸­",
       "version_desc": "ãƒªãƒ“ã‚¸ãƒ§ãƒ³: v1.0.0 ãƒªãƒªãƒ¼ã‚¹"
@@ -4116,7 +4116,7 @@
       "database_desc": "ë°ì´í„°ë² ì´ìŠ¤: SQLite ì ìˆ˜ ë™ê¸°í™”",
       "localization_desc": "í˜„ì§€í™”: 50ê°œ ì´ìƒì˜ ì–¸ì–´(RTL ì§€ì›)",
       "broadcast_status": "v1.0.0 // NET-SYNC ìž‘ë™ // ë³´ì•ˆ ë°©ì†¡",
-      "platform_desc": "ëŒ€ìƒ í”Œëž«í¼: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "대상 플랫폼: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "ìž…ë ¥: ê²Œìž„íŒ¨ë“œ/í‚¤ë³´ë“œ",
       "status_desc": "ìƒíƒœ: ë°˜ëž€ í™œë™ ì¤‘",
       "version_desc": "ê°œì •: v1.0.0 ë¦´ë¦¬ìŠ¤"
@@ -4569,7 +4569,7 @@
       "database_desc": "æ•°æ®åº“ï¼šSQLite åˆ†æ•°åŒæ­¥",
       "localization_desc": "æœ¬åœ°åŒ–ï¼š50 å¤šç§è¯­è¨€ï¼ˆRTL å°±ç»ªï¼‰",
       "broadcast_status": "v1.0.0 // ç½‘ç»œåŒæ­¥æ“ä½œ // å®‰å…¨å¹¿æ’­",
-      "platform_desc": "ç›®æ ‡å¹³å°ï¼šWindows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "目标平台: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "è¾“å…¥ï¼šæ¸¸æˆæ‰‹æŸ„/é”®ç›˜",
       "status_desc": "çŠ¶æ€ï¼šå›ä¹±æ´»åŠ¨",
       "version_desc": "ä¿®è®¢ç‰ˆï¼šv1.0.0 å‘å¸ƒ"
@@ -5022,7 +5022,7 @@
       "database_desc": "×ž×¡×“ × ×ª×•× ×™×: SQLite Score Sync",
       "localization_desc": "×œ×•×§×œ×™×–×¦×™×”: 50+ ×©×¤×•×ª (×ž×•×›× ×•×ª ×œ-RTL)",
       "broadcast_status": "v1.0.0 // NET-SYNC ×ª×¤×¢×•×œ×™ // ×©×™×“×•×¨ ×ž××•×‘×˜×—",
-      "platform_desc": "×¤Ù„Øªáƒ¤áƒáƒ ×ž×•×ª ×™×¢×“: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "פלטפורמות יעד: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "×§×œ×˜: Gamepad / ×ž×§×œ×“×ª",
       "status_desc": "×¡×˜×˜×•×¡: ×ž×¨×“ ×¤×¢×™×œ",
       "version_desc": "×’×¨×¡×”: v1.0.0 ×ž×”×“×•×¨×”"
@@ -5475,7 +5475,7 @@
       "database_desc": "Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª: Ù…Ø²Ø§Ù…Ù†Ø© Ù†Ù‚Ø§Ø· SQLite",
       "localization_desc": "Ø§Ù„ØªØ±Ø¬Ù…Ø©: Ø£ÙƒØ«Ø± Ù…Ù† 50 Ù„ØºØ© (Ø¬Ø§Ù‡Ø²Ø© Ù„Ù€ RTL)",
       "broadcast_status": "v1.0.0 // ØªØ´ØºÙŠÙ„ NET-SYNC // Ø¨Ø« Ø¢Ù…Ù†",
-      "platform_desc": "Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ù…Ø³ØªÙ‡Ø¯ÙØ©: Windows, macOS, Linux, iOS, Android, visionOS, PlayStation 5, Nintendo Switch 2",
+      "platform_desc": "المنصات المستهدفة: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Ø§Ù„Ø¥Ø¯Ø®Ø§Ù„: Ù„ÙˆØ­Ø© Ø§Ù„Ø£Ù„Ø¹Ø§Ø¨ / Ù„ÙˆØ­Ø© Ø§Ù„Ù…ÙØ§ØªÙŠØ­",
       "status_desc": "Ø§Ù„Ø­Ø§Ù„Ø©: ØªÙ…Ø±Ø¯ Ù†Ø´Ø·",
       "version_desc": "Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©: Ø§Ù„Ø¥ØµØ¯Ø§Ø± v1.0.0"
