@@ -1,19 +1,11 @@
 name: Multi-Platform Native Game Export (No Docker)
 
 on:
-  push:
-    branches: [main, develop]
-    paths-ignore:
-      - 'website/**'
-      - '**.md'
-      - '.gitignore'
-  pull_request:
-    branches: [main, develop]
-    paths-ignore:
-      - 'website/**'
-      - '**.md'
-      - '.gitignore'
+  # Solution 2: Manual trigger via GitHub Actions UI or Version Tag Releases
   workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
 
 env:
   GODOT_VERSION: '4.7.1'
