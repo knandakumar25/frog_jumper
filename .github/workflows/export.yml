@@ -3,8 +3,16 @@ name: Multi-Platform Native Game Export (No Docker)
 on:
   push:
     branches: [main, develop]
+    paths-ignore:
+      - 'website/**'
+      - '**.md'
+      - '.gitignore'
   pull_request:
     branches: [main, develop]
+    paths-ignore:
+      - 'website/**'
+      - '**.md'
+      - '.gitignore'
   workflow_dispatch:
 
 env:
