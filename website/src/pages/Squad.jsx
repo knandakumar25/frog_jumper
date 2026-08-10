@@ -16,7 +16,7 @@ export default function Squad() {
       descDefault: 'A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.',
       loreKey: 'characters.warriors.shogun.lore',
       stats: { firepower: 92, defense: 90, mobility: 88 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIOJe92QJCceV6o_YKqmiI-GXAnhu5wf7sA6AIbBITzGWrZS7X3NTLOwABvR15y_9COR-uxPlYSdowg3ZaiO-Gvysw-Dw6-7bDVbTgrlfNUq8bNbhqsI1wmlU5HQkRAQm8hb0kAJ_lV6FrBHv_LrC1q1-KUaadpj2wJ4vM5DaNSa-V80ZsaJ7Tb43fj_00TjXs2Nve4o-5ca5CEZs1wYQMLKDHHIJMEszvBg6wH5W-9I4H0DPW2a6ElPi0VvK9nQVnoph0P-zgAUg',
+      model: '/models/shogun.glb',
       status: 'ACTIVE',
       civilian: 'Kaito Kurogane',
       icons: ['sword', 'bolt']
@@ -28,7 +28,7 @@ export default function Squad() {
       descDefault: 'Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.',
       loreKey: 'characters.warriors.solaria.lore',
       stats: { firepower: 97, defense: 72, mobility: 80 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3SqMdCra26sXgScQA8KUas5aanVtVlzTzaEz9krzf4Sa7UjkdXmqkUjGP-PnDaRvc7NaeeFMr6HAagKL4j0nfw2i-XeXwMi3ttg6s1b6Vv-1leenbDqtZlThZt7NZhKU-gIU-8pQRS52OnTUuTYPEPMBokqD_bgFPmvq1SPec59XGyM-aECpIT102Z4aDAKML32k_N1RN7wP3gpaCs0W-Z7u4L4Qh1JIUbGtIbqmJT8UfHoMJ9GN5lP1VICpTYlthLx2BLwCYeBo',
+      model: '/models/solaria.glb',
       status: 'STANDBY',
       civilian: 'Valentina Cruz',
       icons: ['flare', 'visibility_off']
@@ -40,7 +40,7 @@ export default function Squad() {
       descDefault: 'Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.',
       loreKey: 'characters.warriors.oceanus.lore',
       stats: { firepower: 78, defense: 74, mobility: 91 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtlOF-7UUy9KGe4IR4XM2WfPXPqdd9oIbGQLR06FnvuLzcch0sVZ9W9WaTo-Re1Kogtm3M5EEiYC-_jBqgghs4nQe3TwlCi1-xtQ61xrIUVDM5H-cqtO-VanT_Sdjnsth0oREpk2cBDGvgma1-9_IkrY_SU0WONyS9Mz7PnoO6XYHqMY0d-CArhCMyC2_H0Go26qHDiJ0rXbg-1NV7z44WcAEf2NY7wXSTZvyyubsRnekF3fvtKc3SuOywhOibP4uSdN1AXO8sNVE',
+      model: '/models/oceanus.glb',
       status: 'STANDBY',
       civilian: 'Kiana Vaea',
       icons: ['water', 'visibility_off']
@@ -52,7 +52,7 @@ export default function Squad() {
       descDefault: 'Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.',
       loreKey: 'characters.warriors.surya.lore',
       stats: { firepower: 99, defense: 88, mobility: 75 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC6w3uU4tz9oN0J89xLYYIwCsoK0SMoEkj5QeajfgPozk_pXOYKy3FksE8zlM3rXHxlfGRNehdioNhgBMS1wF-PDEBA7oykkr3LEqOmohyH25bqccBqdM3jhLsUZSJu0l70XNJyRWr3ySu6mDP_KBVWDwem16LsECy--myVTq5xgLC7xfZ5RooX6wvsJemDE6H8TKR6JKD2W6Snj00h6gAQMhsTBcfwGfqw4l902oq8yY5B58nGe2TFaaHx3vUqe-5xh8qWWjhE41Q',
+      model: '/models/surya.glb',
       status: 'STANDBY',
       civilian: 'Arjun Varma',
       icons: ['sunny', 'bolt']
@@ -64,7 +64,7 @@ export default function Squad() {
       descDefault: 'Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.',
       loreKey: 'characters.warriors.mirage.lore',
       stats: { firepower: 82, defense: 58, mobility: 98 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCs4UuTUn4dvlRFUQUQfKMbJ8heyrPYI8GfvVzIaJTC5oVRz5qJ36XPawx237rkgp58A9xyrQhkewzFuexgL8X8jk6pdbEYfzn4_FPRl3HIO6uwryPNBgCCbkYnSEh6FjAOGROJ367WLlrsBmvH1O4hgtJw1_7dl4ny4n29_lKVegCOyF2sFw9f5I9dqlF5If_Hbz718U2NLZD3AlIDlu64KVEWi0KCPvFmnb2bxjyCJunCbkZk7WkouniML7biOf2K8Fbvw04XKaY',
+      model: '/models/mirage.glb',
       status: 'STANDBY',
       civilian: 'Zayd Al-Mansoor',
       icons: ['diamond', 'visibility_off']
@@ -76,7 +76,7 @@ export default function Squad() {
       descDefault: 'King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.',
       loreKey: 'characters.warriors.apex.lore',
       stats: { firepower: 95, defense: 85, mobility: 93 },
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIOJe92QJCceV6o_YKqmiI-GXAnhu5wf7sA6AIbBITzGWrZS7X3NTLOwABvR15y_9COR-uxPlYSdowg3ZaiO-Gvysw-Dw6-7bDVbTgrlfNUq8bNbhqsI1wmlU5HQkRAQm8hb0kAJ_lV6FrBHv_LrC1q1-KUaadpj2wJ4vM5DaNSa-V80ZsaJ7Tb43fj_00TjXs2Nve4o-5ca5CEZs1wYQMLKDHHIJMEszvBg6wH5W-9I4H0DPW2a6ElPi0VvK9nQVnoph0P-zgAUg',
+      model: '/models/apex.glb',
       status: 'STANDBY',
       civilian: 'King Tariq Nzinga',
       icons: ['electric_bolt', 'shield']
@@ -122,16 +122,25 @@ export default function Squad() {
         <div className="lg:col-span-8 bg-surface-container-low brutal-border p-4 md:p-6 flex flex-col md:flex-row gap-8 relative overflow-hidden group">
           <div className="absolute inset-0 bg-scanline-overlay pointer-events-none z-10"></div>
           
-          {/* Operative Render Frame */}
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px] bg-void-black border border-outline-variant/30">
-            <img 
-              alt={activeName} 
-              src={activeChar.img}
-              className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-75 brightness-[0.85] contrast-125 select-none"
-            />
-            <div className="absolute inset-0 border border-primary-container/30 m-2 mix-blend-overlay"></div>
-            <div className="absolute top-2 left-2 bg-void-black/80 px-2 py-0.5 border border-primary-container/20 text-[10px] font-label-caps">
-              SECURE_LINK // {activeCharId.toUpperCase()}_NET
+          {/* Operative 3D Model Viewer Frame */}
+          <div className="w-full md:w-1/2 relative h-[350px] md:h-[420px] bg-void-black border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+            <model-viewer
+              key={activeChar.model}
+              src={activeChar.model}
+              alt={activeName}
+              auto-rotate
+              camera-controls
+              shadow-intensity="1.5"
+              exposure="1.1"
+              interaction-prompt="none"
+              style={{ width: '100%', height: '100%', backgroundColor: '#050505' }}
+            >
+            </model-viewer>
+            <div className="absolute top-2 left-2 bg-void-black/90 px-2 py-0.5 border border-primary-container/30 text-[10px] font-label-caps text-primary-container pointer-events-none z-20">
+              3D_LIVE_ORBIT // {activeCharId.toUpperCase()}
+            </div>
+            <div className="absolute bottom-2 right-2 bg-void-black/80 px-2 py-0.5 border border-outline-variant/20 text-[9px] font-label-caps text-on-surface-variant pointer-events-none z-20">
+              🖱️ DRAG TO ROTATE 360°
             </div>
           </div>
           
@@ -241,12 +250,8 @@ export default function Squad() {
                 }`}
               >
                 {/* Thumbnail frame */}
-                <div className="w-16 h-16 relative flex-shrink-0 bg-void-black border border-outline-variant/30 overflow-hidden">
-                  <img 
-                    alt={name} 
-                    src={char.img}
-                    className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:scale-105 transition-all duration-150"
-                  />
+                <div className="w-14 h-14 relative flex-shrink-0 bg-void-black border border-primary-container/40 flex items-center justify-center text-primary-container">
+                  <span className="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">view_in_ar</span>
                 </div>
                 
                 {/* Title & Type */}

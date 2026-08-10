@@ -145,68 +145,94 @@ export default function Home() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[220px] md:auto-rows-[250px]">
-          {/* Operative 1 (Large) */}
+          {/* Operative 1 (Large 3D Model Card) */}
           <div 
             onClick={handleJoinStrike}
-            className="md:col-span-2 md:row-span-2 relative group overflow-hidden neon-border bg-surface-container hover:border-secondary-container transition-colors cursor-pointer"
+            className="md:col-span-2 md:row-span-2 relative group overflow-hidden neon-border bg-surface-container hover:border-secondary-container transition-colors cursor-pointer flex flex-col justify-between"
           >
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-80 transition-opacity duration-300" 
-              style={{ 
-                backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6w3uU4tz9oN0J89xLYYIwCsoK0SMoEkj5QeajfgPozk_pXOYKy3FksE8zlM3rXHxlfGRNehdioNhgBMS1wF-PDEBA7oykkr3LEqOmohyH25bqccBqdM3jhLsUZSJu0l70XNJyRWr3ySu6mDP_KBVWDwem16LsECy--myVTq5xgLC7xfZ5RooX6wvsJemDE6H8TKR6JKD2W6Snj00h6gAQMhsTBcfwGfqw4l902oq8yY5B58nGe2TFaaHx3vUqe-5xh8qWWjhE41Q')" 
-              }}
-            ></div>
-            <div className={`absolute top-4 ${isRtl ? 'right-4' : 'left-4'} bg-void-black text-tertiary-fixed font-label-caps text-label-caps px-2 py-1`}>
-              {t('characters.warriors.frog.role', 'ASSAULT / LEADER')}
+            <div className="absolute inset-0 z-0">
+              <model-viewer
+                src="/models/shogun.glb"
+                alt="Cyber Shogun 3D"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1.5"
+                exposure="1.1"
+                interaction-prompt="none"
+                style={{ width: '100%', height: '100%', backgroundColor: '#050505' }}
+              >
+              </model-viewer>
             </div>
-            <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-void-black via-void-black/85 to-transparent">
-              <h3 className="font-headline-md text-headline-md text-inverse-surface uppercase mb-2">{t('squad.shogun', 'CYBER SHOGUN')}</h3>
+            <div className={`relative z-10 p-4 flex justify-between items-start pointer-events-none`}>
+              <span className="bg-void-black/90 text-tertiary-fixed font-label-caps text-label-caps px-2 py-1 border border-primary-container/30">
+                3D_OPERATIVE // CYBER SHOGUN
+              </span>
+              <span className="bg-primary-container text-void-black font-label-caps text-[10px] px-2 py-0.5 font-bold">
+                INTERACTIVE 360°
+              </span>
+            </div>
+            <div className="relative z-10 p-6 bg-gradient-to-t from-void-black via-void-black/90 to-transparent pointer-events-none">
+              <h3 className="font-headline-md text-headline-md text-inverse-surface uppercase mb-1">{t('squad.shogun', 'CYBER SHOGUN')}</h3>
               <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
-                {t('characters.warriors.frog.desc', 'Frontline breaker. Specializes in heavy kinetic disruption and shield cracking.')}
+                {t('characters.warriors.shogun.desc', 'Frontline breaker. Specializes in heavy kinetic disruption and energy katana strikes.')}
               </p>
             </div>
           </div>
 
-          {/* Operative 2 */}
+          {/* Operative 2 (Solaria 3D) */}
           <div 
             onClick={handleJoinStrike}
-            className="md:col-span-1 md:row-span-1 relative group overflow-hidden border border-outline-variant hover:border-primary-container bg-surface-container cursor-pointer"
+            className="md:col-span-1 md:row-span-1 relative group overflow-hidden border border-outline-variant hover:border-primary-container bg-surface-container cursor-pointer flex flex-col justify-between"
           >
-            <div className={`absolute top-2 ${isRtl ? 'left-2' : 'right-2'} text-warning-orange`}>
-              <span className="material-symbols-outlined">wifi_tethering</span>
+            <div className="absolute inset-0 z-0">
+              <model-viewer
+                src="/models/solaria.glb"
+                alt="Solaria 3D"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1"
+                exposure="1.1"
+                interaction-prompt="none"
+                style={{ width: '100%', height: '100%', backgroundColor: '#050505' }}
+              >
+              </model-viewer>
             </div>
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity" 
-              style={{ 
-                backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_g2oz6phXI_reFuM6KkjSjfWiTVcZSRkr09bvtAFhSbmcVR7ZBlITskBRIL-3ygjErmMSylBYAwg9wSeQ0v-Mur2KEvy2ueKtzNtjSQPjDSh91MQ9J-h4Y4-cIJ8t8PHm6fjN797Xfq9IydjfExOP0OSG0-PVtFj-eV-6PVJah0hEcWvfMRBdMiyF4o8H6N9tQ1Y1FJrjsHlSWpp4jdvEpnPNrZAiEP-A9kzu4UUc4ZJXqEKGusNK9Jd7daJYhls-gFoxWSNF3eE')" 
-              }}
-            ></div>
-            <div className="absolute bottom-0 left-0 w-full p-4 bg-void-black/90">
-              <h3 className="font-headline-md text-[18px] text-primary-container uppercase">{t('squad.ronin', 'AEGIS RONIN')}</h3>
-              <div className="font-label-caps text-label-caps text-on-surface-variant mt-1">
-                {t('characters.warriors.dude.role', 'Infiltrator / Hacker')}
+            <div className="relative z-10 p-2 text-warning-orange pointer-events-none">
+              <span className="material-symbols-outlined text-sm bg-void-black/80 p-1 border border-warning-orange/30">flare</span>
+            </div>
+            <div className="relative z-10 p-3 bg-void-black/90 pointer-events-none">
+              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">SOLARIA</h3>
+              <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5">
+                SOLAR FLARE VANGUARD
               </div>
             </div>
           </div>
 
-          {/* Operative 3 */}
+          {/* Operative 3 (Surya Prime 3D) */}
           <div 
             onClick={handleJoinStrike}
-            className="md:col-span-1 md:row-span-1 relative group overflow-hidden border border-outline-variant hover:border-primary-container bg-surface-container cursor-pointer"
+            className="md:col-span-1 md:row-span-1 relative group overflow-hidden border border-outline-variant hover:border-primary-container bg-surface-container cursor-pointer flex flex-col justify-between"
           >
-            <div className={`absolute top-2 ${isRtl ? 'left-2' : 'right-2'} text-primary-container`}>
-              <span className="material-symbols-outlined">precision_manufacturing</span>
+            <div className="absolute inset-0 z-0">
+              <model-viewer
+                src="/models/surya.glb"
+                alt="Surya Prime 3D"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1"
+                exposure="1.1"
+                interaction-prompt="none"
+                style={{ width: '100%', height: '100%', backgroundColor: '#050505' }}
+              >
+              </model-viewer>
             </div>
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity" 
-              style={{ 
-                backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEVnIxaQvNx1Hjsvbxk24gpN0Q_HZlcXwiSRMWUKwfkfX24BWH-wtbBzO-d0ubLuX6rzIX1_6XzM3sFqbGiB_l1ghde_oC1gdpzAGTsKsFah79pMdWv-CnHB0bUMMpcRouHTblGn6vJV35FVQ9cLYZmZ_Hp0TZIXZAZlcJoxs6-T6lkwkSAmWLd6KLqwyaRZeTP9i0EglelRekLzi4khSK8h2COaQYu5seC7m43-8ZIoo6mmnRr4M5qsU8DH4IbXdMdSbJFSCXtcw')" 
-              }}
-            ></div>
-            <div className="absolute bottom-0 left-0 w-full p-4 bg-void-black/90">
-              <h3 className="font-headline-md text-[18px] text-primary-container uppercase">{t('squad.matrix', 'ONI MATRIX')}</h3>
-              <div className="font-label-caps text-label-caps text-on-surface-variant mt-1">
-                {t('characters.warriors.pink.role', 'Heavy / Support')}
+            <div className="relative z-10 p-2 text-primary-container pointer-events-none">
+              <span className="material-symbols-outlined text-sm bg-void-black/80 p-1 border border-primary-container/30">sunny</span>
+            </div>
+            <div className="relative z-10 p-3 bg-void-black/90 pointer-events-none">
+              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">SURYA PRIME</h3>
+              <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5">
+                COSMIC GUARDIAN
               </div>
             </div>
           </div>
