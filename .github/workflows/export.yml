@@ -137,14 +137,14 @@ jobs:
       - name: Export Android (.apk)
         run: |
           mkdir -p build/android
-          godot --headless --export-release "Android" build/android/AxiomForceReclaimEarth.apk || godot --headless --export-debug "Android" build/android/AxiomForceReclaimEarth.apk || true
+          godot --headless --export-debug "Android" build/android/AxiomForceReclaimEarth.apk
 
       - name: Upload Android APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: android-apk-build
           path: build/android/
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 14
 
   # 4. iOS App Export (.ipa / Xcode - macOS Runner)
