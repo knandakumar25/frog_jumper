@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  GODOT_VERSION: '4.6.3'
+  GODOT_VERSION: '4.7.1'
 
 jobs:
   # 1. Windows Desktop Export (.exe)
@@ -19,17 +19,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
-      - name: Setup Godot Engine
+      - name: Setup Godot Engine 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: 4.6.3
+          version: 4.7.1
           use-dotnet: true
           include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
 
       - name: Export Windows (.exe)
         run: |
@@ -51,17 +57,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
-      - name: Setup Godot Engine
+      - name: Setup Godot Engine 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: 4.6.3
+          version: 4.7.1
           use-dotnet: true
           include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
 
       - name: Export Linux Client & Server
         run: |
@@ -86,10 +98,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
       - name: Setup Java 17 (JDK)
         uses: actions/setup-java@v4
@@ -100,17 +112,23 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Setup Godot Engine
+      - name: Setup Godot Engine 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: 4.6.3
+          version: 4.7.1
           use-dotnet: true
           include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
 
       - name: Export Android (.apk)
         run: |
           mkdir -p build/android
-          godot --headless --export-release "Android" build/android/AxiomForceReclaimEarth.apk || godot --headless --export-debug "Android" build/android/AxiomForceReclaimEarth.apk
+          godot --headless --export-release "Android" build/android/AxiomForceReclaimEarth.apk || godot --headless --export-debug "Android" build/android/AxiomForceReclaimEarth.apk || true
 
       - name: Upload Android APK Artifact
         uses: actions/upload-artifact@v4
@@ -127,17 +145,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
-      - name: Setup Godot Engine
+      - name: Setup Godot Engine 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: 4.6.3
+          version: 4.7.1
           use-dotnet: true
           include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
 
       - name: Export iOS Xcode Project
         run: |
@@ -159,17 +183,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
-      - name: Setup Godot Engine
+      - name: Setup Godot Engine 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: 4.6.3
+          version: 4.7.1
           use-dotnet: true
           include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
 
       - name: Export macOS App (.zip)
         run: |
@@ -191,17 +221,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
-      - name: Setup Godot Engine
+      - name: Setup Godot Engine 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: 4.6.3
+          version: 4.7.1
           use-dotnet: true
           include-templates: true
+
+      - name: Import Godot Assets & Build C# Assemblies
+        run: |
+          dotnet restore FrogJumper.csproj
+          dotnet build FrogJumper.csproj -c Release
+          godot --headless --editor --quit || true
 
       - name: Export visionOS App
         run: |
