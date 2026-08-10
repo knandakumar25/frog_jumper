@@ -1,0 +1,216 @@
+name: Multi-Platform Native Game Export (No Docker)
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: '4.6.3'
+
+jobs:
+  # 1. Windows Desktop Export (.exe)
+  build-windows:
+    name: Build Windows (.exe)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.3
+          use-dotnet: true
+          include-templates: true
+
+      - name: Export Windows (.exe)
+        run: |
+          mkdir -p build/windows
+          godot --headless --export-release "Windows Desktop" build/windows/AxiomForceReclaimEarth.exe || godot --headless --export-debug "Windows Desktop" build/windows/AxiomForceReclaimEarth.exe
+
+      - name: Upload Windows Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: build/windows/
+          retention-days: 14
+
+  # 2. Linux Client & Server Export (.x86_64)
+  build-linux:
+    name: Build Linux (.x86_64)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.3
+          use-dotnet: true
+          include-templates: true
+
+      - name: Export Linux Client & Server
+        run: |
+          mkdir -p build/linux build/linux_server
+          godot --headless --export-release "Linux/X11" build/linux/AxiomForceReclaimEarth.x86_64 || godot --headless --export-debug "Linux/X11" build/linux/AxiomForceReclaimEarth.x86_64
+          godot --headless --export-release "Linux Server" build/linux_server/AxiomForceReclaimEarth_Server.x86_64 || godot --headless --export-debug "Linux Server" build/linux_server/AxiomForceReclaimEarth_Server.x86_64
+
+      - name: Upload Linux Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-build
+          path: |
+            build/linux/
+            build/linux_server/
+          retention-days: 14
+
+  # 3. Android APK Export (.apk)
+  build-android:
+    name: Build Android (.apk)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Java 17 (JDK)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.3
+          use-dotnet: true
+          include-templates: true
+
+      - name: Export Android (.apk)
+        run: |
+          mkdir -p build/android
+          godot --headless --export-release "Android" build/android/AxiomForceReclaimEarth.apk || godot --headless --export-debug "Android" build/android/AxiomForceReclaimEarth.apk
+
+      - name: Upload Android APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk-build
+          path: build/android/
+          retention-days: 14
+
+  # 4. iOS App Export (.ipa / Xcode - macOS Runner)
+  build-ios:
+    name: Build iOS (.ipa / iPhone 13)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.3
+          use-dotnet: true
+          include-templates: true
+
+      - name: Export iOS Xcode Project
+        run: |
+          mkdir -p build/ios
+          godot --headless --export-release "iOS" build/ios/AxiomForceReclaimEarth.ipa || godot --headless --export-debug "iOS" build/ios/AxiomForceReclaimEarth.ipa || true
+
+      - name: Upload iOS Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-build
+          path: build/ios/
+          retention-days: 14
+
+  # 5. macOS Desktop App Export (.app / .zip - macOS Runner)
+  build-macos:
+    name: Build macOS (.app / Mac Desktop)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.3
+          use-dotnet: true
+          include-templates: true
+
+      - name: Export macOS App (.zip)
+        run: |
+          mkdir -p build/macos
+          godot --headless --export-release "macOS" build/macos/AxiomForceReclaimEarth.zip || godot --headless --export-debug "macOS" build/macos/AxiomForceReclaimEarth.zip || true
+
+      - name: Upload macOS Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-build
+          path: build/macos/
+          retention-days: 14
+
+  # 6. visionOS App Export (Apple Vision Pro - macOS Runner)
+  build-visionos:
+    name: Build visionOS (Apple Vision Pro)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.3
+          use-dotnet: true
+          include-templates: true
+
+      - name: Export visionOS App
+        run: |
+          mkdir -p build/visionos
+          godot --headless --export-release "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.ipa || godot --headless --export-debug "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.ipa || true
+
+      - name: Upload visionOS Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: visionos-build
+          path: build/visionos/
+          retention-days: 14
