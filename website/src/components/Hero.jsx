@@ -122,7 +122,7 @@ export default function Hero({ bgImage }) {
         </p>
 
         <div className="hero__tags">
-          {['3D Platformer', 'Action', 'Sci-Fi', '4 Levels', 'Godot 4.6'].map(tag => (
+          {['3D Action Platformer', '7 Target Platforms', '6 Operatives', '10 Story Levels', 'Godot 4.7.1 C#'].map(tag => (
             <span key={tag} className="hero__tag">{tag}</span>
           ))}
         </div>
@@ -156,10 +156,10 @@ export default function Hero({ bgImage }) {
         {/* Stats */}
         <div className="hero__stats">
           {[
-            { value: '5', labelKey: 'home.char_label' },
-            { value: '4+', labelKey: 'home.levels_label' },
-            { value: '50+', labelKey: 'modal.language' },
-            { value: '∞', labelKey: 'hero.replayability', defaultLabel: 'Replayability' },
+            { value: '7', labelKey: 'hero.platforms_stat', defaultLabel: 'Target Platforms' },
+            { value: '6', labelKey: 'home.char_label', defaultLabel: 'Operatives' },
+            { value: '10', labelKey: 'home.levels_label', defaultLabel: 'Story Levels' },
+            { value: '17', labelKey: 'modal.language', defaultLabel: 'Languages' },
           ].map(stat => (
             <div key={stat.labelKey} className="hero__stat">
               <span className="hero__stat-value">{stat.value}</span>
