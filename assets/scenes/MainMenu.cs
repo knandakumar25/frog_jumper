@@ -1111,9 +1111,50 @@ public partial class MainMenu : Control
 		_ = SetupFloatingTitleAsync();
 		_settingsPopup.Visible = false;
 
+		UpdateAllLocalizedTexts();
+
 		ApplyCyberpunkPanelStyles();
 		QueueRedrawAllButtons(this);
 		RestoreMainMenuFocus();
+	}
+
+	private void UpdateAllLocalizedTexts()
+	{
+		var playBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Play");
+		if (playBtn != null) { playBtn.MainText = Tr("Play"); playBtn.QueueRedraw(); }
+
+		var contBtn = GetNodeOrNull<CyberButton>("ButtonContainer/ContinueButton");
+		if (contBtn != null) { contBtn.MainText = Tr("Continue"); contBtn.QueueRedraw(); }
+
+		var instBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Instructions");
+		if (instBtn != null) { instBtn.MainText = Tr("Instructions"); instBtn.QueueRedraw(); }
+
+		var setBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Settings");
+		if (setBtn != null) { setBtn.MainText = Tr("Settings"); setBtn.QueueRedraw(); }
+
+		var quitBtn = GetNodeOrNull<CyberButton>("ButtonContainer/QuitButton");
+		if (quitBtn != null) { quitBtn.MainText = Tr("Quit"); quitBtn.QueueRedraw(); }
+
+		var settingsTitle = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/TitleLabel");
+		if (settingsTitle != null) settingsTitle.Text = Tr("// SYSTEM CALIBRATION //");
+
+		var applyBtn = _settingsPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ApplyButton");
+		if (applyBtn != null) applyBtn.Text = Tr("Apply");
+
+		var closeBtn = _settingsPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/CloseButton");
+		if (closeBtn != null) closeBtn.Text = Tr("Close");
+
+		var quitMsg = _quitPopup?.GetNodeOrNull<Label>("VBoxContainer/Label");
+		if (quitMsg != null) quitMsg.Text = Tr("Are you sure you want to quit?");
+
+		var quitYes = _quitPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/YesButton");
+		if (quitYes != null) quitYes.Text = Tr("Yes");
+
+		var quitNo = _quitPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton");
+		if (quitNo != null) quitNo.Text = Tr("No");
+
+		UpdateInstructionsControlsText();
+		PopulateDisplayModeButtons();
 	}
 
 	private void RestoreMainMenuFocus()

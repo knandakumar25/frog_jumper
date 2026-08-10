@@ -92,14 +92,37 @@ func _load_languages_from_csv() -> void:
 		languages[display] = code
 
 
+const LOCALE_ISO_MAP: Dictionary = {
+	"english": "en",
+	"spanish": "es",
+	"eurofrench": "fr",
+	"brazilianportuguese": "pt_BR",
+	"german": "de",
+	"italian": "it",
+	"polish": "pl",
+	"arabic": "ar",
+	"turkish": "tr",
+	"japanese": "ja",
+	"korean": "ko",
+	"mandarin": "zh_CN",
+	"hebrew": "he",
+	"traditionalchinese": "zh_TW",
+	"indonesian": "id",
+	"vietnamese": "vi",
+	"thai": "th"
+}
+
 func apply_language_change() -> void:
 	if selected_language != "":
-		var locale = languages[selected_language]
-		TranslationServer.set_locale(locale)
+		var raw_locale = languages[selected_language]
+		var iso_code = LOCALE_ISO_MAP.get(raw_locale, raw_locale)
+		TranslationServer.set_locale(iso_code)
+		TranslationServer.set_locale(raw_locale)
 		var global_node = get_node_or_null("/root/Global")
 		if global_node != null and global_node.has_method("update_font_for_locale"):
-			global_node.update_font_for_locale(locale)
+			global_node.update_font_for_locale(raw_locale)
 		var slider = get_node_or_null("VBoxContainer/MasterSlider")
 		if slider != null:
 			_update_volume_label(slider.value)
-		print("audio_options: TranslationServer.set_locale set to '", locale, "'. Active locale is now: '", TranslationServer.get_locale(), "'")
+		print("audio_options: TranslationServer.set_locale set to '", raw_locale, "' / '", iso_code, "'. Active locale is now: '", TranslationServer.get_locale(), "'")
+

@@ -20,6 +20,8 @@ func _ready() -> void:
 		DisplayServer.screen_set_keep_on(true)
 		print("Global: Screen keep-awake enabled (prevents device sleep)")
 
+	_register_all_translations()
+
 	# Set default locale to english (matching the CSV column name)
 	TranslationServer.set_locale("english")
 	print("Global: Locale set to 'english'")
@@ -31,6 +33,49 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	_check_initial_gamepads()
 	_setup_prompt_banner()
+
+const LOCALE_ISO_MAP: Dictionary = {
+	"english": "en",
+	"spanish": "es",
+	"eurofrench": "fr",
+	"brazilianportuguese": "pt_BR",
+	"german": "de",
+	"italian": "it",
+	"polish": "pl",
+	"arabic": "ar",
+	"turkish": "tr",
+	"japanese": "ja",
+	"korean": "ko",
+	"mandarin": "zh_CN",
+	"hebrew": "he",
+	"traditionalchinese": "zh_TW",
+	"indonesian": "id",
+	"vietnamese": "vi",
+	"thai": "th"
+}
+
+func _register_all_translations() -> void:
+	var translations_dir = "res://assets/translations/"
+	var dir = DirAccess.open(translations_dir)
+	if dir != null:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir() and file_name.ends_with(".translation"):
+				var full_path = translations_dir + file_name
+				if ResourceLoader.exists(full_path):
+					var trans = load(full_path)
+					if trans is Translation:
+						TranslationServer.add_translation(trans)
+						var raw = trans.locale
+						var iso = LOCALE_ISO_MAP.get(raw, raw)
+						if iso != raw:
+							var iso_trans = trans.duplicate()
+							iso_trans.locale = iso
+							TranslationServer.add_translation(iso_trans)
+						print("Global: Registered translation for locale: '", raw, "' (ISO: '", iso, "')")
+			file_name = dir.get_next()
+		dir.list_dir_end()
 
 func _check_initial_gamepads() -> void:
 	var joypads = Input.get_connected_joypads()
