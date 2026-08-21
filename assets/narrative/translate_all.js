@@ -349,7 +349,7 @@ async function main() {
         const output = applyStrings(english, translated, paths);
         if (!output.meta) output.meta = {};
         output.meta.language = lang;
-        output.meta.description = `Axiom Force: Reclaim Earth — ${lang} narrative data`;
+        output.meta.description = `Axiom Force — ${lang} narrative data`;
 
         fs.writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n", 'utf8');
         

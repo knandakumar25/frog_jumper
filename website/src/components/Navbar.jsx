@@ -63,7 +63,7 @@ export default function Navbar() {
           <NavLink to={`/${currentLocale}`} className="flex items-center gap-2 select-none hover:opacity-95 transition-opacity">
             <img 
               src="/images/axiom_force_title_logo.jpg" 
-              alt="AXIOM FORCE: RECLAIM EARTH" 
+              alt="AXIOM FORCE" 
               className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,243,255,0.7)] rounded-md"
             />
           </NavLink>

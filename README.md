@@ -1,4 +1,4 @@
-# Axiom Force: Reclaim Earth
+# Axiom Force
 
 A 3D platformer built with **Godot 4.6** and **C#**. Battle through four levels, collect cherries, and race to the finish line as one of four unique characters — all while the fate of Earth hangs in the balance.
 

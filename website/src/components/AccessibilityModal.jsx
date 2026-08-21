@@ -52,7 +52,7 @@ export default function AccessibilityModal({ isOpen, onClose }) {
               {t('accessibility.commitment_title', '// Our Commitment')}
             </h3>
             <p>
-              {t('accessibility.commitment_text', 'Axiom Force: Reclaim Earth is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards (WCAG 2.1 Level AA).')}
+              {t('accessibility.commitment_text', 'Axiom Force is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards (WCAG 2.1 Level AA).')}
             </p>
           </section>
 

@@ -37,7 +37,7 @@
       "nav_title": "Navigation",
       "tech_title": "MISSION SPECS",
       "credits_title": "Credits",
-      "copyright": "Â© {{year}} AXIOM FORCE: RECLAIM EARTH â€” All Rights Reserved",
+      "copyright": "Â© {{year}} AXIOM FORCE â€” All Rights Reserved",
       "broadcast_status": "v1.0.0 // NET-SYNC OPERATIONAL // SECURE BROADCAST",
       "platform_desc": "Target Platforms: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Input: Gamepad / Keyboard",
@@ -431,7 +431,7 @@
       }
     },
     "faq": {
-      "q1": "What is Axiom Force: Reclaim Earth?",
+      "q1": "What is Axiom Force?",
       "a1": "A high-octane 3D platformer where you lead the Human Liberation Front (HLF) in a desperate war to reclaim Earth from an advanced alien occupation.",
       "q2": "When is the game being released?",
       "a2": "The resistance is still mobilizing. We are currently in active development. Stay tuned to the Tech Hub for deployment dates.",
@@ -884,7 +884,7 @@
       }
     },
     "faq": {
-      "q1": "¿Qué es Axiom Force: Reclaim Earth?",
+      "q1": "¿Qué es Axiom Force?",
       "a1": "Un plataformas 3D de alta intensidad donde lideras el Frente de Liberación Humana (HLF) en una guerra desesperada para recuperar la Tierra de una avanzada ocupación alienígena.",
       "q2": "¿Cuándo se lanzará el juego?",
       "a2": "La resistencia todavía se está movilizando. Actualmente estamos en desarrollo activo. Mantente atento al Tech Hub para las fechas de despliegue.",
@@ -1337,7 +1337,7 @@
       }
     },
     "faq": {
-      "q1": "Qu'est-ce que Axiom Force: Reclaim Earth ?",
+      "q1": "Qu'est-ce que Axiom Force ?",
       "a1": "Un jeu de plateforme 3D intense où vous dirigez le Front de Libération Humaine (HLF) dans une guerre désespérée pour reprendre la Terre d'une occupation extraterrestre avancée.",
       "q2": "Quand le jeu sortira-t-il ?",
       "a2": "La résistance est encore en train de se mobiliser. Nous sommes actuellement en développement actif. Restez à l'écoute du Tech Hub pour les dates de déploiement.",
@@ -1391,7 +1391,7 @@
       "nav_title": "NavegaÃ§Ã£o",
       "tech_title": "Tecnologia",
       "credits_title": "CrÃ©ditos",
-      "copyright": "Â© {{year}} AXIOM FORCE: RECLAIM EARTH â€” Todos os direitos reservados",
+      "copyright": "Â© {{year}} AXIOM FORCE â€” Todos os direitos reservados",
       "engine_desc": "Motor: Godot 4.6 (Vulkan personalizado)",
       "csharp_desc": "Tempo de execuÃ§Ã£o C#: SDK do .NET 8",
       "narrative_desc": "Narrativa: Script Inkle Ink",
@@ -1790,7 +1790,7 @@
       }
     },
     "faq": {
-      "q1": "O que é o Axiom Force: Reclaim Earth?",
+      "q1": "O que é o Axiom Force?",
       "a1": "Um jogo de plataforma 3D de alta intensidade onde lideras a Frente de Libertação Humana (HLF) numa guerra desesperada para recuperar a Terra de uma ocupação alienígena avançada.",
       "q2": "Quando é que o jogo será lançado?",
       "a2": "A resistência ainda se está a mobilizar. Estamos atualmente em desenvolvimento ativo. Fique atento ao Tech Hub para as datas de lançamento.",
@@ -1844,7 +1844,7 @@
       "nav_title": "Navigation",
       "tech_title": "Techn",
       "credits_title": "Credits",
-      "copyright": "Â© {{year}} AXIOM FORCE: RECLAIM EARTH â€“ Alle Rechte vorbehalten",
+      "copyright": "Â© {{year}} AXIOM FORCE â€“ Alle Rechte vorbehalten",
       "engine_desc": "Engine: Godot 4.6 (Custom Vulkan)",
       "csharp_desc": "C#-Laufzeit: .NET 8 SDK",
       "narrative_desc": "ErzÃ¤hlung: Inkle Ink Script",
@@ -2243,7 +2243,7 @@
       }
     },
     "faq": {
-      "q1": "Was ist Axiom Force: Reclaim Earth?",
+      "q1": "Was ist Axiom Force?",
       "a1": "Ein hochintensiver 3D-Plattformer, bei dem Sie die Human Liberation Front (HLF) in einem verzweifelten Krieg anführen, um die Erde von einer fortschrittlichen außerirdischen Besatzung zurückzuerobern.",
       "q2": "Wann wird das Spiel veröffentlicht?",
       "a2": "Der Widerstand mobilisiert sich noch. Wir befinden uns derzeit in der aktiven Entwicklung. Behalten Sie den Tech Hub für die Veröffentlichungsdaten im Auge.",
@@ -2297,7 +2297,7 @@
       "nav_title": "Navigazione",
       "tech_title": "Tecnologia",
       "credits_title": "Crediti",
-      "copyright": "Â© {{anno}} AXIOM FORCE: RECLAIM EARTH â€” Tutti i diritti riservati",
+      "copyright": "Â© {{anno}} AXIOM FORCE â€” Tutti i diritti riservati",
       "engine_desc": "Motore: Godot 4.6 (Vulkan personalizzato)",
       "csharp_desc": "Runtime C#: SDK .NET 8",
       "narrative_desc": "Narrativa: sceneggiatura Inkle Ink",
@@ -2696,7 +2696,7 @@
       }
     },
     "faq": {
-      "q1": "Cos'è Axiom Force: Reclaim Earth?",
+      "q1": "Cos'è Axiom Force?",
       "a1": "Un platform 3D ad alta intensità in cui guidi il Fronte di Liberazione Umana (HLF) in una guerra disperata per riconquistare la Terra da un'avanzata occupazione aliena.",
       "q2": "Quando uscirà il gioco?",
       "a2": "La resistenza si sta ancora mobilitando. Siamo attualmente in fase di sviluppo attivo. Resta sintonizzato sul Tech Hub per le date di rilascio.",
@@ -2750,7 +2750,7 @@
       "nav_title": "Nawigacja",
       "tech_title": "Tech",
       "credits_title": "Kredyty",
-      "copyright": "Â© {{year}} AXIOM FORCE: RECLAIM EARTH â€” Wszelkie prawa zastrzeÅ¼one",
+      "copyright": "Â© {{year}} AXIOM FORCE â€” Wszelkie prawa zastrzeÅ¼one",
       "engine_desc": "Silnik: Godot 4.6 (niestandardowy Vulkan)",
       "csharp_desc": "Åšrodowisko wykonawcze jÄ™zyka C#: zestaw SDK platformy .NET 8",
       "narrative_desc": "Narracja: Skrypt Inkle Ink",
@@ -3149,7 +3149,7 @@
       }
     },
     "faq": {
-      "q1": "Czym jest Axiom Force: Reclaim Earth?",
+      "q1": "Czym jest Axiom Force?",
       "a1": "Dynamiczna platformówka 3D, w której prowadzisz Ludzki Front Wyzwolenia (HLF) w desperackiej wojnie o odzyskanie Ziemi z rąk zaawansowanej okupacji obcych.",
       "q2": "Kiedy gra zostanie wydana?",
       "a2": "Opór wciąż się mobilizuje. Obecnie jesteśmy w fazie aktywnego rozwoju. Śledź Tech Hub, aby poznać daty premiery.",
@@ -3203,7 +3203,7 @@
       "nav_title": "Navigasyon",
       "tech_title": "Teknoloji",
       "credits_title": "Kredi",
-      "copyright": "Â© {{year}} AXIOM FORCE: RECLAIM EARTH â€” TÃ¼m HaklarÄ± SaklÄ±dÄ±r",
+      "copyright": "Â© {{year}} AXIOM FORCE â€” TÃ¼m HaklarÄ± SaklÄ±dÄ±r",
       "engine_desc": "Motor: Godot 4.6 (Ã–zel Vulkan)",
       "csharp_desc": "C# Ã‡alÄ±ÅŸma ZamanÄ±: .NET 8 SDK",
       "narrative_desc": "AnlatÄ±: MÃ¼rekkep MÃ¼rekkep Komut DosyasÄ±",
@@ -3602,7 +3602,7 @@
       }
     },
     "faq": {
-      "q1": "Axiom Force: Reclaim Earth nedir?",
+      "q1": "Axiom Force nedir?",
       "a1": "İnsan Kurtuluş Cephesi'ni (HLF), gelişmiş bir uzaylı işgalinden Dünyayı geri almak için verilen çaresiz bir savaşta yönettiğiniz yüksek tempolu bir 3D platform oyunudur.",
       "q2": "Oyun ne zaman çıkacak?",
       "a2": "Direniş hala mobilize oluyor. Şu an aktif geliştirme aşamasındayız. Dağıtım tarihleri için Tech Hub'ı takip edin.",
@@ -4055,7 +4055,7 @@
       }
     },
     "faq": {
-      "q1": "Axiom Force: Reclaim Earthとは何ですか？",
+      "q1": "Axiom Forceとは何ですか？",
       "a1": "高度なエイリアンの占領から地球を取り戻すための絶望的な戦いで、人類解放戦線（HLF）を率いるハイテンションな3Dプラットフォーマーです。",
       "q2": "ゲームはいつリリースされますか？",
       "a2": "レジスタンスはまだ動員中です。現在は活発に開発が行われています。 deployment日についてはTech Hubをご確認ください。",
@@ -4508,7 +4508,7 @@
       }
     },
     "faq": {
-      "q1": "Axiom Force: Reclaim Earth는 무엇입니까?",
+      "q1": "Axiom Force는 무엇입니까?",
       "a1": "인류 해방 전선(HLF)을 이끌고 고도로 발달한 외계인 점령군으로부터 지구를 되찾기 위한 절박한 전쟁을 치르는 고에너지 3D 플랫폼 게임입니다.",
       "q2": "게임은 언제 출시되나요?",
       "a2": "저항군은 아직 결집 중입니다. 현재 활발히 개발 중입니다. 배포 날짜는 Tech Hub를 확인해 주세요.",
@@ -4961,7 +4961,7 @@
       }
     },
     "faq": {
-      "q1": "什么是 Axiom Force: Reclaim Earth？",
+      "q1": "什么是 Axiom Force？",
       "a1": "这是一款高能 3D 平台跳跃游戏，您将在其中领导人类解放阵线 (HLF)，在一次绝望的战争中从先进的外星占领者手中夺回地球。",
       "q2": "游戏何时发布？",
       "a2": "反抗军仍在动员中。我们目前处于积极开发阶段。请关注 Tech Hub 以获取部署日期。",
@@ -5414,7 +5414,7 @@
       }
     },
     "faq": {
-      "q1": "מה זה Axiom Force: Reclaim Earth?",
+      "q1": "מה זה Axiom Force?",
       "a1": "משחק פלטפורמה תלת-ממדי קצבי שבו אתה מוביל את חזית השחרור האנושית (HLF) במלחמה נואשת להחזרת כדור הארץ מהכיבוש של חייזרים מתקדמים.",
       "q2": "מתי המשחק יצא?",
       "a2": "ההתנגדות עדיין מתגבשת. כרגע אנחנו בפיתוח פעיל. הישאר מעודכן ב-Tech Hub לתאריכי השחרור.",
@@ -5867,7 +5867,7 @@
       }
     },
     "faq": {
-      "q1": "ما هو Axiom Force: Reclaim Earth؟",
+      "q1": "ما هو Axiom Force؟",
       "a1": "لعبة منصات ثلاثية الأبعاد عالية الإثارة حيث تقود جبهة تحرير البشر (HLF) في حرب يائسة لاستعادة الأرض من احتلال فضائي متقدم.",
       "q2": "متى سيتم إصدار اللعبة؟",
       "a2": "المقاومة لا تزال تحشد قواتها. نحن حاليًا في مرحلة التطوير النشط. ابقَ على اطلاع عبر Tech Hub لمعرفة مواعيد النشر.",

@@ -1,4 +1,4 @@
-﻿# **Axiom Force: Reclaim Earth**
+﻿# **Axiom Force**
 
 # **Operational Briefing: AXIOM-7 Interface**
 

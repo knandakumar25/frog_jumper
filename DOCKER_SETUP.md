@@ -1,4 +1,4 @@
-# Docker Setup for Axiom Force: Reclaim Earth
+# Docker Setup for Axiom Force
 
 This document describes the Docker setup for building, exporting, and running the Godot 4.6.3 C# project.
 

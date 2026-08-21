@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const FAQ_DATA = [
   {
     id: 1,
-    question: { key: 'faq.q1', default: 'What is Axiom Force: Reclaim Earth?' },
+    question: { key: 'faq.q1', default: 'What is Axiom Force?' },
     answer: { key: 'faq.a1', default: 'A high-octane 3D platformer where you lead the Human Liberation Front (HLF) in a desperate war to reclaim Earth from an advanced alien occupation.' },
   },
   {

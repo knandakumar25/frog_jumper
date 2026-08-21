@@ -106,7 +106,7 @@ export default function Hero({ bgImage }) {
           <h1 className="sr-only">{t('hero.title_line1')} {t('hero.title_line2_prefix')}{t('hero.title_line2_highlight')}</h1>
           <img 
             src={getOriginalTitleLogoPath(i18n.language)} 
-            alt="AXIOM FORCE: RECLAIM EARTH Logo" 
+            alt="AXIOM FORCE Logo" 
             className="w-full max-w-[680px] h-auto object-contain drop-shadow-[0_0_24px_rgba(0,243,255,0.85)] rounded-xl"
           />
         </div>

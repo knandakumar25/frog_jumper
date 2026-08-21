@@ -55,10 +55,10 @@ export default function Home() {
           </div>
           
           <div className="flex justify-center mb-8">
-            <h1 className="sr-only">AXIOM FORCE: RECLAIM EARTH</h1>
+            <h1 className="sr-only">AXIOM FORCE</h1>
             <img 
               src={getOriginalTitleLogoPath(selectedLanguage)} 
-              alt="AXIOM FORCE: RECLAIM EARTH Logo" 
+              alt="AXIOM FORCE Logo" 
               className="w-full max-w-[650px] h-auto object-contain drop-shadow-[0_0_30px_rgba(0,243,255,0.9)] rounded-xl border border-primary-container/40 p-1 bg-void-black/60"
             />
           </div>

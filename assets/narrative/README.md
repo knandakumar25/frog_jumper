@@ -9,7 +9,7 @@ Each locale file lives at `assets/narrative/{locale}.json` and follows this stru
   "meta": {
     "language": "es",
     "version": "1.0",
-    "description": "Axiom Force: Reclaim Earth — Spanish narrative data"
+    "description": "Axiom Force — Spanish narrative data"
   },
   "acts": {
     "act2_arc1": { "title": "", "subtitle": "", "description": "" },

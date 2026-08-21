@@ -40,7 +40,7 @@ jobs:
       - name: Export Windows (.exe)
         run: |
           mkdir -p build/windows
-          godot --headless --export-release "Windows Desktop" build/windows/AxiomForceReclaimEarth.exe || godot --headless --export-debug "Windows Desktop" build/windows/AxiomForceReclaimEarth.exe
+          godot --headless --export-release "Windows Desktop" build/windows/AxiomForce.exe || godot --headless --export-debug "Windows Desktop" build/windows/AxiomForce.exe
 
       - name: Upload Windows Build Artifact
         uses: actions/upload-artifact@v4
@@ -78,12 +78,12 @@ jobs:
       - name: Export Linux Game Client (.x86_64)
         run: |
           mkdir -p build/linux
-          godot --headless --export-release "Linux/X11" build/linux/AxiomForceReclaimEarth.x86_64 || godot --headless --export-debug "Linux/X11" build/linux/AxiomForceReclaimEarth.x86_64
+          godot --headless --export-release "Linux/X11" build/linux/AxiomForce.x86_64 || godot --headless --export-debug "Linux/X11" build/linux/AxiomForce.x86_64
 
       - name: Export Linux Dedicated Server (.x86_64)
         run: |
           mkdir -p build/linux_server
-          godot --headless --export-release "Linux Server" build/linux_server/AxiomForceReclaimEarth_Server.x86_64 || godot --headless --export-debug "Linux Server" build/linux_server/AxiomForceReclaimEarth_Server.x86_64 || true
+          godot --headless --export-release "Linux Server" build/linux_server/AxiomForce_Server.x86_64 || godot --headless --export-debug "Linux Server" build/linux_server/AxiomForce_Server.x86_64 || true
 
       - name: Upload Linux Build Artifacts
         uses: actions/upload-artifact@v4
@@ -137,7 +137,7 @@ jobs:
       - name: Export Android (.apk)
         run: |
           mkdir -p build/android
-          godot --headless --export-debug "Android" build/android/AxiomForceReclaimEarth.apk
+          godot --headless --export-debug "Android" build/android/AxiomForce.apk
 
       - name: Upload Android APK Artifact
         uses: actions/upload-artifact@v4
@@ -176,7 +176,7 @@ jobs:
       - name: Export iOS Xcode Project
         run: |
           mkdir -p build/ios
-          godot --headless --export-release "iOS" build/ios/AxiomForceReclaimEarth.zip || godot --headless --export-debug "iOS" build/ios/AxiomForceReclaimEarth.zip || true
+          godot --headless --export-release "iOS" build/ios/AxiomForce.zip || godot --headless --export-debug "iOS" build/ios/AxiomForce.zip || true
 
       - name: Upload iOS Build Artifact
         uses: actions/upload-artifact@v4
@@ -214,7 +214,7 @@ jobs:
       - name: Export macOS App (.zip)
         run: |
           mkdir -p build/macos
-          godot --headless --export-release "macOS" build/macos/AxiomForceReclaimEarth.zip || godot --headless --export-debug "macOS" build/macos/AxiomForceReclaimEarth.zip || true
+          godot --headless --export-release "macOS" build/macos/AxiomForce.zip || godot --headless --export-debug "macOS" build/macos/AxiomForce.zip || true
 
       - name: Upload macOS Build Artifact
         uses: actions/upload-artifact@v4
@@ -252,7 +252,7 @@ jobs:
       - name: Export visionOS App
         run: |
           mkdir -p build/visionos
-          godot --headless --export-release "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.zip || godot --headless --export-debug "visionOS" build/visionos/AxiomForceReclaimEarth_visionOS.zip || true
+          godot --headless --export-release "visionOS" build/visionos/AxiomForce_visionOS.zip || godot --headless --export-debug "visionOS" build/visionos/AxiomForce_visionOS.zip || true
 
       - name: Upload visionOS Build Artifact
         uses: actions/upload-artifact@v4
@@ -290,7 +290,7 @@ jobs:
       - name: Export Xbox App (.exe / GDK Profile)
         run: |
           mkdir -p build/xbox
-          godot --headless --export-release "Xbox / Windows GDK" build/xbox/AxiomForceReclaimEarth_Xbox.exe || godot --headless --export-debug "Xbox / Windows GDK" build/xbox/AxiomForceReclaimEarth_Xbox.exe
+          godot --headless --export-release "Xbox / Windows GDK" build/xbox/AxiomForce_Xbox.exe || godot --headless --export-debug "Xbox / Windows GDK" build/xbox/AxiomForce_Xbox.exe
 
       - name: Upload Xbox Build Artifact
         uses: actions/upload-artifact@v4
