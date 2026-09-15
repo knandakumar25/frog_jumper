@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://di5x8e3iq54d8"
+uid="uid://bpbi1538j5n1n"
 path="res://.godot/imported/ComicNeue-LightItalic.ttf-cce044bc21f52d2d2e24ceace6b01627.fontdata"
 
 [deps]
@@ -22,12 +22,12 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("uid://b0k5n8p7m8qwe", "res://assets/fonts/NotoSans-Regular.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
 preload=[]

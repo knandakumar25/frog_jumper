@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw2ys5k0m8bfw"]
+
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Script" path="res://scripts/ui/LoadingScreen.cs" id="1_loading_script"]
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
+[ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_logo.jpg" id="4_title_logo_texture"]
+[ext_resource type="Script" path="res://scripts/ui/CyberCircularSpinner.cs" id="5_cyber_spinner"]
+
+[node name="LoadingScreen" type="Control"]
+theme = ExtResource("10_cyber_theme")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_loading_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000007]
+environment = ExtResource("11_cyber_glow")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg_texture")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.07, 0.85)
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MainPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLogoBanner" type="TextureRect" parent="CenterContainer/MainPanel/VBoxContainer"]
+custom_minimum_size = Vector2(620, 240)
+layout_mode = 2
+texture = ExtResource("4_title_logo_texture")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpinnerContainer" type="Control" parent="CenterContainer/MainPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("5_cyber_spinner")
+
+[node name="LoadingLabel" type="Label" parent="CenterContainer/MainPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 32
+text = "INITIALIZING SYSTEM..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/MainPanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 36)
+layout_mode = 2
+max_value = 100.0
+value = 0.0
+show_percentage = true
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/MainPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.95, 1)
+text = "Preparing mission assets..."
+horizontal_alignment = 1

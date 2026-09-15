@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca2v36wlpbp5b"]
+
+[ext_resource type="Script" path="res://scripts/actors/FallingCharacter.cs" id="1_falling_script"]
+
+[node name="FallingCharacter" type="AnimatedSprite2D"]
+texture_filter = 1
+script = ExtResource("1_falling_script")

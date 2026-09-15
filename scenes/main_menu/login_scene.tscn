@@ -1,0 +1,240 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Script" path="res://scripts/main_menu/LoginScene.cs" id="1_login_script"]
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
+
+[node name="LoginScreen" type="Control"]
+theme = ExtResource("10_cyber_theme")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_login_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000002]
+environment = ExtResource("11_cyber_glow")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg_texture")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.07, 0.82)
+
+[node name="SplitGrid" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftInfoColumn" type="VBoxContainer" parent="SplitGrid"]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.06
+anchor_top = 0.18
+anchor_right = 0.48
+anchor_bottom = 0.82
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BrandingTitle" type="Label" parent="SplitGrid/LeftInfoColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.85)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 46
+text = "AXIOM FORCE"
+
+[node name="SubBranding" type="Label" parent="SplitGrid/LeftInfoColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.6, 0.95)
+theme_override_font_sizes/font_size = 22
+text = "// RECLAIM EARTH - SECURE AUTHENTICATION TERMINAL"
+
+[node name="Description" type="Label" parent="SplitGrid/LeftInfoColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 0.85)
+theme_override_font_sizes/font_size = 20
+text = "Access tactical databases, synchronize operative sessions, and deploy to active operational sectors across Earth."
+autowrap_mode = 2
+
+[node name="StatusBadge" type="Label" parent="SplitGrid/LeftInfoColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.4, 0.9)
+theme_override_font_sizes/font_size = 18
+text = "[SYSTEM STATUS: ONLINE]  [ENCRYPTION: 256-BIT SECURE]"
+
+[node name="RightAuthColumn" type="Control" parent="SplitGrid"]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.52
+anchor_top = 0.16
+anchor_right = 0.94
+anchor_bottom = 0.84
+
+[node name="CenterContainer" type="CenterContainer" parent="SplitGrid/RightAuthColumn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AuthPanel" type="PanelContainer" parent="SplitGrid/RightAuthColumn/CenterContainer"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.8)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 28
+text = "TERMINAL ACCESS"
+horizontal_alignment = 1
+
+[node name="InputGroup" type="VBoxContainer" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EmailInput" type="LineEdit" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+placeholder_text = "Email Address"
+
+[node name="UsernameInput" type="LineEdit" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup"]
+visible = false
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="PasswordInput" type="LineEdit" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+placeholder_text = "Password"
+secret = true
+
+[node name="SubmitButton" type="Button" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+text = "Login"
+
+[node name="ErrorLabel" type="Label" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.4, 1)
+text = "Error occurred"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ToggleModeButton" type="Button" parent="SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+text = "Need an account? Sign Up"
+
+[node name="WebsiteButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -74.0
+offset_right = 264.0
+offset_bottom = -24.0
+grow_vertical = 0
+text = "Visit Website"
+
+[node name="LanguageSelector" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -74.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NetworkErrorPopup" type="Control" parent="."]
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="NetworkErrorPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="CenterContainer" type="CenterContainer" parent="NetworkErrorPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogPanel" type="PanelContainer" parent="NetworkErrorPopup/CenterContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="NetworkErrorPopup/CenterContainer/DialogPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="PopupTitle" type="Label" parent="NetworkErrorPopup/CenterContainer/DialogPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.4, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 24
+text = "Connection Error"
+horizontal_alignment = 1
+
+[node name="PopupMessage" type="Label" parent="NetworkErrorPopup/CenterContainer/DialogPanel/VBox"]
+layout_mode = 2
+text = "No internet connection. Please check your network and try again."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PopupOkButton" type="Button" parent="NetworkErrorPopup/CenterContainer/DialogPanel/VBox"]
+custom_minimum_size = Vector2(140, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OK"

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://lffiou4dnk5d"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_train"]
+[ext_resource type="Texture2D" path="res://assets/images/training_dojo_background.png" id="2_train"]
+[ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_train"]
+[ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://scenes/gameplay/main_character.tscn" id="4_train"]
+[ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="5_train"]
+[ext_resource type="FontFile" uid="uid://4y1kjfc8pwck" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_train"]
+[ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://scenes/gameplay/pause_menu.tscn" id="11_pause"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
+texture = ExtResource("3_train")
+0:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_world"]
+texture = ExtResource("5_train")
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_training"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_terrain")
+sources/1 = SubResource("TileSetAtlasSource_world")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score"]
+bg_color = Color(0.04, 0.05, 0.12, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0.94, 1, 0.25)
+shadow_size = 6
+shadow_offset = Vector2(0, 2)
+
+[node name="TrainingLevel" type="Node" unique_id=2007015904]
+
+[node name="GameManager" type="Node" parent="." unique_id=50251260]
+unique_name_in_owner = true
+script = ExtResource("1_train")
+
+[node name="SceneObjects" type="Node" parent="." unique_id=23834466]
+
+[node name="TextureRect" type="TextureRect" parent="SceneObjects" unique_id=891990161]
+texture_filter = 1
+offset_right = 2263.0
+offset_bottom = 628.0
+texture = ExtResource("2_train")
+stretch_mode = 1
+
+[node name="TileMap" type="TileMapLayer" parent="SceneObjects" unique_id=201751457]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 11, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1, 0, 11, 0, 0, 0, 6, 0, 0, 0, 0, 0, 2, 0, 11, 0, 0, 0, 6, 0, 0, 0, 0, 0, 3, 0, 11, 0, 0, 0, 6, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_training")
+
+[node name="MainCharacter" parent="SceneObjects" unique_id=1353613996 instance=ExtResource("4_train")]
+position = Vector2(83, 453)
+
+[node name="Camera2D" type="Camera2D" parent="SceneObjects/MainCharacter" unique_id=1706097306]
+position = Vector2(1.33333, 3.66667)
+scale = Vector2(0.333333, 0.333333)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2102650273]
+
+[node name="Panel" type="Panel" parent="UI" unique_id=939036215]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 230.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_score")
+
+[node name="PointsLabel" type="Label" parent="UI/Panel" unique_id=48498184]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_constants/line_spacing = 4
+theme_override_font_sizes/font_size = 24
+text = "Points: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("11_pause")]

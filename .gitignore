@@ -44,6 +44,9 @@ graphify-out/
 # Codex output
 .codex/
 
+# Local migration records and validation tools
+.validation/
+
 # Built Android binaries
 build/android/
 

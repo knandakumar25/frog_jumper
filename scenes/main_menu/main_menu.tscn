@@ -1,0 +1,822 @@
+[gd_scene load_steps=13 format=4]
+
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
+[ext_resource type="Script" uid="uid://s2aukf1vgcnf" path="res://scripts/main_menu/MainMenu.cs" id="1_hgd46"]
+[ext_resource type="Texture2D" uid="uid://dh3lam2n5p8q1" path="res://assets/images/Gemini_Generated_Image_t8s2p4t8s2p4t8s2.png" id="2_v0073"]
+[ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://scripts/ui/audio_options.gd" id="3_audio_options"]
+[ext_resource type="FontFile" uid="uid://c8hq3c3pvi1tq" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="3_comic_bolditalic"]
+[ext_resource type="FontFile" uid="uid://dfwjkfl8w3rqq" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
+[ext_resource type="FontFile" uid="uid://4y1kjfc8pwck" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
+[ext_resource type="FontFile" uid="uid://cbef6n7i0y7pp" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+[ext_resource type="Script" path="res://scripts/ui/CyberButton.cs" id="4_cyber_btn_script"]
+[ext_resource type="Script" path="res://scripts/ui/CyberDropdown.cs" id="4_cyber_dropdown"]
+
+[node name="MainMenu" type="Control" unique_id=529692672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_cyber_theme")
+script = ExtResource("1_hgd46")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000001]
+environment = ExtResource("11_cyber_glow")
+
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1292908816]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v0073")
+stretch_mode = 6
+
+[node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.04
+anchor_top = 0.03
+anchor_right = 0.58
+anchor_bottom = 0.23
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=350939543]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.04
+anchor_top = 0.25
+anchor_right = 0.36
+anchor_bottom = 0.88
+theme_override_constants/separation = 16
+
+[node name="Play" type="Control" parent="ButtonContainer" unique_id=1183083552]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+script = ExtResource("4_cyber_btn_script")
+IndexText = "01"
+MainText = "PLAY"
+SubText = "// DEPLOY MISSION"
+
+[node name="ContinueButton" type="Control" parent="ButtonContainer" unique_id=1219863040]
+visible = false
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+script = ExtResource("4_cyber_btn_script")
+IndexText = "02"
+MainText = "CONTINUE"
+SubText = "// RESUME OPERATION"
+
+[node name="Instructions" type="Control" parent="ButtonContainer" unique_id=2063356946]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+script = ExtResource("4_cyber_btn_script")
+IndexText = "03"
+MainText = "HOW TO PLAY"
+SubText = "// TACTICAL MANUAL"
+
+[node name="Settings" type="Control" parent="ButtonContainer" unique_id=1423822794]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+script = ExtResource("4_cyber_btn_script")
+IndexText = "04"
+MainText = "SETTINGS"
+SubText = "// SYSTEM CALIBRATION"
+
+[node name="QuitButton" type="Control" parent="ButtonContainer" unique_id=1176693379]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+script = ExtResource("4_cyber_btn_script")
+IndexText = "05"
+MainText = "QUIT"
+SubText = "// EXIT TO SYSTEM"
+
+[node name="ProfileContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.68
+anchor_top = 0.04
+anchor_right = 0.96
+anchor_bottom = 0.16
+
+[node name="StatusTicker" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.04
+anchor_top = 0.93
+anchor_right = 0.6
+anchor_bottom = 0.97
+theme_override_colors/font_color = Color(0, 0.94, 1, 0.75)
+theme_override_font_sizes/font_size = 18
+text = "AXIOM NET // STATUS: ONLINE // SYSTEM READY"
+
+[node name="Control" type="Control" parent="." unique_id=1634546171]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuitBackground" type="ColorRect" parent="." unique_id=454912470]
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="QuitPopup" type="Panel" parent="." unique_id=1222892908]
+visible = false
+z_index = 101
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuitPopup" unique_id=199085370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="QuitPopup/VBoxContainer" unique_id=2126358548]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Message" type="Label" parent="QuitPopup/VBoxContainer" unique_id=395552663]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Are you sure you want to quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="QuitPopup/VBoxContainer" unique_id=717182959]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="QuitPopup/VBoxContainer" unique_id=1585912529]
+layout_mode = 2
+alignment = 1
+
+[node name="YesButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer" unique_id=826980719]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "Yes"
+
+[node name="ButtonSpacer" type="Control" parent="QuitPopup/VBoxContainer/ButtonContainer" unique_id=901231950]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="NoButton" type="Button" parent="QuitPopup/VBoxContainer/ButtonContainer" unique_id=1754101547]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "No"
+
+[node name="BottomSpacer" type="Control" parent="QuitPopup/VBoxContainer" unique_id=1176746577]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SettingsPopup" type="Panel" parent="." unique_id=228723333]
+visible = false
+z_index = 50
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -295.0
+offset_right = 350.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup" unique_id=403408098]
+layout_mode = 1
+mouse_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1550530674]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="SettingsPopup/VBoxContainer" unique_id=25966560]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1091092357]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="AudioOptions" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1677392437]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_audio_options")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup/VBoxContainer/AudioOptions" unique_id=583135160]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1335012688]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1404734987]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=489283737]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=1177784798]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Language"
+horizontal_alignment = 1
+
+[node name="LanguageDropdown" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=354102998]
+layout_mode = 2
+script = ExtResource("4_cyber_dropdown")
+
+[node name="Spacer3" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=984712034]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=741029381]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Display Mode"
+horizontal_alignment = 1
+
+[node name="DisplayDropdown" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=610928374]
+layout_mode = 2
+script = ExtResource("4_cyber_dropdown")
+
+[node name="Spacer4" type="Control" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=984712035]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ControlsButton" type="Button" parent="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer" unique_id=482910385]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "// REBIND CONTROLS"
+
+[node name="Spacer2" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1064379103]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="SettingsPopup/VBoxContainer" unique_id=2096769657]
+layout_mode = 2
+alignment = 1
+
+[node name="ApplyButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer" unique_id=1130536042]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+text = "Apply"
+
+[node name="Spacer" type="Control" parent="SettingsPopup/VBoxContainer/ButtonContainer" unique_id=1400109334]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="SettingsPopup/VBoxContainer/ButtonContainer" unique_id=670983349]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+text = "Exit"
+
+[node name="BottomSpacer" type="Control" parent="SettingsPopup/VBoxContainer" unique_id=1200575657]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="KeybindingsPopup" type="Panel" parent="." unique_id=892301847]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -320.0
+offset_right = 400.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeybindingsPopup" unique_id=741029482]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820194]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="KeybindingsPopup/VBoxContainer" unique_id=983019284]
+auto_translate_mode = 1
+layout_mode = 2
+text = "// CUSTOM CONTROLS REBIND //"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820195]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="KeybindingsPopup/VBoxContainer" unique_id=583920194]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+
+[node name="RowsContainer" type="VBoxContainer" parent="KeybindingsPopup/VBoxContainer/ScrollContainer" unique_id=948201948]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer2" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820196]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="KeybindingsPopup/VBoxContainer" unique_id=384920194]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetDefaultsButton" type="Button" parent="KeybindingsPopup/VBoxContainer/ButtonContainer" unique_id=839201948]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(220, 54)
+layout_mode = 2
+text = "Reset Defaults"
+
+[node name="Spacer" type="Control" parent="KeybindingsPopup/VBoxContainer/ButtonContainer" unique_id=749201948]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CloseKeybindingsButton" type="Button" parent="KeybindingsPopup/VBoxContainer/ButtonContainer" unique_id=948201949]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 54)
+layout_mode = 2
+text = "Close"
+
+[node name="BottomSpacer" type="Control" parent="KeybindingsPopup/VBoxContainer" unique_id=194820197]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="KeyDetectModal" type="Panel" parent="." unique_id=983019274]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeyDetectModal" unique_id=648201948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PromptLabel" type="Label" parent="KeyDetectModal/VBoxContainer" unique_id=184920194]
+auto_translate_mode = 1
+layout_mode = 2
+text = "PRESS ANY KEY TO REBIND..."
+horizontal_alignment = 1
+
+[node name="DetectedKeyLabel" type="Label" parent="KeyDetectModal/VBoxContainer" unique_id=284920194]
+auto_translate_mode = 1
+layout_mode = 2
+text = "[ AWAITING INPUT... ]"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="KeyDetectModal/VBoxContainer" unique_id=384920195]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="KeyDetectModal/VBoxContainer" unique_id=484920194]
+layout_mode = 2
+alignment = 1
+
+[node name="AcceptButton" type="Button" parent="KeyDetectModal/VBoxContainer/ButtonContainer" unique_id=584920194]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+text = "Accept"
+
+[node name="Spacer" type="Control" parent="KeyDetectModal/VBoxContainer/ButtonContainer" unique_id=684920194]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="KeyDetectModal/VBoxContainer/ButtonContainer" unique_id=784920194]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+text = "Cancel"
+
+[node name="InstructionsPopup" type="Panel" parent="." unique_id=922019136]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InstructionsPopup" unique_id=224484084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=1919596814]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="InstructionsPopup/VBoxContainer" unique_id=624942119]
+auto_translate_mode = 1
+layout_mode = 2
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=1428511467]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InstructionsPopup/VBoxContainer" unique_id=1213114118]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="InstructionsPopup/VBoxContainer/ScrollContainer" unique_id=2126240251]
+layout_mode = 2
+
+[node name="ContentContainer" type="VBoxContainer" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1141407328]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ObjectiveTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=2076264415]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Objective"
+
+[node name="ObjectiveText" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1707154625]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Guide your character through levels, collect cherries for points, and reach the finish flag!"
+
+[node name="Spacer2" type="Control" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=186556360]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ControlsTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=499617453]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Controls"
+
+[node name="ControlMove" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=2147357936]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Move: Arrow Keys or A/D"
+
+[node name="ControlJump" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=566489646]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Jump: Up Arrow, W, or Spacebar"
+
+[node name="ControlPause" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1780083021]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Pause: ESC key"
+
+[node name="Spacer3" type="Control" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=591047228]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="TipsTitle" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1521634949]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Tips"
+
+[node name="Tip1" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1171764454]
+auto_translate_mode = 1
+layout_mode = 2
+text = "• Avoid falling into water or you'll restart the level"
+autowrap_mode = 3
+
+[node name="Tip2" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=2056497591]
+auto_translate_mode = 1
+layout_mode = 2
+text = "• Collect all cherries to maximize your score"
+autowrap_mode = 3
+
+[node name="Tip3" type="Label" parent="InstructionsPopup/VBoxContainer/ScrollContainer/MarginContainer/ContentContainer" unique_id=1329462600]
+auto_translate_mode = 1
+layout_mode = 2
+text = "• Time your jumps carefully to reach platforms"
+autowrap_mode = 3
+
+[node name="Spacer4" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=1763827276]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="InstructionsPopup/VBoxContainer" unique_id=173133598]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+
+[node name="BottomSpacer" type="Control" parent="InstructionsPopup/VBoxContainer" unique_id=573278576]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+
+
+[node name="NewGamePopup" type="Panel" parent="." unique_id=993984160]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewGamePopup" unique_id=991193288]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="NewGamePopup/VBoxContainer" unique_id=767908048]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Message" type="Label" parent="NewGamePopup/VBoxContainer" unique_id=1458301845]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Start New Game?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="NewGamePopup/VBoxContainer" unique_id=725599029]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="NewGamePopup/VBoxContainer" unique_id=896705299]
+layout_mode = 2
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer" unique_id=45080044]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "Yes"
+
+[node name="ButtonSpacer" type="Control" parent="NewGamePopup/VBoxContainer/ButtonContainer" unique_id=1752486551]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="NewGamePopup/VBoxContainer/ButtonContainer" unique_id=1555424930]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "No"
+
+[node name="BottomSpacer" type="Control" parent="NewGamePopup/VBoxContainer" unique_id=1955303009]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ContinuePopup" type="Panel" parent="." unique_id=976346447]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -350.0
+offset_right = 500.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContinuePopup" unique_id=1889551354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=1049827262]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ContinuePopup/VBoxContainer" unique_id=1013226931]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Select Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer1" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=1936048558]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ContinuePopup/VBoxContainer" unique_id=1909735158]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+
+[node name="SessionsContainer" type="VBoxContainer" parent="ContinuePopup/VBoxContainer/ScrollContainer" unique_id=429691061]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer2" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=1041515367]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="ContinuePopup/VBoxContainer" unique_id=1299514755]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="BottomSpacer" type="Control" parent="ContinuePopup/VBoxContainer" unique_id=832363968]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ConfirmPopup" type="Panel" parent="." unique_id=1936297070]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPopup" unique_id=1762329342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSpacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=1167531144]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ConfirmLabel" type="Label" parent="ConfirmPopup/VBoxContainer" unique_id=1560576393]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Continue with this game?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=375653628]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="ConfirmPopup/VBoxContainer" unique_id=266056815]
+layout_mode = 2
+alignment = 1
+
+[node name="YesButton" type="Button" parent="ConfirmPopup/VBoxContainer/ButtonContainer" unique_id=2119963784]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "Yes"
+
+[node name="ButtonSpacer" type="Control" parent="ConfirmPopup/VBoxContainer/ButtonContainer" unique_id=1628220593]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="NoButton" type="Button" parent="ConfirmPopup/VBoxContainer/ButtonContainer" unique_id=993043488]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "No"
+
+[node name="BottomSpacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=1913211128]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=671100976]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = -119.5
+offset_right = -3.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=865855131]
+layout_mode = 2
+text = "Quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="VBoxContainer" unique_id=279929470]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Yes"
+
+[node name="No" type="Button" parent="VBoxContainer" unique_id=168627804]
+auto_translate_mode = 1
+layout_mode = 2
+text = "No"
+
+[connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/AudioOptions/VBoxContainer/LanguageButton" to="." method="_on_language_button_pressed"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/ApplyButton" to="." method="_on_apply_settings_pressed"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="InstructionsPopup/VBoxContainer/CloseButton" to="." method="_on_close_instructions_pressed"]
+[connection signal="pressed" from="LanguagePopup/VBoxContainer/CloseButton" to="." method="_on_close_language_popup_pressed"]
+[connection signal="pressed" from="NewGamePopup/VBoxContainer/ButtonContainer/ConfirmButton" to="." method="_on_new_game_confirm_pressed"]
+[connection signal="pressed" from="NewGamePopup/VBoxContainer/ButtonContainer/CancelButton" to="." method="_on_new_game_cancel_pressed"]
+[connection signal="pressed" from="ContinuePopup/VBoxContainer/BackButton" to="." method="_on_continue_back_pressed"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_confirm_yes_pressed"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_confirm_no_pressed"]

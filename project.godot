@@ -15,17 +15,18 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Axiom Force"
-run/main_scene="res://assets/scenes/3d_menu_experience.tscn"
+run/main_scene="res://scenes/main_menu/3d_menu_experience.tscn"
 config/features=PackedStringArray("4.7", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://assets/scenes/global.gd"
-SessionManager="*res://assets/scenes/SessionManager.cs"
-NarrativeManager="*res://assets/narrative/NarrativeManager.gd"
-AuthManager="*res://assets/scenes/AuthManager.cs"
-UISoundManager="*res://assets/scenes/UISoundManager.cs"
+GameManager="*res://scripts/managers/GameManager.gd"
+Global="*res://scripts/managers/global.gd"
+SessionManager="*res://scripts/managers/SessionManager.cs"
+NarrativeManager="*res://scripts/managers/NarrativeManager.gd"
+AuthManager="*res://scripts/managers/AuthManager.cs"
+UISoundManager="*res://scripts/managers/UISoundManager.cs"
 
 [display]
 
@@ -38,11 +39,11 @@ mouse_cursor/tooltip_position_offset=Vector2(1, 1)
 
 [dotnet]
 
-project/assembly_name="FrogJumper"
+project/assembly_name="AxiomForce"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg", "res://addons/meshy-godot-plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/meshy-godot-plugin/plugin.cfg")
 
 [gui]
 

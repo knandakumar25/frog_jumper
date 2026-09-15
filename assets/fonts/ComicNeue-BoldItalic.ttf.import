@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://clroefbjk4kiv"
+uid="uid://c8hq3c3pvi1tq"
 path="res://.godot/imported/ComicNeue-BoldItalic.ttf-6ed450c684a0a10d292fb018c8b38e65.fontdata"
 
 [deps]
@@ -22,12 +22,12 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("uid://b0k5n8p7m8qwe", "res://assets/fonts/NotoSans-Regular.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
 preload=[]
