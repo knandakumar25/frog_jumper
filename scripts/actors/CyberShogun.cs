@@ -49,7 +49,18 @@ public partial class CyberShogun : BaseCharacter
 				_mouseClicked = true;
 		}
 		// Detect 'Q' key press for Karate attack.
-		else if (@event is InputEventKey key)
+					else if (@event is InputEventKey key)
+			{
+				if (key.Keycode == Key.Q && key.Pressed && !key.Echo)
+					_qPressed = true;
+			}
+			else if (@event is InputEventJoypadButton jb && jb.Pressed)
+			{
+				if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.B || jb.ButtonIndex == JoyButton.RightShoulder)
+					_mouseClicked = true;
+				else if (jb.ButtonIndex == JoyButton.Y || jb.ButtonIndex == JoyButton.LeftShoulder)
+					_qPressed = true;
+			}
 		{
 			if (key.Keycode == Key.Q && key.Pressed && !key.Echo)
 				_qPressed = true;

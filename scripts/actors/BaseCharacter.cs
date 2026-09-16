@@ -132,7 +132,7 @@ public partial class BaseCharacter : CharacterBody2D
 			GD.Print("Animation changed: ", prevAnim, " -> ", Sprite2d.Animation);
 
 		// 4. Input Handling:
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		if ((Input.IsActionJustPressed("jump") || Input.IsJoyButtonPressed(0, JoyButton.A) || Input.IsJoyButtonPressed(0, JoyButton.DpadUp)) && IsOnFloor())
 		{
 			// Apply immediate upward force for jump.
 			Velocity = Velocity with { Y = JumpVelocity };

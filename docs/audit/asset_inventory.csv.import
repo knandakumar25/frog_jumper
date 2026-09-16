@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b7vn8euycdv8e"
+
+[deps]
+
+files=["res://docs/audit/asset_inventory.bytes.translation", "res://docs/audit/asset_inventory.extension.translation", "res://docs/audit/asset_inventory.category.translation", "res://docs/audit/asset_inventory.explicit.translation"]
+
+source_file="res://docs/audit/asset_inventory.csv"
+dest_files=["res://docs/audit/asset_inventory.bytes.translation", "res://docs/audit/asset_inventory.extension.translation", "res://docs/audit/asset_inventory.category.translation", "res://docs/audit/asset_inventory.explicit.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

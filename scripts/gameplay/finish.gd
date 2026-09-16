@@ -28,14 +28,14 @@ func _on_body_entered(body):
 			game_manager.save_score(level_name)
 		
 		# Update session progress to next level if in a session
-		if SessionManager.current_session_id > 0:
+		if SessionManager.CurrentSessionId > 0:
 			var next_level = current_level_number + 1
 			var total_score = 0
 			if game_manager:
-				total_score = game_manager.points
+				total_score = game_manager.Points
 			
 			SessionManager.update_session(
-				SessionManager.current_session_id,
+				SessionManager.CurrentSessionId,
 				next_level,
 				total_score,
 				0  # collectables

@@ -499,12 +499,12 @@ public partial class CharacterSelection : Control
 	/// <summary>
 	/// Finalizes the selection, creates a new session in SessionManager, and transitions to the story intro.
 	/// </summary>
-	private void CreateSessionAndStart(string characterName)
+	private async void CreateSessionAndStart(string characterName)
 	{
 		var global = GetNode<Node>("/root/Global");
 		global.Set("selected_character", characterName);
 
-		int sessionId = SessionManager.Instance.CreateNewSession(characterName);
+		int sessionId = await SessionManager.Instance.CreateNewSessionAsync(characterName);
 		if (sessionId > 0)
 			GD.Print("Created new session: ", sessionId, " for character: ", characterName);
 		else

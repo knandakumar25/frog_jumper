@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_rycb2"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_gdqxh"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_75a4b"]
-[ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://scenes/gameplay/main_character.tscn" id="4_7li5s"]
+[ext_resource type="PackedScene" uid="uid://cusnivs56uyv4" path="res://scenes/gameplay/cyber_shogun.tscn" id="4_7li5s"]
 [ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="4_c17x7"]
 [ext_resource type="PackedScene" uid="uid://bbge3rhbn4u4x" path="res://scenes/gameplay/collectable.tscn" id="5_k33w3"]
 [ext_resource type="PackedScene" uid="uid://2qir8eoxanie" path="res://scenes/gameplay/finish.tscn" id="6_75qpd"]
@@ -338,7 +338,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f71te")
 sources/1 = SubResource("TileSetAtlasSource_apkse")
 
-[node name="Node" type="Node"]
+[node name="level1" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
