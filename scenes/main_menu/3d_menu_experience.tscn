@@ -57,6 +57,12 @@ light_color = Color(0, 0.9, 1, 1)
 light_energy = 3.5
 omni_range = 15.0
 
+[node name="RightAccentLight" type="OmniLight3D" parent="SubViewportContainer/SubViewport3D/World3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 3.5)
+light_color = Color(1, 0, 0.5, 1)
+light_energy = 3.5
+omni_range = 15.0
+
 [node name="HomeOverlay" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
