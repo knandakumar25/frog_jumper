@@ -80,7 +80,7 @@ public partial class MenuSessionUI : Node
 		int idx = 1;
 		foreach (var item in sessions)
 		{
-			var session    = (Dictionary)item;
+			var session    = (Godot.Collections.Dictionary)item;
 			int  sessionId = session["id"].AsInt32();
 			string character  = (string)session["character"];
 			int  level     = session["current_level"].AsInt32();
@@ -206,7 +206,7 @@ public partial class MenuSessionUI : Node
 		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
-	private void OnSessionSelected(int sessionId, Dictionary sessionData)
+	private void OnSessionSelected(int sessionId, Godot.Collections.Dictionary sessionData)
 	{
 		string character  = (string)sessionData["character"];
 		int    level      = sessionData["current_level"].AsInt32();
@@ -257,7 +257,7 @@ public partial class MenuSessionUI : Node
 
 		// Continue session
 		int sessionId   = _confirmPopup.GetMeta("session_id").AsInt32();
-		var sessionData = (Dictionary)_confirmPopup.GetMeta("session_data");
+		var sessionData = (Godot.Collections.Dictionary)_confirmPopup.GetMeta("session_data");
 		await SessionManager.Instance.LoadSessionAsync(sessionId);
 		GetNode<Node>("/root/Global").Set("selected_character", sessionData["character"]);
 

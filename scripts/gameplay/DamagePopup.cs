@@ -19,10 +19,7 @@ public partial class DamagePopup : Label3D
 
 		HorizontalAlignment = HorizontalAlignment.Center;
 		VerticalAlignment = VerticalAlignment.Center;
-		Billboard = BillboardMode.Enabled;
 		FontSize = 32;
-		OutlineMode = Text3D.OutlineModeEnum.Enabled;
-		OutlineColor = new Color(0, 0, 0, 0.5f);
 	}
 
 	public override void _Process(double delta)

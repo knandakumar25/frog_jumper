@@ -47,11 +47,10 @@ public partial class Health : Node
 		}
 	}
 
-	private void SpawnDamagePopUp(float amount)
+	private void SpawnDamagePopup(float amount)
 	{
-		var popUp = new DamagePopUp();
-		popUp.SetDamage(amount);
-
+		var popUp = new DamagePopup(amount, Colors.White);
+		
 		// Add to the scene tree.
 		// Using GetTree().Root.AddChild(popUp) keeps the text in world space.
 		GetTree().Root.AddChild(popUp);

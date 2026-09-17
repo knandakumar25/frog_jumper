@@ -179,21 +179,18 @@ public partial class AuthManager : Node
 			try
 			{
 				var response = await _httpClient.GetAsync($"{API_BASE_URL}/auth/browser-poll/?session_id={sessionId}");
-				var responseString = await response.Content.ReadAsStringAsync();
-				using var doc = JsonDocument.Parse(responseString);
-				var root = doc.RootElement;
-
-				if (root.TryGetProperty("2fa_required", out var tfaProp) && tfaProp.GetBoolean())
-				{
-					GD.Print("AuthManager: 2FA required for this account.");
-					return false;
-				}
 
 				if (response.IsSuccessStatusCode)
 				{
 					var responseString = await response.Content.ReadAsStringAsync();
 					using var doc = JsonDocument.Parse(responseString);
 					var root = doc.RootElement;
+
+					if (root.TryGetProperty("2fa_required", out var tfaProp) && tfaProp.GetBoolean())
+					{
+						GD.Print("AuthManager: 2FA required for this account.");
+						return false;
+					}
 
 					if (root.TryGetProperty("access", out var accessProp))
 					{
@@ -255,7 +252,7 @@ public partial class AuthManager : Node
 
 		try
 		{
-							var response = await _httpClient.GetAsync($"{API_BASE_URL}/auth/profile/");
+			var response = await _httpClient.GetAsync($"{API_BASE_URL}/auth/profile/");
 			if (response.IsSuccessStatusCode)
 			{
 				var responseString = await response.Content.ReadAsStringAsync();

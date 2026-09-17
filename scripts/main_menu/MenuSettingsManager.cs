@@ -87,7 +87,7 @@ public partial class MenuSettingsManager : Node
 	public void PopulateLanguageButtons()
 	{
 		var audioOptions = _settingsPopup.GetNode<Node>("VBoxContainer/AudioOptions");
-		var languages    = (Dictionary)audioOptions.Get("languages");
+		var languages    = (Godot.Collections.Dictionary)audioOptions.Get("languages");
 		string currentLang = (string)audioOptions.Get("selected_language");
 
 		_languageDropdown.Clear();

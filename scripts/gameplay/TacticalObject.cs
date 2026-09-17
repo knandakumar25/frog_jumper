@@ -7,14 +7,14 @@ using System;
 /// </summary>
 public partial class TacticalObject : RigidBody3D
 {
-	[Export] public float Mass = 1.0f;
+	[Export] public float BaseMass = 1.0f;
 	[Export] public float Friction = 0.5f;
 
 	public override void _Ready()
 	{
 		// Configure physics for a "heavy but movable" feel.
-		this.Mass = Mass;
-		PhysicsMaterial = new PhysicsMaterial
+		this.Mass = BaseMass;
+		PhysicsMaterialOverride = new PhysicsMaterial
 		{
 			Friction = Friction,
 			Bounce = 0.2f

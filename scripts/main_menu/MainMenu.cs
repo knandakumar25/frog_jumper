@@ -104,7 +104,6 @@ public partial class MainMenu : Control
 		// Neon Pulse Manager (Global system).
 		var pulseManager = new NeonPulseManager { Name = "NeonPulseManager" };
 		AddChild(pulseManager);
-		NeonPulseManager.Instance = pulseManager;
 
 		// Background Manager.
 		_backgroundManager = new MenuBackgroundManager { Name = "MenuBackgroundManager" };
@@ -134,7 +133,8 @@ public partial class MainMenu : Control
 			GetNodeOrNull<Label>("KeyDetectModal/VBoxContainer/PromptLabel"),
 			GetNodeOrNull<Label>("KeyDetectModal/VBoxContainer/DetectedKeyLabel"),
 			GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/AcceptButton"),
-			GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/CancelButton")
+			GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/CancelButton"),
+			_settingsManager
 		);
 
 		// Auth UI.
@@ -156,7 +156,7 @@ public partial class MainMenu : Control
 	}
 
 	// ─── Global Utilities ────────────────────────────────────────────────────────
-	public static string Tr(string text) => Node.Tr(text);
+	public static string Tr(string text) => TranslationServer.Translate(text);
 
 	private void WireButtonSignal(Node parent, string nodePath, Action callback)
 	{

@@ -17,10 +17,11 @@ public partial class MenuInputManager : Node
 	private Label           _detectedKeyLabel;
 	private Button          _acceptKeyButton;
 	private Button          _cancelKeyButton;
+	private MenuSettingsManager _settingsManager;
 	private string          _remappingAction = "";
 	private InputEventKey   _proposedKey = null;
 
-	public void Initialize(Button controlsButton, Panel keybindingsPopup, VBoxContainer rowsContainer, Button resetBtn, Button closeBtn, Panel detectModal, Label promptLbl, Label detectedLbl, Button acceptBtn, Button cancelBtn)
+	public void Initialize(Button controlsButton, Panel keybindingsPopup, VBoxContainer rowsContainer, Button resetBtn, Button closeBtn, Panel detectModal, Label promptLbl, Label detectedLbl, Button acceptBtn, Button cancelBtn, MenuSettingsManager settingsManager)
 	{
 		_controlsButton = controlsButton;
 		_keybindingsPopup = keybindingsPopup;
@@ -32,11 +33,12 @@ public partial class MenuInputManager : Node
 		_detectedKeyLabel = detectedLbl;
 		_acceptKeyButton = acceptBtn;
 		_cancelKeyButton = cancelBtn;
+		_settingsManager = settingsManager;
 	}
 
 	public void OpenControls()
 	{
-		PopulateKeybindingRows();
+		PopulateKeybindingRows(_settingsManager);
 		if (_keybindingsPopup != null)
 		{
 			_keybindingsPopup.Visible = true;
@@ -101,7 +103,8 @@ public partial class MenuInputManager : Node
 				Text = Tr("Rebind").ToUpper(),
 				CustomMinimumSize = new Vector2(120, 44)
 			};
-			settingsManager.StyleCyberButton(rebindBtn, orbitronFont, new Color(1f, 0f, 0.5f, 0.9f));
+			if (settingsManager != null)
+				settingsManager.StyleCyberButton(rebindBtn, orbitronFont, new Color(1f, 0f, 0.5f, 0.9f));
 			string capturedKey = actionKey;
 			string capturedTitle = actionTitle;
 			rebindBtn.Pressed += () => OpenKeyDetectModal(capturedKey, capturedTitle);
@@ -155,12 +158,12 @@ public partial class MenuInputManager : Node
 		}
 		if (_acceptKeyButton != null)
 		{
-			_acceptKeyButton.FocusMode = FocusModeEnum.None;
+			_acceptKeyButton.FocusMode = Control.FocusModeEnum.None;
 			_acceptKeyButton.Disabled = true;
 		}
 		if (_cancelKeyButton != null)
 		{
-			_cancelKeyButton.FocusMode = FocusModeEnum.None;
+			_cancelKeyButton.FocusMode = Control.FocusModeEnum.None;
 		}
 
 		if (_keyDetectModal != null)

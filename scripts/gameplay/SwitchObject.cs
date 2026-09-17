@@ -60,7 +60,7 @@ public partial class SwitchObject : Area3D
 	{
 		// In a real scene, this would trigger an animation.
 		// For the prototype, we'll change the modulate of the node.
-		Modulate = _isSwitched ? new Color(0, 1, 0) : new Color(1, 0, 0);
+		// Modulate not available on Node3D. Trigger animation instead.
 		GD.Print($"SwitchObject: State changed to {_isSwitched}");
 	}
 }

@@ -98,13 +98,13 @@ public partial class TrainingManager : Node
 		if (step.Target != null)
 		{
 			var tcs = new TaskCompletionSource<bool>();
-			Action handler = () => tcs.TrySetResult(true);
-			step.Target.TargetReached += Callable.From(handler);
+			TutorialTarget.TargetReachedEventHandler handler = () => tcs.TrySetResult(true);
+			step.Target.TargetReached += handler;
 
 			await tcs.Task;
 
 			// Clean up signal.
-			step.Target.TargetReached -= Callable.From(handler);
+			step.Target.TargetReached -= handler;
 		}
 		else
 		{

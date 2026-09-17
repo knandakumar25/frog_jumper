@@ -17,12 +17,13 @@ public partial class OperativeAbility : Ability
 	public float CooldownProgress => _currentCooldown <= 0 ? 1.0f : 1.0f - (_currentCooldown / Cooldown);
 	public bool IsReady => _currentCooldown <= 0;
 
-	public override void Execute(Player3D player)
+	public override bool Execute(Player3D player)
 	{
-		if (_currentCooldown > 0) return;
+		if (_currentCooldown > 0) return false;
 
 		PerformEffect(player);
 		_currentCooldown = Cooldown;
+		return true;
 	}
 
 	public override void _Process(double delta)
@@ -32,6 +33,9 @@ public partial class OperativeAbility : Ability
 			_currentCooldown -= (float)delta;
 		}
 	}
+
+	protected override void PerformEffect(Player3D player)
+	{
 		// Trigger Neon Pulse VFX.
 		Color vfxColor = Type switch
 		{
@@ -160,7 +164,8 @@ public partial class OperativeAbility : Ability
 	{
 		// Determine effect based on the player's current character.
 		var global = player.GetNode<Node>("/root/Global");
-		string charName = global.Get("selected_character")?.ToString() ?? "Cyber Shogun";
+		string charName = global.Get("selected_character").AsString();
+			if (string.IsNullOrEmpty(charName)) charName = "Cyber Shogun";
 
 		StatusEffect effect = null;
 		switch (charName)

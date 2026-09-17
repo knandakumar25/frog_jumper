@@ -94,7 +94,8 @@ public partial class Player3D : CharacterBody3D
 	{
 		// 1. Identify the selected operative.
 		var global = GetNode<Node>("/root/Global");
-		string selectedChar = global.Get("selected_character")?.ToString() ?? "Cyber Shogun";
+		string selectedChar = global.Get("selected_character").AsString();
+			if (string.IsNullOrEmpty(selectedChar)) selectedChar = "Cyber Shogun";
 
 		// 2. Load the correct model and stats.
 		if (CharacterRegistry.TryGetValue(selectedChar, out var stats))
@@ -242,7 +243,7 @@ public partial class Player3D : CharacterBody3D
 		return ability;
 	}
 
-	private void PlayAbilityAnimation(string animName)
+	public void PlayAbilityAnimation(string animName)
 	{
 		if (_animPlayer == null) return;
 
