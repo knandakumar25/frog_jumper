@@ -35,8 +35,9 @@ public partial class CyberButton : Control
 
     public override void _Ready()
     {
-                    GD.Print($"CyberButton {_name} _Ready called");
+                    GD.Print($"CyberButton {Name} _Ready called");
             CustomMinimumSize = new Vector2(200, 68);
+        Size = new Vector2(200, 68);
         SizeFlagsHorizontal = SizeFlags.ExpandFill;
         FocusMode = FocusModeEnum.All;
         MouseFilter = MouseFilterEnum.Stop;
@@ -98,6 +99,10 @@ public partial class CyberButton : Control
         };
         _viewportContainer.AddChild(_viewport);
         AddChild(_viewportContainer);
+        _viewportContainer.CustomMinimumSize = new Vector2(200, 68);
+        _viewportContainer.SizeFlagsHorizontal = SizeFlags.ExpandFill;
+        _viewportContainer.SizeFlagsVertical = SizeFlags.ExpandFill;
+        _viewportContainer.Size = new Vector2(256, 64);
 
         // Lighting for the viewport – a simple directional light
         var light = new DirectionalLight3D
