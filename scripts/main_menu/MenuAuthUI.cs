@@ -6,7 +6,7 @@ using System;
 /// </summary>
 public partial class MenuAuthUI : Node
 {
-	private Button          _logoutButton;
+	private CyberButton _logoutButton;
 	private TextureRect     _avatarRect;
 	private Label           _usernameLabel;
 	private HBoxContainer   _profileDisplayContainer;
@@ -16,14 +16,47 @@ public partial class MenuAuthUI : Node
 	{
 		_browserLoginButton = loginButton;
 
+		// 1. Create Styled Cyber-Frame Panel
+		var frame = new Panel
+		{
+			Name = "ProfileFrame",
+			CustomMinimumSize = new Vector2(300, 80),
+			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+			SizeFlagsVertical = Control.SizeFlags.ShrinkCenter
+		};
+
+		var frameStyle = new StyleBoxFlat
+		{
+			BgColor = new Color(0.04f, 0.08f, 0.18f, 0.92f),
+			BorderColor = new Color(0f, 0.94f, 1f, 0.85f),
+			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
+			ContentMarginLeft = 16, ContentMarginRight = 16, ContentMarginTop = 12, ContentMarginBottom = 12
+		};
+		frameStyle.SetCornerRadiusAll(8);
+		frame.AddThemeStyleboxOverride("panel", frameStyle);
+
+		// 2. Header Label "USER IDENTIFIED"
+		var header = new Label
+		{
+			Text = "// USER IDENTIFIED",
+			HorizontalAlignment = HorizontalAlignment.Left,
+			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill
+		};
+		header.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf"));
+		header.AddThemeFontSizeOverride("font_size", 12);
+		header.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.6f));
+		frame.AddChild(header);
+
+		// 3. Profile Content Row
 		_profileDisplayContainer = new HBoxContainer
 		{
 			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
 			Alignment = BoxContainer.AlignmentMode.Begin,
 			Visible = false
 		};
+		frame.AddChild(_profileDisplayContainer);
 
-		// 1. Avatar Rect
+		// 3a. Avatar Rect with Neon Border
 		_avatarRect = new TextureRect
 		{
 			CustomMinimumSize = new Vector2(50, 50),
@@ -51,12 +84,34 @@ public partial class MenuAuthUI : Node
 		avatarBorder.AddChild(_avatarRect);
 		_profileDisplayContainer.AddChild(avatarBorder);
 
-		// 2. Info Container
+		// 3b. Info Container (Username + Online Light)
 		var infoContainer = new VBoxContainer
 		{
 			Alignment = BoxContainer.AlignmentMode.Center,
 			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill
 		};
+
+		// Online Indicator Light
+		var onlineLight = new ColorRect
+		{
+			CustomMinimumSize = new Vector2(8, 8),
+			Color = new Color(0, 1, 0, 1),
+			SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin
+		};
+
+		// Blinking animation for the light
+		var blinkTween = GetTree().CreateTween().SetLoops();
+		blinkTween.TweenProperty(onlineLight, "modulate:a", 0.3f, 0.8f).SetTrans(Tween.TransitionType.Sine);
+		blinkTween.TweenProperty(onlineLight, "modulate:a", 1.0f, 0.8f).SetTrans(Tween.TransitionType.Sine);
+
+		var statusRow = new HBoxContainer { Alignment = BoxContainer.AlignmentMode.Begin };
+		statusRow.AddChild(onlineLight);
+		var statusLbl = new Label { Text = " ONLINE", SizeFlagsHorizontal = Control.SizeFlags.ExpandFill };
+		statusLbl.AddThemeFontSizeOverride("font_size", 10);
+		statusLbl.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf"));
+		statusLbl.AddThemeColorOverride("font_color", new Color(0, 1, 0, 0.8f));
+		statusRow.AddChild(statusLbl);
+		infoContainer.AddChild(statusRow);
 
 		_usernameLabel = new Label
 		{
@@ -65,23 +120,23 @@ public partial class MenuAuthUI : Node
 		};
 		_usernameLabel.AddThemeColorOverride("font_color", new Color(0, 0.95f, 1f, 1f)); // Neon cyan
 		_usernameLabel.AddThemeFontSizeOverride("font_size", 18);
+		_usernameLabel.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf"));
 		infoContainer.AddChild(_usernameLabel);
-
 		_profileDisplayContainer.AddChild(infoContainer);
 
-		// 3. Logout button
-		_logoutButton = new Button
+		// 3c. Logout button (using CyberButton for consistency)
+		_logoutButton = new CyberButton
 		{
-			Text = Tr("Logout"),
-			CustomMinimumSize = new Vector2(100, 40),
+			MainText = Tr("LOGOUT"),
+			SubText = "// TERMINATE SESSION",
+			IndexText = "00",
+			CustomMinimumSize = new Vector2(120, 44),
 			SizeFlagsVertical = Control.SizeFlags.ShrinkCenter
 		};
-
-		_logoutButton.AddThemeFontSizeOverride("font_size", 16);
 		_logoutButton.Pressed += OnLogoutPressed;
 		_profileDisplayContainer.AddChild(_logoutButton);
 
-		profileContainer.AddChild(_profileDisplayContainer);
+		profileContainer.AddChild(frame);
 
 		if (AuthManager.Instance != null)
 		{

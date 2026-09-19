@@ -6,6 +6,9 @@
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="4_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/ui/audio_options.gd" id="5_audio_options"]
 [ext_resource type="Script" path="res://scripts/ui/CyberDropdown.cs" id="6_cyber_dropdown"]
+[ext_resource type="PackedScene" path="res://assets/models/hq/Meshy_AI_Holo_Projector_Pedest_0807080445_image-to-3d-texture.glb" id="7_holo_projector"]
+[ext_resource type="PackedScene" path="res://assets/models/hq/Meshy_AI_Terminal_Kiosk_Node_0807083122_image-to-3d-texture.glb" id="8_terminal_kiosk"]
+[ext_resource type="PackedScene" path="res://assets/models/hq/cyber_shogun.glb" id="9_cyber_shogun"]
 
 [node name="3DMenuExperience" type="Control"]
 layout_mode = 3
@@ -62,6 +65,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 3.5)
 light_color = Color(1, 0, 0.5, 1)
 light_energy = 3.5
 omni_range = 15.0
+
+[node name="HoloProjector" type="Node3D" parent="SubViewportContainer/SubViewport3D/World3D"]
+[node name="HoloProjector" parent="SubViewportContainer/SubViewport3D/World3D" instance=ExtResource("7_holo_projector")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+scene = ExtResource("7_holo_projector")
+
+[node name="TerminalKiosk" type="Node3D" parent="SubViewportContainer/SubViewport3D/World3D"]
+[node name="TerminalKiosk" parent="SubViewportContainer/SubViewport3D/World3D" instance=ExtResource("8_terminal_kiosk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5)
+scene = ExtResource("8_terminal_kiosk")
+
+[node name="CyberShogun" type="Node3D" parent="SubViewportContainer/SubViewport3D/World3D"]
+[node name="CyberShogun" parent="SubViewportContainer/SubViewport3D/World3D" instance=ExtResource("9_cyber_shogun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
+scene = ExtResource("9_cyber_shogun")
 
 [node name="HomeOverlay" type="Control" parent="."]
 layout_mode = 1

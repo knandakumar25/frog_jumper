@@ -187,15 +187,59 @@ public partial class Player3D : CharacterBody3D
 			// Flatten vectors to prevent flying/sinking when looking up/down
 			forward.Y = 0;
 			right.Y = 0;
-			forward = forward.Normalized();
-			right = right.Normalized();
+			if (forward.LengthSquared() > 0) forward = forward.Normalized();
+			if (right.LengthSquared() > 0) right = right.Normalized();
 
-			direction = (forward * -inputDir.Y + right * inputDir.X).Normalized();
+			// Guard forward vector normalization to avoid "Vector3 cannot be normalized" warning
+			if (forward.LengthSquared() > 0)
+			{
+				forward = forward.Normalized();
+			}
+			else
+			{
+				// Fallback to default forward if camera looks straight up or down
+				forward = Vector3.Forward;
+			}
+
+			// Guard right vector normalization
+			if (right.LengthSquared() > 0)
+			{
+				right = right.Normalized();
+			}
+			else
+			{
+				// Fallback to default right if camera basis collapses
+				right = Vector3.Right;
+			}
+
+			Vector3 combined = (forward * -inputDir.Y + right * inputDir.X);
+			direction = combined.LengthSquared() > 0 ? combined.Normalized() : Vector3.Zero;
+			// Guard combined direction vector normalization
+			if (combined.LengthSquared() > 0)
+			{
+				direction = combined.Normalized();
+			}
+			else
+			{
+				// Sensible stationary fallback when no movement input is provided
+				direction = Vector3.Zero;
+			}
 		}
 		else
 		{
 			// Fallback if no camera pivot
-			direction = new Vector3(inputDir.X, 0, inputDir.Y).Normalized();
+			Vector3 fallbackDir = new Vector3(inputDir.X, 0, inputDir.Y);
+			direction = fallbackDir.LengthSquared() > 0 ? fallbackDir.Normalized() : Vector3.Zero;
+			// Guard fallback movement vector normalization
+			if (fallbackDir.LengthSquared() > 0)
+			{
+				direction = fallbackDir.Normalized();
+			}
+			else
+			{
+				// Sensible stationary fallback when no movement input is provided
+				direction = Vector3.Zero;
+			}
 		}
 
 		if (_isMoving)
