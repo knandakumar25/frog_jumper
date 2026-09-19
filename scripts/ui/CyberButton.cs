@@ -35,7 +35,7 @@ public partial class CyberButton : Control
 
     public override void _Ready()
     {
-        CustomMinimumSize = new Vector2(0, 68);
+        CustomMinimumSize = new Vector2(200, 68);
         SizeFlagsHorizontal = SizeFlags.ExpandFill;
         FocusMode = FocusModeEnum.All;
         MouseFilter = MouseFilterEnum.Stop;
@@ -91,7 +91,7 @@ public partial class CyberButton : Control
         // The viewport that will render the 3D button
         _viewport = new SubViewport
         {
-            TransparentBg = true,
+            TransparentBg = false,
             Size = new Vector2I(256, 64), // Low‑res for a pixel‑art style; increase for crisper rendering
             RenderTargetUpdateMode = SubViewport.UpdateMode.Always
         };
@@ -111,7 +111,7 @@ public partial class CyberButton : Control
         {
             Environment = new Godot.Environment
             {
-                BackgroundMode = Godot.Environment.BGMode.Canvas,
+                BackgroundMode = Godot.Environment.BGMode.Color,
                 AmbientLightColor = new Color(0.2f, 0.2f, 0.3f),
                 AmbientLightEnergy = 0.5f
             }
@@ -191,7 +191,8 @@ public partial class CyberButton : Control
             FontSize = (int)size,
             Modulate = color,
             HorizontalAlignment = HorizontalAlignment.Left,
-            Billboard = BaseMaterial3D.BillboardModeEnum.Enabled
+            Billboard = BaseMaterial3D.BillboardModeEnum.Enabled,
+            Font = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf")
         };
         return lbl;
     }
