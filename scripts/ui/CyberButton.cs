@@ -35,7 +35,8 @@ public partial class CyberButton : Control
 
     public override void _Ready()
     {
-        CustomMinimumSize = new Vector2(200, 68);
+                    GD.Print($"CyberButton {_name} _Ready called");
+            CustomMinimumSize = new Vector2(200, 68);
         SizeFlagsHorizontal = SizeFlags.ExpandFill;
         FocusMode = FocusModeEnum.All;
         MouseFilter = MouseFilterEnum.Stop;
