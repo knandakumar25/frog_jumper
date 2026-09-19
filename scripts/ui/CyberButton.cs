@@ -180,6 +180,7 @@ public partial class CyberButton : Control
         _viewport.AddChild(_indexLabel);
         _viewport.AddChild(_mainLabel);
         _viewport.AddChild(_subLabel);
+        GD.Print($"CyberButton DEBUG – viewport size: {_viewport.Size}, mesh: {_buttonMesh?.Mesh?.GetType()}, mesh name: {_buttonMesh?.Mesh?.ResourceName}");
     }
 
     private Label3D CreateLabel3D(string text, Vector3 pos, float size, Color color)
