@@ -53,6 +53,11 @@ public partial class ThreeDMenuExperience : MainMenu
 	private Node3D _cargoBargeVehicle;
 	private Node3D _vtolGunshipVehicle;
 	private Node3D _shieldEmblemNode;
+	private Node3D _holoPedestalTitleModel;
+	private SubViewportContainer _homeTitleViewportContainer;
+	private SubViewport          _homeTitleViewport;
+	private Camera3D             _homeTitleCamera;
+	private Node3D               _homeTitleModel;
 
 	// Patrol path data for ambient vehicles
 	private float _spinnerX   = -60f;
@@ -142,6 +147,20 @@ public partial class ThreeDMenuExperience : MainMenu
 		{
 			_shieldEmblemNode.RotationDegrees = new Vector3(0f, Mathf.Sin(_hoverTimer * 1.5f) * 6f, 0f);
 		}
+
+		// 5. 3D Title hovering above Holo-Projector Pedestal in World3D
+		if (_holoPedestalTitleModel != null && _holoPedestalTitleModel.Visible)
+		{
+			float hoverY = 2.3f + Mathf.Sin(_hoverTimer * 1.8f) * 0.10f;
+			_holoPedestalTitleModel.Position = new Vector3(0f, hoverY, 0.2f);
+			_holoPedestalTitleModel.RotationDegrees = new Vector3(0f, Mathf.Sin(_hoverTimer * 0.8f) * 6f, 0f);
+		}
+
+		// 6. 3D Title in HomeOverlay: Keep stationary and firmly centered
+		if (_currentState == MenuState.Home && _homeTitleCamera != null)
+		{
+			_homeTitleCamera.Rotation = Vector3.Zero;
+		}
 	}
 
 	public override void _Input(InputEvent @event)
@@ -194,6 +213,17 @@ public partial class ThreeDMenuExperience : MainMenu
 		if (_homeOverlay != null)
 		{
 			tween.TweenProperty(_homeOverlay, "modulate:a", 0.0f, 0.5f);
+		}
+
+		// Reveal and smoothly pop in the holographic pedestal title in World3D
+		if (_holoPedestalTitleModel != null)
+		{
+			_holoPedestalTitleModel.Visible = true;
+			_holoPedestalTitleModel.Scale = new Vector3(0.01f, 0.01f, 0.01f);
+			tween.TweenProperty(_holoPedestalTitleModel, "scale", new Vector3(1.4f, 1.4f, 1.4f), 1.2f)
+				.SetTrans(Tween.TransitionType.Back)
+				.SetEase(Tween.EaseType.Out)
+				.SetDelay(0.5f);
 		}
 
 		// Smoothly interpolate 3D Camera from High view to Ground Plaza view using a Cubic ease.
@@ -486,37 +516,114 @@ public partial class ThreeDMenuExperience : MainMenu
 	}
 
 	/// <summary>
-	/// Selects and loads the appropriate title logo based on the user's current locale.
+	/// Loads the high-fidelity 3D title model (main_title_3d.glb) into the 3D Citadel
+	/// hovering above the Holo-Projector pedestal and into the HomeOverlay as an interactive 3D title.
 	/// </summary>
 	private void LoadHomeTitleLogo()
 	{
-		if (_titleLogo == null) return;
-		string lang = TranslationServer.GetLocale().ToLower();
-		string logoFile = "axiom_force_title_logo.jpg";
+		string titlePath = "res://assets/models/hq/main_title_3d.glb";
 
-		if (lang.Contains("ar")) logoFile = "axiom_force_title_logo_arabic.jpg";
-		else if (lang.Contains("pt")) logoFile = "axiom_force_title_logo_brazilianportuguese.jpg";
-		else if (lang.Contains("fr")) logoFile = "axiom_force_title_logo_eurofrench.jpg";
-		else if (lang.Contains("de")) logoFile = "axiom_force_title_logo_german.jpg";
-		else if (lang.Contains("he")) logoFile = "axiom_force_title_logo_hebrew.jpg";
-		else if (lang.Contains("it")) logoFile = "axiom_force_title_logo_italian.jpg";
-		else if (lang.Contains("ja")) logoFile = "axiom_force_title_logo_japanese.jpg";
-		else if (lang.Contains("ko")) logoFile = "axiom_force_title_logo_korean.jpg";
-		else if (lang.Contains("mandarin") || lang == "zh_cn") logoFile = "axiom_force_title_logo_mandarin.jpg";
-		else if (lang.Contains("traditionalchinese") || lang.Contains("tw") || lang.Contains("hk") || lang == "zh") logoFile = "axiom_force_title_logo_traditionalchinese.jpg";
-		else if (lang.Contains("indonesian") || lang.Contains("id")) logoFile = "axiom_force_title_logo_indonesian.jpg";
-		else if (lang.Contains("vietnamese") || lang.Contains("vi")) logoFile = "axiom_force_title_logo_vietnamese.jpg";
-		else if (lang.Contains("thai") || lang.Contains("th")) logoFile = "axiom_force_title_logo_thai.jpg";
-		else if (lang.Contains("pl")) logoFile = "axiom_force_title_logo_polish.jpg";
-		else if (lang.Contains("es")) logoFile = "axiom_force_title_logo_spanish.jpg";
-		else if (lang.Contains("tr")) logoFile = "axiom_force_title_logo_turkish.jpg";
-
-		string resPath = "res://assets/images/" + logoFile;
-		string globalPath = ProjectSettings.GlobalizePath(resPath);
-		if (System.IO.File.Exists(globalPath))
+		// 1. In World3D: Place 3D title hovering directly above the Holo-Projector Pedestal
+		var world3D = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
+		if (world3D != null)
 		{
-			var img = Image.LoadFromFile(globalPath);
-			if (img != null) _titleLogo.Texture = ImageTexture.CreateFromImage(img);
+			_holoPedestalTitleModel = LoadGlbModel(titlePath);
+			if (_holoPedestalTitleModel != null)
+			{
+				_holoPedestalTitleModel.Scale = new Vector3(1.4f, 1.4f, 1.4f);
+				_holoPedestalTitleModel.Position = new Vector3(0f, 2.3f, 0.2f);
+				_holoPedestalTitleModel.Visible = false; // Kept hidden on Home screen to avoid duplicate titles
+				world3D.AddChild(_holoPedestalTitleModel);
+			}
+		}
+
+		// 2. In HomeOverlay: Replace the flat 2D JPEG banner with interactive 3D Title SubViewport
+		if (_titleLogo != null)
+		{
+			_titleLogo.Visible = false; // Hide 2D static flat image card
+
+			var parent = _titleLogo.GetParent();
+			if (parent != null)
+			{
+				_homeTitleViewportContainer = new SubViewportContainer
+				{
+					Name = "Title3DViewportContainer",
+					CustomMinimumSize = new Vector2(860, 360),
+					Size = new Vector2(860, 360),
+					Stretch = true,
+					MouseFilter = MouseFilterEnum.Ignore,
+					SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter,
+					SizeFlagsVertical = Control.SizeFlags.ShrinkCenter
+				};
+
+				_homeTitleViewport = new SubViewport
+				{
+					Name = "Title3DViewport",
+					OwnWorld3D = true,
+					TransparentBg = true,
+					Size = new Vector2I(860, 360),
+					RenderTargetUpdateMode = SubViewport.UpdateMode.Always,
+					HandleInputLocally = false
+				};
+				_homeTitleViewportContainer.AddChild(_homeTitleViewport);
+
+				var env = new WorldEnvironment
+				{
+					Environment = new Godot.Environment
+					{
+						BackgroundMode = Godot.Environment.BGMode.ClearColor,
+						AmbientLightColor = new Color(0.2f, 0.32f, 0.45f),
+						AmbientLightEnergy = 1.0f,
+						GlowEnabled = true,
+						GlowBloom = 0.35f,
+						GlowIntensity = 1.2f,
+						GlowBlendMode = Godot.Environment.GlowBlendModeEnum.Additive
+					}
+				};
+				_homeTitleViewport.AddChild(env);
+
+				var keyLight = new DirectionalLight3D
+				{
+					RotationDegrees = new Vector3(-25, 30, 0),
+					LightEnergy = 2.0f,
+					LightColor = new Color(0.9f, 0.95f, 1.0f)
+				};
+				_homeTitleViewport.AddChild(keyLight);
+
+				var fillLight = new DirectionalLight3D
+				{
+					RotationDegrees = new Vector3(25, -145, 0),
+					LightEnergy = 1.2f,
+					LightColor = new Color(0f, 0.94f, 1.0f)
+				};
+				_homeTitleViewport.AddChild(fillLight);
+
+				var rimLight = new DirectionalLight3D
+				{
+					RotationDegrees = new Vector3(45, 10, 0),
+					LightEnergy = 1.0f,
+					LightColor = new Color(1.0f, 0.0f, 0.55f)
+				};
+				_homeTitleViewport.AddChild(rimLight);
+
+				_homeTitleCamera = new Camera3D
+				{
+					Position = new Vector3(0, 0.0f, 4.2f),
+					Fov = 34f,
+					Current = true
+				};
+				_homeTitleViewport.AddChild(_homeTitleCamera);
+
+				_homeTitleModel = LoadGlbModel(titlePath);
+				GD.Print($"LoadHomeTitleLogo: _homeTitleModel = {_homeTitleModel?.Name ?? "NULL"} loaded from {titlePath}");
+				if (_homeTitleModel != null)
+				{
+					_homeTitleViewport.AddChild(_homeTitleModel);
+				}
+
+				parent.AddChild(_homeTitleViewportContainer);
+				parent.MoveChild(_homeTitleViewportContainer, _titleLogo.GetIndex());
+			}
 		}
 	}
 

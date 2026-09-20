@@ -7,7 +7,7 @@ extends Node
 var reached_finish = false
 var selected_character = "Cyber Shogun"  # Default character
 var unlocked_levels = 1  # Track highest unlocked level (1-4)
-var current_display_mode: String = "Fullscreen"
+var current_display_mode: String = "Windowed Fullscreen"
 
 # Local paths for user-specific settings.
 # Unity Migration: Use Application.persistentDataPath.
@@ -21,10 +21,8 @@ var menu_music_player: AudioStreamPlayer = null
 func _ready() -> void:
 	load_saved_settings()
 
-	# The game MUST ALWAYS launch in Fullscreen mode by default on every rerun.
-	current_display_mode = "Fullscreen"
 	if DisplayServer.get_name() != "headless":
-		apply_display_mode("Fullscreen")
+		apply_display_mode(current_display_mode)
 		# Prevent the OS from putting the device to sleep during gameplay.
 		DisplayServer.screen_set_keep_on(true)
 		print("Global: Screen keep-awake enabled (prevents device sleep)")
@@ -316,6 +314,7 @@ func update_font_for_locale(locale_code: String) -> void:
 
 func apply_display_mode(mode_name: String) -> void:
 	current_display_mode = mode_name
+	save_user_settings()
 	match mode_name:
 		"Windowed Fullscreen":
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -332,6 +331,32 @@ func apply_display_mode(mode_name: String) -> void:
 # ─── Persistence & Input Customization ──────────────────────────────────────────
 func load_saved_settings() -> void:
 	load_custom_keybindings()
+	if FileAccess.file_exists(SETTINGS_PATH):
+		var file = FileAccess.open(SETTINGS_PATH, FileAccess.READ)
+		if file != null:
+			var text = file.get_as_text()
+			file.close()
+			var json = JSON.new()
+			if json.parse(text) == OK and json.data is Dictionary:
+				if json.data.has("display_mode"):
+					current_display_mode = json.data["display_mode"]
+					print("Global: Loaded saved display mode: ", current_display_mode)
+
+func save_user_settings() -> void:
+	var data = {}
+	if FileAccess.file_exists(SETTINGS_PATH):
+		var file = FileAccess.open(SETTINGS_PATH, FileAccess.READ)
+		if file != null:
+			var text = file.get_as_text()
+			file.close()
+			var json = JSON.new()
+			if json.parse(text) == OK and json.data is Dictionary:
+				data = json.data
+	data["display_mode"] = current_display_mode
+	var file = FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(data))
+		file.close()
 
 # Loads custom user keybindings from a JSON file.
 func load_custom_keybindings() -> void:

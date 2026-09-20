@@ -35,7 +35,7 @@ public partial class MenuSettingsManager : Node
 		if (_displayDropdown != null)
 		{
 			var globalNode = GetNodeOrNull<Node>("/root/Global");
-			string currentMode = (globalNode != null) ? (string)globalNode.Get("current_display_mode") : "Fullscreen";
+			string currentMode = (globalNode != null) ? (string)globalNode.Get("current_display_mode") : "Windowed Fullscreen";
 			_pendingSelectedDisplayMode = currentMode;
 			_displayDropdown.SelectItemByText(Tr(currentMode));
 		}
@@ -131,7 +131,7 @@ public partial class MenuSettingsManager : Node
 		_displayDropdown.AddItem(Tr("Windowed"));
 
 		var globalNode = GetNodeOrNull<Node>("/root/Global");
-		string currentMode = "Fullscreen";
+		string currentMode = "Windowed Fullscreen";
 		if (globalNode != null)
 		{
 			currentMode = (string)globalNode.Get("current_display_mode");
