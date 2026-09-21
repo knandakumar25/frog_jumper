@@ -51,25 +51,25 @@ for x in range(w):
     pix_roughness[:by, x, 3] = 0.0
     pix_normal[:by, x, 3] = 0.0
 
-    # For the center span (75 to 1030), render a clean glowing cyan neon laser line with rich cyber cyan
+    # For the center span (75 to 1030), render a clean glowing deep cyan laser line
     if 75 <= x <= 1030:
         # Core row (by + 1)
-        pix_albedo[by + 1, x, :3] = [0.12, 0.58, 0.76]
+        pix_albedo[by + 1, x, :3] = [0.04, 0.35, 0.50]
         pix_albedo[by + 1, x, 3] = 1.0
-        pix_emission[by + 1, x, :3] = [0.08, 0.52, 0.72]
+        pix_emission[by + 1, x, :3] = [0.02, 0.30, 0.45]
         pix_emission[by + 1, x, 3] = 1.0
 
         # Rim row (by)
-        pix_albedo[by, x, :3] = [0.0, 0.42, 0.60]
+        pix_albedo[by, x, :3] = [0.0, 0.25, 0.38]
         pix_albedo[by, x, 3] = 0.85
-        pix_emission[by, x, :3] = [0.0, 0.42, 0.60]
+        pix_emission[by, x, :3] = [0.0, 0.25, 0.38]
         pix_emission[by, x, 3] = 0.85
 
         # Anti-aliased outer edge (by - 1)
         if by > 0:
-            pix_albedo[by - 1, x, :3] = [0.0, 0.28, 0.45]
+            pix_albedo[by - 1, x, :3] = [0.0, 0.15, 0.25]
             pix_albedo[by - 1, x, 3] = 0.35
-            pix_emission[by - 1, x, :3] = [0.0, 0.28, 0.45]
+            pix_emission[by - 1, x, :3] = [0.0, 0.15, 0.25]
             pix_emission[by - 1, x, 3] = 0.35
 
 # Tightly crop to Axiom Force bounds with clean padding
@@ -84,10 +84,10 @@ crop_metallic = pix_metallic[min_y : max_y + 1, min_x : max_x + 1]
 crop_roughness = pix_roughness[min_y : max_y + 1, min_x : max_x + 1]
 crop_normal = pix_normal[min_y : max_y + 1, min_x : max_x + 1]
 
-# Apply darker steel tone grading: 35% reduction (factor 0.65)
-# This turns the bright white letters into dark titanium steel while keeping full legibility
-crop_albedo[..., :3] = crop_albedo[..., :3] * 0.65
-crop_emission[..., :3] = crop_emission[..., :3] * 0.60
+# Apply steep dark stealth tone curve: gamma 1.7 + multiplier 0.42
+# Converts bright white/chrome letters to dark gunmetal steel and chassis plate to deep obsidian
+crop_albedo[..., :3] = (np.clip(crop_albedo[..., :3], 0.0, 1.0) ** 1.7) * 0.42
+crop_emission[..., :3] = (np.clip(crop_emission[..., :3], 0.0, 1.0) ** 1.3) * 0.45
 
 def create_bpy_image(name, data_rgba, is_non_color=False):
     img = bpy.data.images.new(name, width=crop_w, height=crop_h, alpha=True)
@@ -136,11 +136,11 @@ node_norm_map.inputs['Strength'].default_value = 2.4
 links.new(tex_normal.outputs['Color'], node_norm_map.inputs['Color'])
 links.new(node_norm_map.outputs['Normal'], node_bsdf.inputs['Normal'])
 
-# Emission (rich, non-blown-out glow)
+# Emission (rich, deep cybernetic glow without overblown glare)
 tex_emission = nodes.new(type='ShaderNodeTexImage')
 tex_emission.image = img_emission
 links.new(tex_emission.outputs['Color'], node_bsdf.inputs['Emission Color'])
-node_bsdf.inputs['Emission Strength'].default_value = 1.6
+node_bsdf.inputs['Emission Strength'].default_value = 1.0
 
 links.new(node_bsdf.outputs['BSDF'], node_output.inputs['Surface'])
 
@@ -166,30 +166,32 @@ if not mesh.uv_layers:
     mesh.uv_layers.new(name="UVMap")
 
 # ─── 5. Darker Cybernetic Lighting with Balanced Highlights ───────────────────
+# Softened key sun light to preserve the dark stealth gunmetal tones
 light_key = bpy.data.lights.new(name="LightKey", type='SUN')
-light_key.energy = 1.8
-light_key.color = (0.80, 0.86, 0.94)
+light_key.energy = 0.6
+light_key.color = (0.75, 0.82, 0.90)
 obj_key = bpy.data.objects.new(name="LightKeyObj", object_data=light_key)
 obj_key.rotation_euler = (math.radians(35), math.radians(-25), 0)
 bpy.context.collection.objects.link(obj_key)
 
 light_cyan = bpy.data.lights.new(name="LightCyan", type='SUN')
-light_cyan.energy = 1.3
-light_cyan.color = (0.0, 0.55, 0.75)
+light_cyan.energy = 0.4
+light_cyan.color = (0.0, 0.45, 0.65)
 obj_cyan = bpy.data.objects.new(name="LightCyanObj", object_data=light_cyan)
 obj_cyan.rotation_euler = (math.radians(-35), math.radians(40), 0)
 bpy.context.collection.objects.link(obj_cyan)
 
 light_mag = bpy.data.lights.new(name="LightMag", type='SUN')
-light_mag.energy = 1.1
-light_mag.color = (0.65, 0.0, 0.35)
+light_mag.energy = 0.35
+light_mag.color = (0.55, 0.0, 0.30)
 obj_mag = bpy.data.objects.new(name="LightMagObj", object_data=light_mag)
 obj_mag.rotation_euler = (math.radians(25), math.radians(50), 0)
 bpy.context.collection.objects.link(obj_mag)
 
+# Subtle point light for bevel definition without glare
 light_point = bpy.data.lights.new(name="LightGlint", type='POINT')
-light_point.energy = 30.0
-light_point.color = (0.68, 0.82, 0.94)
+light_point.energy = 5.0
+light_point.color = (0.60, 0.75, 0.88)
 obj_point = bpy.data.objects.new(name="LightGlintObj", object_data=light_point)
 obj_point.location = (0.1, -0.05, 1.4)
 bpy.context.collection.objects.link(obj_point)
@@ -219,6 +221,6 @@ scene.render.image_settings.color_depth = '8'
 output_file = os.path.join(img_dir, "axiom_force_title_2d.png")
 scene.render.filepath = output_file
 
-print(f"Rendering Darker 2D Axiom Force Title ({scene.render.resolution_x}x{scene.render.resolution_y}) to {output_file}...")
+print(f"Rendering Dark Gunmetal 2D Axiom Force Title ({scene.render.resolution_x}x{scene.render.resolution_y}) to {output_file}...")
 bpy.ops.render.render(write_still=True)
-print("Darker Axiom Force 2D Title Render Complete!")
+print("Dark Gunmetal Axiom Force 2D Title Render Complete!")
