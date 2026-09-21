@@ -55,7 +55,9 @@ public partial class MainMenu : Control
 			// Update continue button visibility based on session data.
 			var continueBtn = GetNodeOrNull<Control>("ButtonContainer/ContinueButton");
 			if (continueBtn != null)
-				continueBtn.Visible = SessionManager.Instance.HasSessions();
+			{
+				continueBtn.Visible = SessionManager.Instance?.HasSessions() ?? false;
+			}
 
 			// Initial styling pass.
 			_settingsManager.ApplyCyberpunkPanelStyles(this);

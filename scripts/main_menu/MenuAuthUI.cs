@@ -154,7 +154,7 @@ public partial class MenuAuthUI : Node
 
 	private void UpdateAuthUI()
 	{
-		var user = AuthManager.Instance.CurrentUser;
+		var user = AuthManager.Instance?.CurrentUser;
 		if (user != null)
 		{
 			if (_browserLoginButton != null)
