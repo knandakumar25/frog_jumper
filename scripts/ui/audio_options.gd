@@ -119,8 +119,11 @@ func apply_language_change() -> void:
 		TranslationServer.set_locale(iso_code)
 		TranslationServer.set_locale(raw_locale)
 		var global_node = get_node_or_null("/root/Global")
-		if global_node != null and global_node.has_method("update_font_for_locale"):
-			global_node.update_font_for_locale(raw_locale)
+		if global_node != null:
+			if global_node.has_method("update_font_for_locale"):
+				global_node.update_font_for_locale(raw_locale)
+			if global_node.has_method("update_prompt_text"):
+				global_node.update_prompt_text()
 		var slider = get_node_or_null("VBoxContainer/MasterSlider")
 		if slider != null:
 			_update_volume_label(slider.value)

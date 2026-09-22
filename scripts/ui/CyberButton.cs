@@ -12,10 +12,47 @@ public partial class CyberButton : Control
 {
 	[Signal] public delegate void PressedEventHandler();
 
+	private string _indexText = "01";
+	private string _mainText = "DEPLOY MISSION";
+	private string _subText = "// SECTOR ACCESS";
+
 	// UI Configuration
-	[Export] public string IndexText { get; set; } = "01";
-	[Export] public string MainText { get; set; } = "DEPLOY MISSION";
-	[Export] public string SubText { get; set; } = "// SECTOR ACCESS";
+	[Export] public string IndexText
+	{
+		get => _indexText;
+		set
+		{
+			_indexText = value;
+			if (_indexLabel2D != null) _indexLabel2D.Text = _indexText;
+		}
+	}
+
+	[Export] public string MainText
+	{
+		get => _mainText;
+		set
+		{
+			_mainText = value;
+			if (_mainLabel2D != null)
+			{
+				_mainLabel2D.Text = SafeToUpper(TranslateText(_mainText));
+			}
+		}
+	}
+
+	[Export] public string SubText
+	{
+		get => _subText;
+		set
+		{
+			_subText = value;
+			if (_subLabel2D != null)
+			{
+				_subLabel2D.Text = TranslateText(_subText);
+			}
+		}
+	}
+
 	[Export] public bool IsDisabled { get; set; } = false;
 
 	// 2D NinePatch Background
@@ -94,6 +131,10 @@ public partial class CyberButton : Control
 		if (what == NotificationResized)
 		{
 			UpdateChildLayout();
+		}
+		else if (what == NotificationTranslationChanged)
+		{
+			UpdateLocalization();
 		}
 	}
 
@@ -310,10 +351,69 @@ public partial class CyberButton : Control
 		}
 	}
 
+	public void UpdateLocalization()
+	{
+		if (_mainLabel2D != null && !string.IsNullOrEmpty(_mainText))
+		{
+			_mainLabel2D.Text = SafeToUpper(TranslateText(_mainText));
+		}
+		if (_subLabel2D != null && !string.IsNullOrEmpty(_subText))
+		{
+			_subLabel2D.Text = TranslateText(_subText);
+		}
+	}
+
 	private string TranslateText(string input)
 	{
 		if (string.IsNullOrEmpty(input)) return "";
-		return Tr(input);
+
+		// 1. Direct translation
+		string translated = Tr(input);
+		if (translated != input) return translated;
+
+		// 2. If it's a "// SUBTEXT" formatted string, try translating the inner string
+		string trimmed = input.Trim();
+		if (trimmed.StartsWith("//"))
+		{
+			string inner = trimmed.Substring(2).Trim();
+			bool hasTrailing = inner.EndsWith("//");
+			if (hasTrailing) inner = inner.Substring(0, inner.Length - 2).Trim();
+
+			string trInner = Tr(inner);
+			if (trInner != inner)
+			{
+				return hasTrailing ? $"// {trInner} //" : $"// {trInner}";
+			}
+		}
+
+		// 3. Fallback for common button uppercase keys: PLAY -> Play, QUIT -> Quit, SETTINGS -> Settings
+		if (trimmed.Equals("PLAY", StringComparison.OrdinalIgnoreCase))
+		{
+			string trVal = Tr("Play");
+			if (trVal != "Play") return trVal;
+		}
+		else if (trimmed.Equals("SETTINGS", StringComparison.OrdinalIgnoreCase))
+		{
+			string trVal = Tr("Settings");
+			if (trVal != "Settings") return trVal;
+		}
+		else if (trimmed.Equals("QUIT", StringComparison.OrdinalIgnoreCase))
+		{
+			string trVal = Tr("Quit");
+			if (trVal != "Quit") return trVal;
+		}
+		else if (trimmed.Equals("CONTINUE", StringComparison.OrdinalIgnoreCase))
+		{
+			string trVal = Tr("Continue");
+			if (trVal != "Continue") return trVal;
+		}
+		else if (trimmed.Equals("HOW TO PLAY", StringComparison.OrdinalIgnoreCase))
+		{
+			string trVal = Tr("How to Play");
+			if (trVal != "How to Play") return trVal;
+		}
+
+		return input;
 	}
 
 	private static string SafeToUpper(string text)

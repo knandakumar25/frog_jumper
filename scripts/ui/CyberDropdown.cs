@@ -58,10 +58,13 @@ public partial class CyberDropdown : Control
 	{
 		CustomMinimumSize = new Vector2(320, 52);
 		MouseFilter = MouseFilterEnum.Stop;
+		FocusMode = FocusModeEnum.All;
 		_font = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf") ?? ThemeDB.FallbackFont;
 
 		MouseEntered += () => { _isHovered = true;  QueueRedraw(); };
 		MouseExited  += () => { _isHovered = false; QueueRedraw(); };
+		FocusEntered += () => QueueRedraw();
+		FocusExited  += () => QueueRedraw();
 
 		CreatePopupLayer();
 	}
@@ -104,6 +107,28 @@ public partial class CyberDropdown : Control
 		if (@event is InputEventMouseButton mb && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
 		{
 			TogglePopup();
+			AcceptEvent();
+		}
+		else if (@event.IsActionPressed("ui_accept"))
+		{
+			TogglePopup();
+			AcceptEvent();
+		}
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (_isOpen && @event is InputEventMouseButton mb && mb.Pressed)
+		{
+			if (_popupPanel != null && _popupPanel.Visible)
+			{
+				Rect2 popupRect = _popupPanel.GetGlobalRect();
+				Rect2 bodyRect = GetGlobalRect();
+				if (!popupRect.HasPoint(mb.Position) && !bodyRect.HasPoint(mb.Position))
+				{
+					ClosePopup();
+				}
+			}
 		}
 	}
 
@@ -227,18 +252,32 @@ public partial class CyberDropdown : Control
 			_popupVBox.AddChild(btn);
 		}
 
-		// Position the popup exactly below the dropdown body.
+		// Position the popup below the dropdown body, with screen boundary protection.
 		Vector2 globalPos = GlobalPosition;
 		Vector2 size = Size;
-		_popupPanel.Position = new Vector2(globalPos.X, globalPos.Y + size.Y + 6);
+		float viewportHeight = GetViewportRect().Size.Y;
+		float popupHeight = _popupPanel.Size.Y > 0 ? _popupPanel.Size.Y : 276f;
+		float posY = globalPos.Y + size.Y + 6;
+		if (posY + popupHeight > viewportHeight && globalPos.Y - popupHeight - 6 >= 0)
+		{
+			posY = globalPos.Y - popupHeight - 6;
+		}
+		_popupPanel.Position = new Vector2(globalPos.X, posY);
 		_popupPanel.Visible = true;
 		_isOpen = true;
 		QueueRedraw();
+
+		if (_popupVBox.GetChildCount() > 0)
+		{
+			int focusIdx = Mathf.Clamp(_selectedIndex, 0, _popupVBox.GetChildCount() - 1);
+			var targetBtn = _popupVBox.GetChild<Button>(focusIdx);
+			targetBtn?.CallDeferred(Control.MethodName.GrabFocus);
+		}
 	}
 
 	public void ClosePopup()
 	{
-		_popupPanel.Visible = false;
+		if (_popupPanel != null) _popupPanel.Visible = false;
 		_isOpen = false;
 		QueueRedraw();
 	}
@@ -264,8 +303,8 @@ public partial class CyberDropdown : Control
 			new Vector2(0, cut)
 		};
 
-		Color fill = _isHovered ? _bgHover : _bgNormal;
-		Color stroke = (_isHovered || _isOpen) ? _borderMagenta : _borderCyan;
+		Color fill = (_isHovered || HasFocus()) ? _bgHover : _bgNormal;
+		Color stroke = (_isHovered || _isOpen || HasFocus()) ? _borderMagenta : _borderCyan;
 
 		// Render the main background.
 		DrawPolygon(points, new Color[] { fill, fill, fill, fill, fill, fill, fill, fill });

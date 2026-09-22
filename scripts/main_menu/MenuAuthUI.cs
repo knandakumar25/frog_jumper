@@ -9,6 +9,8 @@ public partial class MenuAuthUI : Node
 	private CyberButton _logoutButton;
 	private TextureRect     _avatarRect;
 	private Label           _usernameLabel;
+	private Label           _headerLabel;
+	private Label           _statusLabel;
 	private HBoxContainer   _profileDisplayContainer;
 	private Button          _browserLoginButton;
 
@@ -38,10 +40,11 @@ public partial class MenuAuthUI : Node
 		// 2. Header Label "USER IDENTIFIED"
 		var header = new Label
 		{
-			Text = "// USER IDENTIFIED",
+			Text = Tr("// USER IDENTIFIED"),
 			HorizontalAlignment = HorizontalAlignment.Left,
 			SizeFlagsHorizontal = Control.SizeFlags.ExpandFill
 		};
+		_headerLabel = header;
 		header.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf"));
 		header.AddThemeFontSizeOverride("font_size", 12);
 		header.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.6f));
@@ -106,7 +109,8 @@ public partial class MenuAuthUI : Node
 
 		var statusRow = new HBoxContainer { Alignment = BoxContainer.AlignmentMode.Begin };
 		statusRow.AddChild(onlineLight);
-		var statusLbl = new Label { Text = " ONLINE", SizeFlagsHorizontal = Control.SizeFlags.ExpandFill };
+		var statusLbl = new Label { Text = " " + Tr("ONLINE"), SizeFlagsHorizontal = Control.SizeFlags.ExpandFill };
+		_statusLabel = statusLbl;
 		statusLbl.AddThemeFontSizeOverride("font_size", 10);
 		statusLbl.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf"));
 		statusLbl.AddThemeColorOverride("font_color", new Color(0, 1, 0, 0.8f));
@@ -127,7 +131,7 @@ public partial class MenuAuthUI : Node
 		// 3c. Logout button (using CyberButton for consistency)
 		_logoutButton = new CyberButton
 		{
-			MainText = Tr("LOGOUT"),
+			MainText = "LOGOUT",
 			SubText = "// TERMINATE SESSION",
 			IndexText = "00",
 			CustomMinimumSize = new Vector2(120, 44),
@@ -209,6 +213,22 @@ public partial class MenuAuthUI : Node
 		{
 			if (_profileDisplayContainer != null)
 				_profileDisplayContainer.Visible = false;
+		}
+	}
+
+	public void UpdateLocalizedTexts()
+	{
+		if (_headerLabel != null)
+		{
+			_headerLabel.Text = Tr("// USER IDENTIFIED");
+		}
+		if (_statusLabel != null)
+		{
+			_statusLabel.Text = " " + Tr("ONLINE");
+		}
+		if (_logoutButton != null)
+		{
+			_logoutButton.UpdateLocalization();
 		}
 	}
 

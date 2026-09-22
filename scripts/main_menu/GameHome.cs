@@ -40,35 +40,23 @@ public partial class GameHome : Control
 			}
 		}
 
-		// Load localized or default title logo image
+		// Load localized or default high-contrast 2D title logo image
 		if (_titleLogo != null)
 		{
-			string lang = TranslationServer.GetLocale().ToLower();
-			string logoFile = "axiom_force_title_logo.jpg";
-
-			if (lang.Contains("ar")) logoFile = "axiom_force_title_logo_arabic.jpg";
-			else if (lang.Contains("pt")) logoFile = "axiom_force_title_logo_brazilianportuguese.jpg";
-			else if (lang.Contains("fr")) logoFile = "axiom_force_title_logo_eurofrench.jpg";
-			else if (lang.Contains("de")) logoFile = "axiom_force_title_logo_german.jpg";
-			else if (lang.Contains("he")) logoFile = "axiom_force_title_logo_hebrew.jpg";
-			else if (lang.Contains("it")) logoFile = "axiom_force_title_logo_italian.jpg";
-			else if (lang.Contains("ja")) logoFile = "axiom_force_title_logo_japanese.jpg";
-			else if (lang.Contains("ko")) logoFile = "axiom_force_title_logo_korean.jpg";
-			else if (lang.Contains("mandarin") || lang == "zh_cn") logoFile = "axiom_force_title_logo_mandarin.jpg";
-			else if (lang.Contains("traditionalchinese") || lang.Contains("tw") || lang.Contains("hk") || lang == "zh") logoFile = "axiom_force_title_logo_traditionalchinese.jpg";
-			else if (lang.Contains("indonesian") || lang.Contains("id")) logoFile = "axiom_force_title_logo_indonesian.jpg";
-			else if (lang.Contains("vietnamese") || lang.Contains("vi")) logoFile = "axiom_force_title_logo_vietnamese.jpg";
-			else if (lang.Contains("thai") || lang.Contains("th")) logoFile = "axiom_force_title_logo_thai.jpg";
-			else if (lang.Contains("pl")) logoFile = "axiom_force_title_logo_polish.jpg";
-			else if (lang.Contains("es")) logoFile = "axiom_force_title_logo_spanish.jpg";
-			else if (lang.Contains("tr")) logoFile = "axiom_force_title_logo_turkish.jpg";
-
-			string resPath = "res://assets/images/" + logoFile;
-			string globalPath = ProjectSettings.GlobalizePath(resPath);
-			if (System.IO.File.Exists(globalPath))
+			string resPath = ThreeDMenuExperience.GetLocalizedTitle2DPath();
+			var tex = GD.Load<Texture2D>(resPath);
+			if (tex != null)
 			{
-				var img = Image.LoadFromFile(globalPath);
-				if (img != null) _titleLogo.Texture = ImageTexture.CreateFromImage(img);
+				_titleLogo.Texture = tex;
+			}
+			else
+			{
+				string globalPath = ProjectSettings.GlobalizePath(resPath);
+				if (System.IO.File.Exists(globalPath))
+				{
+					var img = Image.LoadFromFile(globalPath);
+					if (img != null) _titleLogo.Texture = ImageTexture.CreateFromImage(img);
+				}
 			}
 		}
 
@@ -91,10 +79,19 @@ public partial class GameHome : Control
 		// Fade in from black overlay
 		if (_fadeOverlay != null)
 		{
+			_fadeOverlay.MouseFilter = Control.MouseFilterEnum.Ignore;
 			_fadeOverlay.Visible = true;
 			_fadeOverlay.Modulate = new Color(1, 1, 1, 1);
 			var tween = CreateTween();
 			tween.TweenProperty(_fadeOverlay, "modulate:a", 0.0f, 0.6f);
+			tween.TweenCallback(Callable.From(() =>
+			{
+				if (_fadeOverlay != null)
+				{
+					_fadeOverlay.Visible = false;
+					_fadeOverlay.MouseFilter = Control.MouseFilterEnum.Ignore;
+				}
+			}));
 		}
 	}
 
@@ -145,6 +142,8 @@ public partial class GameHome : Control
 		// Fade out black overlay
 		if (_fadeOverlay != null)
 		{
+			_fadeOverlay.Visible = true;
+			_fadeOverlay.MouseFilter = Control.MouseFilterEnum.Stop;
 			var tween = CreateTween();
 			tween.TweenProperty(_fadeOverlay, "modulate:a", 1.0f, 0.4f);
 			await ToSignal(tween, Tween.SignalName.Finished);

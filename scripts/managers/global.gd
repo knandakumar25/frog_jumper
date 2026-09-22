@@ -146,12 +146,15 @@ func _setup_prompt_banner() -> void:
 	_update_prompt_text()
 
 # Updates the control prompt text based on the active input device.
-func _update_prompt_text() -> void:
+func update_prompt_text() -> void:
 	if _prompt_label == null: return
 	if is_gamepad_mode:
-		_prompt_label.text = tr("🎮 GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
 	else:
-		_prompt_label.text = tr("⌨️ KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "/" + tr("Rotate Left") + "  |  E: " + tr("Rotate Right") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "⌨️ " + tr("KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "/" + tr("Rotate Left") + "  |  E: " + tr("Rotate Right") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+
+func _update_prompt_text() -> void:
+	update_prompt_text()
 
 func _on_joy_connection_changed(device: int, connected: bool) -> void:
 	if connected:
@@ -187,9 +190,9 @@ func _input(event: InputEvent) -> void:
 # ─── UI Prompt Helpers ──────────────────────────────────────────────────────────
 func get_nav_prompt() -> String:
 	if is_gamepad_mode:
-		return tr("[ 🎮 D-PAD / L-STICK: Navigate  |  (A): Select  |  (B): Back ]")
+		return "[ 🎮 D-PAD / L-STICK: " + tr("Navigate") + "  |  (A): " + tr("Select") + "  |  (B): " + tr("Back") + " ]"
 	else:
-		return tr("[ ⌨️ ARROWS / WASD: Navigate  |  ENTER / SPACE: Select  |  ESC: Back ]")
+		return "[ ⌨️ ARROWS / WASD: " + tr("Navigate") + "  |  ENTER / SPACE: " + tr("Select") + "  |  ESC: " + tr("Back") + " ]"
 
 func get_home_prompt() -> String:
 	if is_gamepad_mode:

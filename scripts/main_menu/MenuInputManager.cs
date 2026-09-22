@@ -34,6 +34,32 @@ public partial class MenuInputManager : Node
 		_acceptKeyButton = acceptBtn;
 		_cancelKeyButton = cancelBtn;
 		_settingsManager = settingsManager;
+
+		if (_controlsButton != null)
+		{
+			_controlsButton.Pressed -= OpenControls;
+			_controlsButton.Pressed += OpenControls;
+		}
+		if (_resetDefaultsButton != null)
+		{
+			_resetDefaultsButton.Pressed -= ResetDefaults;
+			_resetDefaultsButton.Pressed += ResetDefaults;
+		}
+		if (_closeKeybindingsButton != null)
+		{
+			_closeKeybindingsButton.Pressed -= CloseControls;
+			_closeKeybindingsButton.Pressed += CloseControls;
+		}
+		if (_acceptKeyButton != null)
+		{
+			_acceptKeyButton.Pressed -= AcceptKey;
+			_acceptKeyButton.Pressed += AcceptKey;
+		}
+		if (_cancelKeyButton != null)
+		{
+			_cancelKeyButton.Pressed -= CancelKey;
+			_cancelKeyButton.Pressed += CancelKey;
+		}
 	}
 
 	public void OpenControls()
@@ -42,6 +68,12 @@ public partial class MenuInputManager : Node
 		if (_keybindingsPopup != null)
 		{
 			_keybindingsPopup.Visible = true;
+			var parent = _keybindingsPopup.GetParent();
+			if (parent != null)
+			{
+				parent.MoveChild(_keybindingsPopup, parent.GetChildCount() - 1);
+			}
+			_closeKeybindingsButton?.CallDeferred(Control.MethodName.GrabFocus);
 		}
 	}
 
@@ -49,6 +81,7 @@ public partial class MenuInputManager : Node
 	{
 		if (_keybindingsPopup != null) _keybindingsPopup.Visible = false;
 		if (_keyDetectModal != null)   _keyDetectModal.Visible = false;
+		_controlsButton?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void PopulateKeybindingRows(MenuSettingsManager settingsManager)
@@ -169,6 +202,11 @@ public partial class MenuInputManager : Node
 		if (_keyDetectModal != null)
 		{
 			_keyDetectModal.Visible = true;
+			var parent = _keyDetectModal.GetParent();
+			if (parent != null)
+			{
+				parent.MoveChild(_keyDetectModal, parent.GetChildCount() - 1);
+			}
 		}
 	}
 
@@ -210,6 +248,7 @@ public partial class MenuInputManager : Node
 			}
 		}
 		if (_keyDetectModal != null) _keyDetectModal.Visible = false;
+		PopulateKeybindingRows(_settingsManager);
 	}
 
 	public void CancelKey()
@@ -226,6 +265,7 @@ public partial class MenuInputManager : Node
 		{
 			globalNode.Call("save_custom_keybindings");
 		}
+		PopulateKeybindingRows(_settingsManager);
 	}
 
 	public void UpdateInstructionsControlsText(Label moveLbl, Label jumpLbl, Label pauseLbl)

@@ -87,8 +87,17 @@ public partial class LoadingScreen : Control
 	/// </summary>
 	private void FadeIn()
 	{
+		_fadeOverlay.MouseFilter = Control.MouseFilterEnum.Ignore;
 		var tween = CreateTween();
 		tween.TweenProperty(_fadeOverlay, "modulate:a", 0.0f, _fadeDuration);
+		tween.TweenCallback(Callable.From(() =>
+		{
+			if (_fadeOverlay != null)
+			{
+				_fadeOverlay.Visible = false;
+				_fadeOverlay.MouseFilter = Control.MouseFilterEnum.Ignore;
+			}
+		}));
 	}
 
 	/// <summary>
@@ -96,6 +105,8 @@ public partial class LoadingScreen : Control
 	/// </summary>
 	private async System.Threading.Tasks.Task FadeOutAsync()
 	{
+		_fadeOverlay.Visible = true;
+		_fadeOverlay.MouseFilter = Control.MouseFilterEnum.Stop;
 		var tween = CreateTween();
 		tween.TweenProperty(_fadeOverlay, "modulate:a", 1.0f, _fadeDuration);
 		await ToSignal(tween, Tween.SignalName.Finished);
@@ -184,29 +195,7 @@ public partial class LoadingScreen : Control
 	/// </summary>
 	private string GetLocalizedTitleLogoPath()
 	{
-		string locale = TranslationServer.GetLocale().ToLower();
-		string langName = "english";
-		if (locale.Contains("es") || locale.Contains("spanish")) langName = "spanish";
-		else if (locale.Contains("fr") || locale.Contains("french")) langName = "eurofrench";
-		else if (locale.Contains("de") || locale.Contains("german")) langName = "german";
-		else if (locale.Contains("ja") || locale.Contains("japanese")) langName = "japanese";
-		else if (locale.Contains("ko") || locale.Contains("korean")) langName = "korean";
-		else if (locale.Contains("zh") || locale.Contains("mandarin")) langName = "mandarin";
-		else if (locale.Contains("ar") || locale.Contains("arabic")) langName = "arabic";
-		else if (locale.Contains("he") || locale.Contains("hebrew")) langName = "hebrew";
-		else if (locale.Contains("it") || locale.Contains("italian")) langName = "italian";
-		else if (locale.Contains("pl") || locale.Contains("polish")) langName = "polish";
-		else if (locale.Contains("pt") || locale.Contains("portuguese")) langName = "brazilianportuguese";
-		else if (locale.Contains("tr") || locale.Contains("turkish")) langName = "turkish";
-
-		if (langName == "english") return "res://assets/images/axiom_force_title_logo.jpg";
-
-		string localizedPath = $"res://assets/images/axiom_force_title_logo_{langName}.jpg";
-		if (System.IO.File.Exists(ProjectSettings.GlobalizePath(localizedPath)))
-		{
-			return localizedPath;
-		}
-		return "res://assets/images/axiom_force_title_logo.jpg";
+		return ThreeDMenuExperience.GetLocalizedTitle2DPath();
 	}
 
 	private string Tr(string text)

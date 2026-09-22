@@ -27,6 +27,7 @@ public partial class MainMenu : Control
 	private Panel       _instructionsPopup;
 	private HBoxContainer _titleContainer;
 	private Button       _browserLoginButton;
+	private Label       _navPromptLabel;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
 	public override void _Ready()
@@ -98,6 +99,15 @@ public partial class MainMenu : Control
 		catch (System.Exception ex)
 		{
 			GD.PrintErr($"main_menu: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
+		}
+	}
+
+	public override void _Notification(int what)
+	{
+		base._Notification(what);
+		if (what == NotificationTranslationChanged)
+		{
+			UpdateLocalization();
 		}
 	}
 
@@ -278,6 +288,50 @@ public partial class MainMenu : Control
 		RestoreMainMenuFocus();
 	}
 
+	public void _on_apply_settings_pressed()
+	{
+		_settingsManager?.ApplySettings();
+		UpdateLocalization();
+		RestoreMainMenuFocus();
+	}
+
+	public virtual void UpdateLocalization()
+	{
+		_settingsManager?.UpdateLocalizedTexts(this);
+		_authUI?.UpdateLocalizedTexts();
+		UpdateLocalizedTitle();
+
+		var global = GetNodeOrNull<Node>("/root/Global");
+		if (_navPromptLabel != null && global != null && global.HasMethod("get_nav_prompt"))
+		{
+			_navPromptLabel.Text = (string)global.Call("get_nav_prompt");
+		}
+	}
+
+	public void _on_close_settings_pressed()
+	{
+		_settingsManager?.CloseSettings();
+		RestoreMainMenuFocus();
+	}
+
+	public void _on_confirm_yes_pressed() => _sessionUI?.ConfirmAction();
+	public void _on_confirm_no_pressed() => _sessionUI?.CancelAction();
+	public void _on_new_game_confirm_pressed() => _sessionUI?.ConfirmNewGame();
+	public void _on_new_game_cancel_pressed()
+	{
+		_sessionUI?.CancelNewGame();
+		RestoreMainMenuFocus();
+	}
+	public void _on_continue_back_pressed()
+	{
+		_sessionUI?.CloseAll();
+		RestoreMainMenuFocus();
+	}
+
+	public virtual void UpdateLocalizedTitle()
+	{
+	}
+
 	public override void _Input(InputEvent @event)
 	{
 		_inputManager.HandleInput(@event);
@@ -342,6 +396,7 @@ public partial class MainMenu : Control
 		navPromptLabel.AddThemeFontSizeOverride("font_size", 16);
 		navPromptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.85f));
 
+		_navPromptLabel = navPromptLabel;
 		footerContainer.AddChild(navPromptLabel);
 		AddChild(footerContainer);
 
