@@ -41,7 +41,7 @@ public partial class PlayerHUD3D : Node3D
 		_healthText = new Label3D();
 		_healthText.Text = "HP: 100";
 		_healthText.Modulate = new Color(0, 1, 1);
-		_healthText.Billboard = BillboardMode.Enabled;
+		_healthText.Billboard = BaseMaterial3D.BillboardModeEnum.Enabled;
 		_healthText.FontSize = 18;
 		_healthText.Position = new Vector3(0, 0.15f, 0);
 		_healthBarBackground.AddChild(_healthText);
@@ -50,7 +50,7 @@ public partial class PlayerHUD3D : Node3D
 		_scoreLabel = new Label3D();
 		_scoreLabel.Text = "SCORE: 0";
 		_scoreLabel.Modulate = new Color(1, 0, 1);
-		_scoreLabel.Billboard = BillboardMode.Enabled;
+		_scoreLabel.Billboard = BaseMaterial3D.BillboardModeEnum.Enabled;
 		_scoreLabel.FontSize = 16;
 		_scoreLabel.Position = new Vector3(0, -0.2f, 0);
 		AddChild(_scoreLabel);
@@ -94,7 +94,7 @@ public partial class PlayerHUD3D : Node3D
 	private MeshInstance3D CreateRingMesh(Color color)
 	{
 		var meshInstance = new MeshInstance3D();
-		var torus = new TorusMesh { InnerRadius = 0.05f, OuterRadius = 0.07f, RingSections = 32, RadialSections = 8 };
+		var torus = new TorusMesh { InnerRadius = 0.05f, OuterRadius = 0.07f };
 		meshInstance.Mesh = torus;
 
 		var mat = new StandardMaterial3D
@@ -124,13 +124,15 @@ public partial class PlayerHUD3D : Node3D
 
 		if (percent < 0.3f)
 		{
-			_healthBarFill.MaterialOverride = (_healthBarFill.MaterialOverride as StandardMaterial3D) with { AlbedoColor = new Color(1, 0, 0) };
+			var mat = _healthBarFill.MaterialOverride as StandardMaterial3D;
+			if (mat != null) mat.AlbedoColor = new Color(1, 0, 0);
 			_healthText.Modulate = new Color(1, 0, 0);
 			TriggerGlitch();
 		}
 		else
 		{
-			_healthBarFill.MaterialOverride = (_healthBarFill.MaterialOverride as StandardMaterial3D) with { AlbedoColor = new Color(0, 1, 1) };
+			var mat = _healthBarFill.MaterialOverride as StandardMaterial3D;
+			if (mat != null) mat.AlbedoColor = new Color(0, 1, 1);
 			_healthText.Modulate = new Color(0, 1, 1);
 		}
 	}

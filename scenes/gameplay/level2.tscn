@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dgladm2g3g5cv" path="res://scenes/gameplay/level3.tscn" id="8_8s32x"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_comic_light"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="8_y4e06"]
-[ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://scenes/gameplay/pause_menu.tscn" id="10_tm2c0"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
 bg_color = Color(0, 0, 0, 0.75)
@@ -18,7 +18,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0.8, 0.2, 0.8)
+border_color = Color(0, 0.94, 1, 0.8)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -362,11 +362,28 @@ sources/1 = SubResource("TileSetAtlasSource_8b14w")
 
 [node name="level2" type="Node"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("11_cyber_glow")
+
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_vj8fr")
 
 [node name="SceneObjects" type="Node" parent="."]
+
+[node name="CyanAccentLight" type="PointLight2D" parent="SceneObjects"]
+position = Vector2(300, 400)
+color = Color(0, 0.94, 1, 1)
+energy = 1.5
+texture = ExtResource("2_5titt")
+scale = Vector2(2, 2)
+
+[node name="MagentaAccentLight" type="PointLight2D" parent="SceneObjects"]
+position = Vector2(1500, 200)
+color = Color(1, 0, 0.5, 1)
+energy = 1.5
+texture = ExtResource("2_5titt")
+scale = Vector2(2, 2)
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
 texture_filter = 1

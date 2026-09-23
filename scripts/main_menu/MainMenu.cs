@@ -27,6 +27,7 @@ public partial class MainMenu : Control
 	private Panel       _instructionsPopup;
 	private HBoxContainer _titleContainer;
 	private Button       _browserLoginButton;
+	private Label       _navPromptLabel;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
 	public override void _Ready()
@@ -55,7 +56,9 @@ public partial class MainMenu : Control
 			// Update continue button visibility based on session data.
 			var continueBtn = GetNodeOrNull<Control>("ButtonContainer/ContinueButton");
 			if (continueBtn != null)
-				continueBtn.Visible = SessionManager.Instance.HasSessions();
+			{
+				continueBtn.Visible = SessionManager.Instance?.HasSessions() ?? false;
+			}
 
 			// Initial styling pass.
 			_settingsManager.ApplyCyberpunkPanelStyles(this);
@@ -99,13 +102,17 @@ public partial class MainMenu : Control
 		}
 	}
 
+	public override void _Notification(int what)
+	{
+		base._Notification(what);
+		if (what == NotificationTranslationChanged)
+		{
+			UpdateLocalization();
+		}
+	}
+
 	private void InitializeManagers()
 	{
-		// Neon Pulse Manager (Global system).
-		var pulseManager = new NeonPulseManager { Name = "NeonPulseManager" };
-		AddChild(pulseManager);
-		NeonPulseManager.Instance = pulseManager;
-
 		// Background Manager.
 		_backgroundManager = new MenuBackgroundManager { Name = "MenuBackgroundManager" };
 		AddChild(_backgroundManager);
@@ -134,7 +141,7 @@ public partial class MainMenu : Control
 			GetNodeOrNull<Label>("KeyDetectModal/VBoxContainer/PromptLabel"),
 			GetNodeOrNull<Label>("KeyDetectModal/VBoxContainer/DetectedKeyLabel"),
 			GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/AcceptButton"),
-			GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/CancelButton")
+			GetNodeOrNull<Button>("KeyDetectModal/VBoxContainer/ButtonContainer/CancelButton"), _settingsManager
 		);
 
 		// Auth UI.
@@ -156,7 +163,7 @@ public partial class MainMenu : Control
 	}
 
 	// ─── Global Utilities ────────────────────────────────────────────────────────
-	public static string Tr(string text) => Node.Tr(text);
+	public static string Tr(string text) => TranslationServer.Translate(text);
 
 	private void WireButtonSignal(Node parent, string nodePath, Action callback)
 	{
@@ -281,6 +288,50 @@ public partial class MainMenu : Control
 		RestoreMainMenuFocus();
 	}
 
+	public void _on_apply_settings_pressed()
+	{
+		_settingsManager?.ApplySettings();
+		UpdateLocalization();
+		RestoreMainMenuFocus();
+	}
+
+	public virtual void UpdateLocalization()
+	{
+		_settingsManager?.UpdateLocalizedTexts(this);
+		_authUI?.UpdateLocalizedTexts();
+		UpdateLocalizedTitle();
+
+		var global = GetNodeOrNull<Node>("/root/Global");
+		if (_navPromptLabel != null && global != null && global.HasMethod("get_nav_prompt"))
+		{
+			_navPromptLabel.Text = (string)global.Call("get_nav_prompt");
+		}
+	}
+
+	public void _on_close_settings_pressed()
+	{
+		_settingsManager?.CloseSettings();
+		RestoreMainMenuFocus();
+	}
+
+	public void _on_confirm_yes_pressed() => _sessionUI?.ConfirmAction();
+	public void _on_confirm_no_pressed() => _sessionUI?.CancelAction();
+	public void _on_new_game_confirm_pressed() => _sessionUI?.ConfirmNewGame();
+	public void _on_new_game_cancel_pressed()
+	{
+		_sessionUI?.CancelNewGame();
+		RestoreMainMenuFocus();
+	}
+	public void _on_continue_back_pressed()
+	{
+		_sessionUI?.CloseAll();
+		RestoreMainMenuFocus();
+	}
+
+	public virtual void UpdateLocalizedTitle()
+	{
+	}
+
 	public override void _Input(InputEvent @event)
 	{
 		_inputManager.HandleInput(@event);
@@ -345,6 +396,7 @@ public partial class MainMenu : Control
 		navPromptLabel.AddThemeFontSizeOverride("font_size", 16);
 		navPromptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.85f));
 
+		_navPromptLabel = navPromptLabel;
 		footerContainer.AddChild(navPromptLabel);
 		AddChild(footerContainer);
 

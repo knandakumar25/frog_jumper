@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ck68m5fwnp1h2" path="res://scenes/gameplay/level2.tscn" id="7_3tb0g"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="10_comic_light"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="9_4ychm"]
-[ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://scenes/gameplay/pause_menu.tscn" id="10_iy0yb"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
 bg_color = Color(0, 0, 0, 0.75)
@@ -18,7 +18,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0.8, 0.2, 0.8)
+border_color = Color(0, 0.94, 1, 0.8)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -338,7 +338,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f71te")
 sources/1 = SubResource("TileSetAtlasSource_apkse")
 
-[node name="level1" type="Node"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("11_cyber_glow")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -352,6 +353,20 @@ position = Vector2(3, 40)
 shape = SubResource("RectangleShape2D_jnv1u")
 
 [node name="SceneObjects" type="Node" parent="."]
+
+[node name="CyanAccentLight" type="PointLight2D" parent="SceneObjects"]
+position = Vector2(200, 300)
+color = Color(0, 0.94, 1, 1)
+energy = 1.5
+texture = ExtResource("2_gdqxh")
+scale = Vector2(2, 2)
+
+[node name="MagentaAccentLight" type="PointLight2D" parent="SceneObjects"]
+position = Vector2(1800, 300)
+color = Color(1, 0, 0.5, 1)
+energy = 1.5
+texture = ExtResource("2_gdqxh")
+scale = Vector2(2, 2)
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
 texture_filter = 1

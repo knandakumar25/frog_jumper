@@ -20,7 +20,7 @@ public partial class CombatVFXManager : Node
 	/// </summary>
 	public async void TriggerHitStop(float duration = 0.05f)
 	{
-		float originalScale = Engine.TimeScale;
+		float originalScale = (float)Engine.TimeScale;
 		Engine.TimeScale = 0.05f; // Near freeze
 		await ToSignal(GetTree().CreateTimer(duration, false), "timeout");
 		Engine.TimeScale = originalScale;

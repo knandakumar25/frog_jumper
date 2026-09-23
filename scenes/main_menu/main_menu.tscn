@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://s2aukf1vgcnf" path="res://scripts/main_menu/MainMenu.cs" id="1_hgd46"]
 [ext_resource type="Texture2D" uid="uid://dh3lam2n5p8q1" path="res://assets/images/Gemini_Generated_Image_t8s2p4t8s2p4t8s2.png" id="2_v0073"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://scripts/ui/audio_options.gd" id="3_audio_options"]
-[ext_resource type="FontFile" uid="uid://c8hq3c3pvi1tq" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="3_comic_bolditalic"]
-[ext_resource type="FontFile" uid="uid://dfwjkfl8w3rqq" path="res://assets/fonts/ComicNeue-Bold.ttf" id="4_comic_bold"]
-[ext_resource type="FontFile" uid="uid://4y1kjfc8pwck" path="res://assets/fonts/ComicNeue-Light.ttf" id="4_comic_light"]
-[ext_resource type="FontFile" uid="uid://cbef6n7i0y7pp" path="res://assets/fonts/ComicNeue-Regular.ttf" id="5_comic_regular"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="4_rajdhani_bold"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Light.ttf" id="5_rajdhani_light"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Regular.ttf" id="6_rajdhani_regular"]
 [ext_resource type="Script" path="res://scripts/ui/CyberButton.cs" id="4_cyber_btn_script"]
 [ext_resource type="Script" path="res://scripts/ui/CyberDropdown.cs" id="4_cyber_dropdown"]
 
@@ -38,13 +38,23 @@ texture = ExtResource("2_v0073")
 stretch_mode = 6
 
 [node name="TitleContainer" type="HBoxContainer" parent="." unique_id=1012410615]
-visible = false
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.04
 anchor_top = 0.03
 anchor_right = 0.58
 anchor_bottom = 0.23
+
+[node name="MainTitle" type="Label" parent="TitleContainer" unique_id=1012410616]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AXIOM FORCE"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 64
+
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=350939543]
 layout_mode = 1
@@ -113,7 +123,24 @@ anchor_right = 0.6
 anchor_bottom = 0.97
 theme_override_colors/font_color = Color(0, 0.94, 1, 0.75)
 theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("6_rajdhani_regular")
 text = "AXIOM NET // STATUS: ONLINE // SYSTEM READY"
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_left = 0.96
+anchor_top = 0.97
+anchor_right = 0.96
+anchor_bottom = 0.97
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.94, 1, 0.5)
+theme_override_fonts/font = ExtResource("6_rajdhani_regular")
+theme_override_font_sizes/font_size = 14
+text = "v1.0.4-NEON-PULSE"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=1634546171]
 layout_mode = 3
@@ -197,8 +224,7 @@ layout_mode = 2
 
 [node name="SettingsPopup" type="Panel" parent="." unique_id=228723333]
 visible = false
-z_index = 50
-mouse_filter = 2
+z_index = 101
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,10 +237,10 @@ offset_right = 350.0
 offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup" unique_id=403408098]
 layout_mode = 1
-mouse_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -590,8 +616,6 @@ text = "Exit"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-
-
 [node name="NewGamePopup" type="Panel" parent="." unique_id=993984160]
 visible = false
 layout_mode = 1
@@ -776,37 +800,6 @@ text = "No"
 [node name="BottomSpacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=1913211128]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=671100976]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = -119.5
-offset_right = -3.5
-offset_bottom = -2.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=865855131]
-layout_mode = 2
-text = "Quit?"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Yes" type="Button" parent="VBoxContainer" unique_id=279929470]
-auto_translate_mode = 1
-layout_mode = 2
-text = "Yes"
-
-[node name="No" type="Button" parent="VBoxContainer" unique_id=168627804]
-auto_translate_mode = 1
-layout_mode = 2
-text = "No"
 
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/YesButton" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="QuitPopup/VBoxContainer/ButtonContainer/NoButton" to="." method="_on_no_pressed"]

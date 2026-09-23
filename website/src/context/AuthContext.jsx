@@ -54,14 +54,15 @@ export const AuthProvider = ({ children }) => {
   };
 
 
-  const register = async (username, email, password, firstName = '', lastName = '', profilePicture = '') => {
+  const register = async (username, email, password, firstName = '', lastName = '', profilePicture = '', country = '') => {
     await apiClient.post('/auth/register/', {
       username,
       email,
       password,
       first_name: firstName,
       last_name: lastName,
-      profile_picture: profilePicture
+      profile_picture: profilePicture,
+      country
     });
   };
 

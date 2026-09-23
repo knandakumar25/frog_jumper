@@ -32,7 +32,7 @@ public partial class HealthBar3D : Label3D
 		}
 
 		// Ensure the label always faces the camera.
-		SetBillboard(Billboard.Enabled);
+		Billboard = BaseMaterial3D.BillboardModeEnum.Enabled;
 	}
 
 	private void OnHealthChanged(float current, float max)

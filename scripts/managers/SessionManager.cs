@@ -310,7 +310,7 @@ public partial class SessionManager : Node
 		DeleteAllJsonSessions();
 	}
 
-	public bool HasSessions() => GetAllSessions().Count > 0;
+	public bool HasSessions() => GetAllSessionsAsync().GetAwaiter().GetResult().Count > 0;
 
 	public string FormatDatetime(string datetimeStr)
 	{

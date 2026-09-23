@@ -35,19 +35,27 @@ public partial class MenuSettingsManager : Node
 		if (_displayDropdown != null)
 		{
 			var globalNode = GetNodeOrNull<Node>("/root/Global");
-			string currentMode = (globalNode != null) ? (string)globalNode.Get("current_display_mode") : "Fullscreen";
+			string currentMode = (globalNode != null) ? (string)globalNode.Get("current_display_mode") : "Windowed Fullscreen";
 			_pendingSelectedDisplayMode = currentMode;
 			_displayDropdown.SelectItemByText(Tr(currentMode));
 		}
 
 		_settingsPopup.Visible = true;
-		// coordinator handles MoveChild and GrabFocus
+		var parent = _settingsPopup.GetParent();
+		if (parent != null)
+		{
+			parent.MoveChild(_settingsPopup, parent.GetChildCount() - 1);
+		}
+		var applyBtn = _settingsPopup.GetNodeOrNull<Control>("VBoxContainer/ButtonContainer/ApplyButton");
+		applyBtn?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void CloseSettings()
 	{
 		if (_settingsPopup != null)
 		{
+			_languageDropdown?.ClosePopup();
+			_displayDropdown?.ClosePopup();
 			_settingsPopup.Visible = false;
 			var audioOptions = _settingsPopup.GetNode<Node>("VBoxContainer/AudioOptions");
 			string currentLang = (string)audioOptions.Get("selected_language");
@@ -81,13 +89,15 @@ public partial class MenuSettingsManager : Node
 			}
 		}
 
+		_languageDropdown?.ClosePopup();
+		_displayDropdown?.ClosePopup();
 		_settingsPopup.Visible = false;
 	}
 
 	public void PopulateLanguageButtons()
 	{
 		var audioOptions = _settingsPopup.GetNode<Node>("VBoxContainer/AudioOptions");
-		var languages    = (Dictionary)audioOptions.Get("languages");
+		var languages    = (Godot.Collections.Dictionary)audioOptions.Get("languages");
 		string currentLang = (string)audioOptions.Get("selected_language");
 
 		_languageDropdown.Clear();
@@ -131,7 +141,7 @@ public partial class MenuSettingsManager : Node
 		_displayDropdown.AddItem(Tr("Windowed"));
 
 		var globalNode = GetNodeOrNull<Node>("/root/Global");
-		string currentMode = "Fullscreen";
+		string currentMode = "Windowed Fullscreen";
 		if (globalNode != null)
 		{
 			currentMode = (string)globalNode.Get("current_display_mode");
@@ -152,29 +162,78 @@ public partial class MenuSettingsManager : Node
 
 	public void UpdateLocalizedTexts(Control root)
 	{
-		var playBtn = root.GetNodeOrNull<CyberButton>("ButtonContainer/Play");
-		if (playBtn != null) { playBtn.MainText = Tr("Play"); playBtn.QueueRedraw(); }
+		var btnContainer = root.GetNodeOrNull<Control>("ButtonContainer");
+		if (btnContainer != null)
+		{
+			foreach (Node child in btnContainer.GetChildren())
+			{
+				if (child is CyberButton cb)
+				{
+					cb.UpdateLocalization();
+				}
+			}
+		}
 
-		var contBtn = root.GetNodeOrNull<CyberButton>("ButtonContainer/ContinueButton");
-		if (contBtn != null) { contBtn.MainText = Tr("Continue"); contBtn.QueueRedraw(); }
+		var statusTicker = root.GetNodeOrNull<Label>("StatusTicker");
+		if (statusTicker != null)
+		{
+			statusTicker.Text = Tr("AXIOM NET // STATUS: ONLINE // SYSTEM READY");
+		}
 
-		var instBtn = root.GetNodeOrNull<CyberButton>("ButtonContainer/Instructions");
-		if (instBtn != null) { instBtn.MainText = Tr("Instructions"); instBtn.QueueRedraw(); }
-
-		var setBtn = root.GetNodeOrNull<CyberButton>("ButtonContainer/Settings");
-		if (setBtn != null) { setBtn.MainText = Tr("Settings"); setBtn.QueueRedraw(); }
-
-		var quitBtn = root.GetNodeOrNull<CyberButton>("ButtonContainer/QuitButton");
-		if (quitBtn != null) { quitBtn.MainText = Tr("Quit"); quitBtn.QueueRedraw(); }
-
-		var settingsTitle = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/TitleLabel");
+		var settingsTitle = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/Title") ?? _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/TitleLabel");
 		if (settingsTitle != null) settingsTitle.Text = Tr("// SYSTEM CALIBRATION //");
+
+		var volLbl = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/VolumeLabel");
+		if (volLbl != null)
+		{
+			var slider = _settingsPopup?.GetNodeOrNull<HSlider>("VBoxContainer/AudioOptions/VBoxContainer/MasterSlider");
+			int pct = slider != null ? (int)Math.Round(slider.Value * 100.0) : 100;
+			volLbl.Text = $"{Tr("Volume").ToUpper()}   [ {pct}% ]";
+		}
+
+		var langLbl = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/LanguageLabel");
+		if (langLbl != null) langLbl.Text = Tr("Language").ToUpper();
 
 		var applyBtn = _settingsPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ApplyButton");
 		if (applyBtn != null) applyBtn.Text = Tr("Apply");
 
 		var closeBtn = _settingsPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/CloseButton");
 		if (closeBtn != null) closeBtn.Text = Tr("Close");
+
+		var controlsBtn = _settingsPopup?.GetNodeOrNull<Button>("VBoxContainer/AudioOptions/VBoxContainer/ControlsButton");
+		if (controlsBtn != null) controlsBtn.Text = Tr("// REBIND CONTROLS");
+
+		var displayLbl = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/DisplayLabel");
+		if (displayLbl != null) displayLbl.Text = Tr("Display Mode").ToUpper();
+
+		PopulateDisplayModeButtons();
+
+		var keybindingsPopup = root.GetNodeOrNull<Panel>("KeybindingsPopup");
+		if (keybindingsPopup != null)
+		{
+			var keyTitle = keybindingsPopup.GetNodeOrNull<Label>("VBoxContainer/Title");
+			if (keyTitle != null) keyTitle.Text = Tr("// CUSTOM CONTROLS REBIND //");
+			var resetDefaults = keybindingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ResetDefaultsButton");
+			if (resetDefaults != null) resetDefaults.Text = Tr("Reset Defaults");
+			var closeKey = keybindingsPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/CloseKeybindingsButton");
+			if (closeKey != null) closeKey.Text = Tr("Close");
+		}
+
+		var instructionsPopup = root.GetNodeOrNull<Panel>("InstructionsPopup");
+		if (instructionsPopup != null)
+		{
+			var instClose = instructionsPopup.GetNodeOrNull<Button>("VBoxContainer/CloseButton");
+			if (instClose != null) instClose.Text = Tr("Close");
+		}
+
+		var continuePopup = root.GetNodeOrNull<Panel>("ContinuePopup");
+		if (continuePopup != null)
+		{
+			var contTitle = continuePopup.GetNodeOrNull<Label>("VBoxContainer/Title");
+			if (contTitle != null) contTitle.Text = Tr("// OPERATIVE RECORDS MATRIX //");
+			var backBtn = continuePopup.GetNodeOrNull<Button>("VBoxContainer/BackButton");
+			if (backBtn != null) backBtn.Text = Tr("Back");
+		}
 
 		var quitMsg = root.GetNodeOrNull<Panel>("QuitPopup")?.GetNodeOrNull<Label>("VBoxContainer/Label");
 		if (quitMsg != null) quitMsg.Text = Tr("Are you sure you want to quit?");
@@ -184,6 +243,17 @@ public partial class MenuSettingsManager : Node
 
 		var quitNo = root.GetNodeOrNull<Panel>("QuitPopup")?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton");
 		if (quitNo != null) quitNo.Text = Tr("No");
+
+		var globalNode = root.GetNodeOrNull<Node>("/root/Global");
+		if (globalNode != null && globalNode.HasMethod("update_prompt_text"))
+		{
+			globalNode.Call("update_prompt_text");
+		}
+
+		if (root is MainMenu mainMenu)
+		{
+			mainMenu.UpdateLocalizedTitle();
+		}
 	}
 
 	public void ApplyCyberpunkPanelStyles(Control root)

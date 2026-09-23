@@ -51,7 +51,7 @@ func _translate_ui() -> void:
 
 # Unfreezes the game world and hides the pause UI.
 func resume() -> void:
-		GameManager.set_game_state(GameManager.State.GAMEPLAY)
+	GameManager.set_game_state(GameManager.State.GAMEPLAY)
 	get_tree().paused = false
 	var panel = get_node_or_null("ColorRect2")
 	if panel != null:

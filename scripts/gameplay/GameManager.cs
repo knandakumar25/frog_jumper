@@ -48,7 +48,7 @@ public partial class GameManager : Node
 	/// Persists the current points to the active session via the SessionManager.
 	/// </summary>
 	/// <param name="levelName">The name of the level being completed (e.g., "level1").</param>
-	public void SaveScore(string levelName)
+	public async void SaveScore(string levelName)
 	{
 		// Access the SessionManager singleton instance.
 		var sm = SessionManager.Instance;
@@ -60,7 +60,7 @@ public partial class GameManager : Node
 				levelNum = n;
 
 			// Update the database record for the current user session.
-			sm.UpdateSession(sm.CurrentSessionId, levelNum, Points, 0);
+			await sm.UpdateSessionAsync(sm.CurrentSessionId, levelNum, Points, 0);
 		}
 	}
 

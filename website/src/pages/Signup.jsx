@@ -14,6 +14,78 @@ export default function Signup() {
   const [previewUrl, setPreviewUrl] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [country, setCountry] = useState('');
+  const [countries, setCountries] = useState([]);
+  const [isLoadingCountries, setIsLoadingCountries] = useState(true);
+  const [countryError, setCountryError] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchUNCountries = async () => {
+      try {
+        const cached = sessionStorage.getItem('un_countries_list_v2');
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            if (isMounted) {
+              setCountries(parsed);
+              setIsLoadingCountries(false);
+            }
+            return;
+          }
+        }
+
+        const res = await fetch('https://unstats.un.org/SDGAPI/v1/sdg/GeoArea/Tree');
+        if (!res.ok) throw new Error(`UN SDG API HTTP ${res.status}`);
+        const data = await res.json();
+
+        const countryMap = new Map();
+        const walk = (nodes) => {
+          if (!Array.isArray(nodes)) return;
+          for (const node of nodes) {
+            if (node.type === 'Country' && node.geoAreaName) {
+              const rawName = node.geoAreaName.trim();
+              // Index Palestine as 'Palestine (State of)' so it sorts naturally under 'P'
+              const displayName = rawName === 'State of Palestine' ? 'Palestine (State of)' : rawName;
+              if (displayName && !countryMap.has(displayName)) {
+                countryMap.set(displayName, {
+                  name: displayName,
+                  value: rawName,
+                  code: String(node.geoAreaCode || '')
+                });
+              }
+            }
+            if (node.children && node.children.length > 0) {
+              walk(node.children);
+            }
+          }
+        };
+        walk(data);
+
+        const sorted = Array.from(countryMap.values()).sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
+        if (isMounted) {
+          setCountries(sorted);
+          setIsLoadingCountries(false);
+          sessionStorage.setItem('un_countries_list_v2', JSON.stringify(sorted));
+        }
+      } catch (err) {
+        console.error('Failed to load countries from UN API:', err);
+        if (isMounted) {
+          setCountryError(true);
+          setIsLoadingCountries(false);
+        }
+      }
+    };
+
+    fetchUNCountries();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -72,11 +144,17 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
+
+    if (!country) {
+      setErrorMsg('Please select your country of residence.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       // 1. Create account
-      await register(username, email, password, firstName, lastName, profilePicture);
+      await register(username, email, password, firstName, lastName, profilePicture, country);
       // 2. Perform auto-login for a seamless experience
       await login(username, password);
       
@@ -216,6 +294,38 @@ export default function Signup() {
               required
               disabled={isSubmitting}
             />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-xs uppercase font-bold tracking-wider text-on-surface-variant">
+              Country / Territory
+            </label>
+            <div className="relative">
+              <select
+                className="w-full bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md cursor-pointer appearance-none pr-10"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                required
+                disabled={isSubmitting || isLoadingCountries}
+              >
+                <option value="" disabled className="bg-surface-container-highest text-on-surface-variant">
+                  {isLoadingCountries ? 'Loading official UN country database...' : 'Select your country'}
+                </option>
+                {countries.map((c) => (
+                  <option key={c.code || c.name} value={c.name} className="bg-surface text-on-surface py-1">
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-on-surface-variant">
+                <span className="material-symbols-outlined text-[20px]">arrow_drop_down</span>
+              </div>
+            </div>
+            {countryError && (
+              <span className="text-[11px] text-error font-medium">
+                Unable to load UN country list. Please check your connection or refresh.
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col gap-2">

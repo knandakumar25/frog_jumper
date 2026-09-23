@@ -7,7 +7,7 @@ extends Node
 var reached_finish = false
 var selected_character = "Cyber Shogun"  # Default character
 var unlocked_levels = 1  # Track highest unlocked level (1-4)
-var current_display_mode: String = "Fullscreen"
+var current_display_mode: String = "Windowed Fullscreen"
 
 # Local paths for user-specific settings.
 # Unity Migration: Use Application.persistentDataPath.
@@ -21,10 +21,8 @@ var menu_music_player: AudioStreamPlayer = null
 func _ready() -> void:
 	load_saved_settings()
 
-	# The game MUST ALWAYS launch in Fullscreen mode by default on every rerun.
-	current_display_mode = "Fullscreen"
 	if DisplayServer.get_name() != "headless":
-		apply_display_mode("Fullscreen")
+		apply_display_mode(current_display_mode)
 		# Prevent the OS from putting the device to sleep during gameplay.
 		DisplayServer.screen_set_keep_on(true)
 		print("Global: Screen keep-awake enabled (prevents device sleep)")
@@ -148,12 +146,15 @@ func _setup_prompt_banner() -> void:
 	_update_prompt_text()
 
 # Updates the control prompt text based on the active input device.
-func _update_prompt_text() -> void:
+func update_prompt_text() -> void:
 	if _prompt_label == null: return
 	if is_gamepad_mode:
-		_prompt_label.text = tr("🎮 GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
 	else:
-		_prompt_label.text = tr("⌨️ KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "/" + tr("Rotate Left") + "  |  E: " + tr("Rotate Right") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "⌨️ " + tr("KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "/" + tr("Rotate Left") + "  |  E: " + tr("Rotate Right") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+
+func _update_prompt_text() -> void:
+	update_prompt_text()
 
 func _on_joy_connection_changed(device: int, connected: bool) -> void:
 	if connected:
@@ -189,9 +190,9 @@ func _input(event: InputEvent) -> void:
 # ─── UI Prompt Helpers ──────────────────────────────────────────────────────────
 func get_nav_prompt() -> String:
 	if is_gamepad_mode:
-		return tr("[ 🎮 D-PAD / L-STICK: Navigate  |  (A): Select  |  (B): Back ]")
+		return "[ 🎮 D-PAD / L-STICK: " + tr("Navigate") + "  |  (A): " + tr("Select") + "  |  (B): " + tr("Back") + " ]"
 	else:
-		return tr("[ ⌨️ ARROWS / WASD: Navigate  |  ENTER / SPACE: Select  |  ESC: Back ]")
+		return "[ ⌨️ ARROWS / WASD: " + tr("Navigate") + "  |  ENTER / SPACE: " + tr("Select") + "  |  ESC: " + tr("Back") + " ]"
 
 func get_home_prompt() -> String:
 	if is_gamepad_mode:
@@ -316,6 +317,7 @@ func update_font_for_locale(locale_code: String) -> void:
 
 func apply_display_mode(mode_name: String) -> void:
 	current_display_mode = mode_name
+	save_user_settings()
 	match mode_name:
 		"Windowed Fullscreen":
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -332,6 +334,32 @@ func apply_display_mode(mode_name: String) -> void:
 # ─── Persistence & Input Customization ──────────────────────────────────────────
 func load_saved_settings() -> void:
 	load_custom_keybindings()
+	if FileAccess.file_exists(SETTINGS_PATH):
+		var file = FileAccess.open(SETTINGS_PATH, FileAccess.READ)
+		if file != null:
+			var text = file.get_as_text()
+			file.close()
+			var json = JSON.new()
+			if json.parse(text) == OK and json.data is Dictionary:
+				if json.data.has("display_mode"):
+					current_display_mode = json.data["display_mode"]
+					print("Global: Loaded saved display mode: ", current_display_mode)
+
+func save_user_settings() -> void:
+	var data = {}
+	if FileAccess.file_exists(SETTINGS_PATH):
+		var file = FileAccess.open(SETTINGS_PATH, FileAccess.READ)
+		if file != null:
+			var text = file.get_as_text()
+			file.close()
+			var json = JSON.new()
+			if json.parse(text) == OK and json.data is Dictionary:
+				data = json.data
+	data["display_mode"] = current_display_mode
+	var file = FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(data))
+		file.close()
 
 # Loads custom user keybindings from a JSON file.
 func load_custom_keybindings() -> void:

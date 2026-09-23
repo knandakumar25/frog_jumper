@@ -49,4 +49,6 @@ graphify-out/
 
 # Built Android binaries
 build/android/
-
+
+# Test screenshots
+assets/images/screenshot_*.png*

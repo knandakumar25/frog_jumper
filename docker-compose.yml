@@ -1,0 +1,80 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: frog_jumper_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-accounts_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-accounts_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: frog_jumper_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-accounts_db}
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      SECRET_KEY: ${SECRET_KEY:-django-insecure-change-this-in-production}
+      DEBUG: ${DEBUG:-True}
+      ALLOWED_HOSTS: "*"
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5173}
+      EPIC_CLIENT_ID: ${EPIC_CLIENT_ID:-xyza7891g76bMoT7LRbXiajbp1ZynDUf}
+      EPIC_CLIENT_SECRET: ${EPIC_CLIENT_SECRET:-DvsZrhk6V1YxjWFgBZ8c1EJZqigg2kyF0kxL+9Xk2RA}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID:-1519971724869894197}
+      DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET:-m0Zs7KUvEW49tqisij-cQs4caSY9wEC0}
+      STEAM_API_KEY: ${STEAM_API_KEY:-}
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+
+  website:
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    container_name: frog_jumper_website
+    restart: unless-stopped
+    volumes:
+      - ./website/dist:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+  exporter:
+    build:
+      context: .
+      dockerfile: docker/export/Dockerfile
+    image: frog_jumper-exporter
+    container_name: frog_jumper_exporter
+    profiles:
+      - export
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    environment:
+      - TARGET=${TARGET:-all}
+
+volumes:
+  postgres_data:
+    name: frog_jumper_postgres_data

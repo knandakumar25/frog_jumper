@@ -21,7 +21,7 @@ public partial class FinishZone3D : Area3D
 		if (_isTriggered) return;
 
 		// Verify that the body is the player.
-		if (body is Player3D)
+		if (body is Player3D player)
 		{
 			// 1. Check if the objective is complete.
 			var levelManager = GetTree().Root.FindChild("Level3DManager", true, false) as Level3DManager;
@@ -36,7 +36,7 @@ public partial class FinishZone3D : Area3D
 			GD.Print("Exit reached! You've conquered this sector!");
 
 			// 2. Stop player movement.
-			body.StopMovement();
+			player.StopMovement();
 
 			// 3. Notify the Level Manager to save.
 			if (levelManager != null)

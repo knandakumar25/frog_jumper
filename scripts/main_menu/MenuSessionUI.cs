@@ -26,16 +26,30 @@ public partial class MenuSessionUI : Node
 		_confirmLabel = confirmLabel;
 	}
 
+	private void ShowPopupAnimated(Panel popup)
+	{
+		if (popup == null) return;
+
+		popup.Visible = true;
+		popup.Modulate = new Color(1, 1, 1, 0);
+		popup.Scale = new Vector2(0.95f, 0.95f);
+		popup.PivotOffset = popup.Size / 2;
+
+		var tween = GetTree().CreateTween().SetParallel(true);
+		tween.TweenProperty(popup, "modulate", new Color(1, 1, 1, 1), 0.2f).SetTrans(Tween.TransitionType.Sine);
+		tween.TweenProperty(popup, "scale", new Vector2(1, 1), 0.2f).SetTrans(Tween.TransitionType.Sine);
+	}
+
 	public void OpenNewGame()
 	{
-		_newGamePopup.Visible = true;
+		ShowPopupAnimated(_newGamePopup);
 		_newGamePopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ConfirmButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public async void OpenContinue()
 	{
 		await PopulateSessions();
-		_continuePopup.Visible = true;
+		ShowPopupAnimated(_continuePopup);
 		FocusFirstSessionButton();
 	}
 
@@ -74,13 +88,10 @@ public partial class MenuSessionUI : Node
 
 		_sessionsContainer.AddChild(new Control { CustomMinimumSize = new Vector2(0, 10) });
 
-		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
-		var rajdhaniFont = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf");
-
 		int idx = 1;
 		foreach (var item in sessions)
 		{
-			var session    = (Dictionary)item;
+			var session    = (Godot.Collections.Dictionary)item;
 			int  sessionId = session["id"].AsInt32();
 			string character  = (string)session["character"];
 			int  level     = session["current_level"].AsInt32();
@@ -90,73 +101,32 @@ public partial class MenuSessionUI : Node
 			var row = new HBoxContainer();
 			row.AddThemeConstantOverride("separation", 12);
 
-			string cardTitle = $"[{idx:D2}]  {Tr(character).ToUpper()}   |   {Tr("Level")} {level}   |   {Tr("Score")}: {score}   |   {lastPlayed}";
-			var sessionBtn = new Button
+			// Session Card using CyberButton
+			var sessionBtn = new CyberButton
 			{
-				Text                = cardTitle,
+				MainText = $"[{idx:D2}] {Tr(character).ToUpper()}",
+				SubText = $"{Tr("Level")} {level}   |   {Tr("Score")} {score}   |   {lastPlayed}",
+				IndexText = "00",
 				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
 				CustomMinimumSize   = new Vector2(0, 68),
-				Alignment           = HorizontalAlignment.Left
 			};
-			sessionBtn.AddThemeFontSizeOverride("font_size", 19);
-			sessionBtn.AddThemeFontOverride("font", rajdhaniFont);
-
-			var normalBox = new StyleBoxFlat
-			{
-				BgColor = new Color(0.04f, 0.08f, 0.18f, 0.92f),
-				BorderColor = new Color(0f, 0.94f, 1f, 0.70f),
-				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
-				ContentMarginLeft = 20, ContentMarginRight = 20
-			};
-			normalBox.SetCornerRadiusAll(8);
-
-			var hoverBox = new StyleBoxFlat
-			{
-				BgColor = new Color(0.08f, 0.14f, 0.32f, 0.98f),
-				BorderColor = new Color(1f, 0f, 0.5f, 1.0f),
-				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
-				ContentMarginLeft = 20, ContentMarginRight = 20
-			};
-			hoverBox.SetCornerRadiusAll(8);
-
-			sessionBtn.AddThemeStyleboxOverride("normal",  normalBox);
-			sessionBtn.AddThemeStyleboxOverride("hover",   hoverBox);
-			sessionBtn.AddThemeStyleboxOverride("pressed", hoverBox);
-			sessionBtn.AddThemeColorOverride("font_color", new Color(0.95f, 0.98f, 1f, 1f));
 
 			var capturedId   = sessionId;
 			var capturedSess = session;
 			sessionBtn.Pressed += () => OnSessionSelected(capturedId, capturedSess);
 			row.AddChild(sessionBtn);
 
-			var delBtn = new Button
+			// Deletion Button (Small CyberButton variant)
+			var delBtn = new CyberButton
 			{
-				Text              = "✕",
-				CustomMinimumSize = new Vector2(60, 68),
+				MainText = "✕",
+				SubText = "// DEL",
+				IndexText = "!",
+				CustomMinimumSize = new Vector2(70, 68),
 			};
-			delBtn.AddThemeFontSizeOverride("font_size", 22);
-			delBtn.AddThemeFontOverride("font", orbitronFont);
-
-			var delNormal = new StyleBoxFlat
-			{
-				BgColor = new Color(0.18f, 0.04f, 0.08f, 0.90f),
-				BorderColor = new Color(1f, 0f, 0.35f, 0.75f),
-				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2
-			};
-			delNormal.SetCornerRadiusAll(8);
-
-			var delHover = new StyleBoxFlat
-			{
-				BgColor = new Color(0.35f, 0.06f, 0.12f, 0.98f),
-				BorderColor = new Color(1f, 0.2f, 0.45f, 1.0f),
-				BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2
-			};
-			delHover.SetCornerRadiusAll(8);
-
-			delBtn.AddThemeStyleboxOverride("normal",  delNormal);
-			delBtn.AddThemeStyleboxOverride("hover",   delHover);
-			delBtn.AddThemeStyleboxOverride("pressed", delHover);
+			// Override some colors for the delete button to make it look dangerous
 			delBtn.AddThemeColorOverride("font_color", new Color(1f, 0.3f, 0.45f, 1f));
+
 			delBtn.Pressed += () => OnDeleteOnePressed(capturedId);
 			row.AddChild(delBtn);
 
@@ -166,23 +136,15 @@ public partial class MenuSessionUI : Node
 		}
 	}
 
-	private static Button MakeDeleteButton(string text)
+	private static CyberButton MakeDeleteButton(string text)
 	{
-		var btn = new Button { Text = text };
-		btn.AddThemeFontSizeOverride("font_size", 15);
-		btn.AddThemeFontOverride("font", GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf"));
-
-		var style = new StyleBoxFlat
+		var btn = new CyberButton
 		{
-			BgColor = new Color(0.20f, 0.04f, 0.08f, 0.90f),
-			BorderColor = new Color(1f, 0f, 0.35f, 0.85f),
-			BorderWidthLeft = 2, BorderWidthTop = 2, BorderWidthRight = 2, BorderWidthBottom = 2,
-			ContentMarginLeft = 16, ContentMarginRight = 16, ContentMarginTop = 8, ContentMarginBottom = 8
+			MainText = text,
+			SubText = "// SYSTEM PURGE",
+			IndexText = "!!",
+			CustomMinimumSize = new Vector2(200, 44)
 		};
-		style.SetCornerRadiusAll(6);
-
-		btn.AddThemeStyleboxOverride("normal", style);
-		btn.AddThemeStyleboxOverride("hover",  style);
 		btn.AddThemeColorOverride("font_color", new Color(1f, 0.4f, 0.5f, 1f));
 		return btn;
 	}
@@ -193,7 +155,7 @@ public partial class MenuSessionUI : Node
 		_confirmPopup.SetMeta("delete_mode",       "one");
 		_confirmPopup.SetMeta("delete_session_id", sessionId);
 		_continuePopup.Visible = false;
-		_confirmPopup.Visible  = true;
+		ShowPopupAnimated(_confirmPopup);
 		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
@@ -202,11 +164,11 @@ public partial class MenuSessionUI : Node
 		_confirmLabel.Text = Tr("Delete ALL saved games?") + "\n" + Tr("This cannot be undone.");
 		_confirmPopup.SetMeta("delete_mode", "all");
 		_continuePopup.Visible = false;
-		_confirmPopup.Visible  = true;
+		ShowPopupAnimated(_confirmPopup);
 		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/NoButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
-	private void OnSessionSelected(int sessionId, Dictionary sessionData)
+	private void OnSessionSelected(int sessionId, Godot.Collections.Dictionary sessionData)
 	{
 		string character  = (string)sessionData["character"];
 		int    level      = sessionData["current_level"].AsInt32();
@@ -220,7 +182,7 @@ public partial class MenuSessionUI : Node
 		_confirmPopup.SetMeta("session_data",  sessionData);
 
 		_continuePopup.Visible = false;
-		_confirmPopup.Visible  = true;
+		ShowPopupAnimated(_confirmPopup);
 		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/YesButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
@@ -257,7 +219,7 @@ public partial class MenuSessionUI : Node
 
 		// Continue session
 		int sessionId   = _confirmPopup.GetMeta("session_id").AsInt32();
-		var sessionData = (Dictionary)_confirmPopup.GetMeta("session_data");
+		var sessionData = (Godot.Collections.Dictionary)_confirmPopup.GetMeta("session_data");
 		await SessionManager.Instance.LoadSessionAsync(sessionId);
 		GetNode<Node>("/root/Global").Set("selected_character", sessionData["character"]);
 
