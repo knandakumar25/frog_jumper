@@ -1,9 +1,8 @@
-import { createContext, useContext, useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { LANGUAGE_CONFIG } from './config';
+import { SUPPORTED_LANGUAGES, LANGUAGE_CONFIG } from './config';
 import i18n from './i18n';
 import { GAME_NAME_TRANSLATIONS } from './gameNames';
-
 
 const LanguageContext = createContext();
 
@@ -39,190 +38,177 @@ export const LANGUAGE_ID_TO_CODE = {
   korean: 'ko',
   mandarin: 'zh',
   simplified_chinese: 'zh',
-  traditional_chinese: 'zh',
-  cantonese: 'yue',
+  traditional_chinese: 'zh_tw',
+  traditionalchinese: 'zh_tw',
+  cantonese: 'zh_tw',
   polish: 'pl',
   turkish: 'tr',
+  vietnamese: 'vi',
+  indonesian: 'id',
+  thai: 'th',
 };
 
-export function getLocaleCode(langId, countryName, languageConfig) {
-  const langCode = LANGUAGE_ID_TO_CODE[langId] || 'en';
-  let countryCode = 'us';
-  if (languageConfig && languageConfig.languages) {
-    for (const lang of languageConfig.languages) {
-      const country = lang.countries.find(c => c.name === countryName);
-      if (country) {
-        countryCode = country.code;
-        break;
-      }
-    }
-  }
-  return `${langCode}_${countryCode.toLowerCase()}`;
+// Map code back to primary language ID
+export const CODE_TO_LANGUAGE_ID = {
+  en: 'english',
+  es: 'spanish',
+  vi: 'vietnamese',
+  ja: 'japanese',
+  ko: 'korean',
+  zh: 'mandarin',
+  zh_tw: 'traditional_chinese',
+  fr: 'french',
+  de: 'german',
+  pt: 'portuguese',
+  it: 'italian',
+  pl: 'polish',
+  tr: 'turkish',
+  ar: 'arabic',
+  he: 'hebrew',
+  id: 'indonesian',
+  th: 'thai',
+};
+
+/**
+ * Returns the short locale code for a given language ID (e.g. 'en', 'vi', 'es')
+ */
+export function getLocaleCode(langId) {
+  if (!langId) return 'en';
+  return LANGUAGE_ID_TO_CODE[langId] || langId;
 }
 
-export function parseLocaleCode(locale, languageConfig) {
+/**
+ * Parses any incoming URL locale token (e.g. 'en', 'vi', 'en_us', 'vi_vn', 'es_es')
+ * into the resolved language ID and code.
+ */
+export function parseLocaleCode(locale) {
   if (!locale) return null;
-  const parts = locale.split('_');
-  if (parts.length !== 2) return null;
-  const langCode = parts[0].toLowerCase();
-  const countryCode = parts[1].toLowerCase();
+  const clean = locale.toLowerCase().trim();
 
-  for (const lang of languageConfig.languages) {
-    const isLangMatch = LANGUAGE_ID_TO_CODE[lang.id] === langCode;
-    if (isLangMatch) {
-      const country = lang.countries.find(c => c.code.toLowerCase() === countryCode);
-      if (country) {
-        return {
-          langId: country.langId || lang.id,
-          countryName: country.name,
-        };
-      }
-    }
+  // 1. Direct code match (e.g. 'en', 'vi', 'es')
+  if (CODE_TO_LANGUAGE_ID[clean]) {
+    return { langId: CODE_TO_LANGUAGE_ID[clean], code: clean };
   }
 
-  // Fallback
-  let matchedLang = languageConfig.languages.find(l => LANGUAGE_ID_TO_CODE[l.id] === langCode);
-  let matchedCountry = null;
-  for (const l of languageConfig.languages) {
-    const c = l.countries.find(c => c.code.toLowerCase() === countryCode);
-    if (c) {
-      matchedCountry = c;
-      break;
-    }
+  // 2. Direct language ID match (e.g. 'english', 'vietnamese')
+  if (LANGUAGE_ID_TO_CODE[clean]) {
+    return { langId: clean, code: LANGUAGE_ID_TO_CODE[clean] };
   }
-  if (matchedLang && matchedCountry) {
-    return {
-      langId: matchedCountry.langId || matchedLang.id,
-      countryName: matchedCountry.name,
-    };
+
+  // 3. Handle traditional Chinese dialect code
+  if (clean === 'zh_tw' || clean === 'zh-tw') {
+    return { langId: 'traditional_chinese', code: 'zh_tw' };
+  }
+
+  // 4. Handle compound country codes (e.g. 'en_us', 'vi_vn', 'es_mx')
+  const primary = clean.split(/[_-]/)[0];
+  if (CODE_TO_LANGUAGE_ID[primary]) {
+    return { langId: CODE_TO_LANGUAGE_ID[primary], code: primary };
   }
 
   return null;
 }
-
-
 
 function detectBrowserDefault() {
   const navLang = (navigator.languages && navigator.languages[0]) || navigator.language;
-  if (!navLang) return null;
-
-  const [langCode, countryCode] = navLang.toLowerCase().split('-');
-
-  for (const lang of LANGUAGE_CONFIG.languages) {
-    if (LANGUAGE_ID_TO_CODE[lang.id] === langCode) {
-      if (countryCode) {
-        const country = lang.countries.find(c => c.code.toLowerCase() === countryCode);
-        if (country) {
-          return { langId: country.langId || lang.id, countryName: country.name };
-        }
-      }
-      // Fallback to first country of this language
-      return { langId: lang.countries[0]?.langId || lang.id, countryName: lang.countries[0]?.name };
-    }
-  }
-  return null;
+  if (!navLang) return 'english';
+  const primary = navLang.toLowerCase().split('-')[0];
+  return CODE_TO_LANGUAGE_ID[primary] || 'english';
 }
 
 export function LanguageProvider({ children }) {
-  const [selectedCountry, setSelectedCountry] = useState(() => {
-    const stored = localStorage.getItem('selectedCountry');
-    if (stored) return stored;
-
-    const browser = detectBrowserDefault();
-    if (browser) {
-      return browser.countryName;
-    }
-    return 'United States';
-  });
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     const stored = localStorage.getItem('selectedLanguage');
-    if (stored) return stored;
-
-    const browser = detectBrowserDefault();
-    if (browser) {
-      return browser.langId;
+    if (stored && (LANGUAGE_ID_TO_CODE[stored] || CODE_TO_LANGUAGE_ID[stored])) {
+      return CODE_TO_LANGUAGE_ID[stored] || stored;
     }
-    return 'english';
+    return detectBrowserDefault();
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Sync state with URL route changes
   useEffect(() => {
-    const userConfirmed = localStorage.getItem('userSelectedLocale') === '1';
-    if (!userConfirmed) {
-      setIsModalOpen(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    const userConfirmed = localStorage.getItem('userSelectedLocale') === '1';
-    if (!isModalOpen && !userConfirmed) {
-      const finalMatch = detectBrowserDefault() || { langId: 'english', countryName: 'United States' };
-      
-      const lang = LANGUAGE_CONFIG.languages.find(l => l.id === finalMatch.langId);
-      const country =
-        lang?.countries.find(c => c.name === finalMatch.countryName) ||
-        lang?.countries[0];
-
-      if (lang && country) {
-        localStorage.setItem('userSelectedLocale', '1');
-        setSelectedLanguage(finalMatch.langId);
-        setSelectedCountry(country.name);
-        const newLocale = getLocaleCode(finalMatch.langId, country.name, LANGUAGE_CONFIG);
-        const pathParts = location.pathname.split('/');
-        const restOfPath = pathParts.slice(2).join('/');
-        const targetPath = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
-        navigate(targetPath);
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const potentialLocale = pathParts[0];
+    if (potentialLocale && potentialLocale !== 'auth') {
+      const match = parseLocaleCode(potentialLocale);
+      if (match) {
+        if (match.langId !== selectedLanguage) {
+          setSelectedLanguage(match.langId);
+        }
+        localStorage.setItem('selectedLanguage', match.langId);
       }
     }
-  }, [isModalOpen]);
+  }, [location.pathname, selectedLanguage]);
 
+  // Persist language to localStorage
   useEffect(() => {
-    localStorage.setItem('selectedCountry', selectedCountry || '');
     localStorage.setItem('selectedLanguage', selectedLanguage);
-  }, [selectedCountry, selectedLanguage]);
+  }, [selectedLanguage]);
 
+  // Update i18n, RTL direction, and HTML title dynamically
   useEffect(() => {
     const langCode = LANGUAGE_ID_TO_CODE[selectedLanguage] || 'en';
-    i18n.changeLanguage(langCode);
+    const i18nCode = (langCode === 'zh_tw') ? 'zh' : langCode;
+    i18n.changeLanguage(i18nCode);
 
-    // Set text direction and language dynamically
+    // Set text direction and language attribute
     const isRtl = langCode === 'ar' || langCode === 'he';
     document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
     document.documentElement.lang = langCode;
 
     // Dynamically set document title based on localized game name
     const titleObj = GAME_NAME_TRANSLATIONS[langCode] || GAME_NAME_TRANSLATIONS['en'];
-    document.title = `${titleObj.brand}: ${titleObj.prefix}${titleObj.highlight}`;
+    if (titleObj) {
+      document.title = titleObj.brand;
+    }
   }, [selectedLanguage]);
 
-
-  const chooseLanguageAndCountry = (langId, country) => {
-    const actualLangId = country.langId || langId;
-    localStorage.setItem('userSelectedLocale', '1');
+  // Direct 1-click language switcher (Fortnite-style)
+  const chooseLanguage = (langId) => {
+    const actualLangId = CODE_TO_LANGUAGE_ID[langId] || langId;
+    localStorage.setItem('selectedLanguage', actualLangId);
     setSelectedLanguage(actualLangId);
-    setSelectedCountry(country.name);
     setIsModalOpen(false);
 
-    const newLocale = getLocaleCode(actualLangId, country.name, LANGUAGE_CONFIG);
-    const pathParts = location.pathname.split('/');
-    const restOfPath = pathParts.slice(2).join('/');
-    navigate(`/${newLocale}/${restOfPath}`);
+    const newLocale = getLocaleCode(actualLangId);
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const firstPart = pathParts[0];
+
+    let restOfPath = '';
+    if (firstPart && parseLocaleCode(firstPart)) {
+      restOfPath = pathParts.slice(1).join('/');
+    } else {
+      restOfPath = pathParts.join('/');
+    }
+
+    const targetUrl = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+    navigate(targetUrl);
+  };
+
+  // Backward compatibility alias for any component still calling chooseLanguageAndCountry
+  const chooseLanguageAndCountry = (langId, country) => {
+    const targetLang = country?.langId || langId;
+    chooseLanguage(targetLang);
   };
 
   return (
     <LanguageContext.Provider value={{
       selectedLanguage,
       setSelectedLanguage,
-      selectedCountry,
-      setSelectedCountry,
+      selectedCountry: '', // Deprecated, provided for backward compatibility
+      setSelectedCountry: () => {},
       isModalOpen,
       setIsModalOpen,
+      chooseLanguage,
       chooseLanguageAndCountry,
+      SUPPORTED_LANGUAGES,
       LANGUAGE_CONFIG,
       getLocaleCode,
+      parseLocaleCode,
     }}>
       {children}
     </LanguageContext.Provider>

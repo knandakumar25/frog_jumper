@@ -8,10 +8,11 @@ class UserSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(required=False, allow_blank=True, default='')
     last_name = serializers.CharField(required=False, allow_blank=True, default='')
     profile_picture = serializers.CharField(required=False, allow_blank=True, default='')
+    country = serializers.CharField(required=True, allow_blank=False, max_length=100)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name', 'profile_picture')
+        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name', 'profile_picture', 'country')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):

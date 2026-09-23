@@ -1,0 +1,14 @@
+.git
+.github
+.godot
+.import
+.idea
+.vscode
+.validation
+tests
+tools
+*.log
+website/node_modules
+website/dist
+backend/__pycache__
+backend/.venv

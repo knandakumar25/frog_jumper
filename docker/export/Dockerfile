@@ -1,0 +1,47 @@
+# Official Microsoft .NET 10 SDK on Ubuntu 24.04 (Noble)
+FROM mcr.microsoft.com/dotnet/sdk:10.0
+
+LABEL maintainer="Axiom Force Team"
+LABEL description="Headless Godot 4.7.2 .NET Multi-Platform Game Exporter (On-Demand)"
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV GODOT_VERSION=4.7.2
+
+# Install headless Godot and export dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    wget \
+    unzip \
+    libfontconfig1 \
+    libxcursor1 \
+    libxinerama1 \
+    libxrandr2 \
+    libxi6 \
+    libgl1 \
+    libasound2t64 \
+    libpulse0 \
+    default-jre-headless \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download Godot Engine 4.7.2 Mono (Linux x86_64)
+RUN mkdir -p /opt/godot && \
+    curl -sSL -o /tmp/godot.zip https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip && \
+    unzip -q /tmp/godot.zip -d /opt/godot && \
+    rm /tmp/godot.zip && \
+    ln -s /opt/godot/Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64/Godot_v${GODOT_VERSION}-stable_mono_linux.x86_64 /usr/local/bin/godot
+
+# Download and install Official Export Templates for 4.7.2 Mono
+RUN mkdir -p /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono && \
+    curl -sSL -o /tmp/templates.tpz https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz && \
+    unzip -q -j /tmp/templates.tpz "templates/*" -d /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono/ && \
+    rm /tmp/templates.tpz
+
+WORKDIR /workspace
+
+# Copy export automation script
+COPY docker/export/export.sh /usr/local/bin/export-game
+RUN chmod +x /usr/local/bin/export-game
+
+ENTRYPOINT ["/usr/local/bin/export-game"]
+CMD ["all"]

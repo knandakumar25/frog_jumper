@@ -3,6 +3,7 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../translations/LanguageSelector';
 import { useLanguage } from '../translations/LanguageContext';
+import { getTitleLogoPath } from '../translations/titleLogo';
 import { useAuth } from '../context/AuthContext';
 
 const NAV_LINKS = [
@@ -62,9 +63,9 @@ export default function Navbar() {
           {/* Logo */}
           <NavLink to={`/${currentLocale}`} className="flex items-center gap-2 select-none hover:opacity-95 transition-opacity">
             <img 
-              src="/images/axiom_force_title_logo.jpg" 
+              src={getTitleLogoPath(selectedLanguage)} 
               alt="AXIOM FORCE" 
-              className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,243,255,0.7)] rounded-md"
+              className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,243,255,0.75)] select-none transition-all duration-300"
             />
           </NavLink>
 

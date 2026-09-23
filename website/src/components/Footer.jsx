@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
+import { getTitleLogoPath } from '../translations/titleLogo';
 import AccessibilityModal from './AccessibilityModal';
 
 export default function Footer() {
@@ -21,9 +22,9 @@ export default function Footer() {
             <div className="md:col-span-8 flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <img 
-                  src="/images/axiom_force_title_logo.jpg" 
+                  src={getTitleLogoPath(selectedLanguage)} 
                   alt="AXIOM FORCE" 
-                  className="h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(0,243,255,0.5)] rounded-md"
+                  className="h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,243,255,0.6)] select-none transition-all duration-300"
                 />
               </div>
               
