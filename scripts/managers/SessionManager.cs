@@ -4,84 +4,42 @@ using System;
 using System.Collections.Generic;
 using Npgsql;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 /// <summary>
 /// SessionManager is a singleton autoload that manages game sessions (user progress, scores, and character data).
 /// It implements a dual-storage strategy:
 /// 1. Primary: PostgreSQL database via Npgsql for centralized, online storage.
 /// 2. Fallback: Local JSON file in the user directory for offline persistence.
-///
-/// Unity Migration Note: For Unity, consider using a backend service like PlayFab or Firebase for
-/// online storage, and JSON or PlayerPrefs for local cached data.
 /// </summary>
 public partial class SessionManager : Node
 {
-	/// <summary>
-	/// Singleton instance for global access.
-	/// </summary>
 	public static SessionManager Instance { get; private set; }
 
-	// ─── Configuration ──────────────────────────────────────────────────────────
-	/// <summary>
-	/// Connection string for the PostgreSQL database.
-	/// Unity Migration: Store this in a secure Config file or environment variable.
-	/// </summary>
 	private const string PgConnectionString = "Host=127.0.0.1;Port=5432;Database=accounts_db;Username=postgres;Password=postgres;Timeout=3;";
-
-	/// <summary>
-	/// Local path for JSON fallback storage.
-	/// 'user://' is Godot's persistent user data directory.
-	/// Unity Migration: Use Application.persistentDataPath.
-	/// </summary>
 	private const string JsonBackupPath = "user://game_sessions.json";
 
-	/// <summary>
-	/// Tracks whether the PostgreSQL server is reachable.
-	/// </summary>
 	private bool _isPostgresAvailable = false;
 
-	/// <summary>
-	/// The ID of the currently active game session. -1 if no session is loaded.
-	/// </summary>
 	[Export] public int CurrentSessionId { get; set; } = -1;
-
-	/// <summary>
-	/// Cached data for the current session to avoid redundant DB queries.
-	/// </summary>
 	public Dictionary CurrentSessionData { get; set; } = new Dictionary();
 
-	// ─── Lifecycle ───────────────────────────────────────────────────────────────
-	public override void _Ready()
+	public override async void _Ready()
 	{
-		GD.Print("SessionManager: _ready() start");
 		Instance = this;
-		try
-		{
-			InitDatabase();
-		}
-		catch (Exception ex)
-		{
-			GD.PrintErr($"SessionManager: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
-		}
-		GD.Print("SessionManager: _ready() complete");
+		await InitDatabaseAsync();
 	}
 
-	/// <summary>
-	/// Attempts to connect to PostgreSQL and ensures the 'game_sessions' table exists.
-	/// If the connection fails, the system automatically switches to JSON fallback mode.
-	/// </summary>
-	public void InitDatabase()
+	public async Task InitDatabaseAsync()
 	{
 		GD.Print("SessionManager: Testing PostgreSQL connection...");
 		try
 		{
 			using var conn = new NpgsqlConnection(PgConnectionString);
-			conn.Open();
+			await conn.OpenAsync();
 			_isPostgresAvailable = true;
 			GD.Print("SessionManager: Connected to PostgreSQL server successfully!");
 
-			// SQL Schema for session tracking.
-			// Fields: id (Primary Key), character (Name), current_level, total_score, collectables, timestamps.
 			string createTableSql = @"
 				CREATE TABLE IF NOT EXISTS game_sessions (
 					id SERIAL PRIMARY KEY,
@@ -94,7 +52,7 @@ public partial class SessionManager : Node
 				);";
 
 			using var cmd = new NpgsqlCommand(createTableSql, conn);
-			cmd.ExecuteNonQuery();
+			await cmd.ExecuteNonQueryAsync();
 			GD.Print("SessionManager: PostgreSQL table 'game_sessions' verified/created.");
 		}
 		catch (Exception ex)
@@ -104,12 +62,7 @@ public partial class SessionManager : Node
 		}
 	}
 
-	/// <summary>
-	/// Creates a new game session for a character.
-	/// </summary>
-	/// <param name="characterName">The name of the character selected by the player.</param>
-	/// <returns>The unique ID of the newly created session.</returns>
-	public int CreateNewSession(string characterName)
+	public async Task<int> CreateNewSessionAsync(string characterName)
 	{
 		string now = Time.GetDatetimeStringFromSystem();
 
@@ -118,7 +71,7 @@ public partial class SessionManager : Node
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
 				string sql = @"
 					INSERT INTO game_sessions (character, current_level, total_score, collectables, created_at, last_played)
 					VALUES (@char, 1, 0, 0, @created, @last)
@@ -129,9 +82,9 @@ public partial class SessionManager : Node
 				cmd.Parameters.AddWithValue("created", now);
 				cmd.Parameters.AddWithValue("last", now);
 
-				int newId = Convert.ToInt32(cmd.ExecuteScalar());
+				int newId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
 				CurrentSessionId = newId;
-				CurrentSessionData = GetSession(newId);
+				CurrentSessionData = await GetSessionAsync(newId);
 				GD.Print($"SessionManager: Created new PostgreSQL session ID {newId}");
 				return newId;
 			}
@@ -141,15 +94,10 @@ public partial class SessionManager : Node
 			}
 		}
 
-		// If Postgres fails, use the local JSON fallback.
 		return CreateJsonSession(characterName, now);
 	}
 
-	/// <summary>
-	/// Retrieves a list of all existing game sessions.
-	/// </summary>
-	/// <returns>A Godot Array of Dictionaries containing session data.</returns>
-	public Godot.Collections.Array GetAllSessions()
+	public async Task<Godot.Collections.Array> GetAllSessionsAsync()
 	{
 		var result = new Godot.Collections.Array();
 
@@ -158,12 +106,12 @@ public partial class SessionManager : Node
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
 				string sql = "SELECT * FROM game_sessions ORDER BY last_played DESC;";
 				using var cmd = new NpgsqlCommand(sql, conn);
-				using var reader = cmd.ExecuteReader();
+				using var reader = await cmd.ExecuteReaderAsync();
 
-				while (reader.Read())
+				while (await reader.ReadAsync())
 				{
 					var row = new Dictionary
 					{
@@ -188,25 +136,20 @@ public partial class SessionManager : Node
 		return GetAllJsonSessions();
 	}
 
-	/// <summary>
-	/// Retrieves specific session data by ID.
-	/// </summary>
-	/// <param name="sessionId">The ID of the session to fetch.</param>
-	/// <returns>A Dictionary containing the session details.</returns>
-	public Dictionary GetSession(int sessionId)
+	public async Task<Dictionary> GetSessionAsync(int sessionId)
 	{
 		if (_isPostgresAvailable)
 		{
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
 				string sql = "SELECT * FROM game_sessions WHERE id = @id;";
 				using var cmd = new NpgsqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("id", sessionId);
-				using var reader = cmd.ExecuteReader();
+				using var reader = await cmd.ExecuteReaderAsync();
 
-				if (reader.Read())
+				if (await reader.ReadAsync())
 				{
 					return new Dictionary
 					{
@@ -229,35 +172,41 @@ public partial class SessionManager : Node
 		return GetJsonSession(sessionId);
 	}
 
-	/// <summary>
-	/// Activates a specific session, making it the current active session.
-	/// </summary>
-	/// <param name="sessionId">The ID of the session to load.</param>
-	/// <returns>True if the session was successfully loaded; otherwise false.</returns>
-	public bool LoadSession(int sessionId)
+	public async Task<bool> LoadSessionAsync(int sessionId)
 	{
-		var data = GetSession(sessionId);
+		var data = await GetSessionAsync(sessionId);
 		if (data.Count == 0) return false;
 
 		CurrentSessionId = sessionId;
 		CurrentSessionData = data;
-		UpdateLastPlayed(sessionId);
+		await UpdateLastPlayedAsync(sessionId);
 		return true;
 	}
 
-	/// <summary>
-	/// Updates the progress (level, score, collectables) for a given session.
-	/// </summary>
-	public void UpdateSession(int sessionId, int level, int score, int collectables)
+	public async Task UpdateSessionAsync(int sessionId, int level, int scoreIncrement, int collectablesIncrement)
 	{
 		string now = Time.GetDatetimeStringFromSystem();
+		int totalScore = 0;
+		int totalCollectables = 0;
 
 		if (_isPostgresAvailable)
 		{
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
+
+				string fetchSql = "SELECT total_score, collectables FROM game_sessions WHERE id = @id;";
+				using var fetchCmd = new NpgsqlCommand(fetchSql, conn);
+				fetchCmd.Parameters.AddWithValue("id", sessionId);
+				using var reader = await fetchCmd.ExecuteReaderAsync();
+				if (await reader.ReadAsync())
+				{
+					totalScore = reader.GetInt32(0);
+					totalCollectables = reader.GetInt32(1);
+				}
+				await reader.DisposeAsync();
+
 				string sql = @"
 					UPDATE game_sessions
 					SET current_level = @level, total_score = @score, collectables = @coll, last_played = @last
@@ -265,15 +214,15 @@ public partial class SessionManager : Node
 
 				using var cmd = new NpgsqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("level", level);
-				cmd.Parameters.AddWithValue("score", score);
-				cmd.Parameters.AddWithValue("coll", collectables);
+				cmd.Parameters.AddWithValue("score", totalScore + scoreIncrement);
+				cmd.Parameters.AddWithValue("coll", totalCollectables + collectablesIncrement);
 				cmd.Parameters.AddWithValue("last", now);
 				cmd.Parameters.AddWithValue("id", sessionId);
 
-				cmd.ExecuteNonQuery();
+				await cmd.ExecuteNonQueryAsync();
 
 				if (sessionId == CurrentSessionId)
-					CurrentSessionData = GetSession(sessionId);
+					CurrentSessionData = await GetSessionAsync(sessionId);
 				return;
 			}
 			catch (Exception ex)
@@ -282,13 +231,10 @@ public partial class SessionManager : Node
 			}
 		}
 
-		UpdateJsonSession(sessionId, level, score, collectables, now);
+		UpdateJsonSession(sessionId, level, scoreIncrement, collectablesIncrement, now);
 	}
 
-	/// <summary>
-	/// Updates the 'last_played' timestamp for a session to track recent activity.
-	/// </summary>
-	public void UpdateLastPlayed(int sessionId)
+	public async Task UpdateLastPlayedAsync(int sessionId)
 	{
 		string now = Time.GetDatetimeStringFromSystem();
 		if (_isPostgresAvailable)
@@ -296,13 +242,12 @@ public partial class SessionManager : Node
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
 				string sql = "UPDATE game_sessions SET last_played = @last WHERE id = @id;";
 				using var cmd = new NpgsqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("last", now);
 				cmd.Parameters.AddWithValue("id", sessionId);
-				cmd.ExecuteNonQuery();
-				return;
+				await cmd.ExecuteNonQueryAsync();
 			}
 			catch (Exception ex)
 			{
@@ -311,21 +256,18 @@ public partial class SessionManager : Node
 		}
 	}
 
-	/// <summary>
-	/// Deletes a specific session from storage.
-	/// </summary>
-	public void DeleteSession(int sessionId)
+	public async Task DeleteSessionAsync(int sessionId)
 	{
 		if (_isPostgresAvailable)
 		{
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
 				string sql = "DELETE FROM game_sessions WHERE id = @id;";
 				using var cmd = new NpgsqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("id", sessionId);
-				cmd.ExecuteNonQuery();
+				await cmd.ExecuteNonQueryAsync();
 
 				if (sessionId == CurrentSessionId)
 				{
@@ -343,20 +285,17 @@ public partial class SessionManager : Node
 		DeleteJsonSession(sessionId);
 	}
 
-	/// <summary>
-	/// Wipes all game sessions from storage.
-	/// </summary>
-	public void DeleteAllSessions()
+	public async Task DeleteAllSessionsAsync()
 	{
 		if (_isPostgresAvailable)
 		{
 			try
 			{
 				using var conn = new NpgsqlConnection(PgConnectionString);
-				conn.Open();
+				await conn.OpenAsync();
 				string sql = "DELETE FROM game_sessions;";
 				using var cmd = new NpgsqlCommand(sql, conn);
-				cmd.ExecuteNonQuery();
+				await cmd.ExecuteNonQueryAsync();
 
 				CurrentSessionId = -1;
 				CurrentSessionData = new Dictionary();
@@ -371,14 +310,8 @@ public partial class SessionManager : Node
 		DeleteAllJsonSessions();
 	}
 
-	/// <summary>
-	/// Checks if any game sessions exist in storage.
-	/// </summary>
 	public bool HasSessions() => GetAllSessions().Count > 0;
 
-	/// <summary>
-	/// Formats a raw system datetime string into a human-readable format (HH:mm).
-	/// </summary>
 	public string FormatDatetime(string datetimeStr)
 	{
 		if (string.IsNullOrEmpty(datetimeStr)) return "Unknown";
@@ -388,7 +321,6 @@ public partial class SessionManager : Node
 	}
 
 	// ─── JSON Local Storage Fallback Helpers ─────────────────────────────────
-	// These methods implement the offline persistence logic using System.Text.Json.
 
 	private int ToInt(object val)
 	{
@@ -401,23 +333,13 @@ public partial class SessionManager : Node
 				return parsed;
 			return 0;
 		}
-		try
-		{
-			return Convert.ToInt32(val);
-		}
-		catch
-		{
-			return 0;
-		}
+		try { return Convert.ToInt32(val); } catch { return 0; }
 	}
 
 	private string ToStringVal(object val)
 	{
 		if (val == null) return "";
-		if (val is System.Text.Json.JsonElement elem)
-		{
-			return elem.ToString() ?? "";
-		}
+		if (val is System.Text.Json.JsonElement elem) return elem.ToString() ?? "";
 		return val.ToString() ?? "";
 	}
 
@@ -493,16 +415,18 @@ public partial class SessionManager : Node
 		return new Dictionary();
 	}
 
-	private void UpdateJsonSession(int sessionId, int level, int score, int collectables, string now)
+	private void UpdateJsonSession(int sessionId, int level, int scoreIncrement, int collectablesIncrement, string now)
 	{
 		var sessions = LoadJsonList();
 		foreach (var s in sessions)
 		{
 			if (ToInt(s["id"]) == sessionId)
 			{
+				int currentScore = ToInt(s["total_score"]);
+				int currentColl = ToInt(s["collectables"]);
 				s["current_level"] = level;
-				s["total_score"] = score;
-				s["collectables"] = collectables;
+				s["total_score"] = currentScore + scoreIncrement;
+				s["collectables"] = currentColl + collectablesIncrement;
 				s["last_played"] = now;
 				break;
 			}
@@ -565,14 +489,14 @@ public partial class SessionManager : Node
 	}
 
 	// ─── GDScript snake_case aliases ─────────────────────────────────────────
-	public int create_new_session(string character_name) => CreateNewSession(character_name);
-	public Godot.Collections.Array get_all_sessions() => GetAllSessions();
-	public Dictionary get_session(int session_id) => GetSession(session_id);
-	public bool load_session(int session_id) => LoadSession(session_id);
+	public int create_new_session(string character_name) => CreateNewSessionAsync(character_name).GetAwaiter().GetResult();
+	public Godot.Collections.Array get_all_sessions() => GetAllSessionsAsync().GetAwaiter().GetResult();
+	public Dictionary get_session(int session_id) => GetSessionAsync(session_id).GetAwaiter().GetResult();
+	public bool load_session(int session_id) => LoadSessionAsync(session_id).GetAwaiter().GetResult();
 	public void update_session(int session_id, int level, int score, int collectables)
-		=> UpdateSession(session_id, level, score, collectables);
-	public void delete_session(int session_id) => DeleteSession(session_id);
-	public void delete_all_sessions() => DeleteAllSessions();
-	public bool has_sessions() => HasSessions();
+		=> UpdateSessionAsync(session_id, level, score, collectables).Wait();
+	public void delete_session(int session_id) => DeleteSessionAsync(session_id).Wait();
+	public void delete_all_sessions() => DeleteAllSessionsAsync().Wait();
+	public bool has_sessions() => GetAllSessionsAsync().GetAwaiter().GetResult().Count > 0;
 	public string format_datetime(string datetime_str) => FormatDatetime(datetime_str);
 }

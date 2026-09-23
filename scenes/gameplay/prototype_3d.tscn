@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://bs7x4j2n1q8"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/Level3DManager.cs" id="1_lvl"]
+[ext_resource type="Script" path="res://scripts/gameplay/Player3D.cs" id="2_ply"]
+[ext_resource type="Script" path="res://scripts/gameplay/FinishZone3D.cs" id="3_fin"]
+[ext_resource type="Script" path="res://scripts/ui/InputBootstrap.cs" id="4_boot"]
+[ext_resource type="PackedScene" uid="uid://cyber_shogun" path="res://assets/models/hq/cyber_shogun.glb" id="5_shogun"]
+[ext_resource type="PackedScene" uid="uid://floor_grid" path="res://assets/models/hq/Meshy_AI_Metallic_Floor_Grid_0807073249_image-to-3d-texture.glb" id="6_floor"]
+[ext_resource type="PackedScene" uid="uid://hq_building" path="res://assets/models/hq/Meshy_AI_Axiom_Force_HQ_Buildi_0806151721_image-to-3d-texture.glb" id="7_building"]
+[ext_resource type="Script" path="res://scripts/gameplay/Health.cs" id="8_hlt"]
+[ext_resource type="Script" path="res://scripts/gameplay/WeaponArea3D.cs" id="9_wpn"]
+[ext_resource type="Script" path="res://scripts/gameplay/Enemy3D.cs" id="10_eny"]
+[ext_resource type="Script" path="res://scripts/gameplay/HealthBar3D.cs" id="11_bar"]
+[ext_resource type="Script" path="res://scripts/ui/PlayerHealthUI.cs" id="12_phi"]
+[ext_resource type="Script" path="res://scripts/gameplay/Collectable3D.cs" id="13_col"]
+[ext_resource type="Script" path="res://scripts/gameplay/Hazard3D.cs" id="14_hzd"]
+[ext_resource type="Script" path="res://scripts/managers/CombatSoundManager.cs" id="15_snd"]
+[ext_resource type="Script" path="res://scripts/ui/GameOverUI.cs" id="16_gov"]
+[ext_resource type="Script" path="res://scripts/ui/MissionSummaryUI.cs" id="17_msu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.5
+height = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_weapon"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_finish"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_enemy"]
+radius = 0.5
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_collectable"]
+radius = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_col"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hazard"]
+size = Vector3(5, 1, 2)
+
+[node name="Prototype3D" type="Node3D"]
+script = ExtResource("1_lvl")
+
+[node name="CombatSoundManager" type="Node" parent="."]
+script = ExtResource("15_snd")
+
+[node name="InputBootstrap" type="Node" parent="."]
+script = ExtResource("4_boot")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("2_ply")
+position = Vector3(0, 0, 0)
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="Health" type="Node" parent="Player"]
+script = ExtResource("8_hlt")
+
+[node name="HealthBar3D" type="Label3D" parent="Player"]
+script = ExtResource("11_bar")
+position = Vector3(0, 2.5, 0)
+
+[node name="WeaponArea3D" type="Area3D" parent="Player"]
+script = ExtResource("9_wpn")
+position = Vector3(0, 1, -1.5)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/WeaponArea3D"]
+shape = SubResource("BoxShape3D_weapon")
+
+[node name="CameraPivot" type="Node3D" parent="Player"]
+position = Vector3(0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5, 0, 2, 10)
+
+[node name="Environment" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" type="Node3D" parent="Environment"]
+instance = ExtResource("6_floor")
+scale = Vector3(15, 1, 15)
+
+[node name="BoundaryWall1" type="Node3D" parent="Environment"]
+instance = ExtResource("7_building")
+position = Vector3(20, 0, 0)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="BoundaryWall2" type="Node3D" parent="Environment"]
+instance = ExtResource("7_building")
+position = Vector3(-20, 0, 0)
+rotation_degrees = Vector3(0, -90, 0)
+
+[node name="Cover1" type="Node3D" parent="Environment"]
+instance = ExtResource("7_building")
+position = Vector3(5, 0, -5)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="Cover2" type="Node3D" parent="Environment"]
+instance = ExtResource("7_building")
+position = Vector3(-5, 0, -10)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="Cover3" type="Node3D" parent="Environment"]
+instance = ExtResource("7_building")
+position = Vector3(0, 0, -15)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="Hazard1" type="Area3D" parent="Environment"]
+script = ExtResource("14_hzd")
+position = Vector3(0, 0.5, -8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Hazard1"]
+shape = SubResource("BoxShape3D_hazard")
+
+[node name="Enemy1" type="CharacterBody3D" parent="Environment"]
+script = ExtResource("10_eny")
+position = Vector3(8, 0, -8)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Enemy1"]
+shape = SubResource("CapsuleShape3D_enemy")
+
+[node name="Health" type="Node" parent="Environment/Enemy1"]
+script = ExtResource("8_hlt")
+
+[node name="HealthBar3D" type="Label3D" parent="Environment/Enemy1"]
+script = ExtResource("11_bar")
+position = Vector3(0, 2.5, 0)
+
+[node name="WeaponArea3D" type="Area3D" parent="Environment/Enemy1"]
+script = ExtResource("9_wpn")
+position = Vector3(0, 1, -1.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Enemy1/WeaponArea3D"]
+shape = SubResource("BoxShape3D_weapon")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Environment/Enemy1"]
+
+[node name="EnemyModel" type="Node3D" parent="Environment/Enemy1"]
+instance = ExtResource("5_shogun")
+
+[node name="Enemy2" type="CharacterBody3D" parent="Environment"]
+script = ExtResource("10_eny")
+position = Vector3(-8, 0, -12)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Enemy2"]
+shape = SubResource("CapsuleShape3D_enemy")
+
+[node name="Health" type="Node" parent="Environment/Enemy2"]
+script = ExtResource("8_hlt")
+
+[node name="HealthBar3D" type="Label3D" parent="Environment/Enemy2"]
+script = ExtResource("11_bar")
+position = Vector3(0, 2.5, 0)
+
+[node name="WeaponArea3D" type="Area3D" parent="Environment/Enemy2"]
+script = ExtResource("9_wpn")
+position = Vector3(0, 1, -1.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Enemy2/WeaponArea3D"]
+shape = SubResource("BoxShape3D_weapon")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Environment/Enemy2"]
+
+[node name="EnemyModel" type="Node3D" parent="Environment/Enemy2"]
+instance = ExtResource("5_shogun")
+
+[node name="Collectable1" type="Area3D" parent="Environment"]
+script = ExtResource("13_col")
+position = Vector3(5, 1, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Collectable1"]
+shape = SubResource("SphereShape3D_collectable")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Collectable1"]
+mesh = SubResource("SphereMesh_col")
+
+[node name="Collectable2" type="Area3D" parent="Environment"]
+script = ExtResource("13_col")
+position = Vector3(-5, 1, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Collectable2"]
+shape = SubResource("SphereShape3D_collectable")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Collectable2"]
+mesh = SubResource("SphereMesh_col")
+
+[node name="FinishZone" type="Area3D" parent="."]
+script = ExtResource("3_fin")
+position = Vector3(0, 1, -20)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FinishZone"]
+shape = SubResource("BoxShape3D_finish")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameOverUI" type="Control" parent="UI"]
+script = ExtResource("16_gov")
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="UI/GameOverUI"]
+offset_left = 760.0
+offset_top = 440.0
+offset_right = 1160.0
+offset_bottom = 640.0
+h_size_flags = 3
+v_size_flags = 3
+
+[node name="VBox" type="VBoxContainer" parent="UI/GameOverUI/Panel"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 180.0
+
+[node name="StatusLabel" type="Label" parent="UI/GameOverUI/Panel/VBox"]
+horizontal_alignment = 1
+text = "SYSTEM CRITICAL"
+
+[node name="RestartBtn" type="Button" parent="UI/GameOverUI/Panel/VBox"]
+text = "REBOOT SYSTEM"
+
+[node name="MenuBtn" type="Button" parent="UI/GameOverUI/Panel/VBox"]
+text = "RETURN TO HQ"
+
+[node name="MissionSummaryUI" type="Control" parent="UI"]
+script = ExtResource("17_msu")
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="UI/MissionSummaryUI"]
+offset_left = 760.0
+offset_top = 340.0
+offset_right = 1160.0
+offset_bottom = 740.0
+h_size_flags = 3
+v_size_flags = 3
+
+[node name="VBox" type="VBoxContainer" parent="UI/MissionSummaryUI/Panel"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 380.0
+
+[node name="ScoreLabel" type="Label" parent="UI/MissionSummaryUI/Panel/VBox"]
+horizontal_alignment = 1
+text = "FINAL SCORE: 0"
+
+[node name="CherriesLabel" type="Label" parent="UI/MissionSummaryUI/Panel/VBox"]
+horizontal_alignment = 1
+text = "CHERRYS RECOVERED: 0"
+
+[node name="ContinueBtn" type="Button" parent="UI/MissionSummaryUI/Panel/VBox"]
+text = "PROCEED TO HQ"
+
+[node name="PointsLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 60.0
+text = "SCORE: 0"
+
+[node name="CollectableLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 100.0
+text = "CHERRYS: 0 / 0"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="UI"]
+script = ExtResource("12_phi")
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 320.0
+offset_bottom = 120.0
+show_expansion = false

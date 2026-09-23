@@ -412,5 +412,7 @@ func stop_menu_music() -> void:
 # ─── Level Progression ──────────────────────────────────────────────────────────
 # Unlocks the next level in the sequence if the current one is completed.
 func unlock_next_level(current_level: int) -> void:
-	if current_level >= unlocked_levels and current_level < 4:
+	if current_level >= unlocked_levels and current_level < 9:
 		unlocked_levels = current_level + 1
+	elif current_level == 9:
+		print("Global: Campaign Complete! All sectors liberated.")

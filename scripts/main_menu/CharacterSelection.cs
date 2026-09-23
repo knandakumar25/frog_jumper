@@ -248,7 +248,7 @@ public partial class CharacterSelection : Control
 
 		if (_solaria3DModel == null)
 		{
-			string glbPath = "res://assets/models/hq/Meshy_AI_Solaris_Heroine_Rig_biped_Animation_Idle_02_withSkin.glb";
+			string glbPath = "res://assets/models/hq/solaria.glb";
 			_solaria3DModel = LoadGlbModel(glbPath);
 			if (_solaria3DModel != null)
 			{
@@ -261,7 +261,7 @@ public partial class CharacterSelection : Control
 
 		if (_oceanus3DModel == null)
 		{
-			string glbPath = "res://assets/models/hq/Meshy_AI_Polynesian_Superheroi_biped_Animation_Idle_02_withSkin.glb";
+			string glbPath = "res://assets/models/hq/oceanus.glb";
 			_oceanus3DModel = LoadGlbModel(glbPath);
 			if (_oceanus3DModel != null)
 			{
@@ -274,7 +274,7 @@ public partial class CharacterSelection : Control
 
 		if (_suryaPrime3DModel == null)
 		{
-			string glbPath = "res://assets/models/hq/Meshy_AI_Solar_Guardian_Rig_biped_Animation_Idle_02_withSkin.glb";
+			string glbPath = "res://assets/models/hq/surya_prime.glb";
 			_suryaPrime3DModel = LoadGlbModel(glbPath);
 			if (_suryaPrime3DModel != null)
 			{
@@ -287,7 +287,7 @@ public partial class CharacterSelection : Control
 
 		if (_mirageBlade3DModel == null)
 		{
-			string glbPath = "res://assets/models/hq/Meshy_AI_Arab_Superhero_Rig_biped_Animation_Idle_02_withSkin.glb";
+			string glbPath = "res://assets/models/hq/mirage_blade.glb";
 			_mirageBlade3DModel = LoadGlbModel(glbPath);
 			if (_mirageBlade3DModel != null)
 			{
@@ -300,7 +300,7 @@ public partial class CharacterSelection : Control
 
 		if (_apexTitan3DModel == null)
 		{
-			string glbPath = "res://assets/models/hq/Meshy_AI_Cyber_Superhero_Rig_biped_Animation_Idle_02_withSkin.glb";
+			string glbPath = "res://assets/models/hq/apex_titan.glb";
 			_apexTitan3DModel = LoadGlbModel(glbPath);
 			if (_apexTitan3DModel != null)
 			{
@@ -499,12 +499,12 @@ public partial class CharacterSelection : Control
 	/// <summary>
 	/// Finalizes the selection, creates a new session in SessionManager, and transitions to the story intro.
 	/// </summary>
-	private void CreateSessionAndStart(string characterName)
+	private async void CreateSessionAndStart(string characterName)
 	{
 		var global = GetNode<Node>("/root/Global");
 		global.Set("selected_character", characterName);
 
-		int sessionId = SessionManager.Instance.CreateNewSession(characterName);
+		int sessionId = await SessionManager.Instance.CreateNewSessionAsync(characterName);
 		if (sessionId > 0)
 			GD.Print("Created new session: ", sessionId, " for character: ", characterName);
 		else
