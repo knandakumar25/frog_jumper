@@ -137,10 +137,10 @@ export default function Squad() {
             >
             </model-viewer>
             <div className="absolute top-2 left-2 bg-void-black/90 px-2 py-0.5 border border-primary-container/30 text-[10px] font-label-caps text-primary-container pointer-events-none z-20">
-              3D_LIVE_ORBIT // {activeCharId.toUpperCase()}
+              {t('squad.live_orbit', '3D_LIVE_ORBIT')} // {activeCharId.toUpperCase()}
             </div>
             <div className="absolute bottom-2 right-2 bg-void-black/80 px-2 py-0.5 border border-outline-variant/20 text-[9px] font-label-caps text-on-surface-variant pointer-events-none z-20">
-              🖱️ DRAG TO ROTATE 360°
+              {t('squad.drag_rotate', '🖱️ DRAG TO ROTATE 360°')}
             </div>
           </div>
           

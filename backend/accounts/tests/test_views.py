@@ -1,0 +1,158 @@
+from django.test import TestCase
+from django.urls import reverse
+from rest_framework import status
+from rest_framework.test import APITestCase
+from django.contrib.auth import get_user_model
+from accounts.models import BrowserSession
+
+User = get_user_model()
+
+
+class RegisterViewTest(APITestCase):
+    def setUp(self):
+        self.register_url = reverse('register')
+
+    def test_register_success(self):
+        payload = {
+            'username': 'cyberfrog',
+            'email': 'cyberfrog@example.com',
+            'password': 'SecurePassword123!',
+            'country': 'Palestine (State of)',
+            'first_name': 'Cyber',
+            'last_name': 'Frog'
+        }
+        response = self.client.post(self.register_url, payload, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertIn('username', response.data)
+        self.assertEqual(response.data['username'], 'cyberfrog')
+        self.assertEqual(response.data['country'], 'Palestine (State of)')
+        self.assertTrue(User.objects.filter(username='cyberfrog').exists())
+
+    def test_register_missing_country_fails(self):
+        payload = {
+            'username': 'nocountryfrog',
+            'email': 'nocountry@example.com',
+            'password': 'SecurePassword123!'
+        }
+        response = self.client.post(self.register_url, payload, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn('country', response.data)
+
+    def test_register_duplicate_username_fails(self):
+        User.objects.create_user(
+            username='existingfrog',
+            email='existing1@example.com',
+            password='Password123!',
+            country='Japan'
+        )
+        payload = {
+            'username': 'existingfrog',
+            'email': 'existing2@example.com',
+            'password': 'Password123!',
+            'country': 'Japan'
+        }
+        response = self.client.post(self.register_url, payload, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class LoginViewTest(APITestCase):
+    def setUp(self):
+        self.login_url = reverse('login')
+        self.user = User.objects.create_user(
+            username='loginfrog',
+            email='loginfrog@example.com',
+            password='CorrectPassword123!',
+            country='Canada'
+        )
+
+    def test_login_success(self):
+        payload = {
+            'username': 'loginfrog',
+            'password': 'CorrectPassword123!'
+        }
+        response = self.client.post(self.login_url, payload, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn('access', response.data)
+        self.assertIn('refresh', response.data)
+        self.assertIn('user', response.data)
+        self.assertEqual(response.data['user']['username'], 'loginfrog')
+        self.assertEqual(response.data['user']['country'], 'Canada')
+
+    def test_login_wrong_password_fails(self):
+        payload = {
+            'username': 'loginfrog',
+            'password': 'WrongPassword999!'
+        }
+        response = self.client.post(self.login_url, payload, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+
+class ProfileViewTest(APITestCase):
+    def setUp(self):
+        self.profile_url = reverse('profile')
+        self.user = User.objects.create_user(
+            username='profiletester',
+            email='profiletester@example.com',
+            password='Password123!',
+            country='Germany'
+        )
+
+    def test_profile_authenticated(self):
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get(self.profile_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['username'], 'profiletester')
+        self.assertEqual(response.data['country'], 'Germany')
+
+    def test_profile_unauthenticated_fails(self):
+        response = self.client.get(self.profile_url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+
+class CountryListViewTest(APITestCase):
+    def setUp(self):
+        self.countries_url = reverse('country_list')
+
+    def test_country_list_success(self):
+        response = self.client.get(self.countries_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIsInstance(response.data, list)
+        self.assertGreater(len(response.data), 0)
+
+
+class BrowserSessionViewsTest(APITestCase):
+    def setUp(self):
+        self.start_url = reverse('browser_start')
+        self.confirm_url = reverse('browser_confirm')
+        self.poll_url = reverse('browser_poll')
+        self.user = User.objects.create_user(
+            username='browsertester',
+            email='browser@example.com',
+            password='Password123!',
+            country='Australia'
+        )
+
+    def test_browser_session_flow(self):
+        # 1. Start session
+        start_res = self.client.post(self.start_url)
+        self.assertEqual(start_res.status_code, status.HTTP_200_OK)
+        session_id = start_res.data['session_id']
+
+        # 2. Poll before auth -> should return pending
+        poll_res = self.client.get(f"{self.poll_url}?session_id={session_id}")
+        self.assertEqual(poll_res.status_code, status.HTTP_200_OK)
+        self.assertEqual(poll_res.data['status'], 'pending')
+
+        # 3. Confirm with authenticated user
+        self.client.force_authenticate(user=self.user)
+        confirm_res = self.client.post(self.confirm_url, {'session_id': session_id}, format='json')
+        self.assertEqual(confirm_res.status_code, status.HTTP_200_OK)
+        self.assertEqual(confirm_res.data['status'], 'authorized')
+
+        # 4. Poll after auth -> should return tokens and user data
+        self.client.force_authenticate(user=None) # logout
+        poll_res2 = self.client.get(f"{self.poll_url}?session_id={session_id}")
+        self.assertEqual(poll_res2.status_code, status.HTTP_200_OK)
+        self.assertIn('access', poll_res2.data)
+        self.assertIn('refresh', poll_res2.data)
+        self.assertEqual(poll_res2.data['user']['username'], 'browsertester')

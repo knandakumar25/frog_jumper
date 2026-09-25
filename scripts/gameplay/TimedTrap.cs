@@ -13,7 +13,7 @@ public partial class TimedTrap : Node3D
     [Export] public float Damage = 30.0f;
     [Export] public float KnockbackForce = 12.0f;
 
-    private Timer _cycleTimer;
+    private Godot.Timer _cycleTimer;
     private Area3D _trapArea;
     private MeshInstance3D _visualIndicator;
 
@@ -37,7 +37,7 @@ public partial class TimedTrap : Node3D
         UpdateVisuals();
 
         // Setup Cycle Timer.
-        _cycleTimer = new Timer();
+        _cycleTimer = new Godot.Timer();
         _cycleTimer.OneShot = false;
         _cycleTimer.WaitTime = CycleInterval;
         _cycleTimer.Timeout += OnCycleTimeout;

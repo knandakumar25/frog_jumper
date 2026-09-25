@@ -35,7 +35,7 @@ export default function Home() {
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-2">
           <div className="inline-block bg-warning-orange text-void-black font-label-caps text-[11px] md:text-label-caps px-3 py-1 mb-6 uppercase tracking-widest font-bold">
-            {t('story.live_feed', 'System Breach Detected')}
+            {t('home.system_breach', 'System Breach Detected')}
           </div>
           
           <div className="flex justify-center mb-8">
@@ -78,7 +78,7 @@ export default function Home() {
       <section className="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter">
         <div className="lg:col-span-5 flex flex-col justify-center">
           <div className="text-secondary-container font-label-caps text-label-caps mb-4 uppercase font-semibold">
-            &gt; {t('story.live_feed', 'DECRYPTED FILE: 001_HLF')}
+            &gt; {t('home.decrypted_file', 'DECRYPTED FILE: 001_HLF')}
           </div>
           <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-inverse-surface mb-6 uppercase">
             {t('story.title', 'The Human Liberation Front')}
@@ -150,10 +150,10 @@ export default function Home() {
             </div>
             <div className={`relative z-10 p-4 flex justify-between items-start pointer-events-none`}>
               <span className="bg-void-black/90 text-tertiary-fixed font-label-caps text-label-caps px-2 py-1 border border-primary-container/30">
-                3D_OPERATIVE // CYBER SHOGUN
+                {t('home.operative_3d', '3D_OPERATIVE')} // CYBER SHOGUN
               </span>
               <span className="bg-primary-container text-void-black font-label-caps text-[10px] px-2 py-0.5 font-bold">
-                INTERACTIVE 360°
+                {t('home.interactive_360', 'INTERACTIVE 360°')}
               </span>
             </div>
             <div className="relative z-10 p-6 bg-gradient-to-t from-void-black via-void-black/90 to-transparent pointer-events-none">
@@ -186,9 +186,9 @@ export default function Home() {
               <span className="material-symbols-outlined text-sm bg-void-black/80 p-1 border border-warning-orange/30">flare</span>
             </div>
             <div className="relative z-10 p-3 bg-void-black/90 pointer-events-none">
-              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">SOLARIA</h3>
-              <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5">
-                SOLAR FLARE VANGUARD
+              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">{t('squad.solaria', 'SOLARIA')}</h3>
+              <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5 uppercase">
+                {t('characters.warriors.solaria.role', 'SOLAR FLARE VANGUARD')}
               </div>
             </div>
           </div>
@@ -215,9 +215,9 @@ export default function Home() {
               <span className="material-symbols-outlined text-sm bg-void-black/80 p-1 border border-primary-container/30">sunny</span>
             </div>
             <div className="relative z-10 p-3 bg-void-black/90 pointer-events-none">
-              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">SURYA PRIME</h3>
-              <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5">
-                COSMIC GUARDIAN
+              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">{t('squad.surya', 'SURYA PRIME')}</h3>
+              <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5 uppercase">
+                {t('characters.warriors.surya.role', 'COSMIC GUARDIAN')}
               </div>
             </div>
           </div>

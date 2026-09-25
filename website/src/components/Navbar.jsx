@@ -121,21 +121,21 @@ export default function Navbar() {
                         onClick={() => setProfileOpen(false)}
                         className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 transition-colors"
                       >
-                        My Account
+                        {t('nav.my_account', 'My Account')}
                       </NavLink>
                       <NavLink
                         to={`/${currentLocale}/account/2fa`}
                         onClick={() => setProfileOpen(false)}
                         className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 transition-colors"
                       >
-                        Two-Factor Auth
+                        {t('nav.two_factor_auth', 'Two-Factor Auth')}
                       </NavLink>
                       <div className="h-[1px] bg-outline-variant/30 my-1"></div>
                       <button
                         onClick={logout}
                         className="text-left text-xs font-bold uppercase text-on-surface-variant hover:text-error px-3 py-2 transition-colors"
                       >
-                        Logout
+                        {t('nav.logout', 'Logout')}
                       </button>
                     </div>
                   </div>
@@ -147,13 +147,13 @@ export default function Navbar() {
                   to={`/${currentLocale}/login`}
                   className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary transition-colors underline"
                 >
-                  Login
+                  {t('nav.login', 'Login')}
                 </NavLink>
                 <NavLink
                   to={`/${currentLocale}/signup`}
                   className="text-xs font-bold uppercase text-primary-container bg-primary-container/10 border-2 border-primary-container/45 hover:bg-primary-container/20 px-3 py-1.5 transition-all duration-150 active:scale-95 font-body-md"
                 >
-                  Sign Up
+                  {t('nav.signup', 'Sign Up')}
                 </NavLink>
               </div>
             )}
@@ -228,7 +228,7 @@ export default function Navbar() {
                     onClick={logout}
                     className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
                   >
-                    Logout
+                    {t('nav.logout', 'Logout')}
                   </button>
                 </div>
               ) : (
@@ -238,14 +238,14 @@ export default function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
                   >
-                    Login
+                    {t('nav.login', 'Login')}
                   </NavLink>
                   <NavLink
                     to={`/${currentLocale}/signup`}
                     onClick={() => setMenuOpen(false)}
                     className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase bg-primary-container text-void-black hover:bg-secondary-container hover:text-on-secondary-container"
                   >
-                    Sign Up
+                    {t('nav.signup', 'Sign Up')}
                   </NavLink>
                 </div>
               )}

@@ -12,7 +12,12 @@
       "squad": "SQUAD",
       "tech_hub": "TECH HUB",
       "design_system": "DESIGN SYSTEM",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "login": "LOGIN",
+      "signup": "SIGN UP",
+      "my_account": "MY ACCOUNT",
+      "two_factor_auth": "TWO-FACTOR AUTH",
+      "logout": "LOGOUT"
     },
     "hero": {
       "title_line1": "AXIOM FORCE",
@@ -42,7 +47,9 @@
       "platform_desc": "Target Platforms: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Input: Gamepad / Keyboard",
       "status_desc": "Status: Insurgency Active",
-      "version_desc": "Revision: v1.0.0 Release"
+      "version_desc": "Revision: v1.0.0 Release",
+      "accessibility_link": "ACCESSIBILITY STATEMENT",
+      "accessibility_btn": "Accessibility"
     },
     "home": {
       "story_label": "The Story",
@@ -57,7 +64,11 @@
       "controls_desc": "Keyboard & gamepad ready.",
       "warning_casualty": "> WARNING: HIGH CASUALTY RATE",
       "status_operational": "STATUS: OPERATIONAL",
-      "grid_hacked": "Substation 4Alpha hacked. Local grid under HLF control."
+      "grid_hacked": "Substation 4Alpha hacked. Local grid under HLF control.",
+      "interactive_360": "INTERACTIVE 360°",
+      "system_breach": "SYSTEM BREACH DETECTED",
+      "decrypted_file": "DECRYPTED FILE: 001_HLF",
+      "operative_3d": "3D_OPERATIVE"
     },
     "story": {
       "briefing": "narrative briefing",
@@ -122,6 +133,9 @@
           "role": "Electro-Magnetic Storm Vanguard",
           "desc": "King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.",
           "lore": "\"The storm answers my call. Tremble before the thunder.\""
+        },
+        "guy": {
+          "lore": "We don't recruit heroes. We recruit survivors. The mainframe doesn't sleep, and neither do we."
         }
       }
     },
@@ -327,7 +341,9 @@
       "oceanus": "OCEANUS",
       "surya": "SURYA PRIME",
       "mirage": "MIRAGE BLADE",
-      "apex": "APEX TITAN"
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ DRAG TO ROTATE 360°",
+      "live_orbit": "3D_LIVE_ORBIT"
     },
     "gameplay": {
       "protocols": "CORE PROTOCOLS",
@@ -445,6 +461,94 @@
       "a6": "All technical breakthroughs and development milestones are archived in the Tech Hub.",
       "q7": "What are the system requirements?",
       "a7": "As long as you have a functioning terminal with a basic GPU and a desire for liberation, you can run Axiom Force. Specific specs will be released soon."
+    },
+    "accessibility": {
+      "title": "Accessibility Statement",
+      "commitment_title": "// Our Commitment",
+      "commitment_text": "Axiom Force is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards (WCAG 2.1 Level AA).",
+      "features_title": "// Accessibility Features",
+      "feature_keyboard_title": "Keyboard Navigation:",
+      "feature_keyboard_desc": "Full keyboard accessibility across the website and in-game UI with clear focus indicators and customizable keybindings.",
+      "feature_contrast_title": "High Contrast Design:",
+      "feature_contrast_desc": "Designed with high contrast cyberpunk colors, distinct focus states, and scalable vector icons for optimal visibility.",
+      "feature_subtitles_title": "Subtitles & Audio Controls:",
+      "feature_subtitles_desc": "Full text captions for narrative briefings (such as AXIOM-7 transmissions) with independent volume controls for SFX and Music.",
+      "feature_screen_reader_title": "Screen Reader Ready:",
+      "feature_screen_reader_desc": "Structured with semantic HTML5 elements, descriptive alt text for game graphics, and ARIA labels.",
+      "conformance_title": "// Conformance Status",
+      "conformance_text": "The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. Axiom Force is partially conformant with WCAG 2.1 Level AA standards.",
+      "feedback_title": "// Feedback & Support",
+      "feedback_text": "We welcome your feedback on the accessibility of Axiom Force. If you encounter accessibility barriers or need assistance, please contact our support team:",
+      "close": "Close Statement"
+    },
+    "auth": {
+      "user_login": "USER LOGIN",
+      "verification_code": "Verification Code",
+      "enter_2fa_code": "Enter 2FA code",
+      "verifying": "Verifying...",
+      "verify_code": "Verify Code",
+      "username": "Username",
+      "enter_username": "Enter your username",
+      "password": "Password",
+      "authenticating": "Authenticating...",
+      "access_terminal": "Access Terminal",
+      "or": "OR",
+      "epic_login": "Epic Games Login",
+      "steam_login": "Steam Login",
+      "discord_login": "Discord Login",
+      "need_account": "Need an account? ",
+      "register_create": "Register / Create Account",
+      "create_account": "CREATE ACCOUNT",
+      "avatar_label": "Avatar Port / Profile Picture (Optional)",
+      "upload_portrait": "Upload Portrait",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "optional": "optional",
+      "placeholder_first_name": "First name",
+      "placeholder_last_name": "Last name",
+      "email_address": "Email Address",
+      "enter_email": "Enter your email",
+      "email": "Email",
+      "country_territory": "Country / Territory",
+      "loading_countries": "Loading official UN country database...",
+      "select_country": "Select your country",
+      "country_error": "Unable to load UN country list. Please check your connection or refresh.",
+      "registering": "Registering...",
+      "initialize_profile": "Initialize Profile",
+      "already_have_account": "Already have an account? ",
+      "login_access_terminal": "Login / Access Terminal",
+      "two_factor_title": "Two-Factor Authentication",
+      "two_factor_enabled_desc": "2FA is currently enabled on your account.",
+      "disable_2fa": "Disable 2FA",
+      "enable_two_factor": "Enable Two-Factor Authentication",
+      "processing": "Processing...",
+      "requesting": "Requesting...",
+      "verify_enable": "Verify & Enable",
+      "enter_code": "Enter code",
+      "back_to_account": "Back to My Account",
+      "code_sent": "Verification code sent to your email. Please enter it below.",
+      "code_request_failed": "Failed to request 2FA verification code.",
+      "two_factor_enabled_success": "Two-Factor Authentication enabled successfully.",
+      "invalid_code": "Invalid code or verification failed.",
+      "two_factor_disabled_success": "Two-Factor Authentication disabled.",
+      "disable_failed": "Failed to disable 2FA.",
+      "auth_required": "Authentication Required",
+      "auth_required_desc": "Please log in to your account to authorize the game client.",
+      "authorize_client": "Authorize Game Client",
+      "requesting_access": "The game client is requesting access to your account.",
+      "authorize_now": "Authorize Now",
+      "auth_success": "Account Authorized Successfully!",
+      "auth_success_desc": "You can now return to the game client. This window can be safely closed.",
+      "auth_failed": "Authorization Failed",
+      "auth_failed_desc": "An error occurred during authorization. Please try again.",
+      "try_again": "Try Again"
+    },
+    "account": {
+      "phone_number": "Phone Number",
+      "code": "Code",
+      "country": "Country",
+      "saving": "Saving...",
+      "save_changes": "Save Changes"
     }
   },
   "es": {
@@ -460,7 +564,12 @@
       "squad": "ESCUADRA",
       "tech_hub": "CENTRO TECNOLÓGICO",
       "design_system": "SISTEMA DE DISEÑO",
-      "faq": "FAQ"
+      "faq": "PREGUNTAS FRECUENTES",
+      "login": "INICIAR SESIÓN",
+      "signup": "REGISTRARSE",
+      "my_account": "MI CUENTA",
+      "two_factor_auth": "AUTENTICACIÓN DE DOS FACTORES",
+      "logout": "CERRAR SESIÓN"
     },
     "hero": {
       "title_line1": "FUERZA AXIOMA",
@@ -495,7 +604,9 @@
       "platform_desc": "Plataformas objetivo: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Entrada: Gamepad/teclado",
       "status_desc": "Estado: Insurgencia Activa",
-      "version_desc": "Revisión: versión v1.0.0"
+      "version_desc": "Revisión: versión v1.0.0",
+      "accessibility_link": "DECLARACIÓN DE ACCESIBILIDAD",
+      "accessibility_btn": "Accesibilidad"
     },
     "home": {
       "story_label": "La Historia",
@@ -510,7 +621,11 @@
       "controls_desc": "Listo para teclado y mando.",
       "warning_casualty": "> ADVERTENCIA: ALTA TASA DE VÍCTIMAS",
       "status_operational": "ESTADO: OPERATIVO",
-      "grid_hacked": "Subestación 4Alpha hackeada. Red local bajo control HLF."
+      "grid_hacked": "Subestación 4Alpha hackeada. Red local bajo control HLF.",
+      "interactive_360": "360° INTERACTIVO",
+      "system_breach": "BRECHA DEL SISTEMA DETECTADA",
+      "decrypted_file": "ARCHIVO DESCIFRADO: 001_HLF",
+      "operative_3d": "OPERATIVO_3D"
     },
     "story": {
       "briefing": "información narrativa",
@@ -575,6 +690,9 @@
           "role": "Vanguardia de tormenta electromagnética",
           "desc": "El rey Tariq Nzinga es una potencia que canaliza nubes de tormenta electromagnéticas y se estrella con un devastador salto de escudo contra tormentas.",
           "lore": "\"La tormenta responde a mi llamado. Tiembla ante el trueno\"."
+        },
+        "guy": {
+          "lore": "No reclutamos héroes. Reclutamos supervivientes. La unidad central no duerme, y nosotros tampoco."
         }
       }
     },
@@ -780,7 +898,9 @@
       "oceanus": "OCÉANO",
       "surya": "PRIMERA SURYA",
       "mirage": "HOJA DE ESPEJISMO",
-      "apex": "TITAN APEX"
+      "apex": "TITAN APEX",
+      "drag_rotate": "🖱️ ARRASTRAR PARA ROTAR 360°",
+      "live_orbit": "ÓRBITA_EN_VIVO_3D"
     },
     "gameplay": {
       "protocols": "PROTOCOLOS ESENCIALES",
@@ -898,6 +1018,94 @@
       "a6": "Todos los avances técnicos y los hitos del desarrollo están archivados en el Tech Hub.",
       "q7": "¿Cuáles son los requisitos del sistema?",
       "a7": "Siempre que tengas una terminal funcional con una GPU básica y el deseo de liberación, puedes ejecutar Axiom Force. Las especificaciones detalladas se publicarán pronto."
+    },
+    "accessibility": {
+      "title": "Declaración de Accesibilidad",
+      "commitment_title": "// Nuestro Compromiso",
+      "commitment_text": "Axiom Force se compromete a garantizar la accesibilidad digital para personas con discapacidad. Mejoramos continuamente la experiencia del usuario para todos y aplicamos los estándares de accesibilidad pertinentes (WCAG 2.1 Nivel AA).",
+      "features_title": "// Características de Accesibilidad",
+      "feature_keyboard_title": "Navegación por Teclado:",
+      "feature_keyboard_desc": "Accesibilidad completa mediante teclado en todo el sitio web y la interfaz del juego, con indicadores de foco claros y atajos personalizables.",
+      "feature_contrast_title": "Diseño de Alto Contraste:",
+      "feature_contrast_desc": "Diseñado con colores ciberpunk de alto contraste, estados de foco nítidos e iconos vectoriales escalables para una visibilidad óptima.",
+      "feature_subtitles_title": "Subtítulos y Controles de Audio:",
+      "feature_subtitles_desc": "Subtítulos de texto completos para informes narrativos (como las transmisiones de AXIOM-7) con controles de volumen independientes para efectos y música.",
+      "feature_screen_reader_title": "Compatible con Lectores de Pantalla:",
+      "feature_screen_reader_desc": "Estructurado con elementos HTML5 semánticos, textos alternativos descriptivos para gráficos del juego y etiquetas ARIA.",
+      "conformance_title": "// Estado de Conformidad",
+      "conformance_text": "Las Pautas de Accesibilidad para el Contenido Web (WCAG) definen los requisitos para diseñadores y desarrolladores a fin de mejorar la accesibilidad para personas con discapacidad. Axiom Force cumple parcialmente con los estándares WCAG 2.1 Nivel AA.",
+      "feedback_title": "// Comentarios y Asistencia",
+      "feedback_text": "Agradecemos sus comentarios sobre la accesibilidad de Axiom Force. Si encuentra barreras de accesibilidad o necesita asistencia, póngase en contacto con nuestro equipo de soporte:",
+      "close": "Cerrar Declaración"
+    },
+    "auth": {
+      "user_login": "INICIAR SESIÓN",
+      "verification_code": "Código de Verificación",
+      "enter_2fa_code": "Introduce código 2FA",
+      "verifying": "Verificando...",
+      "verify_code": "Verificar Código",
+      "username": "Nombre de usuario",
+      "enter_username": "Introduce tu usuario",
+      "password": "Contraseña",
+      "authenticating": "Autenticando...",
+      "access_terminal": "Acceder a la Terminal",
+      "or": "O",
+      "epic_login": "Iniciar con Epic Games",
+      "steam_login": "Iniciar con Steam",
+      "discord_login": "Iniciar con Discord",
+      "need_account": "¿No tienes cuenta? ",
+      "register_create": "Registrarse / Crear Cuenta",
+      "create_account": "CREAR CUENTA",
+      "avatar_label": "Foto de Perfil (Opcional)",
+      "upload_portrait": "Subir Foto",
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "optional": "opcional",
+      "placeholder_first_name": "Nombre",
+      "placeholder_last_name": "Apellido",
+      "email_address": "Correo Electrónico",
+      "enter_email": "Introduce tu correo",
+      "email": "Correo",
+      "country_territory": "País / Territorio",
+      "loading_countries": "Cargando base de datos oficial de la ONU...",
+      "select_country": "Selecciona tu país",
+      "country_error": "No se pudo cargar la lista de países. Comprueba tu conexión.",
+      "registering": "Registrando...",
+      "initialize_profile": "Inicializar Perfil",
+      "already_have_account": "¿Ya tienes una cuenta? ",
+      "login_access_terminal": "Iniciar Sesión / Acceso",
+      "two_factor_title": "Autenticación de dos factores",
+      "two_factor_enabled_desc": "2FA está actualmente habilitado en su cuenta.",
+      "disable_2fa": "Desactivar 2FA",
+      "enable_two_factor": "Activar autenticación de dos factores",
+      "processing": "Procesando...",
+      "requesting": "Solicitando...",
+      "verify_enable": "Verificar y activar",
+      "enter_code": "Ingrese el código",
+      "back_to_account": "Volver a mi cuenta",
+      "code_sent": "Código de verificación enviado a su correo electrónico. Ingréselo a continuación.",
+      "code_request_failed": "Error al solicitar el código de verificación 2FA.",
+      "two_factor_enabled_success": "Autenticación de dos factores activada con éxito.",
+      "invalid_code": "Código inválido o error de verificación.",
+      "two_factor_disabled_success": "Autenticación de dos factores desactivada.",
+      "disable_failed": "Error al desactivar 2FA.",
+      "auth_required": "Autenticación requerida",
+      "auth_required_desc": "Inicie sesión en su cuenta para autorizar el cliente del juego.",
+      "authorize_client": "Autorizar cliente del juego",
+      "requesting_access": "El cliente del juego solicita acceso a su cuenta.",
+      "authorize_now": "Autorizar ahora",
+      "auth_success": "¡Cuenta autorizada con éxito!",
+      "auth_success_desc": "Ahora puede regresar al cliente del juego. Esta ventana se puede cerrar de forma segura.",
+      "auth_failed": "Error de autorización",
+      "auth_failed_desc": "Ocurrió un error durante la autorización. Inténtelo de nuevo.",
+      "try_again": "Intentar de nuevo"
+    },
+    "account": {
+      "phone_number": "Número de Teléfono",
+      "code": "Cód.",
+      "country": "País",
+      "saving": "Guardando...",
+      "save_changes": "Guardar Cambios"
     }
   },
   "fr": {
@@ -913,7 +1121,12 @@
       "squad": "ESCOUADE",
       "tech_hub": "CENTRE TECHNIQUE",
       "design_system": "SYSTÈME DE CONCEPTION",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "login": "CONNEXION",
+      "signup": "S'INSCRIRE",
+      "my_account": "MON COMPTE",
+      "two_factor_auth": "AUTHENTIFICATION À DEUX FACTEURS",
+      "logout": "DÉCONNEXION"
     },
     "hero": {
       "title_line1": "FORCE D'AXIOME",
@@ -948,7 +1161,9 @@
       "platform_desc": "Plateformes cibles: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Entrée : manette de jeu/clavier",
       "status_desc": "Statut : Insurrection active",
-      "version_desc": "Révision : version v1.0.0"
+      "version_desc": "Révision : version v1.0.0",
+      "accessibility_link": "DÉCLARATION D'ACCESSIBILITÉ",
+      "accessibility_btn": "Accessibilité"
     },
     "home": {
       "story_label": "L'Histoire",
@@ -963,7 +1178,11 @@
       "controls_desc": "Prêt pour clavier et manette.",
       "warning_casualty": "> AVERTISSEMENT : TAUX DE PERTES ÉLEVÉS",
       "status_operational": "STATUT : OPÉRATIONNEL",
-      "grid_hacked": "Sous-station 4Alpha piratée. Réseau local sous contrôle HLF."
+      "grid_hacked": "Sous-station 4Alpha piratée. Réseau local sous contrôle HLF.",
+      "interactive_360": "360° INTERACTIF",
+      "system_breach": "INTRUSION SYSTÈME DÉTECTÉE",
+      "decrypted_file": "FICHIER DÉCRYPTÉ : 001_HLF",
+      "operative_3d": "OPÉRATEUR_3D"
     },
     "story": {
       "briefing": "briefing narratif",
@@ -1028,6 +1247,9 @@
           "role": "Avant-garde de tempête électromagnétique",
           "desc": "Le roi Tariq Nzinga est une centrale électrique qui canalise les nuages ​​d'orage électromagnétiques, s'écrasant avec un saut de bouclier anti-tempête dévastateur.",
           "lore": "\"La tempête répond à mon appel. Tremblez devant le tonnerre.\""
+        },
+        "guy": {
+          "lore": "Nous ne recrutons pas de héros. Nous recrutons des survivants. L'unité centrale ne dort jamais, et nous non plus."
         }
       }
     },
@@ -1233,7 +1455,9 @@
       "oceanus": "OCÉANUS",
       "surya": "SURYA PRIME",
       "mirage": "LAME MIRAGE",
-      "apex": "APEX TITAN"
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ GLISSER POUR FAIRE TOURNER À 360°",
+      "live_orbit": "ORBITE_DIRECTE_3D"
     },
     "gameplay": {
       "protocols": "PROTOCOLES FONDAMENTAUX",
@@ -1351,6 +1575,94 @@
       "a6": "Toutes les percées techniques et les étapes du développement sont archivées dans le Tech Hub.",
       "q7": "Quelles sont les configurations requises ?",
       "a7": "Tant que vous avez un terminal fonctionnel avec un GPU basique et un désir de libération, vous pouvez lancer Axiom Force. Les spécifications détaillées seront publiées prochainement."
+    },
+    "accessibility": {
+      "title": "Déclaration d'accessibilité",
+      "commitment_title": "// Notre Engagement",
+      "commitment_text": "Axiom Force s'engage à garantir l'accessibilité numérique aux personnes en situation de handicap. Nous améliorons continuellement l'expérience utilisateur pour tous et appliquons les normes d'accessibilité pertinentes (WCAG 2.1 Niveau AA).",
+      "features_title": "// Fonctionnalités d'accessibilité",
+      "feature_keyboard_title": "Navigation au clavier :",
+      "feature_keyboard_desc": "Accessibilité complète au clavier sur l'ensemble du site web et de l'interface de jeu avec indicateurs de focus clairs et raccourcis configurables.",
+      "feature_contrast_title": "Design à contraste élevé :",
+      "feature_contrast_desc": "Conçu avec des teintes cyberpunk à fort contraste, des états de focus distincts et des icônes vectorielles adaptatives pour une visibilité optimale.",
+      "feature_subtitles_title": "Sous-titres & commandes audio :",
+      "feature_subtitles_desc": "Sous-titres complets pour les briefings narratifs (comme les transmissions AXIOM-7) avec réglages de volume indépendants pour les effets sonores et la musique.",
+      "feature_screen_reader_title": "Compatible lecteurs d'écran :",
+      "feature_screen_reader_desc": "Structuré avec des éléments HTML5 sémantiques, des textes alternatifs descriptifs pour les visuels du jeu et des attributs ARIA.",
+      "conformance_title": "// Statut de conformité",
+      "conformance_text": "Les Règles pour l'accessibilité des contenus Web (WCAG) définissent les exigences pour les concepteurs et développeurs afin d'améliorer l'accessibilité pour les personnes en situation de handicap. Axiom Force est partiellement conforme aux normes WCAG 2.1 Niveau AA.",
+      "feedback_title": "// Retours & Assistance",
+      "feedback_text": "Nous apprécions vos retours sur l'accessibilité d'Axiom Force. Si vous rencontrez des obstacles d'accessibilité ou avez besoin d'aide, veuillez contacter notre équipe d'assistance :",
+      "close": "Fermer la déclaration"
+    },
+    "auth": {
+      "user_login": "CONNEXION UTILISATEUR",
+      "verification_code": "Code de vérification",
+      "enter_2fa_code": "Entrez le code 2FA",
+      "verifying": "Vérification...",
+      "verify_code": "Vérifier le code",
+      "username": "Nom d'utilisateur",
+      "enter_username": "Entrez votre nom d'utilisateur",
+      "password": "Mot de passe",
+      "authenticating": "Authentification...",
+      "access_terminal": "Accéder au terminal",
+      "or": "OU",
+      "epic_login": "Connexion Epic Games",
+      "steam_login": "Connexion Steam",
+      "discord_login": "Connexion Discord",
+      "need_account": "Pas encore de compte ? ",
+      "register_create": "Créer un compte",
+      "create_account": "CRÉER UN COMPTE",
+      "avatar_label": "Photo de profil (Optionnel)",
+      "upload_portrait": "Téléverser",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "optional": "optionnel",
+      "placeholder_first_name": "Prénom",
+      "placeholder_last_name": "Nom",
+      "email_address": "Adresse e-mail",
+      "enter_email": "Entrez votre e-mail",
+      "email": "E-mail",
+      "country_territory": "Pays / Territoire",
+      "loading_countries": "Chargement de la base de l'ONU...",
+      "select_country": "Sélectionnez votre pays",
+      "country_error": "Impossible de charger la liste des pays.",
+      "registering": "Création en cours...",
+      "initialize_profile": "Initialiser le profil",
+      "already_have_account": "Vous avez déjà un compte ? ",
+      "login_access_terminal": "Connexion au terminal",
+      "two_factor_title": "Authentification à deux facteurs",
+      "two_factor_enabled_desc": "La 2FA est actuellement activée sur votre compte.",
+      "disable_2fa": "Désactiver la 2FA",
+      "enable_two_factor": "Activer l'authentification à deux facteurs",
+      "processing": "Traitement en cours...",
+      "requesting": "Demande en cours...",
+      "verify_enable": "Vérifier et activer",
+      "enter_code": "Entrez le code",
+      "back_to_account": "Retour à mon compte",
+      "code_sent": "Code de vérification envoyé à votre adresse e-mail. Veuillez le saisir ci-dessous.",
+      "code_request_failed": "Échec de la demande du code de vérification 2FA.",
+      "two_factor_enabled_success": "Authentification à deux facteurs activée avec succès.",
+      "invalid_code": "Code invalide ou échec de la vérification.",
+      "two_factor_disabled_success": "Authentification à deux facteurs désactivée.",
+      "disable_failed": "Échec de la désactivation de la 2FA.",
+      "auth_required": "Authentification requise",
+      "auth_required_desc": "Veuillez vous connecter à votre compte pour autoriser le client de jeu.",
+      "authorize_client": "Autoriser le client de jeu",
+      "requesting_access": "Le client de jeu demande l'accès à votre compte.",
+      "authorize_now": "Autoriser maintenant",
+      "auth_success": "Compte autorisé avec succès !",
+      "auth_success_desc": "Vous pouvez maintenant retourner au jeu. Cette fenêtre peut être fermée en toute sécurité.",
+      "auth_failed": "Échec de l'autorisation",
+      "auth_failed_desc": "Une erreur est survenue lors de l'autorisation. Veuillez réessayer.",
+      "try_again": "Réessayer"
+    },
+    "account": {
+      "phone_number": "Numéro de téléphone",
+      "code": "Indicatif",
+      "country": "Pays",
+      "saving": "Enregistrement...",
+      "save_changes": "Enregistrer les modifications"
     }
   },
   "pt": {
@@ -1366,7 +1678,12 @@
       "squad": "ESQUADRÃO",
       "tech_hub": "CENTRO DE TECNOLOGIA",
       "design_system": "SISTEMA DE DESIGN",
-      "faq": "FAQ"
+      "faq": "PERGUNTAS FREQUENTES",
+      "login": "ENTRAR",
+      "signup": "REGISTRAR",
+      "my_account": "MINHA CONTA",
+      "two_factor_auth": "AUTENTICAÇÃO DE DOIS FATORES",
+      "logout": "SAIR"
     },
     "hero": {
       "title_line1": "FORÇA AXIOMA",
@@ -1401,7 +1718,9 @@
       "platform_desc": "Plataformas-alvo: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Entrada: Gamepad/Teclado",
       "status_desc": "Status: Insurgência Ativa",
-      "version_desc": "Revisão: versão v1.0.0"
+      "version_desc": "Revisão: versão v1.0.0",
+      "accessibility_link": "DECLARAÇÃO DE ACESSIBILIDADE",
+      "accessibility_btn": "Acessibilidade"
     },
     "home": {
       "story_label": "A história",
@@ -1416,7 +1735,11 @@
       "controls_desc": "Teclado e gamepad prontos.",
       "warning_casualty": "> AVISO: ALTA TAXA DE VÍTIMAS",
       "status_operational": "ESTADO: OPERACIONAL",
-      "grid_hacked": "Subestação 4Alpha hackeada. Rede local sob controle HLF."
+      "grid_hacked": "Subestação 4Alpha hackeada. Rede local sob controle HLF.",
+      "interactive_360": "360° INTERATIVO",
+      "system_breach": "VIOLAÇÃO DE SISTEMA DETECTADA",
+      "decrypted_file": "ARQUIVO DESCRIPTOGRAFADO: 001_HLF",
+      "operative_3d": "OPERATIVO_3D"
     },
     "story": {
       "briefing": "briefing narrativo",
@@ -1481,6 +1804,9 @@
           "role": "Vanguarda da Tempestade Eletromagnética",
           "desc": "O Rei Tariq Nzinga é uma potência que canaliza nuvens de tempestade eletromagnéticas, desabando com um devastador salto de escudo contra tempestades.",
           "lore": "\"A tempestade responde ao meu chamado. Trema diante do trovão.\""
+        },
+        "guy": {
+          "lore": "Não recrutamos heróis. Recrutamos sobreviventes. O mainframe não dorme, e nós também não."
         }
       }
     },
@@ -1686,7 +2012,9 @@
       "oceanus": "OCEANO",
       "surya": "SURYA PRIME",
       "mirage": "LÂMINA MIRAGEM",
-      "apex": "ÁPICE TITÃ"
+      "apex": "ÁPICE TITÃ",
+      "drag_rotate": "🖱️ ARRASTE PARA GIRAR EM 360°",
+      "live_orbit": "ÓRBITA_AO_VIVO_3D"
     },
     "gameplay": {
       "protocols": "PROTOCOLOS BÁSICOS",
@@ -1804,6 +2132,94 @@
       "a6": "Todos os avanços técnicos e marcos de desenvolvimento estão arquivados no Tech Hub.",
       "q7": "Quais são os requisitos do sistema?",
       "a7": "Desde que tenha um terminal funcional com um GPU básico e o desejo de libertação, pode correr o Axiom Force. As especificações detalhadas serão publicadas em breve."
+    },
+    "accessibility": {
+      "title": "Declaração de Acessibilidade",
+      "commitment_title": "// Nosso Compromisso",
+      "commitment_text": "Axiom Force está comprometido em garantir a acessibilidade digital para pessoas com deficiência. Estamos melhorando continuamente a experiência do usuário para todos e aplicando os padrões relevantes de acessibilidade (WCAG 2.1 Nível AA).",
+      "features_title": "// Recursos de Acessibilidade",
+      "feature_keyboard_title": "Navegação por Teclado:",
+      "feature_keyboard_desc": "Acessibilidade total por teclado em todo o site e interface do jogo com indicadores claros de foco e atalhos personalizáveis.",
+      "feature_contrast_title": "Design de Alto Contraste:",
+      "feature_contrast_desc": "Projetado com cores cyberpunk de alto contraste, estados de foco nítidos e ícones vetoriais escaláveis para ótima visibilidade.",
+      "feature_subtitles_title": "Legendas e Controles de Áudio:",
+      "feature_subtitles_desc": "Legendas de texto completas para briefings narrativos (como transmissões de AXIOM-7) com controles de volume independentes para efeitos sonoros e música.",
+      "feature_screen_reader_title": "Compatível com Leitores de Tela:",
+      "feature_screen_reader_desc": "Estruturado com elementos HTML5 semânticos, texto alternativo descritivo para elementos visuais do jogo e atributos ARIA.",
+      "conformance_title": "// Status de Conformidade",
+      "conformance_text": "As Diretrizes de Acessibilidade para Conteúdo Web (WCAG) definem requisitos para designers e desenvolvedores melhorarem a acessibilidade para pessoas com deficiência. O Axiom Force está parcialmente em conformidade com os padrões WCAG 2.1 Nível AA.",
+      "feedback_title": "// Feedback e Suporte",
+      "feedback_text": "Agradecemos seus comentários sobre a acessibilidade do Axiom Force. Se você encontrar barreiras de acessibilidade ou precisar de ajuda, entre em contato com nossa equipe de suporte:",
+      "close": "Fechar Declaração"
+    },
+    "auth": {
+      "user_login": "LOGIN DE USUÁRIO",
+      "verification_code": "Código de Verificação",
+      "enter_2fa_code": "Insira o código 2FA",
+      "verifying": "Verificando...",
+      "verify_code": "Verificar Código",
+      "username": "Nome de usuário",
+      "enter_username": "Insira seu nome de usuário",
+      "password": "Senha",
+      "authenticating": "Autenticando...",
+      "access_terminal": "Acessar Terminal",
+      "or": "OU",
+      "epic_login": "Entrar com Epic Games",
+      "steam_login": "Entrar com Steam",
+      "discord_login": "Entrar com Discord",
+      "need_account": "Precisa de uma conta? ",
+      "register_create": "Registrar / Criar Conta",
+      "create_account": "CRIAR CONTA",
+      "avatar_label": "Foto de Perfil (Opcional)",
+      "upload_portrait": "Carregar Foto",
+      "first_name": "Primeiro Nome",
+      "last_name": "Sobrenome",
+      "optional": "opcional",
+      "placeholder_first_name": "Primeiro nome",
+      "placeholder_last_name": "Sobrenome",
+      "email_address": "Endereço de E-mail",
+      "enter_email": "Insira seu e-mail",
+      "email": "E-mail",
+      "country_territory": "País / Território",
+      "loading_countries": "Carregando banco de dados oficial da ONU...",
+      "select_country": "Selecione seu país",
+      "country_error": "Não foi possível carregar a lista de países.",
+      "registering": "Registrando...",
+      "initialize_profile": "Inicializar Perfil",
+      "already_have_account": "Já tem uma conta? ",
+      "login_access_terminal": "Login / Acesso ao Terminal",
+      "two_factor_title": "Autenticação de dois fatores",
+      "two_factor_enabled_desc": "A 2FA está atualmente ativada em sua conta.",
+      "disable_2fa": "Desativar 2FA",
+      "enable_two_factor": "Ativar autenticação de dois fatores",
+      "processing": "Processando...",
+      "requesting": "Solicitando...",
+      "verify_enable": "Verificar e ativar",
+      "enter_code": "Insira o código",
+      "back_to_account": "Voltar para Minha Conta",
+      "code_sent": "Código de verificação enviado para seu e-mail. Insira-o abaixo.",
+      "code_request_failed": "Falha ao solicitar código de verificação 2FA.",
+      "two_factor_enabled_success": "Autenticação de dois fatores ativada com sucesso.",
+      "invalid_code": "Código inválido ou falha na verificação.",
+      "two_factor_disabled_success": "Autenticação de dois fatores desativada.",
+      "disable_failed": "Falha ao desativar 2FA.",
+      "auth_required": "Autenticação necessária",
+      "auth_required_desc": "Faça login em sua conta para autorizar o cliente do jogo.",
+      "authorize_client": "Autorizar cliente do jogo",
+      "requesting_access": "O cliente do jogo está solicitando acesso à sua conta.",
+      "authorize_now": "Autorizar agora",
+      "auth_success": "Conta autorizada com sucesso!",
+      "auth_success_desc": "Agora você pode retornar ao cliente do jogo. Esta janela pode ser fechada com segurança.",
+      "auth_failed": "Falha na autorização",
+      "auth_failed_desc": "Ocorreu um erro durante a autorização. Tente novamente.",
+      "try_again": "Tentar novamente"
+    },
+    "account": {
+      "phone_number": "Número de Telefone",
+      "code": "Cód.",
+      "country": "País",
+      "saving": "Salvando...",
+      "save_changes": "Salvar Alterações"
     }
   },
   "de": {
@@ -1819,7 +2235,12 @@
       "squad": "TRUPP",
       "tech_hub": "TECH-HUB",
       "design_system": "DESIGN-SYSTEM",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "login": "ANMELDEN",
+      "signup": "REGISTRIEREN",
+      "my_account": "MEIN KONTO",
+      "two_factor_auth": "ZWEI-FAKTOR-AUTHENTIFIZIERUNG",
+      "logout": "ABMELDEN"
     },
     "hero": {
       "title_line1": "AXIOM KRAFT",
@@ -1854,7 +2275,9 @@
       "platform_desc": "Zielplattformen: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Eingabe: Gamepad / Tastatur",
       "status_desc": "Status: Aufstand aktiv",
-      "version_desc": "Revision: Version 1.0.0"
+      "version_desc": "Revision: Version 1.0.0",
+      "accessibility_link": "BARRIEREFREIHEITSERKLÄRUNG",
+      "accessibility_btn": "Barrierefreiheit"
     },
     "home": {
       "story_label": "Die Geschichte",
@@ -1869,7 +2292,11 @@
       "controls_desc": "Tastatur und Gamepad bereit.",
       "warning_casualty": "> ACHTUNG: HOHE VERLETZUNGSRATE",
       "status_operational": "STATUS: OPERATIONAL",
-      "grid_hacked": "Unterstation 4Alpha gehackt. Lokales Netz unter HLF-Kontrolle."
+      "grid_hacked": "Unterstation 4Alpha gehackt. Lokales Netz unter HLF-Kontrolle.",
+      "interactive_360": "INTERAKTIV 360°",
+      "system_breach": "SYSTEMVERLETZUNG ERKANNT",
+      "decrypted_file": "ENTSCHLÜSSELTE DATEI: 001_HLF",
+      "operative_3d": "3D_OPERATOR"
     },
     "story": {
       "briefing": "narratives Briefing",
@@ -1934,6 +2361,9 @@
           "role": "Elektromagnetische Sturmvorhut",
           "desc": "König Tariq Nzinga ist ein Kraftpaket, das elektromagnetische Sturmwolken kanalisiert und mit einem verheerenden Sturmschild-Sprung herabstürzt.",
           "lore": "„Der Sturm beantwortet meinen Ruf. Zittere vor dem Donner.“"
+        },
+        "guy": {
+          "lore": "Wir rekrutieren keine Helden. Wir rekrutieren Überlebende. Das Mainframe schläft nicht, und wir auch nicht."
         }
       }
     },
@@ -2139,7 +2569,9 @@
       "oceanus": "OCEANUS",
       "surya": "SURYA PRIME",
       "mirage": "Trugbildklinge",
-      "apex": "APEX TITAN"
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ ZIEHEN ZUM 360°-DREHEN",
+      "live_orbit": "3D_LIVE_ORBIT"
     },
     "gameplay": {
       "protocols": "KERNPROTOKOLLE",
@@ -2257,6 +2689,94 @@
       "a6": "Alle technischen Durchbrüche und Meilensteine der Entwicklung sind im Tech Hub archiviert.",
       "q7": "Was sind die Systemanforderungen?",
       "a7": "Solange Sie ein funktionierendes Terminal mit einer grundlegenden GPU und dem Wunsch nach Befreiung haben, können Sie Axiom Force ausführen. Die genauen Spezifikationen werden bald veröffentlicht."
+    },
+    "accessibility": {
+      "title": "Erklärung zur Barrierefreiheit",
+      "commitment_title": "// Unsere Verpflichtung",
+      "commitment_text": "Axiom Force setzt sich dafür ein, die digitale Barrierefreiheit für Menschen mit Behinderungen zu gewährleisten. Wir verbessern kontinuierlich die Benutzererfahrung für alle und wenden relevante Barrierefreiheitsstandards an (WCAG 2.1 Stufe AA).",
+      "features_title": "// Funktionen für Barrierefreiheit",
+      "feature_keyboard_title": "Tastaturnavigation:",
+      "feature_keyboard_desc": "Vollständige Tastaturbedienung auf der gesamten Website und im Spiel mit deutlichen Fokus-Indikatoren und anpassbaren Tastenkürzeln.",
+      "feature_contrast_title": "Kontrastreiches Design:",
+      "feature_contrast_desc": "Gestaltet mit kontrastreichen Cyberpunk-Farben, eindeutigen Fokus-Zuständen und skalierbaren Vektor-Icons für optimale Sichtbarkeit.",
+      "feature_subtitles_title": "Untertitel & Audiosteuerung:",
+      "feature_subtitles_desc": "Vollständige Untertitel für narrative Einsatzbesprechungen (wie AXIOM-7-Übertragungen) mit separater Lautstärkeregelung für Soundeffekte und Musik.",
+      "feature_screen_reader_title": "Screenreader-Bereit:",
+      "feature_screen_reader_desc": "Strukturiert mit semantischen HTML5-Elementen, beschreibenden Alt-Texten für Spielgrafiken und ARIA-Labels.",
+      "conformance_title": "// Konformitätsstatus",
+      "conformance_text": "Die Web Content Accessibility Guidelines (WCAG) definieren Anforderungen für Designer und Entwickler, um die Barrierefreiheit für Menschen mit Behinderungen zu verbessern. Axiom Force ist teilweise konform mit den Standards der WCAG 2.1 Stufe AA.",
+      "feedback_title": "// Feedback & Unterstützung",
+      "feedback_text": "Wir freuen uns über Ihr Feedback zur Barrierefreiheit von Axiom Force. Sollten Sie auf Barrieren stoßen oder Hilfe benötigen, kontaktieren Sie bitte unser Support-Team:",
+      "close": "Erklärung schließen"
+    },
+    "auth": {
+      "user_login": "BENUTZER-ANMELDUNG",
+      "verification_code": "Bestätigungscode",
+      "enter_2fa_code": "2FA-Code eingeben",
+      "verifying": "Verifizierung...",
+      "verify_code": "Code bestätigen",
+      "username": "Benutzername",
+      "enter_username": "Benutzername eingeben",
+      "password": "Passwort",
+      "authenticating": "Authentifizierung...",
+      "access_terminal": "Terminal betreten",
+      "or": "ODER",
+      "epic_login": "Epic Games Login",
+      "steam_login": "Steam Login",
+      "discord_login": "Discord Login",
+      "need_account": "Noch kein Konto? ",
+      "register_create": "Registrieren / Konto erstellen",
+      "create_account": "KONTO ERSTELLEN",
+      "avatar_label": "Profilbild (Optional)",
+      "upload_portrait": "Bild hochladen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "optional": "optional",
+      "placeholder_first_name": "Vorname",
+      "placeholder_last_name": "Nachname",
+      "email_address": "E-Mail-Adresse",
+      "enter_email": "E-Mail eingeben",
+      "email": "E-Mail",
+      "country_territory": "Land / Region",
+      "loading_countries": "Offizielle UN-Länderdatenbank wird geladen...",
+      "select_country": "Wählen Sie Ihr Land",
+      "country_error": "Länderliste konnte nicht geladen werden.",
+      "registering": "Registrierung...",
+      "initialize_profile": "Profil initialisieren",
+      "already_have_account": "Bereits ein Konto? ",
+      "login_access_terminal": "Anmelden / Terminal",
+      "two_factor_title": "Zwei-Faktor-Authentifizierung",
+      "two_factor_enabled_desc": "2FA ist derzeit für Ihr Konto aktiviert.",
+      "disable_2fa": "2FA deaktivieren",
+      "enable_two_factor": "Zwei-Faktor-Authentifizierung aktivieren",
+      "processing": "Verarbeitung...",
+      "requesting": "Anforderung...",
+      "verify_enable": "Bestätigen & Aktivieren",
+      "enter_code": "Code eingeben",
+      "back_to_account": "Zurück zu Mein Konto",
+      "code_sent": "Bestätigungscode an Ihre E-Mail gesendet. Bitte unten eingeben.",
+      "code_request_failed": "Fehler beim Anfordern des 2FA-Bestätigungscodes.",
+      "two_factor_enabled_success": "Zwei-Faktor-Authentifizierung erfolgreich aktiviert.",
+      "invalid_code": "Ungültiger Code oder Verifizierung fehlgeschlagen.",
+      "two_factor_disabled_success": "Zwei-Faktor-Authentifizierung deaktiviert.",
+      "disable_failed": "Fehler beim Deaktivieren von 2FA.",
+      "auth_required": "Authentifizierung erforderlich",
+      "auth_required_desc": "Bitte melden Sie sich an, um den Spiel-Client zu autorisieren.",
+      "authorize_client": "Spiel-Client autorisieren",
+      "requesting_access": "Der Spiel-Client fordert Zugriff auf Ihr Konto an.",
+      "authorize_now": "Jetzt autorisieren",
+      "auth_success": "Konto erfolgreich autorisiert!",
+      "auth_success_desc": "Sie können jetzt zum Spiel-Client zurückkehren. Dieses Fenster kann geschlossen werden.",
+      "auth_failed": "Autorisierung fehlgeschlagen",
+      "auth_failed_desc": "Bei der Autorisierung ist ein Fehler aufgetreten. Bitte erneut versuchen.",
+      "try_again": "Erneut versuchen"
+    },
+    "account": {
+      "phone_number": "Telefonnummer",
+      "code": "Vorwahl",
+      "country": "Land",
+      "saving": "Speichern...",
+      "save_changes": "Änderungen speichern"
     }
   },
   "it": {
@@ -2272,7 +2792,12 @@
       "squad": "SQUADRA",
       "tech_hub": "CENTRO TECNOLOGICO",
       "design_system": "SISTEMA DI PROGETTAZIONE",
-      "faq": "FAQ"
+      "faq": "DOMANDE FREQUENTI",
+      "login": "ACCEDI",
+      "signup": "REGISTRATI",
+      "my_account": "IL MIO ACCOUNT",
+      "two_factor_auth": "AUTENTICAZIONE A DUE FATTORI",
+      "logout": "DISCONNETTI"
     },
     "hero": {
       "title_line1": "FORZA ASSIOMATICA",
@@ -2307,7 +2832,9 @@
       "platform_desc": "Piattaforme di destinazione: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Ingresso: gamepad/tastiera",
       "status_desc": "Stato: insurrezione attiva",
-      "version_desc": "Revisione: versione v1.0.0"
+      "version_desc": "Revisione: versione v1.0.0",
+      "accessibility_link": "DICHIARAZIONE DI ACCESSIBILITÀ",
+      "accessibility_btn": "Accessibilità"
     },
     "home": {
       "story_label": "La storia",
@@ -2322,7 +2849,11 @@
       "controls_desc": "Tastiera e gamepad pronti.",
       "warning_casualty": "> ATTENZIONE: ALTO TASSO DI VITTIME",
       "status_operational": "STATO: OPERATIVO",
-      "grid_hacked": "Sottostazione 4Alpha violata. Rete locale sotto controllo HLF."
+      "grid_hacked": "Sottostazione 4Alpha violata. Rete locale sotto controllo HLF.",
+      "interactive_360": "360° INTERATTIVO",
+      "system_breach": "VIOLAZIONE DEL SISTEMA RILEVATA",
+      "decrypted_file": "FILE DECRITTOGRAFATO: 001_HLF",
+      "operative_3d": "OPERATIVO_3D"
     },
     "story": {
       "briefing": "briefing narrativo",
@@ -2387,6 +2918,9 @@
           "role": "Avanguardia della tempesta elettromagnetica",
           "desc": "Re Tariq Nzinga è un potente che incanala nubi temporalesche elettromagnetiche, che si abbattono con un devastante balzo dello scudo anti-tempesta.",
           "lore": "\"La tempesta risponde alla mia chiamata. Trema davanti al tuono.\""
+        },
+        "guy": {
+          "lore": "Non reclutiamo eroi. Reclutiamo sopravvissuti. Il mainframe non dorme mai, e nemmeno noi."
         }
       }
     },
@@ -2592,7 +3126,9 @@
       "oceanus": "OCEANO",
       "surya": "SURYA PRIMO",
       "mirage": "LAMA MIRAGGIO",
-      "apex": "APICE TITANO"
+      "apex": "APICE TITANO",
+      "drag_rotate": "🖱️ TRASCINA PER RUOTARE A 360°",
+      "live_orbit": "ORBITA_LIVE_3D"
     },
     "gameplay": {
       "protocols": "PROTOCOLLI FONDAMENTALI",
@@ -2710,6 +3246,94 @@
       "a6": "Tutti i progressi tecnici e le tappe dello sviluppo sono archiviati nel Tech Hub.",
       "q7": "Quali sono i requisiti di sistema?",
       "a7": "A patto di avere un terminale funzionante con una GPU di base e il desiderio di liberazione, puoi eseguire Axiom Force. Le specifiche dettagliate saranno pubblicate a breve."
+    },
+    "accessibility": {
+      "title": "Dichiarazione di accessibilità",
+      "commitment_title": "// Il Nostro Impegno",
+      "commitment_text": "Axiom Force si impegna a garantire l'accessibilità digitale alle persone con disabilità. Miglioriamo costantemente l'esperienza utente per tutti e applichiamo i pertinenti standard di accessibilità (WCAG 2.1 Livello AA).",
+      "features_title": "// Funzionalità di accessibilità",
+      "feature_keyboard_title": "Navigazione da tastiera:",
+      "feature_keyboard_desc": "Piena accessibilità da tastiera su tutto il sito web e nell'interfaccia di gioco con chiari indicatori di focus e tasti personalizzabili.",
+      "feature_contrast_title": "Design ad alto contrasto:",
+      "feature_contrast_desc": "Progettato con tonalità cyberpunk ad alto contrasto, stati di focus distinti e icone vettoriali scalabili per la massima visibilità.",
+      "feature_subtitles_title": "Sottotitoli e controlli audio:",
+      "feature_subtitles_desc": "Sottotitoli completi per i briefing narrativi (come le trasmissioni AXIOM-7) con regolazioni di volume separate per effetti sonori e musica.",
+      "feature_screen_reader_title": "Supporto screen reader:",
+      "feature_screen_reader_desc": "Strutturato con elementi semantici HTML5, testo alternativo descrittivo per la grafica di gioco ed etichette ARIA.",
+      "conformance_title": "// Stato di conformità",
+      "conformance_text": "Le Linee guida per l'accessibilità dei contenuti Web (WCAG) definiscono i requisiti per designer e sviluppatori volti a migliorare l'accessibilità per le persone con disabilità. Axiom Force è parzialmente conforme agli standard WCAG 2.1 Livello AA.",
+      "feedback_title": "// Feedback e Supporto",
+      "feedback_text": "Accogliamo con favore i vostri commenti sull'accessibilità di Axiom Force. Se riscontrate barriere di accessibilità o avete bisogno di assistenza, contattate il nostro team di supporto:",
+      "close": "Chiudi dichiarazione"
+    },
+    "auth": {
+      "user_login": "ACCESSO UTENTE",
+      "verification_code": "Codice di verifica",
+      "enter_2fa_code": "Inserisci codice 2FA",
+      "verifying": "Verifica in corso...",
+      "verify_code": "Verifica codice",
+      "username": "Nome utente",
+      "enter_username": "Inserisci il tuo nome utente",
+      "password": "Password",
+      "authenticating": "Autenticazione in corso...",
+      "access_terminal": "Accedi al terminale",
+      "or": "OPPURE",
+      "epic_login": "Accesso con Epic Games",
+      "steam_login": "Accesso con Steam",
+      "discord_login": "Accesso con Discord",
+      "need_account": "Non hai un account? ",
+      "register_create": "Registrati / Crea Account",
+      "create_account": "CREA ACCOUNT",
+      "avatar_label": "Foto Profilo (Opzionale)",
+      "upload_portrait": "Carica foto",
+      "first_name": "Nome",
+      "last_name": "Cognome",
+      "optional": "opzionale",
+      "placeholder_first_name": "Nome",
+      "placeholder_last_name": "Cognome",
+      "email_address": "Indirizzo e-mail",
+      "enter_email": "Inserisci la tua e-mail",
+      "email": "E-mail",
+      "country_territory": "Paese / Territorio",
+      "loading_countries": "Caricamento database ufficiale ONU...",
+      "select_country": "Seleziona il tuo paese",
+      "country_error": "Impossibile caricare l elenco dei paesi.",
+      "registering": "Registrazione in corso...",
+      "initialize_profile": "Inizializza profilo",
+      "already_have_account": "Hai già un account? ",
+      "login_access_terminal": "Accedi al terminale",
+      "two_factor_title": "Autenticazione a due fattori",
+      "two_factor_enabled_desc": "La 2FA è attualmente abilitata sul tuo account.",
+      "disable_2fa": "Disabilita 2FA",
+      "enable_two_factor": "Abilita autenticazione a due fattori",
+      "processing": "Elaborazione...",
+      "requesting": "Richiesta in corso...",
+      "verify_enable": "Verifica e abilita",
+      "enter_code": "Inserisci il codice",
+      "back_to_account": "Torna al mio account",
+      "code_sent": "Codice di verifica inviato alla tua email. Inseriscilo sotto.",
+      "code_request_failed": "Impossibile richiedere il codice di verifica 2FA.",
+      "two_factor_enabled_success": "Autenticazione a due fattori abilitata con successo.",
+      "invalid_code": "Codice non valido o verifica fallita.",
+      "two_factor_disabled_success": "Autenticazione a due fattori disabilitata.",
+      "disable_failed": "Impossibile disabilitare la 2FA.",
+      "auth_required": "Autenticazione richiesta",
+      "auth_required_desc": "Accedi al tuo account per autorizzare il client di gioco.",
+      "authorize_client": "Autorizza client di gioco",
+      "requesting_access": "Il client di gioco richiede l'accesso al tuo account.",
+      "authorize_now": "Autorizza ora",
+      "auth_success": "Account autorizzato con successo!",
+      "auth_success_desc": "Ora puoi tornare al client di gioco. Questa finestra può essere chiusa in sicurezza.",
+      "auth_failed": "Autorizzazione fallita",
+      "auth_failed_desc": "Si è verificato un errore durante l'autorizzazione. Riprova.",
+      "try_again": "Riprova"
+    },
+    "account": {
+      "phone_number": "Numero di telefono",
+      "code": "Prefisso",
+      "country": "Paese",
+      "saving": "Salvataggio...",
+      "save_changes": "Salva modifiche"
     }
   },
   "pl": {
@@ -2725,7 +3349,12 @@
       "squad": "ODDZIAŁ",
       "tech_hub": "CENTRUM TECHNICZNE",
       "design_system": "SYSTEMU PROJEKTOWANIA",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "login": "ZALOGUJ SIĘ",
+      "signup": "ZAREJESTRUJ SIĘ",
+      "my_account": "MOJE KONTO",
+      "two_factor_auth": "UWIERZYTELNIANIE DWUSKŁADNIKOWE",
+      "logout": "WYLOGUJ SIĘ"
     },
     "hero": {
       "title_line1": "SIŁA AKSYJOMU",
@@ -2760,7 +3389,9 @@
       "platform_desc": "Platformy docelowe: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Wejście: Gamepad/klawiatura",
       "status_desc": "Status: Powstanie aktywne",
-      "version_desc": "Wersja: wersja 1.0.0"
+      "version_desc": "Wersja: wersja 1.0.0",
+      "accessibility_link": "DEKLARACJA DOSTĘPNOŚCI",
+      "accessibility_btn": "Dostępność"
     },
     "home": {
       "story_label": "Historia",
@@ -2775,7 +3406,11 @@
       "controls_desc": "Klawiatura i gamepad gotowe.",
       "warning_casualty": "> OSTRZEŻENIE: WYSOKI WSKAŹNIK WYPADKÓW",
       "status_operational": "STAN: OPERACYJNY",
-      "grid_hacked": "Podstacja 4Alfa zhakowana. Sieć lokalna pod kontrolą HLF."
+      "grid_hacked": "Podstacja 4Alfa zhakowana. Sieć lokalna pod kontrolą HLF.",
+      "interactive_360": "INTERAKTYWNE 360°",
+      "system_breach": "WYKRYTO NARUSZENIE SYSTEMU",
+      "decrypted_file": "ODSZYFROWANY PLIK: 001_HLF",
+      "operative_3d": "OPERATOR_3D"
     },
     "story": {
       "briefing": "odprawa narracyjna",
@@ -2840,6 +3475,9 @@
           "role": "Straż Przednia Burzy Elektromagnetycznej",
           "desc": "Król Tariq Nzinga to potęga, która kieruje elektromagnetyczne chmury burzowe, rozbijając się niszczycielskim skokiem w tarczę burzową.",
           "lore": "„Burza odpowiada na moje wołanie. Drżyjcie przed grzmotem”."
+        },
+        "guy": {
+          "lore": "Nie rekrutujemy bohaterów. Rekrutujemy ocalałych. Główny system nie śpi, i my też nie."
         }
       }
     },
@@ -3045,7 +3683,9 @@
       "oceanus": "OCEANUS",
       "surya": "SURYA PRIME",
       "mirage": "OSTRZE MIRAŻU",
-      "apex": "SZCZĘŚLIWY TYTAN"
+      "apex": "SZCZĘŚLIWY TYTAN",
+      "drag_rotate": "🖱️ PRZECIĄGNIJ, ABY OBRÓCIĆ O 360°",
+      "live_orbit": "ORBITA_NA_ŻYWO_3D"
     },
     "gameplay": {
       "protocols": "PODSTAWOWE PROTOKOŁY",
@@ -3163,6 +3803,94 @@
       "a6": "Wszystkie przełomy techniczne i kamienie milowe rozwoju są zarchiwizowane w Tech Hub.",
       "q7": "Jakie są wymagania systemowe?",
       "a7": "Dopóki masz działający terminal z podstawową kartą GPU i pragnienie wyzwolenia, możesz uruchomić Axiom Force. Szczegółowe specyfikacje zostaną opublikowane wkrótce."
+    },
+    "accessibility": {
+      "title": "Deklaracja dostępności",
+      "commitment_title": "// Nasze Zobowiązanie",
+      "commitment_text": "Axiom Force dokłada wszelkich starań, aby zapewnić dostępność cyfrową osobom z niepełnosprawnościami. Nieustannie ulepszamy doświadczenia użytkowników dla wszystkich i stosujemy odpowiednie standardy dostępności (WCAG 2.1 Poziom AA).",
+      "features_title": "// Funkcje dostępności",
+      "feature_keyboard_title": "Nawigacja klawiaturą:",
+      "feature_keyboard_desc": "Pełna dostępność za pomocą klawiatury na stronie i w interfejsie gry z wyraźnymi wskaźnikami fokusu i konfigurowalnymi klawiszami.",
+      "feature_contrast_title": "Wysoki kontrast:",
+      "feature_contrast_desc": "Zaprojektowane z użyciem kontrastowych barw cyberpunkowych, wyrazistych stanów fokusu i skalowalnych ikon wektorowych.",
+      "feature_subtitles_title": "Napisy i sterowanie dźwiękiem:",
+      "feature_subtitles_desc": "Pełne napisy do odpraw fabularnych (takich jak transmisje AXIOM-7) z niezależną regulacją głośności efektów i muzyki.",
+      "feature_screen_reader_title": "Obsługa czytników ekranu:",
+      "feature_screen_reader_desc": "Zbudowane z semantycznych elementów HTML5, opisowych tekstów alternatywnych dla grafik gry oraz etykiet ARIA.",
+      "conformance_title": "// Status zgodności",
+      "conformance_text": "Wytyczne dotyczące dostępności treści internetowych (WCAG) definiują wymagania dla projektantów i programistów w celu poprawy dostępności dla osób z niepełnosprawnościami. Axiom Force jest częściowo zgodny ze standardami WCAG 2.1 na poziomie AA.",
+      "feedback_title": "// Opinie i wsparcie",
+      "feedback_text": "Czekamy na Twoje opinie na temat dostępności Axiom Force. Jeśli napotkasz jakiekolwiek bariery lub potrzebujesz pomocy, skontaktuj się z naszym zespołem wsparcia:",
+      "close": "Zamknij deklarację"
+    },
+    "auth": {
+      "user_login": "LOGOWANIE UŻYTKOWNIKA",
+      "verification_code": "Kod weryfikacyjny",
+      "enter_2fa_code": "Wprowadź kod 2FA",
+      "verifying": "Weryfikacja...",
+      "verify_code": "Zweryfikuj kod",
+      "username": "Nazwa użytkownika",
+      "enter_username": "Wprowadź nazwę użytkownika",
+      "password": "Hasło",
+      "authenticating": "Uwierzytelnianie...",
+      "access_terminal": "Dostęp do terminala",
+      "or": "LUB",
+      "epic_login": "Logowanie Epic Games",
+      "steam_login": "Logowanie Steam",
+      "discord_login": "Logowanie Discord",
+      "need_account": "Nie masz konta? ",
+      "register_create": "Zarejestruj się / Utwórz konto",
+      "create_account": "UTWÓRZ KONTO",
+      "avatar_label": "Zdjęcie profilowe (Opcjonalnie)",
+      "upload_portrait": "Prześlij zdjęcie",
+      "first_name": "Imię",
+      "last_name": "Nazwisko",
+      "optional": "opcjonalnie",
+      "placeholder_first_name": "Imię",
+      "placeholder_last_name": "Nazwisko",
+      "email_address": "Adres e-mail",
+      "enter_email": "Wprowadź swój e-mail",
+      "email": "E-mail",
+      "country_territory": "Kraj / Terytorium",
+      "loading_countries": "Ładowanie oficjalnej bazy krajów ONZ...",
+      "select_country": "Wybierz swój kraj",
+      "country_error": "Nie udało się załadować listy krajów.",
+      "registering": "Rejestracja...",
+      "initialize_profile": "Inicjalizuj profil",
+      "already_have_account": "Masz już konto? ",
+      "login_access_terminal": "Logowanie / Dostęp",
+      "two_factor_title": "Uwierzytelnianie dwuskładnikowe",
+      "two_factor_enabled_desc": "2FA jest obecnie włączone na Twoim koncie.",
+      "disable_2fa": "Wyłącz 2FA",
+      "enable_two_factor": "Włącz uwierzytelnianie dwuskładnikowe",
+      "processing": "Przetwarzanie...",
+      "requesting": "Wysyłanie zapytania...",
+      "verify_enable": "Zweryfikuj i włącz",
+      "enter_code": "Wprowadź kod",
+      "back_to_account": "Powrót do mojego konta",
+      "code_sent": "Kod weryfikacyjny wysłany na Twój adres e-mail. Wprowadź go poniżej.",
+      "code_request_failed": "Nie udało się uzyskać kodu weryfikacyjnego 2FA.",
+      "two_factor_enabled_success": "Uwierzytelnianie dwuskładnikowe włączone pomyślnie.",
+      "invalid_code": "Nieprawidłowy kod lub błąd weryfikacji.",
+      "two_factor_disabled_success": "Uwierzytelnianie dwuskładnikowe wyłączone.",
+      "disable_failed": "Nie udało się wyłączyć 2FA.",
+      "auth_required": "Wymagane uwierzytelnienie",
+      "auth_required_desc": "Zaloguj się na swoje konto, aby autoryzować klienta gry.",
+      "authorize_client": "Autoryzuj klienta gry",
+      "requesting_access": "Klient gry prosi o dostęp do Twojego konta.",
+      "authorize_now": "Autoryzuj teraz",
+      "auth_success": "Konto zostało pomyślnie autoryzowane!",
+      "auth_success_desc": "Możesz teraz wrócić do gry. To okno można bezpiecznie zamknąć.",
+      "auth_failed": "Autoryzacja nie powiodła się",
+      "auth_failed_desc": "Wystąpił błąd podczas autoryzacji. Spróbuj ponownie.",
+      "try_again": "Spróbuj ponownie"
+    },
+    "account": {
+      "phone_number": "Numer telefonu",
+      "code": "Kod",
+      "country": "Kraj",
+      "saving": "Zapisywanie...",
+      "save_changes": "Zapisz zmiany"
     }
   },
   "tr": {
@@ -3178,7 +3906,12 @@
       "squad": "TAKIM",
       "tech_hub": "TEKNOLOJİ MERKEZİ",
       "design_system": "TASARIM SİSTEMİ",
-      "faq": "SSS"
+      "faq": "SSS",
+      "login": "GİRİŞ YAP",
+      "signup": "KAYIT OL",
+      "my_account": "HESABIM",
+      "two_factor_auth": "İKİ ADIMLI DOĞRULAMA",
+      "logout": "ÇIKIŞ YAP"
     },
     "hero": {
       "title_line1": "aksiyom kuvveti",
@@ -3213,7 +3946,9 @@
       "platform_desc": "Hedef Platformlar: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "Giriş: Oyun Kumandası / Klavye",
       "status_desc": "Durum: Direniş Aktif",
-      "version_desc": "Revizyon: v1.0.0 Sürümü"
+      "version_desc": "Revizyon: v1.0.0 Sürümü",
+      "accessibility_link": "ERİŞİLEBİLİRLİK BİLDİRİMİ",
+      "accessibility_btn": "Erişilebilirlik"
     },
     "home": {
       "story_label": "Hikaye",
@@ -3228,7 +3963,11 @@
       "controls_desc": "Klavye ve gamepad hazır.",
       "warning_casualty": "> UYARI: YÜKSEK YARALANMA ORANI",
       "status_operational": "DURUM: ÇALIŞIR durumda",
-      "grid_hacked": "4Alpha trafo merkezi hacklendi. HLF kontrolü altında yerel şebeke."
+      "grid_hacked": "4Alpha trafo merkezi hacklendi. HLF kontrolü altında yerel şebeke.",
+      "interactive_360": "ETKİLEŞİMLİ 360°",
+      "system_breach": "SİSTEM İHLALİ ALGILANDI",
+      "decrypted_file": "ŞİFRESİ ÇÖZÜLMÜŞ DOSYA: 001_HLF",
+      "operative_3d": "3D_OPERATİF"
     },
     "story": {
       "briefing": "anlatı brifingi",
@@ -3293,6 +4032,9 @@
           "role": "Elektro-Manyetik Fırtına Öncüleri",
           "desc": "Kral Tarık Nzinga, elektromanyetik fırtına bulutlarını yönlendiren ve yıkıcı bir fırtına kalkanı sıçramasıyla çöken bir güç merkezidir.",
           "lore": "\"Fırtına çağrıma cevap veriyor. Gök gürültüsünün önünde titre.\""
+        },
+        "guy": {
+          "lore": "Kahraman toplamıyoruz. Hayatta kalanları topluyoruz. Ana bilgisayar uyumaz, biz de uyumayız."
         }
       }
     },
@@ -3498,7 +4240,9 @@
       "oceanus": "OKYANUS",
       "surya": "SURYA PRIME",
       "mirage": "SERBEST BIÇAK",
-      "apex": "APEX TİTANI"
+      "apex": "APEX TİTANI",
+      "drag_rotate": "🖱️ 360° DÖNDÜRMEK İÇİN SÜRÜKLEYİN",
+      "live_orbit": "3D_CANLI_YÖRÜNGE"
     },
     "gameplay": {
       "protocols": "ÇEKİRDEK PROTOKOLLER",
@@ -3616,6 +4360,94 @@
       "a6": "Tüm teknik atılımlar ve geliştirme dönüm noktaları Tech Hub'da arşivlenmiştir.",
       "q7": "Sistem gereksinimleri nelerdir?",
       "a7": "Çalışan bir terminaliniz, temel bir GPU'nuz ve özgürleşme arzunuz olduğu sürece Axiom Force'u çalıştırabilirsiniz. Detaylı özellikler yakında yayınlanacak."
+    },
+    "accessibility": {
+      "title": "Erişilebilirlik Bildirimi",
+      "commitment_title": "// Taahhüdümüz",
+      "commitment_text": "Axiom Force, engelli bireyler için dijital erişilebilirliği sağlamaya kararlıdır. Herkes için kullanıcı deneyimini sürekli iyileştiriyor ve ilgili erişilebilirlik standartlarını (WCAG 2.1 Düzey AA) uyguluyoruz.",
+      "features_title": "// Erişilebilirlik Özellikleri",
+      "feature_keyboard_title": "Klavye Gezintisi:",
+      "feature_keyboard_desc": "Net odak göstergeleri ve özelleştirilebilir tuş atamalarıyla web sitesinde ve oyun içi kullanıcı arayüzünde tam klavye erişilebilirliği.",
+      "feature_contrast_title": "Yüksek Kontrastlı Tasarım:",
+      "feature_contrast_desc": "En iyi görünürlük için yüksek kontrastlı siberpunk renkleri, belirgin odak durumları ve ölçeklenebilir vektör simgeleriyle tasarlandı.",
+      "feature_subtitles_title": "Altyazılar ve Ses Kontrolleri:",
+      "feature_subtitles_desc": "SFX ve Müzik için bağımsız ses kontrolleriyle anlatı brifingleri için tam metin altyazıları (AXIOM-7 yayınları gibi).",
+      "feature_screen_reader_title": "Ekran Okuyucu Uyumlu:",
+      "feature_screen_reader_desc": "Semantik HTML5 öğeleri, oyun grafikleri için açıklayıcı alt metinler ve ARIA etiketleri ile yapılandırılmıştır.",
+      "conformance_title": "// Uygunluk Durumu",
+      "conformance_text": "Web İçeriği Erişilebilirlik Yönergeleri (WCAG), engelli bireyler için erişilebilirliği artırmak üzere tasarımcılar ve geliştiriciler için gereksinimleri tanımlar. Axiom Force, WCAG 2.1 Düzey AA standartlarına kısmen uygundur.",
+      "feedback_title": "// Geri Bildirim ve Destek",
+      "feedback_text": "Axiom Force'un erişilebilirliği hakkındaki geri bildirimlerinizi memnuniyetle karşılıyoruz. Erişilebilirlik engelleriyle karşılaşırsanız veya yardıma ihtiyacınız olursa lütfen destek ekibimizle iletişime geçin:",
+      "close": "Bildirimi Kapat"
+    },
+    "auth": {
+      "user_login": "KULLANICI GİRİŞİ",
+      "verification_code": "Doğrulama Kodu",
+      "enter_2fa_code": "2FA kodunu girin",
+      "verifying": "Doğrulanıyor...",
+      "verify_code": "Kodu Doğrula",
+      "username": "Kullanıcı Adı",
+      "enter_username": "Kullanıcı adınızı girin",
+      "password": "Şifre",
+      "authenticating": "Kimlik Doğrulanıyor...",
+      "access_terminal": "Terminale Eriş",
+      "or": "VEYA",
+      "epic_login": "Epic Games Girişi",
+      "steam_login": "Steam Girişi",
+      "discord_login": "Discord Girişi",
+      "need_account": "Hesabınız yok mu? ",
+      "register_create": "Kayıt Ol / Hesap Oluştur",
+      "create_account": "HESAP OLUŞTUR",
+      "avatar_label": "Profil Resmi (İsteğe Bağlı)",
+      "upload_portrait": "Fotoğraf Yükle",
+      "first_name": "Ad",
+      "last_name": "Soyad",
+      "optional": "isteğe bağlı",
+      "placeholder_first_name": "Adınız",
+      "placeholder_last_name": "Soyadınız",
+      "email_address": "E-posta Adresi",
+      "enter_email": "E-postanızı girin",
+      "email": "E-posta",
+      "country_territory": "Ülke / Bölge",
+      "loading_countries": "Resmi BM ülke veritabanı yükleniyor...",
+      "select_country": "Ülkenizi seçin",
+      "country_error": "Ülke listesi yüklenemedi. Lütfen bağlantınızı kontrol edin.",
+      "registering": "Kaydediliyor...",
+      "initialize_profile": "Profili Başlat",
+      "already_have_account": "Zaten bir hesabınız var mı? ",
+      "login_access_terminal": "Giriş / Terminale Eriş",
+      "two_factor_title": "İki Adımlı Doğrulama",
+      "two_factor_enabled_desc": "2FA şu anda hesabınızda etkindir.",
+      "disable_2fa": "2FA'yı Devre Dışı Bırak",
+      "enable_two_factor": "İki Adımlı Doğrulamayı Etkinleştir",
+      "processing": "İşleniyor...",
+      "requesting": "İsteniyor...",
+      "verify_enable": "Doğrula ve Etkinleştir",
+      "enter_code": "Kodu girin",
+      "back_to_account": "Hesabıma Geri Dön",
+      "code_sent": "Doğrulama kodu e-postanıza gönderildi. Lütfen aşağıya girin.",
+      "code_request_failed": "2FA doğrulama kodu istenemedi.",
+      "two_factor_enabled_success": "İki adımlı doğrulama başarıyla etkinleştirildi.",
+      "invalid_code": "Geçersiz kod veya doğrulama başarısız.",
+      "two_factor_disabled_success": "İki adımlı doğrulama devre dışı bırakıldı.",
+      "disable_failed": "2FA devre dışı bırakılamadı.",
+      "auth_required": "Kimlik Doğrulaması Gerekli",
+      "auth_required_desc": "Oyun istemcisini yetkilendirmek için lütfen hesabınıza giriş yapın.",
+      "authorize_client": "Oyun İstemcisini Yetkilendir",
+      "requesting_access": "Oyun istemcisi hesabınıza erişim talep ediyor.",
+      "authorize_now": "Şimdi Yetkilendir",
+      "auth_success": "Hesap Başarıyla Yetkilendirildi!",
+      "auth_success_desc": "Artık oyun istemcisine dönebilirsiniz. Bu pencere güvenle kapatılabilir.",
+      "auth_failed": "Yetkilendirme Başarısız",
+      "auth_failed_desc": "Yetkilendirme sırasında bir hata oluştu. Lütfen tekrar deneyin.",
+      "try_again": "Tekrar Dene"
+    },
+    "account": {
+      "phone_number": "Telefon Numarası",
+      "code": "Kod",
+      "country": "Ülke",
+      "saving": "Kaydediliyor...",
+      "save_changes": "Değişiklikleri Kaydet"
     }
   },
   "ja": {
@@ -3631,7 +4463,12 @@
       "squad": "分隊",
       "tech_hub": "テックハブ",
       "design_system": "デザインシステム",
-      "faq": "FAQ"
+      "faq": "よくある質問",
+      "login": "ログイン",
+      "signup": "新規登録",
+      "my_account": "マイアカウント",
+      "two_factor_auth": "2段階認証",
+      "logout": "ログアウト"
     },
     "hero": {
       "title_line1": "公理の力",
@@ -3666,7 +4503,9 @@
       "platform_desc": "対象プラットフォーム：Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "入力: ゲームパッド/キーボード",
       "status_desc": "ステータス: 反乱活動中",
-      "version_desc": "リビジョン: v1.0.0 リリース"
+      "version_desc": "リビジョン: v1.0.0 リリース",
+      "accessibility_link": "アクセシビリティ方針",
+      "accessibility_btn": "アクセシビリティ"
     },
     "home": {
       "story_label": "物語",
@@ -3681,7 +4520,11 @@
       "controls_desc": "キーボードとゲームパッドの準備が整いました。",
       "warning_casualty": "> 警告: 高い死亡率",
       "status_operational": "ステータス: 稼働中",
-      "grid_hacked": "Substation 4Alpha がハッキングされました。 HLF 制御下のローカルグリッド。"
+      "grid_hacked": "Substation 4Alpha がハッキングされました。 HLF 制御下のローカルグリッド。",
+      "interactive_360": "インタラクティブ360°",
+      "system_breach": "システム侵入を検知",
+      "decrypted_file": "復号ファイル: 001_HLF",
+      "operative_3d": "3Dオペレーティブ"
     },
     "story": {
       "briefing": "説明説明",
@@ -3746,6 +4589,9 @@
           "role": "電磁嵐の前衛",
           "desc": "タリク・ンジンガ王は、電磁嵐雲を誘導し、破壊的な嵐の盾の跳躍で墜落させる強力な人物です。",
           "lore": "「嵐が私の呼びかけに応えます。雷の前に震えなさい。」"
+        },
+        "guy": {
+          "lore": "英雄を募っているのではない。生き残りを集めているのだ。メインフレームは眠らない、我々も同じだ。"
         }
       }
     },
@@ -3951,7 +4797,9 @@
       "oceanus": "オシアナス",
       "surya": "スーリヤプライム",
       "mirage": "ミラージュブレード",
-      "apex": "アペックスタイタン"
+      "apex": "アペックスタイタン",
+      "drag_rotate": "🖱️ ドラッグして360°回転",
+      "live_orbit": "3D_ライブ軌道"
     },
     "gameplay": {
       "protocols": "コア・プロトコル",
@@ -4069,6 +4917,94 @@
       "a6": "すべての技術的な突破口と開発の節目はTech Hubにアーカイブされています。",
       "q7": "システム要件は何ですか？",
       "a7": "基本的なGPUを搭載した動作する端末と、解放への意志があればAxiom Forceをプレイできます。詳細なスペックは近日公開予定です。"
+    },
+    "accessibility": {
+      "title": "アクセシビリティ方針",
+      "commitment_title": "// 私たちの取り組み",
+      "commitment_text": "Axiom Force は障害を持つ方々へのデジタルアクセシビリティの確保に尽力しています。私たちはすべての人にとってのユーザー体験を継続的に向上させ、関連するアクセシビリティ基準（WCAG 2.1 レベル AA）を適用しています。",
+      "features_title": "// アクセシビリティ機能",
+      "feature_keyboard_title": "キーボード操作:",
+      "feature_keyboard_desc": "明確なフォーカス表示とカスタマイズ可能なキー割り当てにより、ウェブサイトおよびゲーム内UIの全キーボード操作に対応。",
+      "feature_contrast_title": "高コントラストデザイン:",
+      "feature_contrast_desc": "最適な視認性を追求し、高コントラストなサイバーパンク配色、明確なフォーカス状態、スケーラブルなベクターアイコンを採用。",
+      "feature_subtitles_title": "字幕＆音声コントロール:",
+      "feature_subtitles_desc": "効果音とBGMの個別音量調整に加え、ナラティブブリーフィング（AXIOM-7通信など）の完全なテキスト字幕を提供。",
+      "feature_screen_reader_title": "スクリーンリーダー対応:",
+      "feature_screen_reader_desc": "セマンティックなHTML5要素、ゲーム画像の詳細な代替テキスト、ARIAラベルを用いて構築されています。",
+      "conformance_title": "// 適合状況",
+      "conformance_text": "ウェブコンテンツ・アクセシビリティ・ガイドライン（WCAG）は、障害を持つ方々のアクセシビリティを向上させるために設計者や開発者に対する要件を定めています。Axiom Force は WCAG 2.1 レベル AA 規格に一部準拠しています。",
+      "feedback_title": "// ご意見・サポート",
+      "feedback_text": "Axiom Force のアクセシビリティに関するご意見をお待ちしております。アクセシビリティの障壁に遭遇した場合やサポートが必要な場合は、サポートチームまでご連絡ください:",
+      "close": "閉じる"
+    },
+    "auth": {
+      "user_login": "ユーザーログイン",
+      "verification_code": "認証コード",
+      "enter_2fa_code": "2FAコードを入力",
+      "verifying": "確認中...",
+      "verify_code": "コードを確認",
+      "username": "ユーザー名",
+      "enter_username": "ユーザー名を入力",
+      "password": "パスワード",
+      "authenticating": "認証中...",
+      "access_terminal": "端末にアクセス",
+      "or": "または",
+      "epic_login": "Epic Gamesでログイン",
+      "steam_login": "Steamでログイン",
+      "discord_login": "Discordでログイン",
+      "need_account": "アカウントが必要ですか？ ",
+      "register_create": "新規登録 / アカウント作成",
+      "create_account": "アカウント作成",
+      "avatar_label": "アバター / プロフィール画像（任意）",
+      "upload_portrait": "画像をアップロード",
+      "first_name": "名",
+      "last_name": "姓",
+      "optional": "任意",
+      "placeholder_first_name": "名",
+      "placeholder_last_name": "姓",
+      "email_address": "メールアドレス",
+      "enter_email": "メールアドレスを入力",
+      "email": "メール",
+      "country_territory": "国 / 地域",
+      "loading_countries": "国連加盟国データベースを読み込み中...",
+      "select_country": "国を選択してください",
+      "country_error": "国リストを読み込めませんでした。",
+      "registering": "登録中...",
+      "initialize_profile": "プロフィールを作成",
+      "already_have_account": "既にアカウントをお持ちですか？ ",
+      "login_access_terminal": "ログイン / 端末アクセス",
+      "two_factor_title": "2要素認証",
+      "two_factor_enabled_desc": "2FAは現在アカウントで有効になっています。",
+      "disable_2fa": "2FAを無効化",
+      "enable_two_factor": "2要素認証を有効化",
+      "processing": "処理中...",
+      "requesting": "リクエスト中...",
+      "verify_enable": "確認して有効化",
+      "enter_code": "コードを入力",
+      "back_to_account": "アカウントに戻る",
+      "code_sent": "確認コードがメールに送信されました。以下に入力してください。",
+      "code_request_failed": "2FA確認コードのリクエストに失敗しました。",
+      "two_factor_enabled_success": "2要素認証が正常に有効化されました。",
+      "invalid_code": "無効なコードまたは確認失敗。",
+      "two_factor_disabled_success": "2要素認証が無効化されました。",
+      "disable_failed": "2FAの無効化に失敗しました。",
+      "auth_required": "認証が必要です",
+      "auth_required_desc": "ゲームクライアントを承認するにはアカウントにログインしてください。",
+      "authorize_client": "ゲームクライアントを承認",
+      "requesting_access": "ゲームクライアントがアカウントへのアクセスを求めています。",
+      "authorize_now": "今すぐ承認",
+      "auth_success": "アカウントが正常に承認されました！",
+      "auth_success_desc": "ゲームクライアントに戻ることができます。このウィンドウは閉じて構いません。",
+      "auth_failed": "承認に失敗しました",
+      "auth_failed_desc": "承認中にエラーが発生しました。もう一度お試しください。",
+      "try_again": "再試行"
+    },
+    "account": {
+      "phone_number": "電話番号",
+      "code": "コード",
+      "country": "国",
+      "saving": "保存中...",
+      "save_changes": "変更を保存"
     }
   },
   "ko": {
@@ -4084,7 +5020,12 @@
       "squad": "분대",
       "tech_hub": "테크 허브",
       "design_system": "디자인 시스템",
-      "faq": "FAQ"
+      "faq": "자주 묻는 질문",
+      "login": "로그인",
+      "signup": "회원가입",
+      "my_account": "내 계정",
+      "two_factor_auth": "2단계 인증",
+      "logout": "로그아웃"
     },
     "hero": {
       "title_line1": "공리력",
@@ -4119,7 +5060,9 @@
       "platform_desc": "대상 플랫폼: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "입력: 게임패드/키보드",
       "status_desc": "상태: 반란 활동 중",
-      "version_desc": "개정: v1.0.0 릴리스"
+      "version_desc": "개정: v1.0.0 릴리스",
+      "accessibility_link": "접근성 선언문",
+      "accessibility_btn": "접근성"
     },
     "home": {
       "story_label": "스토리",
@@ -4134,7 +5077,11 @@
       "controls_desc": "키보드 및 게임패드가 준비되었습니다.",
       "warning_casualty": "> 경고: 높은 사상자율",
       "status_operational": "상태: 작동 중",
-      "grid_hacked": "변전소 4Alpha가 해킹당했습니다. HLF 제어 하의 로컬 그리드."
+      "grid_hacked": "변전소 4Alpha가 해킹당했습니다. HLF 제어 하의 로컬 그리드.",
+      "interactive_360": "인터랙티브 360°",
+      "system_breach": "시스템 침입 감지됨",
+      "decrypted_file": "복호화된 파일: 001_HLF",
+      "operative_3d": "3D_요원"
     },
     "story": {
       "briefing": "서술 브리핑",
@@ -4199,6 +5146,9 @@
           "role": "전자기 폭풍 선봉대",
           "desc": "King Tariq Nzinga는 전자기 폭풍 구름을 집중시켜 파괴적인 폭풍 보호막 도약으로 무너뜨리는 강자입니다.",
           "lore": "\"폭풍이 내 부름에 응답한다. 천둥 앞에 떨라.\""
+        },
+        "guy": {
+          "lore": "우리는 영웅을 모집하지 않는다. 생존자를 모집한다. 메인프레임은 잠들지 않으며, 우리도 마찬가지다."
         }
       }
     },
@@ -4404,7 +5354,9 @@
       "oceanus": "오션스",
       "surya": "수리야 프라임",
       "mirage": "미라지 블레이드",
-      "apex": "APEX 타이탄"
+      "apex": "APEX 타이탄",
+      "drag_rotate": "🖱️ 드래그하여 360° 회전",
+      "live_orbit": "3D_실시간_궤도"
     },
     "gameplay": {
       "protocols": "핵심 프로토콜",
@@ -4522,6 +5474,94 @@
       "a6": "모든 기술적 돌파구와 개발 마일스톤은 Tech Hub에 보관되어 있습니다.",
       "q7": "시스템 요구 사항은 무엇입니까?",
       "a7": "기본 GPU가 있는 작동하는 터미널과 해방에 대한 열망만 있다면 Axiom Force를 실행할 수 있습니다. 세부 사양은 곧 공개될 예정입니다."
+    },
+    "accessibility": {
+      "title": "웹 접근성 선언문",
+      "commitment_title": "// 우리의 약속",
+      "commitment_text": "Axiom Force는 장애인을 위한 디지털 접근성을 보장하기 위해 최선을 다하고 있습니다. 우리는 모든 사용자를 위한 경험을 지속적으로 개선하고 관련 접근성 표준(WCAG 2.1 레벨 AA)을 적용하고 있습니다.",
+      "features_title": "// 접근성 기능",
+      "feature_keyboard_title": "키보드 내비게이션:",
+      "feature_keyboard_desc": "명확한 포커스 표시기와 사용자 정의 키 설정을 통해 웹사이트 및 게임 내 UI 전반에서 완벽한 키보드 접근성을 지원합니다.",
+      "feature_contrast_title": "고대비 디자인:",
+      "feature_contrast_desc": "최적의 가시성을 위해 고대비 사이버펑크 색상, 뚜렷한 포커스 상태 및 확장 가능한 벡터 아이콘으로 디자인되었습니다.",
+      "feature_subtitles_title": "자막 및 오디오 컨트롤:",
+      "feature_subtitles_desc": "효과음과 음악의 독립적인 볼륨 제어와 함께 내러티브 브리핑(예: AXIOM-7 전송)을 위한 전체 텍스트 자막을 지원합니다.",
+      "feature_screen_reader_title": "스크린 리더 지원:",
+      "feature_screen_reader_desc": "시맨틱 HTML5 요소, 게임 그래픽을 위한 설명형 대체 텍스트 및 ARIA 라벨로 구성되어 있습니다.",
+      "conformance_title": "// 적합성 현황",
+      "conformance_text": "웹 콘텐츠 접근성 지침(WCAG)은 디자이너와 개발자가 장애인을 위한 접근성을 개선하기 위한 요구 사항을 정의합니다. Axiom Force는 WCAG 2.1 레벨 AA 표준을 부분적으로 준수합니다.",
+      "feedback_title": "// 피드백 및 지원",
+      "feedback_text": "Axiom Force의 접근성에 대한 여러분의 피드백을 환영합니다. 접근성 장벽에 부딪히거나 도움이 필요한 경우 지원 팀에 문의해 주십시오:",
+      "close": "닫기"
+    },
+    "auth": {
+      "user_login": "사용자 로그인",
+      "verification_code": "인증 코드",
+      "enter_2fa_code": "2단계 인증 코드 입력",
+      "verifying": "확인 중...",
+      "verify_code": "코드 확인",
+      "username": "사용자 이름",
+      "enter_username": "사용자 이름을 입력하세요",
+      "password": "비밀번호",
+      "authenticating": "인증 중...",
+      "access_terminal": "터미널 접속",
+      "or": "또는",
+      "epic_login": "Epic Games 로그인",
+      "steam_login": "Steam 로그인",
+      "discord_login": "Discord 로그인",
+      "need_account": "계정이 필요하신가요? ",
+      "register_create": "가입하기 / 계정 생성",
+      "create_account": "계정 생성",
+      "avatar_label": "아바타 / 프로필 사진 (선택 사항)",
+      "upload_portrait": "사진 업로드",
+      "first_name": "이름",
+      "last_name": "성",
+      "optional": "선택",
+      "placeholder_first_name": "이름",
+      "placeholder_last_name": "성",
+      "email_address": "이메일 주소",
+      "enter_email": "이메일을 입력하세요",
+      "email": "이메일",
+      "country_territory": "국가 / 지역",
+      "loading_countries": "공식 UN 국가 데이터베이스 로드 중...",
+      "select_country": "국가를 선택하세요",
+      "country_error": "국가 목록을 불러올 수 없습니다.",
+      "registering": "등록 중...",
+      "initialize_profile": "프로필 초기화",
+      "already_have_account": "이미 계정이 있으신가요? ",
+      "login_access_terminal": "로그인 / 터미널 접속",
+      "two_factor_title": "2단계 인증",
+      "two_factor_enabled_desc": "계정에 2FA가 활성화되어 있습니다.",
+      "disable_2fa": "2FA 비활성화",
+      "enable_two_factor": "2단계 인증 활성화",
+      "processing": "처리 중...",
+      "requesting": "요청 중...",
+      "verify_enable": "확인 및 활성화",
+      "enter_code": "코드 입력",
+      "back_to_account": "내 계정으로 돌아가기",
+      "code_sent": "인증 코드가 이메일로 전송되었습니다. 아래에 입력하세요.",
+      "code_request_failed": "2FA 인증 코드 요청 실패.",
+      "two_factor_enabled_success": "2단계 인증이 성공적으로 활성화되었습니다.",
+      "invalid_code": "잘못된 코드이거나 확인 실패.",
+      "two_factor_disabled_success": "2단계 인증이 비활성화되었습니다.",
+      "disable_failed": "2FA 비활성화 실패.",
+      "auth_required": "인증 필요",
+      "auth_required_desc": "게임 클라이언트를 승인하려면 계정에 로그인하세요.",
+      "authorize_client": "게임 클라이언트 승인",
+      "requesting_access": "게임 클라이언트가 계정 접근을 요청하고 있습니다.",
+      "authorize_now": "지금 승인",
+      "auth_success": "계정이 성공적으로 승인되었습니다!",
+      "auth_success_desc": "이제 게임 클라이언트로 돌아갈 수 있습니다. 이 창을 닫아도 안전합니다.",
+      "auth_failed": "승인 실패",
+      "auth_failed_desc": "승인 중 오류가 발생했습니다. 다시 시도해 주세요.",
+      "try_again": "다시 시도"
+    },
+    "account": {
+      "phone_number": "전화번호",
+      "code": "국가번호",
+      "country": "국가",
+      "saving": "저장 중...",
+      "save_changes": "변경 사항 저장"
     }
   },
   "zh": {
@@ -4537,7 +5577,12 @@
       "squad": "小队",
       "tech_hub": "技术中心",
       "design_system": "设计系统",
-      "faq": "常见问题"
+      "faq": "常见问题",
+      "login": "登录",
+      "signup": "注册",
+      "my_account": "我的账户",
+      "two_factor_auth": "双重认证",
+      "logout": "退出登录"
     },
     "hero": {
       "title_line1": "公理力",
@@ -4572,7 +5617,9 @@
       "platform_desc": "目标平台: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "输入：游戏手柄/键盘",
       "status_desc": "状态：叛乱活动",
-      "version_desc": "修订版：v1.0.0 发布"
+      "version_desc": "修订版：v1.0.0 发布",
+      "accessibility_link": "无障碍声明",
+      "accessibility_btn": "无障碍"
     },
     "home": {
       "story_label": "故事",
@@ -4587,7 +5634,11 @@
       "controls_desc": "键盘和游戏手柄准备就绪。",
       "warning_casualty": "> 警告：伤亡率高",
       "status_operational": "状态：运营中",
-      "grid_hacked": "4Alpha 变电站被黑。 HLF 控制下的本地电网。"
+      "grid_hacked": "4Alpha 变电站被黑。 HLF 控制下的本地电网。",
+      "interactive_360": "360° 交互视角",
+      "system_breach": "检测到系统入侵",
+      "decrypted_file": "已解密文件：001_HLF",
+      "operative_3d": "3D特工"
     },
     "story": {
       "briefing": "叙述性简报",
@@ -4652,6 +5703,9 @@
           "role": "电磁风暴先锋",
           "desc": "塔里克·恩津加国王是一位强大的力量，他可以引导电磁风暴云，并通过毁灭性的风暴护盾跳跃坠落下来。",
           "lore": "“暴风雨响应了我的召唤。在雷霆面前颤抖吧。”"
+        },
+        "guy": {
+          "lore": "我们不招募英雄，我们招募幸存者。主机从不休眠，我们亦是如此。"
         }
       }
     },
@@ -4857,7 +5911,9 @@
       "oceanus": "奥西纳斯",
       "surya": "苏里亚总理",
       "mirage": "幻影之刃",
-      "apex": "巅峰泰坦"
+      "apex": "巅峰泰坦",
+      "drag_rotate": "🖱️ 拖拽以 360° 旋转",
+      "live_orbit": "3D_实时轨道"
     },
     "gameplay": {
       "protocols": "核心协议",
@@ -4975,6 +6031,94 @@
       "a6": "所有技术突破和开发里程碑都存档在 Tech Hub 中。",
       "q7": "系统要求是什么？",
       "a7": "只要您拥有一个功能完备的终端、基础 GPU 以及对解放的渴望，您就可以运行 Axiom Force。具体规格将很快发布。"
+    },
+    "accessibility": {
+      "title": "无障碍声明",
+      "commitment_title": "// 我们的承诺",
+      "commitment_text": "Axiom Force 致力于确保残障人士的无障碍数字体验。我们不断改进面向所有人的用户体验，并应用相关的无障碍标准（WCAG 2.1 AA 级）。",
+      "features_title": "// 无障碍功能",
+      "feature_keyboard_title": "键盘导航：",
+      "feature_keyboard_desc": "整个网站和游戏UI均支持完整的键盘无障碍操作，具备清晰的焦点指示器和自定义快捷键。",
+      "feature_contrast_title": "高对比度设计：",
+      "feature_contrast_desc": "采用高对比度赛博朋克配色、清晰的聚焦状态以及可缩放矢量图标设计，实现最佳可见度。",
+      "feature_subtitles_title": "字幕与音频控制：",
+      "feature_subtitles_desc": "为剧情简报（例如 AXIOM-7 通讯）提供完整文本字幕，并配备音效和音乐的独立音量控制。",
+      "feature_screen_reader_title": "屏幕阅读器支持：",
+      "feature_screen_reader_desc": "采用语义化 HTML5 元素、游戏图形的描述性替代文本（alt）以及 ARIA 标签构建。",
+      "conformance_title": "// 符合性状态",
+      "conformance_text": "网页内容无障碍指南 (WCAG) 规定了设计人员和开发人员改善残障人士无障碍体验的要求。Axiom Force 部分符合 WCAG 2.1 AA 级标准。",
+      "feedback_title": "// 反馈与支持",
+      "feedback_text": "我们欢迎您对 Axiom Force 的无障碍功能提出宝贵意见。如果您遇到无障碍障碍或需要帮助，请联系我们的支持团队：",
+      "close": "关闭声明"
+    },
+    "auth": {
+      "user_login": "用户登录",
+      "verification_code": "验证码",
+      "enter_2fa_code": "输入双重认证码",
+      "verifying": "正在验证...",
+      "verify_code": "验证代码",
+      "username": "用户名",
+      "enter_username": "输入用户名",
+      "password": "密码",
+      "authenticating": "正在验证身份...",
+      "access_terminal": "访问终端",
+      "or": "或",
+      "epic_login": "Epic Games 登录",
+      "steam_login": "Steam 登录",
+      "discord_login": "Discord 登录",
+      "need_account": "需要账号？ ",
+      "register_create": "注册 / 创建账号",
+      "create_account": "创建账号",
+      "avatar_label": "头像 / 个人资料照片（可选）",
+      "upload_portrait": "上传照片",
+      "first_name": "名字",
+      "last_name": "姓氏",
+      "optional": "可选",
+      "placeholder_first_name": "名",
+      "placeholder_last_name": "姓",
+      "email_address": "电子邮箱",
+      "enter_email": "输入邮箱地址",
+      "email": "邮箱",
+      "country_territory": "国家 / 地区",
+      "loading_countries": "正在加载联合国官方国家数据库...",
+      "select_country": "选择您的国家",
+      "country_error": "无法加载国家列表，请刷新重试。",
+      "registering": "正在注册...",
+      "initialize_profile": "初始化个人资料",
+      "already_have_account": "已经有账号？ ",
+      "login_access_terminal": "登录 / 访问终端",
+      "two_factor_title": "双重身份验证",
+      "two_factor_enabled_desc": "您的账户当前已启用 2FA。",
+      "disable_2fa": "禁用 2FA",
+      "enable_two_factor": "启用双重身份验证",
+      "processing": "处理中...",
+      "requesting": "正在请求...",
+      "verify_enable": "验证并启用",
+      "enter_code": "输入验证码",
+      "back_to_account": "返回我的账户",
+      "code_sent": "验证码已发送至您的邮箱，请在下方输入。",
+      "code_request_failed": "请求 2FA 验证码失败。",
+      "two_factor_enabled_success": "双重身份验证已成功启用。",
+      "invalid_code": "验证码无效或验证失败。",
+      "two_factor_disabled_success": "双重身份验证已禁用。",
+      "disable_failed": "禁用 2FA 失败。",
+      "auth_required": "需要身份验证",
+      "auth_required_desc": "请登录您的账户以授权游戏客户端。",
+      "authorize_client": "授权游戏客户端",
+      "requesting_access": "游戏客户端正在请求访问您的账户。",
+      "authorize_now": "立即授权",
+      "auth_success": "账户授权成功！",
+      "auth_success_desc": "您现在可以返回游戏客户端。此窗口可以安全关闭。",
+      "auth_failed": "授权失败",
+      "auth_failed_desc": "授权过程中发生错误，请重试。",
+      "try_again": "重试"
+    },
+    "account": {
+      "phone_number": "电话号码",
+      "code": "区号",
+      "country": "国家",
+      "saving": "正在保存...",
+      "save_changes": "保存修改"
     }
   },
   "he": {
@@ -4990,7 +6134,12 @@
       "squad": "צוות",
       "tech_hub": "מרכז טכנולוגי",
       "design_system": "מערכת עיצוב",
-      "faq": "שאלות נפוצות"
+      "faq": "שאלות נפוצות",
+      "login": "התחברות",
+      "signup": "הרשמה",
+      "my_account": "החשבון שלי",
+      "two_factor_auth": "אימות דו-שלבי",
+      "logout": "התנתקות"
     },
     "hero": {
       "title_line1": "אקסיום פורס",
@@ -5025,7 +6174,9 @@
       "platform_desc": "פלטפורמות יעד: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "קלט: Gamepad / מקלדת",
       "status_desc": "סטטוס: מרד פעיל",
-      "version_desc": "גרסה: v1.0.0 מהדורה"
+      "version_desc": "גרסה: v1.0.0 מהדורה",
+      "accessibility_link": "הצהרת נגישות",
+      "accessibility_btn": "נגישות"
     },
     "home": {
       "story_label": "הסיפור",
@@ -5040,7 +6191,11 @@
       "controls_desc": "מוכן למקלדת ושלט משחק.",
       "warning_casualty": "> אזהרה: שיעור נפגעים גבוה",
       "status_operational": "סטטוס: תפעולי",
-      "grid_hacked": "תחנת משנה 4Alpha נפרצה. רשת מקומית בשליטה HLF."
+      "grid_hacked": "תחנת משנה 4Alpha נפרצה. רשת מקומית בשליטה HLF.",
+      "interactive_360": "אינטראקטיבי 360°",
+      "system_breach": "זוהתה פריצה למערכת",
+      "decrypted_file": "קובץ מפוענח: 001_HLF",
+      "operative_3d": "לוחם_תלת_מימד"
     },
     "story": {
       "briefing": "תדרוך עלילתי",
@@ -5105,6 +6260,9 @@
           "role": "סופה ואנגארד אלקטרו-מגנטית",
           "desc": "המלך טאריק נזינגה הוא תחנת כוח שמתעלת ענני סערה אלקטרו-מגנטיים, מתרסקת בקפיצה הרסנית של מגן סערה.",
           "lore": "\"הסערה עונה לקריאתי. רעד לפני הרעם.\""
+        },
+        "guy": {
+          "lore": "אנחנו לא מגייסים גיבורים. אנחנו מגייסים שורדים. המחשב המרכזי לא ישן, וגם אנחנו לא."
         }
       }
     },
@@ -5310,7 +6468,9 @@
       "oceanus": "אוקיינוס",
       "surya": "SURYA PRIME",
       "mirage": "MIRAGE BLADE",
-      "apex": "APEX TITAN"
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ גרור כדי לסובב 360°",
+      "live_orbit": "מסלול_חי_תלת_מימדי"
     },
     "gameplay": {
       "protocols": "פרוטוקולי ליבה",
@@ -5428,6 +6588,94 @@
       "a6": "כל הפריצות הטכנולוגיות ואבני הדרך של הפיתוח מאורכבות ב-Tech Hub.",
       "q7": "מהן דרישות המערכת?",
       "a7": "כל עוד יש לך טרמינל תקין עם GPU בסיסי ורצון לשחרור, תוכל להריץ את Axiom Force. מפרטים מדויקים יפורסמו בקרוב."
+    },
+    "accessibility": {
+      "title": "הצהרת נגישות",
+      "commitment_title": "// המחויבות שלנו",
+      "commitment_text": "Axiom Force מחויבת להבטחת נגישות דיגיטלית לאנשים עם מוגבלויות. אנו משפרים ללא הרף את חוויית המשתמש עבור כולם ומיישמים תקני נגישות רלוונטיים (WCAG 2.1 ברמה AA).",
+      "features_title": "// תכונות נגישות",
+      "feature_keyboard_title": "ניווט במקלדת:",
+      "feature_keyboard_desc": "נגישות מלאה במקלדת בכל האתר ובממשק המשחק עם מחווני פוקוס ברורים והתאמת מקשים אישית.",
+      "feature_contrast_title": "עיצוב בניגודיות גבוהה:",
+      "feature_contrast_desc": "עוצב בצבעי סייברפאנק בעלי ניגודיות גבוהה, מצבי פוקוס ברורים ואייקונים וקטוריים להתאמה מרבית.",
+      "feature_subtitles_title": "כתוביות ובקרת שמע:",
+      "feature_subtitles_desc": "כתוביות טקסט מלאות לתדריכים עלילתיים (כגון שידורי AXIOM-7) עם בקרת עוצמת קול עצמאית לאפקטים ולמוזיקה.",
+      "feature_screen_reader_title": "תמיכה בקוראי מסך:",
+      "feature_screen_reader_desc": "בנוי עם רכיבי HTML5 סמנטיים, טקסט חלופי תיאורי לגרפיקת המשחק ותגיות ARIA.",
+      "conformance_title": "// סטטוס תאימות",
+      "conformance_text": "הקווים המנחים לנגישות תכני אינטרנט (WCAG) מגדירים דרישות למעצבים ומפתחים לשיפור הנגישות עבור אנשים עם מוגבלויות. Axiom Force תואם באופן חלקי לתקני WCAG 2.1 ברמה AA.",
+      "feedback_title": "// משוב ותמיכה",
+      "feedback_text": "אנו מקדמים בברכה את המשוב שלך על הנגישות של Axiom Force. אם נתקלת במחסומי נגישות או שאתה זקוק לעזרה, אנא צור קשר עם צוות התמיכה שלנו:",
+      "close": "סגור הצהרה"
+    },
+    "auth": {
+      "user_login": "התחברות משתמש",
+      "verification_code": "קוד אימות",
+      "enter_2fa_code": "הזן קוד אימות",
+      "verifying": "מאמת...",
+      "verify_code": "אמת קוד",
+      "username": "שם משתמש",
+      "enter_username": "הזן שם משתמש",
+      "password": "סיסמה",
+      "authenticating": "מתחבר...",
+      "access_terminal": "גישה למסוף",
+      "or": "או",
+      "epic_login": "התחברות דרך Epic Games",
+      "steam_login": "התחברות דרך Steam",
+      "discord_login": "התחברות דרך Discord",
+      "need_account": "אין לך חשבון? ",
+      "register_create": "הרשמה / יצירת חשבון",
+      "create_account": "יצירת חשבון",
+      "avatar_label": "תמונת פרופיל (אופציונלי)",
+      "upload_portrait": "העלאת תמונה",
+      "first_name": "שם פרטי",
+      "last_name": "שם משפחה",
+      "optional": "אופציונלי",
+      "placeholder_first_name": "שם פרטי",
+      "placeholder_last_name": "שם משפחה",
+      "email_address": "כתובת אימייל",
+      "enter_email": "הזן את האימייל שלך",
+      "email": "אימייל",
+      "country_territory": "מדינה / טריטוריה",
+      "loading_countries": "טוען מאגר מדינות של האו\"ם...",
+      "select_country": "בחר את המדינה שלך",
+      "country_error": "לא ניתן לטעון את רשימת המדינות.",
+      "registering": "נרשם...",
+      "initialize_profile": "אתחול פרופיל",
+      "already_have_account": "כבר יש לך חשבון? ",
+      "login_access_terminal": "התחברות למסוף",
+      "two_factor_title": "אימות דו-שלבי",
+      "two_factor_enabled_desc": "אימות דו-שלבי מופעל כעת בחשבונך.",
+      "disable_2fa": "השבת 2FA",
+      "enable_two_factor": "הפעל אימות דו-שלבי",
+      "processing": "מעבד...",
+      "requesting": "מבקש...",
+      "verify_enable": "אמת והפעל",
+      "enter_code": "הזן קוד",
+      "back_to_account": "חזרה לחשבון שלי",
+      "code_sent": "קוד אימות נשלח לאימייל שלך. נא להזין אותו למטה.",
+      "code_request_failed": "בקשת קוד אימות 2FA נכשלה.",
+      "two_factor_enabled_success": "אימות דו-שלבי הופעל בהצלחה.",
+      "invalid_code": "קוד לא תקין או שהאימות נכשל.",
+      "two_factor_disabled_success": "אימות דו-שלבי הושבת.",
+      "disable_failed": "השבתת 2FA נכשלה.",
+      "auth_required": "נדרש אימות",
+      "auth_required_desc": "אנא התחבר לחשבונך כדי לאשר את לקוח המשחק.",
+      "authorize_client": "אשר את לקוח המשחק",
+      "requesting_access": "לקוח המשחק מבקש גישה לחשבונך.",
+      "authorize_now": "אשר עכשיו",
+      "auth_success": "החשבון אושר בהצלחה!",
+      "auth_success_desc": "כעת תוכל לחזור ללקוח המשחק. ניתן לסגור חלון זה בבטחה.",
+      "auth_failed": "האישור נכשל",
+      "auth_failed_desc": "אירעה שגיאה במהלך האישור. אנא נסה שוב.",
+      "try_again": "נסה שוב"
+    },
+    "account": {
+      "phone_number": "מספר טלפון",
+      "code": "קידומת",
+      "country": "מדינה",
+      "saving": "שומר...",
+      "save_changes": "שמור שינויים"
     }
   },
   "ar": {
@@ -5443,7 +6691,12 @@
       "squad": "الفرقة",
       "tech_hub": "مركز التقنية",
       "design_system": "نظام التصميم",
-      "faq": "الأسئلة الشائعة"
+      "faq": "الأسئلة الشائعة",
+      "login": "تسجيل الدخول",
+      "signup": "إنشاء حساب",
+      "my_account": "حسابي",
+      "two_factor_auth": "المصادقة الثنائية",
+      "logout": "تسجيل الخروج"
     },
     "hero": {
       "title_line1": "إكسيوم فورس",
@@ -5478,7 +6731,9 @@
       "platform_desc": "المنصات المستهدفة: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
       "input_desc": "الإدخال: لوحة الألعاب / لوحة المفاتيح",
       "status_desc": "الحالة: تمرد نشط",
-      "version_desc": "المراجعة: الإصدار v1.0.0"
+      "version_desc": "المراجعة: الإصدار v1.0.0",
+      "accessibility_link": "بيان إمكانية الوصول",
+      "accessibility_btn": "إمكانية الوصول"
     },
     "home": {
       "story_label": "القصة",
@@ -5493,7 +6748,11 @@
       "controls_desc": "جاهز للوحة المفاتيح وذراع التحكم.",
       "warning_casualty": "> تحذير: معدل إصابات مرتفع",
       "status_operational": "الحالة: التشغيلية",
-      "grid_hacked": "اختراق المحطة الفرعية 4Alpha الشبكة المحلية تحت سيطرة HLF."
+      "grid_hacked": "اختراق المحطة الفرعية 4Alpha الشبكة المحلية تحت سيطرة HLF.",
+      "interactive_360": "تفاعلي 360 درجة",
+      "system_breach": "تم اكتشاف اختراق للنظام",
+      "decrypted_file": "ملف مفكوك التشفير: 001_HLF",
+      "operative_3d": "عميل_ثلاثي_الأبعاد"
     },
     "story": {
       "briefing": "موجز سردي",
@@ -5558,6 +6817,9 @@
           "role": "طليعة العاصفة الكهرومغناطيسية",
           "desc": "الملك طارق نزينغا هو مصدر قوة يقوم بتوجيه السحب العاصفة الكهرومغناطيسية، وينهار بقفزة مدمرة على درع العاصفة.",
           "lore": "\"العاصفة تستجيب لندائي. ترتعد أمام الرعد.\""
+        },
+        "guy": {
+          "lore": "نحن لا نجنّد أبطالاً، بل نجنّد ناجين. النظام المركزي لا ينام، وكذلك نحن."
         }
       }
     },
@@ -5763,7 +7025,9 @@
       "oceanus": "المحيط",
       "surya": "سوريا برايم",
       "mirage": "ميراج بليد",
-      "apex": "أبيكس تيتان"
+      "apex": "أبيكس تيتان",
+      "drag_rotate": "🖱️ اسحب للتدوير 360 درجة",
+      "live_orbit": "مدار_مباشر_ثلاثي_الأبعاد"
     },
     "gameplay": {
       "protocols": "البروتوكولات الأساسية",
@@ -5881,6 +7145,2307 @@
       "a6": "جميع الاختراقات التقنية ومعالم التطوير مؤرشفة في Tech Hub.",
       "q7": "ما هي متطلبات النظام؟",
       "a7": "طالما لديك جهاز طرفي يعمل ومعالج رسومات أساسي ورغبة في التحرير، يمكنك تشغيل Axiom Force. سيتم إصدار المواصفات المحددة قريبًا."
+    },
+    "accessibility": {
+      "title": "بيان إمكانية الوصول",
+      "commitment_title": "// التزامنا",
+      "commitment_text": "تلتزم Axiom Force بضمان إمكانية الوصول الرقمي للأشخاص ذوي الإعاقة. نحن نعمل باستمرار على تحسين تجربة المستخدم للجميع وتطبيق معايير إمكانية الوصول ذات الصلة (WCAG 2.1 المستوى AA).",
+      "features_title": "// ميزات إمكانية الوصول",
+      "feature_keyboard_title": "التنقل عبر لوحة المفاتيح:",
+      "feature_keyboard_desc": "إمكانية الوصول الكامل عبر لوحة المفاتيح في الموقع وواجهة اللعبة مع مؤشرات تركيز واضحة واختصارات مخصصة.",
+      "feature_contrast_title": "تصميم عالي التباين:",
+      "feature_contrast_desc": "مصمم بألوان سايبربانك عالية التباين، وحالات تركيز واضحة، وأيقونات متجهة قابلة للتطوير لأقصى درجات الوضوح.",
+      "feature_subtitles_title": "الترجمة والتحكم في الصوت:",
+      "feature_subtitles_desc": "تسميات توضيحية نصية كاملة للإيجازات السردية (مثل إرساليات AXIOM-7) مع أدوات تحكم مستقلة في مستوى صوت المؤثرات الصوتية والموسيقى.",
+      "feature_screen_reader_title": "جاهز لقارئات الشاشة:",
+      "feature_screen_reader_desc": "منظم بعناصر HTML5 دلالية، ونصوص بديلة وصفية لرسومات اللعبة، وتسميات ARIA توضيحية.",
+      "conformance_title": "// حالة الامتثال",
+      "conformance_text": "تحدد إرشادات إمكانية الوصول إلى محتوى الويب (WCAG) متطلبات المصممين والمطورين لتحسين إمكانية الوصول للأشخاص ذوي الإعاقة. تتوافق لعبة Axiom Force جزئياً مع معايير WCAG 2.1 المستوى AA.",
+      "feedback_title": "// الملاحظات والدعم",
+      "feedback_text": "نرحب بملاحظاتكم حول إمكانية الوصول في Axiom Force. إذا واجهتم أي عوائق في إمكانية الوصول أو كنتم بحاجة إلى مساعدة، يُرجى التواصل مع فريق الدعم لدينا:",
+      "close": "إغلاق البيان"
+    },
+    "auth": {
+      "user_login": "تسجيل دخول المستخدم",
+      "verification_code": "رمز التحقق",
+      "enter_2fa_code": "أدخل رمز المصادقة",
+      "verifying": "جارٍ التحقق...",
+      "verify_code": "تأكيد الرمز",
+      "username": "اسم المستخدم",
+      "enter_username": "أدخل اسم المستخدم",
+      "password": "كلمة المرور",
+      "authenticating": "جارٍ تسجيل الدخول...",
+      "access_terminal": "دخول المحطة",
+      "or": "أو",
+      "epic_login": "تسجيل الدخول عبر Epic Games",
+      "steam_login": "تسجيل الدخول عبر Steam",
+      "discord_login": "تسجيل الدخول عبر Discord",
+      "need_account": "هل تحتاج إلى حساب؟ ",
+      "register_create": "تسجيل / إنشاء حساب",
+      "create_account": "إنشاء حساب",
+      "avatar_label": "الصورة الرمزية / صورة الملف الشخصي (اختياري)",
+      "upload_portrait": "رفع صورة",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "optional": "اختياري",
+      "placeholder_first_name": "الاسم الأول",
+      "placeholder_last_name": "اسم العائلة",
+      "email_address": "البريد الإلكتروني",
+      "enter_email": "أدخل بريدك الإلكتروني",
+      "email": "البريد الإلكتروني",
+      "country_territory": "الدولة / الإقليم",
+      "loading_countries": "جارٍ تحميل قاعدة بيانات الأمم المتحدة للدول...",
+      "select_country": "اختر بلدك",
+      "country_error": "تعذر تحميل قائمة الدول. يُرجى التحقق من اتصالك.",
+      "registering": "جارٍ التسجيل...",
+      "initialize_profile": "تهيئة الملف الشخصي",
+      "already_have_account": "هل لديك حساب بالفعل؟ ",
+      "login_access_terminal": "تسجيل الدخول / دخول المحطة",
+      "two_factor_title": "المصادقة الثنائية",
+      "two_factor_enabled_desc": "المصادقة الثنائية مفعلة حاليًا في حسابك.",
+      "disable_2fa": "تعطيل المصادقة الثنائية",
+      "enable_two_factor": "تفعيل المصادقة الثنائية",
+      "processing": "جارٍ المعالجة...",
+      "requesting": "جارٍ الطلب...",
+      "verify_enable": "تحقق وتفعيل",
+      "enter_code": "أدخل الرمز",
+      "back_to_account": "العودة إلى حسابي",
+      "code_sent": "تم إرسال رمز التحقق إلى بريدك الإلكتروني. الرجاء إدخاله أدناه.",
+      "code_request_failed": "فشل في طلب رمز التحقق من المصادقة الثنائية.",
+      "two_factor_enabled_success": "تم تفعيل المصادقة الثنائية بنجاح.",
+      "invalid_code": "رمز غير صالح أو فشل التحقق.",
+      "two_factor_disabled_success": "تم تعطيل المصادقة الثنائية.",
+      "disable_failed": "فشل في تعطيل المصادقة الثنائية.",
+      "auth_required": "المصادقة مطلوبة",
+      "auth_required_desc": "يرجى تسجيل الدخول إلى حسابك لتفويض عميل اللعبة.",
+      "authorize_client": "تفويض عميل اللعبة",
+      "requesting_access": "يطلب عميل اللعبة الوصول إلى حسابك.",
+      "authorize_now": "تفويض الآن",
+      "auth_success": "تم تفويض الحساب بنجاح!",
+      "auth_success_desc": "يمكنك الآن العودة إلى عميل اللعبة. يمكن إغلاق هذه النافذة بأمان.",
+      "auth_failed": "فشل التفويض",
+      "auth_failed_desc": "حدث خطأ أثناء التفويض. يُرجى المحاولة مرة أخرى.",
+      "try_again": "إعادة المحاولة"
+    },
+    "account": {
+      "phone_number": "رقم الهاتف",
+      "code": "الرمز",
+      "country": "الدولة",
+      "saving": "جارٍ الحفظ...",
+      "save_changes": "حفظ التغييرات"
+    }
+  },
+  "zh_tw": {
+    "nav": {
+      "story": "故事",
+      "characters": "人物",
+      "levels": "级别",
+      "features": "特点",
+      "controls": "控制",
+      "play_now": "立即播放",
+      "home": "首页",
+      "gameplay": "游戏玩法",
+      "squad": "小队",
+      "tech_hub": "技术中心",
+      "design_system": "设计系統",
+      "faq": "常見問題",
+      "login": "登入",
+      "signup": "註冊",
+      "my_account": "我的帳戶",
+      "two_factor_auth": "雙重認證",
+      "logout": "登出"
+    },
+    "hero": {
+      "title_line1": "公理力",
+      "title_line2_prefix": "回收 ",
+      "title_line2_highlight": "地球",
+      "subtitle": "使用 Godot 4.6 和 C# 构建的 3D 动作平台游戏。从外星佔領者手中奪回地球。",
+      "play_on_github": "在 GitHub 上玩",
+      "view_source": "查看源代碼",
+      "replayability": "重玩性"
+    },
+    "modal": {
+      "title": "選擇您的語言和國家/地區",
+      "country": "國家",
+      "language": "語言",
+      "no_countries": "没有适用该語言的國家/地區",
+      "select_country_first": "請先選擇國家",
+      "choose": "選擇"
+    },
+    "footer": {
+      "tagline": "使用 Godot 4.6 和 C# 构建的 3D 动作平台游戏。通过四个级别的战斗并冲向终点线。",
+      "status": "AXIOM-7 Online — 电阻激活",
+      "nav_title": "導航",
+      "tech_title": "科技",
+      "credits_title": "制作人员",
+      "copyright": "© {{year}} 公理力量：奪回地球 — 保留所有权利",
+      "engine_desc": "引擎：Godot 4.6（定制 Vulkan）",
+      "csharp_desc": "C# 运行时：.NET 8 SDK",
+      "narrative_desc": "叙述：Inkle 墨迹脚本",
+      "database_desc": "資料库：SQLite 分数同步",
+      "localization_desc": "本地化：50 多种語言（RTL 就绪）",
+      "broadcast_status": "v1.0.0 // 网络同步操作 // 安全广播",
+      "platform_desc": "目标平台: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
+      "input_desc": "輸入：游戏手把/鍵盤",
+      "status_desc": "狀態：叛乱活动",
+      "version_desc": "修订版：v1.0.0 发布",
+      "accessibility_link": "無障礙聲明",
+      "accessibility_btn": "無障礙"
+    },
+    "home": {
+      "story_label": "故事",
+      "story_desc": "地球，被佔領。四位英雄崛起。",
+      "char_label": "人物",
+      "char_desc": "選擇你的戰士。",
+      "levels_label": "级别",
+      "levels_desc": "5 个任務。增加赌注。",
+      "features_label": "特点",
+      "features_desc": "50 多种語言。深层系統。",
+      "controls_label": "控制",
+      "controls_desc": "鍵盤和游戏手把准备就绪。",
+      "warning_casualty": "> 警告：伤亡率高",
+      "status_operational": "狀態：运营中",
+      "grid_hacked": "4Alpha 变电站被黑。 HLF 控制下的本地电网。",
+      "interactive_360": "360° 互動視角",
+      "system_breach": "檢測到系統入侵",
+      "decrypted_file": "已解密檔案：001_HLF",
+      "operative_3d": "3D特工"
+    },
+    "story": {
+      "briefing": "叙述性简报",
+      "title": "故事",
+      "desc": "地球已被反乌托邦的外星人佔領。一小队戰士必须杀出一条血路，穿过敌人的领地，奪回它。選擇你的戰士，在挑战中生存下来，并证明自己值得拯救世界。",
+      "live_feed": "直播",
+      "caption": "洛杉矶 — 第 4 区收容区",
+      "axiom_text": "“渗透他们的殖民领土。破坏为他们的地球改造提供燃料的动力核心。你解放的每个区域都会击退他们的佔領，并提醒他们：地球上有愿意为之而战的居民。”",
+      "timeline": {
+        "arrival_title": "到来",
+        "arrival_desc": "Xelthara Collective 抵达地球，宣称地球是“已发现的领土”，而人类是“不方便的土著居民”。",
+        "displacement_title": "质量位移",
+        "displacement_desc": "几天之内，数百万人流离失所到狭窄的收容区，而泽尔塔拉殖民了我们的城市并拆除了我们的纪念碑。",
+        "resistance_title": "抵抗組織形式",
+        "resistance_desc": "从收容区的边缘，出现了四位冠军——忍者青蛙、面具哥、粉红人和虚拟人——拒绝被抹去。",
+        "axiom_title": "AXIOM-7 已部署",
+        "axiom_desc": "国土解放阵线启动 AXIOM-7（一种自动化外部情报作战模块）来协调抵抗运动。",
+        "mission_title": "你的使命开始了",
+        "mission_desc": "你已被选中。渗透殖民领土。破坏动力核心。拆除定居点基础设施。收复地球。"
+      }
+    },
+    "characters": {
+      "briefing": "戰士選擇",
+      "title": "選擇你的戰士",
+      "desc": "六名精英戰士奋起反抗泽尔塔拉的佔領。每个人都拥有独特的能力来为地球的自由而战。",
+      "abilities_title": "能力",
+      "stats_title": "战斗统计",
+      "unlock": "獎勵可解鎖角色，具有剑和空手道攻擊。完成战役来解鎖这位傳奇戰士。",
+      "stats": {
+        "speed": "速度",
+        "power": "电源",
+        "agility": "敏捷性",
+        "defense": "防禦"
+      },
+      "warriors": {
+        "shogun": {
+          "role": "控制论将军戰士",
+          "desc": "来自新东京的控制论戰士大师，手持能量武士刀。将传统武士道与未来军事技术相结合。",
+          "lore": "“我的剑是用密碼铸造的，但我的荣誉是用血写成的。”"
+        },
+        "solaria": {
+          "role": "太阳耀斑操纵器",
+          "desc": "瓦伦蒂娜·克鲁兹掌控着太阳光谱，投射出隔热罩和纯等离子体灼热光刃。",
+          "lore": "“太阳在我们解放之际升起。没有人能逃脱光明。”"
+        },
+        "oceanus": {
+          "role": "流体动力等离子机械手",
+          "desc": "Kiana Vaea 操纵液体潮汐和海洋压力波，用高速水力喷射控制战场。",
+          "lore": "“海洋不会屈服，我们也不会。随潮起潮落。”"
+        },
+        "surya": {
+          "role": "宇宙太阳能先锋",
+          "desc": "Arjun Varma 引导宇宙聚变能量来操纵重力场并释放重型 AoE 太阳脉冲。",
+          "lore": "“恒星的心中，只有力量。让宇宙之火燃烧吧。”"
+        },
+        "mirage": {
+          "role": "水晶幻影",
+          "desc": "扎伊德·阿尔·曼苏尔 (Zayd Al-Mansoor) 使用水晶折射创造出光弯曲的幻影，并用双赛夫刀刃斩杀敌人。",
+          "lore": "“我是水晶中的影子，是你从未预见到的攻擊。”"
+        },
+        "apex": {
+          "role": "电磁风暴先锋",
+          "desc": "塔里克·恩津加国王是一位强大的力量，他可以引导电磁风暴云，并通过毁灭性的风暴护盾跳躍坠落下来。",
+          "lore": "“暴风雨响应了我的召唤。在雷霆面前颤抖吧。”"
+        },
+        "guy": {
+          "lore": "我们不招募英雄，我们招募幸存者。主机从不休眠，我们亦是如此。"
+        }
+      }
+    },
+    "levels": {
+      "briefing": "活动级别",
+      "title_prefix": "的 ",
+      "title_highlight": "使命",
+      "title_suffix": " 等待",
+      "desc": "五个独特的關卡，難度不断增加。当你击退泽尔塔拉的佔領时，每个任務都会逐渐解鎖。",
+      "objectives_title": "使命目标",
+      "difficulty_title": "難度",
+      "threat_title": "威胁：",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "极简",
+        "high": "高",
+        "omega": "欧米茄",
+        "critical": "关键"
+      },
+      "types": {
+        "training": "培训",
+        "infiltration": "渗透",
+        "defense": "防禦",
+        "stealth": "隐身",
+        "assault": "攻擊"
+      },
+      "level_0": {
+        "name": "零号协议",
+        "subtitle": "虚拟锻造",
+        "description": "洛杉矶市中心破碎天际线的巨大线框模拟。在真正的战争开始之前，在神经同步虚拟现实中掌握你的战斗底盘。",
+        "obj_0": "完成底盘校准",
+        "obj_1": "摧毁模拟的泽尔塔拉单位",
+        "obj_2": "通过同步打击测试"
+      },
+      "level_1": {
+        "name": "僵局中的幽灵",
+        "subtitle": "文化擦除协议",
+        "description": "故宫花园遗址。泽尔塔拉改造光束溶解了古老的石灯笼。在資料刀片（禁忌历史的数字存储库）被永久删除之前取回它。",
+        "obj_0": "与拆除人员无人机交战",
+        "obj_1": "摧毁拆除信标",
+        "obj_2": "保护資料刀片"
+      },
+      "level_2": {
+        "name": "混凝土野火",
+        "subtitle": "全身性移位",
+        "description": "守住最后的桥梁，对抗泽尔塔拉执法者将 412 名难民赶入收容所。让最后一批人溜进未绘制地图的贫民窟并逃避殖民登记。",
+        "obj_0": "激活能量塔护盾",
+        "obj_1": "在迫击炮火力下守住桥梁",
+        "obj_2": "消灭攻城步行者"
+      },
+      "level_3": {
+        "name": "霓虹灯锈迹和資料灰尘",
+        "subtitle": "边缘生活",
+        "description": "地下城——闪闪发光的泽尔塔拉定居点下方的维护井网络。吸取他们的能量为边缘人群的生命支援系統提供动力，同时躲避纯洁巡逻队。",
+        "obj_0": "激活相移功能",
+        "obj_1": "绕过泽尔塔拉哨兵而不被发现",
+        "obj_2": "在外围门处引爆电磁脉冲"
+      },
+      "level_4": {
+        "name": "虚空指挥官的破碎圣盾",
+        "subtitle": "非对称战争",
+        "description": "破碎的太平洋防禦中心。拆除最后一座广播塔，并向平民抵抗組織分发频率芯片——完成向游击战的过渡。",
+        "obj_0": "启动网络热线序列",
+        "obj_1": "同步微型无人机机队",
+        "obj_2": "发射轨道打击——湮灭协议"
+      }
+    },
+    "features": {
+      "briefing": "系統能力",
+      "title_prefix": "游戏 ",
+      "title_highlight": "特点",
+      "built_with": "建有",
+      "tech_title": "技术堆栈",
+      "tags": {
+        "roster": "名册",
+        "narrative": "叙事",
+        "progression": "进展",
+        "save_system": "儲存系統",
+        "localisation": "本地化",
+        "controls": "控制装置",
+        "ux": "使用者体验",
+        "audio": "音频"
+      },
+      "tech": {
+        "engine": "游戏引擎",
+        "logic": "游戏逻辑",
+        "scripting": "场景脚本",
+        "persistence": "分数持久性",
+        "narrative_engine": "叙事引擎",
+        "build": "构建系統"
+      },
+      "items": {
+        "roster": {
+          "title": "5 个可玩角色",
+          "desc": "四名主要戰士加上网络幕府将军——一个可解鎖的獎勵角色，具有独特的剑和空手道攻擊组合。"
+        },
+        "story": {
+          "title": "深层故事叙事",
+          "desc": "由 Ink 运行时驱动的打字机风格的故事介绍——關於反抗殖民佔領的明确叙述。"
+        },
+        "progress": {
+          "title": "收藏品和评分",
+          "desc": "散落在各个级别的樱桃值得积分。分数通过 SQLite 儲存在本地并显示在持久排行榜上。"
+        },
+        "save": {
+          "title": "会话系統",
+          "desc": "创建多个儲存会话并从上次中断的地方继续。您的进步会在整个游戏过程中持续存在。"
+        },
+        "local": {
+          "title": "50+ 語言支援",
+          "desc": "完全本地化的 UI，包括阿拉伯语、印地语、日语、马拉雅拉姆语等 — 由基于 CSV 的翻译提供支援。"
+        },
+        "controls": {
+          "title": "游戏手把支援",
+          "desc": "完整的控制器支援，包括方向键、模拟摇杆移動以及所有攻擊和能力的按钮映射。"
+        },
+        "ux": {
+          "title": "模糊暂停菜单",
+          "desc": "具有实时模糊着色器效果的高级暂停菜单 - 可随时訪問可调节的音樂和 SFX 音量。"
+        },
+        "audio": {
+          "title": "原声带",
+          "desc": "《反乌托邦黎明》——用MusicGPT生成的原创音樂，完美契合反乌托邦科幻氛围。"
+        }
+      }
+    },
+    "controls": {
+      "briefing": "命令接口",
+      "title_prefix": "掌握 ",
+      "title_highlight": "控制",
+      "desc": "完整的鍵盤和游戏手把支援。每个戰士的独特能力都映射到专用的輸入命令 - 掌握它们才能生存。",
+      "keyboard": "鍵盤",
+      "gamepad": "游戏手把",
+      "or": "或",
+      "special_briefing": "特殊能力",
+      "special_title": "战斗技巧",
+      "tip": {
+        "title": "培训协议：",
+        "text": "从 00 级 - 零协议开始，在进入实战之前学习神经同步虚拟现实中的所有控制。"
+      },
+      "actions": {
+        "move_left": "向左移動",
+        "move_right": "向右移動",
+        "jump": "跳躍",
+        "sword_attack": "剑攻擊",
+        "karate_attack": "空手道攻擊",
+        "pause": "暂停"
+      },
+      "notes": {
+        "shogun_only": "仅限网络将军"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "等离子刀锋打击",
+          "input": "轻攻擊"
+        },
+        "energy_shield": {
+          "name": "能量塔盾",
+          "input": "LB/L1"
+        },
+        "kinetic_overload": {
+          "name": "动能过载",
+          "input": "按住 RB/R1 + 重"
+        },
+        "phase_shift": {
+          "name": "相移",
+          "input": "L2/LT"
+        },
+        "drone_mark": {
+          "name": "无人机标记与火",
+          "input": "按住 LT + 松开"
+        },
+        "emp_burst": {
+          "name": "电磁脉冲爆发",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "护盾过载",
+          "input": "按住X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "轨道打击",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "部署特工",
+      "deploying": "正在部署...",
+      "syncComplete": "同步完成//操作员成功部署到目标部门",
+      "active": "积极的",
+      "standby": "支援",
+      "role": "角色",
+      "firepower": "火力",
+      "defense": "防禦",
+      "mobility": "移動性",
+      "shogun": "网络将军",
+      "ronin": "宙斯盾浪人",
+      "matrix": "鬼矩阵",
+      "frog": "忍者青蛙",
+      "guy": "虚拟小子",
+      "solaria": "索拉利亚",
+      "oceanus": "奥西纳斯",
+      "surya": "苏里亚总理",
+      "mirage": "幻影之刃",
+      "apex": "巅峰泰坦",
+      "drag_rotate": "🖱️ 拖曳以 360° 旋轉",
+      "live_orbit": "3D_即時軌道"
+    },
+    "gameplay": {
+      "protocols": "核心协议",
+      "terminal": "資料库終端",
+      "active": "活跃",
+      "synced": "已同步",
+      "online": "上線",
+      "t1_title": "动力位移",
+      "t1_desc": "掌握基于惯性的位移方式。在异星石碑上攀墙疾跑，用抓钩飞越废墟高楼，并连击滑行来避开敌人锁定。",
+      "t2_title": "神经黑客",
+      "t2_desc": "实时入侵外界网络。在即时战斗中劫持敌方无人机，破坏能量护盾，或将自动防禦武器调转枪头对准创造者。",
+      "t3_title": "小队协同",
+      "t3_desc": "指挥由人工智能驱动的抵抗組織。执行同步突破，布置战术伏击，并结合专属技能以击碎重装装甲。",
+      "intel_classified": "INTEL_CLASSIFIED // 洛杉矶 QZ",
+      "los_angeles_2157": "洛杉矶 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "直接訪問公理力量技术文档。专为多平台高性能战术交战而设计。由 Godot 和 Ink 提供动力。",
+      "engine_title": "引擎規格",
+      "engine_desc": "利用基于 .NET 8 编译的 Godot 引擎进行强力的性能优化。使用 Vulkan 自定义渲染管道，实现高级的赛博朋克霓虹灯光和大气效果。",
+      "status_init": "初始化内核... [确定]",
+      "status_shaders": "加载 Vulkan 着色器... [确定]",
+      "status_link": "建立神经链接... [进行中]",
+      "narrative_desc": "由 Inkle 的 Ink 脚本語言驱动，为每位抵抗特工提供深层分支的对话树和持久的狀態跟踪。",
+      "comms_desc": "完全支援 50+ 种語言的多国語言本地化，利用自定义动态字体渲染系統无缝处理复杂的文体和从右至左（RTL）的版面布局。",
+      "offline_status": "系統离线",
+      "chassis_sync": "底盘神经同步",
+      "comms_decrypter": "通讯解密器"
+    },
+    "design_system": {
+      "title": "黑色故障动力学",
+      "description": "HLF Rebel 大型机设计系統的互动指南和代币陈列室。高對比度、本能布局和 CRT 摩擦叠加。",
+      "values": {
+        "digital_defiance": {
+          "title": "// 数字反抗",
+          "desc": "原始的、未经精炼的边缘与发光的阴极效应混合在一起，破坏了公司的主机。"
+        },
+        "visual_friction": {
+          "title": "// 视觉摩擦",
+          "desc": "故意使用 CRT 扫描线和轻微色差来代表局部反叛广播。"
+        },
+        "rigid_tactical_grid": {
+          "title": "// 刚性战术网格",
+          "desc": "非对称盒模型感觉像是直接插入主板的组件。"
+        },
+        "low_fi_survival": {
+          "title": "// 低保真生存",
+          "desc": "等宽資料打印输出、尖锐的 0px 边框角和低分辨率像素密度图案。"
+        }
+      },
+      "color_swatches": "色样",
+      "copy_success": "已复制！",
+      "copy_prompt": "点击复制",
+      "typography_stack": "版式堆栈",
+      "component_showroom": "零部件陈列室",
+      "btn_interactive_states": "// 按钮互動狀態",
+      "primary_action_desc": "主要操作（悬停时闪烁并偏向洋红色）",
+      "secondary_outline_desc": "次要大纲",
+      "warning_action_desc": "警告动作（倾斜动画）",
+      "tactical_card_desc": "// 战术悬停卡和輸入",
+      "alpha_card_title": "第 4 区阿尔法卡",
+      "alpha_card_desc": "互動式框架容器配备四个自定义支架角和焦点上的双发光着色器。",
+      "comms_label": "安全通讯終端（点击查看脉冲指示器边框）",
+      "decryption_placeholder": "輸入解密代碼...",
+      "colors": {
+        "void_black": {
+          "name": "虚空黑",
+          "desc": "隐形基线背景"
+        },
+        "deep_grey": {
+          "name": "深灰色",
+          "desc": "二次立面容器背景"
+        },
+        "neon_cyan": {
+          "name": "霓虹青色（初级）",
+          "desc": "战术界面和友好的技术"
+        },
+        "electric_magenta": {
+          "name": "电动洋红色（中学）",
+          "desc": "高能量覆盖和 HLF 动作"
+        },
+        "toxic_green": {
+          "name": "有毒绿色（三级）",
+          "desc": "成功的黑客攻擊和活动狀態指示器"
+        },
+        "warning_orange": {
+          "name": "橙色警告",
+          "desc": "严重警报、威胁狀態和警告"
+        }
+      },
+      "typo_display_hero": "收复地球",
+      "typo_headline_lg": "战术情报报告",
+      "typo_body_lg": "> 地面部队已经突破了第 4 区的收容参数。启动主动同步网格锁。",
+      "typo_body_md": "泽尔塔拉的到来不是为了征服，而是为了管理。我们在死亡地带行動，从野兽派巨石的阴影中发起攻擊。",
+      "typo_label_caps": "狀態：电阻通信链路安全 // 延迟 4ms"
+    },
+    "pages": {
+      "faq": {
+        "title": "知識庫",
+        "description": "訪問關於 Reclaim Earth 行動的加密情报。如果您有此处未列出的问题，請联系 HLF 指挥中心。"
+      }
+    },
+    "faq": {
+      "q1": "什么是 Axiom Force？",
+      "a1": "这是一款高能 3D 平台跳躍游戏，您将在其中领导人类解放阵线 (HLF)，在一次绝望的战争中从先进的外星佔領者手中奪回地球。",
+      "q2": "游戏何时发布？",
+      "a2": "反抗军仍在动员中。我们目前处于积极开发阶段。請关注 Tech Hub 以获取部署日期。",
+      "q3": "支援哪些平台？",
+      "a3": "我们的系統兼容 Windows、macOS、Linux、iOS、Android 和 visionOS。",
+      "q4": "这是一款多人体验游戏吗？",
+      "a4": "虽然主线故事是专注于单人游戏的战役，但我们正在为小队探索协作情报收集任務。",
+      "q5": "我如何加入 HLF？",
+      "a5": "您可以通过在官方门户网站註冊账户来入伍，从而接收加密更新和早期訪問情报。",
+      "q6": "在哪里可以找到开发日志？",
+      "a6": "所有技术突破和开发里程碑都存档在 Tech Hub 中。",
+      "q7": "系統要求是什么？",
+      "a7": "只要您拥有一个功能完备的終端、基础 GPU 以及对解放的渴望，您就可以运行 Axiom Force。具体規格将很快发布。"
+    },
+    "accessibility": {
+      "title": "無障礙聲明",
+      "commitment_title": "// 我们的承諾",
+      "commitment_text": "Axiom Force 致力于确保残障人士的無障礙数字体验。我们不断改进面向所有人的使用者体验，并应用相关的無障礙标准（WCAG 2.1 AA 级）。",
+      "features_title": "// 無障礙功能",
+      "feature_keyboard_title": "鍵盤導航：",
+      "feature_keyboard_desc": "整个网站和游戏UI均支援完整的鍵盤無障礙操作，具备清晰的焦点指示器和自定义快捷键。",
+      "feature_contrast_title": "高對比度设计：",
+      "feature_contrast_desc": "采用高對比度赛博朋克配色、清晰的聚焦狀態以及可缩放矢量图标设计，实现最佳可见度。",
+      "feature_subtitles_title": "字幕与音频控制：",
+      "feature_subtitles_desc": "为剧情简报（例如 AXIOM-7 通讯）提供完整文本字幕，并配备音效和音樂的独立音量控制。",
+      "feature_screen_reader_title": "螢幕閱讀器支援：",
+      "feature_screen_reader_desc": "采用语义化 HTML5 元素、游戏图形的描述性替代文本（alt）以及 ARIA 标签构建。",
+      "conformance_title": "// 符合性狀態",
+      "conformance_text": "网页内容無障礙指南 (WCAG) 规定了设计人员和开发人员改善残障人士無障礙体验的要求。Axiom Force 部分符合 WCAG 2.1 AA 级标准。",
+      "feedback_title": "// 意見反應与支援",
+      "feedback_text": "我们欢迎您对 Axiom Force 的無障礙功能提出宝贵意见。如果您遇到無障礙障碍或需要帮助，請联系我们的支援团队：",
+      "close": "關閉聲明"
+    },
+    "auth": {
+      "user_login": "使用者登入",
+      "verification_code": "驗證码",
+      "enter_2fa_code": "輸入双重认证码",
+      "verifying": "正在驗證...",
+      "verify_code": "驗證代碼",
+      "username": "使用者名",
+      "enter_username": "輸入使用者名",
+      "password": "密碼",
+      "authenticating": "正在驗證身份...",
+      "access_terminal": "訪問終端",
+      "or": "或",
+      "epic_login": "Epic Games 登入",
+      "steam_login": "Steam 登入",
+      "discord_login": "Discord 登入",
+      "need_account": "需要帳號？ ",
+      "register_create": "註冊 / 创建帳號",
+      "create_account": "创建帳號",
+      "avatar_label": "头像 / 个人资料照片（可选）",
+      "upload_portrait": "上传照片",
+      "first_name": "名字",
+      "last_name": "姓氏",
+      "optional": "可选",
+      "placeholder_first_name": "名",
+      "placeholder_last_name": "姓",
+      "email_address": "电子電子郵件",
+      "enter_email": "輸入電子郵件地址",
+      "email": "電子郵件",
+      "country_territory": "國家 / 地區",
+      "loading_countries": "正在加载联合国官方國家資料库...",
+      "select_country": "選擇您的國家",
+      "country_error": "无法加载國家列表，請刷新重試。",
+      "registering": "正在註冊...",
+      "initialize_profile": "初始化个人资料",
+      "already_have_account": "已经有帳號？ ",
+      "login_access_terminal": "登入 / 訪問終端",
+      "two_factor_title": "雙重身分驗證",
+      "two_factor_enabled_desc": "您的帳戶目前已啟用 2FA。",
+      "disable_2fa": "停用 2FA",
+      "enable_two_factor": "啟用雙重身分驗證",
+      "processing": "處理中...",
+      "requesting": "正在請求...",
+      "verify_enable": "驗證並啟用",
+      "enter_code": "輸入驗證碼",
+      "back_to_account": "返回我的帳戶",
+      "code_sent": "驗證碼已發送至您的電子郵件，請在下方輸入。",
+      "code_request_failed": "請求 2FA 驗證碼失敗。",
+      "two_factor_enabled_success": "雙重身分驗證已成功啟用。",
+      "invalid_code": "驗證碼無效或驗證失敗。",
+      "two_factor_disabled_success": "雙重身分驗證已停用。",
+      "disable_failed": "停用 2FA 失敗。",
+      "auth_required": "需要身分驗證",
+      "auth_required_desc": "請登入您的帳戶以授權遊戲客戶端。",
+      "authorize_client": "授權遊戲客戶端",
+      "requesting_access": "遊戲客戶端正在請求存取您的帳戶。",
+      "authorize_now": "立即授權",
+      "auth_success": "帳戶授權成功！",
+      "auth_success_desc": "您現在可以返回遊戲客戶端。此視窗可以安全關閉。",
+      "auth_failed": "授權失敗",
+      "auth_failed_desc": "授權過程中發生錯誤，請重試。",
+      "try_again": "重試"
+    },
+    "account": {
+      "phone_number": "电话号码",
+      "code": "区号",
+      "country": "國家",
+      "saving": "正在儲存...",
+      "save_changes": "儲存修改"
+    }
+  },
+  "vi": {
+    "nav": {
+      "story": "Cốt truyện",
+      "characters": "Nhân vật",
+      "levels": "Cấp độ",
+      "features": "Tính năng",
+      "controls": "Điều khiển",
+      "play_now": "Chơi ngay",
+      "home": "TRANG CHỦ",
+      "gameplay": "LỐI CHƠI",
+      "squad": "BIỆT ĐỘI",
+      "tech_hub": "TRUNG TÂM KỸ THUẬT",
+      "design_system": "HỆ THỐNG THIẾT KẾ",
+      "faq": "CÂU HỎI THƯỜNG GẶP",
+      "login": "ĐĂNG NHẬP",
+      "signup": "ĐĂNG KÝ",
+      "my_account": "TÀI KHOẢN CỦA TÔI",
+      "two_factor_auth": "XÁC THỰC 2 YẾU TỐ",
+      "logout": "ĐĂNG XUẤT"
+    },
+    "hero": {
+      "title_line1": "LỰC LƯỢNG TIỀN ĐỀ",
+      "title_line2_prefix": "GIÀNH LẠI ",
+      "title_line2_highlight": "TRÁI ĐẤT",
+      "subtitle": "Game hành động 3D. Giành lại Trái Đất từ thế lực xâm lăng ngoài hành tinh.",
+      "play_on_github": "Chơi trên GitHub",
+      "view_source": "Xem mã nguồn",
+      "replayability": "Giá trị chơi lại"
+    },
+    "modal": {
+      "title": "Chọn ngôn ngữ",
+      "select_language": "CHỌN NGÔN NGỮ",
+      "search_placeholder": "Tìm ngôn ngữ...",
+      "no_languages_found": "Không tìm thấy ngôn ngữ phù hợp.",
+      "close": "ĐÓNG",
+      "choose": "CHỌN"
+    },
+    "footer": {
+      "tagline": "Trò chơi đi cảnh hành động 3D. Lãnh đạo phong trào kháng chiến giành lại Trái Đất.",
+      "status": "AXIOM-7 TRỰC TUYẾN — KHÁNG CHIẾN HOẠT ĐỘNG",
+      "nav_title": "Điều hướng",
+      "tech_title": "THÔNG SỐ NHIỆM VỤ",
+      "credits_title": "Đội ngũ phát triển",
+      "copyright": "© {{year}} AXIOM FORCE — Bảo lưu mọi quyền",
+      "broadcast_status": "v1.0.0 // KẾT NỐI MẠNG HOẠT ĐỘNG // TRUYỀN PHÁT AN TOÀN",
+      "platform_desc": "Nền tảng mục tiêu: Windows, Xbox, PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
+      "input_desc": "Điều khiển: Tay cầm / Bàn phím",
+      "status_desc": "Trạng thái: Kháng chiến hoạt động",
+      "version_desc": "Phiên bản: Phát hành v1.0.0",
+      "accessibility_link": "TUYÊN BỐ VỀ KHẢ NĂNG TIẾP CẬN",
+      "accessibility_btn": "Tiếp cận"
+    },
+    "home": {
+      "story_label": "Cốt truyện",
+      "story_desc": "Trái Đất bị chiếm đóng. Bốn anh hùng trỗi dậy.",
+      "char_label": "Nhân vật",
+      "char_desc": "Chọn chiến binh của bạn.",
+      "levels_label": "Cấp độ",
+      "levels_desc": "5 nhiệm vụ đầy thách thức.",
+      "features_label": "Tính năng",
+      "features_desc": "Hơn 50 ngôn ngữ. Hệ thống sâu sắc.",
+      "controls_label": "Điều khiển",
+      "controls_desc": "Hỗ trợ bàn phím & tay cầm.",
+      "warning_casualty": "> CẢNH BÁO: TỶ LỆ THƯƠNG VONG CAO",
+      "status_operational": "TRẠNG THÁI: HOẠT ĐỘNG",
+      "grid_hacked": "Trạm biến áp 4Alpha đã bị chiếm. Lưới điện địa phương thuộc quyền kiểm soát của HLF.",
+      "interactive_360": "TƯƠNG TÁC 360°",
+      "system_breach": "PHÁT HIỆN XÂM PHẠM HỆ THỐNG",
+      "decrypted_file": "TẬP TIN ĐÃ GIẢI MÃ: 001_HLF",
+      "operative_3d": "ĐẶC_VIÊN_3D"
+    },
+    "story": {
+      "briefing": "narrative briefing",
+      "title": "The Story",
+      "desc": "Earth has fallen under a dystopian alien occupation. A small team of warriors must fight their way through enemy territory to reclaim it. Choose your fighter, survive the gauntlet, and prove yourself worthy of saving the world.",
+      "live_feed": "LIVE FEED",
+      "caption": "Los Angeles — Sector 4 Containment Zone",
+      "axiom_text": "\"Infiltrate their colonial territories. Sabotage the power cores fueling their terraforming. Every zone you liberate pushes back their occupation and reminds them: Earth has inhabitants who will fight for it.\"",
+      "timeline": {
+        "arrival_title": "The Arrival",
+        "arrival_desc": "The Xelthara Collective arrives on Earth, declaring it \"discovered territory\" and humanity \"an inconvenient indigenous population.\"",
+        "displacement_title": "Mass Displacement",
+        "displacement_desc": "Within days, millions are displaced into cramped containment zones while the Xelthara colonize our cities and dismantle our monuments.",
+        "resistance_title": "The Resistance Forms",
+        "resistance_desc": "From the margins of the containment zones, four champions emerge — Ninja Frog, Mask Dude, Pink Man, and Virtual Guy — refusing to be erased.",
+        "axiom_title": "AXIOM-7 Deployed",
+        "axiom_desc": "The Homeland Liberation Front activates AXIOM-7, an Automated External Intelligence Operations Module, to coordinate the resistance.",
+        "mission_title": "Your Mission Begins",
+        "mission_desc": "You have been chosen. Infiltrate colonial territories. Sabotage power cores. Dismantle settlement infrastructure. Reclaim Earth."
+      }
+    },
+    "characters": {
+      "briefing": "lựa chọn chiến binh",
+      "title": "Chọn Chiến Binh",
+      "desc": "Sáu chiến binh ưu tú đối đầu với thế lực Xelthara. Mỗi người mang đến những khả năng độc đáo cho cuộc chiến vì tự do của Trái Đất.",
+      "abilities_title": "ABILITIES",
+      "stats_title": "COMBAT STATS",
+      "unlock": "Bonus unlockable character with sword & karate attacks. Complete the campaign to unlock this legendary warrior.",
+      "stats": {
+        "speed": "SPEED",
+        "power": "POWER",
+        "agility": "AGILITY",
+        "defense": "DEFENSE"
+      },
+      "warriors": {
+        "shogun": {
+          "role": "Cybernetic Shogun Warrior",
+          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "lore": "\"My blade is forged in code, but my honor is written in blood.\""
+        },
+        "solaria": {
+          "role": "Solar Flare Manipulator",
+          "desc": "Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.",
+          "lore": "\"The sun rises on our liberation. None can escape the light.\""
+        },
+        "oceanus": {
+          "role": "Hydrokinetic Plasma Manipulator",
+          "desc": "Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.",
+          "lore": "\"The oceans do not yield, and neither will we. Rise with the tide.\""
+        },
+        "surya": {
+          "role": "Cosmic Solar Vanguard",
+          "desc": "Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.",
+          "lore": "\"In the heart of a star, there is only power. Let the cosmic flame burn.\""
+        },
+        "mirage": {
+          "role": "Crystalline Phantom",
+          "desc": "Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.",
+          "lore": "\"I am the shadow in the crystal, the strike you never saw coming.\""
+        },
+        "apex": {
+          "role": "Electro-Magnetic Storm Vanguard",
+          "desc": "King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.",
+          "lore": "\"The storm answers my call. Tremble before the thunder.\""
+        },
+        "guy": {
+          "lore": "We don't recruit heroes. We recruit survivors. The mainframe doesn't sleep, and neither do we."
+        }
+      }
+    },
+    "levels": {
+      "briefing": "campaign levels",
+      "title_prefix": "The ",
+      "title_highlight": "Mission",
+      "title_suffix": " Awaits",
+      "desc": "Five unique levels with increasing difficulty. Each mission unlocks progressively as you push back the Xelthara occupation.",
+      "objectives_title": "MISSION OBJECTIVES",
+      "difficulty_title": "DIFFICULTY",
+      "threat_title": "THREAT:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "MINIMAL",
+        "high": "HIGH",
+        "omega": "OMEGA",
+        "critical": "CRITICAL"
+      },
+      "types": {
+        "training": "TRAINING",
+        "infiltration": "INFILTRATION",
+        "defense": "DEFENSE",
+        "stealth": "STEALTH",
+        "assault": "ASSAULT"
+      },
+      "level_0": {
+        "name": "Protocol Zero",
+        "subtitle": "The Virtual Forge",
+        "description": "A vast wireframe simulation of a crumbled downtown Los Angeles skyline. Master your combat chassis in the Neural-Sync Virtual Reality before the real war begins.",
+        "obj_0": "Complete chassis calibration",
+        "obj_1": "Destroy simulated Xelthara units",
+        "obj_2": "Pass the synchronized strike test"
+      },
+      "level_1": {
+        "name": "Ghost in the Gridlock",
+        "subtitle": "Cultural Erasure Protocol",
+        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "obj_0": "Engage Demolition Crew drones",
+        "obj_1": "Neutralize the Demolition Beacon",
+        "obj_2": "Secure the Data-Blade"
+      },
+      "level_2": {
+        "name": "The Concrete Wildfire",
+        "subtitle": "Systemic Displacement",
+        "description": "Hold the Last Bridge against Xelthara Enforcers herding 412 refugees into containment. Allow the final group to slip into the unmapped slums and escape colonial registration.",
+        "obj_0": "Activate the Energy Tower Shield",
+        "obj_1": "Hold the bridge under mortar fire",
+        "obj_2": "Destroy the Siege Walkers"
+      },
+      "level_3": {
+        "name": "Neon Rust and Data Dust",
+        "subtitle": "Life in the Margins",
+        "description": "The Under-City — a network of maintenance shafts beneath a gleaming Xelthara settlement. Siphon their energy to power the marginalized population's life-support systems while evading Purity Patrols.",
+        "obj_0": "Activate Phase-Shift capability",
+        "obj_1": "Bypass Xelthara Sentinels undetected",
+        "obj_2": "Detonate EMP at the perimeter gate"
+      },
+      "level_4": {
+        "name": "Shattered Aegis of the Void Commander",
+        "subtitle": "Asymmetric Warfare",
+        "description": "The shattered Pacific Defense Hub. Dismantle the last broadcast tower and distribute frequency chips to civilian resistance cells — finalizing the transition to guerrilla warfare.",
+        "obj_0": "Initiate the Network Hotwire sequence",
+        "obj_1": "Sync the micro-drone fleet",
+        "obj_2": "Fire the Orbital Strike — Obliteration Protocol"
+      }
+    },
+    "features": {
+      "briefing": "system capabilities",
+      "title_prefix": "Game ",
+      "title_highlight": "Features",
+      "built_with": "built with",
+      "tech_title": "Resistance Systems",
+      "tags": {
+        "roster": "ROSTER",
+        "narrative": "NARRATIVE",
+        "progression": "PROGRESSION",
+        "save_system": "SAVE SYSTEM",
+        "localisation": "LOCALISATION",
+        "controls": "CONTROLS",
+        "ux": "UX",
+        "audio": "AUDIO"
+      },
+      "tech": {
+        "engine": "Game Engine",
+        "logic": "Game Logic",
+        "scripting": "Scene Scripting",
+        "persistence": "Score Persistence",
+        "narrative_engine": "Narrative Engine",
+        "build": "Build System"
+      },
+      "items": {
+        "roster": {
+          "title": "Chassis Roster",
+          "desc": "Deploy one of five customized combat frames calibrated with specialized hardware loadouts."
+        },
+        "story": {
+          "title": "Intel Database",
+          "desc": "Real-time telemetry and regional intelligence archives compiled by the Axiom-7 mainframe."
+        },
+        "progress": {
+          "title": "Collectibles & Scoring",
+          "desc": "Cherries scattered across all levels worth points. Scores are saved locally via SQLite and displayed on a persistent leaderboard."
+        },
+        "save": {
+          "title": "Memory Nodes",
+          "desc": "Decentralized storage vaults backing up combat telemetry and sync state sessions."
+        },
+        "local": {
+          "title": "50+ Language Support",
+          "desc": "Fully localised UI including Arabic, Hindi, Japanese, Malayalam, and many more — powered by CSV-based translation."
+        },
+        "controls": {
+          "title": "Gamepad Support",
+          "desc": "Full controller support including D-Pad, analogue stick movement, and button mapping for all attacks and abilities."
+        },
+        "ux": {
+          "title": "Blur Pause Menu",
+          "desc": "A premium pause menu with real-time blur shader effect — adjustable music and SFX volumes accessible at any time."
+        },
+        "audio": {
+          "title": "Acoustic Cloak",
+          "desc": "Deploy acoustic white-noise scramblers to mask squad audio signatures and evade patrols."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "command interface",
+      "title_prefix": "Master the ",
+      "title_highlight": "Controls",
+      "desc": "Full keyboard and gamepad support. Each warrior's unique abilities map to dedicated input commands — master them all to survive.",
+      "keyboard": "Keyboard",
+      "gamepad": "Gamepad",
+      "or": "or",
+      "special_briefing": "special abilities",
+      "special_title": "Combat Techniques",
+      "tip": {
+        "title": "Training Protocol:",
+        "text": "Start with Level 00 — Protocol Zero to learn all controls in the Neural-Sync Virtual Reality before entering live combat."
+      },
+      "actions": {
+        "move_left": "Move Left",
+        "move_right": "Move Right",
+        "jump": "Jump",
+        "sword_attack": "Sword Attack",
+        "karate_attack": "Karate Attack",
+        "pause": "Pause"
+      },
+      "notes": {
+        "shogun_only": "Cyber Shogun only"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "Light Attack"
+        },
+        "energy_shield": {
+          "name": "Energy Tower Shield",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Kinetic Overload",
+          "input": "Hold RB/R1 + Heavy"
+        },
+        "phase_shift": {
+          "name": "Phase Shift",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "Hold LT + Release"
+        },
+        "emp_burst": {
+          "name": "EMP Burst",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Shield Overload",
+          "input": "Hold X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "Orbital Strike",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "DEPLOY OPERATIVE",
+      "deploying": "DEPLOYING...",
+      "syncComplete": "SYNC COMPLETE // OPERATIVE SUCCESSFULLY DEPLOYED TO TARGET SECTOR",
+      "active": "ACTIVE",
+      "standby": "STANDBY",
+      "role": "ROLE",
+      "firepower": "FIREPOWER",
+      "defense": "DEFENSE",
+      "mobility": "MOBILITY",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROG",
+      "guy": "VIRTUAL GUY",
+      "solaria": "SOLARIA",
+      "oceanus": "OCEANUS",
+      "surya": "SURYA PRIME",
+      "mirage": "MIRAGE BLADE",
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ KÉO ĐỂ XOAY 360°",
+      "live_orbit": "QUỸ_ĐẠO_TRỰC_TIẾP_3D"
+    },
+    "gameplay": {
+      "protocols": "CORE PROTOCOLS",
+      "terminal": "Database Terminal",
+      "active": "ACTIVE",
+      "synced": "SYNCED",
+      "online": "ONLINE",
+      "t1_title": "Kinetic Traversal",
+      "t1_desc": "Master momentum-based movement. Wall-run along alien monoliths, grapple through ruined skyscrapers, and chain slides to evade Xelthara targeting sensors.",
+      "t2_title": "Neural Hacking",
+      "t2_desc": "Infiltrate alien networks on the fly. Hijack enemy drones, overload energy shields, or turn automated defenses against their creators in real-time combat.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Command your AI-driven resistance cell. Execute synchronized breaches, lay tactical ambushes, and combine unique abilities to dismantle heavy Xelthara armor.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "LOS ANGELES 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "Technical specifications of the HLF insurgent equipment, mainframe decrypters, and cybernetic assault chassis active in Sector 4.",
+      "engine_title": "Chassis Specs",
+      "engine_desc": "Insurgent combat chassis are equipped with high-efficiency neural links operating over localized sub-GHz channels, designed to bypass Xelthara electronic countermeasures.",
+      "status_init": "Initialize Neural-Sync... [OK]",
+      "status_shaders": "Calibrate Movement Shaders... [OK]",
+      "status_link": "Establish Sector Link... [SECURED]",
+      "narrative_desc": "Decentralized Ink-comms routing system designed to establish multi-channel communication networks between resistance squads, ensuring secure transmission of coordinates and mission logs.",
+      "comms_desc": "Adaptive wideband encryption protocols supporting secure frequency hopping across all 50+ regional sub-grids, preventing intercept from high-altitude atmospheric processors.",
+      "offline_status": "System Offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "Interactive guide and token showroom for the HLF rebel mainframe design system. High contrast, visceral layouts, and CRT friction overlays.",
+      "values": {
+        "digital_defiance": {
+          "title": "// DIGITAL DEFIANCE",
+          "desc": "Raw, unrefined edges mixed with glowing cathode effects to breach the corporate mainframe."
+        },
+        "visual_friction": {
+          "title": "// VISUAL FRICTION",
+          "desc": "Intentional CRT scanlines and minor color aberrations to represent a localized rebel broadcast."
+        },
+        "rigid_tactical_grid": {
+          "title": "// RIGID TACTICAL GRID",
+          "desc": "Asymmetric box models that feel like components plugged directly into a motherboard."
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI SURVIVAL",
+          "desc": "Monospaced data printouts, sharp 0px border corners, and low-res pixel density motifs."
+        }
+      },
+      "color_swatches": "Color Swatches",
+      "copy_success": "COPIED!",
+      "copy_prompt": "CLICK TO COPY",
+      "typography_stack": "Typography Stack",
+      "component_showroom": "Component Showroom",
+      "btn_interactive_states": "// BUTTON INTERACTIVE STATES",
+      "primary_action_desc": "Primary Action (flickers and skews to Magenta on hover)",
+      "secondary_outline_desc": "Secondary Outline",
+      "warning_action_desc": "Warning Action (skew animation)",
+      "tactical_card_desc": "// TACTICAL HOVER CARD & INPUT",
+      "alpha_card_title": "Sector 4 Alpha Card",
+      "alpha_card_desc": "Interactive frame container equipped with four custom bracket corners and double glow shaders on focus.",
+      "comms_label": "SECURE COMMS TERMINAL (click to see pulsing indicator border)",
+      "decryption_placeholder": "Enter decryption code...",
+      "colors": {
+        "void_black": {
+          "name": "Void Black",
+          "desc": "Stealth baseline background"
+        },
+        "deep_grey": {
+          "name": "Deep Grey",
+          "desc": "Secondary elevation container background"
+        },
+        "neon_cyan": {
+          "name": "Neon Cyan (Primary)",
+          "desc": "Tactical interfaces and friendly technology"
+        },
+        "electric_magenta": {
+          "name": "Electric Magenta (Secondary)",
+          "desc": "High energy overrides and HLF actions"
+        },
+        "toxic_green": {
+          "name": "Toxic Green (Tertiary)",
+          "desc": "Successful hacks and active status indicators"
+        },
+        "warning_orange": {
+          "name": "Warning Orange",
+          "desc": "Critical alerts, threat states, and warnings"
+        }
+      },
+      "typo_display_hero": "RECLAIM EARTH",
+      "typo_headline_lg": "TACTICAL INTEL REPORT",
+      "typo_body_lg": "> Ground forces have breached Sector 4 containment parameters. Launching active sync grid lock.",
+      "typo_body_md": "The Xelthara arrived not to conquer, but to administer. We operate in the dead zones, striking from the shadows of brutalist monoliths.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
+    },
+    "pages": {
+      "faq": {
+        "title": "Cơ Sở Kiến Thức",
+        "description": "Truy cập thông tin mã hóa về chiến dịch Giành Lại Trái Đất. Nếu bạn có thắc mắc chưa được giải đáp tại đây, hãy liên hệ trung tâm chỉ huy HLF."
+      }
+    },
+    "faq": {
+      "q1": "Axiom Force là gì?",
+      "a1": "Một trò chơi đi cảnh 3D hành động nhịp độ cao, nơi bạn lãnh đạo Mặt trận Giải phóng Nhân loại (HLF) chiến đấu giành lại Trái Đất.",
+      "q2": "Khi nào trò chơi phát hành?",
+      "a2": "Lực lượng kháng chiến đang tập hợp. Trò chơi hiện đang được phát triển tích cực.",
+      "q3": "Những nền tảng nào được hỗ trợ?",
+      "a3": "Hệ thống hỗ trợ Windows, macOS, Linux, iOS, Android và visionOS.",
+      "q4": "Trò chơi có hỗ trợ nhiều người chơi không?",
+      "a4": "Chiến dịch cốt truyện chính tập trung vào chế độ chơi đơn, chúng tôi đang nghiên cứu thêm các nhiệm vụ phối hợp.",
+      "q5": "Làm thế nào để gia nhập HLF?",
+      "a5": "Bạn có thể đăng ký tài khoản trên cổng thông tin chính thức để nhận các cập nhật mã hóa.",
+      "q6": "Tôi có thể xem nhật ký phát triển ở đâu?",
+      "a6": "Mọi cột mốc kỹ thuật đều được lưu trữ trong Trung tâm Kỹ thuật.",
+      "q7": "Cấu hình yêu cầu là gì?",
+      "a7": "Chỉ cần một thiết bị cơ bản có GPU tương thích là bạn có thể tham gia cuộc chiến."
+    },
+    "accessibility": {
+      "title": "Tuyên Bố Về Khả Năng Tiếp Cận",
+      "commitment_title": "// Cam Kết Của Chúng Tôi",
+      "commitment_text": "Axiom Force cam kết đảm bảo khả năng tiếp cận kỹ thuật số cho người khuyết tật. Chúng tôi liên tục cải thiện trải nghiệm người dùng cho tất cả mọi người và áp dụng các tiêu chuẩn tiếp cận liên quan (WCAG 2.1 Cấp độ AA).",
+      "features_title": "// Tính Năng Tiếp Cận",
+      "feature_keyboard_title": "Điều Hướng Bàn Phím:",
+      "feature_keyboard_desc": "Hỗ trợ đầy đủ phím bấm trên trang web và giao diện game với chỉ báo tiêu điểm rõ ràng và tùy biến phím tiện lợi.",
+      "feature_contrast_title": "Thiết Kế Tương Phản Cao:",
+      "feature_contrast_desc": "Thiết kế màu sắc cyberpunk tương phản cao, trạng thái tiêu điểm rõ nét và biểu tượng vector mở rộng cho tầm nhìn tối ưu.",
+      "feature_subtitles_title": "Phụ Đề & Điều Khiển Âm Thanh:",
+      "feature_subtitles_desc": "Phụ đề đầy đủ cho các bản tin cốt truyện (như truyền phát AXIOM-7) với điều khiển âm lượng độc lập cho hiệu ứng và âm nhạc.",
+      "feature_screen_reader_title": "Tương Thích Trình Đọc Màn Hình:",
+      "feature_screen_reader_desc": "Cấu trúc với các phần tử HTML5 ngữ nghĩa, văn bản thay thế chi tiết cho hình ảnh và nhãn ARIA.",
+      "conformance_title": "// Trạng Thái Tuân Thủ",
+      "conformance_text": "Hướng dẫn Tiếp cận Nội dung Web (WCAG) xác định các yêu cầu dành cho nhà thiết kế và nhà phát triển. Axiom Force tuân thủ một phần các tiêu chuẩn WCAG 2.1 Cấp độ AA.",
+      "feedback_title": "// Phản Hồi & Hỗ Trợ",
+      "feedback_text": "Chúng tôi hoan nghênh phản hồi của bạn về khả năng tiếp cận của Axiom Force. Vui lòng liên hệ đội ngũ hỗ trợ của chúng tôi:",
+      "close": "Đóng Tuyên Bố"
+    },
+    "auth": {
+      "user_login": "USER LOGIN",
+      "verification_code": "Verification Code",
+      "enter_2fa_code": "Enter 2FA code",
+      "verifying": "Verifying...",
+      "verify_code": "Verify Code",
+      "username": "Username",
+      "enter_username": "Enter your username",
+      "password": "Password",
+      "authenticating": "Authenticating...",
+      "access_terminal": "Access Terminal",
+      "or": "OR",
+      "epic_login": "Epic Games Login",
+      "steam_login": "Steam Login",
+      "discord_login": "Discord Login",
+      "need_account": "Need an account? ",
+      "register_create": "Register / Create Account",
+      "create_account": "CREATE ACCOUNT",
+      "avatar_label": "Avatar Port / Profile Picture (Optional)",
+      "upload_portrait": "Upload Portrait",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "optional": "optional",
+      "placeholder_first_name": "First name",
+      "placeholder_last_name": "Last name",
+      "email_address": "Email Address",
+      "enter_email": "Enter your email",
+      "email": "Email",
+      "country_territory": "Country / Territory",
+      "loading_countries": "Loading official UN country database...",
+      "select_country": "Select your country",
+      "country_error": "Unable to load UN country list. Please check your connection or refresh.",
+      "registering": "Registering...",
+      "initialize_profile": "Initialize Profile",
+      "already_have_account": "Already have an account? ",
+      "login_access_terminal": "Login / Access Terminal",
+      "two_factor_title": "Xác thực hai yếu tố",
+      "two_factor_enabled_desc": "2FA hiện đang được bật trên tài khoản của bạn.",
+      "disable_2fa": "Tắt 2FA",
+      "enable_two_factor": "Bật xác thực hai yếu tố",
+      "processing": "Đang xử lý...",
+      "requesting": "Đang yêu cầu...",
+      "verify_enable": "Xác minh & Bật",
+      "enter_code": "Nhập mã",
+      "back_to_account": "Quay lại tài khoản của tôi",
+      "code_sent": "Mã xác minh đã được gửi đến email của bạn. Vui lòng nhập vào bên dưới.",
+      "code_request_failed": "Yêu cầu mã xác minh 2FA không thành công.",
+      "two_factor_enabled_success": "Đã bật xác thực hai yếu tố thành công.",
+      "invalid_code": "Mã không hợp lệ hoặc xác minh thất bại.",
+      "two_factor_disabled_success": "Đã tắt xác thực hai yếu tố.",
+      "disable_failed": "Tắt 2FA thất bại.",
+      "auth_required": "Yêu cầu xác thực",
+      "auth_required_desc": "Vui lòng đăng nhập vào tài khoản của bạn để ủy quyền cho ứng dụng trò chơi.",
+      "authorize_client": "Ủy quyền ứng dụng trò chơi",
+      "requesting_access": "Ứng dụng trò chơi đang yêu cầu quyền truy cập vào tài khoản của bạn.",
+      "authorize_now": "Ủy quyền ngay",
+      "auth_success": "Tài khoản đã được ủy quyền thành công!",
+      "auth_success_desc": "Bây giờ bạn có thể quay lại trò chơi. Cửa sổ này có thể được đóng an toàn.",
+      "auth_failed": "Ủy quyền thất bại",
+      "auth_failed_desc": "Đã xảy ra lỗi trong quá trình ủy quyền. Vui lòng thử lại.",
+      "try_again": "Thử lại"
+    },
+    "account": {
+      "phone_number": "Phone Number",
+      "code": "Code",
+      "country": "Country",
+      "saving": "Saving...",
+      "save_changes": "Save Changes"
+    }
+  },
+  "id": {
+    "nav": {
+      "story": "Cerita",
+      "characters": "Karakter",
+      "levels": "Level",
+      "features": "Fitur",
+      "controls": "Kontrol",
+      "play_now": "Main Sekarang",
+      "home": "BERANDA",
+      "gameplay": "GAMEPLAY",
+      "squad": "REGU",
+      "tech_hub": "PUSAT TEKNOLOGI",
+      "design_system": "SISTEM DESAIN",
+      "faq": "FAQ",
+      "login": "MASUK",
+      "signup": "DAFTAR",
+      "my_account": "AKUN SAYA",
+      "two_factor_auth": "AUTENTIKASI DUA FAKTOR",
+      "logout": "KELUAR"
+    },
+    "hero": {
+      "title_line1": "KEKUATAN AKSIOM",
+      "title_line2_prefix": "REKLAIM ",
+      "title_line2_highlight": "BUMI",
+      "subtitle": "Game aksi platformer 3D. Rebut kembali Bumi dari penjajah alien.",
+      "play_on_github": "Main di GitHub",
+      "view_source": "Lihat Sumber",
+      "replayability": "Nilai Main Ulang"
+    },
+    "modal": {
+      "title": "Pilih Bahasa",
+      "select_language": "PILIH BAHASA",
+      "search_placeholder": "Cari bahasa...",
+      "no_languages_found": "Bahasa tidak ditemukan.",
+      "close": "TUTUP",
+      "choose": "PILIH"
+    },
+    "footer": {
+      "tagline": "Platformer aksi 3D. Pimpin perlawanan untuk merebut kembali Bumi dari penjajah alien.",
+      "status": "AXIOM-7 ONLINE — PERLAWANAN AKTIF",
+      "nav_title": "Navigasi",
+      "tech_title": "SPESIFIKASI MISI",
+      "credits_title": "Kredit",
+      "copyright": "© {{year}} AXIOM FORCE — Hak Cipta Dilindungi",
+      "broadcast_status": "v1.0.0 // SINKRONISASI JARINGAN OPERASIONAL // SIARAN AMAN",
+      "platform_desc": "Target Platform: Windows, Xbox, PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
+      "input_desc": "Masukan: Gamepad / Papan Ketik",
+      "status_desc": "Status: Pemberontakan Aktif",
+      "version_desc": "Revisi: Rilis v1.0.0",
+      "accessibility_link": "PERNYATAAN AKSESIBILITAS",
+      "accessibility_btn": "Aksesibilitas"
+    },
+    "home": {
+      "story_label": "Cerita",
+      "story_desc": "Bumi diduduki. Empat pahlawan bangkit.",
+      "char_label": "Karakter",
+      "char_desc": "Pilih prajurit Anda.",
+      "levels_label": "Level",
+      "levels_desc": "5 misi dengan tantangan meningkat.",
+      "features_label": "Fitur",
+      "features_desc": "50+ bahasa. Sistem mendalam.",
+      "controls_label": "Kontrol",
+      "controls_desc": "Siap untuk keyboard & gamepad.",
+      "warning_casualty": "> PERINGATAN: TINGKAT KORBAN TINGGI",
+      "status_operational": "STATUS: OPERASIONAL",
+      "grid_hacked": "Gardu 4Alpha diretas. Jaringan lokal di bawah kendali HLF.",
+      "interactive_360": "INTERAKTIF 360°",
+      "system_breach": "PELANGGARAN SISTEM TERDETEKSI",
+      "decrypted_file": "BERKAS TERDEKRIPSI: 001_HLF",
+      "operative_3d": "OPERATIF_3D"
+    },
+    "story": {
+      "briefing": "narrative briefing",
+      "title": "The Story",
+      "desc": "Earth has fallen under a dystopian alien occupation. A small team of warriors must fight their way through enemy territory to reclaim it. Choose your fighter, survive the gauntlet, and prove yourself worthy of saving the world.",
+      "live_feed": "LIVE FEED",
+      "caption": "Los Angeles — Sector 4 Containment Zone",
+      "axiom_text": "\"Infiltrate their colonial territories. Sabotage the power cores fueling their terraforming. Every zone you liberate pushes back their occupation and reminds them: Earth has inhabitants who will fight for it.\"",
+      "timeline": {
+        "arrival_title": "The Arrival",
+        "arrival_desc": "The Xelthara Collective arrives on Earth, declaring it \"discovered territory\" and humanity \"an inconvenient indigenous population.\"",
+        "displacement_title": "Mass Displacement",
+        "displacement_desc": "Within days, millions are displaced into cramped containment zones while the Xelthara colonize our cities and dismantle our monuments.",
+        "resistance_title": "The Resistance Forms",
+        "resistance_desc": "From the margins of the containment zones, four champions emerge — Ninja Frog, Mask Dude, Pink Man, and Virtual Guy — refusing to be erased.",
+        "axiom_title": "AXIOM-7 Deployed",
+        "axiom_desc": "The Homeland Liberation Front activates AXIOM-7, an Automated External Intelligence Operations Module, to coordinate the resistance.",
+        "mission_title": "Your Mission Begins",
+        "mission_desc": "You have been chosen. Infiltrate colonial territories. Sabotage power cores. Dismantle settlement infrastructure. Reclaim Earth."
+      }
+    },
+    "characters": {
+      "briefing": "pemilihan prajurit",
+      "title": "Pilih Petarung Anda",
+      "desc": "Enam prajurit elit berdiri melawan pendudukan Xelthara. Masing-masing membawa kemampuan unik ke medan pertempuran.",
+      "abilities_title": "ABILITIES",
+      "stats_title": "COMBAT STATS",
+      "unlock": "Bonus unlockable character with sword & karate attacks. Complete the campaign to unlock this legendary warrior.",
+      "stats": {
+        "speed": "SPEED",
+        "power": "POWER",
+        "agility": "AGILITY",
+        "defense": "DEFENSE"
+      },
+      "warriors": {
+        "shogun": {
+          "role": "Cybernetic Shogun Warrior",
+          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "lore": "\"My blade is forged in code, but my honor is written in blood.\""
+        },
+        "solaria": {
+          "role": "Solar Flare Manipulator",
+          "desc": "Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.",
+          "lore": "\"The sun rises on our liberation. None can escape the light.\""
+        },
+        "oceanus": {
+          "role": "Hydrokinetic Plasma Manipulator",
+          "desc": "Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.",
+          "lore": "\"The oceans do not yield, and neither will we. Rise with the tide.\""
+        },
+        "surya": {
+          "role": "Cosmic Solar Vanguard",
+          "desc": "Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.",
+          "lore": "\"In the heart of a star, there is only power. Let the cosmic flame burn.\""
+        },
+        "mirage": {
+          "role": "Crystalline Phantom",
+          "desc": "Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.",
+          "lore": "\"I am the shadow in the crystal, the strike you never saw coming.\""
+        },
+        "apex": {
+          "role": "Electro-Magnetic Storm Vanguard",
+          "desc": "King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.",
+          "lore": "\"The storm answers my call. Tremble before the thunder.\""
+        },
+        "guy": {
+          "lore": "We don't recruit heroes. We recruit survivors. The mainframe doesn't sleep, and neither do we."
+        }
+      }
+    },
+    "levels": {
+      "briefing": "campaign levels",
+      "title_prefix": "The ",
+      "title_highlight": "Mission",
+      "title_suffix": " Awaits",
+      "desc": "Five unique levels with increasing difficulty. Each mission unlocks progressively as you push back the Xelthara occupation.",
+      "objectives_title": "MISSION OBJECTIVES",
+      "difficulty_title": "DIFFICULTY",
+      "threat_title": "THREAT:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "MINIMAL",
+        "high": "HIGH",
+        "omega": "OMEGA",
+        "critical": "CRITICAL"
+      },
+      "types": {
+        "training": "TRAINING",
+        "infiltration": "INFILTRATION",
+        "defense": "DEFENSE",
+        "stealth": "STEALTH",
+        "assault": "ASSAULT"
+      },
+      "level_0": {
+        "name": "Protocol Zero",
+        "subtitle": "The Virtual Forge",
+        "description": "A vast wireframe simulation of a crumbled downtown Los Angeles skyline. Master your combat chassis in the Neural-Sync Virtual Reality before the real war begins.",
+        "obj_0": "Complete chassis calibration",
+        "obj_1": "Destroy simulated Xelthara units",
+        "obj_2": "Pass the synchronized strike test"
+      },
+      "level_1": {
+        "name": "Ghost in the Gridlock",
+        "subtitle": "Cultural Erasure Protocol",
+        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "obj_0": "Engage Demolition Crew drones",
+        "obj_1": "Neutralize the Demolition Beacon",
+        "obj_2": "Secure the Data-Blade"
+      },
+      "level_2": {
+        "name": "The Concrete Wildfire",
+        "subtitle": "Systemic Displacement",
+        "description": "Hold the Last Bridge against Xelthara Enforcers herding 412 refugees into containment. Allow the final group to slip into the unmapped slums and escape colonial registration.",
+        "obj_0": "Activate the Energy Tower Shield",
+        "obj_1": "Hold the bridge under mortar fire",
+        "obj_2": "Destroy the Siege Walkers"
+      },
+      "level_3": {
+        "name": "Neon Rust and Data Dust",
+        "subtitle": "Life in the Margins",
+        "description": "The Under-City — a network of maintenance shafts beneath a gleaming Xelthara settlement. Siphon their energy to power the marginalized population's life-support systems while evading Purity Patrols.",
+        "obj_0": "Activate Phase-Shift capability",
+        "obj_1": "Bypass Xelthara Sentinels undetected",
+        "obj_2": "Detonate EMP at the perimeter gate"
+      },
+      "level_4": {
+        "name": "Shattered Aegis of the Void Commander",
+        "subtitle": "Asymmetric Warfare",
+        "description": "The shattered Pacific Defense Hub. Dismantle the last broadcast tower and distribute frequency chips to civilian resistance cells — finalizing the transition to guerrilla warfare.",
+        "obj_0": "Initiate the Network Hotwire sequence",
+        "obj_1": "Sync the micro-drone fleet",
+        "obj_2": "Fire the Orbital Strike — Obliteration Protocol"
+      }
+    },
+    "features": {
+      "briefing": "system capabilities",
+      "title_prefix": "Game ",
+      "title_highlight": "Features",
+      "built_with": "built with",
+      "tech_title": "Resistance Systems",
+      "tags": {
+        "roster": "ROSTER",
+        "narrative": "NARRATIVE",
+        "progression": "PROGRESSION",
+        "save_system": "SAVE SYSTEM",
+        "localisation": "LOCALISATION",
+        "controls": "CONTROLS",
+        "ux": "UX",
+        "audio": "AUDIO"
+      },
+      "tech": {
+        "engine": "Game Engine",
+        "logic": "Game Logic",
+        "scripting": "Scene Scripting",
+        "persistence": "Score Persistence",
+        "narrative_engine": "Narrative Engine",
+        "build": "Build System"
+      },
+      "items": {
+        "roster": {
+          "title": "Chassis Roster",
+          "desc": "Deploy one of five customized combat frames calibrated with specialized hardware loadouts."
+        },
+        "story": {
+          "title": "Intel Database",
+          "desc": "Real-time telemetry and regional intelligence archives compiled by the Axiom-7 mainframe."
+        },
+        "progress": {
+          "title": "Collectibles & Scoring",
+          "desc": "Cherries scattered across all levels worth points. Scores are saved locally via SQLite and displayed on a persistent leaderboard."
+        },
+        "save": {
+          "title": "Memory Nodes",
+          "desc": "Decentralized storage vaults backing up combat telemetry and sync state sessions."
+        },
+        "local": {
+          "title": "50+ Language Support",
+          "desc": "Fully localised UI including Arabic, Hindi, Japanese, Malayalam, and many more — powered by CSV-based translation."
+        },
+        "controls": {
+          "title": "Gamepad Support",
+          "desc": "Full controller support including D-Pad, analogue stick movement, and button mapping for all attacks and abilities."
+        },
+        "ux": {
+          "title": "Blur Pause Menu",
+          "desc": "A premium pause menu with real-time blur shader effect — adjustable music and SFX volumes accessible at any time."
+        },
+        "audio": {
+          "title": "Acoustic Cloak",
+          "desc": "Deploy acoustic white-noise scramblers to mask squad audio signatures and evade patrols."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "command interface",
+      "title_prefix": "Master the ",
+      "title_highlight": "Controls",
+      "desc": "Full keyboard and gamepad support. Each warrior's unique abilities map to dedicated input commands — master them all to survive.",
+      "keyboard": "Keyboard",
+      "gamepad": "Gamepad",
+      "or": "or",
+      "special_briefing": "special abilities",
+      "special_title": "Combat Techniques",
+      "tip": {
+        "title": "Training Protocol:",
+        "text": "Start with Level 00 — Protocol Zero to learn all controls in the Neural-Sync Virtual Reality before entering live combat."
+      },
+      "actions": {
+        "move_left": "Move Left",
+        "move_right": "Move Right",
+        "jump": "Jump",
+        "sword_attack": "Sword Attack",
+        "karate_attack": "Karate Attack",
+        "pause": "Pause"
+      },
+      "notes": {
+        "shogun_only": "Cyber Shogun only"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "Light Attack"
+        },
+        "energy_shield": {
+          "name": "Energy Tower Shield",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Kinetic Overload",
+          "input": "Hold RB/R1 + Heavy"
+        },
+        "phase_shift": {
+          "name": "Phase Shift",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "Hold LT + Release"
+        },
+        "emp_burst": {
+          "name": "EMP Burst",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Shield Overload",
+          "input": "Hold X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "Orbital Strike",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "DEPLOY OPERATIVE",
+      "deploying": "DEPLOYING...",
+      "syncComplete": "SYNC COMPLETE // OPERATIVE SUCCESSFULLY DEPLOYED TO TARGET SECTOR",
+      "active": "ACTIVE",
+      "standby": "STANDBY",
+      "role": "ROLE",
+      "firepower": "FIREPOWER",
+      "defense": "DEFENSE",
+      "mobility": "MOBILITY",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROG",
+      "guy": "VIRTUAL GUY",
+      "solaria": "SOLARIA",
+      "oceanus": "OCEANUS",
+      "surya": "SURYA PRIME",
+      "mirage": "MIRAGE BLADE",
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ TARIK UNTUK MEMUTAR 360°",
+      "live_orbit": "ORBIT_LANGSUNG_3D"
+    },
+    "gameplay": {
+      "protocols": "CORE PROTOCOLS",
+      "terminal": "Database Terminal",
+      "active": "ACTIVE",
+      "synced": "SYNCED",
+      "online": "ONLINE",
+      "t1_title": "Kinetic Traversal",
+      "t1_desc": "Master momentum-based movement. Wall-run along alien monoliths, grapple through ruined skyscrapers, and chain slides to evade Xelthara targeting sensors.",
+      "t2_title": "Neural Hacking",
+      "t2_desc": "Infiltrate alien networks on the fly. Hijack enemy drones, overload energy shields, or turn automated defenses against their creators in real-time combat.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Command your AI-driven resistance cell. Execute synchronized breaches, lay tactical ambushes, and combine unique abilities to dismantle heavy Xelthara armor.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "LOS ANGELES 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "Technical specifications of the HLF insurgent equipment, mainframe decrypters, and cybernetic assault chassis active in Sector 4.",
+      "engine_title": "Chassis Specs",
+      "engine_desc": "Insurgent combat chassis are equipped with high-efficiency neural links operating over localized sub-GHz channels, designed to bypass Xelthara electronic countermeasures.",
+      "status_init": "Initialize Neural-Sync... [OK]",
+      "status_shaders": "Calibrate Movement Shaders... [OK]",
+      "status_link": "Establish Sector Link... [SECURED]",
+      "narrative_desc": "Decentralized Ink-comms routing system designed to establish multi-channel communication networks between resistance squads, ensuring secure transmission of coordinates and mission logs.",
+      "comms_desc": "Adaptive wideband encryption protocols supporting secure frequency hopping across all 50+ regional sub-grids, preventing intercept from high-altitude atmospheric processors.",
+      "offline_status": "System Offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "Interactive guide and token showroom for the HLF rebel mainframe design system. High contrast, visceral layouts, and CRT friction overlays.",
+      "values": {
+        "digital_defiance": {
+          "title": "// DIGITAL DEFIANCE",
+          "desc": "Raw, unrefined edges mixed with glowing cathode effects to breach the corporate mainframe."
+        },
+        "visual_friction": {
+          "title": "// VISUAL FRICTION",
+          "desc": "Intentional CRT scanlines and minor color aberrations to represent a localized rebel broadcast."
+        },
+        "rigid_tactical_grid": {
+          "title": "// RIGID TACTICAL GRID",
+          "desc": "Asymmetric box models that feel like components plugged directly into a motherboard."
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI SURVIVAL",
+          "desc": "Monospaced data printouts, sharp 0px border corners, and low-res pixel density motifs."
+        }
+      },
+      "color_swatches": "Color Swatches",
+      "copy_success": "COPIED!",
+      "copy_prompt": "CLICK TO COPY",
+      "typography_stack": "Typography Stack",
+      "component_showroom": "Component Showroom",
+      "btn_interactive_states": "// BUTTON INTERACTIVE STATES",
+      "primary_action_desc": "Primary Action (flickers and skews to Magenta on hover)",
+      "secondary_outline_desc": "Secondary Outline",
+      "warning_action_desc": "Warning Action (skew animation)",
+      "tactical_card_desc": "// TACTICAL HOVER CARD & INPUT",
+      "alpha_card_title": "Sector 4 Alpha Card",
+      "alpha_card_desc": "Interactive frame container equipped with four custom bracket corners and double glow shaders on focus.",
+      "comms_label": "SECURE COMMS TERMINAL (click to see pulsing indicator border)",
+      "decryption_placeholder": "Enter decryption code...",
+      "colors": {
+        "void_black": {
+          "name": "Void Black",
+          "desc": "Stealth baseline background"
+        },
+        "deep_grey": {
+          "name": "Deep Grey",
+          "desc": "Secondary elevation container background"
+        },
+        "neon_cyan": {
+          "name": "Neon Cyan (Primary)",
+          "desc": "Tactical interfaces and friendly technology"
+        },
+        "electric_magenta": {
+          "name": "Electric Magenta (Secondary)",
+          "desc": "High energy overrides and HLF actions"
+        },
+        "toxic_green": {
+          "name": "Toxic Green (Tertiary)",
+          "desc": "Successful hacks and active status indicators"
+        },
+        "warning_orange": {
+          "name": "Warning Orange",
+          "desc": "Critical alerts, threat states, and warnings"
+        }
+      },
+      "typo_display_hero": "RECLAIM EARTH",
+      "typo_headline_lg": "TACTICAL INTEL REPORT",
+      "typo_body_lg": "> Ground forces have breached Sector 4 containment parameters. Launching active sync grid lock.",
+      "typo_body_md": "The Xelthara arrived not to conquer, but to administer. We operate in the dead zones, striking from the shadows of brutalist monoliths.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
+    },
+    "pages": {
+      "faq": {
+        "title": "Basis Pengetahuan",
+        "description": "Akses informasi terenkripsi tentang operasi Reklaim Bumi."
+      }
+    },
+    "faq": {
+      "q1": "Apa itu Axiom Force?",
+      "a1": "Game platformer aksi 3D berkecepatan tinggi tempat Anda memimpin Front Pembebasan Manusia (HLF) dalam perang merebut kembali Bumi.",
+      "q2": "Kapan game dirilis?",
+      "a2": "Pasukan perlawanan sedang bergerak. Game ini sedang dalam pengembangan aktif.",
+      "q3": "Platform apa saja yang didukung?",
+      "a3": "Sistem kami kompatibel dengan Windows, macOS, Linux, iOS, Android, dan visionOS.",
+      "q4": "Apakah game ini multiplayer?",
+      "a4": "Kampanye utama adalah cerita pemain tunggal yang fokus.",
+      "q5": "Bagaimana cara bergabung dengan HLF?",
+      "a5": "Anda dapat mendaftar akun di portal resmi untuk menerima pembaruan terenkripsi.",
+      "q6": "Di mana saya bisa melihat catatan pengembang?",
+      "a6": "Semua pencapaian teknis diarsipkan di Pusat Teknologi.",
+      "q7": "Apa persyaratan sistemnya?",
+      "a7": "Perangkat terminal dengan GPU dasar sudah cukup untuk menjalankan Axiom Force."
+    },
+    "accessibility": {
+      "title": "Pernyataan Aksesibilitas",
+      "commitment_title": "// Komitmen Kami",
+      "commitment_text": "Axiom Force berkomitmen untuk memastikan aksesibilitas digital bagi penyandang disabilitas. Kami terus meningkatkan pengalaman pengguna dan menerapkan standar aksesibilitas yang relevan (WCAG 2.1 Level AA).",
+      "features_title": "// Fitur Aksesibilitas",
+      "feature_keyboard_title": "Navigasi Keyboard:",
+      "feature_keyboard_desc": "Aksesibilitas keyboard penuh di situs web dan UI game dengan indikator fokus yang jelas dan pemetaan tombol yang dapat disesuaikan.",
+      "feature_contrast_title": "Desain Kontras Tinggi:",
+      "feature_contrast_desc": "Didesain dengan warna cyberpunk kontras tinggi, status fokus yang jelas, dan ikon vektor terukur untuk visibilitas optimal.",
+      "feature_subtitles_title": "Teks Terjemahan & Kontrol Audio:",
+      "feature_subtitles_desc": "Teks terjemahan penuh untuk pengarahan narasi dengan kontrol volume terpisah untuk SFX dan Musik.",
+      "feature_screen_reader_title": "Dukungan Pembaca Layar:",
+      "feature_screen_reader_desc": "Terstruktur dengan elemen HTML5 semantik, teks alternatif deskriptif untuk gambar game, dan label ARIA.",
+      "conformance_title": "// Status Kepatuhan",
+      "conformance_text": "Pedoman Aksesibilitas Konten Web (WCAG) mendefinisikan persyaratan aksesibilitas. Axiom Force sebagian mematuhi standar WCAG 2.1 Level AA.",
+      "feedback_title": "// Masukan & Dukungan",
+      "feedback_text": "Kami menyambut masukan Anda tentang aksesibilitas Axiom Force. Silakan hubungi tim dukungan kami:",
+      "close": "Tutup Pernyataan"
+    },
+    "auth": {
+      "user_login": "USER LOGIN",
+      "verification_code": "Verification Code",
+      "enter_2fa_code": "Enter 2FA code",
+      "verifying": "Verifying...",
+      "verify_code": "Verify Code",
+      "username": "Username",
+      "enter_username": "Enter your username",
+      "password": "Password",
+      "authenticating": "Authenticating...",
+      "access_terminal": "Access Terminal",
+      "or": "OR",
+      "epic_login": "Epic Games Login",
+      "steam_login": "Steam Login",
+      "discord_login": "Discord Login",
+      "need_account": "Need an account? ",
+      "register_create": "Register / Create Account",
+      "create_account": "CREATE ACCOUNT",
+      "avatar_label": "Avatar Port / Profile Picture (Optional)",
+      "upload_portrait": "Upload Portrait",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "optional": "optional",
+      "placeholder_first_name": "First name",
+      "placeholder_last_name": "Last name",
+      "email_address": "Email Address",
+      "enter_email": "Enter your email",
+      "email": "Email",
+      "country_territory": "Country / Territory",
+      "loading_countries": "Loading official UN country database...",
+      "select_country": "Select your country",
+      "country_error": "Unable to load UN country list. Please check your connection or refresh.",
+      "registering": "Registering...",
+      "initialize_profile": "Initialize Profile",
+      "already_have_account": "Already have an account? ",
+      "login_access_terminal": "Login / Access Terminal",
+      "two_factor_title": "Autentikasi Dua Faktor",
+      "two_factor_enabled_desc": "2FA saat ini aktif pada akun Anda.",
+      "disable_2fa": "Nonaktifkan 2FA",
+      "enable_two_factor": "Aktifkan Autentikasi Dua Faktor",
+      "processing": "Memproses...",
+      "requesting": "Meminta...",
+      "verify_enable": "Verifikasi & Aktifkan",
+      "enter_code": "Masukkan kode",
+      "back_to_account": "Kembali ke Akun Saya",
+      "code_sent": "Kode verifikasi telah dikirim ke email Anda. Silakan masukkan di bawah ini.",
+      "code_request_failed": "Gagal meminta kode verifikasi 2FA.",
+      "two_factor_enabled_success": "Autentikasi dua faktor berhasil diaktifkan.",
+      "invalid_code": "Kode tidak valid atau verifikasi gagal.",
+      "two_factor_disabled_success": "Autentikasi dua faktor dinonaktifkan.",
+      "disable_failed": "Gagal menonaktifkan 2FA.",
+      "auth_required": "Autentikasi Diperlukan",
+      "auth_required_desc": "Silakan masuk ke akun Anda untuk mengotorisasi klien game.",
+      "authorize_client": "Otorisasi Klien Game",
+      "requesting_access": "Klien game meminta akses ke akun Anda.",
+      "authorize_now": "Otorisasi Sekarang",
+      "auth_success": "Akun Berhasil Diotorisasi!",
+      "auth_success_desc": "Sekarang Anda dapat kembali ke klien game. Jendela ini dapat ditutup dengan aman.",
+      "auth_failed": "Otorisasi Gagal",
+      "auth_failed_desc": "Terjadi kesalahan saat otorisasi. Silakan coba lagi.",
+      "try_again": "Coba Lagi"
+    },
+    "account": {
+      "phone_number": "Phone Number",
+      "code": "Code",
+      "country": "Country",
+      "saving": "Saving...",
+      "save_changes": "Save Changes"
+    }
+  },
+  "th": {
+    "nav": {
+      "story": "เนื้อเรื่อง",
+      "characters": "ตัวละคร",
+      "levels": "ด่าน",
+      "features": "คุณสมบัติ",
+      "controls": "การควบคุม",
+      "play_now": "เล่นเลย",
+      "home": "หน้าแรก",
+      "gameplay": "เกมเพลย์",
+      "squad": "หน่วยรบ",
+      "tech_hub": "ศูนย์เทคโนโลยี",
+      "design_system": "ระบบดีไซน์",
+      "faq": "คำถามที่พบบ่อย",
+      "login": "เข้าสู่ระบบ",
+      "signup": "สมัครสมาชิก",
+      "my_account": "บัญชีของฉัน",
+      "two_factor_auth": "การยืนยันตัวตนสองชั้น",
+      "logout": "ออกจากระบบ"
+    },
+    "hero": {
+      "title_line1": "AXIOM FORCE",
+      "title_line2_prefix": "ทวงคืน ",
+      "title_line2_highlight": "โลก",
+      "subtitle": "เกมแอ็กชันแพลตฟอร์มเมอร์ 3 มิติ กอบกู้โลกจากผู้รุกรานจากต่างดาว",
+      "play_on_github": "เล่นบน GitHub",
+      "view_source": "ดูซอร์สโค้ด",
+      "replayability": "ความคุ้มค่าในการเล่นซ้ำ"
+    },
+    "modal": {
+      "title": "เลือกภาษา",
+      "select_language": "เลือกภาษา",
+      "search_placeholder": "ค้นหาภาษา...",
+      "no_languages_found": "ไม่พบภาษาที่ตรงกัน",
+      "close": "ปิด",
+      "choose": "เลือก"
+    },
+    "footer": {
+      "tagline": "เกมแอ็กชันแพลตฟอร์มเมอร์ 3 มิติ นำกองกำลังกอบกู้โลกจากผู้รุกรานต่างดาว",
+      "status": "AXIOM-7 ออนไลน์ — กองกำลังต่อต้านทำงาน",
+      "nav_title": "เมนูนำทาง",
+      "tech_title": "ข้อมูลภารกิจ",
+      "credits_title": "เครดิต",
+      "copyright": "© {{year}} AXIOM FORCE — สงวนลิขสิทธิ์ทั้งหมด",
+      "broadcast_status": "v1.0.0 // ซิงค์เครือข่ายทำงาน // การส่งสัญญาณปลอดภัย",
+      "platform_desc": "แพลตฟอร์มเป้าหมาย: Windows, Xbox, PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux",
+      "input_desc": "การควบคุม: คอนโทรลเลอร์ / คีย์บอร์ด",
+      "status_desc": "สถานะ: การกบฏทำงาน",
+      "version_desc": "เวอร์ชัน: v1.0.0 Release",
+      "accessibility_link": "คำแถลงการเข้าถึงข้อมูล",
+      "accessibility_btn": "การเข้าถึง"
+    },
+    "home": {
+      "story_label": "เนื้อเรื่อง",
+      "story_desc": "โลกถูกยึดครอง สี่วีรบุรุษลุกขึ้นสู้",
+      "char_label": "ตัวละคร",
+      "char_desc": "เลือกนักรบของคุณ",
+      "levels_label": "ด่าน",
+      "levels_desc": "5 ภารกิจพร้อมความท้าทายที่เพิ่มขึ้น",
+      "features_label": "คุณสมบัติ",
+      "features_desc": "รองรับมากกว่า 50 ภาษา ระบบเกมเชิงลึก",
+      "controls_label": "การควบคุม",
+      "controls_desc": "รองรับคีย์บอร์ดและคอนโทรลเลอร์",
+      "warning_casualty": "> คำเตือน: อัตราการสูญเสียสูง",
+      "status_operational": "สถานะ: พร้อมปฏิบัติการ",
+      "grid_hacked": "สถานีย่อย 4Alpha ถูกแฮ็ก เครือข่ายท้องถิ่นอยู่ภายใต้การควบคุมของ HLF",
+      "interactive_360": "อินเทอร์แอคทีฟ 360°",
+      "system_breach": "ตรวจพบการบุกรุกระบบ",
+      "decrypted_file": "ไฟล์ถอดรหัส: 001_HLF",
+      "operative_3d": "เจ้าหน้าที่_3D"
+    },
+    "story": {
+      "briefing": "narrative briefing",
+      "title": "The Story",
+      "desc": "Earth has fallen under a dystopian alien occupation. A small team of warriors must fight their way through enemy territory to reclaim it. Choose your fighter, survive the gauntlet, and prove yourself worthy of saving the world.",
+      "live_feed": "LIVE FEED",
+      "caption": "Los Angeles — Sector 4 Containment Zone",
+      "axiom_text": "\"Infiltrate their colonial territories. Sabotage the power cores fueling their terraforming. Every zone you liberate pushes back their occupation and reminds them: Earth has inhabitants who will fight for it.\"",
+      "timeline": {
+        "arrival_title": "The Arrival",
+        "arrival_desc": "The Xelthara Collective arrives on Earth, declaring it \"discovered territory\" and humanity \"an inconvenient indigenous population.\"",
+        "displacement_title": "Mass Displacement",
+        "displacement_desc": "Within days, millions are displaced into cramped containment zones while the Xelthara colonize our cities and dismantle our monuments.",
+        "resistance_title": "The Resistance Forms",
+        "resistance_desc": "From the margins of the containment zones, four champions emerge — Ninja Frog, Mask Dude, Pink Man, and Virtual Guy — refusing to be erased.",
+        "axiom_title": "AXIOM-7 Deployed",
+        "axiom_desc": "The Homeland Liberation Front activates AXIOM-7, an Automated External Intelligence Operations Module, to coordinate the resistance.",
+        "mission_title": "Your Mission Begins",
+        "mission_desc": "You have been chosen. Infiltrate colonial territories. Sabotage power cores. Dismantle settlement infrastructure. Reclaim Earth."
+      }
+    },
+    "characters": {
+      "briefing": "การเลือกนักรบ",
+      "title": "เลือกนักรบของคุณ",
+      "desc": "นักรบชั้นยอดหกคนยืนหยัดต่อต้านการยึดครองของ Xelthara แต่ละคนนำความสามารถเฉพาะตัวมาสู่การต่อสู้",
+      "abilities_title": "ABILITIES",
+      "stats_title": "COMBAT STATS",
+      "unlock": "Bonus unlockable character with sword & karate attacks. Complete the campaign to unlock this legendary warrior.",
+      "stats": {
+        "speed": "SPEED",
+        "power": "POWER",
+        "agility": "AGILITY",
+        "defense": "DEFENSE"
+      },
+      "warriors": {
+        "shogun": {
+          "role": "Cybernetic Shogun Warrior",
+          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "lore": "\"My blade is forged in code, but my honor is written in blood.\""
+        },
+        "solaria": {
+          "role": "Solar Flare Manipulator",
+          "desc": "Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.",
+          "lore": "\"The sun rises on our liberation. None can escape the light.\""
+        },
+        "oceanus": {
+          "role": "Hydrokinetic Plasma Manipulator",
+          "desc": "Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.",
+          "lore": "\"The oceans do not yield, and neither will we. Rise with the tide.\""
+        },
+        "surya": {
+          "role": "Cosmic Solar Vanguard",
+          "desc": "Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.",
+          "lore": "\"In the heart of a star, there is only power. Let the cosmic flame burn.\""
+        },
+        "mirage": {
+          "role": "Crystalline Phantom",
+          "desc": "Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.",
+          "lore": "\"I am the shadow in the crystal, the strike you never saw coming.\""
+        },
+        "apex": {
+          "role": "Electro-Magnetic Storm Vanguard",
+          "desc": "King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.",
+          "lore": "\"The storm answers my call. Tremble before the thunder.\""
+        },
+        "guy": {
+          "lore": "We don't recruit heroes. We recruit survivors. The mainframe doesn't sleep, and neither do we."
+        }
+      }
+    },
+    "levels": {
+      "briefing": "campaign levels",
+      "title_prefix": "The ",
+      "title_highlight": "Mission",
+      "title_suffix": " Awaits",
+      "desc": "Five unique levels with increasing difficulty. Each mission unlocks progressively as you push back the Xelthara occupation.",
+      "objectives_title": "MISSION OBJECTIVES",
+      "difficulty_title": "DIFFICULTY",
+      "threat_title": "THREAT:",
+      "select_arrow": "›",
+      "threats": {
+        "minimal": "MINIMAL",
+        "high": "HIGH",
+        "omega": "OMEGA",
+        "critical": "CRITICAL"
+      },
+      "types": {
+        "training": "TRAINING",
+        "infiltration": "INFILTRATION",
+        "defense": "DEFENSE",
+        "stealth": "STEALTH",
+        "assault": "ASSAULT"
+      },
+      "level_0": {
+        "name": "Protocol Zero",
+        "subtitle": "The Virtual Forge",
+        "description": "A vast wireframe simulation of a crumbled downtown Los Angeles skyline. Master your combat chassis in the Neural-Sync Virtual Reality before the real war begins.",
+        "obj_0": "Complete chassis calibration",
+        "obj_1": "Destroy simulated Xelthara units",
+        "obj_2": "Pass the synchronized strike test"
+      },
+      "level_1": {
+        "name": "Ghost in the Gridlock",
+        "subtitle": "Cultural Erasure Protocol",
+        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "obj_0": "Engage Demolition Crew drones",
+        "obj_1": "Neutralize the Demolition Beacon",
+        "obj_2": "Secure the Data-Blade"
+      },
+      "level_2": {
+        "name": "The Concrete Wildfire",
+        "subtitle": "Systemic Displacement",
+        "description": "Hold the Last Bridge against Xelthara Enforcers herding 412 refugees into containment. Allow the final group to slip into the unmapped slums and escape colonial registration.",
+        "obj_0": "Activate the Energy Tower Shield",
+        "obj_1": "Hold the bridge under mortar fire",
+        "obj_2": "Destroy the Siege Walkers"
+      },
+      "level_3": {
+        "name": "Neon Rust and Data Dust",
+        "subtitle": "Life in the Margins",
+        "description": "The Under-City — a network of maintenance shafts beneath a gleaming Xelthara settlement. Siphon their energy to power the marginalized population's life-support systems while evading Purity Patrols.",
+        "obj_0": "Activate Phase-Shift capability",
+        "obj_1": "Bypass Xelthara Sentinels undetected",
+        "obj_2": "Detonate EMP at the perimeter gate"
+      },
+      "level_4": {
+        "name": "Shattered Aegis of the Void Commander",
+        "subtitle": "Asymmetric Warfare",
+        "description": "The shattered Pacific Defense Hub. Dismantle the last broadcast tower and distribute frequency chips to civilian resistance cells — finalizing the transition to guerrilla warfare.",
+        "obj_0": "Initiate the Network Hotwire sequence",
+        "obj_1": "Sync the micro-drone fleet",
+        "obj_2": "Fire the Orbital Strike — Obliteration Protocol"
+      }
+    },
+    "features": {
+      "briefing": "system capabilities",
+      "title_prefix": "Game ",
+      "title_highlight": "Features",
+      "built_with": "built with",
+      "tech_title": "Resistance Systems",
+      "tags": {
+        "roster": "ROSTER",
+        "narrative": "NARRATIVE",
+        "progression": "PROGRESSION",
+        "save_system": "SAVE SYSTEM",
+        "localisation": "LOCALISATION",
+        "controls": "CONTROLS",
+        "ux": "UX",
+        "audio": "AUDIO"
+      },
+      "tech": {
+        "engine": "Game Engine",
+        "logic": "Game Logic",
+        "scripting": "Scene Scripting",
+        "persistence": "Score Persistence",
+        "narrative_engine": "Narrative Engine",
+        "build": "Build System"
+      },
+      "items": {
+        "roster": {
+          "title": "Chassis Roster",
+          "desc": "Deploy one of five customized combat frames calibrated with specialized hardware loadouts."
+        },
+        "story": {
+          "title": "Intel Database",
+          "desc": "Real-time telemetry and regional intelligence archives compiled by the Axiom-7 mainframe."
+        },
+        "progress": {
+          "title": "Collectibles & Scoring",
+          "desc": "Cherries scattered across all levels worth points. Scores are saved locally via SQLite and displayed on a persistent leaderboard."
+        },
+        "save": {
+          "title": "Memory Nodes",
+          "desc": "Decentralized storage vaults backing up combat telemetry and sync state sessions."
+        },
+        "local": {
+          "title": "50+ Language Support",
+          "desc": "Fully localised UI including Arabic, Hindi, Japanese, Malayalam, and many more — powered by CSV-based translation."
+        },
+        "controls": {
+          "title": "Gamepad Support",
+          "desc": "Full controller support including D-Pad, analogue stick movement, and button mapping for all attacks and abilities."
+        },
+        "ux": {
+          "title": "Blur Pause Menu",
+          "desc": "A premium pause menu with real-time blur shader effect — adjustable music and SFX volumes accessible at any time."
+        },
+        "audio": {
+          "title": "Acoustic Cloak",
+          "desc": "Deploy acoustic white-noise scramblers to mask squad audio signatures and evade patrols."
+        }
+      }
+    },
+    "controls": {
+      "briefing": "command interface",
+      "title_prefix": "Master the ",
+      "title_highlight": "Controls",
+      "desc": "Full keyboard and gamepad support. Each warrior's unique abilities map to dedicated input commands — master them all to survive.",
+      "keyboard": "Keyboard",
+      "gamepad": "Gamepad",
+      "or": "or",
+      "special_briefing": "special abilities",
+      "special_title": "Combat Techniques",
+      "tip": {
+        "title": "Training Protocol:",
+        "text": "Start with Level 00 — Protocol Zero to learn all controls in the Neural-Sync Virtual Reality before entering live combat."
+      },
+      "actions": {
+        "move_left": "Move Left",
+        "move_right": "Move Right",
+        "jump": "Jump",
+        "sword_attack": "Sword Attack",
+        "karate_attack": "Karate Attack",
+        "pause": "Pause"
+      },
+      "notes": {
+        "shogun_only": "Cyber Shogun only"
+      },
+      "moves": {
+        "plasma_blade": {
+          "name": "Plasma Blade Strike",
+          "input": "Light Attack"
+        },
+        "energy_shield": {
+          "name": "Energy Tower Shield",
+          "input": "LB / L1"
+        },
+        "kinetic_overload": {
+          "name": "Kinetic Overload",
+          "input": "Hold RB/R1 + Heavy"
+        },
+        "phase_shift": {
+          "name": "Phase Shift",
+          "input": "L2 / LT"
+        },
+        "drone_mark": {
+          "name": "Drone Mark & Fire",
+          "input": "Hold LT + Release"
+        },
+        "emp_burst": {
+          "name": "EMP Burst",
+          "input": "○+△ / B+Y"
+        },
+        "shield_overload": {
+          "name": "Shield Overload",
+          "input": "Hold X+Y / □+△"
+        },
+        "orbital_strike": {
+          "name": "Orbital Strike",
+          "input": "↑↑↓↓←→"
+        }
+      }
+    },
+    "squad": {
+      "deploy": "DEPLOY OPERATIVE",
+      "deploying": "DEPLOYING...",
+      "syncComplete": "SYNC COMPLETE // OPERATIVE SUCCESSFULLY DEPLOYED TO TARGET SECTOR",
+      "active": "ACTIVE",
+      "standby": "STANDBY",
+      "role": "ROLE",
+      "firepower": "FIREPOWER",
+      "defense": "DEFENSE",
+      "mobility": "MOBILITY",
+      "shogun": "CYBER SHOGUN",
+      "ronin": "AEGIS RONIN",
+      "matrix": "ONI MATRIX",
+      "frog": "NINJA FROG",
+      "guy": "VIRTUAL GUY",
+      "solaria": "SOLARIA",
+      "oceanus": "OCEANUS",
+      "surya": "SURYA PRIME",
+      "mirage": "MIRAGE BLADE",
+      "apex": "APEX TITAN",
+      "drag_rotate": "🖱️ ลากเพื่อหมุน 360°",
+      "live_orbit": "วงโคจรสด_3D"
+    },
+    "gameplay": {
+      "protocols": "CORE PROTOCOLS",
+      "terminal": "Database Terminal",
+      "active": "ACTIVE",
+      "synced": "SYNCED",
+      "online": "ONLINE",
+      "t1_title": "Kinetic Traversal",
+      "t1_desc": "Master momentum-based movement. Wall-run along alien monoliths, grapple through ruined skyscrapers, and chain slides to evade Xelthara targeting sensors.",
+      "t2_title": "Neural Hacking",
+      "t2_desc": "Infiltrate alien networks on the fly. Hijack enemy drones, overload energy shields, or turn automated defenses against their creators in real-time combat.",
+      "t3_title": "Squad Synergy",
+      "t3_desc": "Command your AI-driven resistance cell. Execute synchronized breaches, lay tactical ambushes, and combine unique abilities to dismantle heavy Xelthara armor.",
+      "intel_classified": "INTEL_CLASSIFIED // L.A. QZ",
+      "los_angeles_2157": "LOS ANGELES 2157"
+    },
+    "tech_hub": {
+      "hero_desc": "Technical specifications of the HLF insurgent equipment, mainframe decrypters, and cybernetic assault chassis active in Sector 4.",
+      "engine_title": "Chassis Specs",
+      "engine_desc": "Insurgent combat chassis are equipped with high-efficiency neural links operating over localized sub-GHz channels, designed to bypass Xelthara electronic countermeasures.",
+      "status_init": "Initialize Neural-Sync... [OK]",
+      "status_shaders": "Calibrate Movement Shaders... [OK]",
+      "status_link": "Establish Sector Link... [SECURED]",
+      "narrative_desc": "Decentralized Ink-comms routing system designed to establish multi-channel communication networks between resistance squads, ensuring secure transmission of coordinates and mission logs.",
+      "comms_desc": "Adaptive wideband encryption protocols supporting secure frequency hopping across all 50+ regional sub-grids, preventing intercept from high-altitude atmospheric processors.",
+      "offline_status": "System Offline",
+      "chassis_sync": "Chassis Neural-Sync",
+      "comms_decrypter": "Comms Decrypter"
+    },
+    "design_system": {
+      "title": "Glitch-Noir Kinetic",
+      "description": "Interactive guide and token showroom for the HLF rebel mainframe design system. High contrast, visceral layouts, and CRT friction overlays.",
+      "values": {
+        "digital_defiance": {
+          "title": "// DIGITAL DEFIANCE",
+          "desc": "Raw, unrefined edges mixed with glowing cathode effects to breach the corporate mainframe."
+        },
+        "visual_friction": {
+          "title": "// VISUAL FRICTION",
+          "desc": "Intentional CRT scanlines and minor color aberrations to represent a localized rebel broadcast."
+        },
+        "rigid_tactical_grid": {
+          "title": "// RIGID TACTICAL GRID",
+          "desc": "Asymmetric box models that feel like components plugged directly into a motherboard."
+        },
+        "low_fi_survival": {
+          "title": "// LOW-FI SURVIVAL",
+          "desc": "Monospaced data printouts, sharp 0px border corners, and low-res pixel density motifs."
+        }
+      },
+      "color_swatches": "Color Swatches",
+      "copy_success": "COPIED!",
+      "copy_prompt": "CLICK TO COPY",
+      "typography_stack": "Typography Stack",
+      "component_showroom": "Component Showroom",
+      "btn_interactive_states": "// BUTTON INTERACTIVE STATES",
+      "primary_action_desc": "Primary Action (flickers and skews to Magenta on hover)",
+      "secondary_outline_desc": "Secondary Outline",
+      "warning_action_desc": "Warning Action (skew animation)",
+      "tactical_card_desc": "// TACTICAL HOVER CARD & INPUT",
+      "alpha_card_title": "Sector 4 Alpha Card",
+      "alpha_card_desc": "Interactive frame container equipped with four custom bracket corners and double glow shaders on focus.",
+      "comms_label": "SECURE COMMS TERMINAL (click to see pulsing indicator border)",
+      "decryption_placeholder": "Enter decryption code...",
+      "colors": {
+        "void_black": {
+          "name": "Void Black",
+          "desc": "Stealth baseline background"
+        },
+        "deep_grey": {
+          "name": "Deep Grey",
+          "desc": "Secondary elevation container background"
+        },
+        "neon_cyan": {
+          "name": "Neon Cyan (Primary)",
+          "desc": "Tactical interfaces and friendly technology"
+        },
+        "electric_magenta": {
+          "name": "Electric Magenta (Secondary)",
+          "desc": "High energy overrides and HLF actions"
+        },
+        "toxic_green": {
+          "name": "Toxic Green (Tertiary)",
+          "desc": "Successful hacks and active status indicators"
+        },
+        "warning_orange": {
+          "name": "Warning Orange",
+          "desc": "Critical alerts, threat states, and warnings"
+        }
+      },
+      "typo_display_hero": "RECLAIM EARTH",
+      "typo_headline_lg": "TACTICAL INTEL REPORT",
+      "typo_body_lg": "> Ground forces have breached Sector 4 containment parameters. Launching active sync grid lock.",
+      "typo_body_md": "The Xelthara arrived not to conquer, but to administer. We operate in the dead zones, striking from the shadows of brutalist monoliths.",
+      "typo_label_caps": "STATUS: RESISTANCE COMM LINK SECURED // LATENCY 4ms"
+    },
+    "pages": {
+      "faq": {
+        "title": "ฐานความรู้",
+        "description": "เข้าถึงข้อมูลที่เข้ารหัสเกี่ยวกับปฏิบัติการทวงคืนโลก"
+      }
+    },
+    "faq": {
+      "q1": "Axiom Force คืออะไร?",
+      "a1": "เกมแอ็กชัน 3 มิติสุดมันส์ที่คุณเป็นผู้นำแนวร่วมปลดปล่อยมนุษยชาติ (HLF) ในสงครามเพื่อทวงคืนโลก",
+      "q2": "เกมจะวางจำหน่ายเมื่อใด?",
+      "a2": "กองกำลังต่อต้านกำลังระดมพล เกมอยู่ระหว่างการพัฒนาอย่างจริงจัง",
+      "q3": "รองรับแพลตฟอร์มใดบ้าง?",
+      "a3": "ระบบของเรารองรับ Windows, macOS, Linux, iOS, Android และ visionOS",
+      "q4": "เป็นเกมผู้เล่นหลายคนหรือไม่?",
+      "a4": "โหมดแคมเปญหลักเน้นการเล่นคนเดียวเป็นหลัก",
+      "q5": "จะเข้าร่วม HLF ได้อย่างไร?",
+      "a5": "คุณสามารถสมัครบัญชีบนพอร์ทัลทางการเพื่อรับข้อมูลอัปเดตแบบเข้ารหัส",
+      "q6": "ดูบันทึกการพัฒนาได้ที่ไหน?",
+      "a6": "ความก้าวหน้าทางเทคนิคทั้งหมดจะถูกบันทึกไว้ในศูนย์เทคโนโลยี",
+      "q7": "สเปกขั้นต่ำของระบบคืออะไร?",
+      "a7": "อุปกรณ์ทั่วไปที่มี GPU พื้นฐานก็สามารถเล่น Axiom Force ได้"
+    },
+    "accessibility": {
+      "title": "คำแถลงการเข้าถึงข้อมูล",
+      "commitment_title": "// ความมุ่งมั่นของเรา",
+      "commitment_text": "Axiom Force มุ่งมั่นที่จะสร้างความมั่นใจในการเข้าถึงดิจิทัลสำหรับผู้พิการ เราปรับปรุงประสบการณ์การใช้งานอย่างต่อเนื่องตามมาตรฐาน WCAG 2.1 ระดับ AA",
+      "features_title": "// คุณสมบัติการเข้าถึง",
+      "feature_keyboard_title": "การควบคุมด้วยคีย์บอร์ด:",
+      "feature_keyboard_desc": "รองรับคีย์บอร์ดเต็มรูปแบบทั่วทั้งเว็บไซต์และ UI ของเกม พร้อมตัวบ่งชี้โฟกัสที่ชัดเจนและการปรับแต่งปุ่ม",
+      "feature_contrast_title": "การออกแบบคอนทราสต์สูง:",
+      "feature_contrast_desc": "ออกแบบด้วยสีไซเบอร์พังก์ที่มีคอนทราสต์สูง เพื่อการมองเห็นที่เหมาะสมที่สุด",
+      "feature_subtitles_title": "คำบรรยายและการควบคุมเสียง:",
+      "feature_subtitles_desc": "คำบรรยายข้อความเต็มรูปแบบสำหรับการบรรยายภารกิจ พร้อมระบบควบคุมระดับเสียงแยกอิสระ",
+      "feature_screen_reader_title": "รองรับโปรแกรมอ่านหน้าจอ:",
+      "feature_screen_reader_desc": "สร้างด้วยโครงสร้าง HTML5 เชิงความหมาย พร้อมข้อความกำกับรูปภาพและป้ายกำกับ ARIA",
+      "conformance_title": "// สถานะความสอดคล้อง",
+      "conformance_text": "Axiom Force สอดคล้องบางส่วนกับมาตรฐาน WCAG 2.1 ระดับ AA",
+      "feedback_title": "// ข้อเสนอแนะและการสนับสนุน",
+      "feedback_text": "เรายินดีรับฟังความคิดเห็นของคุณเกี่ยวกับการเข้าถึงของ Axiom Force โปรดติดต่อทีมสนับสนุนของเรา:",
+      "close": "ปิดคำแถลง"
+    },
+    "auth": {
+      "user_login": "USER LOGIN",
+      "verification_code": "Verification Code",
+      "enter_2fa_code": "Enter 2FA code",
+      "verifying": "Verifying...",
+      "verify_code": "Verify Code",
+      "username": "Username",
+      "enter_username": "Enter your username",
+      "password": "Password",
+      "authenticating": "Authenticating...",
+      "access_terminal": "Access Terminal",
+      "or": "OR",
+      "epic_login": "Epic Games Login",
+      "steam_login": "Steam Login",
+      "discord_login": "Discord Login",
+      "need_account": "Need an account? ",
+      "register_create": "Register / Create Account",
+      "create_account": "CREATE ACCOUNT",
+      "avatar_label": "Avatar Port / Profile Picture (Optional)",
+      "upload_portrait": "Upload Portrait",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "optional": "optional",
+      "placeholder_first_name": "First name",
+      "placeholder_last_name": "Last name",
+      "email_address": "Email Address",
+      "enter_email": "Enter your email",
+      "email": "Email",
+      "country_territory": "Country / Territory",
+      "loading_countries": "Loading official UN country database...",
+      "select_country": "Select your country",
+      "country_error": "Unable to load UN country list. Please check your connection or refresh.",
+      "registering": "Registering...",
+      "initialize_profile": "Initialize Profile",
+      "already_have_account": "Already have an account? ",
+      "login_access_terminal": "Login / Access Terminal",
+      "two_factor_title": "การยืนยันตัวตนแบบสองปัจจัย",
+      "two_factor_enabled_desc": "เปิดใช้งาน 2FA บนบัญชีของคุณแล้ว",
+      "disable_2fa": "ปิดใช้งาน 2FA",
+      "enable_two_factor": "เปิดใช้งานการยืนยันตัวตนแบบสองปัจจัย",
+      "processing": "กำลังดำเนินการ...",
+      "requesting": "กำลังร้องขอ...",
+      "verify_enable": "ตรวจสอบและเปิดใช้งาน",
+      "enter_code": "ใส่รหัส",
+      "back_to_account": "กลับไปที่บัญชีของฉัน",
+      "code_sent": "ส่งรหัสยืนยันไปยังอีเมลของคุณแล้ว โปรดป้อนด้านล่าง",
+      "code_request_failed": "ไม่สามารถขอรหัสยืนยัน 2FA ได้",
+      "two_factor_enabled_success": "เปิดใช้งานการยืนยันตัวตนแบบสองปัจจัยเรียบร้อยแล้ว",
+      "invalid_code": "รหัสไม่ถูกต้องหรือการยืนยันล้มเหลว",
+      "two_factor_disabled_success": "ปิดใช้งานการยืนยันตัวตนแบบสองปัจจัยแล้ว",
+      "disable_failed": "ไม่สามารถปิดใช้งาน 2FA ได้",
+      "auth_required": "จำเป็นต้องมีการยืนยันตัวตน",
+      "auth_required_desc": "โปรดเข้าสู่ระบบบัญชีของคุณเพื่ออนุญาตไคลเอนต์เกม",
+      "authorize_client": "อนุญาตไคลเอนต์เกม",
+      "requesting_access": "ไคลเอนต์เกมกำลังขอเข้าถึงบัญชีของคุณ",
+      "authorize_now": "อนุญาตทันที",
+      "auth_success": "อนุญาตบัญชีเรียบร้อยแล้ว!",
+      "auth_success_desc": "ตอนนี้คุณสามารถกลับไปที่ไคลเอนต์เกมได้แล้ว สามารถปิดหน้าต่างนี้ได้อย่างปลอดภัย",
+      "auth_failed": "การอนุญาตล้มเหลว",
+      "auth_failed_desc": "เกิดข้อผิดพลาดระหว่างการอนุญาต โปรดลองอีกครั้ง",
+      "try_again": "ลองอีกครั้ง"
+    },
+    "account": {
+      "phone_number": "Phone Number",
+      "code": "Code",
+      "country": "Country",
+      "saving": "Saving...",
+      "save_changes": "Save Changes"
     }
   }
 }

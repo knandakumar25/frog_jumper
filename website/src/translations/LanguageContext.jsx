@@ -152,8 +152,7 @@ export function LanguageProvider({ children }) {
   // Update i18n, RTL direction, and HTML title dynamically
   useEffect(() => {
     const langCode = LANGUAGE_ID_TO_CODE[selectedLanguage] || 'en';
-    const i18nCode = (langCode === 'zh_tw') ? 'zh' : langCode;
-    i18n.changeLanguage(i18nCode);
+    i18n.changeLanguage(langCode);
 
     // Set text direction and language attribute
     const isRtl = langCode === 'ar' || langCode === 'he';

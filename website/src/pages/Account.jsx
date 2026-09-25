@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import apiClient from '../api/client';
 
@@ -13,6 +14,7 @@ const getCallingCode = (c) => {
 };
 
 const Account = () => {
+  const { t } = useTranslation();
   const { locale } = useParams();
   const { user, setUser } = useAuth();
   const [formData, setFormData] = useState({
@@ -113,13 +115,13 @@ const Account = () => {
     <div className="min-h-screen py-20 px-4 md:px-margin-desktop">
       <div className="max-w-2xl mx-auto">
         <h1 className="text-headline-md text-primary-container font-bold uppercase tracking-tighter mb-8 border-l-4 border-primary-container pl-4">
-          My Account
+          {t('nav.my_account', 'My Account')}
         </h1>
 
         <form onSubmit={handleSubmit} className="bg-surface-container-highest border-2 border-primary-container p-6 shadow-[8px_8px_0px_rgba(0,243,255,0.3)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">First Name</label>
+              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('auth.first_name', 'First Name')}</label>
               <input
                 name="first_name"
                 value={formData.first_name}
@@ -128,7 +130,7 @@ const Account = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">Last Name</label>
+              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('auth.last_name', 'Last Name')}</label>
               <input
                 name="last_name"
                 value={formData.last_name}
@@ -137,7 +139,7 @@ const Account = () => {
               />
             </div>
             <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">Email</label>
+              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('auth.email', 'Email')}</label>
               <input
                 name="email"
                 value={formData.email}
@@ -147,7 +149,7 @@ const Account = () => {
             </div>
 
             <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">Phone Number</label>
+              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('account.phone_number', 'Phone Number')}</label>
               <div className="flex gap-2">
                 <div className="relative w-1/3">
                   <select
@@ -155,7 +157,7 @@ const Account = () => {
                     value={formData.country_code}
                     onChange={(e) => setFormData(prev => ({...prev, country_code: e.target.value}))}
                   >
-                    <option value="">Code</option>
+                    <option value="">{t('account.code', 'Code')}</option>
                     {countries.map(c => {
                       const callingCode = getCallingCode(c);
                       if (!callingCode) return null;
@@ -178,7 +180,7 @@ const Account = () => {
             </div>
 
             <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">Country</label>
+              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('account.country', 'Country')}</label>
               <div className="flex items-center gap-2">
                 <select
                   name="country"
@@ -186,7 +188,7 @@ const Account = () => {
                   onChange={handleInputChange}
                   className="flex-grow bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
                 >
-                  <option value="">Select Country</option>
+                  <option value="">{t('auth.select_country', 'Select Country')}</option>
                   {countries.map(c => (
                     <option key={c.cca3} value={c.name.common}>
                       {c.name.common}
@@ -208,7 +210,7 @@ const Account = () => {
             disabled={isLoading}
             className="mt-8 brutal-btn w-full py-3 font-bold uppercase transition-all duration-150 active:scale-95"
           >
-            {isLoading ? 'Saving...' : 'Save Changes'}
+            {isLoading ? t('account.saving', 'Saving...') : t('account.save_changes', 'Save Changes')}
           </button>
         </form>
       </div>

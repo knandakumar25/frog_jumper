@@ -52,3 +52,16 @@ build/android/
 
 # Test screenshots
 assets/images/screenshot_*.png*
+
+# Python & Virtualenv
+__pycache__/
+*.py[cod]
+.venv/
+backend/.venv/
+
+# .NET / C# build outputs
+[Bb]in/
+[Oo]bj/
+
+# GdUnit4 Test Reports
+reports/

@@ -43,7 +43,7 @@ project/assembly_name="AxiomForce"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/meshy-godot-plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/meshy-godot-plugin/plugin.cfg")
 
 [gui]
 
