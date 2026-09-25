@@ -39,7 +39,7 @@ export default function AccessibilityModal({ isOpen, onClose }) {
           <button
             onClick={onClose}
             className="text-on-surface-variant hover:text-tertiary-container transition-colors text-2xl font-bold px-2 py-1"
-            aria-label="Close Accessibility Statement"
+            aria-label={t('accessibility.close', 'Close Statement')}
           >
             ✕
           </button>
@@ -62,16 +62,16 @@ export default function AccessibilityModal({ isOpen, onClose }) {
             </h3>
             <ul className="list-disc list-inside space-y-2 text-on-surface">
               <li>
-                <strong className="text-primary-container">Keyboard Navigation:</strong> Full keyboard accessibility across the website and in-game UI with clear focus indicators and customizable keybindings.
+                <strong className="text-primary-container">{t('accessibility.feature_keyboard_title', 'Keyboard Navigation:')}</strong> {t('accessibility.feature_keyboard_desc', 'Full keyboard accessibility across the website and in-game UI with clear focus indicators and customizable keybindings.')}
               </li>
               <li>
-                <strong className="text-primary-container">High Contrast Design:</strong> Designed with high contrast cyberpunk colors, distinct focus states, and scalable vector icons for optimal visibility.
+                <strong className="text-primary-container">{t('accessibility.feature_contrast_title', 'High Contrast Design:')}</strong> {t('accessibility.feature_contrast_desc', 'Designed with high contrast cyberpunk colors, distinct focus states, and scalable vector icons for optimal visibility.')}
               </li>
               <li>
-                <strong className="text-primary-container">Subtitles & Audio Controls:</strong> Full text captions for narrative briefings (such as AXIOM-7 transmissions) with independent volume controls for SFX and Music.
+                <strong className="text-primary-container">{t('accessibility.feature_subtitles_title', 'Subtitles & Audio Controls:')}</strong> {t('accessibility.feature_subtitles_desc', 'Full text captions for narrative briefings (such as AXIOM-7 transmissions) with independent volume controls for SFX and Music.')}
               </li>
               <li>
-                <strong className="text-primary-container">Screen Reader Ready:</strong> Structured with semantic HTML5 elements, descriptive alt text for game graphics, and ARIA labels.
+                <strong className="text-primary-container">{t('accessibility.feature_screen_reader_title', 'Screen Reader Ready:')}</strong> {t('accessibility.feature_screen_reader_desc', 'Structured with semantic HTML5 elements, descriptive alt text for game graphics, and ARIA labels.')}
               </li>
             </ul>
           </section>

@@ -19,8 +19,32 @@ Whenever 3D assets, textures, or fonts are added/modified:
 *This ensures assets are visible in the runtime.*
 
 ### Build & Test
-- **Build project**: `dotnet build`
+- **Build project**: `dotnet build AxiomForce.csproj`
 - **Verification**: Check Godot runtime logs for "Vector3 cannot be normalized" warnings or missing asset errors.
+
+## Mandatory Testing Protocol (End of Every Prompt)
+> [!IMPORTANT]
+> At the conclusion of EVERY prompt or task, you MUST execute the unit test suites and verify that all tests pass (0 failures, 0 errors) before concluding your turn:
+>
+> ```powershell
+> .\run_tests.ps1
+> ```
+>
+> You can also run the individual test suites:
+> 1. **Django Unit Tests (Backend)**:
+>    ```powershell
+>    python backend/manage.py test accounts
+>    # Or directly using the virtual environment:
+>    backend\.venv\Scripts\python.exe backend\manage.py test accounts
+>    ```
+> 2. **NUnit Tests (.NET 10 C#)**:
+>    ```powershell
+>    dotnet test tests/AxiomForce.Tests/AxiomForce.Tests.csproj
+>    ```
+> 3. **GdUnit4 Tests (Godot 4 GDScript)**:
+>    ```powershell
+>    & "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless --path . -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
+>    ```
 
 ## Coding Guidelines
 - **Naming**: Match existing C# idioms (PascalCase for methods/properties, `_camelCase` for private fields).

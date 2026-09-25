@@ -54,8 +54,6 @@ services:
       dockerfile: Dockerfile
     container_name: frog_jumper_website
     restart: unless-stopped
-    volumes:
-      - ./website/dist:/usr/share/nginx/html:ro
     depends_on:
       - backend
     ports:

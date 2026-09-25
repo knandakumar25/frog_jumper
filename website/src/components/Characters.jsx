@@ -120,7 +120,7 @@ export default function Characters({ sprites, hideSectionHeader }) {
           <div className="characters__header">
             <span className="section-label">// {t('characters.briefing')}</span>
             <h2 className="section-title">
-              Choose Your <span className="text-gradient-primary">{t('characters.title')}</span>
+              <span className="text-gradient-primary">{t('characters.title', 'Choose Your Fighter')}</span>
             </h2>
             <div className="divider" />
             <p className="section-description">
