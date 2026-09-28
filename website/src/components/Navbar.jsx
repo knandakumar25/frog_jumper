@@ -49,8 +49,6 @@ export default function Navbar() {
     return t(`nav.${key}`, key.toUpperCase().replace('_', ' '));
   };
 
-  const playNowText = t('hero.title_line2_prefix', 'RECLAIM ') + t('hero.title_line2_highlight', 'EARTH');
-
   return (
     <>
       {/* Desktop and Tablet Navbar */}
@@ -158,14 +156,6 @@ export default function Navbar() {
               </div>
             )}
             <LanguageSelector />
-            <a
-              href="https://github.com/knandakumar25/frog_jumper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brutal-btn font-label-caps text-label-caps px-5 py-2.5 font-bold uppercase hover:scale-105 transition-all duration-150 active:scale-95"
-            >
-              {playNowText}
-            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -249,14 +239,6 @@ export default function Navbar() {
                   </NavLink>
                 </div>
               )}
-              <a
-                href="https://github.com/knandakumar25/frog_jumper"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
-              >
-                {playNowText}
-              </a>
             </div>
           </div>
         </div>
