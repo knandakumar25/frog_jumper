@@ -54,10 +54,14 @@ if ($Suite -eq "all" -or $Suite -eq "nunit") {
 
 # 3. GdUnit4 Unit Tests
 if ($Suite -eq "all" -or $Suite -eq "gdunit") {
-    Write-Host "`n[3/3] Running GdUnit4 (Godot 4) Unit Tests..." -ForegroundColor Yellow
-    $GodotExe = "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe"
+    $CandidateGodotPaths = @(
+        "C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe",
+        "C:\Users\karthiknk21\Godot\Editors\.editor_config\Axiom Force\Godot_v4.7.2-stable_mono_win64.exe",
+        "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe"
+    )
+    $GodotExe = $CandidateGodotPaths | Where-Object { Test-Path $_ } | Select-Object -First 1
 
-    if (Test-Path $GodotExe) {
+    if ($GodotExe -and (Test-Path $GodotExe)) {
         & $GodotExe --headless --path $ProjectRoot -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
         if ($LASTEXITCODE -eq 0) {
             $Results["GdUnit4"] = "PASSED"

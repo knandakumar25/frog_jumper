@@ -15,7 +15,7 @@ A high-fidelity 3D action game developed in **Godot 4.7.2 .NET (C#)** with a **D
 
 ### Asset Import Workflow
 Whenever 3D assets, textures, or fonts are added/modified:
-1. Run Godot in the background: `"C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless`
+1. Run Godot in the background: `"C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless`
 2. Wait for `.import` files to be generated.
 3. Stop the Godot process.
 *This ensures assets are visible in the runtime.*
@@ -45,7 +45,7 @@ Whenever 3D assets, textures, or fonts are added/modified:
 >    ```
 > 3. **GdUnit4 Tests (Godot 4 GDScript)**:
 >    ```powershell
->    & "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless --path . -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
+>    & "C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless --path . -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
 >    ```
 
 ## Coding Guidelines

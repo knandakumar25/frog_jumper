@@ -7,14 +7,23 @@
     then terminates the process once import is completed.
 #>
 param(
-    [string]$GodotPath = "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe",
+    [string]$GodotPath = "",
     [int]$WaitSeconds = 5
 )
 
 $ErrorActionPreference = "Stop"
 
-if (-not (Test-Path $GodotPath)) {
-    Write-Error "Godot binary not found at specified path: $GodotPath"
+if (-not $GodotPath -or -not (Test-Path $GodotPath)) {
+    $CandidateGodotPaths = @(
+        "C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe",
+        "C:\Users\karthiknk21\Godot\Editors\.editor_config\Axiom Force\Godot_v4.7.2-stable_mono_win64.exe",
+        "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe"
+    )
+    $GodotPath = $CandidateGodotPaths | Where-Object { Test-Path $_ } | Select-Object -First 1
+}
+
+if (-not $GodotPath -or -not (Test-Path $GodotPath)) {
+    Write-Error "Godot binary not found at specified or candidate paths."
     exit 1
 }
 
