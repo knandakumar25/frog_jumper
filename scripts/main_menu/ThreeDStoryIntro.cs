@@ -105,7 +105,7 @@ public partial class ThreeDStoryIntro : Node3D
 		{
 			_robotBuddy.FlyInCompleted += OnRobotBuddyFlyInCompleted;
 			// Fallback safety timer in case signal is missed
-			GetTree().CreateTimer(1.6f).Timeout += () =>
+			GetTree().CreateTimer(1.8f).Timeout += () =>
 			{
 				if (_currentLineIndex == 0 && !_isTyping)
 				{
@@ -134,8 +134,8 @@ public partial class ThreeDStoryIntro : Node3D
 	{
 		_robotBuddy = new FloatingRobotBuddy3D
 		{
-			Scale = new Vector3(0.72f, 0.72f, 0.72f),
-			Position = new Vector3(-0.75f, -0.1f, 0f),
+			Scale = new Vector3(0.75f, 0.75f, 0.75f),
+			Position = new Vector3(-0.85f, -0.12f, -1.0f),
 			RotationDegrees = new Vector3(0f, 15f, 0f),
 			HoverSpeed = 2.4f,
 			HoverHeight = 0.08f,
@@ -171,6 +171,7 @@ public partial class ThreeDStoryIntro : Node3D
 		_currentCharIndex = 0;
 		_typewriterTimer = 0f;
 		_isTyping = true;
+		_robotBuddy?.SetTransmitting(true);
 
 		PlayLineAudio(_currentLineIndex + 1);
 	}
@@ -240,6 +241,7 @@ public partial class ThreeDStoryIntro : Node3D
 	private void OnLineFinished()
 	{
 		_isTyping = false;
+		_robotBuddy?.SetTransmitting(false);
 		if (_dialogueLabel != null)
 			_dialogueLabel.VisibleCharacters = -1; // Show full text.
 
@@ -304,6 +306,7 @@ public partial class ThreeDStoryIntro : Node3D
 	/// </summary>
 	private void FinishIntro()
 	{
+		_robotBuddy?.SetTransmitting(false);
 		DisplayServer.ScreenSetKeepOn(false);
 		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/level_selection.tscn");
 	}

@@ -15,7 +15,7 @@ albedo_texture = ExtResource("4_bg_texture")
 
 [sub_resource type="QuadMesh" id="QuadMesh_bg"]
 material = SubResource("StandardMaterial3D_bg")
-size = Vector2(24, 13.5)
+size = Vector2(32, 18)
 
 [node name="ThreeDStoryIntro" type="Node3D"]
 script = ExtResource("1_threed_story_intro_script")
@@ -39,7 +39,7 @@ light_color = Color(0, 0.7, 1, 1)
 light_energy = 0.9
 
 [node name="CityBackgroundQuad" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
 mesh = SubResource("QuadMesh_bg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

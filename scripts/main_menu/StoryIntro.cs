@@ -156,8 +156,8 @@ public partial class StoryIntro : Control
 		// Instantiate the floating robot entity.
 		var robotBuddy = new FloatingRobotBuddy3D
 		{
-			Scale = new Vector3(1.1f, 1.1f, 1.1f),
-			Position = new Vector3(0f, 0f, 0f),
+			Scale = new Vector3(1.15f, 1.15f, 1.15f),
+			Position = new Vector3(0f, 0f, -0.8f),
 			HoverSpeed = 2.6f,
 			HoverHeight = 0.08f,
 			PulseSpeed = 3.5f
