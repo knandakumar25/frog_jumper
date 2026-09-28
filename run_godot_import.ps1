@@ -33,15 +33,14 @@ Write-Host "=========================================" -ForegroundColor Cyan
 Write-Host "Godot Path : $GodotPath"
 Write-Host "Wait Time  : $WaitSeconds seconds"
 
-# Launch Godot in headless mode
-$process = Start-Process -FilePath $GodotPath -ArgumentList "--headless" -NoNewWindow -PassThru
+# Launch Godot with --headless --import which starts editor, imports changed resources, and quits automatically
+$process = Start-Process -FilePath $GodotPath -ArgumentList "--headless", "--import" -NoNewWindow -PassThru
 
-Write-Host "Waiting $WaitSeconds seconds for asset import..." -ForegroundColor Yellow
-Start-Sleep -Seconds $WaitSeconds
+Write-Host "Waiting for Godot asset import to complete..." -ForegroundColor Yellow
+$finished = $process.WaitForExit($WaitSeconds * 1000)
 
-# Terminate process if still running
-if ($process -and -not $process.HasExited) {
-    Write-Host "Terminating Godot import process (PID: $($process.Id))..." -ForegroundColor Green
+if (-not $finished) {
+    Write-Host "Import did not finish within $WaitSeconds s. Force terminating (PID: $($process.Id))..." -ForegroundColor Yellow
     Stop-Process -Id $process.Id -Force
 }
 
