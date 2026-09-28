@@ -4,15 +4,17 @@ using System;
 /// <summary>
 /// ThreeDMenuExperience is a specialized extension of MainMenu that transforms the static menu into a
 /// cinematic 3D experience. It manages the rendering of the "Axiom Force HQ Citadel" 3D environment
-/// and coordinates a smooth camera zoom transition that acts as the "entry" into the game's main interface.
+/// in a SubViewport while keeping the title logo and menu buttons strictly as 2-D UI Control elements.
 ///
-/// Unity Migration Note:
-/// 1. Scene Setup: Instead of programmatically loading GLB models in _Ready, use a Unity Scene with
-///    Prefabs already placed. Use a 'MenuManager' script to handle the logic.
-/// 2. Camera Transition: Use Cinemachine with a "Virtual Camera" for the High View and another for the
-///    Plaza View, then use CinemachineBrain to blend between them.
-/// 3. Background Animation: Use simple C# scripts on the vehicle GameObjects to handle the lane patrol
-///    logic (Sines/Cosines) rather than managing them centrally in the menu class.
+/// Architecture Design:
+/// 1. 2-D UI Elements: The TitleLogo (TextureRect in HomeOverlay) and the five menu buttons (CyberButton
+///    instances in ButtonContainer) are pure 2-D UI controls rendered directly onto the root Canvas.
+///    They are NOT 3-D meshes in the viewport. This preserves crisp high-resolution 2-D rendering,
+///    multilingual localization texture switching, and pixel-perfect button input mapping.
+/// 2. 3-D Viewport Staging: The 3-D world (Citadel architecture, ambient vehicles, lighting, and holographic
+///    projectors) lives entirely inside SubViewportContainer/SubViewport3D/World3D.
+/// 3. Cinematic Transition: The 3-D Camera interpolates smoothly from HighCamPos (0, 10, 26) to PlazaCamPos
+///    (0, 3.8, 15) using a Cubic InOut ease over 2.0s when initializing from the Home screen.
 /// </summary>
 public partial class ThreeDMenuExperience : MainMenu
 {
@@ -53,12 +55,17 @@ public partial class ThreeDMenuExperience : MainMenu
 	private Node3D _spinnerVehicle;
 	private Node3D _cargoBargeVehicle;
 	private Node3D _vtolGunshipVehicle;
+	private Node3D _patrolDroneVehicle;
 	private Node3D _shieldEmblemNode;
+	private Node3D _holoRingsNode;
+
+
 
 	// Patrol path data for ambient vehicles
 	private float _spinnerX   = -60f;
 	private float _cargoX     =  65f;
 	private float _hoverTimer =  0f;
+	private float _droneAngle =  0f;
 
 	public override void _Ready()
 	{
@@ -79,8 +86,15 @@ public partial class ThreeDMenuExperience : MainMenu
 			_camera3D.RotationDegrees = HighCamRot;
 		}
 
+		_holoRingsNode = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D/HoloProjector/HoloFocusRings");
+
 		// Load the architectural assets and the localized title logo.
 		LoadHQModel();
+		var world3D = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
+		if (world3D != null)
+		{
+			ApplyPbrAtmosphereTuning(world3D);
+		}
 		UpdateLocalizedTitle();
 
 		// Audio: Trigger the atmospheric "Home" music loop.
@@ -108,6 +122,9 @@ public partial class ThreeDMenuExperience : MainMenu
 				}
 			}));
 		}
+
+		// Configure Operative Podium static model (clean duplicate meshes & idle stance)
+		SetupOperativePodiumGuard();
 	}
 
 	public override void _Process(double delta)
@@ -153,6 +170,27 @@ public partial class ThreeDMenuExperience : MainMenu
 		if (_shieldEmblemNode != null)
 		{
 			_shieldEmblemNode.RotationDegrees = new Vector3(0f, Mathf.Sin(_hoverTimer * 1.5f) * 6f, 0f);
+		}
+
+		// 5. Patrol Surveillance Drone: Sweeps a figure-8 patrol flight path above the plaza with banking
+		if (_patrolDroneVehicle != null)
+		{
+			_droneAngle += 0.45f * dt;
+			float droneX = Mathf.Sin(_droneAngle) * 22f;
+			float droneZ = Mathf.Cos(_droneAngle * 0.5f) * 14f + 8f;
+			float droneY = 12.5f + Mathf.Sin(_droneAngle * 2.0f) * 1.5f;
+			_patrolDroneVehicle.Position = new Vector3(droneX, droneY, droneZ);
+
+			// Dynamic banking into flight curves
+			float bankZ = -Mathf.Cos(_droneAngle) * 18f;
+			float yawY = Mathf.RadToDeg(Mathf.Atan2(Mathf.Cos(_droneAngle) * 22f, -Mathf.Sin(_droneAngle * 0.5f) * 7f));
+			_patrolDroneVehicle.RotationDegrees = new Vector3(0f, yawY, bankZ);
+		}
+
+		// 6. Holographic Focus Rings: Continuous slow rotation above the projector
+		if (_holoRingsNode != null)
+		{
+			_holoRingsNode.RotateY(0.75f * dt);
 		}
 	}
 
@@ -263,20 +301,57 @@ public partial class ThreeDMenuExperience : MainMenu
 			if (img != null)
 			{
 				var bgTex = ImageTexture.CreateFromImage(img);
-				var bgMesh = new QuadMesh { Size = new Vector2(160f, 90f) };
+				var bgMesh = new QuadMesh { Size = new Vector2(165f, 92f) };
 				var bgMat = new StandardMaterial3D
 				{
 					AlbedoTexture = bgTex,
 					ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded,
-					AlbedoColor = new Color(0.7f, 0.75f, 0.9f)
+					AlbedoColor = Colors.White,
+					DisableFog = true
 				};
 				var bgInstance = new MeshInstance3D
 				{
 					Mesh = bgMesh,
 					MaterialOverride = bgMat,
-					Position = new Vector3(0f, 25f, -40f)
+					Position = new Vector3(0f, 24f, -42f)
 				};
 				world3D.AddChild(bgInstance);
+
+				// 0b. Atmospheric Horizon Transition: A soft vertical haze gradient placed at the junction
+				// between the 3D plaza / buildings and the distant 2D matte painting backdrop.
+				var grad = new Gradient();
+				grad.SetColor(0, new Color(0.20f, 0.30f, 0.38f, 0.55f));
+				grad.SetColor(1, new Color(0.20f, 0.30f, 0.38f, 0.0f));
+				grad.SetOffset(0, 0.0f);
+				grad.SetOffset(1, 1.0f);
+
+				var gradTex = new GradientTexture2D
+				{
+					Gradient = grad,
+					Fill = GradientTexture2D.FillEnum.Linear,
+					FillFrom = new Vector2(0.5f, 1.0f),
+					FillTo = new Vector2(0.5f, 0.0f),
+					Width = 128,
+					Height = 256
+				};
+
+				var hazeMat = new StandardMaterial3D
+				{
+					AlbedoTexture = gradTex,
+					Transparency = BaseMaterial3D.TransparencyEnum.Alpha,
+					ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded,
+					DisableFog = true,
+					CullMode = BaseMaterial3D.CullModeEnum.Disabled
+				};
+
+				var hazeMesh = new QuadMesh { Size = new Vector2(160f, 26f) };
+				var hazeInstance = new MeshInstance3D
+				{
+					Mesh = hazeMesh,
+					MaterialOverride = hazeMat,
+					Position = new Vector3(0f, 9f, -22f)
+				};
+				world3D.AddChild(hazeInstance);
 			}
 		}
 
@@ -406,76 +481,78 @@ public partial class ThreeDMenuExperience : MainMenu
 			world3D.AddChild(_cargoBargeVehicle);
 		}
 
-		// 13. PLAZA_02: Energy Shield Pylons (entrance decoration).
-		string pylonPath = "res://assets/models/hq/Meshy_AI_Energy_Shield_Pylon_0807073859_image-to-3d-texture.glb";
+		// 13. PLAZA_02: Energy Shield Pylons (procedural hard-surface columns).
+		string pylonPath = "res://assets/models/menu/shield_pylon_column.glb";
 		var pylonLeft = LoadGlbModel(pylonPath);
 		if (pylonLeft != null)
 		{
-			pylonLeft.Scale = new Vector3(1.8f, 3.0f, 1.8f);
-			pylonLeft.Position = new Vector3(-7.5f, 0.5f, 13f);
+			pylonLeft.Scale = new Vector3(1.2f, 1.2f, 1.2f);
+			pylonLeft.Position = new Vector3(-7.5f, 0.0f, 13f);
 			world3D.AddChild(pylonLeft);
 		}
 		var pylonRight = LoadGlbModel(pylonPath);
 		if (pylonRight != null)
 		{
-			pylonRight.Scale = new Vector3(1.8f, 3.0f, 1.8f);
-			pylonRight.Position = new Vector3(7.5f, 0.5f, 13f);
+			pylonRight.Scale = new Vector3(1.2f, 1.2f, 1.2f);
+			pylonRight.Position = new Vector3(7.5f, 0.0f, 13f);
 			world3D.AddChild(pylonRight);
 		}
 
 		// 14. PLAZA_03: Armored Perimeter Barriers.
-		string barrierPath = "res://assets/models/hq/Meshy_AI_Armored_Perimeter_Bar_0807074359_image-to-3d-texture.glb";
+		string barrierPath = "res://assets/models/menu/perimeter_blast_barrier.glb";
 		var barrierLeft = LoadGlbModel(barrierPath);
 		if (barrierLeft != null)
 		{
-			barrierLeft.Scale = new Vector3(2.2f, 2.2f, 2.2f);
-			barrierLeft.Position = new Vector3(-12f, 0.2f, 16f);
+			barrierLeft.Scale = new Vector3(1.2f, 1.2f, 1.2f);
+			barrierLeft.Position = new Vector3(-12f, 0.0f, 16f);
 			world3D.AddChild(barrierLeft);
 		}
 		var barrierRight = LoadGlbModel(barrierPath);
 		if (barrierRight != null)
 		{
-			barrierRight.Scale = new Vector3(2.2f, 2.2f, 2.2f);
-			barrierRight.Position = new Vector3(12f, 0.2f, 16f);
-			barrierRight.Position = new Vector3(12f, 0.2f, 16f);
+			barrierRight.Scale = new Vector3(1.2f, 1.2f, 1.2f);
+			barrierRight.Position = new Vector3(12f, 0.0f, 16f);
 			world3D.AddChild(barrierRight);
 		}
 
-		// 15. PLAZA_04: Automated Defense Turrets.
-		string turretPath = "res://assets/models/hq/Meshy_AI_Automated_Defense_Tur_0807075515_image-to-3d-texture.glb";
+		// 15. PLAZA_04: Automated Plasma Defense Turrets.
+		string turretPath = "res://assets/models/menu/plasma_defense_turret.glb";
 		var turretLeft = LoadGlbModel(turretPath);
 		if (turretLeft != null)
 		{
-			turretLeft.Scale = new Vector3(1.6f, 1.6f, 1.6f);
-			turretLeft.Position = new Vector3(-12f, 2.4f, 16f);
-			turretLeft.RotationDegrees = new Vector3(0f, 15f, 0f);
+			turretLeft.Scale = new Vector3(1.3f, 1.3f, 1.3f);
+			turretLeft.Position = new Vector3(-12f, 1.3f, 16f);
+			turretLeft.RotationDegrees = new Vector3(0f, 20f, 0f);
 			world3D.AddChild(turretLeft);
 		}
 		var turretRight = LoadGlbModel(turretPath);
 		if (turretRight != null)
 		{
-			turretRight.Scale = new Vector3(1.6f, 1.6f, 1.6f);
-			turretRight.Position = new Vector3(12f, 2.4f, 16f);
-			turretRight.RotationDegrees = new Vector3(0f, -15f, 0f);
+			turretRight.Scale = new Vector3(1.3f, 1.3f, 1.3f);
+			turretRight.Position = new Vector3(12f, 1.3f, 16f);
+			turretRight.RotationDegrees = new Vector3(0f, -20f, 0f);
 			world3D.AddChild(turretRight);
 		}
 
-		// 16. PLAZA_05: Holo-Projector Pedestals.
-		string pedestalPath = "res://assets/models/hq/Meshy_AI_Holo_Projector_Pedest_0807080445_image-to-3d-texture.glb";
-		var pedestalModel = LoadGlbModel(pedestalPath);
-		if (pedestalModel != null)
+		// 16. PLAZA_05: Holo-Projector Pedestals (guard against duplicate if instanced in .tscn).
+		if (!world3D.HasNode("HoloProjector") && !world3D.HasNode("HoloProjector2"))
 		{
-			pedestalModel.Scale = new Vector3(2.0f, 1.0f, 2.0f);
-			pedestalModel.Position = new Vector3(0f, 0.1f, 15f);
-			world3D.AddChild(pedestalModel);
+			string pedestalPath = "res://assets/models/menu/holo_projector_pedestal.glb";
+			var pedestalModel = LoadGlbModel(pedestalPath);
+			if (pedestalModel != null)
+			{
+				pedestalModel.Scale = new Vector3(1.2f, 1.2f, 1.2f);
+				pedestalModel.Position = new Vector3(0f, 0.05f, 15f);
+				world3D.AddChild(pedestalModel);
+			}
 		}
 
 		// 17. TECH_01: 3D Resistance Shield Emblem (floating focal point).
-		string emblemPath = "res://assets/models/hq/Meshy_AI_Resistance_Shield_Emb_0807081351_image-to-3d-texture.glb";
+		string emblemPath = "res://assets/models/menu/resistance_crest_emblem.glb";
 		_shieldEmblemNode = LoadGlbModel(emblemPath);
 		if (_shieldEmblemNode != null)
 		{
-			_shieldEmblemNode.Scale = new Vector3(3.2f, 3.2f, 3.2f);
+			_shieldEmblemNode.Scale = new Vector3(2.4f, 2.4f, 2.4f);
 			_shieldEmblemNode.Position = new Vector3(0f, 12.8f, 2.5f);
 			world3D.AddChild(_shieldEmblemNode);
 		}
@@ -491,15 +568,58 @@ public partial class ThreeDMenuExperience : MainMenu
 			world3D.AddChild(billboardModel);
 		}
 
-		// 19. TECH_03: Terminal Kiosk Node (plaza info terminal).
-		string kioskPath = "res://assets/models/hq/Meshy_AI_Terminal_Kiosk_Node_0807083122_image-to-3d-texture.glb";
-		var kioskModel = LoadGlbModel(kioskPath);
-		if (kioskModel != null)
+		// 19. TECH_03: Terminal Kiosk Node (guard against duplicate if instanced in .tscn).
+		if (!world3D.HasNode("TerminalKiosk") && !world3D.HasNode("TerminalKiosk2"))
 		{
-			kioskModel.Scale = new Vector3(1.6f, 1.6f, 1.6f);
-			kioskModel.Position = new Vector3(-3.5f, 0.2f, 15.5f);
-			kioskModel.RotationDegrees = new Vector3(0f, 30f, 0f);
-			world3D.AddChild(kioskModel);
+			string kioskPath = "res://assets/models/menu/command_terminal_kiosk.glb";
+			var kioskModel = LoadGlbModel(kioskPath);
+			if (kioskModel != null)
+			{
+				kioskModel.Scale = new Vector3(1.3f, 1.3f, 1.3f);
+				kioskModel.Position = new Vector3(-3.5f, 0.0f, 15.5f);
+				kioskModel.RotationDegrees = new Vector3(0f, 30f, 0f);
+				world3D.AddChild(kioskModel);
+			}
+		}
+
+		// 20. TECH_04: DataCore Server Towers (flanking the command plaza wings).
+		string serverPath = "res://assets/models/menu/datacore_server_tower.glb";
+		var serverLeft = LoadGlbModel(serverPath);
+		if (serverLeft != null)
+		{
+			serverLeft.Scale = new Vector3(1.1f, 1.1f, 1.1f);
+			serverLeft.Position = new Vector3(-13.5f, 0f, 6f);
+			serverLeft.RotationDegrees = new Vector3(0f, 25f, 0f);
+			world3D.AddChild(serverLeft);
+		}
+		var serverRight = LoadGlbModel(serverPath);
+		if (serverRight != null)
+		{
+			serverRight.Scale = new Vector3(1.1f, 1.1f, 1.1f);
+			serverRight.Position = new Vector3(13.5f, 0f, 6f);
+			serverRight.RotationDegrees = new Vector3(0f, -25f, 0f);
+			world3D.AddChild(serverRight);
+		}
+
+		// 21. TECH_05: Tactical Comm Array (atop the communications gantry).
+		string commArrayPath = "res://assets/models/menu/tactical_comm_array.glb";
+		var commArray = LoadGlbModel(commArrayPath);
+		if (commArray != null)
+		{
+			commArray.Scale = new Vector3(1.3f, 1.3f, 1.3f);
+			commArray.Position = new Vector3(18f, 9.2f, -10f);
+			commArray.RotationDegrees = new Vector3(0f, -35f, 0f);
+			world3D.AddChild(commArray);
+		}
+
+		// 22. VEH_04: Patrol Surveillance Drone (patrolling flight path above plaza).
+		string dronePath = "res://assets/models/menu/patrol_surveillance_drone.glb";
+		_patrolDroneVehicle = LoadGlbModel(dronePath);
+		if (_patrolDroneVehicle != null)
+		{
+			_patrolDroneVehicle.Scale = new Vector3(1.8f, 1.8f, 1.8f);
+			_patrolDroneVehicle.Position = new Vector3(0f, 13f, 12f);
+			world3D.AddChild(_patrolDroneVehicle);
 		}
 	}
 
@@ -636,6 +756,88 @@ public partial class ThreeDMenuExperience : MainMenu
 		catch (System.Exception ex)
 		{
 			GD.PrintErr($"ThreeDMenuExperience: GLB load error: {ex.Message}");
+		}
+		return null;
+	}
+
+	/// <summary>
+	/// Recursively tunes surface materials on 3D meshes to harmoniously blend with
+	/// the ambient slate-teal overcast sky and warm directional rim light.
+	/// Softens specular harshness and ensures realistic PBR roughness roll-off.
+	/// </summary>
+	private static void ApplyPbrAtmosphereTuning(Node node)
+	{
+		if (node is MeshInstance3D meshInstance && meshInstance.Mesh != null)
+		{
+			int surfaceCount = meshInstance.Mesh.GetSurfaceCount();
+			for (int s = 0; s < surfaceCount; s++)
+			{
+				var mat = meshInstance.GetSurfaceOverrideMaterial(s) ?? meshInstance.Mesh.SurfaceGetMaterial(s);
+				if (mat is BaseMaterial3D baseMat && baseMat.ShadingMode != BaseMaterial3D.ShadingModeEnum.Unshaded)
+				{
+					var dup = (BaseMaterial3D)baseMat.Duplicate();
+					dup.Roughness = Mathf.Clamp(dup.Roughness, 0.35f, 0.95f);
+					dup.SpecularMode = BaseMaterial3D.SpecularModeEnum.SchlickGgx;
+					dup.DiffuseMode = BaseMaterial3D.DiffuseModeEnum.Burley;
+					meshInstance.SetSurfaceOverrideMaterial(s, dup);
+				}
+			}
+		}
+
+		foreach (Node child in node.GetChildren())
+		{
+			ApplyPbrAtmosphereTuning(child);
+		}
+	}
+
+	private void SetupOperativePodiumGuard()
+	{
+		var world3D = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
+		if (world3D == null) return;
+
+		var podium = world3D.GetNodeOrNull<Node3D>("OperativePodium") ?? world3D.FindChild("OperativePodium", true, false) as Node3D;
+		var shogun = podium?.GetNodeOrNull<Node3D>("CyberShogun") ?? world3D.FindChild("CyberShogun", true, false) as Node3D;
+		if (shogun != null)
+		{
+			CharacterSelection.CleanDuplicateMeshes(shogun);
+			shogun.Position = new Vector3(0f, 0.35f, 0f);
+			shogun.RotationDegrees = Vector3.Zero;
+			PlayIdleAnimation(shogun);
+		}
+	}
+
+	private static void PlayIdleAnimation(Node root)
+	{
+		var player = FindNodeRecursive<AnimationPlayer>(root);
+		if (player == null) return;
+
+		var list = player.GetAnimationList();
+		if (list.Length == 0) return;
+
+		string clip = list[0];
+		foreach (var name in list)
+		{
+			if (name.ToString().ToLowerInvariant().Contains("idle"))
+			{
+				clip = name;
+				break;
+			}
+		}
+
+		var anim = player.GetAnimation(clip);
+		if (anim != null)
+			anim.LoopMode = Animation.LoopModeEnum.Linear;
+
+		player.Play(clip);
+	}
+
+	private static T? FindNodeRecursive<T>(Node node) where T : Node
+	{
+		if (node is T match) return match;
+		foreach (Node child in node.GetChildren())
+		{
+			var result = FindNodeRecursive<T>(child);
+			if (result != null) return result;
 		}
 		return null;
 	}

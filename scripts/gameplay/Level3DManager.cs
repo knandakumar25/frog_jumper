@@ -82,7 +82,8 @@ public partial class Level3DManager : Node
 		}
 
 		// 1. Freeze Player.
-		var player = GetTree().Root.FindChild("Player3D", true, false) as Player3D;
+		var player = (GetTree().Root.FindChild("Player3D", true, false) as Player3D) 
+			?? (GetTree().Root.FindChild("Player", true, false) as Player3D);
 		player?.StopMovement();
 
 		// 2. Load Narrative.

@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 /// <summary>
 /// CharacterSelection manages the operative selection screen.
@@ -147,6 +148,8 @@ public partial class CharacterSelection : Control
 	private float _charRotationY  = 0f;
 	private float _glowPulseTimer = 0f;
 	private float _rotateInput    = 0f;  // -1 left, +1 right, 0 idle
+
+	private static readonly Vector3 TargetPodiumPosition = new Vector3(-0.45f, 2.69f, 0f);
 
 	// --- Arrow button signal handlers (hold-to-rotate) ---
 	public void _on_rotate_left_down()  => _rotateInput = -1f;
@@ -331,41 +334,70 @@ public partial class CharacterSelection : Control
 				world3D.AddChild(_platform3DModel);
 			}
 		}
+
+		// Identify active model and trigger high-altitude thruster landing fly-in
+		Node3D activeModel = characterName switch
+		{
+			"Solaria" => _solaria3DModel,
+			"Oceanus" => _oceanus3DModel,
+			"Surya Prime" => _suryaPrime3DModel,
+			"Mirage Blade" => _mirageBlade3DModel,
+			"Apex Titan" => _apexTitan3DModel,
+			_ => _cyberShogun3DModel
+		};
+
+		if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
+		{
+			activeModel.Position = TargetPodiumPosition;
+			activeModel.RotationDegrees = new Vector3(0f, _charRotationY, 0f);
+			PlayIdleAnimation(activeModel);
+		}
 	}
 
 	/// <summary>
 	/// Loads a GLB model from a resource path.
 	/// If PackedScene loading fails, it uses the GltfDocument for raw file loading.
+	/// Automatically strips redundant static meshes from secondary armatures.
 	/// </summary>
 	private Node3D LoadGlbModel(string resPath)
 	{
 		try
 		{
+			Node3D loaded = null;
 			if (ResourceLoader.Exists(resPath))
 			{
 				var packed = GD.Load<PackedScene>(resPath);
-				if (packed != null) return packed.Instantiate<Node3D>();
+				if (packed != null) loaded = packed.Instantiate<Node3D>();
 			}
 
-			string globalPath = ProjectSettings.GlobalizePath(resPath);
-			if (System.IO.File.Exists(globalPath))
+			if (loaded == null)
 			{
-				var doc = new GltfDocument();
-				var state = new GltfState();
-				if (doc.AppendFromFile(globalPath, state) == Error.Ok)
+				string globalPath = ProjectSettings.GlobalizePath(resPath);
+				if (System.IO.File.Exists(globalPath))
 				{
-					// Raw GLB loading bypasses the editor's material import script.
-					foreach (var material in state.GetMaterials())
+					var doc = new GltfDocument();
+					var state = new GltfState();
+					if (doc.AppendFromFile(globalPath, state) == Error.Ok)
 					{
-						if (material is BaseMaterial3D baseMaterial)
+						// Raw GLB loading bypasses the editor's material import script.
+						foreach (var material in state.GetMaterials())
 						{
-							baseMaterial.ShadingMode = BaseMaterial3D.ShadingModeEnum.PerPixel;
-							baseMaterial.SpecularMode = BaseMaterial3D.SpecularModeEnum.SchlickGgx;
-							baseMaterial.MetallicSpecular = Mathf.Max(baseMaterial.MetallicSpecular, 0.5f);
+							if (material is BaseMaterial3D baseMaterial)
+							{
+								baseMaterial.ShadingMode = BaseMaterial3D.ShadingModeEnum.PerPixel;
+								baseMaterial.SpecularMode = BaseMaterial3D.SpecularModeEnum.SchlickGgx;
+								baseMaterial.MetallicSpecular = Mathf.Max(baseMaterial.MetallicSpecular, 0.5f);
+							}
 						}
+						loaded = (Node3D)doc.GenerateScene(state);
 					}
-					return (Node3D)doc.GenerateScene(state);
 				}
+			}
+
+			if (loaded != null)
+			{
+				CleanDuplicateMeshes(loaded);
+				return loaded;
 			}
 		}
 		catch (System.Exception ex)
@@ -373,6 +405,49 @@ public partial class CharacterSelection : Control
 			GD.PrintErr($"CharacterSelection: GLB load error: {ex.Message}");
 		}
 		return null;
+	}
+
+	/// <summary>
+	/// Strips redundant static MeshInstance3Ds from batch-exported armatures (Armature_001..Armature_042),
+	/// leaving only the single active animated Armature mesh.
+	/// Preserves the Skeleton3D hierarchy under Armature_* so AnimationPlayer tracks resolve cleanly without warnings.
+	/// </summary>
+	public static void CleanDuplicateMeshes(Node3D model)
+	{
+		if (model == null) return;
+
+		foreach (Node child in model.GetChildren())
+		{
+			if (child.Name.ToString().StartsWith("Armature_"))
+			{
+				RemoveMeshesRecursive(child);
+				if (child is Node3D n3d)
+				{
+					n3d.Visible = false;
+				}
+			}
+		}
+	}
+
+	private static void RemoveMeshesRecursive(Node parent)
+	{
+		var toRemove = new System.Collections.Generic.List<MeshInstance3D>();
+		foreach (Node child in parent.GetChildren())
+		{
+			if (child is MeshInstance3D mesh)
+			{
+				toRemove.Add(mesh);
+			}
+			else
+			{
+				RemoveMeshesRecursive(child);
+			}
+		}
+		foreach (var mesh in toRemove)
+		{
+			parent.RemoveChild(mesh);
+			mesh.QueueFree();
+		}
 	}
 
 	/// <summary>

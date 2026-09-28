@@ -242,18 +242,6 @@ public partial class CyberButton : Control
 
 		PivotOffset = size / 2f;
 
-		if (_ninePatch != null)
-		{
-			_ninePatch.Position = Vector2.Zero;
-			_ninePatch.Size = size;
-		}
-
-		if (_labelLayer != null)
-		{
-			_labelLayer.Position = Vector2.Zero;
-			_labelLayer.Size = size;
-		}
-
 		float maxLabelWidth = Mathf.Max(size.X - 110, 100);
 		if (_mainLabel2D != null)
 		{

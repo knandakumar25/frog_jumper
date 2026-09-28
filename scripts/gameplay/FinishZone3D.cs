@@ -24,7 +24,9 @@ public partial class FinishZone3D : Area3D
 		if (body is Player3D player)
 		{
 			// 1. Check if the objective is complete.
-			var levelManager = GetTree().Root.FindChild("Level3DManager", true, false) as Level3DManager;
+			var levelManager = (GetTree().CurrentScene as Level3DManager)
+				?? (GetTree().Root.FindChild("Level3DManager", true, false) as Level3DManager)
+				?? (GetTree().Root.FindChild("Prototype3D", true, false) as Level3DManager);
 			if (levelManager != null && !levelManager.IsObjectiveComplete())
 			{
 				GD.Print("You haven't collected all the cherries! Prove your worth, Warrior!");

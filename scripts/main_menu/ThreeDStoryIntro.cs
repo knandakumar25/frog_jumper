@@ -99,7 +99,32 @@ public partial class ThreeDStoryIntro : Node3D
 		}
 
 		UpdateStoryPrompts();
-		StartNextLine();
+
+		// Synchronize dialogue transmission with AXIOM-7's high-altitude fly-in arrival
+		if (_robotBuddy != null)
+		{
+			_robotBuddy.FlyInCompleted += OnRobotBuddyFlyInCompleted;
+			// Fallback safety timer in case signal is missed
+			GetTree().CreateTimer(1.6f).Timeout += () =>
+			{
+				if (_currentLineIndex == 0 && !_isTyping)
+				{
+					StartNextLine();
+				}
+			};
+		}
+		else
+		{
+			StartNextLine();
+		}
+	}
+
+	private void OnRobotBuddyFlyInCompleted()
+	{
+		if (_currentLineIndex == 0 && !_isTyping)
+		{
+			StartNextLine();
+		}
 	}
 
 	/// <summary>
@@ -242,6 +267,7 @@ public partial class ThreeDStoryIntro : Node3D
 
 	private void OnContinueButtonPressed()
 	{
+		_robotBuddy?.SkipFlyIn();
 		UISoundManager.Instance?.PlayClickSound();
 		if (_isTyping)
 		{
@@ -256,6 +282,7 @@ public partial class ThreeDStoryIntro : Node3D
 
 	private void OnSkipButtonPressed()
 	{
+		_robotBuddy?.SkipFlyIn();
 		UISoundManager.Instance?.PlayClickSound();
 		if (_voicePlayer != null && _voicePlayer.Playing)
 			_voicePlayer.Stop();

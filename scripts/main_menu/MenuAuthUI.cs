@@ -102,11 +102,6 @@ public partial class MenuAuthUI : Node
 			SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin
 		};
 
-		// Blinking animation for the light
-		var blinkTween = GetTree().CreateTween().SetLoops();
-		blinkTween.TweenProperty(onlineLight, "modulate:a", 0.3f, 0.8f).SetTrans(Tween.TransitionType.Sine);
-		blinkTween.TweenProperty(onlineLight, "modulate:a", 1.0f, 0.8f).SetTrans(Tween.TransitionType.Sine);
-
 		var statusRow = new HBoxContainer { Alignment = BoxContainer.AlignmentMode.Begin };
 		statusRow.AddChild(onlineLight);
 		var statusLbl = new Label { Text = " " + Tr("ONLINE"), SizeFlagsHorizontal = Control.SizeFlags.ExpandFill };

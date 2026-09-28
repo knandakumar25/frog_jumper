@@ -64,7 +64,7 @@ func resume() -> void:
 
 # Freezes the game world and displays the pause UI.
 func pause() -> void:
-		GameManager.set_game_state(GameManager.State.PAUSED)
+	GameManager.set_game_state(GameManager.State.PAUSED)
 	get_tree().paused = true
 	var panel = get_node_or_null("ColorRect2")
 	if panel != null:
@@ -94,14 +94,14 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_level_selection_pressed() -> void:
-		GameManager.set_game_state(GameManager.State.MAIN_MENU)
+	GameManager.set_game_state(GameManager.State.MAIN_MENU)
 	# Stop menu music and transition back to level selection via loading screen.
 	Global.stop_menu_music()
 	get_tree().paused = false
 	LoadingScreen.load_scene(get_tree(), "res://scenes/main_menu/level_selection.tscn")
 
 func _on_main_menu_pressed() -> void:
-		GameManager.set_game_state(GameManager.State.MAIN_MENU)
+	GameManager.set_game_state(GameManager.State.MAIN_MENU)
 	# Unpause and transition back to the main menu via loading screen.
 	get_tree().paused = false
 	LoadingScreen.load_scene(get_tree(), "res://scenes/main_menu/main_menu.tscn")

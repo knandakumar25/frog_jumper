@@ -11,7 +11,8 @@ public partial class PlayerHealthUI : ProgressBar
 	public override void _Ready()
 	{
 		// Find the player in the scene.
-		var player = GetTree().Root.FindChild("Player", true, false);
+		var player = GetTree().Root.FindChild("Player3D", true, false) 
+			?? GetTree().Root.FindChild("Player", true, false);
 		if (player != null)
 		{
 			_playerHealth = player.GetNodeOrNull<Health>("Health");

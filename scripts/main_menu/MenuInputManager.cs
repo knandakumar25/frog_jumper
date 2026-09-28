@@ -35,30 +35,20 @@ public partial class MenuInputManager : Node
 		_cancelKeyButton = cancelBtn;
 		_settingsManager = settingsManager;
 
-		if (_controlsButton != null)
+		ConnectButtonSafely(_controlsButton, OpenControls);
+		ConnectButtonSafely(_resetDefaultsButton, ResetDefaults);
+		ConnectButtonSafely(_closeKeybindingsButton, CloseControls);
+		ConnectButtonSafely(_acceptKeyButton, AcceptKey);
+		ConnectButtonSafely(_cancelKeyButton, CancelKey);
+	}
+
+	private static void ConnectButtonSafely(Button btn, Action action)
+	{
+		if (btn == null) return;
+		var callable = Callable.From(action);
+		if (!btn.IsConnected(BaseButton.SignalName.Pressed, callable))
 		{
-			_controlsButton.Pressed -= OpenControls;
-			_controlsButton.Pressed += OpenControls;
-		}
-		if (_resetDefaultsButton != null)
-		{
-			_resetDefaultsButton.Pressed -= ResetDefaults;
-			_resetDefaultsButton.Pressed += ResetDefaults;
-		}
-		if (_closeKeybindingsButton != null)
-		{
-			_closeKeybindingsButton.Pressed -= CloseControls;
-			_closeKeybindingsButton.Pressed += CloseControls;
-		}
-		if (_acceptKeyButton != null)
-		{
-			_acceptKeyButton.Pressed -= AcceptKey;
-			_acceptKeyButton.Pressed += AcceptKey;
-		}
-		if (_cancelKeyButton != null)
-		{
-			_cancelKeyButton.Pressed -= CancelKey;
-			_cancelKeyButton.Pressed += CancelKey;
+			btn.Connect(BaseButton.SignalName.Pressed, callable);
 		}
 	}
 

@@ -12,9 +12,12 @@ public partial class Player3D : CharacterBody3D
 	[Export] public float Speed = 7.0f;
 	[Export] public float JumpVelocity = 4.5f;
 	[Export] public float RotationSpeed = 10.0f;
+	[Export] public float MouseSensitivity = 0.003f;
+	[Export] public bool CaptureMouseOnReady = true;
 
 	// ─── State ───────────────────────────────────────────────────────────────
 	private bool _isMoving = true;
+	private float _cameraPitch = -15f;
 
 	// ─── Character Data ──────────────────────────────────────────────────────────
 	private struct CharacterStats
@@ -120,6 +123,10 @@ public partial class Player3D : CharacterBody3D
 		// Setup camera references.
 		_cameraPivot = GetNodeOrNull<Node3D>("CameraPivot");
 		_camera = GetNodeOrNull<Camera3D>("CameraPivot/Camera3D");
+		if (_camera != null)
+		{
+			_cameraPitch = _camera.RotationDegrees.X;
+		}
 
 		// Find the WeaponArea3D.
 		_weaponArea = GetNodeOrNull<WeaponArea3D>("WeaponArea3D");
@@ -127,6 +134,51 @@ public partial class Player3D : CharacterBody3D
 		if (_camera == null)
 		{
 			GD.PrintErr("Player3D: Camera3D not found! Please ensure the node structure is: Player3D -> CameraPivot -> Camera3D");
+		}
+
+		if (CaptureMouseOnReady && !OS.HasFeature("editor_headless"))
+		{
+			Input.MouseMode = Input.MouseModeEnum.Captured;
+		}
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		// Capture mouse on left click in the viewport if not already captured
+		if (@event is InputEventMouseButton mouseButton && mouseButton.Pressed && mouseButton.ButtonIndex == MouseButton.Left)
+		{
+			if (Input.MouseMode != Input.MouseModeEnum.Captured && !GetTree().Paused)
+			{
+				Input.MouseMode = Input.MouseModeEnum.Captured;
+			}
+		}
+
+		// 3rd-person orbit camera control via mouse motion
+		if (Input.MouseMode == Input.MouseModeEnum.Captured && @event is InputEventMouseMotion mouseMotion)
+		{
+			if (_cameraPivot != null)
+			{
+				_cameraPivot.RotateY(-mouseMotion.Relative.X * MouseSensitivity);
+			}
+
+			if (_camera != null)
+			{
+				_cameraPitch = Mathf.Clamp(_cameraPitch - mouseMotion.Relative.Y * MouseSensitivity * Mathf.RadToDeg(1f), -60f, 30f);
+				_camera.RotationDegrees = new Vector3(_cameraPitch, 0f, 0f);
+			}
+		}
+
+		// Optional keyboard camera rotation (Q/E)
+		if (@event is InputEventKey keyEvent && keyEvent.Pressed)
+		{
+			if (keyEvent.Keycode == Key.Q && _cameraPivot != null)
+			{
+				_cameraPivot.RotateY(Mathf.DegToRad(30f));
+			}
+			else if (keyEvent.Keycode == Key.E && _cameraPivot != null)
+			{
+				_cameraPivot.RotateY(Mathf.DegToRad(-30f));
+			}
 		}
 	}
 
@@ -136,6 +188,7 @@ public partial class Player3D : CharacterBody3D
 		if (scene != null)
 		{
 			_characterModel = scene.Instantiate<Node3D>();
+			CharacterSelection.CleanDuplicateMeshes(_characterModel);
 			AddChild(_characterModel);
 
 			// Find the AnimationPlayer inside the instantiated GLB model.
@@ -248,6 +301,18 @@ public partial class Player3D : CharacterBody3D
 			{
 				Velocity = new Vector3(direction.X * Speed, Velocity.Y, direction.Z * Speed);
 				PlayAbilityAnimation(direction.Length() > 0.5f ? "running" : "walking");
+
+				// Smoothly rotate the character model to face the movement direction
+				if (_characterModel != null)
+				{
+					float targetAngle = Mathf.Atan2(direction.X, direction.Z);
+					float currentAngle = _characterModel.Rotation.Y;
+					_characterModel.Rotation = new Vector3(
+						_characterModel.Rotation.X,
+						Mathf.LerpAngle(currentAngle, targetAngle, RotationSpeed * fDelta),
+						_characterModel.Rotation.Z
+					);
+				}
 			}
 			else
 			{
@@ -305,6 +370,19 @@ public partial class Player3D : CharacterBody3D
 		if (_animPlayer.HasAnimation(finalAnim))
 		{
 			_animPlayer.Play(finalAnim);
+			return;
+		}
+
+		// Fallback fuzzy search (e.g. "idle" matching "Armature|Idle_02|baselayer")
+		string searchTarget = animName.ToLowerInvariant();
+		foreach (var clip in _animPlayer.GetAnimationList())
+		{
+			string clipLower = clip.ToString().ToLowerInvariant();
+			if (clipLower.Contains(searchTarget))
+			{
+				_animPlayer.Play(clip);
+				return;
+			}
 		}
 	}
 

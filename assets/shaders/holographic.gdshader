@@ -1,42 +1,42 @@
+// ==============================================================================
+// Axiom Force - Holographic Spatial Shader
+// ==============================================================================
+// Purpose: Renders high-fidelity holographic projections (pedestal holo-banners,
+//          tactical readouts, shield nodes) in Godot 4.7.2 .NET.
+// Features:
+//   - Additive blending (blend_add) & double-sided rendering (cull_disabled)
+//   - Dynamic sine-based scanline sweep with configurable speed & frequency
+//   - Projected edge fade (smoothstep UV falloff) for ethereal light-cone look
+//   - High emission multiplier for rich bloom in the cyber_glow WorldEnvironment
+// ==============================================================================
 shader_type spatial;
+render_mode blend_add, cull_disabled, depth_draw_opaque;
 
-uniform vec4 base_color : source_color = vec4(0.0, 0.9, 1.0, 1.0);
-uniform float scanline_speed = 2.0;
-uniform float scanline_frequency = 100.0;
-uniform float glitch_intensity = 0.02;
-uniform float glitch_speed = 10.0;
+uniform vec4 base_color : source_color = vec4(0.0, 0.94, 1.0, 0.85);
+uniform float scanline_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float scanline_frequency : hint_range(1.0, 200.0) = 80.0;
+uniform float emission_strength : hint_range(0.0, 10.0) = 2.5;
+uniform float edge_fade_margin : hint_range(0.01, 0.5) = 0.15;
 
 varying vec3 v_world_pos;
 
 void vertex() {
-    v_world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-}
-
-float random(vec2 seed) {
-    return fract(sin(dot(seed, vec2(12.9898, 78.233))) * 43758.5453);
+	v_world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 
 void fragment() {
-    // Basic holographic base
-    vec4 color = base_color;
+	vec4 color = base_color;
 
-    // Scanlines
-    float scanline = sin(UV.y * scanline_frequency + TIME * scanline_speed);
-    color.rgb *= (0.8 + 0.2 * scanline);
+	// Animated horizontal scanlines
+	float scanline = sin(UV.y * scanline_frequency + TIME * scanline_speed);
+	color.rgb *= (0.75 + 0.25 * scanline);
 
-    // Glitch effect (disabled due to shader compatibility)
-    // float glitch = step(0.98, random(vec2(TIME * 0.1, 0.0)));
-    // if (glitch > 0.5) {
-    //     float offset = (random(vec2(TIME, 0.0)) - 0.5) * glitch_intensity;
-    //     color.rgb = texture(SCREEN_TEXTURE, UV + vec2(offset, 0.0)).rgb * base_color.rgb;
-    // }
+	// Edge fade for projected beam falloff
+	float edge_fade = smoothstep(0.0, edge_fade_margin, UV.x) * smoothstep(1.0, 1.0 - edge_fade_margin, UV.x) *
+	                  smoothstep(0.0, edge_fade_margin, UV.y) * smoothstep(1.0, 1.0 - edge_fade_margin, UV.y);
+	color.a *= edge_fade;
 
-    // Fade edges for a more "projected" look
-    float edge_fade = smoothstep(0.0, 0.2, UV.x) * smoothstep(1.0, 0.8, UV.x) *
-                      smoothstep(0.0, 0.2, UV.y) * smoothstep(1.0, 0.8, UV.y);
-    color.a *= edge_fade;
-
-    ALBEDO = color.rgb;
-    EMISSION = color.rgb * 2.0; // High emission for glow
-    ALPHA = color.a;
+	ALBEDO = color.rgb;
+	EMISSION = color.rgb * emission_strength;
+	ALPHA = color.a;
 }

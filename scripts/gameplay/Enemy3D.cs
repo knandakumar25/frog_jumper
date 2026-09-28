@@ -32,7 +32,8 @@ public partial class Enemy3D : CharacterBody3D
     {
         ApplyTypeStats();
 
-        _player = GetTree().Root.FindChild("Player3D", true, false) as Player3D;
+        _player = (GetTree().Root.FindChild("Player3D", true, false) as Player3D) 
+            ?? (GetTree().Root.FindChild("Player", true, false) as Player3D);
         _weaponArea = GetNodeOrNull<WeaponArea3D>("WeaponArea3D");
         _animPlayer = FindChild("AnimationPlayer", true, false) as AnimationPlayer;
         _navAgent = GetNodeOrNull<NavigationAgent3D>("NavigationAgent3D");
@@ -78,8 +79,14 @@ public partial class Enemy3D : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
+        if (_player == null)
+        {
+            _player = (GetTree().Root.FindChild("Player3D", true, false) as Player3D) 
+                ?? (GetTree().Root.FindChild("Player", true, false) as Player3D);
+            if (_player == null) return;
+        }
+
         float fDelta = (float)delta;
-        if (_player == null) return;
 
         if (_currentState == EnemyState.HitStun)
         {
