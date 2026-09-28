@@ -176,29 +176,38 @@ public partial class ThreeDStoryIntro : Node3D
 	}
 
 	/// <summary>
-	/// Loads and plays the specific voice recording for the current line based on locale.
+	/// Loads and plays the English voice recording for the current line.
+	/// Dialogue audio remains in English across all language versions, while subtitles match the selected language.
 	/// </summary>
 	private void PlayLineAudio(int lineNum)
 	{
-		string locale = TranslationServer.GetLocale().ToLower();
-		string baseLocale = locale.Contains("_") ? locale.Split('_')[0] : locale;
+		string audioPath = $"res://assets/speech/AXIOM-7/english/AXIOM-7-{lineNum}.mp3";
 
-		string audioPath = $"res://assets/speech/AXIOM-7/{baseLocale}/AXIOM-7-{lineNum}.mp3";
-
-		// Fallback to English if the requested localized audio is missing.
-		if (!FileAccess.FileExists(audioPath))
+		AudioStream? stream = null;
+		if (ResourceLoader.Exists(audioPath))
 		{
-			audioPath = $"res://assets/speech/AXIOM-7/english/AXIOM-7-{lineNum}.mp3";
+			stream = GD.Load<AudioStream>(audioPath);
 		}
 
-		if (FileAccess.FileExists(audioPath))
+		if (stream == null)
 		{
-			var stream = GD.Load<AudioStream>(audioPath);
-			if (stream != null && _voicePlayer != null)
+			string globalPath = ProjectSettings.GlobalizePath(audioPath);
+			if (System.IO.File.Exists(globalPath))
 			{
-				_voicePlayer.Stream = stream;
-				_voicePlayer.Play();
+				byte[] bytes = System.IO.File.ReadAllBytes(globalPath);
+				if (bytes.Length > 0)
+				{
+					var mp3 = new AudioStreamMP3();
+					mp3.Data = bytes;
+					stream = mp3;
+				}
 			}
+		}
+
+		if (stream != null && _voicePlayer != null)
+		{
+			_voicePlayer.Stream = stream;
+			_voicePlayer.Play();
 		}
 	}
 

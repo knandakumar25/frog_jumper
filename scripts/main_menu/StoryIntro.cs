@@ -243,36 +243,9 @@ public partial class StoryIntro : Control
 
 			typewriterTimer = 0f;
 
-			// Resolve the audio file path based on the current translation locale.
-			string currentLang = TranslationServer.GetLocale().ToLower();
-			string langFolder = "english";
-
-			if (currentLang == "ja" || currentLang == "japanese") langFolder = "japanese";
-			else if (currentLang == "es" || currentLang == "spanish") langFolder = "spanish";
-			else if (currentLang == "fr" || currentLang == "french" || currentLang == "eurofrench") langFolder = "french";
-			else if (currentLang == "de" || currentLang == "german") langFolder = "german";
-			else if (currentLang == "ko" || currentLang == "korean") langFolder = "korean";
-			else if (currentLang == "zh" || currentLang == "mandarin") langFolder = "mandarin";
-			else if (currentLang == "traditionalchinese" || currentLang == "zh_tw" || currentLang == "zh_hk") langFolder = "traditionalchinese";
-			else if (currentLang == "hi" || currentLang == "hindi") langFolder = "hindi";
-			else if (currentLang == "ta" || currentLang == "tamil") langFolder = "tamil";
-			else if (currentLang == "te" || currentLang == "telugu") langFolder = "telugu";
-			else if (currentLang == "ml" || currentLang == "malayalam") langFolder = "malayalam";
-			else if (currentLang == "kn" || currentLang == "kannada") langFolder = "kannada";
-			else if (currentLang == "id" || currentLang == "indonesian") langFolder = "indonesian";
-			else if (currentLang == "vi" || currentLang == "vietnamese") langFolder = "vietnamese";
-			else if (currentLang == "th" || currentLang == "thai") langFolder = "thai";
-			else if (currentLang == "ar" || currentLang == "arabic") langFolder = "arabic";
-			else if (currentLang == "he" || currentLang == "hebrew") langFolder = "hebrew";
-			else if (currentLang == "it" || currentLang == "italian") langFolder = "italian";
-			else if (currentLang == "pl" || currentLang == "polish") langFolder = "polish";
-			else if (currentLang == "pt" || currentLang == "portuguese" || currentLang == "brazilianportuguese") langFolder = "portuguese";
-			else if (currentLang == "tr" || currentLang == "turkish") langFolder = "turkish";
-
+			// Voice-over audio remains in English across all language versions, while subtitles match the selected language.
 			string speaker = "AXIOM-7";
-			string primaryPath = $"res://assets/speech/{speaker}/{langFolder}/AXIOM-7-{currentLineIndex + 1}.mp3";
-			string fallbackPath = $"res://assets/speech/{speaker}/english/AXIOM-7-{currentLineIndex + 1}.mp3";
-			string audioPath = System.IO.File.Exists(ProjectSettings.GlobalizePath(primaryPath)) ? primaryPath : fallbackPath;
+			string audioPath = $"res://assets/speech/{speaker}/english/AXIOM-7-{currentLineIndex + 1}.mp3";
 
 			GD.Print($"StoryIntro: Attempting to load audio: {audioPath}");
 			AudioStream stream = LoadAudioStream(audioPath);
