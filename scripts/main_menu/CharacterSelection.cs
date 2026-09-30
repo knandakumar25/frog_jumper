@@ -28,59 +28,86 @@ public partial class CharacterSelection : Control
 	private SegmentedStatBar _speedMeter;
 	private SegmentedStatBar _agilityMeter;
 
+	private Label _abilitiesHeaderLabel;
+	private Button _primaryAbilityBtn;
+	private Button _secondaryAbilityBtn;
+	private Button _dashAbilityBtn;
+	private Button _slamAbilityBtn;
+	private Label _abilityBadgeLabel;
+	private Label _abilityDescLabel;
+	private Label _abilityStatusLabel;
+
+	private string _currentPreviewAnim = "";
+	private Callable _previewFinishedCallable;
+
 	private string _currentSelectedCharacter = "Cyber Shogun";
 
 	public override void _Ready()
 	{
 		// Stop the main menu music to allow character-specific audio or silence.
-		GetNode<Node>("/root/Global").Call("stop_menu_music");
+		if (GetTree()?.Root?.HasNode("Global") == true)
+		{
+			GetTree().Root.GetNodeOrNull<Node>("Global")?.Call("stop_menu_music");
+		}
 
-		// Initialize UI references.
-		_selectedNameLabel = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/SelectedName");
-		_civilianNameLabel = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/CivilianName");
-		_classTagLabel     = GetNode<Label>("MainLayout/RightShowcasePanel/VBox/ClassTag");
-		_previewSprite     = GetNodeOrNull<AnimatedSprite2D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/PreviewSprite");
-		_speedMeter        = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedMeter");
-		_agilityMeter      = GetNode<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityMeter");
+		EnsureUIReferences();
+
+		Input.MouseMode = Input.MouseModeEnum.Hidden;
 
 		TranslateUI();
 		SelectOperative("Cyber Shogun");
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
 
-		// Setup button event handlers for the character grid.
+		// Setup button event handlers for the character grid (both Pressed and FocusEntered for keyboard/gamepad navigation).
 		var apexTitanBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan");
 		if (apexTitanBtn != null)
 		{
 			apexTitanBtn.Pressed += () => SelectOperative("Apex Titan");
+			apexTitanBtn.FocusEntered += () => SelectOperative("Apex Titan");
 		}
 		var mirageBladeBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade");
 		if (mirageBladeBtn != null)
 		{
 			mirageBladeBtn.Pressed += () => SelectOperative("Mirage Blade");
+			mirageBladeBtn.FocusEntered += () => SelectOperative("Mirage Blade");
 		}
 		var suryaPrimeBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime");
 		if (suryaPrimeBtn != null)
 		{
 			suryaPrimeBtn.Pressed += () => SelectOperative("Surya Prime");
+			suryaPrimeBtn.FocusEntered += () => SelectOperative("Surya Prime");
 		}
 		var oceanusBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus");
 		if (oceanusBtn != null)
 		{
 			oceanusBtn.Pressed += () => SelectOperative("Oceanus");
+			oceanusBtn.FocusEntered += () => SelectOperative("Oceanus");
 		}
 		var solariaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria");
 		if (solariaBtn != null)
 		{
 			solariaBtn.Pressed += () => SelectOperative("Solaria");
+			solariaBtn.FocusEntered += () => SelectOperative("Solaria");
 		}
 		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
 		if (shogunBtn != null)
 		{
 			shogunBtn.Pressed += () => SelectOperative("Cyber Shogun");
+			shogunBtn.FocusEntered += () => SelectOperative("Cyber Shogun");
 		}
 
 		shogunBtn?.CallDeferred(Control.MethodName.GrabFocus);
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		// Completely eliminate mouse cursor compatibility
+		if (@event is InputEventMouse)
+		{
+			GetViewport()?.SetInputAsHandled();
+			return;
+		}
 	}
 
 	private static void FixFontForLocale(Node node)
@@ -119,6 +146,34 @@ public partial class CharacterSelection : Control
 
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
+
+		if (_abilitiesHeaderLabel != null)
+			_abilitiesHeaderLabel.Text = Tr("OPERATIVE TACTICAL LOADOUT");
+	}
+
+	/// <summary>
+	/// Converts text to uppercase, but avoids doing so for scripts (Arabic, Hebrew, CJK) where uppercase doesn't exist.
+	/// </summary>
+	private void EnsureUIReferences()
+	{
+		if (_selectedNameLabel != null) return;
+		_selectedNameLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/SelectedName");
+		_civilianNameLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/CivilianName");
+		_classTagLabel        = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/ClassTag");
+		_previewSprite        = GetNodeOrNull<AnimatedSprite2D>("MainLayout/RightShowcasePanel/VBox/PreviewFrame/PreviewSprite");
+		_speedMeter           = GetNodeOrNull<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/SpeedMeter");
+		_agilityMeter         = GetNodeOrNull<SegmentedStatBar>("MainLayout/RightShowcasePanel/VBox/StatsBox/AgilityMeter");
+
+		_abilitiesHeaderLabel = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilitiesHeader");
+		_primaryAbilityBtn    = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn");
+		_secondaryAbilityBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn");
+		_dashAbilityBtn       = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn");
+		_slamAbilityBtn       = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn");
+		_abilityBadgeLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityBadgeLabel");
+		_abilityDescLabel     = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityDescLabel");
+		_abilityStatusLabel   = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityStatusLabel");
+
+		_previewFinishedCallable = Callable.From<StringName>(OnPreviewAnimationFinished);
 	}
 
 	/// <summary>
@@ -127,7 +182,7 @@ public partial class CharacterSelection : Control
 	private static string SafeToUpper(string text)
 	{
 		if (string.IsNullOrEmpty(text)) return "";
-		string locale = TranslationServer.GetLocale().ToLower();
+		string locale = TranslationServer.GetLocale()?.ToLower() ?? "";
 		if (locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") ||
 			locale.Contains("ko") || locale.Contains("zh"))
 		{
@@ -163,63 +218,85 @@ public partial class CharacterSelection : Control
 	public void _on_surya_prime_pressed()    => SelectOperative("Surya Prime");
 	public void _on_mirage_blade_pressed()   => SelectOperative("Mirage Blade");
 	public void _on_apex_titan_pressed()     => SelectOperative("Apex Titan");
+	public void _on_primary_ability_pressed()   => PreviewAbility(0);
+	public void _on_secondary_ability_pressed() => PreviewAbility(1);
+	public void _on_dash_ability_pressed()      => PreviewAbility(2);
+	public void _on_slam_ability_pressed()      => PreviewAbility(3);
 	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
 
 	/// <summary>
 	/// Updates the UI and 3D preview when a new character is selected.
 	/// </summary>
-	private void SelectOperative(string characterName)
+	public void SelectOperative(string characterName)
 	{
+		EnsureUIReferences();
 		_currentSelectedCharacter = characterName;
+		_currentPreviewAnim = "";
 
 		// Update labels and stat meters based on the selected operative.
 		if (characterName == "Solaria")
 		{
-			_selectedNameLabel.Text = SafeToUpper(Tr("Solaria"));
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Solaria"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: VALENTINA CRUZ"));
-			_classTagLabel.Text     = Tr("// CLASS: SOLAR FLARE MANIPULATOR");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: SOLAR FLARE MANIPULATOR");
 			_speedMeter?.SetStat(Tr("SPEED"), 95f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
 		}
 		else if (characterName == "Oceanus")
 		{
-			_selectedNameLabel.Text = SafeToUpper(Tr("Oceanus"));
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Oceanus"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KIANA VAEA"));
-			_classTagLabel.Text     = Tr("// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
 			_speedMeter?.SetStat(Tr("SPEED"), 96f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 97f);
 		}
 		else if (characterName == "Surya Prime")
 		{
-			_selectedNameLabel.Text = SafeToUpper(Tr("Surya Prime"));
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Surya Prime"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ARJUN VARMA"));
-			_classTagLabel.Text     = Tr("// CLASS: COSMIC SOLAR VANGUARD");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: COSMIC SOLAR VANGUARD");
 			_speedMeter?.SetStat(Tr("SPEED"), 97f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 98f);
 		}
 		else if (characterName == "Mirage Blade")
 		{
-			_selectedNameLabel.Text = SafeToUpper(Tr("Mirage Blade"));
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Mirage Blade"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ZAYD AL-MANSOOR"));
-			_classTagLabel.Text     = Tr("// CLASS: CRYSTALLINE PHANTOM");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: CRYSTALLINE PHANTOM");
 			_speedMeter?.SetStat(Tr("SPEED"), 99f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
 		}
 		else if (characterName == "Apex Titan")
 		{
-			_selectedNameLabel.Text = SafeToUpper(Tr("Apex Titan"));
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Apex Titan"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KING TARIQ NZINGA"));
-			_classTagLabel.Text     = Tr("// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
 			_speedMeter?.SetStat(Tr("SPEED"), 93f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 94f);
 		}
 		else
 		{
-			_selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KAITO KUROGANE"));
-			_classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
 			_speedMeter?.SetStat(Tr("SPEED"), 98f);
 			_agilityMeter?.SetStat(Tr("AGILITY"), 96f);
+		}
+
+		// Update ability preview buttons and details
+		var abilities = GetOperativeAbilities(characterName);
+		if (_primaryAbilityBtn != null && abilities.Length > 0)
+			_primaryAbilityBtn.Text = $"⚡ {SafeToUpper(Tr(abilities[0].Name))}";
+		if (_secondaryAbilityBtn != null && abilities.Length > 1)
+			_secondaryAbilityBtn.Text = $"🛡️ {SafeToUpper(Tr(abilities[1].Name))}";
+		if (_dashAbilityBtn != null && abilities.Length > 2)
+			_dashAbilityBtn.Text = $"💨 {SafeToUpper(Tr(abilities[2].Name))}";
+		if (_slamAbilityBtn != null && abilities.Length > 3)
+			_slamAbilityBtn.Text = $"💥 {SafeToUpper(Tr(abilities[3].Name))}";
+
+		if (abilities.Length > 0)
+		{
+			UpdateAbilityDisplay(abilities[0], isPreviewing: false);
 		}
 
 		FixFontForLocale(this);
@@ -245,7 +322,7 @@ public partial class CharacterSelection : Control
 				_cyberShogun3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_cyberShogun3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_cyberShogun3DModel);
-				PlayIdleAnimation(_cyberShogun3DModel);
+				PlayStandingAnimation(_cyberShogun3DModel);
 			}
 		}
 
@@ -258,7 +335,7 @@ public partial class CharacterSelection : Control
 				_solaria3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_solaria3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_solaria3DModel);
-				PlayIdleAnimation(_solaria3DModel);
+				PlayStandingAnimation(_solaria3DModel);
 			}
 		}
 
@@ -271,7 +348,7 @@ public partial class CharacterSelection : Control
 				_oceanus3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_oceanus3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_oceanus3DModel);
-				PlayIdleAnimation(_oceanus3DModel);
+				PlayStandingAnimation(_oceanus3DModel);
 			}
 		}
 
@@ -284,7 +361,7 @@ public partial class CharacterSelection : Control
 				_suryaPrime3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_suryaPrime3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_suryaPrime3DModel);
-				PlayIdleAnimation(_suryaPrime3DModel);
+				PlayStandingAnimation(_suryaPrime3DModel);
 			}
 		}
 
@@ -297,7 +374,7 @@ public partial class CharacterSelection : Control
 				_mirageBlade3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_mirageBlade3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_mirageBlade3DModel);
-				PlayIdleAnimation(_mirageBlade3DModel);
+				PlayStandingAnimation(_mirageBlade3DModel);
 			}
 		}
 
@@ -310,7 +387,7 @@ public partial class CharacterSelection : Control
 				_apexTitan3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_apexTitan3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_apexTitan3DModel);
-				PlayIdleAnimation(_apexTitan3DModel);
+				PlayStandingAnimation(_apexTitan3DModel);
 			}
 		}
 
@@ -335,8 +412,20 @@ public partial class CharacterSelection : Control
 			}
 		}
 
-		// Identify active model and trigger high-altitude thruster landing fly-in
-		Node3D activeModel = characterName switch
+		// Identify active model
+		Node3D activeModel = GetActiveModel();
+
+		if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
+		{
+			activeModel.Position = TargetPodiumPosition;
+			activeModel.RotationDegrees = new Vector3(0f, _charRotationY, 0f);
+			PlayStandingAnimation(activeModel);
+		}
+	}
+
+	public Node3D GetActiveModel()
+	{
+		return _currentSelectedCharacter switch
 		{
 			"Solaria" => _solaria3DModel,
 			"Oceanus" => _oceanus3DModel,
@@ -345,12 +434,211 @@ public partial class CharacterSelection : Control
 			"Apex Titan" => _apexTitan3DModel,
 			_ => _cyberShogun3DModel
 		};
+	}
 
-		if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
+	/// <summary>
+	/// Previews an ability animation on the active 3D model and updates the tactical UI display.
+	/// Automatically reverts to the Idle animation once the ability finishes.
+	/// </summary>
+	public void PreviewAbility(int abilityIndex)
+	{
+		var abilities = GetOperativeAbilities(_currentSelectedCharacter);
+		if (abilityIndex < 0 || abilityIndex >= abilities.Length) return;
+
+		var ability = abilities[abilityIndex];
+		UpdateAbilityDisplay(ability, isPreviewing: true);
+
+		Node3D activeModel = GetActiveModel();
+		if (activeModel == null || !GodotObject.IsInstanceValid(activeModel)) return;
+
+		var player = FindNodeRecursive<AnimationPlayer>(activeModel);
+		if (player == null) return;
+
+		string targetAnim = ResolveAnimationName(player, ability.AnimName);
+		if (string.IsNullOrEmpty(targetAnim))
 		{
-			activeModel.Position = TargetPodiumPosition;
-			activeModel.RotationDegrees = new Vector3(0f, _charRotationY, 0f);
-			PlayIdleAnimation(activeModel);
+			GD.PrintErr($"CharacterSelection: Animation '{ability.AnimName}' not found on {activeModel.Name}");
+			return;
+		}
+
+		var anim = player.GetAnimation(targetAnim);
+		if (anim != null)
+		{
+			anim.LoopMode = Animation.LoopModeEnum.None;
+		}
+
+		_currentPreviewAnim = targetAnim;
+
+		if (!player.IsConnected(AnimationMixer.SignalName.AnimationFinished, _previewFinishedCallable))
+		{
+			player.Connect(AnimationMixer.SignalName.AnimationFinished, _previewFinishedCallable);
+		}
+
+		player.Stop();
+		player.Play(targetAnim, customBlend: 0.12f);
+	}
+
+	public void OnPreviewAnimationFinished(StringName animName)
+	{
+		if (_currentPreviewAnim == animName.ToString())
+		{
+			_currentPreviewAnim = "";
+			Node3D activeModel = GetActiveModel();
+			if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
+			{
+				PlayStandingAnimation(activeModel);
+			}
+
+			if (_abilityStatusLabel != null && GodotObject.IsInstanceValid(_abilityStatusLabel))
+			{
+				_abilityStatusLabel.Text = Tr("✔ READY // SELECT ABILITY TO PREVIEW");
+				_abilityStatusLabel.Modulate = new Color(0.2f, 1f, 0.5f, 0.9f);
+			}
+		}
+	}
+
+	private void UpdateAbilityDisplay(OperativeAbilityData ability, bool isPreviewing)
+	{
+		if (_abilityBadgeLabel != null)
+		{
+			string dmgText = ability.Damage > 0 ? $"DMG: {ability.Damage:F0}" : "TACTICAL";
+			_abilityBadgeLabel.Text = $"[{ability.Category}] {SafeToUpper(Tr(ability.Name))} • CD: {ability.Cooldown:F1}s • {dmgText}";
+		}
+		if (_abilityDescLabel != null)
+		{
+			_abilityDescLabel.Text = Tr(ability.Description);
+		}
+		if (_abilityStatusLabel != null)
+		{
+			if (isPreviewing)
+			{
+				_abilityStatusLabel.Text = $"▶ PREVIEWING: {SafeToUpper(Tr(ability.Name))}...";
+				_abilityStatusLabel.Modulate = new Color(0f, 0.94f, 1f, 1f);
+			}
+			else
+			{
+				_abilityStatusLabel.Text = Tr("✔ READY // SELECT ABILITY TO PREVIEW");
+				_abilityStatusLabel.Modulate = new Color(0.2f, 1f, 0.5f, 0.9f);
+			}
+		}
+	}
+
+	private static string ResolveAnimationName(AnimationPlayer player, string baseName)
+	{
+		if (player == null || string.IsNullOrEmpty(baseName)) return null;
+		var list = player.GetAnimationList();
+
+		foreach (var name in list)
+		{
+			if (string.Equals(name, baseName, StringComparison.OrdinalIgnoreCase))
+				return name;
+		}
+
+		foreach (var name in list)
+		{
+			string n = name.ToString();
+			if (n.EndsWith(baseName, StringComparison.OrdinalIgnoreCase) ||
+				n.Contains(baseName, StringComparison.OrdinalIgnoreCase))
+			{
+				return name;
+			}
+		}
+
+		return null;
+	}
+
+	private static OperativeAbilityData[] GetOperativeAbilities(string characterName)
+	{
+		return characterName switch
+		{
+			"Solaria" => new[]
+			{
+				new OperativeAbilityData("Corona Lance", "Beam_Cast", "PRIMARY", "Ranged Beam", 4.5f, 30f,
+					"Focused solar laser beam piercing enemies with heavy knockback."),
+				new OperativeAbilityData("Supernova Flash", "Supernova_Burst", "SECONDARY", "Radial AoE", 6.5f, 25f,
+					"Radiant omnidirectional solar burst damaging and blinding surrounding foes."),
+				new OperativeAbilityData("Solar Dash", "Dash", "MOBILITY", "Thermal Boost", 2.5f, 0f,
+					"Ignites directional solar micro-thrusters for an evasive dash."),
+				new OperativeAbilityData("Solar Impact", "Ground_Slam", "SLAM", "Thermal Drop", 5.0f, 30f,
+					"Aerial descent detonating thermal solar force upon impact.")
+			},
+			"Oceanus" => new[]
+			{
+				new OperativeAbilityData("Tidal Torrent", "Torrent_Blast", "PRIMARY", "Hydro Blast", 4.0f, 28f,
+					"High-pressure hydrokinetic plasma surge propelling hostiles backward."),
+				new OperativeAbilityData("Maelstrom Vortex", "Vortex_Cast", "SECONDARY", "Gravity Vortex", 6.0f, 20f,
+					"Swirling aquatic gravity well pulling enemies toward the center."),
+				new OperativeAbilityData("Aqua Jet", "Dash", "MOBILITY", "Hydro Slide", 2.5f, 0f,
+					"Frictionless hydro-propulsion slide granting rapid evasion."),
+				new OperativeAbilityData("Tidal Crash", "Ground_Slam", "SLAM", "Hydrostatic Crash", 5.0f, 30f,
+					"Crashing downward drop releasing an expanding shockwave of water pressure.")
+			},
+			"Surya Prime" => new[]
+			{
+				new OperativeAbilityData("Solar Shield Bash", "Shield_Bash", "PRIMARY", "Vanguard Rush", 4.5f, 35f,
+					"Heavy armored charge ramming enemies with reinforced solar bulwark."),
+				new OperativeAbilityData("Aegis of the Sun", "Shield_Guard", "SECONDARY", "Hardlight Barrier", 5.5f, 15f,
+					"Cosmic barrier absorbing incoming fire and shielding the operative."),
+				new OperativeAbilityData("Vanguard Dash", "Dash", "MOBILITY", "Powered Sprint", 2.5f, 0f,
+					"Exoskeleton-assisted burst breaking through enemy formations."),
+				new OperativeAbilityData("Cosmic Slam", "Ground_Slam", "SLAM", "Bulwark Stomp", 5.0f, 35f,
+					"Fortress-class seismic stomp destabilizing the ground beneath foes.")
+			},
+			"Mirage Blade" => new[]
+			{
+				new OperativeAbilityData("Phase Blink", "Phase_Dash", "PRIMARY", "Teleport Slash", 3.5f, 25f,
+					"Dimensional phase shift instantly blinking behind the target."),
+				new OperativeAbilityData("Holographic Decoy", "Decoy_Deploy", "SECONDARY", "Decoy Illusion", 6.0f, 15f,
+					"Deploys a crystalline holographic clone attracting enemy fire before bursting."),
+				new OperativeAbilityData("Phase Dash", "Dash", "MOBILITY", "Phase Slip", 2.5f, 0f,
+					"Semi-material phase slide slipping through hostile fire unharmed."),
+				new OperativeAbilityData("Mirage Drop", "Ground_Slam", "SLAM", "Crystalline Dive", 5.0f, 28f,
+					"Acrobatic plunge creating a resonating crystalline shockwave.")
+			},
+			"Apex Titan" => new[]
+			{
+				new OperativeAbilityData("Tectonic Slam", "Tectonic_Slam", "PRIMARY", "Seismic Crater", 4.5f, 45f,
+					"Shatters the ground with devastating seismic force, launching targets."),
+				new OperativeAbilityData("Magnetic Tether", "Magnetic_Pull", "SECONDARY", "Magnetic Pull", 5.5f, 25f,
+					"Electromagnetic pulse dragging distant enemies into crushing range."),
+				new OperativeAbilityData("Titan Surge", "Dash", "MOBILITY", "Rocket Charge", 2.5f, 0f,
+					"Heavy rocket-boosted charge plowing past obstacles."),
+				new OperativeAbilityData("Seismic Drop", "Ground_Slam", "SLAM", "Gravitational Drop", 5.0f, 40f,
+					"Gravitational drop generating destructive radial shockwaves.")
+			},
+			_ => new[] // Cyber Shogun
+			{
+				new OperativeAbilityData("Shogun's Flash", "Blade_Dash", "PRIMARY", "Dash / Melee", 4.0f, 35f,
+					"High-speed katana dash cutting through enemies with nanite plasma edge."),
+				new OperativeAbilityData("Kinetic Parry", "Parry_Stance", "SECONDARY", "Deflect / Stance", 5.5f, 20f,
+					"Raises dual blade matrix absorbing attacks and counter-blasting shockwaves."),
+				new OperativeAbilityData("Cyber Dash", "Dash", "MOBILITY", "Thruster Burst", 2.5f, 0f,
+					"Directional thruster burst for rapid evasive repositioning."),
+				new OperativeAbilityData("Ground Slam", "Ground_Slam", "SLAM", "Kinetic Impact", 5.0f, 30f,
+					"Downward kinetic drop creating an area shockwave on impact.")
+			}
+		};
+	}
+
+	public class OperativeAbilityData
+	{
+		public string Name { get; set; }
+		public string AnimName { get; set; }
+		public string Category { get; set; }
+		public string TypeName { get; set; }
+		public float Cooldown { get; set; }
+		public float Damage { get; set; }
+		public string Description { get; set; }
+
+		public OperativeAbilityData(string name, string animName, string category, string typeName, float cooldown, float damage, string description)
+		{
+			Name = name;
+			AnimName = animName;
+			Category = category;
+			TypeName = typeName;
+			Cooldown = cooldown;
+			Damage = damage;
+			Description = description;
 		}
 	}
 
@@ -451,9 +739,10 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
-	/// Recursively finds an AnimationPlayer and starts the first matching "idle" animation.
+	/// Recursively finds an AnimationPlayer and starts the operative's "Standing" animation on loop.
+	/// This plays continuously whenever ability buttons are not being single-pressed.
 	/// </summary>
-	private static void PlayIdleAnimation(Node root)
+	private static void PlayStandingAnimation(Node root)
 	{
 		var player = FindNodeRecursive<AnimationPlayer>(root);
 		if (player == null) return;
@@ -461,21 +750,52 @@ public partial class CharacterSelection : Control
 		var list = player.GetAnimationList();
 		if (list.Length == 0) return;
 
-		string clip = list[0];
+		string clip = null;
 		foreach (var name in list)
 		{
-			if (name.ToString().ToLowerInvariant().Contains("idle"))
+			if (string.Equals(name, "Standing", StringComparison.OrdinalIgnoreCase))
 			{
 				clip = name;
 				break;
 			}
 		}
 
+		if (clip == null)
+		{
+			foreach (var name in list)
+			{
+				if (name.ToString().ToLowerInvariant().Contains("standing"))
+				{
+					clip = name;
+					break;
+				}
+			}
+		}
+
+		// Fallback to Idle if Standing is absent
+		if (clip == null)
+		{
+			foreach (var name in list)
+			{
+				if (string.Equals(name, "Idle", StringComparison.OrdinalIgnoreCase) ||
+					name.ToString().ToLowerInvariant().Contains("idle"))
+				{
+					clip = name;
+					break;
+				}
+			}
+		}
+
+		if (clip == null && list.Length > 0)
+		{
+			clip = list[0];
+		}
+
 		var anim = player.GetAnimation(clip);
 		if (anim != null)
 			anim.LoopMode = Animation.LoopModeEnum.Linear;
 
-		player.Play(clip);
+		player.Play(clip, customBlend: 0.15f);
 	}
 
 	/// <summary>
@@ -509,6 +829,16 @@ public partial class CharacterSelection : Control
 		{
 			if (Input.IsJoyButtonPressed(0, RotateLeftBtn))       rotInput = -1f;
 			else if (Input.IsJoyButtonPressed(0, RotateRightBtn)) rotInput =  1f;
+		}
+
+		// Gamepad Right Stick axis support for rotating character preview
+		if (rotInput == 0f)
+		{
+			float joyStickX = Input.GetJoyAxis(0, JoyAxis.RightX);
+			if (Mathf.Abs(joyStickX) > 0.2f)
+			{
+				rotInput = Mathf.Sign(joyStickX);
+			}
 		}
 
 		if (rotInput != 0f)
@@ -576,8 +906,10 @@ public partial class CharacterSelection : Control
 	/// </summary>
 	private async void CreateSessionAndStart(string characterName)
 	{
-		var global = GetNode<Node>("/root/Global");
-		global.Set("selected_character", characterName);
+		if (GetTree()?.Root?.HasNode("Global") == true)
+		{
+			GetTree().Root.GetNodeOrNull<Node>("Global")?.Set("selected_character", characterName);
+		}
 
 		int sessionId = await SessionManager.Instance.CreateNewSessionAsync(characterName);
 		if (sessionId > 0)

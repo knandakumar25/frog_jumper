@@ -19,9 +19,9 @@ public partial class CyberShogun : BaseCharacter
 	private bool _isAttacking = false;
 
 	/// <summary>
-	/// Latched input flag for the sword attack (Left Mouse).
+	/// Latched input flag for the sword attack ('F' key / Gamepad X).
 	/// </summary>
-	private bool _mouseClicked = false;
+	private bool _attackPressed = false;
 
 	/// <summary>
 	/// Latched input flag for the karate attack ('Q' key).
@@ -38,26 +38,23 @@ public partial class CyberShogun : BaseCharacter
 	// ─── Input ───────────────────────────────────────────────────────────────
 	/// <summary>
 	/// Captures raw input events to set attack flags.
-	/// Unity Migration: Use Input Action callbacks from the Unity Input System.
 	/// </summary>
 	public override void _Input(InputEvent @event)
 	{
-		// Detect Left Mouse click for Sword attack.
-		if (@event is InputEventMouseButton mb)
+		if (@event is InputEventMouse) return;
+
+		// Detect 'F' key or 'attack' action for Sword attack.
+		if (@event is InputEventKey key && key.Pressed && !key.Echo)
 		{
-			if (mb.ButtonIndex == MouseButton.Left && mb.Pressed)
-				_mouseClicked = true;
-		}
-		// Detect 'Q' key press for Karate attack.
-		else if (@event is InputEventKey key)
-		{
-			if (key.Keycode == Key.Q && key.Pressed && !key.Echo)
+			if (key.Keycode == Key.F || @event.IsActionPressed("attack"))
+				_attackPressed = true;
+			else if (key.Keycode == Key.Q)
 				_qPressed = true;
 		}
 		else if (@event is InputEventJoypadButton jb && jb.Pressed)
 		{
 			if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.B || jb.ButtonIndex == JoyButton.RightShoulder)
-				_mouseClicked = true;
+				_attackPressed = true;
 			else if (jb.ButtonIndex == JoyButton.Y || jb.ButtonIndex == JoyButton.LeftShoulder)
 				_qPressed = true;
 		}
@@ -74,10 +71,10 @@ public partial class CyberShogun : BaseCharacter
 		// Only allow attacks when grounded and not already attacking.
 		if (IsOnFloor() && !_isAttacking)
 		{
-			// 1. Sword Attack: Triggered by mouse click.
-			if (_mouseClicked && Sprite2d.SpriteFrames.HasAnimation("sword_attack"))
+			// 1. Sword Attack: Triggered by attack key/gamepad.
+			if (_attackPressed && Sprite2d.SpriteFrames.HasAnimation("sword_attack"))
 			{
-				_mouseClicked = false;
+				_attackPressed = false;
 				// Stop horizontal movement during attack.
 				Velocity = Velocity with { X = 0f };
 				Sprite2d.Play("sword_attack");
@@ -98,8 +95,8 @@ public partial class CyberShogun : BaseCharacter
 		}
 
 		// Clean up stale input flags if they weren't consumed by an attack.
-		if (_mouseClicked) _mouseClicked = false;
-		if (_qPressed)     _qPressed = false;
+		if (_attackPressed) _attackPressed = false;
+		if (_qPressed)      _qPressed = false;
 
 		// Return true if the character is currently in the middle of an attack animation.
 		return _isAttacking;

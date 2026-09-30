@@ -82,30 +82,13 @@ public partial class CyberButton : Control
 		CustomMinimumSize = new Vector2(240, 68);
 		SizeFlagsHorizontal = SizeFlags.ExpandFill;
 		FocusMode = FocusModeEnum.All;
-		MouseFilter = MouseFilterEnum.Stop;
+		MouseFilter = MouseFilterEnum.Ignore; // Completely eliminate cursor compatibility
 
 		LoadStaticResources();
 		SetupNinePatch();
 		Setup2DLabelOverlay();
 
 		UpdateChildLayout();
-
-		// Mouse events
-		MouseEntered += () =>
-		{
-			if (IsDisabled) return;
-			_isHovered = true;
-			AnimateHover(true);
-			UISoundManager.Instance?.PlayHoverSound();
-		};
-
-		MouseExited += () =>
-		{
-			if (IsDisabled) return;
-			_isHovered = false;
-			_isPressed = false;
-			AnimateHover(false);
-		};
 
 		// Gamepad / Keyboard Focus events
 		FocusEntered += () =>
@@ -305,7 +288,8 @@ public partial class CyberButton : Control
 		if (IsDisabled || !HasFocus()) return;
 
 		bool isAccept = @event.IsActionPressed("ui_accept") ||
-			(@event is InputEventJoypadButton jb && jb.Pressed && jb.ButtonIndex == JoyButton.A);
+			(@event is InputEventJoypadButton jb && jb.Pressed && jb.ButtonIndex == JoyButton.A) ||
+			(@event is InputEventKey k && k.Pressed && !k.Echo && (k.Keycode == Key.Enter || k.Keycode == Key.Space));
 
 		if (isAccept)
 		{
@@ -317,26 +301,7 @@ public partial class CyberButton : Control
 
 	public override void _GuiInput(InputEvent @event)
 	{
-		if (IsDisabled) return;
-
-		if (@event is InputEventMouseButton mb && mb.ButtonIndex == MouseButton.Left)
-		{
-			if (mb.Pressed)
-			{
-				_isPressed = true;
-				AnimatePress(true);
-			}
-			else if (_isPressed)
-			{
-				_isPressed = false;
-				AnimatePress(false);
-				if (_isHovered || GetGlobalRect().HasPoint(mb.GlobalPosition))
-				{
-					UISoundManager.Instance?.PlayClickSound();
-					EmitSignal(SignalName.Pressed);
-				}
-			}
-		}
+		// Completely eliminate mouse cursor compatibility - ignore all mouse clicks/motion
 	}
 
 	public void UpdateLocalization()

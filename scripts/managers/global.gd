@@ -20,6 +20,7 @@ var menu_music_player: AudioStreamPlayer = null
 # ─── Lifecycle ──────────────────────────────────────────────────────────────────
 func _ready() -> void:
 	load_saved_settings()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 	if DisplayServer.get_name() != "headless":
 		apply_display_mode(current_display_mode)
@@ -149,9 +150,9 @@ func _setup_prompt_banner() -> void:
 func update_prompt_text() -> void:
 	if _prompt_label == null: return
 	if is_gamepad_mode:
-		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Move") + "/" + tr("Navigate") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Sword") + "  |  (Y): " + tr("Karate") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Navigate") + "/" + tr("Move") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Ability 1") + "  |  (Y): " + tr("Ability 2") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
 	else:
-		_prompt_label.text = "⌨️ " + tr("KEYBOARD/MOUSE MODE") + ": [ WASD/ARROWS: " + tr("Move") + "  |  SPACE: " + tr("Jump") + "  |  CLICK: " + tr("Sword") + "  |  Q: " + tr("Karate") + "/" + tr("Rotate Left") + "  |  E: " + tr("Rotate Right") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "⌨️ " + tr("KEYBOARD MODE") + ": [ WASD/ARROWS: " + tr("Navigate") + "/" + tr("Move") + "  |  ENTER/SPACE: " + tr("Select") + "/" + tr("Jump") + "  |  E: " + tr("Ability 1") + "  |  F: " + tr("Ability 2") + "  |  Q/E: " + tr("Rotate") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
 
 func _update_prompt_text() -> void:
 	update_prompt_text()
@@ -165,8 +166,14 @@ func _on_joy_connection_changed(device: int, connected: bool) -> void:
 		print("Global: Gamepad disconnected: Device ", device)
 		show_gamepad_toast("⚠️ GAMEPAD DISCONNECTED")
 
-# Monitors input events to automatically toggle between Keyboard and Gamepad modes.
+# Monitors input events to automatically toggle between Keyboard and Gamepad modes,
+# and strictly consumes any mouse input to remove cursor compatibility.
 func _input(event: InputEvent) -> void:
+	# Consume all mouse events to disable cursor and mouse interaction project-wide
+	if event is InputEventMouse:
+		get_viewport().set_input_as_handled()
+		return
+
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		var is_pressed_or_moved = false
 		if event is InputEventJoypadButton and event.pressed:
@@ -180,12 +187,12 @@ func _input(event: InputEvent) -> void:
 			emit_signal("input_device_changed", true)
 			print("Global: Input device switched to -> GAMEPAD MODE 🎮")
 
-	elif event is InputEventKey or event is InputEventMouseButton:
+	elif event is InputEventKey:
 		if event.pressed and is_gamepad_mode:
 			is_gamepad_mode = false
 			_update_prompt_text()
 			emit_signal("input_device_changed", false)
-			print("Global: Input device switched to -> KEYBOARD/MOUSE MODE ⌨️")
+			print("Global: Input device switched to -> KEYBOARD MODE ⌨️")
 
 # ─── UI Prompt Helpers ──────────────────────────────────────────────────────────
 func get_nav_prompt() -> String:
@@ -198,7 +205,7 @@ func get_home_prompt() -> String:
 	if is_gamepad_mode:
 		return tr("// PRESS (A) OR (START) ON GAMEPAD TO INITIALIZE //")
 	else:
-		return tr("// PRESS ANY KEY OR CLICK TO INITIALIZE SYSTEM //")
+		return tr("// PRESS ENTER OR SPACE TO INITIALIZE SYSTEM //")
 
 func get_story_prompt() -> String:
 	if is_gamepad_mode:
@@ -306,14 +313,9 @@ func update_font_for_locale(locale_code: String) -> void:
 					f.fallbacks = fallbacks_list
 		print("Global: Configured Cairo & Arabic font fallbacks for Orbitron & Rajdhani sci-fi fonts")
 
-	# Initialize the custom cyber mouse cursor from a PNG image.
-	var cursor_path = ProjectSettings.globalize_path("res://assets/images/cursor.png")
-	if FileAccess.file_exists(cursor_path):
-		var img = Image.load_from_file(cursor_path)
-		if img != null:
-			var cursor_tex = ImageTexture.create_from_image(img)
-			Input.set_custom_mouse_cursor(cursor_tex, Input.CURSOR_ARROW, Vector2(4, 4))
-			print("Global: Custom cyber cursor set successfully at runtime!")
+	# Cursor compatibility completely removed - hide mouse cursor globally
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	print("Global: Mouse cursor compatibility disabled. Cursor hidden.")
 
 func apply_display_mode(mode_name: String) -> void:
 	current_display_mode = mode_name

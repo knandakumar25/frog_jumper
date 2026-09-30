@@ -58,10 +58,12 @@ public partial class PlayerHUD3D : Node3D
 		// 3. Setup Ability Rings.
 		_primaryRing = CreateRingMesh(new Color(0, 1, 1));
 		_primaryRing.Position = new Vector3(-0.3f, -0.5f, 0);
+		_primaryRing.Visible = false;
 		AddChild(_primaryRing);
 
 		_secondaryRing = CreateRingLMesh(new Color(1, 0, 1));
 		_secondaryRing.Position = new Vector3(0.3f, -0.5f, 0);
+		_secondaryRing.Visible = false;
 		AddChild(_secondaryRing);
 
 		// 4. Connect to Player.
@@ -168,12 +170,28 @@ public partial class PlayerHUD3D : Node3D
 				{
 					float progress = ability.CooldownProgress;
 					if (abilityCount == 0)
+					{
+						_primaryRing.Visible = true;
 						_primaryRing.Scale = new Vector3(progress, progress, progress);
+					}
 					else if (abilityCount == 1)
+					{
+						_secondaryRing.Visible = true;
 						_secondaryRing.Scale = new Vector3(progress, progress, progress);
+					}
 
 					abilityCount++;
 				}
+			}
+
+			if (abilityCount == 0)
+			{
+				_primaryRing.Visible = false;
+				_secondaryRing.Visible = false;
+			}
+			else if (abilityCount == 1)
+			{
+				_secondaryRing.Visible = false;
 			}
 		}
 

@@ -154,7 +154,7 @@ public partial class UISoundManager : Node
 		{
 			if (child is Button button)
 			{
-				button.MouseEntered += () => Instance.PlayHoverSound();
+				button.FocusEntered += () => Instance.PlayHoverSound();
 				button.Pressed      += () => Instance.PlayClickSound();
 			}
 			else if (child is CyberButton cyberBtn)

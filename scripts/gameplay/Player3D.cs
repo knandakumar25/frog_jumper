@@ -17,6 +17,7 @@ public partial class Player3D : CharacterBody3D
 
 	// ─── State ───────────────────────────────────────────────────────────────
 	private bool _isMoving = true;
+	private bool _canDoubleJump = true;
 	private float _cameraPitch = -15f;
 
 	// ─── Character Data ──────────────────────────────────────────────────────────
@@ -25,63 +26,23 @@ public partial class Player3D : CharacterBody3D
 		public string ModelPath;
 		public float SpeedMod;
 		public float AgilityMod;
-		public AbilityData PrimaryAbility;
-		public AbilityData SecondaryAbility;
 
-		public CharacterStats(string path, float speed, float agility, AbilityData primary, AbilityData secondary)
+		public CharacterStats(string path, float speed, float agility)
 		{
 			ModelPath = path;
 			SpeedMod = speed;
 			AgilityMod = agility;
-			PrimaryAbility = primary;
-			SecondaryAbility = secondary;
-		}
-	}
-
-	private struct AbilityData
-	{
-		public string Name;
-		public AbilityType Type;
-		public float Cooldown;
-		public float Damage;
-		public float Range;
-		public float EffectRadius;
-		public float Knockback;
-		public string Animation;
-
-		public AbilityData(string name, AbilityType type, float cd, float dmg, float range, float rad, float kb, string anim)
-		{
-			Name = name;
-			Type = type;
-			Cooldown = cd;
-			Damage = dmg;
-			Range = range;
-			EffectRadius = rad;
-			Knockback = kb;
-			Animation = anim;
 		}
 	}
 
 	private static readonly System.Collections.Generic.Dictionary<string, CharacterStats> CharacterRegistry = new()
 	{
-		{ "Cyber Shogun", new CharacterStats("res://assets/models/hq/cyber_shogun.glb", 98f, 96f,
-			new AbilityData("Sword Slash", AbilityType.Melee, 0.4f, 25f, 2.0f, 0f, 0f, "Thrust_Slash"),
-			new AbilityData("Karate Strike", AbilityType.Melee, 0.8f, 40f, 1.5f, 0f, 0f, "Karate_Strike")) },
-		{ "Solaria",      new CharacterStats("res://assets/models/hq/solaria.glb", 95f, 99f,
-			new AbilityData("Solar Flare", AbilityType.AoE, 2.0f, 30f, 0f, 5.0f, 0f, "Attack"),
-			new AbilityData("Sun Beam", AbilityType.Melee, 0.6f, 20f, 2.0f, 0f, 0f, "Attack")) },
-		{ "Oceanus",      new CharacterStats("res://assets/models/hq/oceanus.glb", 96f, 97f,
-			new AbilityData("Plasma Wave", AbilityType.Push, 1.5f, 20f, 0f, 4.0f, 10f, "Attack"),
-			new AbilityData("Hydro Strike", AbilityType.Melee, 0.5f, 25f, 2.0f, 0f, 0f, "Attack")) },
-		{ "Surya Prime",  new CharacterStats("res://assets/models/hq/surya_prime.glb", 97f, 98f,
-			new AbilityData("Cosmic Slam", AbilityType.AoE, 3.0f, 50f, 0f, 6.0f, 5f, "Attack"),
-			new AbilityData("Solar Jab", AbilityType.Melee, 0.4f, 20f, 2.0f, 0f, 0f, "Attack")) },
-		{ "Mirage Blade", new CharacterStats("res://assets/models/hq/mirage_blade.glb", 99f, 99f,
-			new AbilityData("Phantom Dash", AbilityType.Dash, 1.2f, 30f, 0f, 0f, 0f, "Attack"),
-			new AbilityData("Crystal Edge", AbilityType.Melee, 0.3f, 20f, 2.0f, 0f, 0f, "Attack")) },
-		{ "Apex Titan",   new CharacterStats("res://assets/models/hq/apex_titan.glb", 93f, 94f,
-			new AbilityData("EM Storm", AbilityType.AoE, 4.0f, 35f, 0f, 7.0f, 0f, "Attack"),
-			new AbilityData("Titan Punch", AbilityType.Melee, 0.7f, 60f, 2.0f, 0f, 15f, "Attack")) },
+		{ "Cyber Shogun", new CharacterStats("res://assets/models/hq/cyber_shogun.glb", 98f, 96f) },
+		{ "Solaria",      new CharacterStats("res://assets/models/hq/solaria.glb", 95f, 99f) },
+		{ "Oceanus",      new CharacterStats("res://assets/models/hq/oceanus.glb", 96f, 97f) },
+		{ "Surya Prime",  new CharacterStats("res://assets/models/hq/surya_prime.glb", 97f, 98f) },
+		{ "Mirage Blade", new CharacterStats("res://assets/models/hq/mirage_blade.glb", 99f, 99f) },
+		{ "Apex Titan",   new CharacterStats("res://assets/models/hq/apex_titan.glb", 93f, 94f) },
 	};
 
 	// ─── Node References ────────────────────────────────────────────────────
@@ -98,13 +59,12 @@ public partial class Player3D : CharacterBody3D
 		// 1. Identify the selected operative.
 		var global = GetNode<Node>("/root/Global");
 		string selectedChar = global.Get("selected_character").AsString();
-			if (string.IsNullOrEmpty(selectedChar)) selectedChar = "Cyber Shogun";
+		if (string.IsNullOrEmpty(selectedChar)) selectedChar = "Cyber Shogun";
 
 		// 2. Load the correct model and stats.
 		if (CharacterRegistry.TryGetValue(selectedChar, out var stats))
 		{
 			LoadCharacterModel(stats.ModelPath);
-			SetupAbilities(stats);
 
 			// Scale base speed (7.0) by the character's speed stat.
 			Speed = 7.0f * (stats.SpeedMod / 100.0f);
@@ -116,7 +76,10 @@ public partial class Player3D : CharacterBody3D
 			LoadCharacterModel(CharacterRegistry["Cyber Shogun"].ModelPath);
 		}
 
-		// 3. Setup Diegetic HUD.
+		// 3. Setup Operative Abilities (fast-paced short cooldowns).
+		SetupCharacterAbilities(selectedChar);
+
+		// 4. Setup Diegetic HUD.
 		var hud = new PlayerHUD3D();
 		AddChild(hud);
 
@@ -136,48 +99,52 @@ public partial class Player3D : CharacterBody3D
 			GD.PrintErr("Player3D: Camera3D not found! Please ensure the node structure is: Player3D -> CameraPivot -> Camera3D");
 		}
 
-		if (CaptureMouseOnReady && !OS.HasFeature("editor_headless"))
+		if (!OS.HasFeature("editor_headless"))
 		{
-			Input.MouseMode = Input.MouseModeEnum.Captured;
+			Input.MouseMode = Input.MouseModeEnum.Hidden;
 		}
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		// Capture mouse on left click in the viewport if not already captured
-		if (@event is InputEventMouseButton mouseButton && mouseButton.Pressed && mouseButton.ButtonIndex == MouseButton.Left)
+		// Completely eliminate mouse cursor compatibility
+		if (@event is InputEventMouse)
 		{
-			if (Input.MouseMode != Input.MouseModeEnum.Captured && !GetTree().Paused)
-			{
-				Input.MouseMode = Input.MouseModeEnum.Captured;
-			}
+			GetViewport()?.SetInputAsHandled();
+			return;
 		}
 
-		// 3rd-person orbit camera control via mouse motion
-		if (Input.MouseMode == Input.MouseModeEnum.Captured && @event is InputEventMouseMotion mouseMotion)
+		// Keyboard ability triggers (E = Primary, F = Secondary, Q/R = Camera Orbit)
+		if (@event is InputEventKey keyEvent && keyEvent.Pressed && !keyEvent.Echo)
 		{
-			if (_cameraPivot != null)
+			if (keyEvent.Keycode == Key.E)
 			{
-				_cameraPivot.RotateY(-mouseMotion.Relative.X * MouseSensitivity);
+				_primaryAbility?.Execute(this);
 			}
-
-			if (_camera != null)
+			else if (keyEvent.Keycode == Key.F)
 			{
-				_cameraPitch = Mathf.Clamp(_cameraPitch - mouseMotion.Relative.Y * MouseSensitivity * Mathf.RadToDeg(1f), -60f, 30f);
-				_camera.RotationDegrees = new Vector3(_cameraPitch, 0f, 0f);
+				_secondaryAbility?.Execute(this);
 			}
-		}
-
-		// Optional keyboard camera rotation (Q/E)
-		if (@event is InputEventKey keyEvent && keyEvent.Pressed)
-		{
-			if (keyEvent.Keycode == Key.Q && _cameraPivot != null)
+			else if (keyEvent.Keycode == Key.Q && _cameraPivot != null)
 			{
 				_cameraPivot.RotateY(Mathf.DegToRad(30f));
 			}
-			else if (keyEvent.Keycode == Key.E && _cameraPivot != null)
+			else if (keyEvent.Keycode == Key.R && _cameraPivot != null)
 			{
 				_cameraPivot.RotateY(Mathf.DegToRad(-30f));
+			}
+		}
+
+		// Gamepad ability triggers (X / RB = Primary, Y / LB = Secondary)
+		if (@event is InputEventJoypadButton joyButton && joyButton.Pressed)
+		{
+			if (joyButton.ButtonIndex == JoyButton.X || joyButton.ButtonIndex == JoyButton.RightShoulder)
+			{
+				_primaryAbility?.Execute(this);
+			}
+			else if (joyButton.ButtonIndex == JoyButton.Y || joyButton.ButtonIndex == JoyButton.LeftShoulder)
+			{
+				_secondaryAbility?.Execute(this);
 			}
 		}
 	}
@@ -208,26 +175,33 @@ public partial class Player3D : CharacterBody3D
 		if (!IsOnFloor())
 		{
 			Velocity += GetGravity() * fDelta;
-			PlayAbilityAnimation("jumping"); // Assuming a jump animation exists or defaults to idle
+			if (_animPlayer == null || (_animPlayer.CurrentAnimation != "Double_Jump" && _animPlayer.CurrentAnimation != "Double_Jumping"))
+			{
+				PlayAbilityAnimation("jumping");
+			}
+		}
+		else
+		{
+			_canDoubleJump = true;
 		}
 
-		// 2. Jump
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		// 2. Jump & Double Jump
+		if (Input.IsActionJustPressed("jump"))
 		{
-			Velocity = Velocity with { Y = JumpVelocity };
+			if (IsOnFloor())
+			{
+				Velocity = Velocity with { Y = JumpVelocity };
+				PlayAbilityAnimation("jumping");
+			}
+			else if (_canDoubleJump)
+			{
+				_canDoubleJump = false;
+				Velocity = Velocity with { Y = JumpVelocity * 1.15f };
+				PlayAbilityAnimation("double_jump");
+			}
 		}
 
-		// 3. Attacks
-		if (Input.IsActionJustPressed("attack"))
-		{
-			_primaryAbility?.Execute(this);
-		}
-		if (Input.IsActionJustPressed("karate"))
-		{
-			_secondaryAbility?.Execute(this);
-		}
-
-		// 4. Movement Input
+		// 3. Movement Input
 		Vector2 inputDir = Input.GetVector("left", "right", "forward", "backward");
 
 		// Calculate movement direction relative to the camera
@@ -300,7 +274,10 @@ public partial class Player3D : CharacterBody3D
 			if (direction != Vector3.Zero)
 			{
 				Velocity = new Vector3(direction.X * Speed, Velocity.Y, direction.Z * Speed);
-				PlayAbilityAnimation(direction.Length() > 0.5f ? "running" : "walking");
+				if (!IsAbilityPlaying())
+				{
+					PlayAbilityAnimation(direction.Length() > 0.5f ? "running" : "walking");
+				}
 
 				// Smoothly rotate the character model to face the movement direction
 				if (_characterModel != null)
@@ -317,39 +294,42 @@ public partial class Player3D : CharacterBody3D
 			else
 			{
 				Velocity = Velocity with { X = Mathf.MoveToward(Velocity.X, 0, Speed), Z = Mathf.MoveToward(Velocity.Z, 0, Speed) };
-				PlayAbilityAnimation("idle");
+				if (!IsAbilityPlaying())
+				{
+					PlayAbilityAnimation("standing");
+				}
 			}
 		}
 		else
 		{
 			Velocity = Velocity with { X = 0, Z = 0 };
-			PlayAbilityAnimation("idle");
+			if (!IsAbilityPlaying())
+			{
+				PlayAbilityAnimation("standing");
+			}
+		}
+
+		// 4. Gamepad Right Stick Camera Orbit
+		float joyCamX = Input.GetJoyAxis(0, JoyAxis.RightX);
+		float joyCamY = Input.GetJoyAxis(0, JoyAxis.RightY);
+		if (Mathf.Abs(joyCamX) > 0.15f && _cameraPivot != null)
+		{
+			_cameraPivot.RotateY(-joyCamX * RotationSpeed * 0.25f * fDelta);
+		}
+		if (Mathf.Abs(joyCamY) > 0.15f && _camera != null)
+		{
+			_cameraPitch = Mathf.Clamp(_cameraPitch - joyCamY * RotationSpeed * 12f * fDelta, -60f, 30f);
+			_camera.RotationDegrees = new Vector3(_cameraPitch, 0f, 0f);
 		}
 
 		MoveAndSlide();
 	}
 
-	private void SetupAbilities(CharacterStats stats)
+	private bool IsAbilityPlaying()
 	{
-		_primaryAbility = CreateAbility(stats.PrimaryAbility);
-		_secondaryAbility = CreateAbility(stats.SecondaryAbility);
-	}
-
-	private OperativeAbility CreateAbility(AbilityData data)
-	{
-		var ability = new OperativeAbility
-		{
-			Name = data.Name,
-			Cooldown = data.Cooldown,
-			Damage = data.Damage,
-			Range = data.Range,
-			EffectRadius = data.EffectRadius,
-			KnockbackForce = data.Knockback,
-			AnimationName = data.Animation,
-			Type = data.Type
-		};
-		AddChild(ability);
-		return ability;
+		if (_animPlayer == null || !_animPlayer.IsPlaying()) return false;
+		string cur = _animPlayer.CurrentAnimation;
+		return cur != "Idle" && cur != "Walking" && cur != "Running" && cur != "Standing" && cur != "Jumping" && cur != "RESET";
 	}
 
 	public void PlayAbilityAnimation(string animName)
@@ -361,14 +341,23 @@ public partial class Player3D : CharacterBody3D
 		{
 			"running" => "Running",
 			"walking" => "Walking",
-			"idle" => "Idle",
-			"sword_attack" => "Thrust_Slash",
-			"karate_attack" => "Karate_Strike", // Assuming this naming convention
+			"idle" => "Standing",
+			"standing" => "Standing",
+			"jumping" => "Jumping",
+			"double_jump" => "Double_Jump",
+			"double_jumping" => "Double_Jump",
+			"dash" => "Dash",
+			"ground_slam" => "Ground_Slam",
 			_ => animName
 		};
 
 		if (_animPlayer.HasAnimation(finalAnim))
 		{
+			var anim = _animPlayer.GetAnimation(finalAnim);
+			if (anim != null && (finalAnim == "Standing" || finalAnim == "Running" || finalAnim == "Walking"))
+			{
+				anim.LoopMode = Animation.LoopModeEnum.Linear;
+			}
 			_animPlayer.Play(finalAnim);
 			return;
 		}
@@ -384,6 +373,135 @@ public partial class Player3D : CharacterBody3D
 				return;
 			}
 		}
+	}
+
+	private void SetupCharacterAbilities(string characterName)
+	{
+		// Clean any previous ability children
+		foreach (var child in GetChildren())
+		{
+			if (child is Ability ab)
+			{
+				ab.QueueFree();
+			}
+		}
+
+		_primaryAbility = new OperativeAbility();
+		_secondaryAbility = new OperativeAbility();
+
+		switch (characterName)
+		{
+			case "Solaria":
+				_primaryAbility.Name = "Corona Lance";
+				_primaryAbility.Type = AbilityType.Push;
+				_primaryAbility.Cooldown = 4.5f;
+				_primaryAbility.Damage = 30f;
+				_primaryAbility.EffectRadius = 4.0f;
+				_primaryAbility.KnockbackForce = 8.0f;
+				_primaryAbility.AnimationName = "Beam_Cast";
+
+				_secondaryAbility.Name = "Supernova Flash";
+				_secondaryAbility.Type = AbilityType.AoE;
+				_secondaryAbility.Cooldown = 6.5f;
+				_secondaryAbility.Damage = 25f;
+				_secondaryAbility.EffectRadius = 6.0f;
+				_secondaryAbility.KnockbackForce = 5.0f;
+				_secondaryAbility.AnimationName = "Supernova_Burst";
+				break;
+
+			case "Oceanus":
+				_primaryAbility.Name = "Tidal Torrent";
+				_primaryAbility.Type = AbilityType.Push;
+				_primaryAbility.Cooldown = 4.0f;
+				_primaryAbility.Damage = 28f;
+				_primaryAbility.EffectRadius = 4.5f;
+				_primaryAbility.KnockbackForce = 9.0f;
+				_primaryAbility.AnimationName = "Torrent_Blast";
+
+				_secondaryAbility.Name = "Maelstrom Vortex";
+				_secondaryAbility.Type = AbilityType.AoE;
+				_secondaryAbility.Cooldown = 6.0f;
+				_secondaryAbility.Damage = 20f;
+				_secondaryAbility.EffectRadius = 5.5f;
+				_secondaryAbility.KnockbackForce = 4.0f;
+				_secondaryAbility.AnimationName = "Vortex_Cast";
+				break;
+
+			case "Surya Prime":
+				_primaryAbility.Name = "Solar Shield Bash";
+				_primaryAbility.Type = AbilityType.Dash;
+				_primaryAbility.Cooldown = 4.5f;
+				_primaryAbility.Damage = 35f;
+				_primaryAbility.EffectRadius = 3.5f;
+				_primaryAbility.KnockbackForce = 10.0f;
+				_primaryAbility.AnimationName = "Shield_Bash";
+
+				_secondaryAbility.Name = "Aegis of the Sun";
+				_secondaryAbility.Type = AbilityType.Push;
+				_secondaryAbility.Cooldown = 5.5f;
+				_secondaryAbility.Damage = 15f;
+				_secondaryAbility.EffectRadius = 4.0f;
+				_secondaryAbility.KnockbackForce = 5.0f;
+				_secondaryAbility.AnimationName = "Shield_Guard";
+				break;
+
+			case "Mirage Blade":
+				_primaryAbility.Name = "Phase Blink";
+				_primaryAbility.Type = AbilityType.Dash;
+				_primaryAbility.Cooldown = 3.5f;
+				_primaryAbility.Damage = 25f;
+				_primaryAbility.EffectRadius = 3.0f;
+				_primaryAbility.KnockbackForce = 5.0f;
+				_primaryAbility.AnimationName = "Phase_Dash";
+
+				_secondaryAbility.Name = "Holographic Decoy";
+				_secondaryAbility.Type = AbilityType.AoE;
+				_secondaryAbility.Cooldown = 6.0f;
+				_secondaryAbility.Damage = 15f;
+				_secondaryAbility.EffectRadius = 4.0f;
+				_secondaryAbility.KnockbackForce = 3.0f;
+				_secondaryAbility.AnimationName = "Decoy_Deploy";
+				break;
+
+			case "Apex Titan":
+				_primaryAbility.Name = "Tectonic Slam";
+				_primaryAbility.Type = AbilityType.AoE;
+				_primaryAbility.Cooldown = 4.5f;
+				_primaryAbility.Damage = 45f;
+				_primaryAbility.EffectRadius = 5.0f;
+				_primaryAbility.KnockbackForce = 12.0f;
+				_primaryAbility.AnimationName = "Tectonic_Slam";
+
+				_secondaryAbility.Name = "Magnetic Tether";
+				_secondaryAbility.Type = AbilityType.Push;
+				_secondaryAbility.Cooldown = 5.5f;
+				_secondaryAbility.Damage = 25f;
+				_secondaryAbility.EffectRadius = 6.0f;
+				_secondaryAbility.KnockbackForce = -8.0f;
+				_secondaryAbility.AnimationName = "Magnetic_Pull";
+				break;
+
+			default: // Cyber Shogun
+				_primaryAbility.Name = "Shogun's Flash";
+				_primaryAbility.Type = AbilityType.Dash;
+				_primaryAbility.Cooldown = 4.0f;
+				_primaryAbility.Damage = 35f;
+				_primaryAbility.EffectRadius = 3.5f;
+				_primaryAbility.KnockbackForce = 6.0f;
+				_primaryAbility.AnimationName = "Blade_Dash";
+
+				_secondaryAbility.Name = "Kinetic Parry";
+				_secondaryAbility.Type = AbilityType.Melee;
+				_secondaryAbility.Cooldown = 5.5f;
+				_secondaryAbility.Damage = 20f;
+				_secondaryAbility.EffectRadius = 3.0f;
+				_secondaryAbility.KnockbackForce = 4.0f;
+				_secondaryAbility.AnimationName = "Parry_Stance";
+				break;
+		}
+
+		AddChild(_primaryAbility);
+		AddChild(_secondaryAbility);
 	}
 
 	public void StopMovement()

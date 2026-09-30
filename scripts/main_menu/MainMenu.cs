@@ -334,6 +334,13 @@ public partial class MainMenu : Control
 
 	public override void _Input(InputEvent @event)
 	{
+		// Completely eliminate mouse cursor compatibility
+		if (@event is InputEventMouse)
+		{
+			GetViewport()?.SetInputAsHandled();
+			return;
+		}
+
 		_inputManager.HandleInput(@event);
 
 		if (@event.IsActionPressed("ui_cancel"))
@@ -346,18 +353,7 @@ public partial class MainMenu : Control
 	// ─── Visuals ────────────────────────────────────────────────────────────────
 	private void ApplyCustomCursor()
 	{
-		try
-		{
-			var cursorTex = LoadImageTexture("res://assets/images/cursor.png");
-			if (cursorTex != null)
-			{
-				Input.SetCustomMouseCursor(cursorTex, Input.CursorShape.Arrow, new Vector2(4, 4));
-			}
-		}
-		catch (System.Exception ex)
-		{
-			GD.PrintErr($"main_menu: Failed to apply custom mouse cursor: {ex.Message}");
-		}
+		Input.MouseMode = Input.MouseModeEnum.Hidden;
 	}
 
 	private Texture2D LoadImageTexture(string resPath)

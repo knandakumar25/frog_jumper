@@ -57,14 +57,12 @@ public partial class CyberDropdown : Control
 	public override void _Ready()
 	{
 		CustomMinimumSize = new Vector2(320, 52);
-		MouseFilter = MouseFilterEnum.Stop;
+		MouseFilter = MouseFilterEnum.Ignore; // Completely eliminate cursor compatibility
 		FocusMode = FocusModeEnum.All;
 		_font = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf") ?? ThemeDB.FallbackFont;
 
-		MouseEntered += () => { _isHovered = true;  QueueRedraw(); };
-		MouseExited  += () => { _isHovered = false; QueueRedraw(); };
-		FocusEntered += () => QueueRedraw();
-		FocusExited  += () => QueueRedraw();
+		FocusEntered += () => { _isHovered = true;  QueueRedraw(); };
+		FocusExited  += () => { _isHovered = false; QueueRedraw(); };
 
 		CreatePopupLayer();
 	}
@@ -104,12 +102,17 @@ public partial class CyberDropdown : Control
 
 	public override void _GuiInput(InputEvent @event)
 	{
-		if (@event is InputEventMouseButton mb && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
+		if (@event is InputEventMouse)
 		{
-			TogglePopup();
 			AcceptEvent();
+			return;
 		}
-		else if (@event.IsActionPressed("ui_accept"))
+
+		bool isAccept = @event.IsActionPressed("ui_accept") ||
+			(@event is InputEventJoypadButton jb && jb.Pressed && jb.ButtonIndex == JoyButton.A) ||
+			(@event is InputEventKey k && k.Pressed && !k.Echo && (k.Keycode == Key.Enter || k.Keycode == Key.Space));
+
+		if (isAccept)
 		{
 			TogglePopup();
 			AcceptEvent();
@@ -118,17 +121,10 @@ public partial class CyberDropdown : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		if (_isOpen && @event is InputEventMouseButton mb && mb.Pressed)
+		if (_isOpen && @event.IsActionPressed("ui_cancel"))
 		{
-			if (_popupPanel != null && _popupPanel.Visible)
-			{
-				Rect2 popupRect = _popupPanel.GetGlobalRect();
-				Rect2 bodyRect = GetGlobalRect();
-				if (!popupRect.HasPoint(mb.Position) && !bodyRect.HasPoint(mb.Position))
-				{
-					ClosePopup();
-				}
-			}
+			ClosePopup();
+			GetViewport()?.SetInputAsHandled();
 		}
 	}
 

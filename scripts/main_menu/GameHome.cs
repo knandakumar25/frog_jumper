@@ -116,7 +116,6 @@ public partial class GameHome : Control
 							  (@event is InputEventJoypadMotion joyMot && Mathf.Abs(joyMot.AxisValue) > 0.5f);
 
 		if ((@event is InputEventKey keyEv && keyEv.Pressed && !keyEv.Echo) ||
-			(@event is InputEventMouseButton mouseEv && mouseEv.Pressed) ||
 			isGamepadInput)
 		{
 			TriggerStartTransition();

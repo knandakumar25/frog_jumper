@@ -199,12 +199,11 @@ public partial class ThreeDMenuExperience : MainMenu
 		// Only trigger the zoom transition if we are currently in the Home state.
 		if (_currentState == MenuState.Home)
 		{
-			// Detection for any form of input (Keyboard, Mouse, or Gamepad).
+			// Detection for input (Keyboard or Gamepad only).
 			bool isGamepad = (@event is InputEventJoypadButton jb && jb.Pressed) ||
 							 (@event is InputEventJoypadMotion jm && Mathf.Abs(jm.AxisValue) > 0.5f);
 
 			if ((@event is InputEventKey keyEv && keyEv.Pressed && !keyEv.Echo) ||
-				(@event is InputEventMouseButton mouseEv && mouseEv.Pressed) ||
 				isGamepad)
 			{
 				StartZoomTransition();

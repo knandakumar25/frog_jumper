@@ -19,7 +19,7 @@ public partial class MainCharacter : CharacterBody2D
 	// ─── State ───────────────────────────────────────────────────────────────
 	private bool _isMoving    = true;
 	private bool _isAttacking = false;
-	private bool _mouseClicked = false;
+	private bool _attackPressed = false;
 	private bool _qPressed    = false;
 
 	// ─── Node references ─────────────────────────────────────────────────────
@@ -39,27 +39,24 @@ public partial class MainCharacter : CharacterBody2D
 	// ─── Input Handling ──────────────────────────────────────────────────────
 	/// <summary>
 	/// Captures raw input events to trigger attack flags.
-	/// Unity Migration: Move this logic into an Input Action callback.
 	/// </summary>
 	public override void _Input(InputEvent @event)
 	{
-		// Handle Mouse Click for Sword Attack.
-		if (@event is InputEventMouseButton mb)
+		if (@event is InputEventMouse) return;
+
+		// Handle 'F' key or attack action for Sword Attack.
+		if (@event is InputEventKey key && key.Pressed && !key.Echo)
 		{
-			if (mb.ButtonIndex == MouseButton.Left && mb.Pressed)
-				_mouseClicked = true;
-		}
-		// Handle 'Q' key for Karate Attack.
-		else if (@event is InputEventKey key)
-		{
-			if (key.Keycode == Key.Q && key.Pressed && !key.Echo)
+			if (key.Keycode == Key.F || @event.IsActionPressed("attack"))
+				_attackPressed = true;
+			else if (key.Keycode == Key.Q)
 				_qPressed = true;
 		}
 		// Handle Gamepad buttons for attacks.
 		else if (@event is InputEventJoypadButton jb && jb.Pressed)
 		{
 			if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.B || jb.ButtonIndex == JoyButton.RightShoulder)
-				_mouseClicked = true;
+				_attackPressed = true;
 			else if (jb.ButtonIndex == JoyButton.Y || jb.ButtonIndex == JoyButton.LeftShoulder)
 				_qPressed = true;
 		}
@@ -163,9 +160,9 @@ public partial class MainCharacter : CharacterBody2D
 		// 1. Attack Logic: Priority over movement.
 		if (IsOnFloor() && !_isAttacking)
 		{
-			if (_mouseClicked && _sprite2d.SpriteFrames.HasAnimation("sword_attack"))
+			if (_attackPressed && _sprite2d.SpriteFrames.HasAnimation("sword_attack"))
 			{
-				_mouseClicked = false;
+				_attackPressed = false;
 				Velocity = Velocity with { X = 0f };
 				_sprite2d.Play("sword_attack");
 				_ = PlayAttackAsync();
@@ -182,8 +179,8 @@ public partial class MainCharacter : CharacterBody2D
 		}
 
 		// Reset attack flags if not used.
-		if (_mouseClicked) _mouseClicked = false;
-		if (_qPressed)     _qPressed = false;
+		if (_attackPressed) _attackPressed = false;
+		if (_qPressed)      _qPressed = false;
 		if (_isAttacking)  return;
 
 		// 2. Movement Animation:
