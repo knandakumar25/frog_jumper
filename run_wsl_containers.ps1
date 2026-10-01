@@ -63,7 +63,13 @@ if ($running -match "frog_jumper_db") {
     Write-Host "[3/5] Starting existing 'frog_jumper_db'..." -ForegroundColor Yellow
     & $ContainerCli start frog_jumper_db | Out-Null
 } else {
-    Write-Host "[3/5] Running 'frog_jumper_db' on port 5432..." -ForegroundColor Yellow
+    $portArgs = if ($port5432Occupied) {
+        Write-Host "  (Host port 5432 occupied by Windows PostgreSQL service; running DB container internally on frog_network)" -ForegroundColor Yellow
+        @()
+    } else {
+        Write-Host "[3/5] Running 'frog_jumper_db' on port 5432..." -ForegroundColor Yellow
+        @("-p", "5432:5432")
+    }
     & $ContainerCli run -d `
         --name frog_jumper_db `
         --network frog_network `
@@ -75,7 +81,7 @@ if ($running -match "frog_jumper_db") {
         -e PGDATA=/var/lib/postgresql/data `
         -v "frog_jumper_postgres_data:/var/lib/postgresql/data" `
         -v "$RepoRoot\scripts\db\init-db.sql:/docker-entrypoint-initdb.d/init-db.sql" `
-        -p 5432:5432 `
+        @portArgs `
         postgres:18-alpine | Out-Null
 }
 
