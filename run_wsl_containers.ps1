@@ -37,7 +37,7 @@ if ($volumes -notmatch "frog_jumper_postgres_data") {
     Write-Host "[2/5] Volume 'frog_jumper_postgres_data' ready." -ForegroundColor Green
 }
 
-# 3. Detect host port 5432 conflict (e.g. native Windows PostgreSQL service)
+# 3. Verify host port 5432 availability
 $port5432Occupied = $false
 try {
     $conn = New-Object System.Net.Sockets.TcpClient
@@ -51,9 +51,10 @@ try {
     $port5432Occupied = $false
 }
 
-$dbHostPort = if ($port5432Occupied) { 5433 } else { 5432 }
 if ($port5432Occupied) {
-    Write-Host "  (Notice: Port 5432 in use by host service. Binding DB container to host port $dbHostPort)" -ForegroundColor Yellow
+    Write-Host "  [WARNING] Port 5432 is currently in use by the host Windows service ('postgresql-x64-18')." -ForegroundColor Red
+    Write-Host "  To allow the container to bind to port 5432 exactly, stop the Windows service:" -ForegroundColor Yellow
+    Write-Host "    Stop-Service postgresql-x64-18  (Run in Administrator PowerShell)" -ForegroundColor White
 }
 
 # 4. Start database container
@@ -62,7 +63,7 @@ if ($running -match "frog_jumper_db") {
     Write-Host "[3/5] Starting existing 'frog_jumper_db'..." -ForegroundColor Yellow
     & $ContainerCli start frog_jumper_db | Out-Null
 } else {
-    Write-Host "[3/5] Running 'frog_jumper_db'..." -ForegroundColor Yellow
+    Write-Host "[3/5] Running 'frog_jumper_db' on port 5432..." -ForegroundColor Yellow
     & $ContainerCli run -d `
         --name frog_jumper_db `
         --network frog_network `
@@ -74,7 +75,7 @@ if ($running -match "frog_jumper_db") {
         -e PGDATA=/var/lib/postgresql/data `
         -v "frog_jumper_postgres_data:/var/lib/postgresql/data" `
         -v "$RepoRoot\scripts\db\init-db.sql:/docker-entrypoint-initdb.d/init-db.sql" `
-        -p ${dbHostPort}:5432 `
+        -p 5432:5432 `
         postgres:18-alpine | Out-Null
 }
 
@@ -131,5 +132,5 @@ Write-Host "`n=== Stack Status ===" -ForegroundColor Green
 Write-Host "`nService Endpoints:" -ForegroundColor Cyan
 Write-Host "  - Website (Frontend): http://localhost:5173" -ForegroundColor White
 Write-Host "  - Backend API:        http://localhost:8000/api/" -ForegroundColor White
-Write-Host "  - PostgreSQL:         localhost:$dbHostPort (accounts_db)" -ForegroundColor White
+Write-Host "  - PostgreSQL:         localhost:5432 (accounts_db)" -ForegroundColor White
 Write-Host "`nAll services running natively via WSL Containers. Docker Desktop is not required." -ForegroundColor Green
