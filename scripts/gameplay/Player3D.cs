@@ -156,6 +156,7 @@ public partial class Player3D : CharacterBody3D
 		{
 			_characterModel = scene.Instantiate<Node3D>();
 			CharacterSelection.CleanDuplicateMeshes(_characterModel);
+			CharacterSelection.ApplyToonShading(_characterModel);
 			AddChild(_characterModel);
 
 			// Find the AnimationPlayer inside the instantiated GLB model.

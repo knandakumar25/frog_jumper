@@ -685,6 +685,10 @@ public partial class CharacterSelection : Control
 			if (loaded != null)
 			{
 				CleanDuplicateMeshes(loaded);
+				if (!resPath.Contains("selection_platf"))
+				{
+					ApplyToonShading(loaded);
+				}
 				return loaded;
 			}
 		}
@@ -693,6 +697,80 @@ public partial class CharacterSelection : Control
 			GD.PrintErr($"CharacterSelection: GLB load error: {ex.Message}");
 		}
 		return null;
+	}
+
+	private static Shader? _toonShader;
+	private static Shader? _outlineShader;
+
+	/// <summary>
+	/// Applies high-energy anime cel-shading and inverted-hull ink outline to all meshes in the model.
+	/// Preserves the character's original diffuse texture and markings while replacing muddy lighting
+	/// with clean stepped shading, anime rim light, and vibrant glowing neon accents.
+	/// </summary>
+	public static void ApplyToonShading(Node root)
+	{
+		if (root == null) return;
+
+		try
+		{
+			if (_toonShader == null)
+			{
+				_toonShader = GD.Load<Shader>("res://assets/shaders/toon_character.gdshader");
+			}
+			if (_outlineShader == null)
+			{
+				_outlineShader = GD.Load<Shader>("res://assets/shaders/toon_outline.gdshader");
+			}
+
+			if (_toonShader == null) return;
+
+			foreach (var node in root.FindChildren("*", "MeshInstance3D"))
+			{
+				if (node is MeshInstance3D meshInstance && meshInstance.Mesh != null)
+				{
+					int surfaceCount = meshInstance.Mesh.GetSurfaceCount();
+					for (int s = 0; s < surfaceCount; s++)
+					{
+						Texture2D albedoTex = null;
+						Color albedoColor = Colors.White;
+						float metallic = 0.45f;
+						float roughness = 0.30f;
+
+						var origMat = meshInstance.GetSurfaceOverrideMaterial(s) ?? meshInstance.Mesh.SurfaceGetMaterial(s);
+						if (origMat is BaseMaterial3D baseMat)
+						{
+							albedoTex = baseMat.AlbedoTexture;
+							albedoColor = baseMat.AlbedoColor;
+							metallic = Mathf.Min(baseMat.Metallic, 0.08f);
+							roughness = Mathf.Clamp(baseMat.Roughness, 0.35f, 0.60f);
+						}
+
+						var toonMat = new ShaderMaterial { Shader = _toonShader };
+						if (albedoTex != null)
+						{
+							toonMat.SetShaderParameter("albedo_texture", albedoTex);
+						}
+						toonMat.SetShaderParameter("albedo_tint", albedoColor);
+						toonMat.SetShaderParameter("metallic", metallic);
+						toonMat.SetShaderParameter("roughness", roughness);
+
+						if (_outlineShader != null)
+						{
+							var outlineMat = new ShaderMaterial { Shader = _outlineShader };
+							outlineMat.SetShaderParameter("outline_width", 2.2f);
+							outlineMat.SetShaderParameter("outline_color", new Color(0.02f, 0.03f, 0.06f, 1f));
+							toonMat.NextPass = outlineMat;
+						}
+
+						meshInstance.SetSurfaceOverrideMaterial(s, toonMat);
+					}
+				}
+			}
+		}
+		catch (System.Exception ex)
+		{
+			GD.PrintErr($"CharacterSelection: Error applying toon shading: {ex.Message}");
+		}
 	}
 
 	/// <summary>
