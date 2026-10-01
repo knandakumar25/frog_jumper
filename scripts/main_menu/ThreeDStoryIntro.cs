@@ -21,6 +21,7 @@ public partial class ThreeDStoryIntro : Node3D
 	// 2D UI Overlay references
 	private Label? _titleBanner;
 	private RichTextLabel? _dialogueLabel;
+	private CyberDialogueBubble? _cyberBubble;
 	private Button? _continueButton;
 	private Button? _skipButton;
 	private Label? _navPromptLabel;
@@ -35,8 +36,15 @@ public partial class ThreeDStoryIntro : Node3D
 	private float _typewriterTimer = 0f;
 	private AudioStreamPlayer? _voicePlayer;
 
-	// 3D Entity reference
+	// 3D Entity references
 	private FloatingRobotBuddy3D? _robotBuddy;
+	private Node3D? _speechTerminal3D;
+	private Vector3 _speechTerminalInitPos;
+	private Vector3 _speechTerminalInitRot;
+	private float _speechTerminalTime = 0f;
+	private Camera3D? _camera;
+	private Vector3 _cameraInitPos;
+	private float _cameraTime = 0f;
 
 	public override void _Ready()
 	{
@@ -59,17 +67,34 @@ public partial class ThreeDStoryIntro : Node3D
 		// Resolve 2D UI overlay node references.
 		_titleBanner    = GetNodeOrNull<Label>("CanvasLayer/UIOverlay/TitleBanner");
 		_dialogueLabel  = GetNodeOrNull<RichTextLabel>("CanvasLayer/UIOverlay/DialogueBox/MarginContainer/DialogueLabel");
+		_cyberBubble    = GetNodeOrNull<CyberDialogueBubble>("CanvasLayer/UIOverlay/CyberDialogueBubble");
 		_continueButton = GetNodeOrNull<Button>("CanvasLayer/UIOverlay/ContinueButton");
 		_skipButton     = GetNodeOrNull<Button>("CanvasLayer/UIOverlay/SkipButton");
+
+		if (_cyberBubble != null)
+		{
+			_cyberBubble.LineCompleted += OnLineFinished;
+			_cyberBubble.AdvanceRequested += OnContinueButtonPressed;
+			if (_dialogueLabel == null)
+			{
+				_dialogueLabel = _cyberBubble.DialogueLabel;
+			}
+		}
+
+		// Resolve 3D Camera reference for parallax breathing.
+		_camera = GetNodeOrNull<Camera3D>("Camera3D");
+		if (_camera != null)
+		{
+			_cameraInitPos = _camera.Position;
+		}
 
 		// Instantiate the 3D Robot Buddy in the scene.
 		Setup3DRobotBuddy();
 
 		// Define the dialogue sequence using localized translation keys.
-		// Line 1 uses BBCode for high-visibility centering and coloring.
 		_dialogueLines = new List<string>
 		{
-			$"[center][color=#00FF00]{TranslationServer.Translate("STORY_LINE_1")}[/color][/center]\n\n{TranslationServer.Translate("STORY_LINE_1_INTRO")}",
+			TranslationServer.Translate("STORY_LINE_1_INTRO"),
 			TranslationServer.Translate("STORY_LINE_2"),
 			TranslationServer.Translate("STORY_LINE_3"),
 			TranslationServer.Translate("STORY_LINE_4")
@@ -146,6 +171,30 @@ public partial class ThreeDStoryIntro : Node3D
 	}
 
 	/// <summary>
+	/// Instantiates and configures the 3D Holographic Speech Terminal in the world.
+	/// </summary>
+	private void Setup3DSpeechTerminal()
+	{
+		string terminalPath = "res://assets/models/menu/axiom7_speech_terminal.glb";
+		if (ResourceLoader.Exists(terminalPath))
+		{
+			var scene = GD.Load<PackedScene>(terminalPath);
+			if (scene != null)
+			{
+				_speechTerminal3D = scene.Instantiate<Node3D>();
+				_speechTerminal3D.Name = "SpeechTerminal3D";
+				_speechTerminalInitPos = new Vector3(0.95f, -0.05f, -1.2f);
+				_speechTerminalInitRot = new Vector3(0f, -12f, 2f);
+				_speechTerminal3D.Position = _speechTerminalInitPos;
+				_speechTerminal3D.RotationDegrees = _speechTerminalInitRot;
+				_speechTerminal3D.Scale = new Vector3(0.72f, 0.72f, 0.72f);
+				AddChild(_speechTerminal3D);
+				GD.Print("ThreeDStoryIntro: Successfully instantiated 3D AXIOM-7 Speech Terminal in world space");
+			}
+		}
+	}
+
+	/// <summary>
 	/// Initiates the display of the next dialogue line and triggers corresponding voice audio.
 	/// </summary>
 	private void StartNextLine()
@@ -161,15 +210,19 @@ public partial class ThreeDStoryIntro : Node3D
 
 		_currentText = _dialogueLines[_currentLineIndex];
 
-		if (_dialogueLabel != null)
+		if (_cyberBubble != null)
+		{
+			_cyberBubble.SetDialogueLine(_currentText, TranslationServer.Translate("STORY_LINE_1"));
+		}
+		else if (_dialogueLabel != null)
 		{
 			_dialogueLabel.BbcodeEnabled = true;
 			_dialogueLabel.Text = _currentText;
 			_dialogueLabel.VisibleCharacters = 0;
+			_currentCharIndex = 0;
+			_typewriterTimer = 0f;
 		}
 
-		_currentCharIndex = 0;
-		_typewriterTimer = 0f;
 		_isTyping = true;
 		_robotBuddy?.SetTransmitting(true);
 
@@ -215,7 +268,7 @@ public partial class ThreeDStoryIntro : Node3D
 	public override void _Process(double delta)
 	{
 		float dt = (float)delta;
-		if (_isTyping)
+		if (_cyberBubble == null && _isTyping)
 		{
 			_typewriterTimer += dt;
 			if (_typewriterTimer >= _typewriterSpeed)
@@ -233,6 +286,25 @@ public partial class ThreeDStoryIntro : Node3D
 				}
 			}
 		}
+
+		// Floating 3D speech terminal subtle idle hover & swivel
+		if (_speechTerminal3D != null)
+		{
+			_speechTerminalTime += dt;
+			float bobY = Mathf.Sin(_speechTerminalTime * 2.2f) * 0.025f;
+			float tiltZ = Mathf.Sin(_speechTerminalTime * 1.8f) * 1.2f;
+			_speechTerminal3D.Position = new Vector3(_speechTerminalInitPos.X, _speechTerminalInitPos.Y + bobY, _speechTerminalInitPos.Z);
+			_speechTerminal3D.RotationDegrees = new Vector3(_speechTerminalInitRot.X, _speechTerminalInitRot.Y, _speechTerminalInitRot.Z + tiltZ);
+		}
+
+		// Subtle cinematic camera sway / breathing across the command deck
+		if (_camera != null)
+		{
+			_cameraTime += dt;
+			float camSwayX = Mathf.Sin(_cameraTime * 0.45f) * 0.05f;
+			float camSwayY = Mathf.Cos(_cameraTime * 0.35f) * 0.03f;
+			_camera.Position = new Vector3(_cameraInitPos.X + camSwayX, _cameraInitPos.Y + camSwayY, _cameraInitPos.Z);
+		}
 	}
 
 	/// <summary>
@@ -242,7 +314,8 @@ public partial class ThreeDStoryIntro : Node3D
 	{
 		_isTyping = false;
 		_robotBuddy?.SetTransmitting(false);
-		if (_dialogueLabel != null)
+		_cyberBubble?.CompleteTyping();
+		if (_dialogueLabel != null && _cyberBubble == null)
 			_dialogueLabel.VisibleCharacters = -1; // Show full text.
 
 		if (_continueButton != null)

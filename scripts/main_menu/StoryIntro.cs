@@ -23,6 +23,7 @@ public partial class StoryIntro : Control
 	private AnimatedSprite2D? robotSprite;
 	private Panel? dialogueBox;
 	private RichTextLabel? dialogueLabel;
+	private CyberDialogueBubble? cyberBubble;
 	private Button? continueButton;
 	private Button? skipButton;
 
@@ -46,8 +47,22 @@ public partial class StoryIntro : Control
 		robotSprite = GetNodeOrNull<AnimatedSprite2D>("HBoxContainer/RobotContainer/RobotSprite");
 		dialogueBox = GetNodeOrNull<Panel>("HBoxContainer/DialogueBox");
 		dialogueLabel = GetNodeOrNull<RichTextLabel>("HBoxContainer/DialogueBox/MarginContainer/DialogueLabel");
+		cyberBubble = GetNodeOrNull<CyberDialogueBubble>("HBoxContainer/CyberDialogueBubble");
 		continueButton = GetNodeOrNull<Button>("ContinueButton");
 		skipButton = GetNodeOrNull<Button>("SkipButton");
+
+		if (cyberBubble != null)
+		{
+			cyberBubble.LineCompleted += () =>
+			{
+				isTyping = false;
+				if (continueButton != null)
+					continueButton.Visible = true;
+			};
+			cyberBubble.AdvanceRequested += OnContinueButtonPressed;
+			if (dialogueLabel == null)
+				dialogueLabel = cyberBubble.DialogueLabel;
+		}
 
 		// Stop ambient home screen music to prioritize voice-over audio.
 		var global = GetNodeOrNull<Node>("/root/Global");
@@ -196,8 +211,8 @@ public partial class StoryIntro : Control
 
 	public override void _Process(double delta)
 	{
-		// Manage the typewriter revelation of text.
-		if (isTyping)
+		// Manage the typewriter revelation of text if cyberBubble is absent.
+		if (cyberBubble == null && isTyping)
 		{
 			typewriterTimer += (float)delta;
 			if (typewriterTimer >= typewriterSpeed)
@@ -228,14 +243,18 @@ public partial class StoryIntro : Control
 		if (currentLineIndex < dialogueLines.Count)
 		{
 			currentText = dialogueLines[currentLineIndex];
-			if (dialogueLabel != null)
+
+			if (cyberBubble != null)
+			{
+				cyberBubble.SetDialogueLine(currentText, "AXIOM-7 // TRANSMISSION ONLINE");
+			}
+			else if (dialogueLabel != null)
+			{
 				dialogueLabel.Text = currentText;
+				dialogueLabel.VisibleCharacters = 0;
+			}
 
 			currentCharIndex = 0;
-
-			if (dialogueLabel != null)
-				dialogueLabel.VisibleCharacters = 0;
-
 			isTyping = true;
 
 			if (continueButton != null)
@@ -248,7 +267,7 @@ public partial class StoryIntro : Control
 			string audioPath = $"res://assets/speech/{speaker}/english/AXIOM-7-{currentLineIndex + 1}.mp3";
 
 			GD.Print($"StoryIntro: Attempting to load audio: {audioPath}");
-			AudioStream stream = LoadAudioStream(audioPath);
+			AudioStream? stream = LoadAudioStream(audioPath);
 			if (stream != null && voicePlayer != null)
 			{
 				GD.Print($"StoryIntro: Successfully loaded and playing: {audioPath}");
@@ -296,7 +315,8 @@ public partial class StoryIntro : Control
 		if (isTyping)
 		{
 			// Fast-forward the current line to the end.
-			if (dialogueLabel != null)
+			cyberBubble?.CompleteTyping();
+			if (dialogueLabel != null && cyberBubble == null)
 				dialogueLabel.VisibleCharacters = -1;
 			isTyping = false;
 			if (continueButton != null)

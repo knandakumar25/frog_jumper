@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="4_orbitron"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Medium.ttf" id="5_rajdhani_med"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="6_rajdhani_bold"]
+[ext_resource type="PackedScene" uid="uid://cyber_dialogue_bubble_01" path="res://scenes/ui/CyberDialogueBubble.tscn" id="12_cyber_bubble"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qraa2"]
 atlas = ExtResource("2_robot_image")
@@ -129,28 +130,11 @@ theme_override_constants/separation = 30
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 
-[node name="DialogueBox" type="PanelContainer" parent="HBoxContainer" unique_id=805034983]
+[node name="CyberDialogueBubble" parent="HBoxContainer" instance=ExtResource("12_cyber_bubble")]
 custom_minimum_size = Vector2(540, 360)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DialogueBox" unique_id=209902631]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="DialogueLabel" type="RichTextLabel" parent="HBoxContainer/DialogueBox/MarginContainer" unique_id=1423319273]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.92, 0.96, 1, 1)
-theme_override_fonts/normal_font = ExtResource("5_rajdhani_med")
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "Initializing dialogue..."
-fit_content = true
-scroll_active = false
 
 [node name="ContinueButton" type="Button" parent="." unique_id=1198511465]
 layout_mode = 1
