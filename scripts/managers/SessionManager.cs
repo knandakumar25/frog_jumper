@@ -16,8 +16,18 @@ public partial class SessionManager : Node
 {
 	public static SessionManager Instance { get; private set; }
 
-	private const string PgConnectionString = "Host=127.0.0.1;Port=5432;Database=accounts_db;Username=postgres;Password=postgres;Timeout=3;";
+	private static string PgConnectionString => BuildConnectionString();
 	private const string JsonBackupPath = "user://game_sessions.json";
+
+	private static string BuildConnectionString()
+	{
+		string host = System.Environment.GetEnvironmentVariable("PGHOST") ?? "127.0.0.1";
+		string port = System.Environment.GetEnvironmentVariable("PGPORT") ?? "5432";
+		string db = System.Environment.GetEnvironmentVariable("PGDATABASE") ?? "accounts_db";
+		string user = System.Environment.GetEnvironmentVariable("PGUSER") ?? "postgres";
+		string pass = System.Environment.GetEnvironmentVariable("PGPASSWORD") ?? "Swathus@21";
+		return $"Host={host};Port={port};Database={db};Username={user};Password={pass};Timeout=3;";
+	}
 
 	private bool _isPostgresAvailable = false;
 

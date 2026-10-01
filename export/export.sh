@@ -9,6 +9,8 @@ echo "=========================================================="
 echo "Requested Target: ${TARGET}"
 echo "Godot Version   : $(godot --version 2>/dev/null || echo 'Unknown')"
 echo "Dotnet Version  : $(dotnet --version 2>/dev/null || echo 'Unknown')"
+echo "Java Version    : $(java -version 2>&1 | head -n 1 || echo 'Unknown')"
+echo "Android SDK     : ${ANDROID_HOME:-/opt/android-sdk}"
 echo "=========================================================="
 
 cd /workspace
@@ -27,6 +29,39 @@ dotnet build AxiomForce.csproj -c Release --no-restore
 echo "--> [2/3] Importing Godot project assets in headless mode..."
 godot --headless --editor --quit || true
 
+setup_android_config() {
+    echo "--> [Android] Verifying SDK and keystore configuration..."
+    mkdir -p /root/.android ~/.android
+    if [ ! -f /root/.android/debug.keystore ]; then
+        keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android \
+            -keystore /root/.android/debug.keystore -storepass android \
+            -dname "CN=Android Debug,O=Android,C=US" -validity 9999 2>/dev/null || true
+    fi
+    if [ ! -f ~/.android/debug.keystore ] && [ -f /root/.android/debug.keystore ]; then
+        cp /root/.android/debug.keystore ~/.android/debug.keystore 2>/dev/null || true
+    fi
+
+    # Safety check for literal '~' relative paths in project files
+    mkdir -p "/workspace/~/.android"
+    if [ ! -f "/workspace/~/.android/debug.keystore" ] && [ -f /root/.android/debug.keystore ]; then
+        cp /root/.android/debug.keystore "/workspace/~/.android/debug.keystore" 2>/dev/null || true
+    fi
+
+    # Ensure Godot editor settings are seeded with correct paths
+    mkdir -p /root/.config/godot
+    cat <<EOF > /root/.config/godot/editor_settings-4.tres
+[gd_resource type="EditorSettings" format=3]
+
+[resource]
+export/android/android_sdk_path = "${ANDROID_HOME:-/opt/android-sdk}"
+export/android/debug_keystore = "/root/.android/debug.keystore"
+export/android/debug_keystore_user = "androiddebugkey"
+export/android/debug_keystore_pass = "android"
+export/android/java_sdk_path = "${JAVA_HOME:-/usr/lib/jvm/java-17-openjdk-amd64}"
+EOF
+    cp /root/.config/godot/editor_settings-4.tres /root/.config/godot/editor_settings-4.7.tres 2>/dev/null || true
+}
+
 export_preset() {
     local preset_name="$1"
     local output_path="$2"
@@ -39,7 +74,7 @@ export_preset() {
     if godot --headless --export-release "${preset_name}" "${output_path}"; then
         echo "SUCCESS: ${preset_name} exported successfully."
     else
-        echo "Release export failed, attempting debug export..."
+        echo "Release export returned non-zero, attempting debug export..."
         if godot --headless --export-debug "${preset_name}" "${output_path}"; then
             echo "SUCCESS (DEBUG): ${preset_name} exported successfully."
         else
@@ -60,10 +95,7 @@ case "${TARGET}" in
         export_preset "Linux Server" "build/linux_server/AxiomForce_Server.x86_64" || true
         ;;
     android)
-        mkdir -p ~/.android
-        if [ ! -f ~/.android/debug.keystore ]; then
-            keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore ~/.android/debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 2>/dev/null || true
-        fi
+        setup_android_config
         export_preset "Android" "build/android/AxiomForce.apk"
         ;;
     macos|mac)
@@ -91,10 +123,7 @@ case "${TARGET}" in
         export_preset "visionOS" "build/visionos/AxiomForce_visionOS.zip" || true
         export_preset "Xbox / Windows GDK" "build/xbox/AxiomForce_Xbox.exe" || true
         export_preset "Web" "build/web/index.html" || true
-        mkdir -p ~/.android
-        if [ ! -f ~/.android/debug.keystore ]; then
-            keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore ~/.android/debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 2>/dev/null || true
-        fi
+        setup_android_config
         export_preset "Android" "build/android/AxiomForce.apk" || true
         ;;
     *)
