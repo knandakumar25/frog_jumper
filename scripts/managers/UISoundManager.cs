@@ -152,15 +152,22 @@ public partial class UISoundManager : Node
 
 		foreach (Node child in rootNode.GetChildren())
 		{
-			if (child is Button button)
+			if (child is CyberButton cyberBtn)
 			{
-				button.FocusEntered += () => Instance.PlayHoverSound();
-				button.Pressed      += () => Instance.PlayClickSound();
+				if (!cyberBtn.HasMeta("ui_sound_wired"))
+				{
+					cyberBtn.SetMeta("ui_sound_wired", true);
+					cyberBtn.Pressed += () => Instance.PlayClickSound();
+				}
 			}
-			else if (child is CyberButton cyberBtn)
+			else if (child is Button button)
 			{
-				// CyberButton handles its own hover sounds, only wire the click.
-				cyberBtn.Pressed += () => Instance.PlayClickSound();
+				if (!button.HasMeta("ui_sound_wired"))
+				{
+					button.SetMeta("ui_sound_wired", true);
+					button.FocusEntered += () => Instance.PlayHoverSound();
+					button.Pressed      += () => Instance.PlayClickSound();
+				}
 			}
 
 			AutoWireButtons(child);

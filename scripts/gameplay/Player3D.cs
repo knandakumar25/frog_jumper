@@ -79,6 +79,30 @@ public partial class Player3D : CharacterBody3D
 		// 3. Setup Operative Abilities (fast-paced short cooldowns).
 		SetupCharacterAbilities(selectedChar);
 
+		// Apply character progression augmentations (level scaling, damage bonus, speed, cooldown reduction)
+		if (CharacterProgressionManager.Instance != null)
+		{
+			var mods = CharacterProgressionManager.Instance.GetEffectiveModifiers(selectedChar);
+			Speed *= (1.0f + mods.speedBonusPct);
+			var healthNode = GetNodeOrNull<Health>("Health");
+			if (healthNode != null)
+			{
+				healthNode.MaxHealth *= (1.0f + mods.healthBonusPct);
+				healthNode.Heal(healthNode.MaxHealth);
+			}
+			if (_primaryAbility != null)
+			{
+				_primaryAbility.Damage *= (1.0f + mods.damageBonusPct);
+				_primaryAbility.Cooldown = MathF.Max(0.5f, _primaryAbility.Cooldown * (1.0f - mods.cooldownReductionPct));
+			}
+			if (_secondaryAbility != null)
+			{
+				_secondaryAbility.Damage *= (1.0f + mods.damageBonusPct);
+				_secondaryAbility.Cooldown = MathF.Max(0.5f, _secondaryAbility.Cooldown * (1.0f - mods.cooldownReductionPct));
+			}
+			GD.Print($"Player3D: Applied Progression Modifiers for {selectedChar}: HP +{mods.healthBonusPct * 100f:F0}%, SPD +{mods.speedBonusPct * 100f:F1}%, DMG +{mods.damageBonusPct * 100f:F0}%, CDR -{mods.cooldownReductionPct * 100f:F0}%");
+		}
+
 		// 4. Setup Diegetic HUD.
 		var hud = new PlayerHUD3D();
 		AddChild(hud);

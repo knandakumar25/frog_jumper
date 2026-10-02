@@ -27,6 +27,7 @@ SessionManager="*res://scripts/managers/SessionManager.cs"
 NarrativeManager="*res://scripts/managers/NarrativeManager.gd"
 AuthManager="*res://scripts/managers/AuthManager.cs"
 UISoundManager="*res://scripts/managers/UISoundManager.cs"
+CharacterProgressionManager="*res://scripts/managers/CharacterProgressionManager.cs"
 
 [display]
 

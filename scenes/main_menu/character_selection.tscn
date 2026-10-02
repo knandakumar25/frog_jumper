@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7gy8mqw3hxvd"]
+[gd_scene load_steps=6 format=3 uid="uid://b7gy8mqw3hxvd"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 [ext_resource type="Script" path="res://scripts/ui/SegmentedStatBar.cs" id="4_segmented_stat_script"]
+[ext_resource type="PackedScene" path="res://scenes/main_menu/operative_upgrade_screen.tscn" id="12_upgrade_screen"]
 
 [node name="CharacterSelection" type="Control"]
 theme = ExtResource("10_cyber_theme")
@@ -316,13 +317,24 @@ theme_override_colors/font_color = Color(0.2, 0.9, 0.5, 0.9)
 theme_override_font_sizes/font_size = 10
 text = "✔ READY // SELECT ABILITY TO PREVIEW"
 
+[node name="UpgradeOperativeBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
+custom_minimum_size = Vector2(260, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+focus_neighbor_left = NodePath("../../../LeftListPanel/VBox/CharacterGrid/ApexTitan")
+focus_neighbor_top = NodePath("../AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn")
+focus_neighbor_bottom = NodePath("../DeployButton")
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+text = "⚡ UPGRADE OPERATIVE [LVL 1]"
+
 [node name="DeployButton" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
 custom_minimum_size = Vector2(260, 46)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 focus_neighbor_left = NodePath("../../../LeftListPanel/VBox/CharacterGrid/ApexTitan")
-focus_neighbor_top = NodePath("../AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn")
+focus_neighbor_top = NodePath("../UpgradeOperativeBtn")
 focus_neighbor_bottom = NodePath("../RotateRow/RotateLeftBtn")
 text = "DEPLOY OPERATIVE"
 
@@ -373,4 +385,9 @@ tooltip_text = "Rotate Right  [ E / RB ]"
 [connection signal="button_up" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateLeftBtn" to="." method="_on_rotate_left_up"]
 [connection signal="button_down" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateRightBtn" to="." method="_on_rotate_right_down"]
 [connection signal="button_up" from="MainLayout/RightShowcasePanel/VBox/RotateRow/RotateRightBtn" to="." method="_on_rotate_right_up"]
+[connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn" to="." method="_on_upgrade_operative_pressed"]
+
+[node name="OperativeUpgradeScreen" parent="." instance=ExtResource("12_upgrade_screen")]
+visible = false
+layout_mode = 1
 

@@ -1,0 +1,441 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7t8upg9screen0"]
+
+[ext_resource type="Theme" uid="uid://du8mv3aqsa841" path="res://assets/themes/cyber_shogun.tres" id="1_cyber_theme"]
+[ext_resource type="FontFile" uid="uid://urvk0l0ju5iy" path="res://assets/fonts/Rajdhani-Bold.ttf" id="2_rajdhani_bold"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
+[ext_resource type="Script" path="res://scripts/main_menu/OperativeUpgradeScreen.cs" id="4_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dark_card"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.04, 0.05, 0.09, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0.94, 1, 0.15)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track_card"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.05, 0.06, 0.12, 0.88)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0.5, 0.5)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sparks_fill"]
+bg_color = Color(0, 0.94, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="OperativeUpgradeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cyber_theme")
+script = ExtResource("4_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.07, 0.88)
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = 56.0
+offset_right = -32.0
+offset_bottom = 104.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="BackBtn" type="Button" parent="Header"]
+custom_minimum_size = Vector2(220, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 18
+text = "◄ RETURN TO MATRIX"
+
+[node name="Title" type="Label" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.5, 0.75)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 26
+text = "OPERATIVE AUGMENTATION MATRIX"
+horizontal_alignment = 1
+
+[node name="BankSparksLabel" type="Label" parent="Header"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 17
+text = "⚡ BANK: 250 SPARKS"
+horizontal_alignment = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 112.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="TopCard" type="PanelContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dark_card")
+
+[node name="VBox" type="VBoxContainer" parent="MainVBox/TopCard"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LevelRow" type="HBoxContainer" parent="MainVBox/TopCard/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="OperativeName" type="Label" parent="MainVBox/TopCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 24
+text = "CYBER SHOGUN"
+
+[node name="OperativeClass" type="Label" parent="MainVBox/TopCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.6, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "// LEVEL 1 AUGMENTATION PROFILE"
+
+[node name="SparksBox" type="VBoxContainer" parent="MainVBox/TopCard/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HBox" type="HBoxContainer" parent="MainVBox/TopCard/VBox/SparksBox"]
+layout_mode = 2
+
+[node name="LevelBadge" type="Label" parent="MainVBox/TopCard/VBox/LevelRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 20
+text = "LVL 01"
+
+[node name="SparksProgressLabel" type="Label" parent="MainVBox/TopCard/VBox/SparksBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 16
+text = "⚡ 0 / 100 SPARKS"
+
+[node name="SparksProgressBar" type="ProgressBar" parent="MainVBox/TopCard/VBox/SparksBox"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_sparks_fill")
+max_value = 100.0
+show_percentage = false
+
+[node name="ActionRow" type="HBoxContainer" parent="MainVBox/TopCard/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LevelUpBtn" type="Button" parent="MainVBox/TopCard/VBox/ActionRow"]
+custom_minimum_size = Vector2(260, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 18
+text = "⚡ LEVEL UP (100 SPARKS)"
+
+[node name="HarvestSparksBtn" type="Button" parent="MainVBox/TopCard/VBox/ActionRow"]
+custom_minimum_size = Vector2(180, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 16
+text = "+100 SPARKS"
+
+[node name="SkillPointsLabel" type="Label" parent="MainVBox/TopCard/VBox/ActionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "SKILL POINTS: 0"
+vertical_alignment = 1
+
+[node name="RespecBtn" type="Button" parent="MainVBox/TopCard/VBox/ActionRow"]
+custom_minimum_size = Vector2(170, 42)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 15
+text = "↺ RESPEC UPGRADES"
+
+[node name="StatsPanel" type="PanelContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_track_card")
+
+[node name="HBox" type="HBoxContainer" parent="MainVBox/StatsPanel"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 40
+
+[node name="HealthBox" type="VBoxContainer" parent="MainVBox/StatsPanel/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainVBox/StatsPanel/HBox/HealthBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "HEALTH MODIFIER"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="MainVBox/StatsPanel/HBox/HealthBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.5, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "+0% HP"
+horizontal_alignment = 1
+
+[node name="SpeedBox" type="VBoxContainer" parent="MainVBox/StatsPanel/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainVBox/StatsPanel/HBox/SpeedBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "SPEED MODIFIER"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="MainVBox/StatsPanel/HBox/SpeedBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "+0.0% SPD"
+horizontal_alignment = 1
+
+[node name="DamageBox" type="VBoxContainer" parent="MainVBox/StatsPanel/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainVBox/StatsPanel/HBox/DamageBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "ATTACK POWER"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="MainVBox/StatsPanel/HBox/DamageBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "+0% ATK"
+horizontal_alignment = 1
+
+[node name="CdrBox" type="VBoxContainer" parent="MainVBox/StatsPanel/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainVBox/StatsPanel/HBox/CdrBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "COOLDOWN REDUCTION"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="MainVBox/StatsPanel/HBox/CdrBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.7, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "-0% CDR"
+horizontal_alignment = 1
+
+[node name="TracksContainer" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="TrackCard_0" type="PanelContainer" parent="MainVBox/TracksContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_track_card")
+
+[node name="VBox" type="VBoxContainer" parent="MainVBox/TracksContainer/TrackCard_0"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderRow" type="VBoxContainer" parent="MainVBox/TracksContainer/TrackCard_0/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="MainVBox/TracksContainer/TrackCard_0/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "TRACK 1"
+
+[node name="Rank" type="Label" parent="MainVBox/TracksContainer/TrackCard_0/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ □ □ □ □ □ ]  RANK 0/5"
+
+[node name="Desc" type="Label" parent="MainVBox/TracksContainer/TrackCard_0/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 13
+text = "Current augmentation description."
+autowrap_mode = 2
+
+[node name="NextRankPreview" type="Label" parent="MainVBox/TracksContainer/TrackCard_0/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 12
+text = "NEXT: Next rank benefit."
+autowrap_mode = 2
+
+[node name="UpgradeBtn" type="Button" parent="MainVBox/TracksContainer/TrackCard_0/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 16
+text = "UPGRADE [ 1 SP ]"
+
+[node name="TrackCard_1" type="PanelContainer" parent="MainVBox/TracksContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_track_card")
+
+[node name="VBox" type="VBoxContainer" parent="MainVBox/TracksContainer/TrackCard_1"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderRow" type="VBoxContainer" parent="MainVBox/TracksContainer/TrackCard_1/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="MainVBox/TracksContainer/TrackCard_1/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "TRACK 2"
+
+[node name="Rank" type="Label" parent="MainVBox/TracksContainer/TrackCard_1/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ □ □ □ □ □ ]  RANK 0/5"
+
+[node name="Desc" type="Label" parent="MainVBox/TracksContainer/TrackCard_1/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 13
+text = "Current augmentation description."
+autowrap_mode = 2
+
+[node name="NextRankPreview" type="Label" parent="MainVBox/TracksContainer/TrackCard_1/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 12
+text = "NEXT: Next rank benefit."
+autowrap_mode = 2
+
+[node name="UpgradeBtn" type="Button" parent="MainVBox/TracksContainer/TrackCard_1/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 16
+text = "UPGRADE [ 1 SP ]"
+
+[node name="TrackCard_2" type="PanelContainer" parent="MainVBox/TracksContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_track_card")
+
+[node name="VBox" type="VBoxContainer" parent="MainVBox/TracksContainer/TrackCard_2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderRow" type="VBoxContainer" parent="MainVBox/TracksContainer/TrackCard_2/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="MainVBox/TracksContainer/TrackCard_2/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 16
+text = "TRACK 3"
+
+[node name="Rank" type="Label" parent="MainVBox/TracksContainer/TrackCard_2/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.2, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ □ □ □ □ □ ]  RANK 0/5"
+
+[node name="Desc" type="Label" parent="MainVBox/TracksContainer/TrackCard_2/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 13
+text = "Current augmentation description."
+autowrap_mode = 2
+
+[node name="NextRankPreview" type="Label" parent="MainVBox/TracksContainer/TrackCard_2/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 12
+text = "NEXT: Next rank benefit."
+autowrap_mode = 2
+
+[node name="UpgradeBtn" type="Button" parent="MainVBox/TracksContainer/TrackCard_2/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rajdhani_bold")
+theme_override_font_sizes/font_size = 16
+text = "UPGRADE [ 1 SP ]"

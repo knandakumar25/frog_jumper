@@ -37,6 +37,10 @@ public partial class CharacterSelection : Control
 	private Label _abilityDescLabel;
 	private Label _abilityStatusLabel;
 
+	private Control? _mainLayout;
+	private Button? _upgradeOperativeBtn;
+	private OperativeUpgradeScreen? _upgradeScreen;
+
 	private string _currentPreviewAnim = "";
 	private Callable _previewFinishedCallable;
 
@@ -171,9 +175,17 @@ public partial class CharacterSelection : Control
 		_slamAbilityBtn       = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn");
 		_abilityBadgeLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityBadgeLabel");
 		_abilityDescLabel     = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityDescLabel");
-		_abilityStatusLabel   = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityStatusLabel");
-
 		_previewFinishedCallable = Callable.From<StringName>(OnPreviewAnimationFinished);
+
+		_mainLayout           = GetNodeOrNull<Control>("MainLayout");
+		_upgradeOperativeBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn");
+		_upgradeScreen        = GetNodeOrNull<OperativeUpgradeScreen>("OperativeUpgradeScreen");
+
+		if (_upgradeScreen != null)
+		{
+			_upgradeScreen.Closed += OnUpgradeScreenClosed;
+			_upgradeScreen.UpgradesChanged += OnUpgradesChanged;
+		}
 	}
 
 	/// <summary>
@@ -222,7 +234,49 @@ public partial class CharacterSelection : Control
 	public void _on_secondary_ability_pressed() => PreviewAbility(1);
 	public void _on_dash_ability_pressed()      => PreviewAbility(2);
 	public void _on_slam_ability_pressed()      => PreviewAbility(3);
-	public void _on_deploy_pressed()        => CreateSessionAndStart(_currentSelectedCharacter);
+	public void _on_upgrade_operative_pressed()
+	{
+		if (_upgradeScreen == null)
+		{
+			_upgradeScreen = GetNodeOrNull<OperativeUpgradeScreen>("OperativeUpgradeScreen");
+		}
+		if (_upgradeScreen == null) return;
+
+		if (_mainLayout != null) _mainLayout.Visible = false;
+		_upgradeScreen.OpenForOperative(_currentSelectedCharacter);
+	}
+
+	private void OnUpgradeScreenClosed()
+	{
+		if (_mainLayout != null) _mainLayout.Visible = true;
+		SelectOperative(_currentSelectedCharacter);
+		_upgradeOperativeBtn?.CallDeferred(Control.MethodName.GrabFocus);
+	}
+
+	private void OnUpgradesChanged(string opName)
+	{
+		UpdateUpgradeButtonText();
+		SelectOperative(_currentSelectedCharacter);
+	}
+
+	private void UpdateUpgradeButtonText()
+	{
+		if (_upgradeOperativeBtn == null) return;
+		int lvl = 1;
+		if (CharacterProgressionManager.Instance != null)
+		{
+			var data = CharacterProgressionManager.Instance.GetOperativeData(_currentSelectedCharacter);
+			lvl = data.Level;
+			bool canLevel = CharacterProgressionManager.Instance.CanLevelUp(_currentSelectedCharacter);
+			_upgradeOperativeBtn.Text = canLevel
+				? $"⚡ UPGRADE OPERATIVE [LVL {lvl}] (!)"
+				: $"⚡ UPGRADE OPERATIVE [LVL {lvl}]";
+		}
+		else
+		{
+			_upgradeOperativeBtn.Text = $"⚡ UPGRADE OPERATIVE [LVL {lvl}]";
+		}
+	}
 
 	/// <summary>
 	/// Updates the UI and 3D preview when a new character is selected.
@@ -233,55 +287,69 @@ public partial class CharacterSelection : Control
 		_currentSelectedCharacter = characterName;
 		_currentPreviewAnim = "";
 
+		float baseSpeed = 98f;
+		float baseAgility = 96f;
+
 		// Update labels and stat meters based on the selected operative.
 		if (characterName == "Solaria")
 		{
+			baseSpeed = 95f;
+			baseAgility = 99f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Solaria"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: VALENTINA CRUZ"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: SOLAR FLARE MANIPULATOR");
-			_speedMeter?.SetStat(Tr("SPEED"), 95f);
-			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
 		}
 		else if (characterName == "Oceanus")
 		{
+			baseSpeed = 96f;
+			baseAgility = 97f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Oceanus"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KIANA VAEA"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
-			_speedMeter?.SetStat(Tr("SPEED"), 96f);
-			_agilityMeter?.SetStat(Tr("AGILITY"), 97f);
 		}
 		else if (characterName == "Surya Prime")
 		{
+			baseSpeed = 97f;
+			baseAgility = 98f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Surya Prime"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ARJUN VARMA"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: COSMIC SOLAR VANGUARD");
-			_speedMeter?.SetStat(Tr("SPEED"), 97f);
-			_agilityMeter?.SetStat(Tr("AGILITY"), 98f);
 		}
 		else if (characterName == "Mirage Blade")
 		{
+			baseSpeed = 99f;
+			baseAgility = 99f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Mirage Blade"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ZAYD AL-MANSOOR"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: CRYSTALLINE PHANTOM");
-			_speedMeter?.SetStat(Tr("SPEED"), 99f);
-			_agilityMeter?.SetStat(Tr("AGILITY"), 99f);
 		}
 		else if (characterName == "Apex Titan")
 		{
+			baseSpeed = 93f;
+			baseAgility = 94f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Apex Titan"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KING TARIQ NZINGA"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
-			_speedMeter?.SetStat(Tr("SPEED"), 93f);
-			_agilityMeter?.SetStat(Tr("AGILITY"), 94f);
 		}
 		else
 		{
+			baseSpeed = 98f;
+			baseAgility = 96f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KAITO KUROGANE"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
-			_speedMeter?.SetStat(Tr("SPEED"), 98f);
-			_agilityMeter?.SetStat(Tr("AGILITY"), 96f);
 		}
+
+		if (CharacterProgressionManager.Instance != null)
+		{
+			var mods = CharacterProgressionManager.Instance.GetEffectiveModifiers(characterName);
+			baseSpeed = Mathf.Clamp(baseSpeed * (1.0f + mods.speedBonusPct), 0f, 100f);
+			baseAgility = Mathf.Clamp(baseAgility * (1.0f + mods.speedBonusPct * 0.5f), 0f, 100f);
+		}
+
+		_speedMeter?.SetStat(Tr("SPEED"), baseSpeed);
+		_agilityMeter?.SetStat(Tr("AGILITY"), baseAgility);
+		UpdateUpgradeButtonText();
 
 		// Update ability preview buttons and details
 		var abilities = GetOperativeAbilities(characterName);

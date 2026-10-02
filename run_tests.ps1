@@ -62,8 +62,8 @@ if ($Suite -eq "all" -or $Suite -eq "gdunit") {
     $GodotExe = $CandidateGodotPaths | Where-Object { Test-Path $_ } | Select-Object -First 1
 
     if ($GodotExe -and (Test-Path $GodotExe)) {
-        & $GodotExe --headless --path $ProjectRoot -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
-        if ($LASTEXITCODE -eq 0) {
+        $proc = Start-Process -FilePath $GodotExe -ArgumentList "--headless --path `"$ProjectRoot`" -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode" -Wait -PassThru -NoNewWindow
+        if ($proc.ExitCode -eq 0) {
             $Results["GdUnit4"] = "PASSED"
         } else {
             $Results["GdUnit4"] = "FAILED"
