@@ -390,7 +390,7 @@ public partial class CharacterSelection : Control
 				_cyberShogun3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_cyberShogun3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_cyberShogun3DModel);
-				PlayStandingAnimation(_cyberShogun3DModel);
+				PlayStandingAnimation(_cyberShogun3DModel, "Cyber Shogun");
 			}
 		}
 
@@ -403,7 +403,7 @@ public partial class CharacterSelection : Control
 				_solaria3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_solaria3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_solaria3DModel);
-				PlayStandingAnimation(_solaria3DModel);
+				PlayStandingAnimation(_solaria3DModel, "Solaria");
 			}
 		}
 
@@ -416,7 +416,7 @@ public partial class CharacterSelection : Control
 				_oceanus3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_oceanus3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_oceanus3DModel);
-				PlayStandingAnimation(_oceanus3DModel);
+				PlayStandingAnimation(_oceanus3DModel, "Oceanus");
 			}
 		}
 
@@ -429,7 +429,7 @@ public partial class CharacterSelection : Control
 				_suryaPrime3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_suryaPrime3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_suryaPrime3DModel);
-				PlayStandingAnimation(_suryaPrime3DModel);
+				PlayStandingAnimation(_suryaPrime3DModel, "Surya Prime");
 			}
 		}
 
@@ -442,7 +442,7 @@ public partial class CharacterSelection : Control
 				_mirageBlade3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_mirageBlade3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_mirageBlade3DModel);
-				PlayStandingAnimation(_mirageBlade3DModel);
+				PlayStandingAnimation(_mirageBlade3DModel, "Mirage Blade");
 			}
 		}
 
@@ -455,7 +455,7 @@ public partial class CharacterSelection : Control
 				_apexTitan3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
 				_apexTitan3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
 				world3D.AddChild(_apexTitan3DModel);
-				PlayStandingAnimation(_apexTitan3DModel);
+				PlayStandingAnimation(_apexTitan3DModel, "Apex Titan");
 			}
 		}
 
@@ -487,7 +487,7 @@ public partial class CharacterSelection : Control
 		{
 			activeModel.Position = TargetPodiumPosition;
 			activeModel.RotationDegrees = new Vector3(0f, _charRotationY, 0f);
-			PlayStandingAnimation(activeModel);
+			PlayStandingAnimation(activeModel, _currentSelectedCharacter);
 		}
 	}
 
@@ -554,7 +554,7 @@ public partial class CharacterSelection : Control
 			Node3D activeModel = GetActiveModel();
 			if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
 			{
-				PlayStandingAnimation(activeModel);
+				PlayStandingAnimation(activeModel, _currentSelectedCharacter);
 			}
 
 			if (_abilityStatusLabel != null && GodotObject.IsInstanceValid(_abilityStatusLabel))
@@ -755,7 +755,15 @@ public partial class CharacterSelection : Control
 				CleanDuplicateMeshes(loaded);
 				if (!resPath.Contains("selection_platf"))
 				{
-					ApplyToonShading(loaded);
+					string charKey = "";
+					if (resPath.Contains("solaria")) charKey = "Solaria";
+					else if (resPath.Contains("oceanus")) charKey = "Oceanus";
+					else if (resPath.Contains("surya")) charKey = "Surya Prime";
+					else if (resPath.Contains("mirage")) charKey = "Mirage Blade";
+					else if (resPath.Contains("apex")) charKey = "Apex Titan";
+					else if (resPath.Contains("shogun")) charKey = "Cyber Shogun";
+
+					ApplyToonShading(loaded, charKey);
 				}
 				return loaded;
 			}
@@ -772,10 +780,9 @@ public partial class CharacterSelection : Control
 
 	/// <summary>
 	/// Applies high-energy anime cel-shading and inverted-hull ink outline to all meshes in the model.
-	/// Preserves the character's original diffuse texture and markings while replacing muddy lighting
-	/// with clean stepped shading, anime rim light, and vibrant glowing neon accents.
+	/// Customizes rim lighting and shadow tints per operative signature theme while eliminating harsh white specular glare.
 	/// </summary>
-	public static void ApplyToonShading(Node root)
+	public static void ApplyToonShading(Node root, string characterName = "")
 	{
 		if (root == null) return;
 
@@ -792,6 +799,40 @@ public partial class CharacterSelection : Control
 
 			if (_toonShader == null) return;
 
+			Color rimColor = new Color(0.0f, 0.90f, 1.0f, 1.0f);
+			Color shadowTint = new Color(0.48f, 0.52f, 0.65f, 1.0f);
+			float outlineWidth = 2.0f;
+			Color outlineColor = new Color(0.02f, 0.03f, 0.06f, 1.0f);
+
+			switch (characterName)
+			{
+				case "Solaria":
+					rimColor = new Color(1.0f, 0.82f, 0.35f, 1.0f); // Radiant Solar Gold
+					shadowTint = new Color(0.62f, 0.42f, 0.45f, 1.0f); // Warm burgundy
+					break;
+				case "Oceanus":
+					rimColor = new Color(0.0f, 0.95f, 0.85f, 1.0f); // Bioluminescent Aqua
+					shadowTint = new Color(0.38f, 0.50f, 0.62f, 1.0f); // Abyssal deep blue
+					break;
+				case "Surya Prime":
+					rimColor = new Color(1.0f, 0.72f, 0.28f, 1.0f); // Cosmic Solar Amber
+					shadowTint = new Color(0.55f, 0.42f, 0.48f, 1.0f); // Cosmic bronze
+					break;
+				case "Mirage Blade":
+					rimColor = new Color(0.20f, 0.95f, 0.65f, 1.0f); // Crystalline Phantom Emerald
+					shadowTint = new Color(0.42f, 0.46f, 0.52f, 1.0f); // Phantom slate
+					break;
+				case "Apex Titan":
+					rimColor = new Color(0.35f, 0.75f, 1.0f, 1.0f); // Electro-Magnetic Azure
+					shadowTint = new Color(0.45f, 0.46f, 0.55f, 1.0f); // Heavy metal steel
+					break;
+				case "Cyber Shogun":
+				default:
+					rimColor = new Color(0.0f, 0.90f, 1.0f, 1.0f); // Neon Cyan
+					shadowTint = new Color(0.48f, 0.52f, 0.65f, 1.0f); // Cool navy
+					break;
+			}
+
 			foreach (var node in root.FindChildren("*", "MeshInstance3D"))
 			{
 				if (node is MeshInstance3D meshInstance && meshInstance.Mesh != null)
@@ -801,16 +842,12 @@ public partial class CharacterSelection : Control
 					{
 						Texture2D albedoTex = null;
 						Color albedoColor = Colors.White;
-						float metallic = 0.45f;
-						float roughness = 0.30f;
 
 						var origMat = meshInstance.GetSurfaceOverrideMaterial(s) ?? meshInstance.Mesh.SurfaceGetMaterial(s);
 						if (origMat is BaseMaterial3D baseMat)
 						{
 							albedoTex = baseMat.AlbedoTexture;
 							albedoColor = baseMat.AlbedoColor;
-							metallic = Mathf.Min(baseMat.Metallic, 0.08f);
-							roughness = Mathf.Clamp(baseMat.Roughness, 0.35f, 0.60f);
 						}
 
 						var toonMat = new ShaderMaterial { Shader = _toonShader };
@@ -819,14 +856,14 @@ public partial class CharacterSelection : Control
 							toonMat.SetShaderParameter("albedo_texture", albedoTex);
 						}
 						toonMat.SetShaderParameter("albedo_tint", albedoColor);
-						toonMat.SetShaderParameter("metallic", metallic);
-						toonMat.SetShaderParameter("roughness", roughness);
+						toonMat.SetShaderParameter("rim_color", rimColor);
+						toonMat.SetShaderParameter("shadow_tint", shadowTint);
 
 						if (_outlineShader != null)
 						{
 							var outlineMat = new ShaderMaterial { Shader = _outlineShader };
-							outlineMat.SetShaderParameter("outline_width", 2.2f);
-							outlineMat.SetShaderParameter("outline_color", new Color(0.02f, 0.03f, 0.06f, 1f));
+							outlineMat.SetShaderParameter("outline_width", outlineWidth);
+							outlineMat.SetShaderParameter("outline_color", outlineColor);
 							toonMat.NextPass = outlineMat;
 						}
 
@@ -885,10 +922,10 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
-	/// Recursively finds an AnimationPlayer and starts the operative's "Standing" animation on loop.
-	/// This plays continuously whenever ability buttons are not being single-pressed.
+	/// Recursively finds an AnimationPlayer and starts the operative's optimal heroic idle animation on loop.
+	/// "Standing" now houses the dynamic heroic breathing animation across all operative models.
 	/// </summary>
-	private static void PlayStandingAnimation(Node root)
+	private static void PlayStandingAnimation(Node root, string characterName = "")
 	{
 		var player = FindNodeRecursive<AnimationPlayer>(root);
 		if (player == null) return;
@@ -897,6 +934,8 @@ public partial class CharacterSelection : Control
 		if (list.Length == 0) return;
 
 		string clip = null;
+
+		// Prioritize "Standing", which contains the heroic breathing idle across all operatives
 		foreach (var name in list)
 		{
 			if (string.Equals(name, "Standing", StringComparison.OrdinalIgnoreCase))
@@ -918,13 +957,25 @@ public partial class CharacterSelection : Control
 			}
 		}
 
-		// Fallback to Idle if Standing is absent
 		if (clip == null)
 		{
 			foreach (var name in list)
 			{
-				if (string.Equals(name, "Idle", StringComparison.OrdinalIgnoreCase) ||
-					name.ToString().ToLowerInvariant().Contains("idle"))
+				if (string.Equals(name, "Armature|Idle_02|baselayer", StringComparison.OrdinalIgnoreCase) ||
+				    string.Equals(name, "Idle_02", StringComparison.OrdinalIgnoreCase) ||
+				    string.Equals(name, "Idle", StringComparison.OrdinalIgnoreCase))
+				{
+					clip = name;
+					break;
+				}
+			}
+		}
+
+		if (clip == null)
+		{
+			foreach (var name in list)
+			{
+				if (name.ToString().ToLowerInvariant().Contains("idle"))
 				{
 					clip = name;
 					break;
@@ -941,7 +992,7 @@ public partial class CharacterSelection : Control
 		if (anim != null)
 			anim.LoopMode = Animation.LoopModeEnum.Linear;
 
-		player.Play(clip, customBlend: 0.15f);
+		player.Play(clip, customBlend: 0.20f);
 	}
 
 	/// <summary>
