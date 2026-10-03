@@ -35,7 +35,8 @@ android/build/.gradle/
 android/build/local.properties
 android/build/build/reports/
 
-# Website scratch/temp scripts
+# Scratch / temp directories
+scratch/
 website/scratch/
 
 # Graphify output

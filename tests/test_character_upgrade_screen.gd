@@ -90,7 +90,8 @@ func test_upgrade_screen_bind_all_operatives() -> void:
 		"Oceanus",
 		"Surya Prime",
 		"Mirage Blade",
-		"Apex Titan"
+		"Apex Titan",
+		"Aura Phoenicia"
 	]
 
 	for op in operatives:

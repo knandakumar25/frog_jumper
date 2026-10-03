@@ -321,6 +321,61 @@ public partial class CharacterProgressionManager : Node
 					"Rank 5: Titan form: grows 25% larger, unlimited sprint, and double damage during overdrive."
 				}
 			}
+		},
+
+		["Aura Phoenicia"] = new UpgradeTrackDef[]
+		{
+			new()
+			{
+				Name = "Acoustic Harmonic Core",
+				Icon = "🔊",
+				Tagline = "Supercharges ultrasonic acoustic resonance and pulse stagger radius.",
+				StatLabel = "+12% Sonic Pulse DMG",
+				StatBonusPerRank = 0.12f,
+				RankDescriptions = new[]
+				{
+					"Standard ultrasonic emitter.",
+					"Rank 1: +12% Harmonic Pulse damage; shockwave radius +15%.",
+					"Rank 2: +24% Harmonic Pulse damage; sonic waves deflect physical projectiles.",
+					"Rank 3: +36% Harmonic Pulse damage; stuns lesser adversaries for 1.5s.",
+					"Rank 4: +48% Harmonic Pulse damage; pulse cooldown reduced by 20%.",
+					"Rank 5: +60% Harmonic Pulse damage; emits destructive twin reverberation rings."
+				}
+			},
+			new()
+			{
+				Name = "Prism Reverberation Field",
+				Icon = "🔮",
+				Tagline = "Deepens crystal harmonic lattice to amplify area reverberation.",
+				StatLabel = "+15% Prismatic Field Duration",
+				StatBonusPerRank = 0.15f,
+				RankDescriptions = new[]
+				{
+					"Basic acoustic harmonic field.",
+					"Rank 1: +15% Prism field duration; periodic damage tick rate +15%.",
+					"Rank 2: +30% Prism duration; enemies trapped within suffer -25% move speed.",
+					"Rank 3: +45% Prism duration; converts absorbed projectile energy into team shields.",
+					"Rank 4: +60% Prism duration; field radius expanded by 35%.",
+					"Rank 5: +75% Prism duration; field shatter triggers blinding prismatic supernova."
+				}
+			},
+			new()
+			{
+				Name = "Tyrian Glide Wings",
+				Icon = "🕊️",
+				Tagline = "Deploys shimmering harmonic light-wings for extended aerial glide.",
+				StatLabel = "+6% Movement Speed",
+				StatBonusPerRank = 0.06f,
+				RankDescriptions = new[]
+				{
+					"Standard Phoenician combat boots.",
+					"Rank 1: Base speed +6%; Wave Glide dash distance +15%.",
+					"Rank 2: Base speed +12%; double jump unlocks aerodynamic sonic glide.",
+					"Rank 3: Base speed +18%; Cedars' Echo ground slam radius +25%.",
+					"Rank 4: Base speed +24%; gliding leaves sonic wake speeding up allies.",
+					"Rank 5: Base speed +30%; gain instant triple-jump and unlimited air glide."
+				}
+			}
 		}
 	};
 
@@ -351,6 +406,7 @@ public partial class CharacterProgressionManager : Node
 	/// </summary>
 	public static UpgradeTrackDef[] GetUpgradeDefs(string operativeName)
 	{
+		if (operativeName == "Phoenicia") operativeName = "Aura Phoenicia";
 		if (HeroUpgradeDefs.TryGetValue(operativeName, out var defs))
 		{
 			return defs;
@@ -364,6 +420,7 @@ public partial class CharacterProgressionManager : Node
 	/// </summary>
 	public HeroProgressionData GetOperativeData(string operativeName)
 	{
+		if (operativeName == "Phoenicia") operativeName = "Aura Phoenicia";
 		if (!_data.Operatives.TryGetValue(operativeName, out var heroData))
 		{
 			heroData = new HeroProgressionData

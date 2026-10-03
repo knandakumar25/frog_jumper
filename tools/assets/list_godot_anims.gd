@@ -6,7 +6,8 @@ func _initialize() -> void:
 		"oceanus.glb",
 		"surya_prime.glb",
 		"mirage_blade.glb",
-		"apex_titan.glb"
+		"apex_titan.glb",
+		"phoenicia.glb"
 	]
 	for m in models:
 		var p = "res://assets/models/hq/" + m

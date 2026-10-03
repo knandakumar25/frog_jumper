@@ -127,7 +127,7 @@ theme_override_constants/separation = 12
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../ApexTitan")
+focus_neighbor_top = NodePath("../Phoenicia")
 focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn")
 focus_neighbor_bottom = NodePath("../Oceanus")
 text = "Cyber Shogun [Kaito Kurogane]"
@@ -165,8 +165,17 @@ layout_mode = 2
 mouse_filter = 2
 focus_neighbor_top = NodePath("../MirageBlade")
 focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/DeployButton")
-focus_neighbor_bottom = NodePath("../CyberShogun")
+focus_neighbor_bottom = NodePath("../Phoenicia")
 text = "Apex Titan [King Tariq Nzinga]"
+
+[node name="Phoenicia" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+mouse_filter = 2
+focus_neighbor_top = NodePath("../ApexTitan")
+focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/UpgradeOperativeBtn")
+focus_neighbor_bottom = NodePath("../CyberShogun")
+text = "Aura Phoenicia [Maya Khoury]"
 
 [node name="RightShowcasePanel" type="PanelContainer" parent="MainLayout"]
 custom_minimum_size = Vector2(440, 0)
@@ -371,6 +380,7 @@ tooltip_text = "Rotate Right  [ E / RB ]"
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime" to="." method="_on_surya_prime_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade" to="." method="_on_mirage_blade_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan" to="." method="_on_apex_titan_pressed"]
+[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Phoenicia" to="." method="_on_phoenicia_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn" to="." method="_on_primary_ability_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn" to="." method="_on_secondary_ability_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn" to="." method="_on_dash_ability_pressed"]

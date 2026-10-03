@@ -44,7 +44,8 @@ func test_operative_ability_previews() -> void:
 		"Oceanus",
 		"Surya Prime",
 		"Mirage Blade",
-		"Apex Titan"
+		"Apex Titan",
+		"Aura Phoenicia"
 	]
 
 	for op in operatives:
@@ -66,6 +67,7 @@ func test_buttons_mouse_filter_ignored() -> void:
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime",
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade",
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan",
+		"MainLayout/LeftListPanel/VBox/CharacterGrid/Phoenicia",
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn",
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn",
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn",
@@ -93,7 +95,8 @@ func test_standing_animation_loop_default() -> void:
 		"Oceanus",
 		"Surya Prime",
 		"Mirage Blade",
-		"Apex Titan"
+		"Apex Titan",
+		"Aura Phoenicia"
 	]
 
 	for op in operatives:

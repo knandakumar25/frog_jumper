@@ -64,6 +64,12 @@ public partial class CharacterSelection : Control
 		UISoundManager.AutoWireButtons(this);
 
 		// Setup button event handlers for the character grid (both Pressed and FocusEntered for keyboard/gamepad navigation).
+		var phoeniciaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Phoenicia");
+		if (phoeniciaBtn != null)
+		{
+			phoeniciaBtn.Pressed += () => SelectOperative("Aura Phoenicia");
+			phoeniciaBtn.FocusEntered += () => SelectOperative("Aura Phoenicia");
+		}
 		var apexTitanBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan");
 		if (apexTitanBtn != null)
 		{
@@ -139,6 +145,9 @@ public partial class CharacterSelection : Control
 		var apexTitanBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/ApexTitan");
 		if (apexTitanBtn != null) apexTitanBtn.Text = $"{Tr("Apex Titan")} [{Tr("King Tariq Nzinga")}]";
 
+		var phoeniciaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Phoenicia");
+		if (phoeniciaBtn != null) phoeniciaBtn.Text = $"{Tr("Aura Phoenicia")} [{Tr("Maya Khoury")}]";
+
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
 
@@ -200,6 +209,7 @@ public partial class CharacterSelection : Control
 	private Node3D _suryaPrime3DModel;
 	private Node3D _mirageBlade3DModel;
 	private Node3D _apexTitan3DModel;
+	private Node3D _phoenicia3DModel;
 	private Node3D _platform3DModel;
 
 	// User-controlled rotation (degrees, accumulated)
@@ -220,6 +230,7 @@ public partial class CharacterSelection : Control
 	public void _on_surya_prime_pressed()    => SelectOperative("Surya Prime");
 	public void _on_mirage_blade_pressed()   => SelectOperative("Mirage Blade");
 	public void _on_apex_titan_pressed()     => SelectOperative("Apex Titan");
+	public void _on_phoenicia_pressed()      => SelectOperative("Aura Phoenicia");
 	public void _on_primary_ability_pressed()   => PreviewAbility(0);
 	public void _on_secondary_ability_pressed() => PreviewAbility(1);
 	public void _on_dash_ability_pressed()      => PreviewAbility(2);
@@ -312,6 +323,14 @@ public partial class CharacterSelection : Control
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Apex Titan"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KING TARIQ NZINGA"));
 			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
+		}
+		else if (characterName == "Aura Phoenicia" || characterName == "Phoenicia")
+		{
+			baseSpeed = 96f;
+			baseAgility = 98f;
+			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Aura Phoenicia"));
+			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: MAYA KHOURY"));
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: ULTRASONIC PRISM WEAVER");
 		}
 		else
 		{
@@ -428,12 +447,26 @@ public partial class CharacterSelection : Control
 			}
 		}
 
+		if (_phoenicia3DModel == null)
+		{
+			string glbPath = "res://assets/models/hq/phoenicia.glb";
+			_phoenicia3DModel = LoadGlbModel(glbPath);
+			if (_phoenicia3DModel != null)
+			{
+				_phoenicia3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
+				_phoenicia3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
+				world3D.AddChild(_phoenicia3DModel);
+				PlayStandingAnimation(_phoenicia3DModel, "Aura Phoenicia");
+			}
+		}
+
 		// Toggle visibility based on selection.
 		if (_cyberShogun3DModel != null) _cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
 		if (_oceanus3DModel != null) _oceanus3DModel.Visible = (characterName == "Oceanus");
 		if (_suryaPrime3DModel != null) _suryaPrime3DModel.Visible = (characterName == "Surya Prime");
 		if (_mirageBlade3DModel != null) _mirageBlade3DModel.Visible = (characterName == "Mirage Blade");
 		if (_apexTitan3DModel != null) _apexTitan3DModel.Visible = (characterName == "Apex Titan");
+		if (_phoenicia3DModel != null) _phoenicia3DModel.Visible = (characterName == "Aura Phoenicia" || characterName == "Phoenicia");
 
 		// Ensure the platform is loaded and visible.
 		if (_platform3DModel == null)
@@ -467,6 +500,7 @@ public partial class CharacterSelection : Control
 			"Surya Prime" => _suryaPrime3DModel,
 			"Mirage Blade" => _mirageBlade3DModel,
 			"Apex Titan" => _apexTitan3DModel,
+			"Aura Phoenicia" or "Phoenicia" => _phoenicia3DModel,
 			_ => _cyberShogun3DModel
 		};
 	}
@@ -630,6 +664,17 @@ public partial class CharacterSelection : Control
 				new OperativeAbilityData("Seismic Drop", "Ground_Slam", "SLAM", "Gravitational Drop", 5.0f, 40f,
 					"Gravitational drop generating destructive radial shockwaves.")
 			},
+			"Aura Phoenicia" or "Phoenicia" => new[]
+			{
+				new OperativeAbilityData("Harmonic Pulse", "Harmonic_Pulse", "PRIMARY", "Acoustic Shockwave", 4.0f, 32f,
+					"Emits a high-frequency ultrasonic shockwave that staggers targets and deflects incoming energy."),
+				new OperativeAbilityData("Prism Reverberation", "Prism_Reverberation", "SECONDARY", "Resonant Field", 5.5f, 22f,
+					"Deploys a shimmering prismatic acoustic field dealing resonant periodic damage."),
+				new OperativeAbilityData("Wave Glide", "Dash", "MOBILITY", "Harmonic Glide", 2.5f, 0f,
+					"Surges forward on a wave of sound and light for evasive repositioning."),
+				new OperativeAbilityData("Cedars' Echo", "Ground_Slam", "SLAM", "Resonant Impact", 5.0f, 32f,
+					"Acoustic downward strike sending concentric sonic rings reverberating outward.")
+			},
 			_ => new[] // Cyber Shogun
 			{
 				new OperativeAbilityData("Shogun's Flash", "Blade_Dash", "PRIMARY", "Dash / Melee", 4.0f, 35f,
@@ -716,6 +761,7 @@ public partial class CharacterSelection : Control
 					else if (resPath.Contains("surya")) charKey = "Surya Prime";
 					else if (resPath.Contains("mirage")) charKey = "Mirage Blade";
 					else if (resPath.Contains("apex")) charKey = "Apex Titan";
+					else if (resPath.Contains("phoenicia")) charKey = "Aura Phoenicia";
 					else if (resPath.Contains("shogun")) charKey = "Cyber Shogun";
 
 					ApplyToonShading(loaded, charKey);
@@ -779,6 +825,12 @@ public partial class CharacterSelection : Control
 				case "Apex Titan":
 					rimColor = new Color(0.35f, 0.75f, 1.0f, 1.0f); // Electro-Magnetic Azure
 					shadowTint = new Color(0.45f, 0.46f, 0.55f, 1.0f); // Heavy metal steel
+					break;
+				case "Aura Phoenicia":
+				case "Phoenicia":
+					rimColor = new Color(0.55f, 0.15f, 0.95f, 1.0f); // Imperial Tyrian Purple
+					shadowTint = new Color(0.40f, 0.35f, 0.50f, 1.0f); // Mediterranean Twilight
+					emissionThreshold = 0.88f; // Ensure only cyan acoustic crystals and cybernetic eyes emit light
 					break;
 				case "Cyber Shogun":
 				default:

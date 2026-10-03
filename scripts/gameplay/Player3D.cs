@@ -42,6 +42,8 @@ public partial class Player3D : CharacterBody3D
 		{ "Surya Prime",  new CharacterStats("res://assets/models/hq/surya_prime.glb", 97f, 98f) },
 		{ "Mirage Blade", new CharacterStats("res://assets/models/hq/mirage_blade.glb", 99f, 99f) },
 		{ "Apex Titan",   new CharacterStats("res://assets/models/hq/apex_titan.glb", 93f, 94f) },
+		{ "Aura Phoenicia", new CharacterStats("res://assets/models/hq/phoenicia.glb", 96f, 98f) },
+		{ "Phoenicia",      new CharacterStats("res://assets/models/hq/phoenicia.glb", 96f, 98f) },
 	};
 
 	// ─── Node References ────────────────────────────────────────────────────
@@ -485,6 +487,25 @@ public partial class Player3D : CharacterBody3D
 				_secondaryAbility.EffectRadius = 6.0f;
 				_secondaryAbility.KnockbackForce = -8.0f;
 				_secondaryAbility.AnimationName = "Magnetic_Pull";
+				break;
+
+			case "Aura Phoenicia":
+			case "Phoenicia":
+				_primaryAbility.Name = "Harmonic Pulse";
+				_primaryAbility.Type = AbilityType.Push;
+				_primaryAbility.Cooldown = 4.0f;
+				_primaryAbility.Damage = 32f;
+				_primaryAbility.EffectRadius = 4.5f;
+				_primaryAbility.KnockbackForce = 8.0f;
+				_primaryAbility.AnimationName = "Harmonic_Pulse";
+
+				_secondaryAbility.Name = "Prism Reverberation";
+				_secondaryAbility.Type = AbilityType.AoE;
+				_secondaryAbility.Cooldown = 5.5f;
+				_secondaryAbility.Damage = 22f;
+				_secondaryAbility.EffectRadius = 5.0f;
+				_secondaryAbility.KnockbackForce = 3.0f;
+				_secondaryAbility.AnimationName = "Prism_Reverberation";
 				break;
 
 			default: // Cyber Shogun

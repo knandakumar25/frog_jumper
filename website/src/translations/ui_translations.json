@@ -126,13 +126,18 @@
         },
         "mirage": {
           "role": "Crystalline Phantom",
-          "desc": "Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.",
+          "desc": "Zayd Al-Mansoor is an elite Saudi operative who uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.",
           "lore": "\"I am the shadow in the crystal, the strike you never saw coming.\""
         },
         "apex": {
           "role": "Electro-Magnetic Storm Vanguard",
           "desc": "King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.",
           "lore": "\"The storm answers my call. Tremble before the thunder.\""
+        },
+        "phoenicia": {
+          "role": "Ultrasonic Prism Weaver",
+          "desc": "Maya Khoury of Byblos, Lebanon harnesses ancient Phoenician resonance and acoustic prism physics to weave ultrasonic shockwaves that stagger hostiles and deflect kinetic energy.",
+          "lore": "\"Every harmonic frequency tells a story of survival. Hear the roar of the Levant.\""
         },
         "guy": {
           "lore": "We don't recruit heroes. We recruit survivors. The mainframe doesn't sleep, and neither do we."
@@ -342,6 +347,7 @@
       "surya": "SURYA PRIME",
       "mirage": "MIRAGE BLADE",
       "apex": "APEX TITAN",
+      "phoenicia": "AURA PHOENICIA",
       "drag_rotate": "🖱️ DRAG TO ROTATE 360°",
       "live_orbit": "3D_LIVE_ORBIT"
     },
@@ -6810,13 +6816,18 @@
         },
         "mirage": {
           "role": "الوهمية البلورية",
-          "desc": "يستخدم زيد المنصور انكسارات الكريستال لإنشاء أشباح منحنية للضوء وقطع الأعداء بشفرات سيف مزدوجة.",
+          "desc": "يستخدم زيد المنصور، العميل السعودي النخبة، انكسارات الكريستال لإنشاء أشباح منحنية للضوء وقطع الأعداء بشفرات سيف مزدوجة.",
           "lore": "\"أنا الظل في البلورة، الضربة التي لم تتوقعها أبدًا.\""
         },
         "apex": {
           "role": "طليعة العاصفة الكهرومغناطيسية",
           "desc": "الملك طارق نزينغا هو مصدر قوة يقوم بتوجيه السحب العاصفة الكهرومغناطيسية، وينهار بقفزة مدمرة على درع العاصفة.",
           "lore": "\"العاصفة تستجيب لندائي. ترتعد أمام الرعد.\""
+        },
+        "phoenicia": {
+          "role": "ناسجة المنشور فوق الصوتي",
+          "desc": "مايا خوري من جبيل، لبنان تسخر الرنين الفينيقي القديم وفيزياء المنشور الصوتي لنسج موجات صدمية فوق صوتية تذهل الأعداء وتحرف الطاقة الحركية.",
+          "lore": "\"كل تردد توافقي يروي قصة بقاء. اسمع هدير بلاد الشام.\""
         },
         "guy": {
           "lore": "نحن لا نجنّد أبطالاً، بل نجنّد ناجين. النظام المركزي لا ينام، وكذلك نحن."
@@ -7026,6 +7037,7 @@
       "surya": "سوريا برايم",
       "mirage": "ميراج بليد",
       "apex": "أبيكس تيتان",
+      "phoenicia": "أورا فينيقيا",
       "drag_rotate": "🖱️ اسحب للتدوير 360 درجة",
       "live_orbit": "مدار_مباشر_ثلاثي_الأبعاد"
     },

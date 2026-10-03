@@ -49,12 +49,12 @@ export default function Squad() {
       role: 'characters.warriors.mirage.role',
       roleDefault: 'CRYSTALLINE PHANTOM',
       descKey: 'characters.warriors.mirage.desc',
-      descDefault: 'Zayd Al-Mansoor uses crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.',
+      descDefault: 'Zayd Al-Mansoor is an elite Saudi operative utilizing crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.',
       loreKey: 'characters.warriors.mirage.lore',
       stats: { firepower: 82, defense: 58, mobility: 98 },
       model: '/models/mirage.glb',
       status: 'STANDBY',
-      civilian: 'Zayd Al-Mansoor',
+      civilian: 'Zayd Al-Mansoor (Saudi Arabia)',
       icons: ['diamond', 'visibility_off']
     },
     apex: {
@@ -68,6 +68,18 @@ export default function Squad() {
       status: 'STANDBY',
       civilian: 'King Tariq Nzinga',
       icons: ['electric_bolt', 'shield']
+    },
+    phoenicia: {
+      role: 'characters.warriors.phoenicia.role',
+      roleDefault: 'ULTRASONIC PRISM WEAVER',
+      descKey: 'characters.warriors.phoenicia.desc',
+      descDefault: 'Maya Khoury hails from Byblos, Lebanon. Harnessing ancient Phoenician acoustic physics and resonant prism harmonics, she weaves ultrasonic shockwaves that stagger hostiles and deflect kinetic energy.',
+      loreKey: 'characters.warriors.phoenicia.lore',
+      stats: { firepower: 86, defense: 78, mobility: 96 },
+      model: '/models/phoenicia.glb',
+      status: 'STANDBY',
+      civilian: 'Maya Khoury (Lebanon)',
+      icons: ['graphic_eq', 'waves']
     }
   };
 
