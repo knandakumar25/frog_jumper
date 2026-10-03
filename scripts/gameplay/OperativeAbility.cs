@@ -161,9 +161,6 @@ public partial class OperativeAbility : Ability
         StatusEffect effect = null;
         switch (charName)
         {
-            case "Solaria":
-                effect = new BurnEffect { Duration = 4.0f, DamagePerSecond = 8.0f };
-                break;
             case "Oceanus":
                 effect = new SlowEffect { Duration = 3.0f, SpeedMultiplier = 0.4f };
                 break;

@@ -3,7 +3,6 @@ extends SceneTree
 func _initialize() -> void:
 	var models = [
 		"cyber_shogun.glb",
-		"solaria.glb",
 		"oceanus.glb",
 		"surya_prime.glb",
 		"mirage_blade.glb",

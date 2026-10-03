@@ -103,61 +103,6 @@ public partial class CharacterProgressionManager : Node
 			}
 		},
 
-		["Solaria"] = new UpgradeTrackDef[]
-		{
-			new()
-			{
-				Name = "Solar Core Radiance",
-				Icon = "☀️",
-				Tagline = "Overcharges the chest micro-star, magnifying Corona Lance output.",
-				StatLabel = "+15% Lance Damage",
-				StatBonusPerRank = 0.15f,
-				RankDescriptions = new[]
-				{
-					"Dormant solar fusion core.",
-					"Rank 1: +15% Corona Lance beam damage.",
-					"Rank 2: +30% Beam damage; beam thickness +25%.",
-					"Rank 3: +45% Beam damage; ignites ground beneath target.",
-					"Rank 4: +60% Beam damage; lance penetrates up to 3 targets.",
-					"Rank 5: +75% Beam damage; lance triggers solar flare detonation."
-				}
-			},
-			new()
-			{
-				Name = "Supernova Flash Radius",
-				Icon = "💥",
-				Tagline = "Expands the blinding blast radius of the Supernova discharge.",
-				StatLabel = "+18% AoE Radius",
-				StatBonusPerRank = 0.18f,
-				RankDescriptions = new[]
-				{
-					"Compact flash emitter.",
-					"Rank 1: +18% Supernova blast radius.",
-					"Rank 2: +36% Blast radius; disorients enemies for 2.0s.",
-					"Rank 3: +54% Blast radius; blast damages through solid barriers.",
-					"Rank 4: +72% Blast radius; Supernova cooldown reduced by 25%.",
-					"Rank 5: +90% Blast radius; leaves blinding burning zone for 5s."
-				}
-			},
-			new()
-			{
-				Name = "Thermal Glide Wings",
-				Icon = "🪽",
-				Tagline = "Harnesses solar thermal updrafts for extended aerial hover mobility.",
-				StatLabel = "+20% Airborne Time",
-				StatBonusPerRank = 0.20f,
-				RankDescriptions = new[]
-				{
-					"Basic cape glide physics.",
-					"Rank 1: Airborne glide duration +20%; fall speed -15%.",
-					"Rank 2: Airborne glide duration +40%; dash recharges 20% faster in air.",
-					"Rank 3: Airborne glide duration +60%; double jump height +25%.",
-					"Rank 4: Airborne glide duration +80%; solar heat shield absorbs airborne hits.",
-					"Rank 5: Airborne glide duration +100%; unlimited hover while aiming abilities."
-				}
-			}
-		},
-
 		["Oceanus"] = new UpgradeTrackDef[]
 		{
 			new()

@@ -41,7 +41,6 @@ func test_operative_ability_previews() -> void:
 
 	var operatives := [
 		"Cyber Shogun",
-		"Solaria",
 		"Oceanus",
 		"Surya Prime",
 		"Mirage Blade",
@@ -63,7 +62,6 @@ func test_buttons_mouse_filter_ignored() -> void:
 
 	var button_paths := [
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun",
-		"MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria",
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus",
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime",
 		"MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade",
@@ -92,7 +90,6 @@ func test_standing_animation_loop_default() -> void:
 
 	var operatives := [
 		"Cyber Shogun",
-		"Solaria",
 		"Oceanus",
 		"Surya Prime",
 		"Mirage Blade",

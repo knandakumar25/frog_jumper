@@ -88,12 +88,6 @@ public partial class CharacterSelection : Control
 			oceanusBtn.Pressed += () => SelectOperative("Oceanus");
 			oceanusBtn.FocusEntered += () => SelectOperative("Oceanus");
 		}
-		var solariaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria");
-		if (solariaBtn != null)
-		{
-			solariaBtn.Pressed += () => SelectOperative("Solaria");
-			solariaBtn.FocusEntered += () => SelectOperative("Solaria");
-		}
 		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
 		if (shogunBtn != null)
 		{
@@ -132,9 +126,6 @@ public partial class CharacterSelection : Control
 
 		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
 		if (shogunBtn != null) shogunBtn.Text = $"{Tr("Cyber Shogun")} [{Tr("Kaito Kurogane")}]";
-
-		var solariaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria");
-		if (solariaBtn != null) solariaBtn.Text = $"{Tr("Solaria")} [{Tr("Valentina Cruz")}]";
 
 		var oceanusBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus");
 		if (oceanusBtn != null) oceanusBtn.Text = $"{Tr("Oceanus")} [{Tr("Kiana Vaea")}]";
@@ -204,7 +195,7 @@ public partial class CharacterSelection : Control
 	}
 
 	private Node3D _cyberShogun3DModel;
-	private Node3D _solaria3DModel;
+
 	private Node3D _oceanus3DModel;
 	private Node3D _suryaPrime3DModel;
 	private Node3D _mirageBlade3DModel;
@@ -225,7 +216,6 @@ public partial class CharacterSelection : Control
 	public void _on_rotate_right_up()   => _rotateInput =  0f;
 
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
-	public void _on_solaria_pressed()       => SelectOperative("Solaria");
 	public void _on_oceanus_pressed()       => SelectOperative("Oceanus");
 	public void _on_surya_prime_pressed()    => SelectOperative("Surya Prime");
 	public void _on_mirage_blade_pressed()   => SelectOperative("Mirage Blade");
@@ -291,15 +281,7 @@ public partial class CharacterSelection : Control
 		float baseAgility = 96f;
 
 		// Update labels and stat meters based on the selected operative.
-		if (characterName == "Solaria")
-		{
-			baseSpeed = 95f;
-			baseAgility = 99f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Solaria"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: VALENTINA CRUZ"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: SOLAR FLARE MANIPULATOR");
-		}
-		else if (characterName == "Oceanus")
+		if (characterName == "Oceanus")
 		{
 			baseSpeed = 96f;
 			baseAgility = 97f;
@@ -394,19 +376,6 @@ public partial class CharacterSelection : Control
 			}
 		}
 
-		if (_solaria3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/solaria.glb";
-			_solaria3DModel = LoadGlbModel(glbPath);
-			if (_solaria3DModel != null)
-			{
-				_solaria3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_solaria3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_solaria3DModel);
-				PlayStandingAnimation(_solaria3DModel, "Solaria");
-			}
-		}
-
 		if (_oceanus3DModel == null)
 		{
 			string glbPath = "res://assets/models/hq/oceanus.glb";
@@ -461,7 +430,6 @@ public partial class CharacterSelection : Control
 
 		// Toggle visibility based on selection.
 		if (_cyberShogun3DModel != null) _cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
-		if (_solaria3DModel != null) _solaria3DModel.Visible = (characterName == "Solaria");
 		if (_oceanus3DModel != null) _oceanus3DModel.Visible = (characterName == "Oceanus");
 		if (_suryaPrime3DModel != null) _suryaPrime3DModel.Visible = (characterName == "Surya Prime");
 		if (_mirageBlade3DModel != null) _mirageBlade3DModel.Visible = (characterName == "Mirage Blade");
@@ -495,7 +463,6 @@ public partial class CharacterSelection : Control
 	{
 		return _currentSelectedCharacter switch
 		{
-			"Solaria" => _solaria3DModel,
 			"Oceanus" => _oceanus3DModel,
 			"Surya Prime" => _suryaPrime3DModel,
 			"Mirage Blade" => _mirageBlade3DModel,
@@ -619,17 +586,6 @@ public partial class CharacterSelection : Control
 	{
 		return characterName switch
 		{
-			"Solaria" => new[]
-			{
-				new OperativeAbilityData("Corona Lance", "Beam_Cast", "PRIMARY", "Ranged Beam", 4.5f, 30f,
-					"Focused solar laser beam piercing enemies with heavy knockback."),
-				new OperativeAbilityData("Supernova Flash", "Supernova_Burst", "SECONDARY", "Radial AoE", 6.5f, 25f,
-					"Radiant omnidirectional solar burst damaging and blinding surrounding foes."),
-				new OperativeAbilityData("Solar Dash", "Dash", "MOBILITY", "Thermal Boost", 2.5f, 0f,
-					"Ignites directional solar micro-thrusters for an evasive dash."),
-				new OperativeAbilityData("Solar Impact", "Ground_Slam", "SLAM", "Thermal Drop", 5.0f, 30f,
-					"Aerial descent detonating thermal solar force upon impact.")
-			},
 			"Oceanus" => new[]
 			{
 				new OperativeAbilityData("Tidal Torrent", "Torrent_Blast", "PRIMARY", "Hydro Blast", 4.0f, 28f,
@@ -756,8 +712,7 @@ public partial class CharacterSelection : Control
 				if (!resPath.Contains("selection_platf"))
 				{
 					string charKey = "";
-					if (resPath.Contains("solaria")) charKey = "Solaria";
-					else if (resPath.Contains("oceanus")) charKey = "Oceanus";
+					if (resPath.Contains("oceanus")) charKey = "Oceanus";
 					else if (resPath.Contains("surya")) charKey = "Surya Prime";
 					else if (resPath.Contains("mirage")) charKey = "Mirage Blade";
 					else if (resPath.Contains("apex")) charKey = "Apex Titan";
@@ -803,13 +758,12 @@ public partial class CharacterSelection : Control
 			Color shadowTint = new Color(0.48f, 0.52f, 0.65f, 1.0f);
 			float outlineWidth = 2.0f;
 			Color outlineColor = new Color(0.02f, 0.03f, 0.06f, 1.0f);
+			float emissionBoost = 2.2f;
+			float emissionThreshold = 0.75f;
+			float emissionSaturation = 0.30f;
 
 			switch (characterName)
 			{
-				case "Solaria":
-					rimColor = new Color(1.0f, 0.82f, 0.35f, 1.0f); // Radiant Solar Gold
-					shadowTint = new Color(0.62f, 0.42f, 0.45f, 1.0f); // Warm burgundy
-					break;
 				case "Oceanus":
 					rimColor = new Color(0.0f, 0.95f, 0.85f, 1.0f); // Bioluminescent Aqua
 					shadowTint = new Color(0.38f, 0.50f, 0.62f, 1.0f); // Abyssal deep blue
@@ -837,6 +791,28 @@ public partial class CharacterSelection : Control
 			{
 				if (node is MeshInstance3D meshInstance && meshInstance.Mesh != null)
 				{
+					string nodeName = meshInstance.Name.ToString();
+					// Remove stray untextured bone helper shapes (e.g. Blender Icosphere custom bone shapes)
+					if (nodeName.StartsWith("Icosphere", StringComparison.OrdinalIgnoreCase))
+					{
+						meshInstance.Visible = false;
+						meshInstance.QueueFree();
+						continue;
+					}
+
+					float matEmissionBoost = emissionBoost;
+					float matEmissionThreshold = emissionThreshold;
+					float matEmissionSaturation = emissionSaturation;
+
+					// Dedicated hardlight halo & wing energy accessories glow brightly
+					if (nodeName.Contains("Halo", StringComparison.OrdinalIgnoreCase) ||
+					    nodeName.Contains("Wing", StringComparison.OrdinalIgnoreCase))
+					{
+						matEmissionBoost = 2.4f;
+						matEmissionThreshold = 0.50f;
+						matEmissionSaturation = 0.20f;
+					}
+
 					int surfaceCount = meshInstance.Mesh.GetSurfaceCount();
 					for (int s = 0; s < surfaceCount; s++)
 					{
@@ -858,6 +834,9 @@ public partial class CharacterSelection : Control
 						toonMat.SetShaderParameter("albedo_tint", albedoColor);
 						toonMat.SetShaderParameter("rim_color", rimColor);
 						toonMat.SetShaderParameter("shadow_tint", shadowTint);
+						toonMat.SetShaderParameter("emission_boost", matEmissionBoost);
+						toonMat.SetShaderParameter("emission_threshold", matEmissionThreshold);
+						toonMat.SetShaderParameter("emission_saturation", matEmissionSaturation);
 
 						if (_outlineShader != null)
 						{
@@ -889,13 +868,18 @@ public partial class CharacterSelection : Control
 
 		foreach (Node child in model.GetChildren())
 		{
-			if (child.Name.ToString().StartsWith("Armature_"))
+			string name = child.Name.ToString();
+			if (name.StartsWith("Armature_"))
 			{
 				RemoveMeshesRecursive(child);
 				if (child is Node3D n3d)
 				{
 					n3d.Visible = false;
 				}
+			}
+			else if (name.StartsWith("Icosphere", StringComparison.OrdinalIgnoreCase))
+			{
+				child.QueueFree();
 			}
 		}
 	}
@@ -1046,8 +1030,6 @@ public partial class CharacterSelection : Control
 		// Apply rotation to the currently visible 3D model.
 		if (_cyberShogun3DModel  != null && GodotObject.IsInstanceValid(_cyberShogun3DModel)  && _cyberShogun3DModel.Visible)
 			_cyberShogun3DModel.RotationDegrees  = activeRotation;
-		if (_solaria3DModel      != null && GodotObject.IsInstanceValid(_solaria3DModel)      && _solaria3DModel.Visible)
-			_solaria3DModel.RotationDegrees      = activeRotation;
 		if (_oceanus3DModel      != null && GodotObject.IsInstanceValid(_oceanus3DModel)      && _oceanus3DModel.Visible)
 			_oceanus3DModel.RotationDegrees      = activeRotation;
 		if (_suryaPrime3DModel   != null && GodotObject.IsInstanceValid(_suryaPrime3DModel)   && _suryaPrime3DModel.Visible)

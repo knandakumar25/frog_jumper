@@ -20,8 +20,9 @@ uniform float rim_strength : hint_range(0.0, 1.0, 0.02) = 0.35;
 uniform vec4 rim_color : source_color = vec4(0.0, 0.90, 1.0, 1.0); // Operative accent color
 
 // Glowing Sci-Fi Emissive detection
-uniform float emission_boost : hint_range(1.0, 8.0, 0.1) = 2.4;
+uniform float emission_boost : hint_range(0.0, 8.0, 0.1) = 2.4;
 uniform float emission_threshold : hint_range(0.4, 1.0, 0.01) = 0.75;
+uniform float emission_saturation : hint_range(0.05, 1.0, 0.01) = 0.30;
 
 void fragment() {
 	vec4 tex_color = texture(albedo_texture, UV) * albedo_tint;
@@ -37,7 +38,8 @@ void fragment() {
 	float saturation = max_c - min_c;
 	
 	// Glowing neon elements: cyan stripes, plasma runes, glowing solar cores, emerald daggers
-	if (max_c > emission_threshold && (saturation > 0.30 || max_c > 0.95)) {
+	// Only truly saturated, bright neon elements emit light — white armor/surfaces never blow out
+	if (emission_boost > 0.0 && max_c > emission_threshold && saturation > emission_saturation) {
 		EMISSION = tex_color.rgb * emission_boost;
 	}
 }
@@ -57,14 +59,16 @@ void light() {
 	// Base cel-shaded diffuse lighting (ALBEDO is automatically multiplied by DIFFUSE_LIGHT in Godot 4)
 	DIFFUSE_LIGHT += light_intensity * cel_light;
 	
-	// Stylized Soft Anime Glint (tinted and clamped, never blown out to white mirror blobs)
-	vec3 half_vec = normalize(VIEW + LIGHT);
+	// Stylized Soft Anime Glint (tinted and clamped, never blown out to white mirror blobs, NaN-safe)
+	vec3 vl = VIEW + LIGHT;
+	float len_vl = length(vl);
+	vec3 half_vec = len_vl > 0.0001 ? vl / len_vl : NORMAL;
 	float NdotH = clamp(dot(NORMAL, half_vec), 0.0, 1.0);
 	float spec_glint = smoothstep(specular_threshold - specular_softness, specular_threshold + specular_softness, NdotH) * step1;
 	DIFFUSE_LIGHT += light_intensity * spec_glint * specular_strength;
 	
 	// Smooth Anime Fresnel Rim Light (gently kisses the silhouette, tinted with operative signature color)
 	float NdotV = 1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0);
-	float rim = pow(NdotV, rim_power) * clamp(NdotL * 0.5 + 0.5, 0.0, 1.0);
+	float rim = pow(clamp(NdotV, 0.0, 1.0), rim_power) * clamp(NdotL * 0.5 + 0.5, 0.0, 1.0);
 	DIFFUSE_LIGHT += rim_color.rgb * rim * rim_strength;
 }

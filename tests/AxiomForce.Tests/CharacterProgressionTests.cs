@@ -23,11 +23,10 @@ public class CharacterProgressionTests
     }
 
     [Test]
-    public void TestHeroUpgradeDefs_AllSixOperativesExist()
+    public void TestHeroUpgradeDefs_AllFiveOperativesExist()
     {
         string[] operatives = {
             "Cyber Shogun",
-            "Solaria",
             "Oceanus",
             "Surya Prime",
             "Mirage Blade",

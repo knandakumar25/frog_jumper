@@ -87,7 +87,6 @@ func test_upgrade_screen_bind_all_operatives() -> void:
 
 	var operatives := [
 		"Cyber Shogun",
-		"Solaria",
 		"Oceanus",
 		"Surya Prime",
 		"Mirage Blade",

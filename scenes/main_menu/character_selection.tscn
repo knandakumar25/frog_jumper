@@ -129,23 +129,14 @@ layout_mode = 2
 mouse_filter = 2
 focus_neighbor_top = NodePath("../ApexTitan")
 focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn")
-focus_neighbor_bottom = NodePath("../Solaria")
-text = "Cyber Shogun [Kaito Kurogane]"
-
-[node name="Solaria" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
-custom_minimum_size = Vector2(0, 68)
-layout_mode = 2
-mouse_filter = 2
-focus_neighbor_top = NodePath("../CyberShogun")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn")
 focus_neighbor_bottom = NodePath("../Oceanus")
-text = "Solaria [Valentina Cruz]"
+text = "Cyber Shogun [Kaito Kurogane]"
 
 [node name="Oceanus" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../Solaria")
+focus_neighbor_top = NodePath("../CyberShogun")
 focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn")
 focus_neighbor_bottom = NodePath("../SuryaPrime")
 text = "Oceanus [Kiana Vaea]"
@@ -376,7 +367,6 @@ text = "►"
 tooltip_text = "Rotate Right  [ E / RB ]"
 
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun" to="." method="_on_cyber_shogun_pressed"]
-[connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Solaria" to="." method="_on_solaria_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/Oceanus" to="." method="_on_oceanus_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/SuryaPrime" to="." method="_on_surya_prime_pressed"]
 [connection signal="pressed" from="MainLayout/LeftListPanel/VBox/CharacterGrid/MirageBlade" to="." method="_on_mirage_blade_pressed"]

@@ -19,13 +19,6 @@
       "bytes": 29135652
     },
     {
-      "name": "Solaria",
-      "category": "operative",
-      "path": "res://assets/models/hq/solaria.glb",
-      "origin": "base",
-      "units": "meters"
-    },
-    {
       "name": "Oceanus",
       "category": "operative",
       "path": "res://assets/models/hq/oceanus.glb",

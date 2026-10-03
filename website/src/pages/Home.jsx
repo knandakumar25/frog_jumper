@@ -164,15 +164,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Operative 2 (Solaria 3D) */}
+          {/* Operative 2 (Oceanus 3D) */}
           <div 
             onClick={handleJoinStrike}
             className="md:col-span-1 md:row-span-1 relative group overflow-hidden border border-outline-variant hover:border-primary-container bg-surface-container cursor-pointer flex flex-col justify-between"
           >
             <div className="absolute inset-0 z-0">
               <model-viewer
-                src="/models/solaria.glb"
-                alt="Solaria 3D"
+                src="/models/oceanus.glb"
+                alt="Oceanus 3D"
                 auto-rotate
                 camera-controls
                 shadow-intensity="1"
@@ -182,13 +182,13 @@ export default function Home() {
               >
               </model-viewer>
             </div>
-            <div className="relative z-10 p-2 text-warning-orange pointer-events-none">
-              <span className="material-symbols-outlined text-sm bg-void-black/80 p-1 border border-warning-orange/30">flare</span>
+            <div className="relative z-10 p-2 text-primary-container pointer-events-none">
+              <span className="material-symbols-outlined text-sm bg-void-black/80 p-1 border border-primary-container/30">water</span>
             </div>
             <div className="relative z-10 p-3 bg-void-black/90 pointer-events-none">
-              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">{t('squad.solaria', 'SOLARIA')}</h3>
+              <h3 className="font-headline-md text-[16px] text-primary-container uppercase font-bold">{t('squad.oceanus', 'OCEANUS')}</h3>
               <div className="font-label-caps text-[10px] text-on-surface-variant mt-0.5 uppercase">
-                {t('characters.warriors.solaria.role', 'SOLAR FLARE VANGUARD')}
+                {t('characters.warriors.oceanus.role', 'HYDROKINETIC OPERATIVE')}
               </div>
             </div>
           </div>

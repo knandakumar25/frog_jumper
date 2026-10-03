@@ -21,18 +21,6 @@ export default function Squad() {
       civilian: 'Kaito Kurogane',
       icons: ['sword', 'bolt']
     },
-    solaria: {
-      role: 'characters.warriors.solaria.role',
-      roleDefault: 'SOLAR FLARE MANIPULATOR',
-      descKey: 'characters.warriors.solaria.desc',
-      descDefault: 'Valentina Cruz commands the solar spectrum, projecting heat shields and searing light blades of pure plasma.',
-      loreKey: 'characters.warriors.solaria.lore',
-      stats: { firepower: 97, defense: 72, mobility: 80 },
-      model: '/models/solaria.glb',
-      status: 'STANDBY',
-      civilian: 'Valentina Cruz',
-      icons: ['flare', 'visibility_off']
-    },
     oceanus: {
       role: 'characters.warriors.oceanus.role',
       roleDefault: 'HYDROKINETIC PLASMA MANIPULATOR',

@@ -38,7 +38,6 @@ public partial class Player3D : CharacterBody3D
 	private static readonly System.Collections.Generic.Dictionary<string, CharacterStats> CharacterRegistry = new()
 	{
 		{ "Cyber Shogun", new CharacterStats("res://assets/models/hq/cyber_shogun.glb", 98f, 96f) },
-		{ "Solaria",      new CharacterStats("res://assets/models/hq/solaria.glb", 95f, 99f) },
 		{ "Oceanus",      new CharacterStats("res://assets/models/hq/oceanus.glb", 96f, 97f) },
 		{ "Surya Prime",  new CharacterStats("res://assets/models/hq/surya_prime.glb", 97f, 98f) },
 		{ "Mirage Blade", new CharacterStats("res://assets/models/hq/mirage_blade.glb", 99f, 99f) },
@@ -64,7 +63,7 @@ public partial class Player3D : CharacterBody3D
 		// 2. Load the correct model and stats.
 		if (CharacterRegistry.TryGetValue(selectedChar, out var stats))
 		{
-			LoadCharacterModel(stats.ModelPath);
+			LoadCharacterModel(stats.ModelPath, selectedChar);
 
 			// Scale base speed (7.0) by the character's speed stat.
 			Speed = 7.0f * (stats.SpeedMod / 100.0f);
@@ -73,7 +72,7 @@ public partial class Player3D : CharacterBody3D
 		else
 		{
 			GD.PrintErr($"Player3D: Character {selectedChar} not found in registry. Defaulting to Shogun.");
-			LoadCharacterModel(CharacterRegistry["Cyber Shogun"].ModelPath);
+			LoadCharacterModel(CharacterRegistry["Cyber Shogun"].ModelPath, "Cyber Shogun");
 		}
 
 		// 3. Setup Operative Abilities (fast-paced short cooldowns).
@@ -173,14 +172,14 @@ public partial class Player3D : CharacterBody3D
 		}
 	}
 
-	private void LoadCharacterModel(string path)
+	private void LoadCharacterModel(string path, string characterName = "")
 	{
 		var scene = GD.Load<PackedScene>(path);
 		if (scene != null)
 		{
 			_characterModel = scene.Instantiate<Node3D>();
 			CharacterSelection.CleanDuplicateMeshes(_characterModel);
-			CharacterSelection.ApplyToonShading(_characterModel);
+			CharacterSelection.ApplyToonShading(_characterModel, characterName);
 			AddChild(_characterModel);
 
 			// Find the AnimationPlayer inside the instantiated GLB model.
@@ -416,24 +415,6 @@ public partial class Player3D : CharacterBody3D
 
 		switch (characterName)
 		{
-			case "Solaria":
-				_primaryAbility.Name = "Corona Lance";
-				_primaryAbility.Type = AbilityType.Push;
-				_primaryAbility.Cooldown = 4.5f;
-				_primaryAbility.Damage = 30f;
-				_primaryAbility.EffectRadius = 4.0f;
-				_primaryAbility.KnockbackForce = 8.0f;
-				_primaryAbility.AnimationName = "Beam_Cast";
-
-				_secondaryAbility.Name = "Supernova Flash";
-				_secondaryAbility.Type = AbilityType.AoE;
-				_secondaryAbility.Cooldown = 6.5f;
-				_secondaryAbility.Damage = 25f;
-				_secondaryAbility.EffectRadius = 6.0f;
-				_secondaryAbility.KnockbackForce = 5.0f;
-				_secondaryAbility.AnimationName = "Supernova_Burst";
-				break;
-
 			case "Oceanus":
 				_primaryAbility.Name = "Tidal Torrent";
 				_primaryAbility.Type = AbilityType.Push;
