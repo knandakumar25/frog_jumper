@@ -528,6 +528,7 @@ public partial class CharacterSelection : Control
 
 		Node3D activeModel = GetActiveModel();
 		if (activeModel == null || !GodotObject.IsInstanceValid(activeModel)) return;
+		activeModel.Position = TargetPodiumPosition;
 
 		var player = FindNodeRecursive<AnimationPlayer>(activeModel);
 		if (player == null) return;
@@ -553,7 +554,7 @@ public partial class CharacterSelection : Control
 		}
 
 		player.Stop();
-		player.Play(targetAnim, customBlend: 0.12f);
+		player.Play(targetAnim, customBlend: 0.18f);
 
 		// Trigger High-Fidelity Elemental Hero Ability VFX (Water streams, Fire blasts, Phase slashes, etc.)
 		var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D") ?? activeModel.GetParent<Node3D>();
@@ -575,6 +576,7 @@ public partial class CharacterSelection : Control
 			Node3D activeModel = GetActiveModel();
 			if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
 			{
+				activeModel.Position = TargetPodiumPosition;
 				PlayStandingAnimation(activeModel, _currentSelectedCharacter);
 			}
 
@@ -955,8 +957,12 @@ public partial class CharacterSelection : Control
 					n3d.Visible = false;
 				}
 			}
-			else if (name.StartsWith("Icosphere", StringComparison.OrdinalIgnoreCase))
+			else if (name.StartsWith("Icosphere", StringComparison.OrdinalIgnoreCase) ||
+			         name.StartsWith("Cube", StringComparison.OrdinalIgnoreCase) ||
+			         name.StartsWith("Sphere", StringComparison.OrdinalIgnoreCase) ||
+			         name.StartsWith("Plane", StringComparison.OrdinalIgnoreCase))
 			{
+				model.RemoveChild(child);
 				child.QueueFree();
 			}
 		}
@@ -1116,6 +1122,8 @@ public partial class CharacterSelection : Control
 			_mirageBlade3DModel.RotationDegrees  = activeRotation;
 		if (_apexTitan3DModel    != null && GodotObject.IsInstanceValid(_apexTitan3DModel)    && _apexTitan3DModel.Visible)
 			_apexTitan3DModel.RotationDegrees    = activeRotation;
+		if (_phoenicia3DModel    != null && GodotObject.IsInstanceValid(_phoenicia3DModel)    && _phoenicia3DModel.Visible)
+			_phoenicia3DModel.RotationDegrees    = activeRotation;
 
 		// Apply a pulsing emissive glow to the selection platform.
 		if (_platform3DModel != null && GodotObject.IsInstanceValid(_platform3DModel))
