@@ -54,6 +54,17 @@ public partial class OperativeAbility : Ability
             CombatVFXManager.Instance?.ScreenShake(0.3f, 0.2f);
         }
 
+        // Trigger High-Fidelity Elemental Hero Ability VFX
+        var global = player.GetNodeOrNull<Node>("/root/Global");
+        string charName = global?.Get("selected_character").AsString() ?? "Cyber Shogun";
+        if (string.IsNullOrEmpty(charName)) charName = "Cyber Shogun";
+
+        Vector3 fwd = -player.GlobalTransform.Basis.Z;
+        if (fwd.LengthSquared() > 0.001f) fwd = fwd.Normalized();
+        else fwd = Vector3.Forward;
+
+        HeroAbilityVFX.TriggerAbilityVFX(player.GetParent<Node3D>() ?? player, player, charName, AnimationName, fwd);
+
         switch (Type)
         {
             case AbilityType.Melee:

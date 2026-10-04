@@ -181,6 +181,8 @@ public partial class CharacterSelection : Control
 		_upgradeOperativeBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn");
 		_upgradeScreen        = GetNodeOrNull<OperativeUpgradeScreen>("OperativeUpgradeScreen");
 
+		_world3D              = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
+
 		if (_upgradeScreen != null)
 		{
 			_upgradeScreen.Closed += OnUpgradeScreenClosed;
@@ -203,6 +205,7 @@ public partial class CharacterSelection : Control
 		return text.ToUpper();
 	}
 
+	private Node3D? _world3D;
 	private Node3D _cyberShogun3DModel;
 
 	private Node3D _oceanus3DModel;
@@ -287,6 +290,12 @@ public partial class CharacterSelection : Control
 		EnsureUIReferences();
 		_currentSelectedCharacter = characterName;
 		_currentPreviewAnim = "";
+
+		var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
+		if (world3D != null)
+		{
+			HeroAbilityVFX.ClearActiveVFX(world3D);
+		}
 
 		float baseSpeed = 98f;
 		float baseAgility = 96f;
@@ -545,6 +554,17 @@ public partial class CharacterSelection : Control
 
 		player.Stop();
 		player.Play(targetAnim, customBlend: 0.12f);
+
+		// Trigger High-Fidelity Elemental Hero Ability VFX (Water streams, Fire blasts, Phase slashes, etc.)
+		var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D") ?? activeModel.GetParent<Node3D>();
+		if (world3D != null)
+		{
+			Vector3 forward = activeModel.GlobalTransform.Basis * new Vector3(0, 0, 1);
+			if (forward.LengthSquared() > 0.001f) forward = forward.Normalized();
+			else forward = new Vector3(0, 0, 1);
+
+			HeroAbilityVFX.TriggerAbilityVFX(world3D, activeModel, _currentSelectedCharacter, ability.AnimName, forward);
+		}
 	}
 
 	public void OnPreviewAnimationFinished(StringName animName)
@@ -556,6 +576,12 @@ public partial class CharacterSelection : Control
 			if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
 			{
 				PlayStandingAnimation(activeModel, _currentSelectedCharacter);
+			}
+
+			var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
+			if (world3D != null)
+			{
+				HeroAbilityVFX.ClearActiveVFX(world3D);
 			}
 
 			if (_abilityStatusLabel != null && GodotObject.IsInstanceValid(_abilityStatusLabel))
