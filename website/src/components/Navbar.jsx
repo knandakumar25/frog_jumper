@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import LanguageSelector from '../translations/LanguageSelector';
 import { useLanguage } from '../translations/LanguageContext';
 import { getTitleLogoPath } from '../translations/titleLogo';
-import { useAuth } from '../context/AuthContext';
 
 const NAV_LINKS = [
   { key: 'home', to: '' },
@@ -16,13 +16,11 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef(null);
   const location = useLocation();
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
   const currentLocale = getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
   const { t } = useTranslation();
-  const { user, logout } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -38,7 +36,7 @@ export default function Navbar() {
   useEffect(() => {
     function handleClickOutside(event) {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setProfileOpen(false);
+        // Profile is now handled by Clerk's UserButton
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -60,9 +58,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center px-4 md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
           {/* Logo */}
           <NavLink to={`/${currentLocale}`} className="flex items-center gap-2 select-none hover:opacity-95 transition-opacity">
-            <img 
-              src={getTitleLogoPath(selectedLanguage)} 
-              alt="AXIOM FORCE" 
+            <img
+              src={getTitleLogoPath(selectedLanguage)}
+              alt="AXIOM FORCE"
               className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,243,255,0.75)] select-none transition-all duration-300"
             />
           </NavLink>
@@ -89,57 +87,10 @@ export default function Navbar() {
 
           {/* Desktop Right Side CTA & Lang */}
           <div className="hidden lg:flex items-center gap-4">
-            {user ? (
-              <div className="relative" ref={profileRef}>
-                <div
-                  className="flex items-center gap-3 cursor-pointer p-1 hover:bg-primary-container/10 transition-colors"
-                  onClick={() => setProfileOpen(!profileOpen)}
-                >
-                  {user.profile_picture ? (
-                    <img
-                      src={user.profile_picture}
-                      alt="User Avatar"
-                      className="w-8 h-8 rounded-none border-2 border-primary-container object-cover shadow-[0_0_10px_rgba(0,243,255,0.3)]"
-                    />
-                  ) : (
-                    <div className="w-8 h-8 rounded-none border-2 border-primary-container/45 flex items-center justify-center bg-surface-container-highest text-primary-container font-bold font-mono text-xs shadow-[0_0_5px_rgba(0,243,255,0.1)]">
-                      {user.username.substring(0, 2).toUpperCase()}
-                    </div>
-                  )}
-                  <span className="text-xs font-bold text-primary-container uppercase tracking-tighter">
-                    {user.username}
-                  </span>
-                </div>
-
-                {profileOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-surface-container-highest border-2 border-primary-container shadow-[4px_4px_0px_rgba(0,243,255,0.5)] z-50">
-                    <div className="flex flex-col p-2 gap-1">
-                      <NavLink
-                        to={`/${currentLocale}/account`}
-                        onClick={() => setProfileOpen(false)}
-                        className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 transition-colors"
-                      >
-                        {t('nav.my_account', 'My Account')}
-                      </NavLink>
-                      <NavLink
-                        to={`/${currentLocale}/account/2fa`}
-                        onClick={() => setProfileOpen(false)}
-                        className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 transition-colors"
-                      >
-                        {t('nav.two_factor_auth', 'Two-Factor Auth')}
-                      </NavLink>
-                      <div className="h-[1px] bg-outline-variant/30 my-1"></div>
-                      <button
-                        onClick={logout}
-                        className="text-left text-xs font-bold uppercase text-on-surface-variant hover:text-error px-3 py-2 transition-colors"
-                      >
-                        {t('nav.logout', 'Logout')}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
+            <SignedIn>
+              <UserButton afterSignOutUrl={`/${currentLocale}`} />
+            </SignedIn>
+            <SignedOut>
               <div className="flex items-center gap-4">
                 <NavLink
                   to={`/${currentLocale}/login`}
@@ -154,7 +105,7 @@ export default function Navbar() {
                   {t('nav.signup', 'Sign Up')}
                 </NavLink>
               </div>
-            )}
+            </SignedOut>
             <LanguageSelector />
           </div>
 
@@ -196,32 +147,12 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-4 items-center w-full">
               <LanguageSelector />
-              {user ? (
+              <SignedIn>
                 <div className="flex flex-col gap-3 items-center w-full">
-                  <div className="flex items-center gap-3">
-                    {user.profile_picture ? (
-                      <img
-                        src={user.profile_picture}
-                        alt="User Avatar"
-                        className="w-10 h-10 rounded-none border-2 border-primary-container object-cover shadow-[0_0_10px_rgba(0,243,255,0.3)]"
-                      />
-                    ) : (
-                      <div className="w-10 h-10 rounded-none border-2 border-primary-container/45 flex items-center justify-center bg-surface-container-highest text-primary-container font-bold font-mono text-sm">
-                        {user.username.substring(0, 2).toUpperCase()}
-                      </div>
-                    )}
-                    <span className="text-sm font-bold text-primary-container uppercase tracking-wider">
-                      {user.username}
-                    </span>
-                  </div>
-                  <button
-                    onClick={logout}
-                    className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
-                  >
-                    {t('nav.logout', 'Logout')}
-                  </button>
+                  <UserButton afterSignOutUrl={`/${currentLocale}`} />
                 </div>
-              ) : (
+              </SignedIn>
+              <SignedOut>
                 <div className="flex flex-col gap-3 w-full">
                   <NavLink
                     to={`/${currentLocale}/login`}
@@ -238,7 +169,7 @@ export default function Navbar() {
                     {t('nav.signup', 'Sign Up')}
                   </NavLink>
                 </div>
-              )}
+              </SignedOut>
             </div>
           </div>
         </div>
