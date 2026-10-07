@@ -18,7 +18,10 @@ export default function Signup() {
 
         <div className="flex justify-center">
           <SignUp
-            afterSignUpUrl={`/${currentLocale}`}
+            routing="path"
+            path={`/${currentLocale}/signup`}
+            signInUrl={`/${currentLocale}/login`}
+            fallbackRedirectUrl={`/${currentLocale}`}
             appearance={{
               elements: {
                 formButtonPrimary: "bg-primary-container text-void-black hover:bg-secondary-container transition-colors font-bold uppercase",

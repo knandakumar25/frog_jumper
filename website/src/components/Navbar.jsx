@@ -13,6 +13,32 @@ const NAV_LINKS = [
   { key: 'faq', to: '/faq' },
 ];
 
+// Auth runs on Clerk's hosted Account Portal rather than in-app routes, so the
+// Login / Sign Up controls link off-site.
+//
+// The publishable key (pk_test_<base64 of the FRONTEND API host>$) encodes only the
+// Frontend API host, which is NOT where the hosted pages live. On a dev instance the
+// two are siblings:
+//     Frontend API : <slug>.clerk.accounts.dev
+//     Account Portal: <slug>.accounts.dev      <- where /sign-in and /sign-up resolve
+// So we rewrite the host only when it matches that dev shape. A production instance
+// puts its portal on the app's own domain, which we can't infer from the key, so we
+// deliberately return null and let the caller fall back to the in-app route rather
+// than construct a link that 404s.
+const ACCOUNT_PORTAL_BASE = (() => {
+  const encoded = (import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ?? '').split('_')[2];
+  if (!encoded) return null;
+  try {
+    const apiHost = atob(encoded).replace(/\$$/, '');
+    if (!apiHost) return null;
+    const portalHost = apiHost.replace(/\.clerk\.accounts\.dev$/, '.accounts.dev');
+    if (portalHost === apiHost) return null;
+    return `https://${portalHost}`;
+  } catch {
+    return null;
+  }
+})();
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,6 +47,12 @@ export default function Navbar() {
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
   const currentLocale = getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
   const { t } = useTranslation();
+
+  // Always resolve to something clickable. If the portal host can't be derived we
+  // fall back to the in-app route, which still renders the themed Clerk component,
+  // rather than emitting an href-less link that silently does nothing.
+  const portalSignInUrl = ACCOUNT_PORTAL_BASE ? `${ACCOUNT_PORTAL_BASE}/sign-in` : `/${currentLocale}/login`;
+  const portalSignUpUrl = ACCOUNT_PORTAL_BASE ? `${ACCOUNT_PORTAL_BASE}/sign-up` : `/${currentLocale}/signup`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -92,18 +124,18 @@ export default function Navbar() {
             </SignedIn>
             <SignedOut>
               <div className="flex items-center gap-4">
-                <NavLink
-                  to={`/${currentLocale}/login`}
+                <a
+                  href={portalSignInUrl}
                   className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary transition-colors underline"
                 >
                   {t('nav.login', 'Login')}
-                </NavLink>
-                <NavLink
-                  to={`/${currentLocale}/signup`}
+                </a>
+                <a
+                  href={portalSignUpUrl}
                   className="text-xs font-bold uppercase text-primary-container bg-primary-container/10 border-2 border-primary-container/45 hover:bg-primary-container/20 px-3 py-1.5 transition-all duration-150 active:scale-95 font-body-md"
                 >
                   {t('nav.signup', 'Sign Up')}
-                </NavLink>
+                </a>
               </div>
             </SignedOut>
             <LanguageSelector />
@@ -154,20 +186,20 @@ export default function Navbar() {
               </SignedIn>
               <SignedOut>
                 <div className="flex flex-col gap-3 w-full">
-                  <NavLink
-                    to={`/${currentLocale}/login`}
+                  <a
+                    href={portalSignInUrl}
                     onClick={() => setMenuOpen(false)}
                     className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
                   >
                     {t('nav.login', 'Login')}
-                  </NavLink>
-                  <NavLink
-                    to={`/${currentLocale}/signup`}
+                  </a>
+                  <a
+                    href={portalSignUpUrl}
                     onClick={() => setMenuOpen(false)}
                     className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase bg-primary-container text-void-black hover:bg-secondary-container hover:text-on-secondary-container"
                   >
                     {t('nav.signup', 'Sign Up')}
-                  </NavLink>
+                  </a>
                 </div>
               </SignedOut>
             </div>
