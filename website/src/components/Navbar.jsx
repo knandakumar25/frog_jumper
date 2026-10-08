@@ -51,8 +51,25 @@ export default function Navbar() {
   // Always resolve to something clickable. If the portal host can't be derived we
   // fall back to the in-app route, which still renders the themed Clerk component,
   // rather than emitting an href-less link that silently does nothing.
-  const portalSignInUrl = ACCOUNT_PORTAL_BASE ? `${ACCOUNT_PORTAL_BASE}/sign-in` : `/${currentLocale}/login`;
-  const portalSignUpUrl = ACCOUNT_PORTAL_BASE ? `${ACCOUNT_PORTAL_BASE}/sign-up` : `/${currentLocale}/signup`;
+  //
+  // The portal is off-site, so it cannot know where to send the user afterwards
+  // unless we say so in the query string. A bare portal link makes Clerk fall back
+  // to the instance home URL and show its "Development mode. You are signed in, but
+  // Clerk cannot redirect to your application" page -- which is exactly what a plain
+  // <slug>.accounts.dev/sign-up did. `redirect_url` is the documented fix, and it
+  // must be ABSOLUTE: a relative path would resolve against <slug>.accounts.dev.
+  //
+  // Sign-up lands on the bare /onboarding route -- never /:locale/onboarding, since
+  // the "*" catch-all in App.jsx rewrites to /:locale and discards the query string.
+  // Sign-in lands on /:locale/account, which itself bounces anyone who never finished
+  // onboarding over to /onboarding, so both kinds of sign-in end up in the right place.
+  const portalUrl = (portalPath, appPath) =>
+    ACCOUNT_PORTAL_BASE
+      ? `${ACCOUNT_PORTAL_BASE}${portalPath}?redirect_url=${encodeURIComponent(`${window.location.origin}${appPath}`)}`
+      : null;
+
+  const portalSignInUrl = portalUrl('/sign-in', `/${currentLocale}/account`) ?? `/${currentLocale}/login`;
+  const portalSignUpUrl = portalUrl('/sign-up', '/onboarding') ?? `/${currentLocale}/signup`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
