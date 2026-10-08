@@ -179,6 +179,8 @@ def send_onboarding_email(to_email, raw_token, first_name=""):
     <html>
     <head>
         <meta charset="utf-8">
+        <meta name="color-scheme" content="dark light">
+        <meta name="supported-color-schemes" content="dark light">
         <style>
             body {{
                 background-color: #05070a;
@@ -187,10 +189,18 @@ def send_onboarding_email(to_email, raw_token, first_name=""):
                 margin: 0;
                 padding: 20px;
             }}
+            /* Colour is declared on .terminal as well as on body, and inline on the
+               paragraphs below. Clients routinely relocate the message body into
+               their own container, at which point the `body` selector stops matching
+               and anything relying on an INHERITED colour reverts to the client's
+               default -- dark grey text on this dark panel, essentially unreadable.
+               .terminal is known to match (its border and background render), so
+               declaring it here cascades to every element inside. */
             .terminal {{
                 max-width: 600px;
                 margin: 0 auto;
                 background-color: #0b0e14;
+                color: #e2e8f0;
                 border: 2px solid #00f3ff;
                 box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
                 padding: 30px;
@@ -217,6 +227,7 @@ def send_onboarding_email(to_email, raw_token, first_name=""):
             }}
             .details {{
                 background-color: #030508;
+                color: #e2e8f0;
                 border-left: 3px solid #ff007f;
                 padding: 15px;
                 margin: 20px 0;
@@ -238,7 +249,7 @@ def send_onboarding_email(to_email, raw_token, first_name=""):
             .footer {{
                 margin-top: 30px;
                 font-size: 11px;
-                color: #4a5568;
+                color: #94a3b8;
                 text-align: center;
                 border-top: 1px solid #1a202c;
                 padding-top: 15px;
@@ -253,7 +264,7 @@ def send_onboarding_email(to_email, raw_token, first_name=""):
             <div class="greeting">
                 &gt; IDENTITY VERIFIED: {greeting.upper()}
             </div>
-            <p>Your credentials cleared the gate, but your operator profile is not on the grid yet. Two required fields remain before your account is created.</p>
+            <p style="color: #e2e8f0;">Your credentials cleared the gate, but your operator profile is not on the grid yet. Two required fields remain before your account is created.</p>
 
             <div class="details">
                 <strong>OUTSTANDING FIELDS:</strong><br>
@@ -265,10 +276,10 @@ def send_onboarding_email(to_email, raw_token, first_name=""):
                 USES        : 1
             </div>
 
-            <p>Resume registration:</p>
+            <p style="color: #e2e8f0;">Resume registration:</p>
             <a class="cta" href="{link}">Finish Setup</a>
-            <p style="font-size: 11px; color: #4a5568; word-break: break-all;">{link}</p>
-            <p style="font-size: 12px; color: #718096;">If you did not register for Frog Jumper, ignore this message &mdash; no account will be created.</p>
+            <p style="font-size: 11px; color: #67e8f9; word-break: break-all;">{link}</p>
+            <p style="font-size: 12px; color: #94a3b8;">If you did not register for Frog Jumper, ignore this message &mdash; no account will be created.</p>
 
             <div class="footer">
                 AXIOM FORCE TERMINAL DIRECTIVE // CONFIDENTIAL TRANSMISSION // DO NOT REPLICATE
