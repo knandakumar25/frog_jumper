@@ -1,3 +1,5 @@
+import logging
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.mail import EmailMultiAlternatives
@@ -5,6 +7,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
+logger = logging.getLogger(__name__)
 
 @receiver(post_save, sender=User)
 def send_welcome_email(sender, instance, created, **kwargs):
@@ -129,7 +132,8 @@ def send_welcome_email(sender, instance, created, **kwargs):
         msg.attach_alternative(html_content, "text/html")
         try:
             msg.send()
-        except Exception as e:
-            import logging
-            logger = logging.getLogger(__name__)
-            logger.error(f"Error sending welcome email to {to_email}: {str(e)}")
+        except Exception:
+            # Registration must not fail because the mail provider is down, so
+            # this stays swallowed -- but it is the only trace of a failed send,
+            # and logger.exception keeps the Resend rejection body.
+            logger.exception("Error sending welcome email to %s", to_email)

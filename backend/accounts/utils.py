@@ -1,5 +1,6 @@
 import random
 import string
+from django.conf import settings
 from django.core.mail import send_mail
 from django.utils import timezone
 from datetime import timedelta
@@ -28,7 +29,11 @@ def send_2fa_email(user, code, purpose):
     send_mail(
         subject,
         body,
-        "welcome@frogjumper.dev",
+        # Was hardcoded to "welcome@frogjumper.dev". That bypassed
+        # DEFAULT_FROM_EMAIL, and once Resend is the transport an unverified
+        # from-domain is a hard 403 -- which, with fail_silently=False below,
+        # propagates out of the login view as a 500.
+        settings.DEFAULT_FROM_EMAIL,
         [user.email],
         fail_silently=False,
     )

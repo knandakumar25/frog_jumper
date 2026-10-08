@@ -126,6 +126,81 @@ CORS_ALLOW_ALL_ORIGINS = True # For development
 # Frontend URL for browser login flow
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
 
-# Email Configuration
-EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Frog Jumper <welcome@frogjumper.dev>')
+# Email (Resend) ------------------------------------------------------------
+# The from-address must sit on a domain verified in Resend, or the API answers
+# 403. The default below is Resend's shared test sender: it needs no domain, but
+# it can only deliver to the address on the Resend account itself. Switch this
+# to e.g. 'Axiom Force <welcome@mail.example.com>' once a domain is verified.
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
+DEFAULT_FROM_EMAIL = os.environ.get(
+    'DEFAULT_FROM_EMAIL', 'Axiom Force <onboarding@resend.dev>'
+)
+try:
+    RESEND_TIMEOUT = float(os.environ.get('RESEND_TIMEOUT', '10'))
+except ValueError:
+    RESEND_TIMEOUT = 10.0
+
+# Django 6.1 replaced EMAIL_BACKEND/EMAIL_HOST/... with MAILERS; the old names
+# are removed in 7.0. Do NOT define both -- django/conf/__init__.py raises
+# ImproperlyConfigured when MAILERS is set alongside any deprecated EMAIL_*
+# setting, and reading settings.EMAIL_BACKEND then raises AttributeError.
+#
+# An empty key falls back to the console backend, so local development and
+# `manage.py migrate` never require a secret. Tests need no special-casing
+# here: django.test.utils.setup_test_environment() swaps the default mailer to
+# the locmem backend for the whole test run.
+if RESEND_API_KEY:
+    MAILERS = {
+        'default': {
+            'BACKEND': 'core.mail_backends.ResendEmailBackend',
+            'OPTIONS': {
+                'api_key': RESEND_API_KEY,
+                'timeout': RESEND_TIMEOUT,
+            },
+        },
+    }
+else:
+    MAILERS = {
+        'default': {
+            'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        },
+    }
+
+# Clerk (identity provider) --------------------------------------------------
+# CLERK_SECRET_KEY authenticates *backend* calls to Clerk's API. It must never
+# be given a VITE_ prefix: Vite inlines VITE_* into the browser bundle, which
+# would publish the key.
+#
+# Operational dependency: onboarding refuses to mail an unverified address, so
+# email verification must stay enabled in the Clerk dashboard or every signup
+# answers 403 email_not_verified.
+CLERK_SECRET_KEY = os.environ.get('CLERK_SECRET_KEY', '')
+CLERK_API_BASE = os.environ.get('CLERK_API_BASE', 'https://api.clerk.com/v1')
+try:
+    CLERK_TIMEOUT = float(os.environ.get('CLERK_TIMEOUT', '10'))
+except ValueError:
+    CLERK_TIMEOUT = 10.0
+
+# Onboarding (email-gated signup) --------------------------------------------
+# Every value is overridable from the environment; run_wsl_containers.ps1
+# forwards them from the gitignored .env. They are read here so tests can
+# override them with self.settings(...) rather than patching modules.
+def _env_int(name, default):
+    try:
+        return int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return int(default)
+
+
+# How long an emailed onboarding link stays usable.
+ONBOARDING_TOKEN_TTL_HOURS = _env_int('ONBOARDING_TOKEN_TTL_HOURS', 24)
+# Minimum gap between sends for one registration; the second request inside this
+# window is answered "already_sent" rather than mailing again.
+ONBOARDING_RESEND_COOLDOWN = _env_int('ONBOARDING_RESEND_COOLDOWN', 60)
+# Lifetime cap per registration. Each send rotates the token and kills the
+# previous link.
+ONBOARDING_MAX_SENDS = _env_int('ONBOARDING_MAX_SENDS', 5)
+# Per-IP and global ceilings over any rolling hour. The global one is the
+# billing circuit breaker.
+ONBOARDING_IP_HOURLY_LIMIT = _env_int('ONBOARDING_IP_HOURLY_LIMIT', 5)
+ONBOARDING_GLOBAL_HOURLY_LIMIT = _env_int('ONBOARDING_GLOBAL_HOURLY_LIMIT', 100)

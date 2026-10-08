@@ -7,7 +7,10 @@ from .views import (
     DiscordLoginRedirectView, DiscordLoginCallbackView,
     SteamLoginRedirectView, SteamLoginCallbackView,
     TwoFactorEnableView, TwoFactorVerifyEnableView, TwoFactorLoginVerifyView,
-    CountryListView
+    CountryListView, CountryBasicListView
+)
+from .onboarding_views import (
+    OnboardingStartView, OnboardingValidateTokenView, OnboardingCompleteView
 )
 
 urlpatterns = [
@@ -30,4 +33,11 @@ urlpatterns = [
     path('2fa/verify-enable/', TwoFactorVerifyEnableView.as_view(), name='two_factor_verify_enable'),
     path('2fa/verify-login/', TwoFactorLoginVerifyView.as_view(), name='two_factor_verify_login'),
     path('countries/', CountryListView.as_view(), name='country_list'),
+    path('countries/basic/', CountryBasicListView.as_view(), name='country_list_basic'),
+    # Email-gated onboarding. Anonymous on purpose: /start/ runs on a Clerk
+    # session, and /validate-token/ + /complete/ run on the emailed token alone,
+    # which is what lets the link open in a browser with no Clerk session.
+    path('onboarding/start/', OnboardingStartView.as_view(), name='onboarding_start'),
+    path('onboarding/validate-token/', OnboardingValidateTokenView.as_view(), name='onboarding_validate_token'),
+    path('onboarding/complete/', OnboardingCompleteView.as_view(), name='onboarding_complete'),
 ]

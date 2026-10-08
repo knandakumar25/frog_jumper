@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from .serializers import UserSerializer, UserProfileSerializer
 from .models import BrowserSession, TwoFactorCode
+from .countries import basic_countries, load_countries
 from .utils import generate_2fa_code, send_2fa_email, verify_2fa_code
 from rest_framework_simplejwt.tokens import RefreshToken
 import uuid
@@ -570,15 +571,34 @@ class TwoFactorLoginVerifyView(APIView):
             return Response({'error': 'Invalid or expired session'}, status=status.HTTP_400_BAD_REQUEST)
 
 class CountryListView(APIView):
+    # `AllowAny` does not stop DRF from running JWTAuthentication, which raises
+    # AuthenticationFailed on a stale or malformed Bearer token -- a 401 before
+    # the permission check is ever reached. An endpoint meant to be anonymous
+    # needs `authentication_classes = []`. Same reasoning as the onboarding
+    # views; see accounts/onboarding_views.py.
+    authentication_classes = []
     permission_classes = [permissions.AllowAny]
 
     def get(self, request):
         try:
-            import os
-            file_path = os.path.join(os.path.dirname(__file__), 'countries.json')
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            return Response(data)
+            # lru_cached: this used to re-open and re-parse 788 KB per request.
+            return Response(load_countries())
         except Exception as e:
             return Response({'error': f'Failed to load countries: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class CountryBasicListView(APIView):
+    """The lean country list (cca3 + name.common) for the onboarding page.
+
+    /countries/ is left as-is because Account.jsx depends on its full shape --
+    including `idd` for the dial-code selector -- and its test only asserts
+    "a list with >0 entries", so a shape change would break the browser
+    silently rather than the suite.
+    """
+
+    authentication_classes = []
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        return Response(basic_countries())
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import apiClient from '../api/client';
@@ -15,7 +15,6 @@ const getCallingCode = (c) => {
 
 const Account = () => {
   const { t } = useTranslation();
-  const { locale } = useParams();
   const { user, setUser } = useAuth();
   const [formData, setFormData] = useState({
     first_name: '',
@@ -109,7 +108,12 @@ const Account = () => {
   };
 
 
-  if (!user) return <Navigate to={`/${locale}/login`} />;
+  // Deliberately /onboarding, not /login. A user who signed up through Clerk
+  // holds a Clerk session but has no Django row until onboarding completes, and
+  // sending them to /login just signs them in with Clerk again and lands them
+  // back here -- a loop with no exit. /onboarding either finishes the job or
+  // tells them plainly that there is no session.
+  if (!user) return <Navigate to="/onboarding" replace />;
 
   return (
     <div className="min-h-screen py-20 px-4 md:px-margin-desktop">

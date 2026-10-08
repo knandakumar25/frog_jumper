@@ -13,6 +13,7 @@ import Squad from './pages/Squad';
 import TechHub from './pages/TechHub';
 import DesignSystem from './pages/DesignSystem';
 import BrowserAuth from './pages/BrowserAuth';
+import Onboarding from './pages/Onboarding';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import TwoFactor from './pages/TwoFactor';
@@ -46,6 +47,15 @@ function MainLayout() {
           <Route path="/:locale/account" element={<Account />} />
           <Route path="/:locale/account/2fa" element={<TwoFactor />} />
           <Route path="/auth/browser-confirm" element={<BrowserAuth />} />
+          {/*
+            Registered BARE, not under /:locale. LocaleRedirect matches the "*"
+            catch-all and does <Navigate to={`/${locale}`} replace />, which
+            discards window.location.search -- so a locale-prefixed onboarding
+            URL would silently drop ?token= and render a blank form with no
+            error. (The same trap is already swallowing the ?access= query on
+            the OAuth /auth-callback redirects.)
+          */}
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="*" element={<LocaleRedirect />} />
         </Routes>
       </main>

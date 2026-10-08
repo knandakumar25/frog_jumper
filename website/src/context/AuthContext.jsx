@@ -66,13 +66,22 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
+  // Used by the onboarding completion step, which receives a token pair from
+  // /auth/onboarding/complete/ rather than from a login form. Kept here so the
+  // storage contract lives in one place instead of being hand-written by a page.
+  const loginWithTokens = (access, refresh, userData) => {
+    localStorage.setItem('accessToken', access);
+    localStorage.setItem('refreshToken', refresh);
+    setUser(userData);
+  };
+
   const logout = () => {
     localStorage.clear();
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, isLoading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, setUser, isLoading, login, verifyLogin2FA, register, loginWithTokens, logout }}>
       {children}
     </AuthContext.Provider>
   );
