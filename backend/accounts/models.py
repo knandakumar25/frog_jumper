@@ -10,9 +10,47 @@ class User(AbstractUser):
     is_2fa_enabled = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     country = models.CharField(max_length=100, blank=True, null=True)
+    # Links this row to a Clerk user, who owns the credentials. Nullable because
+    # every existing row predates Clerk, and the OAuth callback paths (Epic,
+    # Discord, Steam) create users with placeholder addresses and no Clerk id.
+    # `unique` still holds among the rows that do have one.
+    clerk_user_id = models.CharField(max_length=64, unique=True, null=True, blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.username
+
+class PendingRegistration(models.Model):
+    """A Clerk signup that has been emailed a link but has not finished yet.
+
+    No Django User exists until /api/auth/onboarding/complete/ succeeds, so this
+    row is the only record of a signup in flight. Rows survive completion
+    (`completed_at` is set, not deleted) so replay is a clean 409, the rate-limit
+    counters stay exact, and there is an audit trail.
+
+    `email` is deliberately NOT unique here: two Clerk users can legitimately
+    claim the same address, and the collision belongs at completion time -- where
+    it surfaces as a 409 -- rather than as an IntegrityError raised at signup.
+    """
+
+    clerk_user_id = models.CharField(max_length=64, unique=True)
+    email = models.EmailField()
+    # sha256 hex of the raw token, never the token itself. The raw value exists
+    # only inside the email body -- see onboarding_views. Consequence: a stored
+    # token can never be re-sent, so /start/ rotates rather than resends.
+    token_hash = models.CharField(max_length=64, unique=True)
+    first_name = models.CharField(max_length=150, blank=True, default='')
+    last_name = models.CharField(max_length=150, blank=True, default='')
+    clerk_username = models.CharField(max_length=150, blank=True, default='')
+    request_ip = models.GenericIPAddressField(null=True, blank=True)
+    sent_count = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_sent_at = models.DateTimeField()
+    expires_at = models.DateTimeField()
+    completed_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Pending registration for {self.email}"
 
 class BrowserSession(models.Model):
     session_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)

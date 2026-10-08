@@ -21,7 +21,13 @@ export default function Signup() {
             routing="path"
             path={`/${currentLocale}/signup`}
             signInUrl={`/${currentLocale}/login`}
-            fallbackRedirectUrl={`/${currentLocale}`}
+            // Where the user finishes onboarding. BARE, with no locale segment:
+            // the "*" catch-all in App.jsx discards the query string, so a
+            // locale-prefixed path would break the ?token= link. Also set in
+            // the Clerk dashboard for the hosted Account Portal -- this prop
+            // only covers the embedded component.
+            signUpForceRedirectUrl="/onboarding"
+            fallbackRedirectUrl="/onboarding"
             appearance={{
               elements: {
                 formButtonPrimary: "bg-primary-container text-void-black hover:bg-secondary-container transition-colors font-bold uppercase",

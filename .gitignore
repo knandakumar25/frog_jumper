@@ -66,3 +66,13 @@ backend/.venv/
 
 # GdUnit4 Test Reports
 reports/
+
+# Local environment / secrets
+# NOTE: negation must come last, or .env.* swallows .env.example
+.env
+.env.*
+!.env.example
+# Machine-local CA material (see run_wsl_containers.ps1). Exported from this
+# machine's Windows certificate store -- it is an antivirus interception root,
+# not a secret, but there is no reason to publish one machine's trust anchors.
+.local-ca/

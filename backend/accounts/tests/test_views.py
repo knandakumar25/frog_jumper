@@ -120,6 +120,33 @@ class CountryListViewTest(APITestCase):
         self.assertGreater(len(response.data), 0)
 
 
+class CountryBasicListViewTest(APITestCase):
+    """The lean list the onboarding page uses.
+
+    /countries/ is left alone because Account.jsx depends on its full shape;
+    this endpoint exists so onboarding does not ship 788 KB to a phone.
+    """
+
+    def setUp(self):
+        self.basic_url = reverse('country_list_basic')
+
+    def test_returns_only_the_fields_onboarding_needs(self):
+        response = self.client.get(self.basic_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertGreater(len(response.data), 0)
+
+        entry = response.data[0]
+        # `translations` (24 languages), `idd`, `currencies`, `borders` and the
+        # rest are what make the full list large. Onboarding needs none of them.
+        self.assertEqual(set(entry.keys()), {'cca3', 'name'})
+        self.assertEqual(set(entry['name'].keys()), {'common'})
+
+    def test_covers_exactly_the_same_countries_as_the_full_list(self):
+        full = {c['name']['common'] for c in self.client.get(reverse('country_list')).data}
+        basic = {c['name']['common'] for c in self.client.get(self.basic_url).data}
+        self.assertEqual(full, basic)
+
+
 class BrowserSessionViewsTest(APITestCase):
     def setUp(self):
         self.start_url = reverse('browser_start')
