@@ -25,7 +25,15 @@ import {
  * Clerk component or hook passed straight through, so behaviour is unchanged.
  */
 export const CLERK_PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ?? '';
-export const CLERK_ENABLED = Boolean(CLERK_PUBLISHABLE_KEY);
+
+// Only a pk_* value counts. On 2026-10-09 the SECRET key (sk_test_...) was
+// pasted into Vercel's VITE_CLERK_PUBLISHABLE_KEY by mistake: Clerk threw
+// "The publishableKey passed to Clerk is invalid", the site white-screened
+// again, and the secret ended up baked into the public bundle. Anything that
+// is not a publishable key now degrades to signed-out, same as an absent one --
+// and note the wrong value still ships in the bundle regardless (Vite inlines
+// VITE_* unconditionally), so a leaked sk_* must be ROTATED, gate or not.
+export const CLERK_ENABLED = /^pk_(test|live)_/.test(CLERK_PUBLISHABLE_KEY);
 
 const AUTH_DISABLED_NOTICE = 'Sign-in is not available on this deployment.';
 
