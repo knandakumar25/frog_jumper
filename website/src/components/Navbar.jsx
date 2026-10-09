@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+// Via the gate so the navbar degrades to signed-out links (not a crash) when
+// the publishable key is absent from a build. See src/auth/clerkGate.jsx.
+import { SignedIn, SignedOut, UserButton } from '../auth/clerkGate.jsx';
 import LanguageSelector from '../translations/LanguageSelector';
 import { useLanguage } from '../translations/LanguageContext';
 import { getTitleLogoPath } from '../translations/titleLogo';

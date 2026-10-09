@@ -1,5 +1,6 @@
 import React from 'react';
-import { SignUp } from '@clerk/clerk-react';
+// Via the gate so a keyless build shows a notice instead of throwing.
+import { SignUp } from '../auth/clerkGate.jsx';
 import { useLanguage } from '../translations/LanguageContext';
 
 export default function Signup() {

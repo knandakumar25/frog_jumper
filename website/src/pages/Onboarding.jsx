@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
+// Via the gate: without a publishable key the stub returns a signed-out,
+// loaded state, so start mode never POSTs and token mode (no Clerk session
+// needed) still works. See src/auth/clerkGate.jsx.
+import { useUser } from '../auth/clerkGate.jsx';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../translations/LanguageContext';
