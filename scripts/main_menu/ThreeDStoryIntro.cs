@@ -375,13 +375,16 @@ public partial class ThreeDStoryIntro : Node3D
 	}
 
 	/// <summary>
-	/// Finalizes the intro sequence and transitions the user to the level selection screen.
+	/// Finalizes the intro sequence and transitions the user into Protocol Zero.
+	/// The level selection screen is being phased out: deploy now lands the
+	/// operative directly in the 3D training level. It stays reachable from the
+	/// pause menu and the old map wiring until it is removed entirely.
 	/// </summary>
 	private void FinishIntro()
 	{
 		_robotBuddy?.SetTransmitting(false);
 		DisplayServer.ScreenSetKeepOn(false);
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/level_selection.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/training_protocol_3d.tscn");
 	}
 
 	/// <summary>

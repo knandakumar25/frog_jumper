@@ -1167,6 +1167,18 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
+	/// Handler for the scene-wired DeployButton.pressed signal (character_selection.tscn).
+	/// Without it the signal lands nowhere: Enter/Space on the focused Deploy button
+	/// did nothing, and CreateSessionAndStart -- which sets Global.selected_character,
+	/// opens the SessionManager session and transitions to the story intro -- had no
+	/// caller at all.
+	/// </summary>
+	private void _on_deploy_pressed()
+	{
+		CreateSessionAndStart(_currentSelectedCharacter);
+	}
+
+	/// <summary>
 	/// Finalizes the selection, creates a new session in SessionManager, and transitions to the story intro.
 	/// </summary>
 	private async void CreateSessionAndStart(string characterName)
