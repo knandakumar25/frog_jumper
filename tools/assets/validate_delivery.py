@@ -12,7 +12,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 OPERATIVES = ['cyber_shogun', 'solaria', 'oceanus', 'surya_prime', 'mirage_blade', 'apex_titan']
 ENEMIES = ['vanguard', 'heavy', 'stalker']
-PROPS = ['explosive_barrel', 'hazard_zone_marker', 'timed_trap', 'switch_object', 'destructible_crate']
+PROPS = ['explosive_barrel', 'hazard_zone_marker', 'timed_trap', 'switch_object', 'destructible_crate',
+         'training_grid_floor', 'training_divider_platform', 'training_waypoint_beacon',
+         'training_calibration_fragment', 'training_drone']
 ARCHITECTURE = ['modular_wall_panel', 'modular_floor_tile', 'modular_ceiling_panel', 'virtual_forge', 'extraction_point', 'corporate_hub']
 CLIPS = {'Idle', 'Running', 'Walking', 'Jumping', 'Death', 'Hit', 'Thrust_Slash', 'Karate_Strike', 'Attack'}
 

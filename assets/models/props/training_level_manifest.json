@@ -1,0 +1,220 @@
+{
+  "generator": "tools/assets/build_training_level_assets.py",
+  "style": "Neon Pulse / Protocol Zero simulation kit",
+  "blender_version": "5.2.2 LTS",
+  "format": "glTF 2.0 GLB",
+  "assets": [
+    {
+      "name": "training_grid_floor",
+      "path": "assets/models/props/training_grid_floor.glb",
+      "bytes": 976244,
+      "triangles": 15140,
+      "mesh_objects": 48,
+      "animation_clips": [],
+      "bounds_blender_xyz_m": [
+        [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0,
+          1.9149999618530273
+        ]
+      ],
+      "bbox_m": [
+        12.0,
+        12.0,
+        1.915
+      ],
+      "origin": "0,0,0 at base plane",
+      "units": "meters",
+      "materials": [
+        "PBR_Polished_Obsidian",
+        "EMISSIVE_Cyan_Security",
+        "EMISSIVE_White_Signage",
+        "PBR_Obsidian_Armor",
+        "EMISSIVE_Magenta_Pulse",
+        "PBR_Industrial_Grey",
+        "EMISSIVE_Cyan_Pulse"
+      ],
+      "purpose": "12 x 12 m single-tile simulation floor with 1 m emissive wireframe grid -- supersedes tiling modular_floor_tile; sibling of virtual_forge",
+      "preview": ".validation/training-previews/training_grid_floor.png"
+    },
+    {
+      "name": "training_divider_platform",
+      "path": "assets/models/props/training_divider_platform.glb",
+      "bytes": 642096,
+      "triangles": 9320,
+      "mesh_objects": 71,
+      "animation_clips": [],
+      "bounds_blender_xyz_m": [
+        [
+          -6.0,
+          -7.75,
+          0.0
+        ],
+        [
+          6.0,
+          7.75,
+          1.5950000286102295
+        ]
+      ],
+      "bbox_m": [
+        12.0,
+        15.5,
+        1.595
+      ],
+      "origin": "0,0,0 at base plane",
+      "units": "meters",
+      "materials": [
+        "EMISSIVE_Cyan_Security",
+        "PBR_Hazard_Yellow",
+        "PBR_Industrial_Grey",
+        "PBR_Polished_Obsidian",
+        "PBR_Obsidian_Armor",
+        "EMISSIVE_Cyan_Pulse",
+        "PBR_Titanium_Edges",
+        "EMISSIVE_Magenta_Pulse"
+      ],
+      "purpose": "12 m-wide ledge pair with a 3.5 m chasm sized to the double jump -- step 2 of five",
+      "preview": ".validation/training-previews/training_divider_platform.png"
+    },
+    {
+      "name": "training_waypoint_beacon",
+      "path": "assets/models/props/training_waypoint_beacon.glb",
+      "bytes": 287716,
+      "triangles": 2480,
+      "mesh_objects": 7,
+      "bones": 3,
+      "animation_clips": [
+        "Idle",
+        "Active"
+      ],
+      "rest_bounds_blender_xyz_m": [
+        [
+          -0.4399999976158142,
+          -0.4399999976158142,
+          0.0
+        ],
+        [
+          0.4399999976158142,
+          0.4399999976158142,
+          1.709999918937683
+        ]
+      ],
+      "bbox_m": [
+        0.88,
+        0.88,
+        1.71
+      ],
+      "origin": "0,0,0 at feet or base",
+      "units": "meters",
+      "materials": [
+        "PBR_Obsidian_Armor",
+        "PBR_Titanium_Edges",
+        "EMISSIVE_Cyan_Pulse",
+        "PBR_Industrial_Grey",
+        "EMISSIVE_Cyan_Security",
+        "EMISSIVE_White_Signage",
+        "PBR_Matte_Carbon"
+      ],
+      "preview": ".validation/training-previews/training_waypoint_beacon.png",
+      "purpose": "in-world five-step signposting; instance 5x with a Label3D numeral (1..5)",
+      "design": "floor-planted holo waypoint marker"
+    },
+    {
+      "name": "training_calibration_fragment",
+      "path": "assets/models/props/training_calibration_fragment.glb",
+      "bytes": 531540,
+      "triangles": 4916,
+      "mesh_objects": 7,
+      "bones": 4,
+      "animation_clips": [
+        "Idle",
+        "Collect"
+      ],
+      "rest_bounds_blender_xyz_m": [
+        [
+          -0.35499998927116394,
+          -0.36080002784729004,
+          0.0
+        ],
+        [
+          0.35499998927116394,
+          0.35499998927116394,
+          1.904999852180481
+        ]
+      ],
+      "bbox_m": [
+        0.71,
+        0.7158,
+        1.905
+      ],
+      "origin": "0,0,0 at feet or base",
+      "units": "meters",
+      "materials": [
+        "EMISSIVE_Cyan_Security",
+        "EMISSIVE_Gold_Pulse",
+        "EMISSIVE_Cyan_Pulse",
+        "EMISSIVE_White_Signage",
+        "PBR_Obsidian_Armor",
+        "PBR_Titanium_Edges",
+        "PBR_Matte_Carbon"
+      ],
+      "preview": ".validation/training-previews/training_calibration_fragment.png",
+      "purpose": "step 4 pickup -- floating calibration data fragment, PointValue-driven via Collectable3D",
+      "design": "encased faceted cyan data shard over anchor pedestal"
+    },
+    {
+      "name": "training_drone",
+      "path": "assets/models/props/training_drone.glb",
+      "bytes": 1326668,
+      "triangles": 12028,
+      "mesh_objects": 10,
+      "bones": 11,
+      "animation_clips": [
+        "Idle",
+        "Warning",
+        "Active",
+        "Hit",
+        "Death"
+      ],
+      "rest_bounds_blender_xyz_m": [
+        [
+          -0.637725830078125,
+          -0.5977258086204529,
+          0.0
+        ],
+        [
+          0.637725830078125,
+          0.5977258682250977,
+          2.1499998569488525
+        ]
+      ],
+      "bbox_m": [
+        1.2755,
+        1.1955,
+        2.15
+      ],
+      "origin": "0,0,0 at feet or base",
+      "units": "meters",
+      "materials": [
+        "PBR_Industrial_Grey",
+        "PBR_Titanium_Edges",
+        "EMISSIVE_Cyan_Security",
+        "EMISSIVE_White_Signage",
+        "EMISSIVE_Green_Online",
+        "EMISSIVE_Red_Danger",
+        "PBR_Joint_Rubber",
+        "PBR_Obsidian_Armor",
+        "PBR_Matte_Carbon",
+        "EMISSIVE_Yellow_Warning"
+      ],
+      "preview": ".validation/training-previews/training_drone.png",
+      "purpose": "step 3 passive ability target -- \"simulated Xelthara Heavy Unit\"; driven by Health + WeaponArea3D + TutorialTarget, never by Enemy3D (no hostile AI)",
+      "design": "hovering target drone over a TGT-01 pad; state lamps on named ReadyGreen/AlertYellow/DangerRed bones"
+    }
+  ]
+}
