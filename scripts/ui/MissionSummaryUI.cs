@@ -24,7 +24,7 @@ public partial class MissionSummaryUI : Control
 	{
 		Visible = true;
 		_scoreLabel.Text = $"FINAL SCORE: {score}";
-		_cherriesLabel.Text = $"CHERRYS RECOVERED: {cherries}";
+		_cherriesLabel.Text = $"FRAGMENTS SECURED: {cherries}";
 	}
 
 	private void OnContinuePressed()

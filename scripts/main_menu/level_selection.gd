@@ -6,7 +6,7 @@ const LoadingScreen = preload("res://scripts/ui/loading_screen.gd")
 # Level selection mapping from index to scene path.
 # This supports the full 10-level campaign (0-9).
 var level_map = {
-	0: "res://scenes/gameplay/training_protocol.tscn",
+	0: "res://scenes/gameplay/training_protocol_3d.tscn", # Protocol Zero (3D); replaces the 2D relic
 	1: "res://scenes/gameplay/prototype_3d.tscn", # Using prototype for Lvl 1
 	2: "res://scenes/gameplay/level2.tscn",
 	3: "res://scenes/gameplay/level3.tscn",

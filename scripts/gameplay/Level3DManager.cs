@@ -11,6 +11,8 @@ using Godot.Collections;
 /// </summary>
 public partial class Level3DManager : Node
 {
+	[Signal] public delegate void BriefingFinishedEventHandler();
+
 	[Export] public int LevelNumber = 1;
 	[Export] public int PointsPerCollectable = 10;
 	[Export] public int RequiredCollectables = 2;
@@ -31,6 +33,16 @@ public partial class Level3DManager : Node
 
 		// Initialize Dialogue UI.
 		_dialogueUI = GetTree().Root.FindChild("DialogueUI", true, false) as DialogueUI;
+
+		// A TrainingManager child is the tutorial authority for this level: it
+		// narrates step by step, so the full-script briefing is skipped and the
+		// tutorial is released to start immediately.
+		if (GetNodeOrNull<TrainingManager>("TrainingManager") != null)
+		{
+			GD.Print($"Level3DManager: TrainingManager present; narrative briefing deferred for Level {LevelNumber}.");
+			EmitSignal(SignalName.BriefingFinished);
+			return;
+		}
 
 		// Start the narrative briefing.
 		await StartBriefing();
@@ -65,7 +77,7 @@ public partial class Level3DManager : Node
 
 		if (_collectableLabel != null)
 		{
-			_collectableLabel.Text = $"CHERRYS: {_collectedCount} / {RequiredCollectables}";
+			_collectableLabel.Text = $"FRAGMENTS: {_collectedCount} / {RequiredCollectables}";
 		}
 	}
 
@@ -78,6 +90,7 @@ public partial class Level3DManager : Node
 		if (_dialogueUI == null)
 		{
 			GD.PrintErr("Level3DManager: DialogueUI not found! Skipping briefing.");
+			EmitSignal(SignalName.BriefingFinished);
 			return;
 		}
 
@@ -92,6 +105,7 @@ public partial class Level3DManager : Node
 		{
 			GD.PrintErr($"Level3DManager: Narrative file not found at {path}");
 			player?.ResumeMovement();
+			EmitSignal(SignalName.BriefingFinished);
 			return;
 		}
 
@@ -107,6 +121,7 @@ public partial class Level3DManager : Node
 		{
 			GD.PrintErr($"Level3DManager: No dialogue found for level {lvlKey}");
 			player?.ResumeMovement();
+			EmitSignal(SignalName.BriefingFinished);
 			return;
 		}
 
@@ -130,6 +145,7 @@ public partial class Level3DManager : Node
 
 		// 5. Unfreeze Player.
 		player?.ResumeMovement();
+		EmitSignal(SignalName.BriefingFinished);
 		GD.Print("Level3DManager: Briefing complete. Gameplay started.");
 	}
 

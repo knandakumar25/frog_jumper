@@ -1,0 +1,729 @@
+[gd_scene format=3 uid="uid://datrnproto0"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/Level3DManager.cs" id="1_lvl"]
+[ext_resource type="Script" path="res://scripts/gameplay/Player3D.cs" id="2_ply"]
+[ext_resource type="Script" path="res://scripts/ui/InputBootstrap.cs" id="4_boot"]
+[ext_resource type="Script" path="res://scripts/gameplay/Health.cs" id="8_hlt"]
+[ext_resource type="Script" path="res://scripts/gameplay/WeaponArea3D.cs" id="9_wpn"]
+[ext_resource type="Script" path="res://scripts/gameplay/HealthBar3D.cs" id="11_bar"]
+[ext_resource type="Script" path="res://scripts/ui/PlayerHealthUI.cs" id="12_phi"]
+[ext_resource type="Script" path="res://scripts/gameplay/Collectable3D.cs" id="13_col"]
+[ext_resource type="Script" path="res://scripts/managers/CombatSoundManager.cs" id="15_snd"]
+[ext_resource type="Script" path="res://scripts/ui/GameOverUI.cs" id="16_gov"]
+[ext_resource type="Script" path="res://scripts/ui/MissionSummaryUI.cs" id="17_msu"]
+[ext_resource type="Script" path="res://scripts/gameplay/CombatVFXManager.cs" id="18_vfx"]
+[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="19_env"]
+[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="20_thm"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/pause_menu.tscn" id="21_pau"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="22_orb"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="23_raj"]
+[ext_resource type="Script" path="res://scripts/gameplay/TrainingManager.cs" id="24_trn"]
+[ext_resource type="Script" path="res://scripts/gameplay/TutorialTarget.cs" id="25_tgt"]
+[ext_resource type="Script" path="res://scripts/gameplay/TrainingDrone.cs" id="26_drr"]
+[ext_resource type="Script" path="res://scripts/ui/DialogueUI.cs" id="27_dlg"]
+[ext_resource type="PackedScene" path="res://assets/models/props/training_grid_floor.glb" id="28_gfl"]
+[ext_resource type="PackedScene" path="res://assets/models/props/training_divider_platform.glb" id="29_div"]
+[ext_resource type="PackedScene" path="res://assets/models/props/training_waypoint_beacon.glb" id="30_wpb"]
+[ext_resource type="PackedScene" path="res://assets/models/props/training_calibration_fragment.glb" id="31_cfr"]
+[ext_resource type="PackedScene" path="res://assets/models/props/training_drone.glb" id="32_drm"]
+[ext_resource type="PackedScene" path="res://assets/models/props/extraction_point.glb" id="33_ext"]
+[ext_resource type="PackedScene" path="res://assets/models/menu/perimeter_blast_barrier.glb" id="34_bar"]
+[ext_resource type="PackedScene" path="res://assets/models/menu/cyber_city_skyline.glb" id="35_sky"]
+[ext_resource type="Shader" path="res://assets/shaders/wireframe_simulation.gdshader" id="36_wfs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.5
+height = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_weapon"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_base"]
+size = Vector3(64, 0.2, 64)
+
+[sub_resource type="BoxMesh" id="BoxMesh_base"]
+size = Vector3(64, 0.2, 64)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_base"]
+albedo_color = Color(0.016, 0.025, 0.04, 1)
+metallic = 0.5
+roughness = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_simfloor"]
+size = Vector3(12, 0.33, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_deck"]
+size = Vector3(12, 1.1, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_extract"]
+size = Vector3(7.4, 0.55, 7.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_x"]
+size = Vector3(1, 8, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_z"]
+size = Vector3(62, 8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dronepad"]
+size = Vector3(1.4, 0.15, 1.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dronehit"]
+size = Vector3(1.0, 1.2, 1.0)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t1"]
+radius = 2.2
+height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t2"]
+radius = 3.0
+height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t3"]
+radius = 3.5
+height = 2.6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t5"]
+radius = 3.4
+height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_frag"]
+radius = 0.85
+height = 1.6
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wireframe"]
+size = Vector2(80, 16)
+subdivide_width = 40
+subdivide_depth = 12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wireframe"]
+shader = ExtResource("36_wfs")
+shader_parameter/base_color = Color(0, 0.94, 1, 0.85)
+shader_parameter/sweep_speed = 1.2
+shader_parameter/sweep_height = 40.0
+shader_parameter/sweep_bandwidth = 6.0
+shader_parameter/sweep_boost = 3.0
+shader_parameter/scanline_speed = 2.0
+shader_parameter/scanline_frequency = 80.0
+shader_parameter/emission_strength = 2.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_panel"]
+bg_color = Color(0.02, 0.04, 0.08, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0.94, 1, 0.2)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_panel"]
+bg_color = Color(0.03, 0.05, 0.1, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0.94, 1, 0.3)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_bg"]
+bg_color = Color(0.05, 0.08, 0.12, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.4, 0.5, 0.7)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_fill"]
+bg_color = Color(0, 0.94, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0.5, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue_panel"]
+bg_color = Color(0.02, 0.04, 0.09, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.85)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0.94, 1, 0.25)
+shadow_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_beacon"]
+font = ExtResource("22_orb")
+font_size = 140
+font_color = Color(0, 0.94, 1, 1)
+
+[node name="Level3DManager" type="Node3D"]
+script = ExtResource("1_lvl")
+LevelNumber = 0
+PointsPerCollectable = 10
+RequiredCollectables = 1
+
+[node name="TrainingManager" type="Node" parent="."]
+script = ExtResource("24_trn")
+
+[node name="Target1" type="Area3D" parent="TrainingManager"]
+script = ExtResource("25_tgt")
+position = Vector3(0, 0.9, -2.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingManager/Target1"]
+shape = SubResource("CylinderShape3D_t1")
+
+[node name="Target2" type="Area3D" parent="TrainingManager"]
+script = ExtResource("25_tgt")
+position = Vector3(0, 1.3, -18.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingManager/Target2"]
+shape = SubResource("CylinderShape3D_t2")
+
+[node name="Target3" type="Area3D" parent="TrainingManager"]
+script = ExtResource("25_tgt")
+position = Vector3(9, 1.3, -17)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingManager/Target3"]
+shape = SubResource("CylinderShape3D_t3")
+
+[node name="Target4" type="Area3D" parent="TrainingManager"]
+script = ExtResource("25_tgt")
+position = Vector3(-9, 0.9, -21)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingManager/Target4"]
+shape = SubResource("CylinderShape3D_t1")
+
+[node name="Target5" type="Area3D" parent="TrainingManager"]
+script = ExtResource("25_tgt")
+position = Vector3(0, 0.9, -26)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingManager/Target5"]
+shape = SubResource("CylinderShape3D_t5")
+
+[node name="TrainingDrone" type="Node3D" parent="."]
+script = ExtResource("26_drr")
+position = Vector3(9, 0, -17)
+
+[node name="DroneModel"parent="TrainingDrone" instance=ExtResource("32_drm")]
+
+[node name="Hitbox" type="StaticBody3D" parent="TrainingDrone"]
+position = Vector3(0, 1.35, 0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingDrone/Hitbox"]
+shape = SubResource("BoxShape3D_dronehit")
+
+[node name="Health" type="Node" parent="TrainingDrone/Hitbox"]
+script = ExtResource("8_hlt")
+MaxHealth = 60.0
+
+[node name="DronePad" type="StaticBody3D" parent="."]
+position = Vector3(9, 0.045, -17)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DronePad"]
+shape = SubResource("BoxShape3D_dronepad")
+
+[node name="CombatSoundManager" type="Node" parent="."]
+script = ExtResource("15_snd")
+
+[node name="CombatVFXManager" type="Node" parent="."]
+script = ExtResource("18_vfx")
+
+[node name="InputBootstrap" type="Node" parent="."]
+script = ExtResource("4_boot")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("19_env")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.573576, 0, -0.819152, -0.346189, 0.906308, -0.242404, 0.742404, 0.422618, 0.519837, 12, 28, 20)
+light_color = Color(0.92, 0.84, 0.76, 1)
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.03
+shadow_normal_bias = 1.8
+directional_shadow_mode = 2
+directional_shadow_max_distance = 80.0
+directional_shadow_blend_splits = true
+
+[node name="GridLight" type="OmniLight3D" parent="."]
+position = Vector3(0, 3.5, 0)
+light_color = Color(0, 0.94, 1, 1)
+light_energy = 4.0
+omni_range = 13.0
+
+[node name="DroneLight" type="OmniLight3D" parent="."]
+position = Vector3(9, 3.5, -17)
+light_color = Color(1, 0, 0.5, 1)
+light_energy = 2.5
+omni_range = 10.0
+
+[node name="FragmentLight" type="OmniLight3D" parent="."]
+position = Vector3(-9, 3, -21)
+light_color = Color(0, 0.94, 1, 1)
+light_energy = 2.5
+omni_range = 10.0
+
+[node name="ExtractionLight" type="OmniLight3D" parent="."]
+position = Vector3(0, 3, -26)
+light_color = Color(0, 1, 0.55, 1)
+light_energy = 2.5
+omni_range = 12.0
+
+[node name="Player3D" type="CharacterBody3D" parent="."]
+script = ExtResource("2_ply")
+position = Vector3(0, 0.45, 3)
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player3D"]
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="Health" type="Node" parent="Player3D"]
+script = ExtResource("8_hlt")
+
+[node name="HealthBar3D" type="Label3D" parent="Player3D"]
+script = ExtResource("11_bar")
+position = Vector3(0, 2.5, 0)
+
+[node name="WeaponArea3D" type="Area3D" parent="Player3D"]
+script = ExtResource("9_wpn")
+position = Vector3(0, 1, -1.5)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player3D/WeaponArea3D"]
+shape = SubResource("BoxShape3D_weapon")
+
+[node name="CameraPivot" type="Node3D" parent="Player3D"]
+position = Vector3(0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player3D/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 0.8, 4.5)
+current = true
+
+[node name="BaseFloor" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.1, -13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseFloor"]
+shape = SubResource("BoxShape3D_base")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BaseFloor"]
+mesh = SubResource("BoxMesh_base")
+material_override = SubResource("StandardMaterial3D_base")
+
+[node name="SimFloor" parent="." instance=ExtResource("28_gfl")]
+position = Vector3(0, 0, 0)
+
+[node name="SimFloorCollision" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.165, 0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimFloorCollision"]
+shape = SubResource("BoxShape3D_simfloor")
+
+[node name="Divider" parent="." instance=ExtResource("29_div")]
+position = Vector3(0, -0.77, -13.75)
+
+[node name="DeckEntryCollision" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.22, -9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeckEntryCollision"]
+shape = SubResource("BoxShape3D_deck")
+
+[node name="DeckLandingCollision" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.22, -18.5)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeckLandingCollision"]
+shape = SubResource("BoxShape3D_deck")
+
+[node name="ExtractionPad" parent="." instance=ExtResource("33_ext")]
+position = Vector3(0, -0.22, -26)
+
+[node name="ExtractionCollision" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.055, -26)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExtractionCollision"]
+shape = SubResource("BoxShape3D_extract")
+
+[node name="FragmentPickup" type="Area3D" parent="."]
+script = ExtResource("13_col")
+position = Vector3(-9, 1.15, -21)
+PointValue = 50
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentPickup"]
+shape = SubResource("CylinderShape3D_frag")
+
+[node name="FragmentModel" parent="FragmentPickup" instance=ExtResource("31_cfr")]
+position = Vector3(0, -1.15, 0)
+
+[node name="Beacon1" parent="." instance=ExtResource("30_wpb")]
+position = Vector3(0, 0, -2.5)
+
+[node name="Numeral" type="Label3D" parent="Beacon1"]
+position = Vector3(0, 2.1, 0)
+label_settings = SubResource("LabelSettings_beacon")
+text = "1"
+billboard = 1
+
+[node name="Beacon2" parent="." instance=ExtResource("30_wpb")]
+position = Vector3(0, 0.33, -18.5)
+
+[node name="Numeral" type="Label3D" parent="Beacon2"]
+position = Vector3(0, 2.1, 0)
+label_settings = SubResource("LabelSettings_beacon")
+text = "2"
+billboard = 1
+
+[node name="Beacon3" parent="." instance=ExtResource("30_wpb")]
+position = Vector3(11.4, 0, -17)
+
+[node name="Numeral" type="Label3D" parent="Beacon3"]
+position = Vector3(0, 2.1, 0)
+label_settings = SubResource("LabelSettings_beacon")
+text = "3"
+billboard = 1
+
+[node name="Beacon4" parent="." instance=ExtResource("30_wpb")]
+position = Vector3(-11.5, 0, -21)
+
+[node name="Numeral" type="Label3D" parent="Beacon4"]
+position = Vector3(0, 2.1, 0)
+label_settings = SubResource("LabelSettings_beacon")
+text = "4"
+billboard = 1
+
+[node name="Beacon5" parent="." instance=ExtResource("30_wpb")]
+position = Vector3(2.8, 0, -26)
+
+[node name="Numeral" type="Label3D" parent="Beacon5"]
+position = Vector3(0, 2.1, 0)
+label_settings = SubResource("LabelSettings_beacon")
+text = "5"
+billboard = 1
+
+[node name="Barrier1" parent="." instance=ExtResource("34_bar")]
+position = Vector3(-15, 0, 0)
+
+[node name="Barrier2" parent="." instance=ExtResource("34_bar")]
+position = Vector3(-15, 0, -12)
+
+[node name="Barrier3" parent="." instance=ExtResource("34_bar")]
+position = Vector3(-15, 0, -24)
+
+[node name="Barrier4" parent="." instance=ExtResource("34_bar")]
+position = Vector3(15, 0, 0)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="Barrier5" parent="." instance=ExtResource("34_bar")]
+position = Vector3(15, 0, -12)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="Barrier6" parent="." instance=ExtResource("34_bar")]
+position = Vector3(15, 0, -24)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="WallWest" type="StaticBody3D" parent="."]
+position = Vector3(-16.5, 4, -13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallWest"]
+shape = SubResource("BoxShape3D_wall_x")
+
+[node name="WallEast" type="StaticBody3D" parent="."]
+position = Vector3(16.5, 4, -13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallEast"]
+shape = SubResource("BoxShape3D_wall_x")
+
+[node name="WallSouth" type="StaticBody3D" parent="."]
+position = Vector3(0, 4, 8)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallSouth"]
+shape = SubResource("BoxShape3D_wall_z")
+
+[node name="WallNorth" type="StaticBody3D" parent="."]
+position = Vector3(0, 4, -33.5)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallNorth"]
+shape = SubResource("BoxShape3D_wall_z")
+
+[node name="Skyline" parent="." instance=ExtResource("35_sky")]
+position = Vector3(0, 0, -40)
+
+[node name="WireframeBackdrop" type="MeshInstance3D" parent="."]
+position = Vector3(0, 8, -36)
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("PlaneMesh_wireframe")
+material_override = SubResource("ShaderMaterial_wireframe")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUDContainer" type="PanelContainer" parent="UI"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 380.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_panel")
+
+[node name="Margin" type="MarginContainer" parent="UI/HUDContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="UI/HUDContainer/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PointsLabel" type="Label" parent="UI/HUDContainer/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("22_orb")
+theme_override_font_sizes/font_size = 18
+text = "SCORE: 0"
+
+[node name="CollectableLabel" type="Label" parent="UI/HUDContainer/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 1, 0.6, 1)
+theme_override_fonts/font = ExtResource("22_orb")
+theme_override_font_sizes/font_size = 15
+text = "FRAGMENTS: 0 / 1"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="UI/HUDContainer/Margin/VBox"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_hp_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp_fill")
+max_value = 100.0
+value = 100.0
+show_percentage = false
+script = ExtResource("12_phi")
+
+[node name="DialogueUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("20_thm")
+script = ExtResource("27_dlg")
+
+[node name="Panel" type="Panel" parent="UI/DialogueUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -210.0
+offset_right = 520.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue_panel")
+
+[node name="VBox" type="VBoxContainer" parent="UI/DialogueUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = -18.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="SpeakerLabel" type="Label" parent="UI/DialogueUI/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("22_orb")
+theme_override_font_sizes/font_size = 15
+text = "AXIOM-7"
+
+[node name="TextLabel" type="Label" parent="UI/DialogueUI/Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
+theme_override_fonts/font = ExtResource("23_raj")
+theme_override_font_sizes/font_size = 21
+autowrap_mode = 3
+text = ""
+
+[node name="GameOverUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_gov")
+
+[node name="Panel" type="PanelContainer" parent="UI/GameOverUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal_panel")
+
+[node name="VBox" type="VBoxContainer" parent="UI/GameOverUI/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="UI/GameOverUI/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.15, 0.25, 1)
+theme_override_fonts/font = ExtResource("22_orb")
+theme_override_font_sizes/font_size = 20
+text = "SYSTEM CRITICAL
+OPERATIVE TERMINATED"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="UI/GameOverUI/Panel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("20_thm")
+theme_override_fonts/font = ExtResource("23_raj")
+theme_override_font_sizes/font_size = 18
+text = "// REBOOT PROTOCOL"
+
+[node name="MenuBtn" type="Button" parent="UI/GameOverUI/Panel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("20_thm")
+theme_override_fonts/font = ExtResource("23_raj")
+theme_override_font_sizes/font_size = 18
+text = "// ABORT TO HQ"
+
+[node name="MissionSummaryUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_msu")
+
+[node name="Panel" type="PanelContainer" parent="UI/MissionSummaryUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -160.0
+offset_right = 240.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal_panel")
+
+[node name="VBox" type="VBoxContainer" parent="UI/MissionSummaryUI/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="HeaderLabel" type="Label" parent="UI/MissionSummaryUI/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("22_orb")
+theme_override_font_sizes/font_size = 20
+text = "MISSION ACCOMPLISHED"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/MissionSummaryUI/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9)
+theme_override_fonts/font = ExtResource("23_raj")
+theme_override_font_sizes/font_size = 20
+text = "FINAL SCORE: 0"
+horizontal_alignment = 1
+
+[node name="CherriesLabel" type="Label" parent="UI/MissionSummaryUI/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 1, 0.6, 0.9)
+theme_override_fonts/font = ExtResource("23_raj")
+theme_override_font_sizes/font_size = 20
+text = "FRAGMENTS SECURED: 0"
+horizontal_alignment = 1
+
+[node name="ContinueBtn" type="Button" parent="UI/MissionSummaryUI/Panel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("20_thm")
+theme_override_fonts/font = ExtResource("23_raj")
+theme_override_font_sizes/font_size = 18
+text = "// PROCEED TO COMMAND HQ"
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("21_pau")]

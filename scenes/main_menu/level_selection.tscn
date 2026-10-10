@@ -182,7 +182,7 @@ custom_minimum_size = Vector2(220, 54)
 layout_mode = 2
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="MainLayout/SectorGrid/Sector1/VBox/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector1/VBox/Level1" to="." method="_on_level_0_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector2/VBox/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector3/VBox/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector4/VBox/Level4" to="." method="_on_level_4_pressed"]
