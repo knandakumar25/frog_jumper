@@ -7,8 +7,8 @@
     {
       "name": "cyber_shogun",
       "path": "assets/models/hq/cyber_shogun.glb",
-      "bytes": 1276116,
-      "triangles": 12608,
+      "bytes": 1277292,
+      "triangles": 12640,
       "bbox_m": [
         0.7071,
         0.7095,
@@ -16,7 +16,7 @@
       ],
       "rest_bounds_blender_xyz_m": [
         [
-          -0.17268314957618713,
+          -0.17268316447734833,
           -0.5042257308959961,
           -0.028493128716945648
         ],
@@ -31,13 +31,13 @@
       "materials": [
         "EMISSIVE_Cyan_Core",
         "PBR_Titanium_Trim",
-        "EMISSIVE_White_Visor",
+        "EMISSIVE_Magenta_Trim",
+        "PBR_Brass_Gilt",
         "PBR_Fabric_Indigo",
         "PBR_Obsidian_Plate",
         "EMISSIVE_Cyan_Crest",
         "PBR_Carbon_Weave",
-        "EMISSIVE_Magenta_Trim",
-        "PBR_Brass_Gilt",
+        "EMISSIVE_White_Visor",
         "PBR_Iron_Hardware"
       ],
       "animation_clips": [

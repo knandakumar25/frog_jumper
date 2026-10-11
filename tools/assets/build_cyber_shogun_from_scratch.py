@@ -363,22 +363,25 @@ def build_model():
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         b = side
-        # the sode: three stacked lamellar bands over the shoulder, a samurai
-        # silhouette instead of a single sphere
+        # the sode: three stacked lamellar bands over the shoulder; the band
+        # z-ranges OVERLAP deliberately (gaps between them read as the plates
+        # floating free of the arm)
         shell('Sode_top_' + b, (s * .235, -.005, 1.435), (.10, .12, .15), 'plate', 'Clavicle.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(.3, 1.01), segments=16, rings=8)
+              keep='outer-x+' if s > 0 else 'outer-x-', zband=(.12, 1.01), segments=16, rings=8)
         shell('Sode_mid_' + b, (s * .24, 0, 1.375), (.105, .115, .15), 'plate', 'UpperArm.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-.42, .32), segments=16, rings=8)
+              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-.55, .18), segments=16, rings=8)
         shell('Sode_low_' + b, (s * .245, .005, 1.315), (.11, .11, .15), 'plate', 'UpperArm.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-1.01, -.38), segments=16, rings=8)
+              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-1.05, -.5), segments=16, rings=8)
         box('Pauldron_fin_' + b, (s * .30, .02, 1.49), (.022, .15, .04), 'gilt', 'Clavicle.' + b, .003)
         shell('Thigh_guard_' + b, (s * .11, -.028, .70), (.06, .062, .145), 'plate', 'UpLeg.' + b, keep='front')
         shell('Knee_cop_' + b, (s * .112, -.055, .528), (.06, .062, .056), 'gilt', 'Leg.' + b, keep='lower', segments=16, rings=8)
         # boots: flat sole so they ground cleanly; the stance sits a touch
-        # wider than the thigh line so the rest pose reads as standing, not mannequin
-        box('Boot_sole_' + b, (s * .125, -.065, .026), (.10, .21, .052), 'iron', 'Foot.' + b, .01)
+        # wider than the thigh line so the rest pose reads as standing, not
+        # mannequin. Lacquered plate, not the hardware grey -- pale boots
+        # glowed under the podium key light like sneakers.
+        box('Boot_sole_' + b, (s * .125, -.065, .026), (.10, .21, .052), 'plate', 'Foot.' + b, .01)
         shell('Sabaton_toe_' + b, (s * .125, -.09, .05), (.05, .1, .048), 'plate', 'Foot.' + b, keep='lower', segments=16, rings=8)
-        box('Boot_heel_' + b, (s * .125, .05, .05), (.08, .08, .10), 'iron', 'Foot.' + b, .012)
+        box('Boot_heel_' + b, (s * .125, .05, .05), (.08, .08, .10), 'plate', 'Foot.' + b, .012)
     shell('Breastplate', (0, -.015, 1.315), (.17, .12, .15), 'plate', 'Chest', keep='front')
     box('Chest_ridge', (0, -.132, 1.33), (.04, .032, .24), 'gilt', 'Chest', .004)
     shell('Backplate', (0, .02, 1.30), (.155, .11, .14), 'plate', 'Chest', keep='back')
