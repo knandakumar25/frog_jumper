@@ -7,12 +7,12 @@
     {
       "name": "cyber_shogun",
       "path": "assets/models/hq/cyber_shogun.glb",
-      "bytes": 1277292,
-      "triangles": 12640,
+      "bytes": 1368216,
+      "triangles": 13804,
       "bbox_m": [
         0.7071,
         0.7095,
-        1.9281
+        1.88
       ],
       "rest_bounds_blender_xyz_m": [
         [
@@ -23,21 +23,23 @@
         [
           0.5344380140304565,
           0.20524464547634125,
-          1.8995678424835205
+          1.8515325784683228
         ]
       ],
       "origin": "feet/bottom-center",
       "units": "meters",
       "materials": [
         "EMISSIVE_Cyan_Core",
-        "PBR_Titanium_Trim",
-        "EMISSIVE_Magenta_Trim",
-        "PBR_Brass_Gilt",
-        "PBR_Fabric_Indigo",
-        "PBR_Obsidian_Plate",
         "EMISSIVE_Cyan_Crest",
-        "PBR_Carbon_Weave",
+        "PBR_Brass_Gilt",
+        "PBR_Hair_Black",
+        "PBR_Titanium_Trim",
         "EMISSIVE_White_Visor",
+        "PBR_Obsidian_Plate",
+        "EMISSIVE_Magenta_Trim",
+        "PBR_Carbon_Weave",
+        "PBR_Fabric_Indigo",
+        "PBR_Skin_Tone",
         "PBR_Iron_Hardware"
       ],
       "animation_clips": [

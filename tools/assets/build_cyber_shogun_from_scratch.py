@@ -79,6 +79,8 @@ def begin():
         'iron': material('PBR_Iron_Hardware', (.13, .15, .18), .55, .72),
         'gilt': material('PBR_Brass_Gilt', (.42, .30, .11), .95, .35),
         'fabric': material('PBR_Fabric_Indigo', (.13, .14, .28), .05, .85),
+        'skin': material('PBR_Skin_Tone', (.78, .52, .40), 0, .65),
+        'hair': material('PBR_Hair_Black', (.025, .028, .045), .1, .5),
         'crest': material('EMISSIVE_Cyan_Crest', (.008, .80, 1.0), .1, .25, 6.0),
         'core': material('EMISSIVE_Cyan_Core', (.0, .90, 1.0), .1, .22, 8.0),
         'accent': material('EMISSIVE_Magenta_Trim', (1.0, .05, .30), .1, .25, 5.0),
@@ -337,8 +339,8 @@ def build_model():
     # --- the living form under the armour ---------------------------------
     loft('Torso_form', (0, 0), .99, 1.46, torso_profile, 'carbon', 'Chest', 24)
     orb('Pelvis_form', (0, 0, .93), (.185, .15, .125), 'carbon', 'Hips', smooth=True)
-    cyl('Neck_form', (0, 0, 1.44), (0, 0, 1.565), .055, 'carbon', 'Neck', 10)
-    orb('Skull_form', (0, -.005, 1.60), (.075, .085, .09), 'carbon', 'Head', smooth=True)
+    cyl('Neck_form', (0, 0, 1.40), (0, 0, 1.545), .052, 'skin', 'Neck', 10)
+    orb('Skull_form', (0, -.005, 1.60), (.075, .085, .09), 'skin', 'Head', smooth=True)
 
     # --- arms: tapered cylinders, sphere elbow, rounded fist --------------
     for side in ('L', 'R'):
@@ -402,22 +404,29 @@ def build_model():
     box('Cape_hem', (0, .222, .826), (.31, .02, .025), 'fabric', 'Spine', .004, rot=(-.06, 0, 0))
     box('Cape_clasp_L', (.10, .10, 1.44), (.05, .075, .04), 'gilt', 'Chest', .01)
 
-    # --- kabuto over the face: the mask is a LOFT with a jaw taper, in the
-    # same near-black carbon as the under-suit -- the dark-void masked look
-    # where only the glowing eye band carries the face. Metal sheen on a
-    # broad-roughness surface just glows grey here; carbon reads black.
-    loft('Face_mask', (0, -.012), 1.465, 1.625, face_profile, 'carbon', 'Head', 16)
-    box('Visor_slit', (0, -.104, 1.628), (.09, .016, .022), 'visor', 'Head', .002)
-    cyl('Helmet_bowl', (0, -.015, 1.638), (0, -.015, 1.74), .115, 'plate', 'Head', 14, r2=.082)
-    box('Helmet_brim', (0, -.10, 1.637), (.175, .08, .018), 'plate', 'Head', .005, rot=(-.3, 0, 0))
-    box('Shikoro_left', (-.10, .075, 1.61), (.10, .02, .14), 'plate', 'Head', .004, rot=(-.5, 0, 0))
-    box('Shikoro_right', (.10, .075, 1.61), (.10, .02, .14), 'plate', 'Head', .004, rot=(-.5, 0, 0))
-    box('Shikoro_center', (0, .085, 1.60), (.09, .02, .12), 'plate', 'Head', .004, rot=(-.55, 0, 0))
-    box('Fukigaeshi_left', (-.105, .065, 1.72), (.055, .05, .075), 'gilt', 'Head', .005, rot=(0, .5, 0))
-    box('Fukigaeshi_right', (.105, .065, 1.72), (.055, .05, .075), 'gilt', 'Head', .005, rot=(0, -.5, 0))
-    box('Crest_fin', (0, .055, 1.815), (.018, .05, .12), 'crest', 'Head', .003)
-    box('Crest_fin_upper', (0, .06, 1.89), (.014, .04, .06), 'crest', 'Head', .002)
-    box('Crest_base', (0, .05, 1.755), (.03, .06, .035), 'gilt', 'Head', .004)
+    # --- the open face: skin loft with a jaw taper (the same loft trick the
+    # torso uses), dark stylized eyes + brows, a nose, and the menpo pushed
+    # down to a steel chin cup. Face = flesh; armour = bowl, brim, wings.
+    loft('Face_mask', (0, -.012), 1.465, 1.615, face_profile, 'skin', 'Head', 20)
+    orb('Skull_under_bowl', (0, -.005, 1.585), (.072, .082, .07), 'skin', 'Head', smooth=True)
+    for side in ('L', 'R'):
+        s = 1 if side == 'L' else -1
+        box('Eye_' + side, (s * .027, -.099, 1.547), (.026, .011, .01), 'visor', 'Head', .002)
+        box('Brow_' + side, (s * .028, -.095, 1.565), (.034, .01, .006), 'hair', 'Head', .002)
+    box('Nose_ridge', (0, -.104, 1.53), (.018, .016, .024), 'skin', 'Head', .004)
+    shell('Menpo_chin_cup', (0, -.06, 1.492), (.068, .056, .056), 'iron', 'Head', keep='front', segments=16, rings=8)
+    cyl('Helmet_bowl', (0, -.015, 1.617), (0, -.015, 1.715), .115, 'plate', 'Head', 14, r2=.082)
+    box('Helmet_brim', (0, -.095, 1.612), (.165, .075, .016), 'plate', 'Head', .005, rot=(-.35, 0, 0))
+    box('Hair_nape', (0, .048, 1.515), (.085, .055, .09), 'hair', 'Head', .02)
+    orb('Chikara_bun', (0, .095, 1.705), (.038, .042, .048), 'hair', 'Head', smooth=True)
+    box('Shikoro_left', (-.10, .075, 1.60), (.10, .02, .14), 'plate', 'Head', .004, rot=(-.5, 0, 0))
+    box('Shikoro_right', (.10, .075, 1.60), (.10, .02, .14), 'plate', 'Head', .004, rot=(-.5, 0, 0))
+    box('Shikoro_center', (0, .085, 1.59), (.09, .02, .12), 'plate', 'Head', .004, rot=(-.55, 0, 0))
+    box('Fukigaeshi_left', (-.105, .065, 1.70), (.055, .05, .075), 'gilt', 'Head', .005, rot=(0, .5, 0))
+    box('Fukigaeshi_right', (.105, .065, 1.70), (.055, .05, .075), 'gilt', 'Head', .005, rot=(0, -.5, 0))
+    box('Crest_fin', (0, .055, 1.78), (.018, .05, .10), 'crest', 'Head', .003)
+    box('Crest_fin_upper', (0, .06, 1.845), (.014, .04, .05), 'crest', 'Head', .002)
+    box('Crest_base', (0, .05, 1.718), (.03, .06, .04), 'gilt', 'Head', .004)
     cyl('Helmet_antenna', (.10, .02, 1.60), (.14, .06, 1.76), .007, 'trim', 'Head', 6)
 
     # --- the katana, worn OUTSIDE the fauld skirt at the left hip ----------
