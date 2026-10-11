@@ -305,7 +305,10 @@ public partial class Player3D : CharacterBody3D
 					PlayAbilityAnimation(direction.Length() > 0.5f ? "running" : "walking");
 				}
 
-				// Smoothly rotate the character model to face the movement direction
+				// Smoothly rotate the character model to face the movement direction.
+				// Atan2(x, z) assumes a rest forward of +Z -- which matches the Meshy
+				// hero GLBs' baked visual forward (verified: their face renders on the
+				// +Z side, their cape on the -Z side).
 				if (_characterModel != null)
 				{
 					float targetAngle = Mathf.Atan2(direction.X, direction.Z);
