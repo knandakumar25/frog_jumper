@@ -7,36 +7,37 @@
     {
       "name": "cyber_shogun",
       "path": "assets/models/hq/cyber_shogun.glb",
-      "bytes": 1683712,
-      "triangles": 13856,
+      "bytes": 1276116,
+      "triangles": 12608,
       "bbox_m": [
-        0.6869,
-        0.7188,
-        1.933
+        0.7071,
+        0.7095,
+        1.9281
       ],
       "rest_bounds_blender_xyz_m": [
         [
-          -0.1580970585346222,
-          -0.5443466305732727,
-          -0.02380187064409256
+          -0.17268314957618713,
+          -0.5042257308959961,
+          -0.028493128716945648
         ],
         [
-          0.5287902355194092,
-          0.17443612217903137,
-          1.90915846824646
+          0.5344380140304565,
+          0.20524464547634125,
+          1.8995678424835205
         ]
       ],
       "origin": "feet/bottom-center",
       "units": "meters",
       "materials": [
-        "EMISSIVE_Cyan_Crest",
-        "PBR_Obsidian_Plate",
-        "PBR_Titanium_Trim",
         "EMISSIVE_Cyan_Core",
-        "EMISSIVE_Magenta_Trim",
-        "PBR_Carbon_Weave",
+        "PBR_Titanium_Trim",
         "EMISSIVE_White_Visor",
-        "PBR_Fabric_Grey",
+        "PBR_Fabric_Indigo",
+        "PBR_Obsidian_Plate",
+        "EMISSIVE_Cyan_Crest",
+        "PBR_Carbon_Weave",
+        "EMISSIVE_Magenta_Trim",
+        "PBR_Brass_Gilt",
         "PBR_Iron_Hardware"
       ],
       "animation_clips": [
@@ -56,7 +57,7 @@
         "Dash",
         "Parry_Stance"
       ],
-      "design": "cybernetic samurai rebuilt from scratch; plated kabuto with glowing crest fin, obi energy core, half cape, hip-mounted katana",
+      "design": "cybernetic samurai authored from scratch, organic pass: lofted tapered torso/legs/mask, sphere joints, lamellar sode stacks, lacquered plates with brass gilt, indigo fabric, glowing visor/obi/crest",
       "zero_particle_vfx": true,
       "preview": ".validation/shogun-rebuild/cyber_shogun.png"
     }
