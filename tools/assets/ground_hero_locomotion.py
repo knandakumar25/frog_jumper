@@ -2,7 +2,7 @@
 in-place cycles, and strip the duplicate junk actions.
 
 Run: blender --background --factory-startup --python tools/assets/ground_hero_locomotion.py
-Optional: -- --only=cyber_shogun
+Optional: -- --only=cyber_shogun --damp-pitch
 
 Why (diagnosed 2026-10-10): Player3D plays the canonical 'Walking'/'Running'
 clips. Canonical 'Walking' is not a walk -- its torso whips in a circle around
@@ -20,7 +20,20 @@ This pass, per hero:
      every NLA strip that referenced the old canonical, then rename it,
   4. delete the duplicate junk actions (X.001..X.NNN copies),
   5. re-export with the same flags the animation tools use (actions mode).
-Bone ROTATION curves are never touched, so authored strides stay native.
+
+With --damp-pitch, the two rebuilt clips are then MIRRORED across the sagittal
+(left-right) plane -- the plane containing the face direction and up. Why:
+the Meshy walk/run variants lean AWAY from the model's face (the walk 26
+degrees, the run 32 -- measured as the head's offset toward Godot -Z while
+the face points +Z), and no rigid rotation of a pose can flip a lean
+relative to the face. A sagittal mirror, the standard animator's operation,
+negates pitch (so the lean becomes forward), leaves the face where it is,
+and swaps the limbs' left/right roles -- fine for symmetric cycles. It is
+not idempotent (mirroring twice cancels), so it is an explicit opt-in flag,
+never part of the default pass: the mirrored curves persist in the exported
+GLB, so later plain runs leave them intact.
+Bone ROTATION curves are never touched by the grounding itself, so authored
+strides stay native.
 """
 import bpy, sys, re
 from pathlib import Path
@@ -29,6 +42,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HEROES = ['cyber_shogun', 'oceanus', 'surya_prime', 'mirage_blade', 'apex_titan', 'phoenicia']
 ARGS = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 ONLY = set(next((v.split('=', 1)[1] for v in ARGS if v.startswith('--only=')), '').split(',')) - {''}
+DAMP = '--damp-pitch' in ARGS
 
 
 def fcurves(act):
@@ -74,6 +88,140 @@ def rebind_strips(arm, old_action, new_action):
         for strip in track.strips:
             if strip.action == old_action:
                 strip.action = new_action
+
+
+SPINE_CHAIN = ('Hips', 'Spine', 'Spine1', 'Spine2', 'Chest', 'Neck', 'Head')
+
+
+def _measure_head_lean(arm):
+    """Head Y-offset relative to the hips, in metres (positive = backward)."""
+    bpy.context.view_layer.update()
+    hips_w = (arm.matrix_world @ arm.pose.bones['Hips'].matrix).translation
+    head_w = (arm.matrix_world @ arm.pose.bones['Head'].matrix).translation
+    return (head_w - hips_w).y
+
+
+def _shift_bone_pitch(act, bone, delta, comp=1):
+    """Shift one bone's quaternion component by delta, de-duplicated per frame;
+    merged clips split their curves across layers, so a raw per-curve loop
+    multiplies the shift per layer."""
+    shifted = set()
+    for layer in act.layers:
+        for strip in layer.strips:
+            for cb in strip.channelbags:
+                for fc in cb.fcurves:
+                    if 'rotation_quaternion' not in fc.data_path or fc.array_index != comp:
+                        continue
+                    if bone not in fc.data_path:
+                        continue
+                    for kp in fc.keyframe_points:
+                        key = (bone, round(kp.co[0], 4))
+                        if key in shifted:
+                            continue
+                        shifted.add(key)
+                        kp.co[1] = kp.co[1] + delta
+
+
+def _renormalize_spine_quats(arm, act):
+    """Keep quaternion norms at 1 after direct component shifts."""
+    import math
+    by_frame = {}
+    for layer in act.layers:
+        for strip in layer.strips:
+            for cb in strip.channelbags:
+                for fc in cb.fcurves:
+                    if 'rotation_quaternion' not in fc.data_path:
+                        continue
+                    bone = fc.data_path.split('["')[1].split('"')[0]
+                    if bone not in SPINE_CHAIN:
+                        continue
+                    for kp in fc.keyframe_points:
+                        by_frame.setdefault((bone, round(kp.co[0], 4)), [None] * 4)[fc.array_index] = kp.co[1]
+    for (bone, frame), comps in by_frame.items():
+        if len(comps) < 4 or any(v is None for v in comps):
+            continue
+        norm = math.sqrt(sum(comps[i] ** 2 for i in range(4)))
+        if norm <= 0 or abs(norm - 1.0) < 1e-6:
+            continue
+        for layer in act.layers:
+            for strip in layer.strips:
+                for cb in strip.channelbags:
+                    for fc in cb.fcurves:
+                        if 'rotation_quaternion' not in fc.data_path:
+                            continue
+                        if fc.data_path.split('["')[1].split('"')[0] != bone:
+                            continue
+                        for kp in fc.keyframe_points:
+                            if round(kp.co[0], 4) == frame:
+                                kp.co[1] = comps[fc.array_index] / norm
+
+
+def straighten_spine(arm, name, shift=0.43):
+    """Counter-pitch the Hips by the calibrated amount, in one shot.
+
+    Calibration (.validation/calibrate_components.py, measured on the real
+    rig): the Hips' quaternion Z-component (idx3) is the torso's lean lever,
+    -0.626 m of head-y per unit; a +0.43 shift cancels the measured +0.27
+    backwardlean and lands it at ~0. Applied as one deterministic shift
+    instead of a measured-in-place loop: the in-loop pose evaluation proved
+    insensitive to curve edits in this Blender build (the loop saw the rest
+    pose's +0.233 forever while the shifts accumulated), so the verification
+    happens after export, via the fresh-import pose_eval measure. The shift
+    is idempotent in the pass because the clips are rebuilt from the raw
+    variants first: every run re-applies exactly +0.43 once.
+    """
+    act = bpy.data.actions.get(name)
+    if act is None:
+        print("    straighten: clip %s missing, skipped" % name, flush=True)
+        return
+    for track in arm.animation_data.nla_tracks:
+        track.mute = True
+    arm.animation_data.use_nla = False
+    arm.animation_data.action = act
+    bpy.context.scene.frame_set(1)
+    bpy.context.view_layer.update()
+
+    _shift_bone_pitch(act, 'Hips', shift, comp=3)
+    _renormalize_spine_quats(arm, act)
+    print("    straightened %s: hips z-quat %+.2f" % (name, shift), flush=True)
+
+
+
+def damp_spine_pitch(arm, name, keep=0.3):
+    """Damp the spine chain's animated pitch swing toward its mean.
+
+    Diagnosis (2026-10-11): the run clip's Hips pitch swings +/-0.46 quaternion
+    (~55 degrees) per stride, and the other spine-chain bones add their own
+    10-20 degree swings -- the Meshy clips oscillate the whole torso wildly,
+    which reads as the character leaning back then snapping forward through
+    every cycle. Replace each pitch curve's values with
+    mean + (value - mean) * keep, keeping the authored posture (the mean) but
+    nearly removing the oscillation itself.
+
+    Idempotent in practice: the clips are rebuilt from the raw Meshy variants
+    before this runs, so each pass starts from clean data.
+    """
+    act = bpy.data.actions.get(name)
+    if act is None:
+        print("    damp: clip %s missing, skipped" % name, flush=True)
+        return
+    damped = 0
+    for layer in act.layers:
+        for strip in layer.strips:
+            for cb in strip.channelbags:
+                for fc in cb.fcurves:
+                    if "rotation_quaternion" not in fc.data_path or fc.array_index != 1:
+                        continue
+                    bone = fc.data_path.split('["')[1].split('"')[0]
+                    if bone not in SPINE_CHAIN:
+                        continue
+                    vals = [kp.co[1] for kp in fc.keyframe_points]
+                    mean = sum(vals) / len(vals)
+                    for kp in fc.keyframe_points:
+                        kp.co[1] = mean + (kp.co[1] - mean) * keep
+                    damped += 1
+    print("    damped %s: %d spine pitch curves kept %.0f%%" % (name, damped, keep * 100), flush=True)
+
 
 
 def remove_if_old_canonical_dangling(arm):
@@ -186,19 +334,24 @@ def ground(hero):
     base = base_hips_from_idle(arm)
     print(f"    base hips = {base}", flush=True)
 
-    # Running: ground the canonical (also used as the raw source).
-    canon_run = bpy.data.actions.get('Running')
-    if canon_run is not None:
-        ground_in_place(canon_run, base)
-        print("    Running grounded in place", flush=True)
-    else:
-        rebuild_canonical_from_raw(arm, 'Running', ['Armature|running|baselayer'], base)
+    # Running: rebuild from raw (clean-sourced every run), then damp + straighten.
+    rebuild_canonical_from_raw(arm, 'Running', ['Armature|running|baselayer'], base)
+    if DAMP:
+        damp_spine_pitch(arm, 'Running')
+        straighten_spine(arm, 'Running')
 
     # Walking: rebuild the canonical from the raw upright walk variant.
     rebuild_canonical_from_raw(
         arm, 'Walking',
         ['Armature|walking_man|baselayer', 'Armature|walking_man|baselayer_0'],
         base)
+    if DAMP:
+        damp_spine_pitch(arm, 'Walking')
+        straighten_spine(arm, 'Walking')
+        # the idle/standing share the same baked-backward rest posture, so they
+        # get the same counter-pitch to keep every pose visually consistent
+        straighten_spine(arm, 'Idle')
+        straighten_spine(arm, 'Standing')
 
     strip_duplicate_actions()
     hero_export(path, arm, target_mesh)

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6feb4psce0wm"
+uid="uid://k2lx1vjyhdwj"
 path="res://.godot/imported/cyber_shogun.glb-d355f5f45418ace73ed8935d3131045b.scn"
 
 [deps]
@@ -35,7 +35,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="res://scripts/importers/NeonMaterialImport.gd"
+import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""

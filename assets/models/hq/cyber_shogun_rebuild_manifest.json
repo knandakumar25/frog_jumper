@@ -1,0 +1,64 @@
+{
+  "generator": "tools/assets/build_cyber_shogun_from_scratch.py",
+  "style": "Neon Pulse / original from-scratch rebuild",
+  "blender_version": "5.2.2 LTS",
+  "format": "glTF 2.0 GLB",
+  "assets": [
+    {
+      "name": "cyber_shogun",
+      "path": "assets/models/hq/cyber_shogun.glb",
+      "bytes": 1683712,
+      "triangles": 13856,
+      "bbox_m": [
+        0.6869,
+        0.7188,
+        1.933
+      ],
+      "rest_bounds_blender_xyz_m": [
+        [
+          -0.1580970585346222,
+          -0.5443466305732727,
+          -0.02380187064409256
+        ],
+        [
+          0.5287902355194092,
+          0.17443612217903137,
+          1.90915846824646
+        ]
+      ],
+      "origin": "feet/bottom-center",
+      "units": "meters",
+      "materials": [
+        "EMISSIVE_Cyan_Crest",
+        "PBR_Obsidian_Plate",
+        "PBR_Titanium_Trim",
+        "EMISSIVE_Cyan_Core",
+        "EMISSIVE_Magenta_Trim",
+        "PBR_Carbon_Weave",
+        "EMISSIVE_White_Visor",
+        "PBR_Fabric_Grey",
+        "PBR_Iron_Hardware"
+      ],
+      "animation_clips": [
+        "Idle",
+        "Standing",
+        "Idle_02",
+        "Walking",
+        "Running",
+        "Jumping",
+        "Double_Jump",
+        "Death",
+        "Hit",
+        "Attack",
+        "Thrust_Slash",
+        "Karate_Strike",
+        "Ground_Slam",
+        "Dash",
+        "Parry_Stance"
+      ],
+      "design": "cybernetic samurai rebuilt from scratch; plated kabuto with glowing crest fin, obi energy core, half cape, hip-mounted katana",
+      "zero_particle_vfx": true,
+      "preview": ".validation/shogun-rebuild/cyber_shogun.png"
+    }
+  ]
+}
