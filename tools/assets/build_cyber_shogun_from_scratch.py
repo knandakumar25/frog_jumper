@@ -73,18 +73,23 @@ def begin():
     for mat in list(bpy.data.materials):
         bpy.data.materials.remove(mat, do_unlink=True)
     MAT = {
-        'plate': material('PBR_Obsidian_Plate', (.030, .042, .055), .80, .34),
-        'carbon': material('PBR_Carbon_Weave', (.014, .020, .027), .30, .68),
+        # material doctrine: the lacquer/armor pieces are DIELECTRIC (metal 0)
+        # -- dark METALS mirror the scene light and render as a grey-blue
+        # vinyl sheen, which is a robot cue; only the trim and gilt keep
+        # metallic, because those are actual steel or brass.
+        'plate': material('PBR_Obsidian_Plate', (.030, .042, .055), 0, .38),
+        'carbon': material('PBR_Carbon_Weave', (.014, .020, .027), 0, .68),
         'trim': material('PBR_Titanium_Trim', (.26, .30, .34), .90, .38),
-        'iron': material('PBR_Iron_Hardware', (.13, .15, .18), .55, .72),
+        'iron': material('PBR_Iron_Hardware', (.13, .15, .18), 0, .72),
         'gilt': material('PBR_Brass_Gilt', (.42, .30, .11), .95, .35),
         'fabric': material('PBR_Fabric_Indigo', (.13, .14, .28), .05, .85),
-        'skin': material('PBR_Skin_Tone', (.78, .52, .40), 0, .65),
+        'skin': material('PBR_Skin_Tone', (.70, .44, .32), 0, .72),
         'hair': material('PBR_Hair_Black', (.025, .028, .045), .1, .5),
         'crest': material('EMISSIVE_Cyan_Crest', (.008, .80, 1.0), .1, .25, 6.0),
         'core': material('EMISSIVE_Cyan_Core', (.0, .90, 1.0), .1, .22, 8.0),
         'accent': material('EMISSIVE_Magenta_Trim', (1.0, .05, .30), .1, .25, 5.0),
         'visor': material('EMISSIVE_White_Visor', (.90, .95, 1.0), .2, .25, 5.0),
+        'eyes': material('EMISSIVE_Cyan_Eyes', (.2, .85, 1.0), .1, .3, 2.0),
     }
 
 
@@ -99,7 +104,11 @@ def finish_obj(obj, name, mat, bone='Hips', bevel=0, smooth=False):
         bpy.context.view_layer.objects.active = obj
         bpy.ops.object.modifier_apply(modifier=mod.name)
     if smooth:
-        bpy.ops.object.shade_smooth()
+        # set the flag directly: bpy.ops.object.shade_smooth() acts on the
+        # ACTIVE object, and lofts/shells created via bpy.data.objects.new()
+        # never become active -- their smooth flags would silently not apply
+        for face in obj.data.polygons:
+            face.use_smooth = True
     else:
         for face in obj.data.polygons:
             face.use_smooth = False
@@ -134,7 +143,7 @@ def orb(name, loc, scale, mat='iron', bone='Hips', smooth=False, segments=16, ri
     return finish_obj(obj, name, mat, bone, smooth=smooth)
 
 
-def shell(name, loc, scale, mat, bone, keep='front', smooth=True, segments=24, rings=12, zband=None):
+def shell(name, loc, scale, mat, bone, keep='front', smooth=True, segments=24, rings=12, zband=None, rot=None):
     """An armour shell from a half-sphere: keep='front' (y<0, the face side),
     'back' (y>0), 'outer-x+', 'outer-x-' or 'lower' (z<0). zband=(lo,hi) keeps
     only a vertical slice of the unit sphere (lamellar bands). A curved plate
@@ -158,6 +167,8 @@ def shell(name, loc, scale, mat, bone, keep='front', smooth=True, segments=24, r
                      context='FACES_ONLY')
     bm.to_mesh(obj.data)
     bm.free()
+    if rot:
+        obj.rotation_euler = rot
     obj.scale = scale
     return finish_obj(obj, name, mat, bone, smooth=smooth)
 
@@ -342,16 +353,20 @@ def build_model():
     cyl('Neck_form', (0, 0, 1.40), (0, 0, 1.545), .052, 'skin', 'Neck', 10)
     orb('Skull_form', (0, -.005, 1.60), (.075, .085, .09), 'skin', 'Head', smooth=True)
 
-    # --- arms: tapered cylinders, sphere elbow, rounded fist --------------
+    # --- arms: tapered tubes with nested elbows and mitt hands ------------
+    # the robot read here came from ball joints showing at the elbow and
+    # sphere "fists": the tubes now overlap the (hiding) elbow, taper to the
+    # wrist, and the hand is a shaped mitt with a thumb nub
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         b = side
-        cyl('Upper_arm_' + b, (s * .24, 0, 1.42), (s * .235, -.01, 1.16), .052, 'carbon', 'UpperArm.' + b, 12, r2=.042)
-        orb('Elbow_' + b, (s * .237, -.02, 1.13), (.052, .052, .05), 'carbon', 'ForeArm.' + b, smooth=True)
-        # the forearm and fist hang a touch forward of the torso plane: a
+        cyl('Upper_arm_' + b, (s * .24, 0, 1.42), (s * .235, -.015, 1.145), .052, 'carbon', 'UpperArm.' + b, 12, r2=.040)
+        orb('Elbow_' + b, (s * .233, -.025, 1.14), (.038, .038, .034), 'carbon', 'ForeArm.' + b, smooth=True)
+        # the forearm hangs a touch forward and outward of the torso plane: a
         # natural standing carriage instead of a mannequin's straight drop
-        cyl('Forearm_' + b, (s * .235, -.01, 1.13), (s * .225, -.065, .92), .046, 'carbon', 'ForeArm.' + b, 12, r2=.036)
-        orb('Fist_' + b, (s * .225, -.085, .855), (.04, .042, .052), 'carbon', 'Hand.' + b, smooth=True)
+        cyl('Forearm_' + b, (s * .233, -.02, 1.14), (s * .248, -.075, .885), .044, 'carbon', 'ForeArm.' + b, 12, r2=.030)
+        cyl('Hand_mitt_' + b, (s * .246, -.078, .885), (s * .24, -.05, .80), .03, 'carbon', 'Hand.' + b, 8, r2=.021)
+        orb('Thumb_' + b, (s * .243, -.092, .845), (.013, .013, .018), 'carbon', 'Hand.' + b, smooth=True)
 
     # --- legs: tapered thighs, calf-profile shins, boots at a stance ------
     for side in ('L', 'R'):
@@ -365,15 +380,16 @@ def build_model():
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         b = side
-        # the sode: three stacked lamellar bands over the shoulder; the band
-        # z-ranges OVERLAP deliberately (gaps between them read as the plates
-        # floating free of the arm)
-        shell('Sode_top_' + b, (s * .235, -.005, 1.435), (.10, .12, .15), 'plate', 'Clavicle.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(.12, 1.01), segments=16, rings=8)
-        shell('Sode_mid_' + b, (s * .24, 0, 1.375), (.105, .115, .15), 'plate', 'UpperArm.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-.55, .18), segments=16, rings=8)
-        shell('Sode_low_' + b, (s * .245, .005, 1.315), (.11, .11, .15), 'plate', 'UpperArm.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-1.05, -.5), segments=16, rings=8)
+        # the sode: three stacked lamellar bands over the shoulder; band
+        # z-ranges overlap (gaps read as floating plates) and each band is
+        # tilted to hug the upper arm instead of jutting past it -- the old
+        # footprint put the outer edge 12 cm beyond the arm: fridge shoulders
+        shell('Sode_top_' + b, (s * .225, -.005, 1.435), (.085, .11, .15), 'plate', 'Clavicle.' + b,
+              keep='outer-x+' if s > 0 else 'outer-x-', zband=(.12, 1.01), segments=16, rings=8, rot=(0, s * -.25, 0))
+        shell('Sode_mid_' + b, (s * .228, 0, 1.375), (.085, .10, .15), 'plate', 'UpperArm.' + b,
+              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-.55, .18), segments=16, rings=8, rot=(0, s * -.22, 0))
+        shell('Sode_low_' + b, (s * .23, .005, 1.315), (.088, .10, .15), 'plate', 'UpperArm.' + b,
+              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-1.05, -.5), segments=16, rings=8, rot=(0, s * -.18, 0))
         box('Pauldron_fin_' + b, (s * .30, .02, 1.49), (.022, .15, .04), 'gilt', 'Clavicle.' + b, .003)
         shell('Thigh_guard_' + b, (s * .11, -.028, .70), (.06, .062, .145), 'plate', 'UpLeg.' + b, keep='front')
         shell('Knee_cop_' + b, (s * .112, -.055, .528), (.06, .062, .056), 'gilt', 'Leg.' + b, keep='lower', segments=16, rings=8)
@@ -387,7 +403,7 @@ def build_model():
     shell('Breastplate', (0, -.015, 1.315), (.17, .12, .15), 'plate', 'Chest', keep='front')
     box('Chest_ridge', (0, -.132, 1.33), (.04, .032, .24), 'gilt', 'Chest', .004)
     shell('Backplate', (0, .02, 1.30), (.155, .11, .14), 'plate', 'Chest', keep='back')
-    box('Shoulder_yoke', (0, .01, 1.452), (.48, .13, .05), 'plate', 'Chest', .02)
+    box('Shoulder_yoke', (0, .01, 1.452), (.42, .13, .05), 'plate', 'Chest', .02)
 
     # --- obi belt + glowing core -------------------------------------------
     box('Obi_belt', (0, -.005, 1.02), (.30, .21, .09), 'carbon', 'Hips', .02)
@@ -411,10 +427,11 @@ def build_model():
     orb('Skull_under_bowl', (0, -.005, 1.585), (.072, .082, .07), 'skin', 'Head', smooth=True)
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
-        box('Eye_' + side, (s * .027, -.099, 1.547), (.026, .011, .01), 'visor', 'Head', .002)
-        box('Brow_' + side, (s * .028, -.095, 1.565), (.034, .01, .006), 'hair', 'Head', .002)
+        box('Eye_' + side, (s * .031, -.099, 1.547), (.022, .011, .01), 'eyes', 'Head', .002)
+        box('Brow_' + side, (s * .032, -.095, 1.565), (.032, .01, .006), 'hair', 'Head', .002)
     box('Nose_ridge', (0, -.104, 1.53), (.018, .016, .024), 'skin', 'Head', .004)
-    shell('Menpo_chin_cup', (0, -.06, 1.492), (.068, .056, .056), 'iron', 'Head', keep='front', segments=16, rings=8)
+    shell('Menpo_chin_cup', (0, -.062, 1.482), (.066, .033, .05), 'plate', 'Head', keep='front', segments=16, rings=8)
+    box('Mouth_line', (0, -.0985, 1.528), (.03, .008, .004), 'hair', 'Head', .001)
     cyl('Helmet_bowl', (0, -.015, 1.617), (0, -.015, 1.715), .115, 'plate', 'Head', 14, r2=.082)
     box('Helmet_brim', (0, -.095, 1.612), (.165, .075, .016), 'plate', 'Head', .005, rot=(-.35, 0, 0))
     box('Hair_nape', (0, .048, 1.515), (.085, .055, .09), 'hair', 'Head', .02)
