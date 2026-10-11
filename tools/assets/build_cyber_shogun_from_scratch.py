@@ -218,11 +218,11 @@ def label(text_, loc, size=.1, mat='trim', bone='Hips', rot=(math.pi / 2, 0, 0))
 # ----------------------------------------------------------------------------
 BONE_TABLE = [
     # name, head, tail, parent
-    ('Hips',        (0, 0, 0),        (0, 0, 0.98),  None),
-    ('Spine',       (0, 0, 0.98),     (0, 0, 1.16),  'Hips'),
-    ('Chest',       (0, 0, 1.16),     (0, 0, 1.46),  'Spine'),
-    ('Neck',        (0, 0, 1.46),     (0, 0, 1.53),  'Chest'),
-    ('Head',        (0, 0, 1.53),     (0, 0, 1.63),  'Neck'),
+    ('Hips',        (0, 0, 0),        (0, 0, 0.99),  None),
+    ('Spine',       (0, 0, 0.99),     (0, 0, 1.14),  'Hips'),
+    ('Chest',       (0, 0, 1.14),     (0, 0, 1.40),  'Spine'),
+    ('Neck',        (0, 0, 1.40),     (0, 0, 1.47),  'Chest'),
+    ('Head',        (0, 0, 1.47),     (0, 0, 1.70),  'Neck'),
 ]
 
 
@@ -255,13 +255,16 @@ def build_rig():
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         specs = [
-            ('Clavicle.' + side, (s * .10, 0, 1.44), (s * .24, 0, 1.46), 'Chest'),
-            ('UpperArm.' + side, (s * .24, 0, 1.44), (s * .235, -.01, 1.14), 'Clavicle.' + side),
-            ('ForeArm.' + side,  (s * .235, -.01, 1.14), (s * .23, 0, .90), 'UpperArm.' + side),
-            ('Hand.' + side,     (s * .23, 0, .90),  (s * .23, -.01, .82), 'ForeArm.' + side),
-            ('UpLeg.' + side,    (s * .11, 0, .92),  (s * .11, -.01, .54), 'Hips'),
-            ('Leg.' + side,      (s * .11, -.01, .54), (s * .115, 0, .10), 'UpLeg.' + side),
-            ('Foot.' + side,     (s * .115, 0, .10), (s * .115, -.13, .02), 'Leg.' + side),
+            # arms rest in an A-pose (measured from the other heroes: they
+            # angle out-down at ~40 deg -- a straight-hanging arm reads mecha)
+            ('Clavicle.' + side, (s * .06, 0, 1.41), (s * .17, 0, 1.38), 'Chest'),
+            ('UpperArm.' + side, (s * .17, 0, 1.38), (s * .295, -.02, 1.19), 'Clavicle.' + side),
+            ('ForeArm.' + side,  (s * .295, -.02, 1.19), (s * .455, -.03, 1.03), 'UpperArm.' + side),
+            ('Hand.' + side,     (s * .455, -.03, 1.03), (s * .515, -.035, .95), 'ForeArm.' + side),
+            # legs slant slightly outward from a narrow hip: a natural stance
+            ('UpLeg.' + side,    (s * .095, 0, .99), (s * .128, 0, .52), 'Hips'),
+            ('Leg.' + side,      (s * .128, 0, .52), (s * .143, .01, .146), 'UpLeg.' + side),
+            ('Foot.' + side,     (s * .143, .01, .146), (s * .145, -.13, .03), 'Leg.' + side),
         ]
         for name, head, tail, parent in specs:
             b = arm.edit_bones.new(name)
@@ -342,123 +345,106 @@ def face_profile(t):
 
 
 def build_model():
-    """Organic reading, armored operative: a lofted torso with a real waist
-    taper, tapered limb cylinders, sphere joints, rounded plate shells. The
-    armour stays hard-surface exactly where the design wants it (kabuto,
-    menpo, obi, katana); everything the body's living shape drives is smooth
-    and continuous."""
+    """Proportions MATCHED to the other heroes' measured GLBs (2026-10-11
+    permission pass): ~1.70 m to the crown, hips 0.99, knee 0.52, a big 23 cm
+    stylized head, and a 40-degree A-pose arm rest -- those proportions are a
+    large part of what makes the Meshy heroes read human. The armour design
+    language (kabuto + crest, obi core, fauld skirt, cape, katana) is kept.
+    """
     # --- the living form under the armour ---------------------------------
-    loft('Torso_form', (0, 0), .99, 1.46, torso_profile, 'carbon', 'Chest', 24)
-    orb('Pelvis_form', (0, 0, .93), (.185, .15, .125), 'carbon', 'Hips', smooth=True)
-    cyl('Neck_form', (0, 0, 1.40), (0, 0, 1.545), .052, 'skin', 'Neck', 10)
-    orb('Skull_form', (0, -.005, 1.60), (.075, .085, .09), 'skin', 'Head', smooth=True)
+    loft('Torso_form', (0, 0), .99, 1.40, torso_profile, 'carbon', 'Chest', 24)
+    orb('Pelvis_form', (0, 0, .97), (.17, .14, .11), 'carbon', 'Hips', smooth=True)
+    cyl('Neck_form', (0, 0, 1.38), (0, 0, 1.505), .052, 'skin', 'Neck', 10)
+    orb('Skull_under_bowl', (0, -.005, 1.565), (.072, .082, .068), 'skin', 'Head', smooth=True)
 
-    # --- arms: tapered tubes with nested elbows and mitt hands ------------
-    # the robot read here came from ball joints showing at the elbow and
-    # sphere "fists": the tubes now overlap the (hiding) elbow, taper to the
-    # wrist, and the hand is a shaped mitt with a thumb nub
+    # --- arms: A-pose rest, tapered tubes, mitt hands ----------------------
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         b = side
-        cyl('Upper_arm_' + b, (s * .24, 0, 1.42), (s * .235, -.015, 1.145), .052, 'carbon', 'UpperArm.' + b, 12, r2=.040)
-        orb('Elbow_' + b, (s * .233, -.025, 1.14), (.038, .038, .034), 'carbon', 'ForeArm.' + b, smooth=True)
-        # the forearm hangs a touch forward and outward of the torso plane: a
-        # natural standing carriage instead of a mannequin's straight drop
-        cyl('Forearm_' + b, (s * .233, -.02, 1.14), (s * .248, -.075, .885), .044, 'carbon', 'ForeArm.' + b, 12, r2=.030)
-        cyl('Hand_mitt_' + b, (s * .246, -.078, .885), (s * .24, -.05, .80), .03, 'carbon', 'Hand.' + b, 8, r2=.021)
-        orb('Thumb_' + b, (s * .243, -.092, .845), (.013, .013, .018), 'carbon', 'Hand.' + b, smooth=True)
+        cyl('Upper_arm_' + b, (s * .17, 0, 1.375), (s * .295, -.025, 1.19), .055, 'carbon', 'UpperArm.' + b, 12, r2=.042)
+        orb('Elbow_' + b, (s * .305, -.03, 1.185), (.04, .04, .036), 'carbon', 'ForeArm.' + b, smooth=True)
+        cyl('Forearm_' + b, (s * .31, -.03, 1.185), (s * .45, -.035, 1.045), .045, 'carbon', 'ForeArm.' + b, 12, r2=.031)
+        cyl('Hand_mitt_' + b, (s * .458, -.037, 1.035), (s * .505, -.042, .965), .026, 'carbon', 'Hand.' + b, 8, r2=.019)
+        orb('Thumb_' + b, (s * .452, -.058, 1.0), (.013, .013, .018), 'carbon', 'Hand.' + b, smooth=True)
 
-    # --- legs: tapered thighs, calf-profile shins, boots at a stance ------
+    # --- legs: gentle outward slant, calf lofts, sabatons ------------------
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         b = side
-        cyl('Thigh_' + b, (s * .11, 0, .93), (s * .11, -.01, .53), .082, 'carbon', 'UpLeg.' + b, 12, r2=.058)
-        loft('Shin_' + b, (s * .115, 0), .09, .53, shin_profile, 'carbon', 'Leg.' + b, 16)
-        orb('Knee_' + b, (s * .112, -.05, .53), (.058, .052, .054), 'carbon', 'Leg.' + b, smooth=True)
+        cyl('Thigh_' + b, (s * .095, 0, .98), (s * .128, 0, .525), .085, 'carbon', 'UpLeg.' + b, 12, r2=.058)
+        loft('Shin_' + b, (s * .143, 0), .095, .52, shin_profile, 'carbon', 'Leg.' + b, 16)
+        orb('Knee_' + b, (s * .132, -.045, .52), (.056, .05, .052), 'carbon', 'Leg.' + b, smooth=True)
+        box('Boot_sole_' + b, (s * .145, -.06, .026), (.095, .22, .052), 'plate', 'Foot.' + b, .01)
+        shell('Sabaton_toe_' + b, (s * .145, -.095, .052), (.048, .095, .046), 'plate', 'Foot.' + b, keep='lower', segments=16, rings=8)
+        box('Boot_heel_' + b, (s * .145, .05, .05), (.075, .075, .098), 'plate', 'Foot.' + b, .012)
 
-    # --- armour: curved shells over the form, never balloons ---------------
+    # --- armour: lamellar sode riding the A-pose upper arm -----------------
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
         b = side
-        # the sode: three stacked lamellar bands over the shoulder; band
-        # z-ranges overlap (gaps read as floating plates) and each band is
-        # tilted to hug the upper arm instead of jutting past it -- the old
-        # footprint put the outer edge 12 cm beyond the arm: fridge shoulders
-        shell('Sode_top_' + b, (s * .225, -.005, 1.435), (.085, .11, .15), 'plate', 'Clavicle.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(.12, 1.01), segments=16, rings=8, rot=(0, s * -.25, 0))
-        shell('Sode_mid_' + b, (s * .228, 0, 1.375), (.085, .10, .15), 'plate', 'UpperArm.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-.55, .18), segments=16, rings=8, rot=(0, s * -.22, 0))
-        shell('Sode_low_' + b, (s * .23, .005, 1.315), (.088, .10, .15), 'plate', 'UpperArm.' + b,
-              keep='outer-x+' if s > 0 else 'outer-x-', zband=(-1.05, -.5), segments=16, rings=8, rot=(0, s * -.18, 0))
-        box('Pauldron_fin_' + b, (s * .30, .02, 1.49), (.022, .15, .04), 'gilt', 'Clavicle.' + b, .003)
-        shell('Thigh_guard_' + b, (s * .11, -.028, .70), (.06, .062, .145), 'plate', 'UpLeg.' + b, keep='front')
-        shell('Knee_cop_' + b, (s * .112, -.055, .528), (.06, .062, .056), 'gilt', 'Leg.' + b, keep='lower', segments=16, rings=8)
-        # boots: flat sole so they ground cleanly; the stance sits a touch
-        # wider than the thigh line so the rest pose reads as standing, not
-        # mannequin. Lacquered plate, not the hardware grey -- pale boots
-        # glowed under the podium key light like sneakers.
-        box('Boot_sole_' + b, (s * .125, -.065, .026), (.10, .21, .052), 'plate', 'Foot.' + b, .01)
-        shell('Sabaton_toe_' + b, (s * .125, -.09, .05), (.05, .1, .048), 'plate', 'Foot.' + b, keep='lower', segments=16, rings=8)
-        box('Boot_heel_' + b, (s * .125, .05, .05), (.08, .08, .10), 'plate', 'Foot.' + b, .012)
-    shell('Breastplate', (0, -.015, 1.315), (.17, .12, .15), 'plate', 'Chest', keep='front')
-    box('Chest_ridge', (0, -.132, 1.33), (.04, .032, .24), 'gilt', 'Chest', .004)
-    shell('Backplate', (0, .02, 1.30), (.155, .11, .14), 'plate', 'Chest', keep='back')
-    box('Shoulder_yoke', (0, .01, 1.452), (.42, .13, .05), 'plate', 'Chest', .02)
+        for i in range(3):
+            shell('Sode_%d_%s' % (i, b), (s * (.205 + .035 * i), 0, 1.355 - .05 * i),
+                  (.085, .115, .13), 'plate', 'UpperArm.' + b,
+                  keep='outer-x+' if s > 0 else 'outer-x-', zband=(-1.01, 1.01),
+                  segments=16, rings=8, rot=(0, s * -.4, 0))
+        box('Pauldron_fin_' + b, (s * .27, .02, 1.455), (.02, .13, .035), 'gilt', 'Clavicle.' + b, .003)
+        shell('Thigh_guard_' + b, (s * .105, -.028, .72), (.058, .06, .14), 'plate', 'UpLeg.' + b, keep='front')
+        shell('Knee_cop_' + b, (s * .134, -.05, .515), (.055, .055, .05), 'gilt', 'Leg.' + b, keep='lower', segments=16, rings=8)
+    shell('Breastplate', (0, -.015, 1.30), (.165, .115, .145), 'plate', 'Chest', keep='front')
+    box('Chest_ridge', (0, -.128, 1.31), (.04, .032, .23), 'gilt', 'Chest', .004)
+    shell('Backplate', (0, .02, 1.285), (.15, .11, .13), 'plate', 'Chest', keep='back')
+    box('Shoulder_yoke', (0, 0, 1.415), (.40, .13, .05), 'plate', 'Chest', .02)
 
     # --- obi belt + glowing core -------------------------------------------
-    box('Obi_belt', (0, -.005, 1.02), (.30, .21, .09), 'carbon', 'Hips', .02)
-    box('Obi_plate', (0, -.115, 1.02), (.15, .02, .10), 'gilt', 'Hips', .008)
-    cyl('Energy_core', (0, -.135, 1.02), (0, -.162, 1.02), .042, 'core', 'Hips', 6)
+    box('Obi_belt', (0, -.005, 1.005), (.30, .21, .085), 'carbon', 'Hips', .02)
+    box('Obi_plate', (0, -.115, 1.005), (.15, .02, .095), 'gilt', 'Hips', .008)
+    cyl('Energy_core', (0, -.132, 1.005), (0, -.16, 1.005), .042, 'core', 'Hips', 6)
 
     # --- fauld skirt: smooth flared plate cone over a fabric tabard --------
-    cyl('Fauld_skirt', (0, 0, 1.00), (0, 0, .845), .19, 'plate', 'Hips', 20, r2=.232)
+    cyl('Fauld_skirt', (0, 0, 1.0), (0, 0, .845), .19, 'plate', 'Hips', 20, r2=.232)
     cyl('Fauld_hem_ring', (0, 0, .845), (0, 0, .852), .235, 'accent', 'Hips', 24)
-    cyl('Tabard_skirt', (0, 0, .99), (0, 0, .83), .158, 'fabric', 'Hips', 20, r2=.148)
+    cyl('Tabard_skirt', (0, 0, .985), (0, 0, .83), .158, 'fabric', 'Hips', 20, r2=.148)
 
     # --- half cape from the shoulders, hanging behind the backplate --------
-    box('Cape_panel', (0, .195, 1.11), (.30, .018, .56), 'fabric', 'Chest', .006, rot=(-.06, 0, 0))
-    box('Cape_hem', (0, .222, .826), (.31, .02, .025), 'fabric', 'Spine', .004, rot=(-.06, 0, 0))
-    box('Cape_clasp_L', (.10, .10, 1.44), (.05, .075, .04), 'gilt', 'Chest', .01)
+    box('Cape_panel', (0, .185, 1.09), (.30, .018, .55), 'fabric', 'Chest', .006, rot=(-.06, 0, 0))
+    box('Cape_hem', (0, .212, .815), (.31, .02, .025), 'fabric', 'Spine', .004, rot=(-.06, 0, 0))
+    box('Cape_clasp_L', (.09, .09, 1.38), (.05, .075, .04), 'gilt', 'Chest', .01)
 
-    # --- the open face: skin loft with a jaw taper (the same loft trick the
-    # torso uses), dark stylized eyes + brows, a nose, and the menpo pushed
-    # down to a steel chin cup. Face = flesh; armour = bowl, brim, wings.
-    loft('Face_mask', (0, -.012), 1.465, 1.615, face_profile, 'skin', 'Head', 20)
-    orb('Skull_under_bowl', (0, -.005, 1.585), (.072, .082, .07), 'skin', 'Head', smooth=True)
+    # --- the open face under the kabuto ------------------------------------
+    loft('Face_mask', (0, -.012), 1.435, 1.615, face_profile, 'skin', 'Head', 20)
     for side in ('L', 'R'):
         s = 1 if side == 'L' else -1
-        box('Eye_' + side, (s * .031, -.099, 1.547), (.022, .011, .01), 'eyes', 'Head', .002)
-        box('Brow_' + side, (s * .032, -.095, 1.565), (.032, .01, .006), 'hair', 'Head', .002)
-    box('Nose_ridge', (0, -.104, 1.53), (.018, .016, .024), 'skin', 'Head', .004)
-    shell('Menpo_chin_cup', (0, -.062, 1.482), (.066, .033, .05), 'plate', 'Head', keep='front', segments=16, rings=8)
-    box('Mouth_line', (0, -.0985, 1.528), (.03, .008, .004), 'hair', 'Head', .001)
-    cyl('Helmet_bowl', (0, -.015, 1.617), (0, -.015, 1.715), .115, 'plate', 'Head', 14, r2=.082)
-    box('Helmet_brim', (0, -.095, 1.612), (.165, .075, .016), 'plate', 'Head', .005, rot=(-.35, 0, 0))
-    box('Hair_nape', (0, .048, 1.515), (.085, .055, .09), 'hair', 'Head', .02)
-    orb('Chikara_bun', (0, .095, 1.705), (.038, .042, .048), 'hair', 'Head', smooth=True)
-    box('Shikoro_left', (-.10, .075, 1.60), (.10, .02, .14), 'plate', 'Head', .004, rot=(-.5, 0, 0))
-    box('Shikoro_right', (.10, .075, 1.60), (.10, .02, .14), 'plate', 'Head', .004, rot=(-.5, 0, 0))
-    box('Shikoro_center', (0, .085, 1.59), (.09, .02, .12), 'plate', 'Head', .004, rot=(-.55, 0, 0))
-    box('Fukigaeshi_left', (-.105, .065, 1.70), (.055, .05, .075), 'gilt', 'Head', .005, rot=(0, .5, 0))
-    box('Fukigaeshi_right', (.105, .065, 1.70), (.055, .05, .075), 'gilt', 'Head', .005, rot=(0, -.5, 0))
-    box('Crest_fin', (0, .055, 1.78), (.018, .05, .10), 'crest', 'Head', .003)
-    box('Crest_fin_upper', (0, .06, 1.845), (.014, .04, .05), 'crest', 'Head', .002)
-    box('Crest_base', (0, .05, 1.718), (.03, .06, .04), 'gilt', 'Head', .004)
-    cyl('Helmet_antenna', (.10, .02, 1.60), (.14, .06, 1.76), .007, 'trim', 'Head', 6)
+        box('Eye_' + side, (s * .031, -.099, 1.508), (.022, .011, .01), 'eyes', 'Head', .002)
+        box('Brow_' + side, (s * .032, -.095, 1.526), (.032, .01, .006), 'hair', 'Head', .002)
+    box('Nose_ridge', (0, -.102, 1.49), (.018, .016, .024), 'skin', 'Head', .004)
+    box('Mouth_line', (0, -.0985, 1.468), (.03, .008, .004), 'hair', 'Head', .001)
+    shell('Menpo_chin_cup', (0, -.062, 1.432), (.066, .033, .045), 'plate', 'Head', keep='front', segments=16, rings=8)
+    cyl('Helmet_bowl', (0, -.015, 1.57), (0, -.015, 1.655), .112, 'plate', 'Head', 14, r2=.08)
+    box('Helmet_brim', (0, -.09, 1.568), (.165, .075, .016), 'plate', 'Head', .005, rot=(-.35, 0, 0))
+    box('Hair_nape', (0, .048, 1.47), (.085, .055, .09), 'hair', 'Head', .02)
+    orb('Chikara_bun', (0, .09, 1.645), (.038, .042, .048), 'hair', 'Head', smooth=True)
+    box('Shikoro_left', (-.095, .072, 1.545), (.095, .02, .12), 'plate', 'Head', .004, rot=(-.5, 0, 0))
+    box('Shikoro_right', (.095, .072, 1.545), (.095, .02, .12), 'plate', 'Head', .004, rot=(-.5, 0, 0))
+    box('Shikoro_center', (0, .082, 1.535), (.085, .02, .105), 'plate', 'Head', .004, rot=(-.55, 0, 0))
+    box('Fukigaeshi_left', (-.10, .062, 1.635), (.052, .048, .07), 'gilt', 'Head', .005, rot=(0, .5, 0))
+    box('Fukigaeshi_right', (.10, .062, 1.635), (.052, .048, .07), 'gilt', 'Head', .005, rot=(0, -.5, 0))
+    box('Crest_fin', (0, .05, 1.72), (.018, .05, .09), 'crest', 'Head', .003)
+    box('Crest_fin_upper', (0, .055, 1.775), (.014, .04, .045), 'crest', 'Head', .002)
+    box('Crest_base', (0, .048, 1.66), (.03, .055, .04), 'gilt', 'Head', .004)
+    cyl('Helmet_antenna', (.09, .02, 1.55), (.12, .05, 1.70), .007, 'trim', 'Head', 6)
 
     # --- the katana, worn OUTSIDE the fauld skirt at the left hip ----------
-    cyl('Katana_scabbard', (0.24, -0.03, 0.90), (0.255, 0.20, 1.12), .021, 'carbon', 'Hips', 10)
-    cyl('Scabbard_mouth', (0.24, -0.03, 0.90), (0.242, 0.01, 0.945), .024, 'iron', 'Hips', 10)
-    cyl('Katana_hilt', (0.24, -0.03, 0.90), (0.20, -0.235, 0.815), .013, 'iron', 'Hips', 8)
+    cyl('Katana_scabbard', (0.235, -0.03, 0.88), (0.25, 0.18, 1.06), .021, 'carbon', 'Hips', 10)
+    cyl('Scabbard_mouth', (0.235, -0.03, 0.88), (0.237, 0.0, 0.915), .024, 'iron', 'Hips', 10)
+    cyl('Katana_hilt', (0.235, -0.03, 0.88), (0.195, -0.21, 0.795), .013, 'iron', 'Hips', 8)
     for i in range(4):  # tsuka-ito wrap diamonds
         f = i / 3.0
-        box('Hilt_wrap_%d' % i, (0.24 - .04 * f, -0.03 - .205 * f, 0.90 - .085 * f), (.03, .012, .02), 'accent', 'Hips', .002)
-    box('Katana_guard', (0.24, -0.048, 0.888), (.05, .022, .05), 'gilt', 'Hips', .003)
-    box('Scabbard_tip_trim', (0.255, 0.195, 1.115), (.05, .02, .03), 'gilt', 'Hips', .003)
+        box('Hilt_wrap_%d' % i, (0.235 - .04 * f, -0.03 - .18 * f, 0.88 - .085 * f), (.03, .012, .02), 'accent', 'Hips', .002)
+    box('Katana_guard', (0.235, -0.045, 0.868), (.05, .022, .05), 'gilt', 'Hips', .003)
+    box('Scabbard_tip_trim', (0.25, 0.175, 1.055), (.05, .02, .03), 'gilt', 'Hips', .003)
 
     # --- the operative's own designation, low on the tabard ----------------
-    label('SHOGUN', (0, -.165, .96), .05, 'gilt', 'Hips')
-
+    label('SHOGUN', (0, -.165, .94), .05, 'gilt', 'Hips')
 
 # ----------------------------------------------------------------------------
 # animation: every clip authored in place; pitch magnitudes hand-picked small
