@@ -298,7 +298,7 @@ const Onboarding = () => {
               <option value="">{t('auth.select_country', 'Select Country')}</option>
               {countries.map((c) => (
                 <option key={c.cca3} value={c.name.common}>
-                  {c.name.common}
+                  {c.flag ? c.flag + ' ' : ''}{c.name.common}
                 </option>
               ))}
             </select>

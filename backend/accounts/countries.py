@@ -43,6 +43,9 @@ def basic_countries():
         {
             'cca3': entry.get('cca3', ''),
             'name': {'common': entry['name']['common']},
+            # the dataset's flag-emoji string; the dropdowns prepend it to the
+            # option LABEL -- the stored value stays the bare common name
+            'flag': entry.get('flag', ''),
         }
         for entry in load_countries()
         if entry.get('name', {}).get('common')
