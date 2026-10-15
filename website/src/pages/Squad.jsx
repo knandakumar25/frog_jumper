@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
+
+// Phase 2: the podium hall is code-split like the home world, so the Squad
+// page's text/content renders immediately and three.js loads after.
+const LazySquadHall = lazy(() => import('../three/SquadHall'));
 
 export default function Squad() {
   const { t } = useTranslation();
@@ -85,6 +89,11 @@ export default function Squad() {
 
   const activeChar = characterRoster[activeCharId];
   const isRtl = selectedLanguage === 'arabic' || selectedLanguage === 'hebrew';
+  // the podium hall wants the roster as a stable, ordered list
+  const hallRoster = React.useMemo(
+    () => Object.entries(characterRoster).map(([id, c]) => ({ id, model: c.model })),
+    []
+  );
 
   const getUIString = (key) => {
     return t(`squad.${key}`, key);
@@ -122,25 +131,25 @@ export default function Squad() {
         <div className="lg:col-span-8 bg-surface-container-low brutal-border p-4 md:p-6 flex flex-col md:flex-row gap-8 relative overflow-hidden group">
           <div className="absolute inset-0 bg-scanline-overlay pointer-events-none z-10"></div>
           
-          {/* Operative 3D Model Viewer Frame */}
-          <div className="w-full md:w-1/2 relative h-[350px] md:h-[420px] bg-void-black border border-outline-variant/30 flex items-center justify-center overflow-hidden">
-            <model-viewer
-              key={activeChar.model}
-              src={activeChar.model}
-              alt={activeName}
-              auto-rotate
-              camera-controls
-              shadow-intensity="1.5"
-              exposure="1.1"
-              interaction-prompt="none"
-              style={{ width: '100%', height: '100%', backgroundColor: '#050505' }}
-            >
-            </model-viewer>
+          {/* Operative 3D Podium Hall (Phase 2): every operative on a glowing
+              platform; the active one swings to front-center. The thumbnail
+              grid below stays the accessible selector and no-WebGL fallback. */}
+          <div className="w-full md:w-1/2 relative h-[350px] md:h-[420px] border border-outline-variant/30 overflow-hidden bg-void-black">
+            {/* CSS fallback behind the canvas (no-WebGL / reduced-motion-off) */}
+            <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_50%_20%,#0a2230_0%,#06121b_50%,#050505_100%)]"></div>
+            <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:38px_38px]"></div>
+            <Suspense fallback={null}>
+              <LazySquadHall
+                roster={hallRoster}
+                activeId={activeCharId}
+                onSelect={setActiveCharId}
+              />
+            </Suspense>
             <div className="absolute top-2 left-2 bg-void-black/90 px-2 py-0.5 border border-primary-container/30 text-[10px] font-label-caps text-primary-container pointer-events-none z-20">
               {t('squad.live_orbit', '3D_LIVE_ORBIT')} // {activeCharId.toUpperCase()}
             </div>
             <div className="absolute bottom-2 right-2 bg-void-black/80 px-2 py-0.5 border border-outline-variant/20 text-[9px] font-label-caps text-on-surface-variant pointer-events-none z-20">
-              {t('squad.drag_rotate', '🖱️ DRAG TO ROTATE 360°')}
+              {t('squad.select_platform', '🖱️ CLICK A PLATFORM TO DEPLOY')}
             </div>
           </div>
           
