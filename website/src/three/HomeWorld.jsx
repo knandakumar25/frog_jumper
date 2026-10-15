@@ -14,6 +14,16 @@ import { Fitted, NeonPulseLights, WorldCanvas, useWorldMode } from './common';
  * a still; quality -> dpr).
  */
 
+function Beacon() {
+  // the brand monument (original website asset), far centre behind the copy
+  return (
+    <group position={[0, -2.4, -13]}>
+      <Fitted url="/models/web/axiom_beacon.glb" target={7.2} />
+      <pointLight position={[0, 5.0, 1.6]} intensity={2.2} color="#00f3ff" distance={12} />
+    </group>
+  );
+}
+
 function Skyline() {
   return (
     <Fitted url="/models/world/cyber_city_skyline.glb" target={62} position={[0, -2.4, -20]} />
@@ -90,6 +100,7 @@ function Scene({ animate }) {
       <gridHelper args={[70, 56, '#0d3040', '#092029']} position={[0, -2.4, 0]} />
       <Suspense fallback={null}>
         <Skyline />
+        <Beacon />
         <Drone animate={animate} />
         <Operative animate={animate} />
       </Suspense>

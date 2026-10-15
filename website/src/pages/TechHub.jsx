@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
 // Phase 5: the forge exhibit is code-split like the other scenes.
-const LazyForgeDisplay = lazy(() => import('../three/ForgeDisplay'));
+const LazyKioskRow = lazy(() => import('../three/KioskRow'));
 
 
 export default function TechHub() {
@@ -61,10 +61,10 @@ export default function TechHub() {
         
         <div className="lg:col-span-7 relative min-h-[350px] md:min-h-[400px]">
           <div className="absolute inset-0 border border-primary-container/30 bg-void-black overflow-hidden">
-            {/* Phase 5: the virtual forge exhibit (CSS gradient is the fallback) */}
+            {/* Original website assets: the platform deploy kiosks (CSS gradient is the fallback) */}
             <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_20%,#0b2230_0%,#07141d_55%,#050505_100%)]"></div>
             <Suspense fallback={null}>
-              <LazyForgeDisplay />
+              <LazyKioskRow />
             </Suspense>
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent"></div>

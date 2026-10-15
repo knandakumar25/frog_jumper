@@ -59,6 +59,24 @@ function Pedestal() {
   );
 }
 
+function CompanionOrb() {
+  // original website asset: AXIOM-7's companion orb, watching the terminal
+  const ref = useRef();
+  useFrame((state) => {
+    const t = state.clock.elapsedTime;
+    if (ref.current) {
+      ref.current.rotation.y = t * 0.3;
+      ref.current.position.y = 1.35 + Math.sin(t * 0.55) * 0.09;
+    }
+  });
+  return (
+    <group ref={ref} position={[2.9, 1.35, 0.9]}>
+      <Fitted url="/models/web/axiom_orb.glb" target={1.0} />
+      <pointLight color="#9fe9ff" intensity={1.6} distance={6} />
+    </group>
+  );
+}
+
 function Drift({ animate }) {
   useFrame((state, dt) => {
     if (!animate) return;
@@ -87,6 +105,7 @@ export default function AuthBackdrop({ quality = 'high' }) {
             <Towers />
             <HoloRings />
             <Pedestal />
+            <CompanionOrb />
           </Suspense>
           <Drift animate={animate} />
         </>
