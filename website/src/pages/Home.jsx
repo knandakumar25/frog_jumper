@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 import { getTitleLogoPath } from '../translations/titleLogo';
+
+// Phase 1: the 3D hero world is code-split so the rest of the site never
+// waits on three.js; below-the-fold pages don't pay for it either.
+const HomeWorld = lazy(() => import('../three/HomeWorld'));
 
 export default function Home() {
   const navigate = useNavigate();
@@ -25,13 +29,15 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative min-h-[600px] md:min-h-[716px] flex items-center justify-center mb-32 bracket-corners neon-border p-6 md:p-8 bg-surface-container-low/50 overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 opacity-40 mix-blend-luminosity bg-cover bg-center" 
-          style={{ 
-            backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZKmyGVNF3TXicRiuSAQhqCtZekvOOL-Q_OuAHtsCvi5GEfKHskSAS5WPFMXW2tnMd6cHfIVYV6n5IaYf8nNA8ylOjRQIyxQHIyGQe0WRXKxEgg6scfB4OTWzvMJ47WtZQ9bzLHt8hIPIG2behbGhAkneMpQCp1VNfUntHVYJjJYZpXaWYxJpwCAsYU37so1iUqNTyqG8Uu4D20Ewl9xBfuwX8KTgqHzddCH3nf5_weYR0d67BVht9ElUlHOgc7_vKOlCpU1-Kn-g')" 
-          }}
-        ></div>
+        {/* 3D hero world (Phase 1): skyline, patrol drone and the operative on
+            a glowing podium, over the wireframe simulation grid. The CSS
+            layers beneath it are the no-WebGL / reduced-motion fallback, so
+            the section never renders empty. */}
+        <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_8%,#0a2230_0%,#06121b_45%,#050505_100%)]"></div>
+        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"></div>
+        <Suspense fallback={null}>
+          <HomeWorld />
+        </Suspense>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-2">
           <div className="inline-block bg-warning-orange text-void-black font-label-caps text-[11px] md:text-label-caps px-3 py-1 mb-6 uppercase tracking-widest font-bold">
