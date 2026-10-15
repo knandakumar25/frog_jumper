@@ -111,12 +111,9 @@ export default function Home() {
         </div>
         
         <div className="lg:col-span-7 relative min-h-[350px] md:min-h-[400px] neon-border bg-surface-container mt-8 lg:mt-0">
-          <div 
-            className="absolute inset-0 opacity-60 mix-blend-screen bg-cover bg-center" 
-            style={{ 
-              backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCs4UuTUn4dvlRFUQUQfKMbJ8heyrPYI8GfvVzIaJTC5oVRz5qJ36XPawx237rkgp58A9xyrQhkewzFuexgL8X8jk6pdbEYfzn4_FPRl3HIO6uwryPNBgCCbkYnSEh6FjAOGROJ367WLlrsBmvH1O4hgtJw1_7dl4ny4n29_lKVegCOyF2sFw9f5I9dqlF5If_Hbz718U2NLZD3AlIDlu64KVEWi0KCPvFmnb2bxjyCJunCbkZk7WkouniML7biOf2K8Fbvw04XKaY')" 
-            }}
-          ></div>
+          {/* CSS tactical map wash (replaces the last externally hosted image) */}
+          <div className="absolute inset-0 opacity-60 bg-[radial-gradient(90%_70%_at_30%_35%,rgba(0,243,255,0.16)_0%,rgba(254,0,254,0.08)_45%,transparent_75%)]"></div>
+          <div className="absolute inset-0 opacity-50 bg-[linear-gradient(rgba(0,243,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.06)_1px,transparent_1px)] bg-[size:34px_34px]"></div>
           <div className={`absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur p-4 ${
             isRtl ? 'border-r-2 border-primary-container text-right' : 'border-l-2 border-primary-container text-left'
           }`}>
