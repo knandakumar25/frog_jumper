@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
+
+// Phase 5: the forge exhibit is code-split like the other scenes.
+const LazyForgeDisplay = lazy(() => import('../three/ForgeDisplay'));
 
 
 export default function TechHub() {
@@ -57,9 +60,13 @@ export default function TechHub() {
         </div>
         
         <div className="lg:col-span-7 relative min-h-[350px] md:min-h-[400px]">
-          <div 
-            className="absolute inset-0 border border-primary-container/30 bg-[url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center grayscale mix-blend-luminosity opacity-40"
-          ></div>
+          <div className="absolute inset-0 border border-primary-container/30 bg-void-black overflow-hidden">
+            {/* Phase 5: the virtual forge exhibit (CSS gradient is the fallback) */}
+            <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_20%,#0b2230_0%,#07141d_55%,#050505_100%)]"></div>
+            <Suspense fallback={null}>
+              <LazyForgeDisplay />
+            </Suspense>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent"></div>
           <div className={`absolute bottom-8 glass-panel p-4 max-w-xs terminal-text font-body-md text-[13px] leading-relaxed ${
             isRtl ? 'left-8' : 'right-8'

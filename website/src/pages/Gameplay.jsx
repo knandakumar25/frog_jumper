@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
+
+// Phase 4: the briefing vista (code-split; the page's copy never waits on it).
+const IntelBackdrop = lazy(() => import('../three/IntelBackdrop'));
 
 
 export default function Gameplay() {
@@ -50,13 +53,13 @@ export default function Gameplay() {
 
       {/* Los Angeles 2157 Briefing */}
       <section className="px-4 md:px-margin-desktop mb-24 relative">
-        <div className="relative h-[400px] md:h-[500px] bg-surface-container-low border border-outline-variant overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-50 mix-blend-luminosity" 
-            style={{ 
-              backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCko4QlFnMYn_IxApK2GUqJ01AVB0Lr-8x_okm6OI93q6yYfh0KJqPPj7o6JP-t0vT6XL-FypaEKtHO5ussFrWHZ6vhMPJMBvVuT7IGqSKApvibZ7Pd3v6qkuxKEP3Cp1NCBpe0pJQBKxhERZhDUOOvAXdSDYO0-RXEX71hxmNKz23lCOY-qCikG3d5RwpnY9T6te6lASAB9J2w8v1gSBowlMfMWrIXqO965ms9xdYKaR1SjarOJd6rjWUM6xKZ3SwXExb_XflFqBQ')" 
-            }}
-          ></div>
+        <div className="relative h-[400px] md:h-[500px] bg-void-black border border-outline-variant overflow-hidden">
+          {/* Phase 4: live briefing feed (skyline under fog, slow drone pan).
+              The CSS gradient is the no-WebGL / reduced-motion fallback. */}
+          <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_85%,#0c2634_0%,#07141d_55%,#050505_100%)]"></div>
+          <Suspense fallback={null}>
+            <IntelBackdrop />
+          </Suspense>
           <div className="bracket-tl"></div><div className="bracket-tr"></div><div className="bracket-bl"></div><div className="bracket-br"></div>
           
           <div className="absolute inset-0 bg-gradient-to-t from-void-black to-transparent z-10"></div>
