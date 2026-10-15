@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { key: 'home', to: '' },
   { key: 'gameplay', to: '/gameplay' },
   { key: 'squad', to: '/squad' },
+  { key: 'tech_hub', to: '/tech-hub' },
   { key: 'faq', to: '/faq' },
 ];
 
@@ -40,6 +41,31 @@ const ACCOUNT_PORTAL_BASE = (() => {
     return null;
   }
 })();
+
+// A live status ticker under the command rail: the diegetic touch that makes
+// the shell read as an operations console rather than a website header.
+function RailTicker() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const clock = now.toTimeString().slice(0, 8);
+  return (
+    <div className="border-b border-primary-container/15 bg-primary-container/[0.05]">
+      <div className="max-w-container-max-width mx-auto px-4 md:px-margin-desktop h-6 flex items-center gap-3 overflow-hidden whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-primary-container/70">
+        <span className="text-tertiary-container">&#9679; AXIOM-7 LINK ESTABLISHED</span>
+        <span className="opacity-30">|</span>
+        <span>RESISTANCE ACTIVE</span>
+        <span className="opacity-30">|</span>
+        <span className="hidden sm:inline">SECTOR 04 // LA QZ</span>
+        <span className="hidden md:inline opacity-30">|</span>
+        <span className="hidden md:inline">GRID INTEGRITY 87%</span>
+        <span className="ml-auto text-primary-container/80">{clock} LOCAL</span>
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -100,126 +126,122 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Desktop and Tablet Navbar */}
+      {/* Command rail: the site's shell as an HLF operations console */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-surface/90 backdrop-blur-xl border-b-2 border-primary-container/30 shadow-[0_4px_20px_rgba(0,243,255,0.15)]'
-          : 'bg-surface/80 backdrop-blur-md border-b border-primary-container/10'
+        scrolled ? 'shadow-[0_4px_24px_rgba(0,243,255,0.12)]' : ''
       }`}>
-        <div className="flex justify-between items-center px-4 md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
-          {/* Logo */}
-          <NavLink to={`/${currentLocale}`} className="flex items-center gap-2 select-none hover:opacity-95 transition-opacity">
-            <img
-              src={getTitleLogoPath(selectedLanguage)}
-              alt="AXIOM FORCE"
-              className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,243,255,0.75)] select-none transition-all duration-300"
-            />
-          </NavLink>
+        <div className="border-b border-primary-container/25 bg-void-black/85 backdrop-blur-xl">
+          <div className="flex items-center gap-4 px-4 md:px-margin-desktop h-14 max-w-container-max-width mx-auto">
+            {/* identity block */}
+            <NavLink to={`/${currentLocale}`} className="flex items-center gap-3 select-none group">
+              <span className="w-2 h-2 bg-tertiary-container shadow-[0_0_8px_#36fd0f] animate-pulse"></span>
+              <img
+                src={getTitleLogoPath(selectedLanguage)}
+                alt="AXIOM FORCE"
+                className="h-7 md:h-8 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,243,255,0.7)] group-hover:drop-shadow-[0_0_18px_rgba(0,243,255,0.95)] transition-all duration-300"
+              />
+              <span className="hidden md:inline font-mono text-[10px] tracking-[0.3em] text-on-surface-variant/60">//&nbsp;HLF&nbsp;OPS</span>
+            </NavLink>
 
-          {/* Desktop Links */}
-          <div className="hidden lg:flex gap-6 items-center">
-            {NAV_LINKS.map(link => (
-              <NavLink
-                key={link.key}
-                to={`/${currentLocale}${link.to}`}
-                end={link.to === ''}
-                className={({ isActive }) =>
-                  `font-headline-md text-[14px] md:text-[16px] uppercase tracking-widest px-3 py-1.5 transition-all duration-150 hover:skew-x-[-12deg] hover:bg-primary-container hover:text-on-primary-container ${
-                    isActive
-                      ? 'text-primary-container border-b-2 border-primary-container'
-                      : 'text-on-surface-variant hover:text-primary'
-                  }`
-                }
-              >
-                {getNavLabel(link.key)}
-              </NavLink>
-            ))}
-          </div>
+            {/* command tokens */}
+            <div className="hidden lg:flex items-center gap-1 mx-auto">
+              {NAV_LINKS.map(link => (
+                <NavLink
+                  key={link.key}
+                  to={`/${currentLocale}${link.to}`}
+                  end={link.to === ''}
+                  className={({ isActive }) =>
+                    `font-mono text-[12px] tracking-[0.18em] px-3 py-1.5 border transition-all duration-150 ${
+                      isActive
+                        ? 'text-primary-container border-primary-container/60 bg-primary-container/10'
+                        : 'text-on-surface-variant border-transparent hover:text-primary hover:border-primary-container/30 hover:bg-primary-container/5'
+                    }`
+                  }
+                >
+                  <span className="opacity-50">&gt;&nbsp;</span>{getNavLabel(link.key)}
+                </NavLink>
+              ))}
+            </div>
 
-          {/* Desktop Right Side CTA & Lang */}
-          <div className="hidden lg:flex items-center gap-4">
-            <SignedIn>
-              <UserButton afterSignOutUrl={`/${currentLocale}`} />
-            </SignedIn>
-            <SignedOut>
-              <div className="flex items-center gap-4">
+            {/* session block */}
+            <div className="hidden lg:flex items-center gap-3 ml-auto">
+              <SignedIn>
+                <UserButton afterSignOutUrl={`/${currentLocale}`} />
+              </SignedIn>
+              <SignedOut>
                 <a
                   href={portalSignInUrl}
-                  className="text-xs font-bold uppercase text-on-surface-variant hover:text-primary transition-colors underline"
+                  className="font-mono text-[11px] tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary transition-colors"
                 >
                   {t('nav.login', 'Login')}
                 </a>
                 <a
                   href={portalSignUpUrl}
-                  className="text-xs font-bold uppercase text-primary-container bg-primary-container/10 border-2 border-primary-container/45 hover:bg-primary-container/20 px-3 py-1.5 transition-all duration-150 active:scale-95 font-body-md"
+                  className="font-mono text-[11px] tracking-[0.18em] uppercase text-void-black bg-primary-container hover:bg-secondary-container hover:text-on-secondary-container px-3 py-1.5 transition-all duration-150"
                 >
                   {t('nav.signup', 'Sign Up')}
                 </a>
-              </div>
-            </SignedOut>
-            <LanguageSelector />
-          </div>
+              </SignedOut>
+              <LanguageSelector />
+            </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden text-primary-container p-2 focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle Navigation Menu"
-          >
-            <span className="material-symbols-outlined text-[32px]">
-              {menuOpen ? 'close' : 'menu'}
-            </span>
-          </button>
+            {/* mobile toggle */}
+            <button
+              className="lg:hidden text-primary-container p-2 ml-auto focus:outline-none"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle Navigation Menu"
+            >
+              <span className="material-symbols-outlined text-[28px]">
+                {menuOpen ? 'close' : 'menu'}
+              </span>
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
-        <div className={`lg:hidden fixed left-0 w-full bg-surface-container-lowest/95 backdrop-blur-2xl border-b border-primary-container/20 transition-all duration-300 ease-in-out overflow-hidden z-40 ${
-          menuOpen ? 'max-h-[500px] py-6' : 'max-h-0'
+        <RailTicker />
+
+        {/* mobile drawer: same rail language */}
+        <div className={`lg:hidden fixed left-0 w-full bg-void-black/95 backdrop-blur-2xl border-b border-primary-container/20 transition-all duration-300 ease-in-out overflow-hidden z-40 ${
+          menuOpen ? 'max-h-[520px] py-5' : 'max-h-0'
         }`}>
-          <div className="flex flex-col gap-4 px-margin-mobile items-center">
+          <div className="flex flex-col gap-1 px-margin-mobile">
             {NAV_LINKS.map(link => (
               <NavLink
                 key={link.key}
                 to={`/${currentLocale}${link.to}`}
                 end={link.to === ''}
                 className={({ isActive }) =>
-                  `w-full text-center font-headline-md text-[18px] uppercase tracking-wider py-2 transition-all duration-75 ${
+                  `w-full font-mono text-[13px] tracking-[0.2em] uppercase py-3 px-3 border-l-2 transition-all duration-75 ${
                     isActive
-                      ? 'text-primary-container bg-primary-container/10 border-r-4 border-l-4 border-primary-container'
-                      : 'text-on-surface-variant hover:text-primary hover:bg-surface-container/50'
+                      ? 'text-primary-container border-primary-container bg-primary-container/10'
+                      : 'text-on-surface-variant border-transparent hover:text-primary hover:border-primary-container/40'
                   }`
                 }
               >
-                {getNavLabel(link.key)}
+                <span className="opacity-50">&gt;&nbsp;</span>{getNavLabel(link.key)}
               </NavLink>
             ))}
-
-            <div className="h-[1px] bg-outline-variant/30 w-full my-2"></div>
-
-            <div className="flex flex-col gap-4 items-center w-full">
+            <div className="h-[1px] bg-outline-variant/30 w-full my-3"></div>
+            <div className="flex flex-col gap-3">
               <LanguageSelector />
               <SignedIn>
-                <div className="flex flex-col gap-3 items-center w-full">
-                  <UserButton afterSignOutUrl={`/${currentLocale}`} />
-                </div>
+                <UserButton afterSignOutUrl={`/${currentLocale}`} />
               </SignedIn>
               <SignedOut>
-                <div className="flex flex-col gap-3 w-full">
-                  <a
-                    href={portalSignInUrl}
-                    onClick={() => setMenuOpen(false)}
-                    className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase"
-                  >
-                    {t('nav.login', 'Login')}
-                  </a>
-                  <a
-                    href={portalSignUpUrl}
-                    onClick={() => setMenuOpen(false)}
-                    className="brutal-btn w-full text-center font-label-caps text-label-caps py-3 font-bold uppercase bg-primary-container text-void-black hover:bg-secondary-container hover:text-on-secondary-container"
-                  >
-                    {t('nav.signup', 'Sign Up')}
-                  </a>
-                </div>
+                <a
+                  href={portalSignInUrl}
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full text-center font-mono text-[12px] tracking-[0.2em] uppercase py-3 border border-primary-container/40 text-primary-container"
+                >
+                  {t('nav.login', 'Login')}
+                </a>
+                <a
+                  href={portalSignUpUrl}
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full text-center font-mono text-[12px] tracking-[0.2em] uppercase py-3 bg-primary-container text-void-black font-bold"
+                >
+                  {t('nav.signup', 'Sign Up')}
+                </a>
               </SignedOut>
             </div>
           </div>

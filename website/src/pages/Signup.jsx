@@ -26,6 +26,15 @@ export default function Signup() {
         <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div>
         <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary-container"></div>
 
+        {/* Tactical Security Header */}
+        <div className="border-b border-primary-container/20 pb-3 mb-6 flex justify-between items-center font-mono text-[10px] tracking-widest text-primary-container">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+            RECRUITMENT // NEW_OPERATIVE_ENLIST
+          </span>
+          <span className="text-on-surface-variant/70">HLF_REGISTRY</span>
+        </div>
+
         <div className="flex justify-center">
           <SignUp
             routing="path"

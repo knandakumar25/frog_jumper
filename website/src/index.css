@@ -240,3 +240,75 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00f3ff;
 }
+
+/* Cyber Tactical Utility Additions */
+.cyber-cut {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.cyber-cut-sm {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.cyber-cut-tr {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+
+.cyber-cut-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.cyber-panel {
+  background: rgba(10, 14, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  position: relative;
+}
+
+.cyber-panel:hover {
+  border-color: rgba(0, 243, 255, 0.45);
+}
+
+.cyber-panel-orange {
+  background: rgba(18, 12, 10, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 77, 0, 0.25);
+  position: relative;
+}
+
+.cyber-panel-orange:hover {
+  border-color: rgba(255, 77, 0, 0.5);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.6), 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.text-glow-magenta {
+  text-shadow: 0 0 10px rgba(254, 0, 254, 0.6), 0 0 20px rgba(254, 0, 254, 0.2);
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 10px rgba(255, 77, 0, 0.6), 0 0 20px rgba(255, 77, 0, 0.2);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(54, 253, 15, 0.6), 0 0 20px rgba(54, 253, 15, 0.2);
+}
+
+.hud-grid {
+  background-image: 
+    linear-gradient(rgba(0, 243, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+

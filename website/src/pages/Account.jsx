@@ -127,46 +127,60 @@ const Account = () => {
         <AuthBackdrop />
       </Suspense>
       <div className="relative z-10 max-w-2xl mx-auto">
-        <h1 className="text-headline-md text-primary-container font-bold uppercase tracking-tighter mb-8 border-l-4 border-primary-container pl-4">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="w-2 h-2 bg-primary-container"></span>
+          <span className="font-mono text-[11px] text-primary-container uppercase tracking-[0.25em]">
+            // OPERATIVE DOSSIER & NEURAL PROFILE
+          </span>
+          <div className="h-px bg-primary-container/20 flex-grow"></div>
+        </div>
+
+        <h1 className="font-display-hero text-2xl md:text-3xl text-primary-container font-extrabold uppercase tracking-wide mb-6 text-glow-cyan">
           {t('nav.my_account', 'My Account')}
         </h1>
 
-        <form onSubmit={handleSubmit} className="bg-surface-container-highest border-2 border-primary-container p-6 shadow-[8px_8px_0px_rgba(0,243,255,0.3)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('auth.first_name', 'First Name')}</label>
+        <form onSubmit={handleSubmit} className="bg-surface-container-low/90 backdrop-blur-md border border-primary-container/30 p-6 md:p-8 relative">
+          {/* Accent corners */}
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary-container"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary-container"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary-container"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary-container"></div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('auth.first_name', 'First Name')}</label>
               <input
                 name="first_name"
                 value={formData.first_name}
                 onChange={handleInputChange}
-                className="bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
+                className="bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('auth.last_name', 'Last Name')}</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('auth.last_name', 'Last Name')}</label>
               <input
                 name="last_name"
                 value={formData.last_name}
                 onChange={handleInputChange}
-                className="bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
+                className="bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
               />
             </div>
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('auth.email', 'Email')}</label>
+            <div className="flex flex-col gap-1.5 md:col-span-2">
+              <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('auth.email', 'Email')}</label>
               <input
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
+                className="bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
               />
             </div>
 
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('account.phone_number', 'Phone Number')}</label>
+            <div className="flex flex-col gap-1.5 md:col-span-2">
+              <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('account.phone_number', 'Phone Number')}</label>
               <div className="flex gap-2">
                 <div className="relative w-1/3">
                   <select
-                    className="w-full bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-xs"
+                    className="w-full bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[11px]"
                     value={formData.country_code}
                     onChange={(e) => setFormData(prev => ({...prev, country_code: e.target.value}))}
                   >
@@ -187,19 +201,19 @@ const Account = () => {
                   placeholder="123 456 7890"
                   value={formData.phone_number}
                   onChange={handleInputChange}
-                  className="flex-grow bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
+                  className="flex-grow bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
                 />
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase text-on-surface-variant">{t('account.country', 'Country')}</label>
+            <div className="flex flex-col gap-1.5 md:col-span-2">
+              <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('account.country', 'Country')}</label>
               <div className="flex items-center gap-2">
                 <select
                   name="country"
                   value={formData.country}
                   onChange={handleInputChange}
-                  className="flex-grow bg-surface-container-lowest border-2 border-outline-variant p-2 text-on-surface focus:border-primary-container outline-none transition-colors font-mono"
+                  className="flex-grow bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
                 >
                   <option value="">{t('auth.select_country', 'Select Country')}</option>
                   {countries.map(c => (
@@ -213,15 +227,15 @@ const Account = () => {
           </div>
 
           {message && (
-            <div className={`mt-6 p-3 text-xs font-bold uppercase border-2 ${message.type === 'success' ? 'border-primary-container text-primary-container' : 'border-error text-error'}`}>
-              {message.text}
+            <div className={`mt-6 p-3 text-xs font-mono font-bold uppercase border ${message.type === 'success' ? 'border-tertiary-container/50 bg-tertiary-container/10 text-tertiary-container' : 'border-error bg-error/10 text-error'}`}>
+              &gt; {message.text}
             </div>
           )}
 
           <button
             type="submit"
             disabled={isLoading}
-            className="mt-8 brutal-btn w-full py-3 font-bold uppercase transition-all duration-150 active:scale-95"
+            className="mt-8 cyber-cut w-full bg-primary-container text-void-black font-headline-md text-[14px] uppercase py-3.5 px-6 font-bold tracking-widest hover:bg-secondary-container hover:text-white transition-all shadow-[0_0_15px_rgba(0,243,255,0.3)] disabled:opacity-50"
           >
             {isLoading ? t('account.saving', 'Saving...') : t('account.save_changes', 'Save Changes')}
           </button>

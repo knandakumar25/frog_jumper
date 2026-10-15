@@ -25,23 +25,29 @@ export default function AccessibilityModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-2xl bg-deep-grey/95 border-2 border-primary-container rounded-lg p-6 md:p-8 shadow-[0_0_30px_rgba(0,243,255,0.25)] text-on-surface max-h-[85vh] overflow-y-auto"
+        className="relative w-full max-w-2xl bg-void-black/95 border border-primary-container/40 p-6 md:p-8 shadow-[0_0_35px_rgba(0,243,255,0.25)] text-on-surface max-h-[85vh] overflow-y-auto font-mono"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Accent corners */}
+        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary-container"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary-container"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary-container"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary-container"></div>
+
         {/* Header */}
         <div className="flex justify-between items-center border-b border-primary-container/30 pb-4 mb-6">
           <div className="flex items-center gap-3">
-            <span className="text-2xl text-primary-container font-bold">♿</span>
-            <h2 id="accessibility-title" className="text-xl md:text-2xl font-orbitron font-bold text-primary-container uppercase tracking-wider">
+            <span className="text-xl text-primary-container font-bold">♿</span>
+            <h2 id="accessibility-title" className="text-lg md:text-xl font-display-hero font-bold text-primary-container uppercase tracking-wider">
               {t('accessibility.title', 'Accessibility Statement')}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="text-on-surface-variant hover:text-tertiary-container transition-colors text-2xl font-bold px-2 py-1"
+            className="text-on-surface-variant hover:text-primary-container transition-colors text-xl font-bold px-2 py-1 cursor-pointer font-mono"
             aria-label={t('accessibility.close', 'Close Statement')}
           >
-            ✕
+            [✕]
           </button>
         </div>
 
