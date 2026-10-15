@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { Suspense, lazy, useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+
+// Phase 3: the terminal room behind the onboarding panels (code-split).
+const AuthBackdrop = lazy(() => import('../three/AuthBackdrop'));
 // Via the gate: without a publishable key the stub returns a signed-out,
 // loaded state, so start mode never POSTs and token mode (no Clerk session
 // needed) still works. See src/auth/clerkGate.jsx.
@@ -29,8 +32,13 @@ const firstFieldError = (data) => {
 
 function Panel({ children }) {
   return (
-    <div className="pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
-      <div className="w-full max-w-md bg-surface-container-lowest border-2 border-primary-container/30 p-8 shadow-[0_0_30px_rgba(0,243,255,0.15)] relative bracket-corners">
+    <div className="relative overflow-hidden pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
+      <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_50%_15%,#0a2230_0%,#06121b_50%,#050505_100%)]"></div>
+      <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"></div>
+      <Suspense fallback={null}>
+        <AuthBackdrop />
+      </Suspense>
+      <div className="relative z-10 w-full max-w-md bg-surface-container-lowest/95 border-2 border-primary-container/30 p-8 shadow-[0_0_30px_rgba(0,243,255,0.15)] bracket-corners">
         <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary-container"></div>
         <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-primary-container"></div>
         <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div>
