@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -26,14 +26,36 @@ export function supportsWebGL() {
   }
 }
 
-/** 'off' | 'still' | 'live' -- resolved once per mount. */
+/**
+ * 'off' | 'still' | 'live' -- resolved once per mount.
+ *
+ * `?motion=on` / `?motion=off` overrides the system preference (also useful
+ * to QA the animated path in headless browsers, which report reduced-motion).
+ */
 export function useWorldMode() {
   return useState(() => {
     if (typeof window === 'undefined') return 'off';
     if (!supportsWebGL()) return 'off';
+    const override = new URLSearchParams(window.location.search).get('motion');
+    if (override === 'on') return 'live';
+    if (override === 'off') return 'still';
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     return reduced ? 'still' : 'live';
   })[0];
+}
+
+/**
+ * In 'still' mode the renderer draws on demand -- and the GLBs are still
+ * loading at mount, so the first (and only) frame would be empty. This pokes
+ * the renderer a few times as assets arrive so a still is actually a still.
+ */
+function StillFrames() {
+  const invalidate = useThree((state) => state.invalidate);
+  useEffect(() => {
+    const timers = [400, 1200, 2400, 4000].map((ms) => setTimeout(invalidate, ms));
+    return () => timers.forEach(clearTimeout);
+  }, [invalidate]);
+  return null;
 }
 
 /**
@@ -53,6 +75,7 @@ export function WorldCanvas({ mode, quality = 'high', camera, children, classNam
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
         {children(animate)}
+        {!animate && <StillFrames />}
       </Canvas>
     </div>
   );
