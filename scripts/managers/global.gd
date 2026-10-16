@@ -104,45 +104,78 @@ signal input_device_changed(is_gamepad: bool)
 var is_gamepad_mode: bool = false
 var _prompt_label: Label = null
 
-# Creates a persistent UI banner at the bottom of the screen that informs the player
-# of the current control scheme (Keyboard vs Gamepad).
+const GoStyleBoxCutScript = preload("res://addons/gohud/widgets/go_stylebox_cut.gd")
+
+# Creates a persistent GoHUD sci-fi tactical telemetry bar at the top of the screen
+# informing the player of the active control scheme (Keyboard vs Gamepad).
 func _setup_prompt_banner() -> void:
 	if DisplayServer.get_name() == "headless":
 		return
 	var canvas = CanvasLayer.new()
 	canvas.layer = 90
 
+	var root_ctrl = Control.new()
+	root_ctrl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root_ctrl.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	canvas.add_child(root_ctrl)
+
 	var margin = MarginContainer.new()
-	margin.anchors_preset = Control.PRESET_BOTTOM_WIDE
-	margin.add_theme_constant_override("margin_bottom", 12)
-	margin.add_theme_constant_override("margin_left", 40)
-	margin.add_theme_constant_override("margin_right", 40)
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	margin.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	margin.add_theme_constant_override("margin_top", 10)
+	margin.add_theme_constant_override("margin_left", 28)
+	margin.add_theme_constant_override("margin_right", 28)
+	root_ctrl.add_child(margin)
+
+	var center_row = HBoxContainer.new()
+	center_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	margin.add_child(center_row)
 
 	var panel = PanelContainer.new()
-	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0.02, 0.05, 0.12, 0.90) # Neon dark cyber panel
-	style.border_color = Color(0.0, 0.94, 1.0, 0.8) # Neon cyan border
-	style.set_border_width_all(2)
-	style.set_corner_radius_all(6)
-	style.content_margin_top = 8
-	style.content_margin_bottom = 8
-	style.content_margin_left = 16
-	style.content_margin_right = 16
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var style = GoStyleBoxCutScript.new()
+	style.bg_color = Color(0.02, 0.055, 0.12, 0.88)
+	style.border_color = Color(0.0, 0.78, 0.96, 0.72)
+	style.border_width = 1.5
+	style.cut = 10.0
+	style.cut_corners = GoStyleBoxCutScript.DIAGONAL
+	style.edge_color = Color(0.0, 0.95, 1.0, 0.95)
+	style.edge_width = 2.5
+	style.edge_side = SIDE_TOP
+	style.glow_color = Color(0.0, 0.88, 1.0, 0.22)
+	style.glow_size = 5.0
+	style.content_margin_top = 7.0
+	style.content_margin_bottom = 7.0
+	style.content_margin_left = 18.0
+	style.content_margin_right = 18.0
 	panel.add_theme_stylebox_override("panel", style)
+
+	var inner_hbox = HBoxContainer.new()
+	inner_hbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	inner_hbox.add_theme_constant_override("separation", 14)
+	panel.add_child(inner_hbox)
+
+	var orbitron_font = load("res://assets/fonts/Orbitron-VariableFont.ttf")
+
+	var sys_tag = Label.new()
+	sys_tag.text = "◆ AXIOM-OS v4.7"
+	if orbitron_font != null:
+		sys_tag.add_theme_font_override("font", orbitron_font)
+	sys_tag.add_theme_font_size_override("font_size", 12)
+	sys_tag.add_theme_color_override("font_color", Color(1.0, 0.15, 0.58, 0.92))
+	inner_hbox.add_child(sys_tag)
 
 	_prompt_label = Label.new()
 	_prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_prompt_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-
-	var orbitron_font = load("res://assets/fonts/Orbitron-VariableFont.ttf")
 	if orbitron_font != null:
 		_prompt_label.add_theme_font_override("font", orbitron_font)
-	_prompt_label.add_theme_font_size_override("font_size", 16)
-	_prompt_label.add_theme_color_override("font_color", Color(0.0, 0.94, 1.0, 0.95))
+	_prompt_label.add_theme_font_size_override("font_size", 13)
+	_prompt_label.add_theme_color_override("font_color", Color(0.0, 0.95, 1.0, 0.95))
+	inner_hbox.add_child(_prompt_label)
 
-	panel.add_child(_prompt_label)
-	margin.add_child(panel)
-	canvas.add_child(margin)
+	center_row.add_child(panel)
 	add_child(canvas)
 	_update_prompt_text()
 
@@ -150,9 +183,9 @@ func _setup_prompt_banner() -> void:
 func update_prompt_text() -> void:
 	if _prompt_label == null: return
 	if is_gamepad_mode:
-		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + ": [ D-PAD/L-STICK: " + tr("Navigate") + "/" + tr("Move") + "  |  (A): " + tr("Select") + "/" + tr("Jump") + "  |  (X): " + tr("Ability 1") + "  |  (Y): " + tr("Ability 2") + "  |  (LB)/(RB): " + tr("Rotate") + "  |  (START): " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + "  //  D-PAD/L-STICK: " + tr("Navigate") + "  |  (A): " + tr("Select") + "  |  (X)/(Y): " + tr("Ability") + "  |  (START): " + tr("Pause")
 	else:
-		_prompt_label.text = "⌨️ " + tr("KEYBOARD MODE") + ": [ WASD/ARROWS: " + tr("Navigate") + "/" + tr("Move") + "  |  ENTER/SPACE: " + tr("Select") + "/" + tr("Jump") + "  |  E: " + tr("Ability 1") + "  |  F: " + tr("Ability 2") + "  |  Q/E: " + tr("Rotate") + "  |  ESC: " + tr("Pause") + "/" + tr("Skip") + " ]"
+		_prompt_label.text = "⌨️ " + tr("KEYBOARD MODE") + "  //  WASD/ARROWS: " + tr("Navigate") + "  |  ENTER/SPACE: " + tr("Select") + "  |  E/F: " + tr("Abilities") + "  |  Q/E: " + tr("Rotate") + "  |  ESC: " + tr("Pause")
 
 func _update_prompt_text() -> void:
 	update_prompt_text()
