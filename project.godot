@@ -28,6 +28,8 @@ NarrativeManager="*res://scripts/managers/NarrativeManager.gd"
 AuthManager="*res://scripts/managers/AuthManager.cs"
 UISoundManager="*res://scripts/managers/UISoundManager.cs"
 CharacterProgressionManager="*res://scripts/managers/CharacterProgressionManager.cs"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -44,7 +46,7 @@ project/assembly_name="AxiomForce"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/meshy-godot-plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/animation_combiner/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/blendot/plugin.cfg", "res://addons/csg_blockout/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/gltf_fix_blender_light_intensity/plugin.cfg", "res://addons/godot_ai/plugin.cfg", "res://addons/gohud/plugin.cfg", "res://addons/mesh_material_copy_move_repair/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/ragdoll_generator/plugin.cfg")
 
 [gui]
 
