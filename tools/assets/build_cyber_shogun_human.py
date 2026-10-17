@@ -569,6 +569,115 @@ def main():
     bpy.ops.mesh.delete(type='VERT')
     bpy.ops.object.mode_set(mode='OBJECT')
 
+    # 2b. Fix mesh skinning on sh_mesh:
+    # - Reweight back cape vertices from LeftArm/RightArm/Leg bones onto Spine/Spine01/Spine02 so the cape never tears when arms/legs swing!
+    # - Remove stray arm weights below the waist and cross-leg weights on the thighs/skirt so the legs never shear or stretch across the groin!
+    # - Populate the missing LeftLeg (left shin) vertex group so the left knee and shin articulate smoothly!
+    vg_idx = {vg.name: vg.index for vg in sh_mesh.vertex_groups}
+    rh_vg = vg_idx.get('RightHand', -1)
+    arm_bone_names = ['LeftShoulder', 'LeftArm', 'LeftForeArm', 'LeftHand', 'RightShoulder', 'RightArm', 'RightForeArm']
+    arm_vgs = {vg_idx[n] for n in arm_bone_names if n in vg_idx}
+    leg_bone_names = ['LeftUpLeg', 'LeftLeg', 'LeftFoot', 'LeftToeBase', 'RightUpLeg', 'RightLeg', 'RightFoot', 'RightToeBase']
+    leg_vgs = {vg_idx[n] for n in leg_bone_names if n in vg_idx}
+
+    for v in sh_mesh.data.vertices:
+        rh_w = sum(g.weight for g in v.groups if g.group == rh_vg)
+        if rh_w > 0.35:
+            continue  # Keep Katana weighted to RightHand
+        cx, cy, cz = v.co.x, v.co.y, v.co.z
+
+        # A. Back cape vertices
+        is_cape = (
+            (cy > 6.5 and cz < 138.0)
+            or (cy > 3.5 and cz < 96.0 and (cx < -24.0 or cx > 20.0 or abs(cx) < 16.0))
+            or (abs(cx) < 18.0 and cy > 4.0 and 96.0 <= cz < 134.0)
+        )
+        if is_cape:
+            removed_w = 0.0
+            for g in v.groups:
+                if g.group in arm_vgs or g.group in leg_vgs:
+                    removed_w += g.weight
+                    g.weight = 0.0
+            if removed_w > 0.001:
+                target_sp = 'Spine' if cz > 115.0 else ('Spine01' if cz > 92.0 else 'Spine02')
+                t_idx = vg_idx[target_sp]
+                cur_w = sum(g.weight for g in v.groups if g.group == t_idx)
+                sh_mesh.vertex_groups[target_sp].add([v.index], min(1.0, cur_w + removed_w), 'REPLACE')
+            continue
+
+        # B. Remove stray arm weights on the lower body / skirt
+        if cz < 96.0 or (cz < 108.0 and cx < 18.0):
+            stray_arm_w = 0.0
+            for g in v.groups:
+                if g.group in arm_vgs:
+                    stray_arm_w += g.weight
+                    g.weight = 0.0
+            if stray_arm_w > 0.001:
+                target_b = 'LeftUpLeg' if cx >= 0.0 else 'RightUpLeg'
+                t_idx = vg_idx[target_b]
+                cur_w = sum(g.weight for g in v.groups if g.group == t_idx)
+                sh_mesh.vertex_groups[target_b].add([v.index], min(1.0, cur_w + stray_arm_w), 'REPLACE')
+
+        # C. Remove cross-leg weights on thighs/skirt/legs
+        if cz < 105.0:
+            if cx > 3.5:
+                r_vgs = {vg_idx['RightUpLeg'], vg_idx['RightLeg'], vg_idx['RightFoot'], vg_idx['RightToeBase']}
+                rw = 0.0
+                for g in v.groups:
+                    if g.group in r_vgs:
+                        rw += g.weight
+                        g.weight = 0.0
+                if rw > 0.001:
+                    tb = 'LeftUpLeg' if cz > 52.0 else 'LeftLeg'
+                    t_idx = vg_idx[tb]
+                    cur_w = sum(g.weight for g in v.groups if g.group == t_idx)
+                    sh_mesh.vertex_groups[tb].add([v.index], min(1.0, cur_w + rw), 'REPLACE')
+            elif cx < -3.5:
+                l_vgs = {vg_idx['LeftUpLeg'], vg_idx['LeftLeg'], vg_idx['LeftFoot'], vg_idx['LeftToeBase']}
+                lw = 0.0
+                for g in v.groups:
+                    if g.group in l_vgs:
+                        lw += g.weight
+                        g.weight = 0.0
+                if lw > 0.001:
+                    tb = 'RightUpLeg' if cz > 52.0 else 'RightLeg'
+                    t_idx = vg_idx[tb]
+                    cur_w = sum(g.weight for g in v.groups if g.group == t_idx)
+                    sh_mesh.vertex_groups[tb].add([v.index], min(1.0, cur_w + lw), 'REPLACE')
+            elif -3.5 <= cx <= 3.5 and 50.0 <= cz <= 98.0:
+                both_legs = {vg_idx['LeftUpLeg'], vg_idx['RightUpLeg']}
+                leg_w = 0.0
+                for g in v.groups:
+                    if g.group in both_legs:
+                        leg_w += g.weight
+                        g.weight = 0.0
+                if leg_w > 0.001:
+                    t_idx = vg_idx['Spine02']
+                    cur_w = sum(g.weight for g in v.groups if g.group == t_idx)
+                    sh_mesh.vertex_groups['Spine02'].add([v.index], min(1.0, cur_w + leg_w), 'REPLACE')
+
+        # D. Populate missing LeftLeg (left shin) weights for smooth knee articulation
+        if cx > 0.0 and 16.0 <= cz <= 58.0 and cy <= 6.5:
+            if cz < 24.0:
+                shin_ratio = (cz - 16.0) / 8.0
+            elif cz <= 46.0:
+                shin_ratio = 1.0
+            else:
+                shin_ratio = (58.0 - cz) / 12.0
+            shin_ratio = max(0.0, min(1.0, shin_ratio))
+            if shin_ratio > 0.05:
+                lu_idx = vg_idx['LeftUpLeg']
+                lf_idx = vg_idx['LeftFoot']
+                lt_idx = vg_idx['LeftToeBase']
+                avail = 0.0
+                for g in v.groups:
+                    if g.group in (lu_idx, lf_idx, lt_idx):
+                        take = g.weight * shin_ratio
+                        avail += take
+                        g.weight -= take
+                if avail > 0.01:
+                    sh_mesh.vertex_groups['LeftLeg'].add([v.index], avail, 'REPLACE')
+
     # Apply the new smooth Deep Crimson, Obsidian & Brass-Gold Samurai Armor material
     armor_mat = create_crimson_samurai_armor_material(sh_mesh)
     sh_mesh.data.materials.clear()
@@ -580,9 +689,79 @@ def main():
     su_mesh = next(o for o in bpy.data.objects if o.type == 'MESH' and o != sh_mesh)
     su_arm.data.pose_position = 'REST'
 
+    # Remove all actions imported from SURYA_GLB (.001 / Armature.001 / Charged_Ground_Slam)
     for act in list(bpy.data.actions):
-        if act.name.startswith("Armature.001") or "Charged_Ground_Slam" in act.name:
+        if (
+            act.name.startswith("Armature.001")
+            or "Charged_Ground_Slam" in act.name
+            or act.name.endswith(".001")
+            or act.name.startswith("Action")
+        ):
             bpy.data.actions.remove(act)
+
+    # Rebuild Shogun's own Walking from his raw walking cycle (Armature|walking_man|baselayer.003)
+    walk_raw = bpy.data.actions.get("Armature|walking_man|baselayer.003")
+    walk_old = bpy.data.actions.get("Walking")
+    if walk_raw is not None:
+        if walk_old is not None and walk_old != walk_raw:
+            bpy.data.actions.remove(walk_old)
+        walk_raw.name = "Walking"
+
+    # Remove remaining numbered walking_man duplicates
+    for act in list(bpy.data.actions):
+        if act.name.startswith("Armature|walking_man|baselayer."):
+            bpy.data.actions.remove(act)
+
+    # Stabilize Shogun's own Running and Walking clips:
+    # - Lock Hips.location to (0, 0, 0) (matching Shogun's Standing rest baseline)
+    # - Canonicalize quaternion signs (w >= 0) so antipodal quaternions never flip
+    # - Blend Hips/Spine02/Spine01/Spine/neck/Head 85% toward Shogun's upright Standing identity (1,0,0,0)
+    # - Blend RightArm chain 65% toward Shogun's katana guard pose so the blade stays steady while running
+    from mathutils import Quaternion
+    spine_set = {'Hips', 'Spine02', 'Spine01', 'Spine', 'neck', 'Head'}
+    r_arm_set = {'RightShoulder', 'RightArm', 'RightForeArm', 'RightHand'}
+    l_arm_set = {'LeftShoulder', 'LeftArm', 'LeftForeArm', 'LeftHand'}
+
+    for cname in ("Running", "Walking"):
+        act = bpy.data.actions.get(cname)
+        if not act or not hasattr(act, "layers"):
+            continue
+        for layer in act.layers:
+            for strip in layer.strips:
+                for cb in strip.channelbags:
+                    by_bone = {}
+                    for fc in cb.fcurves:
+                        if 'rotation_quaternion' in fc.data_path:
+                            bname = fc.data_path.split('["')[1].split('"')[0]
+                            by_bone.setdefault(bname, {})[fc.array_index] = fc
+                        elif 'Hips' in fc.data_path and 'location' in fc.data_path and fc.array_index in (0, 1, 2):
+                            for kp in fc.keyframe_points:
+                                kp.co[1] = 0.0
+                    for bname, fcs in by_bone.items():
+                        if len(fcs) != 4:
+                            continue
+                        keep = None
+                        if bname in spine_set:
+                            keep = 0.15
+                        elif bname in r_arm_set:
+                            keep = 0.35
+                        elif bname in l_arm_set:
+                            keep = 0.65
+                        n_keys = len(fcs[0].keyframe_points)
+                        for k_i in range(n_keys):
+                            w = fcs[0].keyframe_points[k_i].co[1]
+                            x = fcs[1].keyframe_points[k_i].co[1]
+                            y = fcs[2].keyframe_points[k_i].co[1]
+                            z = fcs[3].keyframe_points[k_i].co[1]
+                            if w < 0.0:
+                                w, x, y, z = -w, -x, -y, -z
+                            q = Quaternion((w, x, y, z)).normalized()
+                            if keep is not None:
+                                q = Quaternion((1.0, 0.0, 0.0, 0.0)).slerp(q, keep)
+                            fcs[0].keyframe_points[k_i].co[1] = q.w
+                            fcs[1].keyframe_points[k_i].co[1] = q.x
+                            fcs[2].keyframe_points[k_i].co[1] = q.y
+                            fcs[3].keyframe_points[k_i].co[1] = q.z
 
     sculpt_and_bake_samurai_head(su_mesh)
 
@@ -604,12 +783,20 @@ def main():
     bpy.ops.object.shade_smooth()
 
     sh_arm.data.pose_position = 'POSE'
+    if not sh_arm.animation_data:
+        sh_arm.animation_data_create()
+    # Rebuild clean 1-to-1 NLA tracks from remaining canonical actions
+    for t in list(sh_arm.animation_data.nla_tracks):
+        sh_arm.animation_data.nla_tracks.remove(t)
+    for act in bpy.data.actions:
+        track = sh_arm.animation_data.nla_tracks.new()
+        track.name = act.name
+        strip = track.strips.new(act.name, int(act.frame_range[0]), act)
+        strip.name = act.name
+        track.mute = True
+
     stand_act = bpy.data.actions.get("Standing") or bpy.data.actions.get("Idle")
     if stand_act:
-        if not sh_arm.animation_data:
-            sh_arm.animation_data_create()
-        for t in sh_arm.animation_data.nla_tracks:
-            t.mute = True
         sh_arm.animation_data.action = stand_act
 
     print(f"Final CyberShogun_Body: {len(sh_mesh.data.vertices)} verts, {len(sh_mesh.data.polygons)} faces")
@@ -619,6 +806,7 @@ def main():
         filepath=OUT_GLB,
         export_format='GLB',
         export_animations=True,
+        export_animation_mode='ACTIONS',
         export_skins=True,
         export_morph=False,
         export_apply=False,

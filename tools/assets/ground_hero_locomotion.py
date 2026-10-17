@@ -285,7 +285,7 @@ def clean_armature_and_strays(arm, mesh_name="char1"):
     target_mesh = None
     for o in list(bpy.data.objects):
         if o.type == 'MESH':
-            if o.name == mesh_name or o.name.startswith(mesh_name) or o.name.startswith("char"):
+            if o.name == mesh_name or o.name.startswith(mesh_name) or o.name.startswith("char") or o.name.startswith("CyberShogun"):
                 target_mesh = o
             else:
                 print(f"  [-] Removing stray object: {o.name}", flush=True)

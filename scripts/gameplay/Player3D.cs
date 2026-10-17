@@ -191,14 +191,6 @@ public partial class Player3D : CharacterBody3D
 
 			// Find the AnimationPlayer inside the instantiated GLB model.
 			_animPlayer = _characterModel.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
-
-			// Attach articulated physical bone colliders via Ragdoll Generator if Skeleton3D is present.
-			var skeleton = _characterModel.FindChild("Skeleton3D", true, false) as Skeleton3D;
-			if (skeleton != null && ResourceLoader.Exists("res://addons/ragdoll_generator/ragdoll_generator.gd"))
-			{
-				var ragdollScript = GD.Load<GDScript>("res://addons/ragdoll_generator/ragdoll_generator.gd");
-				ragdollScript?.Call("generate_ragdoll", skeleton, new Godot.Collections.Dictionary());
-			}
 		}
 		else
 		{
@@ -313,7 +305,7 @@ public partial class Player3D : CharacterBody3D
 			if (direction != Vector3.Zero)
 			{
 				Velocity = new Vector3(direction.X * Speed, Velocity.Y, direction.Z * Speed);
-				if (!IsAbilityPlaying())
+				if (IsOnFloor() && !IsAbilityPlaying())
 				{
 					PlayAbilityAnimation(direction.Length() > 0.5f ? "running" : "walking");
 				}
@@ -336,7 +328,7 @@ public partial class Player3D : CharacterBody3D
 			else
 			{
 				Velocity = Velocity with { X = Mathf.MoveToward(Velocity.X, 0, Speed), Z = Mathf.MoveToward(Velocity.Z, 0, Speed) };
-				if (!IsAbilityPlaying())
+				if (IsOnFloor() && !IsAbilityPlaying())
 				{
 					PlayAbilityAnimation("standing");
 				}
@@ -345,7 +337,7 @@ public partial class Player3D : CharacterBody3D
 		else
 		{
 			Velocity = Velocity with { X = 0, Z = 0 };
-			if (!IsAbilityPlaying())
+			if (IsOnFloor() && !IsAbilityPlaying())
 			{
 				PlayAbilityAnimation("standing");
 			}
@@ -400,7 +392,10 @@ public partial class Player3D : CharacterBody3D
 			{
 				anim.LoopMode = Animation.LoopModeEnum.Linear;
 			}
-			_animPlayer.Play(finalAnim);
+			if (_animPlayer.CurrentAnimation != finalAnim || !_animPlayer.IsPlaying())
+			{
+				_animPlayer.Play(finalAnim);
+			}
 			return;
 		}
 
@@ -411,7 +406,10 @@ public partial class Player3D : CharacterBody3D
 			string clipLower = clip.ToString().ToLowerInvariant();
 			if (clipLower.Contains(searchTarget))
 			{
-				_animPlayer.Play(clip);
+				if (_animPlayer.CurrentAnimation != clip || !_animPlayer.IsPlaying())
+				{
+					_animPlayer.Play(clip);
+				}
 				return;
 			}
 		}
