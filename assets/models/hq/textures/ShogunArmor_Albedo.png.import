@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bic3xknb2qpek"
-path.s3tc="res://.godot/imported/cyber_shogun_metallic_roughness.jpg-42babadfbc9397e8b8f94f41ebad5697.s3tc.ctex"
+uid="uid://80uhnvlv5pqk"
+path="res://.godot/imported/ShogunArmor_Albedo.png-95126a906939842e7802670a309570a8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "275cd42c883b0e73692b00f3d4c0c297"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Cyber Shogun/cyber_shogun_metallic_roughness.jpg"
-dest_files=["res://.godot/imported/cyber_shogun_metallic_roughness.jpg-42babadfbc9397e8b8f94f41ebad5697.s3tc.ctex"]
+source_file="res://assets/models/hq/textures/ShogunArmor_Albedo.png"
+dest_files=["res://.godot/imported/ShogunArmor_Albedo.png-95126a906939842e7802670a309570a8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

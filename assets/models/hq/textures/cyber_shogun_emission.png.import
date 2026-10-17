@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjbo1u8i5or8f"
-path.s3tc="res://.godot/imported/cyber_shogun_texture_0.png-be4ab98d2b665685db36685401a812e5.s3tc.ctex"
+uid="uid://dimuewje4trt6"
+path="res://.godot/imported/cyber_shogun_emission.png-3d6d2b125721c196e3ab2ca86ded7802.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "a55b2a9dfd36cceafe1d427a1c5e6fa6"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/hq/cyber_shogun_texture_0.png"
-dest_files=["res://.godot/imported/cyber_shogun_texture_0.png-be4ab98d2b665685db36685401a812e5.s3tc.ctex"]
+source_file="res://assets/models/hq/textures/cyber_shogun_emission.png"
+dest_files=["res://.godot/imported/cyber_shogun_emission.png-3d6d2b125721c196e3ab2ca86ded7802.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

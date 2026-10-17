@@ -176,6 +176,11 @@ public partial class Player3D : CharacterBody3D
 
 	private void LoadCharacterModel(string path, string characterName = "")
 	{
+		if (!ResourceLoader.Exists(path))
+		{
+			return;
+		}
+
 		var scene = GD.Load<PackedScene>(path);
 		if (scene != null)
 		{
@@ -186,6 +191,14 @@ public partial class Player3D : CharacterBody3D
 
 			// Find the AnimationPlayer inside the instantiated GLB model.
 			_animPlayer = _characterModel.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
+
+			// Attach articulated physical bone colliders via Ragdoll Generator if Skeleton3D is present.
+			var skeleton = _characterModel.FindChild("Skeleton3D", true, false) as Skeleton3D;
+			if (skeleton != null && ResourceLoader.Exists("res://addons/ragdoll_generator/ragdoll_generator.gd"))
+			{
+				var ragdollScript = GD.Load<GDScript>("res://addons/ragdoll_generator/ragdoll_generator.gd");
+				ragdollScript?.Call("generate_ragdoll", skeleton, new Godot.Collections.Dictionary());
+			}
 		}
 		else
 		{

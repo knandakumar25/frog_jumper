@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://260g26e2wlgj" path="res://scripts/ui/CyberDropdown.cs" id="6_cyber_dropdown"]
 [ext_resource type="PackedScene" uid="uid://jfr87fu0hmyy" path="res://assets/models/menu/holo_projector_pedestal.glb" id="7_holo_projector"]
 [ext_resource type="PackedScene" uid="uid://bivhhrbld1w6l" path="res://assets/models/menu/command_terminal_kiosk.glb" id="8_terminal_kiosk"]
-[ext_resource type="PackedScene" uid="uid://k2lx1vjyhdwj" path="res://assets/models/hq/cyber_shogun.glb" id="9_cyber_shogun"]
+[ext_resource type="PackedScene" path="res://assets/models/hq/cyber_shogun.glb" id="9_cyber_shogun"]
 [ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_2d.png" id="10_axiom_title_2d"]
 [ext_resource type="Material" path="res://assets/materials/holographic_projection.tres" id="11_holo_mat"]
 [ext_resource type="QuadMesh" path="res://assets/materials/holo_quad.tres" id="12_holo_mesh"]

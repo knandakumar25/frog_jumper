@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jansnsup4yu1"
-path="res://.godot/imported/cyber_shogun_Normal.png-bc650a4ffddfb3682d0336e5b677feba.ctex"
+uid="uid://fpu1n7cgujm4"
+path="res://.godot/imported/texture_0.png-505c5795236448f1309ca392cd375dce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Cyber Shogun/cyber_shogun_Normal.png"
-dest_files=["res://.godot/imported/cyber_shogun_Normal.png-bc650a4ffddfb3682d0336e5b677feba.ctex"]
+source_file="res://assets/models/hq/textures/texture_0.png"
+dest_files=["res://.godot/imported/texture_0.png-505c5795236448f1309ca392cd375dce.ctex"]
 
 [params]
 

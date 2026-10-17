@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhqxj2g6an4wf"
-path.s3tc="res://.godot/imported/Meshy_AI_cyber_shogun_rigged_biped_Animation_Thrust_Slash_withSkin_texture_0.png-dc2308a8e4f5a8829c856c0ee52a0094.s3tc.ctex"
+uid="uid://d153j8asus7rp"
+path.s3tc="res://.godot/imported/cyber_shogun_ShogunArmor_CrimsonObsidian.png-3cf6d1af83cd1d0c6c7d9b77e015c687.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "434c69d937e80b1cefe92a4e525d7f61"
+"md5": "d91ef6dc8c175b7cbf06b20cacab6905"
 }
 
 [deps]
 
-source_file="res://assets/models/hq/Meshy_AI_cyber_shogun_rigged_biped_Animation_Thrust_Slash_withSkin_texture_0.png"
-dest_files=["res://.godot/imported/Meshy_AI_cyber_shogun_rigged_biped_Animation_Thrust_Slash_withSkin_texture_0.png-dc2308a8e4f5a8829c856c0ee52a0094.s3tc.ctex"]
+source_file="res://assets/models/hq/cyber_shogun_ShogunArmor_CrimsonObsidian.png"
+dest_files=["res://.godot/imported/cyber_shogun_ShogunArmor_CrimsonObsidian.png-3cf6d1af83cd1d0c6c7d9b77e015c687.s3tc.ctex"]
 
 [params]
 
