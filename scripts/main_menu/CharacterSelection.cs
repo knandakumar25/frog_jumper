@@ -862,8 +862,8 @@ public partial class CharacterSelection : Control
 					break;
 				case "Cyber Shogun":
 				default:
-					rimColor = new Color(0.0f, 0.90f, 1.0f, 1.0f); // Neon Cyan
-					shadowTint = new Color(0.62f, 0.56f, 0.60f, 1.0f); // Natural warm shadow for human skin & lacquer armor
+					rimColor = new Color(0.85f, 0.25f, 0.28f, 1.0f); // Samurai Crimson rim accent
+					shadowTint = new Color(0.55f, 0.48f, 0.50f, 1.0f); // Warm natural shadow for Japanese skin & crimson lacquer
 					emissionThreshold = 0.92f; // Prevent warm human skin & crimson armor from triggering neon emission
 					break;
 			}

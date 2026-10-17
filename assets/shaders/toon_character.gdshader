@@ -54,21 +54,25 @@ void light() {
 	vec3 cel_light = mix(shadow_tint.rgb, vec3(1.0), step1);
 	
 	// Clamp light brightness to 1.15 to preserve rich anime albedo colors even under high-energy directional lights
+	float atten = clamp(shadow_atten, 0.0, 1.0);
 	vec3 light_intensity = min(LIGHT_COLOR, vec3(1.15));
 	
-	// Base cel-shaded diffuse lighting (ALBEDO is automatically multiplied by DIFFUSE_LIGHT in Godot 4)
-	DIFFUSE_LIGHT += light_intensity * cel_light;
+	// Base cel-shaded diffuse lighting (weighted so distant OmniLights don't flood the character with un-attenuated color)
+	vec3 light_contrib = light_intensity * mix(shadow_tint.rgb * max(atten, 0.65), vec3(1.0), step1 * atten);
 	
 	// Stylized Soft Anime Glint (tinted and clamped, never blown out to white mirror blobs, NaN-safe)
 	vec3 vl = VIEW + LIGHT;
 	float len_vl = length(vl);
 	vec3 half_vec = len_vl > 0.0001 ? vl / len_vl : NORMAL;
 	float NdotH = clamp(dot(NORMAL, half_vec), 0.0, 1.0);
-	float spec_glint = smoothstep(specular_threshold - specular_softness, specular_threshold + specular_softness, NdotH) * step1;
-	DIFFUSE_LIGHT += light_intensity * spec_glint * specular_strength;
+	float spec_glint = smoothstep(specular_threshold - specular_softness, specular_threshold + specular_softness, NdotH) * step1 * atten;
+	light_contrib += light_intensity * spec_glint * specular_strength;
 	
 	// Smooth Anime Fresnel Rim Light (gently kisses the silhouette, tinted with operative signature color)
 	float NdotV = 1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0);
-	float rim = pow(clamp(NdotV, 0.0, 1.0), rim_power) * clamp(NdotL * 0.5 + 0.5, 0.0, 1.0);
-	DIFFUSE_LIGHT += rim_color.rgb * rim * rim_strength;
+	float rim = pow(clamp(NdotV, 0.0, 1.0), rim_power) * clamp(NdotL * 0.5 + 0.5, 0.0, 1.0) * max(atten, 0.5);
+	light_contrib += rim_color.rgb * rim * rim_strength;
+	
+	// Use max() across lights so 3-point podium rigs and multi-light arenas preserve true 2-tone cel-shaded colors
+	DIFFUSE_LIGHT = max(DIFFUSE_LIGHT, light_contrib);
 }

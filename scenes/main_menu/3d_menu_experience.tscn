@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://b8x3m4qaq2k1n"]
 
 [ext_resource type="Script" uid="uid://b7u3snmhlr5rb" path="res://scripts/main_menu/ThreeDMenuExperience.cs" id="1_3d_menu_script"]
-[ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="2_cyber_theme"]
+[ext_resource type="Theme" uid="uid://du8mv3aqsa841" path="res://assets/themes/cyber_shogun.tres" id="2_cyber_theme"]
 [ext_resource type="Script" uid="uid://devsjdlhxhqph" path="res://scripts/ui/CyberButton.cs" id="3_cyber_btn_script"]
-[ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="4_cyber_glow"]
+[ext_resource type="Environment" uid="uid://c6r8q0y8k71va" path="res://assets/themes/cyber_glow.tres" id="4_cyber_glow"]
 [ext_resource type="Script" uid="uid://bgvgm3bikc78v" path="res://scripts/ui/audio_options.gd" id="5_audio_options"]
 [ext_resource type="Script" uid="uid://260g26e2wlgj" path="res://scripts/ui/CyberDropdown.cs" id="6_cyber_dropdown"]
 [ext_resource type="PackedScene" uid="uid://jfr87fu0hmyy" path="res://assets/models/menu/holo_projector_pedestal.glb" id="7_holo_projector"]
 [ext_resource type="PackedScene" uid="uid://bivhhrbld1w6l" path="res://assets/models/menu/command_terminal_kiosk.glb" id="8_terminal_kiosk"]
-[ext_resource type="PackedScene" path="res://assets/models/hq/cyber_shogun.glb" id="9_cyber_shogun"]
-[ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_2d.png" id="10_axiom_title_2d"]
+[ext_resource type="PackedScene" uid="uid://de0q76jnu0vlg" path="res://assets/models/hq/cyber_shogun.glb" id="9_cyber_shogun"]
+[ext_resource type="Texture2D" uid="uid://chgydumsykgjs" path="res://assets/images/axiom_force_title_2d.png" id="10_axiom_title_2d"]
 [ext_resource type="Material" path="res://assets/materials/holographic_projection.tres" id="11_holo_mat"]
 [ext_resource type="QuadMesh" path="res://assets/materials/holo_quad.tres" id="12_holo_mesh"]
 [ext_resource type="PackedScene" uid="uid://cx3gyg82awhu6" path="res://assets/models/menu/operative_podium.glb" id="13_operative_podium"]
@@ -39,7 +39,6 @@ stretch = true
 
 [node name="SubViewport3D" type="SubViewport" parent="SubViewportContainer" unique_id=1301931117]
 own_world_3d = true
-transparent_bg = false
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
@@ -61,9 +60,8 @@ light_energy = 1.25
 shadow_enabled = true
 shadow_bias = 0.03
 shadow_normal_bias = 1.8
-directional_shadow_mode = 2
-directional_shadow_max_distance = 65.0
 directional_shadow_blend_splits = true
+directional_shadow_max_distance = 65.0
 
 [node name="EntranceAccentLight" type="OmniLight3D" parent="SubViewportContainer/SubViewport3D/World3D" unique_id=1184238985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 3.5)
@@ -82,18 +80,18 @@ omni_attenuation = 1.5
 [node name="HoloProjector" parent="SubViewportContainer/SubViewport3D/World3D" unique_id=1478291614 instance=ExtResource("7_holo_projector")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.05, 15)
 
-[node name="HoloFocusRings" parent="SubViewportContainer/SubViewport3D/World3D/HoloProjector" instance=ExtResource("14_holo_rings")]
+[node name="HoloFocusRings" parent="SubViewportContainer/SubViewport3D/World3D/HoloProjector" unique_id=509760382 instance=ExtResource("14_holo_rings")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
 
-[node name="HoloProjection" type="MeshInstance3D" parent="SubViewportContainer/SubViewport3D/World3D/HoloProjector"]
+[node name="HoloProjection" type="MeshInstance3D" parent="SubViewportContainer/SubViewport3D/World3D/HoloProjector" unique_id=1395547093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
-mesh = ExtResource("12_holo_mesh")
 material_override = ExtResource("11_holo_mat")
+mesh = ExtResource("12_holo_mesh")
 
 [node name="TerminalKiosk" parent="SubViewportContainer/SubViewport3D/World3D" unique_id=527829505 instance=ExtResource("8_terminal_kiosk")]
 transform = Transform3D(1.3, 0, 0.75, 0, 1.5, 0, -0.75, 0, 1.3, -7, 0, 5)
 
-[node name="OperativePodium" parent="SubViewportContainer/SubViewport3D/World3D" instance=ExtResource("13_operative_podium")]
+[node name="OperativePodium" parent="SubViewportContainer/SubViewport3D/World3D" unique_id=1161483674 instance=ExtResource("13_operative_podium")]
 transform = Transform3D(1.04, 0, -0.6, 0, 1.2, 0, 0.6, 0, 1.04, 7, 0, 5)
 
 [node name="CyberShogun" parent="SubViewportContainer/SubViewport3D/World3D/OperativePodium" unique_id=731666490 instance=ExtResource("9_cyber_shogun")]
@@ -191,7 +189,6 @@ theme_override_constants/separation = 16
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 script = ExtResource("3_cyber_btn_script")
-IndexText = "01"
 MainText = "PLAY"
 SubText = "// DEPLOY MISSION"
 
@@ -394,7 +391,6 @@ offset_right = 350.0
 offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup" unique_id=138078448]
 layout_mode = 1

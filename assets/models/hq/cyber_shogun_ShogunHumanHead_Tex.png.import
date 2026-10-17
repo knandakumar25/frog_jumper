@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0f42wwcm76kj"
+uid="uid://doxy437sbrr3b"
 path.s3tc="res://.godot/imported/cyber_shogun_ShogunHumanHead_Tex.png-47a4e3e7fc7ae20a9e3683d1fcfde063.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "1d3441cf30ccbc9a5c96ef7b4c695a52"
+"md5": "a41abf837f45c252a598f9496aa570a8"
 }
 
 [deps]
