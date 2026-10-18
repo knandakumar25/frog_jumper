@@ -1,33 +1,33 @@
 """
 Build Cyber Shogun (Kaito Kurogane) - Authentic Japanese Samurai Operative.
-100% Japanese Samurai facial structure, hairstyle, and traditional O-Yoroi aesthetic:
-- Restores the 46k-vertex high-detail samurai armor mesh from clean source.
-- Completely removes the robotic helmet AND the side shikoro flaps weighted to RightShoulder.
-- Sculpts authentic Japanese Samurai facial geometry & traditional Chonmage hairstyle:
-  1. Completely removes the Western pompadour/superhero curl from the forehead and pulls the crown hair
-     smoothly upward and back into a traditional Japanese Samurai tied-back crown.
-  2. Reshapes the facial bone structure into authentic Japanese warrior proportions:
-     - Defined zygomatic arches (cheekbones) with a clean taper to a firm, dignified jawline
-     - Flatter glabella/brow-to-nose transition (removes the deep-set Western brow ridge overhang)
-     - Sharp, narrower almond-shaped East Asian eye apertures with an upward outer epicanthic tilt
-  3. Sculpts a prominent 3D Samurai Chonmage (Motodori topknot) with traditional white/gold Mizuhiki cord
-     binding and a sculpted 3D Hachimaki headband with flowing rear ribbons.
-  4. Bakes a rich, natural Japanese olive-tan skin tone (albedo ~0.48, 0.34, 0.25 so it never blows out
-     to chalk-white under Godot's 1.15x cel-shader light!), dark obsidian-brown Japanese eyes, sharp
-     angled samurai eyebrows, traditional Sengoku-style tapered mustache & chin beard (kuchihige & agohige),
-     and a crimson Hachimaki headband with a gold Takeda-diamond clan mon crest at the forehead center.
+Uses the CC0 Asian Male head/face mesh, morph targets, 3D eyeballs, 3D eyebrows, and 2K Asian male skin
+texture from the Godot Asset Library's Humanizer package (Asset ID 3699, NitroxNova/humanizer / MakeHuman CC0):
+1. Restores the 46k-vertex high-detail samurai armor mesh (`d3488f8_shogun.glb`) and removes the robotic
+   helmet and shoulder-weighted shikoro flaps.
+2. Builds Kaito Kurogane's head directly from the Humanizer/MakeHuman CC0 base mesh (`base.obj`, clean quad
+   topology with zero unwelded facets) morphed with `asian-male-young.target` + `asian-male-old.target` +
+   `universal-male-young-maxmuscle-averageweight.target`.
+3. Fits the Humanizer 3D Eyeballs (`LeftEye-LowPolyEyeball.obj`, `RightEye-LowPolyEyeball.obj`),
+   3D Eyebrows (`LeftEyebrow-Eyebrow009.obj`, `RightEyebrow-Eyebrow009.obj`), and swept-back hair cap
+   (`short04.obj`) using their `.mhclo` barycentric skinning weights.
+4. Adds the traditional Japanese Samurai Chonmage (Oicho-mage / Motodori topknot) with Gold/Crimson Mizuhiki
+   cord binding and a 3D Hachimaki headband with a gold Takeda clan diamond crest (Mon) on the forehead.
+5. Packs the 2K Asian Male skin texture (`young_asian_male.png` + `middleage_asian_male.png` blend),
+   dark-brown Japanese iris/sclera eyeball textures, and jet-black hair texture into a single unified
+   1024x1024 texture atlas so `CyberShogun_Body` renders cleanly with 2 materials (Armor + Head).
 """
 
 import bpy
 import bmesh
 import math
 import os
+import shutil
 import subprocess
-from mathutils import Vector, Matrix
+from mathutils import Vector
 
 PROJECT_ROOT = r"D:\Projects\frog_jumper"
 SCRATCH_GLB = r"C:\Users\karthiknk21\.gemini\antigravity-cli\brain\51c70920-0a37-4082-8177-2c677a76cad3\scratch\d3488f8_shogun.glb"
-SURYA_GLB = os.path.join(PROJECT_ROOT, "assets", "models", "hq", "surya_prime.glb")
+HUMANIZER_DIR = r"C:\Users\karthiknk21\.gemini\antigravity-cli\brain\51c70920-0a37-4082-8177-2c677a76cad3\scratch\humanizer"
 
 OUT_GLB = os.path.join(PROJECT_ROOT, "assets", "models", "hq", "cyber_shogun.glb")
 OUT_BLEND = os.path.join(PROJECT_ROOT, "assets", "models", "hq", "cyber_shogun.blend")
@@ -140,344 +140,512 @@ def create_crimson_samurai_armor_material(src_mesh):
     return new_mat
 
 
-def sculpt_and_bake_samurai_head(su_mesh):
+def load_obj_uvs_and_faces(obj_path):
+    verts = []
+    uvs = []
+    faces = []
+    with open(obj_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("v "):
+                verts.append([float(x) for x in line.split()[1:4]])
+            elif line.startswith("vt "):
+                uvs.append([float(x) for x in line.split()[1:3]])
+            elif line.startswith("f "):
+                parts = line.split()[1:]
+                face = []
+                for p in parts:
+                    sp = p.split("/")
+                    vi = int(sp[0]) - 1
+                    ti = int(sp[1]) - 1 if len(sp) > 1 and sp[1] else 0
+                    face.append((vi, ti))
+                faces.append(face)
+    return verts, uvs, faces
+
+
+def fit_mhclo_vertices(helper_verts, mhclo_path):
+    scale_cfg = {}
+    v_lines = []
+    sec = "header"
+    with open(mhclo_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line == "verts 0":
+                sec = "verts"
+                continue
+            elif line == "delete_verts":
+                break
+            if sec == "header":
+                for ax, idx in [("x_scale", 0), ("y_scale", 1), ("z_scale", 2)]:
+                    if line.startswith(ax):
+                        p = line.split()
+                        scale_cfg[idx] = (int(p[1]), int(p[2]), float(p[3]))
+            elif sec == "verts":
+                p = line.split()
+                if len(p) == 1:
+                    v_lines.append(("single", int(p[0])))
+                elif len(p) == 9:
+                    v_lines.append((
+                        "tri",
+                        [int(p[0]), int(p[1]), int(p[2])],
+                        [float(p[3]), float(p[4]), float(p[5])],
+                        [float(p[6]), float(p[7]), float(p[8])],
+                    ))
+    sc = [1.0, 1.0, 1.0]
+    for idx, (s_i, e_i, length) in scale_cfg.items():
+        sc[idx] = abs(helper_verts[e_i][idx] - helper_verts[s_i][idx]) / length
+    out_v = []
+    for item in v_lines:
+        if item[0] == "single":
+            out_v.append(list(helper_verts[item[1]]))
+        else:
+            _, vis, ws, off = item
+            pos = [0.0, 0.0, 0.0]
+            for i in range(3):
+                for k in range(3):
+                    pos[k] += helper_verts[vis[i]][k] * ws[i]
+            for k in range(3):
+                pos[k] += off[k] * sc[k]
+            out_v.append(pos)
+    return out_v
+
+
+def build_humanizer_asian_samurai_head(sh_arm):
     """
-    Sculpt Kaito Kurogane's face & hair into an unmistakable Japanese Samurai warrior:
-    - Eliminate the Western pompadour/curl at the front of the head and sweep the hair tightly back
-      into a traditional Samurai Chonmage (Motodori topknot) with Mizuhiki cord binding.
-    - Reshape the facial bone structure: higher cheekbones, flatter East Asian brow/glabella transition,
-      narrower almond-shaped eyes with upward outer tilt, and traditional tapered samurai mustache & chin beard.
-    - Bake a warm, natural Japanese skin complexion (calibrated for Godot's 1.15x cel-shader light so it
-      never looks chalk-white!).
+    Constructs Kaito Kurogane's head mesh and unified 1024x1024 texture atlas from the
+    Godot Asset Library's Humanizer CC0 Asian Male assets:
+    - Base mesh: `base.obj` morphed with `asian-male-young.target` (0.65) + `asian-male-old.target` (0.35)
+      + `universal-male-young-maxmuscle-averageweight.target` (1.0).
+    - 3D Eyeballs: `left_eye.obj` & `right_eye.obj` fitted via `.mhclo`.
+    - 3D Eyebrows: `LeftEyebrow-009.obj` & `RightEyebrow-009.obj` fitted via `.mhclo` and angled upward.
+    - 3D Swept-Back Hair Cap: `short04.obj` cap polygons fitted via `.mhclo` and gathered into the topknot.
+    - 3D Samurai Hachimaki headband & Chonmage (Oicho-mage / Motodori topknot) with Gold/Crimson Mizuhiki wrap.
     """
-    src_img = None
-    for mat in su_mesh.data.materials:
-        if mat and mat.use_nodes:
-            for node in mat.node_tree.nodes:
-                if node.type == 'TEX_IMAGE' and node.image:
-                    src_img = node.image
-                    break
+    base_obj_path = os.path.join(HUMANIZER_DIR, "base.obj")
+    verts, uvs, faces = load_obj_uvs_and_faces(base_obj_path)
 
-    w, h = src_img.size
-    src_px = list(src_img.pixels[:])
+    # Apply MakeHuman Asian Male morph targets
+    morph_targets = [
+        ("asian-male-young.target", 0.65),
+        ("asian-male-old.target", 0.35),
+        ("universal-male-young-maxmuscle-averageweight.target", 1.0),
+    ]
+    for tname, weight in morph_targets:
+        tpath = os.path.join(HUMANIZER_DIR, tname)
+        with open(tpath, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                parts = line.split()
+                vi = int(parts[0])
+                verts[vi][0] += float(parts[1]) * weight
+                verts[vi][1] += float(parts[2]) * weight
+                verts[vi][2] += float(parts[3]) * weight
 
-    su_vg_idx = {vg.name: vg.index for vg in su_mesh.vertex_groups}
-    su_head_vgs = {su_vg_idx[n] for n in ['Head', 'head', 'neck', 'Neck'] if n in su_vg_idx}
+    # Enhance mature Japanese warrior bone structure (sharper jawline, defined cheekbones, strong nose bridge)
+    for vi in range(13380):
+        mx, my, mz = verts[vi]
+        if my > 5.3:
+            # Stronger zygomatic arch (cheekbone definition around Y=6.6..6.9)
+            if 6.55 <= my <= 6.95 and mz > 0.4:
+                zt = 1.0 - abs(my - 6.75) / 0.20
+                mx *= (1.0 + 0.035 * zt)
+            # Crisp, chiseled samurai jawline (Y=5.75..6.35)
+            if 5.75 <= my <= 6.35 and mz > 0.2:
+                jt = 1.0 - abs(my - 6.05) / 0.30
+                mx *= (1.0 + 0.025 * jt)
+            # Slightly narrower, dignified samurai nasal bridge
+            if 6.45 <= my <= 6.95 and abs(mx) < 0.22 and mz > 1.15:
+                mx *= 0.90
+            verts[vi] = [mx, my, mz]
 
-    bpy.context.view_layer.objects.active = su_mesh
-    bpy.ops.object.mode_set(mode='EDIT')
-    bpy.ops.mesh.select_all(action='DESELECT')
-    bpy.ops.object.mode_set(mode='OBJECT')
-    uv_data = su_mesh.data.uv_layers.active.data
+    # Coordinate mapping from MakeHuman decimeters (X=right, Y=up, Z=front)
+    # to Cyber Shogun centimeters (X=right, Y=-front, Z=up) centered in the armor collar (-4.2, -7.2, 138..161)
+    SCALE = 8.15
+    X_OFF = -4.2
+    Y_OFF = -1.6
+    Z_OFF = 95.5
 
-    collar_vert_indices = set()
-    for poly in su_mesh.data.polygons:
-        c = poly.center
-        hw = sum(sum(g.weight for g in su_mesh.data.vertices[vi].groups if g.group in su_head_vgs) for vi in poly.vertices) / len(poly.vertices)
-        if hw <= 0.35 or c.z < 143.2:
-            for vi in poly.vertices:
-                collar_vert_indices.add(vi)
-            continue
-        if c.z < 148.5 and (c.y > -7.5 or c.z < 145.2):
-            is_collar_poly = False
-            for li in poly.loop_indices:
-                uv = uv_data[li].uv
-                ix = min(w - 1, max(0, int(uv.x * w)))
-                iy = min(h - 1, max(0, int(uv.y * h)))
-                idx = (iy * w + ix) * 4
-                r, g, b = src_px[idx], src_px[idx + 1], src_px[idx + 2]
-                if (r > b + 0.08) or (b > r + 0.03 and r < 0.25):
-                    is_collar_poly = True
-                    break
-            if is_collar_poly:
-                for vi in poly.vertices:
-                    if su_mesh.data.vertices[vi].co.z < 148.2:
-                        collar_vert_indices.add(vi)
+    def mh_to_shogun(pt):
+        return Vector((
+            pt[0] * SCALE + X_OFF,
+            -pt[2] * SCALE + Y_OFF,
+            pt[1] * SCALE + Z_OFF,
+        ))
 
-    for v in su_mesh.data.vertices:
-        hw = sum(g.weight for g in v.groups if g.group in su_head_vgs)
-        if hw <= 0.35 or v.co.z < 143.2 or v.index in collar_vert_indices:
-            v.select = True
+    bm = bmesh.new()
+    uv_layer = bm.loops.layers.uv.new("UVMap")
 
-    bpy.ops.object.mode_set(mode='EDIT')
-    bpy.ops.mesh.delete(type='VERT')
-    bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.mesh.delete_loose(use_verts=True, use_edges=True, use_faces=False)
-    bpy.ops.object.mode_set(mode='OBJECT')
+    # 1. Add Asian Male Head & Neck Quad Mesh (sliced at neck base Y > 5.28 and tapered cleanly into the armor collar)
+    mh_to_bm_vert = {}
+    for face in faces:
+        if all(vi < 13380 and verts[vi][1] > 5.28 and abs(verts[vi][0]) < 0.98 for vi, _ in face):
+            bm_verts = []
+            for vi, _ in face:
+                if vi not in mh_to_bm_vert:
+                    px, py, pz = verts[vi]
+                    # Smoothly taper the lower neck/clavicle flare (Y < 5.65) inward so it tucks inside the collar seal
+                    if py < 5.65:
+                        t_neck = (5.65 - py) / 0.37
+                        px *= (1.0 - 0.35 * t_neck)
+                        pz *= (1.0 - 0.25 * t_neck)
+                    mh_to_bm_vert[vi] = bm.verts.new(mh_to_shogun([px, py, pz]))
+                bm_verts.append(mh_to_bm_vert[vi])
+            try:
+                f = bm.faces.new(bm_verts)
+                f.smooth = True
+                for loop, (_, ti) in zip(f.loops, face):
+                    u, v = uvs[ti]
+                    loop[uv_layer].uv = (u, v)
+            except ValueError:
+                pass
 
-    # Sample original per-vertex luminance BEFORE re-unwrapping UVs
-    uv_data = su_mesh.data.uv_layers.active.data
-    vert_orig_lum = {v.index: 0.55 for v in su_mesh.data.vertices}
-    for poly in su_mesh.data.polygons:
-        for vi, li in zip(poly.vertices, poly.loop_indices):
-            uv = uv_data[li].uv
-            ix = min(w - 1, max(0, int(uv.x * w)))
-            iy = min(h - 1, max(0, int(uv.y * h)))
-            idx = (iy * w + ix) * 4
-            r, g, b = src_px[idx], src_px[idx + 1], src_px[idx + 2]
-            vert_orig_lum[vi] = 0.299 * r + 0.587 * g + 0.114 * b
+    # 2. Fit & Add 3D Eyeballs (`left_eye.obj` & `right_eye.obj`)
+    # Remap eyeball UVs into atlas region: u in [0.02..0.28], v in [0.02..0.28]
+    for eye_obj_name, eye_mhclo_name in [("left_eye.obj", "left_eye.mhclo"), ("right_eye.obj", "right_eye.mhclo")]:
+        _, e_uvs, e_faces = load_obj_uvs_and_faces(os.path.join(HUMANIZER_DIR, eye_obj_name))
+        e_verts = fit_mhclo_vertices(verts, os.path.join(HUMANIZER_DIR, eye_mhclo_name))
+        e_bm_verts = [bm.verts.new(mh_to_shogun(p)) for p in e_verts]
+        min_u = min(u[0] for u in e_uvs)
+        max_u = max(u[0] for u in e_uvs)
+        min_v = min(u[1] for u in e_uvs)
+        max_v = max(u[1] for u in e_uvs)
+        du = max(1e-5, max_u - min_u)
+        dv = max(1e-5, max_v - min_v)
+        for face in e_faces:
+            try:
+                f = bm.faces.new([e_bm_verts[vi] for vi, _ in face])
+                f.smooth = True
+                for loop, (_, ti) in zip(f.loops, face):
+                    u, v = e_uvs[ti]
+                    nu = 0.02 + ((u - min_u) / du) * 0.26
+                    nv = 0.02 + ((v - min_v) / dv) * 0.26
+                    loop[uv_layer].uv = (nu, nv)
+            except ValueError:
+                pass
 
-    # Step 3: Sculpt Authentic Japanese Samurai Facial Proportions & Swept-Back Hairline
-    v_canon = {}
-    for v in su_mesh.data.vertices:
-        cx, cy, cz = v.co.x, v.co.y, v.co.z
+    # 3. Fit & Add Humanizer Swept-Back Hair Cap (`short04.obj` / `short04.mhclo`)
+    # Keep all solid combed scalp cap polygons (v > 0.42), pull any low forehead bangs up above Y=7.18
+    # so the hair seamlessly meets the Hachimaki headband with zero skin gap!
+    _, h_uvs, h_faces = load_obj_uvs_and_faces(os.path.join(HUMANIZER_DIR, "short04.obj"))
+    h_verts = fit_mhclo_vertices(verts, os.path.join(HUMANIZER_DIR, "short04.mhclo"))
+    h_bm_verts = {}
+    for face in h_faces:
+        if all(h_uvs[ti][1] > 0.42 for _, ti in face):
+            f_verts = []
+            for vi, _ in face:
+                if vi not in h_bm_verts:
+                    px, py, pz = h_verts[vi]
+                    # Lift any low forehead hair bangs cleanly to the Hachimaki line (Y >= 7.18)
+                    if pz > 0.85 and py < 7.22:
+                        py = 7.22 + (py - 7.22) * 0.20
+                        pz = min(pz, 1.16)
+                    # Sleekly gather upper crown into the Chonmage topknot
+                    if py > 7.55:
+                        t_top = min(1.0, (py - 7.55) / 0.55)
+                        px *= (1.0 - 0.16 * t_top)
+                    h_bm_verts[vi] = bm.verts.new(mh_to_shogun([px, py, pz]))
+                f_verts.append(h_bm_verts[vi])
+            try:
+                f = bm.faces.new(f_verts)
+                f.smooth = True
+                for loop, (_, ti) in zip(f.loops, face):
+                    u, v = h_uvs[ti]
+                    nu = 0.32 + u * 0.26
+                    nv = 0.04 + ((v - 0.42) / 0.58) * 0.24
+                    loop[uv_layer].uv = (nu, nv)
+            except ValueError:
+                pass
 
-        # A. Eliminate the Western pompadour / front hair curl completely!
-        # In the original mesh, the pompadour bulges out to Y = -10.19 at Z = 160..167, overhanging the forehead (Y = -9.0).
-        # For a Japanese Samurai with hair pulled tautly back into a Chonmage topknot:
-        # Above Z = 158.0, the front surface of the head must slope smoothly BACKWARD toward the crown!
-        if cz > 158.0:
-            t_crown = min(1.0, (cz - 158.0) / 10.0)
-            # Target front limit recedes from Y = -8.6 at Z=158 to Y = -4.2 at Z=168
-            front_limit_y = -8.65 + t_crown * 4.5
-            if cy < front_limit_y:
-                cy = front_limit_y + (cy - front_limit_y) * 0.15
-            # Also sleekly taper the side volume of the upper hair toward the topknot gather point (X=0, Y=1.0, Z=165)
-            gather_t = smoothstep(159.5, 167.5, cz)
-            cx = cx * (1.0 - 0.35 * gather_t)
-            # Lower the puffy Western pompadour height slightly so the Chonmage topknot dominates the silhouette
-            if cz > 160.0:
-                cz = 160.0 + (cz - 160.0) * 0.68
+    # 4. Add 3D Samurai Hachimaki Headband around the forehead & temples (Z = 153.6..155.4)
+    # Contours proudly around the morphed Asian Male forehead/temples/hairline so it is 100% visible!
+    hachi_rings = []
+    for rz, expand in [(153.6, 0.24), (154.5, 0.30), (155.4, 0.24)]:
+        ring = []
+        for s in range(32):
+            ang = 2.0 * math.pi * s / 32
+            rx = 6.42 + expand
+            ry = 7.82 + expand
+            vx = -4.2 + math.cos(ang) * rx
+            vy = -5.50 + math.sin(ang) * ry
+            ring.append(bm.verts.new((vx, vy, rz)))
+        hachi_rings.append(ring)
 
-        # B. Authentic Japanese Facial Bone Structure:
-        # 1. Defined East Asian cheekbones (zygomatic arch around Z = 151.5..154.0, abs(X) = 3.5..6.8)
-        if 151.0 <= cz <= 154.5 and cy < -4.0:
-            z_cheek = 1.0 - abs(cz - 152.8) / 1.8
-            if z_cheek > 0:
-                cx *= (1.0 + 0.04 * z_cheek)
-                if 2.2 <= abs(cx) <= 5.5 and cy < -6.5:
-                    cy -= 0.35 * z_cheek  # fuller forward malar projection (flatter mid-face plane)
+    for r_i in range(len(hachi_rings) - 1):
+        r0, r1 = hachi_rings[r_i], hachi_rings[r_i + 1]
+        for s in range(32):
+            sn = (s + 1) % 32
+            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
+            f.smooth = True
+            for loop, sv in zip(f.loops, [s, sn, sn, s]):
+                ang = 2.0 * math.pi * sv / 32
+                front_d = abs(math.cos(ang)) if math.sin(ang) < -0.85 else 1.0
+                if front_d < 0.15:
+                    loop[uv_layer].uv = (0.18, 0.34)
+                else:
+                    loop[uv_layer].uv = (0.06, 0.34)
 
-        # 2. Softer East Asian glabella / brow-to-nose transition (less deep-set Western brow cavern)
-        if 153.2 <= cz <= 155.5 and abs(cx) < 4.5 and cy < -7.0:
-            # Bring the upper eyelid / inner eye plane slightly forward (more negativos Y) for epicanthic fold contour
-            cy -= 0.28 * (1.0 - abs(cz - 154.3) / 1.2)
+    # 5. Add Authentic Japanese Samurai Chonmage (Oicho-mage / Motodori Topknot) & Mizuhiki Cord
+    # 5a) Broad swept-back hair dome & gather mound at the crown (X=-4.2, Y=-4.85, Z=154.8..160.4)
+    gather_rings = []
+    for rz, rx_r, ry_r in [
+        (154.8, 6.20, 7.25),
+        (156.8, 5.80, 6.65),
+        (158.6, 4.55, 5.10),
+        (159.6, 2.90, 3.10),
+        (160.4, 1.85, 1.95),
+    ]:
+        ring = []
+        for s in range(24):
+            ang = 2.0 * math.pi * s / 24
+            ring.append(bm.verts.new((-4.2 + math.cos(ang) * rx_r, -4.85 + math.sin(ang) * ry_r, rz)))
+        gather_rings.append(ring)
+    for r_i in range(len(gather_rings) - 1):
+        r0, r1 = gather_rings[r_i], gather_rings[r_i + 1]
+        for s in range(24):
+            sn = (s + 1) % 24
+            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
+            f.smooth = True
+            for loop in f.loops:
+                loop[uv_layer].uv = (0.35 + 0.18 * (s / 24.0), 0.12)
 
-        # 3. Refined Japanese nose bridge (straight, dignified, slightly less bulbous tip)
-        if 150.0 <= cz <= 154.0 and abs(cx) < 1.8 and cy < -9.0:
-            cx *= 0.85
-            if cy < -10.8:
-                cy = -10.8 + (cy - (-10.8)) * 0.55
+    # 5b) Gold & Crimson Mizuhiki Cord Wrap around the vertical stem (Z=160.2..162.0)
+    cord_rings = []
+    for rz, rad in [(160.2, 1.80), (161.1, 1.70), (162.0, 1.80)]:
+        ring = []
+        for s in range(16):
+            ang = 2.0 * math.pi * s / 16
+            ring.append(bm.verts.new((-4.2 + math.cos(ang) * rad, -4.85 + math.sin(ang) * rad, rz)))
+        cord_rings.append(ring)
+    for r_i in range(len(cord_rings) - 1):
+        r0, r1 = cord_rings[r_i], cord_rings[r_i + 1]
+        for s in range(16):
+            sn = (s + 1) % 16
+            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
+            f.smooth = True
+            uv_c = (0.18, 0.34) if r_i == 0 else (0.06, 0.34)
+            for loop in f.loops:
+                loop[uv_layer].uv = uv_c
 
-        # 4. Firm, angular Samurai jawline tapering cleanly from gonial angle to chin
-        if 144.0 <= cz < 151.0:
-            t_jaw = (151.0 - cz) / 7.0
-            cx *= (0.94 - 0.05 * t_jaw)
+    # 5c) Forward-Folded Samurai Oicho-mage / Motodori Topknot Fan (Z=161.8..163.5, Y=-4.5..-11.2)
+    bun_rings = []
+    for cy_off, cz_off, rx_r, rz_r in [
+        (-4.5, 161.8, 1.85, 1.45),
+        (-6.2, 162.9, 2.15, 1.35),
+        (-8.2, 163.3, 2.50, 1.25),
+        (-10.0, 163.0, 2.75, 1.05),
+        (-11.0, 162.6, 2.60, 0.80),
+        (-11.3, 162.4, 0.25, 0.12),
+    ]:
+        ring = []
+        for s in range(16):
+            ang = 2.0 * math.pi * s / 16
+            ridge = 1.0 + 0.05 * math.cos(ang * 8.0)
+            ring.append(bm.verts.new((-4.2 + math.cos(ang) * rx_r * ridge, cy_off, cz_off + math.sin(ang) * rz_r * ridge)))
+        bun_rings.append(ring)
+    for r_i in range(len(bun_rings) - 1):
+        r0, r1 = bun_rings[r_i], bun_rings[r_i + 1]
+        for s in range(16):
+            sn = (s + 1) % 16
+            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
+            f.smooth = True
+            for loop in f.loops:
+                loop[uv_layer].uv = (0.35 + 0.18 * (s / 16.0), 0.12)
 
-        v.co.x, v.co.y, v.co.z = cx, cy, cz
-        v_canon[v.index] = Vector((cx, cy, cz))
+    # 6. Inner Obsidian Armor Collar Under-Suit (tucked cleanly inside the neck & armor collar Z=133.5..140.5)
+    seal_rings = []
+    for rz, rx_rad, ry_rad in [
+        (133.5, 8.2, 7.6),
+        (137.0, 6.2, 5.8),
+        (140.2, 4.7, 4.5),
+    ]:
+        ring = []
+        for s in range(20):
+            ang = 2.0 * math.pi * s / 20
+            ring.append(bm.verts.new((-4.2 + math.cos(ang) * rx_rad, -5.2 + math.sin(ang) * ry_rad, rz)))
+        seal_rings.append(ring)
+    for r_i in range(len(seal_rings) - 1):
+        r0, r1 = seal_rings[r_i], seal_rings[r_i + 1]
+        for s in range(20):
+            sn = (s + 1) % 20
+            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
+            f.smooth = True
+            for loop in f.loops:
+                loop[uv_layer].uv = (0.42, 0.10)
 
-    # Step 4: Run Smart UV Project on the sculpted head mesh so every polygon has a unique, non-overlapping UV
-    bpy.context.view_layer.objects.active = su_mesh
-    bpy.ops.object.mode_set(mode='EDIT')
-    bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.uv.smart_project(angle_limit=math.radians(66.0), island_margin=0.008)
-    bpy.ops.object.mode_set(mode='OBJECT')
+    bm.normal_update()
+    head_mesh_data = bpy.data.meshes.new("CyberShogun_HeadMesh")
+    bm.to_mesh(head_mesh_data)
+    bm.free()
 
-    uv_data = su_mesh.data.uv_layers.active.data
-    for loop in uv_data:
-        loop.uv.y = 0.12 + loop.uv.y * 0.87
+    head_obj = bpy.data.objects.new("CyberShogun_Head", head_mesh_data)
+    bpy.context.scene.collection.objects.link(head_obj)
 
-    # Step 5: Bake a 1024x1024 Japanese Samurai Face Texture
-    # IMPORTANT: Calibrated for Godot's toon_character.gdshader (which multiplies ALBEDO by 1.15 + spec_glint),
-    # so we use a rich, warm Japanese olive-amber skin tone (R ~ 0.50, G ~ 0.36, B ~ 0.26) that looks
-    # like natural warm Japanese skin in-game instead of blowing out to white!
+    # 7. Build Unified 1024x1024 Japanese Samurai Texture Atlas from Humanizer CC0 Asian Male Textures
     tw, th = 1024, 1024
+    young_img = bpy.data.images.load(os.path.join(HUMANIZER_DIR, "young_asian_male.png"))
+    mid_img = bpy.data.images.load(os.path.join(HUMANIZER_DIR, "middleage_asian_male.png"))
+    eye_img = bpy.data.images.load(os.path.join(HUMANIZER_DIR, "eyeball_albedo.png"))
+    iris_img = bpy.data.images.load(os.path.join(HUMANIZER_DIR, "overlay_iris_albedo.png"))
+
+    yw, yh = young_img.size
+    y_px = list(young_img.pixels[:])
+    m_px = list(mid_img.pixels[:])
+
+    ew, eh = eye_img.size
+    e_px = list(eye_img.pixels[:])
+    i_px = list(iris_img.pixels[:])
+
     head_img = bpy.data.images.new("ShogunHumanHead_Tex", width=tw, height=th, alpha=True)
-    dst_px = [0.48, 0.34, 0.25, 1.0] * (tw * th)
+    dst_px = [0.0] * (tw * th * 4)
 
-    def fill_uv_triangle(uv0, uv1, uv2, p0, p1, p2, l0, l1, l2):
-        x0, y0 = uv0.x * tw, uv0.y * th
-        x1, y1 = uv1.x * tw, uv1.y * th
-        x2, y2 = uv2.x * tw, uv2.y * th
-        min_x = max(0, int(min(x0, x1, x2)) - 2)
-        max_x = min(tw - 1, int(max(x0, x1, x2)) + 2)
-        min_y = max(int(0.11 * th), int(min(y0, y1, y2)) - 2)
-        max_y = min(th - 1, int(max(y0, y1, y2)) + 2)
-        denom = (y1 - y2) * (x0 - x2) + (x2 - x1) * (y0 - y2)
-        if abs(denom) < 1e-5:
-            return
-        for py in range(min_y, max_y + 1):
-            for px_i in range(min_x, max_x + 1):
-                w0 = ((y1 - y2) * (px_i + 0.5 - x2) + (x2 - x1) * (py + 0.5 - y2)) / denom
-                w1 = ((y2 - y0) * (px_i + 0.5 - x2) + (x0 - x2) * (py + 0.5 - y2)) / denom
-                w2 = 1.0 - w0 - w1
-                if w0 >= -0.18 and w1 >= -0.18 and w2 >= -0.18:
-                    cw0, cw1, cw2 = max(0.0, w0), max(0.0, w1), max(0.0, w2)
-                    s_w = cw0 + cw1 + cw2
-                    if s_w > 0:
-                        cw0, cw1, cw2 = cw0 / s_w, cw1 / s_w, cw2 / s_w
-                    pos = p0 * cw0 + p1 * cw1 + p2 * cw2
-                    lum = l0 * cw0 + l1 * cw1 + l2 * cw2
-                    cx, cy, cz = pos.x, pos.y, pos.z
+    for ty in range(th):
+        v = ty / float(th)
+        sy = min(yh - 1, int(v * yh))
+        for tx in range(tw):
+            u = tx / float(tw)
+            sx = min(yw - 1, int(u * yw))
+            s_idx = (sy * yw + sx) * 4
 
-                    # Warm Japanese Golden-Tan / Olive Complexion (calibrated for Godot cel-shader)
-                    # Use symmetrical 3D anatomical shading so there is no vertical seam down the center of the nose/chin
-                    frontness = max(0.0, min(1.0, (-cy - 4.0) / 6.5))
-                    height_warmth = max(0.0, min(1.0, (cz - 144.0) / 14.0))
-                    shade = 0.88 + 0.14 * frontness + 0.06 * height_warmth
-                    # Add natural facial sculpting gradients (cheekbone highlight, jaw/temple contour)
-                    if cy < -7.5 and 151.5 <= cz <= 154.5 and 1.8 <= abs(cx) <= 4.8:
-                        shade += 0.06  # East Asian malar/cheekbone highlight
-                    elif abs(cx) > 5.0 or cz < 146.2:
-                        shade -= 0.07  # temple & under-jaw contour
+            # Blend 60% Young Asian Male + 40% Middle-Age Asian Male for a seasoned 32-year-old Samurai Commander
+            r = y_px[s_idx] * 0.60 + m_px[s_idx] * 0.40
+            g = y_px[s_idx + 1] * 0.60 + m_px[s_idx + 1] * 0.40
+            b = y_px[s_idx + 2] * 0.60 + m_px[s_idx + 2] * 0.40
 
-                    cr = min(0.76, 0.64 * shade)
-                    cg = min(0.58, 0.47 * shade)
-                    cb = min(0.45, 0.35 * shade)
+            # Calibrate exposure (0.68x) so under Godot's 1.15x toon_character.gdshader it renders as rich,
+            # natural warm Japanese skin (never chalk-white!) with full pore/brow/lip detail preserved
+            cr = r * 0.68
+            cg = g * 0.65
+            cb = b * 0.62
 
-                    # Subtle warm nose bridge & philtrum contour
-                    if cy < -8.5 and 150.5 <= cz <= 154.2:
-                        if abs(cx) < 0.55:
-                            cr, cg, cb = cr + 0.035, cg + 0.025, cb + 0.018
-                        elif 0.75 <= abs(cx) <= 1.55:
-                            cr, cg, cb = cr * 0.89, cg * 0.87, cb * 0.86
+            # Paint jet-black hair scalp & sideburns on the upper/rear skull region of the MakeHuman head UV island
+            # Extending down to u = 0.802 so the scalp seamlessly meets the Hachimaki headband with zero skin gap!
+            # Keep the ear pinna (u in 0.800..0.885, dv_center in 0.118..0.205) natural skin color!
+            dv_center = abs(v - 0.4832)
+            is_ear_pinna = (0.800 <= u <= 0.885 and 0.118 <= dv_center <= 0.205)
+            is_scalp = False
+            if u > 0.60 and not is_ear_pinna:
+                if u < 0.802 and dv_center < 0.34:
+                    is_scalp = True
+                elif 0.802 <= u <= 0.858 and 0.096 <= dv_center <= 0.28:
+                    # Narrow sideburns (bin) in front of the ears and nape hair behind the ears
+                    is_scalp = True
 
-                    # 1. Traditional Japanese Samurai Swept-Back Jet-Black Hair (with subtle combed strand texture)
-                    # Hairline starts cleanly above the Hachimaki (cz > 158.6), plus sideburns (bin) at temples
-                    is_hair = (
-                        cz > 158.6
-                        or (cy > -2.5 and cz > 146.8)
-                        or (abs(cx) > 6.3 and cy > -5.8 and cz > 150.2)
-                        or (abs(cx) > 5.6 and -5.8 <= cy <= -2.0 and 152.5 <= cz <= 158.6)
-                    )
-                    if is_hair:
-                        # Subtle combed strand sheen oriented toward the crown topknot
-                        strand = 0.5 + 0.5 * math.sin(cx * 3.8 + cy * 1.5)
-                        cr = 0.03 + 0.03 * strand
-                        cg = 0.03 + 0.03 * strand
-                        cb = 0.04 + 0.04 * strand
+            if is_scalp:
+                strand = 0.5 + 0.5 * math.sin((u * 180.0) + (v * 90.0))
+                cr = 0.035 + 0.025 * strand
+                cg = 0.035 + 0.025 * strand
+                cb = 0.045 + 0.030 * strand
 
-                    # 2. Traditional Samurai Hachimaki Headband (cz in 156.8 .. 158.8)
-                    # Deep Obsidian-Indigo cloth with Crimson borders and a Gold Takeda-clan 4-diamond Mon crest at center!
-                    if 156.8 <= cz <= 158.8:
-                        # Check for Gold Clan Mon crest at center of forehead (cy < -7.0, abs(cx) < 1.35)
-                        dx_m = abs(cx) / 1.15
-                        dz_m = abs(cz - 157.8) / 0.72
-                        diamond_d = dx_m + dz_m
-                        if cy < -7.0 and (0.32 <= diamond_d <= 0.62 or diamond_d <= 0.18):
-                            cr, cg, cb = 0.82, 0.64, 0.20  # Gold Samurai Clan Crest (Mon)
-                        elif cz < 157.15 or cz > 158.45:
-                            cr, cg, cb = 0.58, 0.08, 0.10  # Crimson border trim
-                        else:
-                            cr, cg, cb = 0.10, 0.10, 0.14  # Traditional dark indigo/obsidian headband cloth
+            # Sharpen & darken the natural Asian male eyebrows directly on the skin texture (u in 0.818..0.835, dv in 0.015..0.068)
+            # With a subtle upward samurai angle (u shifts toward forehead as dv_center increases)
+            if 0.014 <= dv_center <= 0.068:
+                brow_center_u = 0.828 - (dv_center - 0.014) * 0.12
+                brow_half_w = 0.0068 * (1.15 - 0.45 * ((dv_center - 0.014) / 0.054))
+                if abs(u - brow_center_u) < brow_half_w:
+                    brow_t = 1.0 - abs(u - brow_center_u) / brow_half_w
+                    hair_str = 0.82 * (brow_t ** 0.6)
+                    cr = cr * (1.0 - hair_str) + 0.035 * hair_str
+                    cg = cg * (1.0 - hair_str) + 0.035 * hair_str
+                    cb = cb * (1.0 - hair_str) + 0.045 * hair_str
 
-                    # 3. Authentic Japanese Samurai Eyebrows (Mayu: sharp, straight-angled upward toward temples)
-                    if cy < -6.5 and 0.95 <= abs(cx) <= 4.85:
-                        brow_z = 155.15 + (abs(cx) - 0.95) * 0.26
-                        brow_thick = 0.38 * (1.15 - 0.45 * ((abs(cx) - 0.95) / 3.9))
-                        if abs(cz - brow_z) < brow_thick:
-                            cr, cg, cb = 0.04, 0.04, 0.05
+            # Crisp dark upper lash line around the upper eye rim only (u in 0.838..0.846, dv in 0.024..0.058)
+            if 0.838 <= u <= 0.846 and 0.024 <= dv_center <= 0.058:
+                lash_t = max(0.0, 1.0 - abs(u - 0.842) / 0.004)
+                cr *= (1.0 - 0.45 * lash_t)
+                cg *= (1.0 - 0.45 * lash_t)
+                cb *= (1.0 - 0.45 * lash_t)
 
-                    # 4. Authentic East Asian / Japanese Almond-Shaped Eyes with Epicanthic Fold & Upward Outer Tilt
-                    if cy < -6.5 and 153.2 <= cz <= 155.2:
-                        # Left eye (+X) and Right eye (-X)
-                        for sign_x, ex_c, ez_c in [(1.0, 2.55, 154.22), (-1.0, -2.95, 154.32)]:
-                            # Outer corner tilts upward by +0.22 cm relative to inner corner!
-                            rel_x = (cx - ex_c) * sign_x  # negative = inner canthus (toward nose), positive = outer canthus (toward temple)
-                            tilt_z = ez_c + rel_x * 0.14
-                            dx_e = (cx - ex_c) / 1.32
-                            dz_e = (cz - tilt_z) / 0.36  # Narrower, sharper East Asian almond aperture (0.36 vs 0.52!)
-                            dist_e = math.sqrt(dx_e * dx_e + dz_e * dz_e)
+            # Subtle, realistic Japanese Samurai Facial Hair (Kuchihige Mustache & Agohige Chin Tuft)
+            if u > 0.885 and dv_center < 0.065:
+                stubble_noise = 0.5 + 0.5 * math.sin(tx * 1.7 + ty * 2.3) * math.cos(tx * 2.9 - ty * 1.3)
+                m_curve_u = 0.895 + (dv_center / 0.042) ** 1.6 * 0.015
+                if dv_center < 0.042 and abs(u - m_curve_u) < 0.0048:
+                    m_w = (1.0 - abs(u - m_curve_u) / 0.0048) * (0.68 + 0.25 * stubble_noise)
+                    cr = cr * (1.0 - m_w) + 0.06 * m_w
+                    cg = cg * (1.0 - m_w) + 0.06 * m_w
+                    cb = cb * (1.0 - m_w) + 0.07 * m_w
+                elif 0.938 <= u <= 0.962 and dv_center < 0.020:
+                    c_w = (1.0 - dv_center / 0.020) * (1.0 - abs(u - 0.950) / 0.014) * (0.65 + 0.25 * stubble_noise)
+                    c_w = max(0.0, c_w)
+                    cr = cr * (1.0 - c_w) + 0.06 * c_w
+                    cg = cg * (1.0 - c_w) + 0.06 * c_w
+                    cb = cb * (1.0 - c_w) + 0.07 * c_w
 
-                            # Epicanthic fold crease just above the upper eyelid
-                            if -1.1 <= dx_e <= 1.05 and 0.36 <= (cz - tilt_z) <= 0.54:
-                                cr, cg, cb = cr * 0.72, cg * 0.70, cb * 0.70
-                            elif dist_e < 1.05:
-                                # Thick dark upper lash line & sharp inner/outer canthus corners
-                                if dist_e > 0.78 or (cz - tilt_z) > 0.18:
-                                    cr, cg, cb = 0.04, 0.03, 0.04
-                                else:
-                                    iris_d = math.sqrt(((cx - ex_c) / 0.56) ** 2 + ((cz - tilt_z) / 0.34) ** 2)
-                                    if iris_d < 0.38:
-                                        if cx > ex_c + 0.05 and cz > tilt_z + 0.04 and iris_d < 0.22:
-                                            cr, cg, cb = 0.85, 0.85, 0.88  # Subtle catchlight
-                                        else:
-                                            cr, cg, cb = 0.03, 0.02, 0.02  # Jet-black pupil
-                                    elif iris_d < 0.90:
-                                        cr, cg, cb = 0.16, 0.09, 0.05  # Deep Japanese dark-brown iris
-                                    else:
-                                        cr, cg, cb = 0.74, 0.71, 0.68  # Natural warm sclera (not neon white!)
-
-                    # 5. Traditional Japanese Sengoku Samurai Facial Hair (Kuchihige Mustache & Agohige Chin Tuft)
-                    # Unlike a Western blocky box-goatee, a classic Japanese samurai mustache tapers sharply
-                    # downward past the corners of the mouth, paired with a clean triangular soul-patch & chin beard
-                    # leaving the skin on either side of the lower lip natural!
-                    if cy < -6.5:
-                        # Tapered samurai mustache (Kuchihige) curving down around mouth corners
-                        m_arch_z = 150.38 - (abs(cx) ** 1.55) * 0.26
-                        m_thick = max(0.10, 0.34 - abs(cx) * 0.06)
-                        if abs(cx) < 2.95 and abs(cz - m_arch_z) < m_thick:
-                            cr, cg, cb = 0.05, 0.05, 0.06
-                        # Traditional under-lip soul patch (narrow triangle at abs(cx) < 0.55, cz in 147.8..148.9)
-                        elif 147.8 <= cz <= 148.9 and abs(cx) < (0.58 - (148.9 - cz) * 0.30):
-                            cr, cg, cb = 0.05, 0.05, 0.06
-                        # Pointed Samurai chin beard (Agohige) on the lower chin ridge (cz in 144.0..146.6)
-                        elif 144.0 <= cz <= 146.6 and abs(cx) < (1.65 - (cz - 144.0) * 0.32):
-                            cr, cg, cb = 0.05, 0.05, 0.06
-                        # Subtle samurai jawline stubble shadow
-                        elif 144.2 <= cz <= 148.5 and 1.6 <= abs(cx) <= 4.8 and cy < -4.5:
-                            cr, cg, cb = cr * 0.88, cg * 0.86, cb * 0.86
-
-                    # 6. Natural Lips (firm, stoic expression)
-                    if cy < -8.2 and 149.0 <= cz <= 149.85 and abs(cx) < 1.85:
-                        if abs(cz - 149.45) < 0.12:
-                            cr, cg, cb = 0.18, 0.09, 0.08
-                        else:
-                            cr, cg, cb = 0.44, 0.27, 0.24
-
-                    # 7. Katana Battle Scar across right cheek
-                    if cy < -6.8 and 1.6 <= cx <= 3.4 and 150.0 <= cz <= 153.6:
-                        scar_x = 2.5 - (cz - 151.8) * 0.16
-                        if abs(cx - scar_x) < 0.15:
-                            cr, cg, cb = cr * 0.78 + 0.08, cg * 0.68, cb * 0.65
-
-                    d_idx = (py * tw + px_i) * 4
-                    dst_px[d_idx] = cr
-                    dst_px[d_idx + 1] = cg
-                    dst_px[d_idx + 2] = cb
-                    dst_px[d_idx + 3] = 1.0
-
-    for poly in su_mesh.data.polygons:
-        loops = poly.loop_indices
-        v0 = su_mesh.data.vertices[poly.vertices[0]].index
-        uv0 = uv_data[loops[0]].uv
-        p0 = v_canon[v0]
-        l0 = vert_orig_lum[v0]
-        for i in range(1, len(loops) - 1):
-            vi1 = su_mesh.data.vertices[poly.vertices[i]].index
-            vi2 = su_mesh.data.vertices[poly.vertices[i + 1]].index
-            uv1 = uv_data[loops[i]].uv
-            uv2 = uv_data[loops[i + 1]].uv
-            fill_uv_triangle(
-                uv0, uv1, uv2,
-                p0, v_canon[vi1], v_canon[vi2],
-                l0, vert_orig_lum[vi1], vert_orig_lum[vi2]
-            )
-
-    # Fill the reserved bottom strip Y in [0..80] for:
-    # - [0..340]: Jet-black Samurai Hair & Neck Seal (with subtle strand variation)
-    # - [340..680]: Crimson Hachimaki / Mizuhiki cord
-    # - [680..1024]: Gold Mizuhiki Topknot binding cord
-    for ty in range(0, 80):
-        for tx in range(0, 340):
             d_idx = (ty * tw + tx) * 4
-            strand_v = 0.015 * math.sin(tx * 0.25)
-            dst_px[d_idx] = 0.035 + strand_v
-            dst_px[d_idx + 1] = 0.035 + strand_v
-            dst_px[d_idx + 2] = 0.050 + strand_v
+            dst_px[d_idx] = cr
+            dst_px[d_idx + 1] = cg
+            dst_px[d_idx + 2] = cb
             dst_px[d_idx + 3] = 1.0
-        for tx in range(340, 680):
+
+    # Stamp the dedicated sub-regions into the unused lower-left quadrant (u < 0.60, v < 0.40):
+    # Region A: [u: 0.02..0.28, v: 0.02..0.28] -> 3D Eyeball Sclera + Deep Japanese Dark Obsidian-Brown Iris & Pupil
+    for ty in range(int(0.02 * th), int(0.28 * th)):
+        nu = (ty / float(th) - 0.02) / 0.26
+        ey = min(eh - 1, max(0, int((0.033 + nu * 0.535) * eh)))
+        for tx in range(int(0.02 * tw), int(0.28 * tw)):
+            nv = (tx / float(tw) - 0.02) / 0.26
+            ex = min(ew - 1, max(0, int((0.028 + nv * 0.529) * ew)))
+            e_idx = (ey * ew + ex) * 4
+            er, eg, eb = e_px[e_idx], e_px[e_idx + 1], e_px[e_idx + 2]
+            ir, ig, ib, ia = i_px[e_idx], i_px[e_idx + 1], i_px[e_idx + 2], i_px[e_idx + 3]
+
+            # Sclera calibrated to warm natural ivory
+            sr, sg, sb = er * 0.78, eg * 0.75, eb * 0.73
+            if ia > 0.05:
+                # Radial distance from center of iris (0.50, 0.50)
+                rad_i = math.sqrt((nv - 0.50) ** 2 + (nu - 0.50) ** 2)
+                if rad_i < 0.085 or ir < 0.12:
+                    # Jet-black pupil center
+                    brown_r, brown_g, brown_b = 0.015, 0.012, 0.012
+                else:
+                    # Warm, rich Japanese dark-amber/chocolate-brown iris ring with dark limbal ring
+                    limbal = smoothstep(0.24, 0.18, rad_i)
+                    brown_r = (0.14 + ir * 0.22) * limbal + 0.02
+                    brown_g = (0.07 + ig * 0.11) * limbal + 0.015
+                    brown_b = (0.03 + ib * 0.05) * limbal + 0.01
+                sr = sr * (1.0 - ia) + brown_r * ia
+                sg = sg * (1.0 - ia) + brown_g * ia
+                sb = sb * (1.0 - ia) + brown_b * ia
+
+            # Crisp corneal catchlight near upper-right of pupil
+            dx_c = nv - 0.53
+            dy_c = nu - 0.54
+            if dx_c * dx_c + dy_c * dy_c < 0.0018:
+                sr, sg, sb = 0.90, 0.90, 0.92
+
             d_idx = (ty * tw + tx) * 4
-            dst_px[d_idx] = 0.60
-            dst_px[d_idx + 1] = 0.08
-            dst_px[d_idx + 2] = 0.10
+            dst_px[d_idx] = sr
+            dst_px[d_idx + 1] = sg
+            dst_px[d_idx + 2] = sb
             dst_px[d_idx + 3] = 1.0
-        for tx in range(680, 1024):
+
+    # Region B: [u: 0.30..0.60, v: 0.02..0.30] -> Jet-Black Combed Samurai Hair, Chonmage Topknot & Eyebrows
+    for ty in range(int(0.02 * th), int(0.30 * th)):
+        for tx in range(int(0.30 * tw), int(0.60 * tw)):
+            strand = 0.5 + 0.5 * math.sin(tx * 0.35 + ty * 0.15)
             d_idx = (ty * tw + tx) * 4
-            dst_px[d_idx] = 0.78
-            dst_px[d_idx + 1] = 0.62
-            dst_px[d_idx + 2] = 0.22
+            dst_px[d_idx] = 0.035 + 0.025 * strand
+            dst_px[d_idx + 1] = 0.035 + 0.025 * strand
+            dst_px[d_idx + 2] = 0.048 + 0.030 * strand
+            dst_px[d_idx + 3] = 1.0
+
+    # Region C: [u: 0.02..0.12, v: 0.30..0.38] -> Crimson-Indigo Hachimaki & Mizuhiki Cord
+    # Region D: [u: 0.13..0.25, v: 0.30..0.38] -> Brass-Gold Clan Crest & Gold Mizuhiki Cord
+    for ty in range(int(0.30 * th), int(0.38 * th)):
+        for tx in range(int(0.02 * tw), int(0.12 * tw)):
+            d_idx = (ty * tw + tx) * 4
+            dst_px[d_idx] = 0.56
+            dst_px[d_idx + 1] = 0.07
+            dst_px[d_idx + 2] = 0.09
+            dst_px[d_idx + 3] = 1.0
+        for tx in range(int(0.13 * tw), int(0.25 * tw)):
+            d_idx = (ty * tw + tx) * 4
+            dst_px[d_idx] = 0.82
+            dst_px[d_idx + 1] = 0.64
+            dst_px[d_idx + 2] = 0.20
             dst_px[d_idx + 3] = 1.0
 
     head_img.pixels[:] = dst_px
@@ -492,153 +660,36 @@ def sculpt_and_bake_samurai_head(su_mesh):
     out_node = nodes.new(type='ShaderNodeOutputMaterial')
     bsdf = nodes.new(type='ShaderNodeBsdfPrincipled')
     bsdf.inputs['Metallic'].default_value = 0.02
-    bsdf.inputs['Roughness'].default_value = 0.58
+    bsdf.inputs['Roughness'].default_value = 0.55
     links.new(bsdf.outputs['BSDF'], out_node.inputs['Surface'])
 
     tex_node = nodes.new(type='ShaderNodeTexImage')
     tex_node.image = head_img
     links.new(tex_node.outputs['Color'], bsdf.inputs['Base Color'])
 
-    su_mesh.data.materials.clear()
-    su_mesh.data.materials.append(head_mat)
+    head_obj.data.materials.append(head_mat)
 
-    # Step 6: Translate the sculpted head to the exact center of the Samurai Collar Opening
-    OFFSET = Vector((-4.2, -7.2, -3.8))
-    for v in su_mesh.data.vertices:
-        v.co += OFFSET
+    # 9. Assign clean vertex weights (`Head`, `neck`, `Spine`)
+    vg_head = head_obj.vertex_groups.new(name="Head")
+    vg_neck = head_obj.vertex_groups.new(name="neck")
+    vg_spine = head_obj.vertex_groups.new(name="Spine")
 
-    # Clear any split normals from the original glTF so the sculpted face shades smoothly
-    bpy.context.view_layer.objects.active = su_mesh
-    try:
-        bpy.ops.mesh.customdata_custom_splitnormals_clear()
-    except Exception:
-        pass
-
-    # Step 7: Add 3D Sculpted Samurai Chonmage (Oicho-mage / Motodori Topknot), Mizuhiki Cord, and Neck Seal
-    bm = bmesh.new()
-    bm.from_mesh(su_mesh.data)
-    uv_layer = bm.loops.layers.uv.active
-
-    # 7a. Obsidian Inner Neck Column & Collar Seal
-    seal_rings = []
-    for rz, rx_rad, ry_rad in [
-        (133.0, 8.8, 8.2),
-        (136.5, 7.2, 6.8),
-        (140.0, 5.8, 5.6),
-        (143.5, 5.4, 5.2),
-    ]:
-        ring = []
-        for s in range(20):
-            ang = 2.0 * math.pi * s / 20
-            vx = -4.2 + math.cos(ang) * rx_rad
-            vy = -7.2 + math.sin(ang) * ry_rad
-            v = bm.verts.new((vx, vy, rz))
-            ring.append(v)
-        seal_rings.append(ring)
-
-    for r_i in range(len(seal_rings) - 1):
-        r0, r1 = seal_rings[r_i], seal_rings[r_i + 1]
-        for s in range(20):
-            sn = (s + 1) % 20
-            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
-            f.smooth = True
-            for loop in f.loops:
-                loop[uv_layer].uv = (0.15, 0.03)  # Jet-black/obsidian strip
-
-    # 7b. Authentic Japanese Samurai Chonmage (Oicho-mage / Motodori Topknot)
-    # 1) Hair gather mound at the crown (X=-4.2, Y=-4.8, Z=158.0..160.8)
-    gather_rings = []
-    for rz, rx_r, ry_r in [
-        (158.0, 4.6, 5.0),
-        (159.6, 3.0, 3.2),
-        (160.8, 1.9, 2.0),
-    ]:
-        ring = []
-        for s in range(16):
-            ang = 2.0 * math.pi * s / 16
-            v = bm.verts.new((-4.2 + math.cos(ang) * rx_r, -4.8 + math.sin(ang) * ry_r, rz))
-            ring.append(v)
-        gather_rings.append(ring)
-    for r_i in range(len(gather_rings) - 1):
-        r0, r1 = gather_rings[r_i], gather_rings[r_i + 1]
-        for s in range(16):
-            sn = (s + 1) % 16
-            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
-            f.smooth = True
-            for loop in f.loops:
-                loop[uv_layer].uv = (0.05 + 0.20 * (s / 16.0), 0.03)  # Stranded jet-black hair
-
-    # 2) Gold & Crimson Mizuhiki Cord Wrap around the vertical stem of the Chonmage (Z=160.6..162.6)
-    cord_rings = []
-    for rz, rad in [(160.6, 1.85), (161.6, 1.75), (162.6, 1.85)]:
-        ring = []
-        for s in range(16):
-            ang = 2.0 * math.pi * s / 16
-            v = bm.verts.new((-4.2 + math.cos(ang) * rad, -4.8 + math.sin(ang) * rad, rz))
-            ring.append(v)
-        cord_rings.append(ring)
-    for r_i in range(len(cord_rings) - 1):
-        r0, r1 = cord_rings[r_i], cord_rings[r_i + 1]
-        for s in range(16):
-            sn = (s + 1) % 16
-            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
-            f.smooth = True
-            uv_c = (0.85, 0.03) if r_i == 0 else (0.50, 0.03)  # Gold lower wrap, Crimson upper wrap
-            for loop in f.loops:
-                loop[uv_layer].uv = uv_c
-
-    # 3) Forward-Folded Samurai Oicho-mage / Motodori Topknot Hair Fan (Z=162.4..164.3, Y=-4.8..-11.2)
-    # Folds forward over the crown and fans out horizontally into a flat, solid jet-black hair brush!
-    bun_rings = []
-    for cy_off, cz_off, rx_r, rz_r in [
-        (-4.5, 162.5, 1.85, 1.55),
-        (-6.2, 163.8, 2.15, 1.45),
-        (-8.2, 164.2, 2.55, 1.30),
-        (-10.0, 163.9, 2.85, 1.10),
-        (-11.0, 163.5, 2.70, 0.85),
-        (-11.3, 163.3, 0.25, 0.12),
-    ]:
-        ring = []
-        for s in range(16):
-            ang = 2.0 * math.pi * s / 16
-            # Subtle hair strand ridges along the topknot bundle
-            ridge = 1.0 + 0.05 * math.cos(ang * 8.0)
-            v = bm.verts.new((-4.2 + math.cos(ang) * rx_r * ridge, cy_off, cz_off + math.sin(ang) * rz_r * ridge))
-            ring.append(v)
-        bun_rings.append(ring)
-    for r_i in range(len(bun_rings) - 1):
-        r0, r1 = bun_rings[r_i], bun_rings[r_i + 1]
-        for s in range(16):
-            sn = (s + 1) % 16
-            f = bm.faces.new((r0[s], r0[sn], r1[sn], r1[s]))
-            f.smooth = True
-            for loop in f.loops:
-                loop[uv_layer].uv = (0.04 + 0.22 * (s / 16.0), 0.03)  # Solid stranded jet-black hair!
-
-    # Smooth all faces on the head mesh so cheeks, brow, nose, and jawline render without low-poly facets
-    for f in bm.faces:
-        f.smooth = True
-
-    bm.normal_update()
-    bm.to_mesh(su_mesh.data)
-    bm.free()
-
-    # Step 8: Assign clean vertex weights (`Head`, `neck`, `Spine`)
-    su_mesh.vertex_groups.clear()
-    vg_head = su_mesh.vertex_groups.new(name="Head")
-    vg_neck = su_mesh.vertex_groups.new(name="neck")
-    vg_spine = su_mesh.vertex_groups.new(name="Spine")
-
-    for v in su_mesh.data.vertices:
+    for v in head_obj.data.vertices:
         z = v.co.z
-        if z < 136.0:
+        if z < 137.0:
             vg_spine.add([v.index], 0.7, 'REPLACE')
             vg_neck.add([v.index], 0.3, 'REPLACE')
-        elif z < 141.5:
-            vg_neck.add([v.index], 0.75, 'REPLACE')
-            vg_head.add([v.index], 0.25, 'REPLACE')
+        elif z < 143.0:
+            vg_neck.add([v.index], 0.70, 'REPLACE')
+            vg_head.add([v.index], 0.30, 'REPLACE')
         else:
             vg_head.add([v.index], 1.0, 'REPLACE')
+
+    head_obj.parent = sh_arm
+    arm_mod = head_obj.modifiers.new(name="Armature", type='ARMATURE')
+    arm_mod.object = sh_arm
+
+    return head_obj
 
 
 def main():
@@ -679,31 +730,14 @@ def main():
     sh_mesh.data.materials.clear()
     sh_mesh.data.materials.append(armor_mat)
 
-    # 3. Import the human head mesh, sculpt into Japanese Samurai (Kaito Kurogane), and bake custom texture
-    sh_actions = set(bpy.data.actions)
-    bpy.ops.import_scene.gltf(filepath=SURYA_GLB)
-    su_arm = next(o for o in bpy.data.objects if o.type == 'ARMATURE' and o != sh_arm)
-    su_mesh = next(o for o in bpy.data.objects if o.type == 'MESH' and o != sh_mesh)
-    su_arm.data.pose_position = 'REST'
-
-    for act in list(bpy.data.actions):
-        if act not in sh_actions:
-            bpy.data.actions.remove(act)
-
-    sculpt_and_bake_samurai_head(su_mesh)
-
-    su_mesh.parent = sh_arm
-    for mod in su_mesh.modifiers:
-        if mod.type == 'ARMATURE':
-            mod.object = sh_arm
+    # 3. Build the authentic Japanese Samurai head from Godot Asset Library's Humanizer Asian Male CC0 assets
+    head_obj = build_humanizer_asian_samurai_head(sh_arm)
 
     bpy.ops.object.select_all(action='DESELECT')
-    su_mesh.select_set(True)
+    head_obj.select_set(True)
     sh_mesh.select_set(True)
     bpy.context.view_layer.objects.active = sh_mesh
     bpy.ops.object.join()
-
-    bpy.data.objects.remove(su_arm, do_unlink=True)
 
     bpy.context.view_layer.objects.active = sh_mesh
     bpy.ops.object.shade_smooth()
@@ -729,7 +763,6 @@ def main():
         export_apply=False,
     )
 
-    import shutil
     for web_path in [OUT_WEB_PUBLIC, OUT_WEB_DIST]:
         if os.path.exists(os.path.dirname(web_path)):
             shutil.copyfile(OUT_GLB, web_path)
@@ -778,10 +811,10 @@ def main():
     bpy.ops.render.render(write_still=True)
 
     # Full Body
-    cam_data.lens = 45
-    cam_obj.location = (-0.02, -2.35, 0.92)
+    cam_data.lens = 50
+    cam_obj.location = (-0.02, -2.55, 1.02)
     cam_obj.rotation_euler = (math.radians(88), 0, 0)
-    scene.render.resolution_x = 700
+    scene.render.resolution_x = 800
     scene.render.resolution_y = 1000
     scene.render.filepath = RENDER_FULLBODY
     bpy.ops.render.render(write_still=True)
