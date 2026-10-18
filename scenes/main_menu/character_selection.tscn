@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 [ext_resource type="Script" path="res://scripts/ui/SegmentedStatBar.cs" id="4_segmented_stat_script"]
 [ext_resource type="PackedScene" path="res://scenes/main_menu/operative_upgrade_screen.tscn" id="12_upgrade_screen"]
+[ext_resource type="Texture2D" path="res://assets/images/operatives/cyber_shogun.jpg" id="13_default_shogun_card"]
 
 [node name="CharacterSelection" type="Control"]
 theme = ExtResource("10_cyber_theme")
@@ -177,8 +178,42 @@ focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/UpgradeOper
 focus_neighbor_bottom = NodePath("../CyberShogun")
 text = "Aura Phoenicia [Maya Khoury]"
 
+[node name="CenterShowcasePanel" type="PanelContainer" parent="MainLayout"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/CenterShowcasePanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="CardHeader" type="Label" parent="MainLayout/CenterShowcasePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 13
+text = "OPERATIVE TACTICAL DOSSIER"
+horizontal_alignment = 1
+
+[node name="CardImage" type="TextureRect" parent="MainLayout/CenterShowcasePanel/VBox"]
+custom_minimum_size = Vector2(330, 480)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("13_default_shogun_card")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatusFooter" type="Label" parent="MainLayout/CenterShowcasePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.5, 0.85)
+theme_override_font_sizes/font_size = 11
+text = "● 2D TACTICAL OPERATIVE READY"
+horizontal_alignment = 1
+
 [node name="RightShowcasePanel" type="PanelContainer" parent="MainLayout"]
-custom_minimum_size = Vector2(440, 0)
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 

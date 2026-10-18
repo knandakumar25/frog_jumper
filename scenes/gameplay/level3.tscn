@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dgladm2g3g5cv"]
+[gd_scene load_steps=17 format=3 uid="uid://dgladm2g3g5cv"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_2glvr"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_6xbfe"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bm0jx6muu0ov7" path="res://scenes/gameplay/level4.tscn" id="8_iaj0w"]
 [ext_resource type="FontFile" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_comic_light"]
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="9_7i0qa"]
+[ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://scenes/gameplay/pause_menu.tscn" id="10_61e3g"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
@@ -391,14 +392,14 @@ script = ExtResource("1_2glvr")
 position = Vector2(400, 200)
 color = Color(0, 0.94, 1, 1)
 energy = 1.5
-texture = ExtResource("2_5titt")
+texture = ExtResource("2_6xbfe")
 scale = Vector2(2, 2)
 
 [node name="MagentaAccentLight" type="PointLight2D" parent="SceneObjects"]
 position = Vector2(1200, 400)
 color = Color(1, 0, 0.5, 1)
 energy = 1.5
-texture = ExtResource("2_5titt")
+texture = ExtResource("2_6xbfe")
 scale = Vector2(2, 2)
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]

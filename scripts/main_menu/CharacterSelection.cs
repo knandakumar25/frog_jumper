@@ -37,6 +37,10 @@ public partial class CharacterSelection : Control
 	private Label _abilityDescLabel;
 	private Label _abilityStatusLabel;
 
+	private TextureRect? _operativeCardImage;
+	private Label? _cardHeaderLabel;
+	private Label? _cardStatusLabel;
+
 	private Control? _mainLayout;
 	private Button? _upgradeOperativeBtn;
 	private OperativeUpgradeScreen? _upgradeScreen;
@@ -176,6 +180,10 @@ public partial class CharacterSelection : Control
 		_abilityBadgeLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityBadgeLabel");
 		_abilityDescLabel     = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityDescLabel");
 		_previewFinishedCallable = Callable.From<StringName>(OnPreviewAnimationFinished);
+
+		_operativeCardImage   = GetNodeOrNull<TextureRect>("MainLayout/CenterShowcasePanel/VBox/CardImage");
+		_cardHeaderLabel      = GetNodeOrNull<Label>("MainLayout/CenterShowcasePanel/VBox/CardHeader");
+		_cardStatusLabel      = GetNodeOrNull<Label>("MainLayout/CenterShowcasePanel/VBox/StatusFooter");
 
 		_mainLayout           = GetNodeOrNull<Control>("MainLayout");
 		_upgradeOperativeBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn");
@@ -377,6 +385,26 @@ public partial class CharacterSelection : Control
 			UpdateAbilityDisplay(abilities[0], isPreviewing: false);
 		}
 
+		// Update 2D High-Fidelity Operative Card
+		string cardPath = characterName switch
+		{
+			"Oceanus" => "res://assets/images/operatives/oceanus.jpg",
+			"Surya Prime" => "res://assets/images/operatives/surya_prime.jpg",
+			"Mirage Blade" => "res://assets/images/operatives/mirage_blade.jpg",
+			"Apex Titan" => "res://assets/images/operatives/apex_titan.jpg",
+			"Aura Phoenicia" or "Phoenicia" => "res://assets/images/operatives/phoenicia.jpg",
+			_ => "res://assets/images/operatives/cyber_shogun.jpg"
+		};
+		if (_operativeCardImage != null)
+		{
+			_operativeCardImage.Texture = LoadOperativeTexture(cardPath);
+		}
+		if (_cardStatusLabel != null)
+		{
+			_cardStatusLabel.Text = Tr("● 2D TACTICAL OPERATIVE READY");
+			_cardStatusLabel.Modulate = new Color(0.2f, 0.9f, 0.5f, 0.85f);
+		}
+
 		FixFontForLocale(this);
 		UpdatePreviewShowcase(_currentSelectedCharacter);
 	}
@@ -526,6 +554,19 @@ public partial class CharacterSelection : Control
 		var ability = abilities[abilityIndex];
 		UpdateAbilityDisplay(ability, isPreviewing: true);
 
+		// Pulse 2D Operative Card with holographic tactical flash
+		if (_operativeCardImage != null)
+		{
+			var tween = CreateTween();
+			_operativeCardImage.Modulate = new Color(1.3f, 1.3f, 1.6f, 1f);
+			tween?.TweenProperty(_operativeCardImage, "modulate", new Color(1f, 1f, 1f, 1f), 0.35f);
+		}
+		if (_cardStatusLabel != null)
+		{
+			_cardStatusLabel.Text = $"▶ EXECUTING 2D TACTICAL: {SafeToUpper(Tr(ability.Name))}";
+			_cardStatusLabel.Modulate = new Color(0f, 0.94f, 1f, 1f);
+		}
+
 		Node3D activeModel = GetActiveModel();
 		if (activeModel == null || !GodotObject.IsInstanceValid(activeModel)) return;
 		activeModel.Position = TargetPodiumPosition;
@@ -584,6 +625,12 @@ public partial class CharacterSelection : Control
 			if (world3D != null)
 			{
 				HeroAbilityVFX.ClearActiveVFX(world3D);
+			}
+
+			if (_cardStatusLabel != null && GodotObject.IsInstanceValid(_cardStatusLabel))
+			{
+				_cardStatusLabel.Text = Tr("● 2D TACTICAL OPERATIVE READY");
+				_cardStatusLabel.Modulate = new Color(0.2f, 0.9f, 0.5f, 0.85f);
 			}
 
 			if (_abilityStatusLabel != null && GodotObject.IsInstanceValid(_abilityStatusLabel))
@@ -1212,5 +1259,29 @@ public partial class CharacterSelection : Control
 			atlas.Region = new Rect2(i * 32, 0, 32, 32);
 			frames.AddFrame(animName, atlas);
 		}
+	}
+
+	/// <summary>
+	/// Loads high-fidelity 2D operative card texture from resource path with filesystem fallback.
+	/// </summary>
+	private static Texture2D? LoadOperativeTexture(string resPath)
+	{
+		if (ResourceLoader.Exists(resPath))
+		{
+			var tex = GD.Load<Texture2D>(resPath);
+			if (tex != null) return tex;
+		}
+
+		string globalPath = ProjectSettings.GlobalizePath(resPath);
+		if (System.IO.File.Exists(globalPath))
+		{
+			var img = Image.LoadFromFile(globalPath);
+			if (img != null)
+			{
+				return ImageTexture.CreateFromImage(img);
+			}
+		}
+
+		return null;
 	}
 }
