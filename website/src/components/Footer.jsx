@@ -33,7 +33,7 @@ export default function Footer() {
               </div>
               
               <p className="text-on-surface-variant/80 max-w-md font-mono text-[12px] leading-relaxed">
-                {t('footer.tagline', "A 3D action platformer built with Godot 4.7.2 and C#. Reclaim Earth from Xelthara alien occupiers.")}
+                {t('footer.tagline', "A 2D action platformer built with Godot 4.7.2 and C#. Reclaim Earth from Xelthara alien occupiers.")}
               </p>
               
               {/* Telemetry Status Bar */}

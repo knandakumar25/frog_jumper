@@ -1,11 +1,10 @@
-import React, { Suspense, lazy, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import apiClient from '../api/client';
 
 // Phase 3: the terminal room behind the account panels (code-split).
-const AuthBackdrop = lazy(() => import('../three/AuthBackdrop'));
 
 const getCallingCode = (c) => {
   if (!c.idd || !c.idd.root) return '';
@@ -123,9 +122,7 @@ const Account = () => {
       {/* Phase 3: the terminal room behind the account panels */}
       <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_50%_10%,#0a2230_0%,#06121b_50%,#050505_100%)]"></div>
       <div className="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"></div>
-      <Suspense fallback={null}>
-        <AuthBackdrop />
-      </Suspense>
+
       <div className="relative z-10 max-w-2xl mx-auto">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-2 h-2 bg-primary-container"></span>

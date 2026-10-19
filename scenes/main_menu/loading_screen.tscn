@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw2ys5k0m8bfw"]
+[gd_scene load_steps=7 format=3 uid="uid://dw2ys5k0m8bfw"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/ui/LoadingScreen.cs" id="1_loading_script"]
-[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 [ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_logo.jpg" id="4_title_logo_texture"]
 [ext_resource type="Script" path="res://scripts/ui/CyberCircularSpinner.cs" id="5_cyber_spinner"]
@@ -20,17 +19,6 @@ script = ExtResource("1_loading_script")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000007]
 environment = ExtResource("11_cyber_glow")
-
-[node name="BackgroundTexture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_bg_texture")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="DarkOverlay" type="ColorRect" parent="."]
 layout_mode = 1

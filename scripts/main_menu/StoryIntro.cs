@@ -4,18 +4,7 @@ using System.Collections.Generic;
 /// <summary>
 /// StoryIntro manages the cinematic "Mission Briefing" sequence. It coordinates
 /// a series of localized dialogue lines delivered via a typewriter effect,
-/// synchronized with voice-over audio and a 3D-rendered robot companion.
-///
-/// Unity Migration Note:
-/// 1. Dialogue System: Replace the manual typewriter logic with a plugin like
-///    Dialogue System for Unity or Ink.
-/// 2. 3D Integration: Instead of a SubViewport, use a separate Layer and a
-///    Camera with a specific Culling Mask to render the robot buddy behind
-///    the UI.
-/// 3. Audio: Use Unity's AudioSource. Use a localized Audio Clip mapping
-///    system (e.g., a ScriptableObject) to handle voice-over paths.
-/// 4. UI: Use a TMP text component with a Coroutine to handle the typewriter
-///    character revelation.
+/// synchronized with voice-over audio and a 2D robot illustration.
 /// </summary>
 public partial class StoryIntro : Control
 {
@@ -110,8 +99,6 @@ public partial class StoryIntro : Control
 		if (robotSprite != null && robotSprite.SpriteFrames != null)
 			robotSprite.Play();
 
-		// Initialize the 3D robot buddy visual.
-		Setup3DRobotBuddy();
 
 		// Handle gamepad/keyboard prompt updates.
 		if (global != null)
@@ -121,74 +108,6 @@ public partial class StoryIntro : Control
 
 		UpdateStoryPrompts();
 		StartNextLine();
-	}
-
-	/// <summary>
-	/// Creates a full-screen 3D viewport to render the FloatingRobotBuddy3D.
-	/// This allows a 3D object to exist as a background element behind the 2D UI.
-	/// </summary>
-	private void Setup3DRobotBuddy()
-	{
-		var vpContainer = new SubViewportContainer
-		{
-			Name = "FullScreen3DRobotViewport",
-			MouseFilter = Control.MouseFilterEnum.Ignore,
-			Stretch = true
-		};
-		vpContainer.SetAnchorsPreset(LayoutPreset.FullRect);
-
-		var viewport = new SubViewport
-		{
-			TransparentBg = true,
-			OwnWorld3D = true
-		};
-
-		// Position the camera to frame the robot on the left side of the screen.
-		var camera = new Camera3D
-		{
-			Position = new Vector3(-1.65f, -0.05f, 3.4f),
-			Fov = 32f
-		};
-
-		// Primary key light.
-		var light = new DirectionalLight3D
-		{
-			Position = new Vector3(2.5f, 4f, 3.5f),
-			RotationDegrees = new Vector3(-35f, 30f, 0f),
-			LightColor = new Color(0.95f, 0.98f, 1.0f),
-			LightEnergy = 1.8f
-		};
-
-		// Cyan fill light for cyberpunk atmosphere.
-		var fillLight = new DirectionalLight3D
-		{
-			Position = new Vector3(-2.5f, -1f, 2.5f),
-			RotationDegrees = new Vector3(20f, -40f, 0f),
-			LightColor = new Color(0.0f, 0.7f, 1.0f),
-			LightEnergy = 0.9f
-		};
-
-		// Instantiate the floating robot entity.
-		var robotBuddy = new FloatingRobotBuddy3D
-		{
-			Scale = new Vector3(1.15f, 1.15f, 1.15f),
-			Position = new Vector3(0f, 0f, -0.8f),
-			HoverSpeed = 2.6f,
-			HoverHeight = 0.08f,
-			PulseSpeed = 3.5f
-		};
-
-		viewport.AddChild(camera);
-		viewport.AddChild(light);
-		viewport.AddChild(fillLight);
-		viewport.AddChild(robotBuddy);
-
-		vpContainer.AddChild(viewport);
-
-		// Place the viewport behind the 2D Dialogue UI overlay.
-		AddChild(vpContainer);
-		MoveChild(vpContainer, 1);
-		GD.Print("StoryIntro: Integrated 3D AXIOM-7 Floating Robot Buddy across 100% full-screen 3D space (Zero 2D container box clipping)");
 	}
 
 	/// <summary>
@@ -336,7 +255,7 @@ public partial class StoryIntro : Control
 	}
 
 	/// <summary>
-	/// Cleans up audio and transitions the user to the training protocol scene.
+	/// Cleans up audio and transitions the user to the first 2D campaign mission.
 	/// </summary>
 	private void ProceedToLevelSelection()
 	{
@@ -349,7 +268,7 @@ public partial class StoryIntro : Control
 			global.Call("resume_menu_music");
 		}
 
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/training_protocol.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/level1.tscn");
 	}
 
 	public override void _Input(InputEvent @event)

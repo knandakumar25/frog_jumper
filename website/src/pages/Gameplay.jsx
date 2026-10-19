@@ -1,10 +1,9 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
 // Phase 4: the briefing vista (code-split; the page's copy never waits on it).
-const IntelBackdrop = lazy(() => import('../three/IntelBackdrop'));
 
 export default function Gameplay() {
   const { t } = useTranslation();
@@ -30,7 +29,7 @@ export default function Gameplay() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto w-full">
-      
+
       {/* Header Bar */}
       <header className="mb-12 border-b border-primary-container/20 pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
@@ -68,10 +67,8 @@ export default function Gameplay() {
 
         <div className="relative min-h-[420px] md:min-h-[500px] bg-void-black border border-primary-container/30 overflow-hidden flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_85%,#0c2634_0%,#07141d_55%,#050505_100%)]"></div>
-          
-          <Suspense fallback={null}>
-            <IntelBackdrop />
-          </Suspense>
+
+
 
           {/* Corner Markers */}
           <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-primary-container z-20"></div>
@@ -105,11 +102,11 @@ export default function Gameplay() {
               <span className="w-1.5 h-1.5 bg-tertiary-container"></span>
               {t('gameplay.intel_classified', 'INTEL_CLASSIFIED // L.A. QZ')}
             </div>
-            
+
             <h2 className="font-display-hero text-2xl md:text-4xl text-primary-container mb-3 uppercase font-extrabold tracking-wide text-glow-cyan">
               {t('gameplay.los_angeles_2157', 'LOS ANGELES 2157')}
             </h2>
-            
+
             <p className="font-mono text-[12px] md:text-[13px] text-on-surface max-w-3xl bg-void-black/85 backdrop-blur-md p-4 border-l-2 border-warning-orange leading-relaxed shadow-lg">
               {t('story.caption', 'The Xelthara arrived not to conquer, but to harvest. The once-sprawling metropolis is now Sector 4—a heavily militarized quarantine zone where human survivors scavenge beneath alien atmospheric processors.')}
             </p>

@@ -56,7 +56,7 @@ const BrowserAuth = () => {
       <h1 className="text-headline-md text-primary-container uppercase font-bold mb-6">
         {t('auth.authorize_client', 'Authorize Game Client')}
       </h1>
-      
+
       {status === 'confirming' && (
         <div className="flex flex-col items-center gap-6">
           <p className="text-on-surface-variant text-sm leading-relaxed">
@@ -70,7 +70,7 @@ const BrowserAuth = () => {
           </button>
         </div>
       )}
-      
+
       {status === 'authorized' && (
         <div className="flex flex-col items-center gap-4">
           <span className="text-[48px] text-green-500 mb-2">
@@ -84,7 +84,7 @@ const BrowserAuth = () => {
           </p>
         </div>
       )}
-      
+
       {status === 'error' && (
         <div className="flex flex-col items-center gap-4">
           <span className="text-[48px] text-red-500 mb-2">
@@ -96,7 +96,7 @@ const BrowserAuth = () => {
           <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
             {t('auth.auth_failed_desc', 'An error occurred during authorization. Please try again.')}
           </p>
-          <button 
+          <button
             onClick={() => setStatus('confirming')}
             className="brutal-btn py-2.5 px-6 font-bold uppercase text-error bg-error/10 hover:bg-error/20 transition-all duration-150 active:scale-95"
           >
@@ -104,7 +104,7 @@ const BrowserAuth = () => {
           </button>
         </div>
       )}
-      
+
       {status === 'idle' && (
         <p className="text-on-surface-variant text-sm">
           No active session found for authorization.

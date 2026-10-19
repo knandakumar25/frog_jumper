@@ -33,7 +33,8 @@ public partial class GameManager : Node
 	{
 		// Godot Unique Name lookup (%PointsLabel).
 		// Unity Migration: Assign via Inspector or use GameObject.FindWithTag.
-		_pointsLabel = GetNode<Label>("%PointsLabel");
+		// The combat HUD reads Points directly; legacy scenes still use this label.
+		_pointsLabel = GetNodeOrNull<Label>("%PointsLabel");
 
 		if (_pointsLabel != null)
 		{

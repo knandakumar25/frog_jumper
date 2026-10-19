@@ -1,11 +1,10 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 // Via the gate so a keyless build shows a notice instead of throwing.
 import { SignIn } from '../auth/clerkGate.jsx';
 import { useLanguage } from '../translations/LanguageContext';
 
 // Phase 3: the terminal room the Clerk card stands in (code-split; the form
 // never waits on three.js, and a CSS fallback shows if WebGL is unavailable).
-const AuthBackdrop = lazy(() => import('../three/AuthBackdrop'));
 
 export default function Login() {
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
@@ -15,9 +14,7 @@ export default function Login() {
     <div className="relative overflow-hidden pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
       <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_50%_15%,#0a2230_0%,#06121b_50%,#050505_100%)]"></div>
       <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"></div>
-      <Suspense fallback={null}>
-        <AuthBackdrop />
-      </Suspense>
+
       <div className="relative z-10 w-full max-w-md bg-surface-container-lowest/95 border-2 border-primary-container/30 p-8 shadow-[0_0_30px_rgba(0,243,255,0.15)] bracket-corners">
 
         {/* Accent corners */}

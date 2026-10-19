@@ -73,8 +73,6 @@ func test_buttons_mouse_filter_ignored() -> void:
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn",
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn",
 		"MainLayout/RightShowcasePanel/VBox/DeployButton",
-		"MainLayout/RightShowcasePanel/VBox/RotateRow/RotateLeftBtn",
-		"MainLayout/RightShowcasePanel/VBox/RotateRow/RotateRightBtn"
 	]
 
 	for b_path in button_paths:
@@ -84,34 +82,11 @@ func test_buttons_mouse_filter_ignored() -> void:
 
 	instance.free()
 
-func test_standing_animation_loop_default() -> void:
-	var path := "res://scenes/main_menu/character_selection.tscn"
-	var scene := load(path) as PackedScene
-	var instance: Node = scene.instantiate()
-	assert_that(instance).is_not_null()
-
-	var operatives := [
-		"Cyber Shogun",
-		"Oceanus",
-		"Surya Prime",
-		"Mirage Blade",
-		"Apex Titan",
-		"Aura Phoenicia"
-	]
-
-	for op in operatives:
-		instance.call("SelectOperative", op)
-		var active_model: Node3D = instance.call("GetActiveModel")
-		if active_model != null:
-			var anim_player: AnimationPlayer = null
-			for child in active_model.find_children("*", "AnimationPlayer", true, false):
-				if child is AnimationPlayer:
-					anim_player = child
-					break
-			if anim_player != null:
-				assert_that(anim_player.current_animation.to_lower()).contains("standing")
-				var anim := anim_player.get_animation(anim_player.current_animation)
-				if anim != null:
-					assert_that(anim.loop_mode).is_equal(Animation.LOOP_LINEAR)
-
+func test_all_operatives_use_2d_cards_without_3d_models() -> void:
+	var instance = load("res://scenes/main_menu/character_selection.tscn").instantiate()
+	var card: TextureRect = instance.get_node("MainLayout/CenterShowcasePanel/VBox/CardImage")
+	for operative in ["Cyber Shogun", "Oceanus", "Surya Prime", "Mirage Blade", "Apex Titan", "Aura Phoenicia"]:
+		instance.call("SelectOperative", operative)
+		assert_that(card.texture).is_not_null()
+	assert_int(instance.find_children("*", "Node3D", true, false).size()).is_equal(0)
 	instance.free()

@@ -58,9 +58,7 @@ func test_cyber_city_visuals_and_lighting() -> void:
 	var instance: Node = scene.instantiate()
 	assert_that(instance).is_not_null()
 
-	var bg = instance.find_child("TextureRect", true, false) as TextureRect
-	assert_that(bg).is_not_null()
-	assert_that(bg.texture).is_not_null()
+	assert_that(instance.get_node_or_null("SceneObjects/TextureRect")).is_null()
 
 	var cyan_light = instance.get_node_or_null("SceneObjects/CyanAccentLight")
 	assert_that(cyan_light).is_not_null()

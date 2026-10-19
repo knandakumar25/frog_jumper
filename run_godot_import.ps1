@@ -3,7 +3,7 @@
     Automates the Godot asset import process by running Godot in headless mode.
 .DESCRIPTION
     Launches Godot headless to allow the asset pipeline to detect new or modified
-    assets (3D models, textures, audio, fonts) and generate their corresponding .import files,
+    assets (textures, audio, fonts) and generate their corresponding .import files,
     then terminates the process once import is completed.
 #>
 param(

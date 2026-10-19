@@ -26,7 +26,7 @@ export default function DesignSystem() {
 
   return (
     <div className="pt-32 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto w-full">
-      
+
       {/* Header */}
       <header className="mb-16 relative">
         <div className={`absolute top-0 text-secondary-container opacity-10 font-display-hero text-display-hero pointer-events-none select-none ${
@@ -79,22 +79,22 @@ export default function DesignSystem() {
         <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-8 uppercase font-bold tracking-tight">
           {t('design_system.color_swatches', 'Color Swatches')}
         </h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colors.map((color) => (
-            <div 
+            <div
               key={color.hex}
               onClick={() => handleCopyColor(color.hex)}
               className="bg-surface-container-low border border-outline-variant/40 hover:border-primary transition-all p-4 cursor-pointer flex items-center gap-4 relative group"
             >
               {/* Live Preview block */}
-              <div 
-                className="w-14 h-14 border border-white/10 relative" 
+              <div
+                className="w-14 h-14 border border-white/10 relative"
                 style={{ backgroundColor: color.hex }}
               >
                 <div className="absolute inset-0 bg-scanline-overlay"></div>
               </div>
-              
+
               <div className="flex-grow">
                 <h4 className="font-headline-md text-[16px] text-white uppercase font-bold mb-0.5">{color.name}</h4>
                 <code className="font-body-md text-[12px] text-primary">{color.hex}</code>
@@ -115,7 +115,7 @@ export default function DesignSystem() {
         <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary mb-8 uppercase font-bold tracking-tight">
           {t('design_system.typography_stack', 'Typography Stack')}
         </h2>
-        
+
         <div className="bg-surface-container-low brutal-border border-outline-variant/30 p-6 md:p-8 space-y-8">
           {/* Display Hero */}
           <div className="border-b border-outline-variant/20 pb-6">
@@ -164,13 +164,13 @@ export default function DesignSystem() {
         <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-tertiary-fixed-dim mb-8 uppercase font-bold tracking-tight">
           {t('design_system.component_showroom', 'Component Showroom')}
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
+
           {/* Interactive Buttons Card */}
           <div className="bg-surface-container p-6 brutal-border border-outline-variant/40 flex flex-col gap-6">
             <h3 className="font-label-caps text-label-caps text-white">{t('design_system.btn_interactive_states', '// BUTTON INTERACTIVE STATES')}</h3>
-            
+
             <div className="flex flex-col gap-4">
               <div>
                 <span className="font-body-md text-[11px] text-on-surface-variant block mb-2">{t('design_system.primary_action_desc', 'Primary Action (flickers and skews to Magenta on hover)')}</span>
@@ -178,7 +178,7 @@ export default function DesignSystem() {
                   {t('nav.play_now', 'Join the Strike')}
                 </button>
               </div>
-              
+
               <div>
                 <span className="font-body-md text-[11px] text-on-surface-variant block mb-2">{t('design_system.secondary_outline_desc', 'Secondary Outline')}</span>
                 <button className="border-2 border-primary text-primary hover:bg-primary/10 transition-all font-headline-md text-headline-md px-6 py-3 uppercase font-bold w-full max-w-[280px]">
@@ -198,7 +198,7 @@ export default function DesignSystem() {
           {/* Cards and Inputs */}
           <div className="bg-surface-container p-6 brutal-border border-outline-variant/40 flex flex-col gap-6">
             <h3 className="font-label-caps text-label-caps text-white">{t('design_system.tactical_card_desc', '// TACTICAL HOVER CARD & INPUT')}</h3>
-            
+
             <div className="flex flex-col gap-6">
               {/* Corner Bracket Card */}
               <div className="bg-surface-container-low p-4 relative border border-primary-container/20 group">
@@ -217,8 +217,8 @@ export default function DesignSystem() {
                   {t('design_system.comms_label', 'SECURE COMMS TERMINAL (click to see pulsing indicator border)')}
                 </label>
                 <div className="relative">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     placeholder={t('design_system.decryption_placeholder', 'Enter decryption code...')}
                     className="w-full bg-void-black border-b-2 border-primary-container/30 focus:border-primary-container focus:ring-0 text-white font-body-md text-[14px] py-3.5 px-4 focus:bg-primary-container/5 transition-all outline-none"
                   />

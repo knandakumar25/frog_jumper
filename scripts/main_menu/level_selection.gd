@@ -3,19 +3,14 @@ extends Node
 # Reference to the LoadingScreen helper for scene transitions.
 const LoadingScreen = preload("res://scripts/ui/loading_screen.gd")
 
-# Level selection mapping from index to scene path.
-# This supports the full 10-level campaign (0-9).
+# Four-mission 2D campaign. Index 0 temporarily aliases mission 1 until
+# Protocol Zero has a dedicated 2D training scene.
 var level_map = {
-	0: "res://scenes/gameplay/training_protocol_3d.tscn", # Protocol Zero (3D); replaces the 2D relic
-	1: "res://scenes/gameplay/prototype_3d.tscn", # Using prototype for Lvl 1
+	0: "res://scenes/gameplay/level1.tscn",
+	1: "res://scenes/gameplay/level1.tscn",
 	2: "res://scenes/gameplay/level2.tscn",
 	3: "res://scenes/gameplay/level3.tscn",
-	4: "res://scenes/gameplay/level4.tscn",
-	5: "res://scenes/gameplay/level5.tscn",
-	6: "res://scenes/gameplay/level6.tscn",
-	7: "res://scenes/gameplay/level7.tscn",
-	8: "res://scenes/gameplay/level8.tscn",
-	9: "res://scenes/gameplay/level9.tscn"
+	4: "res://scenes/gameplay/level4.tscn"
 }
 
 func _ready() -> void:
@@ -71,11 +66,6 @@ func _on_level_1_pressed() -> void: _start_level(1)
 func _on_level_2_pressed() -> void: _start_level(2)
 func _on_level_3_pressed() -> void: _start_level(3)
 func _on_level_4_pressed() -> void: _start_level(4)
-func _on_level_5_pressed() -> void: _start_level(5)
-func _on_level_6_pressed() -> void: _start_level(6)
-func _on_level_7_pressed() -> void: _start_level(7)
-func _on_level_8_pressed() -> void: _start_level(8)
-func _on_level_9_pressed() -> void: _start_level(9)
 
 func _on_back_button_pressed() -> void:
 	GameManager.set_game_state(GameManager.State.MAIN_MENU)

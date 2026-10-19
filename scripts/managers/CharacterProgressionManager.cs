@@ -8,7 +8,7 @@ using System.Text.Json;
 /// - Independent character levels (Level 1 to 10)
 /// - Hero Sparks currency and level-up progress meters
 /// - Skill Points and 3 unique hero-specific Augmentation Tracks (Tiers 0 to 5)
-/// - Real-time stat multipliers applied to gameplay (Player3D) and showcased in UI
+/// - Real-time stat multipliers applied to gameplay and showcased in UI
 /// - Persistent JSON storage at user://operative_progression.json
 /// </summary>
 public partial class CharacterProgressionManager : Node

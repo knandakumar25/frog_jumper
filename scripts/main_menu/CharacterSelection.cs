@@ -3,23 +3,10 @@ using System;
 
 /// <summary>
 /// CharacterSelection manages the operative selection screen.
-/// It handles the UI for choosing a character, updating a live 3D preview showcase,
-/// and initializing a new game session via the SessionManager.
-///
-/// Unity Migration Note: In Unity, the 3D preview would be implemented using a
-/// separate Camera rendering to a Render Texture, which is then displayed on a
-/// RawImage in the UI. Character selection and stats would be driven by a
-/// ScriptableObject-based Character Database.
+/// It handles 2D operative cards, tactical loadouts, and new game sessions.
 /// </summary>
 public partial class CharacterSelection : Control
 {
-	// ─── Input bindings ──────────────────────────────────────────────────────
-	private const Key          RotateLeftKey   = Key.Q;
-	private const Key          RotateRightKey  = Key.E;
-	private const JoyButton    RotateLeftBtn   = JoyButton.LeftShoulder;   // LB
-	private const JoyButton    RotateRightBtn  = JoyButton.RightShoulder;  // RB
-	private const float        RotationSpeed   = 90f; // degrees per second
-
 	// ─── Node refs ───────────────────────────────────────────────────────────
 	private Label _selectedNameLabel;
 	private Label _civilianNameLabel;
@@ -45,8 +32,6 @@ public partial class CharacterSelection : Control
 	private Button? _upgradeOperativeBtn;
 	private OperativeUpgradeScreen? _upgradeScreen;
 
-	private string _currentPreviewAnim = "";
-	private Callable _previewFinishedCallable;
 
 	private string _currentSelectedCharacter = "Cyber Shogun";
 
@@ -179,7 +164,6 @@ public partial class CharacterSelection : Control
 		_slamAbilityBtn       = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn");
 		_abilityBadgeLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityBadgeLabel");
 		_abilityDescLabel     = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityDescLabel");
-		_previewFinishedCallable = Callable.From<StringName>(OnPreviewAnimationFinished);
 
 		_operativeCardImage   = GetNodeOrNull<TextureRect>("MainLayout/CenterShowcasePanel/VBox/CardImage");
 		_cardHeaderLabel      = GetNodeOrNull<Label>("MainLayout/CenterShowcasePanel/VBox/CardHeader");
@@ -189,7 +173,6 @@ public partial class CharacterSelection : Control
 		_upgradeOperativeBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn");
 		_upgradeScreen        = GetNodeOrNull<OperativeUpgradeScreen>("OperativeUpgradeScreen");
 
-		_world3D              = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
 
 		if (_upgradeScreen != null)
 		{
@@ -212,29 +195,6 @@ public partial class CharacterSelection : Control
 		}
 		return text.ToUpper();
 	}
-
-	private Node3D? _world3D;
-	private Node3D _cyberShogun3DModel;
-
-	private Node3D _oceanus3DModel;
-	private Node3D _suryaPrime3DModel;
-	private Node3D _mirageBlade3DModel;
-	private Node3D _apexTitan3DModel;
-	private Node3D _phoenicia3DModel;
-	private Node3D _platform3DModel;
-
-	// User-controlled rotation (degrees, accumulated)
-	private float _charRotationY  = 0f;
-	private float _glowPulseTimer = 0f;
-	private float _rotateInput    = 0f;  // -1 left, +1 right, 0 idle
-
-	private static readonly Vector3 TargetPodiumPosition = new Vector3(-0.45f, 2.69f, 0f);
-
-	// --- Arrow button signal handlers (hold-to-rotate) ---
-	public void _on_rotate_left_down()  => _rotateInput = -1f;
-	public void _on_rotate_left_up()    => _rotateInput =  0f;
-	public void _on_rotate_right_down() => _rotateInput =  1f;
-	public void _on_rotate_right_up()   => _rotateInput =  0f;
 
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_oceanus_pressed()       => SelectOperative("Oceanus");
@@ -291,19 +251,12 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
-	/// Updates the UI and 3D preview when a new character is selected.
+	/// Updates the UI and operative card when a new character is selected.
 	/// </summary>
 	public void SelectOperative(string characterName)
 	{
 		EnsureUIReferences();
 		_currentSelectedCharacter = characterName;
-		_currentPreviewAnim = "";
-
-		var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
-		if (world3D != null)
-		{
-			HeroAbilityVFX.ClearActiveVFX(world3D);
-		}
 
 		float baseSpeed = 98f;
 		float baseAgility = 96f;
@@ -355,7 +308,7 @@ public partial class CharacterSelection : Control
 			baseAgility = 96f;
 			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
 			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KAITO KUROGANE"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: 3D CYBERNETIC SHOGUN WARRIOR");
+			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: CYBERNETIC SHOGUN WARRIOR");
 		}
 
 		if (CharacterProgressionManager.Instance != null)
@@ -406,146 +359,8 @@ public partial class CharacterSelection : Control
 		}
 
 		FixFontForLocale(this);
-		UpdatePreviewShowcase(_currentSelectedCharacter);
 	}
 
-	/// <summary>
-	/// Manages the visibility of 3D models in the preview viewport.
-	/// Loads GLB models on demand and manages their transforms.
-	/// </summary>
-	private void UpdatePreviewShowcase(string characterName)
-	{
-		var world3D = GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
-		if (world3D == null) return;
-
-		// Lazy-load GLB models.
-		if (_cyberShogun3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/cyber_shogun.glb";
-			_cyberShogun3DModel = LoadGlbModel(glbPath);
-			if (_cyberShogun3DModel != null)
-			{
-				_cyberShogun3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_cyberShogun3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_cyberShogun3DModel);
-				PlayStandingAnimation(_cyberShogun3DModel, "Cyber Shogun");
-			}
-		}
-
-		if (_oceanus3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/oceanus.glb";
-			_oceanus3DModel = LoadGlbModel(glbPath);
-			if (_oceanus3DModel != null)
-			{
-				_oceanus3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_oceanus3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_oceanus3DModel);
-				PlayStandingAnimation(_oceanus3DModel, "Oceanus");
-			}
-		}
-
-		if (_suryaPrime3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/surya_prime.glb";
-			_suryaPrime3DModel = LoadGlbModel(glbPath);
-			if (_suryaPrime3DModel != null)
-			{
-				_suryaPrime3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_suryaPrime3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_suryaPrime3DModel);
-				PlayStandingAnimation(_suryaPrime3DModel, "Surya Prime");
-			}
-		}
-
-		if (_mirageBlade3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/mirage_blade.glb";
-			_mirageBlade3DModel = LoadGlbModel(glbPath);
-			if (_mirageBlade3DModel != null)
-			{
-				_mirageBlade3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_mirageBlade3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_mirageBlade3DModel);
-				PlayStandingAnimation(_mirageBlade3DModel, "Mirage Blade");
-			}
-		}
-
-		if (_apexTitan3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/apex_titan.glb";
-			_apexTitan3DModel = LoadGlbModel(glbPath);
-			if (_apexTitan3DModel != null)
-			{
-				_apexTitan3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_apexTitan3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_apexTitan3DModel);
-				PlayStandingAnimation(_apexTitan3DModel, "Apex Titan");
-			}
-		}
-
-		if (_phoenicia3DModel == null)
-		{
-			string glbPath = "res://assets/models/hq/phoenicia.glb";
-			_phoenicia3DModel = LoadGlbModel(glbPath);
-			if (_phoenicia3DModel != null)
-			{
-				_phoenicia3DModel.Scale    = new Vector3(0.68f, 0.68f, 0.68f);
-				_phoenicia3DModel.Position = new Vector3(-0.45f, 2.69f, 0f);
-				world3D.AddChild(_phoenicia3DModel);
-				PlayStandingAnimation(_phoenicia3DModel, "Aura Phoenicia");
-			}
-		}
-
-		// Toggle visibility based on selection.
-		if (_cyberShogun3DModel != null) _cyberShogun3DModel.Visible = (characterName == "Cyber Shogun");
-		if (_oceanus3DModel != null) _oceanus3DModel.Visible = (characterName == "Oceanus");
-		if (_suryaPrime3DModel != null) _suryaPrime3DModel.Visible = (characterName == "Surya Prime");
-		if (_mirageBlade3DModel != null) _mirageBlade3DModel.Visible = (characterName == "Mirage Blade");
-		if (_apexTitan3DModel != null) _apexTitan3DModel.Visible = (characterName == "Apex Titan");
-		if (_phoenicia3DModel != null) _phoenicia3DModel.Visible = (characterName == "Aura Phoenicia" || characterName == "Phoenicia");
-
-		// Ensure the platform is loaded and visible.
-		if (_platform3DModel == null)
-		{
-			string platformPath = "res://assets/models/hq/Meshy_AI_scifi_selection_platf_0805042413_image-to-3d-texture.glb";
-			_platform3DModel = LoadGlbModel(platformPath);
-			if (_platform3DModel != null)
-			{
-				_platform3DModel.Scale    = new Vector3(0.55f, 0.55f, 0.55f);
-				_platform3DModel.Position = new Vector3(-0.45f, 2.62f, 0f);
-				world3D.AddChild(_platform3DModel);
-			}
-		}
-
-		// Identify active model
-		Node3D activeModel = GetActiveModel();
-
-		if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
-		{
-			activeModel.Position = TargetPodiumPosition;
-			activeModel.RotationDegrees = new Vector3(0f, _charRotationY, 0f);
-			PlayStandingAnimation(activeModel, _currentSelectedCharacter);
-		}
-	}
-
-	public Node3D GetActiveModel()
-	{
-		return _currentSelectedCharacter switch
-		{
-			"Oceanus" => _oceanus3DModel,
-			"Surya Prime" => _suryaPrime3DModel,
-			"Mirage Blade" => _mirageBlade3DModel,
-			"Apex Titan" => _apexTitan3DModel,
-			"Aura Phoenicia" or "Phoenicia" => _phoenicia3DModel,
-			_ => _cyberShogun3DModel
-		};
-	}
-
-	/// <summary>
-	/// Previews an ability animation on the active 3D model and updates the tactical UI display.
-	/// Automatically reverts to the Idle animation once the ability finishes.
-	/// </summary>
 	public void PreviewAbility(int abilityIndex)
 	{
 		var abilities = GetOperativeAbilities(_currentSelectedCharacter);
@@ -555,7 +370,7 @@ public partial class CharacterSelection : Control
 		UpdateAbilityDisplay(ability, isPreviewing: true);
 
 		// Pulse 2D Operative Card with holographic tactical flash
-		if (_operativeCardImage != null)
+		if (_operativeCardImage != null && IsInsideTree())
 		{
 			var tween = CreateTween();
 			_operativeCardImage.Modulate = new Color(1.3f, 1.3f, 1.6f, 1f);
@@ -567,78 +382,6 @@ public partial class CharacterSelection : Control
 			_cardStatusLabel.Modulate = new Color(0f, 0.94f, 1f, 1f);
 		}
 
-		Node3D activeModel = GetActiveModel();
-		if (activeModel == null || !GodotObject.IsInstanceValid(activeModel)) return;
-		activeModel.Position = TargetPodiumPosition;
-
-		var player = FindNodeRecursive<AnimationPlayer>(activeModel);
-		if (player == null) return;
-
-		string targetAnim = ResolveAnimationName(player, ability.AnimName);
-		if (string.IsNullOrEmpty(targetAnim))
-		{
-			GD.PrintErr($"CharacterSelection: Animation '{ability.AnimName}' not found on {activeModel.Name}");
-			return;
-		}
-
-		var anim = player.GetAnimation(targetAnim);
-		if (anim != null)
-		{
-			anim.LoopMode = Animation.LoopModeEnum.None;
-		}
-
-		_currentPreviewAnim = targetAnim;
-
-		if (!player.IsConnected(AnimationMixer.SignalName.AnimationFinished, _previewFinishedCallable))
-		{
-			player.Connect(AnimationMixer.SignalName.AnimationFinished, _previewFinishedCallable);
-		}
-
-		player.Stop();
-		player.Play(targetAnim, customBlend: 0.18f);
-
-		// Trigger High-Fidelity Elemental Hero Ability VFX (Water streams, Fire blasts, Phase slashes, etc.)
-		var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D") ?? activeModel.GetParent<Node3D>();
-		if (world3D != null)
-		{
-			Vector3 forward = activeModel.GlobalTransform.Basis * new Vector3(0, 0, 1);
-			if (forward.LengthSquared() > 0.001f) forward = forward.Normalized();
-			else forward = new Vector3(0, 0, 1);
-
-			HeroAbilityVFX.TriggerAbilityVFX(world3D, activeModel, _currentSelectedCharacter, ability.AnimName, forward);
-		}
-	}
-
-	public void OnPreviewAnimationFinished(StringName animName)
-	{
-		if (_currentPreviewAnim == animName.ToString())
-		{
-			_currentPreviewAnim = "";
-			Node3D activeModel = GetActiveModel();
-			if (activeModel != null && GodotObject.IsInstanceValid(activeModel))
-			{
-				activeModel.Position = TargetPodiumPosition;
-				PlayStandingAnimation(activeModel, _currentSelectedCharacter);
-			}
-
-			var world3D = _world3D ?? GetNodeOrNull<Node3D>("SubViewportContainer/SubViewport3D/World3D");
-			if (world3D != null)
-			{
-				HeroAbilityVFX.ClearActiveVFX(world3D);
-			}
-
-			if (_cardStatusLabel != null && GodotObject.IsInstanceValid(_cardStatusLabel))
-			{
-				_cardStatusLabel.Text = Tr("● 2D TACTICAL OPERATIVE READY");
-				_cardStatusLabel.Modulate = new Color(0.2f, 0.9f, 0.5f, 0.85f);
-			}
-
-			if (_abilityStatusLabel != null && GodotObject.IsInstanceValid(_abilityStatusLabel))
-			{
-				_abilityStatusLabel.Text = Tr("✔ READY // SELECT ABILITY TO PREVIEW");
-				_abilityStatusLabel.Modulate = new Color(0.2f, 1f, 0.5f, 0.9f);
-			}
-		}
 	}
 
 	private void UpdateAbilityDisplay(OperativeAbilityData ability, bool isPreviewing)
@@ -665,30 +408,6 @@ public partial class CharacterSelection : Control
 				_abilityStatusLabel.Modulate = new Color(0.2f, 1f, 0.5f, 0.9f);
 			}
 		}
-	}
-
-	private static string ResolveAnimationName(AnimationPlayer player, string baseName)
-	{
-		if (player == null || string.IsNullOrEmpty(baseName)) return null;
-		var list = player.GetAnimationList();
-
-		foreach (var name in list)
-		{
-			if (string.Equals(name, baseName, StringComparison.OrdinalIgnoreCase))
-				return name;
-		}
-
-		foreach (var name in list)
-		{
-			string n = name.ToString();
-			if (n.EndsWith(baseName, StringComparison.OrdinalIgnoreCase) ||
-				n.Contains(baseName, StringComparison.OrdinalIgnoreCase))
-			{
-				return name;
-			}
-		}
-
-		return null;
 	}
 
 	private static OperativeAbilityData[] GetOperativeAbilities(string characterName)
@@ -786,441 +505,6 @@ public partial class CharacterSelection : Control
 		}
 	}
 
-	/// <summary>
-	/// Loads a GLB model from a resource path.
-	/// If PackedScene loading fails, it uses the GltfDocument for raw file loading.
-	/// Automatically strips redundant static meshes from secondary armatures.
-	/// </summary>
-	private Node3D LoadGlbModel(string resPath)
-	{
-		try
-		{
-			Node3D loaded = null;
-			if (ResourceLoader.Exists(resPath))
-			{
-				var packed = GD.Load<PackedScene>(resPath);
-				if (packed != null) loaded = packed.Instantiate<Node3D>();
-			}
-
-			if (loaded == null)
-			{
-				string globalPath = ProjectSettings.GlobalizePath(resPath);
-				if (System.IO.File.Exists(globalPath))
-				{
-					var doc = new GltfDocument();
-					var state = new GltfState();
-					if (doc.AppendFromFile(globalPath, state) == Error.Ok)
-					{
-						// Raw GLB loading bypasses the editor's material import script.
-						foreach (var material in state.GetMaterials())
-						{
-							if (material is BaseMaterial3D baseMaterial)
-							{
-								baseMaterial.ShadingMode = BaseMaterial3D.ShadingModeEnum.PerPixel;
-								baseMaterial.SpecularMode = BaseMaterial3D.SpecularModeEnum.SchlickGgx;
-								baseMaterial.MetallicSpecular = Mathf.Max(baseMaterial.MetallicSpecular, 0.5f);
-							}
-						}
-						loaded = (Node3D)doc.GenerateScene(state);
-					}
-				}
-			}
-
-			if (loaded != null)
-			{
-				CleanDuplicateMeshes(loaded);
-				if (!resPath.Contains("selection_platf"))
-				{
-					string charKey = "";
-					if (resPath.Contains("oceanus")) charKey = "Oceanus";
-					else if (resPath.Contains("surya")) charKey = "Surya Prime";
-					else if (resPath.Contains("mirage")) charKey = "Mirage Blade";
-					else if (resPath.Contains("apex")) charKey = "Apex Titan";
-					else if (resPath.Contains("phoenicia")) charKey = "Aura Phoenicia";
-					else if (resPath.Contains("shogun")) charKey = "Cyber Shogun";
-
-					ApplyToonShading(loaded, charKey);
-				}
-				return loaded;
-			}
-		}
-		catch (System.Exception ex)
-		{
-			GD.PrintErr($"CharacterSelection: GLB load error: {ex.Message}");
-		}
-		return null;
-	}
-
-	private static Shader? _toonShader;
-	private static Shader? _outlineShader;
-
-	/// <summary>
-	/// Applies high-energy anime cel-shading and inverted-hull ink outline to all meshes in the model.
-	/// Customizes rim lighting and shadow tints per operative signature theme while eliminating harsh white specular glare.
-	/// </summary>
-	public static void ApplyToonShading(Node root, string characterName = "")
-	{
-		if (root == null) return;
-
-		try
-		{
-			if (_toonShader == null)
-			{
-				_toonShader = GD.Load<Shader>("res://assets/shaders/toon_character.gdshader");
-			}
-			if (_outlineShader == null)
-			{
-				_outlineShader = GD.Load<Shader>("res://assets/shaders/toon_outline.gdshader");
-			}
-
-			if (_toonShader == null) return;
-
-			Color rimColor = new Color(0.0f, 0.90f, 1.0f, 1.0f);
-			Color shadowTint = new Color(0.48f, 0.52f, 0.65f, 1.0f);
-			float outlineWidth = 2.0f;
-			Color outlineColor = new Color(0.02f, 0.03f, 0.06f, 1.0f);
-			float emissionBoost = 2.2f;
-			float emissionThreshold = 0.75f;
-			float emissionSaturation = 0.30f;
-
-			switch (characterName)
-			{
-				case "Oceanus":
-					rimColor = new Color(0.0f, 0.95f, 0.85f, 1.0f); // Bioluminescent Aqua
-					shadowTint = new Color(0.38f, 0.50f, 0.62f, 1.0f); // Abyssal deep blue
-					break;
-				case "Surya Prime":
-					rimColor = new Color(1.0f, 0.72f, 0.28f, 1.0f); // Cosmic Solar Amber
-					shadowTint = new Color(0.55f, 0.42f, 0.48f, 1.0f); // Cosmic bronze
-					break;
-				case "Mirage Blade":
-					rimColor = new Color(0.20f, 0.95f, 0.65f, 1.0f); // Crystalline Phantom Emerald
-					shadowTint = new Color(0.42f, 0.46f, 0.52f, 1.0f); // Phantom slate
-					break;
-				case "Apex Titan":
-					rimColor = new Color(0.35f, 0.75f, 1.0f, 1.0f); // Electro-Magnetic Azure
-					shadowTint = new Color(0.45f, 0.46f, 0.55f, 1.0f); // Heavy metal steel
-					break;
-				case "Aura Phoenicia":
-				case "Phoenicia":
-					rimColor = new Color(0.55f, 0.15f, 0.95f, 1.0f); // Imperial Tyrian Purple
-					shadowTint = new Color(0.40f, 0.35f, 0.50f, 1.0f); // Mediterranean Twilight
-					emissionThreshold = 0.88f; // Ensure only cyan acoustic crystals and cybernetic eyes emit light
-					break;
-				case "Cyber Shogun":
-				default:
-					rimColor = new Color(0.85f, 0.25f, 0.28f, 1.0f); // Samurai Crimson rim accent
-					shadowTint = new Color(0.55f, 0.48f, 0.50f, 1.0f); // Warm natural shadow for Japanese skin & crimson lacquer
-					emissionThreshold = 0.92f; // Prevent warm human skin & crimson armor from triggering neon emission
-					break;
-			}
-
-			foreach (var node in root.FindChildren("*", "MeshInstance3D"))
-			{
-				if (node is MeshInstance3D meshInstance && meshInstance.Mesh != null)
-				{
-					string nodeName = meshInstance.Name.ToString();
-					// Remove stray untextured bone helper shapes (e.g. Blender Icosphere custom bone shapes)
-					if (nodeName.StartsWith("Icosphere", StringComparison.OrdinalIgnoreCase))
-					{
-						meshInstance.Visible = false;
-						meshInstance.QueueFree();
-						continue;
-					}
-
-					float matEmissionBoost = emissionBoost;
-					float matEmissionThreshold = emissionThreshold;
-					float matEmissionSaturation = emissionSaturation;
-
-					// Dedicated hardlight halo & wing energy accessories glow brightly
-					if (nodeName.Contains("Halo", StringComparison.OrdinalIgnoreCase) ||
-					    nodeName.Contains("Wing", StringComparison.OrdinalIgnoreCase))
-					{
-						matEmissionBoost = 2.4f;
-						matEmissionThreshold = 0.50f;
-						matEmissionSaturation = 0.20f;
-					}
-
-					int surfaceCount = meshInstance.Mesh.GetSurfaceCount();
-					for (int s = 0; s < surfaceCount; s++)
-					{
-						Texture2D albedoTex = null;
-						Color albedoColor = Colors.White;
-
-						var origMat = meshInstance.GetSurfaceOverrideMaterial(s) ?? meshInstance.Mesh.SurfaceGetMaterial(s);
-						if (origMat is BaseMaterial3D baseMat)
-						{
-							albedoTex = baseMat.AlbedoTexture;
-							albedoColor = baseMat.AlbedoColor;
-						}
-
-						var toonMat = new ShaderMaterial { Shader = _toonShader };
-						if (albedoTex != null)
-						{
-							toonMat.SetShaderParameter("albedo_texture", albedoTex);
-						}
-						toonMat.SetShaderParameter("albedo_tint", albedoColor);
-						toonMat.SetShaderParameter("rim_color", rimColor);
-						toonMat.SetShaderParameter("shadow_tint", shadowTint);
-						toonMat.SetShaderParameter("emission_boost", matEmissionBoost);
-						toonMat.SetShaderParameter("emission_threshold", matEmissionThreshold);
-						toonMat.SetShaderParameter("emission_saturation", matEmissionSaturation);
-
-						if (_outlineShader != null)
-						{
-							var outlineMat = new ShaderMaterial { Shader = _outlineShader };
-							outlineMat.SetShaderParameter("outline_width", outlineWidth);
-							outlineMat.SetShaderParameter("outline_color", outlineColor);
-							toonMat.NextPass = outlineMat;
-						}
-
-						meshInstance.SetSurfaceOverrideMaterial(s, toonMat);
-					}
-				}
-			}
-		}
-		catch (System.Exception ex)
-		{
-			GD.PrintErr($"CharacterSelection: Error applying toon shading: {ex.Message}");
-		}
-	}
-
-	/// <summary>
-	/// Strips redundant static MeshInstance3Ds from batch-exported armatures (Armature_001..Armature_042),
-	/// leaving only the single active animated Armature mesh.
-	/// Preserves the Skeleton3D hierarchy under Armature_* so AnimationPlayer tracks resolve cleanly without warnings.
-	/// </summary>
-	public static void CleanDuplicateMeshes(Node3D model)
-	{
-		if (model == null) return;
-
-		foreach (Node child in model.GetChildren())
-		{
-			string name = child.Name.ToString();
-			if (name.StartsWith("Armature_"))
-			{
-				RemoveMeshesRecursive(child);
-				if (child is Node3D n3d)
-				{
-					n3d.Visible = false;
-				}
-			}
-			else if (name.StartsWith("Icosphere", StringComparison.OrdinalIgnoreCase) ||
-			         name.StartsWith("Cube", StringComparison.OrdinalIgnoreCase) ||
-			         name.StartsWith("Sphere", StringComparison.OrdinalIgnoreCase) ||
-			         name.StartsWith("Plane", StringComparison.OrdinalIgnoreCase))
-			{
-				model.RemoveChild(child);
-				child.QueueFree();
-			}
-		}
-	}
-
-	private static void RemoveMeshesRecursive(Node parent)
-	{
-		var toRemove = new System.Collections.Generic.List<MeshInstance3D>();
-		foreach (Node child in parent.GetChildren())
-		{
-			if (child is MeshInstance3D mesh)
-			{
-				toRemove.Add(mesh);
-			}
-			else
-			{
-				RemoveMeshesRecursive(child);
-			}
-		}
-		foreach (var mesh in toRemove)
-		{
-			parent.RemoveChild(mesh);
-			mesh.QueueFree();
-		}
-	}
-
-	/// <summary>
-	/// Recursively finds an AnimationPlayer and starts the operative's optimal heroic idle animation on loop.
-	/// "Standing" now houses the dynamic heroic breathing animation across all operative models.
-	/// </summary>
-	private static void PlayStandingAnimation(Node root, string characterName = "")
-	{
-		var player = FindNodeRecursive<AnimationPlayer>(root);
-		if (player == null) return;
-
-		var list = player.GetAnimationList();
-		if (list.Length == 0) return;
-
-		string clip = null;
-
-		// Prioritize "Standing", which contains the heroic breathing idle across all operatives
-		foreach (var name in list)
-		{
-			if (string.Equals(name, "Standing", StringComparison.OrdinalIgnoreCase))
-			{
-				clip = name;
-				break;
-			}
-		}
-
-		if (clip == null)
-		{
-			foreach (var name in list)
-			{
-				if (name.ToString().ToLowerInvariant().Contains("standing"))
-				{
-					clip = name;
-					break;
-				}
-			}
-		}
-
-		if (clip == null)
-		{
-			foreach (var name in list)
-			{
-				if (string.Equals(name, "Armature|Idle_02|baselayer", StringComparison.OrdinalIgnoreCase) ||
-				    string.Equals(name, "Idle_02", StringComparison.OrdinalIgnoreCase) ||
-				    string.Equals(name, "Idle", StringComparison.OrdinalIgnoreCase))
-				{
-					clip = name;
-					break;
-				}
-			}
-		}
-
-		if (clip == null)
-		{
-			foreach (var name in list)
-			{
-				if (name.ToString().ToLowerInvariant().Contains("idle"))
-				{
-					clip = name;
-					break;
-				}
-			}
-		}
-
-		if (clip == null && list.Length > 0)
-		{
-			clip = list[0];
-		}
-
-		var anim = player.GetAnimation(clip);
-		if (anim != null)
-			anim.LoopMode = Animation.LoopModeEnum.Linear;
-
-		player.Play(clip, customBlend: 0.20f);
-	}
-
-	/// <summary>
-	/// Helper to recursively search for a node of type T.
-	/// </summary>
-	private static T FindNodeRecursive<T>(Node node) where T : Node
-	{
-		if (node is T match) return match;
-		foreach (Node child in node.GetChildren())
-		{
-			var result = FindNodeRecursive<T>(child);
-			if (result != null) return result;
-		}
-		return null;
-	}
-
-	public override void _Process(double delta)
-	{
-		_glowPulseTimer += (float)delta;
-
-		// Determine rotation input from UI buttons, Keyboard, or Gamepad.
-		float rotInput = _rotateInput;
-
-		if (rotInput == 0f)
-		{
-			if (Input.IsKeyPressed(RotateLeftKey))       rotInput = -1f;
-			else if (Input.IsKeyPressed(RotateRightKey)) rotInput =  1f;
-		}
-
-		if (rotInput == 0f)
-		{
-			if (Input.IsJoyButtonPressed(0, RotateLeftBtn))       rotInput = -1f;
-			else if (Input.IsJoyButtonPressed(0, RotateRightBtn)) rotInput =  1f;
-		}
-
-		// Gamepad Right Stick axis support for rotating character preview
-		if (rotInput == 0f)
-		{
-			float joyStickX = Input.GetJoyAxis(0, JoyAxis.RightX);
-			if (Mathf.Abs(joyStickX) > 0.2f)
-			{
-				rotInput = Mathf.Sign(joyStickX);
-			}
-		}
-
-		if (rotInput != 0f)
-			_charRotationY += rotInput * RotationSpeed * (float)delta;
-
-		var activeRotation = new Vector3(0f, _charRotationY, 0f);
-
-		// Apply rotation to the currently visible 3D model.
-		if (_cyberShogun3DModel  != null && GodotObject.IsInstanceValid(_cyberShogun3DModel)  && _cyberShogun3DModel.Visible)
-			_cyberShogun3DModel.RotationDegrees  = activeRotation;
-		if (_oceanus3DModel      != null && GodotObject.IsInstanceValid(_oceanus3DModel)      && _oceanus3DModel.Visible)
-			_oceanus3DModel.RotationDegrees      = activeRotation;
-		if (_suryaPrime3DModel   != null && GodotObject.IsInstanceValid(_suryaPrime3DModel)   && _suryaPrime3DModel.Visible)
-			_suryaPrime3DModel.RotationDegrees   = activeRotation;
-		if (_mirageBlade3DModel  != null && GodotObject.IsInstanceValid(_mirageBlade3DModel)  && _mirageBlade3DModel.Visible)
-			_mirageBlade3DModel.RotationDegrees  = activeRotation;
-		if (_apexTitan3DModel    != null && GodotObject.IsInstanceValid(_apexTitan3DModel)    && _apexTitan3DModel.Visible)
-			_apexTitan3DModel.RotationDegrees    = activeRotation;
-		if (_phoenicia3DModel    != null && GodotObject.IsInstanceValid(_phoenicia3DModel)    && _phoenicia3DModel.Visible)
-			_phoenicia3DModel.RotationDegrees    = activeRotation;
-
-		// Apply a pulsing emissive glow to the selection platform.
-		if (_platform3DModel != null && GodotObject.IsInstanceValid(_platform3DModel))
-		{
-			float pulse     = 0.4f + 1.05f * (Mathf.Sin(_glowPulseTimer * Mathf.Pi) * 0.5f + 0.5f);
-			var   glowColor = new Color(0.55f, 0.85f, 1.0f, 1.0f);
-			ApplyEmissivePulse(_platform3DModel, glowColor, pulse);
-		}
-	}
-
-	/// <summary>
-	/// Recursively applies an emissive pulse to all MeshInstance3D surfaces to create a "glowing" effect.
-	/// </summary>
-	private static void ApplyEmissivePulse(Node node, Color color, float energy)
-	{
-		if (node is MeshInstance3D mesh)
-		{
-			for (int s = 0; s < mesh.GetSurfaceOverrideMaterialCount(); s++)
-			{
-				var mat = mesh.GetSurfaceOverrideMaterial(s) as StandardMaterial3D;
-				if (mat == null)
-				{
-					// Duplicate the base material to prevent mutating the shared resource.
-					var baseMat = mesh.Mesh?.SurfaceGetMaterial(s) as StandardMaterial3D;
-					if (baseMat != null)
-					{
-						mat = (StandardMaterial3D)baseMat.Duplicate();
-						mesh.SetSurfaceOverrideMaterial(s, mat);
-					}
-				}
-				if (mat != null)
-				{
-					mat.EmissionEnabled = true;
-					mat.Emission        = color;
-					mat.EmissionEnergyMultiplier = energy;
-				}
-			}
-		}
-		foreach (Node child in node.GetChildren())
-			ApplyEmissivePulse(child, color, energy);
-	}
-
-	/// <summary>
-	/// Handler for the scene-wired DeployButton.pressed signal (character_selection.tscn).
-	/// Without it the signal lands nowhere: Enter/Space on the focused Deploy button
-	/// did nothing, and CreateSessionAndStart -- which sets Global.selected_character,
-	/// opens the SessionManager session and transitions to the story intro -- had no
-	/// caller at all.
-	/// </summary>
 	private void _on_deploy_pressed()
 	{
 		CreateSessionAndStart(_currentSelectedCharacter);
@@ -1242,7 +526,7 @@ public partial class CharacterSelection : Control
 		else
 			GD.Print("Error creating session!");
 
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/3d_story_intro.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/story_intro.tscn");
 	}
 
 	private static void AddAnimationFrames(

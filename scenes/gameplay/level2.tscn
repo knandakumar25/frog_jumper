@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://ck68m5fwnp1h2"]
+[gd_scene load_steps=23 format=3 uid="uid://ck68m5fwnp1h2"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_vj8fr"]
-[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_cyber_bg"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_5titt"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_dkru8"]
 [ext_resource type="PackedScene" uid="uid://cusnivs56uyv4" path="res://scenes/gameplay/cyber_shogun.tscn" id="4_5ru1b"]
@@ -401,14 +400,6 @@ color = Color(1, 0, 0.5, 1)
 energy = 1.8
 texture = SubResource("GradientTexture2D_radial_light")
 texture_scale = 3.5
-
-[node name="TextureRect" type="TextureRect" parent="SceneObjects"]
-texture_filter = 1
-offset_right = 2300.0
-offset_bottom = 720.0
-texture = ExtResource("2_cyber_bg")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="Enemies" type="Node" parent="SceneObjects"]
 

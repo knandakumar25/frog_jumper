@@ -1,9 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
 // Phase 5: the forge exhibit is code-split like the other scenes.
-const LazyKioskRow = lazy(() => import('../three/KioskRow'));
 
 export default function TechHub() {
   const { t } = useTranslation();
@@ -17,7 +16,7 @@ export default function TechHub() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto w-full">
-      
+
       {/* Header Bar */}
       <header className="mb-12 border-b border-primary-container/20 pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
@@ -91,8 +90,8 @@ export default function TechHub() {
               SUBSYSTEM // REACTION VELOCITY VERIFIED
             </div>
           </div>
-          
-          {/* Right: 3D Platform Kiosks Viewport */}
+
+          {/* Right: 2D Platform Kiosks Viewport */}
           <div className="lg:col-span-7 bg-void-black/95 border border-primary-container/30 relative min-h-[380px] md:min-h-[440px] flex flex-col justify-between overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_20%,#0b2230_0%,#07141d_55%,#050505_100%)]"></div>
             <div className="absolute inset-0 hud-grid opacity-30 pointer-events-none"></div>
@@ -113,11 +112,9 @@ export default function TechHub() {
               </span>
             </div>
 
-            {/* 3D Scene */}
+            {/* 2D Scene */}
             <div className="relative w-full h-[280px] md:h-[320px]">
-              <Suspense fallback={null}>
-                <LazyKioskRow />
-              </Suspense>
+              <div className="h-full grid grid-cols-2 gap-4 p-6">{["Windows", "Linux", "Android", "iOS"].map(platform => <div key={platform} className="border border-primary-container/30 flex items-center justify-center font-mono text-primary-container">{platform}</div>)}</div>
             </div>
 
             {/* Console Readout Bar */}
@@ -171,7 +168,7 @@ export default function TechHub() {
               </div>
             </div>
           </div>
-          
+
           {/* Localization Channels */}
           <div className="bg-surface-container-low/80 border border-warning-orange/30 p-6 md:p-8 relative flex flex-col justify-between">
             <div>

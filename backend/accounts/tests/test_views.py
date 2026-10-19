@@ -138,8 +138,11 @@ class CountryBasicListViewTest(APITestCase):
         entry = response.data[0]
         # `translations` (24 languages), `idd`, `currencies`, `borders` and the
         # rest are what make the full list large. Onboarding needs none of them.
-        self.assertEqual(set(entry.keys()), {'cca3', 'name'})
+        self.assertEqual(set(entry.keys()), {'cca3', 'name', 'flag'})
         self.assertEqual(set(entry['name'].keys()), {'common'})
+        full = {c['cca3']: c for c in self.client.get(reverse('country_list')).data}
+        for country in response.data:
+            self.assertEqual(country['flag'], full[country['cca3']].get('flag', ''))
 
     def test_covers_exactly_the_same_countries_as_the_full_list(self):
         full = {c['name']['common'] for c in self.client.get(reverse('country_list')).data}

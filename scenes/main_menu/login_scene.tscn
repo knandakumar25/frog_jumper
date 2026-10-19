@@ -3,7 +3,6 @@
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Script" path="res://scripts/main_menu/LoginScene.cs" id="1_login_script"]
-[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 
 [node name="LoginScreen" type="Control"]
@@ -18,17 +17,6 @@ script = ExtResource("1_login_script")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000002]
 environment = ExtResource("11_cyber_glow")
-
-[node name="BackgroundTexture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_bg_texture")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="DarkOverlay" type="ColorRect" parent="."]
 layout_mode = 1

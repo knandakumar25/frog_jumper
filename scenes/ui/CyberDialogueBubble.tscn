@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyber_dialogue_bubble_01"]
+[gd_scene load_steps=10 format=3 uid="uid://cyber_dialogue_bubble_01"]
 
 [ext_resource type="Script" path="res://scripts/ui/CyberDialogueBubble.cs" id="1_bubble_script"]
 [ext_resource type="Shader" path="res://assets/shaders/cyber_dialogue_bubble.gdshader" id="2_bubble_shader"]

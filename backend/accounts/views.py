@@ -588,7 +588,7 @@ class CountryListView(APIView):
 
 
 class CountryBasicListView(APIView):
-    """The lean country list (cca3 + name.common) for the onboarding page.
+    """The lean country list (cca3 + name.common + flag) for the onboarding page.
 
     /countries/ is left as-is because Account.jsx depends on its full shape --
     including `idd` for the dial-code selector -- and its test only asserts

@@ -1,11 +1,8 @@
-import React, { Suspense, lazy, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 
-// Phase 2: the podium hall is code-split like the home world, so the Squad
-// page's text/content renders immediately and three.js loads after.
-const LazySquadHall = lazy(() => import('../three/SquadHall'));
 
 export default function Squad() {
   const { t } = useTranslation();
@@ -21,7 +18,6 @@ export default function Squad() {
       descDefault: 'A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.',
       loreKey: 'characters.warriors.shogun.lore',
       stats: { firepower: 92, defense: 90, mobility: 88 },
-      model: '/models/shogun.glb',
       status: 'ACTIVE',
       civilian: 'Kaito Kurogane (Neo-Tokyo)',
       specialty: 'Kinetic Disruption / Katana Slice',
@@ -34,7 +30,6 @@ export default function Squad() {
       descDefault: 'Kiana Vaea manipulates liquid tides and oceanic pressure waves, controlling the battlefield with high-velocity hydro-jets.',
       loreKey: 'characters.warriors.oceanus.lore',
       stats: { firepower: 78, defense: 74, mobility: 91 },
-      model: '/models/oceanus.glb',
       status: 'STANDBY',
       civilian: 'Kiana Vaea (Pacific Basin)',
       specialty: 'Hydro-Jet Torrents / Fluid Vortex',
@@ -47,7 +42,6 @@ export default function Squad() {
       descDefault: 'Arjun Varma channels cosmic fusion energy to manipulate gravimetric fields and release heavy AoE solar pulses.',
       loreKey: 'characters.warriors.surya.lore',
       stats: { firepower: 99, defense: 88, mobility: 75 },
-      model: '/models/surya.glb',
       status: 'STANDBY',
       civilian: 'Arjun Varma (Varanasi / Orbital Station)',
       specialty: 'Solar Aegis / Graviton Fusion Blast',
@@ -60,7 +54,6 @@ export default function Squad() {
       descDefault: 'Zayd Al-Mansoor is an elite Saudi operative utilizing crystal refractions to create light-bending phantoms and slash through enemies with dual sayf blades.',
       loreKey: 'characters.warriors.mirage.lore',
       stats: { firepower: 82, defense: 58, mobility: 98 },
-      model: '/models/mirage.glb',
       status: 'STANDBY',
       civilian: 'Zayd Al-Mansoor (Riyadh)',
       specialty: 'Refraction Camouflage / Dual Sayf',
@@ -73,7 +66,6 @@ export default function Squad() {
       descDefault: 'King Tariq Nzinga is a powerhouse who channels electro-magnetic storm clouds, crashing down with a devastating storm-shield leap.',
       loreKey: 'characters.warriors.apex.lore',
       stats: { firepower: 95, defense: 85, mobility: 93 },
-      model: '/models/apex.glb',
       status: 'STANDBY',
       civilian: 'King Tariq Nzinga (Congo Federation)',
       specialty: 'Graviton Hammer / Ground Rupture',
@@ -86,7 +78,6 @@ export default function Squad() {
       descDefault: 'Maya Khoury hails from Byblos, Lebanon. Harnessing ancient Phoenician acoustic physics and resonant prism harmonics, she weaves ultrasonic shockwaves that stagger hostiles and deflect kinetic energy.',
       loreKey: 'characters.warriors.phoenicia.lore',
       stats: { firepower: 86, defense: 78, mobility: 96 },
-      model: '/models/phoenicia.glb',
       status: 'STANDBY',
       civilian: 'Maya Khoury (Byblos, Lebanon)',
       specialty: 'Harmonic Pulse / Prism Deflection',
@@ -109,10 +100,6 @@ export default function Squad() {
   const activeChar = characterRoster[activeCharId] || characterRoster.shogun;
   const isRtl = selectedLanguage === 'arabic' || selectedLanguage === 'hebrew';
 
-  const hallRoster = React.useMemo(
-    () => Object.entries(characterRoster).map(([id, c]) => ({ id, model: c.model })),
-    []
-  );
 
   const getUIString = (key) => {
     return t(`squad.${key}`, key);
@@ -130,7 +117,7 @@ export default function Squad() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto w-full">
-      
+
       {/* Header Bar */}
       <header className="mb-8 border-b border-primary-container/20 pb-4 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
@@ -154,8 +141,8 @@ export default function Squad() {
 
       {/* Main Operations Matrix */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-8">
-        
-        {/* Left: 3D Holographic Stage */}
+
+        {/* Left: 2D Holographic Stage */}
         <div className="lg:col-span-7 bg-void-black/95 border border-primary-container/30 relative overflow-hidden flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_50%_20%,#0a2230_0%,#06121b_50%,#050505_100%)]"></div>
           <div className="absolute inset-0 hud-grid opacity-30 pointer-events-none"></div>
@@ -169,30 +156,21 @@ export default function Squad() {
           {/* Viewport Top Status */}
           <div className="relative z-20 p-4 flex justify-between items-center pointer-events-none">
             <span className="font-mono text-[10px] text-primary-container bg-void-black/85 border border-primary-container/40 px-2.5 py-1 tracking-widest">
-              {t('squad.live_orbit', '3D_LIVE_ORBIT')} // {activeCharId.toUpperCase()}
+              {t('squad.live_orbit', 'OPERATIVE_DOSSIER')} // {activeCharId.toUpperCase()}
             </span>
             <span className="font-mono text-[10px] text-tertiary-container bg-void-black/85 border border-tertiary-container/30 px-2 py-0.5">
               SYNC STABILITY: 99.4%
             </span>
           </div>
 
-          {/* 3D Canvas Container */}
+          {/* 2D Canvas Container */}
           <div className="relative w-full h-[400px] md:h-[480px]">
-            <Suspense fallback={null}>
-              <LazySquadHall
-                roster={hallRoster}
-                activeId={activeCharId}
-                onSelect={(id) => {
-                  setActiveCharId(id);
-                  setDeployStatus(null);
-                }}
-              />
-            </Suspense>
+            <div className="h-full flex flex-col items-center justify-center gap-6 text-primary-container"><span className="material-symbols-outlined text-8xl" aria-hidden="true">{activeChar.icons[0]}</span><h2 className="font-display-hero text-3xl">{activeName}</h2><p className="font-mono text-sm">{activeChar.civilian}</p></div>
           </div>
 
           {/* Viewport Bottom Hint */}
           <div className="relative z-20 p-3 bg-void-black/90 border-t border-primary-container/20 flex justify-between items-center text-[10px] font-mono tracking-wider text-on-surface-variant pointer-events-none">
-            <span>🖱️ DRAG TO ROTATE // CLICK PLATFORM TO FOCUS</span>
+            <span>SELECT AN OPERATIVE TO VIEW THEIR DOSSIER</span>
             <span className="text-primary-container/70">CHAMBER_04 // ACTIVE</span>
           </div>
         </div>

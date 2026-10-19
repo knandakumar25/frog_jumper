@@ -8,7 +8,7 @@ const FAQ_DATA = [
     id: 1,
     category: 'OPERATION',
     question: { key: 'faq.q1', default: 'What is Axiom Force?' },
-    answer: { key: 'faq.a1', default: 'A high-octane 3D platformer where you lead the Human Liberation Front (HLF) in a desperate war to reclaim Earth from an advanced alien occupation.' },
+    answer: { key: 'faq.a1', default: 'A high-octane 2D platformer where you lead the Human Liberation Front (HLF) in a desperate war to reclaim Earth from an advanced alien occupation.' },
   },
   {
     id: 2,
@@ -68,7 +68,7 @@ export default function FAQ() {
 
   return (
     <div className="pt-24 md:pt-28 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto w-full">
-      
+
       {/* Header Bar */}
       <header className="mb-10 border-b border-primary-container/20 pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>

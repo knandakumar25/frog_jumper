@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dscsic47d81gv"]
+[gd_scene load_steps=10 format=3 uid="uid://dscsic47d81gv"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]

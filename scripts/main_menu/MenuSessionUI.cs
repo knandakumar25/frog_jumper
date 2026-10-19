@@ -223,7 +223,8 @@ public partial class MenuSessionUI : Node
 		await SessionManager.Instance.LoadSessionAsync(sessionId);
 		GetNode<Node>("/root/Global").Set("selected_character", sessionData["character"]);
 
-		int  levelNum   = sessionData["current_level"].AsInt32();
+		// Older sessions may point at tutorial 0 or retired missions 5-9.
+		int  levelNum   = Mathf.Clamp(sessionData["current_level"].AsInt32(), 1, 4);
 		string levelScene = "res://scenes/gameplay/level" + levelNum + ".tscn";
 
 		_confirmPopup.Visible = false;

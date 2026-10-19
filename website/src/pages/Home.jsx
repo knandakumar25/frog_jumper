@@ -1,12 +1,9 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
 import { getTitleLogoPath } from '../translations/titleLogo';
 
-// Phase 1: the 3D hero world is code-split so the rest of the site never
-// waits on three.js; below-the-fold pages don't pay for it either.
-const HomeWorld = lazy(() => import('../three/HomeWorld'));
 
 const OPERATIVES_PREVIEW = [
   {
@@ -134,24 +131,22 @@ export default function Home() {
 
   return (
     <div className="pt-[80px] md:pt-[100px] pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto">
-      
+
       {/* =========================================================================
           HERO: SCENE-FIRST HUD COMMAND FRAME
           ========================================================================= */}
       <section className="relative min-h-[78vh] mb-20 overflow-hidden border border-primary-container/25 bg-void-black/90">
         <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_8%,#0a2230_0%,#06121b_45%,#050505_100%)]"></div>
         <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-        
+
         {/* Corner HUD Markers */}
         <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-primary-container z-20"></div>
         <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-primary-container z-20"></div>
         <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-primary-container z-20"></div>
         <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-primary-container z-20"></div>
 
-        {/* 3D World Canvas */}
-        <Suspense fallback={null}>
-          <HomeWorld />
-        </Suspense>
+        {/* 2D World Canvas */}
+
 
         {/* Top-Left Identity HUD */}
         <div className="absolute top-6 left-4 md:left-8 z-10 flex flex-col items-start gap-2.5">
@@ -182,11 +177,11 @@ export default function Home() {
               <span className="inline-block w-1.5 h-1.5 bg-primary-container"></span>
               &gt; INIT_RESISTANCE_PROTOCOL.exe
             </div>
-            <div className="mt-1 text-on-surface">&gt; {t('hero.subtitle', 'A 3D action platformer. Reclaim Earth from alien occupiers.')}</div>
+            <div className="mt-1 text-on-surface">&gt; {t('hero.subtitle', 'A 2D action platformer. Reclaim Earth from alien occupiers.')}</div>
             <div className="text-tertiary-container font-semibold">&gt; {t('footer.status', 'THE COLONIAL MAINFRAME WILL FALL.')}</div>
             <div className="hidden md:block text-on-surface-variant/70 text-[10px] mt-1">&gt; {t('footer.platform_desc', 'Target Platforms: Windows, Xbox (Series X/S & One), PlayStation 5, Nintendo Switch 2, Android, iOS, macOS, visionOS, Linux')}</div>
           </div>
-          
+
           <div className="mt-4 flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => handleJoinStrike()}
@@ -239,11 +234,11 @@ export default function Home() {
               <span className="material-symbols-outlined text-[16px]">lock_open</span>
               &gt; {t('home.decrypted_file', 'DECRYPTED FILE: 001_HLF')}
             </div>
-            
+
             <h2 className="font-display-hero text-2xl md:text-3xl text-inverse-surface mb-4 uppercase tracking-wide">
               {t('story.title', 'The Human Liberation Front')}
             </h2>
-            
+
             <p className="font-mono text-[13px] md:text-[14px] text-on-surface-variant mb-6 leading-relaxed border-l-2 border-primary-container/40 pl-4">
               {t('story.desc', 'They mapped our streets, cataloged our resources, and deemed us integrated. But integration is just another word for erasure. We are the glitch in their perfect colonial simulation.')}
             </p>
@@ -297,7 +292,7 @@ export default function Home() {
                 <div className="absolute inset-14 border border-primary-container/10 rounded-full"></div>
                 <div className="absolute w-full h-[1px] bg-primary-container/20"></div>
                 <div className="absolute h-full w-[1px] bg-primary-container/20"></div>
-                
+
                 {/* Blinking Targets */}
                 <div className="absolute top-10 left-16 flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-warning-orange rounded-full animate-ping"></span>
@@ -465,7 +460,7 @@ export default function Home() {
             THE OCCUPATION WILL NOT STAND.
           </h2>
           <p className="font-mono text-[13px] md:text-[14px] text-on-surface-variant leading-relaxed mb-8">
-            Join thousands of resistance operatives worldwide. Master high-octane 3D combat, coordinate infiltration strikes, and liberate Earth Sector by Sector.
+            Join thousands of resistance operatives worldwide. Master high-octane 2D combat, coordinate infiltration strikes, and liberate Earth Sector by Sector.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

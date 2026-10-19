@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://lffiou4dnk5d"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_train"]
-[ext_resource type="Texture2D" path="res://assets/images/training_dojo_background.png" id="2_train"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_train"]
 [ext_resource type="PackedScene" uid="uid://bfh5vtjxuvdbx" path="res://scenes/gameplay/main_character.tscn" id="4_train"]
 [ext_resource type="Texture2D" uid="uid://du5dome0dvt12" path="res://assets/images/world_tileset.png" id="5_train"]
 [ext_resource type="FontFile" uid="uid://4y1kjfc8pwck" path="res://assets/fonts/ComicNeue-Light.ttf" id="9_train"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/pause_menu.tscn" id="11_pause"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_terrain"]
 texture = ExtResource("3_train")
@@ -65,6 +65,17 @@ shadow_color = Color(0, 0.94, 1, 0.25)
 shadow_size = 6
 shadow_offset = Vector2(0, 2)
 
+[sub_resource type="Gradient" id="Gradient_training_light"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_training_light"]
+gradient = SubResource("Gradient_training_light")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="TrainingLevel" type="Node" unique_id=2007015904]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -80,22 +91,15 @@ script = ExtResource("1_train")
 position = Vector2(300, 300)
 color = Color(0, 0.94, 1, 1)
 energy = 1.5
-texture = ExtResource("2_train")
+texture = SubResource("GradientTexture2D_training_light")
 scale = Vector2(2, 2)
 
 [node name="MagentaAccentLight" type="PointLight2D" parent="SceneObjects"]
 position = Vector2(1600, 300)
 color = Color(1, 0, 0.5, 1)
 energy = 1.5
-texture = ExtResource("2_train")
+texture = SubResource("GradientTexture2D_training_light")
 scale = Vector2(2, 2)
-
-[node name="TextureRect" type="TextureRect" parent="SceneObjects" unique_id=891990161]
-texture_filter = 1
-offset_right = 2263.0
-offset_bottom = 628.0
-texture = ExtResource("2_train")
-stretch_mode = 1
 
 [node name="TileMap" type="TileMapLayer" parent="SceneObjects" unique_id=201751457]
 texture_filter = 1

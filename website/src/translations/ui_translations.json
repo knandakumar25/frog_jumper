@@ -23,7 +23,7 @@
       "title_line1": "AXIOM FORCE",
       "title_line2_prefix": "RECLAIM ",
       "title_line2_highlight": "EARTH",
-      "subtitle": "A 3D action platformer. Reclaim Earth from alien occupiers.",
+      "subtitle": "A 2D action platformer. Reclaim Earth from alien occupiers.",
       "play_on_github": "Play on GitHub",
       "view_source": "View Source",
       "replayability": "Replayability"
@@ -37,7 +37,7 @@
       "choose": "CHOOSE"
     },
     "footer": {
-      "tagline": "A 3D action platformer. Lead the resistance to reclaim Earth from alien occupiers.",
+      "tagline": "A 2D action platformer. Lead the resistance to reclaim Earth from alien occupiers.",
       "status": "AXIOM-7 ONLINE — RESISTANCE ACTIVE",
       "nav_title": "Navigation",
       "tech_title": "MISSION SPECS",
@@ -68,7 +68,7 @@
       "interactive_360": "INTERACTIVE 360°",
       "system_breach": "SYSTEM BREACH DETECTED",
       "decrypted_file": "DECRYPTED FILE: 001_HLF",
-      "operative_3d": "3D_OPERATIVE"
+      "operative_3d": "2D_OPERATIVE"
     },
     "story": {
       "briefing": "narrative briefing",
@@ -349,7 +349,7 @@
       "apex": "APEX TITAN",
       "phoenicia": "AURA PHOENICIA",
       "drag_rotate": "🖱️ DRAG TO ROTATE 360°",
-      "live_orbit": "3D_LIVE_ORBIT"
+      "live_orbit": "2D_LIVE_ORBIT"
     },
     "gameplay": {
       "protocols": "CORE PROTOCOLS",
@@ -454,7 +454,7 @@
     },
     "faq": {
       "q1": "What is Axiom Force?",
-      "a1": "A high-octane 3D platformer where you lead the Human Liberation Front (HLF) in a desperate war to reclaim Earth from an advanced alien occupation.",
+      "a1": "A high-octane 2D platformer where you lead the Human Liberation Front (HLF) in a desperate war to reclaim Earth from an advanced alien occupation.",
       "q2": "When is the game being released?",
       "a2": "The resistance is still mobilizing. We are currently in active development. Stay tuned to the Tech Hub for deployment dates.",
       "q3": "Which platforms are supported?",
@@ -581,7 +581,7 @@
       "title_line1": "FUERZA AXIOMA",
       "title_line2_prefix": "RECONQUISTAR ",
       "title_line2_highlight": "LA TIERRA",
-      "subtitle": "Un juego de plataformas de acción 3D desarrollado en Godot 4.6 y C#. Recupera la Tierra de los ocupantes alienígenas.",
+      "subtitle": "Un juego de plataformas de acción 2D desarrollado en Godot 4.6 y C#. Recupera la Tierra de los ocupantes alienígenas.",
       "play_on_github": "Jugar en GitHub",
       "view_source": "Ver Código",
       "replayability": "Rejugabilidad"
@@ -595,7 +595,7 @@
       "choose": "Elegir"
     },
     "footer": {
-      "tagline": "Un juego de plataformas de acción 3D desarrollado en Godot 4.6 y C#. Lucha a través de cuatro niveles y corre hacia la meta.",
+      "tagline": "Un juego de plataformas de acción 2D desarrollado en Godot 4.6 y C#. Lucha a través de cuatro niveles y corre hacia la meta.",
       "status": "AXIOM-7 EN LÍNEA — RESISTENCIA ACTIVA",
       "nav_title": "Navegación",
       "tech_title": "Tecnología",
@@ -631,7 +631,7 @@
       "interactive_360": "360° INTERACTIVO",
       "system_breach": "BRECHA DEL SISTEMA DETECTADA",
       "decrypted_file": "ARCHIVO DESCIFRADO: 001_HLF",
-      "operative_3d": "OPERATIVO_3D"
+      "operative_3d": "OPERATIVO_2D"
     },
     "story": {
       "briefing": "información narrativa",
@@ -906,7 +906,7 @@
       "mirage": "HOJA DE ESPEJISMO",
       "apex": "TITAN APEX",
       "drag_rotate": "🖱️ ARRASTRAR PARA ROTAR 360°",
-      "live_orbit": "ÓRBITA_EN_VIVO_3D"
+      "live_orbit": "ÓRBITA_EN_VIVO_2D"
     },
     "gameplay": {
       "protocols": "PROTOCOLOS ESENCIALES",
@@ -1011,7 +1011,7 @@
     },
     "faq": {
       "q1": "¿Qué es Axiom Force?",
-      "a1": "Un plataformas 3D de alta intensidad donde lideras el Frente de Liberación Humana (HLF) en una guerra desesperada para recuperar la Tierra de una avanzada ocupación alienígena.",
+      "a1": "Un plataformas 2D de alta intensidad donde lideras el Frente de Liberación Humana (HLF) en una guerra desesperada para recuperar la Tierra de una avanzada ocupación alienígena.",
       "q2": "¿Cuándo se lanzará el juego?",
       "a2": "La resistencia todavía se está movilizando. Actualmente estamos en desarrollo activo. Mantente atento al Tech Hub para las fechas de despliegue.",
       "q3": "¿Qué plataformas son compatibles?",
@@ -1138,7 +1138,7 @@
       "title_line1": "FORCE D'AXIOME",
       "title_line2_prefix": "RECONQUÉRIR ",
       "title_line2_highlight": "LA TERRE",
-      "subtitle": "Un jeu de plateforme et d'action 3D conçu avec Godot 4.6 et C#. Libérez la Terre des occupants extraterrestres.",
+      "subtitle": "Un jeu de plateforme et d'action 2D conçu avec Godot 4.6 et C#. Libérez la Terre des occupants extraterrestres.",
       "play_on_github": "Jouer sur GitHub",
       "view_source": "Voir le Code Source",
       "replayability": "Jouabilité"
@@ -1152,7 +1152,7 @@
       "choose": "Valider"
     },
     "footer": {
-      "tagline": "Un jeu de plateforme et d'action 3D conçu avec Godot 4.6 et C#. Combattez à travers quatre niveaux et foncez vers la ligne d'arrivée.",
+      "tagline": "Un jeu de plateforme et d'action 2D conçu avec Godot 4.6 et C#. Combattez à travers quatre niveaux et foncez vers la ligne d'arrivée.",
       "status": "AXIOM-7 EN LIGNE — RÉSISTANCE ACTIVE",
       "nav_title": "Navigation",
       "tech_title": "Technologie",
@@ -1188,7 +1188,7 @@
       "interactive_360": "360° INTERACTIF",
       "system_breach": "INTRUSION SYSTÈME DÉTECTÉE",
       "decrypted_file": "FICHIER DÉCRYPTÉ : 001_HLF",
-      "operative_3d": "OPÉRATEUR_3D"
+      "operative_3d": "OPÉRATEUR_2D"
     },
     "story": {
       "briefing": "briefing narratif",
@@ -1463,7 +1463,7 @@
       "mirage": "LAME MIRAGE",
       "apex": "APEX TITAN",
       "drag_rotate": "🖱️ GLISSER POUR FAIRE TOURNER À 360°",
-      "live_orbit": "ORBITE_DIRECTE_3D"
+      "live_orbit": "ORBITE_DIRECTE_2D"
     },
     "gameplay": {
       "protocols": "PROTOCOLES FONDAMENTAUX",
@@ -1568,7 +1568,7 @@
     },
     "faq": {
       "q1": "Qu'est-ce que Axiom Force ?",
-      "a1": "Un jeu de plateforme 3D intense où vous dirigez le Front de Libération Humaine (HLF) dans une guerre désespérée pour reprendre la Terre d'une occupation extraterrestre avancée.",
+      "a1": "Un jeu de plateforme 2D intense où vous dirigez le Front de Libération Humaine (HLF) dans une guerre désespérée pour reprendre la Terre d'une occupation extraterrestre avancée.",
       "q2": "Quand le jeu sortira-t-il ?",
       "a2": "La résistance est encore en train de se mobiliser. Nous sommes actuellement en développement actif. Restez à l'écoute du Tech Hub pour les dates de déploiement.",
       "q3": "Quelles sont les plateformes supportées ?",
@@ -1695,7 +1695,7 @@
       "title_line1": "FORÇA AXIOMA",
       "title_line2_prefix": "RECLAMAR ",
       "title_line2_highlight": "TERRA",
-      "subtitle": "Um jogo de plataforma de ação 3D construído com Godot 4.6 e C#. Recuperar a Terra dos ocupantes alienígenas.",
+      "subtitle": "Um jogo de plataforma de ação 2D construído com Godot 4.6 e C#. Recuperar a Terra dos ocupantes alienígenas.",
       "play_on_github": "Jogue no GitHub",
       "view_source": "Ver fonte",
       "replayability": "Jogabilidade"
@@ -1709,7 +1709,7 @@
       "choose": "Escolha"
     },
     "footer": {
-      "tagline": "Um jogo de plataforma de ação 3D construído com Godot 4.6 e C#. Lute em quatro níveis e corra até a linha de chegada.",
+      "tagline": "Um jogo de plataforma de ação 2D construído com Godot 4.6 e C#. Lute em quatro níveis e corra até a linha de chegada.",
       "status": "AXIOM-7 ONLINE — RESISTÊNCIA ATIVA",
       "nav_title": "Navegação",
       "tech_title": "Tecnologia",
@@ -1745,7 +1745,7 @@
       "interactive_360": "360° INTERATIVO",
       "system_breach": "VIOLAÇÃO DE SISTEMA DETECTADA",
       "decrypted_file": "ARQUIVO DESCRIPTOGRAFADO: 001_HLF",
-      "operative_3d": "OPERATIVO_3D"
+      "operative_3d": "OPERATIVO_2D"
     },
     "story": {
       "briefing": "briefing narrativo",
@@ -2020,7 +2020,7 @@
       "mirage": "LÂMINA MIRAGEM",
       "apex": "ÁPICE TITÃ",
       "drag_rotate": "🖱️ ARRASTE PARA GIRAR EM 360°",
-      "live_orbit": "ÓRBITA_AO_VIVO_3D"
+      "live_orbit": "ÓRBITA_AO_VIVO_2D"
     },
     "gameplay": {
       "protocols": "PROTOCOLOS BÁSICOS",
@@ -2125,7 +2125,7 @@
     },
     "faq": {
       "q1": "O que é o Axiom Force?",
-      "a1": "Um jogo de plataforma 3D de alta intensidade onde lideras a Frente de Libertação Humana (HLF) numa guerra desesperada para recuperar a Terra de uma ocupação alienígena avançada.",
+      "a1": "Um jogo de plataforma 2D de alta intensidade onde lideras a Frente de Libertação Humana (HLF) numa guerra desesperada para recuperar a Terra de uma ocupação alienígena avançada.",
       "q2": "Quando é que o jogo será lançado?",
       "a2": "A resistência ainda se está a mobilizar. Estamos atualmente em desenvolvimento ativo. Fique atento ao Tech Hub para as datas de lançamento.",
       "q3": "Que plataformas são suportadas?",
@@ -2252,7 +2252,7 @@
       "title_line1": "AXIOM KRAFT",
       "title_line2_prefix": "ZURÜCKHOLEN ",
       "title_line2_highlight": "ERDE",
-      "subtitle": "Ein 3D-Action-Plattformer, erstellt mit Godot 4.6 und C#. Erobere die Erde von außerirdischen Besatzern zurück.",
+      "subtitle": "Ein 2D-Action-Plattformer, erstellt mit Godot 4.6 und C#. Erobere die Erde von außerirdischen Besatzern zurück.",
       "play_on_github": "Spielen Sie auf GitHub",
       "view_source": "Quelle anzeigen",
       "replayability": "Wiederspielbarkeit"
@@ -2266,7 +2266,7 @@
       "choose": "Wählen Sie"
     },
     "footer": {
-      "tagline": "Ein 3D-Action-Plattformer, erstellt mit Godot 4.6 und C#. Kämpfe dich durch vier Level und rase bis zur Ziellinie.",
+      "tagline": "Ein 2D-Action-Plattformer, erstellt mit Godot 4.6 und C#. Kämpfe dich durch vier Level und rase bis zur Ziellinie.",
       "status": "AXIOM-7 ONLINE – WIDERSTAND AKTIV",
       "nav_title": "Navigation",
       "tech_title": "Techn",
@@ -2302,7 +2302,7 @@
       "interactive_360": "INTERAKTIV 360°",
       "system_breach": "SYSTEMVERLETZUNG ERKANNT",
       "decrypted_file": "ENTSCHLÜSSELTE DATEI: 001_HLF",
-      "operative_3d": "3D_OPERATOR"
+      "operative_3d": "2D_OPERATOR"
     },
     "story": {
       "briefing": "narratives Briefing",
@@ -2577,7 +2577,7 @@
       "mirage": "Trugbildklinge",
       "apex": "APEX TITAN",
       "drag_rotate": "🖱️ ZIEHEN ZUM 360°-DREHEN",
-      "live_orbit": "3D_LIVE_ORBIT"
+      "live_orbit": "2D_LIVE_ORBIT"
     },
     "gameplay": {
       "protocols": "KERNPROTOKOLLE",
@@ -2682,7 +2682,7 @@
     },
     "faq": {
       "q1": "Was ist Axiom Force?",
-      "a1": "Ein hochintensiver 3D-Plattformer, bei dem Sie die Human Liberation Front (HLF) in einem verzweifelten Krieg anführen, um die Erde von einer fortschrittlichen außerirdischen Besatzung zurückzuerobern.",
+      "a1": "Ein hochintensiver 2D-Plattformer, bei dem Sie die Human Liberation Front (HLF) in einem verzweifelten Krieg anführen, um die Erde von einer fortschrittlichen außerirdischen Besatzung zurückzuerobern.",
       "q2": "Wann wird das Spiel veröffentlicht?",
       "a2": "Der Widerstand mobilisiert sich noch. Wir befinden uns derzeit in der aktiven Entwicklung. Behalten Sie den Tech Hub für die Veröffentlichungsdaten im Auge.",
       "q3": "Welche Plattformen werden unterstützt?",
@@ -2809,7 +2809,7 @@
       "title_line1": "FORZA ASSIOMATICA",
       "title_line2_prefix": "RECLAMI ",
       "title_line2_highlight": "TERRA",
-      "subtitle": "Un platform d'azione 3D realizzato con Godot 4.6 e C#. Recupera la Terra dagli occupanti alieni.",
+      "subtitle": "Un platform d'azione 2D realizzato con Godot 4.6 e C#. Recupera la Terra dagli occupanti alieni.",
       "play_on_github": "Gioca su GitHub",
       "view_source": "Visualizza fonte",
       "replayability": "Rigiocabilità"
@@ -2823,7 +2823,7 @@
       "choose": "Scegli"
     },
     "footer": {
-      "tagline": "Un platform d'azione 3D realizzato con Godot 4.6 e C#. Combatti attraverso quattro livelli e corri fino al traguardo.",
+      "tagline": "Un platform d'azione 2D realizzato con Godot 4.6 e C#. Combatti attraverso quattro livelli e corri fino al traguardo.",
       "status": "AXIOM-7 ONLINE — RESISTENZA ATTIVA",
       "nav_title": "Navigazione",
       "tech_title": "Tecnologia",
@@ -2859,7 +2859,7 @@
       "interactive_360": "360° INTERATTIVO",
       "system_breach": "VIOLAZIONE DEL SISTEMA RILEVATA",
       "decrypted_file": "FILE DECRITTOGRAFATO: 001_HLF",
-      "operative_3d": "OPERATIVO_3D"
+      "operative_3d": "OPERATIVO_2D"
     },
     "story": {
       "briefing": "briefing narrativo",
@@ -3134,7 +3134,7 @@
       "mirage": "LAMA MIRAGGIO",
       "apex": "APICE TITANO",
       "drag_rotate": "🖱️ TRASCINA PER RUOTARE A 360°",
-      "live_orbit": "ORBITA_LIVE_3D"
+      "live_orbit": "ORBITA_LIVE_2D"
     },
     "gameplay": {
       "protocols": "PROTOCOLLI FONDAMENTALI",
@@ -3239,7 +3239,7 @@
     },
     "faq": {
       "q1": "Cos'è Axiom Force?",
-      "a1": "Un platform 3D ad alta intensità in cui guidi il Fronte di Liberazione Umana (HLF) in una guerra disperata per riconquistare la Terra da un'avanzata occupazione aliena.",
+      "a1": "Un platform 2D ad alta intensità in cui guidi il Fronte di Liberazione Umana (HLF) in una guerra disperata per riconquistare la Terra da un'avanzata occupazione aliena.",
       "q2": "Quando uscirà il gioco?",
       "a2": "La resistenza si sta ancora mobilitando. Siamo attualmente in fase di sviluppo attivo. Resta sintonizzato sul Tech Hub per le date di rilascio.",
       "q3": "Quali piattaforme sono supportate?",
@@ -3366,7 +3366,7 @@
       "title_line1": "SIŁA AKSYJOMU",
       "title_line2_prefix": "ODZYSKAJ ",
       "title_line2_highlight": "ZIEMIA",
-      "subtitle": "Platformówka akcji 3D zbudowana w Godot 4.6 i C#. Odzyskaj Ziemię od obcych okupantów.",
+      "subtitle": "Platformówka akcji 2D zbudowana w Godot 4.6 i C#. Odzyskaj Ziemię od obcych okupantów.",
       "play_on_github": "Zagraj w GitHubie",
       "view_source": "Zobacz źródło",
       "replayability": "Powtarzalność"
@@ -3380,7 +3380,7 @@
       "choose": "Wybierz"
     },
     "footer": {
-      "tagline": "Platformówka akcji 3D zbudowana w Godot 4.6 i C#. Walcz na czterech poziomach i ścigaj się do mety.",
+      "tagline": "Platformówka akcji 2D zbudowana w Godot 4.6 i C#. Walcz na czterech poziomach i ścigaj się do mety.",
       "status": "AXIOM-7 ONLINE — REZYSTANCJA AKTYWNA",
       "nav_title": "Nawigacja",
       "tech_title": "Tech",
@@ -3416,7 +3416,7 @@
       "interactive_360": "INTERAKTYWNE 360°",
       "system_breach": "WYKRYTO NARUSZENIE SYSTEMU",
       "decrypted_file": "ODSZYFROWANY PLIK: 001_HLF",
-      "operative_3d": "OPERATOR_3D"
+      "operative_3d": "OPERATOR_2D"
     },
     "story": {
       "briefing": "odprawa narracyjna",
@@ -3691,7 +3691,7 @@
       "mirage": "OSTRZE MIRAŻU",
       "apex": "SZCZĘŚLIWY TYTAN",
       "drag_rotate": "🖱️ PRZECIĄGNIJ, ABY OBRÓCIĆ O 360°",
-      "live_orbit": "ORBITA_NA_ŻYWO_3D"
+      "live_orbit": "ORBITA_NA_ŻYWO_2D"
     },
     "gameplay": {
       "protocols": "PODSTAWOWE PROTOKOŁY",
@@ -3796,7 +3796,7 @@
     },
     "faq": {
       "q1": "Czym jest Axiom Force?",
-      "a1": "Dynamiczna platformówka 3D, w której prowadzisz Ludzki Front Wyzwolenia (HLF) w desperackiej wojnie o odzyskanie Ziemi z rąk zaawansowanej okupacji obcych.",
+      "a1": "Dynamiczna platformówka 2D, w której prowadzisz Ludzki Front Wyzwolenia (HLF) w desperackiej wojnie o odzyskanie Ziemi z rąk zaawansowanej okupacji obcych.",
       "q2": "Kiedy gra zostanie wydana?",
       "a2": "Opór wciąż się mobilizuje. Obecnie jesteśmy w fazie aktywnego rozwoju. Śledź Tech Hub, aby poznać daty premiery.",
       "q3": "Jakie platformy są wspierane?",
@@ -3973,7 +3973,7 @@
       "interactive_360": "ETKİLEŞİMLİ 360°",
       "system_breach": "SİSTEM İHLALİ ALGILANDI",
       "decrypted_file": "ŞİFRESİ ÇÖZÜLMÜŞ DOSYA: 001_HLF",
-      "operative_3d": "3D_OPERATİF"
+      "operative_3d": "2D_OPERATİF"
     },
     "story": {
       "briefing": "anlatı brifingi",
@@ -4248,7 +4248,7 @@
       "mirage": "SERBEST BIÇAK",
       "apex": "APEX TİTANI",
       "drag_rotate": "🖱️ 360° DÖNDÜRMEK İÇİN SÜRÜKLEYİN",
-      "live_orbit": "3D_CANLI_YÖRÜNGE"
+      "live_orbit": "2D_CANLI_YÖRÜNGE"
     },
     "gameplay": {
       "protocols": "ÇEKİRDEK PROTOKOLLER",
@@ -4353,7 +4353,7 @@
     },
     "faq": {
       "q1": "Axiom Force nedir?",
-      "a1": "İnsan Kurtuluş Cephesi'ni (HLF), gelişmiş bir uzaylı işgalinden Dünyayı geri almak için verilen çaresiz bir savaşta yönettiğiniz yüksek tempolu bir 3D platform oyunudur.",
+      "a1": "İnsan Kurtuluş Cephesi'ni (HLF), gelişmiş bir uzaylı işgalinden Dünyayı geri almak için verilen çaresiz bir savaşta yönettiğiniz yüksek tempolu bir 2D platform oyunudur.",
       "q2": "Oyun ne zaman çıkacak?",
       "a2": "Direniş hala mobilize oluyor. Şu an aktif geliştirme aşamasındayız. Dağıtım tarihleri için Tech Hub'ı takip edin.",
       "q3": "Hangi platformlar destekleniyor?",
@@ -4480,7 +4480,7 @@
       "title_line1": "公理の力",
       "title_line2_prefix": "回収する ",
       "title_line2_highlight": "地球",
-      "subtitle": "Godot 4.6 と C# で構築された 3D アクション プラットフォーマー。エイリアンの占領者から地球を取り戻しましょう。",
+      "subtitle": "Godot 4.6 と C# で構築された 2D アクション プラットフォーマー。エイリアンの占領者から地球を取り戻しましょう。",
       "play_on_github": "GitHub でプレイする",
       "view_source": "ソースを表示",
       "replayability": "リプレイ性"
@@ -4494,7 +4494,7 @@
       "choose": "選択してください"
     },
     "footer": {
-      "tagline": "Godot 4.6 と C# で構築された 3D アクション プラットフォーマー。 4 つのレベルを戦い、ゴールラインまでレースしましょう。",
+      "tagline": "Godot 4.6 と C# で構築された 2D アクション プラットフォーマー。 4 つのレベルを戦い、ゴールラインまでレースしましょう。",
       "status": "AXIOM-7 オンライン — レジスタンスアクティブ",
       "nav_title": "ナビゲーション",
       "tech_title": "技術",
@@ -4530,7 +4530,7 @@
       "interactive_360": "インタラクティブ360°",
       "system_breach": "システム侵入を検知",
       "decrypted_file": "復号ファイル: 001_HLF",
-      "operative_3d": "3Dオペレーティブ"
+      "operative_3d": "2Dオペレーティブ"
     },
     "story": {
       "briefing": "説明説明",
@@ -4805,7 +4805,7 @@
       "mirage": "ミラージュブレード",
       "apex": "アペックスタイタン",
       "drag_rotate": "🖱️ ドラッグして360°回転",
-      "live_orbit": "3D_ライブ軌道"
+      "live_orbit": "2D_ライブ軌道"
     },
     "gameplay": {
       "protocols": "コア・プロトコル",
@@ -4910,7 +4910,7 @@
     },
     "faq": {
       "q1": "Axiom Forceとは何ですか？",
-      "a1": "高度なエイリアンの占領から地球を取り戻すための絶望的な戦いで、人類解放戦線（HLF）を率いるハイテンションな3Dプラットフォーマーです。",
+      "a1": "高度なエイリアンの占領から地球を取り戻すための絶望的な戦いで、人類解放戦線（HLF）を率いるハイテンションな2Dプラットフォーマーです。",
       "q2": "ゲームはいつリリースされますか？",
       "a2": "レジスタンスはまだ動員中です。現在は活発に開発が行われています。 deployment日についてはTech Hubをご確認ください。",
       "q3": "どのプラットフォームがサポートされていますか？",
@@ -5037,7 +5037,7 @@
       "title_line1": "공리력",
       "title_line2_prefix": "회수 ",
       "title_line2_highlight": "지구",
-      "subtitle": "Godot 4.6 및 C#으로 구축된 3D 액션 플랫폼 게임입니다. 외계인 점령자들로부터 지구를 되찾으세요.",
+      "subtitle": "Godot 4.6 및 C#으로 구축된 2D 액션 플랫폼 게임입니다. 외계인 점령자들로부터 지구를 되찾으세요.",
       "play_on_github": "GitHub에서 플레이",
       "view_source": "소스 보기",
       "replayability": "재생성"
@@ -5051,7 +5051,7 @@
       "choose": "선택"
     },
     "footer": {
-      "tagline": "Godot 4.6 및 C#으로 구축된 3D 액션 플랫폼 게임입니다. 4개 레벨에서 전투를 벌이고 결승선까지 경주하세요.",
+      "tagline": "Godot 4.6 및 C#으로 구축된 2D 액션 플랫폼 게임입니다. 4개 레벨에서 전투를 벌이고 결승선까지 경주하세요.",
       "status": "공리-7 온라인 — 저항 활성화",
       "nav_title": "네비게이션",
       "tech_title": "기술",
@@ -5087,7 +5087,7 @@
       "interactive_360": "인터랙티브 360°",
       "system_breach": "시스템 침입 감지됨",
       "decrypted_file": "복호화된 파일: 001_HLF",
-      "operative_3d": "3D_요원"
+      "operative_3d": "2D_요원"
     },
     "story": {
       "briefing": "서술 브리핑",
@@ -5362,7 +5362,7 @@
       "mirage": "미라지 블레이드",
       "apex": "APEX 타이탄",
       "drag_rotate": "🖱️ 드래그하여 360° 회전",
-      "live_orbit": "3D_실시간_궤도"
+      "live_orbit": "2D_실시간_궤도"
     },
     "gameplay": {
       "protocols": "핵심 프로토콜",
@@ -5467,7 +5467,7 @@
     },
     "faq": {
       "q1": "Axiom Force는 무엇입니까?",
-      "a1": "인류 해방 전선(HLF)을 이끌고 고도로 발달한 외계인 점령군으로부터 지구를 되찾기 위한 절박한 전쟁을 치르는 고에너지 3D 플랫폼 게임입니다.",
+      "a1": "인류 해방 전선(HLF)을 이끌고 고도로 발달한 외계인 점령군으로부터 지구를 되찾기 위한 절박한 전쟁을 치르는 고에너지 2D 플랫폼 게임입니다.",
       "q2": "게임은 언제 출시되나요?",
       "a2": "저항군은 아직 결집 중입니다. 현재 활발히 개발 중입니다. 배포 날짜는 Tech Hub를 확인해 주세요.",
       "q3": "어떤 플랫폼이 지원됩니까?",
@@ -5594,7 +5594,7 @@
       "title_line1": "公理力",
       "title_line2_prefix": "回收 ",
       "title_line2_highlight": "地球",
-      "subtitle": "使用 Godot 4.6 和 C# 构建的 3D 动作平台游戏。从外星占领者手中夺回地球。",
+      "subtitle": "使用 Godot 4.6 和 C# 构建的 2D 动作平台游戏。从外星占领者手中夺回地球。",
       "play_on_github": "在 GitHub 上玩",
       "view_source": "查看源代码",
       "replayability": "重玩性"
@@ -5608,7 +5608,7 @@
       "choose": "选择"
     },
     "footer": {
-      "tagline": "使用 Godot 4.6 和 C# 构建的 3D 动作平台游戏。通过四个级别的战斗并冲向终点线。",
+      "tagline": "使用 Godot 4.6 和 C# 构建的 2D 动作平台游戏。通过四个级别的战斗并冲向终点线。",
       "status": "AXIOM-7 Online — 电阻激活",
       "nav_title": "导航",
       "tech_title": "科技",
@@ -5644,7 +5644,7 @@
       "interactive_360": "360° 交互视角",
       "system_breach": "检测到系统入侵",
       "decrypted_file": "已解密文件：001_HLF",
-      "operative_3d": "3D特工"
+      "operative_3d": "2D特工"
     },
     "story": {
       "briefing": "叙述性简报",
@@ -5919,7 +5919,7 @@
       "mirage": "幻影之刃",
       "apex": "巅峰泰坦",
       "drag_rotate": "🖱️ 拖拽以 360° 旋转",
-      "live_orbit": "3D_实时轨道"
+      "live_orbit": "2D_实时轨道"
     },
     "gameplay": {
       "protocols": "核心协议",
@@ -6024,7 +6024,7 @@
     },
     "faq": {
       "q1": "什么是 Axiom Force？",
-      "a1": "这是一款高能 3D 平台跳跃游戏，您将在其中领导人类解放阵线 (HLF)，在一次绝望的战争中从先进的外星占领者手中夺回地球。",
+      "a1": "这是一款高能 2D 平台跳跃游戏，您将在其中领导人类解放阵线 (HLF)，在一次绝望的战争中从先进的外星占领者手中夺回地球。",
       "q2": "游戏何时发布？",
       "a2": "反抗军仍在动员中。我们目前处于积极开发阶段。请关注 Tech Hub 以获取部署日期。",
       "q3": "支持哪些平台？",
@@ -7271,7 +7271,7 @@
       "title_line1": "公理力",
       "title_line2_prefix": "回收 ",
       "title_line2_highlight": "地球",
-      "subtitle": "使用 Godot 4.6 和 C# 构建的 3D 动作平台游戏。从外星佔領者手中奪回地球。",
+      "subtitle": "使用 Godot 4.6 和 C# 构建的 2D 动作平台游戏。从外星佔領者手中奪回地球。",
       "play_on_github": "在 GitHub 上玩",
       "view_source": "查看源代碼",
       "replayability": "重玩性"
@@ -7285,7 +7285,7 @@
       "choose": "選擇"
     },
     "footer": {
-      "tagline": "使用 Godot 4.6 和 C# 构建的 3D 动作平台游戏。通过四个级别的战斗并冲向终点线。",
+      "tagline": "使用 Godot 4.6 和 C# 构建的 2D 动作平台游戏。通过四个级别的战斗并冲向终点线。",
       "status": "AXIOM-7 Online — 电阻激活",
       "nav_title": "導航",
       "tech_title": "科技",
@@ -7321,7 +7321,7 @@
       "interactive_360": "360° 互動視角",
       "system_breach": "檢測到系統入侵",
       "decrypted_file": "已解密檔案：001_HLF",
-      "operative_3d": "3D特工"
+      "operative_3d": "2D特工"
     },
     "story": {
       "briefing": "叙述性简报",
@@ -7596,7 +7596,7 @@
       "mirage": "幻影之刃",
       "apex": "巅峰泰坦",
       "drag_rotate": "🖱️ 拖曳以 360° 旋轉",
-      "live_orbit": "3D_即時軌道"
+      "live_orbit": "2D_即時軌道"
     },
     "gameplay": {
       "protocols": "核心协议",
@@ -7701,7 +7701,7 @@
     },
     "faq": {
       "q1": "什么是 Axiom Force？",
-      "a1": "这是一款高能 3D 平台跳躍游戏，您将在其中领导人类解放阵线 (HLF)，在一次绝望的战争中从先进的外星佔領者手中奪回地球。",
+      "a1": "这是一款高能 2D 平台跳躍游戏，您将在其中领导人类解放阵线 (HLF)，在一次绝望的战争中从先进的外星佔領者手中奪回地球。",
       "q2": "游戏何时发布？",
       "a2": "反抗军仍在动员中。我们目前处于积极开发阶段。請关注 Tech Hub 以获取部署日期。",
       "q3": "支援哪些平台？",
@@ -7828,7 +7828,7 @@
       "title_line1": "LỰC LƯỢNG TIỀN ĐỀ",
       "title_line2_prefix": "GIÀNH LẠI ",
       "title_line2_highlight": "TRÁI ĐẤT",
-      "subtitle": "Game hành động 3D. Giành lại Trái Đất từ thế lực xâm lăng ngoài hành tinh.",
+      "subtitle": "Game hành động 2D. Giành lại Trái Đất từ thế lực xâm lăng ngoài hành tinh.",
       "play_on_github": "Chơi trên GitHub",
       "view_source": "Xem mã nguồn",
       "replayability": "Giá trị chơi lại"
@@ -7842,7 +7842,7 @@
       "choose": "CHỌN"
     },
     "footer": {
-      "tagline": "Trò chơi đi cảnh hành động 3D. Lãnh đạo phong trào kháng chiến giành lại Trái Đất.",
+      "tagline": "Trò chơi đi cảnh hành động 2D. Lãnh đạo phong trào kháng chiến giành lại Trái Đất.",
       "status": "AXIOM-7 TRỰC TUYẾN — KHÁNG CHIẾN HOẠT ĐỘNG",
       "nav_title": "Điều hướng",
       "tech_title": "THÔNG SỐ NHIỆM VỤ",
@@ -7873,7 +7873,7 @@
       "interactive_360": "TƯƠNG TÁC 360°",
       "system_breach": "PHÁT HIỆN XÂM PHẠM HỆ THỐNG",
       "decrypted_file": "TẬP TIN ĐÃ GIẢI MÃ: 001_HLF",
-      "operative_3d": "ĐẶC_VIÊN_3D"
+      "operative_3d": "ĐẶC_VIÊN_2D"
     },
     "story": {
       "briefing": "narrative briefing",
@@ -8148,7 +8148,7 @@
       "mirage": "MIRAGE BLADE",
       "apex": "APEX TITAN",
       "drag_rotate": "🖱️ KÉO ĐỂ XOAY 360°",
-      "live_orbit": "QUỸ_ĐẠO_TRỰC_TIẾP_3D"
+      "live_orbit": "QUỸ_ĐẠO_TRỰC_TIẾP_2D"
     },
     "gameplay": {
       "protocols": "CORE PROTOCOLS",
@@ -8253,7 +8253,7 @@
     },
     "faq": {
       "q1": "Axiom Force là gì?",
-      "a1": "Một trò chơi đi cảnh 3D hành động nhịp độ cao, nơi bạn lãnh đạo Mặt trận Giải phóng Nhân loại (HLF) chiến đấu giành lại Trái Đất.",
+      "a1": "Một trò chơi đi cảnh 2D hành động nhịp độ cao, nơi bạn lãnh đạo Mặt trận Giải phóng Nhân loại (HLF) chiến đấu giành lại Trái Đất.",
       "q2": "Khi nào trò chơi phát hành?",
       "a2": "Lực lượng kháng chiến đang tập hợp. Trò chơi hiện đang được phát triển tích cực.",
       "q3": "Những nền tảng nào được hỗ trợ?",
@@ -8380,7 +8380,7 @@
       "title_line1": "KEKUATAN AKSIOM",
       "title_line2_prefix": "REKLAIM ",
       "title_line2_highlight": "BUMI",
-      "subtitle": "Game aksi platformer 3D. Rebut kembali Bumi dari penjajah alien.",
+      "subtitle": "Game aksi platformer 2D. Rebut kembali Bumi dari penjajah alien.",
       "play_on_github": "Main di GitHub",
       "view_source": "Lihat Sumber",
       "replayability": "Nilai Main Ulang"
@@ -8394,7 +8394,7 @@
       "choose": "PILIH"
     },
     "footer": {
-      "tagline": "Platformer aksi 3D. Pimpin perlawanan untuk merebut kembali Bumi dari penjajah alien.",
+      "tagline": "Platformer aksi 2D. Pimpin perlawanan untuk merebut kembali Bumi dari penjajah alien.",
       "status": "AXIOM-7 ONLINE — PERLAWANAN AKTIF",
       "nav_title": "Navigasi",
       "tech_title": "SPESIFIKASI MISI",
@@ -8425,7 +8425,7 @@
       "interactive_360": "INTERAKTIF 360°",
       "system_breach": "PELANGGARAN SISTEM TERDETEKSI",
       "decrypted_file": "BERKAS TERDEKRIPSI: 001_HLF",
-      "operative_3d": "OPERATIF_3D"
+      "operative_3d": "OPERATIF_2D"
     },
     "story": {
       "briefing": "narrative briefing",
@@ -8700,7 +8700,7 @@
       "mirage": "MIRAGE BLADE",
       "apex": "APEX TITAN",
       "drag_rotate": "🖱️ TARIK UNTUK MEMUTAR 360°",
-      "live_orbit": "ORBIT_LANGSUNG_3D"
+      "live_orbit": "ORBIT_LANGSUNG_2D"
     },
     "gameplay": {
       "protocols": "CORE PROTOCOLS",
@@ -8805,7 +8805,7 @@
     },
     "faq": {
       "q1": "Apa itu Axiom Force?",
-      "a1": "Game platformer aksi 3D berkecepatan tinggi tempat Anda memimpin Front Pembebasan Manusia (HLF) dalam perang merebut kembali Bumi.",
+      "a1": "Game platformer aksi 2D berkecepatan tinggi tempat Anda memimpin Front Pembebasan Manusia (HLF) dalam perang merebut kembali Bumi.",
       "q2": "Kapan game dirilis?",
       "a2": "Pasukan perlawanan sedang bergerak. Game ini sedang dalam pengembangan aktif.",
       "q3": "Platform apa saja yang didukung?",
@@ -8977,7 +8977,7 @@
       "interactive_360": "อินเทอร์แอคทีฟ 360°",
       "system_breach": "ตรวจพบการบุกรุกระบบ",
       "decrypted_file": "ไฟล์ถอดรหัส: 001_HLF",
-      "operative_3d": "เจ้าหน้าที่_3D"
+      "operative_3d": "เจ้าหน้าที่_2D"
     },
     "story": {
       "briefing": "narrative briefing",
@@ -9252,7 +9252,7 @@
       "mirage": "MIRAGE BLADE",
       "apex": "APEX TITAN",
       "drag_rotate": "🖱️ ลากเพื่อหมุน 360°",
-      "live_orbit": "วงโคจรสด_3D"
+      "live_orbit": "วงโคจรสด_2D"
     },
     "gameplay": {
       "protocols": "CORE PROTOCOLS",

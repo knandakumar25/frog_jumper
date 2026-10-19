@@ -10,7 +10,6 @@ public partial class GameHome : Control
 	private TextureRect _titleLogo;
 	private Label       _promptLabel;
 	private Label       _versionLabel;
-	private TextureRect _bgTexture;
 	private ColorRect   _fadeOverlay;
 
 	private bool  _isTransitioning = false;
@@ -20,7 +19,6 @@ public partial class GameHome : Control
 	{
 		GetNodeOrNull<Node>("/root/Global")?.Call("play_home_music");
 
-		_bgTexture    = GetNodeOrNull<TextureRect>("Background");
 		_titleLogo    = GetNodeOrNull<TextureRect>("CenterContainer/VBoxContainer/TitleLogo");
 		_promptLabel  = GetNodeOrNull<Label>("CenterContainer/VBoxContainer/PromptLabel");
 		_versionLabel = GetNodeOrNull<Label>("BottomMarginContainer/VersionLabel");
@@ -29,21 +27,10 @@ public partial class GameHome : Control
 		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
 		var rajdhaniFont = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf");
 
-		// Load background texture if missing
-		if (_bgTexture != null && _bgTexture.Texture == null)
-		{
-			string bgPath = ProjectSettings.GlobalizePath("res://assets/images/training_dojo_background.png");
-			if (System.IO.File.Exists(bgPath))
-			{
-				var img = Image.LoadFromFile(bgPath);
-				if (img != null) _bgTexture.Texture = ImageTexture.CreateFromImage(img);
-			}
-		}
-
 		// Load localized or default high-contrast 2D title logo image
 		if (_titleLogo != null)
 		{
-			string resPath = ThreeDMenuExperience.GetLocalizedTitle2DPath();
+			string resPath = TitleLogo.GetLocalizedTitle2DPath();
 			var tex = GD.Load<Texture2D>(resPath);
 			if (tex != null)
 			{

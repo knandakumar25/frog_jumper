@@ -195,7 +195,7 @@ public partial class LoadingScreen : Control
 	/// </summary>
 	private string GetLocalizedTitleLogoPath()
 	{
-		return ThreeDMenuExperience.GetLocalizedTitle2DPath();
+		return TitleLogo.GetLocalizedTitle2DPath();
 	}
 
 	private string Tr(string text)

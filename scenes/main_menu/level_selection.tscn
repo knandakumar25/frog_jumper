@@ -3,7 +3,6 @@
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/main_menu/level_selection.gd" id="1_eqe0b"]
-[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_bg_texture"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 
 [node name="Node" type="Control"]
@@ -18,17 +17,6 @@ script = ExtResource("1_eqe0b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000003]
 environment = ExtResource("11_cyber_glow")
-
-[node name="BackgroundTexture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_bg_texture")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="DarkOverlay" type="ColorRect" parent="."]
 layout_mode = 1
@@ -87,12 +75,12 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 22
-text = "SECTOR 01: TRAINING PROTOCOL"
+text = "SECTOR 01: CYBER CITY"
 
 [node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector1/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
-text = "Master movement mechanics and test jump calibration."
+text = "Breach the neon rooftops and engage syndicate drones."
 
 [node name="Level1" type="Button" parent="MainLayout/SectorGrid/Sector1/VBox"]
 custom_minimum_size = Vector2(0, 52)
@@ -182,7 +170,7 @@ custom_minimum_size = Vector2(220, 54)
 layout_mode = 2
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="MainLayout/SectorGrid/Sector1/VBox/Level1" to="." method="_on_level_0_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector1/VBox/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector2/VBox/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector3/VBox/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector4/VBox/Level4" to="." method="_on_level_4_pressed"]

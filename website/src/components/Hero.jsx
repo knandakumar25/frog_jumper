@@ -107,7 +107,7 @@ export default function Hero({ bgImage }) {
         </p>
 
         <div className="hero__tags">
-          {['3D Action Platformer', '9 Target Platforms', '6 Operatives', '10 Story Levels', 'Godot 4.7.1 C#'].map(tag => (
+          {['2D Action Platformer', '9 Target Platforms', '6 Operatives', '10 Story Levels', 'Godot 4.7.1 C#'].map(tag => (
             <span key={tag} className="hero__tag">{tag}</span>
           ))}
         </div>

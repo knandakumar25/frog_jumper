@@ -1,18 +1,20 @@
-# Axiom Force - Project Guide
+# Axiom Force - Project Guide (Claude)
 
 ## Project Overview
-A high-fidelity 3D action game developed in **Godot 4.7.2 .NET (C#)**. The current focus is the "Neon Pulse" visual pass, transforming the Main Menu into a high-fidelity 3D "Cyber Command Center".
+A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and React web client. The game is transitioning to a high-octane 2D Cyber-Action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*), featuring multi-operative synergy, dynamic combat HUDs, wall mobility, multi-phase boss mechs, and synthesized audio.
 
 ## Technical Stack
 - **Engine**: Godot 4.7.2 .NET
-- **Language**: C#
-- **Architecture**: Component-based with specialized Managers (e.g., `SessionManager`, `UISoundManager`).
-- **UI Approach**: Mix of 2D `Control` nodes and 3D-in-2D using `SubViewportContainer`.
+- **Language**: C# (.NET 10)
+- **Backend**: Django REST Framework (Python 3.14)
+- **Frontend Web**: React + Vite
+- **Architecture**: Component-based with specialized Managers (e.g., `SessionManager`, `UISoundManager`, `OperativeRegistry`).
+- **UI & Gameplay Approach**: High-fidelity 2D combat platforming with 4-level linear campaign chain, dynamic combat HUD, and operative selection cards.
 
 ## Development Workflows
 
 ### Asset Import Workflow
-Whenever 3D assets, textures, or fonts are added/modified:
+Whenever 3D/2D assets, textures, or fonts are added/modified:
 1. Run Godot in the background: `"C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless`
 2. Wait for `.import` files to be generated.
 3. Stop the Godot process.
@@ -20,11 +22,11 @@ Whenever 3D assets, textures, or fonts are added/modified:
 
 ### Build & Test
 - **Build project**: `dotnet build AxiomForce.csproj`
-- **Verification**: Check Godot runtime logs for "Vector3 cannot be normalized" warnings or missing asset errors.
+- **Verification**: Check Godot runtime logs for warnings or missing asset errors.
 
 ## Mandatory Testing Protocol (End of Every Prompt)
 > [!IMPORTANT]
-> At the conclusion of EVERY prompt or task, you MUST execute the unit test suites and verify that all tests pass (0 failures, 0 errors) before concluding your turn:
+> At the conclusion of **EVERY** prompt or task, all AI agents (Codex, Claude, Antigravity) **MUST** execute the unit test suites and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding your turn:
 >
 > ```powershell
 > .\run_tests.ps1
@@ -43,34 +45,40 @@ Whenever 3D assets, textures, or fonts are added/modified:
 >    ```
 > 3. **GdUnit4 Tests (Godot 4 GDScript)**:
 >    ```powershell
->    & "C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless --path . -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
+>    & "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64_console.exe" --headless --path . -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
 >    ```
+> *(Note: Always use the `_console.exe` binary on Windows to avoid stdout deadlocks during headless test runs).*
 
-## Coding Guidelines
-- **Naming**: Match existing C# idioms (PascalCase for methods/properties, `_camelCase` for private fields).
-- **Godot API**: 
-    - Use `GetNodeOrNull<T>()` for safer node retrieval.
-    - Prefer `Callable.From()` for signal connections in C#.
-    - When using `SubViewport` for UI, ensure a `DirectionalLight3D` and `WorldEnvironment` are present within the viewport for visibility.
-- **Safety**: Always check `LengthSquared() > 0` before calling `.Normalized()` on vectors to avoid runtime warnings.
+## Critical Operational Rules
+
+> [!CAUTION]
+> ### 1. Strict Git Push Prohibition
+> **NEVER execute `git push` unless the user explicitly commands you to push** (e.g., *"push to git"*). Staging and committing locally are permitted when requested, but pushing to remote repositories without explicit instruction is strictly prohibited.
+
+### 2. Node Lifecycle & Unit Test Safety
+- Standalone unit tests instantiate scenes outside the active scene tree. **Always check `IsInsideTree()`** before calling `GetTree()`, `CreateTween()`, or `.Play()` on audio players to prevent engine error 100/105.
+- Always call `.free()` or `.queue_free()` on test-instantiated nodes in GdUnit4 to guarantee 0 orphan nodes.
+- Always check `LengthSquared() > 0` before calling `.Normalized()` on vectors.
 
 ## Core Components & Active Systems
-- `HANDOFF.md`: Detailed context briefing on recent changes, architectural decisions, and current git state.
-- `MainMenu.cs`: Central coordinator for the menu UI.
-- `CharacterSelection.cs`: Selection matrix coordinator, podium rotations, operative switching, and ability preview animations.
-- `HeroAbilityVFX.cs`: Procedural elemental & cybernetic VFX generator for operative abilities.
-- `CyberButton.cs`: 3D-backed interactive buttons with parallax tilting.
-- `3d_menu_experience.tscn`: The immersive 3D environment containing the Holo Projector and Terminal Kiosk.
-- `holographic.gdshader`: Custom spatial shader for holographic projections.
+- `HANDOFF.md`: Comprehensive inter-agent briefing detailing the 2D transition, inventory of remaining 3D components, and migration roadmap.
+- `OperativeProfile.cs`: Model and central registry (`OperativeRegistry`) for all 6 operatives with unique passive perks and combat stats.
+- `CyberShogun.cs`: Core 2D player controller (katana slashes, martial strike, blade dash, wall-sliding, wall-jumping, passive shield regen).
+- `CyberBossMech2D.cs` & `CyberBossMissile2D.cs`: Multi-phase 2D boss mech encounter ("Vanguard-X") in `level4.tscn` with Overdrive Rage phase shift.
+- `CyberCombatHud.cs`: Real-time 2D HUD tracking shields, health, combo streak (`DOUBLE STRIKE!`, `TACTICAL OVERDRIVE!`), operative abilities, and boss health bar.
+- `CyberVictoryScorecard.cs`: Post-mission combat grade evaluation (S/A/B rank scoring) triggered upon level completion.
+- `CyberLaserGrid2D.cs` & `CyberHazardFloor2D.cs`: Cycling environmental 2D hazards.
+- `CharacterSelection.cs`: Operative selection matrix featuring high-resolution 2D portrait cards and attribute meters.
+- `scenes/gameplay/level1.tscn` to `level4.tscn`: 4-level linear 2D campaign progression.
 
-## Operative Roster & VFX Rules
-1. **Cyber Shogun (Kaito Kurogane)**: Cybernetic Shogun Warrior (Pure martial, katana/parry — **0 particle VFX**).
-2. **Oceanus (Kiana Vaea)**: Polynesian Tidecaller (Grounded hydro torrents, vortex geyser, slam).
-3. **Surya Prime (Arjun Varma)**: Solar Guardian (Grounded solar flare blast, cosmic aegis shield).
-4. **Mirage Blade (Zayd Al-Mansoor)**: Crystalline Phantom (Pure martial, twin phase daggers — **0 particle VFX**).
-5. **Apex Titan (King Tariq Nzinga)**: Seismic Titan (Overhead hammer slam, graviton magnetic pull).
-6. **Aura Phoenicia (Maya Khoury)**: Ultrasonic Prism Weaver (Harmonic pulse, prism reverberation, cedar's echo).
-*(Note: Solaria has been completely removed from the project roster and tests).*
+## Operative Roster
+1. **Cyber Shogun (Kaito Kurogane)**: Balanced Vanguard Striker (Katana combo, blade dash, parry).
+2. **Surya Prime (Arjun Varma)**: Solar Bulwark Tank (140 HP, 80 Shield, 15% armor damage mitigation, solar flare).
+3. **Oceanus (Kiana Vaea)**: Hydro Vanguard Tactician (90 HP, 70 Shield, 25 HP/s hydro shield regen, hydro torrents).
+4. **Mirage Blade (Zayd Al-Mansoor)**: Phantom Infiltrator Assassin (460 Speed, 1000 Dash velocity, 0.6s dash cooldown, twin phase daggers).
+5. **Apex Titan (King Tariq Nzinga)**: Electro-Magnetic Juggernaut (160 HP, 60 Shield, 20% kinetic armor mitigation, knockback resistance).
+6. **Aura Phoenicia (Maya Khoury)**: Ultrasonic Prism Weaver (95 HP, 55 Shield, 8% mitigation, 0.85s dash cooldown, harmonic resonance).
+*(Note: Solaria has been completely removed from the project).*
 
 ## WSL Containers Architecture (NO DOCKER, NO DISTROS)
 This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\container.exe`.
@@ -83,5 +91,7 @@ This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\con
   - `.\export_game_wsl.ps1`: Runs headless Godot 4.7.2 + Android SDK exporter container (`export/Containerfile`).
 - **CLI path**: `& "C:\Program Files\WSL\container.exe" <command>` (supports standard OCI commands like `list`, `build`, `run`, `rm`, `image list`).
 
-# Permissions Denylist
-(Add any restricted actions here)
+## Permissions Denylist
+- **NO `git push`** without explicit user instruction.
+- **NO Docker CLI / Docker Desktop** commands.
+- **NO standard WSL distro installations** (`wsl --install`).

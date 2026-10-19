@@ -49,7 +49,7 @@ public partial class MainMenu : Control
 
 			// 3. General Setup.
 			ApplyCustomCursor();
-			_ = SetupFloatingTitleAsync();
+			_titleContainer.Visible = true;
 
 			MoveChild(_titleContainer, GetChildCount() - 1);
 
@@ -363,12 +363,6 @@ public partial class MainMenu : Control
 			return GD.Load<Texture2D>(resPath);
 		}
 		return null;
-	}
-
-	private async System.Threading.Tasks.Task SetupFloatingTitleAsync()
-	{
-		if (_titleContainer != null) _titleContainer.Visible = false;
-		await System.Threading.Tasks.Task.CompletedTask;
 	}
 
 	private void SetupNavPromptFooter()
