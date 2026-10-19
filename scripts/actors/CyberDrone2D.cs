@@ -31,6 +31,8 @@ public partial class CyberDrone2D : CharacterBody2D
 		_eyeLight = GetNodeOrNull<PointLight2D>("EyeLight");
 	}
 
+	[Export] public float ContactDamage = 15.0f;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		if (_isDying) return;
@@ -50,6 +52,19 @@ public partial class CyberDrone2D : CharacterBody2D
 		float hoverOffset = Mathf.Sin((float)Time.GetTicksMsec() * 0.004f) * 0.8f;
 		Velocity = new Vector2(_direction * PatrolSpeed, hoverOffset * 20f);
 		MoveAndSlide();
+
+		// Check player collisions for contact damage
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
+		{
+			var collision = GetSlideCollision(i);
+			var collider = collision.GetCollider();
+			if (collider is CyberShogun player)
+			{
+				Vector2 diff = player.GlobalPosition - GlobalPosition;
+				Vector2 knockback = (diff.LengthSquared() > 0.001f ? diff.Normalized() : Vector2.Right) * 220f;
+				player.TakeDamage(ContactDamage, knockback);
+			}
+		}
 	}
 
 	/// <summary>

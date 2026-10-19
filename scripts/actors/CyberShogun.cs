@@ -1,52 +1,50 @@
 using Godot;
 
 /// <summary>
-/// CyberShogun is a specialized playable character that extends the BaseCharacter.
-/// It implements specific combat abilities (Sword and Karate attacks) by overriding
-/// the HandleSpecialActions method, allowing it to bypass standard movement
-/// and enter attack states.
-///
-/// Unity Migration Note: This will be a subclass of BaseCharacter. In Unity, these
-/// specific attack animations and triggers would be handled via an Animator Controller
-/// with "Attack" triggers or states.
+/// CyberShogun is a specialized playable character that extends BaseCharacter.
+/// It implements combat abilities (Sword and Karate attacks, Blade Dash),
+/// shields, health management, combo tracking, and melee hitboxes.
 /// </summary>
 public partial class CyberShogun : BaseCharacter
 {
-	// ─── Attack state ────────────────────────────────────────────────────────
-	/// <summary>
-	/// Flag indicating if the character is currently locked in an attack animation.
-	/// </summary>
+	// ─── Signals ─────────────────────────────────────────────────────────────
+	[Signal] public delegate void HealthChangedEventHandler(float currentHealth, float maxHealth, float currentShield, float maxShield);
+	[Signal] public delegate void DashCooldownUpdatedEventHandler(float remaining, float maxDuration);
+	[Signal] public delegate void ComboChangedEventHandler(int comboCount);
+	[Signal] public delegate void PlayerDefeatedEventHandler();
+
+	// ─── Health & Shield ─────────────────────────────────────────────────────
+	[Export] public float MaxHealth { get; set; } = 100.0f;
+	[Export] public float MaxShield { get; set; } = 50.0f;
+	[Export] public float DashCooldown { get; set; } = 1.0f;
+
+	public float CurrentHealth { get; private set; } = 100.0f;
+	public float CurrentShield { get; private set; } = 50.0f;
+	public float DashCooldownTimer { get; private set; } = 0.0f;
+	public int ComboCount { get; private set; } = 0;
+	public float ComboTimer { get; private set; } = 0.0f;
+	public const float ComboWindow = 2.0f;
+
+	private float _invulnerabilityTimer = 0.0f;
 	private bool _isAttacking = false;
-
-	/// <summary>
-	/// Latched input flag for the sword attack ('F' key / Gamepad X).
-	/// </summary>
 	private bool _attackPressed = false;
-
-	/// <summary>
-	/// Latched input flag for the karate attack ('Q' key).
-	/// </summary>
 	private bool _qPressed = false;
-
-	/// <summary>
-	/// Latched input flag for the blade dash ('Shift' / 'C' key / Gamepad RB).
-	/// </summary>
 	private bool _dashPressed = false;
-
 	private Area2D? _attackArea;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
 	public override void _Ready()
 	{
 		base._Ready();
+		CurrentHealth = MaxHealth;
+		CurrentShield = MaxShield;
 		_attackArea = GetNodeOrNull<Area2D>("AttackArea");
 		GD.Print("=== Cyber Shogun Initialized ===");
+		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
+		EmitSignal(SignalName.DashCooldownUpdated, 0.0f, DashCooldown);
 	}
 
 	// ─── Input ───────────────────────────────────────────────────────────────
-	/// <summary>
-	/// Captures raw input events to set attack flags.
-	/// </summary>
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouse) return;
@@ -72,21 +70,48 @@ public partial class CyberShogun : BaseCharacter
 		}
 	}
 
+	public override void _PhysicsProcess(double delta)
+	{
+		// Update cooldowns & timers
+		float dt = (float)delta;
+
+		if (DashCooldownTimer > 0f)
+		{
+			DashCooldownTimer = Mathf.Max(0f, DashCooldownTimer - dt);
+			EmitSignal(SignalName.DashCooldownUpdated, DashCooldownTimer, DashCooldown);
+		}
+
+		if (_invulnerabilityTimer > 0f)
+		{
+			_invulnerabilityTimer = Mathf.Max(0f, _invulnerabilityTimer - dt);
+		}
+
+		if (ComboTimer > 0f)
+		{
+			ComboTimer = Mathf.Max(0f, ComboTimer - dt);
+			if (ComboTimer <= 0f && ComboCount > 0)
+			{
+				ComboCount = 0;
+				EmitSignal(SignalName.ComboChanged, 0);
+			}
+		}
+
+		base._PhysicsProcess(delta);
+	}
+
 	// ─── Override: special actions ───────────────────────────────────────────
-	/// <summary>
-	/// Implements character-specific combat logic.
-	/// This method is called by BaseCharacter during the physics loop.
-	/// </summary>
-	/// <returns>True if the character is attacking and normal movement should be suppressed.</returns>
 	protected override bool HandleSpecialActions()
 	{
 		// Only allow attacks when grounded and not already attacking.
 		if (IsOnFloor() && !_isAttacking)
 		{
-			// 1. Blade Dash: Triggered by Shift / C / Gamepad RB.
-			if (_dashPressed && Sprite2d.SpriteFrames.HasAnimation("blade_dash"))
+			// 1. Blade Dash: Triggered by Shift / C / Gamepad RB with cooldown check.
+			if (_dashPressed && DashCooldownTimer <= 0f && Sprite2d.SpriteFrames.HasAnimation("blade_dash"))
 			{
 				_dashPressed = false;
+				DashCooldownTimer = DashCooldown;
+				EmitSignal(SignalName.DashCooldownUpdated, DashCooldownTimer, DashCooldown);
+
 				float dashDir = Sprite2d.FlipH ? -1f : 1f;
 				Velocity = Velocity with { X = dashDir * 800f };
 				Sprite2d.Play("blade_dash");
@@ -100,13 +125,12 @@ public partial class CyberShogun : BaseCharacter
 			if (_attackPressed && Sprite2d.SpriteFrames.HasAnimation("sword_attack"))
 			{
 				_attackPressed = false;
-				// Stop horizontal movement during attack.
 				Velocity = Velocity with { X = 0f };
 				Sprite2d.Play("sword_attack");
 				float slashDir = Sprite2d.FlipH ? -1f : 1f;
 				SpawnSlashVfx(new Vector2(slashDir * 20f, -4f), new Color(0.1f, 0.85f, 1f, 0.95f));
 				PerformMeleeHitCheck(35.0f, new Vector2(slashDir * 26f, 0f));
-				_ = PlayAttackAsync();   // Trigger the animation lock asynchronously.
+				_ = PlayAttackAsync();
 				return true;
 			}
 
@@ -114,7 +138,6 @@ public partial class CyberShogun : BaseCharacter
 			if (_qPressed && Sprite2d.SpriteFrames.HasAnimation("karate_attack"))
 			{
 				_qPressed = false;
-				// Stop horizontal movement during attack.
 				Velocity = Velocity with { X = 0f };
 				Sprite2d.Play("karate_attack");
 				float strikeDir = Sprite2d.FlipH ? -1f : 1f;
@@ -125,34 +148,30 @@ public partial class CyberShogun : BaseCharacter
 			}
 		}
 
-		// Clean up stale input flags if they weren't consumed by an attack.
+		// Clean up stale input flags if not consumed
 		if (_dashPressed)   _dashPressed = false;
 		if (_attackPressed) _attackPressed = false;
 		if (_qPressed)      _qPressed = false;
 
-		// Return true if the character is currently in the middle of an attack animation.
 		return _isAttacking;
 	}
 
-	// ─── Async attack helper ─────────────────────────────────────────────────
-	/// <summary>
-	/// Locks the character's state until the current attack animation finishes.
-	/// </summary>
 	private async System.Threading.Tasks.Task PlayAttackAsync()
 	{
 		_isAttacking = true;
-		// Wait for the 'AnimationFinished' signal from the AnimatedSprite2D.
 		await ToSignal(Sprite2d, AnimatedSprite2D.SignalName.AnimationFinished);
 		_isAttacking = false;
 	}
 
 	/// <summary>
-	/// Checks for enemies or destructibles in the melee attack hitbox area and applies damage.
+	/// Checks for enemies in the melee hitbox area and applies damage.
 	/// </summary>
 	private void PerformMeleeHitCheck(float damage, Vector2 offset)
 	{
 		if (_attackArea == null) return;
 		_attackArea.Position = offset;
+
+		bool hitAny = false;
 
 		// Check overlapping physics bodies
 		foreach (var body in _attackArea.GetOverlappingBodies())
@@ -161,10 +180,12 @@ public partial class CyberShogun : BaseCharacter
 			if (body is CyberDrone2D drone)
 			{
 				drone.TakeDamage(damage);
+				hitAny = true;
 			}
 			else if (body.HasMethod("TakeDamage"))
 			{
 				body.Call("TakeDamage", damage);
+				hitAny = true;
 			}
 		}
 
@@ -175,11 +196,99 @@ public partial class CyberShogun : BaseCharacter
 			if (parent is CyberDrone2D drone)
 			{
 				drone.TakeDamage(damage);
+				hitAny = true;
 			}
 			else if (parent != null && parent.HasMethod("TakeDamage"))
 			{
 				parent.Call("TakeDamage", damage);
+				hitAny = true;
 			}
+		}
+
+		if (hitAny)
+		{
+			RegisterHit();
+		}
+	}
+
+	/// <summary>
+	/// Registers a successful melee strike, incrementing the combo counter.
+	/// </summary>
+	public void RegisterHit()
+	{
+		ComboCount++;
+		ComboTimer = ComboWindow;
+		EmitSignal(SignalName.ComboChanged, ComboCount);
+	}
+
+	/// <summary>
+	/// Receives incoming damage, draining shield before health.
+	/// </summary>
+	public void TakeDamage(float damage, Vector2 knockback = default)
+	{
+		if (_invulnerabilityTimer > 0f || !IsMoving || CurrentHealth <= 0f) return;
+
+		if (CurrentShield > 0f)
+		{
+			float absorbed = Mathf.Min(CurrentShield, damage);
+			CurrentShield -= absorbed;
+			damage -= absorbed;
+		}
+
+		if (damage > 0f)
+		{
+			CurrentHealth = Mathf.Max(0f, CurrentHealth - damage);
+		}
+
+		_invulnerabilityTimer = 0.5f;
+
+		if (knockback.LengthSquared() > 0f)
+		{
+			Velocity += knockback;
+		}
+
+		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
+		FlashHurtVfx();
+
+		if (CurrentHealth <= 0f)
+		{
+			Die();
+		}
+	}
+
+	/// <summary>
+	/// Heals player health and shield.
+	/// </summary>
+	public void Heal(float healthAmount, float shieldAmount = 0f)
+	{
+		CurrentHealth = Mathf.Min(MaxHealth, CurrentHealth + healthAmount);
+		CurrentShield = Mathf.Min(MaxShield, CurrentShield + shieldAmount);
+		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
+	}
+
+	private void FlashHurtVfx()
+	{
+		if (Sprite2d == null) return;
+		Sprite2d.Modulate = new Color(3.0f, 0.3f, 0.3f, 1f);
+		if (IsInsideTree())
+		{
+			var tween = CreateTween();
+			tween?.TweenProperty(Sprite2d, "modulate", new Color(1f, 1f, 1f, 1f), 0.22f);
+		}
+		else
+		{
+			Sprite2d.Modulate = new Color(1f, 1f, 1f, 1f);
+		}
+	}
+
+	private void Die()
+	{
+		StopMovement();
+		EmitSignal(SignalName.PlayerDefeated);
+		var timer = GetTree()?.CreateTimer(0.8);
+		if (timer != null)
+		{
+			timer.Timeout += () => GetTree()?.ReloadCurrentScene();
 		}
 	}
 

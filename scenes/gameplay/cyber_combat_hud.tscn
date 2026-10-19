@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://cybercombathud01"]
+
+[ext_resource type="Script" path="res://scripts/ui/CyberCombatHud.cs" id="1_hud_script"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="2_orbitron"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.04, 0.05, 0.08, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.85)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0.94, 1, 0.15)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shield_bg"]
+bg_color = Color(0.02, 0.1, 0.14, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shield_fill"]
+bg_color = Color(0, 0.94, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_bg"]
+bg_color = Color(0.12, 0.05, 0.05, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_fill"]
+bg_color = Color(1, 0.15, 0.25, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
+bg_color = Color(0.04, 0.05, 0.08, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.85)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_combo_panel"]
+bg_color = Color(0.1, 0.04, 0.12, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.2, 0.6, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CyberCombatHud" type="CanvasLayer"]
+script = ExtResource("1_hud_script")
+
+[node name="RootControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerStatusContainer" type="PanelContainer" parent="RootControl"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 340.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="RootControl/PlayerStatusContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="OperativeLabel" type="Label" parent="RootControl/PlayerStatusContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 11
+text = "OPERATIVE: KAITO KUROGANE // STATUS: ONLINE"
+
+[node name="ShieldBar" type="ProgressBar" parent="RootControl/PlayerStatusContainer/VBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_shield_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_shield_fill")
+value = 100.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="RootControl/PlayerStatusContainer/VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_health_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_health_fill")
+value = 100.0
+show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="RootControl/PlayerStatusContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.9)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 10
+text = "SHIELD: 50/50 | HP: 100/100"
+
+[node name="AbilitiesHBox" type="HBoxContainer" parent="RootControl/PlayerStatusContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DashBadge" type="Label" parent="RootControl/PlayerStatusContainer/VBox/AbilitiesHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 10
+text = "[SHIFT] BLADE DASH // READY"
+
+[node name="KatanaBadge" type="Label" parent="RootControl/PlayerStatusContainer/VBox/AbilitiesHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.95, 1, 0.85)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 10
+text = "[F] PLASMA KATANA"
+
+[node name="ScorePanel" type="PanelContainer" parent="RootControl"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -210.0
+offset_top = 16.0
+offset_right = -18.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_score_panel")
+
+[node name="PointsLabel" type="Label" parent="RootControl/ScorePanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 18
+text = "POINTS: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboContainer" type="PanelContainer" parent="RootControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -60.0
+offset_right = 290.0
+offset_bottom = -16.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_combo_panel")
+
+[node name="ComboLabel" type="Label" parent="RootControl/ComboContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 13
+text = "2x COMBO // DOUBLE STRIKE!"
+horizontal_alignment = 1
+vertical_alignment = 1

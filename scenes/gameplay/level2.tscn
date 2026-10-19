@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://ck68m5fwnp1h2"]
+[gd_scene load_steps=22 format=3 uid="uid://ck68m5fwnp1h2"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_vj8fr"]
+[ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_cyber_bg"]
 [ext_resource type="Texture2D" uid="uid://c7hshyd8wwkbh" path="res://assets/images/Green.png" id="2_5titt"]
 [ext_resource type="Texture2D" uid="uid://bcbik170qk7ri" path="res://assets/images/Terrain (16x16).png" id="3_dkru8"]
 [ext_resource type="PackedScene" uid="uid://cusnivs56uyv4" path="res://scenes/gameplay/cyber_shogun.tscn" id="4_5ru1b"]
@@ -12,6 +13,19 @@
 [ext_resource type="AudioStream" uid="uid://luasbdbaqkr7" path="res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3" id="8_y4e06"]
 [ext_resource type="PackedScene" uid="uid://dscsic47d81gv" path="res://scenes/gameplay/pause_menu.tscn" id="10_tm2c0"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/cyber_drone_2d.tscn" id="14_drone_scene"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/cyber_combat_hud.tscn" id="15_hud_scene"]
+
+[sub_resource type="Gradient" id="Gradient_radial"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_radial_light"]
+gradient = SubResource("Gradient_radial")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
 bg_color = Color(0, 0, 0, 0.75)
@@ -375,23 +389,38 @@ script = ExtResource("1_vj8fr")
 [node name="CyanAccentLight" type="PointLight2D" parent="SceneObjects"]
 position = Vector2(300, 400)
 color = Color(0, 0.94, 1, 1)
-energy = 1.5
-texture = ExtResource("2_5titt")
-scale = Vector2(2, 2)
+energy = 1.8
+texture = SubResource("GradientTexture2D_radial_light")
+texture_scale = 3.5
 
 [node name="MagentaAccentLight" type="PointLight2D" parent="SceneObjects"]
 position = Vector2(1500, 200)
 color = Color(1, 0, 0.5, 1)
-energy = 1.5
-texture = ExtResource("2_5titt")
-scale = Vector2(2, 2)
+energy = 1.8
+texture = SubResource("GradientTexture2D_radial_light")
+texture_scale = 3.5
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
 texture_filter = 1
-offset_right = 2263.0
-offset_bottom = 628.0
-texture = ExtResource("2_5titt")
-stretch_mode = 1
+offset_right = 2300.0
+offset_bottom = 720.0
+texture = ExtResource("2_cyber_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Enemies" type="Node" parent="SceneObjects"]
+
+[node name="CyberDrone1" parent="SceneObjects/Enemies" instance=ExtResource("14_drone_scene")]
+position = Vector2(580, 360)
+PatrolDistance = 100.0
+
+[node name="CyberDrone2" parent="SceneObjects/Enemies" instance=ExtResource("14_drone_scene")]
+position = Vector2(1250, 240)
+PatrolDistance = 130.0
+
+[node name="CyberDrone3" parent="SceneObjects/Enemies" instance=ExtResource("14_drone_scene")]
+position = Vector2(1820, 150)
+PatrolDistance = 90.0
 
 [node name="TileMap" type="TileMapLayer" parent="SceneObjects"]
 texture_filter = 1
@@ -524,33 +553,7 @@ position = Vector2(2171, 66)
 scale = Vector2(2, 2)
 target_level = ExtResource("8_8s32x")
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="UI"]
-modulate = Color(1, 1, 1, 0.9)
-offset_left = 13.0
-offset_top = 10.0
-offset_right = 205.0
-offset_bottom = 69.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_score_panel")
-
-[node name="PointsLabel" type="Label" parent="UI/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/line_spacing = 4
-theme_override_fonts/font = ExtResource("9_comic_light")
-theme_override_font_sizes/font_size = 24
-text = "Points: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-text_direction = 2
-structured_text_bidi_override = 1
+[node name="CyberCombatHud" parent="." instance=ExtResource("15_hud_scene")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_y4e06")
