@@ -12,6 +12,11 @@ public partial class CyberShogun : BaseCharacter
 	[Signal] public delegate void DashCooldownUpdatedEventHandler(float remaining, float maxDuration);
 	[Signal] public delegate void ComboChangedEventHandler(int comboCount);
 	[Signal] public delegate void PlayerDefeatedEventHandler();
+	[Signal] public delegate void OperativeProfileChangedEventHandler(OperativeProfile profile);
+
+	// ─── Operative Profile & Synergy ─────────────────────────────────────────
+	[Export] public string OperativeName { get; set; } = "Cyber Shogun";
+	public OperativeProfile ActiveProfile { get; private set; } = OperativeRegistry.GetProfile("Cyber Shogun");
 
 	// ─── Health & Shield ─────────────────────────────────────────────────────
 	[Export] public float MaxHealth { get; set; } = 100.0f;
@@ -26,22 +31,140 @@ public partial class CyberShogun : BaseCharacter
 	public const float ComboWindow = 2.0f;
 
 	private float _invulnerabilityTimer = 0.0f;
+	private float _shieldRegenCooldown = 0.0f;
 	private bool _isAttacking = false;
 	private bool _attackPressed = false;
 	private bool _qPressed = false;
 	private bool _dashPressed = false;
 	private Area2D? _attackArea;
+	private PointLight2D? _auraLight;
+
+	// Audio Players
+	private AudioStreamPlayer2D? _slashPlayer;
+	private AudioStreamPlayer2D? _clashPlayer;
+	private AudioStreamPlayer2D? _dashPlayer;
+	private AudioStreamPlayer2D? _shieldPlayer;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
 	public override void _Ready()
 	{
 		base._Ready();
-		CurrentHealth = MaxHealth;
-		CurrentShield = MaxShield;
 		_attackArea = GetNodeOrNull<Area2D>("AttackArea");
-		GD.Print("=== Cyber Shogun Initialized ===");
+		SetupAudio();
+
+		string selectedOp = OperativeName;
+		if (IsInsideTree() && GetTree()?.Root?.HasNode("Global") == true)
+		{
+			var globalNode = GetTree().Root.GetNodeOrNull<Node>("Global");
+			var globalChar = globalNode?.Get("selected_character").AsString();
+			if (!string.IsNullOrWhiteSpace(globalChar))
+			{
+				selectedOp = globalChar;
+			}
+		}
+
+		ApplyOperativeProfile(selectedOp);
+		GD.Print($"=== Operative Initialized: {ActiveProfile.DisplayName} [{ActiveProfile.CivilianName}] ===");
+	}
+
+	/// <summary>
+	/// Applies active operative profile stats, passives, mobility, and visual aura styling.
+	/// </summary>
+	public void ApplyOperativeProfile(string name)
+	{
+		ApplyOperativeProfile(OperativeRegistry.GetProfile(name));
+	}
+
+	/// <summary>
+	/// Applies an OperativeProfile directly to the character.
+	/// </summary>
+	public void ApplyOperativeProfile(OperativeProfile profile)
+	{
+		ActiveProfile = profile ?? OperativeRegistry.GetProfile("Cyber Shogun");
+		OperativeName = ActiveProfile.DisplayName;
+
+		MaxHealth = ActiveProfile.MaxHealth;
+		CurrentHealth = MaxHealth;
+		MaxShield = ActiveProfile.MaxShield;
+		CurrentShield = MaxShield;
+
+		Speed = ActiveProfile.MoveSpeed;
+		JumpVelocity = ActiveProfile.JumpVelocity;
+		DashCooldown = ActiveProfile.DashCooldown;
+		DashCooldownTimer = 0.0f;
+
+		if (Sprite2d != null)
+		{
+			Sprite2d.Modulate = ActiveProfile.AuraModulate;
+		}
+
+		UpdateAuraLight();
+
+		EmitSignal(SignalName.OperativeProfileChanged, ActiveProfile);
 		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
 		EmitSignal(SignalName.DashCooldownUpdated, 0.0f, DashCooldown);
+	}
+
+	private void UpdateAuraLight()
+	{
+		if (!IsInsideTree()) return;
+		if (_auraLight == null)
+		{
+			_auraLight = GetNodeOrNull<PointLight2D>("OperativeAuraLight");
+			if (_auraLight == null)
+			{
+				_auraLight = new PointLight2D
+				{
+					Name = "OperativeAuraLight",
+					Position = new Vector2(0f, 10f),
+					Energy = 0.85f,
+					TextureScale = 1.4f
+				};
+
+				var grad = new Gradient();
+				grad.AddPoint(0.0f, new Color(1f, 1f, 1f, 1f));
+				grad.AddPoint(1.0f, new Color(1f, 1f, 1f, 0f));
+				var gradTex = new GradientTexture2D
+				{
+					Gradient = grad,
+					Width = 64,
+					Height = 64,
+					Fill = GradientTexture2D.FillEnum.Radial
+				};
+				gradTex.FillFrom = new Vector2(0.5f, 0.5f);
+				gradTex.FillTo = new Vector2(0.5f, 0.0f);
+				_auraLight.Texture = gradTex;
+				AddChild(_auraLight);
+			}
+		}
+
+		if (_auraLight != null && ActiveProfile != null)
+		{
+			_auraLight.Color = ActiveProfile.ThemeColor;
+		}
+	}
+
+	private void SetupAudio()
+	{
+		_slashPlayer = CreateSfxPlayer("res://assets/audio/sfx/katana_slash.wav", -2.0f);
+		_clashPlayer = CreateSfxPlayer("res://assets/audio/sfx/blade_clash.wav", 0.0f);
+		_dashPlayer = CreateSfxPlayer("res://assets/audio/sfx/blade_dash.wav", -1.0f);
+		_shieldPlayer = CreateSfxPlayer("res://assets/audio/sfx/shield_hit.wav", 0.0f);
+	}
+
+	private AudioStreamPlayer2D? CreateSfxPlayer(string path, float volumeDb = 0f)
+	{
+		if (!ResourceLoader.Exists(path)) return null;
+		var stream = GD.Load<AudioStream>(path);
+		if (stream == null) return null;
+		var player = new AudioStreamPlayer2D
+		{
+			Stream = stream,
+			VolumeDb = volumeDb,
+			Bus = "Master"
+		};
+		AddChild(player);
+		return player;
 	}
 
 	// ─── Input ───────────────────────────────────────────────────────────────
@@ -96,7 +219,40 @@ public partial class CyberShogun : BaseCharacter
 			}
 		}
 
+		// Passive Shield Regeneration (Operative Synergy)
+		if (_shieldRegenCooldown > 0f)
+		{
+			_shieldRegenCooldown = Mathf.Max(0f, _shieldRegenCooldown - dt);
+		}
+		else if (CurrentShield < MaxShield && CurrentHealth > 0f && ActiveProfile != null)
+		{
+			CurrentShield = Mathf.Min(MaxShield, CurrentShield + ActiveProfile.ShieldRegenRate * dt);
+			EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
+		}
+
 		base._PhysicsProcess(delta);
+
+		// Wall slide & wall jump mechanics
+		if (IsInsideTree() && !IsOnFloor() && IsOnWall())
+		{
+			// Slide down walls at controlled speed
+			if (Velocity.Y > 0f)
+			{
+				Velocity = Velocity with { Y = Mathf.Min(Velocity.Y, 140.0f) };
+			}
+
+			// Wall jump input
+			if (Input.IsActionJustPressed("jump") || Input.IsJoyButtonPressed(0, JoyButton.A))
+			{
+				Vector2 normal = GetWallNormal();
+				if (normal.LengthSquared() > 0.01f)
+				{
+					Velocity = new Vector2(normal.X * 380.0f, JumpVelocity * 0.85f);
+					JumpSound?.Play();
+					_dashPlayer?.Play();
+				}
+			}
+		}
 	}
 
 	// ─── Override: special actions ───────────────────────────────────────────
@@ -112,11 +268,16 @@ public partial class CyberShogun : BaseCharacter
 				DashCooldownTimer = DashCooldown;
 				EmitSignal(SignalName.DashCooldownUpdated, DashCooldownTimer, DashCooldown);
 
+				float dashSpeed = ActiveProfile?.DashSpeed ?? 800f;
+				var themeColor = ActiveProfile?.ThemeColor ?? new Color(0f, 0.94f, 1f, 1f);
+				float primaryDmg = ActiveProfile?.MeleePrimaryDamage ?? 35f;
+
 				float dashDir = Sprite2d.FlipH ? -1f : 1f;
-				Velocity = Velocity with { X = dashDir * 800f };
+				Velocity = Velocity with { X = dashDir * dashSpeed };
 				Sprite2d.Play("blade_dash");
-				SpawnSlashVfx(new Vector2(dashDir * 24f, 0f), new Color(0f, 0.94f, 1f, 1f));
-				PerformMeleeHitCheck(40.0f, new Vector2(dashDir * 28f, 0f));
+				_dashPlayer?.Play();
+				SpawnSlashVfx(new Vector2(dashDir * 24f, 0f), themeColor);
+				PerformMeleeHitCheck(primaryDmg * 1.15f, new Vector2(dashDir * 28f, 0f));
 				_ = PlayAttackAsync();
 				return true;
 			}
@@ -127,9 +288,13 @@ public partial class CyberShogun : BaseCharacter
 				_attackPressed = false;
 				Velocity = Velocity with { X = 0f };
 				Sprite2d.Play("sword_attack");
+				_slashPlayer?.Play();
 				float slashDir = Sprite2d.FlipH ? -1f : 1f;
-				SpawnSlashVfx(new Vector2(slashDir * 20f, -4f), new Color(0.1f, 0.85f, 1f, 0.95f));
-				PerformMeleeHitCheck(35.0f, new Vector2(slashDir * 26f, 0f));
+				var themeColor = ActiveProfile?.ThemeColor ?? new Color(0.1f, 0.85f, 1f, 0.95f);
+				float primaryDmg = ActiveProfile?.MeleePrimaryDamage ?? 35f;
+
+				SpawnSlashVfx(new Vector2(slashDir * 20f, -4f), themeColor);
+				PerformMeleeHitCheck(primaryDmg, new Vector2(slashDir * 26f, 0f));
 				_ = PlayAttackAsync();
 				return true;
 			}
@@ -140,9 +305,13 @@ public partial class CyberShogun : BaseCharacter
 				_qPressed = false;
 				Velocity = Velocity with { X = 0f };
 				Sprite2d.Play("karate_attack");
+				_slashPlayer?.Play();
 				float strikeDir = Sprite2d.FlipH ? -1f : 1f;
-				SpawnSlashVfx(new Vector2(strikeDir * 16f, 0f), new Color(1f, 0.2f, 0.5f, 0.9f));
-				PerformMeleeHitCheck(25.0f, new Vector2(strikeDir * 20f, 0f));
+				var themeColor = ActiveProfile?.ThemeColor.Lightened(0.2f) ?? new Color(1f, 0.2f, 0.5f, 0.9f);
+				float secondaryDmg = ActiveProfile?.MeleeSecondaryDamage ?? 25f;
+
+				SpawnSlashVfx(new Vector2(strikeDir * 16f, 0f), themeColor);
+				PerformMeleeHitCheck(secondaryDmg, new Vector2(strikeDir * 20f, 0f));
 				_ = PlayAttackAsync();
 				return true;
 			}
@@ -207,6 +376,7 @@ public partial class CyberShogun : BaseCharacter
 
 		if (hitAny)
 		{
+			_clashPlayer?.Play();
 			RegisterHit();
 		}
 	}
@@ -222,29 +392,35 @@ public partial class CyberShogun : BaseCharacter
 	}
 
 	/// <summary>
-	/// Receives incoming damage, draining shield before health.
+	/// Receives incoming damage, draining shield before health, mitigated by operative armor passive.
 	/// </summary>
 	public void TakeDamage(float damage, Vector2 knockback = default)
 	{
 		if (_invulnerabilityTimer > 0f || !IsMoving || CurrentHealth <= 0f) return;
 
+		_shieldRegenCooldown = 3.0f; // Delay shield regeneration upon receiving damage
+		float mitigation = ActiveProfile?.DamageReduction ?? 0f;
+		float netDamage = damage * (1.0f - mitigation);
+
 		if (CurrentShield > 0f)
 		{
-			float absorbed = Mathf.Min(CurrentShield, damage);
+			if (IsInsideTree()) _shieldPlayer?.Play();
+			float absorbed = Mathf.Min(CurrentShield, netDamage);
 			CurrentShield -= absorbed;
-			damage -= absorbed;
+			netDamage -= absorbed;
 		}
 
-		if (damage > 0f)
+		if (netDamage > 0f)
 		{
-			CurrentHealth = Mathf.Max(0f, CurrentHealth - damage);
+			CurrentHealth = Mathf.Max(0f, CurrentHealth - netDamage);
 		}
 
 		_invulnerabilityTimer = 0.5f;
 
 		if (knockback.LengthSquared() > 0f)
 		{
-			Velocity += knockback;
+			Vector2 netKnockback = knockback * (1.0f - mitigation * 0.7f);
+			Velocity += netKnockback;
 		}
 
 		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
@@ -270,14 +446,15 @@ public partial class CyberShogun : BaseCharacter
 	{
 		if (Sprite2d == null) return;
 		Sprite2d.Modulate = new Color(3.0f, 0.3f, 0.3f, 1f);
+		Color restoreColor = ActiveProfile?.AuraModulate ?? new Color(1f, 1f, 1f, 1f);
 		if (IsInsideTree())
 		{
 			var tween = CreateTween();
-			tween?.TweenProperty(Sprite2d, "modulate", new Color(1f, 1f, 1f, 1f), 0.22f);
+			tween?.TweenProperty(Sprite2d, "modulate", restoreColor, 0.22f);
 		}
 		else
 		{
-			Sprite2d.Modulate = new Color(1f, 1f, 1f, 1f);
+			Sprite2d.Modulate = restoreColor;
 		}
 	}
 

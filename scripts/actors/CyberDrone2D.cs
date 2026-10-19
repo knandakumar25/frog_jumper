@@ -153,6 +153,24 @@ public partial class CyberDrone2D : CharacterBody2D
 		GetParent()?.AddChild(explosion);
 		explosion.Emitting = true;
 
+		// Death explosion audio
+		if (GetParent() != null && ResourceLoader.Exists("res://assets/audio/sfx/drone_explosion.wav"))
+		{
+			var stream = GD.Load<AudioStream>("res://assets/audio/sfx/drone_explosion.wav");
+			if (stream != null)
+			{
+				var sfx = new AudioStreamPlayer2D
+				{
+					Stream = stream,
+					GlobalPosition = GlobalPosition,
+					Bus = "Master"
+				};
+				GetParent().AddChild(sfx);
+				sfx.Play();
+				sfx.Finished += () => sfx.QueueFree();
+			}
+		}
+
 		var cleanupTimer = GetTree()?.CreateTimer(0.6);
 		if (cleanupTimer != null)
 		{

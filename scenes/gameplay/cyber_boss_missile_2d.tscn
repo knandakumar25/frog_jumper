@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/gameplay/CyberBossMissile2D.cs" id="1_missile_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_missile"]
+radius = 8.0
+
+[node name="CyberBossMissile2D" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_missile_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_missile")
+
+[node name="CoreVisual" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+color = Color(1, 0.35, 0.1, 1)
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+position = Vector2(-6, 0)
+amount = 12
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+scale_amount_min = 2.0
+scale_amount_max = 3.5
+color = Color(1, 0.55, 0.1, 0.8)

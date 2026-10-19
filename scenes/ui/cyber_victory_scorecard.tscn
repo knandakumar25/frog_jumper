@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/CyberVictoryScorecard.cs" id="1_scorecard_script"]
+[ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="2_orbitron"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/victory_jingle.wav" id="3_victory_jingle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.04, 0.05, 0.09, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.94, 1, 0.85)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0.94, 1, 0.2)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rank"]
+bg_color = Color(0.08, 0.04, 0.1, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85, 0.1, 0.85)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CyberVictoryScorecard" type="CanvasLayer"]
+process_mode = 3
+layer = 50
+script = ExtResource("1_scorecard_script")
+
+[node name="RootPanel" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 260.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="MainVBox" type="VBoxContainer" parent="RootPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="RootPanel/MainVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 15
+text = "MISSION DEBRIEFING // OBJECTIVE COMPLETE"
+horizontal_alignment = 1
+
+[node name="RankPanel" type="PanelContainer" parent="RootPanel/MainVBox"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rank")
+
+[node name="RankLabel" type="Label" parent="RootPanel/MainVBox/RankPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "S RANK // FLAWLESS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsGrid" type="VBoxContainer" parent="RootPanel/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="OperativeLabel" type="Label" parent="RootPanel/MainVBox/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 0.9)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 11
+text = "OPERATIVE: KAITO KUROGANE // CYBER SHOGUN"
+
+[node name="ScoreLabel" type="Label" parent="RootPanel/MainVBox/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 14
+text = "FINAL SCORE: 350 PTS"
+
+[node name="ComboLabel" type="Label" parent="RootPanel/MainVBox/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 13
+text = "PEAK COMBO: 4x STRIKE"
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="RootPanel/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ReplayBtn" type="Button" parent="RootPanel/MainVBox/ButtonsHBox"]
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 11
+text = "REPLAY"
+
+[node name="LevelSelectBtn" type="Button" parent="RootPanel/MainVBox/ButtonsHBox"]
+custom_minimum_size = Vector2(130, 36)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 11
+text = "LEVEL SELECT"
+
+[node name="MainMenuBtn" type="Button" parent="RootPanel/MainVBox/ButtonsHBox"]
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 11
+text = "MAIN MENU"
+
+[node name="JinglePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_victory_jingle")
+volume_db = -4.0
+bus = &"Master"

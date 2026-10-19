@@ -12,16 +12,16 @@ using Godot;
 /// </summary>
 public partial class BaseCharacter : CharacterBody2D
 {
-	// ─── Constants ───────────────────────────────────────────────────────────
+	// ─── Movement Attributes ──────────────────────────────────────────────────
 	/// <summary>
 	/// Horizontal movement speed in pixels per second.
 	/// </summary>
-	protected const float Speed = 400.0f;
+	protected float Speed = 400.0f;
 
 	/// <summary>
 	/// The initial upward velocity applied when jumping.
 	/// </summary>
-	protected const float JumpVelocity = -1000.0f;
+	protected float JumpVelocity = -1000.0f;
 
 	// ─── State ───────────────────────────────────────────────────────────────
 	/// <summary>
@@ -88,7 +88,10 @@ public partial class BaseCharacter : CharacterBody2D
 					" | Frame: ", Sprite2d.Frame);
 		};
 		timer.WaitTime = 2.0;
-		timer.Start();
+		if (IsInsideTree())
+		{
+			timer.Start();
+		}
 	}
 
 	// ─── Physics ─────────────────────────────────────────────────────────────

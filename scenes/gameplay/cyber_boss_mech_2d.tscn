@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/actors/CyberBossMech2D.cs" id="1_boss_script"]
+[ext_resource type="Texture2D" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_boss_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss"]
+size = Vector2(80, 60)
+
+[sub_resource type="Gradient" id="Gradient_radial"]
+colors = PackedColorArray(0, 0.94, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boss_eye"]
+gradient = SubResource("Gradient_radial")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.9)
+
+[node name="CyberBossMech2D" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_boss_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_boss_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_boss")
+
+[node name="EyeLight" type="PointLight2D" parent="."]
+position = Vector2(0, -6)
+color = Color(0, 0.94, 1, 1)
+energy = 2.5
+texture = SubResource("GradientTexture2D_boss_eye")
+texture_scale = 2.2
+
+[node name="ThrusterSparks" type="CPUParticles2D" parent="."]
+position = Vector2(0, 24)
+amount = 18
+lifetime = 0.35
+direction = Vector2(0, 1)
+spread = 35.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 50.0
+initial_velocity_max = 120.0
+scale_amount_min = 2.5
+scale_amount_max = 4.0
+color = Color(0, 0.94, 1, 0.9)

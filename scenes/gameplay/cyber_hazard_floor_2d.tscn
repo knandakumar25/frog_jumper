@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/gameplay/CyberHazardFloor2D.cs" id="1_hazard_script"]
+
+[sub_resource type="Curve" id="Curve_sparks_scale"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CyberHazardFloor2D" type="Node2D"]
+script = ExtResource("1_hazard_script")
+
+[node name="FloorVisual" type="ColorRect" parent="."]
+offset_right = 200.0
+offset_bottom = 8.0
+color = Color(0, 0.94, 1, 0.85)
+
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+
+[node name="Sparks" type="CPUParticles2D" parent="."]
+position = Vector2(100, 0)
+amount = 20
+lifetime = 0.35
+emission_shape = 3
+emission_rect_extents = Vector2(100, 2)
+direction = Vector2(0, -1)
+spread = 45.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 60.0
+initial_velocity_max = 140.0
+scale_amount_min = 2.0
+scale_amount_max = 3.5
+scale_amount_curve = SubResource("Curve_sparks_scale")
+color = Color(0, 0.94, 1, 1)

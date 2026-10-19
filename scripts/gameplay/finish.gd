@@ -42,6 +42,23 @@ func _on_body_entered(body):
 			)
 			print("Session updated: Level ", next_level, " Score: ", total_score)
 
+		# Check for CyberVictoryScorecard in current level
+		var scorecard = get_tree().current_scene.get_node_or_null("CyberVictoryScorecard")
+		if scorecard and scorecard.has_method("ShowScorecard"):
+			var total_points = 0
+			if game_manager:
+				total_points = game_manager.Points
+			var hud = get_tree().current_scene.get_node_or_null("CyberCombatHud")
+			var max_combo = 1
+			if hud and "ComboCount" in hud:
+				max_combo = hud.ComboCount
+			var op_title = "KAITO KUROGANE // CYBER SHOGUN"
+			var player = get_tree().current_scene.find_child("CyberShogun", true, false)
+			if player and "ActiveProfile" in player and player.ActiveProfile != null:
+				op_title = str(player.ActiveProfile.CivilianName).to_upper() + " // " + str(player.ActiveProfile.DisplayName).to_upper()
+			scorecard.ShowScorecard(total_points, max_combo, op_title)
+			return
+
 		# Create and start a timer
 		var timer = Timer.new()
 		timer.wait_time = 3
@@ -50,6 +67,7 @@ func _on_body_entered(body):
 
 		# Wait for the timer to timeout
 		await timer.timeout
+		timer.queue_free()
 
 		# Change the scene
 		Global.reached_finish = false

@@ -17,7 +17,12 @@ public partial class CyberCombatHud : CanvasLayer
 	private Control? _comboContainer;
 	private Label? _comboLabel;
 
+	private Control? _bossStatusContainer;
+	private ProgressBar? _bossHealthBar;
+	private Label? _bossPhaseBadge;
+
 	private CyberShogun? _player;
+	private CyberBossMech2D? _boss;
 
 	public override void _Ready()
 	{
@@ -30,13 +35,18 @@ public partial class CyberCombatHud : CanvasLayer
 		_comboContainer = GetNodeOrNull<Control>("RootControl/ComboContainer");
 		_comboLabel = GetNodeOrNull<Label>("RootControl/ComboContainer/ComboLabel");
 
+		_bossStatusContainer = GetNodeOrNull<Control>("RootControl/BossStatusContainer");
+		_bossHealthBar = GetNodeOrNull<ProgressBar>("RootControl/BossStatusContainer/VBox/BossHealthBar");
+		_bossPhaseBadge = GetNodeOrNull<Label>("RootControl/BossStatusContainer/VBox/PhaseBadge");
+
 		if (_comboContainer != null)
 		{
 			_comboContainer.Modulate = new Color(1f, 1f, 1f, 0f);
 		}
 
-		// Find the active player in the scene
+		// Find the active player and boss in the scene
 		BindPlayer();
+		BindBoss();
 	}
 
 	/// <summary>
@@ -48,7 +58,7 @@ public partial class CyberCombatHud : CanvasLayer
 		{
 			_player = player;
 		}
-		else
+		else if (IsInsideTree())
 		{
 			_player = GetTree()?.Root?.FindChild("CyberShogun", true, false) as CyberShogun;
 		}
@@ -59,10 +69,32 @@ public partial class CyberCombatHud : CanvasLayer
 			_player.DashCooldownUpdated += OnDashCooldownUpdated;
 			_player.ComboChanged += OnComboChanged;
 			_player.PlayerDefeated += OnPlayerDefeated;
+			_player.OperativeProfileChanged += OnOperativeProfileChanged;
 
 			// Initialize with current values
+			if (_player.ActiveProfile != null)
+			{
+				OnOperativeProfileChanged(_player.ActiveProfile);
+			}
 			OnHealthChanged(_player.CurrentHealth, _player.MaxHealth, _player.CurrentShield, _player.MaxShield);
 			OnDashCooldownUpdated(_player.DashCooldownTimer, _player.DashCooldown);
+		}
+	}
+
+	private void OnOperativeProfileChanged(OperativeProfile profile)
+	{
+		if (profile == null) return;
+
+		if (_katanaBadge != null)
+		{
+			_katanaBadge.Text = $"[F] {profile.PrimaryAbilityName.ToUpper()}";
+			_katanaBadge.Modulate = profile.ThemeColor;
+		}
+
+		if (_dashBadge != null)
+		{
+			_dashBadge.Text = $"[SHIFT] {profile.DashAbilityName.ToUpper()} // READY";
+			_dashBadge.Modulate = profile.ThemeColor;
 		}
 	}
 
@@ -98,23 +130,28 @@ public partial class CyberCombatHud : CanvasLayer
 
 		if (_statusLabel != null)
 		{
-			_statusLabel.Text = $"SHIELD: {(int)currentShield}/{(int)maxShield} | HP: {(int)currentHealth}/{(int)maxHealth}";
+			string opTag = _player?.ActiveProfile != null
+				? $"{_player.ActiveProfile.DisplayName.ToUpper()} // "
+				: "";
+			_statusLabel.Text = $"{opTag}SHIELD: {(int)currentShield}/{(int)maxShield} | HP: {(int)currentHealth}/{(int)maxHealth}";
 		}
 	}
 
 	private void OnDashCooldownUpdated(float remaining, float maxDuration)
 	{
 		if (_dashBadge == null) return;
+		string dashName = _player?.ActiveProfile?.DashAbilityName.ToUpper() ?? "BLADE DASH";
+		var themeColor = _player?.ActiveProfile?.ThemeColor ?? new Color(0f, 0.94f, 1f, 1f);
 
 		if (remaining > 0.05f)
 		{
-			_dashBadge.Text = $"[SHIFT] DASH ({remaining:0.0}s)";
+			_dashBadge.Text = $"[SHIFT] {dashName} ({remaining:0.0}s)";
 			_dashBadge.Modulate = new Color(0.6f, 0.6f, 0.6f, 0.8f);
 		}
 		else
 		{
-			_dashBadge.Text = "[SHIFT] BLADE DASH // READY";
-			_dashBadge.Modulate = new Color(0f, 0.94f, 1f, 1f);
+			_dashBadge.Text = $"[SHIFT] {dashName} // READY";
+			_dashBadge.Modulate = themeColor;
 		}
 	}
 
@@ -167,6 +204,80 @@ public partial class CyberCombatHud : CanvasLayer
 		{
 			_statusLabel.Text = "OPERATIVE CRITICAL // SYSTEM REBOOTING...";
 			_statusLabel.Modulate = new Color(1f, 0.2f, 0.2f, 1f);
+		}
+	}
+
+	/// <summary>
+	/// Locates and binds to the active level boss if present.
+	/// </summary>
+	public void BindBoss(CyberBossMech2D? boss = null)
+	{
+		if (boss != null)
+		{
+			_boss = boss;
+		}
+		else if (IsInsideTree())
+		{
+			_boss = GetTree()?.Root?.FindChild("CyberBossMech2D", true, false) as CyberBossMech2D;
+		}
+
+		if (_boss != null)
+		{
+			if (_bossStatusContainer != null) _bossStatusContainer.Visible = true;
+			_boss.BossHealthChanged += OnBossHealthChanged;
+			_boss.BossDefeated += OnBossDefeated;
+			OnBossHealthChanged(_boss.CurrentHealth, _boss.MaxHealth, _boss.CurrentPhase);
+		}
+		else
+		{
+			if (_bossStatusContainer != null) _bossStatusContainer.Visible = false;
+		}
+	}
+
+	private void OnBossHealthChanged(float current, float max, int phase)
+	{
+		if (_bossHealthBar != null)
+		{
+			_bossHealthBar.MaxValue = max;
+			if (IsInsideTree())
+			{
+				var tween = CreateTween();
+				tween?.TweenProperty(_bossHealthBar, "value", current, 0.2f);
+			}
+			else
+			{
+				_bossHealthBar.Value = current;
+			}
+		}
+
+		if (_bossPhaseBadge != null)
+		{
+			if (phase == 2)
+			{
+				_bossPhaseBadge.Text = "PHASE 2 // OVERDRIVE RAGE";
+				_bossPhaseBadge.Modulate = new Color(1.0f, 0.25f, 0.25f, 1f);
+			}
+			else
+			{
+				_bossPhaseBadge.Text = "PHASE 1 // TACTICAL HOVER";
+				_bossPhaseBadge.Modulate = new Color(1.0f, 0.85f, 0.2f, 0.95f);
+			}
+		}
+	}
+
+	private void OnBossDefeated()
+	{
+		if (_bossPhaseBadge != null)
+		{
+			_bossPhaseBadge.Text = "MECH NEUTRALIZED // EXTRACTION GATE OPEN";
+			_bossPhaseBadge.Modulate = new Color(0f, 0.94f, 1f, 1f);
+		}
+
+		if (_bossStatusContainer != null && IsInsideTree())
+		{
+			var tween = CreateTween();
+			tween?.TweenInterval(1.5f);
+			tween?.TweenProperty(_bossStatusContainer, "modulate:a", 0.0f, 0.8f);
 		}
 	}
 }

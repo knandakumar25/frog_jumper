@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ck68m5fwnp1h2"]
+[gd_scene load_steps=24 format=3 uid="uid://ck68m5fwnp1h2"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/GameManager.cs" id="1_vj8fr"]
 [ext_resource type="Texture2D" path="res://assets/images/cyber_city_dusk_background.png" id="2_cyber_bg"]
@@ -15,6 +15,8 @@
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="PackedScene" path="res://scenes/gameplay/cyber_drone_2d.tscn" id="14_drone_scene"]
 [ext_resource type="PackedScene" path="res://scenes/gameplay/cyber_combat_hud.tscn" id="15_hud_scene"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/cyber_laser_grid_2d.tscn" id="16_laser_grid"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/cyber_hazard_floor_2d.tscn" id="17_hazard_floor"]
 
 [sub_resource type="Gradient" id="Gradient_radial"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -547,6 +549,16 @@ scale = Vector2(3, 3)
 [node name="Collectable27" parent="SceneObjects/Collectables group" instance=ExtResource("5_6gg60")]
 position = Vector2(2002, 99)
 scale = Vector2(3, 3)
+
+[node name="Hazards" type="Node" parent="SceneObjects"]
+
+[node name="CyberLaserGrid2D" parent="SceneObjects/Hazards" instance=ExtResource("16_laser_grid")]
+position = Vector2(980, 140)
+BeamLength = 200.0
+
+[node name="CyberHazardFloor2D" parent="SceneObjects/Hazards" instance=ExtResource("17_hazard_floor")]
+position = Vector2(1480, 590)
+FloorWidth = 240.0
 
 [node name="Finish" parent="SceneObjects" instance=ExtResource("6_sqb2k")]
 position = Vector2(2171, 66)
