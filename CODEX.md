@@ -109,6 +109,14 @@ This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\con
   - `.\export_game_wsl.ps1`: Runs headless Godot 4.7.2 + Android SDK exporter container (`export/Containerfile`).
 - **CLI path**: `& "C:\Program Files\WSL\container.exe" <command>` (supports standard OCI commands like `list`, `build`, `run`, `rm`, `image list`).
 
+## Mandatory In-Code Documentation
+
+- **Every piece of code must be documented in the code itself.** This applies to all agents and all code they create or modify, including gameplay, UI, backend, frontend, tests, scripts, and tooling.
+- Document each module, class, function, and method using the language's appropriate comments or documentation format (for example, C# XML documentation, Python docstrings, or GDScript/JavaScript documentation comments).
+- Explain the code's purpose, behavior, and relevant inputs, outputs, side effects, assumptions, and constraints. Add inline comments for non-obvious logic, algorithms, state transitions, and workarounds, explaining why they are needed.
+- Keep documentation accurate whenever code changes. Document previously undocumented code when working on it. Documentation in Markdown files, commit messages, or chat does not replace documentation in the source code.
+- Use clear, useful explanations rather than comments that merely repeat the syntax.
+
 ## Permissions Denylist
 - **NO Git commits or pushes** without explicit user instruction for the current changes.
 - **NO Docker CLI / Docker Desktop** commands.

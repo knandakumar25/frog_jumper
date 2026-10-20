@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
 [ext_resource type="Script" path="res://scripts/ui/SegmentedStatBar.cs" id="4_segmented_stat_script"]
 [ext_resource type="PackedScene" path="res://scenes/main_menu/operative_upgrade_screen.tscn" id="12_upgrade_screen"]
-[ext_resource type="Texture2D" path="res://assets/images/operatives/cyber_shogun.jpg" id="13_default_shogun_card"]
+[ext_resource type="Texture2D" path="res://assets/characters/rendered/cyber_shogun_portrait.png" id="13_default_shogun_card"]
 
 [ext_resource type="Script" path="res://scripts/ui/animated_menu_backdrop.gd" id="20_backdrop"]
 [ext_resource type="Texture2D" path="res://assets/images/menu_backdrops/command_bay_base.png" id="21_base"]

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/main_menu/StoryIntro.cs" id="1_story_intro_script"]
-[ext_resource type="Texture2D" uid="uid://bdpjelaxkre4f" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_robot_image"]
+[ext_resource type="Texture2D" path="res://assets/characters/rendered/axiom7_portrait.png" id="2_robot_image"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="4_orbitron"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Medium.ttf" id="5_rajdhani_med"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="6_rajdhani_bold"]

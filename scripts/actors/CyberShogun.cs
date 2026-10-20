@@ -95,7 +95,10 @@ public partial class CyberShogun : BaseCharacter
 
 		if (Sprite2d != null)
 		{
-			Sprite2d.Modulate = ActiveProfile.AuraModulate;
+			Sprite2d.SpriteFrames = OperativeVisuals.LoadFrames(ActiveProfile.DisplayName);
+			Sprite2d.Scale = new Vector2(0.37f, 0.37f);
+			Sprite2d.Modulate = Colors.White;
+			if (IsInsideTree()) Sprite2d.Play("idle");
 		}
 
 		UpdateAuraLight();
@@ -446,7 +449,7 @@ public partial class CyberShogun : BaseCharacter
 	{
 		if (Sprite2d == null) return;
 		Sprite2d.Modulate = new Color(3.0f, 0.3f, 0.3f, 1f);
-		Color restoreColor = ActiveProfile?.AuraModulate ?? new Color(1f, 1f, 1f, 1f);
+		Color restoreColor = Colors.White;
 		if (IsInsideTree())
 		{
 			var tween = CreateTween();

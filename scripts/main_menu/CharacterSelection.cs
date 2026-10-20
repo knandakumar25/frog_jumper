@@ -31,6 +31,9 @@ public partial class CharacterSelection : Control
 	private Control? _mainLayout;
 	private Button? _upgradeOperativeBtn;
 	private OperativeUpgradeScreen? _upgradeScreen;
+	private VBoxContainer? _artStudy;
+	private ShogunArtPreview? _artPreview;
+	private Label? _artStatus;
 
 
 	private string _currentSelectedCharacter = "Cyber Shogun";
@@ -44,6 +47,7 @@ public partial class CharacterSelection : Control
 		}
 
 		EnsureUIReferences();
+		BuildArtStudy();
 
 		Input.MouseMode = Input.MouseModeEnum.Hidden;
 
@@ -106,6 +110,63 @@ public partial class CharacterSelection : Control
 	private static void FixFontForLocale(Node node)
 	{
 		// Native Orbitron & Rajdhani sci-fi fonts handle Arabic via Cairo font fallbacks configured in global.gd.
+	}
+
+	private void BuildArtStudy()
+	{
+		var center = GetNodeOrNull<VBoxContainer>("MainLayout/CenterShowcasePanel/VBox");
+		if (center == null || _artStudy != null) return;
+		_artStudy = new VBoxContainer { Name = "ShogunArtStudy", SizeFlagsVertical = SizeFlags.ExpandFill };
+		center.AddChild(_artStudy);
+		center.MoveChild(_artStudy, 1);
+		_artPreview = new ShogunArtPreview {
+			Name = "ArtPreview", CustomMinimumSize = new Vector2(0, 430),
+			SizeFlagsVertical = SizeFlags.ExpandFill
+		};
+		_artStudy.AddChild(_artPreview);
+		_artStatus = new Label {
+			Text = "Idle • animation study", HorizontalAlignment = HorizontalAlignment.Center,
+			AutowrapMode = TextServer.AutowrapMode.WordSmart
+		};
+		_artStatus.AddThemeFontSizeOverride("font_size", 16);
+		_artStudy.AddChild(_artStatus);
+		var grid = new GridContainer { Name = "Actions", Columns = 2 };
+		_artStudy.AddChild(grid);
+		foreach (string action in new[] { "Idle", "Walk", "Run", "Jump", "Double jump", "Katana",
+			"Martial strike", "Shogun's Flash", "Kinetic Parry", "Cyber Dash", "Ground Slam" })
+		{
+			var button = new Button {
+				Text = action, CustomMinimumSize = new Vector2(0, 34),
+				SizeFlagsHorizontal = SizeFlags.ExpandFill, MouseFilter = MouseFilterEnum.Ignore
+			};
+			button.AddThemeFontSizeOverride("font_size", 15);
+			button.Pressed += () => PreviewStudyAction(action);
+			grid.AddChild(button);
+		}
+		var shogunButton = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
+		if (shogunButton != null)
+		{
+			shogunButton.FocusNeighborRight = shogunButton.GetPathTo(grid.GetChild<Button>(0));
+			foreach (Node child in grid.GetChildren())
+				if (child is Button actionButton)
+					actionButton.FocusNeighborLeft = actionButton.GetPathTo(shogunButton);
+		}
+		var note = new Label {
+			Text = "Arrows / Tab: choose • Enter: preview\nArt test only • campaign unchanged",
+			HorizontalAlignment = HorizontalAlignment.Center,
+			AutowrapMode = TextServer.AutowrapMode.WordSmart
+		};
+		note.AddThemeFontSizeOverride("font_size", 13);
+		_artStudy.AddChild(note);
+	}
+
+	public void PreviewStudyAction(string action)
+	{
+		if (_currentSelectedCharacter != "Cyber Shogun" || _artPreview == null) return;
+		_artPreview.Preview(action);
+		if (_artStatus != null)
+			_artStatus.Text = action + (action is "Kinetic Parry" or "Ground Slam"
+				? " • proposed ability animation" : " • animation study");
 	}
 
 	/// <summary>
@@ -257,6 +318,13 @@ public partial class CharacterSelection : Control
 	{
 		EnsureUIReferences();
 		_currentSelectedCharacter = characterName;
+		var centerPanel = GetNodeOrNull<Control>("MainLayout/CenterShowcasePanel");
+		if (centerPanel != null)
+			centerPanel.SizeFlagsHorizontal = characterName == "Cyber Shogun"
+				? SizeFlags.ExpandFill : SizeFlags.Expand | SizeFlags.ShrinkCenter;
+		if (_artStudy != null) _artStudy.Visible = characterName == "Cyber Shogun";
+		if (_operativeCardImage != null) _operativeCardImage.Visible = characterName != "Cyber Shogun";
+		_artPreview?.Preview("Idle");
 
 		float baseSpeed = 98f;
 		float baseAgility = 96f;
@@ -339,15 +407,7 @@ public partial class CharacterSelection : Control
 		}
 
 		// Update 2D High-Fidelity Operative Card
-		string cardPath = characterName switch
-		{
-			"Oceanus" => "res://assets/images/operatives/oceanus.jpg",
-			"Surya Prime" => "res://assets/images/operatives/surya_prime.jpg",
-			"Mirage Blade" => "res://assets/images/operatives/mirage_blade.jpg",
-			"Apex Titan" => "res://assets/images/operatives/apex_titan.jpg",
-			"Aura Phoenicia" or "Phoenicia" => "res://assets/images/operatives/phoenicia.jpg",
-			_ => "res://assets/images/operatives/cyber_shogun.jpg"
-		};
+		string cardPath = OperativeVisuals.PortraitPath(characterName);
 		if (_operativeCardImage != null)
 		{
 			_operativeCardImage.Texture = LoadOperativeTexture(cardPath);
@@ -368,6 +428,11 @@ public partial class CharacterSelection : Control
 
 		var ability = abilities[abilityIndex];
 		UpdateAbilityDisplay(ability, isPreviewing: true);
+		if (_currentSelectedCharacter == "Cyber Shogun")
+		{
+			PreviewStudyAction(ability.Name);
+			return;
+		}
 
 		// Pulse 2D Operative Card with holographic tactical flash
 		if (_operativeCardImage != null && IsInsideTree())

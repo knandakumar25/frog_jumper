@@ -64,84 +64,16 @@ public partial class MainCharacter : CharacterBody2D
 
 	// ─── Sprite loading & Animation Assembly ──────────────────────────────────
 	/// <summary>
-	/// Dynamically builds the SpriteFrames resource based on the selected character.
-	/// This method manually slices textures into frames for the animator.
+	/// Loads the selected operative's original-model animation atlas.
 	/// </summary>
 	private void LoadCharacterSprites()
 	{
 		var character = (string)GetNode<Node>("/root/Global").Get("selected_character");
-		var basePath  = "res://assets/images/" + character + "/";
-
-		var frames = new SpriteFrames();
-		if (frames.HasAnimation("default"))
-			frames.RemoveAnimation("default");
-
-		if (character == "Cyber Shogun")
-		{
-			// Load high-res specific asset for Cyber Shogun.
-			var tex = GD.Load<Texture2D>(
-				"res://assets/images/A-16-bit-pixel-art-2D-side-scroller-sprite-of-a-fu-64px-9.png");
-			if (tex == null) { GD.Print("Error: Cyber Shogun idle texture not found."); return; }
-
-			var frameSize = new Vector2(61, 71);
-			int frameCount = 9, columns = 3;
-			foreach (var name in new[] { "default", "idle", "finished", "jumping", "running", "falling", "double_jump", "hit" })
-				AddAnimationFrames(frames, name, tex, 10f, true, frameCount, columns, frameSize);
-		}
-		else
-		{
-			// Generic loading for standard characters.
-			var idle = GD.Load<Texture2D>(basePath + "Idle (32x32).png");
-			AddAnimationFrames(frames, "default",  idle, 10f);
-			AddAnimationFrames(frames, "idle",      idle, 10f);
-			AddAnimationFrames(frames, "finished",  idle, 10f);
-
-			AddAnimationFrames(frames, "jumping",     GD.Load<Texture2D>(basePath + "Jump (32x32).png"),        10f);
-			AddAnimationFrames(frames, "running",     GD.Load<Texture2D>(basePath + "Run (32x32).png"),         10f);
-			AddAnimationFrames(frames, "falling",     GD.Load<Texture2D>(basePath + "Fall (32x32).png"),        10f);
-			AddAnimationFrames(frames, "double_jump", GD.Load<Texture2D>(basePath + "Double Jump (32x32).png"), 10f);
-			AddAnimationFrames(frames, "hit",         GD.Load<Texture2D>(basePath + "Hit (32x32).png"),         10f);
-
-			string swordPath  = basePath + "Sword Fight.png";
-			string karatePath = basePath + "Karate.png";
-			if (ResourceLoader.Exists(swordPath))
-				AddAnimationFrames(frames, "sword_attack",  GD.Load<Texture2D>(swordPath),  15f, false, 6);
-			if (ResourceLoader.Exists(karatePath))
-				AddAnimationFrames(frames, "karate_attack", GD.Load<Texture2D>(karatePath), 15f, false, 6);
-		}
-
-		_sprite2d.SpriteFrames = frames;
-		_sprite2d.Play("default");
-	}
-
-	/// <summary>
-	/// Helper to slice a texture into an animation sequence for SpriteFrames.
-	/// </summary>
-	private void AddAnimationFrames(
-		SpriteFrames frames, string animName, Texture2D texture,
-		float speed, bool loop = true, int manualFrameCount = -1,
-		int framesPerRow = -1, Vector2 frameSize = default)
-	{
-		if (texture == null) { GD.Print("Error: Texture is null for animation: ", animName); return; }
-		if (frameSize == default) frameSize = new Vector2(32, 32);
-
-		frames.AddAnimation(animName);
-		frames.SetAnimationLoop(animName, loop);
-		frames.SetAnimationSpeed(animName, speed);
-
-		int frameCount = manualFrameCount > 0 ? manualFrameCount : (int)(texture.GetWidth() / frameSize.X);
-		int columns    = framesPerRow > 0 ? framesPerRow : frameCount;
-
-		GD.Print("Loading animation '", animName, "' with ", frameCount, " frames (", columns, " per row)");
-
-		for (int i = 0; i < frameCount; i++)
-		{
-			var atlas = new AtlasTexture { Atlas = texture };
-			float x = (i % columns) * frameSize.X;
-			float y = (i / columns) * frameSize.Y;
-			atlas.Region = new Rect2(x, y, frameSize.X, frameSize.Y);
-			frames.AddFrame(animName, atlas);
-		}
+		_sprite2d.SpriteFrames = OperativeVisuals.LoadFrames(character);
+		_sprite2d.Scale = new Vector2(0.16f, 0.16f);
+		_sprite2d.TextureFilter = CanvasItem.TextureFilterEnum.Linear;
+		_sprite2d.Material = new CanvasItemMaterial { LightMode = CanvasItemMaterial.LightModeEnum.Unshaded };
+		if (IsInsideTree()) _sprite2d.Play("idle");
 	}
 
 	// ─── Physics ─────────────────────────────────────────────────────────────

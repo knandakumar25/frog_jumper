@@ -1,57 +1,10 @@
 [gd_scene format=3 uid="uid://b8dron2dcpt6k"]
 
 [ext_resource type="Script" path="res://scripts/actors/CyberDrone2D.cs" id="1_drone_script"]
-[ext_resource type="Texture2D" path="res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png" id="2_drone_texture"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/rendered/vanguard.tres" id="2_drone_texture"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0"]
-atlas = ExtResource("2_drone_texture")
-region = Rect2(0, 0, 166, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1"]
-atlas = ExtResource("2_drone_texture")
-region = Rect2(166, 0, 166, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2"]
-atlas = ExtResource("2_drone_texture")
-region = Rect2(332, 0, 166, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3"]
-atlas = ExtResource("2_drone_texture")
-region = Rect2(498, 0, 166, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4"]
-atlas = ExtResource("2_drone_texture")
-region = Rect2(664, 0, 166, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5"]
-atlas = ExtResource("2_drone_texture")
-region = Rect2(830, 0, 170, 250)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_drone"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d5")
-}],
-"loop": true,
-"name": &"hover",
-"speed": 8.0
-}]
+[sub_resource type="CanvasItemMaterial" id="Material_baked_character"]
+light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drone"]
 radius = 22.0
@@ -73,11 +26,12 @@ collision_mask = 3
 script = ExtResource("1_drone_script")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(0.24, 0.24)
-sprite_frames = SubResource("SpriteFrames_drone")
-animation = &"hover"
-autoplay = "hover"
+material = SubResource("Material_baked_character")
+texture_filter = 2
+scale = Vector2(0.3, 0.3)
+sprite_frames = ExtResource("2_drone_texture")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_drone")

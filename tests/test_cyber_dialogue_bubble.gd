@@ -5,7 +5,7 @@ extends GdUnitTestSuite
 
 func test_dialogue_assets_exist() -> void:
 	assert_bool(FileAccess.file_exists("res://assets/textures/cyber_speech_frame.png")).is_true()
-	assert_bool(FileAccess.file_exists("res://assets/textures/axiom7_avatar_icon.png")).is_true()
+	assert_bool(FileAccess.file_exists("res://assets/characters/rendered/axiom7_portrait.png")).is_true()
 	assert_bool(FileAccess.file_exists("res://assets/textures/cyber_speech_pointer.png")).is_true()
 	assert_bool(FileAccess.file_exists("res://assets/shaders/cyber_dialogue_bubble.gdshader")).is_true()
 

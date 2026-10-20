@@ -29,7 +29,7 @@ public partial class CyberBossMech2D : CharacterBody2D
 	private bool _enteredPhaseTwo = false;
 
 	// ─── Node References ─────────────────────────────────────────────────────
-	private Sprite2D? _sprite;
+	private AnimatedSprite2D? _sprite;
 	private PointLight2D? _eyeLight;
 	private AudioStreamPlayer2D? _cannonAudio;
 	private AudioStreamPlayer2D? _alarmAudio;
@@ -43,7 +43,7 @@ public partial class CyberBossMech2D : CharacterBody2D
 		_originPosition = GlobalPosition;
 		CurrentHealth = MaxHealth;
 
-		_sprite = GetNodeOrNull<Sprite2D>("Sprite2D");
+		_sprite = GetNodeOrNull<AnimatedSprite2D>("Sprite2D");
 		_eyeLight = GetNodeOrNull<PointLight2D>("EyeLight");
 		_thrusterSparks = GetNodeOrNull<CpuParticles2D>("ThrusterSparks");
 
@@ -101,7 +101,7 @@ public partial class CyberBossMech2D : CharacterBody2D
 		// Face movement / player direction
 		if (_sprite != null && Velocity.X != 0f)
 		{
-			_sprite.FlipH = Velocity.X > 0f;
+			_sprite.FlipH = Velocity.X < 0f;
 		}
 
 		// 2. Attack execution
