@@ -63,7 +63,10 @@ public partial class MenuSessionUI : Node
 	private async Task PopulateSessions()
 	{
 		foreach (Node child in _sessionsContainer.GetChildren())
+		{
+			_sessionsContainer.RemoveChild(child);
 			child.QueueFree();
+		}
 
 		var sessions = await SessionManager.Instance.GetAllSessionsAsync();
 		if (sessions.Count == 0)
@@ -203,7 +206,7 @@ public partial class MenuSessionUI : Node
 			}
 			else
 			{
-				_continuePopup.Visible = _continueButton.Visible = false;
+				CloseEmptyHistory();
 			}
 			return;
 		}
@@ -211,9 +214,7 @@ public partial class MenuSessionUI : Node
 		if (deleteMode == "all")
 		{
 			await SessionManager.Instance.DeleteAllSessionsAsync();
-			_confirmPopup.Visible  = false;
-			_continuePopup.Visible = false;
-			_continueButton.Visible = false;
+			CloseEmptyHistory();
 			return;
 		}
 
@@ -238,6 +239,15 @@ public partial class MenuSessionUI : Node
 		FocusFirstSessionButton();
 	}
 
+	// Both deleting the final save and purging all saves return to this state.
+	public void CloseEmptyHistory()
+	{
+		CloseAll();
+		if (_continueButton != null) _continueButton.Visible = false;
+		if (IsInsideTree() && GetParent() is MainMenu menu)
+			menu.RestoreMainMenuFocus();
+	}
+
 	public void ConfirmNewGame()
 	{
 		_newGamePopup.Visible = false;
@@ -258,20 +268,28 @@ public partial class MenuSessionUI : Node
 			{
 				foreach (Node c in row.GetChildren())
 				{
-					if (c is Button btn && btn.Visible && !btn.Disabled)
+					if (c is Control btn && CanFocusSessionControl(btn))
 					{
 						btn.CallDeferred(Control.MethodName.GrabFocus);
 						return;
 					}
 				}
 			}
-			else if (child is Button b && b.Visible && !b.Disabled)
+			else if (child is Control b && CanFocusSessionControl(b))
 			{
 				b.CallDeferred(Control.MethodName.GrabFocus);
 				return;
 			}
 		}
 		_continuePopup?.GetNodeOrNull<Button>("VBoxContainer/BackButton")?.CallDeferred(Control.MethodName.GrabFocus);
+	}
+
+	private static bool CanFocusSessionControl(Control control)
+	{
+		if (!control.IsInsideTree() || !control.IsVisibleInTree() ||
+			control.IsQueuedForDeletion() || control.FocusMode == Control.FocusModeEnum.None)
+			return false;
+		return control is CyberButton cyber ? !cyber.IsDisabled : control is Button button && !button.Disabled;
 	}
 
 	private string Tr(string text) => MainMenu.Tr(text);
