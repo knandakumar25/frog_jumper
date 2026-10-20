@@ -13,20 +13,31 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 
 ## Development Workflows
 
-### Asset Import Workflow
-Whenever 3D/2D assets, textures, or fonts are added/modified:
-1. Run Godot in the background: `"C:\Users\karthiknk21\Godot\Editors\4.7.2-stable-mono\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64.exe" --headless`
-2. Wait for `.import` files to be generated.
-3. Stop the Godot process.
-*This ensures assets are visible in the runtime.*
+### Godot Background Refresh (After Edits Only)
+Run a background Godot refresh only after creating, modifying, or deleting project files during the current task. Batch related edits and refresh once after the edits are complete; do not refresh after every individual file edit.
+
+- Skip automatic refreshes for read-only questions, explanations, inspections, reviews, status checks, or Git-only operations that do not change project content.
+- Existing uncommitted changes alone do not trigger another refresh. Repeat only after further edits, an unresolved import issue, or an explicit user request.
+- After edits, use the console executable from the project root:
+
+  ```powershell
+  & "C:\Users\karthiknk21\Desktop\Godot_v4.7.2-stable_mono_win64\Godot_v4.7.2-stable_mono_win64_console.exe" --headless --path . --editor --import
+  ```
+
+- Keep the refresh in the background without opening an interactive editor. If using `Start-Process`, pass `-WindowStyle Hidden`.
+- Wait for import completion and process exit, and check the log for errors. When assets changed, verify their `.import` files were generated. Do not terminate the user's existing Godot editor.
 
 ### Build & Test
 - **Build project**: `dotnet build AxiomForce.csproj`
 - **Verification**: Check Godot runtime logs for warnings or missing asset errors.
 
-## Mandatory Testing Protocol (End of Every Prompt)
+## Mandatory Testing Protocol (After Edits Only)
 > [!IMPORTANT]
-> At the conclusion of **EVERY** prompt or task, all AI agents (Codex, Claude, Antigravity) **MUST** execute the unit test suites and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding your turn:
+> After creating, modifying, or deleting project files during the current task, all AI agents (Codex, Claude, Gemini / Antigravity) **MUST** run the unit test suites after the final edits and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding the turn. This includes documentation and configuration edits.
+>
+> **Skip automatic unit tests when no project files were edited**, including read-only questions, explanations, inspections, reviews, status checks, and Git-only operations. Existing uncommitted changes or a new prompt alone do not require a rerun. Explicit user requests to run tests still apply. After a successful run, repeat only if further edits or unresolved failures require it.
+>
+> Run from the project root:
 >
 > ```powershell
 > .\run_tests.ps1
@@ -52,8 +63,15 @@ Whenever 3D/2D assets, textures, or fonts are added/modified:
 ## Critical Operational Rules
 
 > [!CAUTION]
-> ### 1. Strict Git Push Prohibition
-> **NEVER execute `git push` unless the user explicitly commands you to push** (e.g., *"push to git"*). Staging and committing locally are permitted when requested, but pushing to remote repositories without explicit instruction is strictly prohibited.
+> ### 1. Explicit Permission Required for Git Commits and Pushes
+> **NEVER create a Git commit or push to a remote repository unless the user explicitly instructs you to perform that action on the current changes.**
+
+- This applies to every agent and every tool, including Git commands, IDE integrations, APIs, and automation scripts. It includes creating or amending commits and publishing commits remotely.
+- A request to commit authorizes a local commit only. A request to commit and push authorizes both. If the user explicitly asks to push the current uncommitted changes, creating the commit needed for that push is included.
+- Authorization applies only to the requested operation and current changes. Previous commit or push instructions do **not** authorize committing or pushing later edits or future tasks.
+- Requests to edit, fix, test, refresh Godot, or continue work do **not** authorize commits or pushes.
+- Without explicit authorization, finish the requested work and leave changes uncommitted and local. Do not automatically commit or push, or ask for permission merely because the work is complete.
+- Stage changes only when requested or as part of an authorized commit. Never force-push without explicit authorization for that action.
 
 ### 2. Node Lifecycle & Unit Test Safety
 - Standalone unit tests instantiate scenes outside the active scene tree. **Always check `IsInsideTree()`** before calling `GetTree()`, `CreateTween()`, or `.Play()` on audio players to prevent engine error 100/105.
@@ -92,6 +110,6 @@ This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\con
 - **CLI path**: `& "C:\Program Files\WSL\container.exe" <command>` (supports standard OCI commands like `list`, `build`, `run`, `rm`, `image list`).
 
 ## Permissions Denylist
-- **NO `git push`** without explicit user instruction.
+- **NO Git commits or pushes** without explicit user instruction for the current changes.
 - **NO Docker CLI / Docker Desktop** commands.
 - **NO standard WSL distro installations** (`wsl --install`).
