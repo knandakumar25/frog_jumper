@@ -34,6 +34,8 @@ public partial class CharacterSelection : Control
 	private VBoxContainer? _artStudy;
 	private ShogunArtPreview? _artPreview;
 	private Label? _artStatus;
+	// Shared action buttons are relabeled per operative; the original portrait remains available as an asset.
+	private readonly System.Collections.Generic.List<Button> _artButtons = new();
 
 
 	private string _currentSelectedCharacter = "Cyber Shogun";
@@ -112,6 +114,7 @@ public partial class CharacterSelection : Control
 		// Native Orbitron & Rajdhani sci-fi fonts handle Arabic via Cairo font fallbacks configured in global.gd.
 	}
 
+	/// <summary>Builds the shared, keyboard-accessible animation study without changing campaign controls.</summary>
 	private void BuildArtStudy()
 	{
 		var center = GetNodeOrNull<VBoxContainer>("MainLayout/CenterShowcasePanel/VBox");
@@ -140,16 +143,16 @@ public partial class CharacterSelection : Control
 				SizeFlagsHorizontal = SizeFlags.ExpandFill, MouseFilter = MouseFilterEnum.Ignore
 			};
 			button.AddThemeFontSizeOverride("font_size", 15);
-			button.Pressed += () => PreviewStudyAction(action);
+			button.Pressed += () => PreviewStudyAction(button.Text);
 			grid.AddChild(button);
+			_artButtons.Add(button);
 		}
-		var shogunButton = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
-		if (shogunButton != null)
+		var roster = GetNodeOrNull<Control>("MainLayout/LeftListPanel/VBox/CharacterGrid");
+		if (roster != null)
 		{
-			shogunButton.FocusNeighborRight = shogunButton.GetPathTo(grid.GetChild<Button>(0));
-			foreach (Node child in grid.GetChildren())
-				if (child is Button actionButton)
-					actionButton.FocusNeighborLeft = actionButton.GetPathTo(shogunButton);
+			foreach (Node child in roster.GetChildren())
+				if (child is Button rosterButton)
+					rosterButton.FocusNeighborRight = rosterButton.GetPathTo(grid.GetChild<Button>(0));
 		}
 		var note = new Label {
 			Text = "Arrows / Tab: choose • Enter: preview\nArt test only • campaign unchanged",
@@ -160,13 +163,41 @@ public partial class CharacterSelection : Control
 		_artStudy.AddChild(note);
 	}
 
+	/// <summary>Auditions movement or the selected operative's named loadout ability.</summary>
 	public void PreviewStudyAction(string action)
 	{
-		if (_currentSelectedCharacter != "Cyber Shogun" || _artPreview == null) return;
+		if (_artPreview == null) return;
 		_artPreview.Preview(action);
+		var abilities = GetOperativeAbilities(_currentSelectedCharacter);
+		bool abilityPreview = false;
+		for (int i = 0; i < abilities.Length; i++)
+		{
+			if (abilities[i].Name != action) continue;
+			_artPreview.PreviewAbility(action, i);
+			UpdateAbilityDisplay(abilities[i], isPreviewing: true);
+			abilityPreview = true;
+			break;
+		}
 		if (_artStatus != null)
-			_artStatus.Text = action + (action is "Kinetic Parry" or "Ground Slam"
-				? " • proposed ability animation" : " • animation study");
+			_artStatus.Text = action + (abilityPreview ? " • visual ability preview" : " • animation study");
+	}
+
+	/// <summary>Refreshes art, loadout labels, and return focus when selecting an operative.</summary>
+	private void ConfigureArtStudy(string characterName)
+	{
+		if (_artPreview == null) return;
+		_artPreview.SetOperative(characterName);
+		var abilities = GetOperativeAbilities(characterName);
+		for (int i = 0; i < 4; i++) _artButtons[i + 7].Text = abilities[i].Name;
+		_artButtons[5].Visible = _artButtons[6].Visible = characterName == "Cyber Shogun";
+		string rosterNode = OperativeRegistry.GetProfile(characterName).Id switch {
+			"surya_prime" => "SuryaPrime", "oceanus" => "Oceanus", "mirage_blade" => "MirageBlade",
+			"apex_titan" => "ApexTitan", "phoenicia" => "Phoenicia", _ => "CyberShogun"
+		};
+		var selectedButton = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/" + rosterNode);
+		if (selectedButton != null)
+			foreach (var button in _artButtons) button.FocusNeighborLeft = button.GetPathTo(selectedButton);
+		if (_artStatus != null) _artStatus.Text = "Idle • animation study";
 	}
 
 	/// <summary>
@@ -320,11 +351,10 @@ public partial class CharacterSelection : Control
 		_currentSelectedCharacter = characterName;
 		var centerPanel = GetNodeOrNull<Control>("MainLayout/CenterShowcasePanel");
 		if (centerPanel != null)
-			centerPanel.SizeFlagsHorizontal = characterName == "Cyber Shogun"
-				? SizeFlags.ExpandFill : SizeFlags.Expand | SizeFlags.ShrinkCenter;
-		if (_artStudy != null) _artStudy.Visible = characterName == "Cyber Shogun";
-		if (_operativeCardImage != null) _operativeCardImage.Visible = characterName != "Cyber Shogun";
-		_artPreview?.Preview("Idle");
+			centerPanel.SizeFlagsHorizontal = SizeFlags.ExpandFill;
+		if (_artStudy != null) _artStudy.Visible = true;
+		if (_operativeCardImage != null) _operativeCardImage.Visible = _artStudy == null;
+		ConfigureArtStudy(characterName);
 
 		float baseSpeed = 98f;
 		float baseAgility = 96f;
@@ -421,6 +451,7 @@ public partial class CharacterSelection : Control
 		FixFontForLocale(this);
 	}
 
+	/// <summary>Routes a tactical-loadout button into the same art preview as the center controls.</summary>
 	public void PreviewAbility(int abilityIndex)
 	{
 		var abilities = GetOperativeAbilities(_currentSelectedCharacter);
@@ -428,7 +459,7 @@ public partial class CharacterSelection : Control
 
 		var ability = abilities[abilityIndex];
 		UpdateAbilityDisplay(ability, isPreviewing: true);
-		if (_currentSelectedCharacter == "Cyber Shogun")
+		if (_artPreview != null)
 		{
 			PreviewStudyAction(ability.Name);
 			return;

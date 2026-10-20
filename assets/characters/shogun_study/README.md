@@ -1,9 +1,16 @@
 # Cyber Shogun selection-screen study
 
+The preview again defaults to hand-drawn Cyber Shogun. It retains the flat
+comparison's walk/run cadence (6/12 frames per second), one-shot duration,
+jump arcs, dash travel and shield/impact effects. The existing hand-drawn
+pose sheets supply the appearance. Set `ShogunArtPreview.UseOriginalDesign`
+to `true` to compare the preserved original flat artwork.
+
 This is a separate, experimental hand-drawn art variant. The original artwork in
 `assets/characters/rendered` is preserved and still used by campaign gameplay.
-Only Cyber Shogun's selection-screen card is replaced with this interactive study.
-Other operatives keep their existing cards.
+All six operatives now have selection-screen art studies. Cyber Shogun uses this
+folder; the five other operatives use `assets/characters/hand_drawn`. The shared
+preview retains its historical `ShogunArtPreview` class/node names for compatibility.
 
 Select Cyber Shogun, press Right to enter the preview controls, then use arrows
 or Tab and Enter to activate a movement or ability. Existing tactical loadout
