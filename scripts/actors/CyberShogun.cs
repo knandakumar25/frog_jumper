@@ -7,7 +7,20 @@ using Godot;
 /// </summary>
 public partial class CyberShogun : BaseCharacter
 {
-	// ─── Signals ─────────────────────────────────────────────────────────────
+	/// <summary>Reports an executed move; a hit signal is emitted separately after collision checks.</summary>
+    [Signal] public delegate void ActionExecutedEventHandler(string action);
+    /// <summary>Reports the attack type that actually damaged a target.</summary>
+    [Signal] public delegate void AttackLandedEventHandler(string action);
+    /// <summary>Training owns checkpoint recovery instead of campaign scene reloads.</summary>
+    [Export] public bool ExternalRespawn { get; set; }
+    /// <summary>Current attack identity for visuals and collision-confirmed lessons.</summary>
+    public string ActiveAction { get; private set; } = "idle";
+    private float _actionRemaining;
+    private float _wallPushRemaining;
+    private float _wallPushVelocity;
+    private readonly System.Collections.Generic.HashSet<ulong> _dashHits = new();
+
+    // ─── Signals ─────────────────────────────────────────────────────────────
 	[Signal] public delegate void HealthChangedEventHandler(float currentHealth, float maxHealth, float currentShield, float maxShield);
 	[Signal] public delegate void DashCooldownUpdatedEventHandler(float remaining, float maxDuration);
 	[Signal] public delegate void ComboChangedEventHandler(int comboCount);
@@ -46,9 +59,12 @@ public partial class CyberShogun : BaseCharacter
 	private AudioStreamPlayer2D? _shieldPlayer;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
+	/// <summary>Initializes combat, audio, and the selected operative profile.</summary>
 	public override void _Ready()
 	{
 		base._Ready();
+        // Platformer wall sliding must not inherit the floor-block-on-wall latch.
+        FloorBlockOnWall = false;
 		_attackArea = GetNodeOrNull<Area2D>("AttackArea");
 		SetupAudio();
 
@@ -108,6 +124,7 @@ public partial class CyberShogun : BaseCharacter
 		EmitSignal(SignalName.DashCooldownUpdated, 0.0f, DashCooldown);
 	}
 
+	/// <summary>Creates or recolors the operative aura inside an active scene.</summary>
 	private void UpdateAuraLight()
 	{
 		if (!IsInsideTree()) return;
@@ -147,6 +164,7 @@ public partial class CyberShogun : BaseCharacter
 		}
 	}
 
+	/// <summary>Loads the shared local combat sound effects.</summary>
 	private void SetupAudio()
 	{
 		_slashPlayer = CreateSfxPlayer("res://assets/audio/sfx/katana_slash.wav", -2.0f);
@@ -155,6 +173,7 @@ public partial class CyberShogun : BaseCharacter
 		_shieldPlayer = CreateSfxPlayer("res://assets/audio/sfx/shield_hit.wav", 0.0f);
 	}
 
+	/// <summary>Creates a child sound player only when its resource exists.</summary>
 	private AudioStreamPlayer2D? CreateSfxPlayer(string path, float volumeDb = 0f)
 	{
 		if (!ResourceLoader.Exists(path)) return null;
@@ -171,6 +190,7 @@ public partial class CyberShogun : BaseCharacter
 	}
 
 	// ─── Input ───────────────────────────────────────────────────────────────
+	/// <summary>Queues keyboard and controller combat requests for the physics tick.</summary>
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouse) return;
@@ -196,10 +216,22 @@ public partial class CyberShogun : BaseCharacter
 		}
 	}
 
+	/// <summary>Updates combat timers, shield recovery, physics, and wall mobility.</summary>
 	public override void _PhysicsProcess(double delta)
 	{
 		// Update cooldowns & timers
 		float dt = (float)delta;
+        if (_actionRemaining > 0f)
+        {
+            _actionRemaining -= dt;
+            if (_actionRemaining <= 0f)
+            {
+                _isAttacking = false;
+                ActiveAction = "idle";
+                Velocity = Velocity with { X = 0 };
+            }
+        }
+        _wallPushRemaining = Mathf.Max(0, _wallPushRemaining - dt);
 
 		if (DashCooldownTimer > 0f)
 		{
@@ -233,7 +265,12 @@ public partial class CyberShogun : BaseCharacter
 			EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
 		}
 
-		base._PhysicsProcess(delta);
+		bool wasGrounded = IsOnFloor();
+        base._PhysicsProcess(delta);
+        if (wasGrounded && Velocity.Y < 0) EmitSignal(SignalName.ActionExecuted, "jump");
+        if (ActiveAction == "dash")
+            PerformMeleeHitCheck(ActiveProfile.MeleePrimaryDamage * 1.15f,
+                new Vector2(Sprite2d.FlipH ? -28 : 28, 0));
 
 		// Wall slide & wall jump mechanics
 		if (IsInsideTree() && !IsOnFloor() && IsOnWall())
@@ -242,16 +279,20 @@ public partial class CyberShogun : BaseCharacter
 			if (Velocity.Y > 0f)
 			{
 				Velocity = Velocity with { Y = Mathf.Min(Velocity.Y, 140.0f) };
+                EmitSignal(SignalName.ActionExecuted, "wall_slide");
 			}
 
 			// Wall jump input
-			if (Input.IsActionJustPressed("jump") || Input.IsJoyButtonPressed(0, JoyButton.A))
+			if (Input.IsActionJustPressed("jump"))
 			{
 				Vector2 normal = GetWallNormal();
 				if (normal.LengthSquared() > 0.01f)
 				{
 					Velocity = new Vector2(normal.X * 380.0f, JumpVelocity * 0.85f);
-					JumpSound?.Play();
+					_wallPushRemaining = .18f;
+                    _wallPushVelocity = normal.X * 380f;
+                    EmitSignal(SignalName.ActionExecuted, "wall_jump");
+                    JumpSound?.Play();
 					_dashPlayer?.Play();
 				}
 			}
@@ -259,9 +300,15 @@ public partial class CyberShogun : BaseCharacter
 	}
 
 	// ─── Override: special actions ───────────────────────────────────────────
+	/// <summary>Starts grounded actions, retaining a short outward impulse after wall jumps.</summary>
 	protected override bool HandleSpecialActions()
 	{
-		// Only allow attacks when grounded and not already attacking.
+		if (_wallPushRemaining > 0f)
+        {
+            Velocity = Velocity with { X = _wallPushVelocity };
+            return true;
+        }
+        // Only allow attacks when grounded and not already attacking.
 		if (IsOnFloor() && !_isAttacking)
 		{
 			// 1. Blade Dash: Triggered by Shift / C / Gamepad RB with cooldown check.
@@ -277,11 +324,11 @@ public partial class CyberShogun : BaseCharacter
 
 				float dashDir = Sprite2d.FlipH ? -1f : 1f;
 				Velocity = Velocity with { X = dashDir * dashSpeed };
+				StartAction("dash", .24f);
 				Sprite2d.Play("blade_dash");
 				_dashPlayer?.Play();
 				SpawnSlashVfx(new Vector2(dashDir * 24f, 0f), themeColor);
 				PerformMeleeHitCheck(primaryDmg * 1.15f, new Vector2(dashDir * 28f, 0f));
-				_ = PlayAttackAsync();
 				return true;
 			}
 
@@ -290,6 +337,7 @@ public partial class CyberShogun : BaseCharacter
 			{
 				_attackPressed = false;
 				Velocity = Velocity with { X = 0f };
+				StartAction("primary", .36f);
 				Sprite2d.Play("sword_attack");
 				_slashPlayer?.Play();
 				float slashDir = Sprite2d.FlipH ? -1f : 1f;
@@ -298,7 +346,6 @@ public partial class CyberShogun : BaseCharacter
 
 				SpawnSlashVfx(new Vector2(slashDir * 20f, -4f), themeColor);
 				PerformMeleeHitCheck(primaryDmg, new Vector2(slashDir * 26f, 0f));
-				_ = PlayAttackAsync();
 				return true;
 			}
 
@@ -307,6 +354,7 @@ public partial class CyberShogun : BaseCharacter
 			{
 				_qPressed = false;
 				Velocity = Velocity with { X = 0f };
+				StartAction("secondary", .36f);
 				Sprite2d.Play("karate_attack");
 				_slashPlayer?.Play();
 				float strikeDir = Sprite2d.FlipH ? -1f : 1f;
@@ -315,7 +363,6 @@ public partial class CyberShogun : BaseCharacter
 
 				SpawnSlashVfx(new Vector2(strikeDir * 16f, 0f), themeColor);
 				PerformMeleeHitCheck(secondaryDmg, new Vector2(strikeDir * 20f, 0f));
-				_ = PlayAttackAsync();
 				return true;
 			}
 		}
@@ -328,61 +375,66 @@ public partial class CyberShogun : BaseCharacter
 		return _isAttacking;
 	}
 
-	private async System.Threading.Tasks.Task PlayAttackAsync()
-	{
-		_isAttacking = true;
-		await ToSignal(Sprite2d, AnimatedSprite2D.SignalName.AnimationFinished);
-		_isAttacking = false;
-	}
+    /// <summary>Starts a physics-timed action independently of artwork frame counts.</summary>
+    private void StartAction(string action, float duration)
+    {
+        ActiveAction = action;
+        _isAttacking = true;
+        _actionRemaining = duration;
+        _dashHits.Clear();
+        EmitSignal(SignalName.ActionExecuted, action);
+    }
 
-	/// <summary>
-	/// Checks for enemies in the melee hitbox area and applies damage.
-	/// </summary>
-	private void PerformMeleeHitCheck(float damage, Vector2 offset)
-	{
-		if (_attackArea == null) return;
-		_attackArea.Position = offset;
+    /// <summary>Queries the current hitbox transform, avoiding last-frame overlap caches and duplicate hits.</summary>
+    private void PerformMeleeHitCheck(float damage, Vector2 offset)
+    {
+        if (_attackArea == null || !IsInsideTree()) return;
+        _attackArea.Position = offset;
+        var shape = _attackArea.GetNode<CollisionShape2D>("CollisionShape2D");
+        var query = new PhysicsShapeQueryParameters2D
+        {
+            Shape = shape.Shape, Transform = shape.GlobalTransform,
+            CollideWithAreas = true, CollideWithBodies = true,
+            CollisionMask = _attackArea.CollisionMask,
+            Exclude = new Godot.Collections.Array<Rid> { GetRid() }
+        };
+        var seen = new System.Collections.Generic.HashSet<ulong>();
+        bool hit = false;
+        foreach (var result in GetWorld2D().DirectSpaceState.IntersectShape(query))
+        {
+            var target = result["collider"].AsGodotObject() as Node;
+            if (target is Area2D) target = target.GetParent();
+            if (target == null || target == this || !target.HasMethod("TakeDamage")) continue;
+            ulong id = target.GetInstanceId();
+            if (!seen.Add(id) || (ActiveAction == "dash" && !_dashHits.Add(id))) continue;
+            target.Call("TakeDamage", damage);
+            hit = true;
+        }
+        if (hit)
+        {
+            _clashPlayer?.Play();
+            RegisterHit();
+            EmitSignal(SignalName.AttackLanded, ActiveAction);
+        }
+    }
 
-		bool hitAny = false;
-
-		// Check overlapping physics bodies
-		foreach (var body in _attackArea.GetOverlappingBodies())
-		{
-			if (body == this) continue;
-			if (body is CyberDrone2D drone)
-			{
-				drone.TakeDamage(damage);
-				hitAny = true;
-			}
-			else if (body.HasMethod("TakeDamage"))
-			{
-				body.Call("TakeDamage", damage);
-				hitAny = true;
-			}
-		}
-
-		// Check overlapping areas
-		foreach (var area in _attackArea.GetOverlappingAreas())
-		{
-			var parent = area.GetParent();
-			if (parent is CyberDrone2D drone)
-			{
-				drone.TakeDamage(damage);
-				hitAny = true;
-			}
-			else if (parent != null && parent.HasMethod("TakeDamage"))
-			{
-				parent.Call("TakeDamage", damage);
-				hitAny = true;
-			}
-		}
-
-		if (hitAny)
-		{
-			_clashPlayer?.Play();
-			RegisterHit();
-		}
-	}
+    /// <summary>Resets all transient combat state at a training checkpoint without changing profile or saves.</summary>
+    public void ResetAtCheckpoint(Vector2 position)
+    {
+        Position = position;
+        Velocity = Vector2.Zero;
+        IsMoving = true;
+        _isAttacking = _attackPressed = _qPressed = _dashPressed = false;
+        _actionRemaining = _wallPushRemaining = _invulnerabilityTimer = _shieldRegenCooldown = 0;
+        DashCooldownTimer = ComboTimer = 0;
+        ComboCount = 0;
+        ActiveAction = "idle";
+        _dashHits.Clear();
+        Heal(MaxHealth, MaxShield);
+        Sprite2d.FlipH = false;
+        Sprite2d.Modulate = Colors.White;
+        if (IsInsideTree()) Sprite2d.Play("idle");
+    }
 
 	/// <summary>
 	/// Registers a successful melee strike, incrementing the combo counter.
@@ -445,6 +497,7 @@ public partial class CyberShogun : BaseCharacter
 		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
 	}
 
+	/// <summary>Briefly highlights shield or health damage on the character.</summary>
 	private void FlashHurtVfx()
 	{
 		if (Sprite2d == null) return;
@@ -461,10 +514,12 @@ public partial class CyberShogun : BaseCharacter
 		}
 	}
 
+	/// <summary>Signals defeat and lets training recover locally; campaign keeps its reload behavior.</summary>
 	private void Die()
 	{
 		StopMovement();
 		EmitSignal(SignalName.PlayerDefeated);
+		if (ExternalRespawn || !IsInsideTree()) return;
 		var timer = GetTree()?.CreateTimer(0.8);
 		if (timer != null)
 		{
@@ -499,7 +554,8 @@ public partial class CyberShogun : BaseCharacter
 		var timer = GetTree()?.CreateTimer(0.35);
 		if (timer != null)
 		{
-			timer.Timeout += () => particles.QueueFree();
+			// Checkpoint changes can free the owner before this short-lived timer fires.
+			timer.Timeout += () => { if (GodotObject.IsInstanceValid(particles)) particles.QueueFree(); };
 		}
 	}
 }

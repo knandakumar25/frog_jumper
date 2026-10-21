@@ -3,10 +3,9 @@ extends Node
 # Reference to the LoadingScreen helper for scene transitions.
 const LoadingScreen = preload("res://scripts/ui/loading_screen.gd")
 
-# Four-mission 2D campaign. Index 0 temporarily aliases mission 1 until
-# Protocol Zero has a dedicated 2D training scene.
+# Four-mission campaign with replayable, non-scoring Protocol Zero at index 0.
 var level_map = {
-	0: "res://scenes/gameplay/level1.tscn",
+	0: "res://scenes/gameplay/training_protocol.tscn",
 	1: "res://scenes/gameplay/level1.tscn",
 	2: "res://scenes/gameplay/level2.tscn",
 	3: "res://scenes/gameplay/level3.tscn",
@@ -36,7 +35,10 @@ func _update_level_buttons() -> void:
 			else:
 				btn.modulate = Color(1, 1, 1, 1)
 
+## Finds campaign cards and the always-available training replay button.
 func find_level_button(btn_name: String) -> Node:
+	if btn_name == "Level0":
+		return get_node_or_null("MainLayout/Level0")
 	var grid = get_node_or_null("MainLayout/SectorGrid")
 	if grid == null: return null
 	return _find_node_recursive(grid, btn_name)

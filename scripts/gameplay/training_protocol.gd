@@ -1,4 +1,3 @@
 extends Node
-
-# This is the training level - same structure as regular levels
-# Players learn basic controls here before moving to level selection
+## Legacy compatibility stub. Protocol Zero is now owned by TrainingDirector.cs.
+## Retained so external scene references do not break; it has no gameplay or persistence side effects.

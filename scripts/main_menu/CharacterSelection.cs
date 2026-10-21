@@ -607,7 +607,7 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
-	/// Finalizes the selection, creates a new session in SessionManager, and transitions to the story intro.
+	/// Finalizes the selection, creates a new session in SessionManager, and transitions to the optional guided training course.
 	/// </summary>
 	private async void CreateSessionAndStart(string characterName)
 	{
@@ -622,7 +622,7 @@ public partial class CharacterSelection : Control
 		else
 			GD.Print("Error creating session!");
 
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/story_intro.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/training_protocol.tscn");
 	}
 
 	private static void AddAnimationFrames(

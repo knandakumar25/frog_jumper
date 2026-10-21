@@ -479,3 +479,13 @@ func unlock_next_level(current_level: int) -> void:
 		unlocked_levels = current_level + 1
 	elif current_level == 9:
 		print("Global: Campaign Complete! All sectors liberated.")
+
+## Lets a scene with contextual gameplay instructions temporarily hide the generic menu prompt.
+## The scene restores visibility on exit so other menus retain their existing guidance.
+func set_control_prompt_visible(visible: bool) -> void:
+	if is_instance_valid(_prompt_label):
+		var canvas := _prompt_label.get_parent()
+		while canvas != null and not canvas is CanvasLayer:
+			canvas = canvas.get_parent()
+		if canvas is CanvasLayer:
+			canvas.visible = visible

@@ -162,6 +162,11 @@ custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 text = "LAUNCH SECTOR 04"
 
+[node name="Level0" type="Button" parent="MainLayout"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+text = "REPLAY PROTOCOL ZERO — TRAINING"
+
 [node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
 layout_mode = 2
 
@@ -175,3 +180,5 @@ text = "Return to Main Menu"
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector3/VBox/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector4/VBox/Level4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="MainLayout/CenterContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+[connection signal="pressed" from="MainLayout/Level0" to="." method="_on_level_0_pressed"]

@@ -44,6 +44,7 @@ public partial class BaseCharacter : CharacterBody2D
 	protected AudioStreamPlayer JumpSound;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
+	/// <summary>Resolves sprite and sound nodes and starts the idle animation.</summary>
 	public override void _Ready()
 	{
 		// Initialize node references via Godot's path-based lookup.
@@ -68,7 +69,7 @@ public partial class BaseCharacter : CharacterBody2D
 				GD.Print("Available animations: ", Sprite2d.SpriteFrames.GetAnimationNames());
 				Sprite2d.Visible = true;
 				Sprite2d.Modulate = new Color(1, 1, 1, 1);
-				Sprite2d.Play("idle");
+				if (IsInsideTree()) Sprite2d.Play("idle");
 				GD.Print("Started playing 'idle' animation");
 			}
 		}
@@ -116,7 +117,13 @@ public partial class BaseCharacter : CharacterBody2D
 		}
 
 		// 1. Special Actions: Check if a subclass is performing a special move (e.g., attacking).
-		if (HandleSpecialActions()) return;
+		if (HandleSpecialActions())
+		{
+			// Attacks retain physics; in particular dash velocity must actually move the body.
+			if (!IsOnFloor()) Velocity += GetGravity() * (float)delta;
+			MoveAndSlide();
+			return;
+		}
 
 		// 2. Animation State: Update animation based on movement.
 		var prevAnim = Sprite2d.Animation;
@@ -134,8 +141,11 @@ public partial class BaseCharacter : CharacterBody2D
 		if (prevAnim != Sprite2d.Animation)
 			GD.Print("Animation changed: ", prevAnim, " -> ", Sprite2d.Animation);
 
+		// Non-looping combat animations stop playback; locomotion must explicitly resume it.
+		if (!Sprite2d.IsPlaying() && IsInsideTree()) Sprite2d.Play();
+
 		// 4. Input Handling:
-		if ((Input.IsActionJustPressed("jump") || Input.IsJoyButtonPressed(0, JoyButton.A) || Input.IsJoyButtonPressed(0, JoyButton.DpadUp)) && IsOnFloor())
+		if (Input.IsActionJustPressed("jump") && IsOnFloor())
 		{
 			// Apply immediate upward force for jump.
 			Velocity = Velocity with { Y = JumpVelocity };
@@ -150,15 +160,15 @@ public partial class BaseCharacter : CharacterBody2D
 		}
 		else
 		{
-			// Smoothly decelerate to zero when no input is provided.
-			Velocity = Velocity with { X = Mathf.MoveToward(Velocity.X, 0f, 12f) };
+			// A short, frame-rate-independent stop keeps narrow landing platforms controllable.
+			Velocity = Velocity with { X = Mathf.MoveToward(Velocity.X, 0f, Speed * 8f * (float)delta) };
 		}
 
 		// Apply velocity and handle collisions.
 		MoveAndSlide();
 
 		// Flip the sprite based on movement direction.
-		Sprite2d.FlipH = Velocity.X < 0;
+		if (Mathf.Abs(Velocity.X) > 1f) Sprite2d.FlipH = Velocity.X < 0;
 	}
 
 	// ─── Virtual / override point ─────────────────────────────────────────────

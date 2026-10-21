@@ -38,7 +38,10 @@ func test_progression_enables_only_unlocked_missions() -> void:
 	menu.free()
 
 
-func test_legacy_training_index_redirects_to_first_mission() -> void:
+## Training has a visible replay button and a dedicated scene independent of campaign unlocks.
+func test_training_index_opens_dedicated_course() -> void:
 	var menu = MENU.instantiate()
-	assert_str(menu.level_map[0]).is_equal("res://scenes/gameplay/level1.tscn")
+	# Protocol Zero is independently replayable instead of aliasing campaign mission one.
+	assert_str(menu.level_map[0]).is_equal("res://scenes/gameplay/training_protocol.tscn")
+	assert_bool(menu.find_level_button("Level0").pressed.is_connected(Callable(menu, "_on_level_0_pressed"))).is_true()
 	menu.free()
