@@ -250,11 +250,11 @@ public partial class TrainingDirector : Node2D
         var options=new VBoxContainer {Name="Options"}; options.AddThemeConstantOverride("separation",12); _menu.AddChild(options);
         _resume=MenuButton(options,"Resume","Resume",()=>SetPaused(false));
         _retry=MenuButton(options,"Retry","Retry room",RetryRoom);
-        _continue=MenuButton(options,"Continue","Skip training",()=>Leave("res://scenes/main_menu/story_intro.tscn"));
+		_continue=MenuButton(options,"Continue","Skip training",()=>Leave("res://scenes/gameplay/level1.tscn"));
         MenuButton(options,"Repeat","Repeat training",()=>{Lesson=0; RetryRoom();});
         MenuButton(options,"MainMenu","Main menu",()=>Leave("res://scenes/main_menu/main_menu.tscn"));
         _skip=new Button {Name="SkipTraining",Text=Translate("training.skip","Skip training"),Position=new Vector2(1060,200),Size=new Vector2(180,38)};
-        _skip.Pressed+=()=>Leave("res://scenes/main_menu/story_intro.tscn"); _ui.AddChild(_skip);
+		_skip.Pressed+=()=>Leave("res://scenes/gameplay/level1.tscn"); _ui.AddChild(_skip);
     }
 
     /// <summary>Creates a wrapping label with contrast appropriate for the dark facility walls.</summary>

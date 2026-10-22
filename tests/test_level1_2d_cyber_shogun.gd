@@ -1,84 +1,111 @@
 class_name TestLevel12DCyberShogun
 extends GdUnitTestSuite
 
-## GdUnit4 Test Suite for Phase 2 2D Cyber Shogun Combat and Level 1 Modernization.
+## Integration coverage for the side-scrolling Level 1 platformer and the unchanged later campaign scenes.
 
 const LEVEL1_PATH := "res://scenes/gameplay/level1.tscn"
 const LEVEL2_PATH := "res://scenes/gameplay/level2.tscn"
 const LEVEL3_PATH := "res://scenes/gameplay/level3.tscn"
 const LEVEL4_PATH := "res://scenes/gameplay/level4.tscn"
 
-func test_level1_scene_loads() -> void:
-	assert_bool(FileAccess.file_exists(LEVEL1_PATH)).is_true()
-	var scene := load(LEVEL1_PATH) as PackedScene
-	assert_that(scene).is_not_null()
-	var instance: Node = scene.instantiate()
-	assert_that(instance).is_not_null()
-	instance.free()
-
-func test_cyber_shogun_nodes_and_attack_hitbox() -> void:
-	var scene := load(LEVEL1_PATH) as PackedScene
-	var instance: Node = scene.instantiate()
-	assert_that(instance).is_not_null()
-
-	var player = instance.find_child("CyberShogun", true, false)
+## Level 1 builds a platformer: operative with camera, painted backdrop, HUD, geometry and objectives.
+func test_level1_loads_platformer_world() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	await get_tree().process_frame
+	var player := mission.get_node("Actors/CyberShogun")
 	assert_that(player).is_not_null()
+	assert_that(player.get_node("Camera2D")).is_not_null()
+	assert_str(player.get_class()).is_not_equal("IsometricOperative")
+	assert_that(mission.get_node("BackdropLayer/PalaceGardenBackdrop").texture).is_not_null()
+	assert_that(mission.get_node("CyberCombatHud")).is_not_null()
+	assert_that(mission.get_node("CanvasLayer/PauseMenu")).is_not_null()
+	assert_that(mission.get_node("PalaceGeometry/DojoGate")).is_not_null()
+	assert_that(mission.get_node("PalaceGeometry/SkyFerry")).is_not_null()
+	assert_that(mission.get_node("Actors/DemolitionBeacon")).is_not_null()
+	assert_that(mission.get_node("Actors/DataBlade")).is_not_null()
+	assert_that(mission.get_node("Actors/ExtractionGate")).is_not_null()
+	assert_int(mission.get("FragmentTotal")).is_equal(3)
+	mission.free()
 
-	var attack_area = player.get_node_or_null("AttackArea")
-	assert_that(attack_area).is_not_null()
+## The operative falls onto the garden ground under real gravity and can leave it with a jump.
+func test_player_lands_and_jumps() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	for _frame in range(30):
+		await get_tree().physics_frame
+	assert_bool(player.is_on_floor()).is_true()
+	var ground_y: float = player.global_position.y
+	Input.action_press("jump")
+	for _frame in range(6):
+		await get_tree().physics_frame
+	Input.action_release("jump")
+	assert_float(player.global_position.y).is_less(ground_y - 20.0)
+	mission.free()
 
-	var anim_sprite = player.get_node_or_null("Sprite2D") as AnimatedSprite2D
-	assert_that(anim_sprite).is_not_null()
-	assert_that(anim_sprite.sprite_frames).is_not_null()
-	assert_bool(anim_sprite.sprite_frames.has_animation("sword_attack")).is_true()
-	assert_bool(anim_sprite.sprite_frames.has_animation("blade_dash")).is_true()
-	assert_bool(anim_sprite.sprite_frames.has_animation("karate_attack")).is_true()
+## Every selected operative keeps its registry profile in the platformer controller.
+func test_all_six_operatives_keep_their_profiles() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	for operative in ["Cyber Shogun", "Oceanus", "Surya Prime", "Mirage Blade", "Apex Titan", "Aura Phoenicia"]:
+		player.call("ApplyOperativeProfile", operative)
+		assert_str(player.get("ActiveProfile").get("DisplayName")).is_equal(operative)
+	mission.free()
 
-	instance.free()
+## The dojo gate is solid until the beacon dies; the Data-Blade is locked behind the beacon.
+func test_beacon_opens_gate_and_unlocks_data_blade() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	var beacon := mission.get_node("Actors/DemolitionBeacon")
+	var blade := mission.get_node("Actors/DataBlade")
+	var gate := mission.get_node("PalaceGeometry/DojoGate")
+	assert_bool(gate.get("IsOpen")).is_false()
+	player.global_position = blade.global_position + Vector2(0, -60)
+	mission.call("CollectNearbyObjectives")
+	assert_bool(mission.get("DataBladeRecovered")).is_false()
+	beacon.call("TakeDamage", 1000.0)
+	assert_bool(mission.get("BeaconNeutralized")).is_true()
+	assert_bool(gate.get("IsOpen")).is_true()
+	mission.call("CollectNearbyObjectives")
+	assert_bool(mission.get("DataBladeRecovered")).is_true()
+	assert_str(mission.get("CurrentObjective")).contains("extraction")
+	mission.free()
 
-func test_cyber_drone_enemies() -> void:
-	var scene := load(LEVEL1_PATH) as PackedScene
-	var instance: Node = scene.instantiate()
-	assert_that(instance).is_not_null()
+## Falling into a chasm returns the operative to the active checkpoint instead of leaving them out of bounds.
+func test_chasm_fall_recovers_at_checkpoint() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	var checkpoint: Vector2 = mission.get("CheckpointPosition")
+	player.global_position = Vector2(1300.0, 1200.0)
+	for _frame in range(3):
+		await get_tree().physics_frame
+	assert_float(player.global_position.y).is_less(900.0)
+	assert_float(player.global_position.distance_to(checkpoint)).is_less(200.0)
+	mission.free()
 
-	var enemies_node = instance.get_node_or_null("SceneObjects/Enemies")
-	assert_that(enemies_node).is_not_null()
-	assert_int(enemies_node.get_child_count()).is_greater_equal(2)
+## Reaching a shrine stores it as the new respawn point.
+func test_shrine_updates_checkpoint() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	var shrine := mission.get_node("Actors/ShrineGorge")
+	player.global_position = shrine.global_position + Vector2(0, -50)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	assert_bool(shrine.get("Activated")).is_true()
+	var checkpoint: Vector2 = mission.get("CheckpointPosition")
+	assert_float(absf(checkpoint.x - shrine.global_position.x)).is_less(5.0)
+	mission.free()
 
-	for drone in enemies_node.get_children():
-		assert_bool(drone.is_in_group("enemies")).is_true()
-		assert_that(drone.get_node_or_null("CollisionShape2D")).is_not_null()
-		assert_that(drone.get_node_or_null("Sprite2D")).is_not_null()
-		assert_that(drone.get_node_or_null("EyeLight")).is_not_null()
-
-	instance.free()
-
-func test_cyber_city_visuals_and_lighting() -> void:
-	var scene := load(LEVEL1_PATH) as PackedScene
-	var instance: Node = scene.instantiate()
-	assert_that(instance).is_not_null()
-
-	assert_that(instance.get_node_or_null("SceneObjects/TextureRect")).is_null()
-
-	var cyan_light = instance.get_node_or_null("SceneObjects/CyanAccentLight")
-	assert_that(cyan_light).is_not_null()
-	assert_float(cyan_light.energy).is_greater(0.0)
-
-	var magenta_light = instance.get_node_or_null("SceneObjects/MagentaAccentLight")
-	assert_that(magenta_light).is_not_null()
-	assert_float(magenta_light.energy).is_greater(0.0)
-
-	instance.free()
-
-func test_level_progression_chain_loads_cleanly() -> void:
-	var l1 = load(LEVEL1_PATH) as PackedScene
-	assert_that(l1).is_not_null()
-
-	var l2 = load(LEVEL2_PATH) as PackedScene
-	assert_that(l2).is_not_null()
-
-	var l3 = load(LEVEL3_PATH) as PackedScene
-	assert_that(l3).is_not_null()
-
-	var l4 = load(LEVEL4_PATH) as PackedScene
-	assert_that(l4).is_not_null()
+## The new mission route does not remove the existing level 2-4 scenes.
+func test_level_progression_chain_still_loads_cleanly() -> void:
+	for path in [LEVEL2_PATH, LEVEL3_PATH, LEVEL4_PATH]:
+		var scene := load(path) as PackedScene
+		assert_that(scene).is_not_null()
+		var instance := scene.instantiate()
+		assert_that(instance).is_not_null()
+		instance.free()

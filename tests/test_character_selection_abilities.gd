@@ -55,6 +55,7 @@ func test_operative_ability_previews() -> void:
 
 	instance.free()
 
+## The merged dossier retains the keyboard/controller-only interaction policy.
 func test_buttons_mouse_filter_ignored() -> void:
 	var path := "res://scenes/main_menu/character_selection.tscn"
 	var scene := load(path) as PackedScene
@@ -72,7 +73,7 @@ func test_buttons_mouse_filter_ignored() -> void:
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn",
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn",
 		"MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn",
-		"MainLayout/RightShowcasePanel/VBox/DeployButton",
+		"MainLayout/RightShowcasePanel/VBox/Footer/DeployButton",
 	]
 
 	for b_path in button_paths:
@@ -82,9 +83,10 @@ func test_buttons_mouse_filter_ignored() -> void:
 
 	instance.free()
 
+## All preserved portrait resources remain available in the merged dossier without 3D nodes.
 func test_all_operatives_use_2d_cards_without_3d_models() -> void:
 	var instance = load("res://scenes/main_menu/character_selection.tscn").instantiate()
-	var card: TextureRect = instance.get_node("MainLayout/CenterShowcasePanel/VBox/CardImage")
+	var card: TextureRect = instance.get_node("MainLayout/RightShowcasePanel/VBox/CardImage")
 	for operative in ["Cyber Shogun", "Oceanus", "Surya Prime", "Mirage Blade", "Apex Titan", "Aura Phoenicia"]:
 		instance.call("SelectOperative", operative)
 		assert_that(card.texture).is_not_null()

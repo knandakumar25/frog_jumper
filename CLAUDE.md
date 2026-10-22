@@ -117,6 +117,15 @@ This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\con
 - Keep documentation accurate whenever code changes. Document previously undocumented code when working on it. Documentation in Markdown files, commit messages, or chat does not replace documentation in the source code.
 - Use clear, useful explanations rather than comments that merely repeat the syntax.
 
+## Mandatory README and Handoff Updates
+
+- **Before finishing any task that creates, modifies, or deletes files for the game or its website, every agent MUST update both root `README.md` and root `HANDOFF.md`.** This applies to gameplay, scenes, assets, UI, website frontend, backend, configuration, tooling, tests, and related documentation.
+- Update `README.md` with the relevant current behavior, features, setup, usage, or development workflow so it remains accurate for users and contributors.
+- Update `HANDOFF.md` with what changed, important implementation decisions, verification results, and any remaining limitations or follow-up work so the next agent can continue accurately. Distinguish completed work from planned work; never claim checks passed before they have run.
+- Make meaningful, task-specific updates to both files as part of the same task, before the final response. A chat summary, code comments, or commit message does not replace either update.
+- Include these documentation changes in the final batch of edits before the required background Godot refresh and unit tests. Read-only tasks and Git-only operations that do not change project content do not require documentation updates.
+- Updating documentation does not authorize a Git commit or push; explicit user instructions for the current changes are still required.
+
 ## Permissions Denylist
 - **NO Git commits or pushes** without explicit user instruction for the current changes.
 - **NO Docker CLI / Docker Desktop** commands.

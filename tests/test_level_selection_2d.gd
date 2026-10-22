@@ -10,6 +10,8 @@ func test_campaign_maps_only_to_four_2d_missions() -> void:
 		var path = "res://scenes/gameplay/level%d.tscn" % index
 		assert_str(menu.level_map[index]).is_equal(path)
 		var mission = load(path).instantiate()
+		add_child(mission)
+		await get_tree().process_frame
 		assert_bool(mission.find_child("CyberShogun", true, false) is CharacterBody2D).is_true()
 		mission.free()
 	menu.free()

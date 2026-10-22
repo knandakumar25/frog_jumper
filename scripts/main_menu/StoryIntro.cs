@@ -200,7 +200,7 @@ public partial class StoryIntro : Control
 		}
 		else
 		{
-			ProceedToLevelSelection();
+			ProceedToTraining();
 		}
 	}
 
@@ -251,13 +251,13 @@ public partial class StoryIntro : Control
 
 	private void OnSkipButtonPressed()
 	{
-		ProceedToLevelSelection();
+		ProceedToTraining();
 	}
 
 	/// <summary>
 	/// Cleans up audio and transitions the user to the first 2D campaign mission.
 	/// </summary>
-	private void ProceedToLevelSelection()
+	private void ProceedToTraining()
 	{
 		if (voicePlayer != null)
 			voicePlayer.Stop();
@@ -268,7 +268,7 @@ public partial class StoryIntro : Control
 			global.Call("resume_menu_music");
 		}
 
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/level1.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/training_protocol.tscn");
 	}
 
 	public override void _Input(InputEvent @event)
@@ -277,7 +277,7 @@ public partial class StoryIntro : Control
 		if (@event.IsActionPressed("escape") || @event.IsActionPressed("ui_cancel") ||
 			(@event is InputEventKey ke && ke.Pressed && !ke.Echo && ke.Keycode == Key.Escape))
 		{
-			ProceedToLevelSelection();
+			ProceedToTraining();
 			GetViewport()?.SetInputAsHandled();
 			return;
 		}
@@ -287,7 +287,7 @@ public partial class StoryIntro : Control
 		{
 			if (jb.ButtonIndex == JoyButton.Start || jb.ButtonIndex == JoyButton.Back || jb.ButtonIndex == JoyButton.Y)
 			{
-				ProceedToLevelSelection();
+				ProceedToTraining();
 				GetViewport()?.SetInputAsHandled();
 				return;
 			}

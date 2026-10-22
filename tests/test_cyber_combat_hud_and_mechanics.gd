@@ -81,14 +81,27 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 		assert_that(scene).is_not_null()
 		var level: Node = scene.instantiate()
 		assert_that(level).is_not_null()
+		if path == LEVEL1_PATH:
+			add_child(level)
+			await get_tree().process_frame
 
 		# Verify CyberCombatHud exists
 		var hud = level.get_node_or_null("CyberCombatHud")
 		assert_that(hud).is_not_null()
 
-		# Verify Enemies node exists with at least 2 drone enemies
-		var enemies = level.get_node_or_null("SceneObjects/Enemies")
-		assert_that(enemies).is_not_null()
-		assert_int(enemies.get_child_count()).is_greater_equal(2)
+		# Level 1 builds its isometric actors dynamically; later levels use authored SceneObjects.
+		var enemies: Node
+		if path == LEVEL1_PATH:
+			var actors = level.get_node_or_null("Actors")
+			assert_that(actors).is_not_null()
+			var crew_count := 0
+			for actor in actors.get_children():
+				if actor is CharacterBody2D and actor.is_in_group("enemies"):
+					crew_count += 1
+			assert_int(crew_count).is_greater_equal(2)
+		else:
+			enemies = level.get_node_or_null("SceneObjects/Enemies")
+			assert_that(enemies).is_not_null()
+			assert_int(enemies.get_child_count()).is_greater_equal(2)
 
 		level.free()

@@ -40,6 +40,7 @@ public partial class CharacterSelection : Control
 
 	private string _currentSelectedCharacter = "Cyber Shogun";
 
+	/// <summary>Builds the unified dossier, initializes selection, and wires roster navigation.</summary>
 	public override void _Ready()
 	{
 		// Stop the main menu music to allow character-specific audio or silence.
@@ -117,26 +118,26 @@ public partial class CharacterSelection : Control
 	/// <summary>Builds the shared, keyboard-accessible animation study without changing campaign controls.</summary>
 	private void BuildArtStudy()
 	{
-		var center = GetNodeOrNull<VBoxContainer>("MainLayout/CenterShowcasePanel/VBox");
+		var center = GetNodeOrNull<VBoxContainer>("MainLayout/RightShowcasePanel/VBox");
 		if (center == null || _artStudy != null) return;
 		_artStudy = new VBoxContainer { Name = "ShogunArtStudy", SizeFlagsVertical = SizeFlags.ExpandFill };
 		center.AddChild(_artStudy);
-		center.MoveChild(_artStudy, 1);
+		center.MoveChild(_artStudy, center.GetNode<Control>("AbilitiesBox").GetIndex());
 		_artPreview = new ShogunArtPreview {
-			Name = "ArtPreview", CustomMinimumSize = new Vector2(0, 430),
+			Name = "ArtPreview", CustomMinimumSize = new Vector2(0, 250),
 			SizeFlagsVertical = SizeFlags.ExpandFill
 		};
 		_artStudy.AddChild(_artPreview);
 		_artStatus = new Label {
-			Text = "Idle • animation study", HorizontalAlignment = HorizontalAlignment.Center,
+			Text = "Idle • character preview", HorizontalAlignment = HorizontalAlignment.Center,
 			AutowrapMode = TextServer.AutowrapMode.WordSmart
 		};
 		_artStatus.AddThemeFontSizeOverride("font_size", 16);
 		_artStudy.AddChild(_artStatus);
-		var grid = new GridContainer { Name = "Actions", Columns = 2 };
+		var grid = new GridContainer { Name = "Actions", Columns = 7 };
 		_artStudy.AddChild(grid);
 		foreach (string action in new[] { "Idle", "Walk", "Run", "Jump", "Double jump", "Katana",
-			"Martial strike", "Shogun's Flash", "Kinetic Parry", "Cyber Dash", "Ground Slam" })
+			"Martial strike" })
 		{
 			var button = new Button {
 				Text = action, CustomMinimumSize = new Vector2(0, 34),
@@ -155,7 +156,7 @@ public partial class CharacterSelection : Control
 					rosterButton.FocusNeighborRight = rosterButton.GetPathTo(grid.GetChild<Button>(0));
 		}
 		var note = new Label {
-			Text = "Arrows / Tab: choose • Enter: preview\nArt test only • campaign unchanged",
+			Text = "Arrows / D-pad: choose • Enter / A: preview",
 			HorizontalAlignment = HorizontalAlignment.Center,
 			AutowrapMode = TextServer.AutowrapMode.WordSmart
 		};
@@ -179,26 +180,58 @@ public partial class CharacterSelection : Control
 			break;
 		}
 		if (_artStatus != null)
-			_artStatus.Text = action + (abilityPreview ? " • visual ability preview" : " • animation study");
+			_artStatus.Text = action + (abilityPreview ? " • visual ability preview" : " • character preview");
 	}
 
-	/// <summary>Refreshes art, loadout labels, and return focus when selecting an operative.</summary>
+	/// <summary>Refreshes artwork and visible movement controls, then rebuilds focus for the merged dossier.</summary>
 	private void ConfigureArtStudy(string characterName)
 	{
 		if (_artPreview == null) return;
 		_artPreview.SetOperative(characterName);
-		var abilities = GetOperativeAbilities(characterName);
-		for (int i = 0; i < 4; i++) _artButtons[i + 7].Text = abilities[i].Name;
+
 		_artButtons[5].Visible = _artButtons[6].Visible = characterName == "Cyber Shogun";
 		string rosterNode = OperativeRegistry.GetProfile(characterName).Id switch {
 			"surya_prime" => "SuryaPrime", "oceanus" => "Oceanus", "mirage_blade" => "MirageBlade",
 			"apex_titan" => "ApexTitan", "phoenicia" => "Phoenicia", _ => "CyberShogun"
 		};
 		var selectedButton = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/" + rosterNode);
-		if (selectedButton != null)
-			foreach (var button in _artButtons) button.FocusNeighborLeft = button.GetPathTo(selectedButton);
-		if (_artStatus != null) _artStatus.Text = "Idle • animation study";
+		if (selectedButton != null) ConfigureMergedFocus(selectedButton);
+		if (_artStatus != null) _artStatus.Text = "Idle • character preview";
 	}
+
+    /// <summary>Connects visible movement, ability, and footer rows; hidden melee buttons never receive focus.</summary>
+    private void ConfigureMergedFocus(Button selected)
+    {
+        var rows = new System.Collections.Generic.List<System.Collections.Generic.List<Button>>();
+        var visible = _artButtons.FindAll(button => button.Visible);
+        for (int start = 0; start < visible.Count; start += 7)
+            rows.Add(visible.GetRange(start, Math.Min(7, visible.Count-start)));
+        rows.Add(new() { _primaryAbilityBtn, _secondaryAbilityBtn, _dashAbilityBtn, _slamAbilityBtn });
+        rows.Add(new() { _upgradeOperativeBtn!, GetNode<Button>("MainLayout/RightShowcasePanel/VBox/Footer/DeployButton") });
+        var ordered = new System.Collections.Generic.List<Button>();
+        foreach (var row in rows) ordered.AddRange(row);
+        for (int r=0; r<rows.Count; r++)
+            for (int c=0; c<rows[r].Count; c++)
+            {
+                var button=rows[r][c];
+                var above=rows[Math.Max(0,r-1)]; var below=rows[Math.Min(rows.Count-1,r+1)];
+                button.FocusNeighborLeft=button.GetPathTo(c==0?selected:rows[r][c-1]);
+                button.FocusNeighborRight=button.GetPathTo(rows[r][Math.Min(c+1,rows[r].Count-1)]);
+                button.FocusNeighborTop=button.GetPathTo(above[Math.Min(c,above.Count-1)]);
+                button.FocusNeighborBottom=button.GetPathTo(below[Math.Min(c,below.Count-1)]);
+                int index=ordered.IndexOf(button);
+                button.FocusNext=button.GetPathTo(index+1<ordered.Count?ordered[index+1]:selected);
+                button.FocusPrevious=button.GetPathTo(index>0?ordered[index-1]:selected);
+            }
+        var roster=GetNode<Control>("MainLayout/LeftListPanel/VBox/CharacterGrid");
+        for(int i=0;i<roster.GetChildCount();i++)
+        {
+            var button=roster.GetChild<Button>(i);
+            button.FocusNeighborRight=button.GetPathTo(ordered[0]);
+            button.FocusNeighborTop=button.GetPathTo(roster.GetChild((i+roster.GetChildCount()-1)%roster.GetChildCount()));
+            button.FocusNeighborBottom=button.GetPathTo(roster.GetChild((i+1)%roster.GetChildCount()));
+        }
+    }
 
 	/// <summary>
 	/// Localizes the UI text based on the current language settings.
@@ -229,7 +262,7 @@ public partial class CharacterSelection : Control
 		var phoeniciaBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/Phoenicia");
 		if (phoeniciaBtn != null) phoeniciaBtn.Text = $"{Tr("Aura Phoenicia")} [{Tr("Maya Khoury")}]";
 
-		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/DeployButton");
+		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/Footer/DeployButton");
 		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
 
 		if (_abilitiesHeaderLabel != null)
@@ -237,7 +270,7 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
-	/// Converts text to uppercase, but avoids doing so for scripts (Arabic, Hebrew, CJK) where uppercase doesn't exist.
+	/// Resolves the merged dossier controls and connects the existing upgrade screen.
 	/// </summary>
 	private void EnsureUIReferences()
 	{
@@ -257,12 +290,14 @@ public partial class CharacterSelection : Control
 		_abilityBadgeLabel    = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityBadgeLabel");
 		_abilityDescLabel     = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityDescLabel");
 
-		_operativeCardImage   = GetNodeOrNull<TextureRect>("MainLayout/CenterShowcasePanel/VBox/CardImage");
-		_cardHeaderLabel      = GetNodeOrNull<Label>("MainLayout/CenterShowcasePanel/VBox/CardHeader");
-		_cardStatusLabel      = GetNodeOrNull<Label>("MainLayout/CenterShowcasePanel/VBox/StatusFooter");
+		_abilityStatusLabel = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox/AbilityStatusLabel");
+
+		_operativeCardImage   = GetNodeOrNull<TextureRect>("MainLayout/RightShowcasePanel/VBox/CardImage");
+		_cardHeaderLabel      = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/CardHeader");
+		_cardStatusLabel      = GetNodeOrNull<Label>("MainLayout/RightShowcasePanel/VBox/StatusFooter");
 
 		_mainLayout           = GetNodeOrNull<Control>("MainLayout");
-		_upgradeOperativeBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn");
+		_upgradeOperativeBtn  = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/Footer/UpgradeOperativeBtn");
 		_upgradeScreen        = GetNodeOrNull<OperativeUpgradeScreen>("OperativeUpgradeScreen");
 
 
@@ -349,7 +384,7 @@ public partial class CharacterSelection : Control
 	{
 		EnsureUIReferences();
 		_currentSelectedCharacter = characterName;
-		var centerPanel = GetNodeOrNull<Control>("MainLayout/CenterShowcasePanel");
+		var centerPanel = GetNodeOrNull<Control>("MainLayout/RightShowcasePanel");
 		if (centerPanel != null)
 			centerPanel.SizeFlagsHorizontal = SizeFlags.ExpandFill;
 		if (_artStudy != null) _artStudy.Visible = true;
@@ -607,7 +642,7 @@ public partial class CharacterSelection : Control
 	}
 
 	/// <summary>
-	/// Finalizes the selection, creates a new session in SessionManager, and transitions to the optional guided training course.
+	/// Finalizes the selection, creates a session, and opens the story briefing before guided training.
 	/// </summary>
 	private async void CreateSessionAndStart(string characterName)
 	{
@@ -622,7 +657,7 @@ public partial class CharacterSelection : Control
 		else
 			GD.Print("Error creating session!");
 
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/gameplay/training_protocol.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/story_intro.tscn");
 	}
 
 	private static void AddAnimationFrames(

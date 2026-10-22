@@ -102,94 +102,42 @@ theme_override_constants/separation = 12
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../Phoenicia")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/PrimaryAbilityBtn")
-focus_neighbor_bottom = NodePath("../Oceanus")
 text = "Cyber Shogun [Kaito Kurogane]"
 
 [node name="Oceanus" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../CyberShogun")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn")
-focus_neighbor_bottom = NodePath("../SuryaPrime")
 text = "Oceanus [Kiana Vaea]"
 
 [node name="SuryaPrime" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../Oceanus")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn")
-focus_neighbor_bottom = NodePath("../MirageBlade")
 text = "Surya Prime [Arjun Varma]"
 
 [node name="MirageBlade" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../SuryaPrime")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn")
-focus_neighbor_bottom = NodePath("../ApexTitan")
 text = "Mirage Blade [Zayd Al-Mansoor]"
 
 [node name="ApexTitan" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../MirageBlade")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/DeployButton")
-focus_neighbor_bottom = NodePath("../Phoenicia")
 text = "Apex Titan [King Tariq Nzinga]"
 
 [node name="Phoenicia" type="Button" parent="MainLayout/LeftListPanel/VBox/CharacterGrid"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 mouse_filter = 2
-focus_neighbor_top = NodePath("../ApexTitan")
-focus_neighbor_right = NodePath("../../../../RightShowcasePanel/VBox/UpgradeOperativeBtn")
-focus_neighbor_bottom = NodePath("../CyberShogun")
 text = "Aura Phoenicia [Maya Khoury]"
 
-[node name="CenterShowcasePanel" type="PanelContainer" parent="MainLayout"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="VBox" type="VBoxContainer" parent="MainLayout/CenterShowcasePanel"]
-layout_mode = 2
-theme_override_constants/separation = 6
-alignment = 1
-
-[node name="CardHeader" type="Label" parent="MainLayout/CenterShowcasePanel/VBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_fonts/font = ExtResource("3_orbitron")
-theme_override_font_sizes/font_size = 13
-text = "OPERATIVE TACTICAL DOSSIER"
-horizontal_alignment = 1
-
-[node name="CardImage" type="TextureRect" parent="MainLayout/CenterShowcasePanel/VBox"]
-custom_minimum_size = Vector2(330, 480)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-texture = ExtResource("13_default_shogun_card")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="StatusFooter" type="Label" parent="MainLayout/CenterShowcasePanel/VBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.9, 0.5, 0.85)
-theme_override_font_sizes/font_size = 11
-text = "● 2D TACTICAL OPERATIVE READY"
-horizontal_alignment = 1
-
 [node name="RightShowcasePanel" type="PanelContainer" parent="MainLayout"]
-custom_minimum_size = Vector2(420, 0)
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel"]
 layout_mode = 2
@@ -223,13 +171,14 @@ theme_override_font_sizes/font_size = 15
 text = "// CLASS: CYBERNETIC SHOGUN WARRIOR"
 horizontal_alignment = 1
 
-[node name="StatsBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
+[node name="StatsBox" type="HBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 24
 
 [node name="SpeedMeter" type="Control" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
+size_flags_horizontal = 3
 script = ExtResource("4_segmented_stat_script")
 StatName = "SPEED"
 Value = 98.0
@@ -237,9 +186,20 @@ Value = 98.0
 [node name="AgilityMeter" type="Control" parent="MainLayout/RightShowcasePanel/VBox/StatsBox"]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
+size_flags_horizontal = 3
 script = ExtResource("4_segmented_stat_script")
 StatName = "AGILITY"
 Value = 96.0
+
+[node name="CardImage" type="TextureRect" parent="MainLayout/RightShowcasePanel/VBox"]
+visible = false
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("13_default_shogun_card")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="AbilitiesBox" type="VBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
 layout_mode = 2
@@ -255,53 +215,45 @@ horizontal_alignment = 1
 
 [node name="AbilityButtonsGrid" type="GridContainer" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-columns = 2
+size_flags_horizontal = 3
+columns = 4
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 6
 
 [node name="PrimaryAbilityBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid"]
-custom_minimum_size = Vector2(210, 38)
+custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
-focus_neighbor_left = NodePath("../../../../../LeftListPanel/VBox/CharacterGrid/CyberShogun")
-focus_neighbor_right = NodePath("../SecondaryAbilityBtn")
-focus_neighbor_bottom = NodePath("../DashAbilityBtn")
 theme_override_fonts/font = ExtResource("3_orbitron")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "⚡ SHOGUN'S FLASH"
 
 [node name="SecondaryAbilityBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid"]
-custom_minimum_size = Vector2(210, 38)
+custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
-focus_neighbor_left = NodePath("../PrimaryAbilityBtn")
-focus_neighbor_bottom = NodePath("../SlamAbilityBtn")
 theme_override_fonts/font = ExtResource("3_orbitron")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "🛡️ KINETIC PARRY"
 
 [node name="DashAbilityBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid"]
-custom_minimum_size = Vector2(210, 32)
+custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
-focus_neighbor_left = NodePath("../../../../../LeftListPanel/VBox/CharacterGrid/SuryaPrime")
-focus_neighbor_top = NodePath("../PrimaryAbilityBtn")
-focus_neighbor_right = NodePath("../SlamAbilityBtn")
-focus_neighbor_bottom = NodePath("../../../DeployButton")
 theme_override_fonts/font = ExtResource("3_orbitron")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "💨 CYBER DASH"
 
 [node name="SlamAbilityBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid"]
-custom_minimum_size = Vector2(210, 32)
+custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
-focus_neighbor_left = NodePath("../DashAbilityBtn")
-focus_neighbor_top = NodePath("../SecondaryAbilityBtn")
-focus_neighbor_bottom = NodePath("../../../DeployButton")
 theme_override_fonts/font = ExtResource("3_orbitron")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "💥 GROUND SLAM"
 
 [node name="AbilityDescPanel" type="PanelContainer" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox"]
@@ -315,40 +267,40 @@ theme_override_constants/separation = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "[PRIMARY] SHOGUN'S FLASH • CD: 4.0s • DMG: 35"
 
 [node name="AbilityDescLabel" type="Label" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox"]
 custom_minimum_size = Vector2(410, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "High-speed katana dash cutting through enemies with nanite plasma edge."
 autowrap_mode = 2
 
 [node name="AbilityStatusLabel" type="Label" parent="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityDescPanel/DescVBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.9, 0.5, 0.9)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "✔ READY // SELECT ABILITY TO PREVIEW"
 
-[node name="UpgradeOperativeBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
+[node name="Footer" type="HBoxContainer" parent="MainLayout/RightShowcasePanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="UpgradeOperativeBtn" type="Button" parent="MainLayout/RightShowcasePanel/VBox/Footer"]
 custom_minimum_size = Vector2(260, 42)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
-focus_neighbor_left = NodePath("../../../LeftListPanel/VBox/CharacterGrid/ApexTitan")
-focus_neighbor_top = NodePath("../AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn")
-focus_neighbor_bottom = NodePath("../DeployButton")
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 text = "⚡ UPGRADE OPERATIVE [LVL 1]"
 
-[node name="DeployButton" type="Button" parent="MainLayout/RightShowcasePanel/VBox"]
+[node name="DeployButton" type="Button" parent="MainLayout/RightShowcasePanel/VBox/Footer"]
 custom_minimum_size = Vector2(260, 46)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
-focus_neighbor_left = NodePath("../../../LeftListPanel/VBox/CharacterGrid/ApexTitan")
-focus_neighbor_top = NodePath("../UpgradeOperativeBtn")
 
 text = "DEPLOY OPERATIVE"
 
@@ -362,8 +314,8 @@ text = "DEPLOY OPERATIVE"
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SecondaryAbilityBtn" to="." method="_on_secondary_ability_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/DashAbilityBtn" to="." method="_on_dash_ability_pressed"]
 [connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/AbilitiesBox/AbilityButtonsGrid/SlamAbilityBtn" to="." method="_on_slam_ability_pressed"]
-[connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/DeployButton" to="." method="_on_deploy_pressed"]
-[connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn" to="." method="_on_upgrade_operative_pressed"]
+[connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/Footer/DeployButton" to="." method="_on_deploy_pressed"]
+[connection signal="pressed" from="MainLayout/RightShowcasePanel/VBox/Footer/UpgradeOperativeBtn" to="." method="_on_upgrade_operative_pressed"]
 
 [node name="OperativeUpgradeScreen" parent="." instance=ExtResource("12_upgrade_screen")]
 visible = false

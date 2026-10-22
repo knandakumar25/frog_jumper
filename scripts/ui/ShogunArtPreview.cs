@@ -93,7 +93,7 @@ public partial class ShogunArtPreview : Control
         QueueRedraw();
     }
 
-    /// <summary>Draws the selected art variant on the shared preview floor.</summary>
+    /// <summary>Draws the selected art on the shared floor; both panel dimensions constrain its size.</summary>
     public override void _Draw()
     {
         DrawRect(new Rect2(Vector2.Zero, Size), new Color("#101b2c"));
@@ -143,7 +143,7 @@ public partial class ShogunArtPreview : Control
                 break;
             default: pose = (int)(_elapsed * 2) % 2; break;
         }
-        float side = Mathf.Min(Size.X * .76f, 440);
+        float side = Mathf.Min(Size.X * .76f, Mathf.Min(440, Size.Y * .80f));
         Rect2 source = _regions[pose];
         Vector2 drawnSize = source.Size * (side / 320);
         var destination = new Rect2(new Vector2((Size.X - drawnSize.X) / 2 + x,
@@ -254,7 +254,7 @@ public partial class ShogunArtPreview : Control
         }
         // All original frames share a 256px canvas and a foot baseline at y=224.
         // Keep that anchor fixed so changing silhouettes cannot recenter the body.
-        float side = Mathf.Min(Size.X * .70f, 410);
+        float side = Mathf.Min(Size.X * .70f, Mathf.Min(410, Size.Y * .85f));
         DrawTextureRect(_originalFrames.GetFrameTexture(animation, frame),
             new Rect2((Size.X - side) / 2 + offset, ground - side * .875f - lift, side, side), false);
         if (motion == "Kinetic Parry")
@@ -278,7 +278,7 @@ public partial class ShogunArtPreview : Control
         float[] heights = { 310, 310, 270, 279 };
         float[] baselines = { 300, 300, 260, 245 };
         float cellWidth = _locomotionAtlas!.GetWidth() / 4f;
-        float side = Mathf.Min(Size.X * .76f, 440) * .84f;
+        float side = Mathf.Min(Size.X * .76f, Mathf.Min(440, Size.Y * .80f)) * .84f;
         float scale = side / cellWidth;
         var destination = new Rect2((Size.X - side) / 2,
             ground - baselines[row] * scale, side, heights[row] * scale);

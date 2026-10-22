@@ -265,6 +265,10 @@ public partial class CyberShogun : BaseCharacter
 			EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
 		}
 
+		// Alternate mission controllers reuse this class's health, shield and profile systems.
+		// Returning here keeps their movement independent from platform gravity and wall logic.
+		if (HandleAlternateMovement(delta)) return;
+
 		bool wasGrounded = IsOnFloor();
         base._PhysicsProcess(delta);
         if (wasGrounded && Velocity.Y < 0) EmitSignal(SignalName.ActionExecuted, "jump");
@@ -297,6 +301,16 @@ public partial class CyberShogun : BaseCharacter
 				}
 			}
 		}
+	}
+
+	/// <summary>Allows a specialized mission controller to replace platform movement for this tick.</summary>
+	protected virtual bool HandleAlternateMovement(double delta) => false;
+
+	/// <summary>Starts the profile's dash cooldown and notifies HUD listeners.</summary>
+	protected void StartDashCooldown()
+	{
+		DashCooldownTimer = DashCooldown;
+		EmitSignal(SignalName.DashCooldownUpdated, DashCooldownTimer, DashCooldown);
 	}
 
 	// ─── Override: special actions ───────────────────────────────────────────

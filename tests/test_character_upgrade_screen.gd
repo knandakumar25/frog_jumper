@@ -70,7 +70,7 @@ func test_character_selection_has_upgrade_button() -> void:
 	var instance: Node = scene.instantiate()
 	assert_that(instance).is_not_null()
 
-	var upgrade_btn = instance.get_node_or_null("MainLayout/RightShowcasePanel/VBox/UpgradeOperativeBtn")
+	var upgrade_btn = instance.get_node_or_null("MainLayout/RightShowcasePanel/VBox/Footer/UpgradeOperativeBtn")
 	assert_that(upgrade_btn).is_not_null()
 
 	var upgrade_screen = instance.get_node_or_null("OperativeUpgradeScreen")

@@ -87,7 +87,8 @@ public partial class CyberCombatHud : CanvasLayer
 
 		if (_katanaBadge != null)
 		{
-			_katanaBadge.Text = $"[F] {profile.PrimaryAbilityName.ToUpper()}";
+			string abilityInput = _player is IsometricOperative ? "[Q / RT]" : "[F]";
+			_katanaBadge.Text = $"{abilityInput} {profile.PrimaryAbilityName.ToUpper()}";
 			_katanaBadge.Modulate = profile.ThemeColor;
 		}
 

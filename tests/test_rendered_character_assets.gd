@@ -47,7 +47,7 @@ func test_deploying_different_operative_changes_body_not_just_color() -> void:
 func test_selection_uses_the_matching_original_model_portrait() -> void:
 	var runner = scene_runner("res://scenes/main_menu/character_selection.tscn")
 	var menu = runner.scene()
-	var card: TextureRect = menu.get_node("MainLayout/CenterShowcasePanel/VBox/CardImage")
+	var card: TextureRect = menu.get_node("MainLayout/RightShowcasePanel/VBox/CardImage")
 	for operative in OPERATIVES:
 		menu.call("SelectOperative", operative)
 		assert_str(card.texture.resource_path).is_equal(
