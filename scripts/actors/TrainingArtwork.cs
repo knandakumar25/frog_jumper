@@ -22,6 +22,16 @@ public partial class TrainingArtwork : Node2D
         _player = GetParent<CyberShogun>();
         _source = _player.GetNode<AnimatedSprite2D>("Sprite2D");
         _source.Visible = false;
+        LoadArt();
+        // Squad swaps change the operative on the same body, so the matching illustration must follow.
+        _player.OperativeProfileChanged += _ => LoadArt();
+    }
+
+    /// <summary>Loads the art set for whichever operative is currently active.</summary>
+    private void LoadArt()
+    {
+        _art = null;
+        _poses = _stride = null;
         if (_player.ActiveProfile.Id == "cyber_shogun")
         {
             _poses = GD.Load<Texture2D>("res://assets/characters/shogun_study/poses.png");

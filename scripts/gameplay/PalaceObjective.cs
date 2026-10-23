@@ -9,6 +9,10 @@ public partial class PalaceObjective : Node2D
     public float CurrentHealth { get; private set; } = 210;
     /// <summary>Collected or destroyed props cannot be interacted with twice.</summary>
     public bool Collected { get; private set; }
+    /// <summary>Parries still needed to overload the beacon's shield; while above zero the beacon ignores all damage.</summary>
+    public int ShieldCharges { get; set; }
+    /// <summary>True while the shield is up.</summary>
+    public bool Shielded => ShieldCharges > 0;
     /// <summary>Raised exactly once after beacon integrity reaches zero.</summary>
     [Signal] public delegate void NeutralizedEventHandler();
     private Area2D? _hurtbox;
@@ -29,7 +33,7 @@ public partial class PalaceObjective : Node2D
     /// <summary>Accepts real melee damage only while the demolition beacon is active.</summary>
     public void TakeDamage(float damage)
     {
-        if (Kind != "Beacon" || Collected || damage <= 0) return;
+        if (Kind != "Beacon" || Collected || damage <= 0 || Shielded) return;
         CurrentHealth = Mathf.Max(0, CurrentHealth - damage);
         if (CurrentHealth <= 0)
         {
@@ -38,6 +42,15 @@ public partial class PalaceObjective : Node2D
             EmitSignal(SignalName.Neutralized);
         }
         QueueRedraw();
+    }
+
+    /// <summary>Overloads one shield charge (a deflected sentry shot landed near the beacon). Returns true when the shield just dropped.</summary>
+    public bool HitShield()
+    {
+        if (!Shielded) return false;
+        ShieldCharges--;
+        QueueRedraw();
+        return !Shielded;
     }
 
     /// <summary>Persists collection locally and hides the prop so retries cannot award duplicate fragments.</summary>
@@ -83,6 +96,13 @@ public partial class PalaceObjective : Node2D
             DrawLine(new Vector2(0,-88),new Vector2(0,-27),new Color("#f2adc7"),5,true);
             for (int i=0;i<3;i++) DrawArc(new Vector2(0,-62),23+i*11,Mathf.Pi*.1f+_time,Mathf.Pi*1.8f+_time,30,new Color(.74f,.44f,.88f,.65f),2,true);
             DrawLine(new Vector2(-42,5),new Vector2(-42+84*CurrentHealth/210,5),new Color("#d58ec0"),5,true);
+            if (Shielded)
+            {
+                // A humming bubble; each remaining charge adds a ring, so players can see how many parries are left.
+                for (int c = 0; c < ShieldCharges; c++)
+                    DrawArc(new Vector2(0,-56), 74 + c * 9 + Mathf.Sin(_time * 3f + c) * 2, 0, Mathf.Tau, 48, new Color(.55f,.9f,1f,.8f - c * .15f), 3f, true);
+                DrawCircle(new Vector2(0,-56), 70, new Color(.5f,.85f,1f,.12f));
+            }
         }
         else if (Kind == "Blade")
         {

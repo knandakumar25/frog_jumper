@@ -115,8 +115,15 @@ func test_level4_contains_boss_and_scorecard() -> void:
 	var level: Node = scene.instantiate()
 	assert_that(level).is_not_null()
 
-	# Verify Boss Mech
-	var boss := level.get_node_or_null("SceneObjects/Enemies/CyberBossMech2D")
+	# The boss spawns when the squad enters the arena (see test_campaign_levels); here it must not exist yet.
+	add_child(level)
+	await get_tree().process_frame
+	assert_that(level.find_child("CyberBossMech2D", true, false)).is_null()
+	assert_that(level.get_node_or_null("Actors/CyberShogun")).is_not_null()
+	level.get_node("Actors/CyberShogun").global_position = Vector2(5900, 540)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var boss := level.find_child("CyberBossMech2D", true, false)
 	assert_that(boss).is_not_null()
 
 	# Verify Victory Scorecard

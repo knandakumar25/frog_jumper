@@ -39,7 +39,7 @@ public partial class CyberBossMissile2D : Area2D
 		if (body is CyberShogun shogun)
 		{
 			Vector2 knockback = Direction.Normalized() * 260.0f + new Vector2(0f, -80f);
-			shogun.TakeDamage(Damage, knockback);
+			shogun.TakeDamageFrom(Damage, knockback, this);
 			Explode();
 		}
 		else if (body is TileMap || body is StaticBody2D)

@@ -88,11 +88,19 @@ IndexText = "02"
 MainText = "CONTINUE"
 SubText = "// RESUME OPERATION"
 
-[node name="Instructions" type="Control" parent="ButtonContainer" unique_id=2063356946]
+[node name="Roster" type="Control" parent="ButtonContainer"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 script = ExtResource("4_cyber_btn_script")
 IndexText = "03"
+MainText = "SQUAD ROSTER"
+SubText = "// OPERATIVES & UPGRADES"
+
+[node name="Instructions" type="Control" parent="ButtonContainer" unique_id=2063356946]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+script = ExtResource("4_cyber_btn_script")
+IndexText = "04"
 MainText = "HOW TO PLAY"
 SubText = "// TACTICAL MANUAL"
 
@@ -100,7 +108,7 @@ SubText = "// TACTICAL MANUAL"
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 script = ExtResource("4_cyber_btn_script")
-IndexText = "04"
+IndexText = "05"
 MainText = "SETTINGS"
 SubText = "// SYSTEM CALIBRATION"
 
@@ -108,7 +116,7 @@ SubText = "// SYSTEM CALIBRATION"
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 script = ExtResource("4_cyber_btn_script")
-IndexText = "05"
+IndexText = "06"
 MainText = "QUIT"
 SubText = "// EXIT TO SYSTEM"
 

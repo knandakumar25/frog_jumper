@@ -1,14 +1,14 @@
 {
  "meta": {
   "language": "en",
-  "version": "3.0",
-  "description": "Axiom Force - Character-Driven Campaign Narrative: three operative leads (Cyber Shogun, Oceanus, Aura Phoenicia) and the machine guide AXIOM-7"
+  "version": "3.1",
+  "description": "Axiom Force - Character-Driven Campaign Narrative: three operative leads (Cyber Shogun, Oceanus, Aura Phoenicia) and the machine guide AXIOM-7. Operatives are earned through the campaign: each 'joins' list names who is recruited, and taught their signature ability, during that mission"
  },
  "acts": {
   "act1_fracturing_grid": {
    "title": "ACT I: FRACTURING THE OCCUPATION GRID",
-   "subtitle": "Levels 0–4: Breaking the Physical Walls & Defense Checkpoints",
-   "summary": "Shogun treats the simulation like scripture, Oceanus fights for the people the grid reclassifies as cargo. The training forge, the archive purge, the refugee defense, a song smuggled into the occupation comms, and the border wall - breached with the Void's own shields on Titan's back."
+   "subtitle": "Levels 1-4: Breaking the Physical Walls & Defense Checkpoints",
+   "summary": "Shogun treats the simulation like scripture, Oceanus fights for the people the grid reclassifies as cargo. The archive purge, the refugee defense, a song smuggled into the occupation comms, and the border wall - breached with the Void's own shields on Titan's back."
   },
   "act2_citadel_liberation": {
    "title": "ACT II: CITADEL LIBERATION",
@@ -17,43 +17,9 @@
   }
  },
  "levels": {
-  "0": {
-   "title": "Protocol Zero - The Virtual Forge",
-   "arc": "act1_fracturing_grid",
-   "setting": "A wireframe grid simulation of Los Angeles skyline. Cyberpunk HUD elements glow against the digital abyss.",
-   "objective": "Complete the combat and movement training protocol to achieve battle readiness.",
-   "solo_monologues": [],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "PROTOCOL ZERO: VIRTUAL FORGE SIMULATION. OPERATIVE STATUS: INITIALIZING."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Protocol Zero active. Operative linked. Cycle through movement, wall-jumps, and weapon systems to calibrate combat reflexes."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Simulated Xelthara Heavy Unit detected. Execute squad combination strike to confirm battle readiness."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Target destroyed. All systems nominal. Calibration 100% complete. Prepare for field deployment into active combat sectors."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "CALIBRATION COMPLETE. OPERATIVE CLEARED FOR FIELD DEPLOYMENT."
-    }
-   ]
-  },
   "1": {
    "title": "Ghost in the Gridlock",
+   "joins": ["Cyber Shogun"],
    "arc": "act1_fracturing_grid",
    "setting": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams are dissolving stone monoliths into obsidian tax offices.",
    "objective": "Infiltrate the demolition site to retrieve the Data-Blade before the culture-erasure field purges human history forever.",
@@ -105,6 +71,7 @@
   },
   "2": {
    "title": "The Concrete Wildfire",
+   "joins": ["Oceanus", "Apex Titan"],
    "arc": "act1_fracturing_grid",
    "setting": "The gated checkpoints of Containment Zone 4. Biometric scanner spires power an energy wall separating families from the city.",
    "objective": "Hold the threshold against Xelthara Enforcer Walkers to protect escaping refugees and disable the biometric spires.",
@@ -151,6 +118,7 @@
   },
   "3": {
    "title": "Neon Rust and Data Dust",
+   "joins": ["Aura Phoenicia", "Mirage Blade"],
    "arc": "act1_fracturing_grid",
    "setting": "Industrial scrap yards and transit depots powering Xelthara logistics.",
    "objective": "Hijack energy shipments and sabotage regional communication towers.",
@@ -192,6 +160,7 @@
   },
   "4": {
    "title": "Shattered Aegis - Border Fortress Breach",
+   "joins": ["Surya Prime"],
    "arc": "act1_fracturing_grid",
    "setting": "The armored Border Defense Fortress guarding entry into the inner city.",
    "objective": "Defeat Border Commander Voss and breach the physical wall into the Downtown Core.",
@@ -228,6 +197,11 @@
      "speaker": "Apex Titan",
      "type": "spoken",
      "text": "Shields. Mine to break. Give me their formation and I will give it back to them rearranged!"
+    },
+    {
+     "speaker": "Surya Prime",
+     "type": "spoken",
+     "text": "Stone can fall and still be rebuilt. This wall will fall, and the people behind it will remain. Stand behind my light."
     },
     {
      "speaker": "AXIOM-7",

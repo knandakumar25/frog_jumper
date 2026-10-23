@@ -222,11 +222,12 @@ public partial class MenuSessionUI : Node
 		int sessionId   = _confirmPopup.GetMeta("session_id").AsInt32();
 		var sessionData = (Godot.Collections.Dictionary)_confirmPopup.GetMeta("session_data");
 		await SessionManager.Instance.LoadSessionAsync(sessionId);
-		GetNode<Node>("/root/Global").Set("selected_character", sessionData["character"]);
 
-		// Older sessions may point at tutorial 0 or retired missions 5-9.
-		int  levelNum   = Mathf.Clamp(sessionData["current_level"].AsInt32(), 1, 4);
-		string levelScene = "res://scenes/gameplay/level" + levelNum + ".tscn";
+		// Older sessions may point at the removed tutorial (0) or retired missions; the catalog clamps them.
+		int levelNum = LevelCatalog.Clamp(sessionData["current_level"].AsInt32());
+		// The squad is rebuilt from progress, so the saved character is only honoured if it is unlocked by this mission.
+		CampaignProgress.PrepareMission(levelNum, sessionData["character"].AsString());
+		string levelScene = LevelCatalog.ScenePath(levelNum);
 
 		_confirmPopup.Visible = false;
 		LoadingScreen.LoadScene(GetTree(), levelScene);
@@ -248,10 +249,16 @@ public partial class MenuSessionUI : Node
 			menu.RestoreMainMenuFocus();
 	}
 
-	public void ConfirmNewGame()
+	/// <summary>
+	/// Starts a new campaign with the story's starter operative (no selection step), then opens the AXIOM-7 briefing.
+	/// The remaining operatives are unlocked through play; the roster screen is reachable from the menus instead.
+	/// </summary>
+	public async void ConfirmNewGame()
 	{
 		_newGamePopup.Visible = false;
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/character_selection.tscn");
+		int sessionId = await CampaignProgress.StartNewCampaignAsync();
+		GD.Print(sessionId > 0 ? $"Created new session: {sessionId}" : "Error creating session; continuing unsaved.");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/story_intro.tscn");
 	}
 
 	public void CancelNewGame()

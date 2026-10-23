@@ -12,7 +12,11 @@ public enum PalaceSurface
     /// <summary>Tall carved stone wall that the operative can wall-slide and wall-jump against.</summary>
     Wall,
     /// <summary>Magenta purge-field barrier that seals the dojo core until the beacon is destroyed.</summary>
-    Gate
+    Gate,
+    /// <summary>Poured concrete with rebar seams and a hazard-striped lip, for the city levels.</summary>
+    Concrete,
+    /// <summary>Riveted steel grating used for catwalks and gantries; normally one-way.</summary>
+    Steel
 }
 
 /// <summary>
@@ -91,9 +95,11 @@ public partial class PalacePlatform : StaticBody2D
             case PalaceSurface.Wood: DrawWood(canvas, size); break;
             case PalaceSurface.Wall: DrawWall(canvas, size); break;
             case PalaceSurface.Gate: DrawGate(canvas, size, time); break;
+            case PalaceSurface.Concrete: DrawConcrete(canvas, size); break;
+            case PalaceSurface.Steel: DrawSteel(canvas, size); break;
             default: DrawStone(canvas, size); break;
         }
-        if (oneWay && surface != PalaceSurface.Wood)
+        if (oneWay && surface != PalaceSurface.Wood && surface != PalaceSurface.Steel)
             canvas.DrawLine(new Vector2(0, 2), new Vector2(size.X, 2), new Color("#f5d9a3"), 3f);
     }
 
@@ -189,6 +195,34 @@ public partial class PalacePlatform : StaticBody2D
         c.DrawLine(new Vector2(s.X * .5f, 0), new Vector2(s.X * .5f, s.Y), new Color("#1a1d29"), 2f);
         c.DrawLine(new Vector2(1, 0), new Vector2(1, s.Y), new Color("#a8eae6", .4f), 2f);
         c.DrawLine(new Vector2(s.X - 1, 0), new Vector2(s.X - 1, s.Y), new Color("#a8eae6", .4f), 2f);
+    }
+
+    /// <summary>Poured concrete: panel seams, stains, a hazard-striped lip and a cyan edge light.</summary>
+    private static void DrawConcrete(CanvasItem c, Vector2 s)
+    {
+        c.DrawRect(new Rect2(Vector2.Zero, s), new Color("#3a3d47"));
+        c.DrawRect(new Rect2(0, s.Y * .5f, s.X, s.Y * .5f), new Color(0, 0, .04f, .3f));
+        Color seam = new("#23252d");
+        for (float x = 0; x < s.X; x += 140f) c.DrawLine(new Vector2(x, 0), new Vector2(x, s.Y), seam, 3f);
+        for (float y = 70f; y < s.Y; y += 110f) c.DrawLine(new Vector2(0, y), new Vector2(s.X, y), seam, 2f);
+        for (float x = 24f; x < s.X; x += 140f)
+            for (float y = 30f; y < s.Y; y += 110f)
+                if (Hash(x, y) > .55f) c.DrawRect(new Rect2(x, y, 38f + Hash(y, x) * 40f, 5f), new Color("#1d1f26", .5f));
+        c.DrawRect(new Rect2(0, 0, s.X, 14f), new Color("#555a66"));
+        for (float x = 0; x < s.X; x += 56f)
+            c.DrawColoredPolygon(new[] { new Vector2(x, 0), new Vector2(x + 28f, 0), new Vector2(x + 14f, 14f), new Vector2(x - 14f, 14f) }, new Color("#d9b53c", .85f));
+        c.DrawLine(new Vector2(0, 1), new Vector2(s.X, 1), new Color("#a8eae6", .5f), 1.5f);
+    }
+
+    /// <summary>Steel grating: dark mesh under a bright rail, with rivets and a faint cyan underglow.</summary>
+    private static void DrawSteel(CanvasItem c, Vector2 s)
+    {
+        c.DrawRect(new Rect2(Vector2.Zero, s), new Color("#2a3038"));
+        for (float x = 0; x < s.X; x += 14f) c.DrawLine(new Vector2(x, 6), new Vector2(x, s.Y), new Color("#161a20"), 2f);
+        c.DrawRect(new Rect2(0, 0, s.X, 6f), new Color("#8a97a3"));
+        c.DrawRect(new Rect2(0, 0, s.X, 2f), new Color("#d6e1ea"));
+        for (float x = 10f; x < s.X; x += 60f) c.DrawCircle(new Vector2(x, 3f), 1.6f, new Color("#3b4550"));
+        c.DrawRect(new Rect2(0, s.Y - 2f, s.X, 2f), new Color("#6ff3ff", .35f));
     }
 
     /// <summary>Humming magenta energy curtain so players read the barrier as an objective-locked door.</summary>

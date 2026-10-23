@@ -3,14 +3,9 @@ extends Node
 # Reference to the LoadingScreen helper for scene transitions.
 const LoadingScreen = preload("res://scripts/ui/loading_screen.gd")
 
-# Four-mission campaign with replayable, non-scoring Protocol Zero at index 0.
-var level_map = {
-	0: "res://scenes/gameplay/training_protocol.tscn",
-	1: "res://scenes/gameplay/level1.tscn",
-	2: "res://scenes/gameplay/level2.tscn",
-	3: "res://scenes/gameplay/level3.tscn",
-	4: "res://scenes/gameplay/level4.tscn"
-}
+## Mission list lives in the C# LevelCatalog; this bridge exposes it to GDScript so scenes, saves and
+## menus all agree on mission numbers and paths. There is no training level: abilities are taught in-mission.
+var catalog = load("res://scripts/managers/LevelCatalogBridge.cs").new()
 
 func _ready() -> void:
 	Global.stop_menu_music()
@@ -21,13 +16,13 @@ func _ready() -> void:
 	if first_btn:
 		first_btn.call_deferred("grab_focus")
 
+## Greys out missions the player has not reached yet.
 func _update_level_buttons() -> void:
 	var unlocked = Global.unlocked_levels
 
 	# Dynamically update buttons if they exist in the UI.
-	for lvl_idx in level_map.keys():
-		var btn_name = "Level" + str(lvl_idx)
-		var btn = find_level_button(btn_name)
+	for lvl_idx in range(1, catalog.Count() + 1):
+		var btn = find_level_button("Level" + str(lvl_idx))
 		if btn is Button:
 			btn.disabled = (lvl_idx > unlocked)
 			if btn.disabled:
@@ -35,10 +30,8 @@ func _update_level_buttons() -> void:
 			else:
 				btn.modulate = Color(1, 1, 1, 1)
 
-## Finds campaign cards and the always-available training replay button.
+## Finds a campaign card button by name.
 func find_level_button(btn_name: String) -> Node:
-	if btn_name == "Level0":
-		return get_node_or_null("MainLayout/Level0")
 	var grid = get_node_or_null("MainLayout/SectorGrid")
 	if grid == null: return null
 	return _find_node_recursive(grid, btn_name)
@@ -51,19 +44,20 @@ func _find_node_recursive(node: Node, target_name: String) -> Node:
 		if found: return found
 	return null
 
+## Launches a mission with the squad the player had at that point of the story.
 func _start_level(level_idx: int) -> void:
-	if not level_map.has(level_idx):
-		printerr("Level " + str(level_idx) + " not defined in map!")
+	if level_idx < 1 or level_idx > catalog.Count():
+		printerr("Level " + str(level_idx) + " not defined in catalog!")
 		return
 
-	var scene_path = level_map[level_idx]
+	var scene_path = catalog.ScenePath(level_idx)
+	catalog.PrepareMission(level_idx)
 	GameManager.set_game_state(GameManager.State.GAMEPLAY)
 	Global.reached_finish = false
 	Global.stop_menu_music()
 	LoadingScreen.load_scene(get_tree(), scene_path)
 
-# Button callbacks mapped to indices.
-func _on_level_0_pressed() -> void: _start_level(0)
+# Button callbacks mapped to mission numbers.
 func _on_level_1_pressed() -> void: _start_level(1)
 func _on_level_2_pressed() -> void: _start_level(2)
 func _on_level_3_pressed() -> void: _start_level(3)

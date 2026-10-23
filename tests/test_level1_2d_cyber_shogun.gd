@@ -54,7 +54,7 @@ func test_all_six_operatives_keep_their_profiles() -> void:
 		assert_str(player.get("ActiveProfile").get("DisplayName")).is_equal(operative)
 	mission.free()
 
-## The dojo gate is solid until the beacon dies; the Data-Blade is locked behind the beacon.
+## The beacon is shielded: damage is ignored until parried sentry fire overloads it; then the gate and Blade unlock.
 func test_beacon_opens_gate_and_unlocks_data_blade() -> void:
 	var runner := scene_runner(LEVEL1_PATH)
 	var mission := runner.scene()
@@ -66,12 +66,53 @@ func test_beacon_opens_gate_and_unlocks_data_blade() -> void:
 	player.global_position = blade.global_position + Vector2(0, -60)
 	mission.call("CollectNearbyObjectives")
 	assert_bool(mission.get("DataBladeRecovered")).is_false()
+	# Shield up: strikes do nothing.
+	beacon.call("TakeDamage", 1000.0)
+	assert_bool(mission.get("BeaconNeutralized")).is_false()
+	assert_bool(beacon.get("Shielded")).is_true()
+	# Two parried shots overload the shield.
+	player.global_position = beacon.global_position + Vector2(-200, -50)
+	player.emit_signal("ParryDeflected", player)
+	player.emit_signal("ParryDeflected", player)
+	assert_bool(beacon.get("Shielded")).is_false()
 	beacon.call("TakeDamage", 1000.0)
 	assert_bool(mission.get("BeaconNeutralized")).is_true()
 	assert_bool(gate.get("IsOpen")).is_true()
+	player.global_position = blade.global_position + Vector2(0, -60)
 	mission.call("CollectNearbyObjectives")
 	assert_bool(mission.get("DataBladeRecovered")).is_true()
+	await get_tree().physics_frame
 	assert_str(mission.get("CurrentObjective")).contains("extraction")
+	mission.free()
+
+## A parry too far from the beacon does not count toward its shield.
+func test_distant_parry_does_not_overload_shield() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	var beacon := mission.get_node("Actors/DemolitionBeacon")
+	player.global_position = Vector2(300, 550)
+	player.emit_signal("ParryDeflected", player)
+	assert_bool(beacon.get("Shielded")).is_true()
+	mission.free()
+
+## The Level 1 squad is Shogun alone, and his parry lesson exists and completes once he uses the ability.
+func test_level1_teaches_parry_with_a_solo_squad() -> void:
+	var runner := scene_runner(LEVEL1_PATH)
+	var mission := runner.scene()
+	var player := mission.get_node("Actors/CyberShogun")
+	var lesson := mission.get_node("Actors/ParryLesson")
+	var catalog = load("res://scripts/managers/LevelCatalogBridge.cs").new()
+	assert_int(catalog.UnlockedCount()).is_equal(1)
+	assert_bool(lesson.get("Triggered")).is_false()
+	player.global_position = lesson.global_position + Vector2(0, -50)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	assert_bool(lesson.get("Triggered")).is_true()
+	assert_str(mission.get("PromptText")).contains("KINETIC PARRY")
+	player.call("TriggerSignatureAbility")
+	assert_bool(lesson.get("Completed")).is_true()
+	assert_str(mission.get("PromptText")).is_equal("")
 	mission.free()
 
 ## Falling into a chasm returns the operative to the active checkpoint instead of leaving them out of bounds.

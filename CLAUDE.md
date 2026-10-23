@@ -9,7 +9,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 - **Backend**: Django REST Framework (Python 3.14)
 - **Frontend Web**: React + Vite
 - **Architecture**: Component-based with specialized Managers (e.g., `SessionManager`, `UISoundManager`, `OperativeRegistry`).
-- **UI & Gameplay Approach**: High-fidelity 2D combat platforming with 4-level linear campaign chain, dynamic combat HUD, and operative selection cards.
+- **UI & Gameplay Approach**: High-fidelity 2D combat platforming with 4-level linear campaign chain, dynamic combat HUD, and a squad of operatives that are unlocked through the story (roster screen, in-level swap).
 
 ## Development Workflows
 
@@ -86,8 +86,10 @@ Run a background Godot refresh only after creating, modifying, or deleting proje
 - `CyberCombatHud.cs`: Real-time 2D HUD tracking shields, health, combo streak (`DOUBLE STRIKE!`, `TACTICAL OVERDRIVE!`), operative abilities, and boss health bar.
 - `CyberVictoryScorecard.cs`: Post-mission combat grade evaluation (S/A/B rank scoring) triggered upon level completion.
 - `CyberLaserGrid2D.cs` & `CyberHazardFloor2D.cs`: Cycling environmental 2D hazards.
-- `CharacterSelection.cs`: Operative selection matrix featuring high-resolution 2D portrait cards and attribute meters.
-- `scenes/gameplay/level1.tscn` to `level4.tscn`: 4-level linear 2D campaign progression.
+- `CharacterSelection.cs`: Squad roster screen (main menu): locked/unlocked operatives, Set Active, upgrades; no longer part of the new-game flow.
+- `OperativeRoster.cs` / `LevelCatalog.cs` / `CampaignProgress.cs`: engine-free unlock rules (who joins in which mission), the ordered mission list, and the glue to `Global` and saves. Operatives are earned through play; the squad is rebuilt from mission progress.
+- `CodeLevel.cs`: base class for code-built missions (`PalaceMission`, `ConcreteWildfireMission`, `NeonRustMission`, `ShatteredAegisMission`) with `PalacePlatform`, `AbilityGate` (operative-gated obstacles), `RecruitBeat` (unlock + in-level ability lesson) and `SquadStrip` HUD.
+- `scenes/gameplay/level1.tscn` to `level4.tscn`: 4-level linear 2D campaign progression (thin scenes that attach a `CodeLevel` subclass).
 
 ## Operative Roster
 1. **Cyber Shogun (Kaito Kurogane)**: Balanced Vanguard Striker (Katana combo, blade dash, parry).

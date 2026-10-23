@@ -41,7 +41,7 @@ public partial class PalaceSentry : CharacterBody2D
         Vector2 difference = Target.GlobalPosition - GlobalPosition;
         if (difference.LengthSquared() < 70 * 70 && _contact <= 0)
         {
-            Target.TakeDamage(14, new Vector2(difference.X < 0 ? -180 : 180, -100));
+            Target.TakeDamageFrom(14, new Vector2(difference.X < 0 ? -180 : 180, -100), this);
             _contact = 1.1f;
         }
         if (_windup > 0)
@@ -53,7 +53,7 @@ public partial class PalaceSentry : CharacterBody2D
                 var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + _aim, 1);
                 var result = GetWorld2D().DirectSpaceState.IntersectRay(query);
                 if (result.Count > 0 && result["collider"].AsGodotObject() is CyberShogun player)
-                    player.TakeDamage(18);
+                    player.TakeDamageFrom(18, default, this);
                 _cooldown = 2.8f;
             }
         }

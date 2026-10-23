@@ -1,4 +1,4 @@
-# Axiom Force — Story Bible (v3.0, character-driven restructure)
+# Axiom Force — Story Bible (v3.1, earned-operatives restructure)
 
 > Written 2026-10-13. This is the working canon for the campaign narrative in
 > `assets/narrative/*.json`. It replaces the v2.0 ensemble framing.
@@ -28,9 +28,29 @@ they read as mission beats — the character lines were written around them.
 
 - **Mirage Blade** (Zayd Al-Mansoor) — the scout. Terse intel drops: L3, L5.
 - **Apex Titan** (King Tariq Nzinga) — the wall. Breacher: L2, L4, L7.
+- **Surya Prime** (Arjun Varma) — the bulwark. Joins at the Border Fortress (L4): "Stone can fall and still be rebuilt."
 
-Two lines each at most. They remain fully selectable operatives in the game
+Two lines each at most. They are playable operatives in the game
 (model, VFX, registry untouched) — only their narrative weight is reduced.
+
+## Earned operatives (v3.1)
+
+The player no longer picks a squad up front. The campaign starts with
+**Cyber Shogun** alone and each operative **joins during a mission**, where a
+recruit beat introduces them and teaches their signature ability on the spot
+(there is no separate training level). Each ability is also what a later
+obstacle demands, so swapping operatives (Tab / number keys / D-pad) is part
+of play.
+
+| Mission | Joins | Signature ability (Q) | Obstacle that needs it |
+|---|---|---|---|
+| 1 | Cyber Shogun (start) | **Kinetic Parry** — throw ranged attacks back | The beacon's shield only overloads when sentry fire is parried near it |
+| 2 | Oceanus, then Apex Titan | **Tidal Torrent** — douse fire / **Tectonic Slam** — shatter heavy rubble | Burning corridors; the collapsed wall behind the membrane |
+| 3 | Aura Phoenicia, then Mirage Blade | **Harmonic Pulse** — open sonic locks / **Phase Blink** — slip through hazards | The tower door and relay; the lethal laser curtain at the exit |
+| 4 | Surya Prime | **Solar Bulwark** — absorb heat and ranged fire | Superheated corridors; Voss's missile storm |
+
+A mission's *required* route only uses abilities already unlocked by that
+point; later operatives' gates are side routes.
 
 ## Antagonist voices (kept, not "mains")
 
@@ -56,11 +76,11 @@ worth one future recording session.
 
 | Level | Focus | Beats |
 |---|---|---|
-| 0 | Tutorial (untouched) | The recorded training script, verbatim |
+| 0 | *Retired* | Protocol Zero was removed in v3.1; abilities are taught in-mission as each operative joins |
 | 1 | Shogun | Culture purge; the archive grief beat with Oceanus |
 | 2 | **Oceanus** | Refugee defense; Titan holds the breach |
 | 3 | **Phoenicia** | The comms blackout as a broadcast; Blade delivers the route |
-| 4 | Ensemble + Titan | The wall; Voss; Shogun claims the line |
+| 4 | Ensemble + Titan + Surya | The wall; Voss; Shogun claims the line; Surya joins at the fortress |
 | 5 | Mirage Blade (functional) | The surveillance spire dark; Blade disappears |
 | 6 | **Oceanus** | The bio-labs; grief becomes resolve |
 | 7 | Shogun + Titan | The foundry; Shogun's discipline cracks; first AXIOM-7 doubt comes from Oceanus's question |
@@ -69,11 +89,12 @@ worth one future recording session.
 
 ## Consequences and deferred work
 
-- `english.json` is v3.0. The other 14 locale files still hold the v2.0
+- `english.json` is v3.1 (training level removed, `joins` lists added, Surya's Level 4 line added). The other 14 locale files still hold the v2.0
   story and a mechanical re-translation pass — ideal fragmented-downtime
   work; until then the game falls back to english for any locale whose file
   lags (NarrativeManager falls back to english when a locale file is
   missing, not when it is stale — stale files still load).
-- No code changes were required for this restructure; dialogue flows as
-  text (the VO mp3 files are wired to nothing yet). When VO playback gets
+- Dialogue flows as text: title cards use `NarrativeManager` (title and
+  objective); recruit-beat lines live in the level scripts (the VO mp3
+  files are wired to nothing yet). When VO playback gets
   wired, per-level audio must be re-cut for the added character lines.

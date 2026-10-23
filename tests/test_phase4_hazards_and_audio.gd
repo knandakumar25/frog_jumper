@@ -99,9 +99,18 @@ func test_levels_contain_hazards_container() -> void:
 		var level: Node = scene.instantiate()
 		assert_that(level).is_not_null()
 
-		var hazards := level.get_node_or_null("SceneObjects/Hazards")
-		assert_that(hazards).is_not_null()
-		assert_that(hazards.get_node_or_null("CyberLaserGrid2D")).is_not_null()
-		assert_that(hazards.get_node_or_null("CyberHazardFloor2D")).is_not_null()
+		# Missions build their hazards in code under Actors: laser grids, surge floors, or operative-gated vents/walls.
+		add_child(level)
+		await get_tree().process_frame
+		var actors := level.get_node_or_null("Actors")
+		assert_that(actors).is_not_null()
+		var hazard_count := 0
+		for node in actors.get_children():
+			if node.get_script() != null and (
+					"CyberLaserGrid2D" in str(node.get_script().resource_path)
+					or "CyberHazardFloor2D" in str(node.get_script().resource_path)
+					or "AbilityGate" in str(node.get_script().resource_path)):
+				hazard_count += 1
+		assert_int(hazard_count).is_greater_equal(2)
 
 		level.free()

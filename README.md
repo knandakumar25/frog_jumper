@@ -6,7 +6,7 @@ A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with
 
 ## Story
 
-Earth has fallen under the tyrannical rule of an autonomous cybernetic syndicate. A clandestine strike team known as **Axiom Force** deploys into the neon-drenched sectors of the metropolis. Choose your operative, infiltrate deep behind enemy lines, neutralize syndicate drone armadas, and eliminate the frontline warmachine—**Vanguard-X**—to reclaim humanity's future.
+Earth has fallen under the tyrannical rule of an autonomous cybernetic syndicate. A clandestine strike team known as **Axiom Force** deploys into the neon-drenched sectors of the metropolis. Begin as Cyber Shogun, gain new operatives as the story unfolds, infiltrate deep behind enemy lines, neutralize syndicate drone armadas, and eliminate the frontline warmachine—**Vanguard-X**—to reclaim humanity's future.
 
 ---
 
@@ -21,16 +21,22 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   4. **Mirage Blade (Zayd Al-Mansoor)** — Phantom Infiltrator Assassin (460 Speed, 1000 Dash velocity, 0.6s dash cooldown, phase daggers).
   5. **Apex Titan (King Tariq Nzinga)** — Electro-Magnetic Juggernaut (160 HP, 60 Shield, 20% kinetic armor mitigation, knockback resistance).
   6. **Aura Phoenicia (Maya Khoury)** — Ultrasonic Prism Weaver (95 HP, 55 Shield, 8% mitigation, 0.85s dash cooldown, harmonic resonance).
-- **Level 1: Ghost in the Gridlock (platformer)** — A ~9,500 px side-scrolling infiltration of the Eternal Zen Dojo over a painted night-garden backdrop: Garden Gate (jumping), Lantern Court (terraces and a timed laser bridge), Blossom Gorge (wall-jump climb), Rooftop Run (gaps, a moving platform, sentry fire), Archive Descent (surge floor and laser tripwire), then Beacon Court — destroy the demolition beacon to open the dojo gate, take the Data-Blade, and reach the extraction portal. Three shrines are checkpoints, three optional memory fragments are hidden on perches, and falling into a chasm returns you to the last shrine. All six operatives can finish it.
-- **New-campaign flow** — Select an operative, watch AXIOM-7's story briefing, complete or skip Protocol Zero training, then enter Level 1. Cyber Shogun's Level 1 sprite animations use the approved AI-generated pose and locomotion sheets; The backdrop is a painted garden image under procedurally drawn platforms.
-- **Side-Scrolling Combat in Levels 2–4** — Existing ground combos, blade dashes, wall-sliding, and wall-jumping continue in the later platforming missions.
+- **Earned operatives** — A new campaign starts with **Cyber Shogun** alone (no selection screen). Each other operative **joins during a mission**, where a recruit beat introduces them and teaches their signature ability on the spot (there is no separate training level). Swap between unlocked operatives any time with `Tab` / `Shift+Tab`, the number keys `1-6`, or the gamepad (D-pad Down / Back); the squad shares one health/shield ratio and swapping has a short cooldown. The **Squad Roster** (main menu) shows locked operatives and lets you upgrade them and choose who starts the next mission.
+- **Signature abilities (`Q`)** — Shogun: **Kinetic Parry** (throws ranged attacks back); Oceanus: **Tidal Torrent** (douses fire); Apex Titan: **Tectonic Slam** (shatters heavy rubble); Aura Phoenicia: **Harmonic Pulse** (opens sonic locks); Mirage Blade: **Phase Blink** (slips through lasers and hazards); Surya Prime: **Solar Bulwark** (absorbs heat and ranged fire). Levels contain obstacles only the matching operative can clear.
+- **The campaign (4 side-scrolling missions, code-built on `CodeLevel`)** —
+  1. **Ghost in the Gridlock** (Shogun): a ~9,500 px infiltration of the Eternal Zen Dojo over a painted night garden — jumping, a timed laser bridge, a wall-jump gorge, rooftops, an archive; parry sentry fire to overload the beacon's shield, destroy it, take the Data-Blade, extract.
+  2. **The Concrete Wildfire** (Oceanus, then Apex Titan join): burning corridors, a chasm overpass, three biometric spires, then the membrane and a collapsed wall.
+  3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): scrapyard, transit depot, a comm-tower climb to a relay, and a lethal laser curtain.
+  4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him brings down the wall and ends Act I with the combat scorecard.
+  Each mission has three shrine checkpoints, three optional memory fragments, a story title card (from `NarrativeManager`), and chasm recovery to the last shrine.
+- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Cyber Shogun uses the approved AI-generated pose and locomotion sheets in missions; other operatives use their hand-drawn sheets. Levels 2–4 use a procedural skyline backdrop; Level 1 uses a painted garden under procedurally drawn platforms.
 - **Dynamic Combat HUD** — Real-time telemetry monitoring health, shields, combo streaks (`DOUBLE STRIKE!`, `TRIPLE COMBO!`, `TACTICAL OVERDRIVE!`), operative ability status, and boss telemetry.
-- **Vanguard-X Boss Encounter** — Multi-phase aerial boss mech in Level 4 featuring homing plasma missiles, siren warnings, and an enraged **Overdrive Rage** phase shift (<50% HP) with 3-way missile spreads.
+- **Border Commander Voss (boss mech)** — Multi-phase aerial boss mech in Level 4 featuring homing plasma missiles, siren warnings, and an enraged **Overdrive Rage** phase shift (<50% HP) with 3-way missile spreads.
 - **Tactical Victory Scorecard** — End-of-level combat assessment evaluating completion time, score, and damage taken to award combat grades (**S Rank / Flawless**, **A Rank / Vanguard**, **B Rank / Operative**) with victory fanfare.
 - **Dynamic 2D Environmental Hazards** — Pulsing lethal laser grids (`CyberLaserGrid2D`) and rhythmic electrified floor panels (`CyberHazardFloor2D`).
 - **4-Level Campaign Chain** — Linear mission progression through neon rooftops and industrial sectors (`level1.tscn` $\rightarrow$ `level4.tscn`).
 - **Synthesized 16-Bit SFX Engine** — Dedicated procedural sound design for blade slashes, dashes, clashes, laser hums, drone explosions, and boss alarms.
-- **Operative Selection Matrix** — A two-panel layout pairs the roster with one unified dossier containing the animated hand-drawn preview, identity, stats, movement controls, a single set of ability buttons, and Upgrade/Deploy actions. Keyboard and controller navigation follow the visible controls for each operative.
+- **Squad Roster** — Reached from the main menu. A two-panel layout pairs the roster (locked operatives marked) with one unified dossier containing the animated hand-drawn preview, identity, stats, movement controls, a single set of ability buttons, and Upgrade / Set Active actions. Keyboard and controller navigation follow the visible controls for each operative.
 - **Cross-Platform Backend & Web Portal** — Django REST Framework backend with PostgreSQL session leaderboards and a modern React + Vite frontend.
 
 ---
@@ -43,17 +49,12 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 | **Jump / Wall Jump** | `Space` / `W` / `↑` | A / Cross Button |
 | **Wall Slide** | Hold movement against wall | Hold stick against wall |
 | **Katana Slash** | `F` / Left Mouse Button | X / Square Button |
-| **Martial Strike** | `Q` | Y / Triangle Button |
+| **Signature Ability / Martial Strike** | `Q` | Y / Triangle Button |
+| **Swap Operative** | `Tab` / `Shift+Tab` (or `1`–`6`) | D-Pad Down (next) / Back (previous) |
 | **Blade Dash** | `Shift` / `C` | Right Shoulder / Trigger |
 | **Pause Game** | `Escape` | Start / Options |
 
-Level 1 uses the same platformer controls as Levels 2–4; the on-screen hint switches between keyboard and gamepad.
-
----|---|---|
-| **Move / Aim** | `WASD` / Mouse | Left / Right Stick |
-| **Primary Attack** | `F` / Left Mouse Button | Left Trigger |
-| **Operative Ability** | `Q` / Right Mouse Button | Right Trigger |
-| **Dash / Interact / Pause** | `Shift` / `E` / `Escape` | Right Bumper / `A` / Start |
+The on-screen hint switches between keyboard and gamepad, and lists the swap keys once a second operative has joined.
 
 ---
 
@@ -118,14 +119,14 @@ AxiomForce/
 │   ├── music/                        # Synthesized SFX and soundtrack WAVs
 │   └── fonts/                        # Cyber typography resources
 ├── scenes/
-│   ├── main_menu/                    # Character selection, menus, and story
+│   ├── main_menu/                    # Squad roster, menus, and story
 │   ├── gameplay/                     # Level 1-4 scenes, boss encounter, hazards
 │   └── ui/                           # Combat HUD, scorecard, and dialog bubbles
 ├── scripts/
 │   ├── actors/                       # CyberShogun, OperativeProfile, CyberBossMech2D, CyberDrone2D
-│   ├── gameplay/                     # CyberBossMissile2D, CyberLaserGrid2D, CyberHazardFloor2D
+│   ├── gameplay/                     # CodeLevel + the four mission classes, PalacePlatform, AbilityGate, RecruitBeat, hazards
 │   ├── ui/                           # CyberCombatHud, CyberVictoryScorecard
-│   ├── managers/                     # SessionManager, UISoundManager
+│   ├── managers/                     # SessionManager, UISoundManager, OperativeRoster, LevelCatalog, CampaignProgress
 │   └── tools/                        # generate_cyber_sfx.py sound synthesizer
 ├── backend/                          # Django REST Framework backend service
 ├── frontend/                         # React + Vite web application

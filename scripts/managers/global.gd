@@ -6,7 +6,7 @@ extends Node
 
 var reached_finish = false
 var selected_character = "Cyber Shogun"  # Default character
-var unlocked_levels = 1  # Track highest unlocked level (1-4)
+var unlocked_levels = 1  # Highest mission reached (set from the save on Continue, raised by unlock_next_level)
 var current_display_mode: String = "Windowed Fullscreen"
 
 # Local paths for user-specific settings.

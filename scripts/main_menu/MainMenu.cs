@@ -73,6 +73,9 @@ public partial class MainMenu : Control
 			var contBtn = GetNodeOrNull<CyberButton>("ButtonContainer/ContinueButton");
 			if (contBtn != null) contBtn.Pressed += _on_continue_pressed;
 
+			var rosterBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Roster");
+			if (rosterBtn != null) rosterBtn.Pressed += _on_roster_pressed;
+
 			var instBtn = GetNodeOrNull<CyberButton>("ButtonContainer/Instructions");
 			if (instBtn != null) instBtn.Pressed += _on_instructions_pressed;
 
@@ -202,6 +205,13 @@ public partial class MainMenu : Control
 	{
 		CloseAllPopups();
 		_sessionUI.OpenNewGame();
+	}
+
+	/// <summary>Opens the squad roster: earned operatives, locked silhouettes, upgrades and the active-operative choice.</summary>
+	public void _on_roster_pressed()
+	{
+		CloseAllPopups();
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/character_selection.tscn");
 	}
 
 	public void _on_continue_pressed()

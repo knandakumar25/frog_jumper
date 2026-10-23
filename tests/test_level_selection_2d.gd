@@ -5,10 +5,10 @@ const MENU = preload("res://scenes/main_menu/level_selection.tscn")
 
 func test_campaign_maps_only_to_four_2d_missions() -> void:
 	var menu = MENU.instantiate()
-	assert_int(menu.level_map.size()).is_equal(5)
+	assert_int(menu.catalog.Count()).is_equal(4)
 	for index in range(1, 5):
 		var path = "res://scenes/gameplay/level%d.tscn" % index
-		assert_str(menu.level_map[index]).is_equal(path)
+		assert_str(menu.catalog.ScenePath(index)).is_equal(path)
 		var mission = load(path).instantiate()
 		add_child(mission)
 		await get_tree().process_frame
@@ -40,10 +40,23 @@ func test_progression_enables_only_unlocked_missions() -> void:
 	menu.free()
 
 
-## Training has a visible replay button and a dedicated scene independent of campaign unlocks.
-func test_training_index_opens_dedicated_course() -> void:
+## The tutorial level is gone: there is no replay button and no index-0 mission.
+func test_training_level_is_removed() -> void:
 	var menu = MENU.instantiate()
-	# Protocol Zero is independently replayable instead of aliasing campaign mission one.
-	assert_str(menu.level_map[0]).is_equal("res://scenes/gameplay/training_protocol.tscn")
-	assert_bool(menu.find_level_button("Level0").pressed.is_connected(Callable(menu, "_on_level_0_pressed"))).is_true()
+	assert_that(menu.find_level_button("Level0")).is_null()
+	assert_bool(ResourceLoader.exists("res://scenes/gameplay/training_protocol.tscn")).is_false()
+	menu.free()
+
+
+## Launching a mission rebuilds the squad for that point in the story.
+func test_prepare_mission_sets_squad_for_that_level() -> void:
+	var menu = MENU.instantiate()
+	var previous_unlocked = Global.unlocked_levels
+	var previous_character = Global.selected_character
+	menu.catalog.PrepareMission(1)
+	assert_str(Global.selected_character).is_equal("Cyber Shogun")
+	menu.catalog.PrepareMission(3)
+	assert_int(Global.unlocked_levels).is_greater_equal(3)
+	Global.unlocked_levels = previous_unlocked
+	Global.selected_character = previous_character
 	menu.free()

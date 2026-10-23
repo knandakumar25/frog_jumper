@@ -43,6 +43,30 @@ public partial class CyberShogun : BaseCharacter
 	public float ComboTimer { get; private set; } = 0.0f;
 	public const float ComboWindow = 2.0f;
 
+	/// <summary>Raised when the signature ability fires; the argument is its tag (see <see cref="LevelCatalog"/>).</summary>
+	[Signal] public delegate void AbilityUsedEventHandler(string tag);
+	/// <summary>Raised when a parry deflects an attack; the argument is the attacker that was hit back.</summary>
+	[Signal] public delegate void ParryDeflectedEventHandler(Node2D source);
+
+	/// <summary>Tag of the active operative's signature ability (parry, douse, slam, resonate, phase, bulwark).</summary>
+	public string AbilityTag => OperativeRoster.AbilityTagOf(ActiveProfile.DisplayName) ?? "";
+	/// <summary>+1 when facing right, -1 when facing left.</summary>
+	public float FacingSign => Sprite2d != null && Sprite2d.FlipH ? -1f : 1f;
+	/// <summary>Seconds until the signature ability can fire again (the melee strike itself is never gated).</summary>
+	public float AbilityCooldownTimer { get; private set; }
+	/// <summary>True while Kinetic Parry would deflect an incoming attack.</summary>
+	public bool IsParrying => _parryRemaining > 0f;
+	/// <summary>True during Phase Blink: hazards and beams pass through the operative.</summary>
+	public bool IsPhased => _phaseRemaining > 0f;
+	/// <summary>True during Solar Bulwark: hazards and ranged attacks are absorbed.</summary>
+	public bool IsBulwarked => _bulwarkRemaining > 0f;
+	private float _parryRemaining, _phaseRemaining, _bulwarkRemaining;
+
+	/// <summary>Seconds a swap locks out further swaps, so swapping can't be used to dodge or reset cooldowns.</summary>
+	public const float SwapCooldownSeconds = 1.0f;
+	/// <summary>Remaining swap lockout in seconds.</summary>
+	public float SwapCooldownTimer { get; private set; }
+
 	private float _invulnerabilityTimer = 0.0f;
 	private float _shieldRegenCooldown = 0.0f;
 	private bool _isAttacking = false;
@@ -195,6 +219,20 @@ public partial class CyberShogun : BaseCharacter
 	{
 		if (@event is InputEventMouse) return;
 
+		// Squad swapping: Tab / Shift+Tab cycles unlocked operatives and 1-6 picks one directly. On gamepad D-pad Down is
+		// "next" and Back/Select is "previous" (D-pad up/left/right are already jump and movement).
+		if (@event is InputEventKey swapKey && swapKey.Pressed && !swapKey.Echo)
+		{
+			if (swapKey.Keycode == Key.Tab) { CycleOperative(swapKey.ShiftPressed ? -1 : 1); return; }
+			int slot = (int)(swapKey.Keycode - Key.Key1);
+			if (slot >= 0 && slot < OperativeRoster.RosterOrder.Count) { SwapOperative(OperativeRoster.RosterOrder[slot]); return; }
+		}
+		else if (@event is InputEventJoypadButton swapPad && swapPad.Pressed)
+		{
+			if (swapPad.ButtonIndex == JoyButton.DpadDown) { CycleOperative(1); return; }
+			if (swapPad.ButtonIndex == JoyButton.Back) { CycleOperative(-1); return; }
+		}
+
 		// Detect 'F' key or 'attack' action for Sword attack.
 		if (@event is InputEventKey key && key.Pressed && !key.Echo)
 		{
@@ -221,6 +259,11 @@ public partial class CyberShogun : BaseCharacter
 	{
 		// Update cooldowns & timers
 		float dt = (float)delta;
+		if (SwapCooldownTimer > 0f) SwapCooldownTimer = Mathf.Max(0f, SwapCooldownTimer - dt);
+		if (AbilityCooldownTimer > 0f) AbilityCooldownTimer = Mathf.Max(0f, AbilityCooldownTimer - dt);
+		if (_parryRemaining > 0f) _parryRemaining -= dt;
+		if (_phaseRemaining > 0f) { _phaseRemaining -= dt; if (_phaseRemaining <= 0f) SetGhostLook(false); }
+		if (_bulwarkRemaining > 0f) { _bulwarkRemaining -= dt; if (_bulwarkRemaining <= 0f) SetGhostLook(false); }
         if (_actionRemaining > 0f)
         {
             _actionRemaining -= dt;
@@ -377,6 +420,7 @@ public partial class CyberShogun : BaseCharacter
 
 				SpawnSlashVfx(new Vector2(strikeDir * 16f, 0f), themeColor);
 				PerformMeleeHitCheck(secondaryDmg, new Vector2(strikeDir * 20f, 0f));
+				TriggerSignatureAbility();
 				return true;
 			}
 		}
@@ -432,6 +476,102 @@ public partial class CyberShogun : BaseCharacter
         }
     }
 
+    /// <summary>
+    /// Fires the active operative's signature ability (bound to Q together with the secondary strike). Starts the
+    /// operative-specific effect, notifies matching <see cref="AbilityGate"/>s in range, and sets a cooldown.
+    /// Does nothing while on cooldown or if the operative has no ability tag.
+    /// </summary>
+    public void TriggerSignatureAbility()
+    {
+        string tag = AbilityTag;
+        if (tag == "" || AbilityCooldownTimer > 0f) return;
+        AbilityCooldownTimer = tag switch
+        {
+            LevelCatalog.Parry => 1.2f, LevelCatalog.Douse => 2.0f, LevelCatalog.Slam => 2.5f,
+            LevelCatalog.Resonate => 2.5f, LevelCatalog.Phase => 2.0f, _ => 3.0f
+        };
+        switch (tag)
+        {
+            case LevelCatalog.Parry: _parryRemaining = 0.45f; break;
+            case LevelCatalog.Phase:
+                _phaseRemaining = 0.8f;
+                SetGhostLook(true);
+                BlinkForward(180f);
+                break;
+            case LevelCatalog.Bulwark:
+                _bulwarkRemaining = 1.4f;
+                SetGhostLook(true);
+                break;
+        }
+        // Gates only care about the ability's tag and where/which way it was used.
+        foreach (Node node in GetTree()?.GetNodesInGroup("ability_gates") ?? new Godot.Collections.Array<Node>())
+            if (node is AbilityGate gate) gate.ReceiveAbility(tag, GlobalPosition, FacingSign);
+        EmitSignal(SignalName.AbilityUsed, tag);
+    }
+
+    /// <summary>Teleports up to <paramref name="distance"/> px forward, stopping short of walls (Phase Blink).</summary>
+    private void BlinkForward(float distance)
+    {
+        for (float d = distance; d >= 24f; d -= 24f)
+        {
+            Vector2 motion = new(FacingSign * d, 0f);
+            if (!TestMove(GlobalTransform, motion)) { GlobalPosition += motion; return; }
+        }
+    }
+
+    /// <summary>Tints the sprite translucent while an intangible/shielded ability window is active.</summary>
+    private void SetGhostLook(bool on)
+    {
+        if (Sprite2d == null) return;
+        Sprite2d.Modulate = on ? new Color(.6f, 1f, 1f, .55f) : Colors.White;
+    }
+
+    /// <summary>Swaps to the next (+1) or previous (-1) unlocked operative; returns false when nothing changed.</summary>
+    public bool CycleOperative(int direction)
+    {
+        var roster = OperativeRoster.Current;
+        var list = roster.Unlocked;
+        if (list.Count <= 1) return false;
+        int index = System.Linq.Enumerable.ToList(list).IndexOf(ActiveProfile.DisplayName);
+        int next = ((index + System.Math.Sign(direction)) % list.Count + list.Count) % list.Count;
+        return SwapOperative(list[next]);
+    }
+
+    /// <summary>
+    /// Switches the controlled operative to an unlocked squad member without interrupting movement. The squad shares one
+    /// health and shield *ratio* (so swapping never heals), a running dash cooldown carries over, and a short lockout applies.
+    /// Refused while locked out, attacking, defeated or when the operative is locked/already active.
+    /// </summary>
+    /// <returns>True when the swap happened.</returns>
+    public bool SwapOperative(string name)
+    {
+        var roster = OperativeRoster.Current;
+        string target = OperativeRoster.Normalize(name);
+        if (target == ActiveProfile.DisplayName || !roster.IsUnlocked(target)) return false;
+        if (SwapCooldownTimer > 0f || _isAttacking || CurrentHealth <= 0f || !IsMoving) return false;
+
+        float healthRatio = MaxHealth > 0f ? CurrentHealth / MaxHealth : 1f;
+        float shieldRatio = MaxShield > 0f ? CurrentShield / MaxShield : 1f;
+        float dashRemaining = DashCooldownTimer;
+        roster.SetActive(target);
+        ApplyOperativeProfile(target);
+        // ApplyOperativeProfile fills health/shield and clears the dash cooldown; restore the carried-over values.
+        CurrentHealth = Mathf.Max(1f, healthRatio * MaxHealth);
+        CurrentShield = shieldRatio * MaxShield;
+        DashCooldownTimer = Mathf.Min(dashRemaining, DashCooldown);
+        SwapCooldownTimer = SwapCooldownSeconds;
+        EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth, CurrentShield, MaxShield);
+        EmitSignal(SignalName.DashCooldownUpdated, DashCooldownTimer, DashCooldown);
+        GetNodeOrNull<Node>("/root/Global")?.Set("selected_character", target);
+        if (IsInsideTree() && Sprite2d != null)
+        {
+            // A quick bright flash sells the swap and hides the sprite change.
+            Sprite2d.Modulate = new Color(2.2f, 2.2f, 2.6f, 1f);
+            CreateTween().TweenProperty(Sprite2d, "modulate", Colors.White, 0.25f);
+        }
+        return true;
+    }
+
     /// <summary>Resets all transient combat state at a training checkpoint without changing profile or saves.</summary>
     public void ResetAtCheckpoint(Vector2 position)
     {
@@ -463,9 +603,31 @@ public partial class CyberShogun : BaseCharacter
 	/// <summary>
 	/// Receives incoming damage, draining shield before health, mitigated by operative armor passive.
 	/// </summary>
-	public void TakeDamage(float damage, Vector2 knockback = default)
+	public void TakeDamage(float damage, Vector2 knockback = default) => TakeDamageFrom(damage, knockback, null);
+
+	/// <summary>
+	/// Damage entry point for attacks that know their attacker (sentry beams, missiles). Kept separate from
+	/// <see cref="TakeDamage"/> because GDScript cannot call a C# method with fewer arguments than it declares.
+	/// A non-null <paramref name="source"/> marks the hit as ranged, which Kinetic Parry can reflect and Phase Blink cannot ignore.
+	/// </summary>
+	public void TakeDamageFrom(float damage, Vector2 knockback, Node? source)
 	{
 		if (_invulnerabilityTimer > 0f || !IsMoving || CurrentHealth <= 0f) return;
+		// Signature-ability windows. Attacks that name a source (sentry beams, missiles) are "ranged"; sourceless damage
+		// comes from environmental hazards (lasers, surge floors, vents).
+		bool ranged = source != null;
+		if (IsPhased && !ranged) return;                       // Phase Blink slips through hazards
+		if (IsBulwarked) return;                                // Solar Bulwark absorbs hazards and ranged fire
+		if (IsParrying && ranged)                               // Kinetic Parry throws ranged attacks back
+		{
+			if (source is Node2D attacker)
+			{
+				if (attacker.HasMethod("TakeDamage")) attacker.Call("TakeDamage", 35f);
+				EmitSignal(SignalName.ParryDeflected, attacker);
+			}
+			_invulnerabilityTimer = 0.2f;
+			return;
+		}
 
 		_shieldRegenCooldown = 3.0f; // Delay shield regeneration upon receiving damage
 		float mitigation = ActiveProfile?.DamageReduction ?? 0f;
@@ -569,7 +731,7 @@ public partial class CyberShogun : BaseCharacter
 		if (timer != null)
 		{
 			// Checkpoint changes can free the owner before this short-lived timer fires.
-			timer.Timeout += () => { if (GodotObject.IsInstanceValid(particles)) particles.QueueFree(); };
+			timer.Timeout += () => { if (GodotObject.IsInstanceValid(this) && GodotObject.IsInstanceValid(particles) && particles.IsInsideTree()) particles.QueueFree(); };
 		}
 	}
 }

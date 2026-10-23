@@ -39,6 +39,8 @@ public partial class CharacterSelection : Control
 
 
 	private string _currentSelectedCharacter = "Cyber Shogun";
+	/// <summary>Squad the player has earned so far (derived from the highest mission reached). Locked operatives are previewable but cannot be set active.</summary>
+	private OperativeRoster _roster = OperativeRoster.ForLevelStart(1);
 
 	/// <summary>Builds the unified dossier, initializes selection, and wires roster navigation.</summary>
 	public override void _Ready()
@@ -54,8 +56,14 @@ public partial class CharacterSelection : Control
 
 		Input.MouseMode = Input.MouseModeEnum.Hidden;
 
+		var global = GetNodeOrNull<Node>("/root/Global");
+		int reached = global != null ? global.Get("unlocked_levels").AsInt32() : 1;
+		_roster = OperativeRoster.ForLevelStart(reached);
+		string active = OperativeRoster.Normalize(global?.Get("selected_character").AsString());
+		if (!_roster.IsUnlocked(active)) active = OperativeRoster.Starter;
+
 		TranslateUI();
-		SelectOperative("Cyber Shogun");
+		SelectOperative(active);
 		FixFontForLocale(this);
 		UISoundManager.AutoWireButtons(this);
 
@@ -102,6 +110,13 @@ public partial class CharacterSelection : Control
 
 	public override void _Input(InputEvent @event)
 	{
+		// Escape / B returns to the main menu without changing the active operative.
+		if (@event.IsActionPressed("ui_cancel") || @event.IsActionPressed("escape"))
+		{
+			ReturnToMenu();
+			GetViewport()?.SetInputAsHandled();
+			return;
+		}
 		// Completely eliminate mouse cursor compatibility
 		if (@event is InputEventMouse)
 		{
@@ -239,10 +254,10 @@ public partial class CharacterSelection : Control
 	private void TranslateUI()
 	{
 		var header = GetNodeOrNull<Label>("Header");
-		if (header != null) header.Text = Tr("OPERATIVE SELECTION MATRIX");
+		if (header != null) header.Text = Tr("SQUAD ROSTER");
 
 		var listTitle = GetNodeOrNull<Label>("MainLayout/LeftListPanel/VBox/ListTitle");
-		if (listTitle != null) listTitle.Text = Tr("AVAILABLE OPERATIVES");
+		if (listTitle != null) listTitle.Text = $"{Tr("OPERATIVES")}  {_roster.Unlocked.Count}/{OperativeRoster.RosterOrder.Count} {Tr("UNLOCKED")}";
 
 		var shogunBtn = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/CyberShogun");
 		if (shogunBtn != null) shogunBtn.Text = $"{Tr("Cyber Shogun")} [{Tr("Kaito Kurogane")}]";
@@ -263,7 +278,7 @@ public partial class CharacterSelection : Control
 		if (phoeniciaBtn != null) phoeniciaBtn.Text = $"{Tr("Aura Phoenicia")} [{Tr("Maya Khoury")}]";
 
 		var deployBtn = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/Footer/DeployButton");
-		if (deployBtn != null) deployBtn.Text = Tr("DEPLOY OPERATIVE");
+		if (deployBtn != null) deployBtn.Text = Tr("SET ACTIVE");
 
 		if (_abilitiesHeaderLabel != null)
 			_abilitiesHeaderLabel.Text = Tr("OPERATIVE TACTICAL LOADOUT");
@@ -454,6 +469,7 @@ public partial class CharacterSelection : Control
 		_speedMeter?.SetStat(Tr("SPEED"), baseSpeed);
 		_agilityMeter?.SetStat(Tr("AGILITY"), baseAgility);
 		UpdateUpgradeButtonText();
+		UpdateRosterButtons();
 
 		// Update ability preview buttons and details
 		var abilities = GetOperativeAbilities(characterName);
@@ -636,28 +652,54 @@ public partial class CharacterSelection : Control
 		}
 	}
 
+	/// <summary>
+	/// "Set Active": makes the highlighted operative the one fielded in the next mission, then returns to the main menu.
+	/// Locked operatives are refused. Missions rebuild the squad from progress and honour this choice if it is unlocked.
+	/// </summary>
 	private void _on_deploy_pressed()
 	{
-		CreateSessionAndStart(_currentSelectedCharacter);
+		if (!_roster.SetActive(_currentSelectedCharacter)) return;
+		GetNodeOrNull<Node>("/root/Global")?.Set("selected_character", _roster.Active);
+		ReturnToMenu();
+	}
+
+	/// <summary>Leaves the roster for the main menu.</summary>
+	private void ReturnToMenu() => LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/main_menu.tscn");
+
+	/// <summary>Mission number in which an operative joins the squad, or 0 for the starter.</summary>
+	private static int JoinMission(string operative)
+	{
+		string normalized = OperativeRoster.Normalize(operative);
+		foreach (var level in LevelCatalog.All)
+			foreach (string granted in level.GrantsOperatives)
+				if (OperativeRoster.Normalize(granted) == normalized) return level.Number;
+		return 0;
 	}
 
 	/// <summary>
-	/// Finalizes the selection, creates a session, and opens the story briefing before guided training.
+	/// Marks locked operatives in the roster grid ("LOCKED") and turns the footer button into "Set Active" for unlocked
+	/// operatives or a disabled "Locked - joins in Mission N" for locked ones.
 	/// </summary>
-	private async void CreateSessionAndStart(string characterName)
+	private void UpdateRosterButtons()
 	{
-		if (GetTree()?.Root?.HasNode("Global") == true)
+		foreach (var (path, name) in new[] {
+			("CyberShogun", "Cyber Shogun"), ("Oceanus", "Oceanus"), ("SuryaPrime", "Surya Prime"),
+			("MirageBlade", "Mirage Blade"), ("ApexTitan", "Apex Titan"), ("Phoenicia", "Aura Phoenicia") })
 		{
-			GetTree().Root.GetNodeOrNull<Node>("Global")?.Set("selected_character", characterName);
+			var button = GetNodeOrNull<Button>($"MainLayout/LeftListPanel/VBox/CharacterGrid/{path}");
+			if (button == null) continue;
+			bool unlocked = _roster.IsUnlocked(name);
+			string baseText = button.Text.Replace($"  {Tr("LOCKED")}", "");
+			button.Text = unlocked ? baseText : $"{baseText}  {Tr("LOCKED")}";
+			button.Modulate = unlocked ? Colors.White : new Color(.6f, .6f, .7f, .85f);
 		}
-
-		int sessionId = await SessionManager.Instance.CreateNewSessionAsync(characterName);
-		if (sessionId > 0)
-			GD.Print("Created new session: ", sessionId, " for character: ", characterName);
-		else
-			GD.Print("Error creating session!");
-
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/story_intro.tscn");
+		var deploy = GetNodeOrNull<Button>("MainLayout/RightShowcasePanel/VBox/Footer/DeployButton");
+		if (deploy == null) return;
+		bool selectedUnlocked = _roster.IsUnlocked(_currentSelectedCharacter);
+		deploy.Disabled = !selectedUnlocked;
+		deploy.Text = selectedUnlocked
+			? Tr("SET ACTIVE")
+			: $"{Tr("LOCKED")} - {Tr("JOINS IN MISSION")} {JoinMission(_currentSelectedCharacter)}";
 	}
 
 	private static void AddAnimationFrames(
