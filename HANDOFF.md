@@ -1,5 +1,15 @@
-# Axiom Force - Strategic Inter-Agent Handoff Briefing
-
+# Axiom Force - Strategic Inter-Agent Handoff Briefing
+
+> **Airborne Combat & Aerial Locomotion (2026-10-24, Antigravity):**
+> - **Issue Addressed:** Players previously could not attack or dash while airborne in Level 1 or across any mission, as `CyberShogun.cs` strictly required `IsOnFloor() && !_isAttacking` to initiate actions. This made attacking hovering enemies (e.g. `PalaceSentry` drones) extremely difficult.
+> - **Changes in `scripts/actors/CyberShogun.cs`**:
+>   - Removed the `IsOnFloor()` barrier in `HandleSpecialActions()`, enabling Katana Slash (`F` / `attack`), Signature Ability / Martial Strike (`Q`), and Blade Dash (`Shift` / `C`) both on the ground and in mid-air.
+>   - Grounded vs Airborne physics tuning: grounded attacks zero out horizontal velocity (`Velocity.X = 0f`) to anchor the swing, whereas aerial attacks preserve existing horizontal trajectory momentum (`Velocity.X`) so the player smoothly completes their jump arc while slicing.
+>   - Aerial Blade Dash: suspends vertical falling at initiation (`Velocity = new Vector2(dashDir * dashSpeed, IsOnFloor() ? Velocity.Y : 0f);`), giving responsive, snappy air dashes reminiscent of *Katana Zero* and *Ghostrunner*.
+>   - Action completion: only resets horizontal velocity to zero if `IsOnFloor()`, preventing jarring dead stops in midair when an aerial attack completes.
+> - **Changes in `scripts/actors/MainCharacter.cs`**: Updated legacy controller to match the non-blocking airborne attack paradigm.
+> - **Automated Coverage**: Added `test_cyber_shogun_airborne_attacks_and_dashes` in `tests/test_cyber_combat_hud_and_mechanics.gd` validating that all 3 combat actions trigger while airborne and transition smoothly.
+
 > **Earned-operatives campaign (2026-10-22, supersedes the Protocol Zero, character-selection-first and old level 2-4 notes below):**
 > - **Flow:** New Game → AXIOM-7 briefing (`StoryIntro.cs`) → Mission 1 (`CampaignProgress.StartNewCampaignAsync` creates the save with Cyber Shogun). The roster screen (`CharacterSelection.cs`, button "SQUAD ROSTER" on the main menu) is no longer part of new-game flow: locked operatives are marked, "Set Active" chooses who starts the next mission, Escape returns. **Protocol Zero is deleted** (`TrainingDirector`, `TrainingTarget`, `training_protocol.*`, its test, the capture tool, the level-select replay button); `TrainingArtwork.cs` is kept because `PalaceOperative` draws the approved art with it.
 > - **Unlock rules** live in engine-free C#: `LevelCatalog` (ordered missions, who joins, required ability tags) and `OperativeRoster` (unlock/active/cycle/lesson-seen). The squad is *derived from progress*, not saved: at the start of mission N it is Shogun plus everyone granted by missions < N (so no DB column or Django change was needed; old saves keep working). `CampaignProgress` syncs `Global.selected_character` / `Global.unlocked_levels`, rebuilds the roster before every mission launch (level select, Continue, intro) and advances the save on completion. Joins: M2 Oceanus then Apex Titan; M3 Aura Phoenicia then Mirage Blade; M4 Surya Prime. Mid-mission joins are replayed if the mission is reloaded.

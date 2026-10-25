@@ -51,9 +51,12 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 | **Katana Slash** | `F` / Left Mouse Button | X / Square Button |
 | **Signature Ability / Martial Strike** | `Q` | Y / Triangle Button |
 | **Swap Operative** | `Tab` / `Shift+Tab` (or `1`–`6`) | D-Pad Down (next) / Back (previous) |
-| **Blade Dash** | `Shift` / `C` | Right Shoulder / Trigger |
-| **Pause Game** | `Escape` | Start / Options |
-
+| **Blade Dash** | `Shift` / `C` | Right Shoulder / Trigger |
+| **Pause Game** | `Escape` | Start / Options |
+
+> [!NOTE]
+> All combat actions (Katana Slash, Signature Ability, and Blade Dash) can be executed both grounded and airborne. Aerial attacks preserve jump momentum to strike hovering enemies like patrol sentries, while aerial dashes provide responsive horizontal air mobility.
+
 The on-screen hint switches between keyboard and gamepad, and lists the swap keys once a second operative has joined.
 
 ---

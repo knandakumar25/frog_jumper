@@ -271,7 +271,8 @@ public partial class CyberShogun : BaseCharacter
             {
                 _isAttacking = false;
                 ActiveAction = "idle";
-                Velocity = Velocity with { X = 0 };
+                // Only zero out horizontal velocity when grounded; in the air, preserve momentum for smooth jump arcs.
+                if (IsOnFloor()) Velocity = Velocity with { X = 0 };
             }
         }
         _wallPushRemaining = Mathf.Max(0, _wallPushRemaining - dt);
@@ -357,73 +358,156 @@ public partial class CyberShogun : BaseCharacter
 	}
 
 	// ─── Override: special actions ───────────────────────────────────────────
-	/// <summary>Starts grounded actions, retaining a short outward impulse after wall jumps.</summary>
+	/// <summary>
+	/// Initiates combat actions (blade dash, primary sword strike, secondary signature ability) both on the ground
+	/// and while airborne, retaining a short outward impulse after wall jumps.
+	/// </summary>
+	/// <returns>True if an action or wall push is currently executing and handling physics movement; false otherwise.</returns>
 	protected override bool HandleSpecialActions()
+
 	{
+
 		if (_wallPushRemaining > 0f)
+
         {
+
             Velocity = Velocity with { X = _wallPushVelocity };
+
             return true;
+
         }
-        // Only allow attacks when grounded and not already attacking.
-		if (IsOnFloor() && !_isAttacking)
+
+
+
+        if (Sprite2d == null) Sprite2d = GetNodeOrNull<AnimatedSprite2D>("Sprite2D");
+
+
+
+        // Allow attacks and dashes both grounded and airborne, as long as another action is not already executing.
+
+		if (!_isAttacking)
+
 		{
+
 			// 1. Blade Dash: Triggered by Shift / C / Gamepad RB with cooldown check.
-			if (_dashPressed && DashCooldownTimer <= 0f && Sprite2d.SpriteFrames.HasAnimation("blade_dash"))
+
+			if (_dashPressed && DashCooldownTimer <= 0f && (Sprite2d?.SpriteFrames == null || Sprite2d.SpriteFrames.HasAnimation("blade_dash")))
+
 			{
+
 				_dashPressed = false;
+
 				DashCooldownTimer = DashCooldown;
+
 				EmitSignal(SignalName.DashCooldownUpdated, DashCooldownTimer, DashCooldown);
 
+
+
 				float dashSpeed = ActiveProfile?.DashSpeed ?? 800f;
+
 				var themeColor = ActiveProfile?.ThemeColor ?? new Color(0f, 0.94f, 1f, 1f);
+
 				float primaryDmg = ActiveProfile?.MeleePrimaryDamage ?? 35f;
 
-				float dashDir = Sprite2d.FlipH ? -1f : 1f;
-				Velocity = Velocity with { X = dashDir * dashSpeed };
+
+
+				float dashDir = (Sprite2d != null && Sprite2d.FlipH) ? -1f : 1f;
+
+				// In air, suspend downward falling momentum at dash initiation for snappy, responsive horizontal air dashing.
+
+				Velocity = new Vector2(dashDir * dashSpeed, IsOnFloor() ? Velocity.Y : 0f);
+
 				StartAction("dash", .24f);
-				Sprite2d.Play("blade_dash");
-				_dashPlayer?.Play();
+
+				if (IsInsideTree()) Sprite2d?.Play("blade_dash");
+
+				if (IsInsideTree()) _dashPlayer?.Play();
+
 				SpawnSlashVfx(new Vector2(dashDir * 24f, 0f), themeColor);
+
 				PerformMeleeHitCheck(primaryDmg * 1.15f, new Vector2(dashDir * 28f, 0f));
+
 				return true;
+
 			}
+
+
 
 			// 2. Sword Attack: Triggered by attack key/gamepad.
-			if (_attackPressed && Sprite2d.SpriteFrames.HasAnimation("sword_attack"))
+
+			if (_attackPressed && (Sprite2d?.SpriteFrames == null || Sprite2d.SpriteFrames.HasAnimation("sword_attack")))
+
 			{
+
 				_attackPressed = false;
-				Velocity = Velocity with { X = 0f };
+
+				// Grounded swings anchor the operative; aerial swings preserve mid-air jump momentum.
+
+				if (IsOnFloor()) Velocity = Velocity with { X = 0f };
+
 				StartAction("primary", .36f);
-				Sprite2d.Play("sword_attack");
-				_slashPlayer?.Play();
-				float slashDir = Sprite2d.FlipH ? -1f : 1f;
+
+				if (IsInsideTree()) Sprite2d?.Play("sword_attack");
+
+				if (IsInsideTree()) _slashPlayer?.Play();
+
+				float slashDir = (Sprite2d != null && Sprite2d.FlipH) ? -1f : 1f;
+
 				var themeColor = ActiveProfile?.ThemeColor ?? new Color(0.1f, 0.85f, 1f, 0.95f);
+
 				float primaryDmg = ActiveProfile?.MeleePrimaryDamage ?? 35f;
 
+
+
 				SpawnSlashVfx(new Vector2(slashDir * 20f, -4f), themeColor);
+
 				PerformMeleeHitCheck(primaryDmg, new Vector2(slashDir * 26f, 0f));
+
 				return true;
+
 			}
+
+
 
 			// 3. Karate Attack: Triggered by 'Q' key.
-			if (_qPressed && Sprite2d.SpriteFrames.HasAnimation("karate_attack"))
+
+			if (_qPressed && (Sprite2d?.SpriteFrames == null || Sprite2d.SpriteFrames.HasAnimation("karate_attack")))
+
 			{
+
 				_qPressed = false;
-				Velocity = Velocity with { X = 0f };
+
+				// Grounded strikes anchor the operative; aerial strikes preserve mid-air jump momentum.
+
+				if (IsOnFloor()) Velocity = Velocity with { X = 0f };
+
 				StartAction("secondary", .36f);
-				Sprite2d.Play("karate_attack");
-				_slashPlayer?.Play();
-				float strikeDir = Sprite2d.FlipH ? -1f : 1f;
+
+				if (IsInsideTree()) Sprite2d?.Play("karate_attack");
+
+				if (IsInsideTree()) _slashPlayer?.Play();
+
+				float strikeDir = (Sprite2d != null && Sprite2d.FlipH) ? -1f : 1f;
+
 				var themeColor = ActiveProfile?.ThemeColor.Lightened(0.2f) ?? new Color(1f, 0.2f, 0.5f, 0.9f);
+
 				float secondaryDmg = ActiveProfile?.MeleeSecondaryDamage ?? 25f;
 
+
+
 				SpawnSlashVfx(new Vector2(strikeDir * 16f, 0f), themeColor);
+
 				PerformMeleeHitCheck(secondaryDmg, new Vector2(strikeDir * 20f, 0f));
+
 				TriggerSignatureAbility();
+
 				return true;
+
 			}
+
 		}
+
+
 
 		// Clean up stale input flags if not consumed
 		if (_dashPressed)   _dashPressed = false;
@@ -431,6 +515,49 @@ public partial class CyberShogun : BaseCharacter
 		if (_qPressed)      _qPressed = false;
 
 		return _isAttacking;
+
+	}
+
+
+
+	/// <summary>Simulates a primary katana strike input, allowing tests and scripted sequences to trigger sword attacks.</summary>
+
+	public void PerformPrimaryAttack()
+
+	{
+
+		_attackPressed = true;
+
+		HandleSpecialActions();
+
+	}
+
+
+
+	/// <summary>Simulates a secondary karate / signature strike input for testing and scripted actions.</summary>
+
+	public void PerformSecondaryAttack()
+
+	{
+
+		_qPressed = true;
+
+		HandleSpecialActions();
+
+	}
+
+
+
+	/// <summary>Simulates a blade dash input for testing and scripted dashes.</summary>
+
+	public void PerformBladeDash()
+
+	{
+
+		_dashPressed = true;
+
+		HandleSpecialActions();
+
 	}
 
     /// <summary>Starts a physics-timed action independently of artwork frame counts.</summary>
@@ -503,9 +630,12 @@ public partial class CyberShogun : BaseCharacter
                 SetGhostLook(true);
                 break;
         }
-        // Gates only care about the ability's tag and where/which way it was used.
-        foreach (Node node in GetTree()?.GetNodesInGroup("ability_gates") ?? new Godot.Collections.Array<Node>())
-            if (node is AbilityGate gate) gate.ReceiveAbility(tag, GlobalPosition, FacingSign);
+        // Gates only care about the ability's tag and where/which way it was used.
+        if (IsInsideTree())
+        {
+            foreach (Node node in GetTree()?.GetNodesInGroup("ability_gates") ?? new Godot.Collections.Array<Node>())
+                if (node is AbilityGate gate) gate.ReceiveAbility(tag, GlobalPosition, FacingSign);
+        }
         EmitSignal(SignalName.AbilityUsed, tag);
     }
 
@@ -707,31 +837,62 @@ public partial class CyberShogun : BaseCharacter
 	/// Spawns a lightweight 2D neon plasma slash particle burst for attacks and dashes.
 	/// </summary>
 	private void SpawnSlashVfx(Vector2 offset, Color color)
+
 	{
+
+		if (!IsInsideTree()) return;
+
 		var particles = new CpuParticles2D
+
 		{
+
 			Position = offset,
+
 			Amount = 14,
+
 			Lifetime = 0.25,
+
 			OneShot = true,
+
 			Explosiveness = 0.92f,
+
 			Spread = 45.0f,
+
 			InitialVelocityMin = 140.0f,
+
 			InitialVelocityMax = 280.0f,
+
 			Color = color,
+
 			Gravity = new Vector2(0, 50),
+
 			Scale = new Vector2(1.5f, 1.5f)
+
 		};
-		float dir = Sprite2d.FlipH ? -1f : 1f;
+
+		float dir = (Sprite2d != null && Sprite2d.FlipH) ? -1f : 1f;
+
 		particles.Direction = new Vector2(dir, -0.15f);
+
 		AddChild(particles);
+
 		particles.Emitting = true;
 
+
+
 		var timer = GetTree()?.CreateTimer(0.35);
+
 		if (timer != null)
+
 		{
+
 			// Checkpoint changes can free the owner before this short-lived timer fires.
+
 			timer.Timeout += () => { if (GodotObject.IsInstanceValid(this) && GodotObject.IsInstanceValid(particles) && particles.IsInsideTree()) particles.QueueFree(); };
+
 		}
+
 	}
+
 }
+

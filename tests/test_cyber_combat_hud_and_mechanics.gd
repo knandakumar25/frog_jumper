@@ -69,7 +69,46 @@ func test_cyber_shogun_combo_system() -> void:
 	assert_int(player.get("ComboCount")).is_equal(2)
 
 	player.call("RegisterHit")
+
 	assert_int(player.get("ComboCount")).is_equal(3)
+
+
+
+	player.free()
+
+
+
+## Verifies that aerial sword attacks, signature strikes, and blade dashes execute while in the air.
+func test_cyber_shogun_airborne_attacks_and_dashes() -> void:
+	var scene := load(SHOGUN_PATH) as PackedScene
+	var player: Node = scene.instantiate()
+	assert_that(player).is_not_null()
+	add_child(player)
+	await get_tree().process_frame
+
+	# Ensure operative is in the air (!is_on_floor())
+	player.set("position", Vector2(100, 100))
+	assert_bool(player.is_on_floor()).is_false()
+
+	# 1. Test Airborne Sword Attack
+	player.call("PerformPrimaryAttack")
+	assert_str(player.get("ActiveAction")).is_equal("primary")
+
+	# Settle out attack duration to return to idle
+	player._physics_process(0.4)
+	assert_str(player.get("ActiveAction")).is_equal("idle")
+
+	# 2. Test Airborne Blade Dash
+	player.call("PerformBladeDash")
+	assert_str(player.get("ActiveAction")).is_equal("dash")
+
+	# Settle out dash duration
+	player._physics_process(0.4)
+	assert_str(player.get("ActiveAction")).is_equal("idle")
+
+	# 3. Test Airborne Karate / Signature Ability
+	player.call("PerformSecondaryAttack")
+	assert_str(player.get("ActiveAction")).is_equal("secondary")
 
 	player.free()
 

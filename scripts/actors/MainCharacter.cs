@@ -90,12 +90,13 @@ public partial class MainCharacter : CharacterBody2D
 		}
 
 		// 1. Attack Logic: Priority over movement.
-		if (IsOnFloor() && !_isAttacking)
+		// Attack logic available grounded or airborne
+		if (!_isAttacking)
 		{
 			if (_attackPressed && _sprite2d.SpriteFrames.HasAnimation("sword_attack"))
 			{
 				_attackPressed = false;
-				Velocity = Velocity with { X = 0f };
+				if (IsOnFloor()) Velocity = Velocity with { X = 0f };
 				_sprite2d.Play("sword_attack");
 				_ = PlayAttackAsync();
 				return;
@@ -103,7 +104,7 @@ public partial class MainCharacter : CharacterBody2D
 			if (_qPressed && _sprite2d.SpriteFrames.HasAnimation("karate_attack"))
 			{
 				_qPressed = false;
-				Velocity = Velocity with { X = 0f };
+				if (IsOnFloor()) Velocity = Velocity with { X = 0f };
 				_sprite2d.Play("karate_attack");
 				_ = PlayAttackAsync();
 				return;
