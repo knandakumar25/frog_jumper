@@ -1,5 +1,13 @@
 # Full Development Plan for Axiom Force (Entire Game)
 
+> [!NOTE]
+> **Active 2D Platformer Transition (Current Canon)**:
+> Axiom Force has officially transitioned from the legacy 3D prototype described in sections below to a **high-fidelity 2D Cyber-Action platformer** (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*).
+> - **Active Architecture**: `CodeLevel.cs` base class with procedural geometry, painted/procedural parallax backdrops, dynamic combat HUD, multi-operative synergy (`OperativeRegistry`), and the 4-mission linear campaign (`level1.tscn` to `level4.tscn`).
+> - **Operatives**: 6 distinct operatives unlocked progressively across the campaign (Cyber Shogun, Oceanus, Apex Titan, Aura Phoenicia, Mirage Blade, Surya Prime).
+> - **Boss Encounter**: "Vanguard-X" / Border Commander Voss in Level 4 with multi-phase rage mechanics.
+> - The sections below are retained as historical architectural reference for legacy systems.
+
 **Purpose**: Provide a single, detailed source of truth for the work required to bring the full Axiom Force game to its final state, covering asset import, core gameplay, UI, audio, localization, performance, testing, and release.
 
 ---

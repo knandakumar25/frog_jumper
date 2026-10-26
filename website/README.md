@@ -1,16 +1,52 @@
-# React + Vite
+# Axiom Force — Web Portal & Player Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The official web portal and companion dashboard for **Axiom Force**, built with **React**, **Vite**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Cyberpunk Command Dashboard**: Neon-aesthetic interface matching the in-game UI.
+- **Operative Dossiers**: In-depth lore, attributes, and signature ability breakdowns for all 6 operatives:
+  - Cyber Shogun (Kaito Kurogane)
+  - Surya Prime (Arjun Varma)
+  - Oceanus (Kiana Vaea)
+  - Mirage Blade (Zayd Al-Mansoor)
+  - Apex Titan (King Tariq Nzinga)
+  - Aura Phoenicia (Maya Khoury)
+- **Live Leaderboards**: Integration with Django REST Framework backend for high scores and level completion stats.
+- **Authentication**: User account management with Clerk and Django backend integration.
 
-## React Compiler
+## Architecture & Integration
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 19, Vite, Tailwind CSS, Lucide icons.
+- **Backend API**: Django REST Framework (Python 3.14) running at `http://localhost:8000/api/`.
+- **Containers**: WSL Container OCI images managed via Windows 11 `container.exe` on bridge network `frog_network`.
 
-## Expanding the ESLint configuration
+## Development Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Local Development
+```bash
+# Install dependencies
+npm install
+
+# Start Vite dev server (runs at http://localhost:5173/)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linter
+npm run lint
+```
+
+### WSL Containers
+From the repository root:
+```powershell
+# Build and run backend, database, and website containers
+.\run_wsl_containers.ps1
+
+# Stop containers
+.\stop_wsl_containers.ps1
+```

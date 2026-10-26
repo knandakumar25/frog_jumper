@@ -13,10 +13,10 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 
 ## Development Workflows
 
-### Godot Background Refresh (After Edits Only)
-Run a background Godot refresh only after creating, modifying, or deleting project files during the current task. Batch related edits and refresh once after the edits are complete; do not refresh after every individual file edit.
+### Godot Background Refresh (After Code/Asset Edits Only)
+Run a background Godot refresh only after creating, modifying, or deleting game engine files, scenes, scripts, shaders, or assets (.cs, .gd, .tscn, .res, .tres, images, audio, etc.) during the current task. Batch related edits and refresh once after the edits are complete; do not refresh after every individual file edit.
 
-- Skip automatic refreshes for read-only questions, explanations, inspections, reviews, status checks, or Git-only operations that do not change project content.
+- Skip automatic refreshes for read-only questions, explanations, inspections, reviews, status checks, Git-only operations, and documentation-only (.md) edits or deletions that do not alter game assets or code.
 - Existing uncommitted changes alone do not trigger another refresh. Repeat only after further edits, an unresolved import issue, or an explicit user request.
 - After edits, use the console executable from the project root:
 
@@ -31,11 +31,11 @@ Run a background Godot refresh only after creating, modifying, or deleting proje
 - **Build project**: `dotnet build AxiomForce.csproj`
 - **Verification**: Check Godot runtime logs for warnings or missing asset errors.
 
-## Mandatory Testing Protocol (After Edits Only)
+## Mandatory Testing Protocol (After Code/Asset Edits Only)
 > [!IMPORTANT]
-> After creating, modifying, or deleting project files during the current task, all AI agents (Codex, Claude, Gemini / Antigravity) **MUST** run the unit test suites after the final edits and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding the turn. This includes documentation and configuration edits.
+> After creating, modifying, or deleting project code, scenes, shaders, or asset files (.cs, .gd, .tscn, .py, .json, art/sound) during the current task, all AI agents (Codex, Claude, Gemini / Antigravity) **MUST** run the unit test suites after the final edits and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding the turn.
 >
-> **Skip automatic unit tests when no project files were edited**, including read-only questions, explanations, inspections, reviews, status checks, and Git-only operations. Existing uncommitted changes or a new prompt alone do not require a rerun. Explicit user requests to run tests still apply. After a successful run, repeat only if further edits or unresolved failures require it.
+> **Skip automatic unit tests when no code, scene, or asset files were edited** — including read-only questions, explanations, inspections, reviews, status checks, Git-only operations, and **documentation-only (.md) edits or deletions**. Existing uncommitted changes or a new prompt alone do not require a rerun. Explicit user requests to run tests still apply. After a successful run, repeat only if further edits or unresolved failures require it.
 >
 > Run from the project root:
 >
@@ -125,7 +125,7 @@ This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\con
 - Update `README.md` with the relevant current behavior, features, setup, usage, or development workflow so it remains accurate for users and contributors.
 - Update `HANDOFF.md` with what changed, important implementation decisions, verification results, and any remaining limitations or follow-up work so the next agent can continue accurately. Distinguish completed work from planned work; never claim checks passed before they have run.
 - Make meaningful, task-specific updates to both files as part of the same task, before the final response. A chat summary, code comments, or commit message does not replace either update.
-- Include these documentation changes in the final batch of edits before the required background Godot refresh and unit tests. Read-only tasks and Git-only operations that do not change project content do not require documentation updates.
+- Include these documentation changes in the final batch of edits before the required background Godot refresh and unit tests when code/assets are changed. Read-only tasks, Git-only operations, and documentation-only tasks that do not change project code or assets do not trigger refreshes or unit tests.
 - Updating documentation does not authorize a Git commit or push; explicit user instructions for the current changes are still required.
 
 ## Permissions Denylist

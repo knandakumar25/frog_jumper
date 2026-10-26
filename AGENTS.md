@@ -13,10 +13,10 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 
 ## Development Workflows
 
-### Godot Background Refresh (After Edits Only)
-Run a background Godot refresh only after creating, modifying, or deleting project files during the current task. Batch related edits and refresh once after the edits are complete; do not refresh after every individual file edit.
+### Godot Background Refresh (After Code/Asset Edits Only)
+Run a background Godot refresh only after creating, modifying, or deleting game engine files, scenes, scripts, shaders, or assets (.cs, .gd, .tscn, .res, .tres, images, audio, etc.) during the current task. Batch related edits and refresh once after the edits are complete; do not refresh after every individual file edit.
 
-- Skip automatic refreshes for read-only questions, explanations, inspections, reviews, status checks, or Git-only operations that do not change project content.
+- Skip automatic refreshes for read-only questions, explanations, inspections, reviews, status checks, Git-only operations, and documentation-only (.md) edits or deletions that do not alter game assets or code.
 - Existing uncommitted changes alone do not trigger another refresh. Repeat only after further edits, an unresolved import issue, or an explicit user request.
 - After edits, use the console executable from the project root:
 
@@ -31,11 +31,11 @@ Run a background Godot refresh only after creating, modifying, or deleting proje
 - **Build project**: `dotnet build AxiomForce.csproj`
 - **Verification**: Check Godot runtime logs for warnings or missing asset errors.
 
-## Mandatory Testing Protocol (After Edits Only)
+## Mandatory Testing Protocol (After Code/Asset Edits Only)
 > [!IMPORTANT]
-> After creating, modifying, or deleting project files during the current task, all AI agents (Codex, Claude, Gemini / Antigravity) **MUST** run the unit test suites after the final edits and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding the turn. This includes documentation and configuration edits.
+> After creating, modifying, or deleting project code, scenes, shaders, or asset files (.cs, .gd, .tscn, .py, .json, art/sound) during the current task, all AI agents (Codex, Claude, Gemini / Antigravity) **MUST** run the unit test suites after the final edits and verify that all tests pass (0 failures, 0 errors, 0 orphans) before concluding the turn.
 >
-> **Skip automatic unit tests when no project files were edited**, including read-only questions, explanations, inspections, reviews, status checks, and Git-only operations. Existing uncommitted changes or a new prompt alone do not require a rerun. Explicit user requests to run tests still apply. After a successful run, repeat only if further edits or unresolved failures require it.
+> **Skip automatic unit tests when no code, scene, or asset files were edited** — including read-only questions, explanations, inspections, reviews, status checks, Git-only operations, and **documentation-only (.md) edits or deletions**. Existing uncommitted changes or a new prompt alone do not require a rerun. Explicit user requests to run tests still apply. After a successful run, repeat only if further edits or unresolved failures require it.
 >
 > Run from the project root:
 >
@@ -101,15 +101,60 @@ Run a background Godot refresh only after creating, modifying, or deleting proje
 *(Note: Solaria has been completely removed from the project).*
 
 ## WSL Containers Architecture (NO DOCKER, NO DISTROS)
+
 This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\container.exe`.
+
 - **Do NOT use Docker Desktop, docker cli, or docker-compose.** (Docker is permanently removed from this system).
+
 - **Do NOT spin up standard WSL Linux distros** (`wsl --install Ubuntu` etc.).
+
 - **How to manage containers**: Use the pre-built project scripts:
+
   - `.\setup_wsl_containers.ps1`: Pulls base layers and builds container images (`frog_jumper_backend`, `frog_jumper_website`).
+
   - `.\run_wsl_containers.ps1`: Starts PostgreSQL 18, Django backend, and Nginx website on bridge network `frog_network`.
+
   - `.\stop_wsl_containers.ps1`: Stops and removes the active container instances.
+
   - `.\export_game_wsl.ps1`: Runs headless Godot 4.7.2 + Android SDK exporter container (`export/Containerfile`).
+
 - **CLI path**: `& "C:\Program Files\WSL\container.exe" <command>` (supports standard OCI commands like `list`, `build`, `run`, `rm`, `image list`).
+
+
+
+## Mandatory In-Code Documentation
+
+
+
+- **Every piece of code must be documented in the code itself.** This applies to all agents and all code they create or modify, including gameplay, UI, backend, frontend, tests, scripts, and tooling.
+
+- Document each module, class, function, and method using the language's appropriate comments or documentation format (for example, C# XML documentation, Python docstrings, or GDScript/JavaScript documentation comments).
+
+- Explain the code's purpose, behavior, and relevant inputs, outputs, side effects, assumptions, and constraints. Add inline comments for non-obvious logic, algorithms, state transitions, and workarounds, explaining why they are needed.
+
+- Keep documentation accurate whenever code changes. Document previously undocumented code when working on it. Documentation in Markdown files, commit messages, or chat does not replace documentation in the source code.
+
+- Use clear, useful explanations rather than comments that merely repeat the syntax.
+
+
+
+## Mandatory README and Handoff Updates
+
+
+
+- **Before finishing any task that creates, modifies, or deletes files for the game or its website, every agent MUST update both root `README.md` and root `HANDOFF.md`.** This applies to gameplay, scenes, assets, UI, website frontend, backend, configuration, tooling, tests, and related documentation.
+
+- Update `README.md` with the relevant current behavior, features, setup, usage, or development workflow so it remains accurate for users and contributors.
+
+- Update `HANDOFF.md` with what changed, important implementation decisions, verification results, and any remaining limitations or follow-up work so the next agent can continue accurately. Distinguish completed work from planned work; never claim checks passed before they have run.
+
+- Make meaningful, task-specific updates to both files as part of the same task, before the final response. A chat summary, code comments, or commit message does not replace either update.
+
+- Include these documentation changes in the final batch of edits before the required background Godot refresh and unit tests when code/assets are changed. Read-only tasks, Git-only operations, and documentation-only tasks that do not change project code or assets do not trigger refreshes or unit tests.
+
+- Updating documentation does not authorize a Git commit or push; explicit user instructions for the current changes are still required.
+
+
 
 ## Permissions Denylist
 - **NO Git commits or pushes** without explicit user instruction for the current changes.
