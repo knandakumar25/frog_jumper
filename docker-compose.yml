@@ -1,0 +1,137 @@
+# Axiom Force — local development stack (Docker Desktop / Compose v2).
+#
+# Start everything:   docker compose up -d
+# Watch the backend:  docker compose logs -f backend
+# Stop everything:    docker compose down
+#
+# Variables come from the gitignored `.env` in this directory (see
+# `.env.example`); every value below has a safe default so a fresh clone with
+# no `.env` still boots. The database password is shared between the `db`
+# service (POSTGRES_PASSWORD) and the backend (DB_PASSWORD), so set both to the
+# same value in `.env` if you change either.
+name: axiom-force
+
+services:
+  # PostgreSQL 18, matching the version the project documents. Data lives in
+  # the named `pgdata` volume and survives `docker compose down`.
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-accounts_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      # PostgreSQL 18+ stores data in a major-version subdirectory and refuses
+      # to start when the volume is mounted at the old /var/lib/postgresql/data
+      # path, so the mount has to sit one level up.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      # `backend` waits on this, so it must fail until the server accepts
+      # connections — pg_isready only passes once the postmaster is up.
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  # Django REST Framework on Python 3.14. The image's entrypoint waits for
+  # PostgreSQL and applies migrations before starting the dev server.
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      # Optional so the stack still starts before anyone copies .env.example
+      # to .env; the backend falls back to settings.py defaults in that case.
+      - path: .env
+        required: false
+    environment:
+      # Compose service name, not localhost: inside the network the database
+      # answers to `db`.
+      DB_HOST: db
+      DB_PORT: "5432"
+      PYTHONUNBUFFERED: "1"
+    ports:
+      - "8000:8000"
+    volumes:
+      # Bind-mount the source for live reload; the image still provides the
+      # installed dependencies.
+      - ./backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
+
+  # React + Vite build served by Nginx, which also proxies /api/ and /admin/
+  # to `backend` (see website/nginx.conf). FRONTEND_URL points at 5173, so that
+  # is the host port this service is published on.
+  website:
+    build:
+      context: ./website
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000/api}
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Local LLM runtime. Part of the always-on group (NOT the export profile),
+  # so `docker compose up` starts it alongside the database, API and portal.
+  # Models live in the named `ollama` volume and survive `down`.
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list > /dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  # Headless game exporter (Godot 4.7.2 .NET + Android SDK + JDK 17, see
+  # export/Dockerfile). It sits behind the `export` profile, so a plain
+  # `docker compose up` NEVER starts it: exports are exclusive and may only be
+  # invoked deliberately, with nothing else building at the same time:
+  #
+  #   docker compose run --rm export linux
+  #   docker compose run --rm export android
+  export:
+    profiles: ["export"]
+    image: axiom-force-export
+    build:
+      context: ./export
+    working_dir: /workspace
+    volumes:
+      # The whole repository, because the exporter reads project.godot and
+      # writes the exported binaries into ./build.
+      - ./:/workspace
+      # Godot's import cache and the .NET build outputs are redirected onto
+      # container volumes on purpose: a full import through the Windows bind
+      # mount runs at ~1 KB/s because the cache is thousands of small files,
+      # while Linux-native I/O finishes in seconds. Only the finished export
+      # artifacts cross back to the host.
+      - export_godot:/workspace/.godot
+      - export_dotnet_bin:/workspace/bin
+      - export_dotnet_obj:/workspace/obj
+    environment:
+      ANDROID_HOME: /opt/android-sdk
+      ANDROID_SDK_ROOT: /opt/android-sdk
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+    # Inert by default: starting this container without an explicit target only
+    # prints usage. An export runs solely for `docker compose run --rm export
+    # <target>`, which overrides this command.
+    command: ["help"]
+    restart: "no"
+
+volumes:
+  pgdata:
+  ollama:
+  export_godot:
+  export_dotnet_bin:
+  export_dotnet_obj:

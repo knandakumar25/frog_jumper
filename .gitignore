@@ -49,7 +49,7 @@ graphify-out/
 .validation/
 
 # Built Android binaries
-build/android/
+build/
 
 # Test screenshots
 assets/images/screenshot_*.png*

@@ -11,3 +11,6 @@ addons/godot-sqlite/bin/libgodot-cpp.ios.template_release.xcframework/**/*.a fil
 *.cfg text eol=lf
 *.csv text eol=lf
 *.svg text eol=lf
+
+# Shell scripts must keep LF endings so container entrypoints execute
+*.sh text eol=lf

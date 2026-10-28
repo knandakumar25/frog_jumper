@@ -81,6 +81,37 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 - [.NET 10 SDK](https://dotnet.microsoft.com/)
 - Python 3.14 (for Django backend tests and sound synthesis tools)
 
+### Running the Stack with Docker
+
+The Django backend, PostgreSQL database and React web portal run together with Docker Compose:
+
+```powershell
+docker compose up -d --build     # build and start db, backend, website
+docker compose ps                # check that all three are healthy
+docker compose logs -f backend   # follow the Django log
+docker compose down              # stop everything (add -v to drop the DB volume)
+```
+
+- **Django API**: <http://localhost:8000/api/> (admin site at `/admin/`)
+- **Web portal**: <http://localhost:5173/> — Nginx serves the built bundle and proxies `/api/` and `/admin/` to Django
+- **Ollama**: published on `11434`, models kept in the `ollama` volume; it is an always-on member of the stack, not part of the export group
+- **PostgreSQL 18**: published on `5432`, data kept in the `pgdata` volume
+- Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default, so the stack also boots without one
+- `backend/Dockerfile` builds on Python 3.14; `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
+
+### Exporting the Game (Docker)
+
+Game exports run headless from a dedicated image (`export/Dockerfile`: Godot 4.7.2 .NET, .NET 10 SDK, Android SDK with build-tools 34, **JDK 17 only**, and the matching export templates). The image owns a container-native `.godot` import cache — importing through the Windows bind mount is ~1 KB/s, so imports stay on the Linux filesystem and only the finished binaries are written back to `./build`.
+
+```powershell
+docker compose --profile export build export   # first run, or after editing the Dockerfile
+docker compose run --rm export linux            # also: windows | web | android | all
+```
+
+Outputs land in `./build/`. Exports only ever run when a target is given explicitly: the service sits behind the `export` profile, so `docker compose up` never starts it, and even starting the service directly is inert — it prints usage and exits without building anything.
+
+Game and website edits may run alongside the stack, but an export is exclusive — never run one while another export, a Godot import, or a website build is still running.
+
 ### Building the C# Project
 
 To restore packages and build the Godot C# project:
@@ -142,6 +173,8 @@ AxiomForce/
 AI agents collaborating on this repository must consult the following guides:
 - [`HANDOFF.md`](./HANDOFF.md) — Comprehensive technical briefing on recent milestones, current 2D architecture and roadmap.
 - [`CODEX.md`](./CODEX.md) / [`CLAUDE.md`](./CLAUDE.md) / [`GEMINI.md`](./GEMINI.md) / [`AGENTS.md`](./AGENTS.md) — Universal agent operational rules, mandatory testing protocol, and permissions.
+
+Before starting any task that edits code files, agents must confirm the Docker stack is running (`docker ps`; if the project containers are absent, start them with `docker compose up -d`). Read-only, review, documentation-only, and Git-only tasks are exempt.
 
 ## Agent Task Completion
 

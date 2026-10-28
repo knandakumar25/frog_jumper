@@ -13,6 +13,22 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 
 ## Development Workflows
 
+### Docker Container Preflight (Before Editing Code Files)
+Before starting any task that involves editing code files (`.cs`, `.gd`, `.py`, `.ts`/`.tsx`/`.js`, tooling scripts, or configuration a running service reads), confirm the project's Docker containers are running:
+
+```powershell
+docker ps
+```
+
+- If Docker Desktop itself is down, start it and wait until `docker info` reports a live daemon before continuing.
+- If the project containers (Django backend, PostgreSQL, website) are missing from `docker ps`, start them from the project root with `docker compose up -d` and re-check with `docker ps`. If a container exits immediately, read `docker compose logs <service>` before editing.
+- Do not begin code edits while the stack is down, and never stop containers the user started.
+- The stack is defined in `docker-compose.yml`: `db` (PostgreSQL 18, 5432), `backend` (Django, 8000), `website` (Nginx, 5173) and `ollama` (LLM runtime, 11434). All four are always-on members of `docker compose up`.
+- **Game edits and website edits may run at the same time as the stack** — they do not conflict, so do not stop the containers to work on either.
+- **Game exports are exclusive.** Never run one while another export, a Godot import refresh, a website image build, or a game/website edit batch is still in progress, and never chain an export into the same command as other work. Finish or park everything else first.
+- The exporter is a one-shot service behind the `export` profile (`docker compose run --rm export <linux|windows|web|android|all>`, image `axiom-force-export`). A plain `docker compose up` never starts it, and starting the service by itself is inert: with no explicit target it prints usage and exits without building anything. Never add `export` to the default services, and rebuild the image after editing `export/export.sh` because the script is baked into it.
+- Skip this preflight for read-only questions, explanations, reviews, status checks, documentation-only (`.md`) edits, and Git-only operations.
+
 ### Godot Background Refresh (After Code/Asset Edits Only)
 Run a background Godot refresh only after creating, modifying, or deleting game engine files, scenes, scripts, shaders, or assets (.cs, .gd, .tscn, .res, .tres, images, audio, etc.) during the current task. Batch related edits and refresh once after the edits are complete; do not refresh after every individual file edit.
 
