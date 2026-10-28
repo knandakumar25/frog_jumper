@@ -19,7 +19,6 @@ The official web portal and companion dashboard for **Axiom Force**, built with 
 
 - **Frontend**: React 19, Vite, Tailwind CSS, Lucide icons.
 - **Backend API**: Django REST Framework (Python 3.14) running at `http://localhost:8000/api/`.
-- **Containers**: WSL Container OCI images managed via Windows 11 `container.exe` on bridge network `frog_network`.
 
 ## Development Setup
 
@@ -39,14 +38,4 @@ npm run preview
 
 # Run linter
 npm run lint
-```
-
-### WSL Containers
-From the repository root:
-```powershell
-# Build and run backend, database, and website containers
-.\run_wsl_containers.ps1
-
-# Stop containers
-.\stop_wsl_containers.ps1
 ```

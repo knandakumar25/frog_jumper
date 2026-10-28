@@ -372,8 +372,9 @@ class OnboardingStartView(APIView):
             return Response({"error": "unknown_clerk_user"}, status=status.HTTP_404_NOT_FOUND)
         except clerk_client.ClerkUnavailable:
             # Almost always this machine rather than Clerk: antivirus TLS
-            # interception re-signs outbound HTTPS, and a missing .local-ca
-            # bundle surfaces here as CERTIFICATE_VERIFY_FAILED.
+            # interception re-signs outbound HTTPS, so a Python environment that
+            # does not trust the interception root fails here with
+            # CERTIFICATE_VERIFY_FAILED.
             return Response({"error": "clerk_unreachable"}, status=status.HTTP_502_BAD_GATEWAY)
         except clerk_client.ClerkError:
             return Response({"error": "clerk_error"}, status=status.HTTP_502_BAD_GATEWAY)

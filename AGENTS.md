@@ -100,28 +100,6 @@ Run a background Godot refresh only after creating, modifying, or deleting game 
 6. **Aura Phoenicia (Maya Khoury)**: Ultrasonic Prism Weaver (95 HP, 55 Shield, 8% mitigation, 0.85s dash cooldown, harmonic resonance).
 *(Note: Solaria has been completely removed from the project).*
 
-## WSL Containers Architecture (NO DOCKER, NO DISTROS)
-
-This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\container.exe`.
-
-- **Do NOT use Docker Desktop, docker cli, or docker-compose.** (Docker is permanently removed from this system).
-
-- **Do NOT spin up standard WSL Linux distros** (`wsl --install Ubuntu` etc.).
-
-- **How to manage containers**: Use the pre-built project scripts:
-
-  - `.\setup_wsl_containers.ps1`: Pulls base layers and builds container images (`frog_jumper_backend`, `frog_jumper_website`).
-
-  - `.\run_wsl_containers.ps1`: Starts PostgreSQL 18, Django backend, and Nginx website on bridge network `frog_network`.
-
-  - `.\stop_wsl_containers.ps1`: Stops and removes the active container instances.
-
-  - `.\export_game_wsl.ps1`: Runs headless Godot 4.7.2 + Android SDK exporter container (`export/Containerfile`).
-
-- **CLI path**: `& "C:\Program Files\WSL\container.exe" <command>` (supports standard OCI commands like `list`, `build`, `run`, `rm`, `image list`).
-
-
-
 ## Mandatory In-Code Documentation
 
 
@@ -158,5 +136,4 @@ This project uses native Windows 11 WSL Containers via `C:\Program Files\WSL\con
 
 ## Permissions Denylist
 - **NO Git commits or pushes** without explicit user instruction for the current changes.
-- **NO Docker CLI / Docker Desktop** commands.
 - **NO standard WSL distro installations** (`wsl --install`).

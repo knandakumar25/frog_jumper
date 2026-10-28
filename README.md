@@ -51,12 +51,12 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 | **Katana Slash** | `F` / Left Mouse Button | X / Square Button |
 | **Signature Ability / Martial Strike** | `Q` | Y / Triangle Button |
 | **Swap Operative** | `Tab` / `Shift+Tab` (or `1`–`6`) | D-Pad Down (next) / Back (previous) |
-| **Blade Dash** | `Shift` / `C` | Right Shoulder / Trigger |
-| **Pause Game** | `Escape` | Start / Options |
-
-> [!NOTE]
-> All combat actions (Katana Slash, Signature Ability, and Blade Dash) can be executed both grounded and airborne. Aerial attacks preserve jump momentum to strike hovering enemies like patrol sentries, while aerial dashes provide responsive horizontal air mobility.
-
+| **Blade Dash** | `Shift` / `C` | Right Shoulder / Trigger |
+| **Pause Game** | `Escape` | Start / Options |
+
+> [!NOTE]
+> All combat actions (Katana Slash, Signature Ability, and Blade Dash) can be executed both grounded and airborne. Aerial attacks preserve jump momentum to strike hovering enemies like patrol sentries, while aerial dashes provide responsive horizontal air mobility.
+
 The on-screen hint switches between keyboard and gamepad, and lists the swap keys once a second operative has joined.
 
 ---
@@ -70,7 +70,6 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 | **Backend API** | Django 5.x / DRF | Python 3.14 REST API managing authentication and high scores. |
 | **Web Frontend** | React + Vite + Tailwind | Web dashboard and player hub. |
 | **Database** | PostgreSQL 18 | Persistent session and leaderboard storage with local JSON fallback. |
-| **Containers** | Native WSL Containers | Automated microservices via Windows 11 `container.exe` (no Docker Desktop). |
 
 ---
 
@@ -135,17 +134,6 @@ AxiomForce/
 ├── frontend/                         # React + Vite web application
 └── tests/                            # GdUnit4 and NUnit test suites
 ```
-
----
-
-## WSL Container Architecture
-
-Axiom Force runs containerized backend services using native Windows 11 WSL Containers:
-
-- `.\setup_wsl_containers.ps1` — Builds backend and website container images.
-- `.\run_wsl_containers.ps1` — Starts PostgreSQL 18, Django API, and Nginx web server on bridge network `frog_network`.
-- `.\stop_wsl_containers.ps1` — Stops and tears down active container instances.
-- `.\export_game_wsl.ps1` — Generates automated headless release builds.
 
 ---
 

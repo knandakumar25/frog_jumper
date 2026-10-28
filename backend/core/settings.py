@@ -182,8 +182,8 @@ except ValueError:
     CLERK_TIMEOUT = 10.0
 
 # Onboarding (email-gated signup) --------------------------------------------
-# Every value is overridable from the environment; run_wsl_containers.ps1
-# forwards them from the gitignored .env. They are read here so tests can
+# Every value is overridable from the environment (export them in the shell or
+# provide them to the deployment runtime). They are read here so tests can
 # override them with self.settings(...) rather than patching modules.
 def _env_int(name, default):
     try:
