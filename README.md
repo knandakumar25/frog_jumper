@@ -78,8 +78,25 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 ### Prerequisites
 
 - [Godot 4.7.2 .NET (Mono)](https://godotengine.org/)
-- [.NET 10 SDK](https://dotnet.microsoft.com/)
+- [.NET 10 SDK](https://dotnet.microsoft.com/) — **required on Windows, not from Docker**
 - Python 3.14 (for Django backend tests and sound synthesis tools)
+
+> **"Failed to load .NET runtime, specifically hostfxr" on launching Godot** means Windows has no usable .NET SDK. The Godot editor is a native Windows binary that loads Windows `hostfxr.dll`, so the Linux .NET inside the export image cannot satisfy it. Confirm with `dotnet --list-sdks` and by checking that `C:\Program Files\dotnet\host\fxr\` exists. If the installer leaves `C:\Program Files\dotnet` without `dotnet.exe` and `host\`, install per-user and point Godot at it:
+>
+> ```powershell
+> curl.exe -sSL -o $env:TEMP\dotnet-install.ps1 https://dot.net/v1/dotnet-install.ps1
+> powershell -ExecutionPolicy Bypass -File $env:TEMP\dotnet-install.ps1 -Channel 10.0 -InstallDir "$env:LOCALAPPDATA\Microsoft\dotnet" -NoPath
+> [Environment]::SetEnvironmentVariable('DOTNET_ROOT', "$env:LOCALAPPDATA\Microsoft\dotnet", 'User')
+> ```
+>
+> Then sign out and back in (or restart Explorer) so newly launched apps inherit `DOTNET_ROOT`, and relaunch Godot.
+
+> **Godot AI dock says "No server command found" or shows `uv: not found`** means the plugin found no usable launcher. It resolves a server in three tiers — project `.venv` → `uvx` → a system `godot-ai` — and on Windows a `.venv` only counts if it is `.venv\Scripts\python.exe` next to a `src/godot_ai/` checkout. **The repo's `./.venv` is the Linux venv used by Docker** (`.venv/bin/python`, no `Scripts`), so it can never satisfy the editor. Install `uv` for Windows into one of the directories the plugin searches (`%LOCALAPPDATA%\Programs\uv`, `%USERPROFILE%\.local\bin`, `%USERPROFILE%\.cargo\bin`, `%ProgramFiles%\uv`), then click **Reload Plugin** in the dock (its "not found" result is cached for the session). `uvx` then fetches the pinned server itself — for plugin v4.3.1 that is `godot-ai==4.3.1`:
+>
+> ```powershell
+> curl.exe -sSL -o $env:TEMP\uv.zip https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-pc-windows-msvc.zip
+> Expand-Archive $env:TEMP\uv.zip -DestinationPath "$env:LOCALAPPDATA\Programs\uv" -Force
+> ```
 
 ### Running the Stack with Docker
 
