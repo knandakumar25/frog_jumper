@@ -196,3 +196,17 @@ Before starting any task that edits code files, agents must confirm the Docker s
 ## Agent Task Completion
 
 After any task that edits the game or its website (including backend, assets, configuration, tests, tooling, or related documentation), agents must update both this root `README.md` and `HANDOFF.md` before finishing. Keep README behavior and contributor instructions current; record implementation decisions, verification status, limitations, and follow-up work in the handoff. Complete documentation edits alongside the task. Unit tests and Godot refreshes are required only when code, scene, or asset files are created, modified, or deleted, and are skipped for documentation-only tasks. Read-only and Git-only tasks are exempt. Commits and pushes still require explicit permission for the current changes. This requirement is shared by `CLAUDE.md`, `CODEX.md`, and `GEMINI.md`.
+# Deployment cinematic
+
+New Game now opens a 40-second deployment film before the AXIOM-7 briefing;
+Continue still loads the saved mission. Escape, controller Start, or the on-screen
+Skip button advances to the briefing. Missing film assets fall through safely.
+Regenerate with `docker compose --profile cutscene run --build --rm cutscene`.
+Blender authors planar plates; Python and FFmpeg animate and package a 1920×1080,
+24 fps Theora video. The current version is a four-plate animatic with camera
+moves, fades, and atmosphere; character action and animated rain remain pending.
+Intermediate renders live in `.validation/deployment`. ElevenLabs narration is
+provided at `assets/cutscenes/deployment/narration.ogg`. Regenerate with
+`python tools/cutscene/narrate.py` using `ELEVENLABS_API_KEY` in the gitignored
+root `.env`; cached cues prevent duplicate generation charges. This uses the
+direct API because the installed plugin's MCP tools remain unavailable.

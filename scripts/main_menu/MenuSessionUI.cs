@@ -250,7 +250,7 @@ public partial class MenuSessionUI : Node
 	}
 
 	/// <summary>
-	/// Starts a new campaign with the story's starter operative (no selection step), then opens the AXIOM-7 briefing.
+	/// Starts a new campaign with the starter operative, then plays deployment before the AXIOM-7 briefing.
 	/// The remaining operatives are unlocked through play; the roster screen is reachable from the menus instead.
 	/// </summary>
 	public async void ConfirmNewGame()
@@ -258,7 +258,7 @@ public partial class MenuSessionUI : Node
 		_newGamePopup.Visible = false;
 		int sessionId = await CampaignProgress.StartNewCampaignAsync();
 		GD.Print(sessionId > 0 ? $"Created new session: {sessionId}" : "Error creating session; continuing unsaved.");
-		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/story_intro.tscn");
+		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/deployment_cutscene.tscn");
 	}
 
 	public void CancelNewGame()

@@ -277,3 +277,40 @@ To address *"Many parts of the game are still in 3D"*, here are the high-priorit
 | `tests/test_phase5_boss_and_victory.gd` | GdUnit4 test suite for boss mech, missile attacks, and victory scorecard. |
 | `tests/test_phase6_operative_synergy.gd` | GdUnit4 test suite for operative registry, passives, and dynamic HUD styling. |
 | `run_tests.ps1` | Unified test runner for NUnit (.NET 10), GdUnit4, and Django. |
+# Deployment cinematic implementation
+
+New Game routes through `deployment_cutscene.tscn` before the existing briefing.
+The opt-in `cutscene` Compose service renders Blender artwork and packages a
+40-second Theora film using Python/FFmpeg. Playback includes timed English subtitle
+fallbacks, aspect preservation, skip controls, and an idempotent transition.
+ElevenLabs narration is now generated via the direct API: the root `.env` key
+was validated, and Daniel was selected from the live voice list. Four multilingual
+v2 cues (6.03s, 6.11s, 7.11s, 5.62s) fit their subtitle windows without tempo
+changes. `tools/cutscene/narrate.py` caches paid generations and uses Docker
+FFmpeg for radio EQ and the 40-second `narration.ogg` mix. MCP tools are still
+unavailable; the plugin text-to-speech workflow supplied the API approach.
+Audio verification: Godot generated `narration.ogg.import`; ffprobe confirmed
+40.000 seconds. Python compilation passed. NUnit 34/34, GdUnit4 104/104
+(report_339), and container Django 104/104 passed. The test wrapper skips its
+Windows Django environment, so Django ran in the backend container instead.
+Import exited 0 with the existing plugin TLS/editor cleanup errors. A capped
+45-second playback check reached StoryIntro and exited 0, with one resource
+still in use at engine shutdown; runtime also reports the existing database
+password fallback. No API key was printed or added to tracked configuration.
+Four plates rendered in Windows Blender 5.2.3;
+Docker packaging succeeded and ffprobe verified 40 seconds, 1920×1080, 24 fps,
+Theora/Vorbis, 11,414,306 bytes. This is a four-plate animatic: animated rain,
+running and surveillance sweeps remain unfinished.
+Initial verification: C# build passed (153 existing warnings); NUnit 34/34,
+GdUnit4 104/104 including two new tests, and container Django 104/104 passed.
+The wrapper skips Django without a Windows venv, so it was run in Docker.
+Import logs contain plugin TLS errors and exit resource leaks; do not describe
+the import as warning-free. Final import exited 0 with the same plugin/cleanup
+errors and no cutscene parse errors. Final NUnit 34/34, GdUnit4 104/104
+(report_338), and Docker Django 104/104 passed after video packaging.
+Runtime startup loaded without cutscene errors; host SessionManager reports a
+PostgreSQL password failure and uses its existing local JSON fallback.
+The 45-second, 60-fps-capped headless playback check reached StoryIntro and
+successfully started its first existing AXIOM-7 voice line, with no ERROR lines.
+Existing `.vscode/settings.json`
+changes are unrelated and were preserved.

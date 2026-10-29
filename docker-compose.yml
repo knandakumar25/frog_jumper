@@ -12,6 +12,15 @@
 name: axiom-force
 
 services:
+  # Opt-in art pipeline; never starts with the application's always-on services.
+  cutscene:
+    profiles: ["cutscene"]
+    build:
+      context: ./tools/cutscene
+    volumes:
+      - ./:/workspace
+    restart: "no"
+
   # PostgreSQL 18, matching the version the project documents. Data lives in
   # the named `pgdata` volume and survives `docker compose down`.
   db:
