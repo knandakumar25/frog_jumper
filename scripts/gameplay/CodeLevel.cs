@@ -137,7 +137,7 @@ public abstract partial class CodeLevel : Node2D
         AddChild(combatHud);
 
         // The final mission of an act ends on the combat-grade scorecard instead of auto-advancing.
-        if (!LevelCatalog.HasNext(MissionNumber))
+        if (MissionNumber == 1 || !LevelCatalog.HasNext(MissionNumber))
         {
             _scorecard = GD.Load<PackedScene>("res://scenes/ui/cyber_victory_scorecard.tscn").Instantiate<CyberVictoryScorecard>();
             _scorecard.Name = "CyberVictoryScorecard";
@@ -447,7 +447,7 @@ public abstract partial class CodeLevel : Node2D
         ShowDialogue("Systems restored at the last recovery point.", 4f);
     }
 
-    /// <summary>Saves progress, unlocks the next mission and changes scene after a short victory beat.</summary>
+    /// <summary>Records extraction once; mission one keeps its scene loaded for cinematic/results replay.</summary>
     protected async void CompleteMission()
     {
         if (_finishing) return;
@@ -456,18 +456,43 @@ public abstract partial class CodeLevel : Node2D
         CurrentObjective = "Mission complete";
         _objectiveLabel.Text = CompletionLine;
         _dialoguePanel.Visible = true;
-        string? nextScene = CampaignProgress.CompleteMission(MissionNumber, _gameManager.Points);
+        // Snapshot before any cinematic or asynchronous work: results describe the extraction instant.
+        int finalScore = _gameManager.Points;
+        int peakCombo = _maxCombo;
+        string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}".ToUpperInvariant();
+        string? nextScene = CampaignProgress.CompleteMission(MissionNumber, finalScore);
+        if (MissionNumber == 1)
+        {
+            // Disable this entire mission, including pause input and physics. Overlays explicitly run Always.
+            ProcessMode = ProcessModeEnum.Disabled;
+            foreach (Node child in GetChildren())
+                if (child != _scorecard) FreezeForEpilogue(child);
+            var cinematic = new TokyoRemembers { Name = "TokyoRemembers", Layer = 40 };
+            cinematic.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 2);
+            // Defer tree mutation because extraction is entered from an Area2D physics callback.
+            Callable.From(() => { if (IsInsideTree()) AddChild(cinematic); else cinematic.Free(); }).CallDeferred();
+            return;
+        }
         if (_scorecard != null)
         {
             // Final mission: show the grade; the scorecard's own buttons (replay / level select / menu) take it from here.
             await ToSignal(GetTree().CreateTimer(1.5f), SceneTreeTimer.SignalName.Timeout);
             if (!IsInsideTree()) return;
-            _scorecard.ShowScorecard(_gameManager.Points, _maxCombo,
-                $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}".ToUpperInvariant());
+            _scorecard.ShowScorecard(finalScore, peakCombo, operative);
             return;
         }
         await ToSignal(GetTree().CreateTimer(3f), SceneTreeTimer.SignalName.Timeout);
         if (IsInsideTree()) GetTree().ChangeSceneToFile(nextScene ?? "res://scenes/main_menu/level_selection.tscn");
+    }
+
+    /// <summary>Freezes explicit Pausable/Always descendants too, including pause input, and silences mission audio.</summary>
+    private static void FreezeForEpilogue(Node node)
+    {
+        node.ProcessMode = ProcessModeEnum.Disabled;
+        if (node is AudioStreamPlayer audio) audio.Stop();
+        if (node is AudioStreamPlayer2D audio2D) audio2D.Stop();
+        if (node is CanvasLayer layer) layer.Visible = false;
+        foreach (Node child in node.GetChildren()) FreezeForEpilogue(child);
     }
 
     // ─── User interface ──────────────────────────────────────────────────────

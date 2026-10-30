@@ -1,0 +1,56 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 0.25,
+    "source_duration": 6.034286,
+    "tempo": 1,
+    "end": 6.284286,
+    "cached_source": "tts_Extra_20261030_173318.mp3"
+  },
+  {
+    "cue": 2,
+    "speaker": "Kaito / Adam",
+    "start": 8.2,
+    "source_duration": 4.179592,
+    "tempo": 1,
+    "end": 12.379591999999999,
+    "cached_source": "tts_They__20261030_173320.mp3"
+  },
+  {
+    "cue": 3,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 15.2,
+    "source_duration": 7.053061,
+    "tempo": 1,
+    "end": 22.253061,
+    "cached_source": "tts_The_a_20261030_173319.mp3"
+  },
+  {
+    "cue": 4,
+    "speaker": "Kaito / Adam",
+    "start": 23.2,
+    "source_duration": 4.440816,
+    "tempo": 1,
+    "end": 27.640816,
+    "cached_source": "tts_The_d_20261030_173321.mp3"
+  },
+  {
+    "cue": 5,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 29.2,
+    "source_duration": 7.418776,
+    "tempo": 1,
+    "end": 36.618776,
+    "cached_source": "tts_Enfor_20261030_173320.mp3"
+  },
+  {
+    "cue": 6,
+    "speaker": "Kaito / Adam",
+    "start": 37.2,
+    "source_duration": 1.28,
+    "tempo": 1,
+    "end": 38.480000000000004,
+    "cached_source": "tts_Then__20261030_173322.mp3"
+  }
+]

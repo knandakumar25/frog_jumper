@@ -14,6 +14,15 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 
 ## Features
 
+- **Tokyo Remembers** — Every Level 1 extraction plays a skippable 40-second live 2D
+  epilogue, with Daniel as AXIOM-7 and Adam as Kaito, then the combat-grade scorecard.
+  Escape/Space/Enter, controller Start/A, and the pointer/touch Skip button advance
+  to results. Continue prepares mission 2; Replay restarts mission 1. Extraction saves
+  progress once and freezes mission processing/input while the overlays run.
+  Missing speech uses timed subtitles; missing essential art goes directly to results.
+  See `tools/cutscene/README.md` for reproducible Docker assets and Godot MCP review.
+  Verified with 114 Godot tests (zero errors/failures/orphans), 34 NUnit tests,
+  104 container Django tests, and six-shot MCP captures at three aspect ratios.
 - **6 Unique Cyber Operatives** — Each equipped with distinct tactical profiles, attributes, and passive synergies:
   1. **Cyber Shogun (Kaito Kurogane)** — Balanced Vanguard Striker (Katana combos, blade dash, parry, rapid shield recharge).
   2. **Surya Prime (Arjun Varma)** — Solar Bulwark Tank (140 HP, 80 Shield, 15% armor damage mitigation, solar flare).
@@ -103,8 +112,8 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 The Django backend, PostgreSQL database and React web portal run together with Docker Compose:
 
 ```powershell
-docker compose up -d --build     # build and start db, backend, website
-docker compose ps                # check that all three are healthy
+docker compose up -d --build     # build/start db, backend, website, and ollama
+docker compose ps                # verify all four run; inspect configured health checks
 docker compose logs -f backend   # follow the Django log
 docker compose down              # stop everything (add -v to drop the DB volume)
 ```
@@ -113,6 +122,10 @@ docker compose down              # stop everything (add -v to drop the DB volume
 - **Web portal**: <http://localhost:5173/> — Nginx serves the built bundle and proxies `/api/` and `/admin/` to Django
 - **Ollama**: published on `11434`, models kept in the `ollama` volume; it is an always-on member of the stack, not part of the export group
 - **PostgreSQL 18**: published on `5432`, data kept in the `pgdata` volume
+- Container startup and application readiness are separate checks: verify the
+  portal on `http://127.0.0.1:5173/`, the backend on
+  `http://127.0.0.1:8000/api/auth/countries/basic/`, and Ollama on
+  `http://127.0.0.1:11434/api/tags`. Initial image downloads/builds can delay readiness.
 - Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default, so the stack also boots without one
 - `backend/Dockerfile` builds on Python 3.14; `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
 
@@ -188,6 +201,15 @@ AxiomForce/
 ## Contributing & Agent Guidelines
 
 AI agents collaborating on this repository must consult the following guides:
+
+[`MEMORY.MD`](./MEMORY.MD) preserves durable user preferences, project decisions,
+integration context, and the current cinematic design. Use it for orientation;
+current agent instructions and live environment checks remain authoritative.
+Every agent must update `MEMORY.MD` before finishing every task, including
+planning, read-only investigations, reviews, documentation-only work, and Git
+operations. Keep outcomes and durable context concise, record only actual
+verification, and exclude secrets. This supplements the README/HANDOFF rules;
+memory-only edits do not require container preflight, imports, or tests.
 
 For all game-related tasks, agents must read the `router` and apply the relevant
 skills from [awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)

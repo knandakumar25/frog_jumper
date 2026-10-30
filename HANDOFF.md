@@ -1,5 +1,62 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+> **Tokyo Remembers implementation (2026-10-30, resumed by user):** Level 1 now
+> captures extraction score/combo/operative, records campaign progress once, and
+> disables mission descendants (including explicit Always/Pausable nodes). The
+> new independently processing `TokyoRemembers`/`TokyoStage` overlay uses one
+> 40-second analytic timeline and converges skip/end/missing-art on guarded results.
+> Level 1 remains current for Replay. `CyberVictoryScorecard.ShowMissionScorecard`
+> accepts a next-mission number, prepares the squad on Continue, and preserves
+> existing grade thresholds/final-mission callers. Other mission flows are unchanged.
+> The original three-argument `ShowScorecard` Godot binding remains intact (Godot
+> dynamic calls do not apply C# optional defaults for a newly added argument).
+> Six English ElevenLabs MCP cues use Daniel/Adam; Docker Blender/Python tools
+> generate original planar dojo damage, poses, Data-Blade and quiet atmosphere.
+> Opening artwork is reused without changing its cinematic or dialogue. Translation
+> keys include speaker labels and English fallback. No new operative unlocks or
+> watched flag. Final C# build passed with zero errors and 153 existing warnings.
+> Background import exited 0 and generated every new asset's `.import`; existing
+> addon TLS and editor shutdown/leak diagnostics remain. Full runner passed NUnit
+> 34/34 and GdUnit4 114/114, zero failures/errors/orphans (report_346). Its host Django
+> step skipped the absent venv; container Django passed 104/104 afterward.
+> Docker asset validation passed RGBA dimensions/alpha/pose bounds and both 40-second
+> audio tracks, with all six cues inside their shot windows. Godot AI MCP captured
+> all six shots at 16:9 plus close/uplink shots at 16:10 and ultrawide, then verified
+> results stay in Level 1, Replay restores active Level 1, natural audio completion
+> reaches results, Continue loads Level 2 with a one-operative squad, and Level
+> Select/Main Menu retain their destinations. Evidence is under `.validation/tokyo/`.
+> Runtime diagnostics contain only the existing PostgreSQL authentication/local
+> JSON fallback. The user's editor remains on Level 1, test game stopped, all four
+> Docker services retained. A separate uninterrupted real-time playback verified
+> audio/visual clock alignment at six checkpoints, natural completion at exactly
+> timeline 40, and unchanged 100 health/150 score (`full-playback.json`). Physical
+> touch/gamepad hardware and exports were not tested. Changes are local and uncommitted.
+
+> **Docker startup only (2026-10-30):** User explicitly deferred post-Level 1
+> cutscene work. The active Docker environment had no project containers/images;
+> Compose pulled dependencies, built backend/website, and started db, backend,
+> website, and Ollama. Website, backend countries endpoint, and Ollama tags API
+> returned HTTP 200 via IPv4 loopback; PostgreSQL reported healthy. No game code
+> or assets changed. Only workflow/memory documentation updated; no import or
+> unit suites required. Do not resume cutscene work without user direction.
+
+> **Memory updates mandatory after every task (2026-10-30):** Added the same
+> rule to root AGENTS, CODEX, CLAUDE, and GEMINI instructions. All agents must
+> update `MEMORY.MD` before finishing any task, including read-only, planning,
+> review, documentation-only, and Git-only tasks. Preserve the exact uppercase
+> filename, keep durable context concise, exclude secrets, and distinguish
+> actual verification from plans. README and MEMORY document the requirement.
+> Diff hygiene and rule consistency checked; documentation-only changes require
+> no Docker preflight, Godot import, or unit tests. No commit or push performed.
+
+> **Project memory created (2026-10-30):** Added root `MEMORY.MD` for durable
+> preferences, required skill usage, live cinematic decisions, integration
+> context, and known verification limits. README links to it. Memory distinguishes
+> historical test results from current checks and defers to current user/agent
+> instructions. Verified against the current cinematic documentation and scene;
+> this task changes Markdown only, so no import, unit tests, or container changes
+> are required. Changes are left uncommitted.
+
 > **Game-development skills installed (2026-10-30):** Installed the router and
 > all 77 specialized skills from `gamedev-skills/awesome-gamedev-agent-skills`,
 > pinned to commit `19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9`, using the Codex

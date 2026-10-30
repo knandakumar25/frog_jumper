@@ -141,6 +141,15 @@ Run a background Godot refresh only after creating, modifying, or deleting game 
 - Keep documentation accurate whenever code changes. Document previously undocumented code when working on it. Documentation in Markdown files, commit messages, or chat does not replace documentation in the source code.
 - Use clear, useful explanations rather than comments that merely repeat the syntax.
 
+## Mandatory Project Memory Updates (After Every Task)
+
+- **Before finishing every task, every agent MUST update root `MEMORY.MD`**, including implementation, debugging, planning, reviews, read-only investigations, documentation-only tasks, and Git-only tasks. This applies to Codex, Claude Code, and Google Antigravity.
+- Record the task's outcome, durable decisions or preferences, verification actually performed, and unresolved limitations or next steps. Keep entries concise; revise outdated facts rather than accumulating duplicate summaries. If nothing durable changed, add a brief dated outcome noting that fact.
+- Read the existing memory before updating it. Preserve unrelated context, distinguish completed work from plans and historical checks, and never include secrets, tokens, or credentials.
+- Use the existing exact filename `MEMORY.MD`; do not create a second file named `MEMORY.md`. This requirement supplements the README and HANDOFF rules rather than replacing them.
+- A memory-only Markdown edit does not trigger Docker preflight, Godot import, or unit tests. For code/asset tasks, include the memory update in the final documentation batch and accurately record subsequent verification results.
+- Updating memory never grants permission to stage, commit, or push. Explicit authorization for current changes is still required.
+
 ## Mandatory README and Handoff Updates
 
 - **Before finishing any task that creates, modifies, or deletes files for the game or its website, every agent MUST update both root `README.md` and root `HANDOFF.md`.** This applies to gameplay, scenes, assets, UI, website frontend, backend, configuration, tooling, tests, and related documentation.

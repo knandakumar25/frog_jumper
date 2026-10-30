@@ -18,9 +18,15 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private Button? _levelSelectBtn;
 	private Button? _mainMenuBtn;
 	private AudioStreamPlayer? _jinglePlayer;
+	private Button? _continueBtn;
+	private int _nextMission;
+	private bool _navigating;
+	private Input.MouseModeEnum _previousMouseMode;
 
+	/// <summary>Resolves the terminal controls; Continue is optional for existing scene callers.</summary>
 	public override void _Ready()
 	{
+		_previousMouseMode = Input.MouseMode;
 		_rootPanel = GetNodeOrNull<Control>("RootPanel");
 		_titleLabel = GetNodeOrNull<Label>("RootPanel/MainVBox/TitleLabel");
 		_rankLabel = GetNodeOrNull<Label>("RootPanel/MainVBox/RankPanel/RankLabel");
@@ -31,6 +37,8 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		_levelSelectBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/ButtonsHBox/LevelSelectBtn");
 		_mainMenuBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/ButtonsHBox/MainMenuBtn");
 		_jinglePlayer = GetNodeOrNull<AudioStreamPlayer>("JinglePlayer");
+		_continueBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/ContinueBtn");
+		if (_continueBtn != null) _continueBtn.Pressed += OnContinuePressed;
 
 		if (_replayBtn != null) _replayBtn.Pressed += OnReplayPressed;
 		if (_levelSelectBtn != null) _levelSelectBtn.Pressed += OnLevelSelectPressed;
@@ -46,9 +54,22 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	/// Displays the victory scorecard, calculates rank, and triggers victory fanfare.
 	/// </summary>
 	public void ShowScorecard(int score, int maxCombo, string operative = "KAITO KUROGANE // CYBER SHOGUN")
+		=> RenderScorecard(score, maxCombo, operative, 0);
+
+	/// <summary>Progression entry point with an explicit next target; preserves the original three-argument Godot binding.</summary>
+	public void ShowMissionScorecard(int score, int maxCombo, string operative, int nextMission)
+		=> RenderScorecard(score, maxCombo, operative, nextMission);
+
+	/// <summary>Renders the captured results, optionally showing Continue; grading is shared by all callers.</summary>
+	private void RenderScorecard(int score, int maxCombo, string operative, int nextMission)
 	{
 		if (_rootPanel == null) return;
+		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
+		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
 		_rootPanel.Visible = true;
+		if (IsInsideTree()) Input.MouseMode = Input.MouseModeEnum.Visible;
+		if (IsInsideTree()) GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", false);
+		if (IsInsideTree()) (_nextMission > 0 ? _continueBtn : _replayBtn)?.GrabFocus();
 
 		// Calculate Combat Grade
 		string rankText;
@@ -113,18 +134,65 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		}
 	}
 
+	/// <summary>Prepares the story-earned squad before entering the supplied next mission.</summary>
+	private void OnContinuePressed()
+	{
+		if (_nextMission <= 0 || !IsInsideTree() || _navigating) return;
+		CampaignProgress.PrepareMission(_nextMission);
+		Navigate(LevelCatalog.ScenePath(_nextMission));
+	}
+
+	/// <summary>Reloads the still-current mission, preserving Replay after an overlay cinematic.</summary>
 	private void OnReplayPressed()
 	{
-		GetTree()?.ReloadCurrentScene();
+		if (!IsInsideTree() || _navigating) return;
+		_navigating = true;
+		GetTree().Paused = false;
+		GetTree().ReloadCurrentScene();
 	}
 
+	/// <summary>Returns to the existing mission selector.</summary>
 	private void OnLevelSelectPressed()
 	{
-		GetTree()?.ChangeSceneToFile("res://scenes/main_menu/level_selection.tscn");
+		Navigate("res://scenes/main_menu/level_selection.tscn");
 	}
 
+	/// <summary>Returns to the existing main menu.</summary>
 	private void OnMainMenuPressed()
 	{
-		GetTree()?.ChangeSceneToFile("res://scenes/main_menu/main_menu.tscn");
+		Navigate("res://scenes/main_menu/main_menu.tscn");
+	}
+
+	/// <summary>Consumes repeated navigation input and releases any legacy pause before changing scene.</summary>
+	private void Navigate(string path)
+	{
+		if (!IsInsideTree() || _navigating) return;
+		_navigating = true;
+		GetTree().Paused = false;
+		GetTree().ChangeSceneToFile(path);
+	}
+
+	/// <summary>Handles pointer and direct touch before Global's legacy mouse suppression consumes them.</summary>
+	public override void _Input(InputEvent input)
+	{
+		if (_rootPanel is not { Visible: true } || !IsInsideTree() || _navigating) return;
+		Vector2 point;
+		if (input is InputEventScreenTouch { Pressed: true } touch) point = touch.Position;
+		else if (input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse) point = mouse.Position;
+		else return;
+		foreach (var button in new[] { _continueBtn, _replayBtn, _levelSelectBtn, _mainMenuBtn })
+		{
+			if (button is not { Visible: true } || !button.GetGlobalRect().HasPoint(point)) continue;
+			GetViewport().SetInputAsHandled();
+			button.EmitSignal(Button.SignalName.Pressed);
+			return;
+		}
+	}
+
+	/// <summary>Restores the gameplay cursor policy when leaving the results overlay's owning mission.</summary>
+	public override void _ExitTree()
+	{
+		Input.MouseMode = _previousMouseMode;
+		GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", true);
 	}
 }
