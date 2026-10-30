@@ -121,3 +121,49 @@ this summary does not replace them. Verify live environment state before acting.
   to `origin/main`. Reviewed the working tree, asset inventory and diff hygiene.
   This Git-only task changes no code/assets; prior verification above remains
   applicable, so no Docker preflight, import or unit-test rerun is required.
+
+## Concrete Wildfire arrival
+
+- 2026-10-30: Added the 60-second fresh-Level-2 arrival hook, reversible mission
+  lock, independent six-shot stage, labelled subtitle fallback and guarded skip/end.
+  Checkpoint recovery stays in the same scene and does not replay. No watched flag
+  or new objectives; exploration-map direction remains deferred.
+- Docker was manually paused; resumed through its local backend and confirmed all
+  four services running before code edits. Representative checkpoint art inspected.
+  Seven authorized Daniel/Adam cues generated through the configured ElevenLabs MCP;
+  both packaged tracks are 60 seconds and asset/timing validation passed.
+- Engine finding: capture all descendant audio pause flags BEFORE disabling any
+  parent, since Godot changes them on process-mode notifications. Restore modes
+  first, then original audio pause flags; music resume has regression coverage.
+- Final verification: Godot import exit 0/all ten imports generated; C# build zero
+  errors/153 existing warnings; NUnit 34/34, GdUnit4 120/120 with zero errors,
+  failures/orphans (report_349), container Django 104/104 (host venv absent).
+  Docker asset validation passed; all seven cues fit and both tracks last 60 seconds.
+- MCP verified six shots/three aspect ratios, Level 1 Continue, Level Select,
+  saved-session confirmation and direct launch; temporary save removed. Final full
+  playback kept position/health/score fixed with roughly 25-30 ms clock separation,
+  then restored gameplay. Synthetic Space released Jump and resumed mission music.
+  Evidence `.validation/wildfire/`; no new runtime errors beyond existing database
+  fallback. Addon TLS/headless shutdown/optional gdunit4.api diagnostics remain.
+  Physical controller/touch hardware, speaker listening and exports untested.
+  Review games stopped; editor remains on Level 1, four containers retained.
+  User subsequently authorized committing and pushing this implementation to origin/main.
+
+## Concrete Wildfire Git publication
+
+- 2026-10-30: User explicitly requested pushing the current Level 2 arrival work.
+  Reviewed the working tree, asset inventory and diff hygiene; fetched origin and
+  confirmed main matches origin/main before publication. The authorized commit
+  includes implementation, generated assets/import metadata, tests, production/review
+  tools and documentation. This Git-only task changes no code/assets; the final
+  verification recorded above remains applicable without rerunning the suites.
+- Initial publication attempt was blocked during `git add`: Windows denied creating object
+  `.git/objects/03/aac1b37ac90cd2915c1c51ef6053fb4650c133` for `siege_lights.png`.
+  Inspection found explicit write-deny ACL entries on `.git/objects/03` for sandbox
+  identities. No ACL changes or bypass attempted. No commit or push occurred, and
+  the index remained unstaged; working files stayed intact. `git fsck --connectivity-only` found no connectivity errors
+  (dangling objects from staging/history were reported).
+- 2026-10-30 retry: User renewed the push request. Standard `git add` now succeeds
+  without any permission changes by this agent. Rechecked staged diff hygiene and
+  remote branch synchronization; proceeding with the authorized commit and normal
+  push to origin/main. No code/assets changed during this Git-only retry.

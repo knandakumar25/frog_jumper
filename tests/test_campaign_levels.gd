@@ -19,9 +19,13 @@ const MAX_GAP_DROP := 260.0
 var catalog = load("res://scripts/managers/LevelCatalogBridge.cs").new()
 
 func _mission(level: int) -> Node:
+	## Gameplay checks explicitly complete the independently tested arrival presentation.
 	catalog.PrepareMission(level)
 	var runner := scene_runner(LEVELS[level])
-	return runner.scene()
+	var mission := runner.scene()
+	if level == 2:
+		mission.get_node("ConcreteWildfireIntro").call("Finish")
+	return mission
 
 ## Builds standable rectangles from the geometry: [left, right, top] (movers span their whole travel).
 func _surfaces(mission: Node) -> Array:

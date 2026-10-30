@@ -199,6 +199,63 @@ public abstract partial class CodeLevel : Node2D
 
     // ─── World construction helpers ──────────────────────────────────────────
 
+    /// <summary>Snapshot of processing, HUD visibility and audio pause state for the arrival handoff.</summary>
+    private readonly List<(Node Node, ProcessModeEnum Mode, bool? Visible, bool? AudioPaused)> _arrivalState = new();
+    /// <summary>True until the arrival overlay hands control back; recovery does not construct a new mission.</summary>
+    public bool ArrivalActive { get; private set; }
+
+    /// <summary>Locks the fully constructed mission before physics and attaches an independently running overlay.</summary>
+    protected void BeginArrivalPresentation()
+    {
+        if (ArrivalActive || !IsInsideTree()) return;
+        ArrivalActive = true;
+        // Capture the WHOLE tree first: disabling a parent automatically pauses
+        // descendant audio, which would otherwise contaminate the saved pause flags.
+        CaptureArrivalState(this);
+        foreach (var state in _arrivalState)
+        {
+            state.Node.ProcessMode = ProcessModeEnum.Disabled;
+            if (state.Node is CanvasLayer layer) layer.Visible = false;
+            if (state.Node is AudioStreamPlayer audio) audio.StreamPaused = true;
+            if (state.Node is AudioStreamPlayer2D spatial) spatial.StreamPaused = true;
+        }
+        var intro = new ConcreteWildfireIntro { Name = "ConcreteWildfireIntro", Layer = 40 };
+        intro.Finished += RestoreArrivalState;
+        AddChild(intro);
+    }
+
+    /// <summary>Captures explicit Always descendants too; pausing audio preserves its playback position.</summary>
+    private void CaptureArrivalState(Node node)
+    {
+        bool? visible = node is CanvasLayer canvas ? canvas.Visible : null;
+        bool? paused = node is AudioStreamPlayer audio ? audio.StreamPaused :
+            node is AudioStreamPlayer2D spatial ? spatial.StreamPaused : null;
+        _arrivalState.Add((node, node.ProcessMode, visible, paused));
+        foreach (Node child in node.GetChildren()) CaptureArrivalState(child);
+    }
+
+    /// <summary>Restores the captured state exactly once and restarts the full opening dialogue display window.</summary>
+    private void RestoreArrivalState()
+    {
+        if (!ArrivalActive || !IsInsideTree()) return;
+        ArrivalActive = false;
+        foreach (var state in _arrivalState)
+        {
+            if (!GodotObject.IsInstanceValid(state.Node)) continue;
+            state.Node.ProcessMode = state.Mode;
+        }
+        // Restore explicit audio pause flags after mode notifications have settled.
+        foreach (var state in _arrivalState)
+        {
+            if (!GodotObject.IsInstanceValid(state.Node)) continue;
+            if (state.Node is CanvasLayer layer && state.Visible.HasValue) layer.Visible = state.Visible.Value;
+            if (state.Node is AudioStreamPlayer audio && state.AudioPaused.HasValue) audio.StreamPaused = state.AudioPaused.Value;
+            if (state.Node is AudioStreamPlayer2D spatial && state.AudioPaused.HasValue) spatial.StreamPaused = state.AudioPaused.Value;
+        }
+        _arrivalState.Clear();
+        ShowDialogue(IntroLine(), 11f);
+    }
+
     /// <summary>Adds one solid platform. <paramref name="top"/> is the walkable surface Y; the body extends downward by <paramref name="height"/>.</summary>
     protected PalacePlatform AddPlatform(float x, float top, float width, float height, PalaceSurface surface = PalaceSurface.Stone, bool oneWay = false, string? name = null)
     {

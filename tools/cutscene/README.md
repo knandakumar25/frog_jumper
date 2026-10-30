@@ -96,3 +96,40 @@ remain 1-9.5, 11-19.5, 21-31 and 33-39 seconds, with English fallback translatio
 four-plate video, or `--package-only` to reuse plates in `.validation/deployment`.
 The legacy renderer uses the same portable CPU emission rendering as live assets;
 its original Eevee identifier differed across Blender releases. This video is not referenced by normal cutscene playback.
+
+## Concrete Wildfire: Level 2 arrival
+
+`ConcreteWildfireIntro` and `WildfireStage` provide the independent 60-second arrival.
+The mission captures processing/HUD/audio pause state before adding the overlay and
+restores it once on completion, Skip or missing-art fallback. The opening dialogue
+then receives its full timer. No save format, watched flag, unlock or objective changes.
+Checkpoint recovery does not reconstruct the level. Exploration maps remain deferred.
+`Seek`, `SeekAudio`, `Finish`, `Finished`, `SpeechPath` and `ArtPath` mirror the epilogue
+review interface. `WILDFIRE_CUE_1` through `_7` and `WILDFIRE_SKIP` use English fallback.
+
+```powershell
+docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_wildfire.py -- --preview
+# Inspect .validation/wildfire/checkpoint_artwork.png before the complete family.
+docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_wildfire.py
+docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/package_wildfire.py
+docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/validate_wildfire.py
+```
+
+Packaging reads seven cached ElevenLabs MCP result records (`cue-1.json` through
+`cue-7.json`) and their MP3 files in `.validation/wildfire/speech`; no API calls occur
+in packaging. Daniel voices cues 1/3/4/6, Adam voices 2/5/7. Deliberate pauses separate
+shots; `dialogue_timing.json` records source length, tempo, start/end and provenance.
+Quiet seeded wind/fire, distant impacts, cloth, footsteps and radio effects occupy
+the separate atmosphere track. Manifest records native RGBA sizes and pose pivots.
+
+Run `python tools/cutscene/review_wildfire.py` for deterministic six-shot/layout
+captures and `python tools/cutscene/verify_wildfire_routes.py` for real menu routes
+and uninterrupted playback. Both preserve the open editor scene and stop their
+separate review game. The route tool creates and removes one temporary save.
+Verified 2026-10-30: all assets valid, background import exit 0, build zero errors
+(153 existing warnings), NUnit 34/34, Godot 120/120 with zero failures/errors/orphans
+(report_349), container Django 104/104. MCP verified three aspect ratios, real
+Continue/Level Select/saved-session/direct launches, constant position/health/score
+through full playback and natural handoff. Additional synthetic Space review verified
+Jump released and mission music resumed. Existing addon/database diagnostics remain;
+physical controller/touch hardware, speaker listening and exports were not tested.

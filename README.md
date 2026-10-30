@@ -14,6 +14,17 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 
 ## Features
 
+- **The Concrete Wildfire arrival** — Every fresh Level 2 launch plays a skippable
+  60-second live 2D introduction with Daniel as AXIOM-7 and Adam as Kaito. Escape,
+  Space, Enter, controller Start/A, or the pointer/touch Skip button restores gameplay.
+  Mission physics, pause input, HUDs and audio stay frozen until handoff. Missing
+  speech retains timed subtitles; missing essential artwork safely starts gameplay.
+  Checkpoint recovery does not replay it. Oceanus/Apex Titan introductions and all
+  objectives remain in gameplay. Open-world exploration remains future work.
+  Verified across campaign Continue, Level Select, saved-session and direct launches,
+  full playback, six shots and three aspect ratios. Final suites: 120 Godot tests
+  (zero failures/errors/orphans), 34 NUnit tests and 104 container Django tests.
+
 - **Tokyo Remembers** — Every Level 1 extraction plays a skippable 40-second live 2D
   epilogue, with Daniel as AXIOM-7 and Adam as Kaito, then the combat-grade scorecard.
   Escape/Space/Enter, controller Start/A, and the pointer/touch Skip button advance

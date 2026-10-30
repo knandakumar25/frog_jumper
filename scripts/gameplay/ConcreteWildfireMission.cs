@@ -140,6 +140,9 @@ public partial class ConcreteWildfireMission : CodeLevel
                 "AXIOM-7: Apex Titan has joined. His Tectonic Slam can bring down the collapsed barrier ahead."
             }
         });
+        // Construction is complete and physics has not started. Every entry route
+        // reaches this hook; recovery reuses the mission and never calls it again.
+        BeginArrivalPresentation();
     }
 
     /// <summary>Opens the membrane after the last spire falls; otherwise just reports progress.</summary>

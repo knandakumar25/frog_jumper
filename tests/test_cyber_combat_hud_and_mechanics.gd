@@ -122,6 +122,9 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 		assert_that(level).is_not_null()
 		# Every mission is built in code when it enters the tree, so add it and let it settle one frame.
 		add_child(level)
+		# Gameplay structure checks finish the separately covered arrival overlay.
+		if path == LEVEL2_PATH:
+			level.get_node("ConcreteWildfireIntro").call("Finish")
 		await get_tree().process_frame
 
 		# Verify CyberCombatHud exists

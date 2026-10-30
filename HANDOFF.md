@@ -1,5 +1,38 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+> **Level 2 arrival (2026-10-30):** `ConcreteWildfireMission.OnLevelReady` starts
+> `ConcreteWildfireIntro` after construction and before physics. `CodeLevel` captures
+> every descendant's processing mode, CanvasLayer visibility and audio pause state;
+> one guarded handoff restores them and restarts the opening dialogue's 11-second
+> display. Level 2 remains current, no watched flag/save-schema/progression changes.
+> Checkpoint recovery reuses this scene. `WildfireStage` analytically samples six
+> shots with protected families, membrane/spires, siege silhouettes and Shogun descent.
+> Docker Blender/Python tools generate layered checkpoint art and two 60-second tracks.
+> Seven cached ElevenLabs MCP cues use Daniel/Adam and fit their windows without cuts.
+> Snapshot uses two passes: capture the entire tree before disabling any parent,
+> because Godot's mode notification changes descendant audio pause flags. Restore
+> processing modes first, then saved visibility/audio flags. Music has regression coverage.
+> Final verification: background Godot import exited 0 (all ten asset imports present),
+> C# build had zero errors/153 existing warnings; NUnit 34/34, GdUnit4 120/120
+> with zero failures/errors/orphans (`reports/report_349`), container Django 104/104.
+> Host runner skips Django because its venv is absent; container verification covers it.
+> Docker validation passed RGBA dimensions/alpha/atlas bounds, both 60-second tracks
+> and all seven cue windows. Godot AI MCP captured all six shots at 16:9 plus close/map
+> shots at 16:10 and ultrawide. Real Level 1 extraction Continue, Level Select,
+> saved-session confirmation (temporary record removed) and direct Level 2 all start
+> the frozen intro with a solo squad. Uninterrupted final playback held position,
+> health and score constant; sampled audio/visual clocks differed by about 25-30 ms,
+> then natural completion restored gameplay. Synthetic Space input left Jump released
+> and mission music resumed unpaused. Skip/fallback/recovery/teardown have unit coverage.
+> Evidence: `.validation/wildfire/{review,assets.json,routes-playback.json,input-audio.json}`.
+> Existing addon TLS/headless shutdown, missing optional gdunit4.api and PostgreSQL
+> authentication/local JSON fallback diagnostics remain; no new runtime errors found.
+> Physical controller/touch hardware, speaker listening and exports were not tested.
+> Editor remains on Level 1; review games stopped, four Docker services retained.
+> User subsequently authorized Git publication of this implementation; see MEMORY.MD.
+> Open-world exploration is deferred; existing recruitment/objectives remain unchanged.
+
+
 > **Tokyo Remembers implementation (2026-10-30, resumed by user):** Level 1 now
 > captures extraction score/combo/operative, records campaign progress once, and
 > disables mission descendants (including explicit Always/Pausable nodes). The
