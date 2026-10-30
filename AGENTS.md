@@ -13,6 +13,23 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 
 ## Development Workflows
 
+### Mandatory Game-Development Skills (All Game-Related Work)
+
+- Whenever an agent performs game-related work, it **MUST first read and apply the relevant skills from `gamedev-skills/awesome-gamedev-agent-skills`**. This applies to Codex, Claude Code, and Google Antigravity, including implementation, debugging, reviews, advice, planning, assets, and game-related documentation.
+- Start a new game-development task by reading the installed `router/SKILL.md`, then read the complete `SKILL.md` files for the engine, discipline, genre, or workflow it selects before acting. Load the relevant set rather than every installed skill, and re-route when the task changes concern.
+- This project uses Godot 4.7.2 .NET/C# and a 2D platformer campaign. Choose the Godot/C# and relevant 2D/task skills; adapt version-specific examples to the actual project instead of changing engines, languages, or architecture to match a skill.
+- Global installation roots: Codex `~/.agents/skills/`; Claude Code `~/.claude/skills/`; Antigravity app/IDE `~/.gemini/config/skills/`; Antigravity CLI `~/.gemini/antigravity-cli/skills/`. Each contains the router and all 77 specialized skills, including bundled supporting files.
+- Use skill discovery first. If it does not expose the installed skills, read their files directly from the appropriate root. Resolve missing skill access before continuing game-related work; do not silently bypass this requirement.
+- Skills supplement this project's lifecycle safety, testing, documentation, Docker, and permission rules. Explicit user instructions take precedence, and skills never authorize commits, pushes, publishing, or destructive operations on their own.
+
+### Mandatory Docker Skills (All Docker-Related Work)
+
+- Whenever an agent performs any Docker-related work, it **MUST first read and apply the relevant skills from Docker's official `docker/skills` package**, installed as `docker-skills@docker`. This applies to every agent, including Codex, Claude, and Gemini.
+- This requirement covers Docker commands (including preflight/status checks, starting, pausing, stopping, and inspecting containers), Docker Desktop troubleshooting, Dockerfiles, image builds, Compose, networking, volumes, registries, exports, and Docker-related advice, reviews, and documentation.
+- Select the skills that match the task, such as `docker-compose-patterns`, `docker-build-strategies`, `docker-project-foundations`, and `docker-docs`. Read their `SKILL.md` instructions before acting and follow the applicable workflow; merely having the plugin installed does not satisfy this requirement.
+- Use the installed package through the agent's skill discovery mechanism. If it is not exposed there, locate and read the installed `docker/skills` skill files directly. If the relevant skills cannot be accessed, explain the missing dependency and resolve access before continuing Docker work; do not silently bypass them.
+- These skills supplement the project's container preflight, export exclusivity, and permission rules below. Explicit user instructions take precedence. Use `docker` directly from PATH for CLI commands.
+
 ### Docker Container Preflight (Before Editing Code Files)
 Before starting any task that involves editing code files (`.cs`, `.gd`, `.py`, `.ts`/`.tsx`/`.js`, tooling scripts, or configuration a running service reads), confirm the project's Docker containers are running:
 

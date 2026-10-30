@@ -1,5 +1,30 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+> **Game-development skills installed (2026-10-30):** Installed the router and
+> all 77 specialized skills from `gamedev-skills/awesome-gamedev-agent-skills`,
+> pinned to commit `19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9`, using the Codex
+> skill-installer helper. Independent global copies live under `~/.agents/skills`
+> (Codex), `~/.claude/skills` (Claude Code), `~/.gemini/config/skills`
+> (Antigravity app/IDE), and `~/.gemini/antigravity-cli/skills` (CLI).
+> Updated CODEX, CLAUDE, GEMINI, and AGENTS with the same mandatory router-first
+> rule for game-related work; README records the setup. Supporting references,
+> scripts, and assets were installed alongside each skill. Existing skills were
+> not overwritten. Installation verification checks counts and file hashes
+> across all four roots; interactive discovery must be confirmed in each app.
+> New skills become available on the next turn; restart/reload other agents if
+> needed. Project changes are documentation-only, so no Godot refresh or game
+> unit tests are required, and no containers were touched.
+
+> **Mandatory Docker skills (2026-10-30):** Updated root `CODEX.md`, `CLAUDE.md`,
+> `GEMINI.md`, and `AGENTS.md` with the same requirement to read and apply the
+> relevant official `docker/skills` skills (`docker-skills@docker`) before any
+> Docker-related action or guidance, including container preflight checks.
+> Direct reading of installed skill files is the fallback when discovery does
+> not expose them; missing access must be resolved before Docker work continues.
+> README documents the workflow, and CLI examples should use `docker` from PATH.
+> Documentation-only change: no containers were touched, and no Godot refresh or
+> unit tests were required. Verification checks rule consistency and diff hygiene.
+
 
 
 > **Godot AI dock "No server command found" — uv now installed on Windows (2026-10-29):** The dock showed `No server command found`, `uv not found`, and *"No godot-ai server found. Install `uv` via the Setup panel above, or run `pip install godot-ai`"*, with plugin v4.3.1 (`addons/godot_ai/plugin.cfg`). **The assumption that uv/godot-ai were already installed "locally in this directory" was wrong, and the plugin's own rules explain why:** `client_configurator.gd` resolves a server in three tiers — (1) dev `.venv`, (2) `uvx`, (3) a system `godot-ai` — and on Windows tier 1 requires `.venv\Scripts\python.exe` **plus a sibling `src/godot_ai/`**. The repo's `./.venv` is the **Linux/Docker venv** (`.venv/bin/python` → `/usr/local/bin/python`, no `Scripts/`), `src/godot_ai/` does not exist in this repo (godot_ai lives under `addons/`), and there was no `uv.exe`/`uvx.exe` anywhere in the tree — uv had only ever run inside the `python:3.14-slim` container. Tiers 2 and 3 therefore both missed and the dock had no command to run. **Fix:** installed **uv 0.13.6 (x86_64-pc-windows-msvc)** into `%LOCALAPPDATA%\Programs\uv` — one of the exact directories `clients/_cli_finder.gd::_well_known_dirs()` searches on Windows (also `~/.local/bin`, `~/.cargo/bin`, `%ProgramFiles%\uv`) — and appended it to the user `PATH`. The official `irm https://astral.sh/uv/install.ps1 | iex` installer **could not be used on this machine**: it aborts with "The 'Get-ExecutionPolicy' command was found in the module 'Microsoft.PowerShell.Security', but the module could not be loaded", so the release zip was extracted directly instead (see the README prerequisite note for that recipe). Pre-warmed the pinned tool env with both the plain and the **exact production argv** (`--isolated --no-config --no-env-file --no-sources --no-build --index-strategy first-index --keyring-provider disabled --index/--default-index https://pypi.org/simple --find-links https://pypi.org/simple/godot-ai/ --from godot-ai==4.3.1 godot-ai`): 73 packages installed, `godot-ai 4.3.1`, exit 0. **Verification:** a throwaway `-s` harness (created, run, then deleted — no project file remains) calling `ClientConfigurator.get_server_launch_mode()` / `get_server_command()` in headless Godot printed **`MODE=uvx`**, `MCP | using uvx (godot-ai==4.3.1)`, and `ARG[0]=C:\Users\karthiknk21/AppData/Local/Programs/uv/uvx.exe` with the 19-arg production command — i.e. the dock now has a real server command. **Follow-up for the user:** the dock caches "uv: not found" for the session, so click **Reload Plugin** in the dock (or restart the editor) to re-probe. The Linux `./.venv` is deliberately left alone: it is the container venv and must not be pointed at by the Windows editor; use `GODOT_AI_VENV_PYTHON` only with a real Windows interpreter (`.venv\Scripts\python.exe`) if a dev-venv override is ever wanted. Documentation-only repository changes in this task, so no Godot import refresh and no unit-suite run were triggered.
@@ -314,3 +339,94 @@ The 45-second, 60-fps-capped headless playback check reached StoryIntro and
 successfully started its first existing AXIOM-7 voice line, with no ERROR lines.
 Existing `.vscode/settings.json`
 changes are unrelated and were preserved.
+
+## Live 2D deployment cinematic (2026-10-30; supersedes the film playback above)
+
+Replaced runtime video decoding with an editable layered SubViewport/Node2D scene,
+Camera2D rig, sampled Shogun atlas, deterministic bounded rain/drone sweeps/transit,
+weighted jump/landing/dash, afterimage, sparks and AXIOM-7 scan transmission.
+The 40-second narration binary, dialogue, cue windows and New Game -> briefing
+routing are preserved. Audio playback position plus mixer/output latency drives the
+single clock, with monotonic elapsed fallback for missing/ended/stalled narration.
+UI and skip remain independent of the camera; completion and all skip inputs share
+one guarded deferred transition. Scene exit stops owned audio.
+
+Asset generation: `docker compose --profile cutscene run --rm cutscene --reveal-only`
+then `--live`. Reuses established original red/gold/ink Blender geometry (8 columns,
+5 action rows, 512px cells) and planar city vocabulary; the container uses portable
+CPU emission rendering because its Blender 4.3 calls Eevee by a different identifier.
+Python validates dimensions, transparency and occupied atlas cells and writes the
+manifest. The old OGV and build options remain a legacy preview only.
+
+Godot AI tools were absent from the exposed tool list. `tools/cutscene/mcp_probe.py`
+restores direct authenticated MCP access using protocol 2025-11-25, with no changes
+to global MCP configuration. Verified session frog-jumper@52eac1f41bdee749 identifies
+D:/Projects/frog_jumper, Godot 4.7.2. The user's open level1 scene stays untouched;
+runtime checks launch the custom cutscene with autosave disabled.
+
+Verification so far: Docker preflight found all four services running; representative
+Shogun render inspected for identity/palette; C# build passed with 153 existing
+warnings and zero errors. Final asset validation, import, runtime captures/layouts,
+and unit suites are pending at this point; results will be recorded below.
+
+Runtime review found and removed the global keyboard-help banner during the cinematic
+using Global's existing visibility API, restoring it on exit. Renamed a shadowing
+shader local after MCP diagnostics caught the warning. Eight in-engine captures
+cover all shots plus 16:10/ultrawide in `.validation/deployment/review`; UI bounds
+are inside every viewport. Initial GdUnit4 108/108 (report_340), NUnit 34/34 and
+container Django 104/104 pass. The reference checker reports 10 existing connection
+issues: eight in vendored proton_scatter and two in the unchanged main menu scene;
+none is in this cutscene. Import exited 0 with pre-existing TLS/editor shutdown
+resource errors. Host SessionManager still reports its existing PostgreSQL password
+fallback; the container backend suite passes. Final checks must be repeated after
+the banner/clock/input-test refinements.
+
+The landing uses a grounded pose during compression, and the scan shader preserves
+inherited alpha so the transmission portrait assembles with its overlay. Final
+runtime/performance review follows after import and unit-suite reruns.
+
+Live pointer testing exposed Global's project-wide mouse consumption: native GUI
+mouse delivery never reached Skip. The cinematic now handles mouse/touch presses
+inside its Skip rectangle during `_input`, before Global, without changing Global.
+Direct screen touch does not depend on mouse emulation. A regression test covers
+outside/inside/repeated touch; keyboard/controller/button signal tests remain.
+An uninterrupted 40-second run reached story_intro with narration playing through
+all shots. 1080p measured frame medians ~16.6-16.7ms and batch p95 ~17.4-17.8ms;
+screenshot stalls are excluded. Audio and timeline differed by the intended ~20ms
+output compensation. Final checks are repeated after the pointer fix.
+
+Final verification (2026-10-30): 109/109 GdUnit4 tests pass, with 0 failures,
+0 errors and 0 orphans (report_342); NUnit 34/34; Docker backend Django 104/104.
+The wrapper skips its absent Windows backend venv, so Django ran explicitly in
+the existing backend container. Incremental C# build: 0 errors, 0 warnings (the
+initial full compile had 153 existing warnings). All eight live PNGs have imports;
+container asset validation passes, and all five Python tool modules compile.
+MCP-injected Escape, Start, pointer click and direct screen-touch each reached the
+briefing at early/mid/late times after the pointer fix. Repeated transitions and
+missing narration/standalone cleanup are covered by unit tests. Runtime review
+artifacts: `.validation/deployment/review/`, `full-playback.json`, `input-checks.json`.
+The narration SHA256 matches HEAD exactly. The user's open level1 editor scene
+was preserved; only our test game was stopped and all four Docker services remain up.
+
+Known limitations/diagnostics: project-wide reference checker still reports the
+10 unchanged signal-path findings listed above; headless editor import exits 0 but
+retains the existing TLS/plugin and editor shutdown resource diagnostics. These
+are separate from the zero-orphan unit result. Host SessionManager still uses its
+existing local JSON fallback after database authentication failure. No physical
+mobile-device or export verification was performed. The narration is the only
+runtime audio layer; the legacy film retains its synthesized atmosphere. The legacy renderer version mismatch noted earlier has since been fixed;
+its four-plate path and the retained packaging option are available.
+
+A final whitespace-only normalization follows the verified implementation; import,
+build and all suites are rerun once more below before concluding.
+
+The legacy plate renderer now uses portable CPU emission rendering as well, fixing
+the previously documented Eevee identifier mismatch without changing the retained
+OGV. Its four-plate rendering path is checked separately before the final suites.
+
+Final rerun after normalization and legacy portability repair: import exited 0
+(with the same pre-existing diagnostics); C# build passed with 0 errors/warnings;
+GdUnit4 109/109, 0 failures/errors/orphans (report_343); NUnit 34/34; container
+Django 104/104. All six cutscene Python modules compile. The legacy Blender path
+rendered all four preview plates successfully in Docker; the original OGV and
+narration binaries remain unchanged. No game export, commit or push was performed.

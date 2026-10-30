@@ -188,6 +188,22 @@ AxiomForce/
 ## Contributing & Agent Guidelines
 
 AI agents collaborating on this repository must consult the following guides:
+
+For all game-related tasks, agents must read the `router` and apply the relevant
+skills from [awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)
+before acting. The router plus 77 specialized skills are installed globally in
+`~/.agents/skills/` for Codex, `~/.claude/skills/` for Claude Code,
+`~/.gemini/config/skills/` for Antigravity app/IDE, and
+`~/.gemini/antigravity-cli/skills/` for Antigravity CLI. Use Godot/C# and the
+relevant task skills for this project. If discovery is unavailable, read the
+installed files directly; resolve missing access before continuing.
+
+For every Docker-related task, agents must first read and apply the relevant
+skills from Docker's official `docker/skills` package (`docker-skills@docker`).
+This includes Docker commands and preflight checks, troubleshooting, builds,
+Compose, exports, reviews, advice, and documentation. If skill discovery does
+not expose the installed package, read its skill files directly; resolve missing
+skill access before continuing Docker work. Use `docker` directly from PATH.
 - [`HANDOFF.md`](./HANDOFF.md) — Comprehensive technical briefing on recent milestones, current 2D architecture and roadmap.
 - [`CODEX.md`](./CODEX.md) / [`CLAUDE.md`](./CLAUDE.md) / [`GEMINI.md`](./GEMINI.md) / [`AGENTS.md`](./AGENTS.md) — Universal agent operational rules, mandatory testing protocol, and permissions.
 
@@ -198,15 +214,44 @@ Before starting any task that edits code files, agents must confirm the Docker s
 After any task that edits the game or its website (including backend, assets, configuration, tests, tooling, or related documentation), agents must update both this root `README.md` and `HANDOFF.md` before finishing. Keep README behavior and contributor instructions current; record implementation decisions, verification status, limitations, and follow-up work in the handoff. Complete documentation edits alongside the task. Unit tests and Godot refreshes are required only when code, scene, or asset files are created, modified, or deleted, and are skipped for documentation-only tasks. Read-only and Git-only tasks are exempt. Commits and pushes still require explicit permission for the current changes. This requirement is shared by `CLAUDE.md`, `CODEX.md`, and `GEMINI.md`.
 # Deployment cinematic
 
-New Game now opens a 40-second deployment film before the AXIOM-7 briefing;
-Continue still loads the saved mission. Escape, controller Start, or the on-screen
-Skip button advances to the briefing. Missing film assets fall through safely.
-Regenerate with `docker compose --profile cutscene run --build --rm cutscene`.
-Blender authors planar plates; Python and FFmpeg animate and package a 1920×1080,
-24 fps Theora video. The current version is a four-plate animatic with camera
-moves, fades, and atmosphere; character action and animated rain remain pending.
-Intermediate renders live in `.validation/deployment`. ElevenLabs narration is
-provided at `assets/cutscenes/deployment/narration.ogg`. Regenerate with
-`python tools/cutscene/narrate.py` using `ELEVENLABS_API_KEY` in the gitignored
-root `.env`; cached cues prevent duplicate generation charges. This uses the
-direct API because the installed plugin's MCP tools remain unavailable.
+New Game opens a live, 40-second Godot 2D sequence before the existing AXIOM-7
+briefing. The occupied-city flyover, rooftop reveal, run/jump/landing/blade dash,
+and secure transmission animate independently: layered scenery, bounded rain,
+drone searchlights, moving transit, cloth/breathing poses, sparks and a scan shader.
+Escape, controller Start, or the touch-friendly Skip button advances once to the
+briefing. Continue still loads the saved mission.
+
+The unchanged `assets/cutscenes/deployment/narration.ogg` is the master clock,
+compensated for audio latency. Missing, ended or stalled narration uses elapsed
+time; dialogue and subtitle windows remain unchanged. A responsive UI sits outside
+the action, and the cinematic preserves its 16:9 composition on wider/taller screens.
+
+Regenerate original Blender artwork in the opt-in Docker tool (no game export):
+
+```powershell
+docker compose --profile cutscene run --rm cutscene --reveal-only
+docker compose --profile cutscene run --rm cutscene --live
+```
+
+The first command produces the representative Shogun review target; the second
+produces layered PNGs, 40 pose regions and a validated manifest in
+`assets/cutscenes/deployment/live`. Preview renders/logs belong in `.validation/deployment`.
+See `tools/cutscene/README.md` for scene controls, MCP captures and validation.
+The old `deployment.ogv` and the no-argument/`--package-only` video build path remain
+as a legacy preview; normal playback does not load or decode video.
+Narration regeneration remains optional via `tools/cutscene/narrate.py` and the
+existing private API key/cue cache; live-art regeneration never requests paid speech.
+
+
+Runtime review captures cover 16:9, 16:10 and ultrawide; the generic keyboard-help
+banner is suppressed during the cinematic and restored for the following scene.
+The final handoff records test results and existing project-wide diagnostics.
+
+Skip accepts direct touch and pointer presses in its button region, including when
+the global keyboard/controller-only input policy consumes other mouse events.
+
+Verification: live captures cover all four shots at 1080p and both alternate aspect
+ratios; narration-driven natural completion and Escape/Start/pointer/touch skipping
+reach the briefing. GdUnit4 109/109 (zero errors/failures/orphans), NUnit 34/34 and
+container Django 104/104 pass. Existing project-wide import/reference diagnostics
+and hardware-testing limits are recorded in `HANDOFF.md`.

@@ -20,7 +20,17 @@ def main():
     """Render plates, animate camera moves, synthesize atmosphere, and encode."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--package-only', action='store_true')
+    parser.add_argument('--live', action='store_true', help='Generate and validate editable live assets')
+    parser.add_argument('--reveal-only', action='store_true', help='Render the representative hero first')
     args = parser.parse_args()
+    if args.live or args.reveal_only:
+        command = ['blender', '--background', '--python', 'tools/cutscene/render_live.py']
+        if args.reveal_only:
+            command += ['--', '--reveal-only']
+        run(command)
+        if not args.reveal_only:
+            run(['python3', 'tools/cutscene/validate_live.py'])
+        return
     temporary = ROOT / '.validation/deployment'
     output = ROOT / 'assets/cutscenes/deployment'
     temporary.mkdir(parents=True, exist_ok=True)

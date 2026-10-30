@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://scripts/main_menu/deployment_cutscene.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/main_menu/deployment_stage.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/city_base.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/city_structure.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/city_lights.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/roof_structure.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/roof_lights.png" id="7"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/shogun.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/drone_structure.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/characters/rendered/axiom7_portrait.png" id="10"]
+[ext_resource type="Shader" path="res://scripts/main_menu/deployment_scan.gdshader" id="11"]
+
+[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/drone_lights.png" id="12"]
+
+[sub_resource type="ShaderMaterial" id="Scan"]
+resource_local_to_scene = true
+shader = ExtResource("11")
+shader_parameter/strength = 0.75
 
 [node name="DeploymentCutscene" type="Control"]
 layout_mode = 3
@@ -16,7 +33,179 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_filter = 2
+color = Color(0.005, 0.01, 0.02, 1)
+
+[node name="Frame" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+ratio = 1.7777778
+stretch_mode = 2
+
+[node name="Screen" type="SubViewportContainer" parent="Frame"]
+layout_mode = 2
+mouse_filter = 2
+stretch = true
+
+[node name="World" type="SubViewport" parent="Frame/Screen"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Stage" type="Node2D" parent="Frame/Screen/World"]
+script = ExtResource("2")
+
+[node name="FarCity" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+position = Vector2(-300, -150)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3")
+centered = false
+
+[node name="MidCity" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+position = Vector2(-300, -150)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("4")
+centered = false
+
+[node name="CityLights" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+position = Vector2(-300, -150)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("5")
+centered = false
+
+[node name="Roof" type="Node2D" parent="Frame/Screen/World/Stage"]
+visible = false
+
+[node name="Structure" type="Sprite2D" parent="Frame/Screen/World/Stage/Roof"]
+texture = ExtResource("6")
+centered = false
+
+[node name="Lights" type="Sprite2D" parent="Frame/Screen/World/Stage/Roof"]
+texture = ExtResource("7")
+centered = false
+
+[node name="Afterimage" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+visible = false
+texture = ExtResource("8")
+hframes = 8
+vframes = 5
+offset = Vector2(0, -192)
+
+[node name="Shogun" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+visible = false
+position = Vector2(530, 765)
+texture = ExtResource("8")
+hframes = 8
+vframes = 5
+offset = Vector2(0, -192)
+
+[node name="Drone" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+visible = false
+texture = ExtResource("9")
+
+[node name="DroneLights" type="Sprite2D" parent="Frame/Screen/World/Stage"]
+visible = false
+texture = ExtResource("12")
+
+[node name="Effects" type="Node2D" parent="Frame/Screen/World/Stage"]
+z_index = 10
+
+[node name="Transmission" type="Node2D" parent="Frame/Screen/World/Stage"]
+visible = false
+z_index = 20
+
+[node name="AXIOM7" type="Sprite2D" parent="Frame/Screen/World/Stage/Transmission"]
+material = SubResource("Scan")
+position = Vector2(1270, 465)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("10")
+
+[node name="Title" type="Label" parent="Frame/Screen/World/Stage/Transmission"]
+offset_left = 320.0
+offset_top = 315.0
+offset_right = 950.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(0.3, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 50
+text = "AXIOM-7"
+
+[node name="Status" type="Label" parent="Frame/Screen/World/Stage/Transmission"]
+offset_left = 320.0
+offset_top = 410.0
+offset_right = 900.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(0.5, 0.72, 0.8, 1)
+theme_override_font_sizes/font_size = 25
+text = "SECURE CHANNEL ESTABLISHED\n\nENCRYPTED UPLINK  /  07\nMISSION BRIEFING INCOMING"
+
+[node name="CameraRig" type="Camera2D" parent="Frame/Screen/World/Stage"]
+position = Vector2(960, 540)
+
+[node name="Narrator" type="AudioStreamPlayer" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ShotLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 100.0
+offset_right = 650.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.4, 0.8, 0.86, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+text = "01  /  OCCUPIED CITY"
+
+[node name="SubtitlePanel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -145.0
+offset_right = -120.0
+offset_bottom = -30.0
+mouse_filter = 2
+
+[node name="Subtitle" type="Label" parent="UI/SubtitlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 12.0
+offset_right = -24.0
+offset_bottom = -12.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Skip" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 290.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 23
+text = "Skip  [Esc / Start]"
+
+[node name="Fade" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
