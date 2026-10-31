@@ -368,3 +368,9 @@ uncommitted. No watched flag, save migration or local persistence was added.
   all reviewed current changes succeeded. Fetched origin and checked the staged
   diff before committing. No access-control changes were made by this agent.
   This retry changes documentation only; prior test/build results still apply.
+
+- Publication succeeded: implementation commit dc24b7f (102 files) pushed
+  normally to origin/main. git ls-remote confirmed the remote SHA matches
+  the local implementation commit. This verification record is included in
+  a follow-up documentation-only commit and normal push. No code/assets
+  changed during publication; existing test results remain applicable.
