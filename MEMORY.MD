@@ -214,3 +214,6 @@ this summary does not replace them. Verify live environment state before acting.
 - This Git/documentation-only task changes no code/assets. Prior verified build,
   Godot 134/134, NUnit 45/45 and container Django 104/104 remain applicable;
   imports and tests were not rerun. Pacing and physical hardware limits remain recorded.
+- Publication succeeded: gameplay commit `b60d34c` (47 files) was pushed normally
+  to `origin/main`; remote branch SHA and local tracking state were verified equal.
+  This follow-up publication record is included in a documentation-only commit.
