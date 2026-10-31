@@ -421,3 +421,6 @@ shutdown diagnostics; final game logs were clear. Human pacing remains unvalidat
 Server state update (2026-10-31): the user requested shutdown before publication;
 all four normal Compose services are stopped. Restart with docker compose up -d
 before code editing or running services. Existing validation results remain valid.
+
+Publication verified: Neon Rust implementation commit 3c92724 is on origin/main.
+The services remain stopped at the user's request; prior test results still apply.

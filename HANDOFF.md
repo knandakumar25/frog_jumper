@@ -811,3 +811,7 @@ pushing the current Neon Rust implementation. All four normal Compose services
 are now stopped with exit 0; persisted volumes and containers remain. main matched
 origin/main after fetch. Existing verified implementation test results remain
 applicable; only documentation/Git operations occurred during this task.
+
+Publication completed: Neon Rust implementation commit 3c92724 pushed to origin/main
+and remote SHA verified. Services remain stopped. This follow-up records publication
+only; no code/assets changed and prior verification remains applicable.

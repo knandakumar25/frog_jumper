@@ -423,3 +423,8 @@ Fetched origin and confirmed main matched origin/main before preparing the commi
 This task changes documentation/Git state only, so the previous 93 NUnit, 161
 Godot (zero errors/failures/orphans) and 104 container Django passes still apply;
 no import or test rerun is required. Publication verification follows after push.
+
+Publication verified: implementation commit 3c92724 pushed normally to origin/main;
+git ls-remote confirmed the remote SHA matched the local implementation commit.
+The shutdown/publication record is included in this follow-up documentation commit.
+No code/assets changed during publication; prior test results remain applicable.
