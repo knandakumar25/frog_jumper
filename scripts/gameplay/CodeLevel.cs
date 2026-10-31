@@ -45,10 +45,18 @@ public abstract partial class CodeLevel : Node2D
     protected virtual void OnLevelReady() { }
     /// <summary>Per-physics-frame objective logic (pickups, gates, completion). Runs only while the mission is live.</summary>
     protected virtual void UpdateMission() { }
+    /// <summary>Mission-specific cleanup before either fall or defeat recovery; other missions keep their existing behavior.</summary>
+    protected virtual void OnRecoveryStarting() { }
+    /// <summary>Rearms incomplete local encounters after the player has returned to a safe checkpoint.</summary>
+    protected virtual void OnRecoveryCompleted() { }
+    /// <summary>Optional local safety condition for checkpoints; other missions allow every shrine as before.</summary>
+    protected virtual bool CanActivateCheckpoint(PalaceObjective shrine) => true;
     /// <summary>Current objective line for the HUD.</summary>
     protected virtual string ComputeObjective() => "Reach the end of the mission";
     /// <summary>Opening line shown when the level starts.</summary>
     protected virtual string IntroLine() => "";
+    /// <summary>Allows a mission's revised gameplay briefing to replace outdated narrative metadata in its title card.</summary>
+    protected virtual string TitleCardObjective(string narrativeObjective) => narrativeObjective;
     /// <summary>Title shown in the HUD when the mission completes.</summary>
     protected virtual string CompletionLine => "MISSION COMPLETE";
 
@@ -170,7 +178,7 @@ public abstract partial class CodeLevel : Node2D
     /// <summary>Runs checkpoints, fragments, level logic and chasm recovery after the player has moved each physics tick.</summary>
     public override void _PhysicsProcess(double delta)
     {
-        if (MissionComplete || _player == null) return;
+        if (MissionComplete || _player == null || _recovering || _player.CurrentHealth <= 0) return;
         UpdateShrines();
         CollectFragments();
         UpdateMission();
@@ -444,7 +452,7 @@ public abstract partial class CodeLevel : Node2D
     {
         foreach (var shrine in _checkpoints)
         {
-            if (shrine.Activated) continue;
+            if (shrine.Activated || !CanActivateCheckpoint(shrine)) continue;
             Vector2 offset = _player.GlobalPosition - shrine.GlobalPosition;
             if (Mathf.Abs(offset.X) > 90f || offset.Y > 20f || offset.Y < -220f) continue;
             shrine.Activate();
@@ -485,22 +493,32 @@ public abstract partial class CodeLevel : Node2D
     {
         if (_recovering) return;
         _recovering = true;
+        OnRecoveryStarting();
         _player.ResetAtCheckpoint(_checkpoint);
         // ResetAtCheckpoint heals fully, so the penalty is applied afterwards. It is small enough never to defeat anyone.
         _player.TakeDamage(15f);
         ShowDialogue("You fell into the chasm. AXIOM-7 rerouted you to the last recovery point.", 4f);
         _recovering = false;
+        OnRecoveryCompleted();
     }
 
     /// <summary>Delays the respawn briefly so the defeat reads, and keeps the physics callback safe.</summary>
-    private void OnPlayerDefeated() => RespawnAfterDelay();
+    private void OnPlayerDefeated()
+    {
+        if (_recovering || MissionComplete) return;
+        _recovering = true;
+        OnRecoveryStarting();
+        RespawnAfterDelay();
+    }
 
     /// <summary>Restores the operative at the checkpoint after a short pause.</summary>
     private async void RespawnAfterDelay()
     {
         await ToSignal(GetTree().CreateTimer(.9f), SceneTreeTimer.SignalName.Timeout);
-        if (!IsInsideTree() || _player == null || !GodotObject.IsInstanceValid(_player) || MissionComplete) return;
+        if (!GodotObject.IsInstanceValid(this) || !IsInsideTree() || _player == null || !GodotObject.IsInstanceValid(_player) || MissionComplete) return;
         _player.ResetAtCheckpoint(_checkpoint);
+        _recovering = false;
+        OnRecoveryCompleted();
         ShowDialogue("Systems restored at the last recovery point.", 4f);
     }
 
@@ -534,12 +552,12 @@ public abstract partial class CodeLevel : Node2D
         {
             // Final mission: show the grade; the scorecard's own buttons (replay / level select / menu) take it from here.
             await ToSignal(GetTree().CreateTimer(1.5f), SceneTreeTimer.SignalName.Timeout);
-            if (!IsInsideTree()) return;
+            if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
             _scorecard.ShowScorecard(finalScore, peakCombo, operative);
             return;
         }
         await ToSignal(GetTree().CreateTimer(3f), SceneTreeTimer.SignalName.Timeout);
-        if (IsInsideTree()) GetTree().ChangeSceneToFile(nextScene ?? "res://scenes/main_menu/level_selection.tscn");
+        if (GodotObject.IsInstanceValid(this) && IsInsideTree()) GetTree().ChangeSceneToFile(nextScene ?? "res://scenes/main_menu/level_selection.tscn");
     }
 
     /// <summary>Freezes explicit Pausable/Always descendants too, including pause input, and silences mission audio.</summary>
@@ -622,6 +640,7 @@ public abstract partial class CodeLevel : Node2D
         var narrative = GetNodeOrNull<Node>("/root/NarrativeManager");
         string title = narrative?.Call("get_level_title", entry.NarrativeKey).AsString() ?? "";
         string objective = narrative?.Call("get_level_objective", entry.NarrativeKey).AsString() ?? "";
+        objective = TitleCardObjective(objective);
         if (string.IsNullOrEmpty(title)) title = entry.Title;
         var card = new VBoxContainer { Name = "TitleCard", MouseFilter = Control.MouseFilterEnum.Ignore };
         card.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.Center);

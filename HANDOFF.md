@@ -1,6 +1,82 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
-> **Level 2 arrival (2026-10-30):** `ConcreteWildfireMission.OnLevelReady` starts
+## Evacuation Under Siege gameplay — 2026-10-30
+
+Level 2 now orchestrates a 35,800px six-sector route with 20 finite formations,
+four ferry/island crossings, four checkpoints and the existing three optional
+fragments. Recruitment is at x5700 (Oceanus, before practice/required fire) and
+x25000 (Titan, beyond the x24400 membrane and before safe Slam rubble). Three
+spire formations shield their individual objectives until defeated. The stationary
+battery at x30800 has two power relays, a shielded core, one finite reinforcement
+formation and local health/phase telemetry. Core destruction ends artillery forever.
+
+Focused `Wildfire*` components own encounters, swept parryable gunner rounds,
+2.4-second locked-target artillery, invulnerable local family movement, battery,
+asset scaling and localized English fallback. `WildfireProgress` tracks stable
+IDs and kill rewards; incomplete groups restart on recovery without farmable score.
+Completed encounters, spires, relays, core, barriers, recruits and rescues persist
+within this instance. Ordinary fires reignite after eight seconds; civilian-route
+fires lock permanently safe before movement. The overpass checkpoint requires its
+shelter route secured. Extraction checks all exact prerequisites before the shared
+one-time campaign completion path. Reload/replay creates a new ledger; no save migration.
+
+Shared `CodeLevel` additions are default no-op recovery hooks, checkpoint safety
+eligibility and a title-card objective override. Delayed recovery/transition callbacks
+also guard freed instances. Other mission flow and controls remain unchanged.
+RecruitBeat prompts now reflect keyboard/controller/touch device and InputMap ability
+binding; the shared controller still directly owns its existing swap/combat keys.
+All new systems are constructed before the unchanged arrival freeze/restore snapshot.
+Level 2 hides the generic menu-control banner after arrival and restores it on exit.
+
+Generated original facade, shelter, civilian, gunner and battery PNGs through Blender
+inside the opt-in cutscene Docker image. Inspected the representative composition
+before generating the family. RGBA size/alpha/margins/provenance/import validation
+passes. `tools/gameplay/README.md` documents the reproduction and route manifest.
+MCP used a separate custom game with autosave=false; the open editor remains Level 1.
+
+Verification: the final 14 gameplay regression cases pass with zero errors,
+failures or orphans; NUnit 45/45. Assisted blockout reached all six sector endpoints
+with zero falls (~96 seconds total movement; combat cleared diagnostically). Eighteen
+dressed captures cover six sectors at 1920x1080, 1920x1200 and 2560x1080; inspection
+led to clearer shelter and battery labels. Reference scan has the same ten pre-existing
+signal-path errors in untouched main menu/proton_scatter files.
+The first full run exposed two older structural-test assumptions: every world
+child had a platform Size, and enemies were globally spawned directly under Actors.
+Updated those checks to distinguish decorative nodes and activate/inspect a real
+nested finite formation. The new 14-case gameplay suite itself passed that run.
+
+Final verification: background import exited 0 and all five PNG imports exist.
+Incremental C# build: zero errors/warnings (full compile: 153 existing warnings).
+`run_tests.ps1`: NUnit 45/45 and GdUnit4 134/134, zero failures/errors/orphans,
+`reports/report_354`. Wrapper skips absent Windows backend venv; explicit Docker
+backend Django suite passes 104/104. Python tooling compiles; asset validation and
+diff hygiene pass. MCP full-chain verification used real signature abilities,
+5.5-second civilian walks, diagnostic enemy/objective damage, and observed automatic
+Level 3 loading. Evidence: `.validation/wildfire-gameplay/objectives.json`.
+Only the pre-existing host PostgreSQL/local-JSON fallback appeared in live game
+errors. Headless import retains existing addon TLS and shutdown/resource warnings,
+separate from the clean zero-orphan game suite. The editor remains on Level 1 with
+review games stopped; all four Docker services are retained. No game export was performed.
+The user subsequently authorized committing and pushing these current changes.
+Publication review confirmed main matched origin/main before the new commit; the
+Git-only publication task reuses the completed verification above without rerunning tests.
+
+**Outstanding acceptance:** 20–25 minute unassisted first-playthrough pacing is
+not established by these diagnostics. The current assisted route time is explicitly
+not combat or onboarding time. Human playtesting/content tuning and physical
+controller/touch-device testing remain necessary; only synthetic device prompt/input
+paths were checked, not a full touch-only gameplay session. No new voiceover was made.
+
+> **Services restored (2026-10-30):** All four existing containers were stopped.
+> Started the stack with Compose; PostgreSQL and Ollama became healthy, and
+> website, backend countries endpoint, and Ollama tags API each returned HTTP
+> 200. The first backend request preceded Django readiness; a retry succeeded
+> after its clean system check. No cinematic/code/asset changes in this task.
+> README and MEMORY record readiness behavior and verification. Documentation
+> only: no Godot import or unit-suite run required; no commit/push performed.
+
+> **Level 2 arrival (2026-10-30):** Latest development commit: `4260282`
+> (confirmed by a later history/status read). `ConcreteWildfireMission.OnLevelReady` starts
 > `ConcreteWildfireIntro` after construction and before physics. `CodeLevel` captures
 > every descendant's processing mode, CanvasLayer visibility and audio pause state;
 > one guarded handoff restores them and restarts the opening dialogue's 11-second

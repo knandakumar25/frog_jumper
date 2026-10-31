@@ -27,6 +27,15 @@ public partial class RecruitBeat : Node2D
     private float _time, _lineClock, _promptTimeout;
     private int _lineIndex;
     private CyberShogun? _player;
+    private bool _usingPad, _usingTouch;
+
+    /// <summary>Tracks the current input device so lessons name the controls the player is using.</summary>
+    public override void _Input(InputEvent input)
+    {
+        if (input is InputEventJoypadButton or InputEventJoypadMotion) { _usingPad = true; _usingTouch = false; }
+        else if (input is InputEventScreenTouch) { _usingPad = false; _usingTouch = true; }
+        else if (input is InputEventKey) { _usingPad = false; _usingTouch = false; }
+    }
 
     /// <summary>Name, one-line instruction and ability-use radius for each signature ability tag.</summary>
     private static (string Name, string Hint) Describe(string tag) => tag switch
@@ -86,13 +95,20 @@ public partial class RecruitBeat : Node2D
     {
         string tag = OperativeRoster.AbilityTagOf(Operative) ?? "";
         var (name, hint) = Describe(tag);
+        string binding = _usingTouch ? WildfireText.Get("WF_TOUCH_ABILITY", "Ability") : WildfireText.Binding("karate", _usingPad);
+        hint = WildfireText.Get("ABILITY_HINT_" + tag.ToUpperInvariant(), hint.Replace("Q", "{ability}")).Replace("{ability}", binding);
+        name = WildfireText.Get("ABILITY_NAME_" + tag.ToUpperInvariant(), name);
         string active = _player!.ActiveProfile.DisplayName;
         if (active == OperativeRoster.Normalize(Operative))
             Level.ShowPrompt($"{name}: {hint}");
         else
         {
             int slot = System.Linq.Enumerable.ToList(OperativeRoster.RosterOrder).IndexOf(OperativeRoster.Normalize(Operative)) + 1;
-            Level.ShowPrompt($"{Operative.ToUpperInvariant()} JOINED  -  press {slot} or Tab to swap, then {name}: {hint}");
+            // Swap bindings are handled directly by CyberShogun rather than an InputMap action.
+            string swap = _usingTouch ? WildfireText.Get("WF_TOUCH_SWAP", "Squad") : _usingPad ? "D-Pad Down / Back" : $"{slot} / Tab";
+            string template = WildfireText.Get("RECRUIT_SWAP_PROMPT", "{operative} JOINED - {swap}: swap, then {name}: {hint}");
+            Level.ShowPrompt(template.Replace("{operative}", Operative.ToUpperInvariant()).Replace("{swap}", swap)
+                .Replace("{name}", name).Replace("{hint}", hint));
         }
     }
 
@@ -104,9 +120,15 @@ public partial class RecruitBeat : Node2D
         Completed = true;
         OperativeRoster.Current.MarkLessonSeen(Operative);
         Level.HidePrompt();
-        Level.ShowDialogue($"{Describe(tag).Name} mastered. Swap any time with Tab or the number keys.", 5f);
+        Level.ShowDialogue(WildfireText.Get("RECRUIT_LESSON_COMPLETE", "Ability ready. Swap operatives using your squad controls."), 5f);
         EmitSignal(SignalName.LessonCompleted);
         Visible = false;
+    }
+
+    /// <summary>Disconnects from the player if a scene or isolated lesson is removed independently.</summary>
+    public override void _ExitTree()
+    {
+        if (GodotObject.IsInstanceValid(_player)) _player!.AbilityUsed -= OnAbilityUsed;
     }
 
     /// <summary>Draws a pulsing light pillar so the recruit location is visible before the player reaches it.</summary>

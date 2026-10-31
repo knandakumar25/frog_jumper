@@ -14,6 +14,24 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 
 ## Features
 
+- **Evacuation Under Siege (Level 2 gameplay)** — Six linear sectors now span a
+  35,800 px route with 20 finite encounter groups, stationary burst gunners with
+  parryable cyan bullets, four recovery shrines, three mandatory civilian shelter
+  routes, three defended biometric spires, and a two-relay siege battery. Oceanus
+  joins before the first fire lesson; Titan joins beyond the membrane before his
+  safe rubble lesson. Orange artillery warns for 2.4 seconds and locks its target.
+  Civilians are invulnerable and use short local paths; their route fires become
+  permanently safe before they move. Completed objectives persist across deaths in
+  the current scene; replay/reload resets this local progress. Extraction requires
+  all rescues, all spires, the battery core and final barrier. Arrival dialogue and
+  the existing transition to Level 3 are preserved. New prompts support localization
+  keys with English fallback and keyboard/controller/touch device wording.
+  The **20–25 minute first-playthrough goal remains unvalidated**; automated
+  geometry and objective checks are not a human pacing measurement. See
+  [gameplay tooling](tools/gameplay/README.md) for the route and reproducible review.
+  Final verification: 134 Godot tests (zero failures/errors/orphans), 45 NUnit
+  tests, 104 container Django tests, and the live objective chain through Level 3.
+
 - **The Concrete Wildfire arrival** — Every fresh Level 2 launch plays a skippable
   60-second live 2D introduction with Daniel as AXIOM-7 and Adam as Kaito. Escape,
   Space, Enter, controller Start/A, or the pointer/touch Skip button restores gameplay.
@@ -45,10 +63,10 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 - **Signature abilities (`Q`)** — Shogun: **Kinetic Parry** (throws ranged attacks back); Oceanus: **Tidal Torrent** (douses fire); Apex Titan: **Tectonic Slam** (shatters heavy rubble); Aura Phoenicia: **Harmonic Pulse** (opens sonic locks); Mirage Blade: **Phase Blink** (slips through lasers and hazards); Surya Prime: **Solar Bulwark** (absorbs heat and ranged fire). Levels contain obstacles only the matching operative can clear.
 - **The campaign (4 side-scrolling missions, code-built on `CodeLevel`)** —
   1. **Ghost in the Gridlock** (Shogun): a ~9,500 px infiltration of the Eternal Zen Dojo over a painted night garden — jumping, a timed laser bridge, a wall-jump gorge, rooftops, an archive; parry sentry fire to overload the beacon's shield, destroy it, take the Data-Blade, extract.
-  2. **The Concrete Wildfire** (Oceanus, then Apex Titan join): burning corridors, a chasm overpass, three biometric spires, then the membrane and a collapsed wall.
+  2. **The Concrete Wildfire** (Oceanus, then Apex Titan join): evacuation road, burning residential shelter routes, four overpass ferries, three defended spires, Titan's breach, a relay-shielded siege battery and final evacuation.
   3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): scrapyard, transit depot, a comm-tower climb to a relay, and a lethal laser curtain.
   4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him brings down the wall and ends Act I with the combat scorecard.
-  Each mission has three shrine checkpoints, three optional memory fragments, a story title card (from `NarrativeManager`), and chasm recovery to the last shrine.
+  Each mission has three optional memory fragments, a story title card, and chasm recovery. Level 2 has four shrine checkpoints; the other missions have three. Its revised gameplay briefing replaces outdated title-card objective metadata.
 - **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Cyber Shogun uses the approved AI-generated pose and locomotion sheets in missions; other operatives use their hand-drawn sheets. Levels 2–4 use a procedural skyline backdrop; Level 1 uses a painted garden under procedurally drawn platforms.
 - **Dynamic Combat HUD** — Real-time telemetry monitoring health, shields, combo streaks (`DOUBLE STRIKE!`, `TRIPLE COMBO!`, `TACTICAL OVERDRIVE!`), operative ability status, and boss telemetry.
 - **Border Commander Voss (boss mech)** — Multi-phase aerial boss mech in Level 4 featuring homing plasma missiles, siren warnings, and an enraged **Overdrive Rage** phase shift (<50% HP) with 3-way missile spreads.
@@ -128,6 +146,9 @@ docker compose ps                # verify all four run; inspect configured healt
 docker compose logs -f backend   # follow the Django log
 docker compose down              # stop everything (add -v to drop the DB volume)
 ```
+
+Allow Django's startup checks to finish before testing API readiness; a running
+container can briefly precede the HTTP server accepting connections.
 
 - **Django API**: <http://localhost:8000/api/> (admin site at `/admin/`)
 - **Web portal**: <http://localhost:5173/> — Nginx serves the built bundle and proxies `/api/` and `/admin/` to Django
@@ -210,6 +231,10 @@ AxiomForce/
 ---
 
 ## Contributing & Agent Guidelines
+
+The current development milestone is the Evacuation Under Siege gameplay expansion,
+following the Level 2 arrival cinematic (`4260282`). See HANDOFF and MEMORY for
+verification and outstanding pacing/hardware checks.
 
 AI agents collaborating on this repository must consult the following guides:
 

@@ -20,9 +20,12 @@ this summary does not replace them. Verify live environment state before acting.
 - 2026-10-30: User explicitly resumed the Tokyo Remembers plan after the earlier
   Docker-only task. Level 1 now uses cinematic then results, with Continue to 2
   and Replay retaining Level 1; other mission transitions remain unchanged.
-- Latest startup check (2026-10-30): all four services started; website,
-  backend countries endpoint, and Ollama tags API returned HTTP 200.
-  PostgreSQL was healthy. Treat this as a dated observation, not live status.
+- Latest startup check (2026-10-30): found all four containers stopped, started
+  them with Compose, and verified website, backend countries endpoint, and
+  Ollama tags API returned HTTP 200. PostgreSQL and Ollama were healthy.
+  Django needed a brief startup interval before responding. This task only
+  restored services; no cinematic work was performed. Treat this as a dated
+  observation, not live status.
 - Use `docker` directly from PATH rather than a hardcoded executable path.
 - For cinematic asset production, use Blender and Python inside Docker.
 - Preserve existing narration lines unless the user requests changes.
@@ -151,6 +154,10 @@ this summary does not replace them. Verify live environment state before acting.
 
 ## Concrete Wildfire Git publication
 
+- Latest development commit confirmed from Git history: `4260282`,
+  "Add skippable Concrete Wildfire arrival cinematic" (2026-10-30).
+  This status check read history/handoff only; it did not rerun tests or change
+  game code/assets. Subsequent server operations are separate from development.
 - 2026-10-30: User explicitly requested pushing the current Level 2 arrival work.
   Reviewed the working tree, asset inventory and diff hygiene; fetched origin and
   confirmed main matches origin/main before publication. The authorized commit
@@ -167,3 +174,43 @@ this summary does not replace them. Verify live environment state before acting.
   without any permission changes by this agent. Rechecked staged diff hygiene and
   remote branch synchronization; proceeding with the authorized commit and normal
   push to origin/main. No code/assets changed during this Git-only retry.
+
+## Project server shutdown — 2026-10-30
+
+- User requested shutdown. Resumed manually paused Docker Desktop, then ran docker compose stop successfully for website, backend, db, and ollama. Verified all four services exited; containers and persistent data retained. No code/assets changed; imports and tests were not required. This memory update remains local and uncommitted.
+
+## Evacuation Under Siege gameplay — 2026-10-30
+
+- Implemented six-sector Level 2 route, three local invulnerable rescues, 20 finite
+  mixed encounters, parryable burst gunners, safe locked-target shelling, defended
+  spires and relay/core battery. Permanent rescue fire safety is separate from
+  eight-second traversal dousing. Exact objective IDs guard extraction; scene-local
+  recovery retains completed progress and prevents repeated kill rewards.
+- Preserved arrival lines, squad progression, player controls and Level 3 transition.
+  Added default shared recovery/checkpoint/title-card hooks; device-aware recruitment
+  prompts; Docker/Blender original gameplay art and reproducible gameplay review tools.
+- Docker preflight confirmed all four services running. Final build zero errors/warnings;
+  background import exit 0/five new PNG imports (existing TLS/shutdown diagnostics).
+  GdUnit4 134/134 with zero failures/errors/orphans (`report_354`), NUnit 45/45,
+  container Django 104/104 (host wrapper skips absent backend venv). Five-asset QA,
+  Python compilation and diff hygiene pass. MCP assisted six-sector traversal had
+  zero falls; 18 dressed aspect-ratio captures were inspected. Full objective chain
+  used real abilities/civilian walks with diagnostic damage and reached Level 3.
+  Evidence: `.validation/wildfire-gameplay/`. Editor remains Level 1, game stopped.
+- Older structural tests now ignore noncollision world dressing and activate a real
+  nested finite encounter; they retain reachability/HUD/enemy requirements. Swept
+  rounds handle starting inside the target, and delayed callbacks guard freed scenes.
+- No 20–25 minute unassisted first-playthrough measurement exists; diagnostic traversal
+  took ~96 seconds with combat bypassed. Pacing/content tuning and physical input
+  hardware checks remain outstanding. Implementation was left local/uncommitted;
+  the user subsequently authorized publication below. Editor stays on Level 1.
+
+## Evacuation Under Siege Git publication — 2026-10-30
+
+- User explicitly requested pushing the current changes, authorizing the needed
+  commit and push. Reviewed all modified/untracked files, generated asset/import
+  inventory and diff hygiene; fetched origin and confirmed main equals origin/main.
+  Publishing implementation, tests, tools and accumulated project documentation.
+- This Git/documentation-only task changes no code/assets. Prior verified build,
+  Godot 134/134, NUnit 45/45 and container Django 104/104 remain applicable;
+  imports and tests were not rerun. Pacing and physical hardware limits remain recorded.

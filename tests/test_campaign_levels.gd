@@ -33,6 +33,9 @@ func _surfaces(mission: Node) -> Array:
 	for node in mission.get_node("PalaceGeometry").get_children():
 		if node.name == "WorldCeiling":
 			continue
+		# Mission dressing shares the world transform but has no collision surface or platform dimensions.
+		if node.get("Size") == null:
+			continue
 		var size: Vector2 = node.get("Size")
 		if node.get("Surface") != null:
 			var surface: int = node.get("Surface")
@@ -146,8 +149,15 @@ func test_level2_fire_needs_oceanus_and_rubble_needs_titan() -> void:
 	mission.free()
 
 func test_level2_membrane_opens_only_after_all_three_spires() -> void:
+	## Each local defense must fall before its scanner becomes damageable.
 	var mission := _mission(2)
 	var membrane := mission.get_node("PalaceGeometry/Membrane")
+	for id in ["street", "tower", "courtyard"]:
+		var encounter := mission.get_node("Actors/Encounter_spire-" + id)
+		encounter.call("Activate")
+		for enemy in encounter.get_children():
+			enemy.call("TakeDamage", 1000.0)
+	await get_tree().physics_frame
 	for index in range(1, 4):
 		assert_bool(membrane.get("IsOpen")).is_false()
 		mission.get_node("Actors/BiometricSpire%d" % index).call("TakeDamage", 1000.0)

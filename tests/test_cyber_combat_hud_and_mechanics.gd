@@ -113,6 +113,7 @@ func test_cyber_shogun_airborne_attacks_and_dashes() -> void:
 	player.free()
 
 func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
+	## Validate HUDs and real enemy bodies; Level 2's finite groups are intentionally dormant until locally activated.
 	var level_paths := [LEVEL1_PATH, LEVEL2_PATH, LEVEL3_PATH, LEVEL4_PATH]
 
 	for path in level_paths:
@@ -125,17 +126,20 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 		# Gameplay structure checks finish the separately covered arrival overlay.
 		if path == LEVEL2_PATH:
 			level.get_node("ConcreteWildfireIntro").call("Finish")
+			var encounter := level.get_node("Actors/Encounter_road-parry")
+			assert_int(encounter.get_child_count()).is_equal(0)
+			encounter.call("Activate")
 		await get_tree().process_frame
 
 		# Verify CyberCombatHud exists
 		var hud = level.get_node_or_null("CyberCombatHud")
 		assert_that(hud).is_not_null()
 
-		# Enemies are hover sentries (or the boss) that live under Actors and join the "enemies" group.
+		# Enemies may be nested under a finite encounter; all actual bodies still join the shared enemies group.
 		var actors = level.get_node_or_null("Actors")
 		assert_that(actors).is_not_null()
 		var crew_count := 0
-		for actor in actors.get_children():
+		for actor in actors.find_children("*", "CharacterBody2D", true, false):
 			if actor is CharacterBody2D and actor.is_in_group("enemies"):
 				crew_count += 1
 		assert_int(crew_count).is_greater_equal(2)

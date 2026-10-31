@@ -27,6 +27,8 @@ public partial class AbilityGate : Node2D
     public Vector2 Size { get; set; } = new(320f, 170f);
     /// <summary>True once the obstacle no longer blocks or harms (rubble broken, lock open, fire out).</summary>
     public bool Cleared { get; private set; }
+    /// <summary>True after a rescue locks this vent safe; ordinary traversal vents still reignite.</summary>
+    public bool PermanentlySafe { get; private set; }
     /// <summary>The ability tag that clears this gate (see <see cref="LevelCatalog"/> constants).</summary>
     public string RequiredTag => Kind switch
     {
@@ -65,7 +67,7 @@ public partial class AbilityGate : Node2D
         float dt = (float)delta;
         _time += dt;
         _hurtCooldown -= dt;
-        if (Kind == GateKind.FireVent && Cleared)
+        if (Kind == GateKind.FireVent && Cleared && !PermanentlySafe)
         {
             _douseRemaining -= dt;
             if (_douseRemaining <= 0f) Cleared = false;   // the fire catches again; dousing is temporary on purpose
@@ -81,6 +83,14 @@ public partial class AbilityGate : Node2D
             }
         }
         QueueRedraw();
+    }
+
+    /// <summary>Locks an already-doused civilian route safe before any civilian starts moving.</summary>
+    public bool SecureForEvacuation()
+    {
+        if (!Cleared) return false;
+        PermanentlySafe = true;
+        return true;
     }
 
     /// <summary>
