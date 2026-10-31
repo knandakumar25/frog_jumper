@@ -145,7 +145,7 @@ public abstract partial class CodeLevel : Node2D
         AddChild(combatHud);
 
         // The final mission of an act ends on the combat-grade scorecard instead of auto-advancing.
-        if (MissionNumber == 1 || !LevelCatalog.HasNext(MissionNumber))
+        if (MissionNumber <= 2 || !LevelCatalog.HasNext(MissionNumber))
         {
             _scorecard = GD.Load<PackedScene>("res://scenes/ui/cyber_victory_scorecard.tscn").Instantiate<CyberVictoryScorecard>();
             _scorecard.Name = "CyberVictoryScorecard";
@@ -213,9 +213,13 @@ public abstract partial class CodeLevel : Node2D
     public bool ArrivalActive { get; private set; }
 
     /// <summary>Locks the fully constructed mission before physics and attaches an independently running overlay.</summary>
-    protected void BeginArrivalPresentation()
+    protected void BeginArrivalPresentation() =>
+        BeginArrivalPresentation(new ConcreteWildfireIntro { Name = "ConcreteWildfireIntro", Layer = 40 });
+
+    /// <summary>Freezes the complete mission for a supplied overlay exposing a Finished signal; no persistent viewing state is stored.</summary>
+    protected void BeginArrivalPresentation(CanvasLayer intro)
     {
-        if (ArrivalActive || !IsInsideTree()) return;
+        if (ArrivalActive || !IsInsideTree()) { intro.Free(); return; }
         ArrivalActive = true;
         // Capture the WHOLE tree first: disabling a parent automatically pauses
         // descendant audio, which would otherwise contaminate the saved pause flags.
@@ -227,8 +231,13 @@ public abstract partial class CodeLevel : Node2D
             if (state.Node is AudioStreamPlayer audio) audio.StreamPaused = true;
             if (state.Node is AudioStreamPlayer2D spatial) spatial.StreamPaused = true;
         }
-        var intro = new ConcreteWildfireIntro { Name = "ConcreteWildfireIntro", Layer = 40 };
-        intro.Finished += RestoreArrivalState;
+        intro.Connect("Finished", Callable.From(RestoreArrivalState));
+        // Removing just the overlay must also unfreeze the retained mission.
+        intro.TreeExiting += () => Callable.From(() =>
+        {
+            // The owner may be freed along with the overlay; never touch its disposed HUD on scene teardown.
+            if (GodotObject.IsInstanceValid(this) && IsInsideTree()) RestoreArrivalState();
+        }).CallDeferred();
         AddChild(intro);
     }
 
@@ -522,7 +531,7 @@ public abstract partial class CodeLevel : Node2D
         ShowDialogue("Systems restored at the last recovery point.", 4f);
     }
 
-    /// <summary>Records extraction once; mission one keeps its scene loaded for cinematic/results replay.</summary>
+    /// <summary>Records extraction once; the first two missions retain their scenes for cinematic/results replay.</summary>
     protected async void CompleteMission()
     {
         if (_finishing) return;
@@ -536,14 +545,25 @@ public abstract partial class CodeLevel : Node2D
         int peakCombo = _maxCombo;
         string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}".ToUpperInvariant();
         string? nextScene = CampaignProgress.CompleteMission(MissionNumber, finalScore);
-        if (MissionNumber == 1)
+        if (MissionNumber <= 2)
         {
             // Disable this entire mission, including pause input and physics. Overlays explicitly run Always.
             ProcessMode = ProcessModeEnum.Disabled;
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
-            var cinematic = new TokyoRemembers { Name = "TokyoRemembers", Layer = 40 };
-            cinematic.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 2);
+            CanvasLayer cinematic;
+            if (MissionNumber == 1)
+            {
+                var tokyo = new TokyoRemembers { Name = "TokyoRemembers", Layer = 40 };
+                tokyo.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 2);
+                cinematic = tokyo;
+            }
+            else
+            {
+                var wildfire = new WildfireAftermath { Name = "WildfireAftermath", Layer = 40 };
+                wildfire.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 3);
+                cinematic = wildfire;
+            }
             // Defer tree mutation because extraction is entered from an Area2D physics callback.
             Callable.From(() => { if (IsInsideTree()) AddChild(cinematic); else cinematic.Free(); }).CallDeferred();
             return;

@@ -104,6 +104,8 @@ func test_levels_contain_hazards_container() -> void:
 		# Gameplay structure checks finish the separately covered arrival overlay.
 		if path == LEVEL2_PATH:
 			level.get_node("ConcreteWildfireIntro").call("Finish")
+		if path == LEVEL3_PATH:
+			level.get_node("NeonRustIntro").call("Finish")
 		await get_tree().process_frame
 		var actors := level.get_node_or_null("Actors")
 		assert_that(actors).is_not_null()

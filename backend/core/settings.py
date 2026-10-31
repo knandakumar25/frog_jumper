@@ -1,5 +1,4 @@
 import os
-import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -54,26 +53,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# Database
-# In Docker, the hostname will be 'db'
-if 'test' in sys.argv:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': ':memory:',
-        }
+# PostgreSQL is authoritative in development, production, and isolated test databases.
+# Never substitute SQLite when a test command is run.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'accounts_db'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'postgres'),
+        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME', 'accounts_db'),
-            'USER': os.environ.get('DB_USER', 'postgres'),
-            'PASSWORD': os.environ.get('DB_PASSWORD', 'Swathus@21'),
-            'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-            'PORT': os.environ.get('DB_PORT', '5432'),
-        }
-    }
+}
 
 EPIC_CLIENT_ID = os.environ.get('EPIC_CLIENT_ID', 'xyza7891g76bMoT7LRbXiajbp1ZynDUf')
 EPIC_CLIENT_SECRET = os.environ.get('EPIC_CLIENT_SECRET', 'DvsZrhk6V1YxjWFgBZ8c1EJZqigg2kyF0kxL+9Xk2RA')

@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 0.2,
+    "source_duration": 8.620408,
+    "tempo": 1.0117849765258213,
+    "end": 8.694489795918367,
+    "cached_source": "tts_Regio_20261031_124931.mp3"
+  },
+  {
+    "cue": 2,
+    "speaker": "KAITO / Adam",
+    "start": 9.2,
+    "source_duration": 4.545306,
+    "tempo": 1,
+    "end": 13.698503401360544,
+    "cached_source": "tts_We_fo_20261031_124743.mp3"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS / Sarah",
+    "start": 18.2,
+    "source_duration": 5.668571,
+    "tempo": 1,
+    "end": 23.81122448979592,
+    "cached_source": "tts_Their_20261031_124742.mp3"
+  },
+  {
+    "cue": 4,
+    "speaker": "TITAN / George",
+    "start": 27.2,
+    "source_duration": 5.746939,
+    "tempo": 1,
+    "end": 32.90764172335601,
+    "cached_source": "tts_Steel_20261031_125055.mp3"
+  },
+  {
+    "cue": 5,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 36.2,
+    "source_duration": 7.235918,
+    "tempo": 1,
+    "end": 43.39621315192744,
+    "cached_source": "tts_The_c_20261031_124744.mp3"
+  },
+  {
+    "cue": 6,
+    "speaker": "OCEANUS / Sarah",
+    "start": 45.2,
+    "source_duration": 5.982041,
+    "tempo": 1,
+    "end": 51.13215419501134,
+    "cached_source": "tts_Those_20261031_124744.mp3"
+  },
+  {
+    "cue": 7,
+    "speaker": "TITAN / George",
+    "start": 55.2,
+    "source_duration": 4.780408,
+    "tempo": 1,
+    "end": 59.93489795918367,
+    "cached_source": "tts_We_br_20261031_124745.mp3"
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO / Adam",
+    "start": 64.2,
+    "source_duration": 4.440816,
+    "tempo": 1,
+    "end": 68.6062358276644,
+    "cached_source": "tts_One_t_20261031_124746.mp3"
+  }
+]

@@ -257,7 +257,15 @@ public partial class MenuSessionUI : Node
 	{
 		_newGamePopup.Visible = false;
 		int sessionId = await CampaignProgress.StartNewCampaignAsync();
-		GD.Print(sessionId > 0 ? $"Created new session: {sessionId}" : "Error creating session; continuing unsaved.");
+		if (sessionId <= 0)
+		{
+			var error = new AcceptDialog { DialogText = "PostgreSQL is unavailable. Start the server, then try again." };
+			AddChild(error);
+			error.Confirmed += () => error.QueueFree();
+			error.Canceled += () => error.QueueFree();
+			error.PopupCentered();
+			return;
+		}
 		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/deployment_cutscene.tscn");
 	}
 

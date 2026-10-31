@@ -9,17 +9,15 @@ var selected_character = "Cyber Shogun"  # Default character
 var unlocked_levels = 1  # Highest mission reached (set from the save on Continue, raised by unlock_next_level)
 var current_display_mode: String = "Windowed Fullscreen"
 
-# Local paths for user-specific settings.
-# Unity Migration: Use Application.persistentDataPath.
-const SETTINGS_PATH: String = "user://user_settings.json"
-const KEYBINDINGS_PATH: String = "user://user_keybindings.json"
+# Settings and keybindings are stored only in PostgreSQL through SessionManager.
 
 # Global menu music player reference.
 var menu_music_player: AudioStreamPlayer = null
 
 # ─── Lifecycle ──────────────────────────────────────────────────────────────────
 func _ready() -> void:
-	load_saved_settings()
+	# Global is registered before SessionManager; defer database access until all autoloads exist.
+	call_deferred("load_saved_settings")
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 	if DisplayServer.get_name() != "headless":
@@ -367,65 +365,41 @@ func apply_display_mode(mode_name: String) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 # ─── Persistence & Input Customization ──────────────────────────────────────────
+## Restores display/input preferences once SessionManager is available.
 func load_saved_settings() -> void:
 	load_custom_keybindings()
-	if FileAccess.file_exists(SETTINGS_PATH):
-		var file = FileAccess.open(SETTINGS_PATH, FileAccess.READ)
-		if file != null:
-			var text = file.get_as_text()
-			file.close()
-			var json = JSON.new()
-			if json.parse(text) == OK and json.data is Dictionary:
-				if json.data.has("display_mode"):
-					current_display_mode = json.data["display_mode"]
-					print("Global: Loaded saved display mode: ", current_display_mode)
+	var data: Dictionary = get_node("/root/SessionManager").ReadState("user_settings")
+	if data.get("display_mode") is String:
+		current_display_mode = data["display_mode"]
+		if DisplayServer.get_name() != "headless":
+			apply_display_mode(current_display_mode)
 
+## Persists the selected display mode exclusively in PostgreSQL.
 func save_user_settings() -> void:
-	var data = {}
-	if FileAccess.file_exists(SETTINGS_PATH):
-		var file = FileAccess.open(SETTINGS_PATH, FileAccess.READ)
-		if file != null:
-			var text = file.get_as_text()
-			file.close()
-			var json = JSON.new()
-			if json.parse(text) == OK and json.data is Dictionary:
-				data = json.data
-	data["display_mode"] = current_display_mode
-	var file = FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)
-	if file != null:
-		file.store_string(JSON.stringify(data))
-		file.close()
+	if not get_node("/root/SessionManager").WriteState("user_settings", {"display_mode": current_display_mode}):
+		push_warning("Display settings were not saved. PostgreSQL must be available.")
 
-# Loads custom user keybindings from a JSON file.
+## Restores supported keyboard mappings from the database document.
 func load_custom_keybindings() -> void:
-	if not FileAccess.file_exists(KEYBINDINGS_PATH):
-		return
-	var file = FileAccess.open(KEYBINDINGS_PATH, FileAccess.READ)
-	if file == null:
-		return
-	var text = file.get_as_text()
-	file.close()
-	var json = JSON.new()
-	if json.parse(text) == OK and json.data is Dictionary:
-		var bindings = json.data
-		for action_name in bindings.keys():
-			if InputMap.has_action(action_name):
-				var keycodes = bindings[action_name]
-				if keycodes is Array and keycodes.size() > 0:
-					InputMap.action_erase_events(action_name)
-					for kc in keycodes:
-						var code_val = int(kc)
-						if code_val != 0:
-							var ev = InputEventKey.new()
-							ev.physical_keycode = code_val
-							ev.keycode = code_val
-							InputMap.action_add_event(action_name, ev)
+	var bindings: Dictionary = get_node("/root/SessionManager").ReadState("user_keybindings")
+	for action_name in ["left", "right", "jump", "escape"]:
+		if not InputMap.has_action(action_name):
+			continue
+		var keycodes = bindings.get(action_name)
+		if keycodes is Array and not keycodes.is_empty():
+			InputMap.action_erase_events(action_name)
+			for kc in keycodes:
+				var code_val = int(kc)
+				if code_val != 0:
+					var ev = InputEventKey.new()
+					ev.physical_keycode = code_val
+					ev.keycode = code_val
+					InputMap.action_add_event(action_name, ev)
 
-# Saves current input action mappings to a JSON file.
+## Commits keyboard bindings to PostgreSQL without creating a local save.
 func save_custom_keybindings() -> void:
 	var bindings = {}
-	var actions = ["left", "right", "jump", "escape"]
-	for action in actions:
+	for action in ["left", "right", "jump", "escape"]:
 		if InputMap.has_action(action):
 			var keycodes = []
 			for ev in InputMap.action_get_events(action):
@@ -434,10 +408,8 @@ func save_custom_keybindings() -> void:
 					if code != 0 and not keycodes.has(code):
 						keycodes.append(code)
 			bindings[action] = keycodes
-	var file = FileAccess.open(KEYBINDINGS_PATH, FileAccess.WRITE)
-	if file != null:
-		file.store_string(JSON.stringify(bindings))
-		file.close()
+	if not get_node("/root/SessionManager").WriteState("user_keybindings", bindings):
+		push_warning("Keybindings were not saved. PostgreSQL must be available.")
 
 # ─── Audio Management ──────────────────────────────────────────────────────────
 func load_mp3_stream(res_path: String) -> AudioStream:

@@ -14,16 +14,18 @@ public static class CampaignProgress
 
     /// <summary>
     /// Starts a brand-new campaign: creates the save with the starter operative, resets progress to mission 1
-    /// and rebuilds the roster. Returns the new session id (or a non-positive value if saving failed; play continues).
+    /// and rebuilds the roster. Returns the new session id (or a non-positive value if saving failed; the menu must remain open).
     /// </summary>
     public static async Task<int> StartNewCampaignAsync()
     {
-        // A new campaign forgets progress from any earlier playthrough in this app session.
+        var sessions = SessionManager.Instance;
+        int id = sessions == null ? -1 : await sessions.CreateNewSessionAsync(OperativeRoster.Starter);
+        if (id <= 0) return id;
+        // Reset runtime progress only after PostgreSQL has committed the new campaign.
         Global?.Set("unlocked_levels", 1);
         Global?.Set("selected_character", OperativeRoster.Starter);
         PrepareMission(1);
-        var sessions = SessionManager.Instance;
-        return sessions == null ? -1 : await sessions.CreateNewSessionAsync(OperativeRoster.Starter);
+        return id;
     }
 
     /// <summary>

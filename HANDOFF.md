@@ -1,5 +1,50 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Resume after container interruption — 2026-10-31
+
+The Through the Breach implementation and verification artifacts already exist.
+Reviewed the nine-shot contact sheet, asset/audio results, report_361 (142 Godot
+tests, zero failures), NUnit 47/47 and container Django 104/104 logs, and the
+uninterrupted playback evidence. Corrected a stale tooling-documentation sentence
+that still described Level 2 as retaining its old transition. No code/assets
+changed during this resume; imports and unit suites do not require rerunning.
+Docker restoration completed: Compose pulled the missing images, built backend
+and website, and started all four normal services. PostgreSQL and Ollama are
+healthy. Website (5173), direct and proxied countries API (8000/5173), and Ollama
+tags (11434) returned HTTP 200. No game export, staging, commit or push performed.
+
+## PostgreSQL-only storage and Playwright — 2026-10-31
+
+Removed SessionManager's JSON fallback and moved operative progression plus
+display/input documents into PostgreSQL JSONB game_state (schema version 1).
+Session increments now use an atomic UPDATE. Host clients read environment/root
+.env credentials. New Game stays in the menu on save failure; failed database
+loads cannot overwrite progression with defaults. Settings/progression failures
+report errors. Standalone progression tests keep simulated state only in memory.
+
+Game and portal tokens are transient; locale lives in the URL. Existing local
+saves remain untouched but are ignored, with no automatic migration. Game state
+retains the existing shared development database scope. Clerk remains upstream
+identity and may maintain its own authentication cookies. Assets, caches, logs,
+Docker volumes and model files remain normal tooling/runtime files.
+
+Django tests now use PostgreSQL. Compose aligns backend/database credentials.
+Added opt-in Playwright v1.64.1-noble with matching npm runner, init, shared IPC
+and nonroot user. Portal builds use same-origin /api. Game integration coverage
+checks saves across two managers; the browser smoke check rejects storage API
+access. Final verification: C# build passed (zero errors, 154 existing warnings);
+background Godot import exited 0 with existing addon TLS/editor shutdown resource
+diagnostics. run_tests.ps1 passed NUnit 47/47 and GdUnit4 135/135 with zero
+failures/errors/orphans (report_357). The wrapper skipped the absent Windows
+backend venv; explicit container Django tests passed 104/104 on PostgreSQL.
+JSONB round-trip/version protection and database refusal are covered by NUnit;
+campaign create/update/delete across managers is covered by GdUnit4.
+Microsoft-image Chromium smoke passed with browser storage APIs blocked.
+Website, direct/proxied countries API, and Ollama tags returned HTTP 200; four
+normal containers remain running, PostgreSQL/Ollama healthy. No export or Git
+publication was performed. Clerk replacement remains a separate scope question.
+Historical local-fallback observations below describe older builds.
+
 ## Evacuation Under Siege gameplay — 2026-10-30
 
 Level 2 now orchestrates a 35,800px six-sector route with 20 finite formations,
@@ -596,3 +641,115 @@ GdUnit4 109/109, 0 failures/errors/orphans (report_343); NUnit 34/34; container
 Django 104/104. All six cutscene Python modules compile. The legacy Blender path
 rendered all four preview plates successfully in Docker; the original OGV and
 narration binaries remain unchanged. No game export, commit or push was performed.
+
+## Through the Breach — 2026-10-31
+
+CodeLevel now builds Level 2's scorecard before extraction, captures score/combo/
+operative once, records campaign completion through the existing PostgreSQL path,
+freezes mission descendants/audio/HUD/pause, and retains Level 2 for Replay.
+WildfireAftermath owns 75-second shots/subtitles/audio, safe missing-resource
+fallback, input consumption and a guarded deferred results handoff. Continue targets
+Level 3. Level 1's existing Tokyo cinematic and Level 3 introductions are preserved.
+No watched flag, persistence/schema change or changes to unrelated PostgreSQL work.
+
+WildfireAftermathStage analytically samples nine shots with parallax, smoke, water,
+family movement, support/release, a live manifest and a walking departure following
+the road slope. Docker `render_breach.py` creates original scenery and an 18-cell
+operative atlas. `package_breach.py` assembles cached ElevenLabs Daniel/Adam/Sarah/
+George cues and original atmosphere into 75-second tracks. `validate_breach.py`
+checks raster alpha/bounds, timings and decoded peaks. `review_breach.py` runs real
+objective callbacks, 27 captures, full playback and result navigation through MCP.
+The existing gameplay verification tool now skips aftermath and presses Continue.
+
+English BREACH_CUE_1..9 and BREACH_SKIP keys have supplied fallback text. Missing
+speech preserves full timing; missing essential art completes through the same
+results callback. Prompt restoration tests supply their own canvas because headless
+Global omits it, and compare DisplayServer's actual supported cursor state.
+
+
+Final verification (2026-10-31): background import exit 0 and all nine new import
+files present; C# build 0 errors (154 existing warnings on recompilation, final
+incremental build 0 warnings). `run_tests.ps1` passes NUnit 47/47 and GdUnit4
+142/142 with zero failures/errors/orphans (`report_361`). Host Django is skipped
+because its venv is absent; explicit container Django passes 104/104. Docker
+asset/audio validation and Python compilation pass. Both tracks are 75 seconds;
+all eight complete cues fit their windows and decoded peaks remain below clipping.
+
+Godot AI MCP captured and visually reviewed all nine shots at 1920×1080,
+1920×1200 and 2560×1080. Uninterrupted 75-second playback kept player position,
+health and score fixed; maximum sampled audio/visual clock separation was under
+30 ms. Natural results, Continue to Level 3 with three earned operatives, Replay
+with Level 2 arrival, Level Select and Main Menu all pass. Runtime review logs
+contain no errors or warnings. Level 1 regression passes in the Godot suite.
+Evidence: `.validation/breach/`, including 27 captures and aspect contact sheets.
+
+Existing import diagnostics remain separate: asset-placer TLS failures, editor
+shutdown settings/resource/ObjectDB/PagedAllocator messages, and optional
+`gdunit4.api` warning. No physical controller/touch hardware, speaker-listening
+review or export was performed. Review game stopped; the user's editor remains
+on Level 1, all four services running. Changes are local/uncommitted; unrelated
+PostgreSQL/website work is preserved.
+
+## Silent Freight implementation — 2026-10-31
+
+Added NeonRustIntro/NeonRustStage and start the overlay at the end of
+NeonRustMission.OnLevelReady. CodeLevel now accepts an arrival CanvasLayer
+with Finished; its original parameterless Level 2 entry still constructs
+ConcreteWildfireIntro. The snapshot captures every mission descendant before
+disabling any modes; Finished or overlay removal restores it once and restarts
+the original opening dialogue. New input uses the aftermath's deferred handoff
+and mapped-action release. The 75-second timeline supports deterministic Seek,
+SeekAudio, compensated speech clock and timed-subtitle fallback.
+
+Docker Blender authors depot/rail/cargo/walkway layers and a 512-cell missing-pose
+atlas; existing city and operative walks are reused. Exact eight-line script,
+cast, timing, localization keys and provenance live in assets/cutscenes/neon_rust_intro.
+New lifecycle/integration tests accompany existing mission-fixture adjustments.
+Final suites after shot refinements: NUnit 47/47, Godot 151/151
+(report_363, zero failures/errors/orphans), container Django 104/104.
+Unrelated PostgreSQL, website and aftermath changes are preserved. No commits/pushes.
+
+Silent Freight runtime review: Godot AI MCP captured all nine shots at
+1920×1080, 1920×1200 and 2560×1080; all three contact sheets were inspected.
+Uninterrupted playback kept the entire mission frozen, including player
+(200,554), health, score, fragments and relay state. Maximum sampled speech/visual
+clock separation was 32 ms. Natural handoff restored HUD, processing and music
+with Jump released. Actual Continue, Level Select, saved-session loading and
+Replay reached Level 3 with its arrival active. The save-load test used a new
+owned PostgreSQL session and verified deletion afterwards; existing saves were
+untouched. Runtime review contains no warnings/errors. Editor remains Level 1,
+game stopped. Final verification follows.
+
+Final verification (2026-10-31): background Godot import exited 0 and all eleven
+PNG/Ogg import files exist. C# build has zero errors (154 pre-existing addon
+warnings). Final run_tests.ps1 passes NUnit 47/47 and Godot 151/151, zero
+failures/errors/orphans (report_363). The host wrapper skips Django because
+backend/.venv is absent; the explicit container suite passes 104/104. Docker
+raster/audio QA and Python compilation pass: 1920×1080 transparent scenery,
+512-cell atlas bounds, eight complete nonoverlapping cues, two exact 75-second
+tracks and decoded peaks below clipping. Diff hygiene passes.
+
+Existing import diagnostics: asset-placer TLS failures and editor shutdown
+EditorSettings/ObjectDB/resource/PagedAllocator messages; runtime review logs
+are clean. No physical controller/touch hardware, speaker-listening review or
+export was performed. Evidence: .validation/neon-rust/ (including 27 captures
+and three contact sheets). All four normal Docker services remain running.
+User's editor remains on Level 1; review game stopped; changes are local and
+uncommitted. No watched flag, save migration or local persistence was added.
+
+## Git publication — 2026-10-31
+
+The user authorized committing and pushing the current accumulated changes:
+Silent Freight, Through the Breach, PostgreSQL-only persistence, website runtime
+credentials/API wiring, tests, tools and documentation. The pre-publication fetch
+confirmed main and origin/main match; diff hygiene passes. This is a Git/docs-only
+task; the existing 151 Godot, 47 NUnit and 104 container Django passing results
+remain applicable. Check MEMORY.MD for the verified publication result.
+
+Publication is blocked by Windows write permissions on .git/objects. Staging
+failed before any commit/push; access controls were left unchanged. Restore
+Git write access before retrying. All implementation files remain local.
+
+Publication retry: Git write access is now available; staging succeeded without
+changing access controls. The user renewed authorization to commit and push
+the reviewed accumulated changes. Final remote verification is recorded in MEMORY.MD.

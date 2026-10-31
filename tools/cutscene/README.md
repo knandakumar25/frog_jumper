@@ -5,8 +5,9 @@
 `CodeLevel` snapshots score, peak combo and operative at extraction and calls
 `CampaignProgress.CompleteMission` once. It freezes all mission descendants except
 the scorecard, then adds the Always-processing `TokyoRemembers` CanvasLayer. The
-level stays loaded; Continue prepares mission 2, Replay reloads mission 1. Missions
-2–4 retain their previous completion flow. No persistent watched flag is stored.
+level stays loaded; Continue prepares mission 2, Replay reloads mission 1. Level 2
+uses the separate Through the Breach aftermath described below; missions 3–4
+retain their previous completion flow. No persistent watched flag is stored.
 The scorecard's original three-argument `ShowScorecard` binding is retained for
 GDScript callers; `ShowMissionScorecard` adds the explicit next-mission target.
 
@@ -133,3 +134,113 @@ Continue/Level Select/saved-session/direct launches, constant position/health/sc
 through full playback and natural handoff. Additional synthetic Space review verified
 Jump released and mission music resumed. Existing addon/database diagnostics remain;
 physical controller/touch hardware, speaker listening and exports were not tested.
+
+## Level 2 aftermath: Through the Breach
+
+`assets/cutscenes/wildfire_aftermath/cues.json` is the exact eight-line English
+production script with speaker/voice IDs and windows 0–8, 8–17, 17–26, 26–34,
+34–43, 43–54, 54–64, 64–72 seconds. 72–75 is the unvoiced Level 3 title.
+ElevenLabs MCP generated each cue with `eleven_multilingual_v2`, stability .55,
+speed 1.05. Cache each response as `.validation/breach/speech/cue-N.json` and
+its MP3 in that directory. Packaging never invokes a paid API. It fits complete
+cues with atempo (no cutting), normalizes to -18 LUFS/-2 dB true peak and emits
+actual decoded cue ends in `dialogue_timing.json`. The recovered manifest cue
+needs only approximately 1.033x fitting; all other cues remain at original speed.
+
+Reproduce from the project root, leaving the normal services running:
+
+```powershell
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_breach.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_breach.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_breach.py
+python tools/cutscene/review_breach.py
+```
+
+Provenance: original project planar Blender geometry, using the existing character
+library and checkpoint/city layers; no external stock art. Navy/cyan infrastructure,
+amber embers, red/gold Kaito, hydro Oceanus and violet Titan. `manifest.json` records
+3072×1536 atlas dimensions (512 cells), row/column order and shared resources.
+The new scenery is transparent 1920×1080. Atmosphere uses seeded synthesized
+wind, debris, radio textures and measured footsteps; no sampled third-party audio.
+The runtime stage animates camera, parallax, smoke, water dissipation, walking,
+child reunion and manifest routing from one seekable clock.
+
+QA artifacts belong under `.validation/breach/`. Full physical controller/touch
+and speaker listening remain separate from synthetic input/audio-file checks.
+
+Final verification (2026-10-31): background import exit 0 and all nine new import
+files present; C# build 0 errors (154 existing warnings on recompilation, final
+incremental build 0 warnings). `run_tests.ps1` passes NUnit 47/47 and GdUnit4
+142/142 with zero failures/errors/orphans (`report_361`). Host Django is skipped
+because its venv is absent; explicit container Django passes 104/104. Docker
+asset/audio validation and Python compilation pass. Both tracks are 75 seconds;
+all eight complete cues fit their windows and decoded peaks remain below clipping.
+
+Godot AI MCP captured and visually reviewed all nine shots at 1920×1080,
+1920×1200 and 2560×1080. Uninterrupted 75-second playback kept player position,
+health and score fixed; maximum sampled audio/visual clock separation was under
+30 ms. Natural results, Continue to Level 3 with three earned operatives, Replay
+with Level 2 arrival, Level Select and Main Menu all pass. Runtime review logs
+contain no errors or warnings. Level 1 regression passes in the Godot suite.
+Evidence: `.validation/breach/`, including 27 captures and aspect contact sheets.
+
+Existing import diagnostics remain separate: asset-placer TLS failures, editor
+shutdown settings/resource/ObjectDB/PagedAllocator messages, and optional
+`gdunit4.api` warning. No physical controller/touch hardware, speaker-listening
+review or export was performed. Review game stopped; the user's editor remains
+on Level 1, all four services running. Changes are local/uncommitted; unrelated
+PostgreSQL/website work is preserved.
+
+## Silent Freight (Level 3 arrival)
+
+The sequence runs after Level 2 results Continue has loaded Level 3, and on all
+other fresh Level 3 launches. Its nine shots span 0–9–18–27–36–45–55–64–72–75s.
+The final three seconds hold the mission title without speech.
+
+Reproduce the original transparent 1920×1080 depot, rail underpass, cargo and
+walkway layers and 1536×1536 missing-pose atlas (512 cells):
+
+```powershell
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_neon_rust.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_neon_rust.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_neon_rust.py
+python tools/cutscene/review_neon_rust.py
+```
+
+Packaging reads eight cached ElevenLabs responses and MP3 files from
+`.validation/neon-rust/speech/`; it never calls the paid API. Generate cues from
+`assets/cutscenes/neon_rust_intro/cues.json` using the recorded voice IDs and
+`eleven_multilingual_v2`, stability .65, similarity .75, style .15, speed 1.
+Retain each MCP response as cue-1.json through cue-8.json. Normalization fits
+complete words within each window; dialogue and seeded industrial atmosphere
+are separate 75-second Ogg tracks. The cast remains Daniel/AXIOM-7, Adam/Kaito,
+Sarah/Oceanus and George/Titan. `manifest.json`, `localization.json` and
+`dialogue_timing.json` record provenance, speaker-labelled English fallbacks
+and measured cue bounds. Existing project city and six-column operative walks
+are reused. No third-party stock imagery or sampled audio is added.
+
+Review uses Godot AI MCP, requires the correct project and a stopped game,
+launches a separate Level 3 process without autosaving, and captures nine shots
+at 16:9, 16:10 and ultrawide under `.validation/neon-rust/review/`.
+
+The review also tests Continue, Level Select and Replay. Saved-session loading
+uses a newly created owned PostgreSQL campaign at Level 3, then deletes that
+one test save and verifies it is gone; existing campaigns are never selected.
+Contact sheets use Docker FFmpeg with no Pillow dependency on the host.
+
+Final verification (2026-10-31): background Godot import exited 0 and all eleven
+PNG/Ogg import files exist. C# build has zero errors (154 pre-existing addon
+warnings). Final run_tests.ps1 passes NUnit 47/47 and Godot 151/151, zero
+failures/errors/orphans (report_363). The host wrapper skips Django because
+backend/.venv is absent; the explicit container suite passes 104/104. Docker
+raster/audio QA and Python compilation pass: 1920×1080 transparent scenery,
+512-cell atlas bounds, eight complete nonoverlapping cues, two exact 75-second
+tracks and decoded peaks below clipping. Diff hygiene passes.
+
+Existing import diagnostics: asset-placer TLS failures and editor shutdown
+EditorSettings/ObjectDB/resource/PagedAllocator messages; runtime review logs
+are clean. No physical controller/touch hardware, speaker-listening review or
+export was performed. Evidence: .validation/neon-rust/ (including 27 captures
+and three contact sheets). All four normal Docker services remain running.
+User's editor remains on Level 1; review game stopped; changes are local and
+uncommitted. No watched flag, save migration or local persistence was added.

@@ -232,10 +232,38 @@ func test_complete_objective_chain_survives_recovery_at_every_milestone() -> voi
 	await _fall_and_recover(mission)
 	assert_int(mission.get("CivilianGroupsEvacuated")).is_equal(3)
 	assert_bool(mission.get("ExtractionReady")).is_true()
+	var manager := mission.get_node("GameManager")
+	manager.set("Points", 150)
+	player.emit_signal("ComboChanged", 4)
 	player.position = Vector2(35100, 554)
 	mission.call("_PhysicsProcess", 0.01)
 	mission.call("_PhysicsProcess", 0.01)
 	assert_bool(mission.get("MissionComplete")).is_true()
+	await get_tree().process_frame
+	var overlay := mission.get_node("WildfireAftermath")
+	overlay.set_process(false)
+	assert_int(mission.find_children("WildfireAftermath", "", false, false).size()).is_equal(1)
+	assert_bool(player.can_process()).is_false()
+	assert_bool(mission.get_node("CanvasLayer/PauseMenu").can_process()).is_false()
+	assert_bool(mission.get_node("MissionHUD").visible).is_false()
+	assert_bool(mission.get_node("AudioStreamPlayer").playing).is_false()
+	var frozen: Vector2 = player.position
+	var health: float = player.get("CurrentHealth")
+	for _frame in range(5):
+		await get_tree().physics_frame
+	assert_vector(player.position).is_equal(frozen)
+	assert_float(player.get("CurrentHealth")).is_equal(health)
+	# External mutations cannot rewrite the immutable extraction snapshot.
+	manager.set("Points", 999)
+	player.emit_signal("ComboChanged", 20)
+	overlay.call("Finish")
+	overlay.call("Finish")
+	await get_tree().process_frame
+	var card := mission.get_node("CyberVictoryScorecard")
+	assert_bool(card.get_node("RootPanel").visible).is_true()
+	assert_str(card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text).contains("150 PTS")
+	assert_str(card.get_node("RootPanel/MainVBox/StatsGrid/ComboLabel").text).contains("4x STRIKE")
+	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_true()
 	mission.free()
 
 

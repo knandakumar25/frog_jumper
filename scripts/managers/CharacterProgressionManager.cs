@@ -9,7 +9,7 @@ using System.Text.Json;
 /// - Hero Sparks currency and level-up progress meters
 /// - Skill Points and 3 unique hero-specific Augmentation Tracks (Tiers 0 to 5)
 /// - Real-time stat multipliers applied to gameplay and showcased in UI
-/// - Persistent JSON storage at user://operative_progression.json
+/// - Persistent progression stored exclusively in PostgreSQL JSONB
 /// </summary>
 public partial class CharacterProgressionManager : Node
 {
@@ -17,8 +17,10 @@ public partial class CharacterProgressionManager : Node
 
 	public const int MaxLevel = 10;
 	public const int MaxUpgradeRank = 5;
-	private const string SaveFilePath = "user://operative_progression.json";
+	private const string StorageKey = "operative_progression";
+	private bool _storageLoaded;
 
+	/// <summary>Describes an operative augmentation and its per-rank bonuses.</summary>
 	public class UpgradeTrackDef
 	{
 		public string Name { get; set; } = "";
@@ -29,6 +31,7 @@ public partial class CharacterProgressionManager : Node
 		public string StatLabel { get; set; } = "DMG";
 	}
 
+	/// <summary>Serializable level, currency, and upgrade ranks for one operative.</summary>
 	public class HeroProgressionData
 	{
 		public int Level { get; set; } = 1;
@@ -37,6 +40,7 @@ public partial class CharacterProgressionManager : Node
 		public int[] UpgradeRanks { get; set; } = new int[3]; // Ranks 0..5 for 3 tracks
 	}
 
+	/// <summary>Database document containing the shared bank and operative progression.</summary>
 	public class SaveDataModel
 	{
 		public int GlobalSparksBank { get; set; } = 250; // Starter reserve
@@ -379,6 +383,7 @@ public partial class CharacterProgressionManager : Node
 		}
 	};
 
+	/// <summary>Registers the singleton and restores progression from PostgreSQL.</summary>
 	public override void _Ready()
 	{
 		if (Instance != null && Instance != this)
@@ -563,54 +568,30 @@ public partial class CharacterProgressionManager : Node
 		return (healthPct, speedPct, dmgPct, Math.Min(0.50f, cdrPct));
 	}
 
-	/// <summary>
-	/// Saves progression data to user://operative_progression.json.
-	/// </summary>
+	/// <summary>Commits progression only after a successful database load, preventing outage defaults from overwriting saves.</summary>
 	public void SaveProgression()
 	{
-		try
-		{
-			string json = JsonSerializer.Serialize(_data, new JsonSerializerOptions { WriteIndented = true });
-			using var file = FileAccess.Open(SaveFilePath, FileAccess.ModeFlags.Write);
-			if (file != null)
-			{
-				file.StoreString(json);
-			}
-		}
-		catch (Exception ex)
-		{
-			GD.PrintErr($"CharacterProgressionManager: Failed to save progression: {ex.Message}");
-		}
+		// Standalone test nodes model runtime state without creating persistent player data.
+		if (!IsInsideTree() || !_storageLoaded) return;
+		try { PostgresStorage.Write(StorageKey, JsonSerializer.Serialize(_data)); }
+		catch (Exception ex) { GD.PrintErr($"Progression was not saved to PostgreSQL ({ex.GetType().Name})."); }
 	}
 
-	/// <summary>
-	/// Loads progression data from user://operative_progression.json.
-	/// </summary>
+	/// <summary>Loads PostgreSQL progression; an unavailable database leaves saving disabled until a successful reload.</summary>
 	public void LoadProgression()
 	{
+		if (!IsInsideTree()) return;
 		try
 		{
-			if (FileAccess.FileExists(SaveFilePath))
-			{
-				using var file = FileAccess.Open(SaveFilePath, FileAccess.ModeFlags.Read);
-				if (file != null)
-				{
-					string json = file.GetAsText();
-					var loaded = JsonSerializer.Deserialize<SaveDataModel>(json);
-					if (loaded != null)
-					{
-						_data = loaded;
-						return;
-					}
-				}
-			}
+			string? json = PostgresStorage.Read(StorageKey);
+			_data = json == null ? new SaveDataModel() : JsonSerializer.Deserialize<SaveDataModel>(json)
+				?? throw new InvalidOperationException("Invalid progression document.");
+			_storageLoaded = true;
 		}
 		catch (Exception ex)
 		{
-			GD.PrintErr($"CharacterProgressionManager: Failed to load progression: {ex.Message}");
+			_storageLoaded = false;
+			GD.PrintErr($"Progression could not be loaded from PostgreSQL ({ex.GetType().Name}).");
 		}
-
-		// Initialize default data if not found or corrupted
-		_data = new SaveDataModel();
 	}
 }

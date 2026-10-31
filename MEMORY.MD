@@ -1,6 +1,6 @@
 # Axiom Force — Project Memory
 
-Last reviewed: 2026-10-30. This file preserves durable decisions and useful
+Last reviewed: 2026-10-31. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
@@ -51,6 +51,34 @@ this summary does not replace them. Verify live environment state before acting.
 - Document modified code in its source. Update root README and HANDOFF whenever
   project files change. Code/assets require the prescribed background import
   and final test suites; documentation-only changes do not.
+
+## Storage policy — 2026-10-31
+
+- User requested PostgreSQL-only application persistence, Microsoft's official
+  Playwright Docker image, and normal server startup.
+- Removed local save/settings/progression/token files and portal localStorage.
+  PostgreSQL JSONB stores settings/progression; campaigns stay in PostgreSQL.
+  Django tests no longer use SQLite.
+- Tokens stay in memory; restart/reload requires sign-in. Portal locale is in
+  the URL. Clerk identity/cookies remain upstream; tooling caches/assets/logs,
+  Docker volumes and Ollama models are outside application-save storage.
+- Existing local saves remain untouched and ignored, with no automatic migration.
+  Game state retains the existing shared development database scope.
+- Added opt-in Playwright v1.64.1-noble and matching npm runner. The four normal
+  services remain always-on; browser verification is one-shot.
+- Status rechecked 2026-10-31: docker ps confirms website (5173), backend
+  (8000), PostgreSQL (5432, healthy), and Ollama (11434, healthy) running.
+  Playwright has exited after its successful test; no persistent Playwright
+  server is configured. Read-only status task; no services changed or tests rerun.
+- Final verification: C# build zero errors (154 existing warnings); background
+  import exit 0 with existing addon TLS/editor shutdown diagnostics. NUnit 47/47,
+  GdUnit4 135/135 with zero errors/failures/orphans (report_357), container Django
+  104/104 on PostgreSQL, and Microsoft-image Chromium smoke passed. Host test
+  wrapper skips absent backend venv; container execution covers Django.
+- Website, direct/proxied countries API and Ollama tags returned HTTP 200.
+  Four normal containers remain running; PostgreSQL/Ollama healthy. No commit,
+  push or export. Clerk replacement was asked as a scope clarification and has
+  not been authorized separately. This policy supersedes older fallback checks.
 
 ## Deployment cinematic
 
@@ -178,9 +206,17 @@ this summary does not replace them. Verify live environment state before acting.
 ## Project server shutdown — 2026-10-30
 
 - User requested shutdown. Resumed manually paused Docker Desktop, then ran docker compose stop successfully for website, backend, db, and ollama. Verified all four services exited; containers and persistent data retained. No code/assets changed; imports and tests were not required. This memory update remains local and uncommitted.
+- Latest shutdown, after Level 2 publication (`9f1700e`): user again requested
+  stopping the servers. All four were running; `docker compose stop` succeeded,
+  and `docker compose ps -a` confirmed backend, db, website and ollama exited.
+  Containers/data retained. No code/assets changed or tests/imports required;
+  this shutdown record is local and uncommitted.
 
 ## Evacuation Under Siege gameplay — 2026-10-30
 
+- 2026-10-31 recall: the user's last gameplay request was to start Level 2
+  gameplay. The subsequent PostgreSQL/Playwright/startup request took priority;
+  this recall task made no game edits and required no imports or tests.
 - Implemented six-sector Level 2 route, three local invulnerable rescues, 20 finite
   mixed encounters, parryable burst gunners, safe locked-target shelling, defended
   spires and relay/core battery. Permanent rescue fire safety is separate from
@@ -217,3 +253,118 @@ this summary does not replace them. Verify live environment state before acting.
 - Publication succeeded: gameplay commit `b60d34c` (47 files) was pushed normally
   to `origin/main`; remote branch SHA and local tracking state were verified equal.
   This follow-up publication record is included in a documentation-only commit.
+
+## Through the Breach — 2026-10-31
+
+- Status clarification: Level 2 results and Continue to Level 3 are implemented.
+  Through the Breach precedes those results and teases Level 3. At that earlier
+  investigation no Level 3 arrival existed; Silent Freight below now supplies it.
+  The original AXIOM-7 gameplay dialogue resumes after arrival. That earlier
+  read-only investigation did not rerun tests.
+
+- Resumed after user requested Docker restoration first. Existing implementation,
+  nine-shot visual review, report_361 and final test/playback evidence were present
+  and reviewed; no reimplementation was needed. Corrected stale tooling transition
+  documentation. This resume changes Markdown only; no import/test rerun required.
+  Docker restoration completed after pulling missing images/building the app.
+  All four services are running; PostgreSQL/Ollama healthy. Website, direct and
+  proxied countries API, and Ollama tags returned HTTP 200. No staging/commit/push.
+
+- Added Level 2 extraction → 75-second live WildfireAftermath → captured results →
+  Level 3. Retains Level 2 for Replay/arrival; freezes mission/pause/HUD/audio and
+  guards progression/completion. No watched flag, persistence or schema changes.
+- Original Docker/Blender reunion/terminal scenery and 18-cell pose atlas; eight
+  ElevenLabs multilingual-v2 cues: Daniel/AXIOM-7, Adam/Kaito, Sarah/Oceanus,
+  George/Titan. Docker Python/FFmpeg packages two 75-second unclipped tracks.
+- Missing speech preserves timed subtitles; missing essential art opens results.
+  Skip supports keyboard/controller/pointer/touch, clears mapped action state and
+  defers results beyond input dispatch. Teardown restores actual cursor/prompt state.
+- Existing PostgreSQL/website changes preserved; four services remain running.
+  Prompt tests supply a canvas omitted by headless Global and compare the cursor
+  state actually supported by headless DisplayServer. Verification is recorded below.
+
+Final verification (2026-10-31): background import exit 0 and all nine new import
+files present; C# build 0 errors (154 existing warnings on recompilation, final
+incremental build 0 warnings). `run_tests.ps1` passes NUnit 47/47 and GdUnit4
+142/142 with zero failures/errors/orphans (`report_361`). Host Django is skipped
+because its venv is absent; explicit container Django passes 104/104. Docker
+asset/audio validation and Python compilation pass. Both tracks are 75 seconds;
+all eight complete cues fit their windows and decoded peaks remain below clipping.
+
+Godot AI MCP captured and visually reviewed all nine shots at 1920×1080,
+1920×1200 and 2560×1080. Uninterrupted 75-second playback kept player position,
+health and score fixed; maximum sampled audio/visual clock separation was under
+30 ms. Natural results, Continue to Level 3 with three earned operatives, Replay
+with Level 2 arrival, Level Select and Main Menu all pass. Runtime review logs
+contain no errors or warnings. Level 1 regression passes in the Godot suite.
+Evidence: `.validation/breach/`, including 27 captures and aspect contact sheets.
+
+Existing import diagnostics remain separate: asset-placer TLS failures, editor
+shutdown settings/resource/ObjectDB/PagedAllocator messages, and optional
+`gdunit4.api` warning. No physical controller/touch hardware, speaker-listening
+review or export was performed. Review game stopped; the user's editor remains
+on Level 1, all four services running. Changes are local/uncommitted; unrelated
+PostgreSQL/website work is preserved.
+
+## Silent Freight — 2026-10-31
+
+- Implemented requested 75-second live Level 3 arrival, every fresh launch,
+  no watched flag/migration. Existing scrapyard obstacles and Aura/Mirage
+  recruitment remain unchanged; only Shogun/Oceanus/Titan appear.
+- Reused aftermath input lifecycle; shared arrival helper preserves Level 2
+  entry and captures/restores the complete mission once, including overlay removal.
+- Docker preflight: all four project services running. C# implementation builds
+  with zero errors (existing addon warnings). Final suites: NUnit 47/47,
+  Godot 151/151 with zero failures/errors/orphans; container Django 104/104.
+- Preserve all pre-existing uncommitted PostgreSQL/website/aftermath work and
+  user's open Level 1 editor; changes remain local and uncommitted.
+
+Silent Freight runtime review: Godot AI MCP captured all nine shots at
+1920×1080, 1920×1200 and 2560×1080; all three contact sheets were inspected.
+Uninterrupted playback kept the entire mission frozen, including player
+(200,554), health, score, fragments and relay state. Maximum sampled speech/visual
+clock separation was 32 ms. Natural handoff restored HUD, processing and music
+with Jump released. Actual Continue, Level Select, saved-session loading and
+Replay reached Level 3 with its arrival active. The save-load test used a new
+owned PostgreSQL session and verified deletion afterwards; existing saves were
+untouched. Runtime review contains no warnings/errors. Editor remains Level 1,
+game stopped. Final verification follows.
+
+Final verification (2026-10-31): background Godot import exited 0 and all eleven
+PNG/Ogg import files exist. C# build has zero errors (154 pre-existing addon
+warnings). Final run_tests.ps1 passes NUnit 47/47 and Godot 151/151, zero
+failures/errors/orphans (report_363). The host wrapper skips Django because
+backend/.venv is absent; the explicit container suite passes 104/104. Docker
+raster/audio QA and Python compilation pass: 1920×1080 transparent scenery,
+512-cell atlas bounds, eight complete nonoverlapping cues, two exact 75-second
+tracks and decoded peaks below clipping. Diff hygiene passes.
+
+Existing import diagnostics: asset-placer TLS failures and editor shutdown
+EditorSettings/ObjectDB/resource/PagedAllocator messages; runtime review logs
+are clean. No physical controller/touch hardware, speaker-listening review or
+export was performed. Evidence: .validation/neon-rust/ (including 27 captures
+and three contact sheets). All four normal Docker services remain running.
+User's editor remains on Level 1; review game stopped; changes are local and
+uncommitted. No watched flag, save migration or local persistence was added.
+
+## Current changes Git publication — 2026-10-31
+
+- User explicitly requested pushing the current changes, authorizing the necessary
+  commit and push. Scope includes Silent Freight, Through the Breach, existing
+  PostgreSQL-only persistence/website changes, tests, production tools and docs.
+- Reviewed tracked/untracked inventory, import metadata and diff hygiene; fetched
+  origin and confirmed main equals origin/main before publication. Exclude ignored
+  local configuration, generated validation evidence, caches and credentials.
+- This Git/documentation-only task changes no code/assets. Prior verified build,
+  NUnit 47/47, Godot 151/151 (zero failures/errors/orphans) and container Django
+  104/104 remain applicable; no Docker preflight/import/test rerun is required.
+  Publication blocked: git add --all failed writing a new object beneath
+  .git/objects/39 (Windows Permission denied). No files were staged, no commit
+  was created and no push occurred. Read-only ACL inspection found explicit
+  deny entries on .git and its descendants. Access rules were not modified;
+  Git write access must be restored before retrying publication.
+
+- Retry authorized by the user: Git write access is now available and staging
+  all reviewed current changes succeeded. Fetched origin and checked the staged
+  diff before committing. No access-control changes were made by this agent.
+  This retry changes documentation only; prior test/build results still apply.

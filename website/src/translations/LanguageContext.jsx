@@ -116,12 +116,10 @@ function detectBrowserDefault() {
   return CODE_TO_LANGUAGE_ID[primary] || 'english';
 }
 
+/** Keeps locale in the current route and runtime state, with no browser persistence. */
 export function LanguageProvider({ children }) {
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    const stored = localStorage.getItem('selectedLanguage');
-    if (stored && (LANGUAGE_ID_TO_CODE[stored] || CODE_TO_LANGUAGE_ID[stored])) {
-      return CODE_TO_LANGUAGE_ID[stored] || stored;
-    }
+    // The locale is carried by the URL; no browser preference file is consulted.
     return detectBrowserDefault();
   });
 
@@ -139,15 +137,10 @@ export function LanguageProvider({ children }) {
         if (match.langId !== selectedLanguage) {
           setSelectedLanguage(match.langId);
         }
-        localStorage.setItem('selectedLanguage', match.langId);
+
       }
     }
   }, [location.pathname, selectedLanguage]);
-
-  // Persist language to localStorage
-  useEffect(() => {
-    localStorage.setItem('selectedLanguage', selectedLanguage);
-  }, [selectedLanguage]);
 
   // Update i18n, RTL direction, and HTML title dynamically
   useEffect(() => {
@@ -169,7 +162,7 @@ export function LanguageProvider({ children }) {
   // Direct 1-click language switcher (Fortnite-style)
   const chooseLanguage = (langId) => {
     const actualLangId = CODE_TO_LANGUAGE_ID[langId] || langId;
-    localStorage.setItem('selectedLanguage', actualLangId);
+
     setSelectedLanguage(actualLangId);
     setIsModalOpen(false);
 

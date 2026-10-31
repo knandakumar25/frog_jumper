@@ -1,0 +1,33 @@
+{
+  "generator": "Docker Blender; original project planar emission geometry",
+  "scenery": [
+    1920,
+    1080
+  ],
+  "atlas": [
+    1536,
+    1536
+  ],
+  "cell": [
+    512,
+    512
+  ],
+  "rows": [
+    "Kaito",
+    "Oceanus",
+    "Titan"
+  ],
+  "columns": [
+    "concealed/runoff",
+    "brace",
+    "inspect"
+  ],
+  "reused": [
+    "deployment/live/city_base.png",
+    "wildfire_aftermath/poses.png"
+  ],
+  "palette": "navy steel, cold cyan surveillance, amber cargo; established red/gold, hydro and violet operatives",
+  "sources": "tools/cutscene/render_neon_rust.py; render_wildfire.character_library; no external stock art",
+  "audio": "Eight requested ElevenLabs multilingual-v2 cues in cues.json; original seeded industrial synthesis",
+  "persistence": "None; play on every fresh mission 3 launch, never checkpoint recovery"
+}

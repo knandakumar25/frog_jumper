@@ -1,0 +1,14 @@
+{
+  "SILENT_FREIGHT_CUE_1": "AXIOM-7: Regional transit depot. The checkpoint manifest matches these shipments. Every outgoing convoy feeds the occupation.",
+  "SILENT_FREIGHT_CUE_2": "KAITO: We followed their supply line. Now we find where it thinks for them.",
+  "SILENT_FREIGHT_CUE_3": "OCEANUS: Their lights reach every doorway. Stay beneath the rail deck. I’ll keep the runoff from giving us away.",
+  "SILENT_FREIGHT_CUE_4": "TITAN: Steel remembers every footstep. Keep close. I’ll take the weight where the old supports are failing.",
+  "SILENT_FREIGHT_CUE_5": "AXIOM-7: The communication tower assigns patrol routes across this district. Reach its relay and sever the network.",
+  "SILENT_FREIGHT_CUE_6": "OCEANUS: Those crates carry the same markings as the siege battery. This is how they keep every checkpoint supplied.",
+  "SILENT_FREIGHT_CUE_7": "TITAN: We break the road they built for their machines. The people down there get a way through.",
+  "SILENT_FREIGHT_CUE_8": "KAITO: One tower. One blind spot. Get me to the relay. We move together.",
+  "SILENT_FREIGHT_CUE_9": "",
+  "SILENT_FREIGHT_SKIP": "SKIP // ESC / START",
+  "SILENT_FREIGHT_TITLE": "LEVEL 3: NEON RUST AND DATA DUST",
+  "SILENT_FREIGHT_INSERTION": "SCRAPYARD // INSERTION"
+}

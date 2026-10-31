@@ -60,6 +60,9 @@ services:
       # answers to `db`.
       DB_HOST: db
       DB_PORT: "5432"
+      DB_NAME: ${POSTGRES_DB:-accounts_db}
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       PYTHONUNBUFFERED: "1"
     ports:
       - "8000:8000"
@@ -80,12 +83,27 @@ services:
     build:
       context: ./website
       args:
-        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000/api}
+        VITE_API_URL: /api
     ports:
       - "5173:80"
     depends_on:
       - backend
     restart: unless-stopped
+
+  # Microsoft’s browser image is a one-shot verification tool, separate from the server.
+  # Run with: docker compose run --rm playwright
+  playwright:
+    profiles: ["test"]
+    build:
+      context: ./tools/playwright
+    init: true
+    ipc: host
+    environment:
+      BASE_URL: http://website
+      API_URL: http://backend:8000/api
+    depends_on:
+      - website
+    restart: "no"
 
   # Local LLM runtime. Part of the always-on group (NOT the export profile),
   # so `docker compose up` starts it alongside the database, API and portal.

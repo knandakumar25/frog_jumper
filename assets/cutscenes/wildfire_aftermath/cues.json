@@ -1,0 +1,66 @@
+[
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 0,
+    "end": 8,
+    "text": "Battery silent. All three shelter groups are clear. The evacuation corridor is secure."
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "start": 8,
+    "end": 17,
+    "text": "They drew a line through these families. Look at them now. No scanners. No walls. Just each other."
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "start": 17,
+    "end": 26,
+    "text": "Easy, little ones. There’s room for everyone. Take your time. Nobody’s closing this road behind you."
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 26,
+    "end": 34,
+    "text": "We opened one checkpoint. How many more are still waiting for us?"
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "start": 34,
+    "end": 43,
+    "text": "Then we make this more than an escape. Keep the corridor open. Let them choose where they go."
+  },
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 43,
+    "end": 54,
+    "text": "Recovered shipment manifest decoded. The siege battery drew power through a regional transit depot. Its communication towers coordinate the patrol network."
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "start": 54,
+    "end": 64,
+    "text": "They used those rails to bring the cages here. Let’s make sure the next train carries something better."
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 64,
+    "end": 72,
+    "text": "Oceanus, Titan—you’re with me. We follow the rails. Then we take their eyes off this city."
+  }
+]

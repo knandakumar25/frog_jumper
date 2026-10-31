@@ -4,6 +4,42 @@ A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with
 
 ---
 
+## PostgreSQL-only persistence and browser checks
+
+If Docker has no existing project containers or cached images, restoring the
+stack with `docker compose up -d` also pulls images and builds the application
+services. Wait for completion and endpoint readiness; the Ollama image download
+can delay the first startup.
+
+Campaign saves, operative progression, display preferences, and keybindings persist
+only in PostgreSQL. There is no local JSON, ConfigFile, browser storage, or SQLite
+test fallback. New Game requires a successful database save. Start the stack with
+`docker compose up -d`; the game reads PostgreSQL credentials from environment
+(`PGHOST`, `PGPORT`, `PGDATABASE`, `PGUSER`, `PGPASSWORD`) or the development
+root `.env`. Compose shares the database's `POSTGRES_*` credentials with Django.
+Existing local saves are left untouched and are no longer loaded; they have not
+been migrated automatically. State remains scoped to this development database,
+as with the existing shared campaign table.
+
+Game and portal JWTs live only in memory; restarting the game or reloading the
+portal requires sign-in again. Portal language is carried in the URL. Upstream
+Clerk identity remains an external authentication dependency; its own session
+cookies are separate from application saves. Assets, build caches, logs, Docker
+volumes and Ollama models remain normal runtime/tooling files.
+
+The opt-in `playwright` Compose service uses Microsoft's official
+[`mcr.microsoft.com/playwright:v1.64.1-noble`](https://playwright.dev/docs/docker)
+with the matching npm runner. Run `docker compose build playwright`, then
+`docker compose run --rm playwright` for the portal/API smoke check with browser
+storage access disabled. It exits after testing and is not an always-on server.
+Django tests now use an isolated PostgreSQL test database:
+`docker compose exec -T backend python manage.py test accounts --noinput`.
+
+Verified 2026-10-31: 47 NUnit, 135 Godot (zero errors/failures/orphans),
+104 PostgreSQL-backed Django tests, and the container Chromium smoke check pass.
+The headless editor import exits successfully with existing addon TLS/shutdown
+diagnostics; the C# build has zero errors and existing project warnings.
+
 ## Story
 
 Earth has fallen under the tyrannical rule of an autonomous cybernetic syndicate. A clandestine strike team known as **Axiom Force** deploys into the neon-drenched sectors of the metropolis. Begin as Cyber Shogun, gain new operatives as the story unfolds, infiltrate deep behind enemy lines, neutralize syndicate drone armadas, and eliminate the frontline warmachine—**Vanguard-X**—to reclaim humanity's future.
@@ -107,7 +143,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 | **Core Architecture** | Component & Manager Pattern | `OperativeRegistry`, `SessionManager`, `UISoundManager`, `CyberCombatHud`. |
 | **Backend API** | Django 5.x / DRF | Python 3.14 REST API managing authentication and high scores. |
 | **Web Frontend** | React + Vite + Tailwind | Web dashboard and player hub. |
-| **Database** | PostgreSQL 18 | Persistent session and leaderboard storage with local JSON fallback. |
+| **Database** | PostgreSQL 18 | Sole persistent application store; no local save fallback. |
 
 ---
 
@@ -313,3 +349,45 @@ ratios; narration-driven natural completion and Escape/Start/pointer/touch skipp
 reach the briefing. GdUnit4 109/109 (zero errors/failures/orphans), NUnit 34/34 and
 container Django 104/104 pass. Existing project-wide import/reference diagnostics
 and hardware-testing limits are recorded in `HANDOFF.md`.
+
+## Through the Breach — Level 2 extraction
+
+Successful extraction plays a 75-second live evacuation aftermath before Level 2
+results. Continue enters Level 3; Replay restarts Level 2 with its arrival cinematic.
+Escape, Space, Enter, controller Start/A, or the pointer/touch Skip button skip to
+results. Missing voices retain timed subtitles; missing essential art safely opens
+results. No watched flag or local save is added.
+
+Production and review commands are in `tools/cutscene/README.md`. The eight new
+English cues use Daniel (AXIOM-7), Adam (Kaito), Sarah (Oceanus), George (Titan),
+and original Docker/Blender artwork plus synthesized ambience.
+
+Verified on 2026-10-31: build/import, NUnit 47/47, Godot 142/142 (zero
+failures/errors/orphans), container Django 104/104, 27 shot/aspect captures,
+full playback and result navigation. Existing editor-import addon diagnostics
+remain documented in HANDOFF; hardware input and speaker listening are untested.
+
+## Silent Freight — Level 3 arrival
+
+Level 2 results → Continue loads Level 3 into a 75-second skippable live 2D
+arrival. Shogun, Oceanus and Titan follow freight beneath depot surveillance.
+Every fresh launch (including mission selection, session loading and Replay)
+plays it; checkpoint recovery does not. Escape/Space/Enter, controller Start/A
+and the pointer/touch Skip button resume at the existing scrapyard spawn.
+Gameplay, HUD and music resume from a complete captured state; the opening
+mission briefing receives its full display window. Missing speech keeps timed
+subtitles; missing essential art starts gameplay safely. Aura Phoenicia and
+Mirage Blade still join at their existing mission beats. No viewing flag or
+persistence migration is introduced. See `tools/cutscene/README.md` for production.
+
+Verified through all fresh-entry routes with Godot AI MCP, including natural
+playback and three aspect ratios. Automated suites pass: 151 Godot, 47 NUnit
+and 104 container Django tests. Physical controller/touch hardware and
+speaker-listening review remain separate from synthetic input and audio QA.
+
+The Level 2 aftermath and Level 3 arrival share the campaign's existing results
+and roster flow. Their asset manifests and reproduction tools are versioned
+with the PostgreSQL-only storage and browser verification tooling described above.
+
+Git-only publication does not require another import or test run when project
+code and assets remain unchanged; retain the verification results above.

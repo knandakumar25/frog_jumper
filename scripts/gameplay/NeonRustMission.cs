@@ -125,7 +125,7 @@ public partial class NeonRustMission : CodeLevel
         for (int i = 0; i < positions.Length; i++) AddSentry($"DepotSentry{i + 1:00}", positions[i], 75f);
     }
 
-    /// <summary>Adds the Phoenicia and Mirage Blade recruit beats.</summary>
+    /// <summary>Adds the existing recruit beats, then starts the arrival after every mission system exists.</summary>
     protected override void OnLevelReady()
     {
         Actors.AddChild(new RecruitBeat
@@ -146,6 +146,7 @@ public partial class NeonRustMission : CodeLevel
                 "AXIOM-7: Mirage Blade has joined. His Phase Blink slips through laser fields that would kill anyone else."
             }
         });
+        BeginArrivalPresentation(new NeonRustIntro { Name = "NeonRustIntro", Layer = 40 });
     }
 
     /// <summary>Marks the comm grid as blacked out.</summary>

@@ -30,11 +30,6 @@ public partial class AuthManager : Node
 	/// </summary>
 	private const string API_BASE_URL = "http://localhost:8000/api";
 
-	/// <summary>
-	/// Local path where authentication tokens are stored between sessions.
-	/// Unity Migration: Use Application.persistentDataPath or encrypted PlayerPrefs.
-	/// </summary>
-	private const string AUTH_CONFIG_PATH = "user://auth.cfg";
 
 	// ─── Session State ───────────────────────────────────────────────────────────
 	/// <summary>
@@ -68,33 +63,10 @@ public partial class AuthManager : Node
 	}
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────────
+	/// <summary>Starts signed out; bearer tokens exist only in this process and are never restored from disk.</summary>
 	public override void _Ready()
 	{
-		GD.Print("AuthManager: _ready() start");
 		Instance = this;
-		try
-		{
-			// Load tokens from local storage on startup.
-			LoadAuthData();
-			// Asynchronously refresh the user profile if a token exists.
-			_ = InitializeProfileAsync();
-			GD.Print("AuthManager: _ready() complete");
-		}
-		catch (System.Exception ex)
-		{
-			GD.PrintErr($"AuthManager: CRITICAL ERROR in _ready(): {ex.Message}\n{ex.StackTrace}");
-		}
-	}
-
-	/// <summary>
-	/// Fetches the user profile from the API if a valid AccessToken is present.
-	/// </summary>
-	private async Task InitializeProfileAsync()
-	{
-		if (!string.IsNullOrEmpty(AccessToken))
-		{
-			CurrentUser = await GetProfileAsync();
-		}
 	}
 
 	// ─── Authentication Methods ──────────────────────────────────────────────────
@@ -124,7 +96,6 @@ public partial class AuthManager : Node
 				var userJson = root.GetProperty("user").GetRawText();
 				CurrentUser = JsonSerializer.Deserialize<UserProfile>(userJson);
 
-				SaveAuthData();
 				return true;
 			}
 		}
@@ -200,7 +171,6 @@ public partial class AuthManager : Node
 						var userJson = root.GetProperty("user").GetRawText();
 						CurrentUser = JsonSerializer.Deserialize<UserProfile>(userJson);
 
-						SaveAuthData();
 						return true;
 					}
 				}
@@ -274,34 +244,10 @@ public partial class AuthManager : Node
 		AccessToken = null;
 		RefreshToken = null;
 		CurrentUser = null;
-		DeleteAuthData();
+		_httpClient.DefaultRequestHeaders.Authorization = null;
 	}
 
-	// ─── Local Persistence ─────────────────────────────────────────────────────
-	private void SaveAuthData()
-	{
-		// Godot ConfigFile is a simple key-value store.
-		// Unity Migration: Replace with PlayerPrefs or a JSON file.
-		var config = new ConfigFile();
-		config.SetValue("auth", "access_token", AccessToken);
-		config.SetValue("auth", "refresh_token", RefreshToken);
-		config.Save(AUTH_CONFIG_PATH);
-	}
 
-	private void LoadAuthData()
-	{
-		var config = new ConfigFile();
-		if (config.Load(AUTH_CONFIG_PATH) == Error.Ok)
-		{
-			AccessToken = config.GetValue("auth", "access_token", "").ToString();
-			RefreshToken = config.GetValue("auth", "refresh_token", "").ToString();
-		}
-	}
-
-	private void DeleteAuthData()
-	{
-		DirAccess.RemoveAbsolute(AUTH_CONFIG_PATH);
-	}
 }
 
 /// <summary>

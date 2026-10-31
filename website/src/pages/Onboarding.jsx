@@ -190,7 +190,7 @@ const Onboarding = () => {
       const { access, refresh, user: userData } = res.data;
       loginWithTokens(access, refresh, userData);
       // A full navigation is deliberate. AuthProvider's loadUser effect runs
-      // once on mount with [] deps, so writing to localStorage from here does
+      // once on mount with [] deps, so updating tokens without the auth context does
       // not update `user` -- a same-document navigate() would leave Account.jsx
       // seeing null and bouncing straight back to /login.
       window.location.assign(`/${currentLocale}`);

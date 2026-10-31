@@ -15,8 +15,8 @@ COPY . .
 
 # Vite inlines every VITE_* value into the bundle at build time, so the API
 # base URL has to be known here rather than at runtime.
-ARG VITE_API_URL=http://localhost:8000/api
-ENV VITE_API_URL=$VITE_API_URL
+ARG VITE_API_URL=/api
+ENV VITE_API_BASE_URL=$VITE_API_URL
 
 RUN npm run build
 

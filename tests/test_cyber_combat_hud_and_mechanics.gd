@@ -129,6 +129,8 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 			var encounter := level.get_node("Actors/Encounter_road-parry")
 			assert_int(encounter.get_child_count()).is_equal(0)
 			encounter.call("Activate")
+		if path == LEVEL3_PATH:
+			level.get_node("NeonRustIntro").call("Finish")
 		await get_tree().process_frame
 
 		# Verify CyberCombatHud exists

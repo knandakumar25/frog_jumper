@@ -1,0 +1,35 @@
+{
+  "generator": "Blender 4.3.2 / Docker Python; original project planar geometry",
+  "scenery": [
+    1920,
+    1080
+  ],
+  "atlas": [
+    3072,
+    1536
+  ],
+  "cell": [
+    512,
+    512
+  ],
+  "rows": [
+    "Kaito",
+    "Oceanus",
+    "Titan"
+  ],
+  "columns": [
+    "calm",
+    "gesture/support",
+    "walk0",
+    "walk2",
+    "walk4",
+    "walk6"
+  ],
+  "palette": "navy/cyan checkpoint; amber fire; red/gold Kaito; hydro Oceanus; violet Titan",
+  "reused": [
+    "wildfire/checkpoint_structure.png",
+    "wildfire/siege_structure.png",
+    "deployment/live/city_base.png"
+  ],
+  "voices": "ElevenLabs multilingual v2: Daniel AXIOM-7; Adam Kaito; Sarah Oceanus; George Titan"
+}

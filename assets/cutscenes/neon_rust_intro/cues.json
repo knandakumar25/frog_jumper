@@ -1,0 +1,74 @@
+[
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 0,
+    "end": 9,
+    "text": "Regional transit depot. The checkpoint manifest matches these shipments. Every outgoing convoy feeds the occupation.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 9,
+    "end": 18,
+    "text": "We followed their supply line. Now we find where it thinks for them.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "start": 18,
+    "end": 27,
+    "text": "Their lights reach every doorway. Stay beneath the rail deck. I’ll keep the runoff from giving us away.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "start": 27,
+    "end": 36,
+    "text": "Steel remembers every footstep. Keep close. I’ll take the weight where the old supports are failing.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 36,
+    "end": 45,
+    "text": "The communication tower assigns patrol routes across this district. Reach its relay and sever the network.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "start": 45,
+    "end": 55,
+    "text": "Those crates carry the same markings as the siege battery. This is how they keep every checkpoint supplied.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "start": 55,
+    "end": 64,
+    "text": "We break the road they built for their machines. The people down there get a way through.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 64,
+    "end": 72,
+    "text": "One tower. One blind spot. Get me to the relay. We move together.",
+    "model": "eleven_multilingual_v2"
+  }
+]
