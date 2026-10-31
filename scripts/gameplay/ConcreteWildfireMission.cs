@@ -5,8 +5,16 @@ using System.Collections.Generic;
 /// Mission 2: six linear sectors of finite combat, local rescues, biometric spires and a stationary siege battery.
 /// Instance progress survives checkpoint recovery; loading the scene resets it under the existing campaign save model.
 /// </summary>
-public partial class ConcreteWildfireMission : CodeLevel
+public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
 {
+    /// <inheritdoc/>
+    public CyberShogun CombatPlayer => Player;
+    /// <inheritdoc/>
+    public bool HasCombatEvent(string id) => Progress.Has(id);
+    /// <inheritdoc/>
+    public void CompleteCombatEvent(string id) => Progress.Complete(id);
+    /// <summary>Retains Level 2's original activation behavior and authored group sizes.</summary>
+    public bool CanActivateEncounter(int members) => true;
     /// <summary>Stable scene-local objective and reward ledger.</summary>
     public WildfireProgress Progress { get; } = new();
     /// <summary>Distinct spires destroyed, independent of repeated callbacks.</summary>

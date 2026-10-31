@@ -753,3 +753,61 @@ Git write access before retrying. All implementation files remain local.
 Publication retry: Git write access is now available; staging succeeded without
 changing access controls. The user renewed authorization to commit and push
 the reviewed accumulated changes. Final remote verification is recorded in MEMORY.MD.
+
+## Neon Rust gameplay expansion — 2026-10-31
+
+Eight sectors now span 48,000px with 30 finite encounter groups, three defended
+shipments, two uplinks, two couplers, two sequential reinforcements and guarded
+relay/extraction. NeonRustProgress uses exact IDs, idempotent rewards and explicit
+prerequisites. IFiniteCombatHost removes the encounter/gunner dependency on Level 2
+while preserving its authored activation, timings, artillery and rewards. Ability
+and recruit predicates default to the original behavior in other missions.
+
+Aura retains her original lines before sonic access. Mirage retains his lines
+after blackout; his lesson requires a real Phase Blink across the harmless beam.
+Seven safe stationary shrines retain objectives, recruitment, lessons and rewards.
+Recovery clears rounds, resets incomplete groups and restores exact actor modes.
+Level 3 freezes at direct results with Continue to 4, Replay, Level Select and Main
+Menu, without an ending film. Replay rebuilds the original roster and arrival.
+
+Collision blockout was traversed using Godot AI MCP before dressing. Required
+rises are 100px; escape drops 110px; optional archives reconnect locally. Docker/
+Blender rendered seven original 512px RGBA depot assets with explicit import scales
+and collision separation. Existing arrival, operative stats, audio and save schema
+remain. All four normal containers were running before edits. No Git publication.
+
+Initial build passed with 154 existing warnings. Ten focused Godot tests passed
+with zero errors/failures/orphans. MCP completed all sectors using real movement
+and abilities plus diagnostic kills, zero recoveries, about 145s simulation. This
+is not a normal combat pacing result: the 30–35 minute human first-run target
+remains UNVALIDATED. Final import, full suites and dressed captures follow below.
+The optional full-project reference checker found ten existing signal-path errors
+in unchanged Proton Scatter/main-menu scenes, plus 27 warnings; it is not a clean
+pass. See tools/gameplay/NEON_RUST.md for reproduction and remaining acceptance.
+
+Final verification (2026-10-31): background Godot refresh exited 0 and generated
+all seven texture sidecars; asset validation passed dimensions, alpha, margins
+and imports. Refresh logs retain TLS, EditorSettings and editor shutdown/resource
+diagnostics; the import log is not error-free. Incremental C# build: 0 errors,
+0 warnings (a full compile earlier reported 154 existing warnings). run_tests.ps1:
+NUnit 93/93 and Godot 161/161, zero errors/failures/orphans (report_367). The wrapper
+skipped Django because the host venv is absent; explicit container Django tests
+passed 104/104 after the final code/test edits.
+
+Godot AI MCP completed the dressed route with real movement/swaps/abilities and
+diagnostic kills, no recoveries, observed peak four simultaneous enemies. Per-sector
+movement/objective wall times were 18.859, 23.470, 18.882, 10.794, 19.431, 27.374,
+14.745, 17.778 seconds (151.333 total, arrival excluded). Combat is diagnostically
+resolved and unmeasured; these numbers do not validate human pacing. All 24 dressed
+sector/aspect captures exist. Replay restored Level 3 arrival/three operatives;
+Continue reached Level 4/five operatives; Level Select and Main Menu navigated
+correctly. Final game logs contained no warnings/errors. User editor remains
+stopped on level1.tscn. Four normal Docker services remain running. No staging,
+commit or push. Human first-run pacing, physical hardware and listening remain
+unvalidated; see tools/gameplay/NEON_RUST.md.
+
+Publication preparation (2026-10-31): user authorized shutting down servers and
+pushing the current Neon Rust implementation. All four normal Compose services
+are now stopped with exit 0; persisted volumes and containers remain. main matched
+origin/main after fetch. Existing verified implementation test results remain
+applicable; only documentation/Git operations occurred during this task.

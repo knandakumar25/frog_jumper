@@ -145,7 +145,7 @@ public abstract partial class CodeLevel : Node2D
         AddChild(combatHud);
 
         // The final mission of an act ends on the combat-grade scorecard instead of auto-advancing.
-        if (MissionNumber <= 2 || !LevelCatalog.HasNext(MissionNumber))
+        if (MissionNumber <= 3 || !LevelCatalog.HasNext(MissionNumber))
         {
             _scorecard = GD.Load<PackedScene>("res://scenes/ui/cyber_victory_scorecard.tscn").Instantiate<CyberVictoryScorecard>();
             _scorecard.Name = "CyberVictoryScorecard";
@@ -545,6 +545,15 @@ public abstract partial class CodeLevel : Node2D
         int peakCombo = _maxCombo;
         string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}".ToUpperInvariant();
         string? nextScene = CampaignProgress.CompleteMission(MissionNumber, finalScore);
+        if (MissionNumber == 3)
+        {
+            // Level 3 keeps its scene for Replay and presents results immediately, without an epilogue.
+            ProcessMode = ProcessModeEnum.Disabled;
+            foreach (Node child in GetChildren())
+                if (child != _scorecard) FreezeForEpilogue(child);
+            _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 4);
+            return;
+        }
         if (MissionNumber <= 2)
         {
             // Disable this entire mission, including pause input and physics. Overlays explicitly run Always.

@@ -21,6 +21,8 @@ public enum GateKind
 /// </summary>
 public partial class AbilityGate : Node2D
 {
+    /// <summary>Optional mission defense/suspension check, evaluated before any gate state changes.</summary>
+    public System.Func<bool>? Acceptance { get; set; }
     /// <summary>Which obstacle this is.</summary>
     public GateKind Kind { get; set; } = GateKind.RubbleWall;
     /// <summary>Width and height of the obstacle in pixels.</summary>
@@ -99,6 +101,7 @@ public partial class AbilityGate : Node2D
     /// </summary>
     public bool ReceiveAbility(string tag, Vector2 origin, float facing)
     {
+        if (Acceptance?.Invoke() == false) return false;
         if (Cleared && Kind != GateKind.FireVent) return false;
         if (tag != RequiredTag) return false;
         // Distances are measured to the gate's nearest point, not its centre: full-height walls have centres far overhead.

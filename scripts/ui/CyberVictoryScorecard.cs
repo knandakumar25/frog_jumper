@@ -66,6 +66,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		if (_rootPanel == null) return;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
 		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
+		if (_continueBtn != null && _nextMission > 0) _continueBtn.Text = $"CONTINUE TO LEVEL {_nextMission}";
 		_rootPanel.Visible = true;
 		if (IsInsideTree()) Input.MouseMode = Input.MouseModeEnum.Visible;
 		if (IsInsideTree()) GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", false);

@@ -15,13 +15,17 @@ public partial class WildfireEncounter : Node2D
     /// <summary>Authored member positions; true selects a grounded burst gunner, false a hovering sentry.</summary>
     public (Vector2 Position, bool Gunner)[] Members { get; set; } = Array.Empty<(Vector2, bool)>();
     /// <summary>Explicit targeting and scene-local objective state supplied by the mission.</summary>
-    public ConcreteWildfireMission Mission { get; set; } = null!;
+    public IFiniteCombatHost Mission { get; set; } = null!;
     /// <summary>Reinforcements are started by the battery rather than by proximity.</summary>
     public bool ManualActivation { get; set; }
     /// <summary>True while at least one member in this attempt remains alive.</summary>
     public bool Active { get; private set; }
     /// <summary>Completed groups never respawn during this scene instance.</summary>
-    public bool Completed => Mission.Progress.Has("encounter:" + Id);
+    public bool Completed => Mission.HasCombatEvent("encounter:" + Id);
+    /// <summary>Remaining live slots contribute to the host's simultaneous-enemy budget.</summary>
+    public int LivingMembers => Active ? Members.Length - _dead.Count : 0;
+    /// <summary>Optional prerequisite for sequential reinforcements; ordinary encounters accept proximity as before.</summary>
+    public Func<bool>? Acceptance { get; set; }
     private readonly HashSet<int> _dead = new();
     private int _generation;
 
@@ -29,13 +33,13 @@ public partial class WildfireEncounter : Node2D
     public override void _PhysicsProcess(double delta)
     {
         if (!ManualActivation && !Active && !Completed && !Mission.GameplaySuspended &&
-            Activation.HasPoint(Mission.Player.GlobalPosition)) Activate();
+            Activation.HasPoint(Mission.CombatPlayer.GlobalPosition)) Activate();
     }
 
     /// <summary>Creates the finite group. Repeated triggers cannot add extra members.</summary>
     public void Activate()
     {
-        if (Active || Completed || Mission.GameplaySuspended) return;
+        if (Active || Completed || Mission.GameplaySuspended || Acceptance?.Invoke() == false || !Mission.CanActivateEncounter(Members.Length)) return;
         Active = true;
         int generation = ++_generation;
         for (int i = 0; i < Members.Length; i++)
@@ -45,14 +49,14 @@ public partial class WildfireEncounter : Node2D
             if (spec.Gunner)
             {
                 var gunner = new WildfireGunner { Name = $"Gunner{i}", Position = spec.Position,
-                    Target = Mission.Player, Mission = Mission };
+                    Target = Mission.CombatPlayer, Mission = Mission };
                 gunner.Defeated += () => MemberDefeated(index, generation);
                 AddChild(gunner);
             }
             else
             {
                 var sentry = new PalaceSentry { Name = $"Sentry{i}", Position = spec.Position,
-                    Target = Mission.Player, MaxHealth = 70 };
+                    Target = Mission.CombatPlayer, MaxHealth = 70 };
                 sentry.Defeated += () => MemberDefeated(index, generation);
                 AddChild(sentry);
             }
@@ -66,7 +70,7 @@ public partial class WildfireEncounter : Node2D
         Mission.RewardMember($"{Id}:{index}");
         if (_dead.Count != Members.Length) return;
         Active = false;
-        Mission.Progress.Complete("encounter:" + Id);
+        Mission.CompleteCombatEvent("encounter:" + Id);
     }
 
     /// <summary>Disables abandoned actors immediately; deferred deletion keeps physics callbacks safe.</summary>

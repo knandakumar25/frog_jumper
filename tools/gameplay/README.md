@@ -75,3 +75,7 @@ Known unrelated diagnostics remain: ten reference-check errors in untouched menu
 proton_scatter signal connections, headless addon TLS/shutdown warnings, and the
 host PostgreSQL/local-JSON fallback. Touch/controller checks used synthetic input
 and prompt paths; no full physical touch-only play session was performed.
+
+Neon Rust's expanded gameplay and Docker/Blender artwork use the separate
+[Neon Rust reproduction and acceptance](NEON_RUST.md) guide. Its 30–35 minute
+first-run target remains unvalidated; automated traversal is a functional check.

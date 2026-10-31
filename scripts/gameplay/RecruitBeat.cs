@@ -9,6 +9,10 @@ using Godot;
 /// </summary>
 public partial class RecruitBeat : Node2D
 {
+    /// <summary>Optional story prerequisite; prevents recruitment before mission objectives are secured.</summary>
+    public System.Func<bool>? RecruitmentCondition { get; set; }
+    /// <summary>Optional actual task-success check; a nearby ability press alone need not finish a lesson.</summary>
+    public System.Func<bool>? LessonCondition { get; set; }
     /// <summary>Display name of the operative who joins (registry name).</summary>
     public string Operative { get; set; } = "Oceanus";
     /// <summary>Story lines shown one after another when the beat triggers.</summary>
@@ -82,7 +86,7 @@ public partial class RecruitBeat : Node2D
     /// <summary>Unlocks the operative and starts the story lines and prompt.</summary>
     public void Trigger()
     {
-        if (Triggered) return;
+        if (Triggered || RecruitmentCondition?.Invoke() == false) return;
         Triggered = true;
         OperativeRoster.Current.Unlock(Operative);
         _promptTimeout = 45f;
@@ -117,6 +121,19 @@ public partial class RecruitBeat : Node2D
     {
         if (!Triggered || Completed) return;
         if (_player!.ActiveProfile.DisplayName != OperativeRoster.Normalize(Operative) || tag != OperativeRoster.AbilityTagOf(Operative)) return;
+        if (LessonCondition?.Invoke() == false) return;
+        CompleteLesson();
+    }
+
+    /// <summary>Allows an asynchronous mission task to finish its optional lesson after the ability callback settles.</summary>
+    public void CheckLessonSuccess()
+    {
+        if (Triggered && !Completed && LessonCondition?.Invoke() == true) CompleteLesson();
+    }
+
+    /// <summary>Records a successful lesson exactly once and releases its prompt.</summary>
+    private void CompleteLesson()
+    {
         Completed = true;
         OperativeRoster.Current.MarkLessonSeen(Operative);
         Level.HidePrompt();

@@ -6,7 +6,7 @@ public partial class WildfireGunner : CharacterBody2D
     /// <summary>Player supplied by the owning encounter, never discovered across scene boundaries.</summary>
     public CyberShogun Target { get; set; } = null!;
     /// <summary>Mission owns transient bullets and recovery cancellation.</summary>
-    public ConcreteWildfireMission Mission { get; set; } = null!;
+    public IFiniteCombatHost Mission { get; set; } = null!;
     /// <summary>Single death notification for the finite encounter.</summary>
     [Signal] public delegate void DefeatedEventHandler();
     /// <summary>Normal sentry-equivalent integrity; difficulty comes from composition, not health inflation.</summary>

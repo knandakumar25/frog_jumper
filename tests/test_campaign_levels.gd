@@ -168,10 +168,18 @@ func test_level2_membrane_opens_only_after_all_three_spires() -> void:
 	mission.free()
 
 func test_level3_relay_blacks_out_comms_for_phoenicia_only() -> void:
+	## The relay rejects correct abilities until every sabotage and reinforcement prerequisite is complete.
 	var mission := _mission(3)
+	await get_tree().process_frame
 	var relay := mission.get_node("Actors/CommRelay")
 	assert_bool(relay.call("ReceiveAbility", "slam", relay.global_position, 1.0)).is_false()
+	assert_bool(relay.call("ReceiveAbility", "resonate", relay.global_position, 1.0)).is_false()
 	assert_bool(mission.get("CommsBlackedOut")).is_false()
+	for s in range(1, 8):
+		for g in range(1, [3,4,3,2,4,5,5][s-1]+1):
+			mission.call("CompleteCombatEvent", "encounter:s%d-%d" % [s,g])
+	for id in ["shipment:freight", "shipment:runoff", "recruit:aura", "lesson:aura", "shipment:harmonic", "uplink:west", "uplink:east", "coupler:west", "coupler:east"]:
+		mission.call("CompleteCombatEvent", id)
 	assert_bool(relay.call("ReceiveAbility", "resonate", relay.global_position + Vector2(-150, 0), 1.0)).is_true()
 	assert_bool(mission.get("CommsBlackedOut")).is_true()
 	mission.free()

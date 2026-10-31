@@ -374,3 +374,52 @@ uncommitted. No watched flag, save migration or local persistence was added.
   the local implementation commit. This verification record is included in
   a follow-up documentation-only commit and normal push. No code/assets
   changed during publication; existing test results remain applicable.
+
+## Neon Rust gameplay expansion — 2026-10-31
+
+- Implemented the 48,000px eight-sector sabotage route: 30 finite groups, exact
+  local objective/reward ledger, shipments/uplinks/couplers, guarded relay and
+  mandatory Mirage escape lesson. Shared combat uses IFiniteCombatHost; Level 2
+  retains authored activation, timings, artillery and rewards.
+- Seven stationary shrines preserve completed events, recruits, lessons and reward
+  slots; death/fall clears bullets and resets incomplete groups. Aura opens a real
+  practice lock; Mirage must Blink across a harmless beam. Original arrival,
+  operative stats, dialogue/audio and save schema remain unchanged.
+- Level 3 now freezes at direct results with Continue to 4 (five operatives),
+  Replay, Level Select and Main Menu. Replay restores the three-operative roster
+  and arrival. All work remains local and uncommitted.
+- Docker preflight confirmed all four services up. Initial C# build passed with
+  154 existing warnings. Ten focused Godot tests passed with zero errors/failures/
+  orphans. MCP traversed the blockout with real movement/abilities and diagnostic
+  kills, no recoveries (~145s simulation), before Docker/Blender art production.
+- Seven original 512px RGBA depot assets and reproducible tooling were added.
+  Full-project reference checker reports ten existing signal-path errors in
+  unchanged Proton Scatter/main-menu scenes and 27 warnings, not a clean pass.
+- Human first-run 30–35 minute pacing remains unvalidated. Assisted traversal
+  cannot measure combat or human pacing. Final verification is recorded below;
+  reproduction and acceptance details live in tools/gameplay/NEON_RUST.md.
+
+Neon Rust final verification (2026-10-31): refresh exit 0, seven generated import
+sidecars and seven-asset RGBA/margin validation passed. Import still logs TLS and
+editor shutdown/resource diagnostics; do not call it error-free. Final incremental
+build had 0 errors/warnings; earlier full compile had 154 existing warnings.
+run_tests.ps1 passed NUnit 93/93 and Godot 161/161 with zero errors/failures/orphans
+(report_367); Django was skipped for absent host venv, then explicit container
+Django passed 104/104 after final edits. MCP dressed traversal completed every
+objective with actual movement/abilities plus diagnostic kills, no recoveries,
+peak four live enemies, 151.333s movement/objective wall time. Combat/human pacing
+remain unmeasured. All 24 sector/aspect captures and all four scorecard navigation
+actions verified; Replay gives fresh arrival/three operatives, Continue gives
+Level 4/five operatives. Final runtime logs had no warning/error entries. User
+editor remains stopped on Level 1, all four normal containers running. Changes
+remain local, unstaged and uncommitted. Human 30–35 minute target stays unvalidated.
+
+## Server shutdown and publication — 2026-10-31
+
+User explicitly requested server shutdown followed by publishing the current Neon
+Rust changes. Stopped website, backend, db and ollama with docker compose stop;
+all four exited successfully (0). Containers and persisted volumes remain intact.
+Fetched origin and confirmed main matched origin/main before preparing the commit.
+This task changes documentation/Git state only, so the previous 93 NUnit, 161
+Godot (zero errors/failures/orphans) and 104 container Django passes still apply;
+no import or test rerun is required. Publication verification follows after push.

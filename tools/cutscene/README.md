@@ -6,8 +6,8 @@
 `CampaignProgress.CompleteMission` once. It freezes all mission descendants except
 the scorecard, then adds the Always-processing `TokyoRemembers` CanvasLayer. The
 level stays loaded; Continue prepares mission 2, Replay reloads mission 1. Level 2
-uses the separate Through the Breach aftermath described below; missions 3–4
-retain their previous completion flow. No persistent watched flag is stored.
+uses the separate Through the Breach aftermath described below. Level 3 shows
+results directly with Continue to Level 4; Level 4 retains its final results. No persistent watched flag is stored.
 The scorecard's original three-argument `ShowScorecard` binding is retained for
 GDScript callers; `ShowMissionScorecard` adds the explicit next-mission target.
 
@@ -244,3 +244,7 @@ export was performed. Evidence: .validation/neon-rust/ (including 27 captures
 and three contact sheets). All four normal Docker services remain running.
 User's editor remains on Level 1; review game stopped; changes are local and
 uncommitted. No watched flag, save migration or local persistence was added.
+
+Level 3 completion update (2026-10-31): Silent Freight remains the unchanged
+arrival. Expanded Neon Rust gameplay now goes directly to a scorecard with
+Continue to Level 4, Replay, Level Select and Main Menu; it has no ending film.

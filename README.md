@@ -100,7 +100,7 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 - **The campaign (4 side-scrolling missions, code-built on `CodeLevel`)** —
   1. **Ghost in the Gridlock** (Shogun): a ~9,500 px infiltration of the Eternal Zen Dojo over a painted night garden — jumping, a timed laser bridge, a wall-jump gorge, rooftops, an archive; parry sentry fire to overload the beacon's shield, destroy it, take the Data-Blade, extract.
   2. **The Concrete Wildfire** (Oceanus, then Apex Titan join): evacuation road, burning residential shelter routes, four overpass ferries, three defended spires, Titan's breach, a relay-shielded siege battery and final evacuation.
-  3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): scrapyard, transit depot, a comm-tower climb to a relay, and a lethal laser curtain.
+  3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): eight sectors of freight sabotage, three shipments, two uplinks, a relay blackout and a blind-grid escape across 48,000px.
   4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him brings down the wall and ends Act I with the combat scorecard.
   Each mission has three optional memory fragments, a story title card, and chasm recovery. Level 2 has four shrine checkpoints; the other missions have three. Its revised gameplay briefing replaces outdated title-card objective metadata.
 - **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Cyber Shogun uses the approved AI-generated pose and locomotion sheets in missions; other operatives use their hand-drawn sheets. Levels 2–4 use a procedural skyline backdrop; Level 1 uses a painted garden under procedurally drawn platforms.
@@ -377,7 +377,7 @@ and the pointer/touch Skip button resume at the existing scrapyard spawn.
 Gameplay, HUD and music resume from a complete captured state; the opening
 mission briefing receives its full display window. Missing speech keeps timed
 subtitles; missing essential art starts gameplay safely. Aura Phoenicia and
-Mirage Blade still join at their existing mission beats. No viewing flag or
+Mirage Blade join in Harmonic Access and after blackout respectively. No viewing flag or
 persistence migration is introduced. See `tools/cutscene/README.md` for production.
 
 Verified through all fresh-entry routes with Godot AI MCP, including natural
@@ -391,3 +391,33 @@ with the PostgreSQL-only storage and browser verification tooling described abov
 
 Git-only publication does not require another import or test run when project
 code and assets remain unchanged; retain the verification results above.
+
+## Neon Rust sabotage expansion — 2026-10-31
+
+Level 3 now spans eight sectors and 48,000px with 30 finite formations (three or
+four normal-health members, at most six alive), three defended shipments, two
+uplinks, two power couplers, finite relay reinforcements and the blind-grid escape.
+Aura joins before the sonic-lock lesson; Mirage joins after blackout and must
+actually blink across a harmless practice beam. Seven stationary recovery shrines
+retain completed objectives, recruits, lessons and kill-reward slots in this scene.
+Replay/reload starts a fresh three-operative run with the existing arrival.
+
+Extraction shows results directly: Continue to Level 4 with five earned operatives,
+Replay, Level Select and Main Menu. Original abilities/stats, recruitment dialogue,
+arrival, audio and save schema are preserved. New depot art is authored in Blender
+inside Docker with collision kept separate. No new paid speech/music is generated.
+
+The **30–35 minute first-playthrough goal remains UNVALIDATED**. Assisted blockout
+traversal used real movement/abilities with diagnostic enemy kills, zero recoveries,
+and about 145 seconds of simulation. It cannot measure normal combat or human
+pacing. See [Neon Rust reproduction and acceptance](tools/gameplay/NEON_RUST.md).
+
+Verified on 2026-10-31: NUnit 93/93, Godot 161/161 (zero errors/failures/orphans),
+container Django 104/104, seven-asset validation, complete assisted route, all
+four results actions and 24 aspect/sector captures. User editor preserved on
+Level 1. Background refresh exited 0 with seven sidecars but retains editor/TLS/
+shutdown diagnostics; final game logs were clear. Human pacing remains unvalidated.
+
+Server state update (2026-10-31): the user requested shutdown before publication;
+all four normal Compose services are stopped. Restart with docker compose up -d
+before code editing or running services. Existing validation results remain valid.

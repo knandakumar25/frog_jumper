@@ -113,7 +113,7 @@ func test_cyber_shogun_airborne_attacks_and_dashes() -> void:
 	player.free()
 
 func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
-	## Validate HUDs and real enemy bodies; Level 2's finite groups are intentionally dormant until locally activated.
+	## Validate HUDs and real enemy bodies; Levels 2/3 keep finite groups dormant until locally activated.
 	var level_paths := [LEVEL1_PATH, LEVEL2_PATH, LEVEL3_PATH, LEVEL4_PATH]
 
 	for path in level_paths:
@@ -132,6 +132,10 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 		if path == LEVEL3_PATH:
 			level.get_node("NeonRustIntro").call("Finish")
 		await get_tree().process_frame
+		if path == LEVEL3_PATH:
+			var encounter := level.get_node("Actors/Encounter_s1-1")
+			assert_int(encounter.get_child_count()).is_equal(0)
+			encounter.call("Activate")
 
 		# Verify CyberCombatHud exists
 		var hud = level.get_node_or_null("CyberCombatHud")
