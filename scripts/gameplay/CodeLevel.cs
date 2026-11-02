@@ -108,6 +108,13 @@ public abstract partial class CodeLevel : Node2D
     private bool _finishing;
     private bool _recovering;
     private bool _usingPad;
+    private bool _usingTouch;
+
+    /// <summary>Names the current device's control; signature input uses shipped Q/Y defaults when its optional InputMap action is absent.</summary>
+    protected string ContextBinding(string action) => _usingTouch
+        ? WildfireText.Get("WF_TOUCH_" + action.ToUpperInvariant(), action == "karate" ? "Ability" : action)
+        : action == "karate" && !InputMap.HasAction(action) ? (_usingPad ? "Y / LB" : "Q")
+        : WildfireText.Binding(action, _usingPad);
     private OperativeRoster? _hintRoster;
     private CyberVictoryScorecard? _scorecard;
     private int _maxCombo = 1;
@@ -191,8 +198,9 @@ public abstract partial class CodeLevel : Node2D
     public override void _Input(InputEvent @event)
     {
         if (_controlsLabel == null) return;
-        if (@event is InputEventJoypadButton or InputEventJoypadMotion) { _usingPad = true; RefreshControlsHint(); }
-        else if (@event is InputEventKey) { _usingPad = false; RefreshControlsHint(); }
+        if (@event is InputEventJoypadButton or InputEventJoypadMotion) { _usingPad = true; _usingTouch = false; RefreshControlsHint(); }
+        else if (@event is InputEventScreenTouch) { _usingPad = false; _usingTouch = true; }
+        else if (@event is InputEventKey) { _usingPad = false; _usingTouch = false; RefreshControlsHint(); }
     }
 
     /// <summary>Refreshes the controls hint when a new operative joins (it then also lists the swap keys).</summary>

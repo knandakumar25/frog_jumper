@@ -44,12 +44,33 @@ diagnostics; the C# build has zero errors and existing project warnings.
 
 Earth has fallen under the tyrannical rule of an autonomous cybernetic syndicate. A clandestine strike team known as **Axiom Force** deploys into the neon-drenched sectors of the metropolis. Begin as Cyber Shogun, gain new operatives as the story unfolds, infiltrate deep behind enemy lines, neutralize syndicate drone armadas, and eliminate the frontline warmachine—**Vanguard-X**—to reclaim humanity's future.
 
+Creative direction is agent-led under the user's current requests. The former
+story bible and full development plan were removed at the user's request;
+historical plans and production notes describe prior work rather than prescribe
+future story, dialogue or design. Existing gameplay and cinematics remain playable.
+
 ---
 
 Scene background photos and project-owned 3D assets, scenes, scripts, and web viewers have been removed. Operative portraits, sprites, tiles, UI artwork, and 2D glow remain.
 
 ## Features
 
+- **Levels 1–3 objective guidance** — Lantern Court keeps the current parry control
+  visible until a successful deflection; archive signs, beacon shield charges and
+  sealed Data-Blade access are explicit. Civilian markers show local defenders,
+  route obstacles, moving evacuees and actual shelter arrival. Neon Rust retains
+  all 30 formations/rewards but requires nine objective defenses; 21 patrols are
+  optional score opportunities. Checkpoints follow objective milestones. Levels
+  2–3 retire unfinished groups beyond 1,500 horizontal pixels without completion
+  or repeat rewards. Recovery preserves progress; Replay starts fresh. See the
+  [mission review and human checklist](docs/ACT_I_REVIEW.md).
+
+  Verified 2026-11-02: C# build, 88 NUnit, 197 Godot (zero errors/failures/orphans)
+  and 104 isolated-container Django tests pass. MCP reviewed three viewport sizes
+  and all results destinations; assisted traversal confirms optional-patrol bypass.
+  Human pacing and physical controller/touch acceptance remain pending. Existing
+  import shutdown/TLS diagnostics and Docker bind-mount fault are recorded in
+  [HANDOFF.md](HANDOFF.md).
 - **Shattered Aegis / Act I finale** — A 28,000px seven-section fortress assault,
   fourteen finite formations (four live ordinary enemies maximum), earned Surya
   recruitment, real Bulwark/Blink lessons, permanent coolant/gun/curtain shutdown,
@@ -63,7 +84,7 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   Fourteen cached event voices and six original Docker/Blender fortress assets
   have reproducible provenance. The 20–25 minute first-run target is **unvalidated**.
   See [production/acceptance](tools/gameplay/SHATTERED_AEGIS.md),
-  [revised canon](docs/STORY_BIBLE.md), and [Levels 1–3 review](docs/ACT_I_REVIEW.md).
+  and [Levels 1–3 review](docs/ACT_I_REVIEW.md).
   Verified 2026-11-01: build, 97 NUnit, 190 Godot (zero failures/errors/orphans),
   104 copied-container Django tests, all three display ratios, launch/results
   routes and automated traversal using actual combat. Physical input/listening

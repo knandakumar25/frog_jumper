@@ -24,6 +24,8 @@ public partial class WildfireEncounter : Node2D
     public bool Completed => Mission.HasCombatEvent("encounter:" + Id);
     /// <summary>Remaining live slots contribute to the host's simultaneous-enemy budget.</summary>
     public int LivingMembers => Active ? Members.Length - _dead.Count : 0;
+    /// <summary>Defenders still required in the current attempt, or the full group if not yet activated.</summary>
+    public int RemainingMembers => Completed ? 0 : Members.Length - _dead.Count;
     /// <summary>Optional prerequisite for sequential reinforcements; ordinary encounters accept proximity as before.</summary>
     public Func<bool>? Acceptance { get; set; }
     private readonly HashSet<int> _dead = new();
@@ -32,8 +34,18 @@ public partial class WildfireEncounter : Node2D
     /// <summary>Activates only on the local route, after arrival and outside recovery.</summary>
     public override void _PhysicsProcess(double delta)
     {
+        if (Mission.GameplaySuspended) return;
+        RetireIfRemote();
         if (!ManualActivation && !Active && !Completed && !Mission.GameplaySuspended &&
             Activation.HasPoint(Mission.CombatPlayer.GlobalPosition)) Activate();
+    }
+
+    /// <summary>Releases remote actors without completion or rewards, using the same generation and reward safeguards as recovery.</summary>
+    public void RetireIfRemote()
+    {
+        if (!Mission.GameplaySuspended && Active && Mission.EncounterRetirementDistance > 0 &&
+            Mathf.Abs(Mission.CombatPlayer.GlobalPosition.X - Activation.GetCenter().X) > Mission.EncounterRetirementDistance)
+            ResetIncomplete();
     }
 
     /// <summary>Creates the finite group. Repeated triggers cannot add extra members.</summary>

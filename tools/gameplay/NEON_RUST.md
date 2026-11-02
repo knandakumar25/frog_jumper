@@ -23,15 +23,19 @@ recovery times remain unmeasured. No minimum timers, health inflation or repeate
 waves are used to enforce a duration.
 
 `NeonRustProgress` accepts exact event IDs, rejects premature/unknown objectives,
-and deduplicates kill slots. All 30 encounter IDs plus sabotage, recruits and
-lessons are mandatory for extraction. Central relay acceptance requires three
+and deduplicates kill slots. Nine encounter IDs (s2-4, s3-3, s5-4, s6-5 and
+s7-1..5), sabotage, recruits and lessons are mandatory for extraction; all 30
+formations retain their score rewards. Optional combat seals and the separate
+s4-2 interlock are removed. Central relay acceptance requires three
 shipments, both uplinks, both couplers and both reinforcement groups. Ability
 targets additionally check their defenders and suspension state. HUD counters
 and instructions follow unmet prerequisites, never player X position.
 
 Shrines stand at (5850,600), (11850,600), (17850,600), (21900,600),
-(27900,600), (34900,-500), (40900,-500). They activate only after prior combat
-is secure. Archive loops reconnect at (8350,400), (25050,400), (45350,400).
+(27900,600), (34900,-500), (40900,-500). Their respective milestones are insertion
+breach, freight, runoff, Aura's lesson, west uplink, east uplink and Mirage's
+lesson. Optional survivors never block checkpoints. Archive loops reconnect at
+(8350,400), (25050,400), (45350,400).
 Main tower rises are 100px, escape drops 110px. This route uses stationary decks;
 no moving-platform docking gap is introduced. Practice beam x40500 deals zero
 damage; Mirage must actually blink across it. Lethal curtains at 43800, 45000,
@@ -41,7 +45,14 @@ Recovery clears transient rounds, restarts only incomplete encounters and restor
 actor processing modes. Completed objectives, recruitment, lessons and reward
 slots persist in this scene. Replay/reload creates a clean three-operative run.
 Results freeze gameplay and expose Continue to Level 4 (five operatives), Replay,
-Level Select and Main Menu. There is no new resume schema or ending cinematic.
+Level Select and Main Menu. There is no new resume schema. The existing 90-second
+City Finds Its Voice aftermath remains before results with its original Skip.
+
+Remote incomplete groups retire beyond 1,500 horizontal pixels from their authored
+center, freeing the unchanged six-enemy budget. Returning reactivates unfinished
+groups; retirement grants no kill/completion and previously rewarded slots cannot
+be farmed. World labels and HUD name the target, operative and unresolved defenders;
+escape patrols are visibly optional. Human pacing remains unvalidated.
 
 ## Art production
 

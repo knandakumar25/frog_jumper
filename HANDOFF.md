@@ -1,5 +1,79 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Current creative direction — 2026-11-02
+
+The user confirmed deleting docs/STORY_BIBLE.md and docs/full_game_plan.md to
+allow independent creative direction instead of exact-script adherence. Both
+documents have been removed. Future creative work follows the user's current
+requests and agent judgment; older plans, fixed-script instructions and canon
+restrictions in historical entries are superseded as creative mandates. Retain
+the implementation/verification history as factual context, not a future script.
+This cleanup preserves executable scripts, dialogue data, recordings, cinematics
+and all existing uncommitted implementation work. It does not itself launch a
+new rewrite or override operational, testing or Git authorization rules.
+
+Verification: checked both deletions and removed active links from README and
+the fortress production guide; diff hygiene passes. Only Markdown changed in
+this cleanup, so no Docker preflight, Godot refresh or test rerun was needed.
+
+## Levels 1–3 readability and objective defense — 2026-11-02
+
+Implemented Lantern Court parry guidance independently of RecruitBeat's timeout,
+live shield charges, archive signs and sealed/accessible Data-Blade presentation.
+Level 2 markers expose exact local defenders, route fire (Oceanus), rubble (Titan),
+battery, movement and actual shelter arrival. Spires name their defense groups.
+Its ledger rejects premature spire/core/rescue callbacks. Patrols remain optional.
+
+Level 3 retains all 30 groups/rewards; mandatory defenses are s2-4, s3-3, s5-4,
+s6-5 and s7-1..5. Local dependencies replace sector clearance, both approach groups
+gate the west coupler, and reinforcements are sequential. Optional combat seals
+and the s4-2 harmonic-access interlock are removed. Seven checkpoints follow
+insertion, freight, runoff, Aura lesson, west/east uplinks and Mirage lesson.
+Markers distinguish required defenses from optional score patrols and name the
+operative/current binding; escape guidance asks for curtain traversal.
+
+IFiniteCombatHost retirement defaults to disabled (Level 4 stays unchanged).
+Levels 2–3 opt in at 1,500 horizontal pixels from the authored formation center.
+Retirement reuses ResetIncomplete generation rejection and reward deduplication;
+it grants no kill/completion and returning reactivates unfinished groups. Neon
+Rust retires remote groups before budget calculation as well as during ticks.
+Routes/story/recruits/abilities/cinematics, launch/Skip/results rules, existing
+caps/stats/score/campaign/save schema remain unchanged.
+
+Final checks: build has zero errors (153 existing warnings on full compilation;
+incremental checks also pass). Background import exits 0; the existing addon TLS,
+EditorSettings shutdown, ObjectDB/resource and allocator diagnostics remain.
+run_tests.ps1 passes NUnit 88/88 and Godot 197/197 with zero errors/failures/orphans
+(report_399). Its host Django step skips the absent venv. Explicit copied-container
+Django passes 104/104 after final edits; the ordinary backend /app bind mount again
+returns ENODEV. The owned axiom-mission-readability-tests helper is stopped after
+its successful run. Normal db/backend/website/ollama containers remain running.
+
+Godot AI MCP reviewed 51 full-resolution state captures at 1920×1080, 1920×1200 and
+2560×1080; PNG dimensions match and nine contact sheets were inspected. The final
+Blade label sits above the portal lintel, and its exposed-beacon instruction is
+covered by an engine assertion. Cinematic/aftermath/results regression coverage
+passes. All four production results actions pass for each of Levels 1–3; Replay
+resets progress/rosters and Continue retains the existing arrival launch rules.
+Sampled visual/navigation runtime logs contain no warnings/errors. Editor PID
+12608 remains stopped on its original Level 1 scene; no existing saves were used
+for the diagnostic runs and no new save/schema migration was introduced.
+
+Final required-only Neon Rust traversal uses real movement, swaps and abilities
+with diagnostic damage limited to the nine defenses: complete in 157.436 seconds
+of assisted traversal/objective wall time, zero recoveries, maximum six live
+enemies, no manual resumption. This is functional route evidence, not a combat or
+human pacing measurement. An earlier helper missed Mirage's window and required
+repositioning; the revised helper waits for cooldown and can walk back to retry.
+Those earlier timings are superseded. Seven new integration tests cover guidance,
+real deflections/abilities, rescue transitions/recovery, retirement/reactivation,
+budget availability, reward deduplication and objective checkpoint activation.
+
+Evidence: .validation/mission-readability/ plus mission-readability-*.log; production
+review commands and human checklist: docs/ACT_I_REVIEW.md. Python compilation and
+git diff --check pass. Human first-run pacing, comprehension and physical controller/
+touch acceptance remain pending. No export, staging, commit or push was performed.
+
 ## Tomorrow resume / publication — 2026-11-01
 
 User requested pushing the current fortress work and continuing tomorrow.

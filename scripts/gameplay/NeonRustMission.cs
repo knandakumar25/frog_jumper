@@ -18,8 +18,11 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
     public CyberShogun CombatPlayer => Player;
     /// <inheritdoc/>
     public bool GameplaySuspended => ArrivalActive || _recoveringLocal || MissionComplete || Player.CurrentHealth <= 0;
+    /// <inheritdoc/>
+    public float EncounterRetirementDistance => 1500;
     private readonly List<WildfireEncounter> _encounters = new();
     private readonly List<(PalacePlatform Barrier, string Event)> _seals = new();
+    private readonly List<(AbilityGate Gate, string Event, Label Marker)> _targets = new();
     private readonly List<(Node Node, ProcessModeEnum Mode)> _recoveryModes = new();
     private PalaceObjective _exit = null!;
     private RecruitBeat _aura = null!, _mirage = null!;
@@ -132,6 +135,12 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         float floor = RouteFloor(x);
         var gate = AddGate(name, kind, new Vector2(x, floor), new Vector2(90, fullHeight ? FullHeightFrom(floor) : 140));
         gate.Acceptance = () => !GameplaySuspended && Progress.CanComplete(id);
+        var marker = new Label { Name = "ObjectiveStatus", Position = new Vector2(-240, -285), Size = new Vector2(480, 130),
+            HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart,
+            Modulate = new Color("#77efff"), MouseFilter = Control.MouseFilterEnum.Ignore };
+        marker.AddThemeFontSizeOverride("font_size", 18);
+        gate.AddChild(marker);
+        _targets.Add((gate, id, marker));
         NeonRustVisual.AddSprite(gate, id.StartsWith("coupler:") ? "coupler" : kind == GateKind.SonicLock ? "sonic" : "machinery",
             new Vector2(150, 180), new Vector2(0, -90));
         gate.GateCleared += () =>
@@ -152,7 +161,6 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         // Fire cannot physically block traversal, so the shipment's interlock opens only after the douse succeeds.
         AddSeal("RunoffInterlock", 17600, "shipment:runoff");
         Target("AuraPracticeLock", GateKind.SonicLock, 19500, "lesson:aura");
-        AddSeal("HarmonicAccessInterlock", 21700, "encounter:s4-2");
         Target("HarmonicShipment", GateKind.SonicLock, 27200, "shipment:harmonic");
         Target("WestUplink", GateKind.SonicLock, 27600, "uplink:west");
         Target("EastUplink", GateKind.SonicLock, 34550, "uplink:east");
@@ -232,7 +240,16 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
             if (s == 7 && g == 5) encounter.Acceptance = () => Progress.Has("encounter:s7-4");
             _encounters.Add(encounter);
             Actors.AddChild(encounter);
-            AddSeal("CombatSeal_" + id, x + 470, "encounter:" + id);
+            var role = new Label { Name = "FormationRole", Position = new Vector2(x - 210, floor - 360), Size = new Vector2(420, 75),
+                HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart,
+                Modulate = new Color("#ffcf8a"), MouseFilter = Control.MouseFilterEnum.Ignore,
+                Text = id + " / " + (NeonRustProgress.RequiredEncounters.Contains("encounter:" + id)
+                    ? WildfireText.Get("NR_REQUIRED_DEFENSE", "OBJECTIVE DEFENDERS")
+                    : WildfireText.Get("NR_OPTIONAL_PATROL", "OPTIONAL PATROL / SCORE BONUS")) };
+            role.AddThemeFontSizeOverride("font_size", 18);
+            World.AddChild(role);
+            if (NeonRustProgress.RequiredEncounters.Contains("encounter:" + id))
+                AddSeal("CombatSeal_" + id, x + 470, "encounter:" + id);
         }
     }
 
@@ -269,6 +286,11 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
     protected override void UpdateMission()
     {
         if (GameplaySuspended) return;
+        foreach (var target in _targets)
+        {
+            target.Marker.Text = TargetGuidance(target.Event);
+            target.Marker.Visible = !Progress.Has(target.Event);
+        }
         if (_aura.Triggered) Progress.Complete("recruit:aura");
         if (_mirage.Triggered) Progress.Complete("recruit:mirage");
         // AbilityUsed subscribers run in registration order: evaluate mission success before the recruit lesson next tick.
@@ -276,7 +298,8 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         foreach (var seal in _seals)
             if (Progress.Has(seal.Event) && !seal.Barrier.IsOpen) seal.Barrier.Open();
         if (Progress.Has("coupler:east"))
-            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation &&
+                Mathf.Abs(Player.Position.X - e.Activation.GetCenter().X) <= EncounterRetirementDistance)) encounter.Activate();
         _previousPosition = Player.Position;
         if (ExtractionReady && Player.GlobalPosition.DistanceTo(_exit.GlobalPosition + new Vector2(0, -80)) < 130) CompleteMission();
     }
@@ -284,14 +307,42 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
     protected override string ComputeObjective()
     {
         var objective = Progress.Objective;
-        return $"{Progress.Shipments}/3 CARGO  {Progress.Uplinks}/2 UPLINKS\n{WildfireText.Get("NR_" + objective.Key, objective.Text)}";
+        string target = objective.Key switch
+        {
+            "BREACH" => "barrier:insertion", "FREIGHT" => "shipment:freight", "RUNOFF" => "shipment:runoff",
+            "PRACTICE" => "lesson:aura", "CARGO" => "shipment:harmonic", "WEST" => "uplink:west",
+            "EAST" => "uplink:east", "COUPLER_W" => "coupler:west", "COUPLER_E" => "coupler:east",
+            "REINFORCE" or "RELAY" => "relay:central", _ => ""
+        };
+        string instruction = target.Length > 0 ? TargetGuidance(target)
+            : WildfireText.Get("NR_" + objective.Key + "_LOCAL", objective.Text);
+        if (objective.Key is "PHASE" or "ESCAPE") instruction += " / " + ContextBinding("karate");
+        return $"{Progress.Shipments}/3 CARGO  {Progress.Uplinks}/2 UPLINKS\n{instruction}";
+    }
+
+    /// <summary>Names the target, required operative and only its unresolved local defenders; no sector-wide clearance hint survives.</summary>
+    private string TargetGuidance(string id)
+    {
+        string operative = id == "barrier:insertion" || id == "shipment:freight" ? "Apex Titan / Slam"
+            : id == "shipment:runoff" ? "Oceanus / Tidal Torrent" : "Aura Phoenicia / Harmonic Pulse";
+        string blockers = string.Join(", ", NeonRustProgress.Defenders(id).Where(d => !Progress.Has(d))
+            .Select(d => d[10..] + ": " + (_encounters.FirstOrDefault(e => "encounter:" + e.Id == d)?.RemainingMembers ?? 0)));
+        return WildfireText.Get("NR_TARGET_" + id.Replace(':', '_').ToUpperInvariant(), id.Replace(':', ' ').ToUpperInvariant()) + "\n" +
+            (blockers.Length > 0 ? WildfireText.Get("NR_LOCAL_DEFENDERS", "LOCAL DEFENDERS / {groups}").Replace("{groups}", blockers) + "\n" : "") +
+            WildfireText.Get("NR_USE_" + (id == "shipment:runoff" ? "DOUSE" : id == "barrier:insertion" || id == "shipment:freight" ? "SLAM" : "RESONATE"), operative) +
+            " / " + ContextBinding("karate");
     }
     /// <inheritdoc/>
     public bool HasCombatEvent(string id) => Progress.Has(id);
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
     /// <inheritdoc/>
-    public bool CanActivateEncounter(int members) => _encounters.Sum(e => e.LivingMembers) + members <= 6;
+    public bool CanActivateEncounter(int members)
+    {
+        // Retire before counting so scene-tree processing order cannot leave remote patrols holding the budget.
+        foreach (var encounter in _encounters) encounter.RetireIfRemote();
+        return _encounters.Sum(e => e.LivingMembers) + members <= 6;
+    }
     /// <inheritdoc/>
     public void RewardMember(string id) { if (Progress.Reward(id)) Score.AddPoint(); }
     /// <inheritdoc/>
@@ -325,9 +376,15 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         _previousPosition = Player.Position;
         _recoveringLocal = false;
     }
-    /// <summary>Checkpoints are safe only after every formation behind their stationary platform is complete.</summary>
+    /// <summary>Each checkpoint follows an objective milestone; bypassed patrols never prevent synchronization.</summary>
     protected override bool CanActivateCheckpoint(PalaceObjective shrine) => !GameplaySuspended &&
-        _encounters.Where(e => e.Activation.Position.X < shrine.Position.X).All(e => e.Completed);
+        Progress.Has(shrine.Name.ToString() switch
+        {
+            "ShrineFreight" => "barrier:insertion", "ShrineRunoff" => "shipment:freight",
+            "ShrineHarmonic" => "shipment:runoff", "ShrineWest" => "lesson:aura",
+            "ShrineTower" => "uplink:west", "ShrineSummit" => "uplink:east",
+            "ShrineEscape" => "lesson:mirage", _ => ""
+        });
     /// <summary>Rust/data particles preserve the existing arrival palette without adding generated audio.</summary>
     protected override void BuildPetals()
     {

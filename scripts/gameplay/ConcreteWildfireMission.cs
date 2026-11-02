@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Mission 2: six linear sectors of finite combat, local rescues, biometric spires and a stationary siege battery.
@@ -15,6 +16,8 @@ public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
     /// <summary>Retains Level 2's original activation behavior and authored group sizes.</summary>
     public bool CanActivateEncounter(int members) => true;
+    /// <inheritdoc/>
+    public float EncounterRetirementDistance => 1500;
     /// <summary>Stable scene-local objective and reward ledger.</summary>
     public WildfireProgress Progress { get; } = new();
     /// <summary>Distinct spires destroyed, independent of repeated callbacks.</summary>
@@ -33,10 +36,16 @@ public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
     public bool ExtractionReady => Progress.CanExtract;
     private readonly List<WildfireEncounter> _encounters = new();
     private readonly List<(PalaceObjective Spire, string Encounter)> _spireDefenses = new();
+    private readonly List<WildfireRescueGroup> _rescues = new();
     private PalacePlatform _membrane = null!;
     private PalaceObjective _exit = null!;
     private AbilityGate _finalRubble = null!;
     private bool _recoveringLocal;
+
+    /// <summary>Current signature-ability binding for rescue and obstacle markers.</summary>
+    public string AbilityControl => ContextBinding("karate");
+    /// <summary>Counts only the specified local formation's surviving defenders, including actors not yet activated.</summary>
+    public int RemainingDefenders(string id) => _encounters.FirstOrDefault(e => "encounter:" + e.Id == id)?.RemainingMembers ?? 0;
 
     /// <inheritdoc/>
     protected override int MissionNumber => 2;
@@ -142,13 +151,20 @@ public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
         };
         _spireDefenses.Add((spire, "spire-" + id));
         Actors.AddChild(spire);
+        var marker = new Label { Name = "DefenseStatus", Position = new Vector2(-230, -235), Size = new Vector2(460, 100),
+            HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart,
+            Modulate = new Color("#ffcf8a"), MouseFilter = Control.MouseFilterEnum.Ignore };
+        marker.AddThemeFontSizeOverride("font_size", 18);
+        spire.AddChild(marker);
     }
 
     /// <summary>Each family follows a 440px same-floor route into shelter, never across a platform gap.</summary>
     private void AddRescue(string id, Vector2 position, string[] conditions, AbilityGate[] fires)
     {
-        Actors.AddChild(new WildfireRescueGroup { Name = "Rescue_" + id, Id = id, Position = position,
-            Mission = this, Conditions = conditions, RouteFires = fires, ShelterOffset = new Vector2(440, 0) });
+        var group = new WildfireRescueGroup { Name = "Rescue_" + id, Id = id, Position = position,
+            Mission = this, Conditions = conditions, RouteFires = fires, ShelterOffset = new Vector2(440, 0) };
+        _rescues.Add(group);
+        Actors.AddChild(group);
     }
 
     /// <summary>Finite mixed groups alternate with traversals and quiet recovery spaces; no repeating waves or health inflation.</summary>
@@ -258,7 +274,13 @@ public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
     protected override void UpdateMission()
     {
         foreach (var (spire, encounter) in _spireDefenses)
+        {
             if (spire.Shielded && Progress.Has("encounter:" + encounter)) spire.HitShield();
+            spire.GetNode<Label>("DefenseStatus").Text = spire.Shielded
+                ? WildfireText.Get("WF_SPIRE_DEFENSE", "SPIRE SHIELD / {group}\n{count} LOCAL DEFENDERS REMAIN")
+                    .Replace("{group}", encounter).Replace("{count}", RemainingDefenders("encounter:" + encounter).ToString())
+                : WildfireText.Get("WF_SPIRE_EXPOSED", "SPIRE EXPOSED / STRIKE THE SCANNER");
+        }
         if (!ExtractionReady || Player.GlobalPosition.DistanceTo(_exit.GlobalPosition + new Vector2(0, -80)) >= 130) return;
         Artillery.StopForever();
         CompleteMission();
@@ -278,7 +300,17 @@ public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
         else if (!_finalRubble.Cleared) { key = "FINAL_WALL"; text = "Break the final barrier with Titan's Tectonic Slam"; }
         else if (!Progress.Has("rescue:extraction")) { key = "FINAL_RESCUE"; text = "Defeat extraction guards and secure the last civilian group"; }
         else { key = "EXTRACT"; text = "All civilians safe. Reach extraction"; }
-        return $"{WildfireText.Get("WF_EVAC", "EVAC")} {CivilianGroupsEvacuated}/3 | {WildfireText.Get("WF_SPIRES", "SPIRES")} {SpiresDisabled}/3\n{WildfireText.Get("WF_OBJECTIVE_" + key, text)}";
+        string instruction = WildfireText.Get("WF_OBJECTIVE_" + key, text);
+        var rescue = _rescues.FirstOrDefault(r => !r.Evacuated);
+        if (rescue != null && key is "RESIDENTIAL" or "OVERPASS" or "FINAL_RESCUE")
+            instruction = rescue.Id.ToUpperInvariant() + " / " + rescue.StatusText;
+        if (key is "TITAN" or "FINAL_WALL") instruction += " / " + AbilityControl;
+        if (key == "SPIRES")
+        {
+            var pending = _spireDefenses.FirstOrDefault(s => !s.Spire.Collected);
+            if (pending.Spire != null) instruction = pending.Encounter + " / " + pending.Spire.GetNode<Label>("DefenseStatus").Text;
+        }
+        return $"{WildfireText.Get("WF_EVAC", "EVAC")} {CivilianGroupsEvacuated}/3 | {WildfireText.Get("WF_SPIRES", "SPIRES")} {SpiresDisabled}/3\n{instruction}";
     }
 
     /// <summary>One reward per authored member prevents farming during incomplete-encounter restarts.</summary>

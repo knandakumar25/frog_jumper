@@ -1,6 +1,6 @@
 # Axiom Force — Project Memory
 
-Last reviewed: 2026-11-01. This file preserves durable decisions and useful
+Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
@@ -33,6 +33,12 @@ this summary does not replace them. Verify live environment state before acting.
 
 ## User preferences and permissions
 
+- 2026-11-01 shutdown: user explicitly requested stopping the server. Ran
+  docker compose stop for website, backend, PostgreSQL and Ollama; all four
+  exited successfully and no project services remain running. Containers and
+  persistent volumes retained. Shutdown/memory only; no imports, unit tests,
+  exports, staging, commits or pushes performed.
+
 - 2026-11-01: User plans macOS and iOS releases and accepts manual Apple steps.
   Added macos unsigned-universal packaging and ios source-handoff targets, Apple
   preset settings, a native Mac iOS completion helper, and export/APPLE_RELEASE.md.
@@ -51,12 +57,12 @@ this summary does not replace them. Verify live environment state before acting.
 - 2026-10-30: User explicitly resumed the Tokyo Remembers plan after the earlier
   Docker-only task. Level 1 now uses cinematic then results, with Continue to 2
   and Replay retaining Level 1; other mission transitions remain unchanged.
-- Latest startup check (2026-10-30): found all four containers stopped, started
-  them with Compose, and verified website, backend countries endpoint, and
-  Ollama tags API returned HTTP 200. PostgreSQL and Ollama were healthy.
-  Django needed a brief startup interval before responding. This task only
-  restored services; no cinematic work was performed. Treat this as a dated
-  observation, not live status.
+- Latest startup check (2026-11-02): user requested restart. No existing project
+  containers were present in the active Docker session. Compose pulled images,
+  built backend/website and started all four services. PostgreSQL/Ollama healthy;
+  website, direct/proxied countries API and Ollama tags returned HTTP 200.
+  Startup/memory only: no game changes, imports, tests, exports or Git publication.
+  Treat this as a dated observation, not live status.
 - Use `docker` directly from PATH rather than a hardcoded executable path.
 - For cinematic asset production, use Blender and Python inside Docker.
 - Preserve existing narration lines unless the user requests changes.
@@ -661,3 +667,74 @@ origin/main; git ls-remote confirmed the remote SHA matched the local commit.
 This result is recorded in a documentation-only follow-up commit. No code/assets
 changed during publication; prior verification remains applicable. Resume tomorrow
 with the documented human acceptance checks; no further implementation is running.
+
+Latest-game-change recap (2026-11-02): confirmed from the recorded implementation
+and publication entries that the latest gameplay addition was the completed Level 4
+fortress and Act I finale, published as a17c83e. Server restart was operational only.
+No code/assets changed or verification suites rerun for this memory-only recap.
+
+Creative-freedom recap (2026-11-02): checked docs/ACT_I_REVIEW.md and fortress
+production notes. Earlier proposals cover Level 1 parry/archive guidance, Level 2
+rescue clarity/repeated defenses and Level 3 attrition/cinematic downtime, pending
+human observations. These are proposed follow-ups; Levels 1–3 were not rebuilt as
+part of the completed Level 4 creative pass. Read-only review plus memory update;
+no code/assets changed, imports or tests required.
+
+## Levels 1–3 teaching and objective defense — 2026-11-02
+
+Implemented contextual parry/archive/beacon/Blade guidance, state-specific rescue
+and spire markers, nine required Level 3 defenses of the original 30, and objective
+checkpoints. Levels 2–3 retire remote unfinished groups beyond 1,500 horizontal
+pixels using existing recovery/reward safeguards; default retirement stays disabled
+for Level 4. Routes/story/recruits/abilities/cinematics, stats/caps/score/save schema
+remain intact. Replay starts fresh; recovery retains objectives and reward slots.
+Human pacing/device acceptance remains pending; checklist in docs/ACT_I_REVIEW.md.
+Final build: zero errors; 153 existing full-compile warnings, clean incremental
+checks. Background import exits 0 with existing TLS/editor shutdown/resource
+diagnostics. run_tests.ps1 passes NUnit 88/88 and Godot 197/197 with zero failures/
+errors/orphans (report_399); host Django skips the absent venv. Final explicit
+copied-container Django passes 104/104 because the standard backend bind mount
+again returns ENODEV. Owned axiom-mission-readability-tests helper is stopped;
+all four normal services remain running.
+
+MCP inspected 51 state captures at all three requested sizes (dimensions checked,
+nine contact sheets); runtime samples contain no warnings/errors. Final Blade
+sign placement clears the portal lintel. All four results actions for each of
+Levels 1–3 pass, including fresh Replay and unchanged Continue/arrival rosters.
+Final required-only Level 3 traversal uses actual movement/abilities with diagnostic
+defense kills: 157.436 seconds assisted route/objective wall time, max six live
+enemies, zero recoveries or manual resumption. It supersedes an earlier helper run
+that missed Mirage's window; neither run establishes combat/human pacing.
+
+Seven new Godot checks cover controls/deflection, beacon/Blade states, rescue
+arrival and real abilities, recovery, retirement/reactivation, budget/rewards and
+objective checkpoints. Ledger cases cover every required defense, optional bypass
+and premature/duplicate events. Python compilation and diff hygiene pass. Evidence
+is under .validation/mission-readability/ and mission-readability-*.log. Editor PID
+12608 remains stopped on its original Level 1 scene. No existing saves used by MCP,
+no exports, staging, commits or pushes; earlier memory entries preserved.
+
+Creative direction supersedes prior fixed-script mandates (2026-11-02): user
+confirmed deleting the written creative documents docs/STORY_BIBLE.md and
+docs/full_game_plan.md while preserving executable game code and cinematics.
+Deleted both documents, removed active links and updated README/HANDOFF and the
+fortress production guide. Future creative work uses agent judgment under current
+user requests; historical story restrictions and exact-script adherence are no
+longer creative mandates. Existing implementation/QA records remain factual
+context. No new rewrite, code/data/recording changes, commits or pushes were
+requested or performed. Verified deletions, active references and diff hygiene;
+this Markdown-only cleanup needs no Docker preflight, import or test rerun.
+
+## Levels 1–3 and creative-direction publication — 2026-11-02
+
+User explicitly requested pushing the current changes, authorizing the required
+local commit and normal push. Reviewed the full tracked/untracked inventory and
+diff hygiene; fetched origin and confirmed main matches origin/main. Scope is
+the Levels 1–3 teaching/objective-defense implementation, tests/review tooling,
+documentation and the confirmed removal of the story bible/full development plan.
+Ignored credentials, validation evidence, caches and test reports remain excluded.
+This publication task changes Git/documentation only; prior build, NUnit 88/88,
+Godot 197/197 (zero failures/errors/orphans) and copied-container Django 104/104
+remain applicable without rerunning import/tests. Human pacing/device acceptance
+and existing Docker/import diagnostics remain as documented. Remote publication
+verification will be recorded after the push completes.

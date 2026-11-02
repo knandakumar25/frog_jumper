@@ -7,6 +7,8 @@ public interface IFiniteCombatHost
     CyberShogun CombatPlayer { get; }
     /// <summary>Arrival, recovery and results reject activation and projectiles.</summary>
     bool GameplaySuspended { get; }
+    /// <summary>Horizontal distance from a formation's authored center at which an incomplete attempt retires; zero disables retirement.</summary>
+    float EncounterRetirementDistance => 0;
     /// <summary>Queries an exact scene-local event identifier.</summary>
     bool HasCombatEvent(string id);
     /// <summary>Records one completed finite formation.</summary>

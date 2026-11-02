@@ -232,6 +232,8 @@ func test_complete_objective_chain_survives_recovery_at_every_milestone() -> voi
 	await _fall_and_recover(mission)
 	assert_int(mission.get("CivilianGroupsEvacuated")).is_equal(3)
 	assert_bool(mission.get("ExtractionReady")).is_true()
+	for id in ["road-parry", "road-dash", "residential-roofs", "overpass-center", "compound-approach"]:
+		assert_bool(mission.call("HasCombatEvent", "encounter:" + id)).is_false()
 	var manager := mission.get_node("GameManager")
 	manager.set("Points", 150)
 	player.emit_signal("ComboChanged", 4)

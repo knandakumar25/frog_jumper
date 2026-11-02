@@ -13,6 +13,8 @@ public partial class PalaceObjective : Node2D
     public int ShieldCharges { get; set; }
     /// <summary>True while the shield is up.</summary>
     public bool Shielded => ShieldCharges > 0;
+    /// <summary>Mission-controlled display state for a sealed Blade; pickup rules remain owned by the mission.</summary>
+    public bool Sealed { get; set; }
     /// <summary>Raised exactly once after beacon integrity reaches zero.</summary>
     [Signal] public delegate void NeutralizedEventHandler();
     private Area2D? _hurtbox;
@@ -111,6 +113,12 @@ public partial class PalaceObjective : Node2D
             DrawLine(new Vector2(-22,-33),new Vector2(16,-104),cyan,7,true);
             DrawLine(new Vector2(-32,-48),new Vector2(-2,-34),gold,5,true);
             DrawArc(new Vector2(0,-65),50+Mathf.Sin(_time*2)*3,0,Mathf.Tau,36,new Color(cyan,.35f),2,true);
+            if (Sealed)
+            {
+                DrawRect(new Rect2(-60, -125, 120, 125), new Color(.6f, .35f, .65f, .22f));
+                DrawLine(new Vector2(-60, -125), new Vector2(60, 0), new Color("#ffcf8a"), 4, true);
+                DrawLine(new Vector2(60, -125), new Vector2(-60, 0), new Color("#ffcf8a"), 4, true);
+            }
         }
         else if (Kind == "Exit")
         {

@@ -2,10 +2,13 @@
 
 ## Implemented direction
 Act I: testimony → civilian protection → occupation logistics → an opened border.
-See docs/STORY_BIBLE.md for ensemble canon and docs/ACT_I_REVIEW.md for the
-separately scheduled Levels 1–3 review. Their playable layouts are unchanged.
-Keep the Level 3 aftermath (90 seconds) and Level 4 arrival (120 seconds),
-recordings, mixed-state snapshot, Skip and missing-resource behavior intact.
+This guide records the shipped implementation and its acceptance checks;
+docs/ACT_I_REVIEW.md records the subsequent Levels 1–3 readability pass.
+The user has retired the story bible and fixed development plan in favor of
+agent-led creative direction. The details below are implementation history,
+not a mandatory script for future creative work. Existing Level 3 aftermath
+(90 seconds), Level 4 arrival (120 seconds), recordings, mixed-state snapshot,
+Skip and missing-resource behavior are retained by this documentation cleanup.
 
 ## Route and interaction contract
 The 28,000px route has service road (0–4000), Surya's position (4000–8000),

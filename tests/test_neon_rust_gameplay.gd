@@ -17,11 +17,12 @@ func _defeat(m: Node, id: String) -> void:
 
 func _seed_to_relay(m: Node) -> void:
 	## Seed prerequisites to isolate relay behavior; full live route verification covers physical objective actions.
-	for s in range(1, 8):
-		for g in range(1, [3,4,3,2,4,5,5][s-1]+1):
-			m.call("CompleteCombatEvent", "encounter:s%d-%d" % [s,g])
+	for id in ["s2-4", "s3-3", "s5-4", "s6-5", "s7-1", "s7-2", "s7-3"]:
+		m.call("CompleteCombatEvent", "encounter:" + id)
 	for id in ["barrier:insertion", "shipment:freight", "shipment:runoff", "recruit:aura", "lesson:aura", "shipment:harmonic", "uplink:west", "uplink:east", "coupler:west", "coupler:east"]:
 		m.call("CompleteCombatEvent", id)
+	m.call("CompleteCombatEvent", "encounter:s7-4")
+	m.call("CompleteCombatEvent", "encounter:s7-5")
 
 func test_defended_targets_reject_wrong_and_premature_abilities() -> void:
 	## No correct ability can bypass live defenders; arrival rejects direct external ability offers too.
@@ -31,10 +32,11 @@ func test_defended_targets_reject_wrong_and_premature_abilities() -> void:
 	await get_tree().process_frame
 	assert_bool(shipment.call("ReceiveAbility", "douse", shipment.position, 1.0)).is_false()
 	assert_bool(shipment.call("ReceiveAbility", "slam", shipment.position, 1.0)).is_false()
-	for g in range(1,5): _defeat(m, "s2-%d" % g)
+	_defeat(m, "s2-4")
 	assert_bool(shipment.call("ReceiveAbility", "slam", shipment.position + Vector2(-160,-46), 1.0)).is_true()
 	assert_bool(shipment.call("ReceiveAbility", "slam", shipment.position, 1.0)).is_false()
 	assert_bool(m.call("HasCombatEvent", "shipment:freight")).is_true()
+	assert_bool(m.call("HasCombatEvent", "encounter:s2-1")).is_false()
 	m.free()
 
 func test_cap_finite_completion_and_duplicate_rewards() -> void:
@@ -206,7 +208,7 @@ func test_aftermath_is_frozen_and_extraction_requires_escape() -> void:
 	p.position=Vector2(47700,554)
 	m.call("_PhysicsProcess",0.016)
 	assert_bool(m.get("MissionComplete")).is_false()
-	for id in ["recruit:mirage","lesson:mirage","encounter:s8-1","encounter:s8-2","encounter:s8-3","encounter:s8-4"]:
+	for id in ["recruit:mirage","lesson:mirage"]:
 		m.call("CompleteCombatEvent",id)
 	m.call("_PhysicsProcess",0.016)
 	m.call("_PhysicsProcess",0.016)

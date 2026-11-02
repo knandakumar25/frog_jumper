@@ -9,6 +9,9 @@ public sealed class WildfireProgressTests
     public void RepeatedEventsAreIdempotent()
     {
         var progress = new WildfireProgress();
+        progress.Complete("encounter:spire-street");
+        progress.Complete("encounter:residential-route");
+        progress.Complete("route:residential");
         Assert.That(progress.Complete("spire:street"), Is.True);
         Assert.That(progress.Complete("spire:street"), Is.False);
         progress.Complete("rescue:residential");
@@ -42,13 +45,23 @@ public sealed class WildfireProgressTests
         var progress = new WildfireProgress();
         string[] required = { "rescue:residential", "rescue:overpass", "rescue:extraction", "spire:street",
             "spire:tower", "spire:courtyard", "battery:core", "barrier:final" };
-        foreach (string id in required)
-            if (id != missing) progress.Complete(id);
+        // Supply local safety first, then retry the ordered objective chain to settle dependencies.
+        foreach (string id in new[] { "encounter:residential-route", "encounter:overpass-exit", "encounter:extraction-guard",
+            "encounter:spire-street", "encounter:spire-tower", "encounter:spire-courtyard", "relay:west", "relay:east" }) progress.Complete(id);
+        for (int retry = 0; retry < 3; retry++)
+        {
+            foreach (string id in required) if (id != missing) progress.Complete(id);
+            foreach (string id in new[] { "route:residential", "route:overpass", "route:extraction" }) progress.Complete(id);
+        }
         // Unrelated events with similar prefixes cannot substitute for an authored objective.
         progress.Complete("rescue:other");
         progress.Complete("spire:other");
         Assert.That(progress.CanExtract, Is.False);
-        progress.Complete(missing);
+        for (int retry = 0; retry < 3; retry++)
+        {
+            foreach (string id in required) progress.Complete(id);
+            foreach (string id in new[] { "route:residential", "route:overpass", "route:extraction" }) progress.Complete(id);
+        }
         Assert.That(progress.CanExtract, Is.True);
     }
 
@@ -63,5 +76,21 @@ public sealed class WildfireProgressTests
         Assert.That(fresh.Has("battery:core"), Is.False);
         Assert.That(fresh.Reward("road-parry:0"), Is.True);
         Assert.That(fresh.CanExtract, Is.False);
+    }
+
+    /// <summary>Defenders, relays and safe-route acceptance block premature objective callbacks without adding patrol requirements.</summary>
+    [Test]
+    public void PrematureObjectiveEventsCannotAdvanceProgress()
+    {
+        var p = new WildfireProgress();
+        foreach (string id in new[] { "spire:street", "spire:tower", "spire:courtyard", "battery:core",
+            "route:residential", "route:overpass", "route:extraction", "rescue:residential", "rescue:overpass", "rescue:extraction" })
+            Assert.That(p.Complete(id), Is.False, id);
+        p.Complete("encounter:residential-route");
+        Assert.That(p.Complete("rescue:residential"), Is.False);
+        Assert.That(p.Complete("route:residential"), Is.True);
+        Assert.That(p.Complete("rescue:residential"), Is.True);
+        Assert.That(p.Complete("rescue:residential"), Is.False);
+        Assert.That(p.Has("encounter:road-parry"), Is.False);
     }
 }

@@ -100,6 +100,10 @@ public partial class RecruitBeat : Node2D
         string tag = OperativeRoster.AbilityTagOf(Operative) ?? "";
         var (name, hint) = Describe(tag);
         string binding = _usingTouch ? WildfireText.Get("WF_TOUCH_ABILITY", "Ability") : WildfireText.Binding("karate", _usingPad);
+        // These missions use the controller's direct Q/Y input when the optional bootstrap action is absent.
+        // Keep the existing fortress lesson presentation unchanged.
+        if (!_usingTouch && binding == "karate" && Level is PalaceMission or ConcreteWildfireMission or NeonRustMission)
+            binding = _usingPad ? "Y / LB" : "Q";
         hint = WildfireText.Get("ABILITY_HINT_" + tag.ToUpperInvariant(), hint.Replace("Q", "{ability}")).Replace("{ability}", binding);
         name = WildfireText.Get("ABILITY_NAME_" + tag.ToUpperInvariant(), name);
         string active = _player!.ActiveProfile.DisplayName;

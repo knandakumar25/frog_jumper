@@ -20,7 +20,7 @@ m.get_node('NeonRustIntro').call('Finish')
 await get_tree().process_frame
 for s in range(1,9):
 	for g in range(1,[3,4,3,2,4,5,5,4][s-1]+1): m.call('CompleteCombatEvent','encounter:s%d-%d'%[s,g])
-for id in ['barrier:insertion','shipment:freight','shipment:runoff','recruit:aura','lesson:aura','shipment:harmonic','uplink:west','uplink:east','coupler:west','coupler:east','relay:central','recruit:mirage','lesson:mirage']: m.call('CompleteCombatEvent',id)
+for id in ['barrier:insertion','shipment:freight','shipment:runoff','recruit:aura','lesson:aura','shipment:harmonic','uplink:west','uplink:east','coupler:west','coupler:east','encounter:s7-4','encounter:s7-5','relay:central','recruit:mirage','lesson:mirage']: m.call('CompleteCombatEvent',id)
 var p=m.get_node('Actors/CyberShogun')
 p.position=Vector2(47700,554)
 m.call('_PhysicsProcess',0.016)

@@ -182,6 +182,8 @@ func test_level3_relay_blacks_out_comms_for_phoenicia_only() -> void:
 			mission.call("CompleteCombatEvent", "encounter:s%d-%d" % [s,g])
 	for id in ["shipment:freight", "shipment:runoff", "recruit:aura", "lesson:aura", "shipment:harmonic", "uplink:west", "uplink:east", "coupler:west", "coupler:east"]:
 		mission.call("CompleteCombatEvent", id)
+	mission.call("CompleteCombatEvent", "encounter:s7-4")
+	mission.call("CompleteCombatEvent", "encounter:s7-5")
 	assert_bool(relay.call("ReceiveAbility", "resonate", relay.global_position + Vector2(-150, 0), 1.0)).is_true()
 	assert_bool(mission.get("CommsBlackedOut")).is_true()
 	mission.free()

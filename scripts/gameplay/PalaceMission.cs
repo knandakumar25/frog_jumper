@@ -26,6 +26,9 @@ public partial class PalaceMission : CodeLevel
     private PalaceObjective _extraction = null!;
     private PalacePlatform _dojoGate = null!;
     private bool _bladeHintShown;
+    private Label _lanternInstruction = null!, _bladeStatus = null!, _beaconStatus = null!;
+    private float _parrySuccessRemaining;
+    private bool _courtDeflected;
 
     /// <inheritdoc/>
     protected override int MissionNumber => 1;
@@ -112,7 +115,7 @@ public partial class PalaceMission : CodeLevel
         _beacon = new PalaceObjective { Name = "DemolitionBeacon", Kind = "Beacon", Position = new Vector2(8500, -60), ShieldCharges = BeaconShieldCharges };
         _beacon.Neutralized += OnBeaconNeutralized;
         Actors.AddChild(_beacon);
-        _dataBlade = new PalaceObjective { Name = "DataBlade", Kind = "Blade", Position = new Vector2(9080, 0) };
+        _dataBlade = new PalaceObjective { Name = "DataBlade", Kind = "Blade", Sealed = true, Position = new Vector2(9080, 0) };
         Actors.AddChild(_dataBlade);
         _extraction = new PalaceObjective { Name = "ExtractionGate", Kind = "Exit", Position = new Vector2(9250, 0) };
         Actors.AddChild(_extraction);
@@ -161,6 +164,18 @@ public partial class PalaceMission : CodeLevel
     /// <summary>Adds the Kinetic Parry lesson in the Lantern Court, just before the sentries start firing in earnest.</summary>
     protected override void OnLevelReady()
     {
+        _lanternInstruction = GuidanceLabel(GetNode<Control>("MissionHUD/HUDRoot"), "LanternInstruction", new Vector2(0, 230));
+        _lanternInstruction.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.CenterTop);
+        _lanternInstruction.OffsetLeft = -340; _lanternInstruction.OffsetRight = 340;
+        _lanternInstruction.OffsetTop = 230; _lanternInstruction.OffsetBottom = 310;
+        _lanternInstruction.Visible = false;
+        // Keep all sealed-state lines above the extraction portal's lintel rather than behind its bright bar.
+        _bladeStatus = GuidanceLabel(_dataBlade, "BladeStatus", new Vector2(-180, -260));
+        _bladeStatus.Size = new Vector2(360, 105);
+        _beaconStatus = GuidanceLabel(_beacon, "BeaconStatus", new Vector2(-240, -245));
+        _beaconStatus.Size = new Vector2(480, 110);
+        GuidanceLabel(World, "ArchiveRoofSign", new Vector2(5700, -860)).Text = WildfireText.Get("PALACE_ARCHIVE_ROOF", "ARCHIVE →\nDESCEND THE SHELVES");
+        GuidanceLabel(World, "ArchiveDescentSign", new Vector2(6530, -420)).Text = WildfireText.Get("PALACE_ARCHIVE_DOWN", "↓ ARCHIVE / BEACON COURT →");
         Actors.AddChild(new RecruitBeat
         {
             Name = "ParryLesson", Level = this, Operative = "Cyber Shogun", Position = new Vector2(1700, 600),
@@ -172,9 +187,51 @@ public partial class PalaceMission : CodeLevel
         });
     }
 
+    /// <summary>Reuses the mission's cyan/gold, wrapped world-marker styling without new assets or voice cues.</summary>
+    private static Label GuidanceLabel(Node parent, string name, Vector2 position)
+    {
+        var label = new Label { Name = name, Position = position, Size = new Vector2(320, 90),
+            HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart,
+            MouseFilter = Control.MouseFilterEnum.Ignore, Modulate = new Color("#77efff") };
+        label.AddThemeFontSizeOverride("font_size", 18);
+        parent.AddChild(label);
+        return label;
+    }
+
+    /// <summary>Maintains the Lantern Court instruction independently of the optional recruit lesson's prompt timeout.</summary>
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        if (_lanternInstruction == null || MissionComplete || ArrivalActive) return;
+        _parrySuccessRemaining = Mathf.Max(0, _parrySuccessRemaining - (float)delta);
+        bool inCourt = Player.Position.X >= 1550 && Player.Position.X < 3100;
+        _lanternInstruction.Visible = inCourt && (!_courtDeflected || _parrySuccessRemaining > 0);
+        _lanternInstruction.Text = _courtDeflected
+            ? WildfireText.Get("PALACE_PARRY_SUCCESS", "DEFLECTION CONFIRMED / KINETIC PARRY")
+            : WildfireText.Get("PALACE_PARRY_CONTEXT", "KINETIC PARRY / {ability} as a sentry shot lands. Deflect it back.").Replace("{ability}", ContextBinding("karate"));
+        _beaconStatus.Text = BeaconNeutralized ? "" : BeaconGuidance();
+        _bladeStatus.Text = BeaconNeutralized
+            ? WildfireText.Get("PALACE_BLADE_READY", "DATA-BLADE / ACCESSIBLE")
+            : _beacon.Shielded
+                ? WildfireText.Get("PALACE_BLADE_SEALED", "DATA-BLADE / SEALED\nOVERLOAD SHIELD, THEN STRIKE BEACON")
+                : WildfireText.Get("PALACE_BLADE_EXPOSED", "DATA-BLADE / SEALED\nSTRIKE THE EXPOSED BEACON");
+        _bladeStatus.Modulate = new Color(BeaconNeutralized ? "#77ffba" : "#ffcf8a");
+    }
+
+    /// <summary>Reads live shield charges after recovery, so damage is never advertised while the field remains active.</summary>
+    private string BeaconGuidance() => _beacon.Shielded
+        ? WildfireText.Get("PALACE_BEACON_SHIELD", "BEACON SHIELD / {charges} CHARGES\nKINETIC PARRY: {ability} as nearby sentry fire lands")
+            .Replace("{charges}", _beacon.ShieldCharges.ToString()).Replace("{ability}", ContextBinding("karate"))
+        : WildfireText.Get("PALACE_BEACON_EXPOSED", "Shield down—strike the beacon");
+
     /// <summary>A deflected shot near the beacon knocks down one shield charge.</summary>
     private void OnParryDeflected(Node2D source)
     {
+        if (Player.Position.X >= 1550 && Player.Position.X < 3100)
+        {
+            _courtDeflected = true;
+            _parrySuccessRemaining = 3;
+        }
         if (BeaconNeutralized || !_beacon.Shielded) return;
         if (_beacon.GlobalPosition.DistanceTo(Player.GlobalPosition) > ParryRange) return;
         bool dropped = _beacon.HitShield();
@@ -221,8 +278,7 @@ public partial class PalaceMission : CodeLevel
         float x = Player.GlobalPosition.X;
         if (DataBladeRecovered) return "Reach the extraction gate";
         if (BeaconNeutralized) return "Take the Data-Blade from the dojo core";
-        if (x > 8000f && _beacon.Shielded) return "Parry sentry fire to overload the beacon shield";
-        if (x > 7000f) return "Destroy the demolition beacon";
+        if (x > 7000f) return BeaconGuidance();
         if (x > 5600f) return "Descend into the archive";
         if (x > 3560f) return "Run the palace rooftops";
         if (x > 3100f) return "Climb the Blossom Gorge";
@@ -234,6 +290,7 @@ public partial class PalaceMission : CodeLevel
     private void OnBeaconNeutralized()
     {
         BeaconNeutralized = true;
+        _dataBlade.Sealed = false;
         _dojoGate.Open();
         ShowDialogue("AXIOM-7: Beacon neutralized. The dojo gate is unsealed. Take the Data-Blade!", 8f);
     }
