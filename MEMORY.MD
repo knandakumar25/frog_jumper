@@ -881,3 +881,46 @@ PostgreSQL network. Root `.venv` and regular services are unchanged. Django pass
 (`reports/report_408`, zero errors/failures/orphans). Expected mocked Clerk/Resend
 failure diagnostics were printed by passing Django tests. Backend mount fault remains;
 the isolated helper avoids it. No exports, staging, commits or pushes.
+
+## PostgreSQL and Android user-level skills — 2026-11-02
+
+Installed `postgresql-best-practices` and `pg-graph` from `microsoft/postgres-skills`, plus all 36 Android skills from `android/skills`, into Codex (`C:\Users\karthiknk21\.agents\skills`), Claude Code (`C:\Users\karthiknk21\.claude\skills`), Antigravity app/IDE (`C:\Users\karthiknk21\.gemini\config\skills`), and Antigravity CLI (`C:\Users\karthiknk21\.gemini\antigravity-cli\skills`). Skills are direct children of each user-level skills root, with bundled references preserved. Updated AGENTS.md, CODEX.md, CLAUDE.md and GEMINI.md with task triggers, source repositories and installation paths. All four roots contain all 38 requested `SKILL.md` files, with identical SHA256 hashes and file counts for every skill tree compared against the checked-out source. No PostgreSQL MCP server, database connection, or project code/assets changed. No tests or Godot refresh required; no commits or pushes.
+
+## Mandatory skill-use policy — PostgreSQL and Android — 2026-11-02
+
+Strengthened AGENTS.md, CODEX.md, CLAUDE.md and GEMINI.md: relevant PostgreSQL and Android work now has an explicit MUST-first requirement matching the Docker skill rule. It covers tools/commands and implementation, debugging, testing, advice, planning, reviews and documentation; requires reading and applying complete relevant skill instructions plus bundled Android references; routes graph modeling/AGE/openCypher to also read `pg-graph`; and says not to bypass inaccessible guidance. No installs or code/assets changed in this policy update. `git diff --check` is the verification; no tests or Godot refresh required.
+
+## Microsoft Godot C# Essentials skill — 2026-11-02
+
+Downloaded `microsoft/godot-csharp-essentials` at commit `781ebb984d67ef652bf034d24cf573174436be47` and installed it as discoverable `godot-csharp-essentials` skill for Codex, Claude Code, Antigravity app/IDE, and Antigravity CLI. The source repository has lesson READMEs and sample projects but no `SKILL.md`; added a concise skill entrypoint that routes to the relevant lesson and bundled the complete repository under `references/course/`. Sample projects declare Godot 4.5, so the entrypoint and all four agent guides require adaptation to this project's Godot 4.7.2 .NET/C# and 2D architecture. No project code/assets changed. Source-to-install SHA256 and file-count comparisons pass in all four roots (339 repository files plus SKILL.md). All four agent guides expose the Godot C# task trigger; direct frontmatter and discovery-path checks pass. The skill-creator quick validator could not start because the available Python lacks PyYAML. No tests or Godot refresh required.
+
+## Microsoft Xbox/GDK repository integration review — 2026-11-02
+
+Read-only assessment of Microsoft `XBOX-Godot-Sample`, `XBOX-Godot-NetRumble`, `XBOX-GDK-dotnet`, `XBOX-MonoGame-NetRumble`, `GDK`, and `Xbox-GDK-Samples` against Axiom Force. The project is Godot 4.7.2/.NET 10 with PostgreSQL-only campaign persistence, existing controller InputMap bindings, and an `Xbox / Windows GDK` preset that is currently a Windows Desktop export with custom feature tags; no GDK, PlayFab, or GameInput addon is currently enabled. Best direct integration candidate, if Xbox on PC is an active release target: selectively use `XBOX-Godot-Sample`'s Godot GDExtension, starting with GDK achievements and adding GameInput only if platform testing shows Godot's joypad backend misses input. Keep existing Django/PostgreSQL auth/save/leaderboard contracts authoritative; avoid duplicate PlayFab persistence and do not add multiplayer/Party without a multiplayer requirement. NetRumble (Godot GDScript) and MonoGame NetRumble are references for service facade/platform abstraction and multiplayer only, not wholesale imports. GDK.NET is .NET 10-compatible but Windows-only and not specifically validated as a Godot integration. Series X|S support has additional GDKX/devkit/Middleware Godot requirements and is distinct from Xbox on PC. No implementation, exports, or tests performed; review only.
+
+## Latest gameplay change lookup — 2026-11-02
+
+Read-only history check: latest gameplay addition is the Mission 5 post-extraction `Names Without Numbers` epilogue, added with the final Linux Django runner follow-up in commit `210656b`. The immediately preceding mission implementation is `8841ea2`. No tests or Godot refresh required; no code/assets changed for this lookup.
+
+## Mission 5 combat tuning — 2026-11-02
+
+Separated most neighboring Level 5 formation activation ranges and added mission-specific
+timing overrides: gunner warning 1.45s/recovery 2.6s and sentry warning 1.0s. Shared
+combat defaults, health, all 17 three-enemy formations, six-enemy cap, checkpoint and
+progress/save contracts remain unchanged. Docker preflight started and verified all four
+normal services. A short normal-input service approach ran, but the remote evaluator
+stalled the game loop before combat; no unassisted baseline or duration/death/recovery
+measurements were obtained. Background Godot import exited 0 with known addon TLS/editor
+shutdown diagnostics; C# build passed with 153 existing warnings and zero errors.
+`run_tests.ps1` passed Django 104/104, NUnit, and GdUnit4 214/214 (report_409, zero
+errors/failures/orphans). All four normal Docker services remain up and the disposable
+Django test helper was removed. No save/backend contract changes; sustained playtest
+remains outstanding.
+
+## Git handoff scope — 2026-11-02
+
+User explicitly requested pushing the current tracked project changes before switching
+to Google Antigravity. This includes the Mission 5 tuning and agent skill-guidance updates;
+the machine-specific VS Code editor path and untracked local skill-install staging files
+are excluded. The existing import, build and test results above are the verification for
+the gameplay code.

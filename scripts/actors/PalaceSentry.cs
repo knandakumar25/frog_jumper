@@ -7,6 +7,8 @@ public partial class PalaceSentry : CharacterBody2D
     public float MaxHealth { get; set; } = 70;
     /// <summary>Remaining integrity for damage feedback and encounter checks.</summary>
     public float CurrentHealth { get; private set; }
+    /// <summary>Telegraph length before the locked beam fires; mission encounters may tune it without changing damage.</summary>
+    public float WarningDuration { get; set; } = .8f;
     /// <summary>Target is assigned by the mission so enemies never bind to another scene's player.</summary>
     public CyberShogun Target { get; set; } = null!;
     /// <summary>Emitted once, before the drone is freed, to award mission score.</summary>
@@ -61,7 +63,7 @@ public partial class PalaceSentry : CharacterBody2D
         {
             // Aim is locked during the warning so players can jump or dash out of the beam.
             _aim = difference.LengthSquared() > .001f ? difference.Normalized() * 550 : Vector2.Left * 550;
-            _windup = .8f;
+            _windup = WarningDuration;
         }
         QueueRedraw();
     }

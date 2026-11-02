@@ -13,6 +13,10 @@ public partial class WildfireGunner : CharacterBody2D
     public float Health { get; private set; } = 70;
     /// <summary>Readable state exposed for diagnostics.</summary>
     public string State { get; private set; } = "recovery";
+    /// <summary>Time the locked aim remains visible before the three-shot burst begins.</summary>
+    public float WarningDuration { get; set; } = 1.1f;
+    /// <summary>Time the gunner rests after its finite burst before it can aim again.</summary>
+    public float RecoveryDuration { get; set; } = 2.1f;
     private float _clock = 1.2f;
     private int _shots;
     private Vector2 _aim = Vector2.Left;
@@ -28,7 +32,7 @@ public partial class WildfireGunner : CharacterBody2D
         WildfireVisual.AddSprite(this, "gunner", new Vector2(110, 100), new Vector2(0, -44));
     }
 
-    /// <summary>Locks a clear firing line for 1.1 seconds; bullets never home after warning.</summary>
+    /// <summary>Locks a clear firing line for the configured warning; bullets never home after warning.</summary>
     public override void _PhysicsProcess(double delta)
     {
         if (Health <= 0 || Mission.GameplaySuspended || !IsInstanceValid(Target)) return;
@@ -43,7 +47,7 @@ public partial class WildfireGunner : CharacterBody2D
                 Mission.LaunchRound(muzzle, _aim, this);
                 _shots++;
                 _clock = .22f;
-                if (_shots == 3) { State = "recovery"; _clock = 2.1f; }
+                if (_shots == 3) { State = "recovery"; _clock = RecoveryDuration; }
             }
             else if (difference.LengthSquared() < 650 * 650 && Target.CurrentHealth > 0)
             {
@@ -52,7 +56,7 @@ public partial class WildfireGunner : CharacterBody2D
                 {
                     _aim = difference.LengthSquared() > .001f ? difference.Normalized() : Vector2.Left;
                     State = "aim";
-                    _clock = 1.1f;
+                    _clock = WarningDuration;
                 }
             }
         }

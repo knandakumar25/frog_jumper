@@ -18,6 +18,12 @@ public partial class WildfireEncounter : Node2D
     public IFiniteCombatHost Mission { get; set; } = null!;
     /// <summary>Reinforcements are started by the battery rather than by proximity.</summary>
     public bool ManualActivation { get; set; }
+    /// <summary>Readable aim warning assigned to this group's gunners; defaults preserve existing missions.</summary>
+    public float GunnerWarningDuration { get; set; } = 1.1f;
+    /// <summary>Visible lull after a gunner's three-shot burst; defaults preserve existing missions.</summary>
+    public float GunnerRecoveryDuration { get; set; } = 2.1f;
+    /// <summary>Locked-beam warning assigned to this group's sentries; defaults preserve existing missions.</summary>
+    public float SentryWarningDuration { get; set; } = .8f;
     /// <summary>True while at least one member in this attempt remains alive.</summary>
     public bool Active { get; private set; }
     /// <summary>Completed groups never respawn during this scene instance.</summary>
@@ -61,14 +67,15 @@ public partial class WildfireEncounter : Node2D
             if (spec.Gunner)
             {
                 var gunner = new WildfireGunner { Name = $"Gunner{i}", Position = spec.Position,
-                    Target = Mission.CombatPlayer, Mission = Mission };
+                    Target = Mission.CombatPlayer, Mission = Mission,
+                    WarningDuration = GunnerWarningDuration, RecoveryDuration = GunnerRecoveryDuration };
                 gunner.Defeated += () => MemberDefeated(index, generation);
                 AddChild(gunner);
             }
             else
             {
                 var sentry = new PalaceSentry { Name = $"Sentry{i}", Position = spec.Position,
-                    Target = Mission.CombatPlayer, MaxHealth = 70 };
+                    Target = Mission.CombatPlayer, MaxHealth = 70, WarningDuration = SentryWarningDuration };
                 sentry.Defeated += () => MemberDefeated(index, generation);
                 AddChild(sentry);
             }

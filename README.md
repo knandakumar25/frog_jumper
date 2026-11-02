@@ -23,6 +23,13 @@ attack action, or click/tap the nearby console. Exact prerequisites reject prema
 objectives and formations survive checkpoints, incomplete groups reset and each member
 rewards once across retries. Three optional civilian testimony fragments never gate exit.
 
+Mission 5 combat tuning separates most adjacent formation activation ranges and gives its
+gunners 1.45-second aim warnings with 2.6 seconds of post-burst recovery; sentry beams
+warn for 1 second. Enemy health, formation count, six-enemy cap and other missions'
+default combat timings are unchanged. The full unassisted route and 25–30-minute target
+still need a sustained playtest. The tuning build, import and full test runner passed;
+see [Mission 5 acceptance](tools/gameplay/NAMES_WITHOUT_NUMBERS.md) for details.
+
 Surya remains unlocked and speaks over comms from the queue. His slot shows
 “Protecting the queue”; roster selection, direct player swaps and cycling all exclude
 him only in Mission 5. Invalid preferred selections fall back to Kaito. Mirage phases

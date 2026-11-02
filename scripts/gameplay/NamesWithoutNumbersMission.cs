@@ -130,11 +130,14 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
     /// <summary>Seventeen three-member formations, with three sequential manually activated core waves and a six-actor ceiling.</summary>
     protected override void SpawnEnemies()
     {
-        float[] xs={2500,3400,5000,6400,7600,9400,10100,11600,13300,14300,15700,16600,17900,18700,21400,22500,23400};
+        // Keep paired required groups just beyond their 1,250px activation span so one
+        // approach does not wake two full formations together. Objective order and count stay fixed.
+        float[] xs={2500,3800,5000,6500,8000,9400,10700,12000,13300,14600,15700,17000,17900,19200,21400,22500,23400};
         for(int i=0;i<xs.Length;i++)
         {
             string id=NamesProgress.Formations[i];float x=xs[i];
             var e=new WildfireEncounter { Name="Formation"+id,Id=id,Mission=this,ManualActivation=id.StartsWith("core"),
+                GunnerWarningDuration=1.45f,GunnerRecoveryDuration=2.6f,SentryWarningDuration=1f,
                 Activation=new Rect2(x-500,-200,1250,1000),Acceptance=()=>Progress.CanStartFormation(id),
                 Members=new[]{(new Vector2(x+100,EnemyFloor(x+100)),true),(new Vector2(x+270,EnemyFloor(x+270)-170),false),(new Vector2(x-120,EnemyFloor(x-120)-170),false)} };
             _encounters.Add(e);Actors.AddChild(e);

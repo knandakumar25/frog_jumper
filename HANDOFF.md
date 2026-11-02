@@ -68,6 +68,26 @@ attack action, or click/tap the nearby console. Exact prerequisites reject prema
 objectives and formations survive checkpoints, incomplete groups reset and each member
 rewards once across retries. Three optional civilian testimony fragments never gate exit.
 
+### Combat tuning follow-up — 2026-11-02
+
+Moved most neighboring formation centers far enough apart to avoid waking two three-member
+groups from the same approach. Mission 5 alone uses a 1.45s gunner aim warning, 2.6s
+post-burst recovery and 1.0s sentry beam warning. The encounter component defaults retain
+the prior values for other levels. No enemy health, finite formation count, six-enemy cap,
+checkpoint behavior, objective order or campaign-save contract changed. Exact coordinates
+and the current playtest limitation are in `tools/gameplay/NAMES_WITHOUT_NUMBERS.md`.
+
+The required unassisted baseline could not be completed: a normal-input service approach
+was started, but the Godot remote evaluator stalled the game loop before combat. The
+diagnostic-clearance route remains unsuitable as a substitute. A sustained run is still
+needed to measure duration, deaths, checkpoint recoveries and combat pacing. Tuning
+verification: background import exited 0 with the existing addon TLS/editor shutdown
+diagnostics; `dotnet build AxiomForce.csproj` passed with 153 existing warnings and zero
+errors; `run_tests.ps1` passed Django 104/104, NUnit, and GdUnit4 214/214
+(`reports/report_409`, zero errors/failures/orphans). The run includes existing Level 5
+ledger and runtime coverage. All four regular Docker services remain up; its disposable
+Django test helper was removed. No persistence/backend contract changed.
+
 Surya remains unlocked and speaks over comms from the queue. His slot shows
 “Protecting the queue”; roster selection, direct player swaps and cycling all exclude
 him only in Mission 5. Invalid preferred selections fall back to Kaito. Mirage phases

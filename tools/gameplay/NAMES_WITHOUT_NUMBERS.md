@@ -11,10 +11,37 @@
 
 The 25–30-minute target is unvalidated. No minimum timer or endless spawn pads play.
 The assisted route uses real input and diagnostic enemy clearance; it cannot measure
-combat balance. Checkpoint state is scene-local; Replay starts fresh. Scanner timing:
+combat balance. A normal-input service approach was attempted during this tuning pass,
+but the Godot remote evaluator stalled the game loop before combat, so it is not a
+baseline. Checkpoint state is scene-local; Replay starts fresh. Scanner timing remains
 1.5s amber warning, 1.2s white pulse, 3.3s safe dark. Mandatory stairs are 100px, below
 the existing 177px weakest jump estimate. Optional testimony is at (2650,400),
 (10700,400), (17600,300). Terminals use attack context input across devices.
+
+## Combat tuning — 2026-11-02
+
+Kept all 17 three-member formations, enemy health and composition, six-enemy ceiling,
+objective gates, checkpoints and core sequence. Adjusted route formation centers to
+separate most neighboring activation ranges: service `2500/3800`, processing
+`5000/6500/8000`, utilities `9400/10700/12000`, archives `13300/14600`,
+`15700/17000`, `17900/19200`; core remains `21400/22500/23400`. The objective ledger
+still prevents later archive groups from activating before their preceding records.
+Mission 5 gunners now telegraph for 1.45s and rest for 2.6s after their burst; sentry
+beams telegraph for 1.0s. Other missions keep the existing 1.1s/2.1s and 0.8s defaults.
+
+These values address the statically confirmed adjacent-formation overlap and provide
+longer response/recovery windows without raising health. The complete unassisted route,
+death/recovery count, 25–30-minute target and subjective encounter feel remain to be
+validated in a sustained playtest.
+
+Final tuning verification (2026-11-02): background Godot import exited 0; the existing
+asset-placer TLS and editor shutdown diagnostics remain. `dotnet build AxiomForce.csproj`
+passed with 153 existing warnings and zero errors. `run_tests.ps1` passed Django
+104/104, NUnit, and GdUnit4 214/214 (`reports/report_409`, zero errors/failures/orphans).
+The full suite includes the Level 5 progress ledger and scene runtime checks. All four
+normal Docker services remain up; the disposable Django test helper was removed. No save
+or backend code changed. Full-route duration, combat deaths, and checkpoint recoveries
+were not measured because the remote play session stalled before the first formation.
 
 Production commands use the existing opt-in Docker media image, never game exports:
 
