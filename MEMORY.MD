@@ -655,3 +655,9 @@ Resume tomorrow from tools/gameplay/SHATTERED_AEGIS.md and the latest HANDOFF:
 human first-run pacing, physical controller/touch and speaker listening remain
 outstanding. Docker bind-mount and import diagnostics remain documented. No
 additional gameplay work or service shutdown was requested for this publication.
+
+Publication verified: implementation commit a17c83e (87 files) pushed normally to
+origin/main; git ls-remote confirmed the remote SHA matched the local commit.
+This result is recorded in a documentation-only follow-up commit. No code/assets
+changed during publication; prior verification remains applicable. Resume tomorrow
+with the documented human acceptance checks; no further implementation is running.

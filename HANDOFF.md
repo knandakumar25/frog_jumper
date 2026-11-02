@@ -3,6 +3,8 @@
 ## Tomorrow resume / publication — 2026-11-01
 
 User requested pushing the current fortress work and continuing tomorrow.
+Implementation commit a17c83e was pushed to origin/main and its remote SHA verified.
+This publication record is included in a documentation-only follow-up commit.
 Implementation and regression verification are complete as recorded below.
 Start with tools/gameplay/SHATTERED_AEGIS.md; outstanding acceptance is human
 20–25 minute pacing, physical controller/touch and speaker listening. The existing
