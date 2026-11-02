@@ -19,6 +19,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private Button? _mainMenuBtn;
 	private AudioStreamPlayer? _jinglePlayer;
 	private Button? _continueBtn;
+	private Button? _previewBtn;
 	private int _nextMission;
 	private bool _navigating;
 	private Input.MouseModeEnum _previousMouseMode;
@@ -38,6 +39,8 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		_mainMenuBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/ButtonsHBox/MainMenuBtn");
 		_jinglePlayer = GetNodeOrNull<AudioStreamPlayer>("JinglePlayer");
 		_continueBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/ContinueBtn");
+		_previewBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/PreviewBtn");
+		if (_previewBtn != null) _previewBtn.Pressed += OnPreviewPressed;
 		if (_continueBtn != null) _continueBtn.Pressed += OnContinuePressed;
 
 		if (_replayBtn != null) _replayBtn.Pressed += OnReplayPressed;
@@ -60,17 +63,24 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	public void ShowMissionScorecard(int score, int maxCombo, string operative, int nextMission)
 		=> RenderScorecard(score, maxCombo, operative, nextMission);
 
-    /// <summary>Shows the completed opening act with Replay, Level Select and Main Menu and no unimplemented Continue target.</summary>
+    /// <summary>Shows Act I results with the standalone Act II Preview, Replay, Level Select and Main Menu.</summary>
     public void ShowActScorecard(int score, int maxCombo, string operative)
     {
         RenderScorecard(score, maxCombo, operative, 0);
         if (_titleLabel != null) _titleLabel.Text = "ACT I COMPLETE";
+        if (_previewBtn != null)
+        {
+            string text = Tr("ACT_II_PREVIEW");
+            _previewBtn.Text = text == "ACT_II_PREVIEW" || string.IsNullOrWhiteSpace(text) ? "ACT II PREVIEW" : text;
+            _previewBtn.Visible = true;
+        }
     }
 
 	/// <summary>Renders the captured results, optionally showing Continue; grading is shared by all callers.</summary>
 	private void RenderScorecard(int score, int maxCombo, string operative, int nextMission)
 	{
 		if (_rootPanel == null) return;
+		if (_previewBtn != null) _previewBtn.Visible = false;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
 		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
 		if (_continueBtn != null && _nextMission > 0) _continueBtn.Text = $"CONTINUE TO LEVEL {_nextMission}";
@@ -171,6 +181,13 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		Navigate("res://scenes/main_menu/main_menu.tscn");
 	}
 
+	/// <summary>Launches only the standalone preview; never prepares a mission, session, roster or save.</summary>
+	private void OnPreviewPressed()
+	{
+		if (_previewBtn is not { Visible: true }) return;
+		Navigate("res://scenes/cutscenes/act_ii_opening.tscn");
+	}
+
 	/// <summary>Consumes repeated navigation input and releases any legacy pause before changing scene.</summary>
 	private void Navigate(string path)
 	{
@@ -188,7 +205,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		if (input is InputEventScreenTouch { Pressed: true } touch) point = touch.Position;
 		else if (input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse) point = mouse.Position;
 		else return;
-		foreach (var button in new[] { _continueBtn, _replayBtn, _levelSelectBtn, _mainMenuBtn })
+		foreach (var button in new[] { _continueBtn, _previewBtn, _replayBtn, _levelSelectBtn, _mainMenuBtn })
 		{
 			if (button is not { Visible: true } || !button.GetGlobalRect().HasPoint(point)) continue;
 			GetViewport().SetInputAsHandled();

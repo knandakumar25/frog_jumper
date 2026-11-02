@@ -1,0 +1,92 @@
+[
+  {
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "start": 8,
+    "end": 20,
+    "text": "The crossing is open. I thought that meant they could finally go home. Why is no one moving?"
+  },
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "start": 20,
+    "end": 32,
+    "text": "Their identities are marked invalid. Transit, food distribution, shelter access—all refused. The district recognizes their bodies, but denies that they belong here."
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "start": 32,
+    "end": 44,
+    "text": "They survived the wall. Now they have to prove they exist before someone will give them water. Stay with us. We’ll find another way."
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "start": 44,
+    "end": 56,
+    "text": "No chains. No prison doors. Just a light that says no, and a city trained to look away."
+  },
+  {
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "start": 56,
+    "end": 68,
+    "text": "The scanners aren’t losing their names. Something upstream is removing them. Every rejection carries the same command signature."
+  },
+  {
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "start": 68,
+    "end": 80,
+    "text": "There’s a service passage beneath the processing hall. No public entrance, no queue. That’s usually where they hide the useful doors."
+  },
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "start": 80,
+    "end": 92,
+    "text": "District identity registry. It controls the exclusion list and holds the original records. Destroying it could erase the only evidence these people have left."
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "start": 92,
+    "end": 104,
+    "text": "Then we keep the records intact. Get inside, recover their identities, and stop the registry from locking them out again."
+  },
+  {
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "start": 104,
+    "end": 110,
+    "text": "I’ll keep this queue safe. Bring their names back."
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "start": 110,
+    "end": 114,
+    "text": "All of them. Squad—move."
+  }
+]

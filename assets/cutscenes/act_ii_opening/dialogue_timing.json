@@ -1,0 +1,92 @@
+[
+  {
+    "cue": 1,
+    "speaker": "SURYA / Brian",
+    "start": 8.2,
+    "source_duration": 5.616327,
+    "tempo": 1,
+    "end": 13.768344671201813,
+    "cached_source": "cue1.mp3"
+  },
+  {
+    "cue": 2,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 20.2,
+    "source_duration": 13.400816,
+    "tempo": 1.1632652777777777,
+    "end": 31.710748299319725,
+    "cached_source": "cue2.mp3"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS / Sarah",
+    "start": 32.2,
+    "source_duration": 7.88898,
+    "tempo": 1,
+    "end": 40.0443537414966,
+    "cached_source": "cue3.mp3"
+  },
+  {
+    "cue": 4,
+    "speaker": "TITAN / George",
+    "start": 44.2,
+    "source_duration": 5.851429,
+    "tempo": 1,
+    "end": 49.99600907029479,
+    "cached_source": "cue4.mp3"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA / Matilda",
+    "start": 56.2,
+    "source_duration": 7.523265,
+    "tempo": 1,
+    "end": 63.66453514739229,
+    "cached_source": "cue5.mp3"
+  },
+  {
+    "cue": 6,
+    "speaker": "MIRAGE / Eric",
+    "start": 68.2,
+    "source_duration": 6.948571,
+    "tempo": 1,
+    "end": 75.11795918367348,
+    "cached_source": "cue6.mp3"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 80.2,
+    "source_duration": 10.866939,
+    "tempo": 1,
+    "end": 91.01267573696146,
+    "cached_source": "cue7.mp3"
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO / Adam",
+    "start": 92.2,
+    "source_duration": 6.713469,
+    "tempo": 1,
+    "end": 98.88154195011339,
+    "cached_source": "cue8.mp3"
+  },
+  {
+    "cue": 9,
+    "speaker": "SURYA / Brian",
+    "start": 104.2,
+    "source_duration": 3.056327,
+    "tempo": 1,
+    "end": 107.21526077097506,
+    "cached_source": "cue9.mp3"
+  },
+  {
+    "cue": 10,
+    "speaker": "KAITO / Adam",
+    "start": 110.2,
+    "source_duration": 2.690612,
+    "tempo": 1,
+    "end": 112.83866213151927,
+    "cached_source": "cue10.mp3"
+  }
+]

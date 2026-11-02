@@ -4,6 +4,43 @@ A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with
 
 ---
 
+## Act II preview — The Unregistered
+
+Level 4’s **ACT I COMPLETE** results now offer **ACT II PREVIEW** alongside the
+existing results actions. The standalone 120-second opening introduces **Mission 5:
+Names Without Numbers** with the established cast, new layered surveillance-district
+art and synthesized atmosphere. The opening title occupies the first eight seconds;
+the final six seconds show the objective in silence. Skip (button, Escape or controller
+Start) and natural completion both reach **ACT II PREVIEW COMPLETE**. Replay Preview
+and Main Menu support mouse, keyboard and gamepad focus.
+
+This is a presentation preview: there are still four playable missions. It creates
+no session, grants no operatives, changes no campaign progress or scores, and writes
+no saves. Missing speech retains timed subtitles; missing essential artwork reaches
+the preview ending safely. Reproduction commands and provenance are documented in
+[the cinematic production guide](tools/cutscene/README.md#act-ii--the-unregistered).
+
+Verified 2026-11-02: complete playback, results entry, replay/menu routes, Skip and
+missing-resource fallbacks; layouts inspected at 1920×1080, 1920×1200 and 2560×1080.
+NUnit 88/88, Godot 203/203 and isolated Django 104/104 pass. Existing build/import
+and Docker mount diagnostics remain. Subjective speaker listening and physical
+controller/touch acceptance remain unperformed.
+
+## Act I opening label
+
+Level 1 shows a centered cyan **ACT I** above its mission title as gameplay begins.
+It uses `CAMPAIGN_ACT_I_TITLE` with English fallback, shares the existing 3.2-second
+hold and 1.2-second fade, and adds no pause or input. Fresh launches (briefing
+completion/Skip, level selection and Replay) show it; checkpoint recovery does
+not replay it. Levels 2–4 retain their existing title cards.
+
+Verified 2026-11-02: all launch paths and recovery checked through runtime
+callbacks; layouts inspected at 1920×1080, 1920×1200 and 2560×1080. Build/import
+complete; NUnit 88/88, Godot 197/197 (zero failures/errors/orphans) and isolated
+container Django 104/104 pass. Existing compile/import diagnostics remain; Django
+used a temporary source copy because the running container's host bind mount is
+unreadable. The wrapper skips Django when the host virtual environment is absent.
+
 ## PostgreSQL-only persistence and browser checks
 
 If Docker has no existing project containers or cached images, restoring the

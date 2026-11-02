@@ -399,3 +399,63 @@ production helper also used copied inputs. Both owned helpers are now stopped;
 the four normal services remain running. Editor remains stopped on Level 1.
 Physical controller/touch hardware and speaker-listening checks remain unperformed.
 No export, staging, commit or push; changes remain local and uncommitted.
+
+## Act II — The Unregistered
+
+Standalone 120-second campaign preview, reached only through Level 4’s Act I results
+Preview button or direct scene launch. It never enters Mission 5 gameplay. Shots begin
+at 0, 8, 20, 32, 44, 56, 68, 80, 92, 104 and 114; the 104–114 shot switches from Surya
+to Kaito at 110. Titles and objective are silent; text remains in Godot. Established
+five-member poses plus the existing Surya atlas preserve character designs. Existing
+voice IDs/settings come from the fortress arrival; only ten new dialogue requests
+are made. Provenance and measured fit bounds accompany cues.json.
+
+```powershell
+docker compose build cutscene
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_unregistered.py -- --preview
+# Inspect .validation/unregistered/queue_artwork.png before rendering the family.
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_unregistered.py
+python tools/cutscene/narrate_unregistered.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_unregistered.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_unregistered.py
+python tools/cutscene/review_unregistered.py
+```
+
+If the documented Docker Desktop D: mount fault persists, use an owned unmounted
+axiom-force-cutscene container and copy tools/art, tools/cutscene, assets/cutscenes/
+act_ii_opening, assets/cutscenes/shattered_aegis_intro/cues.json, scripts/ui/
+ActIIOpening.cs and .validation/unregistered/speech into their /workspace paths.
+Run Blender and packaging with docker exec, then copy the generated assets and
+.validation/unregistered evidence back. Stop only the owned helper. No exports.
+
+Narration uses ignored local credentials without logging them, verifies cast access,
+and refuses cache request mismatches. Packaging normalizes complete cues to -18 LUFS,
+fits below 1.2x, applies the established AXIOM EQ and synthesizes seeded ventilation,
+scanner pulses and steps. Runtime atmosphere gain is -18 dB relative to speech; both
+120-second tracks are silent after 114. Validation checks all raster sizes/alpha,
+cast/request/audio hashes, measured cue windows, decoded track and summed mix peaks.
+The review script captures every shot and completion at three aspect ratios, measures
+uninterrupted playback/clock agreement, checks read-only progression snapshots, and
+exercises results entry, replay, repeated Skip and Main Menu without creating saves.
+
+Act II verification (2026-11-02): fourteen PNG layers, two exact 120-second Ogg
+tracks, all ten existing cast IDs, cached request/audio hashes, subtitle text,
+measured fitting windows, silent ending and decoded mix peak pass. First AXIOM
+line fits at 1.1633x; all other cues retain source tempo. Inspected all 36 shot,
+three completion and one results captures; all three requested image dimensions
+were checked. Full playback completes with sound stopped and under 28.5 ms sampled
+clock separation. Runtime navigation/progression checks pass; PostgreSQL campaign
+row hashes match. Full playback and navigation evidence are separate because the
+QA harness originally assumed zero polling overhead and created a duplicate results
+node. The corrected review uses the real existing scorecard. --reuse-captures skips
+previously inspected captures; --navigation-only isolates destination checks while
+retaining full playback evidence. Neither option implies uninterrupted playback.
+Speaker listening and physical controller/touch hardware remain unverified.
+
+Final verification after all source/tool edits: background import exit 0 with all
+sixteen sidecars; incremental build zero warnings/errors; NUnit 88/88, Godot 203/203
+(report_402; zero failures/errors/orphans), copied-source container Django 104/104.
+Known import/addon/reference diagnostics remain as documented. Keyboard arrows/
+physical Enter and injected controller D-pad/A also pass actual GUI focus, Replay
+and Main Menu dispatch. The owned artwork helper is stopped; all four normal
+services and the original stopped Level 1 editor are preserved. No game exports.

@@ -1,5 +1,60 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Act II preview — 2026-11-02
+
+Implemented standalone scenes/cutscenes/act_ii_opening.tscn with ActIIOpening’s
+120-second compensated clock, bounded speech-stall fallback and one-shot completion.
+ActIIStage independently samples the opening title, district/denial/escort/camera/
+signal/service/registry/briefing/advance shots and final mission objective. Existing
+operative atlases and cast IDs are reused. Ten new ElevenLabs cues include separate
+Surya/Kaito lines in the last dialogue shot. Artwork has no baked text; all titles,
+subtitles, objective and controls use localization keys with English fallbacks.
+
+CyberVictoryScorecard exposes PreviewBtn only through ShowActScorecard and hides
+it on ordinary results. Its separate callback changes directly to the preview;
+Continue, Replay, Level Select, captured stats and Main Menu remain intact. No
+LevelCatalog, progression, persistence schema, session or backend changes. Skip and
+natural completion stop both owned audio players before revealing a local completion
+panel. Completion focus is deferred past Skip dispatch to avoid same-event replay.
+Replay instantiates a fresh scene; Main Menu uses the existing menu. Scene exit
+restores the prior cursor/prompt state and stops all owned sound.
+
+Production and review tools: tools/cutscene/*_unregistered.py. Cues, measured timing,
+cast/settings/request/audio hashes and layered art provenance accompany the assets.
+Automated checks cover deterministic subtitles, Skip paths/repetition, missing/stalled
+speech, missing artwork, focus/teardown and results visibility. Initial verification:
+C# build has zero errors and 153 existing warnings; NUnit 88/88 and Godot 203/203
+(report_401; zero errors/failures/orphans) pass. Host Django skips its missing venv;
+explicit source-copy Django passes 104/104 because /app still returns ENODEV.
+
+All 36 shot captures, three completion captures and the final results panel were
+inspected at the requested sizes (PNG dimensions checked). Uninterrupted playback
+reaches 120 seconds and the completion screen with both audio players stopped;
+maximum sampled audio/visual separation is 28.5 ms. Results entry, preview Replay,
+Main Menu, repeated Escape and Start routes pass. Roster/active operative/global
+progress/session snapshots stay identical; PostgreSQL game_sessions row hashes
+also match before/after. Final navigation runtime log has 19 info entries and no
+warnings/errors. Review harness fixes account for MCP polling overhead and reuse
+the mission's existing scorecard. Complete playback evidence is retained separately
+from the successful navigation-only follow-up, under .validation/unregistered/review.
+
+All fourteen PNG layers, two exact 120-second Ogg tracks, ten cast/request/audio
+hashes, fitted speech bounds, silent final title and decoded combined peak pass.
+Only the first AXIOM cue needs 1.1633x fitting; the other nine retain source tempo.
+Synthesized atmosphere sits at -18 dB relative to speech. No subjective speaker
+listening or physical controller/touch hardware acceptance is claimed. Existing
+import TLS/editor shutdown diagnostics and the reference checker's unchanged ten
+addon/main-menu errors and 27 warnings remain separate from game runtime results.
+Final repeat after all source/tool edits: incremental build passes with zero warnings/
+errors; background import exits 0 with all sixteen PNG/Ogg sidecars. Known addon TLS,
+EditorSettings and shutdown resource/allocator diagnostics persist. run_tests.ps1
+passes NUnit 88/88 and Godot 203/203 (report_402; zero failures/errors/orphans); Django
+skips its absent host venv, and explicit copied-source container Django again passes
+104/104. Python compilation and diff hygiene pass. Artwork helper is stopped; all
+four normal services stay running. Editor remains stopped on the original Level 1
+scene. Existing local Act I title changes are preserved.
+No exports, staging, commits or pushes.
+
 ## Current creative direction — 2026-11-02
 
 The user confirmed deleting docs/STORY_BIBLE.md and docs/full_game_plan.md to
@@ -1115,3 +1170,31 @@ production helper also used copied inputs. Both owned helpers are now stopped;
 the four normal services remain running. Editor remains stopped on Level 1.
 Physical controller/touch hardware and speaker-listening checks remain unperformed.
 No export, staging, commit or push; changes remain local and uncommitted.
+
+## Act I opening label — 2026-11-02
+
+Added mission-1-only ActHeading in CodeLevel.BuildTitleCard: centered 24px cyan,
+CAMPAIGN_ACT_I_TITLE with ACT I fallback, above the unchanged 34px mission title
+and objective. It shares the existing hold/fade, ignores input and adds no saved
+state or API. Recovery reuses the scene; every fresh Level 1 instance gets the
+label. Docker preflight: all four normal services running. C# build passes with
+153 existing warnings and zero errors. Background import exits 0; known TLS,
+EditorSettings and shutdown resource/ObjectDB/allocator diagnostics remain.
+MCP runtime checks pass for direct launch, Replay, level selection, briefing Skip
+and completion via Continue callbacks, fade cleanup and fall/checkpoint recovery
+without rebuilding the card. Levels 2–4 have no ActHeading. Inspected screenshots
+at 1920×1080, 1920×1200 and 2560×1080: no title clipping or HUD overlap; actual
+viewport dimensions checked. Final runtime log sample has no warnings/errors.
+The existing editor remains stopped on its original Level 1 scene.
+Required run_tests.ps1: NUnit 88/88 and GdUnit4 197/197 (report_400; zero failures,
+errors or orphans); host Django skips its absent venv. Container Django 104/104
+passes using a temporary source/fixture copy streamed through stdin because the
+existing /app Docker Desktop bind mount is unreadable (docker cp also fails).
+The first isolated attempt lacked countries.json; supplying that fixture resolves
+all failures. Expected mocked Resend/Clerk diagnostics remain in passing tests.
+Evidence: .validation/act-i/ and act-i-*.log. Diff hygiene passes. No exports,
+staging, commits or pushes. Changes remain local and uncommitted.
+
+Act II input follow-up: keyboard arrows/Enter and injected controller D-pad/A
+were verified through actual GUI dispatch for completion focus, Replay Preview
+and Main Menu. Physical-device acceptance remains separate.

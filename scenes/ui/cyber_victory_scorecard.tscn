@@ -114,6 +114,14 @@ theme_override_fonts/font = ExtResource("2_orbitron")
 theme_override_font_sizes/font_size = 13
 text = "CONTINUE // NEXT MISSION"
 
+[node name="PreviewBtn" type="Button" parent="RootPanel/MainVBox"]
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_orbitron")
+theme_override_font_sizes/font_size = 13
+text = "ACT II PREVIEW"
+
 [node name="ReplayBtn" type="Button" parent="RootPanel/MainVBox/ButtonsHBox"]
 custom_minimum_size = Vector2(120, 36)
 layout_mode = 2

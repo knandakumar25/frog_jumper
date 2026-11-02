@@ -573,6 +573,23 @@ origin/main; git ls-remote confirmed the remote SHA matched the local commit.
 This verification record is included in a documentation-only follow-up commit.
 No code/assets changed during publication; prior verification remains applicable.
 
+## Act I player-facing labels — 2026-11-02
+
+Checked campaign scripts/scenes: Level 4 Shattered Aegis ends Act I;
+its completion line says ACT I COMPLETE / CROSSING OPEN. BRING THEM HOME,
+and the final victory scorecard title is ACT I COMPLETE. No explicit Act I
+opening title was found in scripts/scenes. Recent redesign covered Levels 1–3,
+not all four Act I missions. Read-only investigation and memory update only;
+no runtime changes, import, tests or publication performed.
+
+## Act boundary clarification — 2026-11-02
+
+Confirmed README and ShatteredAegisMission completion text identify Level 4,
+Shattered Aegis, as the Act I finale. Act I includes Levels 1–4; the completed
+recent redesign covered Levels 1–3 only. Earlier chat implying those three alone
+constitute all of Act I was inaccurate. Read-only verification plus this memory
+entry; no runtime changes or new test run.
+
 Git status check (2026-11-01): main matches the local origin/main tracking ref;
 the working tree was clean. This required memory-only status record remains
 uncommitted. No fetch, code changes, imports or tests were needed.
@@ -742,3 +759,75 @@ Publication verified: implementation commit fbdc044 pushed normally to origin/ma
 git ls-remote confirmed the remote SHA matched the local implementation commit.
 This verification record is included in a documentation-only follow-up commit.
 No code/assets changed during publication; prior verification remains applicable.
+
+## Act I opening label — 2026-11-02
+
+Added mission-1-only ActHeading in CodeLevel.BuildTitleCard: centered 24px cyan,
+CAMPAIGN_ACT_I_TITLE with ACT I fallback, above the unchanged 34px mission title
+and objective. It shares the existing hold/fade, ignores input and adds no saved
+state or API. Recovery reuses the scene; every fresh Level 1 instance gets the
+label. Docker preflight: all four normal services running. C# build passes with
+153 existing warnings and zero errors. Background import exits 0; known TLS,
+EditorSettings and shutdown resource/ObjectDB/allocator diagnostics remain.
+MCP runtime checks pass for direct launch, Replay, level selection, briefing Skip
+and completion via Continue callbacks, fade cleanup and fall/checkpoint recovery
+without rebuilding the card. Levels 2–4 have no ActHeading. Inspected screenshots
+at 1920×1080, 1920×1200 and 2560×1080: no title clipping or HUD overlap; actual
+viewport dimensions checked. Final runtime log sample has no warnings/errors.
+The existing editor remains stopped on its original Level 1 scene.
+Required run_tests.ps1: NUnit 88/88 and GdUnit4 197/197 (report_400; zero failures,
+errors or orphans); host Django skips its absent venv. Container Django 104/104
+passes using a temporary source/fixture copy streamed through stdin because the
+existing /app Docker Desktop bind mount is unreadable (docker cp also fails).
+The first isolated attempt lacked countries.json; supplying that fixture resolves
+all failures. Expected mocked Resend/Clerk diagnostics remain in passing tests.
+Evidence: .validation/act-i/ and act-i-*.log. Diff hygiene passes. No exports,
+staging, commits or pushes. Changes remain local and uncommitted.
+
+## Act II preview implementation — 2026-11-02
+
+Act I final results gain a separate ACT II PREVIEW for The Unregistered, a standalone
+120-second opening introducing Mission 5: Names Without Numbers. Natural completion
+and Skip show a local preview-complete screen with Replay Preview/Main Menu. Exactly
+four missions remain playable; preview code calls no campaign, roster, score, save or
+session mutation. Existing character atlases/cast are reused with ten newly generated
+cached voice cues; layered art uses the established Docker/Blender workflow. Missing
+speech keeps subtitles; absent essential visuals complete safely. Localization uses
+keys with English fallbacks. Code/tests/production tooling and README/HANDOFF updated;
+production and initial verification complete. Build: zero errors, 153 existing
+warnings. NUnit 88/88, Godot 203/203 (report_401; zero errors/failures/orphans), copied
+source/container Django 104/104 pass. The standard Django wrapper skips its absent
+venv; backend /app still has ENODEV. Fourteen PNG/two Ogg asset, cast/hash, timing,
+silent-ending and decoded mix checks pass. Inspected 36 shot + three completion
+captures at all requested sizes and the results panel. Full 120-second playback
+completes with audio stopped, within 28.5 ms sampled clock separation. Production
+results entry, Replay, Main Menu and repeated Skip paths pass; progression snapshots
+and game_sessions row hashes stay identical. Review harness corrections handle
+polling overhead and the existing results node; separate playback/navigation
+records remain under .validation/unregistered. Speaker-listening and physical-device
+acceptance remain unperformed. Final repeat after the last source/tool edits passes: incremental C# build zero
+warnings/errors, background import exit 0 and all sixteen sidecars, NUnit 88/88,
+Godot 203/203 (report_402; zero errors/failures/orphans), explicit copied-source
+container Django 104/104. Known addon TLS/EditorSettings/shutdown diagnostics remain;
+reference checker retains its existing ten addon/menu errors and 27 warnings.
+Python compilation/diff hygiene pass. Artwork helper stopped; four normal services
+remain up. Editor stopped on its original Level 1 scene. Existing uncommitted Act I
+title work preserved.
+No export, staging, commit or push authorized or performed.
+
+Act II input follow-up: keyboard arrows/Enter and injected controller D-pad/A
+were verified through actual GUI dispatch for completion focus, Replay Preview
+and Main Menu. Physical-device acceptance remains separate.
+
+## Act I heading and Act II preview publication — 2026-11-02
+
+User explicitly requested pushing the current changes, authorizing the local commit
+and normal push. Publication scope includes the existing Act I title label, completed
+Act II preview, new art/audio/provenance, tests, production/review tools and related
+documentation. Reviewed tracked/untracked inventory and diff hygiene; fetched origin
+and confirmed main matches origin/main before publication. Ignored credentials,
+cached speech requests, validation evidence and test reports remain excluded.
+This Git/documentation-only task requires no new import or tests: prior final build,
+import exit 0, NUnit 88/88, Godot 203/203 (zero errors/failures/orphans) and isolated
+Django 104/104 remain applicable. Known diagnostics and human listening/device
+acceptance limitations remain documented. No exports or additional code/asset edits.

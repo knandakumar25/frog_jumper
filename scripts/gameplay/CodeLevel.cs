@@ -669,6 +669,8 @@ public abstract partial class CodeLevel : Node2D
     /// <summary>
     /// Shows "MISSION N: TITLE" with the story's objective text for a few seconds, then fades it out. Title and objective
     /// come from <c>NarrativeManager</c> (the story JSON) when available, falling back to the level catalog.
+    /// Mission 1 adds a localized Act I heading to the same non-interactive card on each fresh launch;
+    /// checkpoint recovery reuses the mission and does not rebuild this presentation.
     /// </summary>
     private void BuildTitleCard(Control root)
     {
@@ -681,6 +683,16 @@ public abstract partial class CodeLevel : Node2D
         var card = new VBoxContainer { Name = "TitleCard", MouseFilter = Control.MouseFilterEnum.Ignore };
         card.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.Center);
         card.OffsetLeft = -560; card.OffsetRight = 560; card.OffsetTop = -120; card.OffsetBottom = 40;
+        if (MissionNumber == 1)
+        {
+            // Missing translations return the key; keep the opening readable in every locale.
+            const string actKey = "CAMPAIGN_ACT_I_TITLE";
+            string actTitle = TranslationServer.Translate(actKey);
+            var actHeading = NewLabel(actTitle == actKey ? "ACT I" : actTitle, 24, new Color("#77efff"));
+            actHeading.Name = "ActHeading";
+            actHeading.HorizontalAlignment = HorizontalAlignment.Center;
+            card.AddChild(actHeading);
+        }
         var heading = NewLabel($"MISSION {MissionNumber}: {title.ToUpperInvariant()}", 34, new Color("#77efff"));
         heading.HorizontalAlignment = HorizontalAlignment.Center;
         card.AddChild(heading);

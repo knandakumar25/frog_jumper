@@ -1,0 +1,142 @@
+[
+  {
+    "cue": 1,
+    "request_sha256": "e00369940ae9371f716dfd519bde6e7e7d721d39080958a12fe5d7d84dfdb137",
+    "audio_sha256": "55740447ade6f5e4379d74ef7b572e7bcd4cf9f024c8af561f841b84488e473f",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 2,
+    "request_sha256": "00088efe7ecec62f8b6f8848a6c1e0d452d3be38100a09c593466299a038575e",
+    "audio_sha256": "f936b1ae7e8647dbfc9f4b5b6601d62c44d0b6be97e8c540256e63780082f6d3",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 3,
+    "request_sha256": "ff10f98592668bc1b0eb512bddf3384df74eeaf4899aafd80cba1198380ae27b",
+    "audio_sha256": "b3c097b988f2d702faca1f0af744fc6fe1683c50511b9131f2883d88a01b0b2f",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 4,
+    "request_sha256": "0f521b0604dab259eb1b496d0215b4a0c133c64c79e3e618a078aedcc0b824ef",
+    "audio_sha256": "a161f09182cacf72f28f48f9ac06c782dfec0c640df1c7a781f61d8de910cf48",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 5,
+    "request_sha256": "a9dc6208d30f7354f32698782521e5a922944b49832a17d073993b685ed08d04",
+    "audio_sha256": "128b13c6d94fdbfad654252aad47b97db8001273505c390940870345a9e105ed",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 6,
+    "request_sha256": "a4fde0d2806e9fdc849103c0769423e4b7f4810b18149b3deefd647a03382cd0",
+    "audio_sha256": "5a877d81dc43a7e3802aaea257e64183089c7ca37690be502c6753d5f0bf75ff",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 7,
+    "request_sha256": "2ff42624a6b19dce8bb31a99c4e38a3dbe9f89c68af2b4ff68297edd27daae48",
+    "audio_sha256": "8934c9f5012534ec6988154b0cf1e119deb28e0d97c1e2e44cc36164c1867f5c",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 8,
+    "request_sha256": "0ed5bd20158db3f1c9f3bab93f56a71e59fbdedc97f4f20b6f10ed5d97e1ff8f",
+    "audio_sha256": "4c1745f8ec0f6020287e2049e43f0415d0f17334d59cab6df94d1fcb6195df66",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 9,
+    "request_sha256": "c2e33c173d60736197b6ff95d0da21c2df260974dda32b13b6895090eec73138",
+    "audio_sha256": "bb4b588743c2373d9ea9ea13ff73d7e4648372d31d79b23ec25db4a532a036e7",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  },
+  {
+    "cue": 10,
+    "request_sha256": "8b069c16c14140f7ffebbec184b0f955ec315ffb4bf7564dc97445df695787e9",
+    "audio_sha256": "6f6ca73f3fbdf35a167eab89ffdf8234beb59f746f02818e010df33f01a347bc",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3"
+  }
+]
