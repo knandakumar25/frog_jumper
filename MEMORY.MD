@@ -561,3 +561,8 @@ This publication task changes documentation/Git state only: prior build, NUnit
 93/93, Godot 180/180 (zero failures/errors/orphans), Django 104/104 and runtime QA
 remain applicable without rerunning imports/tests. Physical input/listening and
 existing Docker/import diagnostic limitations remain documented.
+
+Publication verified: implementation commit 8fb0c1b (45 files) pushed normally to
+origin/main; git ls-remote confirmed the remote SHA matched the local commit.
+This verification record is included in a documentation-only follow-up commit.
+No code/assets changed during publication; prior verification remains applicable.
