@@ -736,5 +736,9 @@ Ignored credentials, validation evidence, caches and test reports remain exclude
 This publication task changes Git/documentation only; prior build, NUnit 88/88,
 Godot 197/197 (zero failures/errors/orphans) and copied-container Django 104/104
 remain applicable without rerunning import/tests. Human pacing/device acceptance
-and existing Docker/import diagnostics remain as documented. Remote publication
-verification will be recorded after the push completes.
+and existing Docker/import diagnostics remain as documented.
+
+Publication verified: implementation commit fbdc044 pushed normally to origin/main;
+git ls-remote confirmed the remote SHA matched the local implementation commit.
+This verification record is included in a documentation-only follow-up commit.
+No code/assets changed during publication; prior verification remains applicable.
