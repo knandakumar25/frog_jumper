@@ -1,0 +1,122 @@
+[
+  {
+    "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 1,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "25af9b02ae2135164032287098d3008350ec332cf5aae8190849d7584dff909b",
+    "request_sha256": "cce79998c53aa59b1b17de0eb2e1eb7b2e5be13f55f288de6a0dbf3c3cd812ed"
+  },
+  {
+    "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 2,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "62c316fe8a1ed154abde3f527557751753cee64b4c180b5a51b336cfb032cb1c",
+    "request_sha256": "2e23f66e9f3f779b7a9eaae609cc93affc46107149077290c71e27ec77c5c62f"
+  },
+  {
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 3,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "9a628577110daa4cf2cfd88a6e66dc5dedbc0b6eac9b17096c4e4094b2c0c2fd",
+    "request_sha256": "748251c03297a5f126dbc96d015c88d3aef3334fdd8322a010a6251a3a1aa0a0"
+  },
+  {
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 4,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "a632a94ecf25c3fc6600a948b24a2baf8a8f651f39e6206d8da66e7286f5456a",
+    "request_sha256": "75c5fee78c2eaf4203da8e9cc3c088b8892a0a553378ac2d61b92bd4fa72efca"
+  },
+  {
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 5,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "071be0885d48652e9c6b03262b6bb93afd50e26fff1ec3e095678b992f58e6e4",
+    "request_sha256": "e0e00ec2a50d4239e679ed5823460597356198f7341fea9a59a4377f889da1a2"
+  },
+  {
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 6,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "d90330163f94a01a6b00527dd389e0fbcaea2fccc221f4fea2e9631e9de307ca",
+    "request_sha256": "0dd8cceda87940d62f29ef9cc308961a088829b06b593d59a862b4e206528ff4"
+  },
+  {
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 7,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "24510164cffd8fdef22ab3e6cab8b4ff734c80e8f13ca4bb8303055ad7f6369c",
+    "request_sha256": "3b0f88e6cb1a2a4c2e9535d2f0ee6d523fd7556fa1f937bcb8d2e072b6277d90"
+  },
+  {
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "source": "ElevenLabs TTS generated once on 2026-11-02; cached MP3",
+    "model": "eleven_multilingual_v2",
+    "cue": 8,
+    "settings": {
+      "speed": 0.94,
+      "stability": 0.65,
+      "style": 0.12,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "audio_sha256": "9a9a068595312c82cd06474a19083ad3872d4e986263fb388bb0f684231d8f89",
+    "request_sha256": "4a70e9dede7c8e02e96c7a43cb75dfe2d67386d1db59c2e30b5467f1a43be5e0"
+  }
+]

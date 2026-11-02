@@ -45,13 +45,29 @@ first-play duration. Physical controller/touch and subjective mix listening rema
 separate acceptance checks. Production and final verification details are in
 [Mission 5 acceptance](tools/gameplay/NAMES_WITHOUT_NUMBERS.md).
 
+### Mission 5 epilogue — Names Without Numbers
+
+After extraction, a 90-second skippable live 2D scene returns to the restored district.
+A resident chooses and speaks her name; other residents reclaim their records and
+begin naming themselves. Kaito, Mirage, Aura, Oceanus and Titan react briefly while
+Surya stays on comms. Kaito leaves the final choice with the district. The overlay
+freezes the extracted mission and keeps its score snapshot; natural completion, Skip,
+missing scene art and independent overlay removal each stop its owned audio and reveal
+the existing **MISSION COMPLETE** card once. Missing speech keeps the timed English
+subtitles. Replay restarts Mission 5 with a fresh run; the epilogue adds no unlock or
+progression write and does not introduce Mission 6. Art/audio production and review
+steps are in [cutscene production notes](tools/cutscene/README.md#mission-5-epilogue-names-without-numbers).
+
 
 Verified 2026-11-02 after final engine edits: background import exit 0 with all
 30 new media sidecars; final incremental C# build zero warnings/errors; NUnit 100/100;
 GdUnit4 210/210 (`reports/report_406`, zero errors, failures and orphans); isolated
-copied-source Django 104/104. The wrapper skips the absent host Django venv. Existing
-backend `/app` and media D: mounts remain unreadable; isolated tests used the same
-backend image and PostgreSQL network, with their test database removed normally.
+copied-source Django 104/104. The test runner was subsequently updated to use only the
+root Linux `.venv`; its full run passes NUnit 100/100, GdUnit4 214/214 and Django
+104/104 (`reports/report_408`; zero GdUnit errors/failures/orphans). Django runs from
+a disposable copy of the root venv with `backend/requirements.txt` installed, using an
+unmounted helper container on the existing PostgreSQL network. The backend `/app` and
+media D: mounts remain unreadable; normal services stay running.
 The temporary production/test helpers were stopped; all four normal services remain
 running. No exports, staging, commits or pushes; editor remains stopped on Level 1.
 
@@ -393,6 +409,11 @@ A unified test runner is provided to execute all automated test suites (NUnit fo
 .\run_tests.ps1 -Suite gdunit
 .\run_tests.ps1 -Suite django
 ```
+
+The Django suite uses the root Linux `.venv` only. On Windows PowerShell, the runner
+packages that POSIX environment and `backend/` into a temporary Linux container; it
+installs `backend/requirements.txt` in the temporary copy and runs `manage.py test
+accounts` against PostgreSQL. It does not prefer or require a Windows venv.
 
 > **Note for Windows Headless Testing**: GdUnit4 executes using `Godot_v4.7.2-stable_mono_win64_console.exe` to avoid headless console deadlocks.
 

@@ -154,8 +154,8 @@ func test_pause_blocks_context_and_mission_progress() -> void:
 	mission.free()
 
 
-func test_mission_five_results_show_no_next_mission_or_act_finale() -> void:
-	## Restored access is the playable ending, followed by ordinary Mission Complete and the existing replay/menu choices.
+func test_mission_five_epilogue_precedes_results_without_new_progression() -> void:
+	## Extraction freezes the mission and captures its score; the epilogue hands off once to the existing terminal card.
 	var mission := _mission()
 	_advance_to_core(mission)
 	mission.call("CommitObjective", "isolate")
@@ -165,9 +165,23 @@ func test_mission_five_results_show_no_next_mission_or_act_finale() -> void:
 	assert_bool(mission.call("CommitObjective", "commit")).is_true()
 	assert_bool(mission.call("CommitObjective", "extract")).is_true()
 	assert_bool(mission.call("CommitObjective", "extract")).is_false()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var overlay: Node = mission.get_node("NamesWithoutNumbersAftermath")
+	assert_bool(mission.get_node("Actors/CyberShogun").can_process()).is_false()
+	assert_bool(mission.get_node("CyberVictoryScorecard/RootPanel").visible).is_false()
+	var captured_points: int = mission.get_node("GameManager").get("Points")
+	overlay.call("Finish")
+	await get_tree().process_frame
+	await get_tree().process_frame
 	var card: Node = mission.get_node("CyberVictoryScorecard/RootPanel/MainVBox")
+	assert_bool(mission.get_node("CyberVictoryScorecard/RootPanel").visible).is_true()
 	assert_str(card.get_node("TitleLabel").text).is_equal("MISSION COMPLETE")
+	assert_str(card.get_node("StatsGrid/ScoreLabel").text).is_equal("FINAL SCORE: %d PTS" % captured_points)
 	assert_bool(card.get_node("ContinueBtn").visible).is_false()
 	assert_bool(card.get_node("PreviewBtn").visible).is_false()
+	assert_bool(card.get_node("ButtonsHBox/ReplayBtn").visible).is_true()
+	assert_bool(card.get_node("ButtonsHBox/LevelSelectBtn").visible).is_true()
+	assert_bool(card.get_node("ButtonsHBox/MainMenuBtn").visible).is_true()
 	assert_str(mission.get_node("PalaceGeometry/AccessStatus").text).contains("ACCEPTED")
 	mission.free()

@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "CIVILIAN AMARA / Lily - Velvety Actress",
+    "start": 0.22,
+    "source_duration": 2.220408,
+    "tempo": 1.0,
+    "end": 2.3986167800453515,
+    "cached_source": "cue1.mp3"
+  },
+  {
+    "cue": 2,
+    "speaker": "CIVILIANS / Lily - Velvety Actress",
+    "start": 12.22,
+    "source_duration": 3.578776,
+    "tempo": 1.0,
+    "end": 15.738208616780046,
+    "cached_source": "cue2.mp3"
+  },
+  {
+    "cue": 3,
+    "speaker": "MIRAGE / Eric",
+    "start": 22.22,
+    "source_duration": 2.638367,
+    "tempo": 1.0,
+    "end": 24.815396825396824,
+    "cached_source": "cue3.mp3"
+  },
+  {
+    "cue": 4,
+    "speaker": "AURA / Matilda",
+    "start": 31.22,
+    "source_duration": 2.821224,
+    "tempo": 1.0,
+    "end": 34.00328798185941,
+    "cached_source": "cue4.mp3"
+  },
+  {
+    "cue": 5,
+    "speaker": "OCEANUS / Sarah",
+    "start": 40.22,
+    "source_duration": 4.493061,
+    "tempo": 1.0,
+    "end": 44.67424036281179,
+    "cached_source": "cue5.mp3"
+  },
+  {
+    "cue": 6,
+    "speaker": "TITAN / George",
+    "start": 49.22,
+    "source_duration": 2.821224,
+    "tempo": 1.0,
+    "end": 51.99986394557823,
+    "cached_source": "cue6.mp3"
+  },
+  {
+    "cue": 7,
+    "speaker": "SURYA // COMMS / Brian",
+    "start": 58.22,
+    "source_duration": 2.76898,
+    "tempo": 1.0,
+    "end": 60.947868480725624,
+    "cached_source": "cue7.mp3"
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO / Adam",
+    "start": 68.22,
+    "source_duration": 5.459592,
+    "tempo": 1.0,
+    "end": 73.63956916099774,
+    "cached_source": "cue8.mp3"
+  }
+]

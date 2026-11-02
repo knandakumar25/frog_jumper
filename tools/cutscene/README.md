@@ -1,5 +1,44 @@
 # Live deployment cinematic
 
+## Mission 5 epilogue: Names Without Numbers
+
+`NamesWithoutNumbersAftermath` runs after extraction and before the existing Mission
+Complete scorecard. The captured score, combo and operative are immutable during the
+presentation; Mission 5 and its descendants stay frozen. `Seek(seconds)` samples the
+eight dialogue windows, subtitle and analytic tableau from one 90-second clock.
+`SeekAudio(seconds)` repositions both owned tracks. The full sequence remains readable
+without speech. Natural completion, Escape/Space/Enter, controller Start/A, pointer or
+touch Skip, missing essential art, and independent overlay removal stop audio and
+trigger one results handoff. The frozen scene stays available so Replay reloads a clean
+Mission 5 run. No unlock or epilogue progression state is written.
+
+Original 1920x1080 transparent district plates come from the existing Blender helpers.
+The scene stage draws its inhabitants and five operative reactions analytically, with
+Surya represented as a comms signal. The final shot belongs to Kaito and fades into the
+unchanged **MISSION COMPLETE** result card. Exact lines, voice IDs and shot windows are
+in `assets/cutscenes/names_without_numbers/cues.json`; generation and source hashes are
+recorded in `speech_provenance.json` and measured timing in `dialogue_timing.json`.
+
+Production on a host with the Docker D: bind mount available:
+
+```powershell
+docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_names_without_numbers.py -- --preview
+# Inspect .validation/names-without-numbers/district_artwork.png before full rendering.
+docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_names_without_numbers.py
+python tools/cutscene/narrate_names_without_numbers.py
+docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/package_names_without_numbers.py
+docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/validate_names_without_numbers.py
+```
+
+Speech generation uses the project's existing ElevenLabs cast, verifies all voice IDs,
+reuses exact hashed caches and never retries a failed cue automatically. It makes paid
+requests only when a matching cache is absent. Packaging is offline and fits complete
+lines inside their windows, targets -18 LUFS/-2 dBTP, then creates independent 90-second
+dialogue and seeded district atmosphere Ogg tracks. The validator checks transparent
+plate dimensions, complete cue timing, decoded track duration and clipping headroom.
+Runtime tests are in `tests/test_names_without_numbers_aftermath.gd` and the updated
+`tests/test_names_without_numbers.gd`.
+
 ## Tokyo Remembers: Level 1 extraction
 
 `CodeLevel` snapshots score, peak combo and operative at extraction and calls

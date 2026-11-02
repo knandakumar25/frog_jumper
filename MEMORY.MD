@@ -717,10 +717,12 @@ This result is recorded in a documentation-only follow-up commit. No code/assets
 changed during publication; prior verification remains applicable. Resume tomorrow
 with the documented human acceptance checks; no further implementation is running.
 
-Latest-game-change recap (2026-11-02): confirmed from the recorded implementation
-and publication entries that the latest gameplay addition was the completed Level 4
-fortress and Act I finale, published as a17c83e. Server restart was operational only.
-No code/assets changed or verification suites rerun for this memory-only recap.
+Latest-game-change recap corrected (2026-11-02): inspection of current Git history
+and all project Markdown shows the later Mission 5 implementation, Names Without
+Numbers, at HEAD 8841ea2, after the Act II opening integration. The earlier Level 4
+answer was outdated. Mission 5 completion and verification are recorded above and
+in HANDOFF.md/tools/gameplay/NAMES_WITHOUT_NUMBERS.md. This was a memory-only audit;
+no code/assets changed or verification rerun.
 
 Creative-freedom recap (2026-11-02): checked docs/ACT_I_REVIEW.md and fortress
 production notes. Earlier proposals cover Level 1 parry/archive guidance, Level 2
@@ -845,3 +847,37 @@ pushed the current Names Without Numbers Mission 5 implementation and its requir
 README, HANDOFF, and MEMORY updates to `origin/main`. Remote was synchronized before
 commit. Prior verification remains the final build/import and test results recorded
 above; no exports were run.
+
+## Mission 5 epilogue — Names Without Numbers — 2026-11-02
+
+Added the 90-second post-extraction civilian identity epilogue. `CodeLevel` captures
+score/combo/operative, freezes Mission 5, then routes through the owned overlay before
+the existing Mission Complete scorecard. Civilians choose and repeat names; Mirage,
+Aura, Oceanus and Titan react, Surya stays on comms, and Kaito gives the closing line.
+The seekable stage uses two original Blender district plates and analytic civilian/
+operative silhouettes. Eight cached established-cast ElevenLabs cues and independently
+synthesized atmosphere/dialogue tracks carry exact 90-second timelines. Skip, natural
+completion, missing art and independent removal stop owned audio and hand off exactly
+once. No new unlock, watched flag or progression write was added.
+
+Final verification: Docker Blender preview inspected at 1920x1080; asset/audio validator
+passes RGBA dimensions, all eight cue windows, exact 90-second decoded tracks and headroom.
+Godot import exit 0 with four media sidecars; existing addon TLS and editor shutdown
+diagnostics remain. Build passes with 153 existing warnings, zero errors. `run_tests.ps1`
+passes NUnit 100/100 and GdUnit4 214/214 (report_407; zero failures/errors/orphans).
+Host Django skips the missing venv; live backend test attempt cannot open `/app/manage.py`
+because the existing Docker bind mount reports `No such device`. No in-game multi-aspect
+captures, physical hardware or speaker listening were performed. Only the owned Blender
+helper was stopped; four normal containers remain up. No exports, commit or push.
+
+## Root Linux Django test runner — 2026-11-02
+
+Updated `run_tests.ps1` to use only the root POSIX `.venv/bin/python` for Django; no
+Windows venv path is preferred. Windows PowerShell packages the root environment and
+backend source into an owned unmounted Linux helper, installs `backend/requirements.txt`
+in its disposable venv copy, then runs `manage.py test accounts` on the Compose
+PostgreSQL network. Root `.venv` and regular services are unchanged. Django passed
+104/104; full `run_tests.ps1` passed Django 104/104, NUnit 100/100 and GdUnit4 214/214
+(`reports/report_408`, zero errors/failures/orphans). Expected mocked Clerk/Resend
+failure diagnostics were printed by passing Django tests. Backend mount fault remains;
+the isolated helper avoids it. No exports, staging, commits or pushes.

@@ -2,6 +2,55 @@
 
 ## Mission 5 — Names Without Numbers (2026-11-02)
 
+### Post-extraction epilogue
+
+`CodeLevel.CompleteMission` snapshots points, peak combo and operative before freezing
+Mission 5 and adding `NamesWithoutNumbersAftermath`. The 90-second deterministic
+timeline plays a civilian's chosen name, the district's response, five operative
+reactions and Surya's comms report, then gives Kaito the closing line. A separate
+seekable stage uses original Blender district plates and authored civilian silhouettes.
+The overlay's speech and atmosphere players are its only audio lane; absent voice keeps
+the timed subtitle sequence. Natural completion, any supported Skip, missing essential
+art and independent overlay removal stop audio and deliver one result callback. The
+existing scorecard still shows Replay, Level Select and Main Menu, with no Continue or
+Act finale. Replay reloads a fresh Mission 5 scene; no epilogue unlock, watched flag or
+progression write was added. Production and acceptance commands are documented in
+`tools/cutscene/README.md` under “Mission 5 epilogue — Names Without Numbers”.
+
+Verification for this addition is recorded below only after the final import, build and
+test runs.
+
+Final verification (2026-11-02): background Godot import exited 0 and created all four
+PNG/Ogg sidecars. The renderer's 1920x1080 preview was inspected. Docker Blender asset
+and FFmpeg audio validation passed: both plates are 1920x1080 RGBA with transparency,
+eight voice windows fit without tempo changes, both decoded Ogg tracks are 90 seconds
+and unclipped. `dotnet build AxiomForce.csproj` passed with 153 existing warnings and
+zero errors. `run_tests.ps1` passed NUnit 100/100 and GdUnit4 214/214 with zero errors,
+failures or orphans (`reports/report_407`). The host Django suite was skipped because
+`backend/.venv` is absent; the live backend attempt failed before tests because its
+existing `/app` Docker bind mount returned `No such device`. No backend files changed.
+
+### Root Linux virtualenv test runner follow-up
+
+`run_tests.ps1` now recognizes only `.venv/bin/python`; there is no Windows Scripts
+venv preference. From Windows, it packages the root POSIX venv and backend source,
+creates an owned unmounted helper from `axiom-force-backend`, installs the declared
+backend requirements into the temporary venv copy, and runs `manage.py test accounts`
+against the existing PostgreSQL service. Cleanup removes only the helper container and
+temporary archive; the normal services remain up. Root `.venv` itself is unchanged.
+
+Verification (2026-11-02): Django 104/104 passed; full `run_tests.ps1` passed Django
+104/104, NUnit 100/100 and GdUnit4 214/214 (`reports/report_408`, zero errors,
+failures or orphans). Expected mocked Clerk/Resend diagnostics appeared during passing
+Django tests. The existing backend bind-mount failure is avoided by the unmounted helper.
+
+Godot import retains the existing asset-placer TLS handshake and editor shutdown
+EditorSettings/ObjectDB/resource/PagedAllocator diagnostics. No in-game captures at
+1920x1080, 1920x1200 or 2560x1080, physical controller/touch hardware review or speaker
+listening were performed. The owned unmounted Blender helper was stopped; all four
+normal services remain running and the user's editor was not switched. No export,
+commit or push was performed. Changes remain local and uncommitted.
+
 The campaign now has five playable missions. Level 4 explicitly retains its captured
 **ACT I COMPLETE** scorecard. **CONTINUE TO ACT II** launches the existing opening;
 natural completion, Skip and missing essential art hand off once to Mission 5 after

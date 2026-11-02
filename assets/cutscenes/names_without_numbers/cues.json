@@ -1,0 +1,10 @@
+[
+  {"speaker":"CIVILIAN AMARA","voice":"Lily - Velvety Actress","voice_id":"pFZP5JQG7iQjIQuC4Bku","model":"eleven_multilingual_v2","start":0,"end":12,"text":"My name is Amara. I choose to keep it."},
+  {"speaker":"CIVILIANS","voice":"Lily - Velvety Actress","voice_id":"pFZP5JQG7iQjIQuC4Bku","model":"eleven_multilingual_v2","start":12,"end":22,"text":"I am Elias. My name is Nia. I remember mine."},
+  {"speaker":"MIRAGE","voice":"Eric","voice_id":"cjVigY5qzO86Huf0OWal","model":"eleven_multilingual_v2","start":22,"end":31,"text":"No one asked them to prove it. They just said it."},
+  {"speaker":"AURA","voice":"Matilda","voice_id":"XrExE9yKIg1WjnnlVkGX","model":"eleven_multilingual_v2","start":31,"end":40,"text":"The records are theirs. So is the next word."},
+  {"speaker":"OCEANUS","voice":"Sarah","voice_id":"EXAVITQu4vr4xnSDxMaL","model":"eleven_multilingual_v2","start":40,"end":49,"text":"Water, shelter, transit. The gates are answering to people again."},
+  {"speaker":"TITAN","voice":"George","voice_id":"JBFqnCBsd6RMkjVDRZzb","model":"eleven_multilingual_v2","start":49,"end":58,"text":"They carried those names through every locked door."},
+  {"speaker":"SURYA // COMMS","voice":"Brian","voice_id":"nPczCjzI2devNBz1zQrb","model":"eleven_multilingual_v2","start":58,"end":68,"text":"The queue is moving. They are choosing where to go."},
+  {"speaker":"KAITO","voice":"Adam","voice_id":"pNInz6obpgDQGcFmaJgB","model":"eleven_multilingual_v2","start":68,"end":82,"text":"We helped make the choice possible. What comes next is theirs to decide."}
+]

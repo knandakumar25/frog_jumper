@@ -567,6 +567,17 @@ public abstract partial class CodeLevel : Node2D
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
+        if (MissionNumber == 5)
+        {
+            // Mission 5 closes on the restored district; results reveal only after the residents' choice has landed.
+            ProcessMode = ProcessModeEnum.Disabled;
+            foreach (Node child in GetChildren())
+                if (child != _scorecard) FreezeForEpilogue(child);
+            var aftermath = new NamesWithoutNumbersAftermath { Name = "NamesWithoutNumbersAftermath", Layer = 40 };
+            aftermath.Finished += () => _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
+            Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
+            return;
+        }
         if (MissionNumber <= 2)
         {
             // Disable this entire mission, including pause input and physics. Overlays explicitly run Always.
