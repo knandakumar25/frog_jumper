@@ -32,6 +32,8 @@ public static class LevelCatalog
             new[] { "Aura Phoenicia", "Mirage Blade" }, new[] { Slam, Resonate, Phase }),
         new(4, "Shattered Aegis", "res://scenes/gameplay/level4.tscn", "4",
             new[] { "Surya Prime" }, new[] { Phase, Bulwark }),
+        new(5, "Names Without Numbers", "res://scenes/gameplay/level5.tscn", "5",
+            Array.Empty<string>(), new[] { Phase, Resonate, Douse, Slam }),
     };
 
     /// <summary>All missions in play order.</summary>

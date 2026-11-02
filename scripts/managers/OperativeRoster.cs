@@ -33,6 +33,7 @@ public sealed class OperativeRoster
         ["Surya Prime"] = LevelCatalog.Bulwark,
     };
 
+    private int _mission;
     private readonly HashSet<string> _unlocked = new(StringComparer.OrdinalIgnoreCase);
     private readonly HashSet<string> _lessonsSeen = new(StringComparer.OrdinalIgnoreCase);
 
@@ -51,6 +52,15 @@ public sealed class OperativeRoster
     /// <summary>Unlocked operatives in canonical roster order.</summary>
     public IReadOnlyList<string> Unlocked => RosterOrder.Where(_unlocked.Contains).ToList();
 
+    /// <summary>Unlocked operatives fielded on this mission; Surya remains at the civilian queue in Mission 5.</summary>
+    public IReadOnlyList<string> Available => Unlocked.Where(IsAvailable).ToList();
+
+    /// <summary>Separates story ownership from mission deployment without altering save data.</summary>
+    public bool IsAvailable(string name) => IsUnlocked(name) && !(_mission == 5 && Normalize(name) == "Surya Prime");
+
+    /// <summary>Explains a known operative's off-field role in squad UI.</summary>
+    public string AvailabilityReason(string name) => IsUnlocked(name) && !IsAvailable(name) ? "Protecting the queue" : "";
+
     /// <summary>Signature-ability tag of an operative (see <see cref="LevelCatalog"/> constants), or null if unknown.</summary>
     public static string? AbilityTagOf(string operative) =>
         AbilityTags.TryGetValue(Normalize(operative), out var tag) ? tag : null;
@@ -58,7 +68,7 @@ public sealed class OperativeRoster
     /// <summary>Builds the roster a player has at the start of mission <paramref name="level"/> (earlier grants only).</summary>
     public static OperativeRoster ForLevelStart(int level)
     {
-        var roster = new OperativeRoster();
+        var roster = new OperativeRoster { _mission = level };
         roster._unlocked.Add(Starter);
         foreach (string name in LevelCatalog.GrantedBefore(level))
             roster._unlocked.Add(Normalize(name));
@@ -110,7 +120,7 @@ public sealed class OperativeRoster
     public bool SetActive(string name)
     {
         string normalized = Normalize(name);
-        if (!_unlocked.Contains(normalized)) return false;
+        if (!IsAvailable(normalized)) return false;
         if (Active != normalized)
         {
             Active = normalized;
@@ -122,7 +132,7 @@ public sealed class OperativeRoster
     /// <summary>Steps to the next (+1) or previous (-1) unlocked operative in roster order, wrapping; returns the new active name.</summary>
     public string Cycle(int direction)
     {
-        var list = Unlocked;
+        var list = Available;
         if (list.Count <= 1) return Active;
         int index = list.ToList().IndexOf(Active);
         int next = ((index + Math.Sign(direction)) % list.Count + list.Count) % list.Count;

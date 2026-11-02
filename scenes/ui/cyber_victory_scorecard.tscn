@@ -120,7 +120,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_orbitron")
 theme_override_font_sizes/font_size = 13
-text = "ACT II PREVIEW"
+text = "CONTINUE TO ACT II"
 
 [node name="ReplayBtn" type="Button" parent="RootPanel/MainVBox/ButtonsHBox"]
 custom_minimum_size = Vector2(120, 36)

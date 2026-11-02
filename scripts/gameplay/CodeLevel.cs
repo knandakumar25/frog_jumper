@@ -55,6 +55,8 @@ public abstract partial class CodeLevel : Node2D
     protected virtual string ComputeObjective() => "Reach the end of the mission";
     /// <summary>Opening line shown when the level starts.</summary>
     protected virtual string IntroLine() => "";
+    /// <summary>Allows implemented missions to replace retired narrative titles while keeping other missions unchanged.</summary>
+    protected virtual string TitleCardTitle(string narrativeTitle) => narrativeTitle;
     /// <summary>Allows a mission's revised gameplay briefing to replace outdated narrative metadata in its title card.</summary>
     protected virtual string TitleCardObjective(string narrativeObjective) => narrativeObjective;
     /// <summary>Title shown in the HUD when the mission completes.</summary>
@@ -152,7 +154,7 @@ public abstract partial class CodeLevel : Node2D
         AddChild(combatHud);
 
         // The final mission of an act ends on the combat-grade scorecard instead of auto-advancing.
-        if (MissionNumber <= 3 || !LevelCatalog.HasNext(MissionNumber))
+        if (MissionNumber <= 4 || !LevelCatalog.HasNext(MissionNumber))
         {
             _scorecard = GD.Load<PackedScene>("res://scenes/ui/cyber_victory_scorecard.tscn").Instantiate<CyberVictoryScorecard>();
             _scorecard.Name = "CyberVictoryScorecard";
@@ -177,7 +179,7 @@ public abstract partial class CodeLevel : Node2D
     public override void _Process(double delta)
     {
         UpdateBackdrop();
-        if (MissionComplete || MissionNumber == 4 && GetTree().Paused) return;
+        if (MissionComplete || MissionNumber >= 4 && GetTree().Paused) return;
         _dialogueRemaining = Mathf.Max(0f, _dialogueRemaining - (float)delta);
         _dialoguePanel.Visible = _dialogueRemaining > 0f;
     }
@@ -185,7 +187,7 @@ public abstract partial class CodeLevel : Node2D
     /// <summary>Runs checkpoints, fragments, level logic and chasm recovery after the player has moved each physics tick.</summary>
     public override void _PhysicsProcess(double delta)
     {
-        if (MissionComplete || _player == null || _recovering || _player.CurrentHealth <= 0) return;
+        if (GetTree().Paused || MissionComplete || _player == null || _recovering || _player.CurrentHealth <= 0) return;
         UpdateShrines();
         CollectFragments();
         UpdateMission();
@@ -592,7 +594,8 @@ public abstract partial class CodeLevel : Node2D
         ProcessMode = ProcessModeEnum.Disabled;
         foreach (Node child in GetChildren())
             if (child != _scorecard) FreezeForEpilogue(child);
-        _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
+        if (MissionNumber == 4) _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
+        else _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
 
     }
 
@@ -640,7 +643,7 @@ public abstract partial class CodeLevel : Node2D
         // Squad strip: shows who is unlocked/active; number keys and Tab swap between unlocked operatives.
         var squad = new SquadStrip { Name = "SquadStrip" };
         squad.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomRight);
-        squad.OffsetLeft = -620;
+        squad.OffsetLeft = MissionNumber == 5 ? -800 : -620;
         squad.OffsetTop = -34;
         squad.OffsetRight = -20;
         squad.OffsetBottom = -8;
@@ -680,6 +683,7 @@ public abstract partial class CodeLevel : Node2D
         string objective = narrative?.Call("get_level_objective", entry.NarrativeKey).AsString() ?? "";
         objective = TitleCardObjective(objective);
         if (string.IsNullOrEmpty(title)) title = entry.Title;
+        title = TitleCardTitle(title);
         var card = new VBoxContainer { Name = "TitleCard", MouseFilter = Control.MouseFilterEnum.Ignore };
         card.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.Center);
         card.OffsetLeft = -560; card.OffsetRight = 560; card.OffsetTop = -120; card.OffsetBottom = 40;

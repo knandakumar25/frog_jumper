@@ -63,15 +63,15 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	public void ShowMissionScorecard(int score, int maxCombo, string operative, int nextMission)
 		=> RenderScorecard(score, maxCombo, operative, nextMission);
 
-    /// <summary>Shows Act I results with the standalone Act II Preview, Replay, Level Select and Main Menu.</summary>
+    /// <summary>Shows Act I results with the Act II opening, Replay, Level Select and Main Menu.</summary>
     public void ShowActScorecard(int score, int maxCombo, string operative)
     {
         RenderScorecard(score, maxCombo, operative, 0);
         if (_titleLabel != null) _titleLabel.Text = "ACT I COMPLETE";
         if (_previewBtn != null)
         {
-            string text = Tr("ACT_II_PREVIEW");
-            _previewBtn.Text = text == "ACT_II_PREVIEW" || string.IsNullOrWhiteSpace(text) ? "ACT II PREVIEW" : text;
+            string text = Tr("CONTINUE_TO_ACT_II");
+            _previewBtn.Text = text == "CONTINUE_TO_ACT_II" || string.IsNullOrWhiteSpace(text) ? "CONTINUE TO ACT II" : text;
             _previewBtn.Visible = true;
         }
     }
@@ -80,6 +80,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private void RenderScorecard(int score, int maxCombo, string operative, int nextMission)
 	{
 		if (_rootPanel == null) return;
+		if (_titleLabel != null) _titleLabel.Text = "MISSION COMPLETE";
 		if (_previewBtn != null) _previewBtn.Visible = false;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
 		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
@@ -181,7 +182,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		Navigate("res://scenes/main_menu/main_menu.tscn");
 	}
 
-	/// <summary>Launches only the standalone preview; never prepares a mission, session, roster or save.</summary>
+	/// <summary>Launches the opening after captured Act I results; the opening hands off to Mission 5.</summary>
 	private void OnPreviewPressed()
 	{
 		if (_previewBtn is not { Visible: true }) return;

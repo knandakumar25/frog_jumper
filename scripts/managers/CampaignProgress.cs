@@ -56,7 +56,7 @@ public static class CampaignProgress
     /// </summary>
     public static string? CompleteMission(int completedMission, int points)
     {
-        Global?.Call("unlock_next_level", completedMission);
+        if (LevelCatalog.HasNext(completedMission)) Global?.Call("unlock_next_level", completedMission);
         var sessions = SessionManager.Instance;
         if (sessions != null && sessions.CurrentSessionId > 0)
             _ = sessions.UpdateSessionAsync(sessions.CurrentSessionId, LevelCatalog.Clamp(completedMission + 1), points, 0);

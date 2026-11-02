@@ -58,12 +58,12 @@ alignment = 1
 [node name="SectorGrid" type="GridContainer" parent="MainLayout"]
 layout_mode = 2
 theme_override_constants/h_separation = 24
-theme_override_constants/v_separation = 24
+theme_override_constants/v_separation = 12
 columns = 2
 alignment = 1
 
 [node name="Sector1" type="PanelContainer" parent="MainLayout/SectorGrid"]
-custom_minimum_size = Vector2(520, 200)
+custom_minimum_size = Vector2(520, 170)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector1"]
@@ -88,7 +88,7 @@ layout_mode = 2
 text = "LAUNCH SECTOR 01"
 
 [node name="Sector2" type="PanelContainer" parent="MainLayout/SectorGrid"]
-custom_minimum_size = Vector2(520, 200)
+custom_minimum_size = Vector2(520, 170)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector2"]
@@ -113,7 +113,7 @@ layout_mode = 2
 text = "LAUNCH SECTOR 02"
 
 [node name="Sector3" type="PanelContainer" parent="MainLayout/SectorGrid"]
-custom_minimum_size = Vector2(520, 200)
+custom_minimum_size = Vector2(520, 170)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector3"]
@@ -138,7 +138,7 @@ layout_mode = 2
 text = "LAUNCH SECTOR 03"
 
 [node name="Sector4" type="PanelContainer" parent="MainLayout/SectorGrid"]
-custom_minimum_size = Vector2(520, 200)
+custom_minimum_size = Vector2(520, 170)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector4"]
@@ -162,6 +162,31 @@ custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 text = "LAUNCH SECTOR 04"
 
+[node name="Sector5" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 170)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector5"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector5/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "MISSION 05: NAMES WITHOUT NUMBERS"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector5/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
+text = "Recover original identities. Restore civilian access."
+
+[node name="Level5" type="Button" parent="MainLayout/SectorGrid/Sector5/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH MISSION 05"
+
 [node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
 layout_mode = 2
 
@@ -176,3 +201,5 @@ text = "Return to Main Menu"
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector4/VBox/Level4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="MainLayout/CenterContainer/BackButton" to="." method="_on_back_button_pressed"]
 
+
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector5/VBox/Level5" to="." method="_on_level_5_pressed"]

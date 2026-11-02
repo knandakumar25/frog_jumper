@@ -1,0 +1,363 @@
+[
+  {
+    "cue": 1,
+    "request_sha256": "643f3c521fb1e8ae584e90ceaec67f5d95cf9967cade1c5eb0059e4540531f0e",
+    "audio_sha256": "9c67592b9c1ef85838723ec992993c53986e1353caeb0f1e732f6fb69245d616",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "sector0",
+    "text": "Below the queue, everything is doors and white light. Wait for the scanner to go dark. I will phase us into processing.",
+    "file": "sector0.ogg",
+    "duration": 6.408707,
+    "ogg_sha256": "e605d6ed93996a964d7a4870a36ca8d30c819aa744fffffe25e511391ff8beb1"
+  },
+  {
+    "cue": 2,
+    "request_sha256": "69f8314e5e2784b699ef6978c80297dbd31dfd38fca940884f413e639e415a18",
+    "audio_sha256": "2262c3bdf1a0dd548d8f3352c754785312c62ee95d332d25671e74cc9a0a175b",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "sector1",
+    "text": "Every denial carries the same harmonic signature. Clear the control hall and I can isolate it without touching the records.",
+    "file": "sector1.ogg",
+    "duration": 7.151746,
+    "ogg_sha256": "47dfe104c5d34fb85daffadfef59efae4e4111a21cbbbbba37e4584bb48074e7"
+  },
+  {
+    "cue": 3,
+    "request_sha256": "7aaba1a09187e0e2ec4dbaac0d595b654e4a4f2d628d19428e6a8f62bd552f8b",
+    "audio_sha256": "ec283fdc6681778ba5a1e098567bfaac1f607a3a1d2f9bee5c2a891624cd6000",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "sector2",
+    "text": "The archive cooling loop is failing. Let me stabilize it before Titan opens a maintenance route away from the originals.",
+    "file": "sector2.ogg",
+    "duration": 6.733787,
+    "ogg_sha256": "01e5be6d15bd526d7c10fc53b51cc34ad6a26b2b22c92a301a75ccfecdbada26"
+  },
+  {
+    "cue": 4,
+    "request_sha256": "5a36a6b7a3fca3e321961c56b3653d5594abb377af77bd4ba0ce38b97a339431",
+    "audio_sha256": "a304a91f962dd22712e3890044e3d87c350d90663c400b544b693130a2d75426",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "sector3",
+    "text": "Three originals: family, residency, and civic registration. Authenticate each terminal. Leave the archive intact.",
+    "file": "sector3.ogg",
+    "duration": 9.287982,
+    "ogg_sha256": "fa59283f55b302dfbc692c7538955dcb95609c330382e13f9d3d5ac67aae8dbb"
+  },
+  {
+    "cue": 5,
+    "request_sha256": "b83fab2cc8c81ae999128371039a60117bc7547016a977c6e231e559c156b05b",
+    "audio_sha256": "890963c69b6c8986baf9f6dd724d5fb01defa6a3d910289a260cd5c63ef01fed",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "sector4",
+    "text": "We have their names. Isolate the command, then defend the recovery. No one erases them again.",
+    "file": "sector4.ogg",
+    "duration": 6.222948,
+    "ogg_sha256": "3bd1820b5a38684af37600c5eda6300d8c4e519e3c533081fd4ae368c9309dad"
+  },
+  {
+    "cue": 6,
+    "request_sha256": "8fb77e64752cd831e94763c384ba43b780e03a3957a75df8c7cde04832802a3b",
+    "audio_sha256": "bddf167d76b5a248a2805438ba1ee72cadc85cc0ec1fd289772ee45a2f8d7e81",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "sector5",
+    "text": "The queue is still here. Food and shelter gates are waiting for the restored register. Send it when you are ready.",
+    "file": "sector5.ogg",
+    "duration": 6.037188,
+    "ogg_sha256": "6c33604817034687a318e4e34ed527dba46420a7a5a6c3c7e6e9ff1673452d1d"
+  },
+  {
+    "cue": 7,
+    "request_sha256": "ec9d8117d9ddc2d4cd7933598e98b5c3390b0db6b56cc8be11b0ebbaacd7d8a7",
+    "audio_sha256": "fe5f6209931669a85735a48407489b4abcbd13f70c26e43a89525e61e35587d4",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "phase",
+    "text": "Inside. The public queue never had access to any of this.",
+    "file": "phase.ogg",
+    "duration": 3.761633,
+    "ogg_sha256": "f7df820325d1b7839531e106d43408c5575e4f978cf8de4871a2d4c0d9137266"
+  },
+  {
+    "cue": 8,
+    "request_sha256": "d7e08804dba21486a3b59710b8cfc69978eb00b81edfb28acef3fac4c58e09a2",
+    "audio_sha256": "6763dc2c6b8059aeb24b5744f24732b615c4c856ebfe61a87f21d5f6ec560911",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "signal",
+    "text": "Denial signal isolated. Scanners are offline. The originals are deeper in the archive.",
+    "file": "signal.ogg",
+    "duration": 5.851429,
+    "ogg_sha256": "1a10b31c55e402c0d1a9d763c5064c7076b05a1940866516753e0d5858ec7821"
+  },
+  {
+    "cue": 9,
+    "request_sha256": "3feedfaa8f30f216e5e004bd8965e3ed3b1d3ad7c23558ee1605c8b7f57751d4",
+    "audio_sha256": "b9c5f4bc2b71f1ed8b61da14d3648e738ee7eb3afeb9df08a87e27e72c4fd4a9",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "coolant",
+    "text": "Temperature stable. The records are safe. Titan, the damaged maintenance wall is yours.",
+    "file": "coolant.ogg",
+    "duration": 5.24771,
+    "ogg_sha256": "930b42083730e2b07ee3bb1851c555b08667e9994c3182c5d81b3caa724e1738"
+  },
+  {
+    "cue": 10,
+    "request_sha256": "e12313dde74085bd915b4cd4e5bbf8d196dd0b6646814e530a3cb69c0b7084ad",
+    "audio_sha256": "59a85273e0568a994c7bf9170d56e75b41e635f5d6426af751dc4991e8ab1347",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "maintenance",
+    "text": "A clean route through damaged concrete. The records stay untouched.",
+    "file": "maintenance.ogg",
+    "duration": 4.179592,
+    "ogg_sha256": "d2687cdb60525def6783a9596215b554db026d267f60865380703bb29ef769f0"
+  },
+  {
+    "cue": 11,
+    "request_sha256": "274864e892f34ddfef99965882d3e27c03bccfb9b0db58aa428b535e9fcb7d44",
+    "audio_sha256": "0bbd30da511329b71a387d83f3f6e53537adb01e8bf4829a10f7234e926eadd5",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "record_1",
+    "text": "Family register authenticated. Original names recovered.",
+    "file": "record_1.ogg",
+    "duration": 3.854512,
+    "ogg_sha256": "f940ad1a03a81f531279ac4889d7649e55c8a8c1c436999237f00f198eba6023"
+  },
+  {
+    "cue": 12,
+    "request_sha256": "7308bbdbf2381a7c59442dcf5d4cc2ebe2d5aa7c711b64f50c431e9f5a6c164a",
+    "audio_sha256": "a6193183bbddb43abe24c96bcf454602295b419657ebbe7006d27f0282e7684f",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "record_2",
+    "text": "Residency confirmed. These people belonged here long before the scanners.",
+    "file": "record_2.ogg",
+    "duration": 4.133152,
+    "ogg_sha256": "46b19b7557ba68790c2d1a35bd3bc7d081f42d44ef6e6c4a0ffc238c3d212aea"
+  },
+  {
+    "cue": 13,
+    "request_sha256": "ce79569a61a98c4fbdfe1f7c67a94020bda500a96aaf6de8108cc455f4e249e3",
+    "audio_sha256": "11ad4f4effda8289d5c13b25c21155b4a3096bfc3e3195f87aac5ec5484908dd",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "record_3",
+    "text": "Civic register authenticated. All three originals agree. The exclusion list was fabricated.",
+    "file": "record_3.ogg",
+    "duration": 5.897868,
+    "ogg_sha256": "2152915420e2bed0e5642104cde361d1953eac1380ac0288c274f35d8871bd4e"
+  },
+  {
+    "cue": 14,
+    "request_sha256": "a32f20cf44e49f85e34b28cefe6bf1c0f3c0e7624a2b0ac725b829a281564ffd",
+    "audio_sha256": "3e14ea82f9a722114cf345a795a11eac82d98545e128f8f2cfd9adae6944801b",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "isolate",
+    "text": "Exclusion command isolated. Security is closing on the recovery. Defend the first stage.",
+    "file": "isolate.ogg",
+    "duration": 6.408707,
+    "ogg_sha256": "beab77f89747ef969a03aa09c8964398ffda10976e65804c26c940399cf7e854"
+  },
+  {
+    "cue": 15,
+    "request_sha256": "9e2497618336dd9f364f448a6207fa45510884e9609dee689f7fff5f7d1007fd",
+    "audio_sha256": "26d92db0d8ec70f2d7db712112066a9e2e85fa36c533cb3f3e8d8db5512659fe",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "defense_1",
+    "text": "First recovery secured. Another formation is coming. Keep them away from the console.",
+    "file": "defense_1.ogg",
+    "duration": 5.10839,
+    "ogg_sha256": "d47bd90662cafd9e9388eba2aecd7cc128d2e00fb00c16a72795e83312f3676f"
+  },
+  {
+    "cue": 16,
+    "request_sha256": "9f5a82125d2639957c181d796289460f4ae9c8e0d0afebca319611a1b3a681b4",
+    "audio_sha256": "f145c2a86f59f6c3eda3da65336c8e7b8ef5c37293934bdd7a47938f42187b3d",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "defense_2",
+    "text": "Second stage secure. One final formation. Then we give the queue its names back.",
+    "file": "defense_2.ogg",
+    "duration": 4.272472,
+    "ogg_sha256": "6b3c3d4e390419cd4151e61f32ad33f91ae6906c5d8d542a8f86b48e1dd67e50"
+  },
+  {
+    "cue": 17,
+    "request_sha256": "bb464dbb75de4e8cc53a462a02d715a3cee9cac2b6680c3bbc9a18c8243e8ee8",
+    "audio_sha256": "29a492eb1b63c4c79d53961fe8441ec4eb878fc278bb442a4d2ad7cef92372c2",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "defense_3",
+    "text": "Recovery complete. No defenders remain. Commit the identities at the district access terminal.",
+    "file": "defense_3.ogg",
+    "duration": 6.919546,
+    "ogg_sha256": "d25d0903c045a0b473023cca265a24842662a1389c71fcff779e72a285836237"
+  },
+  {
+    "cue": 18,
+    "request_sha256": "10d8edc95f3878230834f4d1a1e0378358ea8093ed52442fbdc73f2fbdcc35b0",
+    "audio_sha256": "3890a5938ce376b5cf9e3b696ebab2c85c2116f412fbab9f3973e51f4d467fc3",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "commit",
+    "text": "Accepted. The lights have changed. Shelter, water, transit. They are reading names again. Everyone here can finally move.",
+    "file": "commit.ogg",
+    "duration": 8.637823,
+    "ogg_sha256": "fa7a3c509dc572fd905e99dd4da0fad85662acb7b25a461f380b232c3aa79d5a"
+  },
+  {
+    "cue": 19,
+    "request_sha256": "7d9fdf1775b0dedeb66c64c9218936e4c81e2457cdd8dd9fdada0105e254e634",
+    "audio_sha256": "1f46163040dfc76e9d1d2f950efd5bba86085df9048ba408d2cf3443dedf03a6",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "hint",
+    "text": "Use the signature ability named by your objective. The archive terminals respond to your normal context attack control.",
+    "file": "hint.ogg",
+    "duration": 8.312744,
+    "ogg_sha256": "7495c356c568786c461264cfe3a102956b244df305461dad6db519793ee5fe62"
+  }
+]

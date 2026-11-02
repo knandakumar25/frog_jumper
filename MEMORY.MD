@@ -4,6 +4,38 @@ Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Mission 5 — 2026-11-02
+
+- Added playable Names Without Numbers: six sectors, seventeen finite formations,
+  three protected originals, ordered recovery defense, restored civilian access.
+  Checkpoints retain complete events and one-time rewards; Replay resets the ledger.
+- Five-mission catalog; Surya remains unlocked at the queue, unavailable only in 5.
+  All player/roster swap paths enforce this. Level 4 explicitly retains Act I results;
+  Continue runs the existing opening then 5. Level Select/Resume/Replay enter 5 directly.
+  Save schema unchanged; a save at 4 does not imply completion. No Mission 6.
+- Seven original Docker/Blender props and nineteen newly cached established-cast cues
+  pass technical media validation. Docker D: mounts failed; copied inputs into the
+  same existing media image. Original cast/cinematic assets and running stack retained.
+- Assisted blockout completed real movement/abilities/proximity with diagnostic enemy
+  clearance. Solid 100px archive stairs replace the failed upper-gallery approach.
+  The 25–30-minute unassisted duration, physical devices and subjective listening
+  remain unverified. Source uses attack context and proximity pointer/touch terminals.
+  Current verification details are appended after final checks. No exports or Git
+  staging/commit/push.
+
+- Mission 5 title/objective overrides replace the retired narrative slot's title;
+  player guidance names landmarks rather than world coordinates. All six archive
+  formations spawn above real structural geometry, covered by runtime regression.
+- Final verification: import exit 0, 30 media sidecars, clean incremental build,
+  NUnit 100/100, Godot 210/210 (report_406; zero errors/failures/orphans), isolated
+  Django 104/104. Real input dispatch (keyboard/controller events/mouse/touch),
+  all opening handoffs, Replay/Level Select and temporary save-at-4/completion/resume
+  passed; fixture cleanup preserved original campaign row hashes. Twenty-one
+  three-resolution captures inspected; gallery spawns corrected above actual floor.
+  Known diagnostics remain: full-build 153 warnings, addon TLS/editor shutdown,
+  10 legacy reference errors/27 warnings and unreadable Docker bind mounts. Helpers
+  stopped; four normal services running; editor stopped on original Level 1.
+
 ## Memory maintenance
 
 - 2026-11-01 export policy: game exports are local Docker-only, with explicit
@@ -77,7 +109,7 @@ this summary does not replace them. Verify live environment state before acting.
 
 - Axiom Force is a 2D cyber-action platformer: Godot 4.7.2 .NET, C#/.NET 10,
   Django REST Framework/Python 3.14, and a React/Vite website.
-- Keep the four-mission campaign and story-earned operative roster.
+- Campaign now has five missions; preserve the story-earned roster.
 - Read the game-development `router` and applicable specialized skills before
   game-related work. The installed source is
   `gamedev-skills/awesome-gamedev-agent-skills` (router plus 77 skills).
@@ -784,40 +816,14 @@ all failures. Expected mocked Resend/Clerk diagnostics remain in passing tests.
 Evidence: .validation/act-i/ and act-i-*.log. Diff hygiene passes. No exports,
 staging, commits or pushes. Changes remain local and uncommitted.
 
-## Act II preview implementation — 2026-11-02
+## Historical Act II preview — superseded by Mission 5
 
-Act I final results gain a separate ACT II PREVIEW for The Unregistered, a standalone
-120-second opening introducing Mission 5: Names Without Numbers. Natural completion
-and Skip show a local preview-complete screen with Replay Preview/Main Menu. Exactly
-four missions remain playable; preview code calls no campaign, roster, score, save or
-session mutation. Existing character atlases/cast are reused with ten newly generated
-cached voice cues; layered art uses the established Docker/Blender workflow. Missing
-speech keeps subtitles; absent essential visuals complete safely. Localization uses
-keys with English fallbacks. Code/tests/production tooling and README/HANDOFF updated;
-production and initial verification complete. Build: zero errors, 153 existing
-warnings. NUnit 88/88, Godot 203/203 (report_401; zero errors/failures/orphans), copied
-source/container Django 104/104 pass. The standard Django wrapper skips its absent
-venv; backend /app still has ENODEV. Fourteen PNG/two Ogg asset, cast/hash, timing,
-silent-ending and decoded mix checks pass. Inspected 36 shot + three completion
-captures at all requested sizes and the results panel. Full 120-second playback
-completes with audio stopped, within 28.5 ms sampled clock separation. Production
-results entry, Replay, Main Menu and repeated Skip paths pass; progression snapshots
-and game_sessions row hashes stay identical. Review harness corrections handle
-polling overhead and the existing results node; separate playback/navigation
-records remain under .validation/unregistered. Speaker-listening and physical-device
-acceptance remain unperformed. Final repeat after the last source/tool edits passes: incremental C# build zero
-warnings/errors, background import exit 0 and all sixteen sidecars, NUnit 88/88,
-Godot 203/203 (report_402; zero errors/failures/orphans), explicit copied-source
-container Django 104/104. Known addon TLS/EditorSettings/shutdown diagnostics remain;
-reference checker retains its existing ten addon/menu errors and 27 warnings.
-Python compilation/diff hygiene pass. Artwork helper stopped; four normal services
-remain up. Editor stopped on its original Level 1 scene. Existing uncommitted Act I
-title work preserved.
-No export, staging, commit or push authorized or performed.
-
-Act II input follow-up: keyboard arrows/Enter and injected controller D-pad/A
-were verified through actual GUI dispatch for completion focus, Replay Preview
-and Main Menu. Physical-device acceptance remains separate.
+The 2026-11-02 preview originally stopped at a local completion panel with four
+playable missions. That behavior is replaced by the Mission 5 campaign integration
+above. Its existing ten cast cues and cinematic artwork are preserved. Historical
+verification: NUnit 88/88, Godot 203/203 (report_402), isolated Django 104/104,
+complete 120-second playback and three-resolution shot captures; this does not
+replace current Mission 5 verification or establish subjective listening/hardware.
 
 ## Act I heading and Act II preview publication — 2026-11-02
 
@@ -831,3 +837,11 @@ This Git/documentation-only task requires no new import or tests: prior final bu
 import exit 0, NUnit 88/88, Godot 203/203 (zero errors/failures/orphans) and isolated
 Django 104/104 remain applicable. Known diagnostics and human listening/device
 acceptance limitations remain documented. No exports or additional code/asset edits.
+
+## Mission 5 publication — 2026-11-02
+
+User clarified that requesting a push authorizes the prerequisite commit. Committed and
+pushed the current Names Without Numbers Mission 5 implementation and its required
+README, HANDOFF, and MEMORY updates to `origin/main`. Remote was synchronized before
+commit. Prior verification remains the final build/import and test results recorded
+above; no exports were run.

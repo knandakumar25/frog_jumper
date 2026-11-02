@@ -1,7 +1,7 @@
 class_name TestCampaignLevels
 extends GdUnitTestSuite
 
-## Structural checks for all four code-built missions: they load, the squad matches the story schedule, every
+## Structural checks for all five code-built missions: they load, the squad matches the story schedule, every
 ## shrine/objective/fragment stands on a platform the route can reach with conservative jump limits, and each
 ## gate is cleared only by its own operative's ability.
 
@@ -10,6 +10,7 @@ const LEVELS := {
 	2: "res://scenes/gameplay/level2.tscn",
 	3: "res://scenes/gameplay/level3.tscn",
 	4: "res://scenes/gameplay/level4.tscn",
+	5: "res://scenes/gameplay/level5.tscn",
 }
 const GATE := 4
 ## Conservative limits: weakest jump (Apex Titan) clears ~177 px up and ~256 px across at run speed.
@@ -212,6 +213,6 @@ func test_level4_arena_requires_objectives_and_crossing_requires_release() -> vo
 	mission.free()
 
 func test_each_level_names_the_next_scene_or_ends_the_act() -> void:
-	for level in range(1, 5):
+	for level in range(1, 6):
 		assert_str(catalog.ScenePath(level)).is_equal(LEVELS[level])
-	assert_int(catalog.Count()).is_equal(4)
+	assert_int(catalog.Count()).is_equal(5)

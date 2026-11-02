@@ -1,6 +1,6 @@
 class_name TestActIIOpening
 extends GdUnitTestSuite
-## Preview isolation, deterministic fallback and complete input/audio lifecycle coverage.
+## Opening signal isolation, deterministic fallback and complete input/audio lifecycle coverage.
 
 const SCENE := "res://scenes/cutscenes/act_ii_opening.tscn"
 
@@ -8,6 +8,7 @@ const SCENE := "res://scenes/cutscenes/act_ii_opening.tscn"
 func _preview(speech: String = "") -> Node:
 	## Use the production scene with optional speech; every caller owns and frees its instance.
 	var preview: Node = load(SCENE).instantiate()
+	preview.set("EnterMissionOnFinish", false)
 	preview.set("SpeechPath", speech)
 	add_child(preview)
 	preview.set_process(false)
@@ -25,7 +26,7 @@ func _snapshot() -> Array:
 
 
 func test_timeline_all_cues_and_preview_leave_progress_unchanged() -> void:
-	## Every authored subtitle window remains deterministic; the preview cannot add a fifth playable mission.
+	## Every authored subtitle window remains deterministic; observing playback alone never changes campaign progress.
 	var before := _snapshot()
 	var preview := _preview()
 	var cues: Array = JSON.parse_string(FileAccess.get_file_as_string("res://assets/cutscenes/act_ii_opening/cues.json"))
@@ -40,9 +41,8 @@ func test_timeline_all_cues_and_preview_leave_progress_unchanged() -> void:
 	preview.call("_Process", 0.1)
 	await get_tree().process_frame
 	assert_bool(preview.get("HasFinished")).is_true()
-	assert_bool(preview.get_node("Complete").visible).is_true()
 	assert_array(_snapshot()).is_equal(before)
-	assert_int(before[0]).is_equal(4)
+	assert_int(before[0]).is_equal(5)
 	preview.free()
 
 
@@ -80,7 +80,6 @@ func test_early_middle_late_skip_routes_complete_once_and_stop_audio() -> void:
 		assert_int(completed.size()).is_equal(1)
 		assert_bool(preview.get_node("Speech").playing).is_false()
 		assert_bool(preview.get_node("Atmosphere").playing).is_false()
-		assert_bool(preview.get_node("Complete").visible).is_true()
 		assert_bool(preview.get_node("UI").visible).is_false()
 		preview.free()
 
@@ -101,27 +100,22 @@ func test_missing_art_completes_safely_without_creating_gameplay() -> void:
 	## Essential scenery absence bypasses to the same preview ending with no progression changes.
 	var before := _snapshot()
 	var preview: Node = load(SCENE).instantiate()
+	preview.set("EnterMissionOnFinish", false)
 	preview.set("ArtPath", "res://missing-preview/")
 	add_child(preview)
 	await get_tree().process_frame
 	await get_tree().process_frame
 	assert_bool(preview.get("HasFinished")).is_true()
-	assert_bool(preview.get_node("Complete").visible).is_true()
 	assert_array(_snapshot()).is_equal(before)
 	preview.free()
 
 
-func test_completion_focus_and_teardown_restore_presentation_state() -> void:
-	## Completion exposes two focusable destinations; removing playback restores the previous cursor policy.
+func test_teardown_restores_presentation_state() -> void:
+	## Observed completion silences audio and restores the previous cursor policy on removal.
 	var mode := Input.mouse_mode
 	var preview := _preview()
 	preview.call("Finish")
-	await get_tree().process_frame
-	var replay: Button = preview.get_node("Complete/Replay")
-	var menu: Button = preview.get_node("Complete/MainMenu")
-	assert_int(replay.focus_mode).is_equal(Control.FOCUS_ALL)
-	assert_that(replay.get_node(replay.focus_neighbor_bottom)).is_equal(menu)
-	assert_that(menu.get_node(menu.focus_neighbor_bottom)).is_equal(replay)
+	assert_bool(preview.get("HasFinished")).is_true()
 	preview.free()
 	assert_int(Input.mouse_mode).is_equal(mode)
 
@@ -136,6 +130,7 @@ func test_only_act_completion_exposes_preview_and_retains_captured_results() -> 
 	var score: String = card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text
 	card.call("ShowActScorecard", 150, 4, "KAITO")
 	assert_bool(card.get_node("RootPanel/MainVBox/PreviewBtn").visible).is_true()
+	assert_str(card.get_node("RootPanel/MainVBox/PreviewBtn").text).is_equal("CONTINUE TO ACT II")
 	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_false()
 	assert_str(card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text).is_equal(score)
 	card.free()

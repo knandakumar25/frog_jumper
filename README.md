@@ -1,30 +1,76 @@
 # Axiom Force
 
-A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. All four levels are side-scrolling platformers. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
+A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. All five levels are side-scrolling platformers. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
 
 ---
 
-## Act II preview — The Unregistered
+## Mission 5 — Names Without Numbers (2026-11-02)
 
-Level 4’s **ACT I COMPLETE** results now offer **ACT II PREVIEW** alongside the
-existing results actions. The standalone 120-second opening introduces **Mission 5:
-Names Without Numbers** with the established cast, new layered surveillance-district
-art and synthesized atmosphere. The opening title occupies the first eight seconds;
-the final six seconds show the objective in silence. Skip (button, Escape or controller
-Start) and natural completion both reach **ACT II PREVIEW COMPLETE**. Replay Preview
-and Main Menu support mouse, keyboard and gamepad focus.
+The campaign now has five playable missions. Level 4 explicitly retains its captured
+**ACT I COMPLETE** scorecard. **CONTINUE TO ACT II** launches the existing opening;
+natural completion, Skip and missing essential art hand off once to Mission 5 after
+stopping cinematic audio. Level Select, Resume and Mission 5 Replay enter gameplay
+directly. A Mission 4 save remains at Mission 4 until completion; no save migration or
+new operative grant is introduced. Mission 5 ends on **MISSION COMPLETE**, with Replay,
+Level Select and Main Menu, without exposing Mission 6.
 
-This is a presentation preview: there are still four playable missions. It creates
-no session, grants no operatives, changes no campaign progress or scores, and writes
-no saves. Missing speech retains timed subtitles; missing essential artwork reaches
-the preview ending safely. Reproduction commands and provenance are documented in
-[the cinematic production guide](tools/cutscene/README.md#act-ii--the-unregistered).
+Six connected sectors cover scanner timing, processing control, archive cooling and
+maintenance, three authenticated original records, exclusion isolation, three ordered
+finite recovery waves and restored civilian access. Seventeen three-member formations
+use the existing combat/score/checkpoint systems with a six-live-enemy cap. Required
+archive stairs rise 100px; records are indestructible context terminals using the normal
+attack action, or click/tap the nearby console. Exact prerequisites reject premature/duplicate interactions. Completed
+objectives and formations survive checkpoints, incomplete groups reset and each member
+rewards once across retries. Three optional civilian testimony fragments never gate exit.
 
-Verified 2026-11-02: complete playback, results entry, replay/menu routes, Skip and
-missing-resource fallbacks; layouts inspected at 1920×1080, 1920×1200 and 2560×1080.
-NUnit 88/88, Godot 203/203 and isolated Django 104/104 pass. Existing build/import
-and Docker mount diagnostics remain. Subjective speaker listening and physical
-controller/touch acceptance remain unperformed.
+Surya remains unlocked and speaks over comms from the queue. His slot shows
+“Protecting the queue”; roster selection, direct player swaps and cycling all exclude
+him only in Mission 5. Invalid preferred selections fall back to Kaito. Mirage phases
+into processing, Aura isolates scanner denial, Oceanus stabilizes coolant and Titan
+opens the damaged maintenance route away from protected records. Committing restored
+identities visibly opens amber denial gates with accepted-access markers.
+
+Original Docker/Blender props, nineteen new cached established-cast cues and synthesized
+atmosphere/scanner cues include reproducible production scripts and provenance. A single
+mission-owned speech lane serializes critical dialogue above expiring hints; missing
+speech retains localized English fallback subtitles. Owned audio pauses/stops on mission
+lifecycle transitions. Docker's D: bind mount failed, so production used copied inputs
+in the same existing media image; the running stack was preserved.
+
+Assisted blockout traversal completed all records, sequential recovery, commit and exit
+using real movement, operative abilities and diagnostic enemy clearance. It exposed an
+upper gallery approach problem, fixed with solid conservative stairs before dressing.
+This is functional evidence, not unassisted combat balance or the requested 25–30-minute
+first-play duration. Physical controller/touch and subjective mix listening remain
+separate acceptance checks. Production and final verification details are in
+[Mission 5 acceptance](tools/gameplay/NAMES_WITHOUT_NUMBERS.md).
+
+
+Verified 2026-11-02 after final engine edits: background import exit 0 with all
+30 new media sidecars; final incremental C# build zero warnings/errors; NUnit 100/100;
+GdUnit4 210/210 (`reports/report_406`, zero errors, failures and orphans); isolated
+copied-source Django 104/104. The wrapper skips the absent host Django venv. Existing
+backend `/app` and media D: mounts remain unreadable; isolated tests used the same
+backend image and PostgreSQL network, with their test database removed normally.
+The temporary production/test helpers were stopped; all four normal services remain
+running. No exports, staging, commits or pushes; editor remains stopped on Level 1.
+
+Runtime evidence under `.validation/names/`: assisted mandatory-route completion,
+21 sector/restored/results captures across 1920×1080, 1920×1200 and 2560×1080,
+actual keyboard/controller-event/mouse/touch terminal dispatch, repeated opening Skip,
+natural completion and missing-art handoff, Mission 5 Replay and direct Level Select.
+A temporary campaign stayed at Mission 4 until completion, then saved/resumed directly
+into 5; its cleanup preserved the original campaign row hash. Seven transparent art
+assets and nineteen complete voice cues pass alpha/margin, cast/hash, decoded duration
+and clipping checks. The gallery spawn regression passes for all six archive groups.
+Python tool compilation and diff hygiene pass. These checks do not establish an
+unassisted uninterrupted 25–30-minute run, physical hardware or subjective listening.
+
+Known diagnostics: a full rebuild retains 153 pre-existing nullable/addon warnings;
+one concurrent build had a transient PDB-sharing retry, resolved by the final clean
+incremental build. Headless editor imports still log existing addon TLS and shutdown
+EditorSettings/ObjectDB/resource/allocator messages. The reference checker retains
+10 pre-existing addon/menu connection errors and 27 warnings, none in Mission 5.
 
 ## Act I opening label
 
@@ -117,7 +163,7 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   phase-two pylons, reflected missiles and five-second melee openings. Defeat
   unlocks a separate crossing release; civilians cross a safe nonblocking road
   before extraction freezes ACT I COMPLETE results (Replay, Level Select, Main Menu).
-  The four-mission catalog, saves and earlier recorded cinematics are preserved.
+  The Act I mission behavior, saves and earlier recorded cinematics are preserved.
   Fourteen cached event voices and six original Docker/Blender fortress assets
   have reproducible provenance. The 20–25 minute first-run target is **unvalidated**.
   See [production/acceptance](tools/gameplay/SHATTERED_AEGIS.md),

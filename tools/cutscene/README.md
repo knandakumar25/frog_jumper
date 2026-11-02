@@ -402,8 +402,12 @@ No export, staging, commit or push; changes remain local and uncommitted.
 
 ## Act II — The Unregistered
 
-Standalone 120-second campaign preview, reached only through Level 4’s Act I results
-Preview button or direct scene launch. It never enters Mission 5 gameplay. Shots begin
+The 120-second campaign opening is reached through Level 4’s Act I results
+**CONTINUE TO ACT II** action. Natural completion, Skip and missing essential artwork
+stop owned audio and enter Mission 5 once. Level Select, Resume and Mission 5 Replay
+enter gameplay directly. The pre-Mission-5 preview-isolation checks in
+`review_unregistered.py` are historical; use `tools/gameplay/navigate_names.py` for
+current campaign handoff acceptance. Shots begin
 at 0, 8, 20, 32, 44, 56, 68, 80, 92, 104 and 114; the 104–114 shot switches from Surya
 to Kaito at 110. Titles and objective are silent; text remains in Godot. Established
 five-member poses plus the existing Surya atlas preserve character designs. Existing

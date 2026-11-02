@@ -1,8 +1,8 @@
 using Godot;
 
 /// <summary>
-/// Standalone 120-second Act II preview. One clock owns shots, subtitles and optional audio.
-/// Completion remains local: no campaign, roster, score, session or save API is called.
+/// 120-second Act II opening. One clock owns shots, subtitles and optional audio.
+/// Natural completion, Skip and missing artwork hand off once to Mission 5.
 /// </summary>
 public partial class ActIIOpening : CanvasLayer
 {
@@ -12,6 +12,8 @@ public partial class ActIIOpening : CanvasLayer
     [Export] public string SpeechPath { get; set; } = "res://assets/cutscenes/act_ii_opening/dialogue.ogg";
     /// <summary>Visual resource root; missing essential artwork bypasses the cinematic safely.</summary>
     [Export] public string ArtPath { get; set; } = "res://assets/cutscenes/act_ii_opening/";
+    /// <summary>Scene owners may observe completion without navigation when embedding the opening in a test or presentation.</summary>
+    [Export] public bool EnterMissionOnFinish { get; set; } = true;
     /// <summary>Timeline length, independent of speech availability.</summary>
     public const double Duration = 120;
     /// <summary>Current deterministic timeline position, also used by runtime review.</summary>
@@ -41,7 +43,6 @@ public partial class ActIIOpening : CanvasLayer
     private Input.MouseModeEnum _previousMouseMode;
     private bool _previousPromptVisible = true;
     private Control? _ui;
-    private Control? _complete;
     private bool _navigating;
     private double _lastAudio = -1;
     private double _stalled;
@@ -85,7 +86,6 @@ public partial class ActIIOpening : CanvasLayer
         skip.GrabFocus();
         _speech = CreateAudio("Speech", SpeechPath, 0);
         _ambience = CreateAudio("Atmosphere", ArtPath + "atmosphere.ogg", -18);
-        BuildCompletion();
         Seek(0);
         if (!_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
@@ -147,21 +147,7 @@ public partial class ActIIOpening : CanvasLayer
     public override void _Input(InputEvent input)
     {
         if (!IsInsideTree() || _navigating) return;
-        if (HasFinished)
-        {
-            // Global suppresses legacy mouse input, so route completion clicks before GUI dispatch.
-            Vector2? point = input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } click ? click.Position :
-                input is InputEventScreenTouch { Pressed: true } tap ? tap.Position : null;
-            if (point.HasValue && _complete is { Visible: true })
-                foreach (var child in _complete.GetChildren())
-                    if (child is Button button && button.GetGlobalRect().HasPoint(point.Value))
-                    {
-                        GetViewport().SetInputAsHandled();
-                        button.EmitSignal(Button.SignalName.Pressed);
-                        return;
-                    }
-            return;
-        }
+        if (HasFinished) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key &&
             key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A;
@@ -177,7 +163,7 @@ public partial class ActIIOpening : CanvasLayer
         Finish();
     }
 
-    /// <summary>Stops audio before emitting the single completion signal and reveals the preview ending.</summary>
+    /// <summary>Stops audio before emitting the single completion signal and queues the Mission 5 handoff.</summary>
     public void Finish()
     {
         if (HasFinished) return;
@@ -185,45 +171,17 @@ public partial class ActIIOpening : CanvasLayer
         StopAudio();
         if (_ui != null) _ui.Visible = false;
         if (_stage != null) _stage.Visible = false;
-        // Defer focus so the Skip key cannot activate Replay in the same GUI dispatch.
+        // Defer scene replacement until Skip dispatch completes; its action state has already been released.
         if (IsInsideTree()) Callable.From(ShowCompletion).CallDeferred();
         EmitSignal(SignalName.Finished);
     }
 
-    /// <summary>Expose completion after input dispatch, keeping playback and persistence entirely separate.</summary>
+    /// <summary>Enter Mission 5 after input dispatch so repeated Skip cannot activate gameplay controls.</summary>
     private void ShowCompletion()
     {
-        if (!IsInsideTree() || _complete == null) return;
-        _complete.Visible = true;
-        _complete.GetNode<Button>("Replay").GrabFocus();
-    }
-
-    /// <summary>Build a scene-local ending with keyboard/gamepad focus and no mission preparation.</summary>
-    private void BuildCompletion()
-    {
-        var background = new ColorRect { Name = "CompleteBackground", Color = new Color("050b12"), MouseFilter = Control.MouseFilterEnum.Ignore };
-        AddChild(background);
-        background.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
-        // Behind both presentation and completion: the cinematic stage already draws its own background.
-        MoveChild(background, 0);
-        var box = new VBoxContainer { Name = "Complete", Visible = false, AnchorLeft = .15f, AnchorRight = .85f, AnchorTop = .3f, AnchorBottom = .7f };
-        AddChild(box);
-        _complete = box;
-        box.AddThemeConstantOverride("separation", 24);
-        var title = new Label { Text = Localized("ACT_II_PREVIEW_COMPLETE", "ACT II PREVIEW COMPLETE"), HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart };
-        title.AddThemeFontSizeOverride("font_size", 32);
-        box.AddChild(title);
-        box.AddChild(new Label { Text = Localized("ACT_II_UNAVAILABLE", "Level 5 gameplay is not available yet."), HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart });
-        var replay = new Button { Name = "Replay", Text = Localized("ACT_II_REPLAY", "REPLAY PREVIEW"), CustomMinimumSize = new Vector2(0,56) };
-        var menu = new Button { Name = "MainMenu", Text = Localized("ACT_II_MAIN_MENU", "MAIN MENU"), CustomMinimumSize = new Vector2(0,56) };
-        box.AddChild(replay);
-        box.AddChild(menu);
-        replay.FocusNeighborTop = replay.GetPathTo(menu);
-        replay.FocusNeighborBottom = replay.GetPathTo(menu);
-        menu.FocusNeighborTop = menu.GetPathTo(replay);
-        menu.FocusNeighborBottom = menu.GetPathTo(replay);
-        replay.Pressed += () => Navigate("res://scenes/cutscenes/act_ii_opening.tscn");
-        menu.Pressed += () => Navigate("res://scenes/main_menu/main_menu.tscn");
+        if (!IsInsideTree() || _navigating || !EnterMissionOnFinish) return;
+        CampaignProgress.PrepareMission(5);
+        Navigate(LevelCatalog.ScenePath(5));
     }
 
     /// <summary>Consume navigation once and stop owned sound before deferred scene replacement.</summary>

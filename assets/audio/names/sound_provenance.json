@@ -1,0 +1,7 @@
+{
+  "generator": "tools/gameplay/sound_names.py",
+  "source": "Original deterministic sine synthesis; no sampled speech",
+  "rate": 22050,
+  "atmosphere_seconds": 24,
+  "peak_amplitude_bound": 0.155
+}

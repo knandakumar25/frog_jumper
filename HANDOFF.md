@@ -1,59 +1,76 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
-## Act II preview — 2026-11-02
+## Mission 5 — Names Without Numbers (2026-11-02)
 
-Implemented standalone scenes/cutscenes/act_ii_opening.tscn with ActIIOpening’s
-120-second compensated clock, bounded speech-stall fallback and one-shot completion.
-ActIIStage independently samples the opening title, district/denial/escort/camera/
-signal/service/registry/briefing/advance shots and final mission objective. Existing
-operative atlases and cast IDs are reused. Ten new ElevenLabs cues include separate
-Surya/Kaito lines in the last dialogue shot. Artwork has no baked text; all titles,
-subtitles, objective and controls use localization keys with English fallbacks.
+The campaign now has five playable missions. Level 4 explicitly retains its captured
+**ACT I COMPLETE** scorecard. **CONTINUE TO ACT II** launches the existing opening;
+natural completion, Skip and missing essential art hand off once to Mission 5 after
+stopping cinematic audio. Level Select, Resume and Mission 5 Replay enter gameplay
+directly. A Mission 4 save remains at Mission 4 until completion; no save migration or
+new operative grant is introduced. Mission 5 ends on **MISSION COMPLETE**, with Replay,
+Level Select and Main Menu, without exposing Mission 6.
 
-CyberVictoryScorecard exposes PreviewBtn only through ShowActScorecard and hides
-it on ordinary results. Its separate callback changes directly to the preview;
-Continue, Replay, Level Select, captured stats and Main Menu remain intact. No
-LevelCatalog, progression, persistence schema, session or backend changes. Skip and
-natural completion stop both owned audio players before revealing a local completion
-panel. Completion focus is deferred past Skip dispatch to avoid same-event replay.
-Replay instantiates a fresh scene; Main Menu uses the existing menu. Scene exit
-restores the prior cursor/prompt state and stops all owned sound.
+Six connected sectors cover scanner timing, processing control, archive cooling and
+maintenance, three authenticated original records, exclusion isolation, three ordered
+finite recovery waves and restored civilian access. Seventeen three-member formations
+use the existing combat/score/checkpoint systems with a six-live-enemy cap. Required
+archive stairs rise 100px; records are indestructible context terminals using the normal
+attack action, or click/tap the nearby console. Exact prerequisites reject premature/duplicate interactions. Completed
+objectives and formations survive checkpoints, incomplete groups reset and each member
+rewards once across retries. Three optional civilian testimony fragments never gate exit.
 
-Production and review tools: tools/cutscene/*_unregistered.py. Cues, measured timing,
-cast/settings/request/audio hashes and layered art provenance accompany the assets.
-Automated checks cover deterministic subtitles, Skip paths/repetition, missing/stalled
-speech, missing artwork, focus/teardown and results visibility. Initial verification:
-C# build has zero errors and 153 existing warnings; NUnit 88/88 and Godot 203/203
-(report_401; zero errors/failures/orphans) pass. Host Django skips its missing venv;
-explicit source-copy Django passes 104/104 because /app still returns ENODEV.
+Surya remains unlocked and speaks over comms from the queue. His slot shows
+“Protecting the queue”; roster selection, direct player swaps and cycling all exclude
+him only in Mission 5. Invalid preferred selections fall back to Kaito. Mirage phases
+into processing, Aura isolates scanner denial, Oceanus stabilizes coolant and Titan
+opens the damaged maintenance route away from protected records. Committing restored
+identities visibly opens amber denial gates with accepted-access markers.
 
-All 36 shot captures, three completion captures and the final results panel were
-inspected at the requested sizes (PNG dimensions checked). Uninterrupted playback
-reaches 120 seconds and the completion screen with both audio players stopped;
-maximum sampled audio/visual separation is 28.5 ms. Results entry, preview Replay,
-Main Menu, repeated Escape and Start routes pass. Roster/active operative/global
-progress/session snapshots stay identical; PostgreSQL game_sessions row hashes
-also match before/after. Final navigation runtime log has 19 info entries and no
-warnings/errors. Review harness fixes account for MCP polling overhead and reuse
-the mission's existing scorecard. Complete playback evidence is retained separately
-from the successful navigation-only follow-up, under .validation/unregistered/review.
+Original Docker/Blender props, nineteen new cached established-cast cues and synthesized
+atmosphere/scanner cues include reproducible production scripts and provenance. A single
+mission-owned speech lane serializes critical dialogue above expiring hints; missing
+speech retains localized English fallback subtitles. Owned audio pauses/stops on mission
+lifecycle transitions. Docker's D: bind mount failed, so production used copied inputs
+in the same existing media image; the running stack was preserved.
 
-All fourteen PNG layers, two exact 120-second Ogg tracks, ten cast/request/audio
-hashes, fitted speech bounds, silent final title and decoded combined peak pass.
-Only the first AXIOM cue needs 1.1633x fitting; the other nine retain source tempo.
-Synthesized atmosphere sits at -18 dB relative to speech. No subjective speaker
-listening or physical controller/touch hardware acceptance is claimed. Existing
-import TLS/editor shutdown diagnostics and the reference checker's unchanged ten
-addon/main-menu errors and 27 warnings remain separate from game runtime results.
-Final repeat after all source/tool edits: incremental build passes with zero warnings/
-errors; background import exits 0 with all sixteen PNG/Ogg sidecars. Known addon TLS,
-EditorSettings and shutdown resource/allocator diagnostics persist. run_tests.ps1
-passes NUnit 88/88 and Godot 203/203 (report_402; zero failures/errors/orphans); Django
-skips its absent host venv, and explicit copied-source container Django again passes
-104/104. Python compilation and diff hygiene pass. Artwork helper is stopped; all
-four normal services stay running. Editor remains stopped on the original Level 1
-scene. Existing local Act I title changes are preserved.
-No exports, staging, commits or pushes.
+Assisted blockout traversal completed all records, sequential recovery, commit and exit
+using real movement, operative abilities and diagnostic enemy clearance. It exposed an
+upper gallery approach problem, fixed with solid conservative stairs before dressing.
+This is functional evidence, not unassisted combat balance or the requested 25–30-minute
+first-play duration. Physical controller/touch and subjective mix listening remain
+separate acceptance checks. Production and final verification details are in
+[Mission 5 acceptance](tools/gameplay/NAMES_WITHOUT_NUMBERS.md).
+
+
+Mission 5 overrides both title and briefing from retired narrative slot 5. Player
+objectives name visible landmarks; coordinates stay in tooling notes. Defenders
+spawn relative to real stairs, galleries and cover rather than the base road floor.
+
+Verified 2026-11-02 after final engine edits: background import exit 0 with all
+30 new media sidecars; final incremental C# build zero warnings/errors; NUnit 100/100;
+GdUnit4 210/210 (`reports/report_406`, zero errors, failures and orphans); isolated
+copied-source Django 104/104. The wrapper skips the absent host Django venv. Existing
+backend `/app` and media D: mounts remain unreadable; isolated tests used the same
+backend image and PostgreSQL network, with their test database removed normally.
+The temporary production/test helpers were stopped; all four normal services remain
+running. No exports, staging, commits or pushes; editor remains stopped on Level 1.
+
+Runtime evidence under `.validation/names/`: assisted mandatory-route completion,
+21 sector/restored/results captures across 1920×1080, 1920×1200 and 2560×1080,
+actual keyboard/controller-event/mouse/touch terminal dispatch, repeated opening Skip,
+natural completion and missing-art handoff, Mission 5 Replay and direct Level Select.
+A temporary campaign stayed at Mission 4 until completion, then saved/resumed directly
+into 5; its cleanup preserved the original campaign row hash. Seven transparent art
+assets and nineteen complete voice cues pass alpha/margin, cast/hash, decoded duration
+and clipping checks. The gallery spawn regression passes for all six archive groups.
+Python tool compilation and diff hygiene pass. These checks do not establish an
+unassisted uninterrupted 25–30-minute run, physical hardware or subjective listening.
+
+Known diagnostics: a full rebuild retains 153 pre-existing nullable/addon warnings;
+one concurrent build had a transient PDB-sharing retry, resolved by the final clean
+incremental build. Headless editor imports still log existing addon TLS and shutdown
+EditorSettings/ObjectDB/resource/allocator messages. The reference checker retains
+10 pre-existing addon/menu connection errors and 27 warnings, none in Mission 5.
 
 ## Current creative direction — 2026-11-02
 

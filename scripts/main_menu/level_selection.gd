@@ -7,6 +7,7 @@ const LoadingScreen = preload("res://scripts/ui/loading_screen.gd")
 ## menus all agree on mission numbers and paths. There is no training level: abilities are taught in-mission.
 var catalog = load("res://scripts/managers/LevelCatalogBridge.cs").new()
 
+## Initializes catalog-backed mission locking and keyboard/controller focus.
 func _ready() -> void:
 	Global.stop_menu_music()
 	_update_level_buttons()
@@ -36,6 +37,7 @@ func find_level_button(btn_name: String) -> Node:
 	if grid == null: return null
 	return _find_node_recursive(grid, btn_name)
 
+## Searches nested sector cards without relying on a fixed card count.
 func _find_node_recursive(node: Node, target_name: String) -> Node:
 	if node.name == target_name:
 		return node
@@ -58,11 +60,19 @@ func _start_level(level_idx: int) -> void:
 	LoadingScreen.load_scene(get_tree(), scene_path)
 
 # Button callbacks mapped to mission numbers.
+## Launches campaign mission 1.
 func _on_level_1_pressed() -> void: _start_level(1)
+## Launches campaign mission 2.
 func _on_level_2_pressed() -> void: _start_level(2)
+## Launches campaign mission 3.
 func _on_level_3_pressed() -> void: _start_level(3)
+## Launches campaign mission 4.
 func _on_level_4_pressed() -> void: _start_level(4)
 
+## Enters Mission 5 directly; the Act II opening belongs to Level 4 Continue.
+func _on_level_5_pressed() -> void: _start_level(5)
+
+## Returns to the main menu through the existing loading screen.
 func _on_back_button_pressed() -> void:
 	GameManager.set_game_state(GameManager.State.MAIN_MENU)
 	Global.reached_finish = false

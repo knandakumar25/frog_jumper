@@ -630,11 +630,16 @@ public partial class CyberShogun : BaseCharacter
                 SetGhostLook(true);
                 break;
         }
-        // Gates only care about the ability's tag and where/which way it was used.
-        if (IsInsideTree())
-        {
-            foreach (Node node in GetTree()?.GetNodesInGroup("ability_gates") ?? new Godot.Collections.Array<Node>())
-                if (node is AbilityGate gate) gate.ReceiveAbility(tag, GlobalPosition, FacingSign);
+        // Gates only care about the ability's tag and where/which way it was used.
+
+        if (IsInsideTree())
+
+        {
+
+            foreach (Node node in GetTree()?.GetNodesInGroup("ability_gates") ?? new Godot.Collections.Array<Node>())
+
+                if (node is AbilityGate gate) gate.ReceiveAbility(tag, GlobalPosition, FacingSign);
+
         }
         EmitSignal(SignalName.AbilityUsed, tag);
     }
@@ -656,11 +661,11 @@ public partial class CyberShogun : BaseCharacter
         Sprite2d.Modulate = on ? new Color(.6f, 1f, 1f, .55f) : Colors.White;
     }
 
-    /// <summary>Swaps to the next (+1) or previous (-1) unlocked operative; returns false when nothing changed.</summary>
+    /// <summary>Cycles mission-available operatives, excluding deployed support such as Surya at the Mission 5 queue; returns false when unchanged.</summary>
     public bool CycleOperative(int direction)
     {
         var roster = OperativeRoster.Current;
-        var list = roster.Unlocked;
+        var list = roster.Available;
         if (list.Count <= 1) return false;
         int index = System.Linq.Enumerable.ToList(list).IndexOf(ActiveProfile.DisplayName);
         int next = ((index + System.Math.Sign(direction)) % list.Count + list.Count) % list.Count;
@@ -668,7 +673,7 @@ public partial class CyberShogun : BaseCharacter
     }
 
     /// <summary>
-    /// Switches the controlled operative to an unlocked squad member without interrupting movement. The squad shares one
+    /// Switches the controlled operative to an unlocked, mission-available squad member without interrupting movement. The squad shares one
     /// health and shield *ratio* (so swapping never heals), a running dash cooldown carries over, and a short lockout applies.
     /// Refused while locked out, attacking, defeated or when the operative is locked/already active.
     /// </summary>
@@ -677,7 +682,7 @@ public partial class CyberShogun : BaseCharacter
     {
         var roster = OperativeRoster.Current;
         string target = OperativeRoster.Normalize(name);
-        if (target == ActiveProfile.DisplayName || !roster.IsUnlocked(target)) return false;
+        if (target == ActiveProfile.DisplayName || !roster.IsAvailable(target)) return false;
         if (SwapCooldownTimer > 0f || _isAttacking || CurrentHealth <= 0f || !IsMoving) return false;
 
         float healthRatio = MaxHealth > 0f ? CurrentHealth / MaxHealth : 1f;

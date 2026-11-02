@@ -29,7 +29,9 @@ public partial class SquadStrip : HBoxContainer
         Rebuild();
     }
 
+    /// <summary>Refreshes active highlighting after a fielded operative changes.</summary>
     private void OnProfileChanged(OperativeProfile _) => Rebuild();
+    /// <summary>Refreshes ownership and availability when a story recruit joins.</summary>
     private void OnUnlocked(string _) => Rebuild();
 
     /// <summary>Unsubscribes from the long-lived roster/player events so a freed strip is never called back.</summary>
@@ -62,7 +64,7 @@ public partial class SquadStrip : HBoxContainer
             panel.AddThemeStyleboxOverride("panel", style);
             var label = new Label
             {
-                Text = unlocked ? $"{i + 1} {ShortName(name)}" : $"{i + 1} ???",
+                Text = unlocked ? (_roster.IsAvailable(name) ? $"{i + 1} {ShortName(name)}" : "SURYA / " + WildfireText.Get("NAMES_SURYA_QUEUE", "Protecting the queue")) : $"{i + 1} ???",
                 MouseFilter = MouseFilterEnum.Ignore
             };
             label.AddThemeFontSizeOverride("font_size", 12);

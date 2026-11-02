@@ -1,0 +1,40 @@
+{
+  "generator": "tools/gameplay/render_names.py",
+  "source": "Original project-authored Blender emission meshes",
+  "native_size": [
+    512,
+    512
+  ],
+  "view": "orthographic side",
+  "collision": "separate C# blockout",
+  "assets": [
+    {
+      "file": "district.png",
+      "rgba": true
+    },
+    {
+      "file": "scanner.png",
+      "rgba": true
+    },
+    {
+      "file": "archive.png",
+      "rgba": true
+    },
+    {
+      "file": "terminal.png",
+      "rgba": true
+    },
+    {
+      "file": "access_denied.png",
+      "rgba": true
+    },
+    {
+      "file": "access_restored.png",
+      "rgba": true
+    },
+    {
+      "file": "civilians.png",
+      "rgba": true
+    }
+  ]
+}

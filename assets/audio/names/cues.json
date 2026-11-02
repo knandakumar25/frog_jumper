@@ -1,0 +1,173 @@
+[
+  {
+    "id": "sector0",
+    "speaker": "MIRAGE",
+    "text": "Below the queue, everything is doors and white light. Wait for the scanner to go dark. I will phase us into processing.",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SECTOR0"
+  },
+  {
+    "id": "sector1",
+    "speaker": "AURA",
+    "text": "Every denial carries the same harmonic signature. Clear the control hall and I can isolate it without touching the records.",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SECTOR1"
+  },
+  {
+    "id": "sector2",
+    "speaker": "OCEANUS",
+    "text": "The archive cooling loop is failing. Let me stabilize it before Titan opens a maintenance route away from the originals.",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SECTOR2"
+  },
+  {
+    "id": "sector3",
+    "speaker": "AXIOM-7",
+    "text": "Three originals: family, residency, and civic registration. Authenticate each terminal. Leave the archive intact.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SECTOR3"
+  },
+  {
+    "id": "sector4",
+    "speaker": "KAITO",
+    "text": "We have their names. Isolate the command, then defend the recovery. No one erases them again.",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SECTOR4"
+  },
+  {
+    "id": "sector5",
+    "speaker": "SURYA",
+    "text": "The queue is still here. Food and shelter gates are waiting for the restored register. Send it when you are ready.",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SECTOR5"
+  },
+  {
+    "id": "phase",
+    "speaker": "MIRAGE",
+    "text": "Inside. The public queue never had access to any of this.",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_PHASE"
+  },
+  {
+    "id": "signal",
+    "speaker": "AURA",
+    "text": "Denial signal isolated. Scanners are offline. The originals are deeper in the archive.",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_SIGNAL"
+  },
+  {
+    "id": "coolant",
+    "speaker": "OCEANUS",
+    "text": "Temperature stable. The records are safe. Titan, the damaged maintenance wall is yours.",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_COOLANT"
+  },
+  {
+    "id": "maintenance",
+    "speaker": "TITAN",
+    "text": "A clean route through damaged concrete. The records stay untouched.",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_MAINTENANCE"
+  },
+  {
+    "id": "record_1",
+    "speaker": "AXIOM-7",
+    "text": "Family register authenticated. Original names recovered.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_RECORD_1"
+  },
+  {
+    "id": "record_2",
+    "speaker": "OCEANUS",
+    "text": "Residency confirmed. These people belonged here long before the scanners.",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_RECORD_2"
+  },
+  {
+    "id": "record_3",
+    "speaker": "AURA",
+    "text": "Civic register authenticated. All three originals agree. The exclusion list was fabricated.",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_RECORD_3"
+  },
+  {
+    "id": "isolate",
+    "speaker": "AXIOM-7",
+    "text": "Exclusion command isolated. Security is closing on the recovery. Defend the first stage.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_ISOLATE"
+  },
+  {
+    "id": "defense_1",
+    "speaker": "TITAN",
+    "text": "First recovery secured. Another formation is coming. Keep them away from the console.",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_DEFENSE_1"
+  },
+  {
+    "id": "defense_2",
+    "speaker": "MIRAGE",
+    "text": "Second stage secure. One final formation. Then we give the queue its names back.",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_DEFENSE_2"
+  },
+  {
+    "id": "defense_3",
+    "speaker": "AXIOM-7",
+    "text": "Recovery complete. No defenders remain. Commit the identities at the district access terminal.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_DEFENSE_3"
+  },
+  {
+    "id": "commit",
+    "speaker": "SURYA",
+    "text": "Accepted. The lights have changed. Shelter, water, transit. They are reading names again. Everyone here can finally move.",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_COMMIT"
+  },
+  {
+    "id": "hint",
+    "speaker": "AXIOM-7",
+    "text": "Use the signature ability named by your objective. The archive terminals respond to your normal context attack control.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "NAMES_SPEECH_HINT"
+  }
+]
