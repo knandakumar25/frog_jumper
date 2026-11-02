@@ -50,6 +50,26 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 
 ## Features
 
+- **Shattered Aegis / Act I finale** — A 28,000px seven-section fortress assault,
+  fourteen finite formations (four live ordinary enemies maximum), earned Surya
+  recruitment, real Bulwark/Blink lessons, permanent coolant/gun/curtain shutdown,
+  and two locally reconnecting gun-deck approaches. Ordinary combat is bypassable
+  outside designated objective defenders. Seven checkpoints retain local progress.
+  Voss keeps his armor/missiles in a three-phase encounter with 300 total HP, destructible
+  phase-two pylons, reflected missiles and five-second melee openings. Defeat
+  unlocks a separate crossing release; civilians cross a safe nonblocking road
+  before extraction freezes ACT I COMPLETE results (Replay, Level Select, Main Menu).
+  The four-mission catalog, saves and earlier recorded cinematics are preserved.
+  Fourteen cached event voices and six original Docker/Blender fortress assets
+  have reproducible provenance. The 20–25 minute first-run target is **unvalidated**.
+  See [production/acceptance](tools/gameplay/SHATTERED_AEGIS.md),
+  [revised canon](docs/STORY_BIBLE.md), and [Levels 1–3 review](docs/ACT_I_REVIEW.md).
+  Verified 2026-11-01: build, 97 NUnit, 190 Godot (zero failures/errors/orphans),
+  104 copied-container Django tests, all three display ratios, launch/results
+  routes and automated traversal using actual combat. Physical input/listening
+  and human pacing remain outstanding; existing import/bind-mount issues persist.
+  For the next session, use the latest [handoff](HANDOFF.md) and acceptance guide.
+
 - **Evacuation Under Siege (Level 2 gameplay)** — Six linear sectors now span a
   35,800 px route with 20 finite encounter groups, stationary burst gunners with
   parryable cyan bullets, four recovery shrines, three mandatory civilian shelter
@@ -101,11 +121,11 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   1. **Ghost in the Gridlock** (Shogun): a ~9,500 px infiltration of the Eternal Zen Dojo over a painted night garden — jumping, a timed laser bridge, a wall-jump gorge, rooftops, an archive; parry sentry fire to overload the beacon's shield, destroy it, take the Data-Blade, extract.
   2. **The Concrete Wildfire** (Oceanus, then Apex Titan join): evacuation road, burning residential shelter routes, four overpass ferries, three defended spires, Titan's breach, a relay-shielded siege battery and final evacuation.
   3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): eight sectors of freight sabotage, three shipments, two uplinks, a relay blackout and a blind-grid escape across 48,000px.
-  4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him brings down the wall and ends Act I with the combat scorecard.
+  4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him unlocks the crossing control, then opening the border and reaching extraction ends Act I with its scorecard.
   Each mission has three optional memory fragments, a story title card, and chasm recovery. Level 2 has four shrine checkpoints; the other missions have three. Its revised gameplay briefing replaces outdated title-card objective metadata.
 - **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Cyber Shogun uses the approved AI-generated pose and locomotion sheets in missions; other operatives use their hand-drawn sheets. Levels 2–4 use a procedural skyline backdrop; Level 1 uses a painted garden under procedurally drawn platforms.
 - **Dynamic Combat HUD** — Real-time telemetry monitoring health, shields, combo streaks (`DOUBLE STRIKE!`, `TRIPLE COMBO!`, `TACTICAL OVERDRIVE!`), operative ability status, and boss telemetry.
-- **Border Commander Voss (boss mech)** — Multi-phase aerial boss mech in Level 4 featuring homing plasma missiles, siren warnings, and an enraged **Overdrive Rage** phase shift (<50% HP) with 3-way missile spreads.
+- **Border Commander Voss (boss mech)** — Level 4 uses three phases at 300/200/100 HP, phase-two power pylons, aimed/spread missiles, marked defense lanes and stationary melee recovery. Parry returns the actual missile to its owner. Standalone mech scenes retain the legacy overdrive behavior.
 - **Tactical Victory Scorecard** — End-of-level combat assessment evaluating completion time, score, and damage taken to award combat grades (**S Rank / Flawless**, **A Rank / Vanguard**, **B Rank / Operative**) with victory fanfare.
 - **Dynamic 2D Environmental Hazards** — Pulsing lethal laser grids (`CyberLaserGrid2D`) and rhythmic electrified floor panels (`CyberHazardFloor2D`).
 - **4-Level Campaign Chain** — Linear mission progression through neon rooftops and industrial sectors (`level1.tscn` $\rightarrow$ `level4.tscn`).

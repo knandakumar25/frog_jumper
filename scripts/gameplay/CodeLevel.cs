@@ -170,7 +170,7 @@ public abstract partial class CodeLevel : Node2D
     public override void _Process(double delta)
     {
         UpdateBackdrop();
-        if (MissionComplete) return;
+        if (MissionComplete || MissionNumber == 4 && GetTree().Paused) return;
         _dialogueRemaining = Mathf.Max(0f, _dialogueRemaining - (float)delta);
         _dialoguePanel.Visible = _dialogueRemaining > 0f;
     }
@@ -580,16 +580,12 @@ public abstract partial class CodeLevel : Node2D
             Callable.From(() => { if (IsInsideTree()) AddChild(cinematic); else cinematic.Free(); }).CallDeferred();
             return;
         }
-        if (_scorecard != null)
-        {
-            // Final mission: show the grade; the scorecard's own buttons (replay / level select / menu) take it from here.
-            await ToSignal(GetTree().CreateTimer(1.5f), SceneTreeTimer.SignalName.Timeout);
-            if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
-            _scorecard.ShowScorecard(finalScore, peakCombo, operative);
-            return;
-        }
-        await ToSignal(GetTree().CreateTimer(3f), SceneTreeTimer.SignalName.Timeout);
-        if (GodotObject.IsInstanceValid(this) && IsInsideTree()) GetTree().ChangeSceneToFile(nextScene ?? "res://scenes/main_menu/level_selection.tscn");
+        // Act finale retains the scene for Replay and freezes all explicit process/audio descendants at extraction.
+        ProcessMode = ProcessModeEnum.Disabled;
+        foreach (Node child in GetChildren())
+            if (child != _scorecard) FreezeForEpilogue(child);
+        _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
+
     }
 
     /// <summary>Freezes explicit Pausable/Always descendants too, including pause input, and silences mission audio.</summary>

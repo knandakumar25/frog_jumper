@@ -122,7 +122,10 @@ func test_level4_contains_boss_and_scorecard() -> void:
 	await get_tree().process_frame
 	assert_that(level.find_child("CyberBossMech2D", true, false)).is_null()
 	assert_that(level.get_node_or_null("Actors/CyberShogun")).is_not_null()
-	level.get_node("Actors/CyberShogun").global_position = Vector2(5900, 540)
+	# Explicitly seed the objective ledger; traversal and ability acceptance have separate integration coverage.
+	for event in ["encounter:s1-3", "interlock:approach", "encounter:s2-1", "encounter:s2-2", "recruit:surya", "lesson:bulwark", "crossing:bulwark", "encounter:s3-3", "coolant:intake", "encounter:s4-3", "guns:western", "lesson:blink", "encounter:s5-3", "curtain:inner"]:
+		level.call("CompleteCombatEvent", event)
+	level.get_node("Actors/CyberShogun").global_position = Vector2(22000, 540)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var boss := level.find_child("CyberBossMech2D", true, false)

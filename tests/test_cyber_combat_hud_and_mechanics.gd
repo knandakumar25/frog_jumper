@@ -138,6 +138,11 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 			var encounter := level.get_node("Actors/Encounter_s1-1")
 			assert_int(encounter.get_child_count()).is_equal(0)
 			encounter.call("Activate")
+		if path == LEVEL4_PATH:
+			# Level 4 also uses finite proximity activation; inspect real bodies after explicitly activating one group.
+			var encounter := level.get_node("Actors/Encounter_s1_1")
+			assert_int(encounter.get_child_count()).is_equal(0)
+			encounter.call("Activate")
 
 		# Verify CyberCombatHud exists
 		var hud = level.get_node_or_null("CyberCombatHud")

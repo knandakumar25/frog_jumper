@@ -60,6 +60,13 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	public void ShowMissionScorecard(int score, int maxCombo, string operative, int nextMission)
 		=> RenderScorecard(score, maxCombo, operative, nextMission);
 
+    /// <summary>Shows the completed opening act with Replay, Level Select and Main Menu and no unimplemented Continue target.</summary>
+    public void ShowActScorecard(int score, int maxCombo, string operative)
+    {
+        RenderScorecard(score, maxCombo, operative, 0);
+        if (_titleLabel != null) _titleLabel.Text = "ACT I COMPLETE";
+    }
+
 	/// <summary>Renders the captured results, optionally showing Continue; grading is shared by all callers.</summary>
 	private void RenderScorecard(int score, int maxCombo, string operative, int nextMission)
 	{

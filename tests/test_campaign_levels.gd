@@ -198,21 +198,15 @@ func test_level3_and_4_laser_curtains_are_lethal_without_phase() -> void:
 		assert_bool(player.get("IsPhased")).is_false()
 		mission.free()
 
-func test_level4_boss_spawns_in_arena_and_defeat_opens_the_wall() -> void:
+func test_level4_arena_requires_objectives_and_crossing_requires_release() -> void:
+	## The new fortress prerequisites prevent arena shortcuts; defeat alone never opens the crossing.
 	var mission := _mission(4)
 	var player := mission.get_node("Actors/CyberShogun")
-	var wall := mission.get_node("PalaceGeometry/BorderWall")
+	player.position = Vector2(22000,554)
+	mission.call("_PhysicsProcess", 0.016)
 	assert_that(mission.get("Boss")).is_null()
-	player.global_position = Vector2(5900, 540)
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	var boss = mission.get("Boss")
-	assert_that(boss).is_not_null()
-	assert_bool(wall.get("IsOpen")).is_false()
-	boss.call("TakeDamage", 100000.0)
-	await get_tree().physics_frame
-	assert_bool(mission.get("BossDefeated")).is_true()
-	assert_bool(wall.get("IsOpen")).is_true()
+	assert_bool(mission.get_node("PalaceGeometry/BorderWall").get("IsOpen")).is_false()
+	assert_bool(mission.get("BossDefeated")).is_false()
 	mission.free()
 
 func test_each_level_names_the_next_scene_or_ends_the_act() -> void:

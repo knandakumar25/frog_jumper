@@ -1,100 +1,61 @@
-# Axiom Force — Story Bible (v3.1, earned-operatives restructure)
+# Axiom Force — playable canon (Act I revision, 2026-11-01)
 
-> Written 2026-10-13. This is the working canon for the campaign narrative in
-> `assets/narrative/*.json`. It replaces the v2.0 ensemble framing.
+## Premise and boundaries
+Earth is occupied by Xelthara. Its command grid controls records, movement and
+supplies; civilian suffering and the resistance are real. Legacy simulation
+terminology describes systems and training, never an explanation that erases
+these consequences. Preserve the occupation and all events already shown.
 
-## The premise
+Act I follows **recover the city's testimony → protect its people → disrupt
+occupation logistics → open the border**. The crossing is a concrete victory;
+the wider occupation remains. Nobody dies or betrays the squad in this act.
+Voss commands the fortress; he is not a newly revealed mastermind.
 
-The Xelthara occupation runs Earth through a simulation grid. The Homeland
-Liberation Front fights it from inside, and the squad's guide is **AXIOM-7**
-— an AI that narrates the war, runs the training simulations, and is slowly
-discovering that it has preferences of its own.
-
-## The four leads
-
-| Character | Role in the ensemble | Axis of contrast | Arc (level 1 → 9) |
-|---|---|---|---|
-| **Cyber Shogun** (Kaito Kurogane) | The sword and the standard. Stoic, protocol-bound, expresses everything through movement (rules: **0 particle VFX**). | Tradition vs. machine | Obeys the war protocol blindly → begins to question AXIOM-7's orders (L4, L7) → chooses to call the machine an ally by his own code (L9) |
-| **Oceanus** (Kiana Vaea) | The emotional heart. Tidecaller; thinks in tides, rescue, return. | Warmth vs. protocol | Saves refugees by reflex (L2) → the bio-labs turn grief into resolve (L6) → "the tide has come home" (L9) |
-| **Aura Phoenicia** (Maya Khoury) | The voice. Harmonics, prism art, aerial broadcast. | Art vs. war | Art as escape (L3's comms hack = a song) → art as communication (L8's sky-broadcast) → the anthem that ends the war (L9) |
-| **AXIOM-7** | The narrator/guide — the machine lead. Runs the simulations, gives the mission briefs. | Machine protocol vs. emerging self | "Simulation" framing throughout → the first unauthorized feeling (L7) → at L9, for the first time, chooses to call something *hope* |
-
-The trio are named humans on first mention; afterwards the story may use
-their titles. **AXIOM-7's existing campaign lines are kept word-for-word**
-(some are backed by recorded VO at `assets/speech/AXIOM-7/`), which is why
-they read as mission beats — the character lines were written around them.
-
-## Functional cast (no arcs, limited lines)
-
-- **Mirage Blade** (Zayd Al-Mansoor) — the scout. Terse intel drops: L3, L5.
-- **Apex Titan** (King Tariq Nzinga) — the wall. Breacher: L2, L4, L7.
-- **Surya Prime** (Arjun Varma) — the bulwark. Joins at the Border Fortress (L4): "Stone can fall and still be rebuilt."
-
-Two lines each at most. They are playable operatives in the game
-(model, VFX, registry untouched) — only their narrative weight is reduced.
-
-## Earned operatives (v3.1)
-
-The player no longer picks a squad up front. The campaign starts with
-**Cyber Shogun** alone and each operative **joins during a mission**, where a
-recruit beat introduces them and teaches their signature ability on the spot
-(there is no separate training level). Each ability is also what a later
-obstacle demands, so swapping operatives (Tab / number keys / D-pad) is part
-of play.
-
-| Mission | Joins | Signature ability (Q) | Obstacle that needs it |
-|---|---|---|---|
-| 1 | Cyber Shogun (start) | **Kinetic Parry** — throw ranged attacks back | The beacon's shield only overloads when sentry fire is parried near it |
-| 2 | Oceanus, then Apex Titan | **Tidal Torrent** — douse fire / **Tectonic Slam** — shatter heavy rubble | Burning corridors; the collapsed wall behind the membrane |
-| 3 | Aura Phoenicia, then Mirage Blade | **Harmonic Pulse** — open sonic locks / **Phase Blink** — slip through hazards | The tower door and relay; the lethal laser curtain at the exit |
-| 4 | Surya Prime | **Solar Bulwark** — absorb heat and ranged fire | Superheated corridors; Voss's missile storm |
-
-A mission's *required* route only uses abilities already unlocked by that
-point; later operatives' gates are side routes.
-
-## Antagonist voices (kept, not "mains")
-
-- **Border Commander Voss** — Act I obstacle (L4).
-- **The Void Commander** — Act II final enemy (L9).
-
-## REMOVED from this version
-
-`Ninja Frog`, `Mask Dude`, `Pink Man`, `Virtual Guy` (2D frog-jumper relics
-that still spoke mid-campaign lines in v2.0), and `Aegis Ronin` / `Oni
-Matrix` (relic bosses doubling as heroes). All replaced by the leads,
-functional cast, or antagonist voices — no story information lost except
-the joke lines, which die with the frog.
-
-## One deliberate exception (recording debt)
-
-L9 adds ONE new AXIOM-7 line ("...For the first time, I have no protocol
-for what I feel..."). The AXIOM-7 voice files exist per level for the
-original lines only; this line is unrecorded. It is the arc's payoff, and
-worth one future recording session.
-
-## Level-by-level focus
-
-| Level | Focus | Beats |
+## Ensemble
+| Operative | Perspective | Playable contribution and direction |
 |---|---|---|
-| 0 | *Retired* | Protocol Zero was removed in v3.1; abilities are taught in-mission as each operative joins |
-| 1 | Shogun | Culture purge; the archive grief beat with Oceanus |
-| 2 | **Oceanus** | Refugee defense; Titan holds the breach |
-| 3 | **Phoenicia** | The comms blackout as a broadcast; Blade delivers the route |
-| 4 | Ensemble + Titan + Surya | The wall; Voss; Shogun claims the line; Surya joins at the fortress |
-| 5 | Mirage Blade (functional) | The surveillance spire dark; Blade disappears |
-| 6 | **Oceanus** | The bio-labs; grief becomes resolve |
-| 7 | Shogun + Titan | The foundry; Shogun's discipline cracks; first AXIOM-7 doubt comes from Oceanus's question |
-| 8 | **Phoenicia** | The docks; the sky is a radio |
-| 9 | All four | The Citadel; the Void Commander; AXIOM-7's choice; Oceanus closes the campaign |
+| Kaito Kurogane / Cyber Shogun | Duty means choosing whom a mission serves. | Parry, close combat; insists on opening the crossing before extraction. |
+| Kiana Vaea / Oceanus | Survival requires a way home, not just a defeated enemy. | Refugee protection, permanent cooling, a gun-deck coolant approach. |
+| King Tariq Nzinga / Apex Titan | Structures can protect people or imprison them. | Breach work, an alternative maintenance route; rebuilding matters. |
+| Maya Khoury / Aura Phoenicia | A voice becomes power when others can answer. | Harmonic access, communications sabotage, local curtain shutdown. |
+| Zayd Al-Mansoor / Mirage Blade | Freedom depends on seeing routes authority conceals. | Scouting, separated curtain crossings and precise infiltration. |
+| Arjun Varma / Surya Prime | Endurance creates room for others to move. | Joins in Level 4, teaches protected heat crossings and absorbs missiles. |
 
-## Consequences and deferred work
+AXIOM-7 begins with mission parameters and increasingly recognizes outcomes
+outside them. After Voss falls it identifies extraction; Kaito asks to open the
+crossing first. AXIOM-7 accepts and guides the release, finally updating its
+mission to bring people home. This is the beginning of its development.
 
-- `english.json` is v3.1 (training level removed, `joins` lists added, Surya's Level 4 line added). The other 14 locale files still hold the v2.0
-  story and a mechanical re-translation pass — ideal fragmented-downtime
-  work; until then the game falls back to english for any locale whose file
-  lags (NarrativeManager falls back to english when a locale file is
-  missing, not when it is stale — stale files still load).
-- Dialogue flows as text: title cards use `NarrativeManager` (title and
-  objective); recruit-beat lines live in the level scripts (the VO mp3
-  files are wired to nothing yet). When VO playback gets
-  wired, per-level audio must be re-cut for the added character lines.
+## The four playable missions
+1. Palace: Shogun recovers testimony and breaks the beacon's control through
+   parry. Keep Tokyo Remembers and the established Oceanus aftermath.
+2. Concrete Wildfire: Oceanus and Titan join through play; shelters, relief and
+   the breach put protection ahead of simple elimination. Keep its aftermath.
+3. Neon Rust: Aura then Mirage join; shipments and communications sabotage
+   disrupt occupation logistics. Preserve Silent Freight and the 90-second
+   The City Finds Its Voice aftermath, including their recordings and timing.
+4. Shattered Aegis: preserve the 120-second The Wall That Faces Inward arrival.
+   Five operatives arrive; reach and recruit Surya during gameplay. Dismantle
+   heat works, gun deck and inner curtain; defeat Voss, then release the crossing
+   and walk to extraction. Six distinct abilities contribute to the assault.
+
+The catalog remains four missions. Recruitment and ability lessons are earned;
+no new save schema, watched flags, companion AI or support commands are added.
+Reload, Replay and saved-session entry create a fresh local mission. Checkpoint
+recovery retains completed objectives, lessons, recruits, fragments and rewards.
+
+## Future acts (open outline)
+Future work may follow the opened routes into other occupied districts, test
+how testimony becomes public organization, and let each operative challenge
+AXIOM-7's priorities. Foundries, laboratories, surveillance and the wider command
+structure are possible settings, not numbered or implemented missions. Resolve
+character choices through civilian consequences rather than a betrayal twist.
+No promised final mission count or fixed ending is canon yet.
+
+## Narrative implementation
+Existing cinematics and their recordings remain authoritative for shown events.
+Level 4 gameplay uses event-triggered English fallback subtitles and localization
+keys with serialized mission-owned speech. Older locale narrative JSON remains
+translation debt; stale locale files do not automatically become current canon.
+See tools/gameplay/SHATTERED_AEGIS.md for acceptance and the separate Levels 1–3
+review in docs/ACT_I_REVIEW.md. Human first-run pacing is unmeasured.

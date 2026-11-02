@@ -1,0 +1,44 @@
+{
+  "generator": "tools/gameplay/render_aegis.py",
+  "source": "Original project-authored Blender emission meshes",
+  "license": "Same terms as project source",
+  "native_size": [
+    512,
+    512
+  ],
+  "view": "orthographic side",
+  "filter": "linear",
+  "pivot": "center; explicit C# size/offset",
+  "assets": [
+    {
+      "file": "fortress.png",
+      "rgba": true,
+      "collision": "none; separate authored C#"
+    },
+    {
+      "file": "gun.png",
+      "rgba": true,
+      "collision": "none; separate authored C#"
+    },
+    {
+      "file": "coolant.png",
+      "rgba": true,
+      "collision": "none; separate authored C#"
+    },
+    {
+      "file": "controller.png",
+      "rgba": true,
+      "collision": "none; separate authored C#"
+    },
+    {
+      "file": "crossing.png",
+      "rgba": true,
+      "collision": "none; separate authored C#"
+    },
+    {
+      "file": "civilians.png",
+      "rgba": true,
+      "collision": "none; separate authored C#"
+    }
+  ]
+}

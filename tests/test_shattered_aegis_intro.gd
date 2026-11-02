@@ -58,7 +58,7 @@ func test_arrival_freezes_complete_mission_and_restores_once() -> void:
 	# The cinematic must not consume any of the existing opening dialogue's eleven-second display window.
 	var dialogue: Label
 	for label in mission.find_children("*", "Label", true, false):
-		if label.text.begins_with("AXIOM-7: Border Commander Voss"):
+		if label.text.begins_with("AXIOM-7: Reach Surya"):
 			dialogue = label
 	assert_that(dialogue).is_not_null()
 	mission.call("_Process", 10.8)
@@ -261,15 +261,17 @@ func test_every_shot_preserves_roster_active_operative_and_locked_gameplay() -> 
 		assert_bool(catalog.IsOperativeUnlocked("Surya Prime")).is_false()
 		assert_that(mission.get("Boss")).is_null()
 		assert_bool(mission.get_node("PalaceGeometry/BorderWall").get("IsOpen")).is_false()
-		assert_bool(mission.get_node("Actors/SuperheatedCorridor1").get("Cleared")).is_false()
+		assert_bool(mission.get_node("Actors/BulwarkPractice").get("Offline")).is_false()
 	# Even an external physics invocation in the arena must obey the mission trigger guard.
-	player.position = Vector2(5900,540)
+	player.position = Vector2(22000,540)
 	mission.call("_PhysicsProcess", 0.016)
 	assert_that(mission.get("Boss")).is_null()
 	player.position = position
 	overlay.call("Finish")
 	await get_tree().process_frame
-	player.position = Vector2(1900,554)
+	for event in ["encounter:s1-3", "interlock:approach", "encounter:s2-1", "encounter:s2-2"]:
+		mission.call("CompleteCombatEvent", event)
+	player.position = Vector2(6400,554)
 	for frame in range(2):
 		await get_tree().physics_frame
 	assert_bool(mission.get_node("Actors/SuryaJoins").get("Triggered")).is_true()

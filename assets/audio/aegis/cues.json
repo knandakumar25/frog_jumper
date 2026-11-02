@@ -1,0 +1,128 @@
+[
+  {
+    "id": "handoff",
+    "speaker": "AXIOM-7",
+    "text": "Reach Surya. Secure the heat works, disable the gun deck, and breach the inner curtain.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_HANDOFF"
+  },
+  {
+    "id": "surya",
+    "speaker": "SURYA",
+    "text": "Stone can fall and still be rebuilt. The wall will fall, and the people behind it will remain.",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_SURYA"
+  },
+  {
+    "id": "recruit",
+    "speaker": "AXIOM-7",
+    "text": "Surya Prime has joined. His Solar Bulwark absorbs heat and incoming fire, enough to cross the superheated corridors.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_RECRUIT"
+  },
+  {
+    "id": "practice",
+    "speaker": "SURYA",
+    "text": "Wait for the vents to flare. Bulwark through, then recover on the far platform.",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_PRACTICE"
+  },
+  {
+    "id": "ocean_route",
+    "speaker": "OCEANUS",
+    "text": "Coolant line ahead. I can shut these guns down without burning the district.",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_OCEAN_ROUTE"
+  },
+  {
+    "id": "titan_route",
+    "speaker": "TITAN",
+    "text": "Maintenance wall. Give me room, and we have another way through.",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_TITAN_ROUTE"
+  },
+  {
+    "id": "aura",
+    "speaker": "AURA",
+    "text": "Their command channel is still local. I can break its hold on the gate.",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_AURA"
+  },
+  {
+    "id": "arena",
+    "speaker": "VOSS",
+    "text": "You have reached the wall. You have not earned the right to cross it.",
+    "voice": "Bill",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_ARENA"
+  },
+  {
+    "id": "phase2",
+    "speaker": "VOSS",
+    "text": "Seal the arena. Bring the inner defenses online.",
+    "voice": "Bill",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_PHASE2"
+  },
+  {
+    "id": "phase3",
+    "speaker": "VOSS",
+    "text": "All power to weapons. Hold this line!",
+    "voice": "Bill",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_PHASE3"
+  },
+  {
+    "id": "defeat",
+    "speaker": "AXIOM-7",
+    "text": "Voss is down. An extraction route is available.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_DEFEAT"
+  },
+  {
+    "id": "kaito",
+    "speaker": "KAITO",
+    "text": "Open the crossing first. We leave when they can.",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_KAITO"
+  },
+  {
+    "id": "crossing",
+    "speaker": "OCEANUS",
+    "text": "Stay together. There is room for everyone.",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_CROSSING"
+  },
+  {
+    "id": "home",
+    "speaker": "AXIOM-7",
+    "text": "Crossing secured. Updating the mission: bring them home.",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "localization_key": "AEGIS_SPEECH_HOME"
+  }
+]

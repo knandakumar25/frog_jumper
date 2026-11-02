@@ -7,11 +7,11 @@ using Godot;
 /// </summary>
 public partial class CyberBossMech2D : CharacterBody2D
 {
-	// ─── Signals ─────────────────────────────────────────────────────────────
+	// â”€â”€â”€ Signals â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	[Signal] public delegate void BossHealthChangedEventHandler(float current, float max, int phase);
 	[Signal] public delegate void BossDefeatedEventHandler();
 
-	// ─── Exports & Stats ─────────────────────────────────────────────────────
+	// â”€â”€â”€ Exports & Stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	[Export] public float MaxHealth { get; set; } = 300.0f;
 	[Export] public float PatrolDistance { get; set; } = 400.0f;
 	[Export] public float BaseSpeed { get; set; } = 130.0f;
@@ -21,14 +21,14 @@ public partial class CyberBossMech2D : CharacterBody2D
 	public int CurrentPhase { get; private set; } = 1;
 	public bool IsDying { get; private set; } = false;
 
-	// ─── Internal State ───────────────────────────────────────────────────────
+	// â”€â”€â”€ Internal State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private Vector2 _originPosition;
 	private float _hoverTimer = 0.0f;
 	private float _attackCooldown = 0.0f;
 	private int _patrolDirection = 1;
 	private bool _enteredPhaseTwo = false;
 
-	// ─── Node References ─────────────────────────────────────────────────────
+	// â”€â”€â”€ Node References â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private AnimatedSprite2D? _sprite;
 	private PointLight2D? _eyeLight;
 	private AudioStreamPlayer2D? _cannonAudio;
@@ -36,6 +36,11 @@ public partial class CyberBossMech2D : CharacterBody2D
 	private CpuParticles2D? _thrusterSparks;
 
 	private PackedScene? _missileScene;
+
+    /// <summary>Optional fortress controller; absent in standalone scenes and legacy callers.</summary>
+    public AegisBossController? FortressController { get; set; }
+
+    /// <summary>Initializes visuals, stats, missile resources and the existing HUD health signal.</summary>
 
 	public override void _Ready()
 	{
@@ -56,12 +61,14 @@ public partial class CyberBossMech2D : CharacterBody2D
 		EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
 	}
 
+	/// <summary>Creates optional local cannon and alarm sounds.</summary>
 	private void SetupAudio()
 	{
 		_cannonAudio = CreateAudioPlayer("res://assets/audio/sfx/boss_cannon.wav", 0.0f);
 		_alarmAudio = CreateAudioPlayer("res://assets/audio/sfx/boss_alarm.wav", 2.0f);
 	}
 
+	/// <summary>Loads a present sound and attaches its owned positional player; missing audio is harmless.</summary>
 	private AudioStreamPlayer2D? CreateAudioPlayer(string path, float volumeDb)
 	{
 		if (!ResourceLoader.Exists(path)) return null;
@@ -78,9 +85,11 @@ public partial class CyberBossMech2D : CharacterBody2D
 		return player;
 	}
 
+	/// <summary>Runs fortress sequencing when opted in, otherwise the original hover and barrage loop.</summary>
 	public override void _PhysicsProcess(double delta)
 	{
 		if (IsDying) return;
+        if (FortressController != null) { FortressController.Tick(delta); return; }
 
 		float dt = (float)delta;
 		_hoverTimer += dt;
@@ -113,6 +122,7 @@ public partial class CyberBossMech2D : CharacterBody2D
 		}
 	}
 
+	/// <summary>Aims the legacy volley safely even when player and boss positions coincide.</summary>
 	private void FireMissileAttack()
 	{
 		if (_missileScene == null || !IsInsideTree()) return;
@@ -121,7 +131,8 @@ public partial class CyberBossMech2D : CharacterBody2D
 
 		// Find target player direction
 		var player = GetTree()?.Root?.FindChild("CyberShogun", true, false) as Node2D;
-		Vector2 toPlayer = player != null ? (player.GlobalPosition - GlobalPosition).Normalized() : Vector2.Left;
+		Vector2 offset = player != null ? player.GlobalPosition - GlobalPosition : Vector2.Left;
+        Vector2 toPlayer = offset.LengthSquared() > 0 ? offset.Normalized() : Vector2.Left;
 
 		if (CurrentPhase == 1)
 		{
@@ -136,20 +147,28 @@ public partial class CyberBossMech2D : CharacterBody2D
 		}
 	}
 
+	/// <summary>Creates a bounded projectile with explicit boss ownership.</summary>
 	private void SpawnMissile(Vector2 direction)
 	{
 		if (_missileScene == null) return;
 		var missile = _missileScene.Instantiate<CyberBossMissile2D>();
 		missile.GlobalPosition = GlobalPosition + direction * 35.0f;
 		missile.Direction = direction;
+        missile.OwningBoss = this;
 		GetParent()?.AddChild(missile);
 	}
 
+	/// <summary>Routes fortress damage through phase shields; standalone damage keeps its original threshold.</summary>
 	public void TakeDamage(float damage)
 	{
 		if (IsDying || CurrentHealth <= 0f) return;
 
-		CurrentHealth = Mathf.Max(0f, CurrentHealth - damage);
+		if (FortressController != null)
+        {
+            ApplyFortressDamage(damage, false);
+            return;
+        }
+        CurrentHealth = Mathf.Max(0f, CurrentHealth - damage);
 
 		// Check Phase 2 transition (< 50% HP)
 		if (CurrentHealth <= MaxHealth * 0.5f && !_enteredPhaseTwo)
@@ -166,6 +185,26 @@ public partial class CyberBossMech2D : CharacterBody2D
 		}
 	}
 
+    /// <summary>Accepts real reflected counterfire while retaining phase shields and damage boundaries.</summary>
+    public void TakeReflectedDamage(float damage) => ApplyFortressDamage(damage, true);
+
+    /// <summary>Applies the opt-in controller's accepted damage and keeps legacy HUD bindings current.</summary>
+    private void ApplyFortressDamage(float damage, bool reflected)
+    {
+        if (IsDying || FortressController == null) return;
+        CurrentHealth = FortressController.ResolveDamage(CurrentHealth, damage, reflected);
+        CurrentPhase = FortressController.Phase;
+        EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
+        FlashHitVfx();
+        if (CurrentHealth > 0) return;
+        IsDying = true;
+        CancelOwnedMissiles();
+        FortressController.CancelAttempt();
+        EmitSignal(SignalName.BossDefeated);
+        QueueFree();
+    }
+
+	/// <summary>Enables legacy overdrive visuals and attack timing.</summary>
 	private void TriggerPhaseTwo()
 	{
 		_enteredPhaseTwo = true;
@@ -187,6 +226,7 @@ public partial class CyberBossMech2D : CharacterBody2D
 		}
 	}
 
+	/// <summary>Flashes the existing sprite only while attached to the scene tree.</summary>
 	private void FlashHitVfx()
 	{
 		if (_sprite == null) return;
@@ -199,9 +239,11 @@ public partial class CyberBossMech2D : CharacterBody2D
 		}
 	}
 
+	/// <summary>Runs the legacy defeat reward and explosion sequence.</summary>
 	private async void Die()
 	{
 		IsDying = true;
+        CancelOwnedMissiles();
 		EmitSignal(SignalName.BossDefeated);
 
 		// Award points via GameManager
@@ -230,6 +272,18 @@ public partial class CyberBossMech2D : CharacterBody2D
 		QueueFree();
 	}
 
+    /// <summary>Immediately cancels every projectile owned by this mech, including standalone sibling shots.</summary>
+    private void CancelOwnedMissiles()
+    {
+        if (!IsInsideTree()) return;
+        foreach (Node node in GetTree().GetNodesInGroup("aegis_projectiles"))
+            if (node is CyberBossMissile2D missile && missile.OwningBoss == this && !missile.IsQueuedForDeletion()) missile.Cancel();
+    }
+
+    /// <summary>Removing a mech cannot leave live missiles in its parent's scene.</summary>
+    public override void _ExitTree() => CancelOwnedMissiles();
+
+	/// <summary>Creates a short owned visual/audio explosion at the supplied world point.</summary>
 	private void SpawnExplosionBurst(Vector2 pos)
 	{
 		if (GetParent() == null) return;

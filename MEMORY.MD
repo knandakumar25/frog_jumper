@@ -566,3 +566,92 @@ Publication verified: implementation commit 8fb0c1b (45 files) pushed normally t
 origin/main; git ls-remote confirmed the remote SHA matched the local commit.
 This verification record is included in a documentation-only follow-up commit.
 No code/assets changed during publication; prior verification remains applicable.
+
+Git status check (2026-11-01): main matches the local origin/main tracking ref;
+the working tree was clean. This required memory-only status record remains
+uncommitted. No fetch, code changes, imports or tests were needed.
+
+Scope clarification (2026-11-01): verified commit 8fb0c1b only adds the pre-Level 4
+cinematic and its arrival integration/guards. No Level 4 gameplay expansion was
+started; existing geometry, enemies, hazards, recruitment and boss encounter remain
+as before. Read-only diff verification; this memory update is uncommitted.
+
+Script fidelity check (2026-11-01): compared the shipped cue manifest/runtime
+subtitles and mission diff against the supplied pre-Level 4 plan. All twelve
+dialogue lines, speaker order and cue windows match, with the silent title at
+117–120 seconds. Creative implementation covers artwork, framing and atmosphere;
+no new plot or Level 4 gameplay expansion was added. No code/assets changed or
+tests rerun; this required memory-only audit record remains uncommitted.
+
+Creative-direction discussion (2026-11-01): user is considering replacing the
+fixed script with agent-led direction; this is discussion, not authorization to
+rewrite the campaign. Reviewed story bible, mission catalog/current mission code
+and prior pacing evidence. Recommend preserving established characters, earned
+recruits and liberation consequences while revising the future outline. Story
+bible still describes nine levels and restricted supporting-cast lines; the live
+catalog has four missions and newer ensemble cinematics, so reconcile canon
+before expansion. Proposed priority: develop Level 4's fortress/Surya/Voss payoff,
+then targeted consistency/readability/pacing passes on 1–3. Human pacing remains
+unmeasured; do not call encounter counts proof of poor pacing. Review the combined
+90-second Level 3 aftermath plus 120-second Level 4 arrival for time without player
+control. No gameplay, assets or story files changed; no imports/tests required.
+
+
+## Revised Act I and finished fortress — 2026-11-01
+
+Implemented a scene-local fortress objective ledger, seven-section 28,000px route,
+finite combat (four live ordinary enemies maximum), earned Surya/actual protection
+lessons, permanent thermal/gun/curtain shutdown and two reconnecting gun approaches.
+Three-phase opt-in Voss retains his armored missile identity; phase damage clamps,
+pylons, stationary melee recovery and real owned missile reflection are covered by
+engine tests. Checkpoints retain durable progress and rewards; boss deaths reset
+attempt state, post-defeat recovery does not respawn Voss. Crossing release and safe
+civilian presentation precede frozen ACT I COMPLETE results without Continue.
+
+Reconciled ensemble canon and open future acts; documented Levels 1–3 review and
+separate follow-ups without rebuilding them. Earlier cinematic recordings/durations,
+four-mission catalog, controls/stats and save schema remain intact. Produced fourteen
+cached cast cues with exact settings/text/hash/duration provenance and six original
+Docker/Blender RGBA assets after target inspection. Missing speech/art keeps progress
+available. Final checks pass: import exit 0/all twenty sidecars, incremental build 0 errors/
+warnings (153 existing full-compile warnings), NUnit 97/97, Godot 190/190 with zero
+failures/errors/orphans (report_388), and explicit copied-container Django 104/104.
+Final suite log has no engine errors. Existing TLS/editor shutdown import diagnostics
+remain. Media alpha/margins/full-cue/hash/unclipped checks and Python compilation pass.
+
+All 30 section/phase/crossing/results captures at three requested ratios were
+inspected. Automated traversal reached extraction using real movement, attacks,
+abilities and parries; diagnostic runs remain separate. One observed thermal
+checkpoint return and two tool-side resumptions kept the same scene/ledger. No new
+runtime errors were reported by its MCP batches; sampled logs were clean. Both gun
+routes reconnect/backtrack; Oceanus's upper route was exercised separately with real
+movement/douse. Titan's measured jump is 184.71px and required stairs are 100px.
+Real boss deaths in each phase restart at the arena checkpoint. Spent devices disable
+their hurtboxes to prevent combo farming. A pre-existing upgrade-screen focus call
+outside the tree was guarded to remove six regression-log errors.
+
+Actual finale navigation and all launch routes pass, including fresh Replay with
+five operatives/arrival and a clean ledger. The owned temporary save was deleted;
+existing saves were untouched. Both owned helper containers are stopped; four normal
+services remain running and the user's editor stays stopped on Level 1.
+The Docker bind fault persists; owned copied inputs enable media/Django checks.
+No exports or Git publication authorized/performed; existing memory audits preserved.
+Human 20–25 minute target, physical input hardware and listening remain unvalidated.
+
+
+## Fortress publication and tomorrow handoff — 2026-11-01
+
+User explicitly requested pushing the current work and continuing tomorrow,
+authorizing the required commit and normal push. Reviewed the tracked/untracked
+inventory, import sidecars and diff hygiene; fetched origin and confirmed main
+matches origin/main before publication. Scope is revised Act I, the fortress
+implementation/assets/voices/tests/tooling, documentation and existing memory
+audits. Ignored speech caches, validation evidence, credentials and test reports
+remain excluded. This Git/documentation task changes no code/assets; the verified
+build, NUnit 97/97, Godot 190/190 (zero failures/errors/orphans) and copied-container
+Django 104/104 remain applicable without another import/test run.
+
+Resume tomorrow from tools/gameplay/SHATTERED_AEGIS.md and the latest HANDOFF:
+human first-run pacing, physical controller/touch and speaker listening remain
+outstanding. Docker bind-mount and import diagnostics remain documented. No
+additional gameplay work or service shutdown was requested for this publication.

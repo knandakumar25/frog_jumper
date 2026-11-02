@@ -750,7 +750,13 @@ public partial class CyberShogun : BaseCharacter
 		if (IsBulwarked) return;                                // Solar Bulwark absorbs hazards and ranged fire
 		if (IsParrying && ranged)                               // Kinetic Parry throws ranged attacks back
 		{
-			if (source is Node2D attacker)
+			if (source is CyberBossMissile2D missile)
+            {
+                // Reflect the owned projectile itself so counterfire travels back to its launching mech.
+                missile.Reflect();
+                EmitSignal(SignalName.ParryDeflected, missile);
+            }
+            else if (source is Node2D attacker)
 			{
 				if (attacker.HasMethod("TakeDamage")) attacker.Call("TakeDamage", 35f);
 				EmitSignal(SignalName.ParryDeflected, attacker);

@@ -37,6 +37,7 @@ public partial class PalacePlatform : StaticBody2D
 
     private CollisionShape2D _shape = null!;
     private float _time;
+    private Tween? _gateFade;
 
     /// <summary>Creates the collision rectangle that matches the drawn rectangle.</summary>
     public override void _Ready()
@@ -71,8 +72,18 @@ public partial class PalacePlatform : StaticBody2D
         if (IsOpen) return;
         IsOpen = true;
         _shape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
-        if (IsInsideTree()) CreateTween().TweenProperty(this, "modulate:a", 0f, .6f);
+        if (IsInsideTree()) { _gateFade = CreateTween(); _gateFade.TweenProperty(this, "modulate:a", 0f, .6f); }
         else Visible = false;
+    }
+
+    /// <summary>Rearms a previously opened arena gate for a fresh boss attempt; cancels any unfinished fade.</summary>
+    public void Close()
+    {
+        _gateFade?.Kill();
+        IsOpen = false;
+        Visible = true;
+        Modulate = new Color(Modulate, 1);
+        _shape.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
     }
 
     /// <summary>Draws the platform in its material style.</summary>

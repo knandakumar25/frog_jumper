@@ -112,7 +112,7 @@ public partial class OperativeUpgradeScreen : Control
 	}
 
 	/// <summary>
-	/// Opens the upgrade screen configured for the given operative.
+	/// Opens and binds the requested operative. Viewport focus is assigned only inside the scene tree, so standalone binding is safe.
 	/// </summary>
 	public void OpenForOperative(string operativeName)
 	{
@@ -120,6 +120,9 @@ public partial class OperativeUpgradeScreen : Control
 		EnsureNodeReferences();
 		RefreshUI();
 		Show();
+
+		// Standalone UI binding tests have no viewport focus owner; real menus focus only after entering the scene tree.
+        if (!IsInsideTree()) return;
 
 		// Default focus to Level Up button or first upgrade button
 		if (_levelUpBtn != null && !_levelUpBtn.Disabled)

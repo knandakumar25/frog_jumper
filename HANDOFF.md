@@ -1,5 +1,83 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Tomorrow resume / publication — 2026-11-01
+
+User requested pushing the current fortress work and continuing tomorrow.
+Implementation and regression verification are complete as recorded below.
+Start with tools/gameplay/SHATTERED_AEGIS.md; outstanding acceptance is human
+20–25 minute pacing, physical controller/touch and speaker listening. The existing
+Docker bind-mount and import diagnostics remain unresolved. This publication
+changes documentation/Git state only; existing verification remains applicable.
+No additional gameplay work, export or service shutdown is part of this task.
+
+
+## Revised Act I and fortress finale — 2026-11-01
+
+Implemented the seven-section 28,000px Level 4 assault and revised ensemble story
+bible/open future outline. docs/ACT_I_REVIEW.md records a separate Levels 1–3
+continuity/teaching/repetition/pacing review; their geometry and cinematics were
+not rebuilt. The Level 3 aftermath and Level 4 arrival recordings/timelines remain
+unchanged. The campaign still contains four missions and the save schema is unchanged.
+
+AegisProgress owns exact prerequisites and deduplicated authored rewards. Level 4
+implements IFiniteCombatHost, reuses finite groups/recovery, and caps ordinary live
+actors at four. Required defense groups protect devices; other fights are bypassable.
+Seven safe section/arena checkpoints retain recruits, lessons, fragments, objectives
+and awarded slots. Real Bulwark and Blink crossings gate lessons. Oceanus/Titan gun
+approaches share one controller and reconnect. Thermal and curtain shutdown persists.
+
+AegisBossController opts the existing armored Voss into three phases at 300/200/100
+HP, clamped damage, phase-two pylons, nonoverlapping missiles/marked strikes and
+five-second stationary melee exposure. Standalone boss/HUD bindings remain compatible.
+Missiles have ownership, swept collision, lifetime and genuine parried return travel;
+Bulwark absorbs them and Blink does not grant ranged immunity. Attempt recovery
+rebuilds all boss state; post-defeat recovery never respawns him. A separate attacked
+crossing device precedes safe civilian presentation and immutable ACT I COMPLETE
+results. Replay, Level Select and Main Menu are the only finale destinations.
+
+One owned speech scheduler serializes fourteen exact event cues with expiring hints,
+priority, English fallbacks/localization keys and pause/recovery/teardown handling.
+Cached ElevenLabs multilingual-v2 voices use established IDs and .70/.75/.10/1
+settings, with text/request/audio hashes and measured duration receipts. Six original
+512px RGBA Blender assets follow the inspected navy/violet/amber/cyan target; art
+and voices use the existing media image in an owned unmounted copy-based helper.
+
+Final verification: background import exit 0; all twenty PNG/Ogg sidecars exist.
+Incremental C# build: 0 errors/warnings (153 existing warnings on full compilation).
+run_tests.ps1 passes NUnit 97/97 and Godot 190/190, zero failures/errors/orphans
+(report_388), with no engine ERROR/SCRIPT ERROR entries in the final suite log.
+Host Django remains skipped for absent venv; explicit copied-container Django
+passes 104/104 after final edits. Art/alpha/margins, audio/hash/duration/unclipped
+PCM checks and Python compilation pass. Existing TLS/editor shutdown resource/
+PagedAllocator import diagnostics remain; the import is not error-free.
+
+All 30 dressed section/boss/crossing/results captures at 1920×1080, 1920×1200 and
+2560×1080 were inspected, preserving the user's Level 1 editor. Diagnostic
+traversal and automated real-combat evidence are separate in .validation/aegis/.
+The latter reached extraction with actual attacks/abilities, observed peak three
+live ordinary enemies, one observed thermal checkpoint return and two tool-side
+resumptions without scene reload. Its stalls/timing are not human pacing. Complete
+MCP batch metadata reports no new runtime errors; sampled game logs are clean.
+Oceanus's upper approach was climbed, doused and reconnected/backtracked using
+real movement/ability; the full combat traversal used Titan's maintenance breach.
+Titan's measured jump height is 184.71px; he traversed the required 100px stairs.
+
+Finale Replay, Level Select and Main Menu, plus actual Level 3 Continue, mission
+selector and saved-session launch routes pass. Replay rebuilds arrival/five
+operatives/fresh ledger. The owned temporary save was deleted and verified absent.
+No user save was changed. Both owned copy-based helpers are stopped; normal four
+services remain running. The pre-existing backend bind mount still returns ENODEV.
+
+Spent devices now remove their attack hurtboxes, preventing combo farming. Actual
+player deaths in all three boss phases are checked at the arena checkpoint;
+recovery disables the abandoned controller synchronously. Regression also exposed
+a pre-existing upgrade-screen GrabFocus call outside the scene tree; its binding
+entry now skips viewport focus for standalone tests.
+Human first-run pacing, physical controller/touch and speaker listening remain
+unperformed. No exports, staging, commits or pushes. Preserve existing memory audit
+entries. User's editor scene remains Level 1; normal services remain running.
+
+
 ## Apple release setup — 2026-11-01
 
 Added macos/ios to both launchers and the Docker export driver. macos uses the

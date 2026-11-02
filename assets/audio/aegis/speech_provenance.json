@@ -1,0 +1,268 @@
+[
+  {
+    "cue": 1,
+    "request_sha256": "cb425cb52e33cf41af746035856f34db20c42c72c68103d6b9dced44aec69b0d",
+    "audio_sha256": "3b4920698ab1b409f96cbb77251714ff75ce6a060657dcd2713eec9380523103",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "handoff",
+    "text": "Reach Surya. Secure the heat works, disable the gun deck, and breach the inner curtain.",
+    "file": "handoff.ogg",
+    "duration": 5.665669,
+    "ogg_sha256": "db5d2b52adf8b57f4d21e8561f583a8b7dba2e67b967000b7b751d7ab130c8d7"
+  },
+  {
+    "cue": 2,
+    "request_sha256": "f47f0f26427bafdf65315a74ce713f6135b8ec32c2bab150dc388ed941a136f9",
+    "audio_sha256": "ac86ec29c8b65a6c01d71c8b012770fe9fe38f8a78c2efa8cad870abd26d9ed3",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "surya",
+    "text": "Stone can fall and still be rebuilt. The wall will fall, and the people behind it will remain.",
+    "file": "surya.ogg",
+    "duration": 5.572789,
+    "ogg_sha256": "50a3be6defce3234c32e2e471741afb8702991a0852033d86d7151235c37123a"
+  },
+  {
+    "cue": 3,
+    "request_sha256": "87ec44035d4be46fe148cac5e3a5feae5da16540ab484cb4650a85cfc21968c7",
+    "audio_sha256": "44d89414ab13d29b4edff1b235f76db5695df5a56e5cf6f9c8ed568b026a47d7",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "recruit",
+    "text": "Surya Prime has joined. His Solar Bulwark absorbs heat and incoming fire, enough to cross the superheated corridors.",
+    "file": "recruit.ogg",
+    "duration": 8.034104,
+    "ogg_sha256": "99be0cee13f3f398e92a4720ab9cea0ea9068451a9159d597b6cbb239cf6f295"
+  },
+  {
+    "cue": 4,
+    "request_sha256": "e1757ed504171b3ec73650e64ff1baccdc501b135c9970d820163d84fef595e4",
+    "audio_sha256": "bb0fe531b19a3ca1e6dc5775c0e6370468124e93c18367a4ed6f79bd9a959f99",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "practice",
+    "text": "Wait for the vents to flare. Bulwark through, then recover on the far platform.",
+    "file": "practice.ogg",
+    "duration": 4.411791,
+    "ogg_sha256": "5e05ec9fd7416b72e2af348d22183f746d3258e431f2738bceb6e740f2fe416c"
+  },
+  {
+    "cue": 5,
+    "request_sha256": "7b9db79e6d57a62233890f00b2c5637cdca3fbf9e528cd5accb2fbdf202cc93f",
+    "audio_sha256": "afcc2ccb11d960618547cccbfa616ece7705312d6f199c1d03360e36e6917543",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "ocean_route",
+    "text": "Coolant line ahead. I can shut these guns down without burning the district.",
+    "file": "ocean_route.ogg",
+    "duration": 4.411791,
+    "ogg_sha256": "45f6c1a58895fcffdff5afa81c34a93ae21fa4c3b6e8be308c35a8e6e3ffb735"
+  },
+  {
+    "cue": 6,
+    "request_sha256": "96dfdce65adfe8d742879837027ddd4513d5d34a0f25b4b65d999340defa9ac9",
+    "audio_sha256": "69d1f71471e598415de138a38c0468fde309d3baf3ef397878cfbd336d721151",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "titan_route",
+    "text": "Maintenance wall. Give me room, and we have another way through.",
+    "file": "titan_route.ogg",
+    "duration": 3.343673,
+    "ogg_sha256": "db03513eade852581546a17df99c177c8900d0f0ecc011d75d132c18987e3b4a"
+  },
+  {
+    "cue": 7,
+    "request_sha256": "2db9d6d9b01ebea627efce3ab63ebfbb9ac5740c3840faa920c505cccf122af7",
+    "audio_sha256": "7422443237b880dc501b2bae89f533283010eaf1e81a26aaf3c8ccbd0b2d4a28",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "aura",
+    "text": "Their command channel is still local. I can break its hold on the gate.",
+    "file": "aura.ogg",
+    "duration": 4.226032,
+    "ogg_sha256": "81035b9b1a8c202c8bcec2c5e01b3cc89efa49befa965a7e2960cbe0d6266054"
+  },
+  {
+    "cue": 8,
+    "request_sha256": "0bd9f857fd5e99361922c637bcfe8ac0dc47ccbe6e9deabd7232bdcbe53684b9",
+    "audio_sha256": "8f10797fda509bee8b8029148f123a467f48a203bc1b840cb9a39632dc8964b5",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "arena",
+    "text": "You have reached the wall. You have not earned the right to cross it.",
+    "file": "arena.ogg",
+    "duration": 4.690431,
+    "ogg_sha256": "a4c228582955feadd4695d725139f786b8989fca7a2bbeae86650750a84b1d3e"
+  },
+  {
+    "cue": 9,
+    "request_sha256": "9fee62670b4927f2af05d838d7f2d7dbd5b3a4914b1edfb0c336e1efd32f46b5",
+    "audio_sha256": "16c2cc17376b30e5c1a9310504da98b41e6ad2685e9ab9cba5fc5f51901adda9",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "phase2",
+    "text": "Seal the arena. Bring the inner defenses online.",
+    "file": "phase2.ogg",
+    "duration": 3.900952,
+    "ogg_sha256": "3518040dc37c2fd966755eec81387ffabe65fbcf2320a916f85c55ecf84f3989"
+  },
+  {
+    "cue": 10,
+    "request_sha256": "3b51de3344f833ed94c114d5d6c20595839c12a99df7d9b198ef973f353b1b52",
+    "audio_sha256": "c476679d3d117bc7ea3dedfd3e6c38c16da93bf6088138178c74caa37fbbf2e1",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "phase3",
+    "text": "All power to weapons. Hold this line!",
+    "file": "phase3.ogg",
+    "duration": 2.554195,
+    "ogg_sha256": "47a393879aa40fdbdf812eb6f446d61dd4f300e7a53005980b6edabbd3494430"
+  },
+  {
+    "cue": 11,
+    "request_sha256": "35ca599a8c2035688d958f86797e2195174cc45031a68a76ad32041879d62fa2",
+    "audio_sha256": "032726cc3e1814d800bb3d913c2e0e6b0ed2847a1d06d1f0a5b70a2c2504eae7",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "defeat",
+    "text": "Voss is down. An extraction route is available.",
+    "file": "defeat.ogg",
+    "duration": 3.482993,
+    "ogg_sha256": "8f8f6d9e31268aa88fa97f144c1ac975a2ae08bd7d7cec3afaab3ef32d6bcc7e"
+  },
+  {
+    "cue": 12,
+    "request_sha256": "9badd306181aad5a6bb9554a570b965159778c9e5143c942a4ae0cb465af0ded",
+    "audio_sha256": "bcd192c69abfbb30d0b0fa2cab8be68e161b2eeb0bce33cb48d26e1fa3317240",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "kaito",
+    "text": "Open the crossing first. We leave when they can.",
+    "file": "kaito.ogg",
+    "duration": 2.693515,
+    "ogg_sha256": "1784b354e530e472e7f5518816e1826e6cb439983cc963973e98987025605f5a"
+  },
+  {
+    "cue": 13,
+    "request_sha256": "746924e5bc947d627ed2208778eb0bde0e9a87f3292747d81bfc5c98086a0c4d",
+    "audio_sha256": "ac4240aeb4dfc10fa4e75eb5528b3cbe37cd7f618e6a84185f6e08a984609007",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "crossing",
+    "text": "Stay together. There is room for everyone.",
+    "file": "crossing.ogg",
+    "duration": 2.461315,
+    "ogg_sha256": "aca6b53895d5d2c52c8de27f05fc97f5b91c35ca4815bca4f4285691a9bfc3e5"
+  },
+  {
+    "cue": 14,
+    "request_sha256": "d8ab88db060d92060740a4fda7da1e7789a59545a690e6fe1b92b7d0aa4a20b1",
+    "audio_sha256": "d160efff58068c506bff2811129c9d558e3b5c690a00f4278a81e4d9a6fceb42",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.7,
+      "similarity_boost": 0.75,
+      "style": 0.1,
+      "speed": 1
+    },
+    "source": "ElevenLabs HTTPS TTS; cached unmodified MP3",
+    "id": "home",
+    "text": "Crossing secured. Updating the mission: bring them home.",
+    "file": "home.ogg",
+    "duration": 4.179592,
+    "ogg_sha256": "91680c4ae18bcdbf84d28fb5ef2fb68d8051893d6c4785c5816a869337fb386c"
+  }
+]
