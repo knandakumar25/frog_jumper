@@ -1,0 +1,16 @@
+{
+  "INWARD_WALL_CUE_1": "AXIOM-7: Border Defense Fortress. Independent power. Local targeting. The depot blackout bought us this approach, but it did not silence these guns.",
+  "INWARD_WALL_CUE_2": "MIRAGE: No patrol feed to follow now. Just sightlines and bad intentions. There’s a service road beneath the western gun deck.",
+  "INWARD_WALL_CUE_3": "TITAN: Look where those guns are pointed. Inward. They built a wall around people and called it protection.",
+  "INWARD_WALL_CUE_4": "OCEANUS: There are homes beyond that concrete. Keep the fighting on this side. We’re opening a crossing, not giving them another fire.",
+  "INWARD_WALL_CUE_5": "AURA: One signal ahead. Close, steady. Someone is holding their ground under all that interference. Let me bring them through.",
+  "INWARD_WALL_CUE_6": "SURYA: This is Surya Prime. Stay below the gun deck. I can shelter the gate road, but you’ll have to reach me.",
+  "INWARD_WALL_CUE_7": "KAITO: We came from the depot. Five of us. Hold your position, Surya. We’ll get to you together.",
+  "INWARD_WALL_CUE_8": "VOSS: Border Commander Voss. This crossing is closed. Return to your assigned district. You will not receive another warning.",
+  "INWARD_WALL_CUE_9": "SURYA: Five years of warnings. Five years of people waiting on opposite sides of that wall. I have heard enough.",
+  "INWARD_WALL_CUE_10": "AXIOM-7: Fortress vents are superheated. A laser curtain guards the inner approach. Reach Surya first. Then advance toward the command arena.",
+  "INWARD_WALL_CUE_11": "MIRAGE: I’ll find the gaps between their searchlights. When we reach that laser curtain, follow my lead. One problem at a time.",
+  "INWARD_WALL_CUE_12": "KAITO: No one crosses alone. Surya, keep that light burning. Squad—move.",
+  "INWARD_WALL_CUE_13": "",
+  "INWARD_WALL_SKIP": "SKIP // ESC / START"
+}

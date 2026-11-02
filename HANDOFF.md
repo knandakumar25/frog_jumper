@@ -914,3 +914,50 @@ Django used copied current backend source and the existing runtime environment i
 an owned unmounted test container, also stopped, on the existing Compose network.
 No user service was stopped/restarted. Unrelated export changes are preserved;
 no export, staging, commit or push. Changes remain local/uncommitted.
+
+
+## The Wall That Faces Inward — 2026-11-01
+
+Level 4 now begins with a skippable 120-second live cinematic on every fresh
+launch. Thirteen shots introduce the independently powered fortress, separated
+Surya Prime (Brian) and armored Commander Voss (Bill). The five-operative squad,
+spawn, gameplay briefing, recruitment and arena confrontation remain intact.
+Surya still joins at the approach trigger; the gameplay boss appears only in the
+arena. The complete mission/HUD/pause/audio snapshot restores once on natural
+completion, Skip, missing art or independent overlay removal. Missing speech
+keeps the full timed subtitles; checkpoint recovery does not replay the intro.
+
+Original Docker/Blender fortress, shield-road and command artwork reuse existing
+operative/boss designs. Twelve cached ElevenLabs multilingual-v2 cues use .70
+stability, .75 similarity, .10 style and speed 1; Voss receives restrained speaker
+EQ/echo. Separate dialogue/seeded atmosphere tracks measure 120 seconds each.
+Production and review: tools/cutscene/README.md and *_inward_wall.py. No watched
+flag, save migration, export or publication.
+
+Final verification: C# build has zero errors (154 existing addon warnings);
+background import exits 0 with all nine PNG/Ogg sidecars. NUnit 93/93, Godot
+180/180 (report_375; zero failures/errors/orphans), and isolated container Django
+104/104 pass. All thirteen shots were inspected at 1920×1080, 1920×1200 and
+2560×1080. Full playback holds the mission frozen, hands control back naturally,
+and stays within 32 ms sampled audio/visual separation. Continue, Level Select,
+Replay and loading an owned temporary save activate arrival; the save was removed.
+
+Raster/alpha, Surya atlas boundaries, twelve complete cue windows, runtime text/
+manifest agreement, unclipped PCM and both exact 120-second tracks pass. Python
+compilation and diff hygiene pass. Runtime review has 95 log entries with zero
+warnings/errors; evidence is in .validation/inward-wall/, including 39 captures
+and three inspected contact sheets. Unit coverage includes all Skip routes,
+missing speech/art, repeated completion, teardown/removal, exact mixed snapshot
+restoration, full briefing lifetime, all-shot state invariants, recruitment after
+handoff and recovery without replay. Existing arena tests still verify Voss and
+the wall after arrival; earlier cinematics/results regress in the full suite.
+
+Existing import TLS/editor shutdown diagnostics and the reference checker's ten
+unchanged addon/main-menu signal-path errors (27 warnings) remain separate from
+runtime/test results. Host Django is skipped for the absent venv; the backend
+bind mount still fails with ENODEV, so current backend source/environment were
+copied into an owned unmounted container for the explicit 104-test pass. The
+production helper also used copied inputs. Both owned helpers are now stopped;
+the four normal services remain running. Editor remains stopped on Level 1.
+Physical controller/touch hardware and speaker-listening checks remain unperformed.
+No export, staging, commit or push; changes remain local and uncommitted.

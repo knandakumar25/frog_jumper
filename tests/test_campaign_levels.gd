@@ -27,6 +27,8 @@ func _mission(level: int) -> Node:
 		mission.get_node("ConcreteWildfireIntro").call("Finish")
 	if level == 3:
 		mission.get_node("NeonRustIntro").call("Finish")
+	if level == 4:
+		mission.get_node("ShatteredAegisIntro").call("Finish")
 	return mission
 
 ## Builds standable rectangles from the geometry: [left, right, top] (movers span their whole travel).

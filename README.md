@@ -478,3 +478,34 @@ controller/touch and speaker-listening review remain unperformed. Docker Desktop
 D: bind-mount fault remains unresolved (including backend /app); copied inputs in
 owned unmounted containers enabled production and Django verification without
 restarting the four running services. User editor stays stopped on Level 1.
+
+
+## The Wall That Faces Inward — 2026-11-01
+
+Level 4 now begins with a skippable 120-second live cinematic on every fresh
+launch. Thirteen shots introduce the independently powered fortress, separated
+Surya Prime (Brian) and armored Commander Voss (Bill). The five-operative squad,
+spawn, gameplay briefing, recruitment and arena confrontation remain intact.
+Surya still joins at the approach trigger; the gameplay boss appears only in the
+arena. The complete mission/HUD/pause/audio snapshot restores once on natural
+completion, Skip, missing art or independent overlay removal. Missing speech
+keeps the full timed subtitles; checkpoint recovery does not replay the intro.
+
+Original Docker/Blender fortress, shield-road and command artwork reuse existing
+operative/boss designs. Twelve cached ElevenLabs multilingual-v2 cues use .70
+stability, .75 similarity, .10 style and speed 1; Voss receives restrained speaker
+EQ/echo. Separate dialogue/seeded atmosphere tracks measure 120 seconds each.
+Production and review: tools/cutscene/README.md and *_inward_wall.py. No watched
+flag, save migration, export or publication.
+
+Final verification: C# build has zero errors (154 existing addon warnings);
+background import exits 0 with all nine PNG/Ogg sidecars. NUnit 93/93, Godot
+180/180 (report_375; zero failures/errors/orphans), and isolated container Django
+104/104 pass. All thirteen shots were inspected at 1920×1080, 1920×1200 and
+2560×1080. Full playback holds the mission frozen, hands control back naturally,
+and stays within 32 ms sampled audio/visual separation. Continue, Level Select,
+Replay and loading an owned temporary save activate arrival; the save was removed.
+
+Existing import diagnostics and Docker bind-mount fault remain. Physical input
+hardware and speaker-listening checks are outstanding. Changes are local and
+uncommitted; production/reproduction details are in tools/cutscene/README.md.

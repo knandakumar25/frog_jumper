@@ -319,3 +319,83 @@ controller/touch and speaker-listening review remain unperformed. Docker Desktop
 D: bind-mount fault remains unresolved (including backend /app); copied inputs in
 owned unmounted containers enabled production and Django verification without
 restarting the four running services. User editor stays stopped on Level 1.
+
+## Level 4 arrival: The Wall That Faces Inward
+
+`ShatteredAegisIntro` / `ShatteredAegisStage` use a shared deterministic clock and
+thirteen shots at 0, 10, 20, 29, 39, 49, 59, 69, 79, 89, 99, 109 and 117 seconds.
+117–120 holds LEVEL 4: SHATTERED AEGIS in silence. Cues, English fallbacks,
+voice/settings/hashes, measured lengths and art provenance live under
+`assets/cutscenes/shattered_aegis_intro/`. The five squad members use the existing
+City Finds Its Voice atlas. Surya uses the original solar palette; Voss uses the
+actual `heavy_atlas.png` boss silhouette, without instantiating a gameplay actor.
+
+Reproduce from the project root:
+
+```powershell
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_inward_wall.py -- --preview
+# Inspect .validation/inward-wall/approach_artwork.png before rendering the family.
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_inward_wall.py
+python tools/cutscene/narrate_inward_wall.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_inward_wall.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_inward_wall.py
+python tools/cutscene/review_inward_wall.py
+```
+
+Narration validates all required cast IDs and only requests absent cues with a
+matching request hash. It reads the ignored local API key without printing it.
+Packaging makes no paid requests, keeps complete words, normalizes to -18 LUFS /
+-2 dBTP and rejects fitting at 1.2x or faster. AXIOM retains radio EQ; Voss receives
+260–3400 Hz speaker EQ and restrained 55 ms echo. The atmosphere contains original
+seeded wind, machinery, steel, vent and step synthesis, with no sampled audio.
+
+For the existing Docker Desktop D: bind fault, create an owned unmounted container
+with the same image, copy tools/art and tools/cutscene under /workspace/tools,
+assets/cutscenes/shattered_aegis_intro under /workspace/assets/cutscenes, cached
+.validation/inward-wall/speech under /workspace/.validation/inward-wall and the
+intro source under /workspace/scripts/ui. Run commands with `docker exec` from
+/workspace and copy generated assets back before Godot import. The review tool
+uses `INWARD_WALL_CONTAINER`, detects a running `axiom-inward-wall-production`
+helper, or falls back to Compose for FFmpeg contact sheets. Keep the four normal services running. Stop only the owned
+production helper when done.
+
+Runtime review requires a stopped game, preserves the user's editor scene and
+captures all thirteen shots at 1920×1080, 1920×1200 and 2560×1080. It measures a
+full uninterrupted run and tests Continue, Level Select, Replay and loading one
+owned temporary PostgreSQL save, removing that save afterwards. Diagnostic
+navigation isolates cinematic acceptance from combat pacing. Physical controller,
+touch hardware and speaker-listening checks must be reported separately.
+
+The residential insert also composites the original deployment city structure and
+light layers behind a lowered parapet; no civilian markers are drawn. Aura first
+reveals a faint shield signal; Surya's sprite appears on his own following shot.
+The first AXIOM cue needs approximately 1.0482x fitting; the remaining eleven retain
+original tempo. Source narration speed remains 1 for every cue.
+
+Final verification: C# build has zero errors (154 existing addon warnings);
+background import exits 0 with all nine PNG/Ogg sidecars. NUnit 93/93, Godot
+180/180 (report_375; zero failures/errors/orphans), and isolated container Django
+104/104 pass. All thirteen shots were inspected at 1920×1080, 1920×1200 and
+2560×1080. Full playback holds the mission frozen, hands control back naturally,
+and stays within 32 ms sampled audio/visual separation. Continue, Level Select,
+Replay and loading an owned temporary save activate arrival; the save was removed.
+
+Raster/alpha, Surya atlas boundaries, twelve complete cue windows, runtime text/
+manifest agreement, unclipped PCM and both exact 120-second tracks pass. Python
+compilation and diff hygiene pass. Runtime review has 95 log entries with zero
+warnings/errors; evidence is in .validation/inward-wall/, including 39 captures
+and three inspected contact sheets. Unit coverage includes all Skip routes,
+missing speech/art, repeated completion, teardown/removal, exact mixed snapshot
+restoration, full briefing lifetime, all-shot state invariants, recruitment after
+handoff and recovery without replay. Existing arena tests still verify Voss and
+the wall after arrival; earlier cinematics/results regress in the full suite.
+
+Existing import TLS/editor shutdown diagnostics and the reference checker's ten
+unchanged addon/main-menu signal-path errors (27 warnings) remain separate from
+runtime/test results. Host Django is skipped for the absent venv; the backend
+bind mount still fails with ENODEV, so current backend source/environment were
+copied into an owned unmounted container for the explicit 104-test pass. The
+production helper also used copied inputs. Both owned helpers are now stopped;
+the four normal services remain running. Editor remains stopped on Level 1.
+Physical controller/touch hardware and speaker-listening checks remain unperformed.
+No export, staging, commit or push; changes remain local and uncommitted.

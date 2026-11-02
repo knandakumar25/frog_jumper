@@ -1,0 +1,110 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 0.2,
+    "source_duration": 9.978776,
+    "tempo": 1.0481907563025208,
+    "end": 9.698911564625849,
+    "cached_source": "cue1.mp3"
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE / Eric",
+    "start": 10.2,
+    "source_duration": 6.687347,
+    "tempo": 1,
+    "end": 16.83315192743764,
+    "cached_source": "cue2.mp3"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN / George",
+    "start": 20.2,
+    "source_duration": 5.668571,
+    "tempo": 1,
+    "end": 25.81392290249433,
+    "cached_source": "cue3.mp3"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS / Sarah",
+    "start": 29.2,
+    "source_duration": 6.817959,
+    "tempo": 1,
+    "end": 35.97160997732426,
+    "cached_source": "cue4.mp3"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA / Matilda",
+    "start": 39.2,
+    "source_duration": 7.47102,
+    "tempo": 1,
+    "end": 46.626009070294785,
+    "cached_source": "cue5.mp3"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA / Brian",
+    "start": 49.2,
+    "source_duration": 5.799184,
+    "tempo": 1,
+    "end": 54.946281179138325,
+    "cached_source": "cue6.mp3"
+  },
+  {
+    "cue": 7,
+    "speaker": "KAITO / Adam",
+    "start": 59.2,
+    "source_duration": 5.616327,
+    "tempo": 1,
+    "end": 64.7704081632653,
+    "cached_source": "cue7.mp3"
+  },
+  {
+    "cue": 8,
+    "speaker": "VOSS / Bill",
+    "start": 69.2,
+    "source_duration": 8.124082,
+    "tempo": 1,
+    "end": 77.33399092970522,
+    "cached_source": "cue8.mp3"
+  },
+  {
+    "cue": 9,
+    "speaker": "SURYA / Brian",
+    "start": 79.2,
+    "source_duration": 6.687347,
+    "tempo": 1,
+    "end": 85.83680272108843,
+    "cached_source": "cue9.mp3"
+  },
+  {
+    "cue": 10,
+    "speaker": "AXIOM-7 / Daniel",
+    "start": 89.2,
+    "source_duration": 9.142857,
+    "tempo": 1,
+    "end": 98.29678004535148,
+    "cached_source": "cue10.mp3"
+  },
+  {
+    "cue": 11,
+    "speaker": "MIRAGE / Eric",
+    "start": 99.2,
+    "source_duration": 7.053061,
+    "tempo": 1,
+    "end": 106.21031746031747,
+    "cached_source": "cue11.mp3"
+  },
+  {
+    "cue": 12,
+    "speaker": "KAITO / Adam",
+    "start": 109.2,
+    "source_duration": 5.250612,
+    "tempo": 1,
+    "end": 114.39748299319729,
+    "cached_source": "cue12.mp3"
+  }
+]

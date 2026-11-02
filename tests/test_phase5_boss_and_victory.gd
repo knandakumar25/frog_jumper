@@ -117,6 +117,8 @@ func test_level4_contains_boss_and_scorecard() -> void:
 
 	# The boss spawns when the squad enters the arena (see test_campaign_levels); here it must not exist yet.
 	add_child(level)
+	# Gameplay checks complete the independently tested arrival first.
+	level.get_node("ShatteredAegisIntro").call("Finish")
 	await get_tree().process_frame
 	assert_that(level.find_child("CyberBossMech2D", true, false)).is_null()
 	assert_that(level.get_node_or_null("Actors/CyberShogun")).is_not_null()

@@ -18,10 +18,9 @@ this summary does not replace them. Verify live environment state before acting.
   warnings remain. Normal services were restored for mandatory preflight and are
   left running, db/Ollama healthy; website/API returned HTTP 200. No engine files
   changed, so no import refresh; no staging/commit/push.
-- Read-only game status: latest completed gameplay addition is Neon Rust's
-  sabotage/escape expansion (3c92724). Level 3 results exist; post-Level 3 and
-  pre-Level 4 cinematics do not yet exist. No new game work was requested by
-  these status questions during the export task.
+- Current game status: Neon Rust's sabotage/escape expansion is followed by
+  The City Finds Its Voice, Level 3 results, then The Wall That Faces Inward
+  on fresh Level 4 launches. See the dated production/verification entries below.
 
 - Every agent must update this file before finishing every task, including
   read-only, planning, documentation-only, and Git-only work. Record concise
@@ -502,3 +501,63 @@ physical-device/listening limitations remain documented.
 Publication verified: implementation commit 545fc9a (47 files) pushed normally to
 origin/main; git ls-remote confirmed the remote SHA matched. No code/assets changed
 during publication. This result is recorded in a follow-up documentation commit.
+
+
+## The Wall That Faces Inward — 2026-11-01
+
+Level 4 now begins with a skippable 120-second live cinematic on every fresh
+launch. Thirteen shots introduce the independently powered fortress, separated
+Surya Prime (Brian) and armored Commander Voss (Bill). The five-operative squad,
+spawn, gameplay briefing, recruitment and arena confrontation remain intact.
+Surya still joins at the approach trigger; the gameplay boss appears only in the
+arena. The complete mission/HUD/pause/audio snapshot restores once on natural
+completion, Skip, missing art or independent overlay removal. Missing speech
+keeps the full timed subtitles; checkpoint recovery does not replay the intro.
+
+Original Docker/Blender fortress, shield-road and command artwork reuse existing
+operative/boss designs. Twelve cached ElevenLabs multilingual-v2 cues use .70
+stability, .75 similarity, .10 style and speed 1; Voss receives restrained speaker
+EQ/echo. Separate dialogue/seeded atmosphere tracks measure 120 seconds each.
+Production and review: tools/cutscene/README.md and *_inward_wall.py. No watched
+flag, save migration, export or publication.
+
+Final verification: C# build has zero errors (154 existing addon warnings);
+background import exits 0 with all nine PNG/Ogg sidecars. NUnit 93/93, Godot
+180/180 (report_375; zero failures/errors/orphans), and isolated container Django
+104/104 pass. All thirteen shots were inspected at 1920×1080, 1920×1200 and
+2560×1080. Full playback holds the mission frozen, hands control back naturally,
+and stays within 32 ms sampled audio/visual separation. Continue, Level Select,
+Replay and loading an owned temporary save activate arrival; the save was removed.
+
+Raster/alpha, Surya atlas boundaries, twelve complete cue windows, runtime text/
+manifest agreement, unclipped PCM and both exact 120-second tracks pass. Python
+compilation and diff hygiene pass. Runtime review has 95 log entries with zero
+warnings/errors; evidence is in .validation/inward-wall/, including 39 captures
+and three inspected contact sheets. Unit coverage includes all Skip routes,
+missing speech/art, repeated completion, teardown/removal, exact mixed snapshot
+restoration, full briefing lifetime, all-shot state invariants, recruitment after
+handoff and recovery without replay. Existing arena tests still verify Voss and
+the wall after arrival; earlier cinematics/results regress in the full suite.
+
+Existing import TLS/editor shutdown diagnostics and the reference checker's ten
+unchanged addon/main-menu signal-path errors (27 warnings) remain separate from
+runtime/test results. Host Django is skipped for the absent venv; the backend
+bind mount still fails with ENODEV, so current backend source/environment were
+copied into an owned unmounted container for the explicit 104-test pass. The
+production helper also used copied inputs. Both owned helpers are now stopped;
+the four normal services remain running. Editor remains stopped on Level 1.
+Physical controller/touch hardware and speaker-listening checks remain unperformed.
+No export, staging, commit or push; changes remain local and uncommitted.
+
+
+## Level 4 arrival publication — 2026-11-01
+
+User explicitly requested pushing current changes, authorizing the required commit
+and normal push. Reviewed the implementation, generated assets/imports, production
+manifests/tools, tests and documentation; fetched origin and confirmed main equals
+origin/main. Repaired accidental encoding damage in documentation before staging.
+Ignored validation evidence, speech caches and local secrets remain excluded.
+This publication task changes documentation/Git state only: prior build, NUnit
+93/93, Godot 180/180 (zero failures/errors/orphans), Django 104/104 and runtime QA
+remain applicable without rerunning imports/tests. Physical input/listening and
+existing Docker/import diagnostic limitations remain documented.

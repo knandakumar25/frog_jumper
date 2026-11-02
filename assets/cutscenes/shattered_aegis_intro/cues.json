@@ -1,0 +1,110 @@
+[
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 0,
+    "end": 10,
+    "text": "Border Defense Fortress. Independent power. Local targeting. The depot blackout bought us this approach, but it did not silence these guns.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "start": 10,
+    "end": 20,
+    "text": "No patrol feed to follow now. Just sightlines and bad intentions. There’s a service road beneath the western gun deck.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "start": 20,
+    "end": 29,
+    "text": "Look where those guns are pointed. Inward. They built a wall around people and called it protection.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "start": 29,
+    "end": 39,
+    "text": "There are homes beyond that concrete. Keep the fighting on this side. We’re opening a crossing, not giving them another fire.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "start": 39,
+    "end": 49,
+    "text": "One signal ahead. Close, steady. Someone is holding their ground under all that interference. Let me bring them through.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "start": 49,
+    "end": 59,
+    "text": "This is Surya Prime. Stay below the gun deck. I can shelter the gate road, but you’ll have to reach me.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 59,
+    "end": 69,
+    "text": "We came from the depot. Five of us. Hold your position, Surya. We’ll get to you together.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "VOSS",
+    "voice": "Bill",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "start": 69,
+    "end": 79,
+    "text": "Border Commander Voss. This crossing is closed. Return to your assigned district. You will not receive another warning.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "start": 79,
+    "end": 89,
+    "text": "Five years of warnings. Five years of people waiting on opposite sides of that wall. I have heard enough.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 89,
+    "end": 99,
+    "text": "Fortress vents are superheated. A laser curtain guards the inner approach. Reach Surya first. Then advance toward the command arena.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "start": 99,
+    "end": 109,
+    "text": "I’ll find the gaps between their searchlights. When we reach that laser curtain, follow my lead. One problem at a time.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 109,
+    "end": 117,
+    "text": "No one crosses alone. Surya, keep that light burning. Squad—move.",
+    "model": "eleven_multilingual_v2"
+  }
+]

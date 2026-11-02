@@ -131,6 +131,8 @@ func test_all_gameplay_levels_have_cyber_combat_hud_and_enemies() -> void:
 			encounter.call("Activate")
 		if path == LEVEL3_PATH:
 			level.get_node("NeonRustIntro").call("Finish")
+		if path == LEVEL4_PATH:
+			level.get_node("ShatteredAegisIntro").call("Finish")
 		await get_tree().process_frame
 		if path == LEVEL3_PATH:
 			var encounter := level.get_node("Actors/Encounter_s1-1")

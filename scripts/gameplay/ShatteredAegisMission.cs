@@ -111,23 +111,26 @@ public partial class ShatteredAegisMission : CodeLevel
         for (int i = 0; i < positions.Length; i++) AddSentry($"TurretSentry{i + 1:00}", positions[i], 85f);
     }
 
-    /// <summary>Adds the Surya recruit beat; Voss arrives with the arena trigger.</summary>
+    /// <summary>Constructs Surya recruitment before freezing the complete mission for arrival; Voss remains guarded by the arena trigger.</summary>
     protected override void OnLevelReady()
     {
         Actors.AddChild(new RecruitBeat
         {
-            Name = "SuryaJoins", Level = this, Operative = "Surya Prime", Position = new Vector2(1900, 600),
+            Name = "SuryaJoins", Level = this, RecruitmentCondition = () => !ArrivalActive, Operative = "Surya Prime", Position = new Vector2(1900, 600),
             Lines = new[]
             {
                 "SURYA PRIME: Stone can fall and still be rebuilt. The wall will fall, and the people behind it will remain.",
                 "AXIOM-7: Surya Prime has joined. His Solar Bulwark absorbs heat and incoming fire, enough to cross the superheated corridors."
             }
         });
+        BeginArrivalPresentation(new ShatteredAegisIntro { Name = "ShatteredAegisIntro", Layer = 40 });
     }
 
     /// <summary>Spawns Voss when the player first enters the arena, and ends the mission once the wall is down.</summary>
     protected override void UpdateMission()
     {
+        // External diagnostic calls must obey the same arrival lock as normal physics.
+        if (ArrivalActive) return;
         if (!_bossSpawned && Player.GlobalPosition.X > ArenaTrigger) SpawnBoss();
         if (BossDefeated && Player.GlobalPosition.DistanceTo(_exit.GlobalPosition + new Vector2(0, -80)) < 130f)
             CompleteMission();

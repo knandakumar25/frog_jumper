@@ -1,0 +1,33 @@
+{
+  "generator": "Original planar Blender geometry in axiom-force-cutscene Docker image",
+  "scenery": [
+    1920,
+    1080
+  ],
+  "atlas": [
+    1024,
+    512
+  ],
+  "cell": [
+    512,
+    512
+  ],
+  "rows": [
+    "surya_prime"
+  ],
+  "columns": [
+    "calm",
+    "shield"
+  ],
+  "reused": [
+    "neon_rust_aftermath/poses.png",
+    "deployment/live/city_base.png",
+    "characters/rendered/heavy_atlas.png",
+    "deployment/live/city_structure.png",
+    "deployment/live/city_lights.png"
+  ],
+  "palette": "Established red/gold Kaito, hydro Oceanus, violet Titan, prism Aura, emerald Mirage, solar gold Surya; original armored heavy Voss silhouette",
+  "rights": "Original project geometry, no third-party stock or sampled atmosphere",
+  "source": "tools/cutscene/render_inward_wall.py; render_city_voice.library",
+  "audio": "Twelve ElevenLabs multilingual_v2 cues and original seeded atmosphere; exact text, IDs/settings and hashes in cues/speech_provenance.json"
+}
