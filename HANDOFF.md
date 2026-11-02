@@ -1,5 +1,57 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Apple release setup — 2026-11-01
+
+Added macos/ios to both launchers and the Docker export driver. macos uses the
+universal preset for a release-mode unsigned ZIP with no silent debug fallback.
+It and all refuse the example bundle ID before building. ios skips Linux Godot/
+.NET compilation and creates a source-only Mac handoff; all also prepares that
+handoff after its macOS output. Python stdlib tooling excludes development/
+signing files and caches, sanitizes preset secrets, and preserves native addon
+bin inputs. Dockerfile adds Python and bakes the helper; rebuild before use.
+
+Apple presets now specify version/build, unsigned universal macOS output and
+iOS ARM64/iPhone+iPad/project-only generation. Owner bundle IDs and Apple Team
+ID remain deliberately unconfigured. Native Mac helper has an inert default,
+read-only --check, and explicit project generation; all Actions paths remain
+blocked. Updated all agent rules with the user's Apple native-completion exception.
+export/APPLE_RELEASE.md documents the precise Docker/native split, Godot/.NET/
+Xcode prerequisites, identity/provisioning, signing/notarization and distribution.
+
+No actual game export, Apple handoff, signing or exporter image build has run.
+Helper tests only package a tiny synthetic fixture. Final verification:
+four fixture tests, source inventory, shell/Python syntax, Apple target/Actions/
+host/placeholder safety paths and Compose validation pass. Background Godot
+import exited 0 with the existing TLS/editor shutdown resource diagnostics.
+run_tests.ps1 passes NUnit 93/93 and Godot 161/161 (report_369, zero failures/
+errors/orphans). Host Django is skipped for absent venv; container Django passes
+104/104. Incremental build has zero warnings/errors. No real build/ output exists.
+Mac/Xcode, device/AOT/native-addon compatibility and production networking
+remain unverified until a real Apple build. Prior export-policy edits are retained.
+
+## Docker-only game exports — 2026-11-01
+
+User requested export reorganization only, with no actual game export. Root
+.github/workflows is absent and GitHub's workflows API reports total_count=0,
+so no current Actions workflow existed to delete. Historical runs were retained.
+All four agent instruction files now forbid Actions-based or host game exports.
+Fixed root launchers referencing nonexistent exporter instead of export, removed
+the implicit all-target export, validated supported targets before work, and
+made invocation independent of the caller's directory. Launchers refuse Actions;
+Compose forwards GITHUB_ACTIONS and the container driver rejects CI/host use.
+The exporter remains opt-in with its help default. Rebuild its image before a
+future authorized export because its driver changed; no image build/export
+was performed for the exporter in this task. Normal services were restored for
+the mandatory code-edit preflight and remain running (db/Ollama healthy).
+Verification: Bash syntax, both launchers' no-target/invalid-target/Actions
+paths, driver help/host/Actions refusal, Compose validation and default-profile
+exclusion pass. No build/ export output directory was created. run_tests.ps1
+passes NUnit 93/93 and GdUnit4 161/161 (report_368, zero failures/errors/orphans).
+The wrapper skips absent host Django venv; explicit container Django passes
+104/104. Compilation reports 154 existing warnings and zero errors. Website
+and backend countries endpoint returned HTTP 200. Only launchers/Compose/docs
+changed, so no game-engine import refresh was needed. No staging/commit/push.
+
 ## Resume after container interruption — 2026-10-31
 
 The Through the Breach implementation and verification artifacts already exist.
@@ -767,8 +819,9 @@ Aura retains her original lines before sonic access. Mirage retains his lines
 after blackout; his lesson requires a real Phase Blink across the harmless beam.
 Seven safe stationary shrines retain objectives, recruitment, lessons and rewards.
 Recovery clears rounds, resets incomplete groups and restores exact actor modes.
-Level 3 freezes at direct results with Continue to 4, Replay, Level Select and Main
-Menu, without an ending film. Replay rebuilds the original roster and arrival.
+Level 3 now freezes for The City Finds Its Voice (90 seconds), then shows results
+with Continue to 4, Replay, Level Select and Main Menu. Replay rebuilds the
+original roster and arrival; the aftermath adds no unlocks or persistence.
 
 Collision blockout was traversed using Godot AI MCP before dressing. Required
 rises are 100px; escape drops 110px; optional archives reconnect locally. Docker/
@@ -815,3 +868,49 @@ applicable; only documentation/Git operations occurred during this task.
 Publication completed: Neon Rust implementation commit 3c92724 pushed to origin/main
 and remote SHA verified. Services remain stopped. This follow-up records publication
 only; no code/assets changed and prior verification remains applicable.
+
+## The City Finds Its Voice — 2026-11-01
+
+Implemented Level 3 extraction → 90-second NeonRustAftermath → existing results →
+mission 4. CodeLevel retains one campaign-completion call and immutable extraction
+score/combo/operative values. Complete mission/pause/HUD/audio freeze, compensated
+clock with monotonic fallback, all-device Skip, mapped action release, deferred
+single handoff and teardown restoration follow the established cinematic pattern.
+Missing speech retains the full subtitle timeline; missing essential art opens
+results safely. Replay rebuilds Level 3 arrival/three operatives; Continue enters
+Level 4/five operatives. No new objectives, unlocks, watched state or schema changes.
+
+Eleven deterministic shots use reused depot art, original Docker/Blender fortress
+scenery and a 30-cell five-operative pose atlas. Representative squad inspected
+before full production. Speaker framing, sloped-road foot placement, fading red
+links, recovered freight, anonymous radio responses and independently powered
+fortress defenses are cinematic only. Surya/Voss and fortress arrival stay in Level 4.
+Ten exact requested English cues use Daniel/AXIOM-7, Adam/Kaito, Sarah/Oceanus,
+George/Titan, Matilda/Aura and Eric/Mirage. Manifests record voice IDs, exact text,
+request/source hashes, generation settings and measured timings. Original seeded
+atmosphere and dialogue are separate 90-second Ogg tracks. All cues fit at tempo 1.
+Reproduction: tools/cutscene/README.md; caches/evidence: .validation/city-voice/.
+
+Final verification: background import exit 0 and all five PNG/Ogg sidecars exist.
+C# build zero errors (154 existing addon warnings). run_tests.ps1 passes NUnit
+93/93 and Godot 170/170, zero failures/errors/orphans (report_372). Host Django is
+skipped for absent venv; explicit isolated container Django passes 104/104 after
+final edits. Raster dimensions/alpha/all atlas boundaries, ten cue windows, decoded
+peaks (dialogue 26651, atmosphere 4841), exact 90-second durations, manifest/runtime
+alignment, Python compilation and diff hygiene pass. Godot AI MCP captured and
+visually reviewed all eleven shots at 1920×1080, 1920×1200 and 2560×1080. Full
+playback kept position/health/score fixed, all mission descendants frozen and
+maximum sampled audio/visual separation 36.8ms. Natural results plus all four
+navigation actions pass. All 90 captured runtime log entries have no warning/error.
+Earlier cinematics/results regressions pass in the full suite.
+
+Existing import TLS/EditorSettings/shutdown ObjectDB/resource/PagedAllocator
+diagnostics remain; do not describe the import log as error-free. No physical
+controller/touch hardware or speaker-listening review was performed. Normal four
+containers remain running and the user's editor stays stopped on Level 1. Docker
+Desktop cannot access D: bind mounts (including existing backend /app); this fault
+is unresolved. Production used an owned unmounted copy-based container, now stopped.
+Django used copied current backend source and the existing runtime environment in
+an owned unmounted test container, also stopped, on the existing Compose network.
+No user service was stopped/restarted. Unrelated export changes are preserved;
+no export, staging, commit or push. Changes remain local/uncommitted.

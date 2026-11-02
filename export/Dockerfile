@@ -1,9 +1,10 @@
 # Axiom Force — headless game exporter.
 #
-# Everything a Godot 4.7.2 .NET export needs, with nothing borrowed from the
+# Linux-hosted Godot 4.7.2 .NET export tools, with nothing borrowed from the
 # host: the .NET 10 SDK, a JDK 17 (the version Godot's Android Gradle step
 # expects — NOT the JDK 25 in eclipse-temurin:latest), the Android SDK, the
-# headless Godot .NET editor and the matching export templates.
+# headless Godot .NET editor and matching templates. macOS ZIPs are unsigned;
+# iOS source handoffs need a native Mac/Xcode for final project generation.
 #
 # Built and run only through the `export` compose profile, which is excluded
 # from `docker compose up`: exports are exclusive and must not race game or
@@ -24,6 +25,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         openjdk-17-jdk-headless \
+        python3 \
         unzip \
         wget \
         ca-certificates \
@@ -62,6 +64,7 @@ RUN wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERS
     && rm -rf /tmp/templates /tmp/templates.tpz
 
 COPY export.sh /usr/local/bin/export.sh
+COPY apple_release.py /opt/axiom-export/apple_release.py
 RUN chmod +x /usr/local/bin/export.sh
 
 WORKDIR /workspace

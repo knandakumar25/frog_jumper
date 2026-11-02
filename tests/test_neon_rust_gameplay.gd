@@ -196,8 +196,8 @@ func test_reinforcement_recovery_restarts_only_incomplete_group() -> void:
 	assert_bool(m.get("CommsBlackedOut")).is_false()
 	m.free()
 
-func test_direct_results_are_frozen_and_extraction_requires_escape() -> void:
-	## Blackout alone cannot complete the scene; accepted extraction shows the shared four-action scorecard once.
+func test_aftermath_is_frozen_and_extraction_requires_escape() -> void:
+	## Blackout alone cannot complete the scene; accepted extraction runs one frozen epilogue before the shared results.
 	var m := _mission()
 	await get_tree().process_frame
 	_seed_to_relay(m)
@@ -214,8 +214,20 @@ func test_direct_results_are_frozen_and_extraction_requires_escape() -> void:
 	assert_bool(p.can_process()).is_false()
 	assert_bool(m.get_node("Actors/MiragePracticeBeam").can_process()).is_false()
 	assert_bool(m.get_node("MissionHUD").visible).is_false()
+	await get_tree().process_frame
+	var aftermath := m.get_node("NeonRustAftermath")
+	assert_int(m.find_children("NeonRustAftermath", "", true, false).size()).is_equal(1)
+	assert_bool(m.get_node("CyberVictoryScorecard/RootPanel").visible).is_false()
+	var score: int = m.get_node("GameManager").get("Points")
+	m.get_node("GameManager").set("Points", score + 999)
+	p.call("SwapOperative", "Oceanus")
+	aftermath.call("Finish")
+	aftermath.call("Finish")
+	await get_tree().process_frame
 	var card := m.get_node("CyberVictoryScorecard/RootPanel")
 	assert_bool(card.visible).is_true()
+	assert_str(card.get_node("MainVBox/StatsGrid/ScoreLabel").text).is_equal("FINAL SCORE: %d PTS" % score)
+	assert_str(card.get_node("MainVBox/StatsGrid/OperativeLabel").text).contains("KAITO")
 	assert_str(card.get_node("MainVBox/ContinueBtn").text).is_equal("CONTINUE TO LEVEL 4")
 	for button in ["ReplayBtn","LevelSelectBtn","MainMenuBtn"]:
 		assert_bool(card.get_node("MainVBox/ButtonsHBox/"+button).visible).is_true()

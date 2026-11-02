@@ -1,0 +1,92 @@
+[
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 0,
+    "end": 9,
+    "text": "Three shipments secured. Both uplinks are down. Regional patrols have lost their shared targeting feed.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "start": 9,
+    "end": 18,
+    "text": "Listen. No coordinates. No orders. Just a little room between the noise. I can work with that.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "start": 18,
+    "end": 27,
+    "text": "Enjoy it while it lasts. Their eyes are down, not their weapons. I’ve marked a way out.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "start": 27,
+    "end": 36,
+    "text": "Send the recovered power back toward the neighborhoods. They’ve been keeping people cold to keep these fences burning.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "start": 36,
+    "end": 45,
+    "text": "Put those crates on the service line. We hauled enough weight for their machines. Let it carry something useful.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 45,
+    "end": 54,
+    "text": "They’ll come looking for this depot. Make sure the supplies leave before we do.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "start": 54,
+    "end": 64,
+    "text": "A short signal. No names, no coordinates. Just this: the checkpoint is open, and you are not alone.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "start": 64,
+    "end": 74,
+    "text": "The route reaches the Border Fortress. I can get us to its approaches. Getting through that wall is another matter.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "start": 74,
+    "end": 82,
+    "text": "The fortress runs on its own power. Its guns will still be waiting.",
+    "model": "eleven_multilingual_v2"
+  },
+  {
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "start": 82,
+    "end": 88,
+    "text": "Then we go together. This city has waited long enough.",
+    "model": "eleven_multilingual_v2"
+  }
+]

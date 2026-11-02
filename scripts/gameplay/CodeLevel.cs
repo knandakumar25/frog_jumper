@@ -531,7 +531,7 @@ public abstract partial class CodeLevel : Node2D
         ShowDialogue("Systems restored at the last recovery point.", 4f);
     }
 
-    /// <summary>Records extraction once; the first two missions retain their scenes for cinematic/results replay.</summary>
+    /// <summary>Records extraction once; the first three missions retain their scenes for cinematic/results replay.</summary>
     protected async void CompleteMission()
     {
         if (_finishing) return;
@@ -547,11 +547,14 @@ public abstract partial class CodeLevel : Node2D
         string? nextScene = CampaignProgress.CompleteMission(MissionNumber, finalScore);
         if (MissionNumber == 3)
         {
-            // Level 3 keeps its scene for Replay and presents results immediately, without an epilogue.
+            // Retain the mission for Replay; capture results before any deferred cinematic work.
             ProcessMode = ProcessModeEnum.Disabled;
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
-            _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 4);
+            var aftermath = new NeonRustAftermath { Name = "NeonRustAftermath", Layer = 40 };
+            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 4);
+            // Extraction can run inside physics dispatch. The overlay and its fallback share a deferred handoff.
+            Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
         if (MissionNumber <= 2)

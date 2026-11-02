@@ -30,6 +30,13 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 - Use the installed package through the agent's skill discovery mechanism. If it is not exposed there, locate and read the installed `docker/skills` skill files directly. If the relevant skills cannot be accessed, explain the missing dependency and resolve access before continuing Docker work; do not silently bypass them.
 - These skills supplement the project's container preflight, export exclusivity, and permission rules below. Explicit user instructions take precedence. Use `docker` directly from PATH for CLI commands.
 
+### Docker-Only Game Exports
+
+- Game exports must run only through the local Docker Compose `export` service, with an explicit target (`linux`, `windows`, `web`, `android`, `macos`, `ios`, or `all`). Use the root `export.bat` / `export.sh` launchers or the documented Compose command; never invoke host Godot export commands except the Apple completion steps described below.
+- Apple release exception: after Docker preparation, macOS signing/notarization and native iOS Godot/Xcode project generation, archiving and distribution must be completed locally on a Mac. The `ios` Docker target produces a source handoff, not an IPA; see `export/APPLE_RELEASE.md`. Native Apple completion is authorized as a workflow capability, not permission to export during a setup-only task.
+- Do not create, restore, or run GitHub Actions export workflows or export jobs, including manual, scheduled, push, pull-request, release, reusable, or Docker-based Actions jobs. GitHub Actions must not produce game export artifacts.
+- A request to reorganize export configuration does not authorize an actual export. Keep the exporter opt-in and inert without an explicit target; preserve export exclusivity.
+
 ### Docker Container Preflight (Before Editing Code Files)
 Before starting any task that involves editing code files (`.cs`, `.gd`, `.py`, `.ts`/`.tsx`/`.js`, tooling scripts, or configuration a running service reads), confirm the project's Docker containers are running:
 
@@ -43,7 +50,7 @@ docker ps
 - The stack is defined in `docker-compose.yml`: `db` (PostgreSQL 18, 5432), `backend` (Django, 8000), `website` (Nginx, 5173) and `ollama` (LLM runtime, 11434). All four are always-on members of `docker compose up`.
 - **Game edits and website edits may run at the same time as the stack** — they do not conflict, so do not stop the containers to work on either.
 - **Game exports are exclusive.** Never run one while another export, a Godot import refresh, a website image build, or a game/website edit batch is still in progress, and never chain an export into the same command as other work. Finish or park everything else first.
-- The exporter is a one-shot service behind the `export` profile (`docker compose run --rm export <linux|windows|web|android|all>`, image `axiom-force-export`). A plain `docker compose up` never starts it, and starting the service by itself is inert: with no explicit target it prints usage and exits without building anything. Never add `export` to the default services, and rebuild the image after editing `export/export.sh` because the script is baked into it.
+- The exporter is a one-shot service behind the `export` profile (`docker compose run --rm export <linux|windows|web|android|macos|ios|all>`, image `axiom-force-export`). A plain `docker compose up` never starts it, and starting the service by itself is inert: with no explicit target it prints usage and exits without building anything. Never add `export` to the default services, and rebuild the image after editing `export/export.sh` because the script is baked into it.
 - Skip this preflight for read-only questions, explanations, reviews, status checks, documentation-only (`.md`) edits, and Git-only operations.
 
 ### Godot Background Refresh (After Code/Asset Edits Only)

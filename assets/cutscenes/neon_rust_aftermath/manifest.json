@@ -1,0 +1,41 @@
+{
+  "generator": "Docker Blender 4.3.2; original project planar emission geometry",
+  "scenery": [
+    1920,
+    1080
+  ],
+  "atlas": [
+    3072,
+    2560
+  ],
+  "cell": [
+    512,
+    512
+  ],
+  "rows": [
+    "cyber_shogun",
+    "oceanus",
+    "apex_titan",
+    "phoenicia",
+    "mirage_blade"
+  ],
+  "columns": [
+    "calm",
+    "gesture",
+    "walk0",
+    "walk2",
+    "walk4",
+    "walk6"
+  ],
+  "palette": "red/gold Kaito; hydro cyan Oceanus; violet Titan; prism magenta Aura; emerald Mirage",
+  "reused": [
+    "neon_rust_intro/depot_structure.png",
+    "neon_rust_intro/depot_lights.png",
+    "neon_rust_intro/cargo_structure.png",
+    "neon_rust_intro/cargo_lights.png",
+    "deployment/live/city_base.png"
+  ],
+  "rights": "Original project geometry; no third-party stock imagery or sampled atmosphere",
+  "audio": "Ten ElevenLabs multilingual_v2 cues, exact text and voice IDs in cues.json; original seeded synthesis",
+  "source": "tools/cutscene/render_city_voice.py; render_wildfire.character_library"
+}

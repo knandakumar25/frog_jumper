@@ -6,8 +6,8 @@
 `CampaignProgress.CompleteMission` once. It freezes all mission descendants except
 the scorecard, then adds the Always-processing `TokyoRemembers` CanvasLayer. The
 level stays loaded; Continue prepares mission 2, Replay reloads mission 1. Level 2
-uses the separate Through the Breach aftermath described below. Level 3 shows
-results directly with Continue to Level 4; Level 4 retains its final results. No persistent watched flag is stored.
+uses the separate Through the Breach aftermath described below. Level 3 plays The City Finds Its Voice before
+results with Continue to Level 4; Level 4 retains its final results. No persistent watched flag is stored.
 The scorecard's original three-argument `ShowScorecard` binding is retained for
 GDScript callers; `ShowMissionScorecard` adds the explicit next-mission target.
 
@@ -247,4 +247,75 @@ uncommitted. No watched flag, save migration or local persistence was added.
 
 Level 3 completion update (2026-10-31): Silent Freight remains the unchanged
 arrival. Expanded Neon Rust gameplay now goes directly to a scorecard with
-Continue to Level 4, Replay, Level Select and Main Menu; it has no ending film.
+Continue to Level 4, Replay, Level Select and Main Menu. The City Finds Its Voice
+now precedes those results, as described below.
+
+## The City Finds Its Voice
+
+Level 3 extraction freezes the mission, snapshots results and runs a live
+90-second aftermath. Eleven shots start at 0, 9, 18, 27, 36, 45, 54, 64, 74,
+82 and 88 seconds. The last two seconds hold NEXT: SHATTERED AEGIS in silence.
+The squad has Kaito, Oceanus, Titan, Aura and Mirage; AXIOM-7 is voice-only.
+The fortress is distant and independently powered. Surya and Voss remain in Level 4.
+
+Production commands from the project root:
+
+```powershell
+docker compose build cutscene
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_city_voice.py -- --preview
+# Inspect .validation/city-voice/squad.png before rendering the family.
+docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_city_voice.py
+python tools/cutscene/narrate_city_voice.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_city_voice.py
+docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_city_voice.py
+python tools/cutscene/review_city_voice.py
+```
+
+Narration calls the paid ElevenLabs API only for absent cues and validates the
+cast before generating. It reads the ignored .env key without logging it and
+rejects mismatched cache hashes. cues.json owns exact requested text, voice IDs,
+model and shot windows. speech_provenance.json records request/audio hashes and
+settings. Packaging never calls an API, preserves complete words and fits each
+cue with atempo only if necessary (rejecting tempo >= 1.2). It records measured
+bounds in dialogue_timing.json. The original seeded wind, fading relay carrier,
+service rail clatter, radio and footsteps contain no stock samples. Both Ogg
+tracks last 90 seconds and are checked after decoding for clipping. Runtime
+owns the timeline and English subtitle fallbacks; validation checks manifest
+text/window alignment. Raster QA checks 1920×1080 scenery, alpha and all thirty
+512px atlas cells including transparent boundaries.
+
+If Docker Desktop cannot bind D:, use an owned container with copied inputs:
+
+```powershell
+docker run -d --name axiom-city-voice-production --entrypoint sleep axiom-force-cutscene infinity
+docker exec axiom-city-voice-production mkdir -p /workspace/tools /workspace/assets/cutscenes /workspace/.validation/city-voice /workspace/scripts/ui
+docker cp tools/art axiom-city-voice-production:/workspace/tools/art
+docker cp tools/cutscene axiom-city-voice-production:/workspace/tools/cutscene
+docker cp assets/cutscenes/neon_rust_aftermath axiom-city-voice-production:/workspace/assets/cutscenes/neon_rust_aftermath
+docker cp .validation/city-voice/speech axiom-city-voice-production:/workspace/.validation/city-voice/speech
+docker cp scripts/ui/NeonRustAftermath.cs axiom-city-voice-production:/workspace/scripts/ui/NeonRustAftermath.cs
+# Replace compose run commands above with docker exec axiom-city-voice-production.
+# Copy generated assets back before Godot import:
+docker cp axiom-city-voice-production:/workspace/assets/cutscenes/neon_rust_aftermath/. assets/cutscenes/neon_rust_aftermath
+$env:CITY_VOICE_CONTAINER = 'axiom-city-voice-production'
+python tools/cutscene/review_city_voice.py
+docker stop axiom-city-voice-production
+```
+
+The MCP review preserves the open editor scene, requires a stopped game and no
+active save, seeds completed objectives diagnostically, captures all 33 shot/aspect
+compositions and runs uninterrupted playback while checking position/health/score,
+freeze state and audio-clock agreement. It then tests the four real results
+navigation handlers, including five operatives in Level 4 and three plus arrival
+on Replay. Evidence stays under .validation/city-voice/review. This does not
+measure combat pacing or physical controller/touch hardware.
+
+The City Finds Its Voice verification (2026-11-01): C# build passes; NUnit 93/93,
+Godot 170/170 with zero errors/failures/orphans, isolated container Django 104/104.
+All 33 shot/aspect views, full 90-second frozen playback, four results destinations,
+raster/atlas QA and both complete 90-second audio tracks pass. Background import
+exits 0 with five sidecars; existing addon/TLS/shutdown diagnostics remain. Physical
+controller/touch and speaker-listening review remain unperformed. Docker Desktop’s
+D: bind-mount fault remains unresolved (including backend /app); copied inputs in
+owned unmounted containers enabled production and Django verification without
+restarting the four running services. User editor stays stopped on Level 1.

@@ -1,10 +1,27 @@
 # Axiom Force — Project Memory
 
-Last reviewed: 2026-10-31. This file preserves durable decisions and useful
+Last reviewed: 2026-11-01. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
 ## Memory maintenance
+
+- 2026-11-01 export policy: game exports are local Docker-only, with explicit
+  targets. Do not add or run GitHub Actions game exports, including Docker jobs.
+  GitHub reports zero current workflows; historical runs remain. Fixed launcher
+  service naming, inert no-target behavior, target validation, and CI/container
+  guards. Exporter image must be rebuilt before its next authorized use; this
+  task ran no actual game export or exporter image build. Safety/help/error-path,
+  shell syntax and Compose isolation checks pass; no build/ output was created.
+  NUnit 93/93, Godot 161/161 (report_368, zero failures/errors/orphans) and container
+  Django 104/104 pass; host Django wrapper skips its absent venv. Existing compile
+  warnings remain. Normal services were restored for mandatory preflight and are
+  left running, db/Ollama healthy; website/API returned HTTP 200. No engine files
+  changed, so no import refresh; no staging/commit/push.
+- Read-only game status: latest completed gameplay addition is Neon Rust's
+  sabotage/escape expansion (3c92724). Level 3 results exist; post-Level 3 and
+  pre-Level 4 cinematics do not yet exist. No new game work was requested by
+  these status questions during the export task.
 
 - Every agent must update this file before finishing every task, including
   read-only, planning, documentation-only, and Git-only work. Record concise
@@ -16,6 +33,21 @@ this summary does not replace them. Verify live environment state before acting.
   and diff hygiene; no code/assets changed, so no imports or tests were needed.
 
 ## User preferences and permissions
+
+- 2026-11-01: User plans macOS and iOS releases and accepts manual Apple steps.
+  Added macos unsigned-universal packaging and ios source-handoff targets, Apple
+  preset settings, a native Mac iOS completion helper, and export/APPLE_RELEASE.md.
+  Apple signing/notarization and native iOS Godot/Xcode generation/distribution
+  are the explicit exception to Docker-only execution. GitHub Actions stays
+  prohibited; setup does not authorize an actual export. Real owner bundle IDs
+  and Team ID must be supplied later; no keys/passwords are stored.
+  Four synthetic helper tests, source inventory, syntax/safety/Compose checks
+  pass. Background import exits 0 with existing TLS/editor shutdown diagnostics.
+  NUnit 93/93, Godot 161/161 (report_369, zero failures/errors/orphans) and
+  container Django 104/104 pass; wrapper skips absent host Django venv.
+  No actual Apple export, source handoff, signing, IPA or exporter image build
+  ran. Real Mac/device/AOT/native-library validation remains outstanding.
+  Normal services remain running; all changes are local and uncommitted.
 
 - 2026-10-30: User explicitly resumed the Tokyo Remembers plan after the earlier
   Docker-only task. Level 1 now uses cinematic then results, with Continue to 2
@@ -428,3 +460,41 @@ Publication verified: implementation commit 3c92724 pushed normally to origin/ma
 git ls-remote confirmed the remote SHA matched the local implementation commit.
 The shutdown/publication record is included in this follow-up documentation commit.
 No code/assets changed during publication; prior test results remain applicable.
+
+## The City Finds Its Voice — 2026-11-01
+
+- Added requested 90-second live Level 3 aftermath before immutable results; one
+  completion submission, full mission freeze, guarded deferred handoff, all-device
+  Skip/action release and missing speech/art fallbacks. Continue: Level 4/five
+  operatives; Replay: Level 3 arrival/three operatives. No extra unlocks, watched
+  state, migration, Surya/Voss introduction or pre-Level 4 arrival.
+- Original Docker/Blender five-operative atlas/fortress; ten exact requested
+  ElevenLabs cues and two 90-second tracks. Cue text/IDs/settings/hashes/timing and
+  reproduction are recorded beside assets and in tools/cutscene/README.md.
+- Final import exit 0/five sidecars; C# build zero errors, 154 existing warnings.
+  Required suites: NUnit 93/93, Godot 170/170 (report_372; zero failures/errors/
+  orphans), isolated container Django 104/104 (host wrapper skips absent venv).
+  Raster/alpha/atlas, audio/timing/manifest QA, Python compilation and diff pass.
+- MCP inspected all 33 shot/aspect captures; full playback kept position/health/
+  score and mission state frozen, max clock separation 36.8ms. All four results
+  destinations/rosters pass; 90 runtime log entries contain no warnings/errors.
+  Editor remains stopped on Level 1; evidence: .validation/city-voice/.
+- Existing import TLS/shutdown diagnostics remain. Physical controller/touch and
+  speaker-listening review unperformed. Docker Desktop D: bind-mount fault also
+  blocks existing backend /app and remains unresolved; production and Django QA
+  used owned unmounted copy-based containers, now stopped. Four normal services
+  remain running, never restarted/stopped. Unrelated export changes preserved;
+  no exports, staging, commits or pushes; work remains local/uncommitted.
+
+## Current changes publication — 2026-11-01
+
+User explicitly requested pushing current changes, authorizing the required local
+commit and normal push. Scope includes The City Finds Its Voice, generated assets,
+production/review tools and tests, plus pre-existing Apple export setup and policy
+documentation. Reviewed tracked/untracked inventory, imports, diff hygiene and
+remote synchronization; main equals origin/main before publication. Ignored local
+configuration, speech caches and validation evidence remain excluded. This Git/
+documentation-only task changes no code/assets; prior build, NUnit 93/93, Godot
+170/170 (zero failures/errors/orphans), container Django 104/104 and runtime QA
+remain applicable without rerunning tests/imports. Existing Docker bind-mount and
+physical-device/listening limitations remain documented. Publication result follows.

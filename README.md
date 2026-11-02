@@ -199,14 +199,51 @@ container can briefly precede the HTTP server accepting connections.
 
 ### Exporting the Game (Docker)
 
+Game export preparation is requested locally through Docker with an explicit target.
+Apple signing/distribution and iOS native project generation are the documented
+manual Mac/Xcode exception; see [Apple release steps](export/APPLE_RELEASE.md).
+GitHub Actions must not export the game, including from manual or container jobs.
+The repository and GitHub workflow list were checked on 2026-11-01: neither has
+any Actions workflows to remove. Existing historical runs/artifacts were not deleted.
+
 Game exports run headless from a dedicated image (`export/Dockerfile`: Godot 4.7.2 .NET, .NET 10 SDK, Android SDK with build-tools 34, **JDK 17 only**, and the matching export templates). The image owns a container-native `.godot` import cache — importing through the Windows bind mount is ~1 KB/s, so imports stay on the Linux filesystem and only the finished binaries are written back to `./build`.
 
 ```powershell
 docker compose --profile export build export   # first run, or after editing the Dockerfile
-docker compose run --rm export linux            # also: windows | web | android | all
+docker compose run --rm export linux            # also: windows | web | android | macos | ios | all
 ```
 
 Outputs land in `./build/`. Exports only ever run when a target is given explicitly: the service sits behind the `export` profile, so `docker compose up` never starts it, and even starting the service directly is inert — it prints usage and exits without building anything.
+
+The root launchers `export.bat linux` (Windows) and `./export.sh linux` (Bash)
+build and invoke that same `export` service from the repository directory.
+Supported targets are `linux`, `windows`, `web`, `android`, `macos`, `ios`, and `all`. A bare
+invocation or `--help` only prints usage; invalid targets fail before any build.
+Both launchers refuse `GITHUB_ACTIONS=true`, and Compose forwards that marker
+to the container driver, which also refuses Actions and host execution.
+The driver is baked into the image: rebuild it before your next authorized
+export after changing `export/export.sh`. No exporter image was built or game
+export performed during this configuration-only change.
+
+Configuration verification (2026-11-01): launcher safety paths, Bash syntax,
+Compose isolation, 93 NUnit tests, 161 Godot tests (zero errors/failures/orphans),
+and 104 container Django tests pass. No packaged game build was produced.
+
+Apple setup (2026-11-01): `export.bat macos` prepares an unsigned universal ZIP;
+`export.bat ios` prepares a credential-filtered source ZIP for a Mac with Xcode.
+The latter is not an Xcode project or IPA. Set a real macOS bundle ID before
+requesting `macos` or `all`; the checked-in ID is an intentional example.
+The iOS preset has a blank Team ID and project-only export for later completion.
+The native Mac helper `bash export/finish_ios.sh --check` checks prerequisites;
+its explicit `project` command generates the Xcode project on the Mac.
+Apple signing, provisioning, icons/privacy review, physical device validation,
+and distribution remain manual. Setup alone does not certify an Apple release.
+
+Setup verification: four synthetic helper tests plus 93 NUnit, 161 Godot
+(zero failures/errors/orphans) and 104 container Django tests pass. Syntax,
+configuration and safety checks pass; background import exits 0 with existing
+addon/shutdown diagnostics. No real Apple export or exporter image build ran.
+Mac/device/signing validation is still required.
 
 Game and website edits may run alongside the stack, but an export is exclusive — never run one while another export, a Godot import, or a website build is still running.
 
@@ -402,10 +439,17 @@ actually blink across a harmless practice beam. Seven stationary recovery shrine
 retain completed objectives, recruits, lessons and kill-reward slots in this scene.
 Replay/reload starts a fresh three-operative run with the existing arrival.
 
-Extraction shows results directly: Continue to Level 4 with five earned operatives,
-Replay, Level Select and Main Menu. Original abilities/stats, recruitment dialogue,
-arrival, audio and save schema are preserved. New depot art is authored in Blender
-inside Docker with collision kept separate. No new paid speech/music is generated.
+Extraction now plays **The City Finds Its Voice**, a 90-second skippable live 2D
+aftermath voiced by the five earned operatives and AXIOM-7, before the existing
+results. Continue enters Level 4 with five operatives; Replay restores Level 3’s
+arrival and three-operative starting roster. Level Select and Main Menu retain
+their destinations. The mission stays frozen and results retain extraction-time
+score, peak combo and operative. Missing speech preserves subtitles; missing
+essential art safely opens results. Keyboard, controller, pointer and touch Skip
+share one deferred handoff. Gameplay dialogue, objectives and save schema remain
+unchanged. Original Docker/Blender poses and fortress scenery, ten cached
+ElevenLabs cues and separate 90-second dialogue/atmosphere tracks are documented
+in [cinematic reproduction](tools/cutscene/README.md#the-city-finds-its-voice).
 
 The **30–35 minute first-playthrough goal remains UNVALIDATED**. Assisted blockout
 traversal used real movement/abilities with diagnostic enemy kills, zero recoveries,
@@ -424,3 +468,13 @@ before code editing or running services. Existing validation results remain vali
 
 Publication verified: Neon Rust implementation commit 3c92724 is on origin/main.
 The services remain stopped at the user's request; prior test results still apply.
+
+The City Finds Its Voice verification (2026-11-01): C# build passes; NUnit 93/93,
+Godot 170/170 with zero errors/failures/orphans, isolated container Django 104/104.
+All 33 shot/aspect views, full 90-second frozen playback, four results destinations,
+raster/atlas QA and both complete 90-second audio tracks pass. Background import
+exits 0 with five sidecars; existing addon/TLS/shutdown diagnostics remain. Physical
+controller/touch and speaker-listening review remain unperformed. Docker Desktop’s
+D: bind-mount fault remains unresolved (including backend /app); copied inputs in
+owned unmounted containers enabled production and Django verification without
+restarting the four running services. User editor stays stopped on Level 1.
