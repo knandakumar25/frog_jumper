@@ -497,4 +497,8 @@ configuration, speech caches and validation evidence remain excluded. This Git/
 documentation-only task changes no code/assets; prior build, NUnit 93/93, Godot
 170/170 (zero failures/errors/orphans), container Django 104/104 and runtime QA
 remain applicable without rerunning tests/imports. Existing Docker bind-mount and
-physical-device/listening limitations remain documented. Publication result follows.
+physical-device/listening limitations remain documented.
+
+Publication verified: implementation commit 545fc9a (47 files) pushed normally to
+origin/main; git ls-remote confirmed the remote SHA matched. No code/assets changed
+during publication. This result is recorded in a follow-up documentation commit.
