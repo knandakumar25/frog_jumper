@@ -3,72 +3,72 @@
     "cue": 1,
     "speaker": "CIVILIAN AMARA / Lily - Velvety Actress",
     "start": 0.22,
-    "source_duration": 2.220408,
+    "source_duration": 5.877551,
     "tempo": 1.0,
-    "end": 2.3986167800453515,
+    "end": 6.0699319727891154,
     "cached_source": "cue1.mp3"
   },
   {
     "cue": 2,
     "speaker": "CIVILIANS / Lily - Velvety Actress",
     "start": 12.22,
-    "source_duration": 3.578776,
+    "source_duration": 4.022857,
     "tempo": 1.0,
-    "end": 15.738208616780046,
+    "end": 16.21,
     "cached_source": "cue2.mp3"
   },
   {
     "cue": 3,
     "speaker": "MIRAGE / Eric",
     "start": 22.22,
-    "source_duration": 2.638367,
+    "source_duration": 5.381224,
     "tempo": 1.0,
-    "end": 24.815396825396824,
+    "end": 27.553265306122448,
     "cached_source": "cue3.mp3"
   },
   {
     "cue": 4,
     "speaker": "AURA / Matilda",
     "start": 31.22,
-    "source_duration": 2.821224,
+    "source_duration": 6.687347,
     "tempo": 1.0,
-    "end": 34.00328798185941,
+    "end": 37.8547619047619,
     "cached_source": "cue4.mp3"
   },
   {
     "cue": 5,
     "speaker": "OCEANUS / Sarah",
     "start": 40.22,
-    "source_duration": 4.493061,
+    "source_duration": 7.836735,
     "tempo": 1.0,
-    "end": 44.67424036281179,
+    "end": 48.011156462585035,
     "cached_source": "cue5.mp3"
   },
   {
     "cue": 6,
     "speaker": "TITAN / George",
     "start": 49.22,
-    "source_duration": 2.821224,
+    "source_duration": 5.746939,
     "tempo": 1.0,
-    "end": 51.99986394557823,
+    "end": 54.92448979591837,
     "cached_source": "cue6.mp3"
   },
   {
     "cue": 7,
     "speaker": "SURYA // COMMS / Brian",
     "start": 58.22,
-    "source_duration": 2.76898,
+    "source_duration": 6.687347,
     "tempo": 1.0,
-    "end": 60.947868480725624,
+    "end": 64.85628117913832,
     "cached_source": "cue7.mp3"
   },
   {
     "cue": 8,
     "speaker": "KAITO / Adam",
     "start": 68.22,
-    "source_duration": 5.459592,
+    "source_duration": 7.836735,
     "tempo": 1.0,
-    "end": 73.63956916099774,
+    "end": 76.01487528344671,
     "cached_source": "cue8.mp3"
   }
 ]

@@ -9,7 +9,7 @@ extends RefCounted
 ## When an MCP client's attach launcher invokes
 ## `uvx --from godot-ai==VERSION godot-ai attach ...`, uv builds an ephemeral venv under
 ## `builds-v0\.tmpXXXXXX\`. To save disk it hard-links shared C extensions
-## (notably `pydantic_core/_pydantic_core.cp3XX-win_amd64.pyd`) from
+## (notably `pydantic_core/_pydantic_core.cp313-win_amd64.pyd`) from
 ## `archive-v0\<hash>\Lib\site-packages\...` into the build venv.
 ##
 ## If the godot-ai server's own Python child has that same `.pyd` mapped via
@@ -18,7 +18,7 @@ extends RefCounted
 ## handles per-file, not per-path. uv's post-install cleanup of the build
 ## venv then dies with:
 ##
-##   Failed to install: pywin32-311-cp3XX-cp3XX-win_amd64.whl (pywin32==311)
+##   Failed to install: pywin32-311-cp313-cp313-win_amd64.whl (pywin32==311)
 ##     Caused by: failed to remove directory `...\.tmpXXXXXX\Lib\site-packages\pywin32-311.data`
 ##                다른 프로세스가 파일을 사용 중이기 때문에 ... (os error 32)
 ##

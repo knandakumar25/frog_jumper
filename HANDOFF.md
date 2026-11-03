@@ -1,5 +1,82 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Pre-Level 6 Opening Cutscene: Into the Cyber-Grave (2026-11-02)
+
+### Summary of Enhancements
+Authored and implemented the Pre-Level 6 opening cinematic cutscene (`CyberGraveIntro.cs`, `CyberGraveStage.cs`, `scenes/cutscenes/cyber_grave_intro.tscn`) to bridge Mission 5's civic registry liberation with the impending infiltration of the subterranean bio-synthetic foundry:
+1. **Authored Dialogue Script & ElevenLabs Voiceover Pipeline**:
+   - Authored an intense 9-cue narrative script featuring the squad cast:
+     - Cue 1 (AXIOM-7 / Daniel): Descent telemetry confirms arrival 400 meters beneath Downtown Core at facility designated "Cyber-Grave".
+     - Cue 2 (Kaito / Adam): Recognizes the facility as a processing plant turning the living into machine components.
+     - Cue 3 (Aura / Matilda): Detects sickening resonance of thousands of bio-signals trapped in forced synchronization.
+     - Cue 4 (Oceanus / Sarah): Decries the lie of agricultural preserves; sees citizens drowning in pressurized stasis pods.
+     - Cue 5 (Titan / George): Analyzes geothermal siphon reactors and reinforced blast bulkheads.
+     - Cue 6 (Mirage / Eric): Identifies ventilation breach routes past secondary plasma conduits.
+     - Cue 7 (Surya / Brian): Locks transponders into orbital blind spots, warning of zero topside extraction.
+     - Cue 8 (Oceanus / Sarah): Demands every pod be opened and no name left behind in the dark.
+     - Cue 9 (Kaito / Adam): Issues the squad order to breach the perimeter, sever conduits, and evacuate captives.
+   - Generated cached speech cues using ElevenLabs multilingual v2 with verified voice IDs and SHA-256 receipts (`.validation/cyber-grave/speech/`).
+   - Packaged and normalized speech into an exact 120.00-second `dialogue.ogg` and synthesized matching 120.00-second `atmosphere.ogg` (42Hz elevator thrum, steam valve bursts, wind rush, and deceleration grind) via Docker FFmpeg (`tools/cutscene/package_cyber_grave.py`).
+2. **Procedural Staging Architecture (`CyberGraveStage.cs`)**:
+   - Built a high-fidelity seekable 2D staging canvas rendering a rushing freight lift shaft with parallax structural girders and depth cables.
+   - Added glowing vertical glass bio-nutrient conduits with animated rising bubbles and high-voltage containment rings (`#00ff99`).
+   - Implemented sweeping amber hazard strobes (`#ffaa00`) with volumetric light cones and horizontal steam venting.
+   - Rendered the freight platform deck with industrial hazard chevrons and under-floor neon uplight.
+   - Positioned distinct operative silhouettes across the platform (Kaito's katana and scarf, Oceanus's hydro catalysts, Aura's tuning antennae, Mirage's low phase daggers, Titan's heavy bulk, Surya's comms transmitter).
+   - Added interactive holographic tactical telemetry HUD projecting wireframe facility schematics and dynamic depth meters (`DEPTH: -412M`).
+   - Camera choreography with smooth cubic Hermite transitions across 10 shot positions.
+3. **Cutscene Controller & UI (`CyberGraveIntro.cs`)**:
+   - Implemented deterministic `CanvasLayer` overlay with audio-compensated monotonic clock.
+   - Word-wrapped subtitle panel with dynamic speaker-coded border accents (Cyan, Crimson, Aqua, Pink, Violet, Emerald, Gold).
+   - Multi-input skip support (ESC, Space, Enter, Gamepad Start/A, mouse/touch click) with clean action release and single-completion guarantee.
+   - Automatic mission preparation and safe navigation fallback (`LevelCatalog.Count >= 6 ? ScenePath(6) : level_selection.tscn`).
+4. **Verification & Testing**:
+   - GdUnit4 suite `test_cyber_grave_intro.gd`: Passed 3/3 tests (lifecycle, skip, subtitle seeking, 0 orphans).
+   - NUnit suite `CyberGraveIntroTests.cs`: Passed 3/3 tests (duration, scene existence, cue structure).
+   - Full test runner `.\run_tests.ps1`:
+     - **Django**: 104/104 PASSED
+     - **NUnit**: 103/103 PASSED
+     - **GdUnit4**: 217/217 test cases across 37 suites PASSED (0 errors, 0 failures, 0 orphans).
+   - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+
+## Post-Level 5 Epilogue Cutscene Implementation (2026-11-02)
+
+### Summary of Enhancements
+Authored and elevated the Mission 5 post-extraction epilogue cutscene (`NamesWithoutNumbersAftermath.cs` and `NamesWithoutNumbersAftermathStage.cs`) to high-fidelity cyber-action standards:
+1. **Authored Dialogue Script & ElevenLabs Voiceover**:
+   - Replaced temporary/placeholder lines with a fully authored 8-cue cinematic script:
+     - Cue 1: Civilian Amara reclaiming her identity at the green-lit terminal.
+     - Cue 2: Refugee crowd joy upon seeing their names restored to the manifest.
+     - Cue 3: Mirage Blade reporting biometric carrier waves completely flatlined.
+     - Cue 4: Aura Phoenicia sensing the static turning into a communal chorus.
+     - Cue 5: Oceanus reporting transit gates, water filtration, and ration vaults opening.
+     - Cue 6: Apex Titan praising the destruction of five years of occupation locks.
+     - Cue 7: Surya Prime comms report that the outer barrier dropped and the queue is crossing.
+     - Cue 8: Cyber Shogun (Kaito) rally command as the squad prepares for the Citadel.
+   - Synthesized fresh voiceover takes for all 8 cues with ElevenLabs multilingual TTS using designated voice profiles.
+   - Normalized and packaged audio via Docker FFmpeg into 90.0-second `dialogue.ogg` and `atmosphere.ogg` tracks (all cues fit at 1.0x tempo without artificial speedups).
+2. **Visual Staging & Cinematic Choreography**:
+   - Upgraded `NamesWithoutNumbersAftermathStage.cs` with smooth Hermite/eased camera pan and zoom interpolation across all shot transitions.
+   - Added procedural volumetric sweeping searchlights from civic towers.
+   - Rendered rising holographic registry terminal data pillars with floating golden identity particles moving into civilian hands.
+   - Added distinctive operative silhouettes (Kaito's katana, Mirage's phase daggers, Aura's resonance rings, Oceanus's hydro robes, Titan's bulk, Surya's comms link).
+   - Added pulsing ground speaker beacons under active characters.
+   - Implemented 2.39:1 widescreen letterboxing with subtle cyan grid accents and anamorphic lens flares.
+3. **UI Polish & Speaker Subtitles**:
+   - Upgraded `NamesWithoutNumbersAftermath.cs` with cyber-bordered subtitle containers (`#00f0ff` accent).
+   - Dynamically color-modulated subtitles matching each operative and civilian speaker.
+   - Styled the Skip button with glass-morphism cyber aesthetics and keyboard/gamepad/pointer support.
+
+### Verification Results
+- `dotnet build AxiomForce.csproj`: Clean build, 0 errors, 153 existing nullable/addon warnings.
+- Docker cutscene validation: 8 cues, exact 90-second duration, 0 clipped samples.
+- Headless Godot editor import refresh exited with code 0 (`atmosphere.ogg.import` and `dialogue.ogg.import` regenerated).
+- `run_tests.ps1`:
+  - **NUnit**: 100/100 passing.
+  - **GdUnit4**: 214/214 passing (36 suites, 0 errors, 0 failures, 0 orphans, report_414).
+  - **Django (Containerized)**: 104/104 passing.
+- **Git Status**: Changes remain local and uncommitted per standing permission policy.
+
 ## Act II Start Screen, Pre-Level 5 Cutscene, and Level 5 Gameplay Revamp (2026-11-02)
 
 ### Summary of Enhancements

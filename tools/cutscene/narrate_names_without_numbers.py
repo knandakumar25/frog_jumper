@@ -48,7 +48,7 @@ def main():
             if receipt.get('request_sha256') == request_hash and exact_audio and matching_authorship:
                 print('Cached cue', index, flush=True)
                 continue
-            raise SystemExit(f'Cue {index} cache does not match the authored request; no overwrite performed.')
+            print(f'Regenerating cue {index} for new authored text...', flush=True)
         request = urllib.request.Request(
             f"https://api.elevenlabs.io/v1/text-to-speech/{cue['voice_id']}?output_format=mp3_44100_128",
             data=json.dumps(body).encode(), headers={'xi-api-key':key,'Content-Type':'application/json'})

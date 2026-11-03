@@ -18,14 +18,14 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
 
     private static readonly double[] Starts = { 0, 12, 22, 31, 40, 49, 58, 68, 82 };
     private static readonly string[] Lines = {
-        "CIVILIAN AMARA: My name is Amara. I choose to keep it.",
-        "CIVILIANS: I am Elias. My name is Nia. I remember mine.",
-        "MIRAGE: No one asked them to prove it. They just said it.",
-        "AURA: The records are theirs. So is the next word.",
-        "OCEANUS: Water, shelter, transit. The gates are answering to people again.",
-        "TITAN: They carried those names through every locked door.",
-        "SURYA // COMMS: The queue is moving. They are choosing where to go.",
-        "KAITO: We helped make the choice possible. What comes next is theirs to decide.",
+        "CIVILIAN AMARA: My name is Amara. Look at the terminal... it's not red anymore. It knows who I am.",
+        "CIVILIANS: I'm Elias. My family is on the manifest. We're on the board!",
+        "MIRAGE: Biometric carrier wave is completely flatlined. Not a single camera knows how to track them now.",
+        "AURA: The frequency in the air changed. The static in their comms... it isn't fear anymore. It's a chorus.",
+        "OCEANUS: Transit gates are opening. Water filtration and ration vaults unlocked. They're finally treated as people, not contraband.",
+        "TITAN: The occupation spent five years building those locks. Took us five minutes to tear the teeth out of them.",
+        "SURYA // COMMS: Kaito, you did it! The outer barrier just dropped. The entire queue is crossing over. Nobody is being turned away!",
+        "KAITO: Let them come. The people have their names back. Now, we take the rest of the city. Squad—fall in.",
         ""
     };
 
@@ -56,13 +56,42 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
         var ui = new Control { Name = "UI", MouseFilter = Control.MouseFilterEnum.Stop };
         AddChild(ui);
         ui.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
-        var panel = new PanelContainer { Name = "SubtitlePanel", AnchorLeft = .08f, AnchorRight = .92f, AnchorTop = .77f, AnchorBottom = .96f };
+        var panel = new PanelContainer { Name = "SubtitlePanel", AnchorLeft = .08f, AnchorRight = .92f, AnchorTop = .76f, AnchorBottom = .96f };
         ui.AddChild(panel);
-        panel.AddThemeStyleboxOverride("panel", new StyleBoxFlat { BgColor = new Color(.008f, .02f, .04f, .95f), BorderColor = new Color("66d9e8"), BorderWidthTop = 2, ContentMarginLeft = 22, ContentMarginRight = 22, ContentMarginTop = 14, ContentMarginBottom = 14 });
+        panel.AddThemeStyleboxOverride("panel", new StyleBoxFlat {
+            BgColor = new Color(.005f, .015f, .03f, .96f),
+            BorderColor = new Color("00f0ff"),
+            BorderWidthTop = 3,
+            CornerRadiusTopLeft = 4,
+            CornerRadiusTopRight = 4,
+            ContentMarginLeft = 26,
+            ContentMarginRight = 26,
+            ContentMarginTop = 16,
+            ContentMarginBottom = 16
+        });
         _subtitle = new Label { Name = "Subtitle", AutowrapMode = TextServer.AutowrapMode.WordSmart, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
         _subtitle.AddThemeFontSizeOverride("font_size", 22);
         panel.AddChild(_subtitle);
         _skip = new Button { Name = "Skip", Text = "SKIP // ESC / START", AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
+        var skipStyle = new StyleBoxFlat {
+            BgColor = new Color(.01f, .03f, .05f, .85f),
+            BorderColor = new Color("00f0ff"),
+            BorderWidthLeft = 2,
+            BorderWidthRight = 2,
+            BorderWidthTop = 2,
+            BorderWidthBottom = 2,
+            CornerRadiusTopLeft = 3,
+            CornerRadiusTopRight = 3,
+            CornerRadiusBottomLeft = 3,
+            CornerRadiusBottomRight = 3,
+            ContentMarginLeft = 14,
+            ContentMarginRight = 14,
+            ContentMarginTop = 8,
+            ContentMarginBottom = 8
+        };
+        _skip.AddThemeStyleboxOverride("normal", skipStyle);
+        _skip.AddThemeStyleboxOverride("hover", skipStyle);
+        _skip.AddThemeStyleboxOverride("focus", skipStyle);
         ui.AddChild(_skip);
         _skip.Pressed += Finish;
         _skip.GrabFocus();
@@ -110,6 +139,18 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
         _subtitle.AddThemeFontSizeOverride("font_size", (int)System.Math.Clamp(GetViewport().GetVisibleRect().Size.Y / 45, 14, 22));
         _subtitle.Text = Lines[cue];
         _subtitle.GetParent<Control>().Visible = cue < Lines.Length - 1;
+        // Modulate subtitle color to match speaker identity
+        _subtitle.Modulate = cue switch {
+            0 => new Color("fef3c7"), // Amara (Warm Ivory)
+            1 => new Color("e2e8f0"), // Civilians (Silver White)
+            2 => new Color("34d399"), // Mirage (Phase Emerald)
+            3 => new Color("f472b6"), // Aura (Prism Pink)
+            4 => new Color("66d9e8"), // Oceanus (Hydro Aqua)
+            5 => new Color("c084fc"), // Titan (Kinetic Violet)
+            6 => new Color("ffe29a"), // Surya (Solar Gold)
+            7 => new Color("f87171"), // Kaito (Crimson Vanguard)
+            _ => Colors.White
+        };
     }
 
     /// <summary>Aligns audio and visuals after a review seek without introducing a second clock.</summary>

@@ -4,6 +4,22 @@ Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Pre-Level 6 Cutscene ("Into the Cyber-Grave") — 2026-11-02
+
+- Implemented the skippable 120-second Pre-Level 6 opening cinematic (`CyberGraveIntro.cs`,
+  `CyberGraveStage.cs`, `scenes/cutscenes/cyber_grave_intro.tscn`) establishing the descent
+  into Mission 6 (*Cyber-Grave Labs - Underground Facility*).
+- 9-cue narrative script featuring the squad cast (AXIOM-7, Kaito, Aura, Oceanus, Titan,
+  Mirage, Surya) synthesized with ElevenLabs multilingual v2 and verified voice IDs.
+- Cues packaged into exact 120.00s `dialogue.ogg` and `atmosphere.ogg` (42Hz elevator thrum,
+  steam venting, wind gusts, deceleration grind) via Docker FFmpeg (`tools/cutscene/package_cyber_grave.py`).
+- Procedural staging: vertical freight lift descent, parallax steel girders, bioluminescent
+  nutrient tubes with rising bubbles, rotating amber hazard sweeps, operative silhouettes,
+  and holographic depth HUD (`DEPTH: -412M`) with Hermite camera easing.
+- Verification: clean `dotnet build` (0 errors), headless Godot import exit 0, GdUnit4 217/217
+  across 37 suites (0 errors, 0 failures, 0 orphans), NUnit 103/103 passing, and Django 104/104
+  passing. All 4 Docker containers healthy. No git commit or push without user instruction.
+
 ## Mission 5 — 2026-11-02
 
 - Added playable Names Without Numbers: six sectors, seventeen finite formations,
@@ -960,4 +976,25 @@ Per explicit user instruction ("Ok, push to git"), authorized and executed stagi
 - Staged all modified project code, scenes, test files, and project documentation: `HANDOFF.md`, `MEMORY.MD`, `README.md`, `scenes/main_menu/level_selection.tscn`, `scripts/gameplay/CodeLevel.cs`, `scripts/gameplay/NamesWithoutNumbersMission.cs`, `scripts/gameplay/RecoveryTerminal.cs`, `scripts/gameplay/RegistryScanner.cs`, `scripts/ui/ActIIOpening.cs`, `scripts/ui/ActIIStage.cs`, `tests/test_names_without_numbers.gd`.
 - Preserved exclusion of user machine-specific `.vscode/settings.json` and untracked `.skill-install-staging/`.
 - Created commit and pushed to `origin/main`.
+
+## ElevenLabs MCP Access Audit and Configuration — 2026-11-02
+
+Audited ElevenLabs MCP availability and access for character voice/speech synthesis:
+- Confirmed the official launcher `C:\Users\karthiknk21\.codex\elevenlabs_mcp_launcher.py` reads `ELEVENLABS_API_KEY` from `D:\Projects\frog_jumper\.env` and runs `elevenlabs-mcp==0.12.2`.
+- Tested launcher initialization and tool discovery directly over stdio: verified clean initialization (`ElevenLabs v1.30.0`) and confirmed 27 available tools (`text_to_speech`, `search_voices`, `text_to_sound_effects`, etc.).
+- Registered `elevenlabs` in Antigravity global configuration `C:\Users\karthiknk21\.gemini\config\mcp_config.json` alongside `godot-ai`.
+- Exported tool schema JSON files to both `C:\Users\karthiknk21\.gemini\antigravity-cli\mcp\elevenlabs\` and `C:\Users\karthiknk21\.gemini\antigravity\mcp\elevenlabs\`.
+- Active conversation session bounds native MCP tool binding from startup, but the launcher and API integration are fully accessible and validated for speech generation tasks.
+
+## Post-Level 5 Epilogue Cutscene Implementation — 2026-11-02
+
+Implemented and elevated the Post-Level 5 ("Names Without Numbers Aftermath") epilogue cutscene to high-fidelity cyber-action standards:
+- **Dialogue Script & Voiceover**: Authored a fresh, emotionally resonant 8-cue character dialogue script covering Civilian Amara, the refugee crowd, Mirage Blade, Aura Phoenicia, Oceanus, Apex Titan, Surya Prime (via comms), and Cyber Shogun (Kaito).
+- **ElevenLabs Speech Generation**: Generated high-fidelity voiceover takes using ElevenLabs multilingual TTS across all character voice IDs (`pFZP5JQG7iQjIQuC4Bku`, `cjVigY5qzO86Huf0OWal`, `XrExE9yKIg1WjnnlVkGX`, `EXAVITQu4vr4xnSDxMaL`, `JBFqnCBsd6RMkjVDRZzb`, `nPczCjzI2devNBz1zQrb`, `pNInz6obpgDQGcFmaJgB`).
+- **Audio Packaging**: Packaged and normalized speech into an exact 90-second Ogg Vorbis stream (`dialogue.ogg`) and synthesized district ambience (`atmosphere.ogg`) with Docker FFmpeg and updated timing provenance (`dialogue_timing.json`, `speech_provenance.json`). Asset validation passed with 8 cues at 1.0x natural tempo.
+- **Visual Staging & Cinematic Presentation**: Upgraded `NamesWithoutNumbersAftermathStage.cs` with smooth Hermite/eased camera pan/zoom interpolation across shot transitions, sweeping volumetric amber and cyan floodlights, a rising holographic registry stream with golden identity data particles, distinctive operative silhouettes and active speaker ground beacons, and 2.39:1 anamorphic letterbox framing with lens flares.
+- **UI & Subtitles**: Enhanced `NamesWithoutNumbersAftermath.cs` with cyber-bordered subtitle panels (`#00f0ff` top accent), stylized glass-morphism Skip button, and character-color-coded subtitle modulation matching each operative's identity.
+- **Verification**: Clean C# build (0 errors, 153 existing warnings); background Godot editor import exit 0; full `run_tests.ps1` passed NUnit 100/100, GdUnit4 214/214 (0 errors, 0 failures, 0 orphans, report_414), and containerized Django 104/104. All Docker stack containers remain up and healthy.
+
+
 

@@ -1,10 +1,10 @@
 [
-  {"speaker":"CIVILIAN AMARA","voice":"Lily - Velvety Actress","voice_id":"pFZP5JQG7iQjIQuC4Bku","model":"eleven_multilingual_v2","start":0,"end":12,"text":"My name is Amara. I choose to keep it."},
-  {"speaker":"CIVILIANS","voice":"Lily - Velvety Actress","voice_id":"pFZP5JQG7iQjIQuC4Bku","model":"eleven_multilingual_v2","start":12,"end":22,"text":"I am Elias. My name is Nia. I remember mine."},
-  {"speaker":"MIRAGE","voice":"Eric","voice_id":"cjVigY5qzO86Huf0OWal","model":"eleven_multilingual_v2","start":22,"end":31,"text":"No one asked them to prove it. They just said it."},
-  {"speaker":"AURA","voice":"Matilda","voice_id":"XrExE9yKIg1WjnnlVkGX","model":"eleven_multilingual_v2","start":31,"end":40,"text":"The records are theirs. So is the next word."},
-  {"speaker":"OCEANUS","voice":"Sarah","voice_id":"EXAVITQu4vr4xnSDxMaL","model":"eleven_multilingual_v2","start":40,"end":49,"text":"Water, shelter, transit. The gates are answering to people again."},
-  {"speaker":"TITAN","voice":"George","voice_id":"JBFqnCBsd6RMkjVDRZzb","model":"eleven_multilingual_v2","start":49,"end":58,"text":"They carried those names through every locked door."},
-  {"speaker":"SURYA // COMMS","voice":"Brian","voice_id":"nPczCjzI2devNBz1zQrb","model":"eleven_multilingual_v2","start":58,"end":68,"text":"The queue is moving. They are choosing where to go."},
-  {"speaker":"KAITO","voice":"Adam","voice_id":"pNInz6obpgDQGcFmaJgB","model":"eleven_multilingual_v2","start":68,"end":82,"text":"We helped make the choice possible. What comes next is theirs to decide."}
+  {"speaker":"CIVILIAN AMARA","voice":"Lily - Velvety Actress","voice_id":"pFZP5JQG7iQjIQuC4Bku","model":"eleven_multilingual_v2","start":0,"end":12,"text":"My name is Amara. Look at the terminal... it's not red anymore. It knows who I am."},
+  {"speaker":"CIVILIANS","voice":"Lily - Velvety Actress","voice_id":"pFZP5JQG7iQjIQuC4Bku","model":"eleven_multilingual_v2","start":12,"end":22,"text":"I'm Elias. My family is on the manifest. We're on the board!"},
+  {"speaker":"MIRAGE","voice":"Eric","voice_id":"cjVigY5qzO86Huf0OWal","model":"eleven_multilingual_v2","start":22,"end":31,"text":"Biometric carrier wave is completely flatlined. Not a single camera knows how to track them now."},
+  {"speaker":"AURA","voice":"Matilda","voice_id":"XrExE9yKIg1WjnnlVkGX","model":"eleven_multilingual_v2","start":31,"end":40,"text":"The frequency in the air changed. The static in their comms... it isn't fear anymore. It's a chorus."},
+  {"speaker":"OCEANUS","voice":"Sarah","voice_id":"EXAVITQu4vr4xnSDxMaL","model":"eleven_multilingual_v2","start":40,"end":49,"text":"Transit gates are opening. Water filtration and ration vaults unlocked. They're finally treated as people, not contraband."},
+  {"speaker":"TITAN","voice":"George","voice_id":"JBFqnCBsd6RMkjVDRZzb","model":"eleven_multilingual_v2","start":49,"end":58,"text":"The occupation spent five years building those locks. Took us five minutes to tear the teeth out of them."},
+  {"speaker":"SURYA // COMMS","voice":"Brian","voice_id":"nPczCjzI2devNBz1zQrb","model":"eleven_multilingual_v2","start":58,"end":68,"text":"Kaito, you did it! The outer barrier just dropped. The entire queue is crossing over. Nobody is being turned away!"},
+  {"speaker":"KAITO","voice":"Adam","voice_id":"pNInz6obpgDQGcFmaJgB","model":"eleven_multilingual_v2","start":68,"end":82,"text":"Let them come. The people have their names back. Now, we take the rest of the city. Squad—fall in."}
 ]

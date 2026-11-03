@@ -50,14 +50,25 @@ first-play duration. Physical controller/touch and subjective mix listening rema
 separate acceptance checks. Production and final verification details are in
 [Mission 5 acceptance](tools/gameplay/NAMES_WITHOUT_NUMBERS.md).
 
+### Pre-Level 6 Opening Cutscene — Into the Cyber-Grave (2026-11-02)
+
+A skippable 120-second live 2D cinematic prelude (`CyberGraveIntro` & `CyberGraveStage`, scene `scenes/cutscenes/cyber_grave_intro.tscn`) establishing the descent into Mission 6 (*Cyber-Grave Labs - Underground Facility*):
+- **Narrative & Authored Script**: Following the liberation of the biometric registry in Mission 5, AXIOM-7 traces corrupted citizen transit manifests 400 meters beneath Downtown Core into the clandestine bio-processing foundry designated "Cyber-Grave".
+- **Cast Performance**: 9 fully voiced dialogue cues featuring Kaito (Cyber Shogun), Oceanus, Aura Phoenicia, Apex Titan, Mirage Blade, Surya Prime, and AXIOM-7, synthesized with ElevenLabs multilingual TTS using designated voice profiles and normalized to an exact 120.0s OGG stream with matching procedural atmospheric audio (42Hz drone, steam hiss, rushing elevator wind, and metallic deceleration).
+- **Procedural Staging**: Heavy industrial freight lift descending through deep bedrock, rushing parallax girders, bioluminescent chemical nutrient conduits (`#00ff99`), rotating volumetric amber hazard strobes (`#ffaa00`), wireframe holographic facility schematics with live depth readout (`DEPTH: -412M`), operative squad silhouettes, and speaker-color-coded subtitle modulation.
+- **Lifecycle & Navigation**: Owned by `CanvasLayer` with deterministic seekable clock; natural finish, Skip (ESC / Space / Enter / Gamepad Start / Click), or missing audio fallback safely transitions to mission preparation without orphan nodes.
+
 ### Mission 5 epilogue — Names Without Numbers
 
-After extraction, a 90-second skippable live 2D scene returns to the restored district.
-A resident chooses and speaks her name; other residents reclaim their records and
-begin naming themselves. Kaito, Mirage, Aura, Oceanus and Titan react briefly while
-Surya stays on comms. Kaito leaves the final choice with the district. The overlay
-freezes the extracted mission and keeps its score snapshot; natural completion, Skip,
-missing scene art and independent overlay removal each stop its owned audio and reveal
+After extraction, a 90-second skippable live 2D cinematic returns to the restored civic processing district.
+Civilian Amara reclaims and speaks her name as the registry terminal turns green; fellow residents celebrate
+as their records are restored. Mirage, Aura, Oceanus, and Titan react from their district perches while
+Surya reports over comms that the outer barriers collapsed and the queue is crossing safely. Kaito rallies the
+squad for the impending push into the Citadel heart.
+- **Cinematic Presentation**: Smooth Hermite camera transitions across 8 shots, procedural volumetric sweeping floodlights, holographic data stream rising from the terminal, golden identity particles, operative ground speaker beacons, and 2.39:1 widescreen letterboxing with anamorphic lens flares.
+- **Synthesized Voiceover**: 8 fully voiced lines generated via ElevenLabs multilingual TTS with calibrated voice profiles, normalized into an exact 90-second Ogg Vorbis stream and matching ambience.
+- **Dynamic Subtitles**: Cyber-styled container with `#00f0ff` accent line and speaker-color-coded typography matching each operative's identity.
+- **Lifecycle & Safety**: Freezes the extracted mission and preserves score snapshots; natural finish, Skip (ESC/Space/Enter/gamepad/click), or independent overlay removal cleanly yields to `CyberVictoryScorecard`.
 the existing **MISSION COMPLETE** card once. Missing speech keeps the timed English
 subtitles. Replay restarts Mission 5 with a fresh run; the epilogue adds no unlock or
 progression write and does not introduce Mission 6. Art/audio production and review
