@@ -75,17 +75,17 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 22
-text = "SECTOR 01: CYBER CITY"
+text = "ACT I // MISSION 01: GHOST IN THE GRIDLOCK"
 
 [node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector1/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
-text = "Breach the neon rooftops and engage syndicate drones."
+text = "Breach the neon rooftops of Lantern Court and recover civilian testimony."
 
 [node name="Level1" type="Button" parent="MainLayout/SectorGrid/Sector1/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-text = "LAUNCH SECTOR 01"
+text = "LAUNCH MISSION 01"
 
 [node name="Sector2" type="PanelContainer" parent="MainLayout/SectorGrid"]
 custom_minimum_size = Vector2(520, 170)
@@ -100,17 +100,17 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 22
-text = "SECTOR 02: CYBER DUSK"
+text = "ACT I // MISSION 02: THE CONCRETE WILDFIRE"
 
 [node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector2/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
-text = "Infiltrate high-risk rooftop corridors under twilight cover."
+text = "Escort displaced civilians through residential firezones and break the siege."
 
 [node name="Level2" type="Button" parent="MainLayout/SectorGrid/Sector2/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-text = "LAUNCH SECTOR 02"
+text = "LAUNCH MISSION 02"
 
 [node name="Sector3" type="PanelContainer" parent="MainLayout/SectorGrid"]
 custom_minimum_size = Vector2(520, 170)
@@ -125,17 +125,17 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 22
-text = "SECTOR 03: NEON HEIGHTS"
+text = "ACT I // MISSION 03: NEON RUST AND DATA DUST"
 
 [node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector3/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
-text = "Navigate elevated platform grids and laser obstacles."
+text = "Infiltrate high-risk industrial transit lines and disable colonial sensor relays."
 
 [node name="Level3" type="Button" parent="MainLayout/SectorGrid/Sector3/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-text = "LAUNCH SECTOR 03"
+text = "LAUNCH MISSION 03"
 
 [node name="Sector4" type="PanelContainer" parent="MainLayout/SectorGrid"]
 custom_minimum_size = Vector2(520, 170)
@@ -150,17 +150,17 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 22
-text = "SECTOR 04: ORBITAL CORE"
+text = "ACT I // MISSION 04: SHATTERED AEGIS"
 
 [node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector4/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
-text = "Final breach operation against central command server."
+text = "Assault the colonial fortress, defeat Commander Voss, and breach the crossing."
 
 [node name="Level4" type="Button" parent="MainLayout/SectorGrid/Sector4/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-text = "LAUNCH SECTOR 04"
+text = "LAUNCH MISSION 04"
 
 [node name="Sector5" type="PanelContainer" parent="MainLayout/SectorGrid"]
 custom_minimum_size = Vector2(520, 170)
@@ -175,17 +175,18 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
 theme_override_fonts/font = ExtResource("3_orbitron")
 theme_override_font_sizes/font_size = 22
-text = "MISSION 05: NAMES WITHOUT NUMBERS"
+theme_override_colors/font_color = Color(0.9, 0.72, 0.47, 1)
+text = "ACT II // MISSION 05: NAMES WITHOUT NUMBERS"
 
 [node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector5/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.88, 1, 0.8)
-text = "Recover original identities. Restore civilian access."
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 0.9)
+text = "Infiltrate the district registry, recover stolen identities, and restore civilian access."
 
 [node name="Level5" type="Button" parent="MainLayout/SectorGrid/Sector5/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-text = "LAUNCH MISSION 05"
+text = "LAUNCH MISSION 05 [ACT II PREMIERE]"
 
 [node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
 layout_mode = 2

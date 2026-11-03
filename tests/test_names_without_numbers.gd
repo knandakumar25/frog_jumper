@@ -40,7 +40,9 @@ func test_surya_cannot_be_fielded_and_records_have_no_hurtbox() -> void:
 		assert_bool(terminal.has_method("TakeDamage")).is_false()
 		assert_bool(terminal.call("TryInteract")).is_false()
 	assert_int(mission.get("FragmentTotal")).is_equal(3)
-	assert_str(mission.get_node("MissionHUD/HUDRoot/TitleCard").get_child(0).text).contains("NAMES WITHOUT NUMBERS")
+	var title_card: Node = mission.get_node("MissionHUD/HUDRoot/TitleCard")
+	assert_str(title_card.get_node("ActHeading").text).contains("ACT II")
+	assert_str(title_card.get_node("MissionHeading").text).contains("NAMES WITHOUT NUMBERS")
 	mission.free()
 
 

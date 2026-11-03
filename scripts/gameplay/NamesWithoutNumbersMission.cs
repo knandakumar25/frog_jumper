@@ -59,20 +59,60 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
         AddPlatform(-100,-900,100,2000,PalaceSurface.Wall);
         AddPlatform(0,600,28000,900,PalaceSurface.Concrete,false,"DistrictFloor");
         AddPlatform(28000,-900,100,2000,PalaceSurface.Wall);
+
+        // Architectural wall columns for acrobatic wall-sliding and wall-jumping
+        foreach(float wx in new[]{1200f, 1380f, 4800f, 7400f, 9600f, 11400f, 21000f, 23000f})
+            AddPlatform(wx, 260, 24, 340, PalaceSurface.Wall, false);
+
+        // Elevated one-way catwalks and service gantries across all 6 sectors
+        // Sector 1: Service Duct overhead conduits
+        AddPlatform(800, 430, 360, 22, PalaceSurface.Steel, true);
+        AddPlatform(1600, 410, 420, 22, PalaceSurface.Steel, true);
+        AddPlatform(3200, 420, 380, 22, PalaceSurface.Steel, true);
+
+        // Sector 2: Processing Hall inspection walkways
+        AddPlatform(4600, 430, 440, 22, PalaceSurface.Steel, true);
+        AddPlatform(5800, 410, 420, 22, PalaceSurface.Steel, true);
+        AddPlatform(7100, 430, 460, 22, PalaceSurface.Steel, true);
+
+        // Sector 3: Utilities & Coolant infrastructure conduits
+        AddPlatform(9100, 430, 380, 22, PalaceSurface.Steel, true);
+        AddPlatform(9800, 340, 360, 22, PalaceSurface.Steel, true);
+        AddPlatform(11200, 420, 420, 22, PalaceSurface.Steel, true);
+
+        // Sector 4: Archive mezzanine balconies
+        AddPlatform(14100, 330, 420, 22, PalaceSurface.Steel, true);
+        AddPlatform(16600, 250, 400, 22, PalaceSurface.Steel, true);
+        AddPlatform(18500, 380, 420, 22, PalaceSurface.Steel, true);
+
+        // Sector 5: Core Vault fortified vantage platforms
+        AddPlatform(20700, 440, 400, 22, PalaceSurface.Steel, true);
+        AddPlatform(21800, 370, 460, 22, PalaceSurface.Steel, true);
+        AddPlatform(22900, 440, 420, 22, PalaceSurface.Steel, true);
+
+        // Sector 6: Restored District liberation bridges
+        AddPlatform(25200, 430, 400, 22, PalaceSurface.Steel, true);
+        AddPlatform(26300, 430, 400, 22, PalaceSurface.Steel, true);
+
+        // Primary progression steps and platforms
         foreach(float x in new[]{2400f,10450,17350})
         {
             AddPlatform(x,500,180,100,PalaceSurface.Steel);
             AddPlatform(x+180,400,400,22,PalaceSurface.Steel,true);
         }
-        // Each required archive room has a different approach: low cover, raised gallery, then descending utility stairs.
+
+        // Each required archive room approach: low cover, raised gallery, then descending utility stairs
         foreach(var route in new[]{(13200f,2),(15300f,4),(17600f,1)})
         {
             for(int i=0;i<route.Item2;i++) AddPlatform(route.Item1+i*180,500-i*100,180,100+i*100,PalaceSurface.Steel,false);
             AddPlatform(route.Item1+route.Item2*180,600-route.Item2*100,650,route.Item2*100,PalaceSurface.Steel,false);
             for(int i=0;i<route.Item2;i++) AddPlatform(route.Item1+route.Item2*180+650+i*180,600-(route.Item2-i-1)*100,180,System.Math.Max(22,(route.Item2-i-1)*100),PalaceSurface.Steel,false);
         }
+
+        // Ground tactical cover blocks
         foreach(float x in new[]{2200f,3100,5100,6500,7600,9400,10100,11500,13400,14500,16300,18200,20700,22500,23500})
             AddPlatform(x,520,110,80,PalaceSurface.Concrete);
+
         Seal(4150,"phase");Seal(8600,"signal");Seal(12500,"maintenance");
         Seal(15100,"record:1");Seal(17400,"record:2");Seal(19500,"record:3");Seal(24200,"defense:3");Seal(27400,"commit");
     }
@@ -136,10 +176,49 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
         for(int i=0;i<xs.Length;i++)
         {
             string id=NamesProgress.Formations[i];float x=xs[i];
-            var e=new WildfireEncounter { Name="Formation"+id,Id=id,Mission=this,ManualActivation=id.StartsWith("core"),
-                GunnerWarningDuration=1.45f,GunnerRecoveryDuration=2.6f,SentryWarningDuration=1f,
+            // Contextual encounter timings and composition variety
+            bool isCore = id.StartsWith("core");
+            bool isService = id.StartsWith("service");
+            bool isArchive = id.StartsWith("archive");
+
+            float gunnerWarn = isCore ? 1.25f : isService ? 1.35f : 1.45f;
+            float gunnerRec = isCore ? 2.2f : isService ? 2.4f : 2.6f;
+            float sentryWarn = isCore ? 0.85f : isService ? 0.9f : 1.0f;
+
+            // Varied tactical member composition while strictly maintaining exactly 3 members
+            (Vector2 Pos, bool Sentry)[] members;
+            if (isService)
+            {
+                // Service passage: fast ambush sentries
+                members = new[] {
+                    (new Vector2(x+80,EnemyFloor(x+80)), true),
+                    (new Vector2(x+240,EnemyFloor(x+240)), true),
+                    (new Vector2(x-120,EnemyFloor(x-120)-170), false)
+                };
+            }
+            else if (isCore && id == "core3")
+            {
+                // Final core defense wave: heavy vanguard
+                members = new[] {
+                    (new Vector2(x+60,EnemyFloor(x+60)), true),
+                    (new Vector2(x+240,EnemyFloor(x+240)), true),
+                    (new Vector2(x-140,EnemyFloor(x-140)-170), false)
+                };
+            }
+            else
+            {
+                // Standard mixed formation with flanking positions
+                members = new[] {
+                    (new Vector2(x+100,EnemyFloor(x+100)), true),
+                    (new Vector2(x+270,EnemyFloor(x+270)-170), false),
+                    (new Vector2(x-120,EnemyFloor(x-120)-170), false)
+                };
+            }
+
+            var e=new WildfireEncounter { Name="Formation"+id,Id=id,Mission=this,ManualActivation=isCore,
+                GunnerWarningDuration=gunnerWarn,GunnerRecoveryDuration=gunnerRec,SentryWarningDuration=sentryWarn,
                 Activation=new Rect2(x-500,-200,1250,1000),Acceptance=()=>Progress.CanStartFormation(id),
-                Members=new[]{(new Vector2(x+100,EnemyFloor(x+100)),true),(new Vector2(x+270,EnemyFloor(x+270)-170),false),(new Vector2(x-120,EnemyFloor(x-120)-170),false)} };
+                Members=members };
             _encounters.Add(e);Actors.AddChild(e);
         }
     }
@@ -273,6 +352,27 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
         foreach(var terminal in _terminals)Art("terminal",terminal.Position+new Vector2(0,-80),new Vector2(140,170),-1);
         foreach(float x in new[]{25600f,26500,27100})
         {Art("access_denied",new Vector2(x,330),new Vector2(460,600));Art("civilians",new Vector2(x-200,530),new Vector2(270,180),-1);}
+        // Sector Landmark Atmospheric Signs
+        string[] sectors = {
+            "SEC.01 // SUBTERRANEAN SERVICE DUCT",
+            "SEC.02 // BIOMETRIC PROCESSING HALL",
+            "SEC.03 // UTILITIES & ARCHIVE COOLING",
+            "SEC.04 // CITIZEN IDENTITY ARCHIVES",
+            "SEC.05 // REGISTRY CENTRAL CORE VAULT",
+            "SEC.06 // RESTORED DISTRICT PERIMETER"
+        };
+        float[] sectorXs = { 400f, 4400f, 8900f, 12900f, 19900f, 24600f };
+        for (int s = 0; s < sectors.Length; s++)
+        {
+            var secLabel = new Label {
+                Text = sectors[s],
+                Position = new Vector2(sectorXs[s], 280),
+                Modulate = new Color(0, 0.94f, 1f, 0.55f)
+            };
+            secLabel.AddThemeFontSizeOverride("font_size", 14);
+            World.AddChild(secLabel);
+        }
+
         var marker=new Label { Text=WildfireText.Get("NAMES_SERVICE_ACCESS","MIRAGE / SERVICE ACCESS"),Position=new Vector2(3750,340),Modulate=Colors.White };
         World.AddChild(marker);
         World.AddChild(new Label { Name="AccessStatus",Text=WildfireText.Get("NAMES_ACCESS_DENIED","AMBER / IDENTITY DENIED"),Position=new Vector2(24900,340),Modulate=new Color("e6a650") });

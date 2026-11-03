@@ -698,17 +698,19 @@ public abstract partial class CodeLevel : Node2D
         var card = new VBoxContainer { Name = "TitleCard", MouseFilter = Control.MouseFilterEnum.Ignore };
         card.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.Center);
         card.OffsetLeft = -560; card.OffsetRight = 560; card.OffsetTop = -120; card.OffsetBottom = 40;
-        if (MissionNumber == 1)
+        if (MissionNumber == 1 || MissionNumber == 5)
         {
             // Missing translations return the key; keep the opening readable in every locale.
-            const string actKey = "CAMPAIGN_ACT_I_TITLE";
+            string actKey = MissionNumber == 1 ? "CAMPAIGN_ACT_I_TITLE" : "CAMPAIGN_ACT_II_TITLE";
+            string fallback = MissionNumber == 1 ? "ACT I" : "ACT II // THE UNREGISTERED";
             string actTitle = TranslationServer.Translate(actKey);
-            var actHeading = NewLabel(actTitle == actKey ? "ACT I" : actTitle, 24, new Color("#77efff"));
+            var actHeading = NewLabel(actTitle == actKey ? fallback : actTitle, 24, MissionNumber == 5 ? new Color("#e4b777") : new Color("#77efff"));
             actHeading.Name = "ActHeading";
             actHeading.HorizontalAlignment = HorizontalAlignment.Center;
             card.AddChild(actHeading);
         }
         var heading = NewLabel($"MISSION {MissionNumber}: {title.ToUpperInvariant()}", 34, new Color("#77efff"));
+        heading.Name = "MissionHeading";
         heading.HorizontalAlignment = HorizontalAlignment.Center;
         card.AddChild(heading);
         if (!string.IsNullOrEmpty(objective))

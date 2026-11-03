@@ -4,15 +4,13 @@ A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with
 
 ---
 
-## Mission 5 — Names Without Numbers (2026-11-02)
+## Mission 5 & Act II Revamp — Names Without Numbers (2026-11-02)
 
-The campaign now has five playable missions. Level 4 explicitly retains its captured
-**ACT I COMPLETE** scorecard. **CONTINUE TO ACT II** launches the existing opening;
-natural completion, Skip and missing essential art hand off once to Mission 5 after
-stopping cinematic audio. Level Select, Resume and Mission 5 Replay enter gameplay
-directly. A Mission 4 save remains at Mission 4 until completion; no save migration or
-new operative grant is introduced. Mission 5 ends on **MISSION COMPLETE**, with Replay,
-Level Select and Main Menu, without exposing Mission 6.
+The transition into Act II and Mission 5 features comprehensive cyber-action polish:
+- **Act II Transition & Operations Directory**: The tactical operations directory features canonical mission names across Act I (*Ghost in the Gridlock*, *The Concrete Wildfire*, *Neon Rust and Data Dust*, *Shattered Aegis*) and Act II (*Names Without Numbers*), with distinctive amber/gold Act II premiere styling. Level 4's scorecard explicitly provides the **CONTINUE TO ACT II** progression milestone.
+- **Act II Opening Cutscene (`ActIIOpening` & `ActIIStage`)**: Features high-fidelity Shot 0 title reveal with anamorphic flares, digital scanline effects, smooth camera focal tracking, volumetric searchlight cones, biometric scanner frequency grids, tactical squad staging (Surya holding the refugee crossing, Kaito vanguard, Oceanus with civilians, Titan anchor, Aura perimeter, Mirage flank), and character-colored subtitle speaker badges.
+- **Multi-Tier Level 5 Architecture (`NamesWithoutNumbersMission`)**: Replaces flat monotonous ground with vertical platforming, including wall-jump ventilation shafts, elevated service conduits, multi-tier inspection catwalks, archive mezzanine balconies, and fortified core vault platforms. All primary stairs retain conservative 100px steps, while one-way upper platforms provide full acrobatic combat freedom.
+- **Encounter & System Polish**: Sector-tailored combat encounters (fast service sentry ambushers, elevated hall gunner nests, and phased core defense waves), interactive floating holographic slates on `RecoveryTerminal`, and telegraphed cyber laser scanners with warning chevrons and floor ionization rings on `RegistryScanner`.
 
 Six connected sectors cover scanner timing, processing control, archive cooling and
 maintenance, three authenticated original records, exclusion isolation, three ordered

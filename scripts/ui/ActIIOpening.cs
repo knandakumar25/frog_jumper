@@ -68,11 +68,12 @@ public partial class ActIIOpening : CanvasLayer
         _ui = ui;
         ui.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
         var panel = new PanelContainer { Name = "SubtitlePanel", AnchorLeft = .08f, AnchorRight = .92f,
-            AnchorTop = .77f, AnchorBottom = .96f };
+            AnchorTop = .76f, AnchorBottom = .96f };
         ui.AddChild(panel);
-        var style = new StyleBoxFlat { BgColor = new Color(.008f, .02f, .04f, .95f),
-            BorderColor = new Color("66d9e8"), BorderWidthTop = 2,
-            ContentMarginLeft = 22, ContentMarginRight = 22, ContentMarginTop = 14, ContentMarginBottom = 14 };
+        var style = new StyleBoxFlat { BgColor = new Color(.005f, .015f, .03f, .96f),
+            BorderColor = new Color("00f0ff"), BorderWidthTop = 3,
+            CornerRadiusTopLeft = 4, CornerRadiusTopRight = 4,
+            ContentMarginLeft = 26, ContentMarginRight = 26, ContentMarginTop = 16, ContentMarginBottom = 16 };
         panel.AddThemeStyleboxOverride("panel", style);
         _subtitle = new Label { Name = "Subtitle", AutowrapMode = TextServer.AutowrapMode.WordSmart,
             HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
@@ -130,6 +131,17 @@ public partial class ActIIOpening : CanvasLayer
         _subtitle.AddThemeFontSizeOverride("font_size", (int)System.Math.Clamp(GetViewport().GetVisibleRect().Size.Y / 45, 14, 22));
         _subtitle.Text = Localized($"ACT_II_CUE_{cue + 1}", Lines[cue]);
         _subtitle.GetParent<Control>().Visible = cue > 0 && cue < 11;
+        // Dynamically modulate subtitle color to match speaker identity.
+        _subtitle.Modulate = cue switch {
+            1 or 9 => new Color("ffe29a"), // Surya (Solar Gold)
+            2 or 7 => new Color("77efff"), // AXIOM-7 (Cyber Cyan)
+            3 => new Color("66d9e8"),      // Oceanus (Hydro Aqua)
+            4 => new Color("c084fc"),      // Titan (Kinetic Violet)
+            5 => new Color("f472b6"),      // Aura (Prism Pink)
+            6 => new Color("34d399"),      // Mirage (Phase Emerald)
+            8 or 10 => new Color("f87171"), // Kaito (Crimson Vanguard)
+            _ => Colors.White
+        };
     }
 
     /// <summary>Resumes sound at a review position without introducing another clock.</summary>

@@ -924,3 +924,40 @@ to Google Antigravity. This includes the Mission 5 tuning and agent skill-guidan
 the machine-specific VS Code editor path and untracked local skill-install staging files
 are excluded. The existing import, build and test results above are the verification for
 the gameplay code.
+
+## Repository and status audit — 2026-11-02
+
+Completed a full read-only review of project Markdown documentation, recent Git history (through commit `127b3af`), and runtime state before continuing work. The campaign features five playable 2D cyber-action missions with story-unlocked operatives, custom cutscene arrivals/epilogues, and PostgreSQL persistence. All four standard Docker containers (website, backend, db, ollama) are active and healthy. The working tree has only the local machine-specific VS Code setting and untracked skill install staging. No code, scenes, or assets were changed; no tests, imports, commits, or pushes were authorized or performed.
+
+## Act II and Level 5 Revamp — 2026-11-02
+
+Reviewed and upgraded the Act II start screen, pre-Level 5 cutscene, and main Level 5 gameplay from previous prototype state to high-fidelity cyber-action standards:
+- **Act II Start & Directory**: Updated `scenes/main_menu/level_selection.tscn` with canonical campaign mission titles and Act II premiere card styling. Added `ACT II // THE UNREGISTERED` heading to Mission 5 opening title card in `CodeLevel.cs` via `CAMPAIGN_ACT_II_TITLE`.
+- **Pre-Level 5 Cutscene**: Upgraded `ActIIOpening.cs` and `ActIIStage.cs` with dynamic tactical squad blocking, active speaker beacon rings, character-color-coded subtitle modulation, volumetric searchlight cones, biometric scanner frequency pulses, anamorphic lens flares, and smooth camera focal tracking.
+- **Level 5 Gameplay**: Enhanced `NamesWithoutNumbersMission.cs` with multi-tier cyber architecture (wall-jump shafts, elevated service conduits, multi-tier inspection catwalks, archive mezzanine balconies, fortified core vault perches), varied combat encounters across sectors, and in-world sector landmark signage. Upgraded `RegistryScanner.cs` with laser core glow and downward warning chevrons, and `RecoveryTerminal.cs` with floating holographic projection slates and status indicators.
+- **Verification**: Clean C# build (0 errors, 153 existing warnings); headless Godot editor import exit 0; full `.\run_tests.ps1` passed NUnit 100/100, GdUnit4 214/214 (0 failures, 0 errors, 0 orphans, report_413), and containerized Django 104/104. All four Docker services remain up. Changes remain local and uncommitted.
+
+## Tool and Skill Usage Audit — 2026-11-02
+
+Audited tool and skill usage for the Act II and Level 5 revamp:
+- Godot skills (`router`, `godot-csharp`, `godot-csharp-essentials`) were read and applied during implementation.
+- Godot AI MCP was not invoked during the edit/test loop; testing and verification used headless console runs (`run_tests.ps1`, NUnit, GdUnit4).
+- Docker preflight status was checked (`docker ps`), but Docker skill documents were not re-read since no Docker configuration or image files were modified.
+- PostgreSQL skills were not read as no database schemas, migrations, or queries were modified.
+
+## Durable Directive on Skills and MCPs — 2026-11-02
+
+The user explicitly directed that all agents must actively utilize Godot skills, Docker skills, PostgreSQL skills, and the Godot AI MCP whenever necessary across tasks:
+- Read and apply specialized Godot skills for game architecture and mechanics.
+- Consult Docker skills for all container commands and configurations.
+- Consult PostgreSQL skills for database design, models, migrations, and persistence.
+- Leverage the Godot AI MCP tools for live editor inspection, node verification, and visual captures.
+No code or scene changes; updated memory only.
+
+## Remote Push to Git — 2026-11-02
+
+Per explicit user instruction ("Ok, push to git"), authorized and executed staging, local commit, and push of the Act II and Level 5 revamp changes to remote `origin/main`.
+- Staged all modified project code, scenes, test files, and project documentation: `HANDOFF.md`, `MEMORY.MD`, `README.md`, `scenes/main_menu/level_selection.tscn`, `scripts/gameplay/CodeLevel.cs`, `scripts/gameplay/NamesWithoutNumbersMission.cs`, `scripts/gameplay/RecoveryTerminal.cs`, `scripts/gameplay/RegistryScanner.cs`, `scripts/ui/ActIIOpening.cs`, `scripts/ui/ActIIStage.cs`, `tests/test_names_without_numbers.gd`.
+- Preserved exclusion of user machine-specific `.vscode/settings.json` and untracked `.skill-install-staging/`.
+- Created commit and pushed to `origin/main`.
+

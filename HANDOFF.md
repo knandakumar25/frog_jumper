@@ -1,5 +1,33 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Act II Start Screen, Pre-Level 5 Cutscene, and Level 5 Gameplay Revamp (2026-11-02)
+
+### Summary of Enhancements
+Elevated the ChatGPT-era prototype implementation of the Act II start screen, pre-Level 5 cutscene, and Mission 5 gameplay to high-fidelity cyber-action standards:
+1. **Act II Start Screen & Directory**:
+   - Updated `scenes/main_menu/level_selection.tscn` to display canonical campaign mission titles (Missions 1-4 for Act I, Mission 5 for Act II) and enhanced the Mission 5 panel with Act II premiere styling.
+   - Updated `scripts/gameplay/CodeLevel.cs` to show `ACT II // THE UNREGISTERED` on Mission 5's opening title card via `CAMPAIGN_ACT_II_TITLE` while maintaining child node structure.
+   - Preserved `CyberVictoryScorecard.cs`'s `CONTINUE TO ACT II` progression handoff.
+2. **Pre-Level 5 Cutscene (`ActIIOpening.cs` & `ActIIStage.cs`)**:
+   - Replaced flat horizontal squad placement with dynamic tactical staging: Surya at the crossing barrier, Oceanus comforting refugees, Titan defensive anchor, Kaito vanguard lead, Aura perimeter surveillance, and Mirage service scout.
+   - Enhanced Shot 0 with cyber anamorphic lens flares, scanline interference, and title ease-in.
+   - Added procedural volumetric searchlight sweeps, biometric scanner pulse waves, operative ground beacon rings for active speakers, and character-color-coded subtitle modulation.
+3. **Level 5 Gameplay (`NamesWithoutNumbersMission.cs`, `RegistryScanner.cs`, `RecoveryTerminal.cs`)**:
+   - Replaced the 28,000px flat line floor with multi-tier cyber architecture: wall-jump ventilation shafts, elevated service conduits, multi-tier inspection catwalks, archive mezzanine balconies, and fortified core vault platforms (all upper routes use one-way platforms, guaranteeing zero collision overlap with enemy spawn tests).
+   - Differentiated enemy formations with sector-specific tactical pacing (agile service ambushers, high-catwalk gunners, and phased core defense waves).
+   - Elevated `RegistryScanner` with cyber emitter housing, active laser beam glow, downward warning chevrons, and safe green bypass indicator.
+   - Enhanced `RecoveryTerminal` with floating holographic data projection slates, interactive status rings, and verification checkmarks.
+   - Added in-world cybernetic sector landmark signs across all 6 sectors.
+
+### Verification Results & Publication
+- `dotnet build AxiomForce.csproj`: Clean build, 0 errors, 153 existing nullable/addon warnings.
+- Headless Godot editor import refresh exited with code 0.
+- `run_tests.ps1`:
+  - **NUnit**: 100/100 passing.
+  - **GdUnit4**: 214/214 passing (0 errors, 0 failures, 0 orphans, report_413).
+  - **Django (Containerized)**: 104/104 passing.
+- **Git Status**: Pushed to `origin/main` per explicit user instruction. Machine-specific `.vscode/settings.json` and untracked `.skill-install-staging/` excluded.
+
 ## Mission 5 — Names Without Numbers (2026-11-02)
 
 ### Post-extraction epilogue
