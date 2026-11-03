@@ -1,5 +1,41 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Act II Mission 6 Gameplay: Cyber-Grave Labs (2026-11-03)
+
+### Summary of Enhancements
+Authored and implemented full 2D platformer gameplay for Act II Mission 6 (*Cyber-Grave Labs - Underground Facility*):
+1. **Mission Architecture & Scene Implementation (`CyberGraveMission.cs` & `scenes/gameplay/level6.tscn`)**:
+   - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` for deterministic, finite-formation encounter pacing across 6 underground sectors:
+     - Sector 1 (*Freight Sump & Breach*): Elevator infiltration with wall-jump vertical shafts and steel catwalks.
+     - Sector 2 (*Incubation Foundry*): Industrial cloning lab with `GenePod.cs` stasis cylinders, rising nutrient bubbles, and captive operatives.
+     - Sector 3 (*Cryo-Coolant Conduit*): Sub-zero piping networks guarded by timed `CoolantVent.cs` cryogenic steam hazards.
+     - Sector 4 (*Resonance Induction Chamber*): High-frequency sonic lock requiring Aura Phoenicia's harmonic resonance bypass.
+     - Sector 5 (*Geothermal Siphon*): Magma/steam conduits with pulsing lethal laser curtains traversable via Mirage Blade phase dash.
+     - Sector 6 (*Central Vault & Extraction Lift*): 3-stage core defense waves, biometric data core override terminal, and high-speed extraction freight elevator.
+   - Fielded all six operatives simultaneously for the first time in the campaign (Cyber Shogun, Oceanus, Apex Titan, Aura Phoenicia, Mirage Blade, and Surya Prime), supporting on-the-fly hot swapping with shared health/shield ratios.
+   - Built 6 checkpoint shrines (`FreightLift`, `Incubation`, `Coolant`, `ResonanceCore`, `Geothermal`, `CentralVault`) enforcing prerequisite sector progression.
+   - Authored 3 optional `MemoryFragment` collectibles placed on reachable platforms.
+2. **Interactive Hazard & Prop Systems (`GenePod.cs` & `CoolantVent.cs`)**:
+   - `GenePod.cs`: Interactive stasis pod prop rendering pressurized glass cylinders, animated procedural rising bubbles, metal containment rings, and captive humanoid silhouettes with proximity/click liberation logic.
+   - `CoolantVent.cs`: Configurable `Area2D` hazard with timed active/inactive venting cycles, procedural steam plumes, and neutralization hooks (via Oceanus's Douse or terminal overrides).
+3. **Pure C# Ledger & Test Coverage (`CyberGraveProgress.cs` & `CyberGraveProgressTests.cs`)**:
+   - Authored `CyberGraveProgress.cs` tracking 13 milestones (`sump_breach`, `pod:1`, `pod:2`, `incubation_cleared`, `coolant_override`, `resonance_bypass`, `grid_phase`, `siphon_contain`, `core_defense:1-3`, `vault_override`, `extract`) and 15 authored combat encounters.
+   - Created NUnit test suite `CyberGraveProgressTests.cs` (20 test cases) verifying milestone prerequisites, clearance idempotency, reward counting, and 6-operative roster availability.
+4. **Campaign & UI Glue**:
+   - Registered Mission 6 in `LevelCatalog.cs` with full squad and ability mappings.
+   - Added Sector 6 / Level 6 button card to `level_selection.tscn` and connected `_on_level_6_pressed()`.
+   - Updated `CyberVictoryScorecard.cs` to route Mission 5 into the `cyber_grave_intro.tscn` cutscene and Mission 6 to victory results.
+   - Added `test_cyber_grave_mission.gd` GdUnit4 test suite with 3 comprehensive tests.
+
+### Verification Results
+- `dotnet build AxiomForce.csproj`: Clean build, 0 errors, 153 pre-existing nullable/addon warnings.
+- `.\run_tests.ps1` full test runner executed and passed:
+  - **Django (Python)**: 104/104 PASSED
+  - **NUnit (.NET 10 C#)**: 120/120 PASSED (+20 new tests)
+  - **GdUnit4 (Godot 4 GDScript)**: 220/220 test cases across 38 suites PASSED (0 errors, 0 failures, 0 orphans, report_425).
+- Docker Stack: All 4 containers (`db`, `backend`, `website`, `ollama`) healthy and running.
+- Scratch scripts cleaned up. No Git commits or pushes executed.
+
 ## Pre-Level 6 Opening Cutscene: Into the Cyber-Grave (2026-11-02)
 
 ### Summary of Enhancements

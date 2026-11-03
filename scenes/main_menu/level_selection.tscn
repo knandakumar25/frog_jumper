@@ -188,6 +188,31 @@ custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 text = "LAUNCH MISSION 05 [ACT II PREMIERE]"
 
+[node name="Sector6" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 170)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector6"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector6/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "ACT II // MISSION 06: CYBER-GRAVE LABS"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector6/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 1, 0.85, 0.9)
+text = "Infiltrate subterranean gene-warping labs, shatter stasis pods, and extract captives."
+
+[node name="Level6" type="Button" parent="MainLayout/SectorGrid/Sector6/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH MISSION 06"
+
 [node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
 layout_mode = 2
 
@@ -204,3 +229,4 @@ text = "Return to Main Menu"
 
 
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector5/VBox/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector6/VBox/Level6" to="." method="_on_level_6_pressed"]

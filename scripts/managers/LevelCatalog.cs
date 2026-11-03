@@ -34,6 +34,8 @@ public static class LevelCatalog
             new[] { "Surya Prime" }, new[] { Phase, Bulwark }),
         new(5, "Names Without Numbers", "res://scenes/gameplay/level5.tscn", "5",
             Array.Empty<string>(), new[] { Phase, Resonate, Douse, Slam }),
+        new(6, "Cyber-Grave Labs", "res://scenes/gameplay/level6.tscn", "6",
+            Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
     };
 
     /// <summary>All missions in play order.</summary>

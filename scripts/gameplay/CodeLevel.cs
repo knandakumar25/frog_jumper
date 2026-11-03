@@ -154,12 +154,9 @@ public abstract partial class CodeLevel : Node2D
         AddChild(combatHud);
 
         // The final mission of an act ends on the combat-grade scorecard instead of auto-advancing.
-        if (MissionNumber <= 4 || !LevelCatalog.HasNext(MissionNumber))
-        {
-            _scorecard = GD.Load<PackedScene>("res://scenes/ui/cyber_victory_scorecard.tscn").Instantiate<CyberVictoryScorecard>();
-            _scorecard.Name = "CyberVictoryScorecard";
-            AddChild(_scorecard);
-        }
+        _scorecard = GD.Load<PackedScene>("res://scenes/ui/cyber_victory_scorecard.tscn").Instantiate<CyberVictoryScorecard>();
+        _scorecard.Name = "CyberVictoryScorecard";
+        AddChild(_scorecard);
         _player.ComboChanged += combo => _maxCombo = Mathf.Max(_maxCombo, combo);
 
         BuildObjectives();

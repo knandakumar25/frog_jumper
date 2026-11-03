@@ -72,6 +72,9 @@ func _on_level_4_pressed() -> void: _start_level(4)
 ## Enters Mission 5 directly; the Act II opening belongs to Level 4 Continue.
 func _on_level_5_pressed() -> void: _start_level(5)
 
+## Enters Mission 6 directly; the Cyber-Grave cinematic belongs to Level 5 Continue.
+func _on_level_6_pressed() -> void: _start_level(6)
+
 ## Returns to the main menu through the existing loading screen.
 func _on_back_button_pressed() -> void:
 	GameManager.set_game_state(GameManager.State.MAIN_MENU)

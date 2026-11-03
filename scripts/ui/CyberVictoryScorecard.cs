@@ -158,7 +158,14 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	{
 		if (_nextMission <= 0 || !IsInsideTree() || _navigating) return;
 		CampaignProgress.PrepareMission(_nextMission);
-		Navigate(LevelCatalog.ScenePath(_nextMission));
+		if (_nextMission == 6 && ResourceLoader.Exists("res://scenes/cutscenes/cyber_grave_intro.tscn"))
+		{
+			Navigate("res://scenes/cutscenes/cyber_grave_intro.tscn");
+		}
+		else
+		{
+			Navigate(LevelCatalog.ScenePath(_nextMission));
+		}
 	}
 
 	/// <summary>Reloads the still-current mission, preserving Replay after an overlay cinematic.</summary>

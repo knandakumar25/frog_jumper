@@ -58,6 +58,23 @@ A skippable 120-second live 2D cinematic prelude (`CyberGraveIntro` & `CyberGrav
 - **Procedural Staging**: Heavy industrial freight lift descending through deep bedrock, rushing parallax girders, bioluminescent chemical nutrient conduits (`#00ff99`), rotating volumetric amber hazard strobes (`#ffaa00`), wireframe holographic facility schematics with live depth readout (`DEPTH: -412M`), operative squad silhouettes, and speaker-color-coded subtitle modulation.
 - **Lifecycle & Navigation**: Owned by `CanvasLayer` with deterministic seekable clock; natural finish, Skip (ESC / Space / Enter / Gamepad Start / Click), or missing audio fallback safely transitions to mission preparation without orphan nodes.
 
+### Mission 6 Gameplay — Cyber-Grave Labs (2026-11-03)
+
+Full Act II Mission 6 2D platformer gameplay (`CyberGraveMission.cs`, `scenes/gameplay/level6.tscn`) extending `CodeLevel` and implementing `IFiniteCombatHost`:
+- **6-Operative Squad Fielded**: For the first time in the campaign, all six operatives (Cyber Shogun, Oceanus, Apex Titan, Aura Phoenicia, Mirage Blade, and Surya Prime) are available and fieldable together, supporting instant tactical swapping with shared health/shield ratios.
+- **6 Deep Underground Sectors**:
+  1. *Freight Sump & Breach*: Infiltration elevator shaft with vertical wall-jump shafts and steel catwalks.
+  2. *Incubation Foundry*: Bio-synthetic cloning facility with interactive `GenePod.cs` stasis cylinders, rising nutrient bubble shaders, and captive operatives.
+  3. *Cryo-Coolant Conduit*: Sub-zero piping networks guarded by timed `CoolantVent.cs` cryogenic steam hazards.
+  4. *Resonance Induction Chamber*: High-frequency sonic lock requiring Aura Phoenicia's harmonic resonance bypass.
+  5. *Geothermal Siphon*: Magma/steam conduits with pulsing lethal laser curtains traversable via Mirage Blade phase dash.
+  6. *Central Vault & Extraction Lift*: 3-stage core defense waves, biometric data core override terminal, and high-speed extraction freight elevator.
+- **Interactive Hazards & Props**:
+  - `GenePod.cs`: Interactive stasis pod prop with animated procedural nutrient bubbles, captive humanoid silhouette, and liberation logic.
+  - `CoolantVent.cs`: Area2D cryogenic/superheated steam hazard with cycle timers and neutralization hooks.
+  - Ability Gates: Titan Rubble Wall, Oceanus Fire Vent, Phoenicia Sonic Lock, Oceanus Heat Vent, and Mirage Laser Grid.
+- **Ledger & Campaign Integration**: Pure C# `CyberGraveProgress.cs` mission ledger tracking 13 milestones and 15 authored combat encounters; registered in `LevelCatalog.cs`, accessible from campaign chain and Level Select Sector 6 card. Passed all unit test suites (Django 104/104, NUnit 120/120, GdUnit4 220/220 across 38 suites with 0 errors, 0 failures, 0 orphans).
+
 ### Mission 5 epilogue — Names Without Numbers
 
 After extraction, a 90-second skippable live 2D cinematic returns to the restored civic processing district.

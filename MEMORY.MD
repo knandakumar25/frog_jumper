@@ -1,8 +1,67 @@
-# Axiom Force — Project Memory
+﻿# Axiom Force — Project Memory
 
 Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
+
+## Act II Mission 6 Implementation (Cyber-Grave Labs) — 2026-11-03
+
+- Fully implemented and verified Act II Mission 6 2D platformer gameplay ('Cyber-Grave Labs - Underground Facility', CyberGraveMission.cs, scenes/gameplay/level6.tscn).
+- Core systems:
+  - 6 authored underground sectors (Freight Sump & Breach, Incubation Foundry, Cryo-Coolant Conduit, Resonance Induction Chamber, Geothermal Siphon, Central Vault & Extraction Lift).
+  - All 6 operatives (Cyber Shogun, Oceanus, Apex Titan, Aura Phoenicia, Mirage Blade, and Surya Prime) fielded together for the first time in the campaign with instant squad hot-swapping.
+  - Interactive props: GenePod.cs (stasis incubation cylinders with procedural rising bubbles, captive silhouette, and liberation logic) and CoolantVent.cs (Area2D cryogenic steam hazard with timed cycle and neutralization hooks).
+  - Pure C# CyberGraveProgress.cs mission ledger tracking 13 milestones and 15 authored combat encounters.
+  - 4 ability gates (Titan Rubble Wall, Oceanus Fire Vent, Phoenicia Sonic Lock, Oceanus Heat Vent), 1 lethal laser grid (Mirage phase dash), 3 Memory Fragments on reachable platforms, 6 Checkpoint Shrines, and Vault Terminal extraction gate.
+- UI & glue integration:
+  - Registered in LevelCatalog.cs with full squad and ability mappings.
+  - Connected in level_selection.tscn / level_selection.gd via Sector 6 card.
+  - Updated CyberVictoryScorecard.cs to route Mission 5 into cyber_grave_intro.tscn and Mission 6 into victory scorecard.
+- Full automated test verification (run_tests.ps1):
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 120/120 PASSED (CyberGraveProgressTests 20/20, NamesProgressTests, AegisProgressTests)
+  - GdUnit4 (Godot 4 GDScript): 220/220 test cases across 38 suites PASSED (0 errors, 0 failures, 0 orphans, report_425).
+- All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
+## Campaign Level 6 Status Confirmation — 2026-11-03
+
+- Confirmed campaign progression state: Level 6 gameplay ('Cyber-Grave Labs - Underground Facility') has not been built yet.
+- Completed prerequisite assets: Pre-Level 6 cinematic cutscene ('Into the Cyber-Grave' / CyberGraveIntro.cs) is fully authored with ElevenLabs voiceover, 120s audio, and verified unit tests.
+- LevelCatalog currently defines 5 playable missions (Missions 1–5). Mission 6 (level6.tscn / CyberGraveMission.cs) is the active next development frontier.
+
+## JetBrains Rider PostgreSQL Data Source Diagnosis — 2026-11-03
+
+- Diagnosed user's connection error in JetBrains Rider Database window ('Unable to connect to postgres@localhost').
+- Root cause: Connection string 'jdbc:postgresql://localhost:5432/postgres' omitted credentials and specified default maintenance DB instead of 'accounts_db'.
+- Verified PostgreSQL container (axiom-force-db-1) is accepting connections on localhost:5432 (TcpTestSucceeded: True).
+- Provided manual and connection string configuration: User=postgres, Password=postgres, Database=accounts_db.
+
+## Docker Stack Startup and Status Verification — 2026-11-03
+
+- Inspected Docker Desktop status upon user inquiry regarding safe startup during an active update.
+- Following Docker Desktop update completion to v29.9.2 (WSL2 daemon), started the 4-container stack via 'docker compose up -d'.
+- Verified all containers and endpoints are active and healthy:
+  - axiom-force-db-1 (PostgreSQL 18, port 5432) -> Healthy
+  - axiom-force-backend-1 (Django REST Framework, port 8000) -> Up (HTTP 200 on /api/auth/countries/basic/)
+  - axiom-force-website-1 (Nginx / React Vite client, port 5173) -> Up (HTTP 200 on /)
+  - axiom-force-ollama-1 (Ollama LLM runtime, port 11434) -> Healthy (HTTP 200 on /api/tags)
+- JetBrains Rider is running (PID 11844) with AxiomForce.sln.
+- Status inspection only; no game code/assets modified, no tests or Godot refresh required. No git commit or push without explicit user instruction.
+
+## Status and History Audit — 2026-11-03
+
+- Completed comprehensive review of all project Markdown files (README.md, HANDOFF.md, MEMORY.MD, AGENTS.md, docs/ACT_I_REVIEW.md, docs/TECHNICAL_AUDIT.md, tools/*, etc.) and Git history through HEAD (e94dbaf).
+- Campaign currently consists of 5 fully implemented and verified 2D missions across Act I (Missions 1–4) and Act II (Mission 5), plus the completed Pre-Level 6 cinematic (Into the Cyber-Grave).
+- Created AxiomForce.sln linking AxiomForce.csproj and tests/AxiomForce.Tests/AxiomForce.Tests.csproj to resolve JetBrains Rider's Godot .NET project recognition.
+- Current frontier: Mission 6 (Cyber-Grave Labs - Underground Facility) gameplay design and implementation.
+- Read-only review and memory update; no game engine files changed, so no Godot refresh or test rerun required. No git commit or push without explicit authorization.
+
+## Godot AI MCP Process Cleanup — 2026-11-02
+
+- Terminated legacy Godot AI MCP server process trees (uvx, godot-ai v4.3.1, pythonw) operating
+  on port 8001 (PID 7164 tree and PID 16628 tree: 16628, 18672, 6420, 10104, 17384, 19568, 14304) via taskkill tree termination.
+- Verified port 8001 and 8002 are completely released with zero listening sockets.
+- Ready for Godot Editor v4.4.0: clicking "Restart Server" in the Godot dock will bind port 8001 cleanly.
 
 ## Pre-Level 6 Cutscene ("Into the Cyber-Grave") — 2026-11-02
 
@@ -80,6 +139,10 @@ this summary does not replace them. Verify live environment state before acting.
   and diff hygiene; no code/assets changed, so no imports or tests were needed.
 
 ## User preferences and permissions
+
+- 2026-11-02 shutdown: user explicitly requested stopping all Docker servers
+  to continue tomorrow. Verified all Docker containers, services, and Docker Desktop
+  daemon processes are stopped. Persistent volumes and state retained.
 
 - 2026-11-01 shutdown: user explicitly requested stopping the server. Ran
   docker compose stop for website, backend, PostgreSQL and Ollama; all four
