@@ -4,6 +4,27 @@ Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Standing Directive: NO Docker MCP Mentions or Work — 2026-11-04
+
+- The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
+
+## Post-Level 7 Epilogue Cutscene Implementation (FoundryForgeAftermath) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic epilogue overlay ('The Sky-Shield Falls', FoundryForgeAftermath.cs, FoundryForgeAftermathStage.cs, scenes/cutscenes/foundry_forge_aftermath.tscn) concluding Act II upon extraction from Mission 7 (*The Foundry Forge*).
+- Narrative & Staging:
+  - Axiom Force's extraction transport crests the volcanic caldera rim as the overloaded geothermal core triggers a failure cascade collapsing the Citadel Spire's planetary hexagonal sky-shields across all sectors.
+  - Procedural stage (FoundryForgeAftermathStage.cs) featuring multi-layer basalt caldera rim silhouettes, distant Neo-Kyoto skyline and towering Citadel Spire, animated atmospheric hexagonal shield grid with electric fracture propagation and particle bursts, transport thruster plumes, operative silhouettes with distinctive glowing energy accents, CRT scanlines, and 2.39:1 anamorphic cinema bars.
+  - Guaranteed zero external texture dependencies (ResourcesAvailable => true).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Titan, Oceanus, Aura, Mirage, Surya, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Attached in CodeLevel.CompleteMission on MissionNumber == 7, freezing mission gameplay and seamlessly deferring handoff to CyberVictoryScorecard.ShowActIIScorecard.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 146/146 PASSED (FoundryForgeAftermathTests 3/3, FoundryProgressTests 6/6, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 235/235 test cases across 42 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_441).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
 ## Mission 7 Gameplay Implementation (FoundryForgeMission) — 2026-11-04
 
 - Fully authored, implemented, and verified the complete 2D platformer gameplay for Mission 7 ('The Foundry Forge', `FoundryForgeMission.cs`, `scenes/gameplay/level7.tscn`), completing the Act II campaign milestone.

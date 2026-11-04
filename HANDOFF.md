@@ -15,6 +15,39 @@ Formally established the 3-Act campaign structure across 9 canonical missions:
   - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Active Next Frontier**
   - Mission 9: *Judgment Day* (Citadel High Command Spire; showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
 
+## Post-Level 7 Epilogue Cutscene: The Sky-Shield Falls (Act II Finale) (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the cinematic epilogue overlay (`FoundryForgeAftermath.cs`, `FoundryForgeAftermathStage.cs`, `scenes/cutscenes/foundry_forge_aftermath.tscn`) concluding Act II upon extraction from Mission 7 (*The Foundry Forge*):
+1. **Narrative & Authored Dialogue (`assets/cutscenes/foundry_forge_aftermath/cues.json`)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking the squad's transport cresting the volcanic caldera rim as the sky-shield collapses:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 telemetry reporting transport clear of the primary thermal shaft; core temperature exceeding critical thresholds.
+     - Cue 2 (10.0s - 20.0s): Apex Titan confirming geothermal pressure redirection and containment lockouts preventing municipal casualties.
+     - Cue 3 (20.0s - 30.0s): Oceanus observing coolant conduits draining and steam vents venting safely into the volcanic mantle.
+     - Cue 4 (30.0s - 40.0s): Aura Phoenicia listening to the harmonic resonance of the core falling silent; tectonic frequency restoring to natural baseline.
+     - Cue 5 (40.0s - 50.0s): Mirage Blade monitoring orbital surveillance links as planetary relay stations disconnect.
+     - Cue 6 (50.0s - 60.0s): AXIOM-7 displaying telemetry as the planetary energy distribution network experiences terminal desynchronization.
+     - Cue 7 (60.0s - 70.0s): Surya Prime projecting satellite telemetry of the Citadel Spire's hexagonal sky-shield flickering and shattering.
+     - Cue 8 (70.0s - 80.0s): Mirage Blade highlighting exposed upper docking platforms and high-altitude flight decks at the Spire base.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane declaring Act II complete: "The sky belongs to the city again. Act Three begins now."
+2. **Procedural Graphics Architecture (`FoundryForgeAftermathStage.cs`)**:
+   - Visual staging rendered analytically via Godot `_Draw` with zero external image or shader dependencies (`ResourcesAvailable => true`):
+     - Multi-layer jagged volcanic caldera rim silhouettes with warm magma rim glow.
+     - Distant Neo-Kyoto skyline with pulsing cyber-illuminated windows and towering Citadel Spire.
+     - Animated hexagonal sky-shield grid across the upper atmosphere with expanding electric fracture lines, chromatic aberration bursts, and dissolving particle debris.
+     - Extraction transport chassis with pulsing thruster exhaust particles.
+     - Operative silhouettes with unique character-coded energy highlights (Kaito cyan, Surya amber, Oceanus aqua, Mirage violet, Titan gold, Aura magenta).
+     - 9-shot smooth Hermite camera interpolation with subtle atmospheric floating shake.
+     - 2.39:1 anamorphic cinema bars and CRT scanlines.
+3. **Controller & Mission Integration (`FoundryForgeAftermath.cs`, `CodeLevel.cs`)**:
+   - `CodeLevel.CompleteMission` on `MissionNumber == 7` freezes active mission gameplay and instantiates `FoundryForgeAftermath` on Layer 40.
+   - Preserves final score, peak combo streak, and active operative.
+   - Deferral handoff: On natural completion or multi-input skip (ESC, Space, Enter, Gamepad Start/A, mouse/touch click), the epilogue emits `Finished` and triggers `CyberVictoryScorecard.ShowActIIScorecard`.
+4. **Verification & Test Coverage**:
+   - NUnit suite `FoundryForgeAftermathTests.cs` (3 test cases): Exact 90.0s duration, scene file existence, and 9-cue schema validation.
+   - GdUnit4 suite `test_foundry_forge_aftermath.gd` (4 test cases): Skip inputs (keyboard, gamepad, click), natural playback completion, subtitle timeline seeking across all cues, missing art fallback, and clean node lifecycle with 0 orphans.
+   - Full test suite runner `.\run_tests.ps1`: 100% PASSED (Django 104/104, NUnit 146/146, GdUnit4 235/235 across 42 test suites with 0 errors, 0 failures, 0 orphans).
+
 ## Mission 7 Gameplay: The Foundry Forge (Act II Climax & Finale) (2026-11-04)
 
 ### Summary of Enhancements

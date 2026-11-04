@@ -613,8 +613,14 @@ public abstract partial class CodeLevel : Node2D
         ProcessMode = ProcessModeEnum.Disabled;
         foreach (Node child in GetChildren())
             if (child != _scorecard) FreezeForEpilogue(child);
+        if (MissionNumber == 7)
+        {
+            var aftermath = new FoundryForgeAftermath { Name = "FoundryForgeAftermath", Layer = 40 };
+            aftermath.Finished += () => _scorecard?.ShowActIIScorecard(finalScore, peakCombo, operative);
+            Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
+            return;
+        }
         if (MissionNumber == 4) _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
-        else if (MissionNumber == 7) _scorecard?.ShowActIIScorecard(finalScore, peakCombo, operative);
         else _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
 
     }

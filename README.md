@@ -93,6 +93,14 @@ Full Act II finale 2D platformer gameplay (`FoundryForgeMission.cs`, `scenes/gam
   - Registered in `LevelCatalog.cs` (`level7.tscn`) and Sector 7 card in Level Selection menu (`level_selection.tscn`).
   - Verified across test suites with 0 errors, 0 failures, 0 orphans (Django 104/104, NUnit 143/143, GdUnit4 231/231 across 41 test suites).
 
+### Post-Level 7 Epilogue Cutscene — The Sky-Shield Falls (Act II Finale) (2026-11-04)
+
+A skippable 90-second live 2D cinematic epilogue (`FoundryForgeAftermath` & `FoundryForgeAftermathStage`, scene `scenes/cutscenes/foundry_forge_aftermath.tscn`) concluding Act II upon extraction from Mission 7 (*The Foundry Forge*):
+- **Narrative & Staging**: Axiom Force's extraction transport crests the rim of the volcanic caldera as the overloaded geothermal core triggers a catastrophic failure cascade up the primary conduit. High above Neo-Kyoto, the Citadel Spire's planetary hexagonal sky-shield shatters and collapses, exposing the Spire to direct assault and marking the end of Act II.
+- **Squad Performance & Authored Dialogue**: 9 timed dialogue cues across 90 seconds featuring AXIOM-7 telemetry, Titan observing reactor stabilization and slag flood diversion, Oceanus reporting coolant conduit pressure normalization, Aura detecting seismic harmonic balance, Mirage displaying satellite telemetry of city-wide shield matrix collapse, Surya verifying Spire sky-shield deactivation, and Kaito declaring the dawn of Act III as the path to the Spire opens.
+- **Procedural Graphics Architecture**: Multi-layer caldera rim silhouette with glowing magma gradient, distant Neo-Kyoto skyline and towering Citadel Spire, animated hexagonal sky-shield lattice with arcing energy fractures and dissolving particle bursts, extraction transport with thruster plumes, operative silhouettes with distinctive glowing energy accents, CRT scanlines, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+- **Engine & Scorecard Integration**: Seamlessly attached in `CodeLevel.CompleteMission` when `MissionNumber == 7`, freezing the extracted level, playing the cinematic epilogue, and deferring to `CyberVictoryScorecard.ShowActIIScorecard` upon natural finish or skip (ESC / Space / Enter / gamepad / click). Verified across NUnit (`FoundryForgeAftermathTests.cs`) and GdUnit4 (`test_foundry_forge_aftermath.gd`) with 0 errors, 0 failures, and 0 orphan nodes.
+
 ### Pre-Level 7 Cutscene — Descent to The Foundry Forge (2026-11-03)
 
 A skippable 90-second live 2D cinematic prologue (`FoundryForgeIntro` & `FoundryForgeStage`, scene `scenes/cutscenes/foundry_forge_intro.tscn`) bridging Mission 6 and Mission 7 (*The Foundry Forge*):
