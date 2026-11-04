@@ -75,6 +75,24 @@ Full Act II Mission 6 2D platformer gameplay (`CyberGraveMission.cs`, `scenes/ga
   - Ability Gates: Titan Rubble Wall, Oceanus Fire Vent, Phoenicia Sonic Lock, Oceanus Heat Vent, and Mirage Laser Grid.
 - **Ledger & Campaign Integration**: Pure C# `CyberGraveProgress.cs` mission ledger tracking 13 milestones and 15 authored combat encounters; registered in `LevelCatalog.cs`, accessible from campaign chain and Level Select Sector 6 card. Passed all unit test suites (Django 104/104, NUnit 120/120, GdUnit4 220/220 across 38 suites with 0 errors, 0 failures, 0 orphans).
 
+### Mission 7 Gameplay — The Foundry Forge (Act II Finale) (2026-11-04)
+
+Full Act II finale 2D platformer gameplay (`FoundryForgeMission.cs`, `scenes/gameplay/level7.tscn`) extending `CodeLevel` and implementing `IFiniteCombatHost`:
+- **6-Sector Geothermal & Volcanic Layout**:
+  1. *SEC.01 // BASALT RIFT INGRESS*: Volcanic chasm entry catwalks, basalt chimney wall-jump shafts, and initial thermal patrol drones.
+  2. *SEC.02 // CRYO-COOLANT TURBINE LOOPS*: Superheated steam hazards (`CoolantVent.cs`) and steam vent gate requiring Oceanus Douse.
+  3. *SEC.03 // MAGNETIC INDUCTION CONDUITS*: High-voltage laser grid (`CyberLaserGrid2D.cs`) bypassed via Mirage Blade Phase Shift and heavy magnetic pressure valve requiring Apex Titan Slam.
+  4. *SEC.04 // PRIMARY CONTAINMENT OVERLOOK*: High-frequency ultrasonic barrier requiring Aura Phoenicia Resonance, extreme radiation vents requiring Surya Bulwark, and laser curtains.
+  5. *SEC.05 // CORE GUARDIAN // IGNIS-COLOSSUS*: Climactic multi-phase 2D boss mech encounter (`IgnisColossusBoss2D.cs`, 450 HP) with sweeping swept molten mortar projectiles (`FoundrySlagBall2D.cs`) parryable by Kaito's blade for 40 reflected damage, sweeping flamethrowers, and Phase 3 core overdrive meltdown.
+  6. *SEC.06 // CRITICAL OVERLOAD EXTRACTION*: Core Terminal override, planetary sky-shield collapse, and emergency extraction gantry.
+- **Act II Completion & Victory Scorecard**:
+  - Overload override terminal drops the Citadel Spire's sky-shields across all municipal sectors.
+  - Extraction triggers `CyberVictoryScorecard.ShowActIIScorecard` presenting `ACT II COMPLETE`, overall mission grade, and campaign completion status.
+- **Pure C# Ledger & Verification**:
+  - `FoundryProgress.cs` mission state ledger tracking 13 milestones and 15 authored combat encounters.
+  - Registered in `LevelCatalog.cs` (`level7.tscn`) and Sector 7 card in Level Selection menu (`level_selection.tscn`).
+  - Verified across test suites with 0 errors, 0 failures, 0 orphans (Django 104/104, NUnit 143/143, GdUnit4 231/231 across 41 test suites).
+
 ### Pre-Level 7 Cutscene — Descent to The Foundry Forge (2026-11-03)
 
 A skippable 90-second live 2D cinematic prologue (`FoundryForgeIntro` & `FoundryForgeStage`, scene `scenes/cutscenes/foundry_forge_intro.tscn`) bridging Mission 6 and Mission 7 (*The Foundry Forge*):

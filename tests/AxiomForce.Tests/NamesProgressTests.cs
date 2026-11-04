@@ -63,7 +63,8 @@ public class NamesProgressTests
         Assert.That(fourth.SetActive("Surya"),Is.True);
         Assert.That(LevelCatalog.HasNext(4),Is.True);
         Assert.That(LevelCatalog.HasNext(5),Is.True);
-        Assert.That(LevelCatalog.HasNext(6),Is.False);
+        Assert.That(LevelCatalog.HasNext(6),Is.True);
+        Assert.That(LevelCatalog.HasNext(7),Is.False);
         Assert.That(LevelCatalog.Get(5).GrantsOperatives,Is.Empty);
     }
 }

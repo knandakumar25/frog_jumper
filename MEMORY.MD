@@ -4,6 +4,35 @@ Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Mission 7 Gameplay Implementation (FoundryForgeMission) — 2026-11-04
+
+- Fully authored, implemented, and verified the complete 2D platformer gameplay for Mission 7 ('The Foundry Forge', `FoundryForgeMission.cs`, `scenes/gameplay/level7.tscn`), completing the Act II campaign milestone.
+- Level Architecture & Mechanics:
+  - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` with 6 authored geothermal sectors:
+    1. *SEC.01 // BASALT RIFT INGRESS*: Infiltration entry point across volcanic rift basalt chasms, vertical wall-jump shafts, steel catwalks, and initial thermal patrol drones.
+    2. *SEC.02 // CRYO-COOLANT TURBINE LOOPS*: Active `CoolantVent` hazards and superheated steam gate requiring Oceanus Douse.
+    3. *SEC.03 // MAGNETIC INDUCTION CONDUITS*: High-voltage laser grid (`CyberLaserGrid2D`) traversable via Mirage Blade Phase Shift, and heavy magnetic pressure valve requiring Apex Titan Slam.
+    4. *SEC.04 // PRIMARY CONTAINMENT OVERLOOK*: High-frequency ultrasonic barrier requiring Aura Phoenicia Resonance, extreme radiation vents requiring Surya Bulwark, and laser curtains.
+    5. *SEC.05 // CORE GUARDIAN // IGNIS-COLOSSUS*: Multi-phase boss mech arena (`IgnisColossusBoss2D.cs`, 450 HP) with sweeping swept molten mortar projectiles (`FoundrySlagBall2D.cs`) parryable by Kaito's blade for 40 reflected damage, sweeping flamethrowers, and Phase 3 core overdrive meltdown.
+    6. *SEC.06 // CRITICAL OVERLOAD EXTRACTION*: Terminal override collapsing the Citadel Spire's planetary sky-shields across all municipal sectors, followed by emergency extraction gantry.
+- Act II Victory & Scorecard Integration:
+  - Added `ShowActIIScorecard(score, maxCombo, operative)` in `CyberVictoryScorecard.cs` displaying `ACT II COMPLETE` banner with post-mission performance grades (S/A/B).
+  - Hooked `MissionNumber == 7` in `CodeLevel.cs` to trigger the Act II scorecard upon mission completion.
+- Ledger & Campaign Integration:
+  - Authored pure C# engine-free ledger `FoundryProgress.cs` tracking 13 milestones and 15 authored combat formations.
+  - Registered Mission 7 in `LevelCatalog.cs` (`level7.tscn`, all 6 abilities).
+  - Added Sector 7 card and button in Level Selection menu with automatic progression unlocking (`level_selection.gd`, `level_selection.tscn`).
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 143/143 PASSED (FoundryProgressTests 6/6, NamesProgressTests, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 231/231 test cases across 41 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_439).
+- Changes remain local and uncommitted per standing permission policy.
+
+## Docker Containers Restarted — 2026-11-04
+
+- Started all 4 project containers via `docker compose up -d`.
+- All containers are verified running: `axiom-force-db-1` (5432, healthy), `axiom-force-backend-1` (8000, Django up), `axiom-force-website-1` (5173, Nginx up), and `axiom-force-ollama-1` (11434, healthy).
+
 ## Changes Committed and Pushed to Remote — 2026-11-03
 
 - Explicitly authorized by user (`push to git and continue tomorrow`).

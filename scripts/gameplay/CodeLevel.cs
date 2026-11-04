@@ -614,6 +614,7 @@ public abstract partial class CodeLevel : Node2D
         foreach (Node child in GetChildren())
             if (child != _scorecard) FreezeForEpilogue(child);
         if (MissionNumber == 4) _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
+        else if (MissionNumber == 7) _scorecard?.ShowActIIScorecard(finalScore, peakCombo, operative);
         else _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
 
     }

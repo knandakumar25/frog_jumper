@@ -63,7 +63,20 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	public void ShowMissionScorecard(int score, int maxCombo, string operative, int nextMission)
 		=> RenderScorecard(score, maxCombo, operative, nextMission);
 
-    /// <summary>Shows Act I results with the Act II opening, Replay, Level Select and Main Menu.</summary>
+    	/// <summary>Shows Act II finale results upon completing Mission 7 (The Foundry Forge).</summary>
+	public void ShowActIIScorecard(int score, int maxCombo, string operative)
+	{
+		RenderScorecard(score, maxCombo, operative, 0);
+		if (_titleLabel != null) _titleLabel.Text = "ACT II COMPLETE";
+		if (_previewBtn != null)
+		{
+			string text = Tr("CONTINUE_TO_ACT_III");
+			_previewBtn.Text = text == "CONTINUE_TO_ACT_III" || string.IsNullOrWhiteSpace(text) ? "SECTOR CLEARED // ACT II COMPLETE" : text;
+			_previewBtn.Visible = true;
+		}
+	}
+
+	/// <summary>Shows Act I results with the Act II opening, Replay, Level Select and Main Menu.</summary>
     public void ShowActScorecard(int score, int maxCombo, string operative)
     {
         RenderScorecard(score, maxCombo, operative, 0);

@@ -36,6 +36,8 @@ public static class LevelCatalog
             Array.Empty<string>(), new[] { Phase, Resonate, Douse, Slam }),
         new(6, "Cyber-Grave Labs", "res://scenes/gameplay/level6.tscn", "6",
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
+        new(7, "The Foundry Forge", "res://scenes/gameplay/level7.tscn", "7",
+            Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
     };
 
     /// <summary>All missions in play order.</summary>

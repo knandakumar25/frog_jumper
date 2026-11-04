@@ -7,13 +7,45 @@ Formally established the 3-Act campaign structure across 9 canonical missions:
   - Mission 2: *The Concrete Wildfire* (Containment Zone 4 checkpoints)
   - Mission 3: *Neon Rust and Data Dust* (Scrap yards & comm towers)
   - Mission 4: *Shattered Aegis* (Border fortress breach & Boss Mech Vanguard-X; awards `ACT I COMPLETE`)
-- **Act II: The Infrastructure Collapse (Missions 5–7)** *(Active)*:
+- **Act II: The Infrastructure Collapse (Missions 5–7)** *(Complete)*:
   - Mission 5: *Names Without Numbers* (Downtown Civic Processing District & biometric registry) — *Complete*
   - Mission 6: *Cyber-Grave Labs* (Subterranean bio-synthetic conversion foundry) — *Complete*
-  - Mission 7: *The Foundry Forge* (Geothermal plasma reactor; overloading core shatters Citadel sky-shields; awards `ACT II COMPLETE`) — **Active Next Frontier**
-- **Act III: The Citadel Spire & Final Liberation (Missions 8–9)** *(Upcoming)*:
-  - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship)
+  - Mission 7: *The Foundry Forge* (Geothermal plasma reactor; overloading core shatters Citadel sky-shields; awards `ACT II COMPLETE`) — *Complete*
+- **Act III: The Citadel Spire & Final Liberation (Missions 8–9)** *(Active Next Frontier)*:
+  - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Active Next Frontier**
   - Mission 9: *Judgment Day* (Citadel High Command Spire; showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+
+## Mission 7 Gameplay: The Foundry Forge (Act II Climax & Finale) (2026-11-04)
+
+### Summary of Enhancements
+Authored and implemented the full 2D platformer gameplay for **Mission 7 (*The Foundry Forge*)**, serving as the climactic finale to Act II:
+1. **Core Gameplay & Level Architecture (`FoundryForgeMission.cs`, `scenes/gameplay/level7.tscn`)**:
+   - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` with 6 authored geothermal sectors:
+     - *SEC.01 // BASALT RIFT INGRESS*: Infiltration entry point across volcanic rift basalt chasms, vertical wall-jump shafts, steel catwalks, and initial thermal patrol drones.
+     - *SEC.02 // CRYO-COOLANT TURBINE LOOPS*: High-temperature conduit corridors guarded by active `CoolantVent` hazards and superheated steam gates requiring Oceanus Douse.
+     - *SEC.03 // MAGNETIC INDUCTION CONDUITS*: High-voltage laser grid (`CyberLaserGrid2D`) traversable via Mirage Blade Phase Shift, and heavy magnetic pressure valve requiring Apex Titan Slam.
+     - *SEC.04 // PRIMARY CONTAINMENT OVERLOOK*: High-frequency ultrasonic barrier requiring Aura Phoenicia Resonance, extreme radiation vents requiring Surya Bulwark, and laser curtains.
+     - *SEC.05 // CORE GUARDIAN // IGNIS-COLOSSUS*: Multi-phase boss mech arena (`IgnisColossusBoss2D`, 450 HP) with sweeping swept molten mortar projectiles (`FoundrySlagBall2D`) parryable by Kaito's blade for 40 reflected damage, sweeping flamethrowers, and Phase 3 core overdrive meltdown.
+     - *SEC.06 // CRITICAL OVERLOAD EXTRACTION*: Terminal override collapsing the Citadel Spire's planetary sky-shields across all municipal sectors, followed by emergency extraction gantry.
+2. **Boss Mech Encounter: IGNIS-COLOSSUS (`IgnisColossusBoss2D.cs`) & Deflectable Slag Projectiles (`FoundrySlagBall2D.cs`)**:
+   - 450 max health with 3 combat phases:
+     - Phase 1 (100%–70% HP): Molten mortar volleys and periodic flamethrower sweep.
+     - Phase 2 (70%–35% HP): Overheating core with intensified mortar fire and accelerated attack cycle.
+     - Phase 3 (<35% HP): Core meltdown overdrive with rapid slag barrages and incandescent visual pulsing.
+   - `FoundrySlagBall2D.cs`: Deflectable molten projectile parryable by Kaito's blade to redirect and inflict 40 damage back onto the boss mech.
+3. **Act II Victory & Scorecard Integration (`CyberVictoryScorecard.cs`, `CodeLevel.cs`)**:
+   - Added `ShowActIIScorecard(score, maxCombo, operative)` displaying `ACT II COMPLETE` banner with post-mission performance grades (S/A/B).
+   - Hooked `MissionNumber == 7` in `CodeLevel.cs` to trigger the Act II scorecard upon mission completion.
+4. **Mission Ledger & Catalog Registration (`FoundryProgress.cs`, `LevelCatalog.cs`, `level_selection.gd`, `level_selection.tscn`)**:
+   - Pure C# engine-free ledger `FoundryProgress.cs` tracking 13 milestones and 15 authored combat formations.
+   - Registered Mission 7 in `LevelCatalog.cs` (`level7.tscn`, all 6 abilities).
+   - Added Sector 7 card and button in Level Selection menu with automatic progression unlocking.
+5. **Verification & Test Coverage**:
+   - NUnit suite `FoundryProgressTests.cs` (6 test cases): Premature event rejection, full milestone chain completion, formation requirements, reward idempotency, and catalog registration.
+   - GdUnit4 suite `test_foundry_forge_mission.gd` (3 test cases): Full squad availability, hazard registration, and boss/extraction gating.
+   - GdUnit4 suite `test_level_selection_2d.gd` (5 test cases): 7-mission campaign mapping, button handlers, and progression unlocking.
+   - GdUnit4 suites `test_act_ii_opening.gd` and `test_campaign_levels.gd`: Updated assertions and platform coordinates for 7 missions.
+   - Full suite runner `.\run_tests.ps1` PASSED: Django 104/104, NUnit 143/143, GdUnit4 231/231 across 41 test suites with 0 errors, 0 failures, 0 orphans.
 
 ## Pre-Level 7 Prologue Cutscene: Descent to The Foundry Forge (2026-11-03)
 
