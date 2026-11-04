@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: Nexus Overseer core neutralized. All three quantum processing nodes have collapsed into terminal logic cascades. Mainframe defense grid has flatlined across the entire Citadel."
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "MIRAGE: Look at the server towers—they're dumping petabytes of encrypted garbage! The automated reinforcement queues just zeroed out. The Citadel's robot army is dead in the water."
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "TITAN: That Overseer thought its containment prisms could cage us. Turned its fancy laser ring into scrap metal. Look at the cooling lines—liquid helium is blowing every gasket in the room."
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "OCEANUS: The thermal runaway is accelerating. The entire subterranean mainframe is melting down behind us. We can't linger here—the deck plating is already vibrating from reactor shockwaves."
+  },
+  {
+    "cue": 5,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "SURYA: The digital shield is broken, but look up through the gantry shaft. The Praetorian automated batteries have switched to emergency auxiliary generators. The Bastion above is locking down."
+  },
+  {
+    "cue": 6,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "AURA: I hear them... heavy hydraulic footsteps. Praetorian battle mechs and elite cyber-samurai are rallying on the perimeter ramparts above. They know their brain is dead, and they're digging in for a final stand."
+  },
+  {
+    "cue": 7,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "MIRAGE: The Apex Ascent Lift is online! I've bypassed the executive security lockout. This high-speed freight lift will take us straight through the Bastion's throat!"
+  },
+  {
+    "cue": 8,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "AXIOM-7: Warning: Sensor telemetry detects extreme energy signatures atop the Spire. The Void Commander is aware of the Nexus collapse and has ordered the Bastion to fire at will."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Chris",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: Then we give them the fight they asked for. No more hiding behind machines and algorithms. Board the lift. Next stop: The Apex Bastion!"
+  }
+]

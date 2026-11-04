@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: Ingress confirmed. We have crossed into the Citadel Spire interior core. Establishing hardline link into the Cyber-Nexus mainframe architecture."
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "MIRAGE: Look at the scale of this place... It’s like stepping inside the belly of a leviathan made of glowing glass and cold silicon. Not a speck of dust."
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "TITAN: Listen to that hum. The whole tower is vibrating. Every server rack in here could power an entire city block, and they're using it to run death machines."
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "OCEANUS: High-pressure liquid helium conduits are running beneath the deck plating. If we rupture the manifold cooling lines, the quantum processors will melt themselves down."
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "AURA: The neural matrix is awake! It’s probing our bio-signatures. The Nexus Overseer knows we’re here, and it’s rerouting automated security drones to our sector."
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "SURYA: High-frequency defensive lasers and biometric firewalls are locking down the bridges ahead. My solar barrier can absorb their electromagnetic surges—stay behind me!"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "AXIOM-7: Mainframe telemetry analyzed: Three quantum processing nodes regulate the Spire's defense grid. Neutralizing all three will cause a fatal cascading logic failure."
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "MIRAGE: Once the Nexus falls, the Praetorian guards at the Apex Bastion will lose their automated reinforcements. This is where we break their spine."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Liam",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: No retreats, no hesitations. We strike the processing nodes, silence the Overseer, and tear the Citadel's digital throne to pieces. Axiom Force—advance!"
+  }
+]

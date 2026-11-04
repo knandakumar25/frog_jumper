@@ -14,9 +14,107 @@ Formally established the 3-Act campaign structure across 12 canonical missions:
 - **Act III: The Citadel Spire & Final Liberation (Missions 8–12)** *(Active Next Frontier)*:
   - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Complete** (Gameplay & Epilogue Cutscene)
   - Mission 9: *Spire Outer Hull* (High-mobility vertical exterior ascent & aerial drone swarms) — **Complete** (Gameplay, Prologue & Epilogue Cutscenes)
-  - Mission 10: *The Cyber-Nexus* (Mainframe core, AI surveillance override & multi-operative security gauntlet) — **Active Next Frontier**
-  - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access)
+  - Mission 10: *The Cyber-Nexus* (Mainframe core, AI surveillance override & multi-operative security gauntlet) — **Complete** (Gameplay, Prologue & Epilogue Cutscenes)
+  - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access) — **Active Next Frontier**
   - Mission 12: *Judgment Day* (Citadel Summit / Throne Room showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+
+## Post-Level 10 Cutscene: The Logic Collapse — Cyber-Nexus Aftermath (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the post-mission cinematic epilogue overlay (`CyberNexusAftermath.cs`, `CyberNexusAftermathStage.cs`, `scenes/cutscenes/cyber_nexus_aftermath.tscn`) concluding Mission 10 (*The Cyber-Nexus*) upon extraction:
+1. **Narrative & Authored Dialogue (`assets/cutscenes/cyber_nexus_aftermath/cues.json`)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking the aftermath of the Nexus Overseer's destruction and boarding of the Apex Ascent Lift:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 reporting Nexus Overseer core neutralized, all three quantum processing nodes collapsed into terminal cascades, defense grid flatlined across Citadel.
+     - Cue 2 (10.0s - 20.0s): Mirage Blade observing server towers dumping petabytes of encrypted garbage and automated robot reinforcement queues zeroing out.
+     - Cue 3 (20.0s - 30.0s): Apex Titan chuckling at the Overseer's shattered containment prism ring and pointing out liquid helium blowing every gasket in the room.
+     - Cue 4 (30.0s - 40.0s): Oceanus warning that thermal runaway is accelerating and deck plating is already vibrating from reactor shockwaves.
+     - Cue 5 (40.0s - 50.0s): Surya Prime observing that Praetorian automated batteries above have switched to emergency auxiliary generators.
+     - Cue 6 (50.0s - 60.0s): Aura Phoenicia detecting heavy hydraulic footsteps of Praetorian mechs and cyber-samurai rallying for a final stand on the ramparts above.
+     - Cue 7 (60.0s - 70.0s): Mirage Blade cracking the executive security lockouts on the Apex Ascent Lift, sliding the boarding gates open.
+     - Cue 8 (70.0s - 80.0s): AXIOM-7 warning that sensor telemetry detects extreme energy signatures atop the Spire as the Void Commander orders the Bastion to fire at will.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane ordering the squad to board the lift and assault the Apex Bastion.
+2. **Procedural Visual Staging (`CyberNexusAftermathStage.cs`)**:
+   - Abyssal cybernetic cavern background gradient (`#02040c` to `#0a0f24`) with perspective digital floor grid and emergency red alarm wash pulses.
+   - Towering server monoliths with flashing critical red alert runes (`#ff2255`), amber warning indicators (`#ffaa00`), and falling corrupted data rain streams.
+   - Smoldering hexagonal chassis of the defeated Nexus Overseer boss mechanoid with cracked core, electric spark arcs, rising smoke, and fractured cyan containment prism shards strewn across the gantry.
+   - Venting cryogenic liquid helium steam plumes billowing upward from ruptured floor pipes.
+   - Colossal vertical magnetic Apex Ascent Lift gantry with glowing cyan rails, warning chevrons, animated opening boarding gate, and illuminated interior cabin.
+   - Praetorian Bastion fortress silhouette with sweeping red surveillance spotlights visible in the upper elevator shaft.
+   - Operative silhouettes standing on the gantry deck with glowing signature weapons and accents, advancing toward the lift.
+   - CRT scanline overlay, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+3. **Engine & Scorecard Integration**:
+   - Attached in `CodeLevel.CompleteMission` when `MissionNumber == 10`, freeze-isolating the extracted level, playing the cinematic epilogue, and deferring to `CyberVictoryScorecard.ShowMissionScorecard` targeting Mission 11 upon natural finish or skip (ESC / Space / Enter / gamepad / click).
+4. **Automated Verification & Test Coverage**:
+   - NUnit suite `CyberNexusAftermathTests.cs` (3 test cases): Exact 90.0s duration, scene file existence, and 9 ordered cues validation in `cues.json`.
+   - GdUnit4 suite `test_cyber_nexus_aftermath.gd` (4 test cases): Skip & natural finish, missing art fallback, subtitle cue timeline seeking, and teardown audio stop with 0 orphan nodes.
+   - Full test suite runner passed: 104 Django, 216 NUnit, 269 GdUnit4 across 53 suites (100% pass, 0 orphans, `report_464`).
+
+## Mission 10 Gameplay: The Cyber-Nexus (Mainframe Core) (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the full 2D platformer mission (`CyberNexusMission.cs`, `scenes/gameplay/level10.tscn`) extending `CodeLevel` and implementing `IFiniteCombatHost`:
+1. **6-Sector Mainframe Core Layout (27,500 Unit Horizontal Scope)**:
+   - *SEC.01 // QUANTUM INGRESS CATWALK*: High-voltage server catwalks, wall-jump vertical data bus shafts, and automated defense patrols (`nexus1`, `nexus2`). Checkpoint at x=1,200.
+   - *SEC.02 // LIQUID HELIUM CONDUITS*: Pressurized sub-zero cryogenic coolant lines (`CoolantVent.cs`) requiring Oceanus Douse (`GateKind.FireVent`), heavy magnetic titan-clamp data bus housings requiring Apex Titan Slam (`GateKind.RubbleWall`), and quantum node Alpha override terminal (`node:alpha`). Checkpoint at x=4,200.
+   - *SEC.03 // OPTICAL DATA FIREWALL ARRAYS*: High-voltage optical laser firewalls (`CyberLaserGrid2D.cs`) bypassed via Mirage Blade Phase Shift, thermal radiation exhaust corridors defended under Surya Prime Bulwark (`GateKind.HeatVent`), and quantum node Beta override terminal (`node:beta`). Checkpoint at x=8,200.
+   - *SEC.04 // HIGH-FREQUENCY RESONANCE VAULT*: Vertical server shafts, acoustic encryption locks requiring Aura Phoenicia Resonance (`GateKind.SonicLock`), and quantum node Gamma override terminal (`node:gamma`). Checkpoint at x=13,200.
+   - *SEC.05 // MAINFRAME SANCTUM // NEXUS OVERSEER*: Multi-phase 2D boss mechanoid encounter (`NexusOverseerBoss2D.cs`, 560 HP) armed with deflecting `NexusPulseBolt2D` swept projectiles (reflectable by Kaito's Kinetic Parry for 40 reflected damage), orbital containment prisms, ground shockwaves, and Phase 3 core purge overdrive. Checkpoint at x=18,200.
+   - *SEC.06 // APEX ASCENT GANTRY*: Mainframe Core terminal hack (`core:terminal`), data purge initiation, and extraction gantry threshold unlocking access to the Apex Bastion (Mission 11). Checkpoint at x=23,200.
+2. **Deflectable Boss Projectile (`NexusPulseBolt2D.cs`)**:
+   - Swept high-velocity pulse bolt fired by the Nexus Overseer boss mechanoid.
+   - Implements `public void TakeDamage(float amount) { Reflect(); }` which seamlessly triggers `CyberShogun.cs` parry logic (`attacker.Call("TakeDamage", 35f)`), turning bolt cyan and reflecting it back to the boss for 40 reflected damage.
+3. **Multi-Phase Boss Mechanoid (`NexusOverseerBoss2D.cs`)**:
+   - 560 HP boss mechanoid defending the central mainframe sanctum.
+   - Procedural rendering: hexagonal chassis, glowing cyan core (`#00f0ff`), rotating orbital containment prism ring, dual arm cannons.
+   - Phase 1 (100% - 70% HP): Rhythmic pulse bolt salvos and slow floating repositioning.
+   - Phase 2 (70% - 35% HP): Rapid pulse bolt barrages, orbital containment shield flare, ground shockwaves, and tactical teleport bursts.
+   - Phase 3 (< 35% HP): Core Overdrive Purge — orbital rings spin at 3x speed with emergency crimson flare (`#ff2255`), continuous pulse bolt storm, ground shockwave ripples, and rapid teleports.
+4. **Campaign, Menu & Scorecard Integration**:
+   - Attached `CyberNexusMission.cs` to `scenes/gameplay/level10.tscn`.
+   - Added Sector 10 panel container to `scenes/main_menu/level_selection.tscn` and wired `_on_level_10_pressed()` in `scripts/main_menu/level_selection.gd`.
+   - Wired `MissionNumber == 10` scorecard completion routing in `scripts/gameplay/CodeLevel.cs`.
+5. **Pure C# Ledger & Verification (`NexusProgress.cs`)**:
+   - Tracks 14 ordered milestones: `ingress`, `node:alpha`, `node:beta`, `node:gamma`, `gate:liquid_helium`, `gate:titan_data_bus`, `gate:optical_firewall`, `gate:radiation_corridor`, `gate:resonance_vault`, `boss:nexus_overseer`, `core:terminal`, `purge:initiated`, `extract:apex_gantry`, `complete`.
+   - Authored formations: `nexus1`, `nexus2`, `helium1`, `helium2`, `firewall1`, `firewall2`, `vault1`, `vault2`, `sanctum1`, `sanctum2`, `sanctum3`, `overseer_phase1`, `overseer_phase2`, `overseer_phase3`.
+   - Covered by 18 NUnit unit tests in `NexusProgressTests.cs` and GdUnit4 integration suite `test_cyber_nexus_mission.gd`.
+   - Validated across all 10 missions in `test_campaign_levels.gd` and `test_level_selection_2d.gd`.
+6. **Automated Verification**:
+   - Django: 104/104 PASSED
+   - NUnit: 213/213 PASSED
+   - GdUnit4: 52/52 suites, 265/265 test cases, 0 errors, 0 failures, 0 orphans PASSED (`report_462`).
+
+## Pre-Level 10 Cutscene: The Heart of the Machine — Cyber-Nexus Intro (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the prologue cinematic overlay (`CyberNexusIntro.cs`, `CyberNexusStage.cs`, `scenes/cutscenes/cyber_nexus_intro.tscn`) establishing the interior penetration into Mission 10 (*The Cyber-Nexus*):
+1. **Narrative & Authored Dialogue (`assets/cutscenes/cyber_nexus_intro/cues.json`)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking the squad entering the core mainframe:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 confirming ingress through the outer hull blast doors, establishing hardline link to Citadel Spire interior core.
+     - Cue 2 (10.0s - 20.0s): Mirage Blade gazing into the colossal chasm of glass and cold silicon, marveling at the clinical perfection.
+     - Cue 3 (20.0s - 30.0s): Apex Titan noting the massive hum and power generation of server monoliths capable of powering entire city blocks.
+     - Cue 4 (30.0s - 40.0s): Oceanus tracing liquid helium cooling lines running beneath the gantry plates, identifying thermal sabotage targets.
+     - Cue 5 (40.0s - 50.0s): Aura Phoenicia detecting the awakened neural matrix probing bio-signatures and dispatching automated security drones.
+     - Cue 6 (50.0s - 60.0s): Surya Prime warning of high-frequency defense lasers and biometric firewalls, priming solar bulwark absorption.
+     - Cue 7 (60.0s - 70.0s): AXIOM-7 analyzing mainframe telemetry: three quantum processing nodes regulate Spire defense grid.
+     - Cue 8 (70.0s - 80.0s): Mirage Blade emphasizing that neutralizing the Nexus will starve Praetorian reinforcements at the Apex Bastion.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane commanding Axiom Force to strike the nodes, silence the Overseer, and advance.
+2. **Procedural Staging (`CyberNexusStage.cs`)**:
+   - Abyssal cybernetic chasm gradient (`#030510` to `#0d122b`) with perspective digital floor grid.
+   - Towering server monoliths with status indicator lights (`#00f0ff`, `#00ff88`, `#ffaa00`).
+   - Cascading optical data rain streams (`#00f0ff` cyan and `#ffd700` gold).
+   - Central pulsating quantum core sphere (`#00e5ff`) with rotating containment rings and rhythmic radial energy shockwaves.
+   - Floating surveillance prism drones with sweeping spotlight cones.
+   - Ingress gantry bridge with hazard chevrons and safety stanchions.
+   - Operative silhouettes with glowing signature energy colors.
+   - CRT scanline overlay, 2.39:1 anamorphic cinema bars, and zero external texture dependencies (`ResourcesAvailable => true`).
+3. **Engine & Campaign Integration**:
+   - Registered Mission 10 in `LevelCatalog.cs` (`The Cyber-Nexus`, `res://scenes/gameplay/level10.tscn`, 6 required abilities).
+   - Hooked `CyberVictoryScorecard.cs` to launch `cyber_nexus_intro.tscn` when continuing from Mission 9.
+   - Placeholder level 10 scene (`scenes/gameplay/level10.tscn`) created for clean scene transitions.
+4. **Automated Verification & Test Coverage**:
+   - NUnit suite `CyberNexusIntroTests.cs` (3 test cases): Exact 90.0s duration, scene file existence, LevelCatalog Mission 10 registration, and 9 ordered cues validation in `cues.json`.
+   - GdUnit4 suite `test_cyber_nexus_intro.gd` (3 test cases): Skip & natural finish, missing art fallback, and subtitle cue timeline seeking with 0 orphan nodes.
+   - Full test suite runner passed: 195 NUnit, 262 GdUnit4 across 51 suites, and 104 Django tests (100% pass, 0 orphans).
 
 ## Post-Level 9 Cutscene: The Core Breach (Mission 9 Aftermath) (2026-11-04)
 

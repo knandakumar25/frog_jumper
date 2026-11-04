@@ -42,6 +42,8 @@ public static class LevelCatalog
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
         new(9, "Spire Outer Hull", "res://scenes/gameplay/level9.tscn", "9",
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
+        new(10, "The Cyber-Nexus", "res://scenes/gameplay/level10.tscn", "10",
+            Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
     };
 
     /// <summary>All missions in play order.</summary>

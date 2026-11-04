@@ -84,6 +84,9 @@ func _on_level_8_pressed() -> void: _start_level(8)
 ## Enters Mission 9 directly; the Spire Outer Hull cinematic belongs to Level 8 Continue.
 func _on_level_9_pressed() -> void: _start_level(9)
 
+## Enters Mission 10 directly; the Cyber-Nexus cinematic belongs to Level 9 Continue.
+func _on_level_10_pressed() -> void: _start_level(10)
+
 ## Returns to the main menu through the existing loading screen.
 func _on_back_button_pressed() -> void:
 	GameManager.set_game_state(GameManager.State.MAIN_MENU)

@@ -8,6 +8,67 @@ this summary does not replace them. Verify live environment state before acting.
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
 
+## Post-Level 10 Epilogue Cutscene Implementation (CyberNexusAftermath) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic epilogue overlay ('The Logic Collapse // Mission 10 Aftermath', `CyberNexusAftermath.cs`, `CyberNexusAftermathStage.cs`, `scenes/cutscenes/cyber_nexus_aftermath.tscn`) concluding Mission 10 (*The Cyber-Nexus*).
+- Narrative & Staging:
+  - Axiom Force stands on the mainframe gantry deck surrounded by the smoldering wreckage of the defeated Nexus Overseer boss mechanoid, shattered orbital containment prism shards, and petabytes of corrupted data dumping from server monoliths.
+  - As liquid helium coolant vents into the crumbling cavern and reactor thermal runaway accelerates, Mirage cracks the executive security lockouts on the Apex Ascent Lift, sliding open the illuminated magnetic freight cabin gates.
+  - Procedural stage (`CyberNexusAftermathStage.cs`) featuring abyssal cybernetic cavern gradient, perspective digital circuit floor grid with emergency red alarm wash pulses, towering server monoliths with pulsating red alert runes and amber status indicators, falling corrupted data rain streams, smoldering Overseer boss wreck with electric spark arcs and rising smoke, fractured cyan containment prism shards strewn across the deck, venting cryogenic helium steam plumes, massive vertical magnetic Apex Ascent Lift gantry with animated opening boarding gate, Praetorian Bastion fortress silhouette with sweeping red surveillance spotlights in the high shaft, operative silhouettes with distinctive glowing energy accents, CRT scanlines, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Mirage, Titan, Oceanus, Surya, Aura, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Attached in `CodeLevel.CompleteMission` on `MissionNumber == 10`, freeze-isolating mission gameplay and seamlessly deferring handoff to `CyberVictoryScorecard.ShowMissionScorecard(finalScore, peakCombo, operative, 11)`.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 216/216 PASSED (`CyberNexusAftermathTests.cs` 3/3, `NexusProgressTests.cs` 18/18, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 269/269 test cases across 53 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_464`).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+
+## Mission 10 Gameplay Implementation (CyberNexusMission) — 2026-11-04
+
+- Fully authored, implemented, and verified the complete 2D platformer gameplay for Mission 10 ('The Cyber-Nexus - Mainframe Core', `CyberNexusMission.cs`, `scenes/gameplay/level10.tscn`), continuing the Act III Citadel Spire campaign.
+- Level Architecture & Mechanics:
+  - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` across 6 authored interior mainframe sectors (27,500 horizontal units):
+    1. *SEC.01 // QUANTUM INGRESS CATWALK*: High-voltage server catwalks, wall-jump vertical data bus shafts, and automated defense patrols (`nexus1`, `nexus2`). Checkpoint at x=1,200.
+    2. *SEC.02 // LIQUID HELIUM CONDUITS*: Pressurized sub-zero cryogenic coolant lines (`CoolantVent.cs`) doused by Oceanus (`GateKind.FireVent`), heavy magnetic titan-clamp data bus housings shattered by Apex Titan Slam (`GateKind.RubbleWall`), and quantum node Alpha override terminal (`node:alpha`). Checkpoint at x=4,200.
+    3. *SEC.03 // OPTICAL DATA FIREWALL ARRAYS*: High-voltage optical laser firewalls (`CyberLaserGrid2D.cs`) phased through via Mirage Blade Phase Shift, thermal radiation exhaust corridors defended under Surya Prime Bulwark (`GateKind.HeatVent`), and quantum node Beta override terminal (`node:beta`). Checkpoint at x=8,200.
+    4. *SEC.04 // HIGH-FREQUENCY RESONANCE VAULT*: Vertical server shafts, acoustic encryption locks bypassed by Aura Phoenicia Resonance (`GateKind.SonicLock`), and quantum node Gamma override terminal (`node:gamma`). Checkpoint at x=13,200.
+    5. *SEC.05 // MAINFRAME SANCTUM // NEXUS OVERSEER*: Climactic sanctum arena featuring the multi-phase mechanoid boss `NexusOverseerBoss2D` (560 HP) armed with deflecting `NexusPulseBolt2D` swept projectiles (reflectable by Kaito's Kinetic Parry for 40 reflected damage), orbital containment prisms, ground shockwaves, and Phase 3 core purge overdrive (`sanctum1`, `sanctum2`, `sanctum3`). Checkpoint at x=18,200.
+    6. *SEC.06 // APEX ASCENT GANTRY*: Mainframe Core terminal hack (`core:terminal`), data purge initiation, and extraction gantry threshold unlocking access to the Apex Bastion (Mission 11). Checkpoint at x=23,200.
+- Boss Mechanoid Encounter:
+  - Created `NexusOverseerBoss2D.cs` (560 HP) and `NexusPulseBolt2D.cs`.
+  - Swept high-velocity pulse bolts are deflectable by Kaito's Kinetic Parry (`TakeDamage` calls `Reflect()`), turning bolt cyan and returning 40 reflected damage to the boss.
+  - Phase 1 (rhythmic pulse bolts, floating repositioning), Phase 2 (rapid barrages, orbital shield flare, ground shockwaves, tactical teleports), Phase 3 (Core Overdrive Purge with 3x spinning crimson orbital rings, continuous pulse bolt storm, ground shockwave ripples, and rapid teleports).
+- Campaign, UI & Scorecard Integration:
+  - Attached `CyberNexusMission.cs` to `scenes/gameplay/level10.tscn`.
+  - Added Sector 10 panel container to `scenes/main_menu/level_selection.tscn` and wired `_on_level_10_pressed()` in `scripts/main_menu/level_selection.gd`.
+  - Wired `MissionNumber == 10` scorecard completion routing in `scripts/gameplay/CodeLevel.cs`.
+- Pure C# Ledger & Test Verification:
+  - `NexusProgress.cs` pure C# engine-free ledger tracking 14 ordered milestones, 14 authored combat formations, and bounded retry slot rewards.
+  - Comprehensive automated tests: NUnit (`NexusProgressTests.cs`, 213 tests total) and GdUnit4 (`test_cyber_nexus_mission.gd`), with all 10 missions validated in `test_campaign_levels.gd` and `test_level_selection_2d.gd` (0 errors, 0 failures, 0 orphans).
+  - Test Suite Summary: 104/104 Django, 213/213 NUnit, 265/265 GdUnit4 across 52 suites (100% pass, 0 orphans, `report_462`).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+
+## Pre-Level 10 Prologue Cutscene Implementation (CyberNexusIntro) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic prologue overlay ('The Heart of the Machine // Cyber-Nexus Intro', `CyberNexusIntro.cs`, `CyberNexusStage.cs`, `scenes/cutscenes/cyber_nexus_intro.tscn`) bridging Mission 9 (*Spire Outer Hull*) into Mission 10 (*The Cyber-Nexus*).
+- Narrative & Staging:
+  - Axiom Force crosses the threshold through the unsealed biometric blast doors into the heart of the Citadel Spire—the Cyber-Nexus mainframe.
+  - Procedural stage (`CyberNexusStage.cs`) featuring abyssal cybernetic chasm gradient, perspective digital circuit floor grid, towering vertical server monoliths with status LEDs, cascading optical data rain, central pulsating quantum core sphere with orbiting containment rings and radial energy pulse waves, floating surveillance prism drones with scanning cones, ingress gantry bridge with warning chevrons, holographic AXIOM-7 interface, operative silhouettes with glowing energy accents, CRT scanlines, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues across 90.0 seconds tracking AXIOM-7, Mirage, Titan, Oceanus, Aura, Surya, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Registered Mission 10 in `LevelCatalog.cs` (`The Cyber-Nexus`, `res://scenes/gameplay/level10.tscn`, 6 required abilities).
+  - Wired `_nextMission == 10` in `CyberVictoryScorecard.cs` to navigate to `cyber_nexus_intro.tscn`.
+  - Placeholder level 10 scene (`scenes/gameplay/level10.tscn`) created.
+  - Updated catalog count assertions across `NamesProgressTests.cs`, `OperativeRosterTests.cs`, `test_act_ii_opening.gd`, `test_level_selection_2d.gd`, and `test_campaign_levels.gd`.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 195/195 PASSED (`CyberNexusIntroTests.cs` 3/3, `OperativeRosterTests.cs`, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 262/262 test cases across 51 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_461`).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+
 ## Post-Level 9 Epilogue Cutscene Implementation (SpireOuterHullAftermath) — 2026-11-04
 
 - Fully authored, implemented, and verified the cinematic epilogue overlay ('The Core Breach // Mission 9 Aftermath', `SpireOuterHullAftermath.cs`, `SpireOuterHullAftermathStage.cs`, `scenes/cutscenes/spire_outer_hull_aftermath.tscn`) concluding Mission 9 (*Spire Outer Hull*).
@@ -23,7 +84,8 @@ this summary does not replace them. Verify live environment state before acting.
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 192/192 PASSED (`SpireOuterHullAftermathTests.cs` 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 259/259 test cases across 50 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_459`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Mission 9 Gameplay Implementation (SpireOuterHullMission) — 2026-11-04
 
@@ -47,7 +109,8 @@ this summary does not replace them. Verify live environment state before acting.
   - `SpireProgress.cs` pure C# engine-free ledger tracking 13 milestones and 14 authored combat formations.
   - Comprehensive automated tests: NUnit (`SpireProgressTests.cs`, 189 tests total) and GdUnit4 (`test_spire_outer_hull_mission.gd`), with all 9 missions validated in `test_campaign_levels.gd` and `test_level_selection_2d.gd` (0 errors, 0 failures, 0 orphans).
   - Test Suite Summary: 104/104 Django, 189/189 NUnit, 255/255 GdUnit4 across 49 suites (100% pass, 0 orphans).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Pre-Level 9 Cutscene Implementation (SpireOuterHullIntro) — 2026-11-04
 
@@ -65,7 +128,8 @@ this summary does not replace them. Verify live environment state before acting.
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 172/172 PASSED (`SpireOuterHullIntroTests.cs` 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 252/252 test cases across 48 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_456`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Post-Level 8 Epilogue Cutscene Implementation (StratosDocksAftermath) — 2026-11-04
 
@@ -82,7 +146,8 @@ this summary does not replace them. Verify live environment state before acting.
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 169/169 PASSED (`StratosDocksAftermathTests.cs` 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 249/249 test cases across 47 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Mission 8 Gameplay Implementation (StratosDocksMission) — 2026-11-04
 
@@ -137,7 +202,8 @@ this summary does not replace them. Verify live environment state before acting.
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 146/146 PASSED (FoundryForgeAftermathTests 3/3, FoundryProgressTests 6/6, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 235/235 test cases across 42 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_441).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Mission 7 Gameplay Implementation (FoundryForgeMission) — 2026-11-04
 
