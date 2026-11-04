@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 8.0,
+    "text": "AXIOM-7: Ascent telemetry locked. Freight lift rising from sub-level six. All seventeen liberated captives secured on platform."
+  },
+  {
+    "cue": 2,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 8.0,
+    "end": 18.0,
+    "text": "OCEANUS: Their vital signs are stabilizing. The stasis fluid in their lungs is clearing... breathe slowly, you're safe now. No one will ever cage you again."
+  },
+  {
+    "cue": 3,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 18.0,
+    "end": 28.0,
+    "text": "AURA: The scream in the network... it's fading. For miles beneath the concrete, the forced resonance has broken. Their minds belong to them again."
+  },
+  {
+    "cue": 4,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 28.0,
+    "end": 38.0,
+    "text": "TITAN: Reactor pressure is venting safely into the geothermal sinks. The containment walls held. The foundation beneath Downtown Core won't collapse."
+  },
+  {
+    "cue": 5,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 38.0,
+    "end": 48.0,
+    "text": "MIRAGE: Take a look at the data disk I pulled from the vault terminal. This wasn't an isolated rogue lab. Every pod order was authorized directly from the Citadel Spire."
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 48.0,
+    "end": 58.0,
+    "text": "SURYA // COMMS: Kaito! Extraction corridor is clear topside. Emergency medics and underground transit convoys are standing by at the maintenance junction."
+  },
+  {
+    "cue": 7,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 58.0,
+    "end": 68.0,
+    "text": "SURYA // COMMS: Warning: Citadel high command has detected the breach. Heavy orbital defense arrays are rotating to lock down the upper sectors."
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "start": 68.0,
+    "end": 78.0,
+    "text": "KAITO: They turned our people into machine components and buried them in the dark. But the Cyber-Grave is empty today. Every captive returns with us."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "start": 78.0,
+    "end": 90.0,
+    "text": "KAITO: Tend to the wounded. Rest for one hour. When we reach the surface, we take the fight straight to the Citadel Spire. Axiom Force—ascend!"
+  }
+]

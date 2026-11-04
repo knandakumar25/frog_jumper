@@ -75,6 +75,22 @@ Full Act II Mission 6 2D platformer gameplay (`CyberGraveMission.cs`, `scenes/ga
   - Ability Gates: Titan Rubble Wall, Oceanus Fire Vent, Phoenicia Sonic Lock, Oceanus Heat Vent, and Mirage Laser Grid.
 - **Ledger & Campaign Integration**: Pure C# `CyberGraveProgress.cs` mission ledger tracking 13 milestones and 15 authored combat encounters; registered in `LevelCatalog.cs`, accessible from campaign chain and Level Select Sector 6 card. Passed all unit test suites (Django 104/104, NUnit 120/120, GdUnit4 220/220 across 38 suites with 0 errors, 0 failures, 0 orphans).
 
+### Pre-Level 7 Cutscene — Descent to The Foundry Forge (2026-11-03)
+
+A skippable 90-second live 2D cinematic prologue (`FoundryForgeIntro` & `FoundryForgeStage`, scene `scenes/cutscenes/foundry_forge_intro.tscn`) bridging Mission 6 and Mission 7 (*The Foundry Forge*):
+- **Narrative & Staging**: Axiom Force descends deep into the sub-surface industrial rift where the Citadel's geothermal plasma reactors churn at 4,000 Kelvin. Primary conduits channel raw planetary power upward to maintain the Citadel Spire's impenetrable sky-shields.
+- **Squad Briefing & Dialogue**: 9 authored narrative cues across 90 seconds featuring AXIOM-7 thermal telemetry, Kaito analyzing conduit feeds, Titan identifying magnetic containment coils and slave labor infrastructure, Oceanus mourning drained subterranean aquifers, Aura listening to harmonic core fault lines, Mirage charting high-heat catwalk infiltration vectors, Surya cautioning against irreversible reactor overload cascades, and Kaito ordering the breach to shatter the Citadel's planetary shield.
+- **Procedural Graphics Architecture**: Volcanic basalt rift silhouettes, bubbling convective molten slag rivers with thermodynamic wave physics, cooling towers venting billowing steam clouds, high-voltage lightning arcs across magnetic coils, metal catwalk gantry, operative silhouettes with distinctive glowing energy accents, holographic wireframe reactor schematics with flashing breach zones, CRT scanline overlay, and 2.39:1 anamorphic cinema bars.
+- **Lifecycle & Handoff Safety**: Multi-input skip (ESC / Space / Enter / gamepad Start / A / click / touch), monotonic audio clock with latency compensation, character-color-coded subtitle panel borders, and safe mission transition logic with fallback to level selection when Mission 7 gameplay is being authored. Verified across NUnit (`FoundryForgeIntroTests.cs`) and GdUnit4 (`test_foundry_forge_intro.gd`) with 0 orphan nodes.
+
+### Post-Level 6 Epilogue Cutscene — Ascent from the Cyber-Grave (2026-11-03)
+
+A skippable 90-second live 2D cinematic epilogue (`CyberGraveAftermath` & `CyberGraveAftermathStage`, scene `scenes/cutscenes/cyber_grave_aftermath.tscn`) triggered seamlessly upon extraction from Mission 6:
+- **Narrative & Staging**: Axiom Force and seventeen liberated civilians ascend 400 meters up the industrial shaft on the heavy freight platform. Behind them, emergency containment doors seal the subterranean bio-processing foundry and geothermal reactors safely vent steam.
+- **Squad Performance & Dialogue**: 9 authored narrative beats featuring AXIOM-7, Oceanus administering hydro-stabilization, Aura sensing network agony dissipating, Titan confirming reactor containment, Mirage projecting decrypted central vault ledgers connecting the foundry to the Citadel Spire, Surya reporting surface medical transports and orbital lockdown warnings, and Kaito rallying the squad to storm the Citadel Spire.
+- **Procedural Graphics Architecture**: Downward-rushing shaft rail parallax, diamond-grated freight lift with flashing amber beacons, thermal blanket wraps with foil shimmer, character silhouettes with active ability accents, holographic wireframe Citadel Spire blueprint and orbital radar sweep, 16:9 cinema bars, and CRT scanlines with zero missing-resource crashes (`ResourcesAvailable => true`).
+- **Engine & Campaign Integration**: Attached in `CodeLevel.CompleteMission` on Mission 6 extraction; freeze-isolated with safe audio termination; seamlessly transitions to `CyberVictoryScorecard`. Verified across NUnit (`CyberGraveAftermathTests.cs`) and GdUnit4 (`test_cyber_grave_aftermath.gd`) with 0 orphan nodes.
+
 ### Mission 5 epilogue — Names Without Numbers
 
 After extraction, a 90-second skippable live 2D cinematic returns to the restored civic processing district.

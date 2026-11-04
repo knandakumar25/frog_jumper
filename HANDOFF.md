@@ -1,5 +1,87 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Canonical Campaign Architecture (3-Act Structure, 9 Missions)
+Formally established the 3-Act campaign structure across 9 canonical missions:
+- **Act I: Fracturing the Grid (Missions 1–4)** *(Complete)*:
+  - Mission 1: *Ghost in the Gridlock* (Imperial Palace culture-purge grounds)
+  - Mission 2: *The Concrete Wildfire* (Containment Zone 4 checkpoints)
+  - Mission 3: *Neon Rust and Data Dust* (Scrap yards & comm towers)
+  - Mission 4: *Shattered Aegis* (Border fortress breach & Boss Mech Vanguard-X; awards `ACT I COMPLETE`)
+- **Act II: The Infrastructure Collapse (Missions 5–7)** *(Active)*:
+  - Mission 5: *Names Without Numbers* (Downtown Civic Processing District & biometric registry) — *Complete*
+  - Mission 6: *Cyber-Grave Labs* (Subterranean bio-synthetic conversion foundry) — *Complete*
+  - Mission 7: *The Foundry Forge* (Geothermal plasma reactor; overloading core shatters Citadel sky-shields; awards `ACT II COMPLETE`) — **Active Next Frontier**
+- **Act III: The Citadel Spire & Final Liberation (Missions 8–9)** *(Upcoming)*:
+  - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship)
+  - Mission 9: *Judgment Day* (Citadel High Command Spire; showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+
+## Pre-Level 7 Prologue Cutscene: Descent to The Foundry Forge (2026-11-03)
+
+### Summary of Enhancements
+Authored and implemented the pre-mission cinematic prologue overlay (`FoundryForgeIntro.cs`, `FoundryForgeStage.cs`, `scenes/cutscenes/foundry_forge_intro.tscn`) bridging Mission 6 post-scorecard completion to Mission 7 (*The Foundry Forge*):
+1. **Narrative & Cutscene Controller (`FoundryForgeIntro.cs`)**:
+   - Monotonic 90-second timeline with latency compensation and zero-orphan cleanup.
+   - 9 dialogue cues tracking the squad's descent into the 4,000 Kelvin sub-surface industrial rift:
+     - Cue 1: AXIOM-7 confirming thermal telemetry and entrance to The Foundry Forge.
+     - Cue 2: Kaito highlighting primary conduits fueling the Citadel Spire's planetary sky-shields.
+     - Cue 3: Titan identifying geothermal siphons, heavy magnetic containment coils, and slave labor quotas.
+     - Cue 4: Oceanus recounting drained aquifers and promising the river will reclaim its bed once coolant valves smash.
+     - Cue 5: Aura detecting the harmonic fault line in the central turbine's magnetic lattice.
+     - Cue 6: Mirage mapping infiltration routes across high-voltage catwalks and slag sluices.
+     - Cue 7: Surya on comms cautioning that the solar bulwark will insulate initially, but core overload cascades will be irreversible.
+     - Cue 8: Titan ready to drop the Citadel's sky-shield.
+     - Cue 9: Kaito giving the operational drop-in order to sever conduits, overload the reactor, and shatter their throne.
+   - Character-colored subtitle panel borders (AXIOM-7 cyan, Kaito crimson, Titan violet, Oceanus aqua, Aura pink, Mirage emerald, Surya gold).
+   - Multi-device skip handling (Escape, Space, Enter, Gamepad Start/A, touch/mouse click).
+   - Safe mission handoff with fallback to level selection when Level 7 gameplay scene is pending.
+2. **Procedural 2D Staging Architecture (`FoundryForgeStage.cs`)**:
+   - `ResourcesAvailable => true` guaranteeing zero missing-asset crashes.
+   - Deep subterranean volcanic basalt rift backdrop with rising convection heat waves.
+   - Molten plasma rivers with dynamic wave math and glowing magma bubbles.
+   - Geothermal cooling towers venting billowing steam clouds.
+   - High-voltage lightning discharge arcs across containment coils.
+   - Catwalk gantry platform with safety railings and hazardous amber floor striping.
+   - Operative silhouettes with unique ability energy auras: Kaito vanguard katana, Titan kinetic armor hum, Oceanus water veil, Aura sound waves, Mirage phantom daggers.
+   - Holographic wireframe reactor core blueprint with rotating field lines and flashing breach point targets.
+   - 2.39:1 anamorphic letterboxing bars and CRT scanlines.
+3. **Scorecard & Navigation Integration (`CyberVictoryScorecard.cs`)**:
+   - Updated `CyberVictoryScorecard.OnContinuePressed()` to navigate to `res://scenes/cutscenes/foundry_forge_intro.tscn` when `_nextMission == 7`.
+4. **Verification & Test Coverage**:
+   - NUnit suite `FoundryForgeIntroTests.cs` (3 test cases): Exact 90s duration, scene file existence, and 9-cue schema validation.
+   - GdUnit4 suite `test_foundry_forge_intro.gd` (4 test cases): Skip and natural finish audio stop, missing art fallback, subtitle timeline seeking across all cues, and clean lifecycle disposal with 0 orphan nodes.
+   - All test suites passing: Django 104/104, NUnit 126/126, GdUnit4 228/228 across 40 suites with 0 errors, 0 failures, 0 orphans.
+
+## Post-Level 6 Epilogue Cutscene: Ascent from the Cyber-Grave (2026-11-03)
+
+### Summary of Enhancements
+Authored and implemented the post-mission cinematic epilogue overlay (`CyberGraveAftermath.cs`, `CyberGraveAftermathStage.cs`, `scenes/cutscenes/cyber_grave_aftermath.tscn`) bridging Mission 6 (*Cyber-Grave Labs*) extraction to the Act II campaign climax:
+1. **Narrative & Cutscene Controller (`CyberGraveAftermath.cs`)**:
+   - Monotonic 90-second timeline with latency compensation and zero-orphan cleanup.
+   - 9 dialogue cues tracking the ascending freight elevator with 17 rescued civilians in thermal foil blankets:
+     - Cue 1: AXIOM-7 confirming ascent telemetry from sub-level six.
+     - Cue 2: Oceanus stabilizing civilian vital signs and clearing stasis fluids.
+     - Cue 3: Aura sensing the horrific network resonance fading away into relief.
+     - Cue 4: Titan confirming geothermal reactor pressure safely vented into sinks.
+     - Cue 5: Mirage projecting decrypted central vault ledgers directly incriminating the Citadel Spire.
+     - Cue 6-7: Surya on comms confirming surface medical transports and warning of orbital defenses locking down upper sectors.
+     - Cue 8-9: Kaito rallying the squad to rest for an hour before storming the Citadel Spire.
+   - Character-colored subtitle panel borders (Kaito crimson, Oceanus aqua, Aura pink, Titan violet, Mirage emerald, Surya gold, AXIOM-7 cyan).
+   - Multi-device skip handling (Escape, Space, Enter, Gamepad Start/A, touch/mouse click).
+2. **Procedural 2D Staging Architecture (`CyberGraveAftermathStage.cs`)**:
+   - `ResourcesAvailable => true` guaranteeing zero missing-asset crashes.
+   - Downward-rushing shaft rail parallax simulating upward elevator ascent (420 px/sec).
+   - Heavy industrial freight elevator platform with safety cage railings, diamond grating, and flashing amber strobes.
+   - Rescued civilians wrapped in reflective gold thermal blankets (`#fef08a`).
+   - Distinctive operative silhouettes: Oceanus kneeling with hydro-mist, Aura with ultrasonic resonance rings, Titan at the bulkhead, Mirage crouched with holographic slate, Kaito standing vanguard with katana.
+   - Holographic Citadel Spire wireframe blueprint and rotating radar sweep during intelligence cues.
+   - 16:9 cinema bars and CRT scanlines.
+3. **Engine & Mission Integration (`CodeLevel.cs`)**:
+   - Hooked `CompleteMission()` for `MissionNumber == 6` to freeze mission elements, attach `CyberGraveAftermath` (Layer 40), and seamlessly trigger `CyberVictoryScorecard` upon finish.
+4. **Verification & Test Coverage**:
+   - NUnit suite `CyberGraveAftermathTests.cs` (3 test cases): Exact 90s duration, scene file existence, and 9-cue schema validation.
+   - GdUnit4 suite `test_cyber_grave_aftermath.gd` (4 test cases): Skip and natural finish audio stop, missing art fallback, subtitle timeline seeking across all cues, and clean lifecycle disposal with 0 orphan nodes.
+   - All test suites passing: Django 104/104, NUnit 123/123, GdUnit4 224/224 across 39 suites with 0 errors, 0 failures, 0 orphans.
+
 ## Act II Mission 6 Gameplay: Cyber-Grave Labs (2026-11-03)
 
 ### Summary of Enhancements

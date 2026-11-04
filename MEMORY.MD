@@ -4,6 +4,70 @@ Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Docker Containers Stopped — 2026-11-03
+
+- Stopped all running project containers (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`, `axiom-force-ollama-1`) via `docker compose stop`.
+- Verified via `docker ps` that 0 containers are running.
+- Verified via `docker info` that Docker Desktop and the Docker daemon engine remain running and responsive.
+
+## Pre-Level 7 Cutscene Implementation (FoundryForgeIntro) — 2026-11-03
+
+- Fully implemented and verified the Pre-Level 7 prologue cutscene overlay ('Descent to The Foundry Forge', FoundryForgeIntro.cs, FoundryForgeStage.cs, scenes/cutscenes/foundry_forge_intro.tscn).
+- Narrative & Staging:
+  - Axiom Force squad descending into the 4,000 Kelvin sub-surface industrial rift where the Citadel's geothermal plasma reactors sustain planetary sky-shields.
+  - Procedural stage (FoundryForgeStage.cs) featuring volcanic basalt chasm silhouettes, bubbling molten plasma rivers with wave convection physics, geothermal cooling towers venting steam plumes, crackling high-voltage conduit arcs, industrial catwalk gantry with warning hazard lines, operative silhouettes with distinctive glowing energy accents, holographic wireframe core schematics with targeted breach zones, CRT scanline overlay, and 2.39:1 anamorphic cinema bars.
+  - Guaranteed zero-missing-resource crashes (ResourcesAvailable => true).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Kaito, Titan, Oceanus, Aura, Mirage, and Surya with character-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Updated CyberVictoryScorecard.cs to route into res://scenes/cutscenes/foundry_forge_intro.tscn when continuing from Mission 6 (_nextMission == 7).
+  - Resilient mission handoff with fallback to level selection when Level 7 gameplay scene is pending.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 126/126 PASSED (FoundryForgeIntroTests.cs 3/3, CyberGraveAftermathTests 3/3, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 228/228 test cases across 40 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_432).
+- All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
+
+## Strategic Campaign Roadmap (3-Act Structure, 9 Missions) — 2026-11-03
+
+- Formally adopted the canonical 3-Act campaign structure across 9 missions:
+  - Act I: Fracturing the Grid (Missions 1–4) [Complete; ends with Mission 4 Shattered Aegis & Vanguard-X boss mech; ACT I COMPLETE].
+  - Act II: The Infrastructure Collapse (Missions 5–7) [Active; Mission 5 Names Without Numbers & Mission 6 Cyber-Grave Labs complete; Mission 7 The Foundry Forge will serve as the Act II Finale where overloading the geothermal plasma reactor drops the Citadel's planetary energy shields, awarding ACT II COMPLETE].
+  - Act III: The Citadel Spire & Final Liberation (Missions 8–9) [Mission 8 Stratos Docks / VTOL hijack and Mission 9 Judgment Day / Void Commander final confrontation; CAMPAIGN COMPLETE].
+- Next Development Frontier: Mission 7 (The Foundry Forge - Industrial Plasma Reactor).
+
+## Post-Level 6 Cutscene Implementation (CyberGraveAftermath) — 2026-11-03
+
+- Fully authored and verified the Post-Level 6 cinematic epilogue overlay ('Ascent from the Cyber-Grave', CyberGraveAftermath.cs, CyberGraveAftermathStage.cs, scenes/cutscenes/cyber_grave_aftermath.tscn).
+- Narrative & Staging:
+  - Axiom Force squad and 17 liberated captives ascending 400m up the vertical freight shaft towards the surface.
+  - Procedural stage (CyberGraveAftermathStage.cs) with downward-rushing guide rails parallax, industrial diamond-grated freight platform with flashing amber strobes, thermal blanket wraps with foil shimmer, operative silhouettes with ability accents, holographic wireframe Citadel Spire blueprint and radar lock display, 16:9 cinema bars, and CRT scanlines.
+  - Zero-missing-resource crashes guarantee (ResourcesAvailable => true).
+  - 9 authored dialogue cues tracking AXIOM-7, Oceanus, Aura, Titan, Mirage, Surya, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Mission Integration:
+  - Attached in CodeLevel.cs for Mission 6 completion with FreezeForEpilogue and seamless handoff to CyberVictoryScorecard.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 123/123 PASSED (CyberGraveAftermathTests 3/3, CyberGraveProgressTests 20/20, NamesProgressTests, AegisProgressTests)
+  - GdUnit4 (Godot 4.7.2 Headless): 224/224 test cases across 39 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, reports report_426, report_428, report_429).
+- All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
+## Docker Pip Packages Review (pip-review) — 2026-11-03
+
+- Unpaused Docker Desktop and verified all 4 containers ('db', 'backend', 'website', 'ollama') are active and healthy.
+- Installed 'pip-review' (v1.3.0) and 'packaging' (v26.3) inside local backend container 'axiom-force-backend-1'.
+- Executed 'pip-review' across all backend Python packages:
+  - All project dependencies (Django 6.1.3, DRF 3.18.3, simplejwt 5.5.1, cors-headers 4.9.0, psycopg2-binary 2.9.13, gunicorn 26.2.0, asgiref 3.13.0, PyJWT 2.15.1, sqlparse 0.6.1) are up to date.
+  - Only 'pip' itself has an available update: installed 26.2.2, latest 26.3.
+
+## Godot AI MCP Process Upgrade Cleanup (v4.4.0 to v4.4.1) — 2026-11-03
+
+- Terminated stale godot-ai v4.4.0 process tree (uvx, godot-ai, python, pythonw: PIDs 14084, 17536, 9116, 2948, 16348, 5480, 21528) occupying port 8001.
+- Verified port 8001 has zero LISTENING sockets.
+- The Godot AI panel in Godot Editor is now unblocked to bind godot-ai v4.4.1 via 'Restart Server'.
+
 ## Act II Mission 6 Implementation (Cyber-Grave Labs) — 2026-11-03
 
 - Fully implemented and verified Act II Mission 6 2D platformer gameplay ('Cyber-Grave Labs - Underground Facility', CyberGraveMission.cs, scenes/gameplay/level6.tscn).

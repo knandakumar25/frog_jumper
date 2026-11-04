@@ -162,6 +162,10 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		{
 			Navigate("res://scenes/cutscenes/cyber_grave_intro.tscn");
 		}
+		else if (_nextMission == 7 && ResourceLoader.Exists("res://scenes/cutscenes/foundry_forge_intro.tscn"))
+		{
+			Navigate("res://scenes/cutscenes/foundry_forge_intro.tscn");
+		}
 		else
 		{
 			Navigate(LevelCatalog.ScenePath(_nextMission));

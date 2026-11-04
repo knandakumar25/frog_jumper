@@ -575,6 +575,17 @@ public abstract partial class CodeLevel : Node2D
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
+        if (MissionNumber == 6)
+        {
+            // Mission 6 closes on the freight lift ascending from the Cyber-Grave with liberated captives.
+            ProcessMode = ProcessModeEnum.Disabled;
+            foreach (Node child in GetChildren())
+                if (child != _scorecard) FreezeForEpilogue(child);
+            var aftermath = new CyberGraveAftermath { Name = "CyberGraveAftermath", Layer = 40 };
+            aftermath.Finished += () => _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
+            Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
+            return;
+        }
         if (MissionNumber <= 2)
         {
             // Disable this entire mission, including pause input and physics. Overlays explicitly run Always.
