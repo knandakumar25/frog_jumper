@@ -12,11 +12,67 @@ Formally established the 3-Act campaign structure across 12 canonical missions:
   - Mission 6: *Cyber-Grave Labs* (Subterranean bio-synthetic conversion foundry) — *Complete*
   - Mission 7: *The Foundry Forge* (Geothermal plasma reactor; overloading core shatters Citadel sky-shields; awards `ACT II COMPLETE`) — *Complete*
 - **Act III: The Citadel Spire & Final Liberation (Missions 8–12)** *(Active Next Frontier)*:
-  - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Active Next Frontier**
-  - Mission 9: *Spire Outer Hull* (High-mobility vertical exterior ascent & aerial drone swarms)
+  - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Complete** (Gameplay & Epilogue Cutscene)
+  - Mission 9: *Spire Outer Hull* (High-mobility vertical exterior ascent & aerial drone swarms) — **Active Next Frontier**
   - Mission 10: *The Cyber-Nexus* (Mainframe core, AI surveillance override & multi-operative security gauntlet)
   - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access)
   - Mission 12: *Judgment Day* (Citadel Summit / Throne Room showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+
+## Post-Level 8 Cutscene: Airborne Ascension (Mission 8 Aftermath) (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the post-mission cinematic epilogue overlay (`StratosDocksAftermath.cs`, `StratosDocksAftermathStage.cs`, `scenes/cutscenes/stratos_docks_aftermath.tscn`) concluding Mission 8 (*Stratos Docks*) upon extraction:
+1. **Narrative & Authored Dialogue (`assets/cutscenes/stratos_docks_aftermath/cues.json`)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking the squad taking flight in the hijacked heavy military VTOL gunship toward the Spire:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 reporting VTOL avionics online, decoupled from Citadel air traffic master control, dual ion thrusters at 100%.
+     - Cue 2 (10.0s - 20.0s): Mirage Blade watching the flight decks shrink and confirming enemy interceptors are crippled in their berths.
+     - Cue 3 (20.0s - 30.0s): Apex Titan admiring the heavy gunship's reinforced armor and shattered mooring clamps.
+     - Cue 4 (30.0s - 40.0s): Oceanus looking down at the storm squalls and the liberated city lights glowing free without sky-shields.
+     - Cue 5 (40.0s - 50.0s): Aura Phoenicia intercepting Citadel distress transmissions as high command scrambles automated exterior hull defense batteries.
+     - Cue 6 (50.0s - 60.0s): Surya Prime breaking through the storm ceiling and spotting the colossal Citadel Spire Outer Hull.
+     - Cue 7 (60.0s - 70.0s): AXIOM-7 issuing telemetry warnings: outer Spire heavy anti-air batteries block direct summit flight.
+     - Cue 8 (70.0s - 80.0s): Mirage Blade proposing an exterior foot insertion onto the lower maintenance catwalks to scale the Spire outer hull.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane ordering the squad to harness in and breach the outer skin to carve their way to the summit.
+2. **Procedural Staging (`StratosDocksAftermathStage.cs`)**:
+   - High-altitude twilight sky gradient, volumetric storm cloud banks, receding Stratos Docks floating gantries with flashing red hazard beacons (`#ff2222`).
+   - Heavy military VTOL gunship silhouette with dual glowing cyan tilt-rotor thrust ionization arcs (`#00f0ff`) and rear exhaust plume.
+   - Colossal Citadel Spire Outer Hull with armor plating seams, glowing cyan conduit lines, and automated flak tracer rounds.
+   - Operative silhouettes inside gunship hold with signature glowing energy accents (Kaito crimson, Mirage emerald, Aura pink, Oceanus aqua, Titan violet, Surya gold).
+   - Tactical holographic flight HUD, CRT scanline overlay, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+3. **Engine & Scorecard Integration (`CodeLevel.cs`)**:
+   - Attached in `CodeLevel.CompleteMission` when `MissionNumber == 8`, freeze-isolating mission gameplay and seamlessly deferring handoff to `CyberVictoryScorecard.ShowMissionScorecard(finalScore, peakCombo, operative, 9)`.
+4. **Automated Verification & Test Coverage**:
+   - NUnit suite `StratosDocksAftermathTests.cs` (3 test cases): Exact 90.0s duration, scene file existence, and 9 ordered cues validation in `cues.json`.
+   - GdUnit4 suite `test_stratos_docks_aftermath.gd` (4 test cases): Skip & natural finish stopping audio and emitting once, missing art fallback resilience, 9-cue subtitle timeline seeking, and clean teardown with 0 orphan nodes.
+
+## Mission 8 Gameplay: Stratos Docks — Aviation Hub (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and verified the complete 2D platformer gameplay for Mission 8 (*Stratos Docks - Aviation Hub*), the opening playable mission of Act III:
+1. **High-Altitude 6-Sector Level Architecture (`StratosDocksMission.cs`, `scenes/gameplay/level8.tscn`)**:
+   - Extends `CodeLevel` and implements `IFiniteCombatHost` with world bounds `x: 0` to `26500`, `y: -1400` to `2200`.
+   - High-altitude stormy environment with driving rain, wind shear, crane elevator wall-jump shafts across mooring pylons, and 6 authored sectors:
+     - *SEC.01 // PERIMETER GANTRY CATWALKS*: Perimeter gantry infiltration at 1,200m elevation with patrol drones and initial security patrols (`catwalk1`, `catwalk2`).
+     - *SEC.02 // CRYO-FUEL DEPOT & CONDUITS*: Pressurized liquid hydrogen cryo vents (`CoolantVent.cs`) doused by Oceanus (`GateKind.FireVent`), and heavy magnetic titan-clamp mooring locks shattered by Apex Titan Slam (`GateKind.RubbleWall`). Encounters: `fuel1`, `fuel2`, `fuel3`.
+     - *SEC.03 // FLIGHT DECK SCANNER ARRAYS*: High-voltage laser grid (`CyberLaserGrid2D.cs`) phased through via Mirage Blade Phase Shift, and acoustic radar lock bypassed by Aura Phoenicia Resonate (`GateKind.SonicLock`). Encounters: `scanner1`, `scanner2`, `scanner3`.
+     - *SEC.04 // AIR TRAFFIC CONTROL GANTRY*: Flak battery artillery corridor shielded by Surya Prime Bulwark (`GateKind.HeatVent`), elevated crane towers, and garrison forces (`gantry1`, `gantry2`, `gantry3`).
+     - *SEC.05 // FLIGHT DECK GUARDIAN // AERO-CENTURION*: Climactic flight deck arena featuring the multi-phase aerial mechanoid boss `AeroCenturionBoss2D` (480 HP) and support waves (`hangar1`, `hangar2`, `hangar3`).
+     - *SEC.06 // BAY 4 VTOL COMMAND INTERLOCK*: Override terminal (`PalaceObjective` Kind="Terminal"), pre-flight telemetry, and boarding ramp extraction beacon initiating Spire ascent.
+2. **Flight-Deck Guardian Boss: Aero-Centurion (`AeroCenturionBoss2D.cs`, `AeroMissile2D.cs`)**:
+   - 480 HP high-altitude mechanoid with 3 distinct combat phases:
+     - Phase 1: High-altitude patrol hover, dual plasma repeaters, and swept plasma missiles.
+     - Phase 2: Overdrive storm thrusters, increased strafe speed, and homing micro-missile salvos.
+     - Phase 3: Emergency Overdrive, red strobe flare, dive-bombs, and high-frequency shockwaves.
+   - Swept high-velocity plasma missiles (`AeroMissile2D.cs`): Deflectable by Kaito's Kinetic Parry; successful parries turn the missile cyan and redirect it back to the boss for 33 reflected damage.
+3. **Pure C# State Ledger (`StratosProgress.cs`)**:
+   - Engine-free deterministic ledger tracking 13 ordered milestones (`perimeter_ingress` to `extract`) and 14 finite authored combat formations.
+   - Enforces sequential progression, prerequisite checks, idempotent member kill rewards, and `CanExtract` gating.
+4. **UI & Level Selection Integration (`level_selection.tscn`, `level_selection.gd`)**:
+   - Added Sector 8 campaign card to `SectorGrid` in `scenes/main_menu/level_selection.tscn`.
+   - Wired `Level8` button with `_on_level_8_pressed()` in `scripts/main_menu/level_selection.gd`.
+5. **Automated Verification & Test Coverage**:
+   - NUnit suite `StratosProgressTests.cs` (5 test fixtures): Milestone order, prerequisite gating, skip rejections, slot rewards, and LevelCatalog Mission 8 registration.
+   - GdUnit4 suite `test_stratos_docks_mission.gd` (3 test cases): Full squad initialization, hazards & objectives verification, and boss/extraction gating with 0 orphan nodes.
 
 ## Act II End Screen, Act III Start Screen & Pre-Level 8 Cutscene (2026-11-04)
 

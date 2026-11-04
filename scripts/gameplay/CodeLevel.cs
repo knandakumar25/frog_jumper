@@ -620,6 +620,13 @@ public abstract partial class CodeLevel : Node2D
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
+        if (MissionNumber == 8)
+        {
+            var aftermath = new StratosDocksAftermath { Name = "StratosDocksAftermath", Layer = 40 };
+            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 9);
+            Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
+            return;
+        }
         if (MissionNumber == 4) _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
         else _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
 

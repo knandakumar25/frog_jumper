@@ -93,6 +93,31 @@ Full Act II finale 2D platformer gameplay (`FoundryForgeMission.cs`, `scenes/gam
   - Registered in `LevelCatalog.cs` (`level7.tscn`) and Sector 7 card in Level Selection menu (`level_selection.tscn`).
   - Verified across test suites with 0 errors, 0 failures, 0 orphans (Django 104/104, NUnit 143/143, GdUnit4 231/231 across 41 test suites).
 
+### Mission 8 — Stratos Docks (Aviation Hub) (2026-11-04)
+
+Full Act III opening 2D platformer gameplay (`StratosDocksMission.cs`, `scenes/gameplay/level8.tscn`) extending `CodeLevel` and implementing `IFiniteCombatHost`:
+- **6-Sector High-Altitude Aerial Layout**:
+  1. *SEC.01 // PERIMETER GANTRY CATWALKS*: High-wind maintenance gantries at 1,200m elevation, mooring pylon wall-jump columns, and aerial patrol drones (`CyberDrone2D.cs`).
+  2. *SEC.02 // CRYO-FUEL DEPOT & CONDUITS*: Pressurized cryogenic hydrogen vents (`CoolantVent.cs`) requiring Oceanus Douse, and heavy magnetic titan-clamp mooring locks requiring Apex Titan Slam.
+  3. *SEC.03 // FLIGHT DECK SCANNER ARRAYS*: High-voltage laser grid (`CyberLaserGrid2D.cs`) bypassed via Mirage Blade Phase Shift, and acoustic frequency radar lock requiring Aura Phoenicia Resonance.
+  4. *SEC.04 // AIR TRAFFIC CONTROL GANTRY*: Flak battery fire corridors requiring Surya Prime Bulwark, elevated crane gantry traversal, and garrison waves.
+  5. *SEC.05 // FLIGHT DECK GUARDIAN // AERO-CENTURION*: Climactic multi-phase 2D aerial mechanoid boss encounter (`AeroCenturionBoss2D.cs`, 480 HP) launching high-velocity swept plasma missiles (`AeroMissile2D.cs`) parryable by Kaito's blade for 33 reflected damage back to the boss, jet charges, and Phase 3 overdrive storm thruster dive-bombs.
+  6. *SEC.06 // BAY 4 VTOL COMMAND INTERLOCK*: Heavy military gunship override terminal, flight telemetry sync with AXIOM-7, and boarding ramp extraction trigger initiating Spire ascent.
+- **Squad Synergy & Level Selection Card**:
+  - Full 6-operative squad synergy across all sectors with dedicated signature ability gates.
+  - Registered in `LevelCatalog.cs` and Sector 8 card in Level Selection menu (`level_selection.tscn` / `level_selection.gd`).
+- **Pure C# Ledger & Verification**:
+  - `StratosProgress.cs` mission state ledger tracking 13 milestones and 14 authored combat formations.
+  - Covered by automated unit test suites (`StratosProgressTests.cs` and `test_stratos_docks_mission.gd`) with 0 errors, 0 failures, 0 orphans.
+
+### Post-Level 8 Cutscene — Airborne Ascension (Mission 8 Aftermath) (2026-11-04)
+
+A skippable 90-second live 2D cinematic epilogue (`StratosDocksAftermath` & `StratosDocksAftermathStage`, scene `scenes/cutscenes/stratos_docks_aftermath.tscn`) concluding Mission 8 (*Stratos Docks - Aviation Hub*) upon extraction:
+- **Narrative & Staging**: Axiom Force takes flight in the commandeered heavy military VTOL gunship, tearing free of Bay 4 docking clamps. Below, the floating docks recede into storm squalls alongside the illuminated liberated municipal sectors. Breaking through the dense cloud ceiling into high-altitude twilight, the squad beholds the colossal Citadel Spire Outer Hull—towering kilometers into the stratosphere with automated anti-air flak batteries, setting the stage for their exterior foot ascent in Mission 9.
+- **Squad Performance & Authored Dialogue**: 9 timed dialogue cues across 90 seconds featuring AXIOM-7 flight telemetry, Mirage observing grounded enemy interceptors, Titan admiring reinforced heavy gunship armor, Oceanus celebrating three unshielded municipal sectors, Aura monitoring chaotic Citadel distress broadcasts, Surya locking onto the Spire's exterior armor plating, AXIOM-7 warning of summit anti-air grids, Mirage charting lower exterior catwalk drops, and Kaito ordering the squad to harness in and breach the Spire's outer hull.
+- **Procedural Graphics Architecture**: High-altitude twilight sky gradient, billowing volumetric cloud banks, receding floating gantries with blinking red hazard beacons (`#ff2222`), heavy military VTOL gunship with dual glowing cyan tilt-rotor thrust plumes (`#00f0ff`) and rear exhaust flare, monolithic Citadel Spire Outer Hull with armor seams and arcing flak tracers, operative silhouettes with distinctive glowing energy accents, tactical holographic flight HUD, CRT scanline overlay, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+- **Engine & Scorecard Integration**: Seamlessly attached in `CodeLevel.CompleteMission` when `MissionNumber == 8`, freeze-isolating the extracted level, playing the cinematic epilogue, and deferring to `CyberVictoryScorecard.ShowMissionScorecard` targeting Mission 9 upon natural finish or skip (ESC / Space / Enter / gamepad / click). Verified across NUnit (`StratosDocksAftermathTests.cs`) and GdUnit4 (`test_stratos_docks_aftermath.gd`) with 0 errors, 0 failures, and 0 orphan nodes.
+
 ### Act II End Screen & Act III Start Screen (2026-11-04)
 
 - **Act II End Screen** (`ActIIEndScreen.cs`, `scenes/ui/act_ii_end_screen.tscn`): A dedicated tactical campaign debrief screen triggered upon continuing from Mission 7's scorecard. Celebrates the liberation of all three Act II infrastructure sectors (Sector 5 Downtown Civic District, Sector 6 Cyber-Grave Labs, Sector 7 The Foundry Forge), confirms planetary sky-shield integrity at 0.0%, and provides responsive navigation (`PROCEED TO ACT III`, `MISSION SELECT`, `MAIN MENU`).

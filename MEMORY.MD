@@ -1,4 +1,4 @@
-﻿# Axiom Force — Project Memory
+# Axiom Force — Project Memory
 
 Last reviewed: 2026-11-02. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
@@ -7,6 +7,48 @@ this summary does not replace them. Verify live environment state before acting.
 ## Standing Directive: NO Docker MCP Mentions or Work — 2026-11-04
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
+
+## Post-Level 8 Epilogue Cutscene Implementation (StratosDocksAftermath) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic epilogue overlay ('Airborne Ascension', `StratosDocksAftermath.cs`, `StratosDocksAftermathStage.cs`, `scenes/cutscenes/stratos_docks_aftermath.tscn`) concluding Mission 8 (*Stratos Docks - Aviation Hub*).
+- Narrative & Staging:
+  - Axiom Force takes flight in the hijacked heavy military VTOL gunship, tearing free of the Bay 4 mooring clamps. Below, the floating docks and the liberated city recede into storm squalls.
+  - Breaking through the cloud ceiling into high-altitude twilight, the squad beholds the colossal Citadel Spire Outer Hull—towering kilometers into the stratosphere with automated anti-air flak batteries, setting the stage for Mission 9's exterior foot ascent.
+  - Procedural stage (`StratosDocksAftermathStage.cs`) featuring twilight sky gradient, volumetric storm cloud banks, receding floating gantries with blinking red hazard beacons (`#ff2222`), heavy military VTOL gunship with dual glowing cyan tilt-rotor thrust ionization arcs (`#00f0ff`) and rear exhaust flare, towering Spire outer hull with armor plating seams and arcing flak tracers, operative silhouettes with distinctive glowing energy accents, tactical holographic flight HUD, CRT scanline overlay, and 2.39:1 anamorphic cinema bars with guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Mirage, Titan, Oceanus, Aura, Surya, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Attached in `CodeLevel.CompleteMission` on `MissionNumber == 8`, freeze-isolating mission gameplay and seamlessly deferring handoff to `CyberVictoryScorecard.ShowMissionScorecard(finalScore, peakCombo, operative, 9)`.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 169/169 PASSED (`StratosDocksAftermathTests.cs` 3/3, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 249/249 test cases across 47 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
+## Mission 8 Gameplay Implementation (StratosDocksMission) — 2026-11-04
+
+- Fully authored, implemented, and verified the complete 2D platformer gameplay for Mission 8 ('Stratos Docks - Aviation Hub', `StratosDocksMission.cs`, `scenes/gameplay/level8.tscn`), opening the Act III campaign milestone.
+- Level Architecture & Mechanics:
+  - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` with 6 authored high-altitude aerial sectors:
+    1. *SEC.01 // PERIMETER GANTRY CATWALKS*: High-wind maintenance gantries at 1,200m elevation, mooring pylon wall-jump columns, and aerial patrol drones (`CyberDrone2D.cs`).
+    2. *SEC.02 // CRYO-FUEL DEPOT & CONDUITS*: Pressurized liquid hydrogen cryo vents (`CoolantVent.cs`) doused by Oceanus (`GateKind.FireVent`), and heavy magnetic titan-clamp mooring locks shattered by Apex Titan Slam (`GateKind.RubbleWall`). Encounters: `fuel1`, `fuel2`, `fuel3`.
+    3. *SEC.03 // FLIGHT DECK SCANNER ARRAYS*: High-voltage laser grid (`CyberLaserGrid2D.cs`) phased through via Mirage Blade Phase Shift, and acoustic radar lock bypassed by Aura Phoenicia Resonate (`GateKind.SonicLock`). Encounters: `scanner1`, `scanner2`, `scanner3`.
+    4. *SEC.04 // AIR TRAFFIC CONTROL GANTRY*: Flak battery artillery corridor shielded by Surya Prime Bulwark (`GateKind.HeatVent`), elevated crane towers, and garrison forces (`gantry1`, `gantry2`, `gantry3`).
+    5. *SEC.05 // FLIGHT DECK GUARDIAN // AERO-CENTURION*: Climactic flight deck arena featuring the multi-phase aerial mechanoid boss `AeroCenturionBoss2D` (480 HP) and support waves (`hangar1`, `hangar2`, `hangar3`).
+    6. *SEC.06 // BAY 4 VTOL COMMAND INTERLOCK*: Override terminal (`PalaceObjective` Kind="Terminal"), pre-flight telemetry, and boarding ramp extraction beacon initiating Spire ascent.
+- Boss Mechanoid Encounter:
+  - Created `AeroCenturionBoss2D.cs` (480 HP) and `AeroMissile2D.cs`.
+  - Swept high-velocity plasma missiles are deflectable by Kaito's Kinetic Parry, turning cyan and returning 33 reflected damage to the boss.
+  - Phase 1 (plasma repeaters), Phase 2 (overdrive storm thrusters & missile salvos), Phase 3 (emergency overdrive, dive-bombs, shockwaves).
+- Ledger & Campaign Integration:
+  - Authored pure C# engine-free ledger `StratosProgress.cs` tracking 13 milestones and 14 authored combat formations.
+  - Registered in `LevelCatalog.cs` (`level8.tscn`, all 6 abilities).
+  - Added Sector 8 card and button in Level Selection menu with automatic progression unlocking (`level_selection.gd`, `level_selection.tscn`).
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 166/166 PASSED (`StratosProgressTests.cs` 5/5, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 245/245 test cases across 46 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_447`).
+  - All 4 Docker containers remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 ## Act II End Screen, Act III Start Screen & Pre-Level 8 Cutscene Implementation — 2026-11-04
 

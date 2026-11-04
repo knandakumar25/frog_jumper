@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: VTOL flight systems online. Avionics decoupled from Citadel air traffic control. Dual ion-thrusters at 100% output."
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "MIRAGE: Look at those flight decks shrink behind us. The fleet is grounded, their interceptors crippled in their berths. The sky is ours."
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "TITAN: Feels good to fly something built like a fortress. Hydraulic clamps didn't stand a chance. This bird can take a pounding."
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "OCEANUS: Look through the storm squall below. The city lights are shining without the sky-shield dome. Three municipal sectors breathing free tonight."
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "AURA: I can hear the Citadel's distress broadcast. High command is in full panic. They're scrambling all exterior hull automated defense batteries."
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "SURYA: Sensor lock dead ahead! We've broken through the storm ceiling... Look at the Spire. Kilometers of armored exterior plating."
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "AXIOM-7: Telemetry warning: Outer Spire heavy anti-air batteries detecting our radar signature. Direct flight to the summit is blocked by automated hull turrets."
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "MIRAGE: Then we don't land at the top. We insert directly onto the exterior maintenance catwalks. We scale the Spire outer hull on foot!"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: Agreed. Secure your harnesses. We breach the Spire's outer skin and carve our way to the summit. Operatives—prepare for exterior insertion!"
+  }
+]

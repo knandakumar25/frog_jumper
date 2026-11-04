@@ -78,6 +78,9 @@ func _on_level_6_pressed() -> void: _start_level(6)
 ## Enters Mission 7 directly; the Foundry Forge cinematic belongs to Level 6 Continue.
 func _on_level_7_pressed() -> void: _start_level(7)
 
+## Enters Mission 8 directly; the Stratos Docks cinematic belongs to Level 7 Continue / Act III start.
+func _on_level_8_pressed() -> void: _start_level(8)
+
 ## Returns to the main menu through the existing loading screen.
 func _on_back_button_pressed() -> void:
 	GameManager.set_game_state(GameManager.State.MAIN_MENU)
