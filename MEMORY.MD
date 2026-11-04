@@ -8,6 +8,47 @@ this summary does not replace them. Verify live environment state before acting.
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
 
+## Post-Level 9 Epilogue Cutscene Implementation (SpireOuterHullAftermath) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic epilogue overlay ('The Core Breach // Mission 9 Aftermath', `SpireOuterHullAftermath.cs`, `SpireOuterHullAftermathStage.cs`, `scenes/cutscenes/spire_outer_hull_aftermath.tscn`) concluding Mission 9 (*Spire Outer Hull*).
+- Narrative & Staging:
+  - Axiom Force gathers on the windswept summit catwalk at 3,000m elevation beside the smoking, sparking wreck of the defeated Spire Sentinel mechanoid.
+  - Mirage cracks the terminal override protocols, triggering hydraulic decompression. The colossal circular blast doors unseal with billowing steam and slide apart into the Spire wall, revealing the breathtaking Cyber-Nexus quantum core (cascading blue/gold data waterfalls, quantum fiber lines, floating surveillance prisms).
+  - Procedural stage (`SpireOuterHullAftermathStage.cs`) featuring stratospheric night gradient with stars, rolling cloud bank at 3,000m, distant glowing skyline of liberated Neo-Kyoto below, smoldering Sentinel mechanoid with spark arcs and rising smoke, summit catwalk with yellow hazard stripes and railings, monolithic Spire titanium wall, animated Cyber-Nexus blast doors sliding open to reveal the quantum core interior, operative silhouettes with distinctive glowing energy accents, floating steam clouds, CRT scanlines, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Titan, Oceanus, Surya, Aura, Mirage, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Attached in `CodeLevel.CompleteMission` on `MissionNumber == 9`, freeze-isolating mission gameplay and seamlessly deferring handoff to `CyberVictoryScorecard.ShowMissionScorecard(finalScore, peakCombo, operative, 10)`.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 192/192 PASSED (`SpireOuterHullAftermathTests.cs` 3/3, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 259/259 test cases across 50 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_459`).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
+## Mission 9 Gameplay Implementation (SpireOuterHullMission) — 2026-11-04
+
+- Fully authored, implemented, and verified the complete 2D platformer gameplay for Mission 9 ('Spire Outer Hull - High-Mobility Vertical Ascent', `SpireOuterHullMission.cs`, `scenes/gameplay/level9.tscn`), continuing the Act III campaign milestone.
+- Level Architecture & Mechanics:
+  - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` across 6 authored high-altitude exterior sectors at 2,500m elevation (27,500 horizontal units):
+    1. *SEC.01 // GANTRY 42 EXTERIOR INSERTION*: High-wind steel catwalks at 2,500m elevation, wall-jump structural pylon columns, and initial defense patrols (`gantry1`, `gantry2`).
+    2. *SEC.02 // CRYOGENIC HEAT EXHAUST CONDUITS*: Pressurized cryogenic coolant louvers (`CoolantVent.cs`) doused by Oceanus (`GateKind.FireVent`), and heavy magnetic hull clamp braces shattered by Apex Titan Slam (`GateKind.RubbleWall`). Encounters: `exhaust1`, `exhaust2`, `exhaust3`.
+    3. *SEC.03 // FLUID-COUPLING FLAK BATTERY DECK*: Perimeter flak laser barrier (`CyberLaserGrid2D.cs`) phased through via Mirage Blade Phase Shift, and flak artillery corridors defended under Surya Prime Bulwark (`GateKind.HeatVent`). Encounters: `flak1`, `flak2`, `flak3`.
+    4. *SEC.04 // CARGO ELEVATOR & STRUCTURAL PYLONS*: Vertical elevator shafts, acoustic drone relay lock bypassed by Aura Phoenicia Resonance (`GateKind.SonicLock`), and summit overlook garrison (`shaft1`, `shaft2`, `shaft3`).
+    5. *SEC.05 // SUMMIT CATWALK // SPIRE SENTINEL*: Climactic summit arena featuring the multi-phase aerial mechanoid boss `SpireSentinelBoss2D` (520 HP) and escort waves (`summit1`, `summit2`, `summit3`).
+    6. *SEC.06 // CYBER-NEXUS INTAKE AIRLOCK*: Central intake airlock override terminal (`PalaceObjective`), airlock release, and extraction threshold opening into the Citadel interior.
+- Boss Mechanoid Encounter:
+  - Created `SpireSentinelBoss2D.cs` (520 HP) and `SpirePlasmaBolt2D.cs`.
+  - Swept high-velocity plasma bolts are deflectable by Kaito's Kinetic Parry (`TakeDamage` calls `Reflect()`), turning cyan and returning 35 reflected damage to the boss.
+  - Phase 1 (hover strafe and plasma bolts), Phase 2 (overdrive thrusters and rapid plasma barrages), Phase 3 (emergency overdrive, dive-bombs, catwalk shockwaves).
+- Campaign, UI & Scorecard Integration:
+  - Added Sector 8 and Sector 9 cards to `scenes/main_menu/level_selection.tscn` and wired `_on_level_9_pressed()` in `scripts/main_menu/level_selection.gd`.
+  - Wired `MissionNumber == 9` scorecard completion routing in `scripts/gameplay/CodeLevel.cs`.
+- Pure C# Ledger & Test Verification:
+  - `SpireProgress.cs` pure C# engine-free ledger tracking 13 milestones and 14 authored combat formations.
+  - Comprehensive automated tests: NUnit (`SpireProgressTests.cs`, 189 tests total) and GdUnit4 (`test_spire_outer_hull_mission.gd`), with all 9 missions validated in `test_campaign_levels.gd` and `test_level_selection_2d.gd` (0 errors, 0 failures, 0 orphans).
+  - Test Suite Summary: 104/104 Django, 189/189 NUnit, 255/255 GdUnit4 across 49 suites (100% pass, 0 orphans).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
 ## Pre-Level 9 Cutscene Implementation (SpireOuterHullIntro) — 2026-11-04
 
 - Fully authored, implemented, and verified the cinematic prologue overlay ('Exterior Breach — Spire Outer Hull', `SpireOuterHullIntro.cs`, `SpireOuterHullStage.cs`, `scenes/cutscenes/spire_outer_hull_intro.tscn`) establishing the exterior foot assault on Mission 9 (*Spire Outer Hull*).

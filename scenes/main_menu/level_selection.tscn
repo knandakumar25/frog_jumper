@@ -238,6 +238,56 @@ custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 text = "LAUNCH MISSION 07 [ACT II FINALE]"
 
+[node name="Sector8" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 170)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector8"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector8/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "ACT III // MISSION 08: STRATOS DOCKS"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector8/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 0.9)
+text = "Ascend the orbital freight gantry, eliminate colonial drop-skiffs, and breach the outer spire."
+
+[node name="Level8" type="Button" parent="MainLayout/SectorGrid/Sector8/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH MISSION 08 [ACT III PREMIERE]"
+
+[node name="Sector9" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 170)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector9"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector9/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "ACT III // MISSION 09: SPIRE OUTER HULL"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector9/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.95, 1, 0.9)
+text = "Scale the high-altitude exterior pylons at 2,500m, defeat Spire Sentinel, and breach the core airlock."
+
+[node name="Level9" type="Button" parent="MainLayout/SectorGrid/Sector9/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH MISSION 09"
+
 [node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
 layout_mode = 2
 
@@ -257,3 +307,4 @@ text = "Return to Main Menu"
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector6/VBox/Level6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector7/VBox/Level7" to="." method="_on_level_7_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector8/VBox/Level8" to="." method="_on_level_8_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector9/VBox/Level9" to="." method="_on_level_9_pressed"]

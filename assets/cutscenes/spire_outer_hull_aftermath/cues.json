@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: Spire Sentinel mechanized defense chassis neutralized. Exterior summit catwalk secured. Telemetry reports ambient pressure stabilizing at the intake threshold."
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "TITAN: That scrapheap put up a hell of a fight. Two-thousand meters of vertical climbing, and my solenoids are still humming. Look at that airlock door... built to survive a nuclear strike."
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "OCEANUS: Look behind us, everyone. Look down through the stratospheric haze. Neo-Kyoto's skyline is clear. No sky-shield cage, no surveillance grid. The people are awake."
+  },
+  {
+    "cue": 4,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "SURYA: But the machine's brain still ticks. As long as the Cyber-Nexus operates, the Citadel can reboot the defensive grid and synthesize automated armies in hours."
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "AURA: I feel the acoustic vibration through the steel floor. It's not just machinery... it's a hive mind. Petabytes of surveillance algorithms and neural networks, churning behind that bulkhead."
+  },
+  {
+    "cue": 6,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "MIRAGE: Terminal override sequence accepted. The security protocols are folding! Stand by... pressure seal breaking!"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "AXIOM-7: Atmospheric purge complete. Central Cyber-Nexus airlock opening. Thermal sensors detecting multi-layered quantum mainframe chambers beyond the portal."
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "MIRAGE: By the stars... it's a digital labyrinth. Floating holographic data prisms, quantum conduits, automated laser baffles. One wrong step and the mainframe burns you to ash."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Liam",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: Then we tread carefully and strike deep. We shatter the Cyber-Nexus core and blind the Citadel forever. Axiom Force—into the Nexus!"
+  }
+]

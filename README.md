@@ -110,6 +110,32 @@ Full Act III opening 2D platformer gameplay (`StratosDocksMission.cs`, `scenes/g
   - `StratosProgress.cs` mission state ledger tracking 13 milestones and 14 authored combat formations.
   - Covered by automated unit test suites (`StratosProgressTests.cs` and `test_stratos_docks_mission.gd`) with 0 errors, 0 failures, 0 orphans.
 
+### Post-Level 9 Cutscene — The Core Breach (Mission 9 Aftermath) (2026-11-04)
+
+A skippable 90-second live 2D cinematic epilogue (`SpireOuterHullAftermath` & `SpireOuterHullAftermathStage`, scene `scenes/cutscenes/spire_outer_hull_aftermath.tscn`) concluding Mission 9 (*Spire Outer Hull*) upon airlock extraction:
+- **Narrative & Staging**: Axiom Force gathers on the windswept summit catwalk at 3,000m elevation beside the smoldering, sparking chassis of the defeated Spire Sentinel mechanoid. As Mirage overrides the security protocols, the massive circular biometric blast door unseals with hydraulic hiss and billowing steam, sliding apart to reveal the awe-inspiring interior of the Citadel Spire: a towering, cavernous quantum core filled with cascading blue/gold data rivers and floating surveillance prisms—**The Cyber-Nexus** (Mission 10). Looking back over the railing, the squad sees the clear, unshielded skyline of liberated Neo-Kyoto kilometers below before Kaito gives the order to cross the threshold into the heart of the machine.
+- **Squad Performance & Authored Dialogue**: 9 timed dialogue cues across 90 seconds featuring AXIOM-7 reporting the Spire Sentinel chassis neutralized, Titan admiring the nuclear-rated blast doors, Oceanus observing Neo-Kyoto's clear skyline glowing below, Surya warning that the Cyber-Nexus mainframe can synthesize replacement armies if not destroyed, Aura sensing the acoustic hive mind vibration through the steel floor, Mirage cracking the terminal security protocols, AXIOM-7 confirming atmospheric purge and portal release, Mirage marveling at the digital labyrinth inside, and Kaito ordering the squad forward into the Cyber-Nexus.
+- **Procedural Graphics Architecture**: High-altitude stratospheric twilight sky gradient with stars, rolling cloud bank at 3,000m, distant glowing skyline of liberated Neo-Kyoto, smoldering Spire Sentinel mechanoid husk with spark arcs and rising smoke, summit catwalk with yellow hazard stripes and railings, monolithic Spire titanium wall with power conduits, animated circular Cyber-Nexus blast doors sliding open into the wall to reveal the glowing quantum core interior (cascading blue/gold data waterfalls, quantum fiber lines, floating surveillance prisms), operative silhouettes with distinctive glowing energy accents, floating steam clouds, CRT scanlines, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+- **Engine & Scorecard Integration**: Seamlessly attached in `CodeLevel.CompleteMission` when `MissionNumber == 9`, freeze-isolating the extracted level, playing the cinematic epilogue, and deferring to `CyberVictoryScorecard.ShowMissionScorecard` targeting Mission 10 upon natural finish or skip (ESC / Space / Enter / gamepad / click). Verified across NUnit (`SpireOuterHullAftermathTests.cs`) and GdUnit4 (`test_spire_outer_hull_aftermath.gd`) with 0 errors, 0 failures, and 0 orphan nodes.
+
+### Mission 9 — Spire Outer Hull (High-Mobility Vertical Ascent) (2026-11-04)
+
+Full Act III high-altitude exterior 2D platformer gameplay (`SpireOuterHullMission.cs`, `scenes/gameplay/level9.tscn`) extending `CodeLevel` and implementing `IFiniteCombatHost`:
+- **6-Sector High-Altitude Exterior Layout (2,500m Elevation)**:
+  1. *SEC.01 // GANTRY 42 EXTERIOR INSERTION*: High-wind maintenance gantries, structural pylon wall-jump shafts, and automated defense patrols across the Spire foundation.
+  2. *SEC.02 // CRYOGENIC HEAT EXHAUST CONDUITS*: Pressurized cryogenic coolant louvers (`CoolantVent.cs`) requiring Oceanus Douse, and heavy magnetic hull clamp braces requiring Apex Titan Slam.
+  3. *SEC.03 // FLUID-COUPLING FLAK BATTERY DECK*: Perimeter flak laser grid (`CyberLaserGrid2D.cs`) bypassed via Mirage Blade Phase Shift, and flak artillery corridors defended under Surya Prime Bulwark.
+  4. *SEC.04 // CARGO ELEVATOR & STRUCTURAL PYLONS*: Vertical elevator shafts, drone acoustic relay lock requiring Aura Phoenicia Resonance, and summit overlook garrison.
+  5. *SEC.05 // SUMMIT CATWALK // SPIRE SENTINEL*: Multi-phase 2D aerial mechanoid boss encounter (`SpireSentinelBoss2D.cs`, 520 HP) firing swept high-velocity plasma bolts (`SpirePlasmaBolt2D.cs`, 35 damage) deflectable by Kaito's Kinetic Parry back at the boss, overdrive thruster charges, and Phase 3 emergency dive-bombs with seismic shockwaves.
+  6. *SEC.06 // CYBER-NEXUS INTAKE AIRLOCK*: Cyber-Nexus breach terminal hack, central intake airlock release, and extraction threshold opening into the Citadel interior.
+- **Squad Synergy & Campaign Wiring**:
+  - Full 6-operative roster active with operative-specific ability gates and dynamic in-level squad swapping.
+  - Sector 9 card integrated in Level Selection (`scenes/main_menu/level_selection.tscn`, `scripts/main_menu/level_selection.gd`).
+  - Scorecard routing in `scripts/gameplay/CodeLevel.cs` (`MissionNumber == 9`).
+- **Pure C# Ledger & Verification**:
+  - `SpireProgress.cs` pure C# engine-free mission ledger tracking 13 milestones and 14 authored combat formations.
+  - Comprehensive automated tests: NUnit (`SpireProgressTests.cs`) and GdUnit4 (`test_spire_outer_hull_mission.gd`), with all 9 missions validated in `test_campaign_levels.gd` and `test_level_selection_2d.gd` (0 errors, 0 failures, 0 orphans).
+
 ### Pre-Level 9 Cutscene — Exterior Breach (Spire Outer Hull) (2026-11-04)
 
 A skippable 90-second live 2D cinematic prologue (`SpireOuterHullIntro` & `SpireOuterHullStage`, scene `scenes/cutscenes/spire_outer_hull_intro.tscn`) establishing the exterior assault on Mission 9 (*Spire Outer Hull*):
