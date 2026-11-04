@@ -1,0 +1,65 @@
+[
+  {
+    "index": 1,
+    "speaker": "AXIOM-7",
+    "text": "Altitude 1,200 meters. Wind shear 45 knots. High Command has grounded all commercial transit and initiated priority lockdown across Stratos Docks.",
+    "start": 0.0,
+    "end": 10.0
+  },
+  {
+    "index": 2,
+    "speaker": "Mirage Blade",
+    "text": "Thermal scan shows three patrol gunships on the upper pads, but the heavy VTOL transport in Bay 4 is fueled and idling. That's our ticket up the Spire.",
+    "start": 10.0,
+    "end": 20.0
+  },
+  {
+    "index": 3,
+    "speaker": "Apex Titan",
+    "text": "Mooring clamps are reinforced magnetic titan-locks. I'll need to slam the primary release valves before that bird can lift off.",
+    "start": 20.0,
+    "end": 30.0
+  },
+  {
+    "index": 4,
+    "speaker": "Oceanus",
+    "text": "The fueling lines are pressurized liquid hydrogen. One rogue spark and the whole flight deck goes up. We keep this clean.",
+    "start": 30.0,
+    "end": 40.0
+  },
+  {
+    "index": 5,
+    "speaker": "Aura Phoenicia",
+    "text": "I'm tracking air traffic control communications. The automated flight grid is scrambling drone interceptors to bottle us up on the catwalks.",
+    "start": 40.0,
+    "end": 50.0
+  },
+  {
+    "index": 6,
+    "speaker": "Surya Prime",
+    "text": "My solar barrier can deflect their anti-aircraft flak batteries along the open gantry. Stick close to my shield when we cross the flight line.",
+    "start": 50.0,
+    "end": 60.0
+  },
+  {
+    "index": 7,
+    "speaker": "Mirage Blade",
+    "text": "The security grid uses dual-phase motion lasers across the maintenance gantries. I'll phase through first and disable the local tripwires.",
+    "start": 60.0,
+    "end": 70.0
+  },
+  {
+    "index": 8,
+    "speaker": "AXIOM-7",
+    "text": "Flight path calculated. Once the VTOL is secured, we will punch directly through the Spire's mid-tier intake vents into the upper command ring.",
+    "start": 70.0,
+    "end": 80.0
+  },
+  {
+    "index": 9,
+    "speaker": "Cyber Shogun",
+    "text": "Weapons live, squad. We breach the flight deck, seize that gunship, and take this fight to the Spire. Move out!",
+    "start": 80.0,
+    "end": 90.0
+  }
+]

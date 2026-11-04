@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://act2endscreen01"]
+
+[ext_resource type="Script" path="res://scripts/ui/ActIIEndScreen.cs" id="1_act2end"]
+
+[node name="ActIIEndScreen" type="CanvasLayer"]
+layer = 35
+script = ExtResource("1_act2end")

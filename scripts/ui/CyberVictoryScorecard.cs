@@ -206,11 +206,18 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		Navigate("res://scenes/main_menu/main_menu.tscn");
 	}
 
-	/// <summary>Launches the opening after captured Act I results; the opening hands off to Mission 5.</summary>
+	/// <summary>Launches Act II Opening after Act I, or Act II End Screen after Act II.</summary>
 	private void OnPreviewPressed()
 	{
 		if (_previewBtn is not { Visible: true }) return;
-		Navigate("res://scenes/cutscenes/act_ii_opening.tscn");
+		if (_titleLabel?.Text == "ACT II COMPLETE" || (_previewBtn.Text != null && _previewBtn.Text.Contains("ACT III")))
+		{
+			Navigate("res://scenes/ui/act_ii_end_screen.tscn");
+		}
+		else
+		{
+			Navigate("res://scenes/cutscenes/act_ii_opening.tscn");
+		}
 	}
 
 	/// <summary>Consumes repeated navigation input and releases any legacy pause before changing scene.</summary>

@@ -8,6 +8,19 @@ this summary does not replace them. Verify live environment state before acting.
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
 
+## Act II End Screen, Act III Start Screen & Pre-Level 8 Cutscene Implementation — 2026-11-04
+
+- Fully authored, implemented, and verified the complete transition bridge between Act II and Act III:
+  - Act II End Screen (`ActIIEndScreen.cs`, `scenes/ui/act_ii_end_screen.tscn`): Tactical debriefing terminal summarizing the three liberated Act II sectors (Sector 5 Downtown Civic District, Sector 6 Cyber-Grave Labs, Sector 7 The Foundry Forge), planetary sky-shield offline status (0.0%), and action routing (`PROCEED TO ACT III`, `MISSION SELECT`, `MAIN MENU`).
+  - Act III Start Screen (`ActIIIStartScreen.cs`, `scenes/ui/act_iii_start_screen.tscn`): Stylized cyberpunk title card presenting Act III: The Citadel Spire & Final Liberation (Missions 8–12), operational briefing, full 6-operative squad readiness strip, and action button routing into the prologue.
+  - Pre-Level 8 Cutscene ('Infiltration at Stratos Docks', `StratosDocksIntro.cs`, `StratosDocksStage.cs`, `scenes/cutscenes/stratos_docks_intro.tscn`): 90.0s skippable live 2D cinematic prelude with 9 authored cues (`assets/cutscenes/stratos_docks_intro/cues.json`), driving rain, wind shear, sweeping searchlights, heavy VTOL gunship silhouette, and operative silhouettes.
+  - LevelCatalog & Scaffold: Registered Mission 8 (*Stratos Docks*) in `LevelCatalog.cs`, created scaffold `StratosDocksMission.cs` and `scenes/gameplay/level8.tscn`, updated `CyberVictoryScorecard.cs` to route Act II victory button into `act_ii_end_screen.tscn`.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 149/149 PASSED (ActTransitionTests 3/3, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 242/242 test cases across 45 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_444).
+  - All 4 Docker containers remain healthy. Changes remain local and uncommitted per standing permission policy.
+
 ## Post-Level 7 Epilogue Cutscene Implementation (FoundryForgeAftermath) — 2026-11-04
 
 - Fully authored, implemented, and verified the cinematic epilogue overlay ('The Sky-Shield Falls', FoundryForgeAftermath.cs, FoundryForgeAftermathStage.cs, scenes/cutscenes/foundry_forge_aftermath.tscn) concluding Act II upon extraction from Mission 7 (*The Foundry Forge*).
@@ -88,13 +101,18 @@ this summary does not replace them. Verify live environment state before acting.
 - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 
-## Strategic Campaign Roadmap (3-Act Structure, 9 Missions) — 2026-11-03
+## Strategic Campaign Roadmap (3-Act Structure, 12 Missions) — 2026-11-04
 
-- Formally adopted the canonical 3-Act campaign structure across 9 missions:
+- Formally adopted the 12-mission campaign roadmap across 3 acts:
   - Act I: Fracturing the Grid (Missions 1–4) [Complete; ends with Mission 4 Shattered Aegis & Vanguard-X boss mech; ACT I COMPLETE].
-  - Act II: The Infrastructure Collapse (Missions 5–7) [Active; Mission 5 Names Without Numbers & Mission 6 Cyber-Grave Labs complete; Mission 7 The Foundry Forge will serve as the Act II Finale where overloading the geothermal plasma reactor drops the Citadel's planetary energy shields, awarding ACT II COMPLETE].
-  - Act III: The Citadel Spire & Final Liberation (Missions 8–9) [Mission 8 Stratos Docks / VTOL hijack and Mission 9 Judgment Day / Void Commander final confrontation; CAMPAIGN COMPLETE].
-- Next Development Frontier: Mission 7 (The Foundry Forge - Industrial Plasma Reactor).
+  - Act II: The Infrastructure Collapse (Missions 5–7) [Complete; ends with Mission 7 The Foundry Forge, IGNIS-COLOSSUS boss mech, sky-shield collapse epilogue; ACT II COMPLETE].
+  - Act III: The Citadel Spire & Final Liberation (Missions 8–12) [Active Next Frontier]:
+    - Mission 8: Stratos Docks (High-altitude aviation hub / VTOL gunship hijack)
+    - Mission 9: Spire Outer Hull (High-mobility exterior vertical ascent & aerial drone swarms)
+    - Mission 10: The Cyber-Nexus (Mainframe core, AI surveillance override & multi-operative security gauntlet)
+    - Mission 11: The Apex Bastion (Praetorian guard & penultimate boss mech)
+    - Mission 12: Judgment Day (Citadel Summit / Throne Room confrontation vs Void Commander; CAMPAIGN COMPLETE).
+- Next Development Frontier: Mission 8 (Stratos Docks - Aviation Hub).
 
 ## Post-Level 6 Cutscene Implementation (CyberGraveAftermath) — 2026-11-03
 

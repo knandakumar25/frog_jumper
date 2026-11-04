@@ -1,7 +1,7 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
-## Canonical Campaign Architecture (3-Act Structure, 9 Missions)
-Formally established the 3-Act campaign structure across 9 canonical missions:
+## Canonical Campaign Architecture (3-Act Structure, 12 Missions)
+Formally established the 3-Act campaign structure across 12 canonical missions:
 - **Act I: Fracturing the Grid (Missions 1–4)** *(Complete)*:
   - Mission 1: *Ghost in the Gridlock* (Imperial Palace culture-purge grounds)
   - Mission 2: *The Concrete Wildfire* (Containment Zone 4 checkpoints)
@@ -11,9 +11,37 @@ Formally established the 3-Act campaign structure across 9 canonical missions:
   - Mission 5: *Names Without Numbers* (Downtown Civic Processing District & biometric registry) — *Complete*
   - Mission 6: *Cyber-Grave Labs* (Subterranean bio-synthetic conversion foundry) — *Complete*
   - Mission 7: *The Foundry Forge* (Geothermal plasma reactor; overloading core shatters Citadel sky-shields; awards `ACT II COMPLETE`) — *Complete*
-- **Act III: The Citadel Spire & Final Liberation (Missions 8–9)** *(Active Next Frontier)*:
+- **Act III: The Citadel Spire & Final Liberation (Missions 8–12)** *(Active Next Frontier)*:
   - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Active Next Frontier**
-  - Mission 9: *Judgment Day* (Citadel High Command Spire; showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+  - Mission 9: *Spire Outer Hull* (High-mobility vertical exterior ascent & aerial drone swarms)
+  - Mission 10: *The Cyber-Nexus* (Mainframe core, AI surveillance override & multi-operative security gauntlet)
+  - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access)
+  - Mission 12: *Judgment Day* (Citadel Summit / Throne Room showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+
+## Act II End Screen, Act III Start Screen & Pre-Level 8 Cutscene (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and verified the complete cinematic and UI transition bridge between Act II and Act III:
+1. **Act II End Screen (`ActIIEndScreen.cs`, `scenes/ui/act_ii_end_screen.tscn`)**:
+   - Tactical campaign debrief terminal celebrating the liberation of all three Act II infrastructure sectors (Sector 5 Downtown Civic District, Sector 6 Cyber-Grave Labs, Sector 7 The Foundry Forge).
+   - Confirms planetary sky-shield integrity at 0.0% with exposed Spire insertion telemetry.
+   - Provides responsive keyboard, gamepad, and touch navigation with `PROCEED TO ACT III`, `MISSION SELECT`, and `MAIN MENU` actions.
+2. **Act III Start Screen (`ActIIIStartScreen.cs`, `scenes/ui/act_iii_start_screen.tscn`)**:
+   - Stylized cyberpunk title card ushering in **ACT III: THE CITADEL SPIRE & FINAL LIBERATION (Missions 8–12)**.
+   - High-contrast neon typography, operation briefing, and full 6-operative squad readiness strip with signature ability badges.
+   - Seamless advance button (`BEGIN OPERATION // SPACE / ENTER / A`) routing into the Pre-Level 8 prologue.
+3. **Pre-Level 8 Cutscene: Infiltration at Stratos Docks (`StratosDocksIntro.cs`, `StratosDocksStage.cs`, `scenes/cutscenes/stratos_docks_intro.tscn`, `assets/cutscenes/stratos_docks_intro/cues.json`)**:
+   - 90.0-second skippable live 2D cinematic prelude establishing the high-altitude aviation hub infiltration.
+   - 9 authored dialogue cues featuring AXIOM-7, Mirage, Titan, Oceanus, Aura, Surya, and Kaito coordinating the breach of Bay 4 to commandeer a heavy military VTOL gunship.
+   - Procedural staging with driving rain, wind shear, sweeping searchlights, mooring pylons with flashing red aviation beacons (`#ff2222`), massive idling VTOL gunship with glowing tilt-rotor turbine ionization, operative silhouettes, and 2.39:1 anamorphic cinema bars (`ResourcesAvailable => true`).
+4. **Mission 8 Scaffold & LevelCatalog Registration (`LevelCatalog.cs`, `StratosDocksMission.cs`, `scenes/gameplay/level8.tscn`)**:
+   - Registered Mission 8 (*Stratos Docks*) in `LevelCatalog` with all 6 operative abilities required.
+   - Created scaffold `StratosDocksMission.cs` and `scenes/gameplay/level8.tscn` to ensure smooth scene navigation.
+   - Updated `CyberVictoryScorecard.cs` to route the Act II victory button into `act_ii_end_screen.tscn`.
+5. **Verification & Test Coverage**:
+   - NUnit suite `ActTransitionTests.cs` (3 test cases): Scene existence, LevelCatalog Mission 8 registration, and cues.json schema.
+   - GdUnit4 suites `test_act_ii_end_screen.gd` (2 test cases), `test_act_iii_start_screen.gd` (2 test cases), and `test_stratos_docks_intro.gd` (3 test cases): Instantiation, button signals, 90s cue seeking, skip routes, and clean lifecycle disposal with 0 orphans.
+   - Full test suite runner `.\run_tests.ps1`: 100% PASSED (Django 104/104, NUnit 149/149, GdUnit4 242/242 across 45 suites with 0 errors, 0 failures, 0 orphans).
 
 ## Post-Level 7 Epilogue Cutscene: The Sky-Shield Falls (Act II Finale) (2026-11-04)
 

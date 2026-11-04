@@ -5,7 +5,7 @@ const MENU = preload("res://scenes/main_menu/level_selection.tscn")
 
 func test_campaign_maps_to_five_2d_missions() -> void:
 	var menu = MENU.instantiate()
-	assert_int(menu.catalog.Count()).is_equal(7)
+	assert_int(menu.catalog.Count()).is_equal(8)
 	for index in range(1, 8):
 		var path = "res://scenes/gameplay/level%d.tscn" % index
 		assert_str(menu.catalog.ScenePath(index)).is_equal(path)

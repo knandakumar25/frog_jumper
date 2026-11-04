@@ -93,6 +93,19 @@ Full Act II finale 2D platformer gameplay (`FoundryForgeMission.cs`, `scenes/gam
   - Registered in `LevelCatalog.cs` (`level7.tscn`) and Sector 7 card in Level Selection menu (`level_selection.tscn`).
   - Verified across test suites with 0 errors, 0 failures, 0 orphans (Django 104/104, NUnit 143/143, GdUnit4 231/231 across 41 test suites).
 
+### Act II End Screen & Act III Start Screen (2026-11-04)
+
+- **Act II End Screen** (`ActIIEndScreen.cs`, `scenes/ui/act_ii_end_screen.tscn`): A dedicated tactical campaign debrief screen triggered upon continuing from Mission 7's scorecard. Celebrates the liberation of all three Act II infrastructure sectors (Sector 5 Downtown Civic District, Sector 6 Cyber-Grave Labs, Sector 7 The Foundry Forge), confirms planetary sky-shield integrity at 0.0%, and provides responsive navigation (`PROCEED TO ACT III`, `MISSION SELECT`, `MAIN MENU`).
+- **Act III Start Screen** (`ActIIIStartScreen.cs`, `scenes/ui/act_iii_start_screen.tscn`): A stylized cyberpunk act title card ushering in **ACT III: THE CITADEL SPIRE & FINAL LIBERATION (Missions 8–12)**. Displays the operational briefing for infiltrating Stratos Docks to commandeer a heavy VTOL gunship, presents the full 6-operative squad readiness strip, and launches the Pre-Level 8 prologue.
+
+### Pre-Level 8 Cutscene — Infiltration at Stratos Docks (2026-11-04)
+
+A skippable 90-second live 2D cinematic prologue (`StratosDocksIntro` & `StratosDocksStage`, scene `scenes/cutscenes/stratos_docks_intro.tscn`) bridging into Mission 8 (*Stratos Docks - Aviation Hub*):
+- **Narrative & Tactical Briefing**: Axiom Force gathers on high-altitude steel gantries 1,200 meters above Neo-Kyoto amid driving rain and high wind shear. With ground and subterranean transit sealed following the sky-shield collapse, the squad coordinates breaching Bay 4 to commandeer a heavy military VTOL gunship for their assault on the Spire summit.
+- **Squad Performance & Dialogue**: 9 authored narrative cues across 90 seconds featuring AXIOM-7 thermal telemetry, Mirage locating the idling Bay 4 gunship, Titan planning to slam the magnetic mooring titan-locks, Oceanus cautioning against hydrogen fuel ignitions, Aura tracking air traffic control communications, Surya offering solar shield flak protection, Mirage mapping phase vectors through laser tripwires, AXIOM-7 charting the Spire intake flight path, and Kaito ordering the breach.
+- **Procedural Graphics Architecture**: High-altitude stormy sky with animated lightning flashes, towering control towers and mooring pylons with flashing red aviation beacons (`#ff2222`), massive silhouette of the heavy VTOL gunship with glowing tilt-rotor turbine ionization, gantry walkway, operative silhouettes with distinctive glowing energy accents, sweeping searchlights, angled driving rain lines, CRT scanlines, and 2.39:1 anamorphic cinema bars (`ResourcesAvailable => true`).
+- **Lifecycle & Navigation**: Multi-input skip (ESC, Space, Enter, Gamepad Start/A, mouse/touch click), monotonic audio-compensated timeline, speaker-coded subtitle panel, and clean transition to `scenes/gameplay/level8.tscn`. Verified across NUnit (`ActTransitionTests.cs`) and GdUnit4 (`test_stratos_docks_intro.gd`) with 0 errors, 0 failures, and 0 orphan nodes.
+
 ### Post-Level 7 Epilogue Cutscene — The Sky-Shield Falls (Act II Finale) (2026-11-04)
 
 A skippable 90-second live 2D cinematic epilogue (`FoundryForgeAftermath` & `FoundryForgeAftermathStage`, scene `scenes/cutscenes/foundry_forge_aftermath.tscn`) concluding Act II upon extraction from Mission 7 (*The Foundry Forge*):
