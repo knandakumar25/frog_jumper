@@ -18,6 +18,36 @@ Formally established the 3-Act campaign structure across 12 canonical missions:
   - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access)
   - Mission 12: *Judgment Day* (Citadel Summit / Throne Room showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
 
+## Pre-Level 9 Cutscene: Exterior Breach — Spire Outer Hull (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the prologue cinematic overlay (`SpireOuterHullIntro.cs`, `SpireOuterHullStage.cs`, `scenes/cutscenes/spire_outer_hull_intro.tscn`) establishing the exterior foot assault on Mission 9 (*Spire Outer Hull*):
+1. **Narrative & Authored Dialogue (`assets/cutscenes/spire_outer_hull_intro/cues.json`)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking the squad's approach to the Spire at 2,500m elevation in the hijacked VTOL gunship:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 reporting altitude 2,500m, 65-knot winds, and automated perimeter flak batteries tracking trajectory.
+     - Cue 2 (10.0s - 20.0s): Surya Prime raising forward solar barrier to absorb heavy flak bursts against the port engine.
+     - Cue 3 (20.0s - 30.0s): Mirage Blade spotting Gantry Level 42 maintenance rails along the monolithic titanium wall.
+     - Cue 4 (30.0s - 40.0s): Apex Titan warning of shear winds and advising magnetized boot solenoids and harness lines.
+     - Cue 5 (40.0s - 50.0s): Oceanus warning of cryogenic coolant venting from vertical exhaust shafts forming black ice.
+     - Cue 6 (50.0s - 60.0s): Aura Phoenicia detecting acoustic mainframe resonance as automated interceptor drone swarms deploy from exterior silos.
+     - Cue 7 (60.0s - 70.0s): AXIOM-7 deploying side cargo ramps and preparing to withdraw to high-orbit cloud cover.
+     - Cue 8 (70.0s - 80.0s): Mirage Blade noting the one-way vertical climb to breach the Cyber-Nexus.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane unsheathing his katana and ordering the squad to breach the Spire outer skin.
+2. **Procedural Staging (`SpireOuterHullStage.cs`)**:
+   - High-altitude stratospheric twilight sky gradient with twinkling stars and lower storm ceiling rolling beneath at 2,500m elevation.
+   - Sheer vertical monolithic Citadel Spire Outer Hull with titanium seams, pulsing cyan data conduits (`#00f0ff`), flashing red hazard indicators (`#ff2222`), Gantry Level 42 catwalks, and cryogenic coolant louvers.
+   - Commandeered heavy military VTOL gunship with glowing cyan tilt-rotor thrust arcs, open side cargo doors with hazard warning stripes, and dangling magnetic grapple cables.
+   - Operative silhouettes poised at the threshold with distinctive glowing energy accents.
+   - Arcing anti-air flak tracers and bursting air-burst explosions, CRT scanlines, and 2.39:1 letterbox bars (`ResourcesAvailable => true`).
+3. **Engine & Campaign Integration**:
+   - Registered Mission 9 in `LevelCatalog.cs` (`Spire Outer Hull`, `res://scenes/gameplay/level9.tscn`, 6 required abilities).
+   - Hooked `CyberVictoryScorecard.cs` to launch `spire_outer_hull_intro.tscn` when continuing from Mission 8.
+   - Placeholder level 9 scene (`scenes/gameplay/level9.tscn`) created for clean scene transitions.
+4. **Automated Verification & Test Coverage**:
+   - NUnit suite `SpireOuterHullIntroTests.cs` (3 test cases): Exact 90.0s duration, scene file existence, and 9 ordered cues validation in `cues.json`.
+   - GdUnit4 suite `test_spire_outer_hull_intro.gd` (3 test cases): Skip & natural finish, missing art fallback, and subtitle cue timeline seeking with 0 orphan nodes.
+   - Full test suite runner passed: 172 NUnit, 252 GdUnit4 across 48 suites, and 104 Django tests.
+
 ## Post-Level 8 Cutscene: Airborne Ascension (Mission 8 Aftermath) (2026-11-04)
 
 ### Summary of Enhancements

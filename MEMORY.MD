@@ -8,6 +8,24 @@ this summary does not replace them. Verify live environment state before acting.
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
 
+## Pre-Level 9 Cutscene Implementation (SpireOuterHullIntro) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic prologue overlay ('Exterior Breach — Spire Outer Hull', `SpireOuterHullIntro.cs`, `SpireOuterHullStage.cs`, `scenes/cutscenes/spire_outer_hull_intro.tscn`) establishing the exterior foot assault on Mission 9 (*Spire Outer Hull*).
+- Narrative & Staging:
+  - Axiom Force arrives at 2,500m elevation outside the monolithic Citadel Spire aboard the commandeered heavy military VTOL gunship. With automated exterior flak cannons tracking the gunship, the squad opens the side cargo ramps amidst stratospheric storm gales and deploys magnetic tether winches to disembark onto Gantry Level 42 for a foot ascent up the Spire's armored outer skin.
+  - Procedural stage (`SpireOuterHullStage.cs`) featuring high-altitude stratospheric twilight sky gradient with twinkling stars and lower storm ceiling at 2,500m, sheer vertical monolithic Citadel Spire Outer Hull with titanium armor seams, glowing cyan power conduits (`#00f0ff`), flashing red hazard indicator beacons (`#ff2222`), cryogenic coolant louvers venting mist, arcing orange anti-air flak tracers and air-burst explosions, hovering heavy VTOL gunship with glowing cyan tilt-rotor thrust plumes, open cargo bay with hazard warning stripes and dangling magnetic grapple cables, operative silhouettes with distinctive glowing energy accents, CRT scanlines, and 2.39:1 anamorphic cinema bars (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Surya, Mirage, Titan, Oceanus, Aura, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Registered Mission 9 in `LevelCatalog.cs` (`Spire Outer Hull`, `res://scenes/gameplay/level9.tscn`, 6 required abilities).
+  - Hooked `CyberVictoryScorecard.cs` to launch `spire_outer_hull_intro.tscn` when continuing from Mission 8.
+  - Created placeholder `scenes/gameplay/level9.tscn` scene for clean engine scene transitions.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 172/172 PASSED (`SpireOuterHullIntroTests.cs` 3/3, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 252/252 test cases across 48 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_456`).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+
 ## Post-Level 8 Epilogue Cutscene Implementation (StratosDocksAftermath) — 2026-11-04
 
 - Fully authored, implemented, and verified the cinematic epilogue overlay ('Airborne Ascension', `StratosDocksAftermath.cs`, `StratosDocksAftermathStage.cs`, `scenes/cutscenes/stratos_docks_aftermath.tscn`) concluding Mission 8 (*Stratos Docks - Aviation Hub*).

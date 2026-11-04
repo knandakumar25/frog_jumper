@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: Altitude 2,500 meters. Approaching the Citadel Spire exterior flank. Wind gusts exceeding 65 knots. Automated perimeter flak batteries are tracking our trajectory."
+  },
+  {
+    "cue": 2,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "SURYA: Target lock detected on our port engine! Raising forward solar barrier to absorb their heavy flak bursts. Keep us steady in the turbulence!"
+  },
+  {
+    "cue": 3,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "MIRAGE: Look at that monolithic wall of armor plating... Catwalks sighted at Gantry Level 42. Narrow maintenance rails running straight up the hull."
+  },
+  {
+    "cue": 4,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "TITAN: The shear winds out there will rip a mech clean off the wall. Magnetize your boot solenoids and check your harness tethers!"
+  },
+  {
+    "cue": 5,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "OCEANUS: Thermal exhaust vents along the ascent shaft are venting sub-zero cryogenic coolant. Surfaces will be slick with black ice."
+  },
+  {
+    "cue": 6,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "AURA: Citadel security mainframe is alerting all defensive automated drone wings. Aerial interceptors are launching from exterior silo racks above us!"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "AXIOM-7: Cargo bay depressurized. Side ramps deploying. Once you drop onto the gantry, I will take the gunship into high-orbit cloud cover to evade anti-air destruction."
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "MIRAGE: One-way drop. We scale the Spire exterior on foot, punch through the blast doors into the Cyber-Nexus, or fall into the abyss."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: Axiom Force! Weapons armed, grapples locked! Leap to the catwalks and begin the ascent! BREACH NOW!"
+  }
+]

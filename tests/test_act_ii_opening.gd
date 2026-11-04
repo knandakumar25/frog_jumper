@@ -42,7 +42,7 @@ func test_timeline_all_cues_and_preview_leave_progress_unchanged() -> void:
 	await get_tree().process_frame
 	assert_bool(preview.get("HasFinished")).is_true()
 	assert_array(_snapshot()).is_equal(before)
-	assert_int(before[0]).is_equal(8)
+	assert_int(before[0]).is_equal(9)
 	preview.free()
 
 

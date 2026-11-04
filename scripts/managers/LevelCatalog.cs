@@ -40,6 +40,8 @@ public static class LevelCatalog
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
         new(8, "Stratos Docks", "res://scenes/gameplay/level8.tscn", "8",
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
+        new(9, "Spire Outer Hull", "res://scenes/gameplay/level9.tscn", "9",
+            Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
     };
 
     /// <summary>All missions in play order.</summary>

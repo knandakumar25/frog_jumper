@@ -179,6 +179,14 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		{
 			Navigate("res://scenes/cutscenes/foundry_forge_intro.tscn");
 		}
+		else if (_nextMission == 8 && ResourceLoader.Exists("res://scenes/cutscenes/stratos_docks_intro.tscn"))
+		{
+			Navigate("res://scenes/cutscenes/stratos_docks_intro.tscn");
+		}
+		else if (_nextMission == 9 && ResourceLoader.Exists("res://scenes/cutscenes/spire_outer_hull_intro.tscn"))
+		{
+			Navigate("res://scenes/cutscenes/spire_outer_hull_intro.tscn");
+		}
 		else
 		{
 			Navigate(LevelCatalog.ScenePath(_nextMission));

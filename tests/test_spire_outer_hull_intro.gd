@@ -1,0 +1,78 @@
+class_name TestSpireOuterHullIntro
+extends GdUnitTestSuite
+## Mission 9 prologue cinematic test covering input skipping, natural finish, and cue timing.
+
+const SCENE := "res://scripts/ui/SpireOuterHullIntro.cs"
+
+
+func test_skip_and_natural_finish_stop_owned_audio_and_emit_once() -> void:
+	## The timed clock and each skip input converge on a single completion signal.
+	for natural in [false, true]:
+		var overlay: Node = load(SCENE).new()
+		overlay.set("SpeechPath", "")
+		overlay.set("EnterMissionOnFinish", false)
+		var count := [0]
+		overlay.connect("Finished", func() -> void: count[0] += 1)
+		add_child(overlay)
+		overlay.set_process(false)
+		if natural:
+			overlay.call("_Process", 90.0)
+		else:
+			var skip := InputEventKey.new()
+			skip.pressed = true
+			skip.keycode = KEY_ESCAPE
+			overlay.call("_UnhandledInput", skip)
+		overlay.call("Finish")
+		assert_bool(overlay.get("HasFinished")).is_true()
+		assert_bool(overlay.get_node("Atmosphere").playing).is_false()
+		await get_tree().process_frame
+		assert_int(count[0]).is_equal(1)
+		if is_instance_valid(overlay):
+			overlay.free()
+
+
+func test_missing_art_uses_safe_fallback() -> void:
+	## Procedural visual stage remains valid and resilient, and overlay finishes cleanly.
+	var overlay: Node = load(SCENE).new()
+	overlay.set("SpeechPath", "")
+	overlay.set("ArtPath", "res://missing-art-dir/")
+	overlay.set("EnterMissionOnFinish", false)
+	var count := [0]
+	overlay.connect("Finished", func() -> void: count[0] += 1)
+	add_child(overlay)
+	await get_tree().process_frame
+	overlay.call("Finish")
+	assert_int(count[0]).is_equal(1)
+	if is_instance_valid(overlay):
+		overlay.free()
+
+
+func test_cues_timeline_and_subtitles() -> void:
+	## Tests all 9 authored cues along the timeline.
+	var overlay: Node = load(SCENE).new()
+	overlay.set("SpeechPath", "")
+	overlay.set("EnterMissionOnFinish", false)
+	add_child(overlay)
+	overlay.set_process(false)
+
+	var samples := [
+		[0.5, "AXIOM-7"],
+		[10.5, "SURYA"],
+		[20.5, "MIRAGE"],
+		[30.5, "TITAN"],
+		[40.5, "OCEANUS"],
+		[50.5, "AURA"],
+		[60.5, "AXIOM-7"],
+		[70.5, "MIRAGE"],
+		[80.5, "KAITO"]
+	]
+
+	for sample in samples:
+		overlay.call("Seek", sample[0])
+		var text: String = overlay.get_node("UI/SubtitlePanel/Subtitle").text
+		assert_bool(text.begins_with(sample[1])).is_true()
+
+	overlay.call("Seek", 90.0)
+	overlay.call("Finish")
+	if is_instance_valid(overlay):
+		overlay.free()

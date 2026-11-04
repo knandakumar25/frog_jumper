@@ -218,4 +218,5 @@ func test_level4_arena_requires_objectives_and_crossing_requires_release() -> vo
 func test_each_level_names_the_next_scene_or_ends_the_act() -> void:
 	for level in range(1, 9):
 		assert_str(catalog.ScenePath(level)).is_equal(LEVELS[level])
-	assert_int(catalog.Count()).is_equal(8)
+	assert_str(catalog.ScenePath(9)).is_equal("res://scenes/gameplay/level9.tscn")
+	assert_int(catalog.Count()).is_equal(9)
