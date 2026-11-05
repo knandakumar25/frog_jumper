@@ -15,8 +15,98 @@ Formally established the 3-Act campaign structure across 12 canonical missions:
   - Mission 8: *Stratos Docks* (High-altitude aviation hub; hijacking VTOL gunship) — **Complete** (Gameplay & Epilogue Cutscene)
   - Mission 9: *Spire Outer Hull* (High-mobility vertical exterior ascent & aerial drone swarms) — **Complete** (Gameplay, Prologue & Epilogue Cutscenes)
   - Mission 10: *The Cyber-Nexus* (Mainframe core, AI surveillance override & multi-operative security gauntlet) — **Complete** (Gameplay, Prologue & Epilogue Cutscenes)
-  - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access) — **Active Next Frontier**
+  - Mission 11: *The Apex Bastion* (Praetorian guard & penultimate boss mech defending throne access) — **Complete** (Gameplay, Prologue & Epilogue Cutscenes)
   - Mission 12: *Judgment Day* (Citadel Summit / Throne Room showdown against Void Commander; awards `CAMPAIGN COMPLETE`)
+
+## Post-Level 11 Cutscene: The Gates of Judgment — Apex Bastion Aftermath (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the post-mission cinematic epilogue overlay (`ApexBastionAftermath.cs`, `ApexBastionAftermathStage.cs`, `scenes/cutscenes/apex_bastion_aftermath.tscn`) concluding Mission 11 (*The Apex Bastion*) upon extraction:
+1. **Narrative & Authored Dialogue (`assets/cutscenes/apex_bastion_aftermath/cues.json`)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking the aftermath of the Bastion Praetor's defeat and the breaching of the Grand Citadel Throne Room blast doors:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 reporting Bastion Praetor destroyed, outer fortress redoubts silenced, and Citadel summit quarantine protocols disabled across all sectors.
+     - Cue 2 (10.0s - 20.0s): Mirage Blade observing the Praetorian defense line completely collapsing and the primary hydraulic blast doors groaning open.
+     - Cue 3 (20.0s - 30.0s): Apex Titan kicking smoking chassis plating off the fallen boss mech and noting its twin flak cannons are officially scrap.
+     - Cue 4 (30.0s - 40.0s): Oceanus reading violent energy spikes in the stratospheric vortex above as the Throne Room seal cracks open.
+     - Cue 5 (40.0s - 50.0s): Surya Prime observing the entire liberated city grid below watching the Citadel Spire summit illuminate.
+     - Cue 6 (50.0s - 60.0s): Aura Phoenicia detecting the harmonic frequency of the Void Core pulsing directly ahead through the parted blast doors.
+     - Cue 7 (60.0s - 70.0s): Mirage Blade confirming all automated locks and defense relays on the Throne Room are overridden.
+     - Cue 8 (70.0s - 80.0s): AXIOM-7 warning telemetry indicates the Void Commander is powering the singularity drive at maximum output.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane drawing his katana and leading Axiom Force across the threshold into the final showdown (*Judgment Day*).
+2. **Procedural Visual Staging (`ApexBastionAftermathStage.cs`)**:
+   - High-altitude void storm sky gradient (`#03020a` to `#180b26`) with dynamic arcing void lightning strikes (magenta, crimson, golden discharge).
+   - High obsidian battlements deck with illuminated cyan/amber hazard conduits.
+   - Smoldering, cracked chassis of the defeated Bastion Praetor boss mechanoid with severed limbs, sparking exposed circuits, and rising billows of smoke.
+   - Monumental Grand Citadel Throne Room blast doors parting outward, revealing a blinding radiant void portal shimmering with golden and crimson energy.
+   - Silhouettes of all six Axiom Force operatives advancing toward the radiant portal threshold.
+   - CRT scanline overlay, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+3. **Engine & Scorecard Integration**:
+   - Attached in `CodeLevel.CompleteMission` when `MissionNumber == 11`, freeze-isolating the extracted level, playing the cinematic epilogue, and deferring to `CyberVictoryScorecard.ShowMissionScorecard` targeting Mission 12 upon natural finish or skip (ESC / Space / Enter / gamepad / click).
+4. **Automated Verification & Test Coverage**:
+   - NUnit suite `ApexBastionAftermathTests.cs` (3 test cases): Exact 90.0s duration, scene file existence, and 9 ordered cues validation in `cues.json`.
+   - GdUnit4 suite `test_apex_bastion_aftermath.gd` (4 test cases): Skip & natural finish, missing art fallback, subtitle cue timeline seeking with 0 orphan nodes.
+   - Full test suite runner passed: 104 Django, 240 NUnit, 279 GdUnit4 across 56 suites (100% pass, 0 orphans, `report_475`).
+
+## Mission 11 Gameplay: The Apex Bastion (Stratospheric Fortress) (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the full 2D platformer mission (ApexBastionMission.cs, scenes/gameplay/level11.tscn) extending CodeLevel and implementing IFiniteCombatHost:
+1. **6-Sector Stratospheric Fortress Layout (28,500 Unit Horizontal Scope)**:
+   - *SEC.01 // STRATOSPHERIC SUMMIT GANTRY*: Open-air freight lift arrival platform at 4,000m, howling crosswinds, high-altitude gantry catwalks, and automated perimeter patrols (summit1, summit2). Checkpoint at x=1,200.
+   - *SEC.02 // FLAK BATTERY TRENCHES & COOLANT CONDUITS*: Pressurized plasma flak coolant lines (CoolantVent.cs) requiring Oceanus Douse (GateKind.FireVent), heavy magnetic titan-clamp battery mooring barricades requiring Apex Titan Slam (GateKind.RubbleWall), and flak battery neutralization (lak1, lak2, lak3). Checkpoint at x=5,500.
+   - *SEC.03 // LOWER REDOUBT & LASER DEFENSE CORRIDOR*: Multi-tier obsidian battlements, high-voltage exterior laser grid curtains (CyberLaserGrid2D.cs) bypassed via Mirage Blade Phase Shift, concentrated plasma radiation thermal vents defended under Surya Prime Bulwark (GateKind.HeatVent), and lower redoubt clearance (edoubt1, edoubt2, edoubt3). Checkpoint at x=10,500.
+   - *SEC.04 // PRAETORIAN HYDRAULIC ELEVATOR SHAFT*: Vertical wall-jump lift shaft, harmonic dissonance acoustic security locks requiring Aura Phoenicia Resonance (GateKind.SonicLock), and praetorian vanguard waves (praetorian1, praetorian2). Checkpoint at x=16,000.
+   - *SEC.05 // GRAND BASTION REDOUBT // BASTION PRAETOR*: Multi-platform fortress rampart arena facing the Citadel Spire summit, featuring the penultimate multi-phase boss mechanoid BastionPraetorBoss2D (620 HP) armed with swept deflectable PraetorPlasmaBolt2D projectiles (reflectable by Kaito's Kinetic Parry for 45 reflected damage), deployable energy shields, sweeping flak salvos, and Phase 3 Praetor Overdrive Fury (rena1, rena2, rena3). Checkpoint at x=21,000.
+   - *SEC.06 // THRONE ROOM EMBANKMENT & CITADEL BREACH*: Citadel blast doors override terminal hack, final praetorian garrison encounter (reach1), and extraction threshold leading into the Grand Citadel Throne Room (Mission 12). Checkpoint at x=26,000.
+2. **Deflectable Boss Projectile (PraetorPlasmaBolt2D.cs)**:
+   - Swept high-velocity plasma bolt fired by the Bastion Praetor boss.
+   - Implements public void TakeDamage(float amount) { Reflect(); } which seamlessly triggers CyberShogun.cs parry logic, turning bolt cyan and reflecting it back to the boss for 45 reflected damage.
+3. **Multi-Phase Boss Mechanoid (BastionPraetorBoss2D.cs)**:
+   - 620 HP boss mechanoid defending the high fortress ramparts.
+   - Procedural rendering: heavy obsidian gunmetal chassis, crimson command visor, twin shoulder-mounted plasma flak cannons, deployable hexagonal energy shield barrier, and rocket thruster flames.
+   - Phase 1 (100% - 70% HP): Rhythmic plasma cannon salvos, ground hover repositioning, and jump stomps.
+   - Phase 2 (70% - 35% HP): Rapid swept plasma flak bursts, deployable Praetorian energy shield, sweeping beam cannons, and tactical hover dashes.
+   - Phase 3 (35% - 0% HP): Praetor Overdrive Fury — dual overcharged plasma barrages, seismic shockwave ground slams, and rapid jet thruster charges.
+4. **Squad Synergy & Campaign Wiring**:
+   - Full 6-operative roster active with operative-specific ability gates and dynamic in-level squad swapping.
+   - Sector 11 card in Level Selection (scenes/main_menu/level_selection.tscn, scripts/main_menu/level_selection.gd).
+   - Scorecard routing in scripts/gameplay/CodeLevel.cs (MissionNumber == 11 targeting Mission 12).
+5. **Pure C# Ledger & Verification**:
+   - ApexBastionProgress.cs pure C# engine-free mission ledger tracking 14 ordered milestones, 14 authored combat formations, and bounded retry slot rewards.
+   - Automated unit test suites: NUnit (ApexBastionProgressTests.cs, 237 tests total) and GdUnit4 (	est_apex_bastion_mission.gd), with all 11 missions validated in 	est_campaign_levels.gd and 	est_level_selection_2d.gd (0 errors, 0 failures, 0 orphans).
+
+## Pre-Level 11 Cutscene: The Praetorian Vanguard — Apex Bastion Intro (2026-11-04)
+
+### Summary of Enhancements
+Authored, implemented, and fully verified the pre-mission cinematic prologue overlay (ApexBastionIntro.cs, ApexBastionStage.cs, scenes/cutscenes/apex_bastion_intro.tscn) introducing Mission 11 (*The Apex Bastion*) as the freight lift arrives at the stratospheric summit:
+1. **Narrative & Authored Dialogue (ssets/cutscenes/apex_bastion_intro/cues.json)**:
+   - Monotonic 90.0-second timeline across 9 authored dialogue cues tracking arrival at 4,000m altitude and reconnoitering the Bastion defenses:
+     - Cue 1 (0.0s - 10.0s): AXIOM-7 announcing arrival at 4,000 meters elevation, stratospheric staging platform docked, registering extreme void-resonance readings.
+     - Cue 2 (10.0s - 20.0s): Apex Titan stepping out into howling crosswinds, cracking knuckles over open battlements.
+     - Cue 3 (20.0s - 30.0s): Surya Prime deploying bulwark shields to anchor squad against high-altitude gusts.
+     - Cue 4 (30.0s - 40.0s): Mirage Blade spotting heavy Praetorian mechs locking down the outer ramparts.
+     - Cue 5 (40.0s - 50.0s): Oceanus analyzing automated flak batteries firing blind into the cloud sea below.
+     - Cue 6 (50.0s - 60.0s): Aura Phoenicia detecting harmonic disturbance and psychic resonance of the Void Commander directly above.
+     - Cue 7 (60.0s - 70.0s): AXIOM-7 confirming the Apex Bastion is the penultimate defense line before the Citadel Throne Room.
+     - Cue 8 (70.0s - 80.0s): Mirage Blade identifying the elevator shaft access hatch as the only path inside.
+     - Cue 9 (80.0s - 90.0s): Kaito Kurogane drawing blade and ordering the squad to breach the Bastion.
+2. **Procedural Visual Staging (ApexBastionStage.cs)**:
+   - High-altitude cloud sea gradient (#060814 to #16223e) with drifting atmospheric vapor layers and stratospheric turbulence.
+   - Sweeping red alert sky searchlights penetrating the clouds.
+   - Towering brutalist fortress battlements in obsidian and gunmetal with cyan hazard markings.
+   - Twin-linked plasma flak turrets with animated tracking and laser targeting beams.
+   - Praetorian cyber-samurai silhouettes stationed along the ramparts.
+   - Penultimate boss mech silhouette (*Bastion Praetor*) towering over the upper redoubt with pulsing crimson visor.
+   - Open freight lift platform with glowing magnetic safety rails and operative squad silhouettes.
+   - CRT scanline overlay, 2.39:1 anamorphic cinema bars, zero external texture dependencies (ResourcesAvailable => true).
+3. **Engine & Scorecard Integration**:
+   - Mission 11 registered in LevelCatalog.cs (The Apex Bastion, es://scenes/gameplay/level11.tscn, all 6 abilities).
+   - CyberVictoryScorecard.cs routes _nextMission == 11 directly into pex_bastion_intro.tscn.
+   - Level selection menu updated with Sector 11 card in level_selection.tscn and level_selection.gd.
+4. **Automated Verification & Test Coverage**:
+   - NUnit suite ApexBastionIntroTests.cs (3 test cases): Exact 90.0s duration, scene file existence, and 9 ordered cues validation in cues.json.
+   - GdUnit4 suite 	est_apex_bastion_intro.gd (3 test cases): Skip & natural finish, missing art fallback, subtitle cue timeline seeking with 0 orphan nodes.
+   - Full test suite runner passed: 104 Django, 219 NUnit, 272 GdUnit4 across 54 suites (100% pass, 0 orphans, eport_470).
 
 ## Post-Level 10 Cutscene: The Logic Collapse — Cyber-Nexus Aftermath (2026-11-04)
 

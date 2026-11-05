@@ -87,6 +87,9 @@ func _on_level_9_pressed() -> void: _start_level(9)
 ## Enters Mission 10 directly; the Cyber-Nexus cinematic belongs to Level 9 Continue.
 func _on_level_10_pressed() -> void: _start_level(10)
 
+## Enters Mission 11 directly; the Apex Bastion cinematic belongs to Level 10 Continue.
+func _on_level_11_pressed() -> void: _start_level(11)
+
 ## Returns to the main menu through the existing loading screen.
 func _on_back_button_pressed() -> void:
 	GameManager.set_game_state(GameManager.State.MAIN_MENU)

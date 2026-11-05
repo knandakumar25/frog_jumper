@@ -104,7 +104,7 @@ public class OperativeRosterTests
     {
         for (int i = 0; i < LevelCatalog.Count; i++) Assert.That(LevelCatalog.All[i].Number, Is.EqualTo(i + 1));
         Assert.That(LevelCatalog.Clamp(0), Is.EqualTo(1));
-        Assert.That(LevelCatalog.Clamp(10), Is.EqualTo(LevelCatalog.Count));
+        Assert.That(LevelCatalog.Clamp(11), Is.EqualTo(LevelCatalog.Count));
         Assert.That(LevelCatalog.HasNext(LevelCatalog.Count), Is.False);
         Assert.That(LevelCatalog.ScenePath(1), Does.EndWith("level1.tscn"));
     }

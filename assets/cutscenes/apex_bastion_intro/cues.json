@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: Freight lift arrived at Spire Level 100. Elevation: four-thousand five-hundred meters. Atmospheric pressure critical. Welcome to the Apex Bastion—the personal fortress of the Praetorian Guard."
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "TITAN: Look at these battlements... obsidian-alloy plating three meters thick. Automated plasma turrets tracking every inch of the courtyard. They've turned the entire spire summit into an active warzone."
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "OCEANUS: The clouds are beneath us now. Sub-zero gale-force winds are whipping across the ramparts. One slip off these outer parapets and it's a four-kilometer drop back to the city."
+  },
+  {
+    "cue": 4,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "MIRAGE: Motion sensors pinging dozens of heavy signatures. Those aren't automated drones—those are the Void Commander's elite Praetorian shock-troopers and cyber-samurai. They're locked and loaded."
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "AURA: Their comms are chillingly silent. No panic, no distress calls. They know the Cyber-Nexus is gone, and they know we're here. They have sworn an oath to fight to the last machine cycle."
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "SURYA: The stairway beyond the courtyard leads directly to the Throne Room. Look at the perimeter gate: heavy barrier shields and heavy kinetic artillery. We will need all our strength to breach it."
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "AXIOM-7: Warning: Deep scans detect a colossal mechanized war chassis guarding the grand gatehouse: The Bastion Praetor. It is the final guardian defending access to the Void Commander."
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "MIRAGE: We broke their street gangs in the District. We drowned their bio-labs in the Grave. We tore their sky-shields down in the Forge. We are not stopping on the front porch."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Chris",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: Axiom Force has come too far to falter. Through the Praetorian Guard, through the Praetor mech, and straight to the Void Commander's throne. Blades drawn—breach the Bastion!"
+  }
+]

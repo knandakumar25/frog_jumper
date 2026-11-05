@@ -1,0 +1,74 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 0.0,
+    "end": 10.0,
+    "text": "AXIOM-7: Bastion Praetor core neutralized. The high fortress battlements are cleared. Flak artillery arrays across the stratospheric summit have gone completely silent."
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "start": 10.0,
+    "end": 20.0,
+    "text": "TITAN: That was their supreme guardian? Heavy armor, but its servos couldn't take my kinetic hammer. Now look at those blast doors... thick enough to withstand orbital bombardment."
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "start": 20.0,
+    "end": 30.0,
+    "text": "OCEANUS: Look at the atmospheric sensors. Barometric pressure is plummeting, but the temperature is surging. The entire summit is wrapped in a localized void hurricane."
+  },
+  {
+    "cue": 4,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 30.0,
+    "end": 40.0,
+    "text": "SURYA: It is not weather. The Void Commander is siphoning raw energy from the upper atmosphere straight into the Throne Room. My bulwark shields are picking up intense electromagnetic distortion."
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "start": 40.0,
+    "end": 50.0,
+    "text": "AURA: The dissonance... it's deafening now. An overwhelming psychic frequency echoing from behind those doors. He knows we broke through his army, and he is waiting."
+  },
+  {
+    "cue": 6,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "start": 50.0,
+    "end": 60.0,
+    "text": "MIRAGE: I've sliced into the gate relays. The Praetor's biometric master key was the only lock left. Disengaging hydraulic security bolts... three... two... one."
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "start": 60.0,
+    "end": 70.0,
+    "text": "AXIOM-7: Warning: Blast doors unsealing. Sensor telemetry beyond this threshold confirms the Void Commander's throne chamber. Extreme lethal power readings detected."
+  },
+  {
+    "cue": 8,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "start": 70.0,
+    "end": 80.0,
+    "text": "SURYA: Twelve sectors. We fought from the flooded ruins of Old Tokyo, through the underground bio-labs, up the Spire hull, and across these clouds. This is the end of the line."
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Chris",
+    "start": 80.0,
+    "end": 90.0,
+    "text": "KAITO: We set out to free this city, and we finish it together. Axiom Force, draw steel. Behind these doors is Judgment Day!"
+  }
+]

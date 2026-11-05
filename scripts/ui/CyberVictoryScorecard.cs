@@ -191,6 +191,10 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		{
 			Navigate("res://scenes/cutscenes/cyber_nexus_intro.tscn");
 		}
+		else if (_nextMission == 11 && ResourceLoader.Exists("res://scenes/cutscenes/apex_bastion_intro.tscn"))
+		{
+			Navigate("res://scenes/cutscenes/apex_bastion_intro.tscn");
+		}
 		else
 		{
 			Navigate(LevelCatalog.ScenePath(_nextMission));

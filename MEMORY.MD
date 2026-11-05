@@ -8,6 +8,66 @@ this summary does not replace them. Verify live environment state before acting.
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
 
+## Post-Level 11 Epilogue Cutscene Implementation (ApexBastionAftermath) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic epilogue overlay ('The Gates of Judgment // Apex Bastion Aftermath', `ApexBastionAftermath.cs`, `ApexBastionAftermathStage.cs`, `scenes/cutscenes/apex_bastion_aftermath.tscn`) concluding Mission 11 (*The Apex Bastion*).
+- Narrative & Staging:
+  - Axiom Force stands atop the high obsidian battlements at 4,000 meters altitude before the monumental blast doors of the Grand Citadel. Below and around them lies the smoldering wreck of the defeated Bastion Praetor war mechanoid and silenced perimeter flak batteries.
+  - As stratospheric void storms churn with magenta and crimson lightning arcing across the sky, the Citadel blast doors part outward, revealing a blinding radiant void portal shimmering with golden and crimson energy leading into the Grand Citadel Throne Room for the ultimate confrontation (*Judgment Day*, Mission 12).
+  - Procedural stage (`ApexBastionAftermathStage.cs`) featuring high-altitude void storm sky gradient (`#03020a` to `#180b26`), dynamic arcing void lightning strikes, heavy obsidian battlements deck with illuminated cyan/amber hazard conduits, smoldering wreck of the defeated Bastion Praetor with sparking cannon mounts and smoke plumes, monumental blast doors parting to reveal radiant golden/crimson portal, 6 operative silhouettes advancing toward portal, CRT scanlines, 2.39:1 cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Mirage, Titan, Oceanus, Surya, Aura, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign, Scorecard & Extraction Integration:
+  - Wired in `CodeLevel.CompleteMission` when `MissionNumber == 11` to freeze active level nodes, instantiate `ApexBastionAftermath`, and defer to `CyberVictoryScorecard.ShowMissionScorecard(finalScore, peakCombo, operative, 12)` targeting Mission 12 (*Judgment Day*).
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 240/240 PASSED (new `ApexBastionAftermathTests.cs` 3/3, duration, scene file existence, dialogue cues)
+  - GdUnit4 (Godot 4.7.2 Headless): 279/279 test cases across 56 suites PASSED (new `test_apex_bastion_aftermath.gd` 4/4, 0 errors, 0 failures, 0 flaky, 0 orphans, `report_475`).
+  - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+
+## Mission 11 Gameplay Implementation (ApexBastionMission) — 2026-11-04
+
+- Fully authored, implemented, and verified the complete 2D platformer gameplay for Mission 11 ('The Apex Bastion - Stratospheric Summit Fortress', ApexBastionMission.cs, scenes/gameplay/level11.tscn), continuing the Act III Citadel Spire campaign.
+- Level Architecture & Mechanics:
+  - Subclassed CodeLevel and implemented IFiniteCombatHost across 6 authored stratospheric summit sectors (28,500 horizontal units):
+    1. *SEC.01 // STRATOSPHERIC SUMMIT GANTRY*: Open-air freight lift arrival platform at 4,000m, howling crosswinds, high-altitude gantry catwalks, and automated perimeter patrols (summit1, summit2). Checkpoint at x=1,200.
+    2. *SEC.02 // FLAK BATTERY TRENCHES & COOLANT CONDUITS*: Pressurized plasma flak coolant lines (CoolantVent.cs) doused by Oceanus (GateKind.FireVent), heavy magnetic titan-clamp battery mooring barricades shattered by Apex Titan Slam (GateKind.RubbleWall), and flak battery neutralization (lak1, lak2, lak3). Checkpoint at x=5,500.
+    3. *SEC.03 // LOWER REDOUBT & LASER DEFENSE CORRIDOR*: Multi-tier obsidian battlements, high-voltage exterior laser grid curtains (CyberLaserGrid2D.cs) phased through via Mirage Blade Phase Shift, concentrated plasma radiation thermal vents defended under Surya Prime Bulwark (GateKind.HeatVent), and lower redoubt clearance (edoubt1, edoubt2, edoubt3). Checkpoint at x=10,500.
+    4. *SEC.04 // PRAETORIAN HYDRAULIC ELEVATOR SHAFT*: Vertical wall-jump lift shaft, harmonic dissonance acoustic security locks bypassed by Aura Phoenicia Resonance (GateKind.SonicLock), and praetorian vanguard waves (praetorian1, praetorian2). Checkpoint at x=16,000.
+    5. *SEC.05 // GRAND BASTION REDOUBT // BASTION PRAETOR*: Climactic rampart arena featuring the penultimate boss mechanoid BastionPraetorBoss2D (620 HP) armed with deflecting PraetorPlasmaBolt2D swept projectiles (reflectable by Kaito's Kinetic Parry for 45 reflected damage), deployable energy shields, sweeping flak salvos, and Phase 3 Praetor Overdrive Fury (rena1, rena2, rena3). Checkpoint at x=21,000.
+    6. *SEC.06 // THRONE ROOM EMBANKMENT & CITADEL BREACH*: Citadel blast doors override terminal hack, final praetorian garrison encounter (reach1), and extraction threshold leading into the Grand Citadel Throne Room (Mission 12). Checkpoint at x=26,000.
+- Boss Mechanoid Encounter:
+  - Created BastionPraetorBoss2D.cs (620 HP) and PraetorPlasmaBolt2D.cs.
+  - Swept high-velocity plasma flak bolts are deflectable by Kaito's Kinetic Parry (TakeDamage calls Reflect()), turning bolt cyan and returning 45 reflected damage to the boss.
+  - Phase 1 (rhythmic plasma salvos, ground hover repositioning, jump stomps), Phase 2 (rapid flak bursts, deployable energy shield barrier, swept beam cannons, tactical hover dashes), Phase 3 (Praetor Overdrive Fury with continuous overcharged plasma storm, ground shockwave slams, rapid jet thruster charges).
+- Campaign, UI & Scorecard Integration:
+  - Attached ApexBastionMission.cs to scenes/gameplay/level11.tscn.
+  - Wired MissionNumber == 11 scorecard completion routing in scripts/gameplay/CodeLevel.cs targeting Mission 12.
+- Pure C# Ledger & Test Verification:
+  - ApexBastionProgress.cs pure C# engine-free ledger tracking 14 ordered milestones, 14 authored combat formations, and bounded retry slot rewards.
+  - Comprehensive automated tests: NUnit (ApexBastionProgressTests.cs, 237 tests total) and GdUnit4 (	est_apex_bastion_mission.gd), with all 11 missions validated in 	est_campaign_levels.gd and 	est_level_selection_2d.gd (0 errors, 0 failures, 0 orphans).
+  - Test Suite Summary: 104/104 Django, 237/237 NUnit, 275/275 GdUnit4 across 55 suites (100% pass, 0 orphans, eport_473).
+
+## Pre-Level 11 Prologue Cutscene Implementation (ApexBastionIntro) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic prologue overlay ('The Praetorian Vanguard // Apex Bastion Intro', ApexBastionIntro.cs, ApexBastionStage.cs, scenes/cutscenes/apex_bastion_intro.tscn) introducing Mission 11 (*The Apex Bastion*).
+- Narrative & Staging:
+  - Axiom Force arrives atop the 4,000-meter stratospheric summit freight lift, emerging onto open-air battlements facing the brutalist obsidian fortifications of the Apex Bastion.
+  - Looming above are automated twin-linked plasma turrets, Praetorian cyber-samurai silhouettes, and the towering silhouette of the Bastion Praetor war mechanoid defending the Citadel Throne Room.
+  - Procedural stage (ApexBastionStage.cs) featuring high-altitude cloud sea gradient (#060814 to #16223e), drifting atmospheric vapor layers, sweeping red alert searchlights, brutalist obsidian fortress battlements, illuminated twin-linked plasma turret arrays with targeting beams, Praetorian defender silhouettes, Bastion Praetor war mechanoid silhouette with pulsing crimson visor, open freight lift platform with glowing magnetic safety rails, operative squad silhouettes, CRT scanlines, 2.39:1 anamorphic cinema bars, and guaranteed zero external texture dependencies (ResourcesAvailable => true).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Titan, Surya, Mirage, Oceanus, Aura, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Registered Mission 11 (*The Apex Bastion*, es://scenes/gameplay/level11.tscn, all 6 abilities) in scripts/managers/LevelCatalog.cs.
+  - Routed _nextMission == 11 in scripts/ui/CyberVictoryScorecard.cs to launch pex_bastion_intro.tscn.
+  - Added Sector 11 card to scenes/main_menu/level_selection.tscn and wired _on_level_11_pressed() in scripts/main_menu/level_selection.gd.
+  - Updated 	ests/test_campaign_levels.gd to test all 11 campaign missions.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 219/219 PASSED (ApexBastionIntroTests.cs 3/3, OperativeRosterTests.cs, NamesProgressTests.cs, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 272/272 test cases across 54 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, eport_470).
+  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+
 ## Post-Level 10 Epilogue Cutscene Implementation (CyberNexusAftermath) — 2026-11-04
 
 - Fully authored, implemented, and verified the cinematic epilogue overlay ('The Logic Collapse // Mission 10 Aftermath', `CyberNexusAftermath.cs`, `CyberNexusAftermathStage.cs`, `scenes/cutscenes/cyber_nexus_aftermath.tscn`) concluding Mission 10 (*The Cyber-Nexus*).
