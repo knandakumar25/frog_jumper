@@ -46,6 +46,8 @@ public static class LevelCatalog
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
         new(11, "The Apex Bastion", "res://scenes/gameplay/level11.tscn", "11",
             Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
+        new(12, "Judgment Day", "res://scenes/gameplay/level12.tscn", "12",
+            Array.Empty<string>(), new[] { Parry, Douse, Slam, Resonate, Phase, Bulwark }),
     };
 
     /// <summary>All missions in play order.</summary>

@@ -17,6 +17,7 @@ const LEVELS := {
 	9: "res://scenes/gameplay/level9.tscn",
 	10: "res://scenes/gameplay/level10.tscn",
 	11: "res://scenes/gameplay/level11.tscn",
+	12: "res://scenes/gameplay/level12.tscn",
 }
 const GATE := 4
 ## Conservative limits: weakest jump (Apex Titan) clears ~177 px up and ~256 px across at run speed.
@@ -219,6 +220,6 @@ func test_level4_arena_requires_objectives_and_crossing_requires_release() -> vo
 	mission.free()
 
 func test_each_level_names_the_next_scene_or_ends_the_act() -> void:
-	for level in range(1, 12):
+	for level in range(1, 13):
 		assert_str(catalog.ScenePath(level)).is_equal(LEVELS[level])
-	assert_int(catalog.Count()).is_equal(11)
+	assert_int(catalog.Count()).is_equal(12)

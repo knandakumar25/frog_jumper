@@ -76,6 +76,19 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		}
 	}
 
+	/// <summary>Shows Campaign Victory results with S/A/B grading, Replay, Level Select, and Main Menu.</summary>
+	public void ShowCampaignCompleteScorecard(int score, int maxCombo, string operative)
+	{
+		RenderScorecard(score, maxCombo, operative, 0);
+		if (_titleLabel != null) _titleLabel.Text = "CAMPAIGN COMPLETE";
+		if (_previewBtn != null)
+		{
+			string text = Tr("CAMPAIGN_VICTORY");
+			_previewBtn.Text = text == "CAMPAIGN_VICTORY" || string.IsNullOrWhiteSpace(text) ? "SECTOR CLEARED // LIBERATION ACHIEVED" : text;
+			_previewBtn.Visible = true;
+		}
+	}
+
 	/// <summary>Shows Act I results with the Act II opening, Replay, Level Select and Main Menu.</summary>
     public void ShowActScorecard(int score, int maxCombo, string operative)
     {
@@ -194,6 +207,10 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		else if (_nextMission == 11 && ResourceLoader.Exists("res://scenes/cutscenes/apex_bastion_intro.tscn"))
 		{
 			Navigate("res://scenes/cutscenes/apex_bastion_intro.tscn");
+		}
+		else if (_nextMission == 12 && ResourceLoader.Exists("res://scenes/cutscenes/judgment_day_intro.tscn"))
+		{
+			Navigate("res://scenes/cutscenes/judgment_day_intro.tscn");
 		}
 		else
 		{

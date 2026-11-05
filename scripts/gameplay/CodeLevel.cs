@@ -657,6 +657,16 @@ public abstract partial class CodeLevel : Node2D
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
+        if (MissionNumber == 12)
+        {
+            ProcessMode = ProcessModeEnum.Disabled;
+            foreach (Node child in GetChildren())
+                if (child != _scorecard) FreezeForEpilogue(child);
+            var aftermath = new JudgmentDayAftermath { Name = "JudgmentDayAftermath", Layer = 40 };
+            aftermath.Finished += () => _scorecard?.ShowCampaignCompleteScorecard(finalScore, peakCombo, operative);
+            Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
+            return;
+        }
         if (MissionNumber == 4) _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
         else _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
 

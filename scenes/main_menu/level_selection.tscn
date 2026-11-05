@@ -338,6 +338,31 @@ custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 text = "LAUNCH MISSION 11"
 
+[node name="Sector12" type="PanelContainer" parent="MainLayout/SectorGrid"]
+custom_minimum_size = Vector2(520, 170)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/SectorGrid/Sector12"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainLayout/SectorGrid/Sector12/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_fonts/font = ExtResource("3_orbitron")
+theme_override_font_sizes/font_size = 22
+text = "ACT III // MISSION 12: JUDGMENT DAY"
+
+[node name="Desc" type="Label" parent="MainLayout/SectorGrid/Sector12/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.95, 1, 0.9)
+text = "Confront the Void Commander at the Citadel Summit Void Singularity Chamber and strike down the machine empire."
+
+[node name="Level12" type="Button" parent="MainLayout/SectorGrid/Sector12/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "LAUNCH MISSION 12"
+
 [node name="CenterContainer" type="CenterContainer" parent="MainLayout"]
 layout_mode = 2
 
@@ -360,3 +385,4 @@ text = "Return to Main Menu"
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector9/VBox/Level9" to="." method="_on_level_9_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector10/VBox/Level10" to="." method="_on_level_10_pressed"]
 [connection signal="pressed" from="MainLayout/SectorGrid/Sector11/VBox/Level11" to="." method="_on_level_11_pressed"]
+[connection signal="pressed" from="MainLayout/SectorGrid/Sector12/VBox/Level12" to="." method="_on_level_12_pressed"]

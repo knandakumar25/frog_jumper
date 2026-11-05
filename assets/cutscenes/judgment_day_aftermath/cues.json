@@ -1,0 +1,65 @@
+[
+  {
+    "index": 1,
+    "start": 0.0,
+    "end": 10.0,
+    "speaker": "AXIOM-7",
+    "text": "AXIOM-7: Singularity containment confirmed. Dark-matter reactor signature zeroed. The Void Commander's command matrix has completely collapsed across all global relays."
+  },
+  {
+    "index": 2,
+    "start": 10.0,
+    "end": 20.0,
+    "speaker": "MIRAGE",
+    "text": "MIRAGE: All imperial executive firewalls are dead. The broadcast transmitters are open to the entire planet. Look down... the quarantine sectors are dropping their barriers."
+  },
+  {
+    "index": 3,
+    "start": 20.0,
+    "end": 30.0,
+    "speaker": "TITAN",
+    "text": "TITAN: Ten million people trapped in the dark for decades... look at those lights coming online. From the lower sumps all the way to the cloudline. The city is breathing again."
+  },
+  {
+    "index": 4,
+    "start": 30.0,
+    "end": 40.0,
+    "speaker": "OCEANUS",
+    "text": "OCEANUS: The atmospheric scrubbers are reversing. Cool ocean breezes are flowing through the shattered spire. The perpetual storm has broken."
+  },
+  {
+    "index": 5,
+    "start": 40.0,
+    "end": 50.0,
+    "speaker": "SURYA",
+    "text": "SURYA: The eternal night is over. My solar cells are drinking in natural sunlight for the first time in fifty years. It's... warm."
+  },
+  {
+    "index": 6,
+    "start": 50.0,
+    "end": 60.0,
+    "speaker": "AURA",
+    "text": "AURA: I hear their voices... not crying out in terror or silenced by suppression collars, but singing. Crying tears of joy. The resonance of a free world."
+  },
+  {
+    "index": 7,
+    "start": 60.0,
+    "end": 70.0,
+    "speaker": "AXIOM-7",
+    "text": "AXIOM-7: Imperial registry files across twelve districts have been erased and restored to civilian autonomy. Axiom Force mission parameters: One hundred percent achieved."
+  },
+  {
+    "index": 8,
+    "start": 70.0,
+    "end": 80.0,
+    "speaker": "KAITO",
+    "text": "KAITO: We fought as castaways, rogues, and ghosts in the gridlock. Today, we stand as one squad. We gave them their tomorrow back."
+  },
+  {
+    "index": 9,
+    "start": 80.0,
+    "end": 90.0,
+    "speaker": "KAITO",
+    "text": "KAITO: The dawn belongs to all of us. Axiom Force... stand down. Our city is free."
+  }
+]

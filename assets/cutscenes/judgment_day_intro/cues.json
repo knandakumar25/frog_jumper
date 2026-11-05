@@ -1,0 +1,74 @@
+[
+  {
+    "index": 0,
+    "start": 0.0,
+    "duration": 10.0,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "text": "AXIOM-7: Citadel Summit reached. Elevation: five-thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber—the heart of the Citadel and the seat of the Void Commander."
+  },
+  {
+    "index": 1,
+    "start": 10.0,
+    "duration": 10.0,
+    "speaker": "SURYA",
+    "voice": "Arjun",
+    "text": "SURYA: The cosmic radiation in this room is off the charts. Look at the event horizon... gravity itself is warping around the dais. Stand close behind my bulwark!"
+  },
+  {
+    "index": 2,
+    "start": 20.0,
+    "duration": 10.0,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "text": "OCEANUS: Thermal and energy telemetry confirmed. The Commander is draining the entire planetary geothermal grid straight into the singularity. He's preparing to purge the entire civilian population with one command."
+  },
+  {
+    "index": 3,
+    "start": 30.0,
+    "duration": 10.0,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "text": "MIRAGE: No Praetorian guards. No drone legions. No mechanized armies. Just him on that floating obsidian throne. He knew we were coming... and he's waiting for us."
+  },
+  {
+    "index": 4,
+    "start": 40.0,
+    "duration": 10.0,
+    "speaker": "TITAN",
+    "voice": "George",
+    "text": "TITAN: Let him wait! We broke his tanks at the Aegis, flattened his labs in the Grave, and wrecked his fortress at the Bastion. That armored crown is coming off today."
+  },
+  {
+    "index": 5,
+    "start": 50.0,
+    "duration": 10.0,
+    "speaker": "AURA",
+    "voice": "River",
+    "text": "AURA: The psychic dissonance is deafening, but underneath it... I can hear the heartbeat of millions across the eleven liberated sectors below. They are singing for the dawn."
+  },
+  {
+    "index": 6,
+    "start": 60.0,
+    "duration": 10.0,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "text": "VOICE OF THE VOID COMMANDER: 'You crawled out of the scrap heaps and broken alleys only to kneel before godhood. Your insurrection ends here. Axiom Force dies tonight.'"
+  },
+  {
+    "index": 7,
+    "start": 70.0,
+    "duration": 10.0,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "text": "MIRAGE: Phase blades energized. Shields synchronized. Every hack, every duel, every scar brought us to this threshold. We finish this together."
+  },
+  {
+    "index": 8,
+    "start": 80.0,
+    "duration": 10.0,
+    "speaker": "KAITO",
+    "voice": "Liam",
+    "text": "KAITO: Axiom Force! For every name stripped away, for every life stolen by the machine, for the liberation of the world—draw your weapons. Strike down the Commander!"
+  }
+]

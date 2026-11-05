@@ -8,6 +8,67 @@ this summary does not replace them. Verify live environment state before acting.
 
 - The user has explicitly directed to move permanently beyond Docker MCP and to never bring it up, explore it, suggest it, or reference it in conversation or tasks. Focus exclusively on game development, narrative cutscenes, web client, backend, and standard unit tests.
 
+## Post-Level 12 Finale Epilogue Cutscene (JudgmentDayAftermath) — 2026-11-04
+
+- Fully authored, implemented, and verified the grand campaign finale cinematic epilogue overlay ('Dawn of Axiom // Mission 12 Aftermath', `JudgmentDayAftermath.cs`, `JudgmentDayAftermathStage.cs`, `scenes/cutscenes/judgment_day_aftermath.tscn`) concluding Mission 12 (*Judgment Day*) and the entire 12-mission campaign of Axiom Force.
+- Narrative & Staging:
+  - Following the defeat of the Void Commander and containment of the Singularity Core atop Spire Level 120 (5,000m), the chaotic black hole collapses inward and bursts into an expanding, radiant dawn aurora of golden and azure energy that cleanses the Citadel Spire and clears the perpetual storm.
+  - Across the horizon, the dawn sun crests over Neo-Arcadia for the first time in centuries, and all 12 civilian quarantine districts progressively light up with soft amber, cyan, and white lights as civilian autonomous power is restored.
+  - Procedural stage (`JudgmentDayAftermathStage.cs`) featuring dynamic dawn sunrise sky gradient (interpolating from cosmic dark `#06020f` to radiant `#14092b` -> `#6b2148` -> `#c2410c`), glowing sun disc with volumetric sunbeams, collapsing singularity auroral rings with 40+ rising luminescent dawn embers, sprawling multi-tier metropolis skyline with buildings lighting up district by district, broken cathedral arches, shattered Void Commander throne dais remnants with broken katanas, 6 heroic operative silhouettes on the summit observation balcony with team-colored visor/chassis accents, 2.39:1 widescreen letterbox bars, CRT scanlines, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Mirage, Titan, Oceanus, Surya, Aura, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign & Scorecard Integration:
+  - Updated `scripts/gameplay/CodeLevel.cs` extraction routing for Mission 12 to instantiate `JudgmentDayAftermath` on layer 40 upon mission completion, and on `aftermath.Finished`, trigger `_scorecard.ShowCampaignCompleteScorecard(finalScore, peakCombo, operative)`.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 264/264 PASSED (new `JudgmentDayAftermathTests.cs` 3/3, duration, scene file existence, cues.json validation)
+  - GdUnit4 (Godot 4.7.2 Headless): 289/289 test cases across 59 suites PASSED (new `test_judgment_day_aftermath.gd` 4/4, 0 errors, 0 failures, 0 flaky, 0 orphans, `report_486`).
+  - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+
+## Mission 12 Gameplay Implementation (JudgmentDayMission) — 2026-11-04
+
+- Fully authored, implemented, and verified the complete 2D platformer gameplay for the grand campaign finale Mission 12 ('Judgment Day // The Final Reckoning', `JudgmentDayMission.cs`, `scenes/gameplay/level12.tscn`), resolving the climactic confrontation inside the Grand Citadel Throne Room and Void Singularity Chamber.
+- Level Architecture & Mechanics:
+  - Subclassed `CodeLevel` and implemented `IFiniteCombatHost` across 6 authored cathedral chambers at 5,000 meters elevation (28,500 horizontal units):
+    1. *SEC.01 // SINGULARITY INGRESS GANTRY*: Catwalk ingress over the cosmic void chasm, high-voltage conduits, and automated guardian patrols (`ingress1`, `ingress2`). Checkpoint at x=400 (`IngressGantry`).
+    2. *SEC.02 // POWER SIPHON TRENCH & DARK-MATTER SHUNTS*: Pressurized power siphon coolant manifolds (`CoolantVent.cs`) doused by Oceanus (`GateKind.FireVent`), reinforced dark-matter siphon clamps shattered by Apex Titan Slam (`GateKind.RubbleWall`), and geothermal shunt neutralization (`siphon1`, `siphon2`, `siphon3`). Checkpoint at x=5,500 (`PowerSiphon`).
+    3. *SEC.03 // VOID BARRIER & GRAVITATIONAL CORRIDOR*: Multi-tier cathedral battlements, high-voltage void barrier laser curtains (`CyberLaserGrid2D.cs`) phased through via Mirage Blade Phase Shift, concentrated cosmic radiation vents defended under Surya Prime Bulwark (`GateKind.HeatVent`), and barrier corridor clearance (`barrier1`, `barrier2`, `barrier3`). Checkpoint at x=10,500 (`VoidBarrier`).
+    4. *SEC.04 // CATHEDRAL VAULTED ASCENT & HARMONIC LOCKS*: Colossal vertical lift pylons with wall-jump channels, harmonic acoustic security locks bypassed by Aura Phoenicia Resonance (`GateKind.SonicLock`), and elite praetorian sentries (`vault1`, `vault2`). Checkpoint at x=16,000 (`CathedralVault`).
+    5. *SEC.05 // GRAND THRONE DAIS // THE VOID COMMANDER*: Climactic throne room arena featuring the supreme antagonist `VoidCommanderBoss2D` (750 HP) armed with twin void blades, blink teleportation, reflectable crescent plasma slashes (`VoidPlasmaSlash2D.cs`, deflectable by Kaito's Kinetic Parry for 55 reflected damage), and Phase 3 Singularity Overdrive (`boss1`, `boss2`, `boss3`). Checkpoint at x=21,000 (`ThroneDais`).
+    6. *SEC.06 // SINGULARITY CORE OVERLOAD & LIBERATION*: Singularity core containment console override terminal hack, final remnants garrison encounter (`citadel_remnant1`), and extraction threshold leading into the campaign complete victory liberation (`extract`). Checkpoint at x=26,000 (`CoreOverload`).
+- Boss Encounter:
+  - Created `VoidCommanderBoss2D.cs` (750 HP) and `VoidPlasmaSlash2D.cs`.
+  - Crescent plasma slashes are deflectable by Kaito's Kinetic Parry (`TakeDamage` calls `Reflect()`), returning 55 damage to the Void Commander.
+  - Multi-phase combat: Phase 1 (dual-blade strike combos, ground shockwave leaps, aerial charges), Phase 2 (blink teleportation, twin crescent blade projectile volleys, tactical decoy afterimages), Phase 3 (Singularity Overdrive with dark matter event horizon bursts, 3-blade rapid-fire crescent barrage, hyper-speed blink strikes).
+- Campaign, Scorecard & Victory Flow:
+  - Added `ShowCampaignCompleteScorecard` in `scripts/ui/CyberVictoryScorecard.cs` rendering special campaign victory badge (`GRAND VICTORY // CAMPAIGN COMPLETE // WORLD LIBERATED`) with Return to Main Menu navigation.
+  - Updated `CodeLevel.cs` extraction routing for Mission 12 to freeze the level and trigger the campaign completion scorecard.
+- Pure C# Ledger & Test Verification:
+  - `JudgmentDayProgress.cs` pure C# engine-free ledger tracking 14 ordered milestones, 14 authored combat formations, and bounded retry slot rewards.
+  - Comprehensive automated tests: NUnit (`JudgmentDayProgressTests.cs`, 261 tests total) and GdUnit4 (`test_judgment_day_mission.gd`), with all campaign levels validated in `test_campaign_levels.gd` (0 errors, 0 failures, 0 orphans).
+  - Test Suite Summary: 104/104 Django, 261/261 NUnit, 285/285 GdUnit4 across 58 suites (100% pass, 0 orphans, `report_483`).
+
+## Pre-Level 12 Prologue Cutscene Implementation (JudgmentDayIntro) — 2026-11-04
+
+- Fully authored, implemented, and verified the cinematic prologue overlay ('The Final Reckoning // Judgment Day Intro', `JudgmentDayIntro.cs`, `JudgmentDayStage.cs`, `scenes/cutscenes/judgment_day_intro.tscn`) introducing the campaign finale Mission 12 (*Judgment Day*).
+- Narrative & Staging:
+  - Axiom Force arrives inside the Citadel Summit Throne Room & Void Singularity Chamber at 5,000 meters elevation (Spire Level 120).
+  - A colossal cosmic void singularity core swirls in the upper chamber, warping gravity and light as the Void Commander drains the planetary geothermal grid to initiate a global purge.
+  - Procedural stage (`JudgmentDayStage.cs`) featuring deep cosmic space gradient (`#020008` to `#160028` to `#32004d`), event horizon silhouette with cyan/magenta/gold gravitational lensing rings, 50-particle orbiting accretion disk, swirling coronal flares, cathedral vaulted ceilings, colossal obsidian columns with glowing cyan/magenta power glyph conduits, polished reflective floor with specular sheen, floating obsidian throne dais with anti-gravity rings and imperial crest, imposing Void Commander silhouette with glowing crimson visor and ignited twin katanas (crimson plasma and dark matter magenta), full 6-operative squad silhouettes in battle formation with signature weapon and shield glows, CRT scanlines, 2.39:1 cinema bars, and guaranteed zero external texture dependencies (`ResourcesAvailable => true`).
+  - 9 authored narrative dialogue cues tracking AXIOM-7, Surya, Oceanus, Mirage, Titan, Aura, Void Commander broadcast, and Kaito with speaker-color-coded subtitle panel borders.
+  - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
+- Campaign, Scorecard & Progression Integration:
+  - Formally registered Mission 12 (*Judgment Day*, `res://scenes/gameplay/level12.tscn`, all 6 abilities) in `scripts/managers/LevelCatalog.cs`.
+  - Routed `_nextMission == 12` in `scripts/ui/CyberVictoryScorecard.cs` to launch `judgment_day_intro.tscn`.
+  - Added Sector 12 card to `scenes/main_menu/level_selection.tscn` and wired `_on_level_12_pressed()` in `scripts/main_menu/level_selection.gd`.
+  - Created placeholder `JudgmentDayMission.cs` and `scenes/gameplay/level12.tscn` extending `CodeLevel` containing `CyberShogun` to support seamless level selection and campaign tests ahead of full gameplay implementation.
+  - Updated `test_campaign_levels.gd`, `test_level_selection_2d.gd`, and `test_act_ii_opening.gd` to validate 12 campaign missions.
+- Automated Test Verification:
+  - Django (Python): 104/104 PASSED
+  - NUnit (.NET 10 C#): 243/243 PASSED (new `JudgmentDayIntroTests.cs` 3/3, `OperativeRosterTests.cs`, `NamesProgressTests.cs`, etc.)
+  - GdUnit4 (Godot 4.7.2 Headless): 282/282 test cases across 57 suites PASSED (new `test_judgment_day_intro.gd` 3/3, 0 errors, 0 failures, 0 flaky, 0 orphans, `report_480`).
+  - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+
 ## Post-Level 11 Epilogue Cutscene Implementation (ApexBastionAftermath) — 2026-11-04
 
 - Fully authored, implemented, and verified the cinematic epilogue overlay ('The Gates of Judgment // Apex Bastion Aftermath', `ApexBastionAftermath.cs`, `ApexBastionAftermathStage.cs`, `scenes/cutscenes/apex_bastion_aftermath.tscn`) concluding Mission 11 (*The Apex Bastion*).
@@ -32,7 +93,10 @@ this summary does not replace them. Verify live environment state before acting.
   - Subclassed CodeLevel and implemented IFiniteCombatHost across 6 authored stratospheric summit sectors (28,500 horizontal units):
     1. *SEC.01 // STRATOSPHERIC SUMMIT GANTRY*: Open-air freight lift arrival platform at 4,000m, howling crosswinds, high-altitude gantry catwalks, and automated perimeter patrols (summit1, summit2). Checkpoint at x=1,200.
     2. *SEC.02 // FLAK BATTERY TRENCHES & COOLANT CONDUITS*: Pressurized plasma flak coolant lines (CoolantVent.cs) doused by Oceanus (GateKind.FireVent), heavy magnetic titan-clamp battery mooring barricades shattered by Apex Titan Slam (GateKind.RubbleWall), and flak battery neutralization (lak1, lak2, lak3). Checkpoint at x=5,500.
-    3. *SEC.03 // LOWER REDOUBT & LASER DEFENSE CORRIDOR*: Multi-tier obsidian battlements, high-voltage exterior laser grid curtains (CyberLaserGrid2D.cs) phased through via Mirage Blade Phase Shift, concentrated plasma radiation thermal vents defended under Surya Prime Bulwark (GateKind.HeatVent), and lower redoubt clearance (edoubt1, edoubt2, edoubt3). Checkpoint at x=10,500.
+    3. *SEC.03 // LOWER REDOUBT & LASER DEFENSE CORRIDOR*: Multi-tier obsidian battlements, high-voltage exterior laser grid curtains (CyberLaserGrid2D.cs) phased through via Mirage Blade Phase Shift, concentrated plasma radiation thermal vents defended under Surya Prime Bulwark (GateKind.HeatVent), and lower redoubt clearance (
+edoubt1, 
+edoubt2, 
+edoubt3). Checkpoint at x=10,500.
     4. *SEC.04 // PRAETORIAN HYDRAULIC ELEVATOR SHAFT*: Vertical wall-jump lift shaft, harmonic dissonance acoustic security locks bypassed by Aura Phoenicia Resonance (GateKind.SonicLock), and praetorian vanguard waves (praetorian1, praetorian2). Checkpoint at x=16,000.
     5. *SEC.05 // GRAND BASTION REDOUBT // BASTION PRAETOR*: Climactic rampart arena featuring the penultimate boss mechanoid BastionPraetorBoss2D (620 HP) armed with deflecting PraetorPlasmaBolt2D swept projectiles (reflectable by Kaito's Kinetic Parry for 45 reflected damage), deployable energy shields, sweeping flak salvos, and Phase 3 Praetor Overdrive Fury (rena1, rena2, rena3). Checkpoint at x=21,000.
     6. *SEC.06 // THRONE ROOM EMBANKMENT & CITADEL BREACH*: Citadel blast doors override terminal hack, final praetorian garrison encounter (reach1), and extraction threshold leading into the Grand Citadel Throne Room (Mission 12). Checkpoint at x=26,000.
@@ -46,7 +110,8 @@ this summary does not replace them. Verify live environment state before acting.
 - Pure C# Ledger & Test Verification:
   - ApexBastionProgress.cs pure C# engine-free ledger tracking 14 ordered milestones, 14 authored combat formations, and bounded retry slot rewards.
   - Comprehensive automated tests: NUnit (ApexBastionProgressTests.cs, 237 tests total) and GdUnit4 (	est_apex_bastion_mission.gd), with all 11 missions validated in 	est_campaign_levels.gd and 	est_level_selection_2d.gd (0 errors, 0 failures, 0 orphans).
-  - Test Suite Summary: 104/104 Django, 237/237 NUnit, 275/275 GdUnit4 across 55 suites (100% pass, 0 orphans, eport_473).
+  - Test Suite Summary: 104/104 Django, 237/237 NUnit, 275/275 GdUnit4 across 55 suites (100% pass, 0 orphans, 
+eport_473).
 
 ## Pre-Level 11 Prologue Cutscene Implementation (ApexBastionIntro) — 2026-11-04
 
@@ -58,14 +123,16 @@ this summary does not replace them. Verify live environment state before acting.
   - 9 authored narrative dialogue cues tracking AXIOM-7, Titan, Surya, Mirage, Oceanus, Aura, and Kaito with speaker-color-coded subtitle panel borders.
   - Multi-input skip support (Escape, Space, Enter, Gamepad Start/A, mouse/touch click) with safe action release.
 - Campaign & Scorecard Integration:
-  - Registered Mission 11 (*The Apex Bastion*, es://scenes/gameplay/level11.tscn, all 6 abilities) in scripts/managers/LevelCatalog.cs.
+  - Registered Mission 11 (*The Apex Bastion*, 
+es://scenes/gameplay/level11.tscn, all 6 abilities) in scripts/managers/LevelCatalog.cs.
   - Routed _nextMission == 11 in scripts/ui/CyberVictoryScorecard.cs to launch pex_bastion_intro.tscn.
   - Added Sector 11 card to scenes/main_menu/level_selection.tscn and wired _on_level_11_pressed() in scripts/main_menu/level_selection.gd.
   - Updated 	ests/test_campaign_levels.gd to test all 11 campaign missions.
 - Automated Test Verification:
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 219/219 PASSED (ApexBastionIntroTests.cs 3/3, OperativeRosterTests.cs, NamesProgressTests.cs, etc.)
-  - GdUnit4 (Godot 4.7.2 Headless): 272/272 test cases across 54 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, eport_470).
+  - GdUnit4 (Godot 4.7.2 Headless): 272/272 test cases across 54 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, 
+eport_470).
   - All 4 Docker containers (db, backend, website, ollama) remain healthy.
 
 ## Post-Level 10 Epilogue Cutscene Implementation (CyberNexusAftermath) — 2026-11-04

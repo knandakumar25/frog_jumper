@@ -68,7 +68,8 @@ public class NamesProgressTests
         Assert.That(LevelCatalog.HasNext(8),Is.True);
         Assert.That(LevelCatalog.HasNext(9),Is.True);
         Assert.That(LevelCatalog.HasNext(10),Is.True);
-        Assert.That(LevelCatalog.HasNext(11),Is.False);
+        Assert.That(LevelCatalog.HasNext(11),Is.True);
+        Assert.That(LevelCatalog.HasNext(12),Is.False);
         Assert.That(LevelCatalog.Get(5).GrantsOperatives,Is.Empty);
     }
 }
