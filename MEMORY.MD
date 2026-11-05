@@ -4,6 +4,76 @@ Last reviewed: 2026-11-05. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Authorized cleanup publication — 2026-11-05
+
+User explicitly authorized committing and pushing the current dependency cleanup,
+three-service stack configuration, agent guidance and documentation to origin/main.
+Fetched origin and reviewed the 13 pending paths; diff whitespace checks passed.
+Prior implementation validation remains Django 104/NUnit 276/GdUnit4 303 passing,
+with the separately recorded existing engine/addon diagnostics. This Git-only
+task changes memory only; no import or suite rerun required. No local Python
+packages installed, containers changed or exports run during publication.
+Two normal push attempts were rejected by GitHub with "fatal error in commit_refs";
+the remote stayed at the previous campaign repair commit. The cleanup commit is
+local and ready to push; do not force-push to work around this server-side failure.
+
+## Git status check — 2026-11-05
+
+Read-only Git check: main matches the locally recorded origin/main, with no
+unpushed commits. Thirteen working-tree paths contain the dependency cleanup,
+three-service stack changes and documentation (10 modified, 2 deleted, 1 new).
+Nothing staged, committed or pushed; no fetch performed. Memory-only update,
+so no Docker preflight, import or test rerun required.
+
+## Three-service development stack — 2026-11-05
+
+User requested removing the local inference container and all repository
+references to that integration. Removed only the identified project container;
+its Docker image/model volume are retained outside this directory. Compose now
+defines db/backend/website as the default stack. Updated all four agent guides,
+README and historical notes to remove the retired integration. Other containers
+remain running. Compose validation passed and default services list exactly
+db/backend/website; website/API return HTTP 200. Full run_tests.ps1 passed:
+Django 104, NUnit 276, GdUnit4 303 (zero reported suite failures/errors/orphans).
+Existing engine lookup/addon diagnostics remain as recorded below. Case-insensitive
+source/documentation scan, including ignored text/config/log files, found no
+remaining references. No local Python installs, exports or Git publication.
+Earlier stack counts in historical entries describe prior checks.
+
+## Single requirements file; local venv removed — 2026-11-05
+
+User explicitly requested deletion of backend/requirements.txt and .venv, and
+instructed not to reinstall locally into .venv yet. Keep root requirements.txt as
+the only manifest. Do not recreate/install a local virtualenv without a later user
+request. Docker/build guidance applied; the core services checked running
+before config edits. Backend build context now root with backend/Dockerfile and a
+Dockerfile-specific source-only allowlist, so dependency COPY uses the root file.
+Django runner now executes in the existing backend container with its already-
+installed Python/packages; no pip, host venv or ephemeral venv-copy helper. Removed
+the obsolete packaging script. Exact root .venv path and non-link marker verified
+before deletion; backend/.venv already absent. Compose validation and backend image
+build passed; image imports Django/psycopg2/gunicorn and contains root requirements,
+backend source, no venv or .env. Full run_tests.ps1 passed Django 104, NUnit 276 and
+GdUnit4 303 (zero reported suite failures/errors/orphans). Unchanged Godot tests
+still emit five outside-tree absolute-path lookup diagnostics; the addon also
+warns about missing gdunit4.api. These are not a clean engine-log result.
+The core containers remain up.
+No Godot engine files changed; no import required. No local package
+installation, exports, commits or pushes authorized/performed in this task.
+
+## Backend dependency explanation — 2026-11-05
+
+Explained psycopg2-binary as the Python PostgreSQL adapter used by Django and the
+backend startup readiness check; gunicorn serves Django's WSGI application in
+deployment. Verified both requirements files, PostgreSQL settings, WSGI setup
+and entrypoint. Local Docker's default command uses Django runserver. Read-only
+investigation plus this memory note only; no dependency/service changes, imports,
+tests, commits or pushes for this explanation.
+
+Historical follow-up: the two requirements files had matching SHA-256 hashes;
+Docker and its test helper then used the backend copy. The subsequent user-requested
+consolidation above supersedes that layout and removes the duplicate and helper.
+
 ## Authorized Git publication — 2026-11-05
 
 User explicitly requested pushing the current changes, authorizing the needed
@@ -13,7 +83,7 @@ Fetch confirmed main and origin/main matched at c2ad661 before publication.
 Ignored .validation captures, temporary outputs and secrets remain excluded.
 Prior validation remains Django 104/NUnit 276/Godot 303 passing with zero test
 errors, failures or orphans; this Git/documentation-only task does not rerun engine
-imports or tests. No exports. Keep all four normal Docker services running.
+imports or tests. No exports. Keep the core Docker services running.
 Physical-device, pacing and subjective-listening acceptance remains pending.
 The commit and remote branch identify the final publication revision.
 
@@ -25,7 +95,7 @@ Read/applied router, Godot C#/Essentials interactions/debug/UI, GDScript/headles
 nodes/physics/UI/audio, level/input/assets/audio/save, PostgreSQL JSONB, official
 Docker Compose/build and ElevenLabs TTS skills. MCP identity is this project in
 session frog-jumper@73bf095c77ca37a3. Normal stack rebuilt/started before edits;
-all four services up. Media generated in owned Docker Blender/Python/FFmpeg runs.
+the core services up. Media generated in owned Docker Blender/Python/FFmpeg runs.
 
 Implemented action evidence independent of defenders, full protected crossings,
 full-height interlocks, pod context attack, accepted terminal consumption, finite
@@ -81,7 +151,7 @@ socket errors and the same 27 ObjectDB/12-resource/PagedAllocator import-shutdow
 diagnostics from the initial refresh remain separate from clean project tests.
 Baseline source checker remains 10 unrelated errors/27 warnings. Whitespace check
 passes. HEAD c2ad661 unchanged; local/uncommitted, unstaged, no exports. All owned
-review games stopped, user's editor left open, four normal Docker services up.
+review games stopped, user's editor left open, core Docker services up.
 README/HANDOFF/docs/LATER_CAMPAIGN_ACCEPTANCE.md record final evidence. Physical
 controller/touch use, human pacing and subjective listening are explicitly pending
 human acceptance, not claimed by automation. Do not rerun finished checks solely
@@ -225,7 +295,7 @@ results, not acceptance of the actual interaction paths identified below.
   is implemented but requires these corrections before playability acceptance.
   Human pacing, physical hardware and subjective listening remain outstanding.
 - Shutdown completed at user's explicit request: docker compose stop stopped
-  backend, db, website and ollama, all exited 0; docker ps shows no running
+  backend, db, website, all exited 0; docker ps shows no running
   containers. Containers/volumes/images preserved. Editor remains stopped on
   Level 1. Restart/verify normal stack before future code edits. No commits,
   staging or pushes; only MEMORY.MD contains the orientation/audit handoff edits.
@@ -265,7 +335,7 @@ service operations, code/assets edits, imports, tests or Git publication perform
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 264/264 PASSED (new `JudgmentDayAftermathTests.cs` 3/3, duration, scene file existence, cues.json validation)
   - GdUnit4 (Godot 4.7.2 Headless): 289/289 test cases across 59 suites PASSED (new `test_judgment_day_aftermath.gd` 4/4, 0 errors, 0 failures, 0 flaky, 0 orphans, `report_486`).
-  - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+  - Core Docker containers (`db`, `backend`, `website`) remain healthy.
 
 ## Mission 12 Gameplay Implementation (JudgmentDayMission) — 2026-11-04
 
@@ -309,7 +379,7 @@ service operations, code/assets edits, imports, tests or Git publication perform
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 243/243 PASSED (new `JudgmentDayIntroTests.cs` 3/3, `OperativeRosterTests.cs`, `NamesProgressTests.cs`, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 282/282 test cases across 57 suites PASSED (new `test_judgment_day_intro.gd` 3/3, 0 errors, 0 failures, 0 flaky, 0 orphans, `report_480`).
-  - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+  - Core Docker containers (`db`, `backend`, `website`) remain healthy.
 
 ## Post-Level 11 Epilogue Cutscene Implementation (ApexBastionAftermath) — 2026-11-04
 
@@ -326,7 +396,7 @@ service operations, code/assets edits, imports, tests or Git publication perform
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 240/240 PASSED (new `ApexBastionAftermathTests.cs` 3/3, duration, scene file existence, dialogue cues)
   - GdUnit4 (Godot 4.7.2 Headless): 279/279 test cases across 56 suites PASSED (new `test_apex_bastion_aftermath.gd` 4/4, 0 errors, 0 failures, 0 flaky, 0 orphans, `report_475`).
-  - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+  - Core Docker containers (`db`, `backend`, `website`) remain healthy.
 
 ## Mission 11 Gameplay Implementation (ApexBastionMission) — 2026-11-04
 
@@ -375,7 +445,7 @@ es://scenes/gameplay/level11.tscn, all 6 abilities) in scripts/managers/LevelCat
   - NUnit (.NET 10 C#): 219/219 PASSED (ApexBastionIntroTests.cs 3/3, OperativeRosterTests.cs, NamesProgressTests.cs, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 272/272 test cases across 54 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, 
 eport_470).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
 
 ## Post-Level 10 Epilogue Cutscene Implementation (CyberNexusAftermath) — 2026-11-04
 
@@ -392,7 +462,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 216/216 PASSED (`CyberNexusAftermathTests.cs` 3/3, `NexusProgressTests.cs` 18/18, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 269/269 test cases across 53 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_464`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
 
 ## Mission 10 Gameplay Implementation (CyberNexusMission) — 2026-11-04
 
@@ -417,7 +487,7 @@ eport_470).
   - `NexusProgress.cs` pure C# engine-free ledger tracking 14 ordered milestones, 14 authored combat formations, and bounded retry slot rewards.
   - Comprehensive automated tests: NUnit (`NexusProgressTests.cs`, 213 tests total) and GdUnit4 (`test_cyber_nexus_mission.gd`), with all 10 missions validated in `test_campaign_levels.gd` and `test_level_selection_2d.gd` (0 errors, 0 failures, 0 orphans).
   - Test Suite Summary: 104/104 Django, 213/213 NUnit, 265/265 GdUnit4 across 52 suites (100% pass, 0 orphans, `report_462`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
 
 ## Pre-Level 10 Prologue Cutscene Implementation (CyberNexusIntro) — 2026-11-04
 
@@ -436,7 +506,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 195/195 PASSED (`CyberNexusIntroTests.cs` 3/3, `OperativeRosterTests.cs`, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 262/262 test cases across 51 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_461`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
 
 ## Post-Level 9 Epilogue Cutscene Implementation (SpireOuterHullAftermath) — 2026-11-04
 
@@ -453,7 +523,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 192/192 PASSED (`SpireOuterHullAftermathTests.cs` 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 259/259 test cases across 50 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_459`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
   - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Mission 9 Gameplay Implementation (SpireOuterHullMission) — 2026-11-04
@@ -478,7 +548,7 @@ eport_470).
   - `SpireProgress.cs` pure C# engine-free ledger tracking 13 milestones and 14 authored combat formations.
   - Comprehensive automated tests: NUnit (`SpireProgressTests.cs`, 189 tests total) and GdUnit4 (`test_spire_outer_hull_mission.gd`), with all 9 missions validated in `test_campaign_levels.gd` and `test_level_selection_2d.gd` (0 errors, 0 failures, 0 orphans).
   - Test Suite Summary: 104/104 Django, 189/189 NUnit, 255/255 GdUnit4 across 49 suites (100% pass, 0 orphans).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
   - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Pre-Level 9 Cutscene Implementation (SpireOuterHullIntro) — 2026-11-04
@@ -497,7 +567,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 172/172 PASSED (`SpireOuterHullIntroTests.cs` 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 252/252 test cases across 48 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_456`).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
   - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Post-Level 8 Epilogue Cutscene Implementation (StratosDocksAftermath) — 2026-11-04
@@ -515,7 +585,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 169/169 PASSED (`StratosDocksAftermathTests.cs` 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 249/249 test cases across 47 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
   - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Mission 8 Gameplay Implementation (StratosDocksMission) — 2026-11-04
@@ -541,7 +611,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 166/166 PASSED (`StratosProgressTests.cs` 5/5, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 245/245 test cases across 46 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, `report_447`).
-  - All 4 Docker containers remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - Core Docker containers remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 ## Act II End Screen, Act III Start Screen & Pre-Level 8 Cutscene Implementation — 2026-11-04
 
@@ -554,7 +624,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 149/149 PASSED (ActTransitionTests 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 242/242 test cases across 45 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_444).
-  - All 4 Docker containers remain healthy. Changes remain local and uncommitted per standing permission policy.
+  - Core Docker containers remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 ## Post-Level 7 Epilogue Cutscene Implementation (FoundryForgeAftermath) — 2026-11-04
 
@@ -571,7 +641,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 146/146 PASSED (FoundryForgeAftermathTests 3/3, FoundryProgressTests 6/6, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 235/235 test cases across 42 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_441).
-  - All 4 Docker containers (db, backend, website, ollama) remain healthy.
+  - Core Docker containers (db, backend, website) remain healthy.
   - Changes for Mission 9 gameplay, aftermath cutscene, and tests committed (`3646737`) and pushed to `origin/main` on explicit user command.
 
 ## Mission 7 Gameplay Implementation (FoundryForgeMission) — 2026-11-04
@@ -603,7 +673,7 @@ eport_470).
 ## Docker Containers Restarted — 2026-11-04
 
 - Started all 4 project containers via `docker compose up -d`.
-- All containers are verified running: `axiom-force-db-1` (5432, healthy), `axiom-force-backend-1` (8000, Django up), `axiom-force-website-1` (5173, Nginx up), and `axiom-force-ollama-1` (11434, healthy).
+- All containers are verified running: `axiom-force-db-1` (5432, healthy), `axiom-force-backend-1` (8000, Django up), `axiom-force-website-1` (5173, Nginx up).
 
 ## Changes Committed and Pushed to Remote — 2026-11-03
 
@@ -614,7 +684,7 @@ eport_470).
 
 ## Docker Containers Stopped — 2026-11-03
 
-- Stopped all running project containers (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`, `axiom-force-ollama-1`) via `docker compose stop`.
+- Stopped all running project containers (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`) via `docker compose stop`.
 - Verified via `docker ps` that 0 containers are running.
 - Verified via `docker info` that Docker Desktop and the Docker daemon engine remain running and responsive.
 
@@ -634,7 +704,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 126/126 PASSED (FoundryForgeIntroTests.cs 3/3, CyberGraveAftermathTests 3/3, etc.)
   - GdUnit4 (Godot 4.7.2 Headless): 228/228 test cases across 40 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, report_432).
-- All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+- Core Docker containers (db, backend, website) remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 
 ## Strategic Campaign Roadmap (3-Act Structure, 12 Missions) — 2026-11-04
@@ -665,11 +735,11 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 123/123 PASSED (CyberGraveAftermathTests 3/3, CyberGraveProgressTests 20/20, NamesProgressTests, AegisProgressTests)
   - GdUnit4 (Godot 4.7.2 Headless): 224/224 test cases across 39 suites PASSED (0 errors, 0 failures, 0 flaky, 0 orphans, reports report_426, report_428, report_429).
-- All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+- Core Docker containers (db, backend, website) remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 ## Docker Pip Packages Review (pip-review) — 2026-11-03
 
-- Unpaused Docker Desktop and verified all 4 containers ('db', 'backend', 'website', 'ollama') are active and healthy.
+- Unpaused Docker Desktop and verified core containers ('db', 'backend', 'website') are active and healthy.
 - Installed 'pip-review' (v1.3.0) and 'packaging' (v26.3) inside local backend container 'axiom-force-backend-1'.
 - Executed 'pip-review' across all backend Python packages:
   - All project dependencies (Django 6.1.3, DRF 3.18.3, simplejwt 5.5.1, cors-headers 4.9.0, psycopg2-binary 2.9.13, gunicorn 26.2.0, asgiref 3.13.0, PyJWT 2.15.1, sqlparse 0.6.1) are up to date.
@@ -698,7 +768,7 @@ eport_470).
   - Django (Python): 104/104 PASSED
   - NUnit (.NET 10 C#): 120/120 PASSED (CyberGraveProgressTests 20/20, NamesProgressTests, AegisProgressTests)
   - GdUnit4 (Godot 4 GDScript): 220/220 test cases across 38 suites PASSED (0 errors, 0 failures, 0 orphans, report_425).
-- All 4 Docker containers (db, backend, website, ollama) remain healthy. Changes remain local and uncommitted per standing permission policy.
+- Core Docker containers (db, backend, website) remain healthy. Changes remain local and uncommitted per standing permission policy.
 
 ## Campaign Level 6 Status Confirmation — 2026-11-03
 
@@ -721,7 +791,6 @@ eport_470).
   - axiom-force-db-1 (PostgreSQL 18, port 5432) -> Healthy
   - axiom-force-backend-1 (Django REST Framework, port 8000) -> Up (HTTP 200 on /api/auth/countries/basic/)
   - axiom-force-website-1 (Nginx / React Vite client, port 5173) -> Up (HTTP 200 on /)
-  - axiom-force-ollama-1 (Ollama LLM runtime, port 11434) -> Healthy (HTTP 200 on /api/tags)
 - JetBrains Rider is running (PID 11844) with AxiomForce.sln.
 - Status inspection only; no game code/assets modified, no tests or Godot refresh required. No git commit or push without explicit user instruction.
 
@@ -754,7 +823,7 @@ eport_470).
   and holographic depth HUD (`DEPTH: -412M`) with Hermite camera easing.
 - Verification: clean `dotnet build` (0 errors), headless Godot import exit 0, GdUnit4 217/217
   across 37 suites (0 errors, 0 failures, 0 orphans), NUnit 103/103 passing, and Django 104/104
-  passing. All 4 Docker containers healthy. No git commit or push without user instruction.
+  passing. Core Docker containers healthy. No git commit or push without user instruction.
 
 ## Mission 5 — 2026-11-02
 
@@ -786,7 +855,7 @@ eport_470).
   three-resolution captures inspected; gallery spawns corrected above actual floor.
   Known diagnostics remain: full-build 153 warnings, addon TLS/editor shutdown,
   10 legacy reference errors/27 warnings and unreadable Docker bind mounts. Helpers
-  stopped; four normal services running; editor stopped on original Level 1.
+  stopped; core services running; editor stopped on original Level 1.
 
 ## Memory maintenance
 
@@ -800,7 +869,7 @@ eport_470).
   NUnit 93/93, Godot 161/161 (report_368, zero failures/errors/orphans) and container
   Django 104/104 pass; host Django wrapper skips its absent venv. Existing compile
   warnings remain. Normal services were restored for mandatory preflight and are
-  left running, db/Ollama healthy; website/API returned HTTP 200. No engine files
+  left running, db healthy; website/API returned HTTP 200. No engine files
   changed, so no import refresh; no staging/commit/push.
 - Current game status: Neon Rust's sabotage/escape expansion is followed by
   The City Finds Its Voice, Level 3 results, then The Wall That Faces Inward
@@ -822,7 +891,7 @@ eport_470).
   daemon processes are stopped. Persistent volumes and state retained.
 
 - 2026-11-01 shutdown: user explicitly requested stopping the server. Ran
-  docker compose stop for website, backend, PostgreSQL and Ollama; all four
+  docker compose stop for website, backend, PostgreSQL; all four
   exited successfully and no project services remain running. Containers and
   persistent volumes retained. Shutdown/memory only; no imports, unit tests,
   exports, staging, commits or pushes performed.
@@ -847,8 +916,8 @@ eport_470).
   and Replay retaining Level 1; other mission transitions remain unchanged.
 - Latest startup check (2026-11-02): user requested restart. No existing project
   containers were present in the active Docker session. Compose pulled images,
-  built backend/website and started all four services. PostgreSQL/Ollama healthy;
-  website, direct/proxied countries API and Ollama tags returned HTTP 200.
+  built backend/website and started the core services. PostgreSQL healthy;
+  website, direct/proxied countries API returned HTTP 200.
   Startup/memory only: no game changes, imports, tests, exports or Git publication.
   Treat this as a dated observation, not live status.
 - Use `docker` directly from PATH rather than a hardcoded executable path.
@@ -886,13 +955,13 @@ eport_470).
   Django tests no longer use SQLite.
 - Tokens stay in memory; restart/reload requires sign-in. Portal locale is in
   the URL. Clerk identity/cookies remain upstream; tooling caches/assets/logs,
-  Docker volumes and Ollama models are outside application-save storage.
+  Docker volumes are outside application-save storage.
 - Existing local saves remain untouched and ignored, with no automatic migration.
   Game state retains the existing shared development database scope.
-- Added opt-in Playwright v1.64.1-noble and matching npm runner. The four normal
+- Added opt-in Playwright v1.64.1-noble and matching npm runner. The core
   services remain always-on; browser verification is one-shot.
 - Status rechecked 2026-10-31: docker ps confirms website (5173), backend
-  (8000), PostgreSQL (5432, healthy), and Ollama (11434, healthy) running.
+  (8000), PostgreSQL (5432, healthy) running.
   Playwright has exited after its successful test; no persistent Playwright
   server is configured. Read-only status task; no services changed or tests rerun.
 - Final verification: C# build zero errors (154 existing warnings); background
@@ -900,8 +969,8 @@ eport_470).
   GdUnit4 135/135 with zero errors/failures/orphans (report_357), container Django
   104/104 on PostgreSQL, and Microsoft-image Chromium smoke passed. Host test
   wrapper skips absent backend venv; container execution covers Django.
-- Website, direct/proxied countries API and Ollama tags returned HTTP 200.
-  Four normal containers remain running; PostgreSQL/Ollama healthy. No commit,
+- Website, direct/proxied countries API returned HTTP 200.
+  Core containers remain running; PostgreSQL healthy. No commit,
   push or export. Clerk replacement was asked as a scope clarification and has
   not been authorized separately. This policy supersedes older fallback checks.
 
@@ -1030,10 +1099,10 @@ eport_470).
 
 ## Project server shutdown — 2026-10-30
 
-- User requested shutdown. Resumed manually paused Docker Desktop, then ran docker compose stop successfully for website, backend, db, and ollama. Verified all four services exited; containers and persistent data retained. No code/assets changed; imports and tests were not required. This memory update remains local and uncommitted.
+- User requested shutdown. Resumed manually paused Docker Desktop, then ran docker compose stop successfully for website, backend, db. Verified the core services exited; containers and persistent data retained. No code/assets changed; imports and tests were not required. This memory update remains local and uncommitted.
 - Latest shutdown, after Level 2 publication (`9f1700e`): user again requested
   stopping the servers. All four were running; `docker compose stop` succeeded,
-  and `docker compose ps -a` confirmed backend, db, website and ollama exited.
+  and `docker compose ps -a` confirmed backend, db, website exited.
   Containers/data retained. No code/assets changed or tests/imports required;
   this shutdown record is local and uncommitted.
 
@@ -1050,7 +1119,7 @@ eport_470).
 - Preserved arrival lines, squad progression, player controls and Level 3 transition.
   Added default shared recovery/checkpoint/title-card hooks; device-aware recruitment
   prompts; Docker/Blender original gameplay art and reproducible gameplay review tools.
-- Docker preflight confirmed all four services running. Final build zero errors/warnings;
+- Docker preflight confirmed the core services running. Final build zero errors/warnings;
   background import exit 0/five new PNG imports (existing TLS/shutdown diagnostics).
   GdUnit4 134/134 with zero failures/errors/orphans (`report_354`), NUnit 45/45,
   container Django 104/104 (host wrapper skips absent backend venv). Five-asset QA,
@@ -1092,8 +1161,8 @@ eport_470).
   and reviewed; no reimplementation was needed. Corrected stale tooling transition
   documentation. This resume changes Markdown only; no import/test rerun required.
   Docker restoration completed after pulling missing images/building the app.
-  All four services are running; PostgreSQL/Ollama healthy. Website, direct and
-  proxied countries API, and Ollama tags returned HTTP 200. No staging/commit/push.
+  The core services are running; PostgreSQL healthy. Website, direct and
+  proxied countries API returned HTTP 200. No staging/commit/push.
 
 - Added Level 2 extraction → 75-second live WildfireAftermath → captured results →
   Level 3. Retains Level 2 for Replay/arrival; freezes mission/pause/HUD/audio and
@@ -1128,7 +1197,7 @@ Existing import diagnostics remain separate: asset-placer TLS failures, editor
 shutdown settings/resource/ObjectDB/PagedAllocator messages, and optional
 `gdunit4.api` warning. No physical controller/touch hardware, speaker-listening
 review or export was performed. Review game stopped; the user's editor remains
-on Level 1, all four services running. Changes are local/uncommitted; unrelated
+on Level 1, the core services running. Changes are local/uncommitted; unrelated
 PostgreSQL/website work is preserved.
 
 ## Silent Freight — 2026-10-31
@@ -1168,7 +1237,7 @@ Existing import diagnostics: asset-placer TLS failures and editor shutdown
 EditorSettings/ObjectDB/resource/PagedAllocator messages; runtime review logs
 are clean. No physical controller/touch hardware, speaker-listening review or
 export was performed. Evidence: .validation/neon-rust/ (including 27 captures
-and three contact sheets). All four normal Docker services remain running.
+and three contact sheets). The core Docker services remain running.
 User's editor remains on Level 1; review game stopped; changes are local and
 uncommitted. No watched flag, save migration or local persistence was added.
 
@@ -1213,7 +1282,7 @@ uncommitted. No watched flag, save migration or local persistence was added.
 - Level 3 now freezes at direct results with Continue to 4 (five operatives),
   Replay, Level Select and Main Menu. Replay restores the three-operative roster
   and arrival. All work remains local and uncommitted.
-- Docker preflight confirmed all four services up. Initial C# build passed with
+- Docker preflight confirmed the core services up. Initial C# build passed with
   154 existing warnings. Ten focused Godot tests passed with zero errors/failures/
   orphans. MCP traversed the blockout with real movement/abilities and diagnostic
   kills, no recoveries (~145s simulation), before Docker/Blender art production.
@@ -1236,13 +1305,13 @@ peak four live enemies, 151.333s movement/objective wall time. Combat/human paci
 remain unmeasured. All 24 sector/aspect captures and all four scorecard navigation
 actions verified; Replay gives fresh arrival/three operatives, Continue gives
 Level 4/five operatives. Final runtime logs had no warning/error entries. User
-editor remains stopped on Level 1, all four normal containers running. Changes
+editor remains stopped on Level 1, the core containers running. Changes
 remain local, unstaged and uncommitted. Human 30–35 minute target stays unvalidated.
 
 ## Server shutdown and publication — 2026-10-31
 
 User explicitly requested server shutdown followed by publishing the current Neon
-Rust changes. Stopped website, backend, db and ollama with docker compose stop;
+Rust changes. Stopped website, backend, db with docker compose stop;
 all four exited successfully (0). Containers and persisted volumes remain intact.
 Fetched origin and confirmed main matched origin/main before preparing the commit.
 This task changes documentation/Git state only, so the previous 93 NUnit, 161
@@ -1275,7 +1344,7 @@ No code/assets changed during publication; prior test results remain applicable.
 - Existing import TLS/shutdown diagnostics remain. Physical controller/touch and
   speaker-listening review unperformed. Docker Desktop D: bind-mount fault also
   blocks existing backend /app and remains unresolved; production and Django QA
-  used owned unmounted copy-based containers, now stopped. Four normal services
+  used owned unmounted copy-based containers, now stopped. Core services
   remain running, never restarted/stopped. Unrelated export changes preserved;
   no exports, staging, commits or pushes; work remains local/uncommitted.
 
@@ -1339,7 +1408,7 @@ runtime/test results. Host Django is skipped for the absent venv; the backend
 bind mount still fails with ENODEV, so current backend source/environment were
 copied into an owned unmounted container for the explicit 104-test pass. The
 production helper also used copied inputs. Both owned helpers are now stopped;
-the four normal services remain running. Editor remains stopped on Level 1.
+the core services remain running. Editor remains stopped on Level 1.
 Physical controller/touch hardware and speaker-listening checks remain unperformed.
 No export, staging, commit or push; changes remain local and uncommitted.
 
@@ -1443,7 +1512,7 @@ outside the tree was guarded to remove six regression-log errors.
 
 Actual finale navigation and all launch routes pass, including fresh Replay with
 five operatives/arrival and a clean ledger. The owned temporary save was deleted;
-existing saves were untouched. Both owned helper containers are stopped; four normal
+existing saves were untouched. Both owned helper containers are stopped; core
 services remain running and the user's editor stays stopped on Level 1.
 The Docker bind fault persists; owned copied inputs enable media/Django checks.
 No exports or Git publication authorized/performed; existing memory audits preserved.
@@ -1502,7 +1571,7 @@ diagnostics. run_tests.ps1 passes NUnit 88/88 and Godot 197/197 with zero failur
 errors/orphans (report_399); host Django skips the absent venv. Final explicit
 copied-container Django passes 104/104 because the standard backend bind mount
 again returns ENODEV. Owned axiom-mission-readability-tests helper is stopped;
-all four normal services remain running.
+the core services remain running.
 
 MCP inspected 51 state captures at all three requested sizes (dimensions checked,
 nine contact sheets); runtime samples contain no warnings/errors. Final Blade
@@ -1556,7 +1625,7 @@ Added mission-1-only ActHeading in CodeLevel.BuildTitleCard: centered 24px cyan,
 CAMPAIGN_ACT_I_TITLE with ACT I fallback, above the unchanged 34px mission title
 and objective. It shares the existing hold/fade, ignores input and adds no saved
 state or API. Recovery reuses the scene; every fresh Level 1 instance gets the
-label. Docker preflight: all four normal services running. C# build passes with
+label. Docker preflight: the core services running. C# build passes with
 153 existing warnings and zero errors. Background import exits 0; known TLS,
 EditorSettings and shutdown resource/ObjectDB/allocator diagnostics remain.
 MCP runtime checks pass for direct launch, Replay, level selection, briefing Skip
@@ -1624,7 +1693,7 @@ passes NUnit 100/100 and GdUnit4 214/214 (report_407; zero failures/errors/orpha
 Host Django skips the missing venv; live backend test attempt cannot open `/app/manage.py`
 because the existing Docker bind mount reports `No such device`. No in-game multi-aspect
 captures, physical hardware or speaker listening were performed. Only the owned Blender
-helper was stopped; four normal containers remain up. No exports, commit or push.
+helper was stopped; core containers remain up. No exports, commit or push.
 
 ## Root Linux Django test runner — 2026-11-02
 
@@ -1669,7 +1738,7 @@ stalled the game loop before combat; no unassisted baseline or duration/death/re
 measurements were obtained. Background Godot import exited 0 with known addon TLS/editor
 shutdown diagnostics; C# build passed with 153 existing warnings and zero errors.
 `run_tests.ps1` passed Django 104/104, NUnit, and GdUnit4 214/214 (report_409, zero
-errors/failures/orphans). All four normal Docker services remain up and the disposable
+errors/failures/orphans). The core Docker services remain up and the disposable
 Django test helper was removed. No save/backend contract changes; sustained playtest
 remains outstanding.
 
@@ -1683,7 +1752,7 @@ the gameplay code.
 
 ## Repository and status audit — 2026-11-02
 
-Completed a full read-only review of project Markdown documentation, recent Git history (through commit `127b3af`), and runtime state before continuing work. The campaign features five playable 2D cyber-action missions with story-unlocked operatives, custom cutscene arrivals/epilogues, and PostgreSQL persistence. All four standard Docker containers (website, backend, db, ollama) are active and healthy. The working tree has only the local machine-specific VS Code setting and untracked skill install staging. No code, scenes, or assets were changed; no tests, imports, commits, or pushes were authorized or performed.
+Completed a full read-only review of project Markdown documentation, recent Git history (through commit `127b3af`), and runtime state before continuing work. The campaign features five playable 2D cyber-action missions with story-unlocked operatives, custom cutscene arrivals/epilogues, and PostgreSQL persistence. Core Docker containers (website, backend, db) are active and healthy. The working tree has only the local machine-specific VS Code setting and untracked skill install staging. No code, scenes, or assets were changed; no tests, imports, commits, or pushes were authorized or performed.
 
 ## Act II and Level 5 Revamp — 2026-11-02
 

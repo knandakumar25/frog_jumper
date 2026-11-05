@@ -49,7 +49,9 @@ services:
   # PostgreSQL and applies migrations before starting the dev server.
   backend:
     build:
-      context: ./backend
+      # Root requirements.txt is the sole Python dependency manifest.
+      context: .
+      dockerfile: backend/Dockerfile
     env_file:
       # Optional so the stack still starts before anyone copies .env.example
       # to .env; the backend falls back to settings.py defaults in that case.
@@ -105,22 +107,6 @@ services:
       - website
     restart: "no"
 
-  # Local LLM runtime. Part of the always-on group (NOT the export profile),
-  # so `docker compose up` starts it alongside the database, API and portal.
-  # Models live in the named `ollama` volume and survive `down`.
-  ollama:
-    image: ollama/ollama:latest
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama:/root/.ollama
-    healthcheck:
-      test: ["CMD-SHELL", "ollama list > /dev/null 2>&1 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
-    restart: unless-stopped
-
   # Headless game exporter (Godot 4.7.2 .NET + Android SDK + JDK 17, see
   # export/Dockerfile). It sits behind the `export` profile, so a plain
   # `docker compose up` NEVER starts it: exports are exclusive and may only be
@@ -160,7 +146,6 @@ services:
 
 volumes:
   pgdata:
-  ollama:
   export_godot:
   export_dotnet_bin:
   export_dotnet_obj:

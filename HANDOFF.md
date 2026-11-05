@@ -1,10 +1,48 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Three-service development stack — 2026-11-05
+
+Removed the user-selected local inference container and its Compose service and
+volume declaration. The default stack is now db/backend/website; other containers
+remain running. Removed the integration's references from agent guides, README
+and historical notes. Docker image/model data remain outside the repository.
+Compose validation and three-service listing passed; website/API return HTTP 200.
+Full suites passed: Django 104, NUnit 276, GdUnit4 303 (zero reported suite
+failures/errors/orphans; existing engine/addon diagnostics remain). Repository
+source/docs and ignored text/config/log scans found no remaining references.
+No engine assets changed,
+so no import refresh is required. No local Python installs or Git publication.
+
+## Single Python manifest and virtualenv removal — 2026-11-05
+
+User requested deleting backend/requirements.txt and root .venv, with no local
+reinstallation yet. Root requirements.txt remains canonical. Backend Compose build
+now uses repository root plus backend/Dockerfile; COPY reads root requirements and
+only backend source. backend/Dockerfile.dockerignore provides a narrow source-only
+context without changing exporter or other images. The old backend ignore file is
+retained for historical context; Compose uses the Dockerfile-specific allowlist.
+
+run_tests.ps1 runs Django directly in the already-running backend container, with
+no host Python/virtualenv requirement or pip installs. Removed the obsolete root-
+venv packaging helper. Root .venv was verified as the exact in-workspace non-link
+virtualenv before recursive deletion; backend/.venv was already absent. Do not
+recreate/install a local venv unless the user explicitly requests it. The older
+root-venv test notes below are historical and superseded by this workflow.
+
+Verification passed: Compose config, backend image build and image dependency
+imports. Image includes root requirements and backend source, excludes .env/venv.
+Full run_tests.ps1 passed Django 104, NUnit 276 and GdUnit4 303 with zero reported
+suite failures/errors/orphans. Unchanged tests emitted five outside-tree absolute
+lookup diagnostics; the addon warns about missing gdunit4.api. Engine logs are
+therefore not diagnostic-free. Both local venv paths and backend requirements are absent.
+No game engine files changed, so no Godot import refresh is needed. Normal services
+remain running; no exports or Git publication is authorized for this new change.
+
 ## Later campaign repair implemented and verified — 2026-11-05
 
 Repair source baseline: c2ad661. The user subsequently authorized committing and
 pushing the current verified batch to origin/main. No game exports.
-Docker's four normal services were built/started before code edits and remain up.
+Docker's core services were built/started before code edits and remain up.
 The user's later message rescinded pausing containers at completion.
 
 Implemented gameplay/action evidence, full-height mandatory gates/interlocks,
@@ -57,7 +95,7 @@ Accepted runs and separate diagnostic failures are under ignored
 MCP navigation verified both acts, all later prologues, Continue, direct Replay,
 owned PostgreSQL Resume, direct Level Select and final Return to Main Menu. No
 existing campaign was selected for review. All owned game processes were stopped;
-the user's editor remains open and all four normal Docker services remain up.
+the user's editor remains open and the core Docker services remain up.
 
 Every later cinematic cue was inspected at 1920×1080, 1920×1200 and 2560×1080,
 with 800×600 subtitle/control checks: 504 native captures, no size or subtitle-bound
@@ -707,7 +745,7 @@ Authored and implemented full 2D platformer gameplay for Act II Mission 6 (*Cybe
   - **Django (Python)**: 104/104 PASSED
   - **NUnit (.NET 10 C#)**: 120/120 PASSED (+20 new tests)
   - **GdUnit4 (Godot 4 GDScript)**: 220/220 test cases across 38 suites PASSED (0 errors, 0 failures, 0 orphans, report_425).
-- Docker Stack: All 4 containers (`db`, `backend`, `website`, `ollama`) healthy and running.
+- Docker Stack: Core containers (`db`, `backend`, `website`) healthy and running.
 - Scratch scripts cleaned up. No Git commits or pushes executed.
 
 ## Pre-Level 6 Opening Cutscene: Into the Cyber-Grave (2026-11-02)
@@ -747,7 +785,7 @@ Authored and implemented the Pre-Level 6 opening cinematic cutscene (`CyberGrave
      - **Django**: 104/104 PASSED
      - **NUnit**: 103/103 PASSED
      - **GdUnit4**: 217/217 test cases across 37 suites PASSED (0 errors, 0 failures, 0 orphans).
-   - All 4 Docker containers (`db`, `backend`, `website`, `ollama`) remain healthy.
+   - Core Docker containers (`db`, `backend`, `website`) remain healthy.
 
 ## Post-Level 5 Epilogue Cutscene Implementation (2026-11-02)
 
@@ -936,7 +974,7 @@ GdUnit4 210/210 (`reports/report_406`, zero errors, failures and orphans); isola
 copied-source Django 104/104. The wrapper skips the absent host Django venv. Existing
 backend `/app` and media D: mounts remain unreadable; isolated tests used the same
 backend image and PostgreSQL network, with their test database removed normally.
-The temporary production/test helpers were stopped; all four normal services remain
+The temporary production/test helpers were stopped; the core services remain
 running. No exports, staging, commits or pushes; editor remains stopped on Level 1.
 
 Runtime evidence under `.validation/names/`: assisted mandatory-route completion,
@@ -1003,7 +1041,7 @@ run_tests.ps1 passes NUnit 88/88 and Godot 197/197 with zero errors/failures/orp
 (report_399). Its host Django step skips the absent venv. Explicit copied-container
 Django passes 104/104 after final edits; the ordinary backend /app bind mount again
 returns ENODEV. The owned axiom-mission-readability-tests helper is stopped after
-its successful run. Normal db/backend/website/ollama containers remain running.
+its successful run. Normal db/backend/website containers remain running.
 
 Godot AI MCP reviewed 51 full-resolution state captures at 1920×1080, 1920×1200 and
 2560×1080; PNG dimensions match and nine contact sheets were inspected. The final
@@ -1152,7 +1190,7 @@ Compose forwards GITHUB_ACTIONS and the container driver rejects CI/host use.
 The exporter remains opt-in with its help default. Rebuild its image before a
 future authorized export because its driver changed; no image build/export
 was performed for the exporter in this task. Normal services were restored for
-the mandatory code-edit preflight and remain running (db/Ollama healthy).
+the mandatory code-edit preflight and remain running (db healthy).
 Verification: Bash syntax, both launchers' no-target/invalid-target/Actions
 paths, driver help/host/Actions refusal, Compose validation and default-profile
 exclusion pass. No build/ export output directory was created. run_tests.ps1
@@ -1171,9 +1209,9 @@ uninterrupted playback evidence. Corrected a stale tooling-documentation sentenc
 that still described Level 2 as retaining its old transition. No code/assets
 changed during this resume; imports and unit suites do not require rerunning.
 Docker restoration completed: Compose pulled the missing images, built backend
-and website, and started all four normal services. PostgreSQL and Ollama are
-healthy. Website (5173), direct and proxied countries API (8000/5173), and Ollama
-tags (11434) returned HTTP 200. No game export, staging, commit or push performed.
+and website, and started the core services. PostgreSQL is
+healthy. Website (5173) and direct and proxied countries API (8000/5173)
+returned HTTP 200. No game export, staging, commit or push performed.
 
 ## PostgreSQL-only storage and Playwright — 2026-10-31
 
@@ -1202,8 +1240,8 @@ backend venv; explicit container Django tests passed 104/104 on PostgreSQL.
 JSONB round-trip/version protection and database refusal are covered by NUnit;
 campaign create/update/delete across managers is covered by GdUnit4.
 Microsoft-image Chromium smoke passed with browser storage APIs blocked.
-Website, direct/proxied countries API, and Ollama tags returned HTTP 200; four
-normal containers remain running, PostgreSQL/Ollama healthy. No export or Git
+Website, direct/proxied countries API returned HTTP 200; four
+normal containers remain running, PostgreSQL healthy. No export or Git
 publication was performed. Clerk replacement remains a separate scope question.
 Historical local-fallback observations below describe older builds.
 
@@ -1275,8 +1313,8 @@ controller/touch-device testing remain necessary; only synthetic device prompt/i
 paths were checked, not a full touch-only gameplay session. No new voiceover was made.
 
 > **Services restored (2026-10-30):** All four existing containers were stopped.
-> Started the stack with Compose; PostgreSQL and Ollama became healthy, and
-> website, backend countries endpoint, and Ollama tags API each returned HTTP
+> Started the stack with Compose; PostgreSQL became healthy, and
+> website, backend countries endpoint each returned HTTP
 > 200. The first backend request preceded Django readiness; a retry succeeded
 > after its clean system check. No cinematic/code/asset changes in this task.
 > README and MEMORY record readiness behavior and verification. Documentation
@@ -1351,7 +1389,7 @@ paths were checked, not a full touch-only gameplay session. No new voiceover was
 > **Docker startup only (2026-10-30):** User explicitly deferred post-Level 1
 > cutscene work. The active Docker environment had no project containers/images;
 > Compose pulled dependencies, built backend/website, and started db, backend,
-> website, and Ollama. Website, backend countries endpoint, and Ollama tags API
+> website. Website, backend countries endpoint
 > returned HTTP 200 via IPv4 loopback; PostgreSQL reported healthy. No game code
 > or assets changed. Only workflow/memory documentation updated; no import or
 > unit suites required. Do not resume cutscene work without user direction.
@@ -1404,9 +1442,9 @@ paths were checked, not a full touch-only gameplay session. No new voiceover was
 
 > **Host .NET SDK repair — Godot "Failed to load hostfxr" (2026-10-29):** Launching the .NET editor failed with *"Unable to load .NET runtime, specifically hostfxr"*. **The Docker image cannot fix this and the request to "point Godot at the C# image from Docker" is not achievable:** Godot is a native Windows binary that loads Windows `hostfxr.dll` via nethost, while `export/Dockerfile` carries `mcr.microsoft.com/dotnet/sdk:10.0` (Linux ELF) — the only way to use it would be running the editor inside a Linux container with a virtual display, which is not the Windows editor the user launches. **Actual cause:** the host had no .NET at all — no `dotnet` on PATH, and `C:\Program Files\dotnet\host\fxr` absent. `AxiomForce.csproj` and `tests/AxiomForce.Tests` both target `net10.0`. **Second, separate fault found while repairing:** `winget install Microsoft.DotNet.SDK.10` (10.0.403) reports "Successfully installed" and lays down 5,099 files (`sdk/10.0.403`, `shared/`, `packs/`, `templates/`) but **never writes `C:\Program Files\dotnet\dotnet.exe` or the whole `host/` directory** — watched for 5 minutes, they never appear, so they are blocked at write time rather than quarantined afterwards (Norton 360 is installed; Defender has no detections). An unelevated `/repair` run rolled the bundle back and deleted the folder entirely, so that path is a dead end without admin rights and an AV exclusion. **Working fix:** the zip-based per-user install — `dotnet-install.ps1 -Channel 10.0 -InstallDir "$env:LOCALAPPDATA\Microsoft\dotnet" -NoPath` — produced a complete SDK (`dotnet.exe`, `host/fxr/10.0.14`, `dotnet --version` → `10.0.403`), and `DOTNET_ROOT` was set for the user (plus that folder appended to the user `PATH`) so nethost resolves `hostfxr` for GUI launches. **Verification:** control run of `Godot_v4.7.2-stable_mono_win64_console.exe --headless --path . --quit` with `DOTNET_ROOT` unset reproduced the reported failure verbatim (`Failed to load hostfxr`, `find_hostfxr modules/mono/mono_gd/gd_mono.cpp:182`, segfault, exit 139); the same command with `DOTNET_ROOT` set exits **0 with no `.NET` errors**, and `dotnet build AxiomForce.csproj` completes with **0 errors** (153 pre-existing CS8618/CS0169 warnings). **Caveats / follow-up:** the `DOTNET_ROOT` fix only reaches *newly* launched processes, so Explorer must pick it up (sign out/in or restart Explorer) before a double-click launch is clean; the leftover half-installed `C:\Program Files\dotnet` (5,099 files, no `dotnet.exe`) still needs an elevated delete, and the machine `PATH` still lists it (harmless — it is searched first, finds nothing, and falls through to the user entry). README prerequisites now carry the symptom, the per-user install and the `DOTNET_ROOT` step. Documentation-only changes in this task, so no Godot import refresh and no unit-suite run were triggered.
 
-> **Stack rebuilt after Docker state wipe (2026-10-29):** `docker compose up -d --build` was re-run from scratch (0 images, 0 volumes beforehand) and the always-on group is up and verified: `db` healthy on 5432 with all 9 migrations applied to a fresh `pgdata`, `backend` Django 6.1.2 on 8000 (`GET /api/auth/countries/basic/` → 200, `/admin/` → 302, `/api/` → 404 because only `api/auth/` is routed), `website` 200 on 5173 with the AXIOM FORCE title and `/api/...` → 200 through the Nginx proxy, `ollama` healthy on 11434 answering `{"version":"0.40.13"}`. The `pgdata` and `ollama` volumes are new, so the database and model store are empty. Nothing was exported: the `export` profile stayed unused and `build/` does not exist.
+> **Stack rebuilt after Docker state wipe (2026-10-29):** `docker compose up -d --build` was re-run from scratch (0 images, 0 volumes beforehand) and the always-on group is up and verified: `db` healthy on 5432 with all 9 migrations applied to a fresh `pgdata`, `backend` Django 6.1.2 on 8000 (`GET /api/auth/countries/basic/` → 200, `/admin/` → 302, `/api/` → 404 because only `api/auth/` is routed), `website` 200 on 5173 with the AXIOM FORCE title and `/api/...` → 200 through the Nginx proxy. The new `pgdata` volume contains a fresh database. Nothing was exported: the `export` profile stayed unused and `build/` does not exist.
 
-> **Compose: always-on group, exclusive export group, Ollama, Node 26 (2026-10-28):** The stack now has two tiers. **Always-on** (`docker compose up`) = `db` (PostgreSQL 18, 5432), `backend` (Django, 8000), `website` (Nginx, 5173) and **`ollama`** (official `ollama/ollama:latest`, 11434, models in the `ollama` volume; verified `{"version":"0.40.12"}` on `/api/version`). **Exclusive** = `export`, which sits behind the `export` profile so `up` never starts it. The rule (documented in all four agent guides + README) is: game edits and website edits may run concurrently with the stack, **game exports may not overlap anything** — not another export, not a Godot import, not a website image build. The exporter is `export/Dockerfile` (Godot 4.7.2 mono + .NET 10 SDK + Android cmdline-tools/platform-34/build-tools-34 + **JDK 17 only** + `4.7.2.stable.mono` templates) driven by `export/export.sh`, and its `.godot`, `bin` and `obj` are mapped to **named volumes** — a full import through the Windows bind mount ran at ~1 KB/s (the cache is 5.7 GB of small files) against 29.7 MB/s raw sequential throughput, so imports now stay Linux-native and only finished artifacts cross to `./build`. `libfontconfig1` and `libgl1` were added after Godot warned that `libfontconfig.so.1` was missing. `website/Dockerfile` moved to **`node:26-alpine`** (v26.12.1). The unused **`eclipse-temurin:latest` (JDK 25)**, `python:latest` and `python:3.13-slim` images were deleted so JDK 17 is the only Java in the local store. `.gitignore` now ignores `build/` whole. **Verification (2026-10-28):** `docker compose config` valid; `up -d --build` brings db/backend/website/ollama up; website returns 200 with the AXIOM FORCE title and was built with `node:26-alpine`; Ollama answers on 11434; backend `/admin/` returns 302. **Export guard (2026-10-28):** an export cannot start by accident. The service stays behind the `export` profile (so `compose config --services` and `docker compose up` show only `db`, `backend`, `ollama`, `website`), the service has `command: ["help"]` and `restart: "no"`, **the image's own `CMD` is `help`** (so even a bare `docker run axiom-force-export` is inert), and `export/export.sh` exits with usage text when no target is passed — the build/import/export steps sit *after* that guard. Verified by bringing the service up with the profile: it printed "No export requested — nothing was built" and exited 0, and no `./build` was created. Note the script is baked into the image, so `docker compose --profile export build export` is required after editing it (the first attempt ran the old copy and started building). `COMPOSE_PROFILES` is not set in `.env`, so nothing auto-enables the profile. **Exports are NOT end-to-end verified:** the toolchain is verified (Godot 4.7.2 mono, .NET 10.0.403, JDK 17.0.20.1, sdkmanager 12.0, templates present, C# Release build clean apart from pre-existing CS8618 warnings), but the user stopped the Linux preset run mid-export, so no export has been produced or checked; every export container was removed, `./build` was deleted, and no binaries, `.pck` or `.apk` files exist in the tree.
+> **Compose: always-on group, exclusive export group, Node 26 (2026-10-28):** The stack now has two tiers. **Always-on** (`docker compose up`) = `db` (PostgreSQL 18, 5432), `backend` (Django, 8000), `website` (Nginx, 5173). **Exclusive** = `export`, which sits behind the `export` profile so `up` never starts it. The rule (documented in all four agent guides + README) is: game edits and website edits may run concurrently with the stack, **game exports may not overlap anything** — not another export, not a Godot import, not a website image build. The exporter is `export/Dockerfile` (Godot 4.7.2 mono + .NET 10 SDK + Android cmdline-tools/platform-34/build-tools-34 + **JDK 17 only** + `4.7.2.stable.mono` templates) driven by `export/export.sh`, and its `.godot`, `bin` and `obj` are mapped to **named volumes** — a full import through the Windows bind mount ran at ~1 KB/s (the cache is 5.7 GB of small files) against 29.7 MB/s raw sequential throughput, so imports now stay Linux-native and only finished artifacts cross to `./build`. `libfontconfig1` and `libgl1` were added after Godot warned that `libfontconfig.so.1` was missing. `website/Dockerfile` moved to **`node:26-alpine`** (v26.12.1). The unused **`eclipse-temurin:latest` (JDK 25)**, `python:latest` and `python:3.13-slim` images were deleted so JDK 17 is the only Java in the local store. `.gitignore` now ignores `build/` whole. **Verification (2026-10-28):** `docker compose config` valid; `up -d --build` brings db/backend/website up; website returns 200 with the AXIOM FORCE title and was built with `node:26-alpine`; backend `/admin/` returns 302. **Export guard (2026-10-28):** an export cannot start by accident. The service stays behind the `export` profile (so `compose config --services` and `docker compose up` show only `db`, `backend`, `website`), the service has `command: ["help"]` and `restart: "no"`, **the image's own `CMD` is `help`** (so even a bare `docker run axiom-force-export` is inert), and `export/export.sh` exits with usage text when no target is passed — the build/import/export steps sit *after* that guard. Verified by bringing the service up with the profile: it printed "No export requested — nothing was built" and exited 0, and no `./build` was created. Note the script is baked into the image, so `docker compose --profile export build export` is required after editing it (the first attempt ran the old copy and started building). `COMPOSE_PROFILES` is not set in `.env`, so nothing auto-enables the profile. **Exports are NOT end-to-end verified:** the toolchain is verified (Godot 4.7.2 mono, .NET 10.0.403, JDK 17.0.20.1, sdkmanager 12.0, templates present, C# Release build clean apart from pre-existing CS8618 warnings), but the user stopped the Linux preset run mid-export, so no export has been produced or checked; every export container was removed, `./build` was deleted, and no binaries, `.pck` or `.apk` files exist in the tree.
 
 > **Docker Compose stack (2026-10-28):** `docker-compose.yml` now runs the whole service stack — `db` (`postgres:latest`, 18.6, published on 5432, named `pgdata` volume, `pg_isready` healthcheck), `backend` (built from the new `backend/Dockerfile` on `python:3.14-slim`, bind-mounted `./backend:/app`, published on 8000, waits for a healthy `db`), and `website` (new `website/Dockerfile`: Node 20 Vite build served by Nginx with the existing `website/nginx.conf` proxying `/api/` and `/admin/` to `backend`, published on 5173 to match `FRONTEND_URL`). Both images got a `.dockerignore` so the local `.venv` and `node_modules` never enter a build context. Two portability bugs were fixed on the way: **PostgreSQL 18 refuses the old `/var/lib/postgresql/data` mount** (it stores data in a version subdirectory), so the volume mounts at `/var/lib/postgresql`; and **`backend/entrypoint.sh` was checked out with CRLF**, which made the bind-mounted copy fail with `exec ... no such file or directory` even after the image normalised it — the file is now LF in the repo and `.gitattributes` keeps `*.sh` at `eol=lf`. **Verification (2026-10-28):** `docker compose config` valid; `docker compose up -d --build` brings all three services up, with `db` healthy and the backend log showing the entrypoint wait for PostgreSQL, the migration pass and Django 6.1.2 serving; `GET /` on 5173 returns 200 with the AXIOM FORCE title, `GET /api/auth/profile/` on 5173 returns Django's 401 JSON through the Nginx proxy, `GET /admin/` on 8000 returns 302, and `POST /api/auth/register/` returned 201 with the row visible in `accounts_user` inside the `db` container (smoke-test user deleted afterwards). The preflight bullet in the four agent guides now points at `docker-compose.yml` instead of the "no compose file yet" fallback, and `README.md` has a "Running the Stack with Docker" section. The stack is left running.
 
@@ -1737,7 +1775,7 @@ to global MCP configuration. Verified session frog-jumper@52eac1f41bdee749 ident
 D:/Projects/frog_jumper, Godot 4.7.2. The user's open level1 scene stays untouched;
 runtime checks launch the custom cutscene with autosave disabled.
 
-Verification so far: Docker preflight found all four services running; representative
+Verification so far: Docker preflight found the core services running; representative
 Shogun render inspected for identity/palette; C# build passed with 153 existing
 warnings and zero errors. Final asset validation, import, runtime captures/layouts,
 and unit suites are pending at this point; results will be recorded below.
@@ -1849,7 +1887,7 @@ Existing import diagnostics remain separate: asset-placer TLS failures, editor
 shutdown settings/resource/ObjectDB/PagedAllocator messages, and optional
 `gdunit4.api` warning. No physical controller/touch hardware, speaker-listening
 review or export was performed. Review game stopped; the user's editor remains
-on Level 1, all four services running. Changes are local/uncommitted; unrelated
+on Level 1, the core services running. Changes are local/uncommitted; unrelated
 PostgreSQL/website work is preserved.
 
 ## Silent Freight implementation — 2026-10-31
@@ -1895,7 +1933,7 @@ Existing import diagnostics: asset-placer TLS failures and editor shutdown
 EditorSettings/ObjectDB/resource/PagedAllocator messages; runtime review logs
 are clean. No physical controller/touch hardware, speaker-listening review or
 export was performed. Evidence: .validation/neon-rust/ (including 27 captures
-and three contact sheets). All four normal Docker services remain running.
+and three contact sheets). The core Docker services remain running.
 User's editor remains on Level 1; review game stopped; changes are local and
 uncommitted. No watched flag, save migration or local persistence was added.
 
@@ -1937,7 +1975,7 @@ Collision blockout was traversed using Godot AI MCP before dressing. Required
 rises are 100px; escape drops 110px; optional archives reconnect locally. Docker/
 Blender rendered seven original 512px RGBA depot assets with explicit import scales
 and collision separation. Existing arrival, operative stats, audio and save schema
-remain. All four normal containers were running before edits. No Git publication.
+remain. The core containers were running before edits. No Git publication.
 
 Initial build passed with 154 existing warnings. Ten focused Godot tests passed
 with zero errors/failures/orphans. MCP completed all sectors using real movement
@@ -1965,12 +2003,12 @@ resolved and unmeasured; these numbers do not validate human pacing. All 24 dres
 sector/aspect captures exist. Replay restored Level 3 arrival/three operatives;
 Continue reached Level 4/five operatives; Level Select and Main Menu navigated
 correctly. Final game logs contained no warnings/errors. User editor remains
-stopped on level1.tscn. Four normal Docker services remain running. No staging,
+stopped on level1.tscn. Core Docker services remain running. No staging,
 commit or push. Human first-run pacing, physical hardware and listening remain
 unvalidated; see tools/gameplay/NEON_RUST.md.
 
 Publication preparation (2026-10-31): user authorized shutting down servers and
-pushing the current Neon Rust implementation. All four normal Compose services
+pushing the current Neon Rust implementation. The core Compose services
 are now stopped with exit 0; persisted volumes and containers remain. main matched
 origin/main after fetch. Existing verified implementation test results remain
 applicable; only documentation/Git operations occurred during this task.
@@ -2068,7 +2106,7 @@ runtime/test results. Host Django is skipped for the absent venv; the backend
 bind mount still fails with ENODEV, so current backend source/environment were
 copied into an owned unmounted container for the explicit 104-test pass. The
 production helper also used copied inputs. Both owned helpers are now stopped;
-the four normal services remain running. Editor remains stopped on Level 1.
+the core services remain running. Editor remains stopped on Level 1.
 Physical controller/touch hardware and speaker-listening checks remain unperformed.
 No export, staging, commit or push; changes remain local and uncommitted.
 
@@ -2078,7 +2116,7 @@ Added mission-1-only ActHeading in CodeLevel.BuildTitleCard: centered 24px cyan,
 CAMPAIGN_ACT_I_TITLE with ACT I fallback, above the unchanged 34px mission title
 and objective. It shares the existing hold/fade, ignores input and adds no saved
 state or API. Recovery reuses the scene; every fresh Level 1 instance gets the
-label. Docker preflight: all four normal services running. C# build passes with
+label. Docker preflight: the core services running. C# build passes with
 153 existing warnings and zero errors. Background import exits 0; known TLS,
 EditorSettings and shutdown resource/ObjectDB/allocator diagnostics remain.
 MCP runtime checks pass for direct launch, Replay, level selection, briefing Skip

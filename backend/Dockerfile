@@ -1,8 +1,8 @@
 # Axiom Force — Django REST Framework backend image.
 #
-# Built on Python 3.14 because that is the interpreter the project targets and
-# the version the local `.venv` was verified against, so the wheels installed
-# here are the same ones that were tested. `python:latest` is deliberately not
+# Built on Python 3.14 because that is the interpreter the project targets.
+# Dependencies are installed only inside this image; no host virtualenv is needed.
+# `python:latest` is deliberately not
 # used: it resolves to a newer CPython whose dependency tree has no prebuilt
 # wheels yet and forces slow source builds.
 FROM python:3.14-slim
@@ -18,11 +18,11 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends libpq5 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first so the dependency layer is cached across code edits.
+# Build from the repository root; copy its canonical manifest before application code for caching.
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/
+COPY backend/ /app/
 
 # entrypoint.sh is checked out with CRLF endings on Windows, which makes the
 # kernel reject the shebang and `set -e` fail on a stray \r. Normalise it.

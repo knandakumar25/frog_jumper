@@ -2,6 +2,24 @@
 
 A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
 
+## Python dependencies
+
+Root `requirements.txt` is the single Python dependency manifest. The duplicate
+`backend/requirements.txt` and the local root `.venv` have been removed. No local
+virtual environment or packages are recreated automatically.
+
+The backend image builds from the repository root with `backend/Dockerfile`:
+`docker compose build backend`. Its Dockerfile-specific ignore file limits the
+build context to backend source and root requirements. Dependencies are installed
+inside the image. Django tests use the running backend container through
+`./run_tests.ps1 -Suite django`; the runner performs no package installation.
+Keep the normal Docker stack running. Local `.venv` installation is deferred until
+the user explicitly requests it.
+
+Validated on 2026-11-05: Compose configuration, backend image build and dependency
+imports passed; all suites passed (Django 104, NUnit 276, GdUnit4 303). No local
+virtualenv was recreated or populated.
+
 ## Later campaign repair (2026-11-05)
 
 Missions 6–12 now require actual accepted ability actions and full protected
@@ -31,7 +49,7 @@ from fresh entry using movement/combat/abilities; all 126 later cinematic shots
 were reviewed at three aspect ratios, plus a small-window check (504 captures).
 Human pacing, physical-device and listening acceptance remains on the checklist.
 Existing addon import/TLS/shutdown diagnostics are documented separately. The user authorized Git publication of this verified batch. No game exports were
-produced. The four normal Docker services remain running.
+produced. The core Docker services remain running.
 
 ---
 
@@ -325,13 +343,14 @@ steps are in [cutscene production notes](tools/cutscene/README.md#mission-5-epil
 Verified 2026-11-02 after final engine edits: background import exit 0 with all
 30 new media sidecars; final incremental C# build zero warnings/errors; NUnit 100/100;
 GdUnit4 210/210 (`reports/report_406`, zero errors, failures and orphans); isolated
-copied-source Django 104/104. The test runner was subsequently updated to use only the
+copied-source Django 104/104. Historically, the test runner was then updated to use only the
 root Linux `.venv`; its full run passes NUnit 100/100, GdUnit4 214/214 and Django
 104/104 (`reports/report_408`; zero GdUnit errors/failures/orphans). Django runs from
-a disposable copy of the root venv with `backend/requirements.txt` installed, using an
+a disposable copy of the root venv with the then-separate backend requirements installed, using an
 unmounted helper container on the existing PostgreSQL network. The backend `/app` and
-media D: mounts remain unreadable; normal services stay running.
-The temporary production/test helpers were stopped; all four normal services remain
+media D: mounts were unreadable in that historical run; normal services stayed running.
+The current Docker-backed runner above supersedes that venv workaround.
+The temporary production/test helpers were stopped; the core services remain
 running. No exports, staging, commits or pushes; editor remains stopped on Level 1.
 
 Runtime evidence under `.validation/names/`: assisted mandatory-route completion,
@@ -370,7 +389,7 @@ unreadable. The wrapper skips Django when the host virtual environment is absent
 
 If Docker has no existing project containers or cached images, restoring the
 stack with `docker compose up -d` also pulls images and builds the application
-services. Wait for completion and endpoint readiness; the Ollama image download
+services. Wait for completion and endpoint readiness; initial image downloads
 can delay the first startup.
 
 Campaign saves, operative progression, display preferences, and keybindings persist
@@ -387,7 +406,7 @@ Game and portal JWTs live only in memory; restarting the game or reloading the
 portal requires sign-in again. Portal language is carried in the URL. Upstream
 Clerk identity remains an external authentication dependency; its own session
 cookies are separate from application saves. Assets, build caches, logs, Docker
-volumes and Ollama models remain normal runtime/tooling files.
+volumes remain normal runtime/tooling files.
 
 The opt-in `playwright` Compose service uses Microsoft's official
 [`mcr.microsoft.com/playwright:v1.64.1-noble`](https://playwright.dev/docs/docker)
@@ -568,7 +587,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 >
 > Then sign out and back in (or restart Explorer) so newly launched apps inherit `DOTNET_ROOT`, and relaunch Godot.
 
-> **Godot AI dock says "No server command found" or shows `uv: not found`** means the plugin found no usable launcher. It resolves a server in three tiers — project `.venv` → `uvx` → a system `godot-ai` — and on Windows a `.venv` only counts if it is `.venv\Scripts\python.exe` next to a `src/godot_ai/` checkout. **The repo's `./.venv` is the Linux venv used by Docker** (`.venv/bin/python`, no `Scripts`), so it can never satisfy the editor. Install `uv` for Windows into one of the directories the plugin searches (`%LOCALAPPDATA%\Programs\uv`, `%USERPROFILE%\.local\bin`, `%USERPROFILE%\.cargo\bin`, `%ProgramFiles%\uv`), then click **Reload Plugin** in the dock (its "not found" result is cached for the session). `uvx` then fetches the pinned server itself — for plugin v4.3.1 that is `godot-ai==4.3.1`:
+> **Godot AI dock says "No server command found" or shows `uv: not found`** means the plugin found no usable launcher. It resolves a server in three tiers — project `.venv` → `uvx` → a system `godot-ai` — and on Windows a `.venv` only counts if it is `.venv\Scripts\python.exe` next to a `src/godot_ai/` checkout. The former repo `./.venv` was a Linux environment and has now been deleted; it was never a valid Windows editor interpreter. Install `uv` for Windows into one of the directories the plugin searches (`%LOCALAPPDATA%\Programs\uv`, `%USERPROFILE%\.local\bin`, `%USERPROFILE%\.cargo\bin`, `%ProgramFiles%\uv`), then click **Reload Plugin** in the dock (its "not found" result is cached for the session). `uvx` then fetches the pinned server itself — for plugin v4.3.1 that is `godot-ai==4.3.1`:
 >
 > ```powershell
 > curl.exe -sSL -o $env:TEMP\uv.zip https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-pc-windows-msvc.zip
@@ -579,9 +598,14 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 
 The Django backend, PostgreSQL database and React web portal run together with Docker Compose:
 
+These three services are the complete default stack; the local inference service
+has been removed. The exporter and browser test runner remain opt-in.
+Verified 2026-11-05: Compose validation and website/API readiness passed with the
+three services running; all three project test suites passed.
+
 ```powershell
-docker compose up -d --build     # build/start db, backend, website, and ollama
-docker compose ps                # verify all four run; inspect configured health checks
+docker compose up -d --build     # build/start db, backend, website
+docker compose ps                # verify all three run; inspect configured health checks
 docker compose logs -f backend   # follow the Django log
 docker compose down              # stop everything (add -v to drop the DB volume)
 ```
@@ -591,12 +615,11 @@ container can briefly precede the HTTP server accepting connections.
 
 - **Django API**: <http://localhost:8000/api/> (admin site at `/admin/`)
 - **Web portal**: <http://localhost:5173/> — Nginx serves the built bundle and proxies `/api/` and `/admin/` to Django
-- **Ollama**: published on `11434`, models kept in the `ollama` volume; it is an always-on member of the stack, not part of the export group
 - **PostgreSQL 18**: published on `5432`, data kept in the `pgdata` volume
 - Container startup and application readiness are separate checks: verify the
   portal on `http://127.0.0.1:5173/`, the backend on
-  `http://127.0.0.1:8000/api/auth/countries/basic/`, and Ollama on
-  `http://127.0.0.1:11434/api/tags`. Initial image downloads/builds can delay readiness.
+  `http://127.0.0.1:8000/api/auth/countries/basic/`.
+  Initial image downloads/builds can delay readiness.
 - Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default, so the stack also boots without one
 - `backend/Dockerfile` builds on Python 3.14; `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
 
@@ -673,10 +696,11 @@ A unified test runner is provided to execute all automated test suites (NUnit fo
 .\run_tests.ps1 -Suite django
 ```
 
-The Django suite uses the root Linux `.venv` only. On Windows PowerShell, the runner
-packages that POSIX environment and `backend/` into a temporary Linux container; it
-installs `backend/requirements.txt` in the temporary copy and runs `manage.py test
-accounts` against PostgreSQL. It does not prefer or require a Windows venv.
+The Django suite runs `python manage.py test accounts` inside the existing Compose
+backend. Its installed dependencies come from root `requirements.txt` when the
+backend image is built. The runner does not require host Python, package a venv,
+install packages or skip Django merely because `.venv` is absent. Start the normal
+stack with `docker compose up -d` before running tests.
 
 > **Note for Windows Headless Testing**: GdUnit4 executes using `Godot_v4.7.2-stable_mono_win64_console.exe` to avoid headless console deadlocks.
 
@@ -840,7 +864,7 @@ code and assets remain unchanged; retain the verification results above.
 ## Neon Rust sabotage expansion — 2026-10-31
 
 Level 3 now spans eight sectors and 48,000px with 30 finite formations (three or
-four normal-health members, at most six alive), three defended shipments, two
+all four normal-health members, at most six alive), three defended shipments, two
 uplinks, two power couplers, finite relay reinforcements and the blind-grid escape.
 Aura joins before the sonic-lock lesson; Mirage joins after blackout and must
 actually blink across a harmless practice beam. Seven stationary recovery shrines
@@ -871,7 +895,7 @@ Level 1. Background refresh exited 0 with seven sidecars but retains editor/TLS/
 shutdown diagnostics; final game logs were clear. Human pacing remains unvalidated.
 
 Server state update (2026-10-31): the user requested shutdown before publication;
-all four normal Compose services are stopped. Restart with docker compose up -d
+the core Compose services are stopped. Restart with docker compose up -d
 before code editing or running services. Existing validation results remain valid.
 
 Publication verified: Neon Rust implementation commit 3c92724 is on origin/main.
