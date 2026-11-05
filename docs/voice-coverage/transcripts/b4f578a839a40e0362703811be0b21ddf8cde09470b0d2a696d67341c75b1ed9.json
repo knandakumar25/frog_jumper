@@ -1,0 +1,258 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate zero two. Exhaust manifold overheat. Cryogenic louvers vent excess reactor heat directly through exterior armor seams",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.08,
+      "end": 0.32,
+      "type": "word",
+      "logprob": -0.0014546061865985394
+    },
+    {
+      "text": " ",
+      "start": 0.32,
+      "end": 0.4,
+      "type": "spacing",
+      "logprob": -0.05547387897968292
+    },
+    {
+      "text": "slate",
+      "start": 0.4,
+      "end": 0.7,
+      "type": "word",
+      "logprob": -0.05547387897968292
+    },
+    {
+      "text": " ",
+      "start": 0.7,
+      "end": 1.16,
+      "type": "spacing",
+      "logprob": -0.35031914710998535
+    },
+    {
+      "text": "zero",
+      "start": 1.16,
+      "end": 1.4,
+      "type": "word",
+      "logprob": -0.35031914710998535
+    },
+    {
+      "text": " ",
+      "start": 1.4,
+      "end": 1.5,
+      "type": "spacing",
+      "logprob": -7.629365427419543e-06
+    },
+    {
+      "text": "two.",
+      "start": 1.5,
+      "end": 1.8,
+      "type": "word",
+      "logprob": -0.06764288989506895
+    },
+    {
+      "text": " ",
+      "start": 1.8,
+      "end": 1.8,
+      "type": "spacing",
+      "logprob": -0.00023767507809679955
+    },
+    {
+      "text": "Exhaust",
+      "start": 2.56,
+      "end": 3.16,
+      "type": "word",
+      "logprob": -0.00023767507809679955
+    },
+    {
+      "text": " ",
+      "start": 3.16,
+      "end": 3.68,
+      "type": "spacing",
+      "logprob": -0.017814865335822105
+    },
+    {
+      "text": "manifold",
+      "start": 3.68,
+      "end": 4.18,
+      "type": "word",
+      "logprob": -0.017814865335822105
+    },
+    {
+      "text": " ",
+      "start": 4.18,
+      "end": 4.34,
+      "type": "spacing",
+      "logprob": -2.3364747903542593e-05
+    },
+    {
+      "text": "overheat.",
+      "start": 4.34,
+      "end": 4.86,
+      "type": "word",
+      "logprob": -0.00010231762361298833
+    },
+    {
+      "text": " ",
+      "start": 4.86,
+      "end": 4.86,
+      "type": "spacing",
+      "logprob": -0.0005347490659914911
+    },
+    {
+      "text": "Cryogenic",
+      "start": 5.46,
+      "end": 6.1,
+      "type": "word",
+      "logprob": -0.0004297338503723343
+    },
+    {
+      "text": " ",
+      "start": 6.1,
+      "end": 6.2,
+      "type": "spacing",
+      "logprob": -0.0007398966699838638
+    },
+    {
+      "text": "louvers",
+      "start": 6.2,
+      "end": 6.58,
+      "type": "word",
+      "logprob": -0.006129374727606773
+    },
+    {
+      "text": " ",
+      "start": 6.58,
+      "end": 6.88,
+      "type": "spacing",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": "vent",
+      "start": 6.88,
+      "end": 7.1,
+      "type": "word",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": " ",
+      "start": 7.1,
+      "end": 7.26,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "excess",
+      "start": 7.26,
+      "end": 7.66,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": " ",
+      "start": 7.66,
+      "end": 7.74,
+      "type": "spacing",
+      "logprob": -6.437280717364047e-06
+    },
+    {
+      "text": "reactor",
+      "start": 7.74,
+      "end": 8.14,
+      "type": "word",
+      "logprob": -6.437280717364047e-06
+    },
+    {
+      "text": " ",
+      "start": 8.14,
+      "end": 8.2,
+      "type": "spacing",
+      "logprob": -3.4570634852570947e-06
+    },
+    {
+      "text": "heat",
+      "start": 8.2,
+      "end": 8.42,
+      "type": "word",
+      "logprob": -3.4570634852570947e-06
+    },
+    {
+      "text": " ",
+      "start": 8.42,
+      "end": 8.82,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "directly",
+      "start": 8.82,
+      "end": 9.3,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 9.3,
+      "end": 9.32,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "through",
+      "start": 9.32,
+      "end": 9.54,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 9.54,
+      "end": 9.6,
+      "type": "spacing",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": "exterior",
+      "start": 9.6,
+      "end": 10.18,
+      "type": "word",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": " ",
+      "start": 10.18,
+      "end": 10.32,
+      "type": "spacing",
+      "logprob": -8.702239938429557e-06
+    },
+    {
+      "text": "armor",
+      "start": 10.32,
+      "end": 10.54,
+      "type": "word",
+      "logprob": -8.702239938429557e-06
+    },
+    {
+      "text": " ",
+      "start": 10.54,
+      "end": 10.66,
+      "type": "spacing",
+      "logprob": -6.007967749610543e-05
+    },
+    {
+      "text": "seams",
+      "start": 10.66,
+      "end": 11.16,
+      "type": "word",
+      "logprob": -6.007967749610543e-05
+    }
+  ],
+  "transcription_id": "cviRYeDuomq01oi1n8Yd",
+  "audio_duration_secs": 11.517125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m09.fragment2.mp3",
+  "audio_sha256": "b4f578a839a40e0362703811be0b21ddf8cde09470b0d2a696d67341c75b1ed9",
+  "model": "scribe_v2"
+}

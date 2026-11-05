@@ -1,0 +1,230 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Mirage Blade has joined. His phase blink slips through laser fields that would kill anyone else",
+  "words": [
+    {
+      "text": "Mirage",
+      "start": 0.08,
+      "end": 0.5,
+      "type": "word",
+      "logprob": -0.004207726403365086
+    },
+    {
+      "text": " ",
+      "start": 0.5,
+      "end": 0.58,
+      "type": "spacing",
+      "logprob": -0.05661948397755623
+    },
+    {
+      "text": "Blade",
+      "start": 0.58,
+      "end": 0.92,
+      "type": "word",
+      "logprob": -0.05661948397755623
+    },
+    {
+      "text": " ",
+      "start": 0.92,
+      "end": 1.16,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "has",
+      "start": 1.16,
+      "end": 1.36,
+      "type": "word",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": " ",
+      "start": 1.36,
+      "end": 1.42,
+      "type": "spacing",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": "joined.",
+      "start": 1.42,
+      "end": 1.88,
+      "type": "word",
+      "logprob": -8.98760844003326e-05
+    },
+    {
+      "text": " ",
+      "start": 1.88,
+      "end": 2.38,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "His",
+      "start": 2.38,
+      "end": 2.52,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 2.52,
+      "end": 2.56,
+      "type": "spacing",
+      "logprob": -0.041219789534807205
+    },
+    {
+      "text": "phase",
+      "start": 2.56,
+      "end": 2.78,
+      "type": "word",
+      "logprob": -0.041219789534807205
+    },
+    {
+      "text": " ",
+      "start": 2.78,
+      "end": 2.86,
+      "type": "spacing",
+      "logprob": -0.04313898831605911
+    },
+    {
+      "text": "blink",
+      "start": 2.86,
+      "end": 3.12,
+      "type": "word",
+      "logprob": -0.04313898831605911
+    },
+    {
+      "text": " ",
+      "start": 3.12,
+      "end": 3.48,
+      "type": "spacing",
+      "logprob": -1.9550132492440753e-05
+    },
+    {
+      "text": "slips",
+      "start": 3.48,
+      "end": 3.76,
+      "type": "word",
+      "logprob": -1.9550132492440753e-05
+    },
+    {
+      "text": " ",
+      "start": 3.76,
+      "end": 3.8,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "through",
+      "start": 3.8,
+      "end": 4.019,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 4.019,
+      "end": 4.059,
+      "type": "spacing",
+      "logprob": -7.366862701019272e-05
+    },
+    {
+      "text": "laser",
+      "start": 4.059,
+      "end": 4.32,
+      "type": "word",
+      "logprob": -7.366862701019272e-05
+    },
+    {
+      "text": " ",
+      "start": 4.32,
+      "end": 4.42,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "fields",
+      "start": 4.42,
+      "end": 4.78,
+      "type": "word",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": " ",
+      "start": 4.78,
+      "end": 5.08,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "that",
+      "start": 5.08,
+      "end": 5.18,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 5.18,
+      "end": 5.2,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "would",
+      "start": 5.2,
+      "end": 5.34,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 5.34,
+      "end": 5.42,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "kill",
+      "start": 5.42,
+      "end": 5.84,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 5.84,
+      "end": 5.9,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "anyone",
+      "start": 5.9,
+      "end": 6.22,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 6.22,
+      "end": 6.28,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "else",
+      "start": 6.28,
+      "end": 6.58,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    }
+  ],
+  "transcription_id": "xH4McpBokgwbxC6ErUug",
+  "audio_duration_secs": 6.966,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m03.event.bf8138121a4f.mp3",
+  "audio_sha256": "d0a41bd69602913e812e4e0bd789c7bbead450a3ff309564cc19cf1597779c82",
+  "model": "scribe_v2"
+}

@@ -1,0 +1,244 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Keep the original. That was what my mother said. A name is more than permission to pass.",
+  "words": [
+    {
+      "text": "Keep",
+      "start": 0.1,
+      "end": 0.28,
+      "type": "word",
+      "logprob": -0.2528323531150818
+    },
+    {
+      "text": " ",
+      "start": 0.28,
+      "end": 0.32,
+      "type": "spacing",
+      "logprob": -3.4570634852570947e-06
+    },
+    {
+      "text": "the",
+      "start": 0.32,
+      "end": 0.38,
+      "type": "word",
+      "logprob": -3.4570634852570947e-06
+    },
+    {
+      "text": " ",
+      "start": 0.38,
+      "end": 0.42,
+      "type": "spacing",
+      "logprob": -5.94836674281396e-05
+    },
+    {
+      "text": "original.",
+      "start": 0.42,
+      "end": 0.86,
+      "type": "word",
+      "logprob": -0.003909172781277448
+    },
+    {
+      "text": " ",
+      "start": 0.86,
+      "end": 1.28,
+      "type": "spacing",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": "That",
+      "start": 1.28,
+      "end": 1.4,
+      "type": "word",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": " ",
+      "start": 1.4,
+      "end": 1.44,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "was",
+      "start": 1.44,
+      "end": 1.52,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 1.52,
+      "end": 1.54,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "what",
+      "start": 1.54,
+      "end": 1.66,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 1.66,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "my",
+      "start": 1.68,
+      "end": 1.78,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 1.78,
+      "end": 1.82,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "mother",
+      "start": 1.82,
+      "end": 2.06,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 2.06,
+      "end": 2.12,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "said.",
+      "start": 2.12,
+      "end": 2.36,
+      "type": "word",
+      "logprob": -7.19656876526642e-05
+    },
+    {
+      "text": " ",
+      "start": 2.36,
+      "end": 2.36,
+      "type": "spacing",
+      "logprob": -0.00532269012182951
+    },
+    {
+      "text": "A",
+      "start": 2.9,
+      "end": 2.98,
+      "type": "word",
+      "logprob": -0.00532269012182951
+    },
+    {
+      "text": " ",
+      "start": 2.98,
+      "end": 3.04,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "name",
+      "start": 3.04,
+      "end": 3.28,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 3.28,
+      "end": 3.32,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "is",
+      "start": 3.32,
+      "end": 3.44,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 3.44,
+      "end": 3.5,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "more",
+      "start": 3.5,
+      "end": 3.64,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 3.64,
+      "end": 3.68,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "than",
+      "start": 3.68,
+      "end": 3.78,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 3.78,
+      "end": 3.82,
+      "type": "spacing",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": "permission",
+      "start": 3.82,
+      "end": 4.22,
+      "type": "word",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": " ",
+      "start": 4.22,
+      "end": 4.26,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "to",
+      "start": 4.26,
+      "end": 4.36,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.36,
+      "end": 4.4,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "pass.",
+      "start": 4.4,
+      "end": 4.84,
+      "type": "word",
+      "logprob": -0.09483552575106842
+    }
+  ],
+  "transcription_id": "4y62piI6O7YQGu0yMNLW",
+  "audio_duration_secs": 5.20125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m05.fragment3.mp3",
+  "audio_sha256": "525100fc3495b432bdc708e49468aff1824221a3ac636b9e6d4d21e8cd3d62cf",
+  "model": "scribe_v2"
+}

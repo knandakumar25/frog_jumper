@@ -1,0 +1,146 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Archive log. The dojo sheltered historians during the first occupation",
+  "words": [
+    {
+      "text": "Archive",
+      "start": 0.08,
+      "end": 0.54,
+      "type": "word",
+      "logprob": -0.0014672239776700735
+    },
+    {
+      "text": " ",
+      "start": 0.54,
+      "end": 0.6,
+      "type": "spacing",
+      "logprob": -0.011053991504013538
+    },
+    {
+      "text": "log.",
+      "start": 0.6,
+      "end": 0.86,
+      "type": "word",
+      "logprob": -0.07924162759445608
+    },
+    {
+      "text": " ",
+      "start": 0.86,
+      "end": 0.86,
+      "type": "spacing",
+      "logprob": -1.883488948806189e-05
+    },
+    {
+      "text": "The",
+      "start": 1.56,
+      "end": 1.66,
+      "type": "word",
+      "logprob": -1.883488948806189e-05
+    },
+    {
+      "text": " ",
+      "start": 1.66,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -0.005967300850898027
+    },
+    {
+      "text": "dojo",
+      "start": 1.7,
+      "end": 2.1,
+      "type": "word",
+      "logprob": -0.002986571044402808
+    },
+    {
+      "text": " ",
+      "start": 2.1,
+      "end": 2.22,
+      "type": "spacing",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": "sheltered",
+      "start": 2.22,
+      "end": 2.6,
+      "type": "word",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": " ",
+      "start": 2.6,
+      "end": 2.62,
+      "type": "spacing",
+      "logprob": -0.00010334911348763853
+    },
+    {
+      "text": "historians",
+      "start": 2.62,
+      "end": 3.36,
+      "type": "word",
+      "logprob": -0.00010334911348763853
+    },
+    {
+      "text": " ",
+      "start": 3.36,
+      "end": 3.44,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "during",
+      "start": 3.44,
+      "end": 3.7,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 3.7,
+      "end": 3.74,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "the",
+      "start": 3.74,
+      "end": 3.84,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 3.84,
+      "end": 3.88,
+      "type": "spacing",
+      "logprob": -0.0003358753747306764
+    },
+    {
+      "text": "first",
+      "start": 3.88,
+      "end": 4.16,
+      "type": "word",
+      "logprob": -0.0003358753747306764
+    },
+    {
+      "text": " ",
+      "start": 4.16,
+      "end": 4.24,
+      "type": "spacing",
+      "logprob": -0.00013505500101018697
+    },
+    {
+      "text": "occupation",
+      "start": 4.24,
+      "end": 4.88,
+      "type": "word",
+      "logprob": -0.00013505500101018697
+    }
+  ],
+  "transcription_id": "7E3epgIwfHI5JihgfuiO",
+  "audio_duration_secs": 5.24775,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m01.fragment2.mp3",
+  "audio_sha256": "a0b5e21a3f0099da2aaf4214a49f2cf377ce9fea329fbeecb387f70ebe253514",
+  "model": "scribe_v2"
+}

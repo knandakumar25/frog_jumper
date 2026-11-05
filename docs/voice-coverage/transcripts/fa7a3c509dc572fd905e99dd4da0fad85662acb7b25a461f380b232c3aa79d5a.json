@@ -1,0 +1,258 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Accepted. The lights have changed. Shelter, water, transit. They are reading names again. Everyone here can finally move",
+  "words": [
+    {
+      "text": "Accepted.",
+      "start": 0.1,
+      "end": 0.64,
+      "type": "word",
+      "logprob": -0.008038717693933804
+    },
+    {
+      "text": " ",
+      "start": 0.64,
+      "end": 0.64,
+      "type": "spacing",
+      "logprob": -6.079655122448457e-06
+    },
+    {
+      "text": "The",
+      "start": 1.2,
+      "end": 1.28,
+      "type": "word",
+      "logprob": -6.079655122448457e-06
+    },
+    {
+      "text": " ",
+      "start": 1.28,
+      "end": 1.32,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "lights",
+      "start": 1.32,
+      "end": 1.54,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 1.54,
+      "end": 1.56,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "have",
+      "start": 1.56,
+      "end": 1.7,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 1.7,
+      "end": 1.78,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "changed.",
+      "start": 1.78,
+      "end": 2.24,
+      "type": "word",
+      "logprob": -0.00015871629865671366
+    },
+    {
+      "text": " ",
+      "start": 2.24,
+      "end": 2.66,
+      "type": "spacing",
+      "logprob": -0.0003970073303207755
+    },
+    {
+      "text": "Shelter,",
+      "start": 2.66,
+      "end": 3.04,
+      "type": "word",
+      "logprob": -0.0007524828979512677
+    },
+    {
+      "text": " ",
+      "start": 3.04,
+      "end": 3.04,
+      "type": "spacing",
+      "logprob": -0.0002613918040879071
+    },
+    {
+      "text": "water,",
+      "start": 3.6,
+      "end": 3.9,
+      "type": "word",
+      "logprob": -0.00022688616324254932
+    },
+    {
+      "text": " ",
+      "start": 3.9,
+      "end": 4.28,
+      "type": "spacing",
+      "logprob": -9.715084888739511e-05
+    },
+    {
+      "text": "transit.",
+      "start": 4.28,
+      "end": 4.76,
+      "type": "word",
+      "logprob": -0.00010612015557853738
+    },
+    {
+      "text": " ",
+      "start": 4.76,
+      "end": 4.82,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "They",
+      "start": 5.38,
+      "end": 5.48,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 5.48,
+      "end": 5.5,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "are",
+      "start": 5.5,
+      "end": 5.62,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 5.62,
+      "end": 5.68,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "reading",
+      "start": 5.68,
+      "end": 5.94,
+      "type": "word",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": " ",
+      "start": 5.94,
+      "end": 5.98,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "names",
+      "start": 5.98,
+      "end": 6.22,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 6.22,
+      "end": 6.26,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "again.",
+      "start": 6.26,
+      "end": 6.54,
+      "type": "word",
+      "logprob": -3.1192904543786426e-06
+    },
+    {
+      "text": " ",
+      "start": 6.54,
+      "end": 6.92,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "Everyone",
+      "start": 6.92,
+      "end": 7.26,
+      "type": "word",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": " ",
+      "start": 7.26,
+      "end": 7.3,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "here",
+      "start": 7.3,
+      "end": 7.48,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 7.48,
+      "end": 7.52,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "can",
+      "start": 7.52,
+      "end": 7.66,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 7.66,
+      "end": 7.72,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "finally",
+      "start": 7.72,
+      "end": 7.98,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 7.98,
+      "end": 8.02,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "move",
+      "start": 8.02,
+      "end": 8.28,
+      "type": "word",
+      "logprob": 0.0
+    }
+  ],
+  "transcription_id": "a7Wn8cztzTzSDBr2Hn0a",
+  "audio_duration_secs": 8.6378125,
+  "request_id": null,
+  "audio_path": "assets/audio/names/commit.ogg",
+  "audio_sha256": "fa7a3c509dc572fd905e99dd4da0fad85662acb7b25a461f380b232c3aa79d5a",
+  "model": "scribe_v2"
+}

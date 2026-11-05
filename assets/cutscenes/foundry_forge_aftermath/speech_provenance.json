@@ -19,23 +19,27 @@
     "request_sha256": "4e4c1a586d856773b06499ba3727575d95464401f5a3a6c4c86dc60cb7d244e7"
   },
   {
-    "cue": 2,
-    "speaker": "TITAN",
-    "voice": "George",
+    "id": "cinematic.foundry_forge_aftermath.02",
+    "text": "The rift is buckling. Those severed conduits are feeding the surge straight back into their power grid.",
+    "text_sha256": "7f501c1236a9fc2a9d5fb38ce423cae391bfb045e7dcc1a200a1f4d12378fd6f",
     "voice_id": "JBFqnCBsd6RMkjVDRZzb",
     "model": "eleven_multilingual_v2",
     "settings": {
-      "stability": 0.65,
+      "stability": 0.7,
       "similarity_boost": 0.75,
-      "style": 0.12,
+      "style": 0.1,
       "speed": 1,
       "use_speaker_boost": true
     },
-    "text": "The rift is buckling. Those severed conduits are feeding the surge straight back into their power grid.",
+    "request_sha256": "27a867817a5191fbcff0749f2131f451bb22bb74dcdc556ea4c6cf5f9a229db2",
+    "audio_sha256": "b6df916afa9134f50e6295dd3d5bcbb378462fa1963730217c194cc561bebd5e",
+    "request_id": "2u0gJaNFly3TuwanBM0y",
+    "source": "ElevenLabs HTTPS TTS; complete replacement, speed 1",
+    "cue": 2,
+    "speaker": "TITAN",
+    "source_sha256": "b6df916afa9134f50e6295dd3d5bcbb378462fa1963730217c194cc561bebd5e",
     "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
-    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
-    "source_sha256": "d6a823f4967091cc3364ad3563fcf0a5c8ff3bc87749ede6fd0cc47c58a09a36",
-    "request_sha256": "65599c3984253d5b27a4eb34a610fc852be89e4861934702cf60a2dac78d49ab"
+    "voice": "George"
   },
   {
     "cue": 3,

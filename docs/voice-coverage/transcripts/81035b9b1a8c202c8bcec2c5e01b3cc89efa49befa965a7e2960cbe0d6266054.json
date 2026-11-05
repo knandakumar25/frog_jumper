@@ -1,0 +1,202 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Their command channel is still local. I can break its hold on the gate",
+  "words": [
+    {
+      "text": "Their",
+      "start": 0.12,
+      "end": 0.26,
+      "type": "word",
+      "logprob": -0.00012313561455812305
+    },
+    {
+      "text": " ",
+      "start": 0.26,
+      "end": 0.28,
+      "type": "spacing",
+      "logprob": -0.0002964295563288033
+    },
+    {
+      "text": "command",
+      "start": 0.28,
+      "end": 0.64,
+      "type": "word",
+      "logprob": -0.0002964295563288033
+    },
+    {
+      "text": " ",
+      "start": 0.64,
+      "end": 0.68,
+      "type": "spacing",
+      "logprob": -1.0251946150674485e-05
+    },
+    {
+      "text": "channel",
+      "start": 0.68,
+      "end": 0.96,
+      "type": "word",
+      "logprob": -1.0251946150674485e-05
+    },
+    {
+      "text": " ",
+      "start": 0.96,
+      "end": 1.0,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "is",
+      "start": 1.0,
+      "end": 1.1,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 1.1,
+      "end": 1.18,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "still",
+      "start": 1.18,
+      "end": 1.36,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 1.36,
+      "end": 1.4,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "local.",
+      "start": 1.4,
+      "end": 1.78,
+      "type": "word",
+      "logprob": -2.0542956538823393e-05
+    },
+    {
+      "text": " ",
+      "start": 1.78,
+      "end": 1.78,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "I",
+      "start": 2.52,
+      "end": 2.56,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 2.56,
+      "end": 2.6,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "can",
+      "start": 2.6,
+      "end": 2.72,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 2.72,
+      "end": 2.74,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "break",
+      "start": 2.74,
+      "end": 2.94,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 2.94,
+      "end": 2.98,
+      "type": "spacing",
+      "logprob": -7.271740287251305e-06
+    },
+    {
+      "text": "its",
+      "start": 2.98,
+      "end": 3.1,
+      "type": "word",
+      "logprob": -7.271740287251305e-06
+    },
+    {
+      "text": " ",
+      "start": 3.1,
+      "end": 3.14,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "hold",
+      "start": 3.14,
+      "end": 3.34,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 3.34,
+      "end": 3.38,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "on",
+      "start": 3.38,
+      "end": 3.46,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 3.46,
+      "end": 3.48,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "the",
+      "start": 3.48,
+      "end": 3.56,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 3.56,
+      "end": 3.6,
+      "type": "spacing",
+      "logprob": -0.0008077934035100043
+    },
+    {
+      "text": "gate",
+      "start": 3.6,
+      "end": 3.86,
+      "type": "word",
+      "logprob": -0.0008077934035100043
+    }
+  ],
+  "transcription_id": "qqb1oHg2rrzzDwDvNvsG",
+  "audio_duration_secs": 4.2260625,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/aura.ogg",
+  "audio_sha256": "81035b9b1a8c202c8bcec2c5e01b3cc89efa49befa965a7e2960cbe0d6266054",
+  "model": "scribe_v2"
+}

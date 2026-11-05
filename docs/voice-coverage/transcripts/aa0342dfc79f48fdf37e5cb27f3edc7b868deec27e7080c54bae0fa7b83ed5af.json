@@ -1,0 +1,174 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Listen, that is what a free city sounds like. Calm grid down",
+  "words": [
+    {
+      "text": "Listen,",
+      "start": 0.1,
+      "end": 0.42,
+      "type": "word",
+      "logprob": -0.003693465733834143
+    },
+    {
+      "text": " ",
+      "start": 0.42,
+      "end": 0.68,
+      "type": "spacing",
+      "logprob": -2.95634672511369e-05
+    },
+    {
+      "text": "that",
+      "start": 0.68,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -2.95634672511369e-05
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 0.82,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "is",
+      "start": 0.82,
+      "end": 0.92,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 0.92,
+      "end": 0.94,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "what",
+      "start": 0.94,
+      "end": 1.04,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 1.04,
+      "end": 1.08,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "a",
+      "start": 1.08,
+      "end": 1.14,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 1.14,
+      "end": 1.18,
+      "type": "spacing",
+      "logprob": -0.00012373158824630082
+    },
+    {
+      "text": "free",
+      "start": 1.18,
+      "end": 1.32,
+      "type": "word",
+      "logprob": -0.00012373158824630082
+    },
+    {
+      "text": " ",
+      "start": 1.32,
+      "end": 1.4,
+      "type": "spacing",
+      "logprob": -6.806619057897478e-05
+    },
+    {
+      "text": "city",
+      "start": 1.4,
+      "end": 1.6,
+      "type": "word",
+      "logprob": -6.806619057897478e-05
+    },
+    {
+      "text": " ",
+      "start": 1.6,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "sounds",
+      "start": 1.7,
+      "end": 1.94,
+      "type": "word",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": " ",
+      "start": 1.94,
+      "end": 1.96,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "like.",
+      "start": 1.96,
+      "end": 2.2,
+      "type": "word",
+      "logprob": -0.00011891218555319938
+    },
+    {
+      "text": " ",
+      "start": 2.2,
+      "end": 2.52,
+      "type": "spacing",
+      "logprob": -0.5222765207290649
+    },
+    {
+      "text": "Calm",
+      "start": 2.52,
+      "end": 2.72,
+      "type": "word",
+      "logprob": -0.5222765207290649
+    },
+    {
+      "text": " ",
+      "start": 2.72,
+      "end": 2.78,
+      "type": "spacing",
+      "logprob": -0.02794177643954754
+    },
+    {
+      "text": "grid",
+      "start": 2.78,
+      "end": 2.98,
+      "type": "word",
+      "logprob": -0.02794177643954754
+    },
+    {
+      "text": " ",
+      "start": 2.98,
+      "end": 3.02,
+      "type": "spacing",
+      "logprob": -1.2159273865108844e-05
+    },
+    {
+      "text": "down",
+      "start": 3.02,
+      "end": 3.3,
+      "type": "word",
+      "logprob": -1.2159273865108844e-05
+    }
+  ],
+  "transcription_id": "OC70xKOT6DDNZZJJa0SH",
+  "audio_duration_secs": 3.66875,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m03.event.ba4f252bdb19.mp3",
+  "audio_sha256": "aa0342dfc79f48fdf37e5cb27f3edc7b868deec27e7080c54bae0fa7b83ed5af",
+  "model": "scribe_v2"
+}

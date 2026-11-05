@@ -1,0 +1,258 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Stone can fall and still be rebuilt. The wall will fall and the people behind it will remain",
+  "words": [
+    {
+      "text": "Stone",
+      "start": 0.14,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -0.0006297035724855959
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.44,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "can",
+      "start": 0.44,
+      "end": 0.56,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 0.56,
+      "end": 0.7,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "fall",
+      "start": 0.7,
+      "end": 0.92,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 0.92,
+      "end": 0.94,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "and",
+      "start": 0.94,
+      "end": 1.02,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": " ",
+      "start": 1.02,
+      "end": 1.12,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "still",
+      "start": 1.12,
+      "end": 1.3,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 1.3,
+      "end": 1.34,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "be",
+      "start": 1.34,
+      "end": 1.44,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 1.44,
+      "end": 1.48,
+      "type": "spacing",
+      "logprob": -1.3112935448589269e-05
+    },
+    {
+      "text": "rebuilt.",
+      "start": 1.48,
+      "end": 1.94,
+      "type": "word",
+      "logprob": -0.0003406388103712743
+    },
+    {
+      "text": " ",
+      "start": 1.94,
+      "end": 1.94,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "The",
+      "start": 2.46,
+      "end": 2.56,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 2.56,
+      "end": 2.6,
+      "type": "spacing",
+      "logprob": -0.0005544078885577619
+    },
+    {
+      "text": "wall",
+      "start": 2.6,
+      "end": 2.78,
+      "type": "word",
+      "logprob": -0.0005544078885577619
+    },
+    {
+      "text": " ",
+      "start": 2.78,
+      "end": 2.8,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "will",
+      "start": 2.8,
+      "end": 2.98,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 2.98,
+      "end": 3.02,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "fall",
+      "start": 3.02,
+      "end": 3.34,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 3.34,
+      "end": 3.58,
+      "type": "spacing",
+      "logprob": -0.3132678270339966
+    },
+    {
+      "text": "and",
+      "start": 3.58,
+      "end": 3.66,
+      "type": "word",
+      "logprob": -0.3132678270339966
+    },
+    {
+      "text": " ",
+      "start": 3.66,
+      "end": 3.7,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "the",
+      "start": 3.7,
+      "end": 3.8,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 3.8,
+      "end": 3.84,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "people",
+      "start": 3.84,
+      "end": 4.12,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 4.12,
+      "end": 4.16,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "behind",
+      "start": 4.16,
+      "end": 4.5,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 4.5,
+      "end": 4.54,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "it",
+      "start": 4.54,
+      "end": 4.64,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 4.64,
+      "end": 4.68,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "will",
+      "start": 4.68,
+      "end": 4.8,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.8,
+      "end": 4.84,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "remain",
+      "start": 4.84,
+      "end": 5.24,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    }
+  ],
+  "transcription_id": "WGujovn3f7achVgdKmUq",
+  "audio_duration_secs": 5.5728125,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/surya.ogg",
+  "audio_sha256": "50a3be6defce3234c32e2e471741afb8702991a0852033d86d7151235c37123a",
+  "model": "scribe_v2"
+}

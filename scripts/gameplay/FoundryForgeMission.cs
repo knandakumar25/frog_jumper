@@ -101,7 +101,7 @@ public partial class FoundryForgeMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // CONTAINMENT FAULT: Cryo-coolant pressure dropping. High-voltage magnetic conduits cannot withstand thermal runaway.",
             _ => "DATA SLATE 03 // EMERGENCY PROTOCOL: In event of core breach, planetary sky-shields will collapse across all municipal sectors."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // TRANSMISSION ONLINE");
+
         return text;
     }
 

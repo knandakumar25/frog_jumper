@@ -1,0 +1,118 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Seal the arena. Bring the inner defenses online",
+  "words": [
+    {
+      "text": "Seal",
+      "start": 0.1,
+      "end": 0.32,
+      "type": "word",
+      "logprob": -0.0017159751150757074
+    },
+    {
+      "text": " ",
+      "start": 0.32,
+      "end": 0.38,
+      "type": "spacing",
+      "logprob": -5.722029527532868e-06
+    },
+    {
+      "text": "the",
+      "start": 0.38,
+      "end": 0.44,
+      "type": "word",
+      "logprob": -5.722029527532868e-06
+    },
+    {
+      "text": " ",
+      "start": 0.44,
+      "end": 0.5,
+      "type": "spacing",
+      "logprob": -0.00011038171214750037
+    },
+    {
+      "text": "arena.",
+      "start": 0.5,
+      "end": 0.9,
+      "type": "word",
+      "logprob": -0.00024315303380717523
+    },
+    {
+      "text": " ",
+      "start": 0.9,
+      "end": 1.42,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "Bring",
+      "start": 1.42,
+      "end": 1.64,
+      "type": "word",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.7,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "the",
+      "start": 1.7,
+      "end": 1.8,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 1.8,
+      "end": 1.86,
+      "type": "spacing",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": "inner",
+      "start": 1.86,
+      "end": 2.04,
+      "type": "word",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": " ",
+      "start": 2.04,
+      "end": 2.06,
+      "type": "spacing",
+      "logprob": -0.0002324311062693596
+    },
+    {
+      "text": "defenses",
+      "start": 2.06,
+      "end": 2.66,
+      "type": "word",
+      "logprob": -0.0002324311062693596
+    },
+    {
+      "text": " ",
+      "start": 2.66,
+      "end": 2.86,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "online",
+      "start": 2.86,
+      "end": 3.54,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    }
+  ],
+  "transcription_id": "7X54mpuhonAdoX3hIuKo",
+  "audio_duration_secs": 3.9009375,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/phase2.ogg",
+  "audio_sha256": "3518040dc37c2fd966755eec81387ffabe65fbcf2320a916f85c55ecf84f3989",
+  "model": "scribe_v2"
+}

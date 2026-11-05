@@ -1,0 +1,216 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate 02: geothermal siphon. Overdrive reactor feeding primary conduits. Any disruption threatens structural containment",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.08,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.002514536026865244
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.46,
+      "type": "spacing",
+      "logprob": -0.3139244616031647
+    },
+    {
+      "text": "slate",
+      "start": 0.46,
+      "end": 0.72,
+      "type": "word",
+      "logprob": -0.3139244616031647
+    },
+    {
+      "text": " ",
+      "start": 0.72,
+      "end": 0.8,
+      "type": "spacing",
+      "logprob": -0.5234439373016357
+    },
+    {
+      "text": "02:",
+      "start": 0.8,
+      "end": 1.4,
+      "type": "word",
+      "logprob": -0.022310089763775427
+    },
+    {
+      "text": " ",
+      "start": 1.4,
+      "end": 1.4,
+      "type": "spacing",
+      "logprob": -0.17975272238254547
+    },
+    {
+      "text": "geothermal",
+      "start": 2.0,
+      "end": 2.62,
+      "type": "word",
+      "logprob": -0.17975272238254547
+    },
+    {
+      "text": " ",
+      "start": 2.62,
+      "end": 2.76,
+      "type": "spacing",
+      "logprob": -0.0003618539194576442
+    },
+    {
+      "text": "siphon.",
+      "start": 2.76,
+      "end": 3.22,
+      "type": "word",
+      "logprob": -0.017466035555116832
+    },
+    {
+      "text": " ",
+      "start": 3.22,
+      "end": 3.22,
+      "type": "spacing",
+      "logprob": -8.248942322097719e-05
+    },
+    {
+      "text": "Overdrive",
+      "start": 3.76,
+      "end": 4.42,
+      "type": "word",
+      "logprob": -0.00027913372226369876
+    },
+    {
+      "text": " ",
+      "start": 4.42,
+      "end": 4.5,
+      "type": "spacing",
+      "logprob": -0.00020585325546562672
+    },
+    {
+      "text": "reactor",
+      "start": 4.5,
+      "end": 4.9,
+      "type": "word",
+      "logprob": -0.00020585325546562672
+    },
+    {
+      "text": " ",
+      "start": 4.9,
+      "end": 5.02,
+      "type": "spacing",
+      "logprob": -6.806619057897478e-05
+    },
+    {
+      "text": "feeding",
+      "start": 5.02,
+      "end": 5.34,
+      "type": "word",
+      "logprob": -6.806619057897478e-05
+    },
+    {
+      "text": " ",
+      "start": 5.34,
+      "end": 5.44,
+      "type": "spacing",
+      "logprob": -4.887569048150908e-06
+    },
+    {
+      "text": "primary",
+      "start": 5.44,
+      "end": 5.84,
+      "type": "word",
+      "logprob": -4.887569048150908e-06
+    },
+    {
+      "text": " ",
+      "start": 5.84,
+      "end": 5.96,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "conduits.",
+      "start": 5.96,
+      "end": 6.56,
+      "type": "word",
+      "logprob": -3.145556951898875e-05
+    },
+    {
+      "text": " ",
+      "start": 6.56,
+      "end": 6.56,
+      "type": "spacing",
+      "logprob": -2.3841830625315197e-06
+    },
+    {
+      "text": "Any",
+      "start": 7.24,
+      "end": 7.44,
+      "type": "word",
+      "logprob": -2.3841830625315197e-06
+    },
+    {
+      "text": " ",
+      "start": 7.44,
+      "end": 7.46,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "disruption",
+      "start": 7.46,
+      "end": 8.06,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 8.06,
+      "end": 8.46,
+      "type": "spacing",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": "threatens",
+      "start": 8.46,
+      "end": 8.92,
+      "type": "word",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": " ",
+      "start": 8.92,
+      "end": 9.16,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "structural",
+      "start": 9.16,
+      "end": 9.6,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 9.6,
+      "end": 9.7,
+      "type": "spacing",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": "containment",
+      "start": 9.7,
+      "end": 10.36,
+      "type": "word",
+      "logprob": -1.2040065485052764e-05
+    }
+  ],
+  "transcription_id": "ObZYIhoZpJZlUe2kG1tK",
+  "audio_duration_secs": 10.727625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m06.fragment2.mp3",
+  "audio_sha256": "0b1a1224a978349b9cb252f909abd974c169f06dba933e6f4cc91e630d6061f6",
+  "model": "scribe_v2"
+}

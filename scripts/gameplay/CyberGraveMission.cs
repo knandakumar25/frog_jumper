@@ -100,7 +100,7 @@ public partial class CyberGraveMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // GEOTHERMAL SIPHON: Overdrive reactor feeding primary conduits. Any disruption threatens structural containment.",
             _ => "DATA SLATE 03 // EXTRACTION DIRECTIVE: Evacuate all personnel. No human component may fall into enemy command hands."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // TRANSMISSION ONLINE");
+
         return text;
     }
 

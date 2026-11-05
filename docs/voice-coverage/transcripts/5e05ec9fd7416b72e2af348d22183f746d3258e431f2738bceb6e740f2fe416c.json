@@ -1,0 +1,202 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Wait for the vents to flare. Bulwark through, then recover on the far platform",
+  "words": [
+    {
+      "text": "Wait",
+      "start": 0.12,
+      "end": 0.26,
+      "type": "word",
+      "logprob": -0.0001823735801735893
+    },
+    {
+      "text": " ",
+      "start": 0.26,
+      "end": 0.28,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "for",
+      "start": 0.28,
+      "end": 0.38,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 0.38,
+      "end": 0.42,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "the",
+      "start": 0.42,
+      "end": 0.46,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 0.46,
+      "end": 0.52,
+      "type": "spacing",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": "vents",
+      "start": 0.52,
+      "end": 0.76,
+      "type": "word",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": " ",
+      "start": 0.76,
+      "end": 0.78,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "to",
+      "start": 0.78,
+      "end": 0.88,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 0.88,
+      "end": 0.92,
+      "type": "spacing",
+      "logprob": -0.0006716379430145025
+    },
+    {
+      "text": "flare.",
+      "start": 0.92,
+      "end": 1.22,
+      "type": "word",
+      "logprob": -0.013864884269423783
+    },
+    {
+      "text": " ",
+      "start": 1.22,
+      "end": 1.78,
+      "type": "spacing",
+      "logprob": -0.03542399778962135
+    },
+    {
+      "text": "Bulwark",
+      "start": 1.78,
+      "end": 2.14,
+      "type": "word",
+      "logprob": -0.015899991550083672
+    },
+    {
+      "text": " ",
+      "start": 2.14,
+      "end": 2.16,
+      "type": "spacing",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": "through,",
+      "start": 2.16,
+      "end": 2.42,
+      "type": "word",
+      "logprob": -0.0012256076929588744
+    },
+    {
+      "text": " ",
+      "start": 2.42,
+      "end": 2.52,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "then",
+      "start": 2.52,
+      "end": 2.62,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 2.62,
+      "end": 2.66,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "recover",
+      "start": 2.66,
+      "end": 3.04,
+      "type": "word",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": " ",
+      "start": 3.04,
+      "end": 3.08,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "on",
+      "start": 3.08,
+      "end": 3.14,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 3.14,
+      "end": 3.18,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "the",
+      "start": 3.18,
+      "end": 3.26,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 3.26,
+      "end": 3.3,
+      "type": "spacing",
+      "logprob": -9.298280929215252e-06
+    },
+    {
+      "text": "far",
+      "start": 3.3,
+      "end": 3.44,
+      "type": "word",
+      "logprob": -9.298280929215252e-06
+    },
+    {
+      "text": " ",
+      "start": 3.44,
+      "end": 3.52,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "platform",
+      "start": 3.52,
+      "end": 4.019,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    }
+  ],
+  "transcription_id": "Asp3ZkzuVa62CgX1dcF1",
+  "audio_duration_secs": 4.4118125,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/practice.ogg",
+  "audio_sha256": "5e05ec9fd7416b72e2af348d22183f746d3258e431f2738bceb6e740f2fe416c",
+  "model": "scribe_v2"
+}

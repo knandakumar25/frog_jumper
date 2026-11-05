@@ -104,7 +104,7 @@ public partial class StratosDocksMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // CRYO-HYDROGEN RESERVES: Heavy military gunship in Bay 4 spooled with supercharged hydrogen fuel cells.",
             _ => "DATA SLATE 03 // AIRSPACE INTERCEPT PROTOCOL: Aero-Centurion flight-deck mechanoid authorized to deploy overdrive micro-missiles against invaders."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // TRANSMISSION ONLINE");
+
         return text;
     }
 

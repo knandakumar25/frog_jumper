@@ -275,10 +275,11 @@ func test_pause_and_missing_voice_keep_progress_independent() -> void:
 	var mission := await _mission()
 	var scheduler := mission.get_node("AegisDialogue")
 	scheduler.call("Cancel")
-	scheduler.set("VoiceDirectory", "res://missing-aegis-voice/")
+	var queue: Node = mission.get_node("MissionSpeechQueue")
+	queue.set("AudioDirectoryOverride", "res://missing-aegis-voice/")
 	mission.call("QueueBeat", "practice")
 	await get_tree().process_frame
-	var speech := scheduler.get_node("Speech")
+	var speech := queue.get_node("EnglishSpeech")
 	assert_bool(speech.playing).is_false()
 	get_tree().paused = true
 	assert_bool(scheduler.can_process()).is_false()

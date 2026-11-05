@@ -1,0 +1,132 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "The membrane is falling. Move all of you now",
+  "words": [
+    {
+      "text": "The",
+      "start": 0.08,
+      "end": 0.16,
+      "type": "word",
+      "logprob": -0.00031382881570607424
+    },
+    {
+      "text": " ",
+      "start": 0.16,
+      "end": 0.22,
+      "type": "spacing",
+      "logprob": -1.7762025890988298e-05
+    },
+    {
+      "text": "membrane",
+      "start": 0.22,
+      "end": 0.6,
+      "type": "word",
+      "logprob": -1.7762025890988298e-05
+    },
+    {
+      "text": " ",
+      "start": 0.6,
+      "end": 0.64,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "is",
+      "start": 0.64,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 0.8,
+      "type": "spacing",
+      "logprob": -6.437280717364047e-06
+    },
+    {
+      "text": "falling.",
+      "start": 0.8,
+      "end": 1.12,
+      "type": "word",
+      "logprob": -0.00016422933174453647
+    },
+    {
+      "text": " ",
+      "start": 1.12,
+      "end": 1.2,
+      "type": "spacing",
+      "logprob": -5.960446742392378e-06
+    },
+    {
+      "text": "Move",
+      "start": 1.2,
+      "end": 1.44,
+      "type": "word",
+      "logprob": -5.960446742392378e-06
+    },
+    {
+      "text": " ",
+      "start": 1.44,
+      "end": 1.5,
+      "type": "spacing",
+      "logprob": -0.4741697311401367
+    },
+    {
+      "text": "all",
+      "start": 1.5,
+      "end": 1.6,
+      "type": "word",
+      "logprob": -0.4741697311401367
+    },
+    {
+      "text": " ",
+      "start": 1.6,
+      "end": 1.66,
+      "type": "spacing",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": "of",
+      "start": 1.66,
+      "end": 1.74,
+      "type": "word",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": " ",
+      "start": 1.74,
+      "end": 1.78,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "you",
+      "start": 1.78,
+      "end": 1.84,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 1.84,
+      "end": 1.94,
+      "type": "spacing",
+      "logprob": -0.020730841904878616
+    },
+    {
+      "text": "now",
+      "start": 1.94,
+      "end": 2.3,
+      "type": "word",
+      "logprob": -0.020730841904878616
+    }
+  ],
+  "transcription_id": "veQvJgWDGzcNLHaiyRwm",
+  "audio_duration_secs": 2.600625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m02.event.a0cc5d89538f.mp3",
+  "audio_sha256": "b0ddf8fb123e4f5ee25d4a036b50ad2e5e35cfaef66bdfd6ade7b427d0d27e20",
+  "model": "scribe_v2"
+}

@@ -102,7 +102,7 @@ public partial class JudgmentDayMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // IMPERIAL DECREE: All civilian identity registries slated for permanent eradication upon Singularity Core reaching 100% capacity.",
             _ => "DATA SLATE 03 // THE DAWN OF AXIOM: Six operatives stood together when millions fell. Their names will be remembered across eternity."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // DECRYPTED TRANSMISSION");
+
         return text;
     }
 

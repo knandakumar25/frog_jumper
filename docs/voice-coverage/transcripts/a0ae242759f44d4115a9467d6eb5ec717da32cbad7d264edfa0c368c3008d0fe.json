@@ -1,0 +1,160 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "But everything changed when the Zelthura Collective arrived. Advanced. Ruthless. Unstoppable.",
+  "words": [
+    {
+      "text": "But",
+      "start": 0.16,
+      "end": 0.24,
+      "type": "word",
+      "logprob": -4.291525328881107e-06
+    },
+    {
+      "text": " ",
+      "start": 0.24,
+      "end": 0.3,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "everything",
+      "start": 0.3,
+      "end": 0.68,
+      "type": "word",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": " ",
+      "start": 0.68,
+      "end": 0.84,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "changed",
+      "start": 0.84,
+      "end": 1.38,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 1.38,
+      "end": 1.52,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "when",
+      "start": 1.52,
+      "end": 1.6,
+      "type": "word",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": " ",
+      "start": 1.6,
+      "end": 1.62,
+      "type": "spacing",
+      "logprob": -0.5765045285224915
+    },
+    {
+      "text": "the",
+      "start": 1.62,
+      "end": 1.72,
+      "type": "word",
+      "logprob": -0.5765045285224915
+    },
+    {
+      "text": " ",
+      "start": 1.72,
+      "end": 1.78,
+      "type": "spacing",
+      "logprob": -0.005738569889217615
+    },
+    {
+      "text": "Zelthura",
+      "start": 1.78,
+      "end": 2.2,
+      "type": "word",
+      "logprob": -0.1310822045779787
+    },
+    {
+      "text": " ",
+      "start": 2.2,
+      "end": 2.32,
+      "type": "spacing",
+      "logprob": -0.023253483697772026
+    },
+    {
+      "text": "Collective",
+      "start": 2.32,
+      "end": 2.7,
+      "type": "word",
+      "logprob": -0.023253483697772026
+    },
+    {
+      "text": " ",
+      "start": 2.7,
+      "end": 2.74,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "arrived.",
+      "start": 2.74,
+      "end": 3.2,
+      "type": "word",
+      "logprob": -5.4388624164403154e-06
+    },
+    {
+      "text": " ",
+      "start": 3.2,
+      "end": 3.2,
+      "type": "spacing",
+      "logprob": -1.7404405298293568e-05
+    },
+    {
+      "text": "Advanced.",
+      "start": 3.64,
+      "end": 4.24,
+      "type": "word",
+      "logprob": -0.05814146982124334
+    },
+    {
+      "text": " ",
+      "start": 4.24,
+      "end": 4.24,
+      "type": "spacing",
+      "logprob": -0.001086598145775497
+    },
+    {
+      "text": "Ruthless.",
+      "start": 4.72,
+      "end": 5.14,
+      "type": "word",
+      "logprob": -0.0004835418002231664
+    },
+    {
+      "text": " ",
+      "start": 5.14,
+      "end": 5.14,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "Unstoppable.",
+      "start": 5.66,
+      "end": 6.28,
+      "type": "word",
+      "logprob": -0.004617908130815825
+    }
+  ],
+  "transcription_id": "JitGxMPJsj3fwChIP8hs",
+  "audio_duration_secs": 6.648,
+  "request_id": null,
+  "audio_path": "assets/speech/AXIOM-7/english/AXIOM-7-3.mp3",
+  "audio_sha256": "a0ae242759f44d4115a9467d6eb5ec717da32cbad7d264edfa0c368c3008d0fe",
+  "model": "scribe_v2"
+}

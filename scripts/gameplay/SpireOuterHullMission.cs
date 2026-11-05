@@ -101,7 +101,7 @@ public partial class SpireOuterHullMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // EXHAUST MANIFOLD OVERHEAT: Cryogenic louvers vent excess reactor heat directly through exterior armor seams.",
             _ => "DATA SLATE 03 // SPIRE SENTINEL PROTOCOL: Automated aerial defense mechanoid V-9 authorized to fire overdrive plasma salvos."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // TRANSMISSION ONLINE");
+
         return text;
     }
 

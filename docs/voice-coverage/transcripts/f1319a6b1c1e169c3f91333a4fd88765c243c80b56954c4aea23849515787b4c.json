@@ -1,0 +1,244 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Elevation 1200 meters. Storm wind shear at maximum. Infiltrate the perimeter and commandeer the Bay 4 VTOL",
+  "words": [
+    {
+      "text": "Elevation",
+      "start": 0.1,
+      "end": 0.62,
+      "type": "word",
+      "logprob": -0.014564977958798409
+    },
+    {
+      "text": " ",
+      "start": 0.62,
+      "end": 0.72,
+      "type": "spacing",
+      "logprob": -0.016230475157499313
+    },
+    {
+      "text": "1200",
+      "start": 0.72,
+      "end": 1.32,
+      "type": "word",
+      "logprob": -0.002443207634883038
+    },
+    {
+      "text": " ",
+      "start": 1.32,
+      "end": 1.36,
+      "type": "spacing",
+      "logprob": -3.242440288886428e-05
+    },
+    {
+      "text": "meters.",
+      "start": 1.38,
+      "end": 1.76,
+      "type": "word",
+      "logprob": -0.055351733712346425
+    },
+    {
+      "text": " ",
+      "start": 1.76,
+      "end": 1.76,
+      "type": "spacing",
+      "logprob": -8.34461570775602e-06
+    },
+    {
+      "text": "Storm",
+      "start": 2.38,
+      "end": 2.68,
+      "type": "word",
+      "logprob": -8.34461570775602e-06
+    },
+    {
+      "text": " ",
+      "start": 2.68,
+      "end": 2.74,
+      "type": "spacing",
+      "logprob": -4.51792984677013e-05
+    },
+    {
+      "text": "wind",
+      "start": 2.74,
+      "end": 2.9,
+      "type": "word",
+      "logprob": -4.51792984677013e-05
+    },
+    {
+      "text": " ",
+      "start": 2.9,
+      "end": 3.0,
+      "type": "spacing",
+      "logprob": -0.0005059154354967177
+    },
+    {
+      "text": "shear",
+      "start": 3.0,
+      "end": 3.28,
+      "type": "word",
+      "logprob": -0.0005059154354967177
+    },
+    {
+      "text": " ",
+      "start": 3.28,
+      "end": 3.32,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "at",
+      "start": 3.32,
+      "end": 3.46,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 3.46,
+      "end": 3.5,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "maximum.",
+      "start": 3.5,
+      "end": 4.0,
+      "type": "word",
+      "logprob": -3.033682298791973e-05
+    },
+    {
+      "text": " ",
+      "start": 4.0,
+      "end": 4.56,
+      "type": "spacing",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": "Infiltrate",
+      "start": 4.56,
+      "end": 5.1,
+      "type": "word",
+      "logprob": -0.00011712147032199028
+    },
+    {
+      "text": " ",
+      "start": 5.1,
+      "end": 5.12,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "the",
+      "start": 5.12,
+      "end": 5.22,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 5.22,
+      "end": 5.24,
+      "type": "spacing",
+      "logprob": -2.2411095415009186e-05
+    },
+    {
+      "text": "perimeter",
+      "start": 5.24,
+      "end": 5.74,
+      "type": "word",
+      "logprob": -2.2411095415009186e-05
+    },
+    {
+      "text": " ",
+      "start": 5.74,
+      "end": 6.2,
+      "type": "spacing",
+      "logprob": -0.0002971446083392948
+    },
+    {
+      "text": "and",
+      "start": 6.2,
+      "end": 6.28,
+      "type": "word",
+      "logprob": -0.0002971446083392948
+    },
+    {
+      "text": " ",
+      "start": 6.28,
+      "end": 6.38,
+      "type": "spacing",
+      "logprob": -0.0006028980133123696
+    },
+    {
+      "text": "commandeer",
+      "start": 6.4,
+      "end": 6.94,
+      "type": "word",
+      "logprob": -0.0004825091454222274
+    },
+    {
+      "text": " ",
+      "start": 6.94,
+      "end": 7.2,
+      "type": "spacing",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": "the",
+      "start": 7.2,
+      "end": 7.28,
+      "type": "word",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": " ",
+      "start": 7.28,
+      "end": 7.32,
+      "type": "spacing",
+      "logprob": -0.023368315771222115
+    },
+    {
+      "text": "Bay",
+      "start": 7.32,
+      "end": 7.46,
+      "type": "word",
+      "logprob": -0.023368315771222115
+    },
+    {
+      "text": " ",
+      "start": 7.46,
+      "end": 7.86,
+      "type": "spacing",
+      "logprob": -0.31958892941474915
+    },
+    {
+      "text": "4",
+      "start": 7.86,
+      "end": 7.88,
+      "type": "word",
+      "logprob": -7.867782187531702e-06
+    },
+    {
+      "text": " ",
+      "start": 7.88,
+      "end": 8.119,
+      "type": "spacing",
+      "logprob": -0.0001778444420779124
+    },
+    {
+      "text": "VTOL",
+      "start": 8.119,
+      "end": 8.8,
+      "type": "word",
+      "logprob": -0.024406602147792
+    }
+  ],
+  "transcription_id": "zM6tneJSRwE9S5eLcKrb",
+  "audio_duration_secs": 9.195125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m08.intro.mp3",
+  "audio_sha256": "f1319a6b1c1e169c3f91333a4fd88765c243c80b56954c4aea23849515787b4c",
+  "model": "scribe_v2"
+}

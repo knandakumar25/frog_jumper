@@ -1,0 +1,286 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Every denial carries the same harmonic signature. Clear the control hall, and I can isolate it without touching the records",
+  "words": [
+    {
+      "text": "Every",
+      "start": 0.1,
+      "end": 0.3,
+      "type": "word",
+      "logprob": -0.00014768941036891192
+    },
+    {
+      "text": " ",
+      "start": 0.3,
+      "end": 0.38,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "denial",
+      "start": 0.38,
+      "end": 0.76,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 0.76,
+      "end": 0.88,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "carries",
+      "start": 0.88,
+      "end": 1.18,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 1.18,
+      "end": 1.22,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "the",
+      "start": 1.22,
+      "end": 1.3,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 1.3,
+      "end": 1.36,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "same",
+      "start": 1.36,
+      "end": 1.64,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "harmonic",
+      "start": 1.68,
+      "end": 2.1,
+      "type": "word",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": " ",
+      "start": 2.1,
+      "end": 2.18,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "signature.",
+      "start": 2.18,
+      "end": 2.66,
+      "type": "word",
+      "logprob": -8.42780968923762e-06
+    },
+    {
+      "text": " ",
+      "start": 2.66,
+      "end": 2.66,
+      "type": "spacing",
+      "logprob": -5.960446742392378e-06
+    },
+    {
+      "text": "Clear",
+      "start": 3.3,
+      "end": 3.54,
+      "type": "word",
+      "logprob": -5.960446742392378e-06
+    },
+    {
+      "text": " ",
+      "start": 3.54,
+      "end": 3.58,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "the",
+      "start": 3.58,
+      "end": 3.64,
+      "type": "word",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": " ",
+      "start": 3.64,
+      "end": 3.66,
+      "type": "spacing",
+      "logprob": -5.185469490243122e-05
+    },
+    {
+      "text": "control",
+      "start": 3.66,
+      "end": 4.0,
+      "type": "word",
+      "logprob": -5.185469490243122e-05
+    },
+    {
+      "text": " ",
+      "start": 4.0,
+      "end": 4.08,
+      "type": "spacing",
+      "logprob": -0.00014685506175737828
+    },
+    {
+      "text": "hall,",
+      "start": 4.08,
+      "end": 4.28,
+      "type": "word",
+      "logprob": -0.06277007790049538
+    },
+    {
+      "text": " ",
+      "start": 4.28,
+      "end": 4.54,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "and",
+      "start": 4.54,
+      "end": 4.62,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 4.62,
+      "end": 4.7,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "I",
+      "start": 4.7,
+      "end": 4.74,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.74,
+      "end": 4.76,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "can",
+      "start": 4.76,
+      "end": 4.92,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.92,
+      "end": 5.0,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "isolate",
+      "start": 5.0,
+      "end": 5.4,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 5.4,
+      "end": 5.44,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "it",
+      "start": 5.44,
+      "end": 5.54,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 5.54,
+      "end": 5.58,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "without",
+      "start": 5.58,
+      "end": 5.86,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 5.86,
+      "end": 5.92,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "touching",
+      "start": 5.92,
+      "end": 6.2,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 6.2,
+      "end": 6.22,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "the",
+      "start": 6.24,
+      "end": 6.3,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 6.3,
+      "end": 6.34,
+      "type": "spacing",
+      "logprob": -3.611976353568025e-05
+    },
+    {
+      "text": "records",
+      "start": 6.34,
+      "end": 6.8,
+      "type": "word",
+      "logprob": -3.611976353568025e-05
+    }
+  ],
+  "transcription_id": "3PceZS2xNlz9ql82OR7I",
+  "audio_duration_secs": 7.15175,
+  "request_id": null,
+  "audio_path": "assets/audio/names/sector1.ogg",
+  "audio_sha256": "47dfe104c5d34fb85daffadfef59efae4e4111a21cbbbbba37e4584bb48074e7",
+  "model": "scribe_v2"
+}

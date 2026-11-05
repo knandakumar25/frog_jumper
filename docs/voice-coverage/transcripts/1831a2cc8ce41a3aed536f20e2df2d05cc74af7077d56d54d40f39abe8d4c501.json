@@ -1,0 +1,286 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data Slate 03: Chi-Ching Airspace Intercept Protocol. Aero Centurion flight deck mechanoid authorized to deploy overdrive micro missiles against invaders",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.0026126320008188486
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.44,
+      "type": "spacing",
+      "logprob": -0.6366627216339111
+    },
+    {
+      "text": "Slate",
+      "start": 0.44,
+      "end": 0.7,
+      "type": "word",
+      "logprob": -0.6366627216339111
+    },
+    {
+      "text": " ",
+      "start": 0.7,
+      "end": 0.76,
+      "type": "spacing",
+      "logprob": -0.4333088994026184
+    },
+    {
+      "text": "03:",
+      "start": 0.76,
+      "end": 1.38,
+      "type": "word",
+      "logprob": -0.11589335858570848
+    },
+    {
+      "text": " ",
+      "start": 1.38,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -0.33824414014816284
+    },
+    {
+      "text": "Chi-Ching",
+      "start": 1.68,
+      "end": 2.24,
+      "type": "word",
+      "logprob": -0.3134268057343029
+    },
+    {
+      "text": " ",
+      "start": 2.24,
+      "end": 2.46,
+      "type": "spacing",
+      "logprob": -0.4309598207473755
+    },
+    {
+      "text": "Airspace",
+      "start": 2.46,
+      "end": 3.0,
+      "type": "word",
+      "logprob": -0.16176779064699076
+    },
+    {
+      "text": " ",
+      "start": 3.0,
+      "end": 3.12,
+      "type": "spacing",
+      "logprob": -0.007631906773895025
+    },
+    {
+      "text": "Intercept",
+      "start": 3.12,
+      "end": 3.6,
+      "type": "word",
+      "logprob": -0.004247630517865118
+    },
+    {
+      "text": " ",
+      "start": 3.6,
+      "end": 3.7,
+      "type": "spacing",
+      "logprob": -0.00062851223628968
+    },
+    {
+      "text": "Protocol.",
+      "start": 3.7,
+      "end": 4.36,
+      "type": "word",
+      "logprob": -0.0009308871037016312
+    },
+    {
+      "text": " ",
+      "start": 4.36,
+      "end": 4.36,
+      "type": "spacing",
+      "logprob": -0.17044556140899658
+    },
+    {
+      "text": "Aero",
+      "start": 5.0,
+      "end": 5.22,
+      "type": "word",
+      "logprob": -0.17044556140899658
+    },
+    {
+      "text": " ",
+      "start": 5.22,
+      "end": 5.32,
+      "type": "spacing",
+      "logprob": -0.4448218047618866
+    },
+    {
+      "text": "Centurion",
+      "start": 5.32,
+      "end": 5.92,
+      "type": "word",
+      "logprob": -0.19854822321536225
+    },
+    {
+      "text": " ",
+      "start": 5.92,
+      "end": 6.06,
+      "type": "spacing",
+      "logprob": -0.10025640577077866
+    },
+    {
+      "text": "flight",
+      "start": 6.08,
+      "end": 6.3,
+      "type": "word",
+      "logprob": -0.10025640577077866
+    },
+    {
+      "text": " ",
+      "start": 6.3,
+      "end": 6.4,
+      "type": "spacing",
+      "logprob": -9.846202738117427e-05
+    },
+    {
+      "text": "deck",
+      "start": 6.4,
+      "end": 6.56,
+      "type": "word",
+      "logprob": -9.846202738117427e-05
+    },
+    {
+      "text": " ",
+      "start": 6.56,
+      "end": 6.68,
+      "type": "spacing",
+      "logprob": -0.11949659138917923
+    },
+    {
+      "text": "mechanoid",
+      "start": 6.68,
+      "end": 7.24,
+      "type": "word",
+      "logprob": -0.07966789104708975
+    },
+    {
+      "text": " ",
+      "start": 7.24,
+      "end": 7.66,
+      "type": "spacing",
+      "logprob": -0.00012778419477399439
+    },
+    {
+      "text": "authorized",
+      "start": 7.66,
+      "end": 8.3,
+      "type": "word",
+      "logprob": -0.00012778419477399439
+    },
+    {
+      "text": " ",
+      "start": 8.3,
+      "end": 8.34,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "to",
+      "start": 8.34,
+      "end": 8.44,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 8.44,
+      "end": 8.48,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "deploy",
+      "start": 8.48,
+      "end": 8.9,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 8.9,
+      "end": 9.1,
+      "type": "spacing",
+      "logprob": -0.0001445904199499637
+    },
+    {
+      "text": "overdrive",
+      "start": 9.1,
+      "end": 9.74,
+      "type": "word",
+      "logprob": -0.0001445904199499637
+    },
+    {
+      "text": " ",
+      "start": 9.74,
+      "end": 9.84,
+      "type": "spacing",
+      "logprob": -0.4758515954017639
+    },
+    {
+      "text": "micro",
+      "start": 9.84,
+      "end": 10.16,
+      "type": "word",
+      "logprob": -0.4758515954017639
+    },
+    {
+      "text": " ",
+      "start": 10.16,
+      "end": 10.24,
+      "type": "spacing",
+      "logprob": -0.34863975644111633
+    },
+    {
+      "text": "missiles",
+      "start": 10.24,
+      "end": 10.62,
+      "type": "word",
+      "logprob": -0.34863975644111633
+    },
+    {
+      "text": " ",
+      "start": 10.62,
+      "end": 11.0,
+      "type": "spacing",
+      "logprob": -1.156323378381785e-05
+    },
+    {
+      "text": "against",
+      "start": 11.0,
+      "end": 11.38,
+      "type": "word",
+      "logprob": -1.156323378381785e-05
+    },
+    {
+      "text": " ",
+      "start": 11.38,
+      "end": 11.44,
+      "type": "spacing",
+      "logprob": -7.211902266135439e-05
+    },
+    {
+      "text": "invaders",
+      "start": 11.44,
+      "end": 12.12,
+      "type": "word",
+      "logprob": -7.211902266135439e-05
+    }
+  ],
+  "transcription_id": "ZHQnLFzlCscrJi5AzMka",
+  "audio_duration_secs": 12.4459375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m08.fragment3.mp3",
+  "audio_sha256": "1831a2cc8ce41a3aed536f20e2df2d05cc74af7077d56d54d40f39abe8d4c501",
+  "model": "scribe_v2"
+}

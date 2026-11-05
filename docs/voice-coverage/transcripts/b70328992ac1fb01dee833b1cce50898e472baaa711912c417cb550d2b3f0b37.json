@@ -1,0 +1,188 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Secure three civilian routes, disable the biometric spires, and silence the siege battery",
+  "words": [
+    {
+      "text": "Secure",
+      "start": 0.1,
+      "end": 0.48,
+      "type": "word",
+      "logprob": -0.013021319173276424
+    },
+    {
+      "text": " ",
+      "start": 0.48,
+      "end": 0.58,
+      "type": "spacing",
+      "logprob": -5.1616290875244886e-05
+    },
+    {
+      "text": "three",
+      "start": 0.58,
+      "end": 0.86,
+      "type": "word",
+      "logprob": -5.1616290875244886e-05
+    },
+    {
+      "text": " ",
+      "start": 0.86,
+      "end": 1.0,
+      "type": "spacing",
+      "logprob": -0.00011169286881340668
+    },
+    {
+      "text": "civilian",
+      "start": 1.0,
+      "end": 1.42,
+      "type": "word",
+      "logprob": -0.00011169286881340668
+    },
+    {
+      "text": " ",
+      "start": 1.42,
+      "end": 1.5,
+      "type": "spacing",
+      "logprob": -0.0019446763908490539
+    },
+    {
+      "text": "routes,",
+      "start": 1.52,
+      "end": 1.8,
+      "type": "word",
+      "logprob": -0.0020928627013095786
+    },
+    {
+      "text": " ",
+      "start": 1.8,
+      "end": 2.3,
+      "type": "spacing",
+      "logprob": -1.7523612768854946e-05
+    },
+    {
+      "text": "disable",
+      "start": 2.3,
+      "end": 2.76,
+      "type": "word",
+      "logprob": -1.7523612768854946e-05
+    },
+    {
+      "text": " ",
+      "start": 2.76,
+      "end": 2.78,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "the",
+      "start": 2.78,
+      "end": 2.86,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 2.86,
+      "end": 2.9,
+      "type": "spacing",
+      "logprob": -0.0009691785671748221
+    },
+    {
+      "text": "biometric",
+      "start": 2.9,
+      "end": 3.44,
+      "type": "word",
+      "logprob": -0.0009691785671748221
+    },
+    {
+      "text": " ",
+      "start": 3.44,
+      "end": 3.52,
+      "type": "spacing",
+      "logprob": -0.002509304089471698
+    },
+    {
+      "text": "spires,",
+      "start": 3.58,
+      "end": 4.0,
+      "type": "word",
+      "logprob": -0.0029813161652003017
+    },
+    {
+      "text": " ",
+      "start": 4.0,
+      "end": 4.48,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "and",
+      "start": 4.48,
+      "end": 4.56,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 4.56,
+      "end": 4.72,
+      "type": "spacing",
+      "logprob": -8.22540732769994e-06
+    },
+    {
+      "text": "silence",
+      "start": 4.72,
+      "end": 5.18,
+      "type": "word",
+      "logprob": -8.22540732769994e-06
+    },
+    {
+      "text": " ",
+      "start": 5.18,
+      "end": 5.22,
+      "type": "spacing",
+      "logprob": -4.410734163684538e-06
+    },
+    {
+      "text": "the",
+      "start": 5.22,
+      "end": 5.32,
+      "type": "word",
+      "logprob": -4.410734163684538e-06
+    },
+    {
+      "text": " ",
+      "start": 5.32,
+      "end": 5.38,
+      "type": "spacing",
+      "logprob": -0.004081848077476025
+    },
+    {
+      "text": "siege",
+      "start": 5.38,
+      "end": 5.66,
+      "type": "word",
+      "logprob": -0.004081848077476025
+    },
+    {
+      "text": " ",
+      "start": 5.66,
+      "end": 5.76,
+      "type": "spacing",
+      "logprob": -4.482168878894299e-05
+    },
+    {
+      "text": "battery",
+      "start": 5.76,
+      "end": 6.16,
+      "type": "word",
+      "logprob": -4.482168878894299e-05
+    }
+  ],
+  "transcription_id": "ecV9DJAbBRD4MkSDgdsh",
+  "audio_duration_secs": 6.5480625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m02.intro.mp3",
+  "audio_sha256": "b70328992ac1fb01dee833b1cce50898e472baaa711912c417cb550d2b3f0b37",
+  "model": "scribe_v2"
+}

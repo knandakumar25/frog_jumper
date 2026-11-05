@@ -1,0 +1,272 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate zero three. Bastion Praetor directive. Supreme Mechanoid Guardian granted autonomous tactical command over all Citadel flak batteries",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.001647664001211524
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.46,
+      "type": "spacing",
+      "logprob": -0.6951649188995361
+    },
+    {
+      "text": "slate",
+      "start": 0.46,
+      "end": 0.72,
+      "type": "word",
+      "logprob": -0.6951649188995361
+    },
+    {
+      "text": " ",
+      "start": 0.72,
+      "end": 0.82,
+      "type": "spacing",
+      "logprob": -0.4290878176689148
+    },
+    {
+      "text": "zero",
+      "start": 0.82,
+      "end": 1.06,
+      "type": "word",
+      "logprob": -0.4290878176689148
+    },
+    {
+      "text": " ",
+      "start": 1.06,
+      "end": 1.2,
+      "type": "spacing",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": "three.",
+      "start": 1.2,
+      "end": 1.56,
+      "type": "word",
+      "logprob": -0.05092034657536715
+    },
+    {
+      "text": " ",
+      "start": 1.56,
+      "end": 1.56,
+      "type": "spacing",
+      "logprob": -0.14406223595142365
+    },
+    {
+      "text": "Bastion",
+      "start": 2.52,
+      "end": 2.9,
+      "type": "word",
+      "logprob": -0.08234707720631766
+    },
+    {
+      "text": " ",
+      "start": 2.9,
+      "end": 3.0,
+      "type": "spacing",
+      "logprob": -0.047659602016210556
+    },
+    {
+      "text": "Praetor",
+      "start": 3.0,
+      "end": 3.26,
+      "type": "word",
+      "logprob": -0.02050516998029447
+    },
+    {
+      "text": " ",
+      "start": 3.26,
+      "end": 3.32,
+      "type": "spacing",
+      "logprob": -0.47413620352745056
+    },
+    {
+      "text": "directive.",
+      "start": 3.32,
+      "end": 3.86,
+      "type": "word",
+      "logprob": -0.4582536697387695
+    },
+    {
+      "text": " ",
+      "start": 3.86,
+      "end": 3.86,
+      "type": "spacing",
+      "logprob": -8.4638240878121e-06
+    },
+    {
+      "text": "Supreme",
+      "start": 4.62,
+      "end": 5.1,
+      "type": "word",
+      "logprob": -8.4638240878121e-06
+    },
+    {
+      "text": " ",
+      "start": 5.1,
+      "end": 5.18,
+      "type": "spacing",
+      "logprob": -0.07098966836929321
+    },
+    {
+      "text": "Mechanoid",
+      "start": 5.18,
+      "end": 5.6,
+      "type": "word",
+      "logprob": -0.04734122720401501
+    },
+    {
+      "text": " ",
+      "start": 5.6,
+      "end": 5.7,
+      "type": "spacing",
+      "logprob": -0.018170448020100594
+    },
+    {
+      "text": "Guardian",
+      "start": 5.7,
+      "end": 6.14,
+      "type": "word",
+      "logprob": -0.018170448020100594
+    },
+    {
+      "text": " ",
+      "start": 6.14,
+      "end": 6.3,
+      "type": "spacing",
+      "logprob": -0.00025149996508844197
+    },
+    {
+      "text": "granted",
+      "start": 6.3,
+      "end": 6.72,
+      "type": "word",
+      "logprob": -0.00025149996508844197
+    },
+    {
+      "text": " ",
+      "start": 6.72,
+      "end": 6.86,
+      "type": "spacing",
+      "logprob": -1.1086402082582936e-05
+    },
+    {
+      "text": "autonomous",
+      "start": 6.86,
+      "end": 7.4,
+      "type": "word",
+      "logprob": -1.1086402082582936e-05
+    },
+    {
+      "text": " ",
+      "start": 7.4,
+      "end": 7.44,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "tactical",
+      "start": 7.44,
+      "end": 7.84,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 7.84,
+      "end": 7.92,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "command",
+      "start": 7.92,
+      "end": 8.38,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 8.38,
+      "end": 8.88,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "over",
+      "start": 8.88,
+      "end": 9.1,
+      "type": "word",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": " ",
+      "start": 9.1,
+      "end": 9.2,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "all",
+      "start": 9.2,
+      "end": 9.44,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 9.44,
+      "end": 9.5,
+      "type": "spacing",
+      "logprob": -0.17975769937038422
+    },
+    {
+      "text": "Citadel",
+      "start": 9.5,
+      "end": 9.92,
+      "type": "word",
+      "logprob": -0.17975769937038422
+    },
+    {
+      "text": " ",
+      "start": 9.92,
+      "end": 10.06,
+      "type": "spacing",
+      "logprob": -0.007474788464605808
+    },
+    {
+      "text": "flak",
+      "start": 10.06,
+      "end": 10.28,
+      "type": "word",
+      "logprob": -0.0037426394137582975
+    },
+    {
+      "text": " ",
+      "start": 10.28,
+      "end": 10.38,
+      "type": "spacing",
+      "logprob": -8.22540732769994e-06
+    },
+    {
+      "text": "batteries",
+      "start": 10.38,
+      "end": 10.92,
+      "type": "word",
+      "logprob": -8.22540732769994e-06
+    }
+  ],
+  "transcription_id": "a0WANt7YkQnoVBdlracm",
+  "audio_duration_secs": 11.2849375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m11.fragment3.mp3",
+  "audio_sha256": "bbc642176c45e873cb91debac9dd8bcf0c33b96c647dd0a105c756964dbed9f8",
+  "model": "scribe_v2"
+}

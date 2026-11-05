@@ -28,8 +28,7 @@ public partial class RecruitBeat : Node2D
     /// <summary>Raised once when the lesson completes.</summary>
     [Signal] public delegate void LessonCompletedEventHandler();
 
-    private float _time, _lineClock, _promptTimeout;
-    private int _lineIndex;
+    private float _time, _promptTimeout;
     private CyberShogun? _player;
     private bool _usingPad, _usingTouch;
 
@@ -72,12 +71,6 @@ public partial class RecruitBeat : Node2D
             if (Mathf.Abs(offset.X) <= TriggerRadius && Mathf.Abs(offset.Y) <= 400f) Trigger();
             return;
         }
-        _lineClock -= (float)delta;
-        if (_lineIndex < Lines.Length && _lineClock <= 0f)
-        {
-            Level.ShowDialogue(Lines[_lineIndex++], 6f);
-            _lineClock = 6.5f;
-        }
         _promptTimeout -= (float)delta;
         RefreshPrompt();
         if (_promptTimeout <= 0f) Level.HidePrompt();
@@ -89,6 +82,9 @@ public partial class RecruitBeat : Node2D
         if (Triggered || RecruitmentCondition?.Invoke() == false) return;
         Triggered = true;
         OperativeRoster.Current.Unlock(Operative);
+        // Enqueue the entire conversation at recruitment. Completing the ability lesson
+        // early must not discard a later line or cut a full recording to a fixed timer.
+        foreach (string line in Lines) Level.ShowDialogue(line, 6f);
         _promptTimeout = 45f;
         RefreshPrompt();
         GD.Print($"RecruitBeat: {Operative} joins the squad");

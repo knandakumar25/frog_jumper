@@ -1,0 +1,244 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate 01: Praetorian doctrine. The Citadel's elite guard mechanoids are programmed to fight to complete destruction",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.0010937429033219814
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.46,
+      "type": "spacing",
+      "logprob": -0.6338141560554504
+    },
+    {
+      "text": "slate",
+      "start": 0.46,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -0.6338141560554504
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 0.98,
+      "type": "spacing",
+      "logprob": -0.06379308551549911
+    },
+    {
+      "text": "01:",
+      "start": 0.98,
+      "end": 1.48,
+      "type": "word",
+      "logprob": -0.18724872993455696
+    },
+    {
+      "text": " ",
+      "start": 1.48,
+      "end": 1.48,
+      "type": "spacing",
+      "logprob": -0.0030509138014167547
+    },
+    {
+      "text": "Praetorian",
+      "start": 2.46,
+      "end": 3.06,
+      "type": "word",
+      "logprob": -0.0010562716124695726
+    },
+    {
+      "text": " ",
+      "start": 3.06,
+      "end": 3.14,
+      "type": "spacing",
+      "logprob": -0.4740884304046631
+    },
+    {
+      "text": "doctrine.",
+      "start": 3.14,
+      "end": 3.56,
+      "type": "word",
+      "logprob": -0.42151091721866074
+    },
+    {
+      "text": " ",
+      "start": 3.56,
+      "end": 3.56,
+      "type": "spacing",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": "The",
+      "start": 4.36,
+      "end": 4.46,
+      "type": "word",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": " ",
+      "start": 4.46,
+      "end": 4.5,
+      "type": "spacing",
+      "logprob": -0.06257247924804688
+    },
+    {
+      "text": "Citadel's",
+      "start": 4.5,
+      "end": 5.06,
+      "type": "word",
+      "logprob": -0.04866986801971507
+    },
+    {
+      "text": " ",
+      "start": 5.06,
+      "end": 5.16,
+      "type": "spacing",
+      "logprob": -0.0024760086089372635
+    },
+    {
+      "text": "elite",
+      "start": 5.16,
+      "end": 5.44,
+      "type": "word",
+      "logprob": -0.0024760086089372635
+    },
+    {
+      "text": " ",
+      "start": 5.44,
+      "end": 5.58,
+      "type": "spacing",
+      "logprob": -0.00062851223628968
+    },
+    {
+      "text": "guard",
+      "start": 5.58,
+      "end": 5.92,
+      "type": "word",
+      "logprob": -0.00062851223628968
+    },
+    {
+      "text": " ",
+      "start": 5.92,
+      "end": 6.02,
+      "type": "spacing",
+      "logprob": -0.233462393283844
+    },
+    {
+      "text": "mechanoids",
+      "start": 6.02,
+      "end": 6.66,
+      "type": "word",
+      "logprob": -0.14008663882123074
+    },
+    {
+      "text": " ",
+      "start": 6.66,
+      "end": 6.96,
+      "type": "spacing",
+      "logprob": -1.2874520507466514e-05
+    },
+    {
+      "text": "are",
+      "start": 6.96,
+      "end": 7.08,
+      "type": "word",
+      "logprob": -1.2874520507466514e-05
+    },
+    {
+      "text": " ",
+      "start": 7.08,
+      "end": 7.12,
+      "type": "spacing",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": "programmed",
+      "start": 7.12,
+      "end": 7.7,
+      "type": "word",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": " ",
+      "start": 7.7,
+      "end": 7.74,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "to",
+      "start": 7.74,
+      "end": 7.88,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 7.88,
+      "end": 7.92,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "fight",
+      "start": 7.92,
+      "end": 8.16,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 8.16,
+      "end": 8.5,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "to",
+      "start": 8.5,
+      "end": 8.6,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 8.6,
+      "end": 8.64,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "complete",
+      "start": 8.64,
+      "end": 9.04,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 9.04,
+      "end": 9.08,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "destruction",
+      "start": 9.08,
+      "end": 9.7,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    }
+  ],
+  "transcription_id": "FYLSCtqsuWABQuBs6fQn",
+  "audio_duration_secs": 10.0775,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m11.fragment1.mp3",
+  "audio_sha256": "4f5f1f6463db2b056426d8d2183f2335327279b72049118d5605650286da5094",
+  "model": "scribe_v2"
+}

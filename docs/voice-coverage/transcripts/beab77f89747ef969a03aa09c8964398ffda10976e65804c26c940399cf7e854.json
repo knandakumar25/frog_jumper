@@ -1,0 +1,188 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Exclusion command isolated. Security is closing on the recovery. Defend the first stage",
+  "words": [
+    {
+      "text": "Exclusion",
+      "start": 0.08,
+      "end": 0.56,
+      "type": "word",
+      "logprob": -0.013477102335956361
+    },
+    {
+      "text": " ",
+      "start": 0.56,
+      "end": 0.64,
+      "type": "spacing",
+      "logprob": -0.0031832996755838394
+    },
+    {
+      "text": "command",
+      "start": 0.64,
+      "end": 0.98,
+      "type": "word",
+      "logprob": -0.0031832996755838394
+    },
+    {
+      "text": " ",
+      "start": 0.98,
+      "end": 1.12,
+      "type": "spacing",
+      "logprob": -3.0874729418428615e-05
+    },
+    {
+      "text": "isolated.",
+      "start": 1.12,
+      "end": 1.66,
+      "type": "word",
+      "logprob": -4.6224701994409166e-05
+    },
+    {
+      "text": " ",
+      "start": 1.66,
+      "end": 1.66,
+      "type": "spacing",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": "Security",
+      "start": 2.22,
+      "end": 2.76,
+      "type": "word",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": " ",
+      "start": 2.76,
+      "end": 2.8,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "is",
+      "start": 2.8,
+      "end": 2.92,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 2.92,
+      "end": 2.96,
+      "type": "spacing",
+      "logprob": -3.635817120084539e-05
+    },
+    {
+      "text": "closing",
+      "start": 2.96,
+      "end": 3.44,
+      "type": "word",
+      "logprob": -3.635817120084539e-05
+    },
+    {
+      "text": " ",
+      "start": 3.44,
+      "end": 3.48,
+      "type": "spacing",
+      "logprob": -1.4781842764932662e-05
+    },
+    {
+      "text": "on",
+      "start": 3.48,
+      "end": 3.56,
+      "type": "word",
+      "logprob": -1.4781842764932662e-05
+    },
+    {
+      "text": " ",
+      "start": 3.56,
+      "end": 3.6,
+      "type": "spacing",
+      "logprob": -4.768360213347478e-06
+    },
+    {
+      "text": "the",
+      "start": 3.6,
+      "end": 3.64,
+      "type": "word",
+      "logprob": -4.768360213347478e-06
+    },
+    {
+      "text": " ",
+      "start": 3.64,
+      "end": 3.68,
+      "type": "spacing",
+      "logprob": -0.0002980979916173965
+    },
+    {
+      "text": "recovery.",
+      "start": 3.68,
+      "end": 4.18,
+      "type": "word",
+      "logprob": -0.00026726743635663297
+    },
+    {
+      "text": " ",
+      "start": 4.18,
+      "end": 4.7,
+      "type": "spacing",
+      "logprob": -7.271740287251305e-06
+    },
+    {
+      "text": "Defend",
+      "start": 4.7,
+      "end": 5.12,
+      "type": "word",
+      "logprob": -3.814684049530115e-06
+    },
+    {
+      "text": " ",
+      "start": 5.12,
+      "end": 5.16,
+      "type": "spacing",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": "the",
+      "start": 5.16,
+      "end": 5.28,
+      "type": "word",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": " ",
+      "start": 5.28,
+      "end": 5.32,
+      "type": "spacing",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": "first",
+      "start": 5.32,
+      "end": 5.52,
+      "type": "word",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": " ",
+      "start": 5.52,
+      "end": 5.62,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "stage",
+      "start": 5.62,
+      "end": 6.04,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    }
+  ],
+  "transcription_id": "UF3FzhjzTonf1Bv0g05P",
+  "audio_duration_secs": 6.4086875,
+  "request_id": null,
+  "audio_path": "assets/audio/names/isolate.ogg",
+  "audio_sha256": "beab77f89747ef969a03aa09c8964398ffda10976e65804c26c940399cf7e854",
+  "model": "scribe_v2"
+}

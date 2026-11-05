@@ -103,7 +103,7 @@ public partial class CyberNexusMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // SUB-ZERO COOLANT SYSTEM: Liquid helium manifolds keep the central quantum core from thermal meltdown under maximum processing load.",
             _ => "DATA SLATE 03 // NEXUS OVERSEER DEFENSE DIRECTIVE: Primary mainframe security guardian authorized to purge unauthorized bio-signatures."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // TRANSMISSION ONLINE");
+
         return text;
     }
 

@@ -1,0 +1,300 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data Slate 01: Singularity Genesis. The Dark Matter Reactor was engineered to consume planetary energy reserves to sustain the Imperial elite",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.0007980260998010635
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.48,
+      "type": "spacing",
+      "logprob": -0.633533775806427
+    },
+    {
+      "text": "Slate",
+      "start": 0.48,
+      "end": 0.82,
+      "type": "word",
+      "logprob": -0.633533775806427
+    },
+    {
+      "text": " ",
+      "start": 0.82,
+      "end": 1.16,
+      "type": "spacing",
+      "logprob": -0.01961314119398594
+    },
+    {
+      "text": "01:",
+      "start": 1.16,
+      "end": 1.84,
+      "type": "word",
+      "logprob": -0.19497812435535403
+    },
+    {
+      "text": " ",
+      "start": 1.84,
+      "end": 2.08,
+      "type": "spacing",
+      "logprob": -0.0677630826830864
+    },
+    {
+      "text": "Singularity",
+      "start": 2.92,
+      "end": 3.52,
+      "type": "word",
+      "logprob": -0.024725927317790178
+    },
+    {
+      "text": " ",
+      "start": 3.52,
+      "end": 3.6,
+      "type": "spacing",
+      "logprob": -0.0022247105371207
+    },
+    {
+      "text": "Genesis.",
+      "start": 3.62,
+      "end": 4.16,
+      "type": "word",
+      "logprob": -0.002119400422088802
+    },
+    {
+      "text": " ",
+      "start": 4.16,
+      "end": 4.18,
+      "type": "spacing",
+      "logprob": -0.0006353028584271669
+    },
+    {
+      "text": "The",
+      "start": 4.84,
+      "end": 4.94,
+      "type": "word",
+      "logprob": -0.0006353028584271669
+    },
+    {
+      "text": " ",
+      "start": 4.94,
+      "end": 4.98,
+      "type": "spacing",
+      "logprob": -0.6326215863227844
+    },
+    {
+      "text": "Dark",
+      "start": 4.98,
+      "end": 5.22,
+      "type": "word",
+      "logprob": -0.6326215863227844
+    },
+    {
+      "text": " ",
+      "start": 5.22,
+      "end": 5.34,
+      "type": "spacing",
+      "logprob": -8.451581379631534e-05
+    },
+    {
+      "text": "Matter",
+      "start": 5.34,
+      "end": 5.56,
+      "type": "word",
+      "logprob": -8.451581379631534e-05
+    },
+    {
+      "text": " ",
+      "start": 5.56,
+      "end": 5.64,
+      "type": "spacing",
+      "logprob": -0.014236786402761936
+    },
+    {
+      "text": "Reactor",
+      "start": 5.64,
+      "end": 6.1,
+      "type": "word",
+      "logprob": -0.014236786402761936
+    },
+    {
+      "text": " ",
+      "start": 6.1,
+      "end": 6.66,
+      "type": "spacing",
+      "logprob": -2.706014311115723e-05
+    },
+    {
+      "text": "was",
+      "start": 6.66,
+      "end": 6.8,
+      "type": "word",
+      "logprob": -2.706014311115723e-05
+    },
+    {
+      "text": " ",
+      "start": 6.8,
+      "end": 6.86,
+      "type": "spacing",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": "engineered",
+      "start": 6.86,
+      "end": 7.64,
+      "type": "word",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": " ",
+      "start": 7.64,
+      "end": 7.68,
+      "type": "spacing",
+      "logprob": -5.364403477869928e-06
+    },
+    {
+      "text": "to",
+      "start": 7.68,
+      "end": 7.76,
+      "type": "word",
+      "logprob": -5.364403477869928e-06
+    },
+    {
+      "text": " ",
+      "start": 7.76,
+      "end": 7.8,
+      "type": "spacing",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": "consume",
+      "start": 7.8,
+      "end": 8.38,
+      "type": "word",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": " ",
+      "start": 8.38,
+      "end": 8.5,
+      "type": "spacing",
+      "logprob": -5.3165931603871286e-05
+    },
+    {
+      "text": "planetary",
+      "start": 8.5,
+      "end": 9.02,
+      "type": "word",
+      "logprob": -5.3165931603871286e-05
+    },
+    {
+      "text": " ",
+      "start": 9.02,
+      "end": 9.14,
+      "type": "spacing",
+      "logprob": -2.002696055569686e-05
+    },
+    {
+      "text": "energy",
+      "start": 9.14,
+      "end": 9.44,
+      "type": "word",
+      "logprob": -2.002696055569686e-05
+    },
+    {
+      "text": " ",
+      "start": 9.44,
+      "end": 9.52,
+      "type": "spacing",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": "reserves",
+      "start": 9.52,
+      "end": 10.04,
+      "type": "word",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": " ",
+      "start": 10.04,
+      "end": 10.46,
+      "type": "spacing",
+      "logprob": -2.2411095415009186e-05
+    },
+    {
+      "text": "to",
+      "start": 10.46,
+      "end": 10.56,
+      "type": "word",
+      "logprob": -2.2411095415009186e-05
+    },
+    {
+      "text": " ",
+      "start": 10.56,
+      "end": 10.6,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "sustain",
+      "start": 10.6,
+      "end": 11.18,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 11.18,
+      "end": 11.42,
+      "type": "spacing",
+      "logprob": -0.00013136000779923052
+    },
+    {
+      "text": "the",
+      "start": 11.42,
+      "end": 11.52,
+      "type": "word",
+      "logprob": -0.00013136000779923052
+    },
+    {
+      "text": " ",
+      "start": 11.52,
+      "end": 11.56,
+      "type": "spacing",
+      "logprob": -0.0297507643699646
+    },
+    {
+      "text": "Imperial",
+      "start": 11.56,
+      "end": 12.1,
+      "type": "word",
+      "logprob": -0.0297507643699646
+    },
+    {
+      "text": " ",
+      "start": 12.1,
+      "end": 12.16,
+      "type": "spacing",
+      "logprob": -0.14269204437732697
+    },
+    {
+      "text": "elite",
+      "start": 12.16,
+      "end": 12.56,
+      "type": "word",
+      "logprob": -0.14269204437732697
+    }
+  ],
+  "transcription_id": "eaByXJRfbGx097RLxGuu",
+  "audio_duration_secs": 12.95675,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m12.fragment1.mp3",
+  "audio_sha256": "2e21b685d9b5df9ebf39f4c78fb5d6d7e93cfe7c75c68bfdaf8df0162853491c",
+  "model": "scribe_v2"
+}

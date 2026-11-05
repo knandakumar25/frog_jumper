@@ -1,0 +1,160 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Maintenance wall, give me room and we have another way through",
+  "words": [
+    {
+      "text": "Maintenance",
+      "start": 0.1,
+      "end": 0.52,
+      "type": "word",
+      "logprob": -0.004354993812739849
+    },
+    {
+      "text": " ",
+      "start": 0.52,
+      "end": 0.62,
+      "type": "spacing",
+      "logprob": -0.0011830481234937906
+    },
+    {
+      "text": "wall,",
+      "start": 0.62,
+      "end": 0.84,
+      "type": "word",
+      "logprob": -0.013703176565468312
+    },
+    {
+      "text": " ",
+      "start": 0.84,
+      "end": 1.12,
+      "type": "spacing",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": "give",
+      "start": 1.12,
+      "end": 1.24,
+      "type": "word",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": " ",
+      "start": 1.24,
+      "end": 1.28,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "me",
+      "start": 1.28,
+      "end": 1.34,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 1.34,
+      "end": 1.44,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "room",
+      "start": 1.44,
+      "end": 1.68,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 1.68,
+      "end": 1.8,
+      "type": "spacing",
+      "logprob": -0.062017250806093216
+    },
+    {
+      "text": "and",
+      "start": 1.8,
+      "end": 1.86,
+      "type": "word",
+      "logprob": -0.062017250806093216
+    },
+    {
+      "text": " ",
+      "start": 1.86,
+      "end": 1.9,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "we",
+      "start": 1.9,
+      "end": 1.98,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 1.98,
+      "end": 2.02,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "have",
+      "start": 2.02,
+      "end": 2.1,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 2.1,
+      "end": 2.14,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "another",
+      "start": 2.14,
+      "end": 2.4,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 2.4,
+      "end": 2.44,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "way",
+      "start": 2.44,
+      "end": 2.62,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 2.62,
+      "end": 2.66,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "through",
+      "start": 2.66,
+      "end": 2.98,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    }
+  ],
+  "transcription_id": "1yUcL0M12eJec7JAaPKT",
+  "audio_duration_secs": 3.3436875,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/titan_route.ogg",
+  "audio_sha256": "db03513eade852581546a17df99c177c8900d0f0ecc011d75d132c18987e3b4a",
+  "model": "scribe_v2"
+}

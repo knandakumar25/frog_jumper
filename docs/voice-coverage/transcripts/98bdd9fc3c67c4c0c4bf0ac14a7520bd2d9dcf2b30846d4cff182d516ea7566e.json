@@ -1,0 +1,230 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data Slate 03: Nexus Overseer Defense Directive. Primary mainframe security guardian authorized to purge unauthorized bio-signatures",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.0012753218179568648
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.44,
+      "type": "spacing",
+      "logprob": -0.577058732509613
+    },
+    {
+      "text": "Slate",
+      "start": 0.46,
+      "end": 0.74,
+      "type": "word",
+      "logprob": -0.577058732509613
+    },
+    {
+      "text": " ",
+      "start": 0.74,
+      "end": 0.98,
+      "type": "spacing",
+      "logprob": -0.35341542959213257
+    },
+    {
+      "text": "03:",
+      "start": 1.22,
+      "end": 1.64,
+      "type": "word",
+      "logprob": -0.23184080903562668
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.64,
+      "type": "spacing",
+      "logprob": -0.0004353767435532063
+    },
+    {
+      "text": "Nexus",
+      "start": 2.3,
+      "end": 2.66,
+      "type": "word",
+      "logprob": -0.0004353767435532063
+    },
+    {
+      "text": " ",
+      "start": 2.66,
+      "end": 2.78,
+      "type": "spacing",
+      "logprob": -0.004526962526142597
+    },
+    {
+      "text": "Overseer",
+      "start": 2.78,
+      "end": 3.22,
+      "type": "word",
+      "logprob": -0.003397367652723915
+    },
+    {
+      "text": " ",
+      "start": 3.22,
+      "end": 3.28,
+      "type": "spacing",
+      "logprob": -0.0006553170969709754
+    },
+    {
+      "text": "Defense",
+      "start": 3.28,
+      "end": 3.64,
+      "type": "word",
+      "logprob": -0.0006553170969709754
+    },
+    {
+      "text": " ",
+      "start": 3.64,
+      "end": 3.74,
+      "type": "spacing",
+      "logprob": -0.0016054133884608746
+    },
+    {
+      "text": "Directive.",
+      "start": 3.74,
+      "end": 4.28,
+      "type": "word",
+      "logprob": -0.0020651216618716717
+    },
+    {
+      "text": " ",
+      "start": 4.28,
+      "end": 4.3,
+      "type": "spacing",
+      "logprob": -2.3245540432981215e-05
+    },
+    {
+      "text": "Primary",
+      "start": 4.94,
+      "end": 5.34,
+      "type": "word",
+      "logprob": -2.3245540432981215e-05
+    },
+    {
+      "text": " ",
+      "start": 5.34,
+      "end": 5.46,
+      "type": "spacing",
+      "logprob": -0.020678063854575157
+    },
+    {
+      "text": "mainframe",
+      "start": 5.46,
+      "end": 5.98,
+      "type": "word",
+      "logprob": -0.020678063854575157
+    },
+    {
+      "text": " ",
+      "start": 5.98,
+      "end": 6.1,
+      "type": "spacing",
+      "logprob": -0.0007254829397425056
+    },
+    {
+      "text": "security",
+      "start": 6.1,
+      "end": 6.54,
+      "type": "word",
+      "logprob": -0.0007254829397425056
+    },
+    {
+      "text": " ",
+      "start": 6.54,
+      "end": 6.64,
+      "type": "spacing",
+      "logprob": -0.0008054111385717988
+    },
+    {
+      "text": "guardian",
+      "start": 6.64,
+      "end": 7.08,
+      "type": "word",
+      "logprob": -0.0008054111385717988
+    },
+    {
+      "text": " ",
+      "start": 7.08,
+      "end": 7.08,
+      "type": "spacing",
+      "logprob": -0.09427091479301453
+    },
+    {
+      "text": "authorized",
+      "start": 7.66,
+      "end": 8.28,
+      "type": "word",
+      "logprob": -0.09427091479301453
+    },
+    {
+      "text": " ",
+      "start": 8.28,
+      "end": 8.46,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "to",
+      "start": 8.46,
+      "end": 8.6,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 8.6,
+      "end": 8.64,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "purge",
+      "start": 8.64,
+      "end": 9.0,
+      "type": "word",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": " ",
+      "start": 9.0,
+      "end": 9.18,
+      "type": "spacing",
+      "logprob": -3.6238969187252223e-05
+    },
+    {
+      "text": "unauthorized",
+      "start": 9.18,
+      "end": 9.94,
+      "type": "word",
+      "logprob": -3.6238969187252223e-05
+    },
+    {
+      "text": " ",
+      "start": 9.94,
+      "end": 10.06,
+      "type": "spacing",
+      "logprob": -0.00031442465842701495
+    },
+    {
+      "text": "bio-signatures",
+      "start": 10.06,
+      "end": 11.14,
+      "type": "word",
+      "logprob": -0.025124128779030537
+    }
+  ],
+  "transcription_id": "wjZmgrSEYNQ6oZPvgx41",
+  "audio_duration_secs": 11.517125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m10.fragment3.mp3",
+  "audio_sha256": "98bdd9fc3c67c4c0c4bf0ac14a7520bd2d9dcf2b30846d4cff182d516ea7566e",
+  "model": "scribe_v2"
+}

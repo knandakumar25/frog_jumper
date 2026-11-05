@@ -50,7 +50,6 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
         1 => "CIVILIAN TESTIMONY: My daughter wrote our names inside her coat. The scanner called us a number that no longer existed.",
         2 => "CIVILIAN TESTIMONY: I repaired these water pipes for thirty years. Yesterday the district said I had never lived here.",
         _ => "CIVILIAN TESTIMONY: Keep the original. That was what my mother said. A name is more than permission to pass." });
-        _dialogue.EnqueueText("testimony"+found,text);
         return text;
     }
     /// <summary>Wide stationary ground, 100px archive stairs and optional galleries use conservative weakest-operative limits.</summary>

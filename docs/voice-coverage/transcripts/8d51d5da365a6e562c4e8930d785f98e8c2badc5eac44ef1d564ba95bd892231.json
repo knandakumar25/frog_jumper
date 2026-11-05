@@ -1,0 +1,188 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "The demolition beacon is shielded. Only parried sentry fire can overload that field",
+  "words": [
+    {
+      "text": "The",
+      "start": 0.1,
+      "end": 0.2,
+      "type": "word",
+      "logprob": -2.5987286790041253e-05
+    },
+    {
+      "text": " ",
+      "start": 0.2,
+      "end": 0.22,
+      "type": "spacing",
+      "logprob": -0.0019665679428726435
+    },
+    {
+      "text": "demolition",
+      "start": 0.24,
+      "end": 0.7,
+      "type": "word",
+      "logprob": -0.0019665679428726435
+    },
+    {
+      "text": " ",
+      "start": 0.7,
+      "end": 0.78,
+      "type": "spacing",
+      "logprob": -0.0007136897183954716
+    },
+    {
+      "text": "beacon",
+      "start": 0.78,
+      "end": 1.26,
+      "type": "word",
+      "logprob": -0.0007136897183954716
+    },
+    {
+      "text": " ",
+      "start": 1.26,
+      "end": 1.3,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "is",
+      "start": 1.3,
+      "end": 1.44,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 1.44,
+      "end": 1.5,
+      "type": "spacing",
+      "logprob": -1.847726889536716e-05
+    },
+    {
+      "text": "shielded.",
+      "start": 1.5,
+      "end": 1.92,
+      "type": "word",
+      "logprob": -8.580887030499677e-05
+    },
+    {
+      "text": " ",
+      "start": 1.92,
+      "end": 1.92,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "Only",
+      "start": 2.48,
+      "end": 2.74,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 2.74,
+      "end": 2.78,
+      "type": "spacing",
+      "logprob": -0.0356609933078289
+    },
+    {
+      "text": "parried",
+      "start": 2.78,
+      "end": 3.06,
+      "type": "word",
+      "logprob": -0.015506330977327057
+    },
+    {
+      "text": " ",
+      "start": 3.06,
+      "end": 3.16,
+      "type": "spacing",
+      "logprob": -0.0005136600811965764
+    },
+    {
+      "text": "sentry",
+      "start": 3.16,
+      "end": 3.44,
+      "type": "word",
+      "logprob": -0.0003429963636942072
+    },
+    {
+      "text": " ",
+      "start": 3.44,
+      "end": 3.56,
+      "type": "spacing",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": "fire",
+      "start": 3.56,
+      "end": 3.84,
+      "type": "word",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": " ",
+      "start": 3.84,
+      "end": 4.2,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "can",
+      "start": 4.2,
+      "end": 4.36,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 4.36,
+      "end": 4.44,
+      "type": "spacing",
+      "logprob": -1.2397689715726301e-05
+    },
+    {
+      "text": "overload",
+      "start": 4.44,
+      "end": 4.9,
+      "type": "word",
+      "logprob": -1.2397689715726301e-05
+    },
+    {
+      "text": " ",
+      "start": 4.9,
+      "end": 4.94,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "that",
+      "start": 4.94,
+      "end": 5.14,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 5.14,
+      "end": 5.2,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "field",
+      "start": 5.2,
+      "end": 5.52,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    }
+  ],
+  "transcription_id": "Xl3tg44f0LmhRVaTcoOH",
+  "audio_duration_secs": 5.9443125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m01.event.1c0db99c7753.mp3",
+  "audio_sha256": "8d51d5da365a6e562c4e8930d785f98e8c2badc5eac44ef1d564ba95bd892231",
+  "model": "scribe_v2"
+}

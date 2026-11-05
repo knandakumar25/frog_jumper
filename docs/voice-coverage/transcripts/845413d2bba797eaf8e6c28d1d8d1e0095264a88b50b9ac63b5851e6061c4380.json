@@ -1,0 +1,202 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Depth 400 meter. Biosynthetic incubators and heavy conduits ahead. Breach perimeter and extract captives",
+  "words": [
+    {
+      "text": "Depth",
+      "start": 0.12,
+      "end": 0.4,
+      "type": "word",
+      "logprob": -0.012842802330851555
+    },
+    {
+      "text": " ",
+      "start": 0.4,
+      "end": 0.4,
+      "type": "spacing",
+      "logprob": -0.01646631769835949
+    },
+    {
+      "text": "400",
+      "start": 1.1,
+      "end": 1.44,
+      "type": "word",
+      "logprob": -8.344645626342148e-07
+    },
+    {
+      "text": " ",
+      "start": 1.44,
+      "end": 1.48,
+      "type": "spacing",
+      "logprob": -0.25273171067237854
+    },
+    {
+      "text": "meter.",
+      "start": 1.48,
+      "end": 1.76,
+      "type": "word",
+      "logprob": -0.21089109365129843
+    },
+    {
+      "text": " ",
+      "start": 1.76,
+      "end": 1.76,
+      "type": "spacing",
+      "logprob": -0.029191358014941216
+    },
+    {
+      "text": "Biosynthetic",
+      "start": 2.42,
+      "end": 3.34,
+      "type": "word",
+      "logprob": -0.01199539207542936
+    },
+    {
+      "text": " ",
+      "start": 3.34,
+      "end": 3.38,
+      "type": "spacing",
+      "logprob": -0.001061352901160717
+    },
+    {
+      "text": "incubators",
+      "start": 3.38,
+      "end": 3.98,
+      "type": "word",
+      "logprob": -0.0005315705194561815
+    },
+    {
+      "text": " ",
+      "start": 3.98,
+      "end": 4.32,
+      "type": "spacing",
+      "logprob": -6.770858453819528e-05
+    },
+    {
+      "text": "and",
+      "start": 4.32,
+      "end": 4.42,
+      "type": "word",
+      "logprob": -6.770858453819528e-05
+    },
+    {
+      "text": " ",
+      "start": 4.42,
+      "end": 4.48,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "heavy",
+      "start": 4.48,
+      "end": 4.68,
+      "type": "word",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": " ",
+      "start": 4.68,
+      "end": 4.8,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "conduits",
+      "start": 4.8,
+      "end": 5.26,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 5.26,
+      "end": 5.32,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "ahead.",
+      "start": 5.32,
+      "end": 5.64,
+      "type": "word",
+      "logprob": -1.2218532503993629e-05
+    },
+    {
+      "text": " ",
+      "start": 5.64,
+      "end": 5.64,
+      "type": "spacing",
+      "logprob": -0.000482442817883566
+    },
+    {
+      "text": "Breach",
+      "start": 6.28,
+      "end": 6.56,
+      "type": "word",
+      "logprob": -0.000482442817883566
+    },
+    {
+      "text": " ",
+      "start": 6.56,
+      "end": 6.6,
+      "type": "spacing",
+      "logprob": -0.00010787858627736568
+    },
+    {
+      "text": "perimeter",
+      "start": 6.6,
+      "end": 7.08,
+      "type": "word",
+      "logprob": -0.00010787858627736568
+    },
+    {
+      "text": " ",
+      "start": 7.08,
+      "end": 7.46,
+      "type": "spacing",
+      "logprob": -2.3364747903542593e-05
+    },
+    {
+      "text": "and",
+      "start": 7.46,
+      "end": 7.52,
+      "type": "word",
+      "logprob": -2.3364747903542593e-05
+    },
+    {
+      "text": " ",
+      "start": 7.52,
+      "end": 7.58,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "extract",
+      "start": 7.58,
+      "end": 8.08,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 8.08,
+      "end": 8.14,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "captives",
+      "start": 8.14,
+      "end": 8.66,
+      "type": "word",
+      "logprob": -9.417489309271332e-06
+    }
+  ],
+  "transcription_id": "s9QIcwJEtlm4HpHzGpwj",
+  "audio_duration_secs": 9.0558125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m06.intro.mp3",
+  "audio_sha256": "845413d2bba797eaf8e6c28d1d8d1e0095264a88b50b9ac63b5851e6061c4380",
+  "model": "scribe_v2"
+}

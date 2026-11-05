@@ -1,5 +1,29 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Docker startup and local Python environment — 2026-11-05
+
+User explicitly requested starting the stopped stack and populating root `.venv`;
+this supersedes the earlier deferral of local installation. Docker daemon was
+already available. `docker compose up -d` pulled PostgreSQL and built the missing
+backend/website images, then started all three normal services. The startup
+created the absent project database volume and applied existing Django migrations.
+No existing volumes were removed. Leave the services running.
+
+Created Git-ignored `.venv` with Python 3.14.10, upgraded pip to 26.3 and installed
+the six root requirements plus dependencies. `pip check` passed. Direct versions:
+Django 6.1.3, DRF 3.18.3, SimpleJWT 5.5.1, cors-headers 4.9.0,
+psycopg2-binary 2.9.13, gunicorn 26.2.0. Root requirements remains canonical;
+the Django test runner still uses the backend container.
+
+Verified Compose config, all three running services, healthy db and pg_isready.
+Backend countries/basic endpoint, website root and website API proxy each return
+HTTP 200 using 127.0.0.1 with curl's proxy bypass. Initial Invoke-WebRequest checks
+against localhost timed out; their cause was not investigated further.
+Website build succeeded with npm reporting 16 audit findings (6 moderate/10 high),
+a deprecated Clerk package and a large bundle warning; no dependency changes made.
+Only setup and Markdown changed; no project code/assets edited, so no unit-suite
+rerun or Godot refresh required. No exports, staging, commits or pushes.
+
 ## Three-service development stack — 2026-11-05
 
 Removed the user-selected local inference container and its Compose service and
@@ -2137,3 +2161,20 @@ staging, commits or pushes. Changes remain local and uncommitted.
 Act II input follow-up: keyboard arrows/Enter and injected controller D-pad/A
 were verified through actual GUI dispatch for completion focus, Replay Preview
 and Main Menu. Physical-device acceptance remains separate.
+
+## English voice coverage implementation — 2026-11-05
+
+Added an English cue catalog and one `MissionSpeechQueue` per `CodeLevel`. Mission 4/5 schedulers forward events to that owner; recruitment queues complete conversations at trigger time. Shared intros, story events and all 36 collectible lines now resolve to stable speech cues. Later log bubbles no longer start an independent subtitle presentation. The queue serializes complete takes, protects subtitles from status updates, pauses with gameplay and clears on recovery/results/teardown.
+
+Generated missing gameplay MP3s with existing cast IDs and exact-text/settings/hash receipts. Replaced four obsolete briefing recordings and the confirmed duplicate Oceanus take in Titan's Foundry Forge aftermath slot, preserving other performances and timing. Corrected Kaito's unattributed Tokyo internal line assignment. Recovered Cyber-Grave intro request receipts by matching historical source/request hashes. `docs/voice-coverage` contains 301 inventory entries, decoded evidence and cached Scribe transcripts; all legacy receipt gaps were recovered from authenticated ElevenLabs history, while seven ASR pronunciation/word-recognition candidates remain explicitly open for listening. Existing English briefing text (including its legacy roster wording) was preserved as requested.
+
+Validation in progress: C# build and NUnit 276/276 passed; five offline inventory tests passed. Natural mixer capture verified three Mission 5 testimonies in FIFO order, a later log, pause/resume, the complete repaired Foundry epilogue and all four briefing lines with Continue advancement. The first full suite exposed two arrival-subtitle initialization regressions; these were fixed by initializing/restoring visual intro subtitles before the shared queue starts. Final verification is recorded below. Historical editor/addon TLS and shutdown diagnostics remain separate from unit-suite failures. No exports, commits or pushes are authorized.
+
+Eight technical-log/intro takes were replaced after two independent recognizers corroborated omitted units or spoken separator artifacts. Receipts preserve both authored display text and normalized synthesis input; displayed dialogue was not rewritten. Docker Desktop later refused D: bind mounts, so `--docker-media` streams only nonsecret source/media into the existing disposable media image. Updated later-campaign validation hashes after the Foundry repair. Coverage totals and remaining candidates live in `docs/voice-coverage`; no runtime ElevenLabs calls were introduced.
+
+
+### English voice verification outcome
+
+Final verification (2026-11-05): background Godot import exited 0; all 60 active new MP3s have import sidecars. `dotnet build AxiomForce.csproj` passed with zero errors (155 warnings in existing code/addons; no warnings in the new speech classes). Five Python inventory/normalization tests passed. The final `run_tests.ps1` run passed NUnit 276/276 and GdUnit4 309/309 with 0 errors, 0 failures and 0 orphans (`reports/report_501`). Its Django step failed because Docker Desktop's existing D: bind mount returned “No such device” for `/app/manage.py`, so the aggregate runner exited 1. The identical final backend source was streamed without secrets into a temporary directory inside the existing backend container: Django 104/104 passed, and the temporary directory/test database were cleaned up. No service was restarted or stopped. Existing addon TLS/editor shutdown diagnostics and standalone review-process resource shutdown warnings are distinct from GdUnit's zero-orphan result. Natural production playback and mixer capture passed for all three Mission 5 testimonies in order, a later collectible log, pause/resume, the complete Foundry aftermath transition and all four briefing recordings with Continue advancement.
+
+The 301-entry coverage inventory contains 296 spoken occurrences plus five explicit silent classifications. All spoken occurrences have audio, imports, current-hash decoding, transcripts and provenance. The strict coverage gate intentionally remains exit 1 for seven ambiguous pronunciation/word-recognition candidates listed in `docs/voice-coverage/REVIEW.md`; subjective listening acceptance is not claimed. No exports, commits or pushes were performed.

@@ -1,0 +1,104 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "All power to weapons. Hold this line",
+  "words": [
+    {
+      "text": "All",
+      "start": 0.1,
+      "end": 0.22,
+      "type": "word",
+      "logprob": -0.0001147919538198039
+    },
+    {
+      "text": " ",
+      "start": 0.22,
+      "end": 0.32,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "power",
+      "start": 0.32,
+      "end": 0.52,
+      "type": "word",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": " ",
+      "start": 0.52,
+      "end": 0.6,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "to",
+      "start": 0.6,
+      "end": 0.66,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 0.66,
+      "end": 0.7,
+      "type": "spacing",
+      "logprob": -3.4570634852570947e-06
+    },
+    {
+      "text": "weapons.",
+      "start": 0.7,
+      "end": 1.12,
+      "type": "word",
+      "logprob": -0.00010279307963401152
+    },
+    {
+      "text": " ",
+      "start": 1.12,
+      "end": 1.44,
+      "type": "spacing",
+      "logprob": -1.3470558769768104e-05
+    },
+    {
+      "text": "Hold",
+      "start": 1.44,
+      "end": 1.64,
+      "type": "word",
+      "logprob": -1.3470558769768104e-05
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "this",
+      "start": 1.68,
+      "end": 1.84,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 1.84,
+      "end": 1.9,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "line",
+      "start": 1.9,
+      "end": 2.2,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    }
+  ],
+  "transcription_id": "lcEVT14dox6F3QTuujvH",
+  "audio_duration_secs": 2.5541875,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/phase3.ogg",
+  "audio_sha256": "47a393879aa40fdbdf812eb6f446d61dd4f300e7a53005980b6edabbd3494430",
+  "model": "scribe_v2"
+}

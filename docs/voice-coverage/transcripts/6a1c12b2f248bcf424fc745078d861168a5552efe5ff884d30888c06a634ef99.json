@@ -1,0 +1,300 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data Slate 03: The Dawn of Axiom. Six operatives stood together when millions fell. Their names will be remembered across eternity",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.08,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -0.0004140473320148885
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.44,
+      "type": "spacing",
+      "logprob": -0.387382835149765
+    },
+    {
+      "text": "Slate",
+      "start": 0.44,
+      "end": 0.76,
+      "type": "word",
+      "logprob": -0.387382835149765
+    },
+    {
+      "text": " ",
+      "start": 0.76,
+      "end": 1.2,
+      "type": "spacing",
+      "logprob": -0.0006827168981544673
+    },
+    {
+      "text": "03:",
+      "start": 1.44,
+      "end": 1.88,
+      "type": "word",
+      "logprob": -0.004123607155596194
+    },
+    {
+      "text": " ",
+      "start": 1.88,
+      "end": 1.88,
+      "type": "spacing",
+      "logprob": -8.05822346592322e-05
+    },
+    {
+      "text": "The",
+      "start": 2.64,
+      "end": 2.7,
+      "type": "word",
+      "logprob": -8.05822346592322e-05
+    },
+    {
+      "text": " ",
+      "start": 2.7,
+      "end": 2.78,
+      "type": "spacing",
+      "logprob": -0.0009398810216225684
+    },
+    {
+      "text": "Dawn",
+      "start": 2.78,
+      "end": 3.26,
+      "type": "word",
+      "logprob": -0.0009398810216225684
+    },
+    {
+      "text": " ",
+      "start": 3.26,
+      "end": 3.3,
+      "type": "spacing",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": "of",
+      "start": 3.3,
+      "end": 3.36,
+      "type": "word",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": " ",
+      "start": 3.36,
+      "end": 3.5,
+      "type": "spacing",
+      "logprob": -0.004272262565791607
+    },
+    {
+      "text": "Axiom.",
+      "start": 3.5,
+      "end": 4.019,
+      "type": "word",
+      "logprob": -0.002221821137027291
+    },
+    {
+      "text": " ",
+      "start": 4.019,
+      "end": 4.059,
+      "type": "spacing",
+      "logprob": -9.059865078597795e-06
+    },
+    {
+      "text": "Six",
+      "start": 4.72,
+      "end": 4.98,
+      "type": "word",
+      "logprob": -9.059865078597795e-06
+    },
+    {
+      "text": " ",
+      "start": 4.98,
+      "end": 5.12,
+      "type": "spacing",
+      "logprob": -1.966933996300213e-05
+    },
+    {
+      "text": "operatives",
+      "start": 5.12,
+      "end": 5.66,
+      "type": "word",
+      "logprob": -1.966933996300213e-05
+    },
+    {
+      "text": " ",
+      "start": 5.66,
+      "end": 5.92,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "stood",
+      "start": 5.92,
+      "end": 6.12,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 6.12,
+      "end": 6.16,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "together",
+      "start": 6.16,
+      "end": 6.58,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 6.58,
+      "end": 7.02,
+      "type": "spacing",
+      "logprob": -1.6093124941107817e-05
+    },
+    {
+      "text": "when",
+      "start": 7.02,
+      "end": 7.18,
+      "type": "word",
+      "logprob": -1.6093124941107817e-05
+    },
+    {
+      "text": " ",
+      "start": 7.18,
+      "end": 7.24,
+      "type": "spacing",
+      "logprob": -4.410734163684538e-06
+    },
+    {
+      "text": "millions",
+      "start": 7.24,
+      "end": 7.64,
+      "type": "word",
+      "logprob": -4.410734163684538e-06
+    },
+    {
+      "text": " ",
+      "start": 7.64,
+      "end": 7.74,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "fell.",
+      "start": 7.74,
+      "end": 8.06,
+      "type": "word",
+      "logprob": -3.926392428184044e-05
+    },
+    {
+      "text": " ",
+      "start": 8.06,
+      "end": 8.06,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "Their",
+      "start": 8.72,
+      "end": 8.88,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 8.88,
+      "end": 8.94,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "names",
+      "start": 8.94,
+      "end": 9.34,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 9.34,
+      "end": 9.38,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "will",
+      "start": 9.38,
+      "end": 9.48,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 9.48,
+      "end": 9.5,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "be",
+      "start": 9.5,
+      "end": 9.6,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 9.6,
+      "end": 9.64,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "remembered",
+      "start": 9.64,
+      "end": 10.12,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 10.12,
+      "end": 10.36,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "across",
+      "start": 10.36,
+      "end": 10.74,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 10.74,
+      "end": 10.8,
+      "type": "spacing",
+      "logprob": -7.867782187531702e-06
+    },
+    {
+      "text": "eternity",
+      "start": 10.8,
+      "end": 11.4,
+      "type": "word",
+      "logprob": -7.867782187531702e-06
+    }
+  ],
+  "transcription_id": "RdSYRMI7Fy4Ib04U4YDv",
+  "audio_duration_secs": 11.7493125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m12.fragment3.mp3",
+  "audio_sha256": "6a1c12b2f248bcf424fc745078d861168a5552efe5ff884d30888c06a634ef99",
+  "model": "scribe_v2"
+}

@@ -1,0 +1,272 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data Slate 02: Imperial Decree. All civilian identity registries slated for permanent eradication upon Singularity Core reaching 100% capacity",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.0020240312442183495
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.46,
+      "type": "spacing",
+      "logprob": -0.523587703704834
+    },
+    {
+      "text": "Slate",
+      "start": 0.46,
+      "end": 0.72,
+      "type": "word",
+      "logprob": -0.523587703704834
+    },
+    {
+      "text": " ",
+      "start": 0.72,
+      "end": 0.8,
+      "type": "spacing",
+      "logprob": -0.07062194496393204
+    },
+    {
+      "text": "02:",
+      "start": 0.8,
+      "end": 1.42,
+      "type": "word",
+      "logprob": -0.015659353130710468
+    },
+    {
+      "text": " ",
+      "start": 1.42,
+      "end": 1.42,
+      "type": "spacing",
+      "logprob": -0.00027104519540444016
+    },
+    {
+      "text": "Imperial",
+      "start": 2.68,
+      "end": 3.2,
+      "type": "word",
+      "logprob": -0.00027104519540444016
+    },
+    {
+      "text": " ",
+      "start": 3.2,
+      "end": 3.3,
+      "type": "spacing",
+      "logprob": -0.1798219382762909
+    },
+    {
+      "text": "Decree.",
+      "start": 3.3,
+      "end": 3.74,
+      "type": "word",
+      "logprob": -0.15871077616299903
+    },
+    {
+      "text": " ",
+      "start": 3.74,
+      "end": 3.74,
+      "type": "spacing",
+      "logprob": -1.2755313036905136e-05
+    },
+    {
+      "text": "All",
+      "start": 4.46,
+      "end": 4.7,
+      "type": "word",
+      "logprob": -1.2755313036905136e-05
+    },
+    {
+      "text": " ",
+      "start": 4.7,
+      "end": 4.74,
+      "type": "spacing",
+      "logprob": -1.7523612768854946e-05
+    },
+    {
+      "text": "civilian",
+      "start": 4.74,
+      "end": 5.16,
+      "type": "word",
+      "logprob": -1.7523612768854946e-05
+    },
+    {
+      "text": " ",
+      "start": 5.16,
+      "end": 5.3,
+      "type": "spacing",
+      "logprob": -2.2649508537142538e-05
+    },
+    {
+      "text": "identity",
+      "start": 5.3,
+      "end": 5.78,
+      "type": "word",
+      "logprob": -2.2649508537142538e-05
+    },
+    {
+      "text": " ",
+      "start": 5.78,
+      "end": 5.88,
+      "type": "spacing",
+      "logprob": -0.00018356545479036868
+    },
+    {
+      "text": "registries",
+      "start": 5.88,
+      "end": 6.4,
+      "type": "word",
+      "logprob": -0.00018356545479036868
+    },
+    {
+      "text": " ",
+      "start": 6.4,
+      "end": 6.78,
+      "type": "spacing",
+      "logprob": -1.2516897186287679e-05
+    },
+    {
+      "text": "slated",
+      "start": 6.78,
+      "end": 7.22,
+      "type": "word",
+      "logprob": -1.2516897186287679e-05
+    },
+    {
+      "text": " ",
+      "start": 7.22,
+      "end": 7.26,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "for",
+      "start": 7.26,
+      "end": 7.4,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 7.4,
+      "end": 7.46,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "permanent",
+      "start": 7.46,
+      "end": 7.84,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 7.84,
+      "end": 7.92,
+      "type": "spacing",
+      "logprob": -0.00018225439998786896
+    },
+    {
+      "text": "eradication",
+      "start": 7.92,
+      "end": 8.64,
+      "type": "word",
+      "logprob": -0.00018225439998786896
+    },
+    {
+      "text": " ",
+      "start": 8.64,
+      "end": 9.02,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "upon",
+      "start": 9.02,
+      "end": 9.28,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 9.28,
+      "end": 9.42,
+      "type": "spacing",
+      "logprob": -0.07900089770555496
+    },
+    {
+      "text": "Singularity",
+      "start": 9.42,
+      "end": 10.06,
+      "type": "word",
+      "logprob": -0.0287437572381102
+    },
+    {
+      "text": " ",
+      "start": 10.06,
+      "end": 10.18,
+      "type": "spacing",
+      "logprob": -0.011740044690668583
+    },
+    {
+      "text": "Core",
+      "start": 10.18,
+      "end": 10.44,
+      "type": "word",
+      "logprob": -0.011740044690668583
+    },
+    {
+      "text": " ",
+      "start": 10.44,
+      "end": 10.92,
+      "type": "spacing",
+      "logprob": -3.325883881188929e-05
+    },
+    {
+      "text": "reaching",
+      "start": 10.92,
+      "end": 11.26,
+      "type": "word",
+      "logprob": -3.325883881188929e-05
+    },
+    {
+      "text": " ",
+      "start": 11.26,
+      "end": 11.54,
+      "type": "spacing",
+      "logprob": -0.3132619857788086
+    },
+    {
+      "text": "100%",
+      "start": 11.54,
+      "end": 12.36,
+      "type": "word",
+      "logprob": -1.0400803118315594e-05
+    },
+    {
+      "text": " ",
+      "start": 12.36,
+      "end": 12.4,
+      "type": "spacing",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": "capacity",
+      "start": 12.4,
+      "end": 12.98,
+      "type": "word",
+      "logprob": -2.7418097943154862e-06
+    }
+  ],
+  "transcription_id": "guCsS1iqJQQQhiT7E0is",
+  "audio_duration_secs": 13.32825,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m12.fragment2.mp3",
+  "audio_sha256": "26f6b02356bb8d34ebfd868d5fe2b48ab8d25480a06095b806e3bde768d30fca",
+  "model": "scribe_v2"
+}

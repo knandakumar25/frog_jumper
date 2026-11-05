@@ -1,0 +1,132 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "The dojo falls, but the resistance rises. Tokyo remembers",
+  "words": [
+    {
+      "text": "The",
+      "start": 0.1,
+      "end": 0.18,
+      "type": "word",
+      "logprob": -0.001178285456262529
+    },
+    {
+      "text": " ",
+      "start": 0.18,
+      "end": 0.22,
+      "type": "spacing",
+      "logprob": -0.002851707860827446
+    },
+    {
+      "text": "dojo",
+      "start": 0.22,
+      "end": 0.56,
+      "type": "word",
+      "logprob": -0.0014270460219449888
+    },
+    {
+      "text": " ",
+      "start": 0.56,
+      "end": 0.7,
+      "type": "spacing",
+      "logprob": -1.4185804502631072e-05
+    },
+    {
+      "text": "falls,",
+      "start": 0.7,
+      "end": 1.1,
+      "type": "word",
+      "logprob": -0.011671898181551418
+    },
+    {
+      "text": " ",
+      "start": 1.1,
+      "end": 1.18,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "but",
+      "start": 1.18,
+      "end": 1.3,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 1.3,
+      "end": 1.34,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "the",
+      "start": 1.34,
+      "end": 1.4,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 1.4,
+      "end": 1.44,
+      "type": "spacing",
+      "logprob": -0.0001586549769854173
+    },
+    {
+      "text": "resistance",
+      "start": 1.44,
+      "end": 1.96,
+      "type": "word",
+      "logprob": -0.0001586549769854173
+    },
+    {
+      "text": " ",
+      "start": 1.96,
+      "end": 2.04,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "rises.",
+      "start": 2.04,
+      "end": 2.56,
+      "type": "word",
+      "logprob": -1.4424020491787815e-05
+    },
+    {
+      "text": " ",
+      "start": 2.56,
+      "end": 2.56,
+      "type": "spacing",
+      "logprob": -1.4543427823809907e-05
+    },
+    {
+      "text": "Tokyo",
+      "start": 3.04,
+      "end": 3.42,
+      "type": "word",
+      "logprob": -1.4543427823809907e-05
+    },
+    {
+      "text": " ",
+      "start": 3.42,
+      "end": 3.46,
+      "type": "spacing",
+      "logprob": -0.00017105070583056659
+    },
+    {
+      "text": "remembers",
+      "start": 3.46,
+      "end": 4.0,
+      "type": "word",
+      "logprob": -0.00017105070583056659
+    }
+  ],
+  "transcription_id": "by6kI21fJyVDNYyb6pFd",
+  "audio_duration_secs": 4.2725,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m01.event.3f776f8eee75.mp3",
+  "audio_sha256": "125f6cf96687c16e319b638f8b7d79a15bd0b86e363ab6354e32f3fdb729ea37",
+  "model": "scribe_v2"
+}

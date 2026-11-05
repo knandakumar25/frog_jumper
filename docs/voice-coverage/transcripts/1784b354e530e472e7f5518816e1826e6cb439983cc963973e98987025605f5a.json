@@ -1,0 +1,132 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Open the crossing first. We leave when they can",
+  "words": [
+    {
+      "text": "Open",
+      "start": 0.08,
+      "end": 0.26,
+      "type": "word",
+      "logprob": -3.4689302992774174e-05
+    },
+    {
+      "text": " ",
+      "start": 0.26,
+      "end": 0.3,
+      "type": "spacing",
+      "logprob": -2.6702524337451905e-05
+    },
+    {
+      "text": "the",
+      "start": 0.3,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -2.6702524337451905e-05
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.4,
+      "type": "spacing",
+      "logprob": -0.007614397909492254
+    },
+    {
+      "text": "crossing",
+      "start": 0.4,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -0.007614397909492254
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 0.88,
+      "type": "spacing",
+      "logprob": -8.427741704508662e-05
+    },
+    {
+      "text": "first.",
+      "start": 0.88,
+      "end": 1.14,
+      "type": "word",
+      "logprob": -0.0010022410715464503
+    },
+    {
+      "text": " ",
+      "start": 1.14,
+      "end": 1.22,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "We",
+      "start": 1.22,
+      "end": 1.34,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 1.34,
+      "end": 1.4,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "leave",
+      "start": 1.4,
+      "end": 1.66,
+      "type": "word",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": " ",
+      "start": 1.66,
+      "end": 1.7,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "when",
+      "start": 1.7,
+      "end": 1.82,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 1.82,
+      "end": 1.86,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "they",
+      "start": 1.86,
+      "end": 2.0,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 2.0,
+      "end": 2.06,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "can",
+      "start": 2.06,
+      "end": 2.4,
+      "type": "word",
+      "logprob": 0.0
+    }
+  ],
+  "transcription_id": "io07AoWrukF30OfHjW6Y",
+  "audio_duration_secs": 2.6935,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/kaito.ogg",
+  "audio_sha256": "1784b354e530e472e7f5518816e1826e6cb439983cc963973e98987025605f5a",
+  "model": "scribe_v2"
+}

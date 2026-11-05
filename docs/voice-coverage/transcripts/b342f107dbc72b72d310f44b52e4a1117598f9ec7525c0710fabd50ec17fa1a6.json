@@ -1,0 +1,258 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate 01: geothermal telemetry. Plasma core channeling fourteen thousand gigawatts into the Citadel Spire's orbital emitter array",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -0.000536655425094068
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.44,
+      "type": "spacing",
+      "logprob": -0.6950652003288269
+    },
+    {
+      "text": "slate",
+      "start": 0.44,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -0.6950652003288269
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 0.88,
+      "type": "spacing",
+      "logprob": -0.3870386779308319
+    },
+    {
+      "text": "01:",
+      "start": 1.08,
+      "end": 1.48,
+      "type": "word",
+      "logprob": -0.07324873572580752
+    },
+    {
+      "text": " ",
+      "start": 1.48,
+      "end": 1.48,
+      "type": "spacing",
+      "logprob": -0.22542613744735718
+    },
+    {
+      "text": "geothermal",
+      "start": 2.54,
+      "end": 3.16,
+      "type": "word",
+      "logprob": -0.22542613744735718
+    },
+    {
+      "text": " ",
+      "start": 3.16,
+      "end": 3.26,
+      "type": "spacing",
+      "logprob": -5.900685573578812e-05
+    },
+    {
+      "text": "telemetry.",
+      "start": 3.26,
+      "end": 3.88,
+      "type": "word",
+      "logprob": -0.004078328158720978
+    },
+    {
+      "text": " ",
+      "start": 3.88,
+      "end": 3.88,
+      "type": "spacing",
+      "logprob": -0.002288105897605419
+    },
+    {
+      "text": "Plasma",
+      "start": 4.56,
+      "end": 4.94,
+      "type": "word",
+      "logprob": -0.002288105897605419
+    },
+    {
+      "text": " ",
+      "start": 4.94,
+      "end": 4.98,
+      "type": "spacing",
+      "logprob": -0.0003634030872490257
+    },
+    {
+      "text": "core",
+      "start": 4.98,
+      "end": 5.22,
+      "type": "word",
+      "logprob": -0.0003634030872490257
+    },
+    {
+      "text": " ",
+      "start": 5.22,
+      "end": 5.28,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "channeling",
+      "start": 5.28,
+      "end": 5.7,
+      "type": "word",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": " ",
+      "start": 5.7,
+      "end": 6.16,
+      "type": "spacing",
+      "logprob": -0.3137967586517334
+    },
+    {
+      "text": "fourteen",
+      "start": 6.16,
+      "end": 6.6,
+      "type": "word",
+      "logprob": -0.3137967586517334
+    },
+    {
+      "text": " ",
+      "start": 6.6,
+      "end": 6.7,
+      "type": "spacing",
+      "logprob": -7.4741430580616e-05
+    },
+    {
+      "text": "thousand",
+      "start": 6.7,
+      "end": 7.06,
+      "type": "word",
+      "logprob": -7.4741430580616e-05
+    },
+    {
+      "text": " ",
+      "start": 7.06,
+      "end": 7.18,
+      "type": "spacing",
+      "logprob": -0.0003178806509822607
+    },
+    {
+      "text": "gigawatts",
+      "start": 7.18,
+      "end": 7.7,
+      "type": "word",
+      "logprob": -0.0001110464606123666
+    },
+    {
+      "text": " ",
+      "start": 7.7,
+      "end": 8.14,
+      "type": "spacing",
+      "logprob": -4.291525328881107e-06
+    },
+    {
+      "text": "into",
+      "start": 8.14,
+      "end": 8.3,
+      "type": "word",
+      "logprob": -4.291525328881107e-06
+    },
+    {
+      "text": " ",
+      "start": 8.3,
+      "end": 8.34,
+      "type": "spacing",
+      "logprob": -1.9073304429184645e-05
+    },
+    {
+      "text": "the",
+      "start": 8.34,
+      "end": 8.44,
+      "type": "word",
+      "logprob": -1.9073304429184645e-05
+    },
+    {
+      "text": " ",
+      "start": 8.44,
+      "end": 8.46,
+      "type": "spacing",
+      "logprob": -0.2811738848686218
+    },
+    {
+      "text": "Citadel",
+      "start": 8.46,
+      "end": 8.86,
+      "type": "word",
+      "logprob": -0.2811738848686218
+    },
+    {
+      "text": " ",
+      "start": 8.86,
+      "end": 8.96,
+      "type": "spacing",
+      "logprob": -0.28274810314178467
+    },
+    {
+      "text": "Spire's",
+      "start": 8.96,
+      "end": 9.44,
+      "type": "word",
+      "logprob": -0.08104017484142137
+    },
+    {
+      "text": " ",
+      "start": 9.44,
+      "end": 9.6,
+      "type": "spacing",
+      "logprob": -0.0017193072708323598
+    },
+    {
+      "text": "orbital",
+      "start": 9.6,
+      "end": 9.92,
+      "type": "word",
+      "logprob": -0.0017193072708323598
+    },
+    {
+      "text": " ",
+      "start": 9.92,
+      "end": 9.98,
+      "type": "spacing",
+      "logprob": -3.4927710657939315e-05
+    },
+    {
+      "text": "emitter",
+      "start": 9.98,
+      "end": 10.28,
+      "type": "word",
+      "logprob": -3.4927710657939315e-05
+    },
+    {
+      "text": " ",
+      "start": 10.28,
+      "end": 10.4,
+      "type": "spacing",
+      "logprob": -7.748573807475623e-06
+    },
+    {
+      "text": "array",
+      "start": 10.4,
+      "end": 10.8,
+      "type": "word",
+      "logprob": -7.748573807475623e-06
+    }
+  ],
+  "transcription_id": "AGDwb6aWNQVDBQhqxxSh",
+  "audio_duration_secs": 11.1455625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m07.fragment1.mp3",
+  "audio_sha256": "b342f107dbc72b72d310f44b52e4a1117598f9ec7525c0710fabd50ec17fa1a6",
+  "model": "scribe_v2"
+}

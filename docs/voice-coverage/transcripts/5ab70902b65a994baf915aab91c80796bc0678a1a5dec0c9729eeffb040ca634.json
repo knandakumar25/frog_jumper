@@ -1,0 +1,244 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "I repaired these water pipes for 30 years. Yesterday, the district said I had never lived here.",
+  "words": [
+    {
+      "text": "I",
+      "start": 0.14,
+      "end": 0.18,
+      "type": "word",
+      "logprob": -0.0009152276325039566
+    },
+    {
+      "text": " ",
+      "start": 0.18,
+      "end": 0.2,
+      "type": "spacing",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": "repaired",
+      "start": 0.22,
+      "end": 0.54,
+      "type": "word",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": " ",
+      "start": 0.54,
+      "end": 0.58,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "these",
+      "start": 0.58,
+      "end": 0.72,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 0.72,
+      "end": 0.76,
+      "type": "spacing",
+      "logprob": -8.34461570775602e-06
+    },
+    {
+      "text": "water",
+      "start": 0.76,
+      "end": 0.94,
+      "type": "word",
+      "logprob": -8.34461570775602e-06
+    },
+    {
+      "text": " ",
+      "start": 0.94,
+      "end": 1.02,
+      "type": "spacing",
+      "logprob": -3.564294092939235e-05
+    },
+    {
+      "text": "pipes",
+      "start": 1.02,
+      "end": 1.26,
+      "type": "word",
+      "logprob": -3.564294092939235e-05
+    },
+    {
+      "text": " ",
+      "start": 1.26,
+      "end": 1.28,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "for",
+      "start": 1.28,
+      "end": 1.38,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 1.38,
+      "end": 1.42,
+      "type": "spacing",
+      "logprob": -0.012512044049799442
+    },
+    {
+      "text": "30",
+      "start": 1.42,
+      "end": 1.68,
+      "type": "word",
+      "logprob": -5.960461599840983e-07
+    },
+    {
+      "text": " ",
+      "start": 1.68,
+      "end": 1.76,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "years.",
+      "start": 1.78,
+      "end": 2.18,
+      "type": "word",
+      "logprob": -1.1980157296420657e-05
+    },
+    {
+      "text": " ",
+      "start": 2.18,
+      "end": 2.18,
+      "type": "spacing",
+      "logprob": -1.883488948806189e-05
+    },
+    {
+      "text": "Yesterday,",
+      "start": 2.68,
+      "end": 3.1,
+      "type": "word",
+      "logprob": -0.006213993046185351
+    },
+    {
+      "text": " ",
+      "start": 3.1,
+      "end": 3.16,
+      "type": "spacing",
+      "logprob": -9.298280929215252e-06
+    },
+    {
+      "text": "the",
+      "start": 3.16,
+      "end": 3.24,
+      "type": "word",
+      "logprob": -9.298280929215252e-06
+    },
+    {
+      "text": " ",
+      "start": 3.24,
+      "end": 3.28,
+      "type": "spacing",
+      "logprob": -5.829164365422912e-05
+    },
+    {
+      "text": "district",
+      "start": 3.28,
+      "end": 3.7,
+      "type": "word",
+      "logprob": -5.829164365422912e-05
+    },
+    {
+      "text": " ",
+      "start": 3.7,
+      "end": 3.74,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "said",
+      "start": 3.74,
+      "end": 3.92,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 3.92,
+      "end": 3.98,
+      "type": "spacing",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": "I",
+      "start": 3.98,
+      "end": 4.019,
+      "type": "word",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": " ",
+      "start": 4.019,
+      "end": 4.04,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "had",
+      "start": 4.04,
+      "end": 4.16,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.16,
+      "end": 4.22,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "never",
+      "start": 4.22,
+      "end": 4.4,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.4,
+      "end": 4.46,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "lived",
+      "start": 4.46,
+      "end": 4.66,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 4.66,
+      "end": 4.68,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "here.",
+      "start": 4.68,
+      "end": 4.9,
+      "type": "word",
+      "logprob": -0.020058917999131155
+    }
+  ],
+  "transcription_id": "m8KR2yURbHG67jZpuhpG",
+  "audio_duration_secs": 5.24775,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m05.fragment2.mp3",
+  "audio_sha256": "5ab70902b65a994baf915aab91c80796bc0678a1a5dec0c9729eeffb040ca634",
+  "model": "scribe_v2"
+}

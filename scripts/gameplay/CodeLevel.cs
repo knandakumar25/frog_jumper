@@ -107,6 +107,11 @@ public abstract partial class CodeLevel : Node2D
     private readonly List<PalaceObjective> _checkpoints = new();
     private Vector2 _checkpoint;
     private float _dialogueRemaining;
+    /// <summary>The sole gameplay speech lane, shared by legacy mission adapters and new cue-ID callers.</summary>
+    public MissionSpeechQueue Speech { get; private set; } = null!;
+    /// <summary>Speech follows gameplay pause, arrival, death and recovery, including Always-processing descendants.</summary>
+    public bool SpeechSuspended => !IsInsideTree() || ArrivalActive || _recovering || MissionComplete ||
+        GetTree().Paused || _player == null || _player.CurrentHealth <= 0;
     private bool _finishing;
     private bool _recovering;
     private bool _usingPad;
@@ -171,7 +176,10 @@ public abstract partial class CodeLevel : Node2D
         BuildPetals();
         BuildUserInterface();
         BuildAudioAndPause();
-        ShowDialogue(IntroLine(), 11f);
+        Speech = new MissionSpeechQueue { Name = "MissionSpeechQueue", Mission = this };
+        AddChild(Speech);
+        PlayStoryCue($"m{MissionNumber:00}.intro");
+        ShowSpeechSubtitle(IntroLine(), 11f);
         OnLevelReady();
         GD.Print($"{GetType().Name}: mission {MissionNumber} ready for {_player.ActiveProfile.DisplayName}");
     }
@@ -180,7 +188,7 @@ public abstract partial class CodeLevel : Node2D
     public override void _Process(double delta)
     {
         UpdateBackdrop();
-        if (MissionComplete || MissionNumber >= 4 && GetTree().Paused) return;
+        if (MissionComplete || GetTree().Paused) return;
         _dialogueRemaining = Mathf.Max(0f, _dialogueRemaining - (float)delta);
         _dialoguePanel.Visible = _dialogueRemaining > 0f;
     }
@@ -213,6 +221,7 @@ public abstract partial class CodeLevel : Node2D
     public override void _ExitTree()
     {
         GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", _previousMenuPromptVisible);
+        Speech?.Cancel();
         if (_hintRoster != null) _hintRoster.OperativeUnlocked -= OnOperativeUnlocked;
         if (GetTree() != null) GetTree().Paused = false;
     }
@@ -282,7 +291,7 @@ public abstract partial class CodeLevel : Node2D
             if (state.Node is AudioStreamPlayer2D spatial && state.AudioPaused.HasValue) spatial.StreamPaused = state.AudioPaused.Value;
         }
         _arrivalState.Clear();
-        ShowDialogue(IntroLine(), 11f);
+        ShowSpeechSubtitle(IntroLine(), 11f);
     }
 
     /// <summary>Adds one solid platform. <paramref name="top"/> is the walkable surface Y; the body extends downward by <paramref name="height"/>.</summary>
@@ -494,6 +503,7 @@ public abstract partial class CodeLevel : Node2D
             fragment.SetCollected();
             MemoryFragmentsFound++;
             _gameManager.Points += 25;
+            PlayStoryCue($"m{MissionNumber:00}.fragment{MemoryFragmentsFound}");
             ShowDialogue(FragmentLog(MemoryFragmentsFound), 8f);
             UpdateFragmentLabel();
         }
@@ -514,6 +524,7 @@ public abstract partial class CodeLevel : Node2D
     {
         if (_recovering) return;
         _recovering = true;
+        Speech?.Cancel();
         OnRecoveryStarting();
         _player.ResetAtCheckpoint(_checkpoint);
         // ResetAtCheckpoint heals fully, so the penalty is applied afterwards. It is small enough never to defeat anyone.
@@ -528,6 +539,7 @@ public abstract partial class CodeLevel : Node2D
     {
         if (_recovering || MissionComplete) return;
         _recovering = true;
+        Speech?.Cancel();
         OnRecoveryStarting();
         RespawnAfterDelay();
     }
@@ -548,6 +560,7 @@ public abstract partial class CodeLevel : Node2D
     {
         if (_finishing) return;
         _finishing = MissionComplete = true;
+        Speech?.Cancel();
         _player.StopMovement();
         CurrentObjective = "Mission complete";
         _objectiveLabel.Text = CompletionLine;
@@ -831,8 +844,20 @@ public abstract partial class CodeLevel : Node2D
         pauseLayer.AddChild(GD.Load<PackedScene>("res://scenes/gameplay/pause_menu.tscn").Instantiate());
     }
 
-    /// <summary>Shows a status or story line in the bottom dialogue strip for <paramref name="seconds"/>. Empty text is ignored.</summary>
+    /// <summary>Adapts authored story text to a stable cue; ordinary status updates never replace an active spoken subtitle.</summary>
     public void ShowDialogue(string text, float seconds)
+    {
+        var cue = EnglishSpeechCatalog.Find(text);
+        if (cue != null && Speech != null) { Speech.Enqueue(cue.Id); return; }
+        if (Speech?.Busy == true) return;
+        ShowSpeechSubtitle(text, seconds);
+    }
+
+    /// <summary>Queues an English story recording by stable ID independently of visual status messages.</summary>
+    public void PlayStoryCue(string id) => Speech?.Enqueue(id);
+
+    /// <summary>Draws a complete localized subtitle; only the speech owner bypasses status suppression.</summary>
+    public void ShowSpeechSubtitle(string text, float seconds)
     {
         if (string.IsNullOrEmpty(text)) return;
         _dialogueLabel.Text = text;

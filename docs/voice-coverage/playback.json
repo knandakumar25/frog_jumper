@@ -1,0 +1,67 @@
+{
+  "observations": [
+    {
+      "captured_frames": 765952,
+      "cues": [
+        "m05.fragment1",
+        "m05.fragment2",
+        "m05.fragment3"
+      ],
+      "expected": [
+        "m05.fragment1",
+        "m05.fragment2",
+        "m05.fragment3"
+      ],
+      "max_playback_position": 5.77306127548218,
+      "mission": 5,
+      "natural_completion": true,
+      "passed": true,
+      "pause_checked": true,
+      "peak": 0.483849734067917
+    },
+    {
+      "captured_frames": 618496,
+      "cues": [
+        "m12.fragment1"
+      ],
+      "expected": [
+        "m12.fragment1"
+      ],
+      "max_playback_position": 12.9248075485229,
+      "mission": 12,
+      "natural_completion": true,
+      "passed": true,
+      "pause_checked": true,
+      "peak": 0.354497134685516
+    },
+    {
+      "briefing_line": 1,
+      "captured_peak": 0.571672081947327,
+      "max_playback_position": 14.863673210144,
+      "natural_completion": true,
+      "passed": true
+    },
+    {
+      "briefing_line": 2,
+      "captured_peak": 0.50397115945816,
+      "max_playback_position": 13.3775959014893,
+      "natural_completion": true,
+      "passed": true
+    },
+    {
+      "briefing_line": 3,
+      "captured_peak": 0.558281123638153,
+      "max_playback_position": 17.4643077850342,
+      "natural_completion": true,
+      "passed": true
+    },
+    {
+      "briefing_line": 4,
+      "captured_peak": 0.623826265335083,
+      "max_playback_position": 12.8174152374268,
+      "natural_completion": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,2288 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Overseer neutralized. All three processing nodes are down. The Citadel automated defense grid has flatlined. The reinforcement queues just emptied. No fresh drones, no replacement squads. Their machine army has nowhere to go. Containment prisms. Fancy name for a cage. Now look at them. Scrap metal and coolant leaking through every seam. Thermal runaway is accelerating. Feel that vibration? We cannot stay on this deck. Keep moving toward the lift. The Bastion has switched to auxiliary power. We broke its link to the Nexus, but its local guns still work. Heavy footsteps above us. Praetorian mechs and cyber samurai. They know the network is dead. They are making their stand. Ascent lift online. Executive lockout bypassed. Everyone aboard. This takes us straight into the Bastion. Extreme energy readings at the summit. The commander has detected the Nexus collapse. Bastion batteries are cleared to fire. Then we meet them face to face. No more hiding behind machines. Board the lift. Next stop, Apex Bastion.",
+  "words": [
+    {
+      "text": "Overseer",
+      "start": 0.24,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -0.0030816039034107234
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 1.0,
+      "type": "spacing",
+      "logprob": -0.00034350217902101576
+    },
+    {
+      "text": "neutralized.",
+      "start": 1.0,
+      "end": 1.82,
+      "type": "word",
+      "logprob": -0.0003427275805734098
+    },
+    {
+      "text": " ",
+      "start": 1.82,
+      "end": 1.82,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "All",
+      "start": 2.4,
+      "end": 2.58,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 2.58,
+      "end": 2.62,
+      "type": "spacing",
+      "logprob": -1.2278481335670222e-05
+    },
+    {
+      "text": "three",
+      "start": 2.62,
+      "end": 2.82,
+      "type": "word",
+      "logprob": -1.2278481335670222e-05
+    },
+    {
+      "text": " ",
+      "start": 2.82,
+      "end": 2.92,
+      "type": "spacing",
+      "logprob": -0.0002978596603497863
+    },
+    {
+      "text": "processing",
+      "start": 2.92,
+      "end": 3.48,
+      "type": "word",
+      "logprob": -0.0002978596603497863
+    },
+    {
+      "text": " ",
+      "start": 3.48,
+      "end": 3.52,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "nodes",
+      "start": 3.52,
+      "end": 3.84,
+      "type": "word",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": " ",
+      "start": 3.84,
+      "end": 4.08,
+      "type": "spacing",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": "are",
+      "start": 4.08,
+      "end": 4.2,
+      "type": "word",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": " ",
+      "start": 4.2,
+      "end": 4.24,
+      "type": "spacing",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": "down.",
+      "start": 4.24,
+      "end": 4.64,
+      "type": "word",
+      "logprob": -2.0193716773064806e-05
+    },
+    {
+      "text": " ",
+      "start": 4.64,
+      "end": 4.64,
+      "type": "spacing",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": "The",
+      "start": 5.14,
+      "end": 5.24,
+      "type": "word",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": " ",
+      "start": 5.24,
+      "end": 5.28,
+      "type": "spacing",
+      "logprob": -0.026341086253523827
+    },
+    {
+      "text": "Citadel",
+      "start": 5.28,
+      "end": 5.7,
+      "type": "word",
+      "logprob": -0.026341086253523827
+    },
+    {
+      "text": " ",
+      "start": 5.7,
+      "end": 5.88,
+      "type": "spacing",
+      "logprob": -0.020657978951931
+    },
+    {
+      "text": "automated",
+      "start": 5.88,
+      "end": 6.36,
+      "type": "word",
+      "logprob": -0.020657978951931
+    },
+    {
+      "text": " ",
+      "start": 6.36,
+      "end": 6.4,
+      "type": "spacing",
+      "logprob": -3.218599158572033e-05
+    },
+    {
+      "text": "defense",
+      "start": 6.4,
+      "end": 6.76,
+      "type": "word",
+      "logprob": -3.218599158572033e-05
+    },
+    {
+      "text": " ",
+      "start": 6.76,
+      "end": 6.82,
+      "type": "spacing",
+      "logprob": -1.1324817933200393e-05
+    },
+    {
+      "text": "grid",
+      "start": 6.82,
+      "end": 7.02,
+      "type": "word",
+      "logprob": -1.1324817933200393e-05
+    },
+    {
+      "text": " ",
+      "start": 7.02,
+      "end": 7.38,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "has",
+      "start": 7.38,
+      "end": 7.54,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 7.54,
+      "end": 7.62,
+      "type": "spacing",
+      "logprob": -3.969590397900902e-05
+    },
+    {
+      "text": "flatlined.",
+      "start": 7.62,
+      "end": 8.28,
+      "type": "word",
+      "logprob": -0.0004103700237465091
+    },
+    {
+      "text": " ",
+      "start": 8.28,
+      "end": 8.28,
+      "type": "spacing",
+      "logprob": -0.0001699779968475923
+    },
+    {
+      "text": "The",
+      "start": 10.24,
+      "end": 10.3,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 10.3,
+      "end": 10.34,
+      "type": "spacing",
+      "logprob": -0.00014673586701974273
+    },
+    {
+      "text": "reinforcement",
+      "start": 10.34,
+      "end": 10.9,
+      "type": "word",
+      "logprob": -0.00014673586701974273
+    },
+    {
+      "text": " ",
+      "start": 10.9,
+      "end": 10.98,
+      "type": "spacing",
+      "logprob": -0.10800868272781372
+    },
+    {
+      "text": "queues",
+      "start": 10.98,
+      "end": 11.22,
+      "type": "word",
+      "logprob": -0.10800868272781372
+    },
+    {
+      "text": " ",
+      "start": 11.22,
+      "end": 11.28,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "just",
+      "start": 11.28,
+      "end": 11.46,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": " ",
+      "start": 11.46,
+      "end": 11.52,
+      "type": "spacing",
+      "logprob": -0.00016950124700088054
+    },
+    {
+      "text": "emptied.",
+      "start": 11.52,
+      "end": 11.86,
+      "type": "word",
+      "logprob": -0.0001534990874461073
+    },
+    {
+      "text": " ",
+      "start": 11.86,
+      "end": 11.86,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "No",
+      "start": 12.24,
+      "end": 12.32,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 12.32,
+      "end": 12.42,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "fresh",
+      "start": 12.42,
+      "end": 12.6,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 12.6,
+      "end": 12.68,
+      "type": "spacing",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": "drones,",
+      "start": 12.68,
+      "end": 13.04,
+      "type": "word",
+      "logprob": -8.184082324597901e-05
+    },
+    {
+      "text": " ",
+      "start": 13.04,
+      "end": 13.12,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "no",
+      "start": 13.12,
+      "end": 13.22,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 13.22,
+      "end": 13.24,
+      "type": "spacing",
+      "logprob": -6.9141146923357155e-06
+    },
+    {
+      "text": "replacement",
+      "start": 13.24,
+      "end": 13.68,
+      "type": "word",
+      "logprob": -6.9141146923357155e-06
+    },
+    {
+      "text": " ",
+      "start": 13.68,
+      "end": 13.74,
+      "type": "spacing",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": "squads.",
+      "start": 13.74,
+      "end": 14.14,
+      "type": "word",
+      "logprob": -5.602811402890698e-06
+    },
+    {
+      "text": " ",
+      "start": 14.14,
+      "end": 14.6,
+      "type": "spacing",
+      "logprob": -8.702239938429557e-06
+    },
+    {
+      "text": "Their",
+      "start": 14.6,
+      "end": 14.7,
+      "type": "word",
+      "logprob": -8.702239938429557e-06
+    },
+    {
+      "text": " ",
+      "start": 14.7,
+      "end": 14.72,
+      "type": "spacing",
+      "logprob": -1.7404405298293568e-05
+    },
+    {
+      "text": "machine",
+      "start": 14.72,
+      "end": 15.04,
+      "type": "word",
+      "logprob": -1.7404405298293568e-05
+    },
+    {
+      "text": " ",
+      "start": 15.04,
+      "end": 15.1,
+      "type": "spacing",
+      "logprob": -3.5523738915799186e-05
+    },
+    {
+      "text": "army",
+      "start": 15.1,
+      "end": 15.28,
+      "type": "word",
+      "logprob": -3.5523738915799186e-05
+    },
+    {
+      "text": " ",
+      "start": 15.28,
+      "end": 15.32,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "has",
+      "start": 15.32,
+      "end": 15.46,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 15.46,
+      "end": 15.5,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "nowhere",
+      "start": 15.5,
+      "end": 15.72,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 15.72,
+      "end": 15.74,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "to",
+      "start": 15.76,
+      "end": 15.82,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 15.82,
+      "end": 15.88,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "go.",
+      "start": 15.88,
+      "end": 16.079,
+      "type": "word",
+      "logprob": -0.0006078114186796787
+    },
+    {
+      "text": " ",
+      "start": 16.079,
+      "end": 16.079,
+      "type": "spacing",
+      "logprob": -4.410734163684538e-06
+    },
+    {
+      "text": "Containment",
+      "start": 20.24,
+      "end": 20.74,
+      "type": "word",
+      "logprob": -0.011619917032331532
+    },
+    {
+      "text": " ",
+      "start": 20.74,
+      "end": 20.84,
+      "type": "spacing",
+      "logprob": -0.0002640137099660933
+    },
+    {
+      "text": "prisms.",
+      "start": 20.84,
+      "end": 21.28,
+      "type": "word",
+      "logprob": -0.007439132696682853
+    },
+    {
+      "text": " ",
+      "start": 21.28,
+      "end": 21.28,
+      "type": "spacing",
+      "logprob": -5.304672595229931e-05
+    },
+    {
+      "text": "Fancy",
+      "start": 21.9,
+      "end": 22.18,
+      "type": "word",
+      "logprob": -5.304672595229931e-05
+    },
+    {
+      "text": " ",
+      "start": 22.18,
+      "end": 22.26,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "name",
+      "start": 22.26,
+      "end": 22.48,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 22.48,
+      "end": 22.52,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "for",
+      "start": 22.52,
+      "end": 22.58,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 22.58,
+      "end": 22.64,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "a",
+      "start": 22.64,
+      "end": 22.7,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 22.7,
+      "end": 22.76,
+      "type": "spacing",
+      "logprob": -1.4305012882687151e-05
+    },
+    {
+      "text": "cage.",
+      "start": 22.76,
+      "end": 23.14,
+      "type": "word",
+      "logprob": -2.052755153272301e-05
+    },
+    {
+      "text": " ",
+      "start": 23.14,
+      "end": 23.14,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "Now",
+      "start": 23.54,
+      "end": 23.66,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 23.66,
+      "end": 23.7,
+      "type": "spacing",
+      "logprob": -0.0006276782951317728
+    },
+    {
+      "text": "look",
+      "start": 23.7,
+      "end": 23.8,
+      "type": "word",
+      "logprob": -0.0006276782951317728
+    },
+    {
+      "text": " ",
+      "start": 23.8,
+      "end": 23.84,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "at",
+      "start": 23.84,
+      "end": 23.92,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 23.92,
+      "end": 23.96,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "them.",
+      "start": 23.96,
+      "end": 24.1,
+      "type": "word",
+      "logprob": -0.004675257950884771
+    },
+    {
+      "text": " ",
+      "start": 24.1,
+      "end": 24.1,
+      "type": "spacing",
+      "logprob": -7.259582343976945e-05
+    },
+    {
+      "text": "Scrap",
+      "start": 24.48,
+      "end": 24.72,
+      "type": "word",
+      "logprob": -7.259582343976945e-05
+    },
+    {
+      "text": " ",
+      "start": 24.72,
+      "end": 24.8,
+      "type": "spacing",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": "metal",
+      "start": 24.8,
+      "end": 25.14,
+      "type": "word",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": " ",
+      "start": 25.14,
+      "end": 25.18,
+      "type": "spacing",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": "and",
+      "start": 25.18,
+      "end": 25.26,
+      "type": "word",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": " ",
+      "start": 25.26,
+      "end": 25.38,
+      "type": "spacing",
+      "logprob": -1.9311717551317997e-05
+    },
+    {
+      "text": "coolant",
+      "start": 25.38,
+      "end": 25.74,
+      "type": "word",
+      "logprob": -1.9311717551317997e-05
+    },
+    {
+      "text": " ",
+      "start": 25.74,
+      "end": 25.84,
+      "type": "spacing",
+      "logprob": -1.0609570381348021e-05
+    },
+    {
+      "text": "leaking",
+      "start": 25.84,
+      "end": 26.16,
+      "type": "word",
+      "logprob": -1.0609570381348021e-05
+    },
+    {
+      "text": " ",
+      "start": 26.16,
+      "end": 26.18,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "through",
+      "start": 26.18,
+      "end": 26.38,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 26.38,
+      "end": 26.46,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "every",
+      "start": 26.46,
+      "end": 26.66,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 26.66,
+      "end": 26.78,
+      "type": "spacing",
+      "logprob": -6.16293036728166e-05
+    },
+    {
+      "text": "seam.",
+      "start": 26.8,
+      "end": 27.12,
+      "type": "word",
+      "logprob": -7.822152692824603e-05
+    },
+    {
+      "text": " ",
+      "start": 27.12,
+      "end": 27.12,
+      "type": "spacing",
+      "logprob": -0.00012599628826137632
+    },
+    {
+      "text": "Thermal",
+      "start": 30.2,
+      "end": 30.56,
+      "type": "word",
+      "logprob": -0.0017144280718639493
+    },
+    {
+      "text": " ",
+      "start": 30.56,
+      "end": 30.66,
+      "type": "spacing",
+      "logprob": -0.0003082277253270149
+    },
+    {
+      "text": "runaway",
+      "start": 30.66,
+      "end": 31.1,
+      "type": "word",
+      "logprob": -0.0003082277253270149
+    },
+    {
+      "text": " ",
+      "start": 31.1,
+      "end": 31.14,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "is",
+      "start": 31.14,
+      "end": 31.24,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 31.24,
+      "end": 31.28,
+      "type": "spacing",
+      "logprob": -1.0013530300057027e-05
+    },
+    {
+      "text": "accelerating.",
+      "start": 31.28,
+      "end": 32.0,
+      "type": "word",
+      "logprob": -9.463337112090532e-06
+    },
+    {
+      "text": " ",
+      "start": 32.0,
+      "end": 32.38,
+      "type": "spacing",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": "Feel",
+      "start": 32.38,
+      "end": 32.54,
+      "type": "word",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": " ",
+      "start": 32.54,
+      "end": 32.58,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "that",
+      "start": 32.58,
+      "end": 32.7,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 32.7,
+      "end": 32.74,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "vibration?",
+      "start": 32.74,
+      "end": 33.3,
+      "type": "word",
+      "logprob": -1.6354246952232643e-05
+    },
+    {
+      "text": " ",
+      "start": 33.3,
+      "end": 33.72,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "We",
+      "start": 33.72,
+      "end": 33.8,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 33.8,
+      "end": 33.84,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "cannot",
+      "start": 33.84,
+      "end": 34.16,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 34.16,
+      "end": 34.22,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "stay",
+      "start": 34.22,
+      "end": 34.38,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 34.38,
+      "end": 34.42,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "on",
+      "start": 34.42,
+      "end": 34.5,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 34.5,
+      "end": 34.54,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "this",
+      "start": 34.54,
+      "end": 34.7,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 34.7,
+      "end": 34.74,
+      "type": "spacing",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": "deck.",
+      "start": 34.74,
+      "end": 34.96,
+      "type": "word",
+      "logprob": -1.344671327387914e-05
+    },
+    {
+      "text": " ",
+      "start": 34.96,
+      "end": 35.3,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "Keep",
+      "start": 35.3,
+      "end": 35.48,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 35.48,
+      "end": 35.52,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "moving",
+      "start": 35.52,
+      "end": 35.82,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 35.82,
+      "end": 35.86,
+      "type": "spacing",
+      "logprob": -5.722029527532868e-06
+    },
+    {
+      "text": "toward",
+      "start": 35.86,
+      "end": 36.02,
+      "type": "word",
+      "logprob": -5.722029527532868e-06
+    },
+    {
+      "text": " ",
+      "start": 36.02,
+      "end": 36.06,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "the",
+      "start": 36.06,
+      "end": 36.12,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 36.12,
+      "end": 36.18,
+      "type": "spacing",
+      "logprob": -3.3378546504536644e-06
+    },
+    {
+      "text": "lift.",
+      "start": 36.18,
+      "end": 36.5,
+      "type": "word",
+      "logprob": -0.0002474716588039882
+    },
+    {
+      "text": " ",
+      "start": 36.5,
+      "end": 36.5,
+      "type": "spacing",
+      "logprob": -0.0009170140838250518
+    },
+    {
+      "text": "The",
+      "start": 40.26,
+      "end": 40.34,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 40.34,
+      "end": 40.38,
+      "type": "spacing",
+      "logprob": -0.20189829170703888
+    },
+    {
+      "text": "Bastion",
+      "start": 40.38,
+      "end": 40.72,
+      "type": "word",
+      "logprob": -0.11537121874877292
+    },
+    {
+      "text": " ",
+      "start": 40.72,
+      "end": 40.76,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "has",
+      "start": 40.76,
+      "end": 40.88,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 40.88,
+      "end": 40.94,
+      "type": "spacing",
+      "logprob": -1.0013530300057027e-05
+    },
+    {
+      "text": "switched",
+      "start": 40.94,
+      "end": 41.18,
+      "type": "word",
+      "logprob": -1.0013530300057027e-05
+    },
+    {
+      "text": " ",
+      "start": 41.18,
+      "end": 41.22,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "to",
+      "start": 41.22,
+      "end": 41.32,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 41.32,
+      "end": 41.38,
+      "type": "spacing",
+      "logprob": -8.821448318485636e-06
+    },
+    {
+      "text": "auxiliary",
+      "start": 41.38,
+      "end": 41.88,
+      "type": "word",
+      "logprob": -8.821448318485636e-06
+    },
+    {
+      "text": " ",
+      "start": 41.88,
+      "end": 42.0,
+      "type": "spacing",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": "power.",
+      "start": 42.0,
+      "end": 42.26,
+      "type": "word",
+      "logprob": -3.933888516864196e-06
+    },
+    {
+      "text": " ",
+      "start": 42.26,
+      "end": 42.78,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "We",
+      "start": 42.78,
+      "end": 42.88,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 42.88,
+      "end": 42.92,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "broke",
+      "start": 42.92,
+      "end": 43.1,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 43.1,
+      "end": 43.12,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "its",
+      "start": 43.12,
+      "end": 43.24,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 43.24,
+      "end": 43.34,
+      "type": "spacing",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": "link",
+      "start": 43.34,
+      "end": 43.5,
+      "type": "word",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": " ",
+      "start": 43.5,
+      "end": 43.56,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "to",
+      "start": 43.56,
+      "end": 43.62,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 43.62,
+      "end": 43.66,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "the",
+      "start": 43.66,
+      "end": 43.72,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 43.72,
+      "end": 43.76,
+      "type": "spacing",
+      "logprob": -0.0036373662296682596
+    },
+    {
+      "text": "Nexus,",
+      "start": 43.76,
+      "end": 44.16,
+      "type": "word",
+      "logprob": -0.0030577796715078875
+    },
+    {
+      "text": " ",
+      "start": 44.16,
+      "end": 44.7,
+      "type": "spacing",
+      "logprob": -8.821448318485636e-06
+    },
+    {
+      "text": "but",
+      "start": 44.7,
+      "end": 44.8,
+      "type": "word",
+      "logprob": -8.821448318485636e-06
+    },
+    {
+      "text": " ",
+      "start": 44.8,
+      "end": 44.84,
+      "type": "spacing",
+      "logprob": -2.6940935640595853e-05
+    },
+    {
+      "text": "its",
+      "start": 44.84,
+      "end": 44.98,
+      "type": "word",
+      "logprob": -2.6940935640595853e-05
+    },
+    {
+      "text": " ",
+      "start": 44.98,
+      "end": 45.04,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "local",
+      "start": 45.04,
+      "end": 45.28,
+      "type": "word",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": " ",
+      "start": 45.28,
+      "end": 45.38,
+      "type": "spacing",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": "guns",
+      "start": 45.38,
+      "end": 45.64,
+      "type": "word",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": " ",
+      "start": 45.64,
+      "end": 45.7,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "still",
+      "start": 45.7,
+      "end": 45.9,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 45.9,
+      "end": 45.96,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "work.",
+      "start": 45.96,
+      "end": 46.22,
+      "type": "word",
+      "logprob": -0.00011126300082651142
+    },
+    {
+      "text": " ",
+      "start": 46.22,
+      "end": 46.22,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "Heavy",
+      "start": 50.24,
+      "end": 50.44,
+      "type": "word",
+      "logprob": -0.0005004345439374447
+    },
+    {
+      "text": " ",
+      "start": 50.44,
+      "end": 50.54,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "footsteps",
+      "start": 50.54,
+      "end": 50.98,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 50.98,
+      "end": 51.04,
+      "type": "spacing",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": "above",
+      "start": 51.04,
+      "end": 51.24,
+      "type": "word",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": " ",
+      "start": 51.24,
+      "end": 51.3,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "us.",
+      "start": 51.3,
+      "end": 51.5,
+      "type": "word",
+      "logprob": -0.0009480339940258394
+    },
+    {
+      "text": " ",
+      "start": 51.5,
+      "end": 51.88,
+      "type": "spacing",
+      "logprob": -0.0018983930349349976
+    },
+    {
+      "text": "Praetorian",
+      "start": 51.88,
+      "end": 52.4,
+      "type": "word",
+      "logprob": -0.000629595342616085
+    },
+    {
+      "text": " ",
+      "start": 52.4,
+      "end": 52.46,
+      "type": "spacing",
+      "logprob": -0.014895997941493988
+    },
+    {
+      "text": "mechs",
+      "start": 52.46,
+      "end": 52.74,
+      "type": "word",
+      "logprob": -0.005989798082737252
+    },
+    {
+      "text": " ",
+      "start": 52.74,
+      "end": 52.78,
+      "type": "spacing",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": "and",
+      "start": 52.78,
+      "end": 52.86,
+      "type": "word",
+      "logprob": -6.794906312279636e-06
+    },
+    {
+      "text": " ",
+      "start": 52.86,
+      "end": 52.96,
+      "type": "spacing",
+      "logprob": -0.0663209855556488
+    },
+    {
+      "text": "cyber",
+      "start": 52.96,
+      "end": 53.2,
+      "type": "word",
+      "logprob": -0.0663209855556488
+    },
+    {
+      "text": " ",
+      "start": 53.2,
+      "end": 53.3,
+      "type": "spacing",
+      "logprob": -0.007786990143358707
+    },
+    {
+      "text": "samurai.",
+      "start": 53.3,
+      "end": 53.78,
+      "type": "word",
+      "logprob": -0.006816551869633258
+    },
+    {
+      "text": " ",
+      "start": 53.78,
+      "end": 53.78,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "They",
+      "start": 54.38,
+      "end": 54.5,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 54.5,
+      "end": 54.54,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "know",
+      "start": 54.54,
+      "end": 54.68,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 54.68,
+      "end": 54.72,
+      "type": "spacing",
+      "logprob": -1.3351351299206726e-05
+    },
+    {
+      "text": "the",
+      "start": 54.72,
+      "end": 54.8,
+      "type": "word",
+      "logprob": -1.3351351299206726e-05
+    },
+    {
+      "text": " ",
+      "start": 54.8,
+      "end": 54.84,
+      "type": "spacing",
+      "logprob": -0.00012683063687290996
+    },
+    {
+      "text": "network",
+      "start": 54.84,
+      "end": 55.16,
+      "type": "word",
+      "logprob": -0.00012683063687290996
+    },
+    {
+      "text": " ",
+      "start": 55.16,
+      "end": 55.2,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "is",
+      "start": 55.2,
+      "end": 55.32,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 55.32,
+      "end": 55.36,
+      "type": "spacing",
+      "logprob": -8.22540732769994e-06
+    },
+    {
+      "text": "dead.",
+      "start": 55.36,
+      "end": 55.66,
+      "type": "word",
+      "logprob": -7.724731767666526e-06
+    },
+    {
+      "text": " ",
+      "start": 55.66,
+      "end": 55.66,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "They",
+      "start": 56.18,
+      "end": 56.26,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 56.26,
+      "end": 56.3,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "are",
+      "start": 56.3,
+      "end": 56.38,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 56.38,
+      "end": 56.42,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "making",
+      "start": 56.42,
+      "end": 56.7,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 56.7,
+      "end": 56.74,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "their",
+      "start": 56.74,
+      "end": 56.84,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 56.84,
+      "end": 56.96,
+      "type": "spacing",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": "stand.",
+      "start": 56.96,
+      "end": 57.34,
+      "type": "word",
+      "logprob": -1.7026494333549635e-05
+    },
+    {
+      "text": " ",
+      "start": 57.34,
+      "end": 57.34,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "Ascent",
+      "start": 60.22,
+      "end": 60.48,
+      "type": "word",
+      "logprob": -0.003432313897064887
+    },
+    {
+      "text": " ",
+      "start": 60.48,
+      "end": 60.5,
+      "type": "spacing",
+      "logprob": -0.00014053787162993103
+    },
+    {
+      "text": "lift",
+      "start": 60.5,
+      "end": 60.66,
+      "type": "word",
+      "logprob": -0.00014053787162993103
+    },
+    {
+      "text": " ",
+      "start": 60.66,
+      "end": 60.72,
+      "type": "spacing",
+      "logprob": -1.0132738680113107e-05
+    },
+    {
+      "text": "online.",
+      "start": 60.72,
+      "end": 61.14,
+      "type": "word",
+      "logprob": -6.620062257362796e-05
+    },
+    {
+      "text": " ",
+      "start": 61.14,
+      "end": 61.48,
+      "type": "spacing",
+      "logprob": -4.815939246327616e-05
+    },
+    {
+      "text": "Executive",
+      "start": 61.48,
+      "end": 61.94,
+      "type": "word",
+      "logprob": -4.815939246327616e-05
+    },
+    {
+      "text": " ",
+      "start": 61.94,
+      "end": 62.0,
+      "type": "spacing",
+      "logprob": -7.152531907195225e-06
+    },
+    {
+      "text": "lockout",
+      "start": 62.0,
+      "end": 62.36,
+      "type": "word",
+      "logprob": -7.152531907195225e-06
+    },
+    {
+      "text": " ",
+      "start": 62.36,
+      "end": 62.48,
+      "type": "spacing",
+      "logprob": -0.00012385078298393637
+    },
+    {
+      "text": "bypassed.",
+      "start": 62.48,
+      "end": 63.08,
+      "type": "word",
+      "logprob": -0.00012112251877422548
+    },
+    {
+      "text": " ",
+      "start": 63.08,
+      "end": 63.42,
+      "type": "spacing",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": "Everyone",
+      "start": 63.42,
+      "end": 63.7,
+      "type": "word",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": " ",
+      "start": 63.7,
+      "end": 63.74,
+      "type": "spacing",
+      "logprob": -0.0001411338453181088
+    },
+    {
+      "text": "aboard.",
+      "start": 63.74,
+      "end": 64.099,
+      "type": "word",
+      "logprob": -0.0001293333027985812
+    },
+    {
+      "text": " ",
+      "start": 64.099,
+      "end": 64.099,
+      "type": "spacing",
+      "logprob": -4.529942543740617e-06
+    },
+    {
+      "text": "This",
+      "start": 64.8,
+      "end": 64.92,
+      "type": "word",
+      "logprob": -4.529942543740617e-06
+    },
+    {
+      "text": " ",
+      "start": 64.92,
+      "end": 64.98,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "takes",
+      "start": 64.98,
+      "end": 65.14,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 65.14,
+      "end": 65.18,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "us",
+      "start": 65.18,
+      "end": 65.26,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 65.26,
+      "end": 65.379,
+      "type": "spacing",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": "straight",
+      "start": 65.379,
+      "end": 65.64,
+      "type": "word",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": " ",
+      "start": 65.64,
+      "end": 65.68,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "into",
+      "start": 65.68,
+      "end": 65.8,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 65.8,
+      "end": 65.84,
+      "type": "spacing",
+      "logprob": -0.00012396997772157192
+    },
+    {
+      "text": "the",
+      "start": 65.84,
+      "end": 65.9,
+      "type": "word",
+      "logprob": -0.00012396997772157192
+    },
+    {
+      "text": " ",
+      "start": 65.9,
+      "end": 65.94,
+      "type": "spacing",
+      "logprob": -0.01819046586751938
+    },
+    {
+      "text": "Bastion.",
+      "start": 65.94,
+      "end": 66.38,
+      "type": "word",
+      "logprob": -0.009226652472676733
+    },
+    {
+      "text": " ",
+      "start": 66.38,
+      "end": 66.38,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "Extreme",
+      "start": 70.24,
+      "end": 70.76,
+      "type": "word",
+      "logprob": -0.0005496421363204718
+    },
+    {
+      "text": " ",
+      "start": 70.76,
+      "end": 70.82,
+      "type": "spacing",
+      "logprob": -7.748573807475623e-06
+    },
+    {
+      "text": "energy",
+      "start": 70.82,
+      "end": 71.1,
+      "type": "word",
+      "logprob": -7.748573807475623e-06
+    },
+    {
+      "text": " ",
+      "start": 71.1,
+      "end": 71.2,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "readings",
+      "start": 71.2,
+      "end": 71.64,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 71.64,
+      "end": 71.68,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "at",
+      "start": 71.68,
+      "end": 71.78,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 71.78,
+      "end": 71.82,
+      "type": "spacing",
+      "logprob": -5.8410845667822286e-05
+    },
+    {
+      "text": "the",
+      "start": 71.82,
+      "end": 71.92,
+      "type": "word",
+      "logprob": -5.8410845667822286e-05
+    },
+    {
+      "text": " ",
+      "start": 71.92,
+      "end": 71.98,
+      "type": "spacing",
+      "logprob": -0.0031780709978193045
+    },
+    {
+      "text": "summit.",
+      "start": 71.98,
+      "end": 72.3,
+      "type": "word",
+      "logprob": -0.0027342443718225695
+    },
+    {
+      "text": " ",
+      "start": 72.3,
+      "end": 72.3,
+      "type": "spacing",
+      "logprob": -6.6756979322235566e-06
+    },
+    {
+      "text": "The",
+      "start": 72.9,
+      "end": 72.96,
+      "type": "word",
+      "logprob": -6.6756979322235566e-06
+    },
+    {
+      "text": " ",
+      "start": 72.96,
+      "end": 73.0,
+      "type": "spacing",
+      "logprob": -0.026303118094801903
+    },
+    {
+      "text": "commander",
+      "start": 73.0,
+      "end": 73.46,
+      "type": "word",
+      "logprob": -0.026303118094801903
+    },
+    {
+      "text": " ",
+      "start": 73.46,
+      "end": 73.52,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "has",
+      "start": 73.52,
+      "end": 73.64,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 73.64,
+      "end": 73.68,
+      "type": "spacing",
+      "logprob": -1.4662635294371285e-05
+    },
+    {
+      "text": "detected",
+      "start": 73.68,
+      "end": 74.14,
+      "type": "word",
+      "logprob": -1.4662635294371285e-05
+    },
+    {
+      "text": " ",
+      "start": 74.14,
+      "end": 74.18,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "the",
+      "start": 74.18,
+      "end": 74.26,
+      "type": "word",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": " ",
+      "start": 74.26,
+      "end": 74.32,
+      "type": "spacing",
+      "logprob": -0.005289369262754917
+    },
+    {
+      "text": "Nexus",
+      "start": 74.32,
+      "end": 74.64,
+      "type": "word",
+      "logprob": -0.005289369262754917
+    },
+    {
+      "text": " ",
+      "start": 74.64,
+      "end": 74.72,
+      "type": "spacing",
+      "logprob": -4.255681051290594e-05
+    },
+    {
+      "text": "collapse.",
+      "start": 74.72,
+      "end": 75.22,
+      "type": "word",
+      "logprob": -3.8265375880857595e-05
+    },
+    {
+      "text": " ",
+      "start": 75.22,
+      "end": 75.22,
+      "type": "spacing",
+      "logprob": -0.00019059749320149422
+    },
+    {
+      "text": "Bastion",
+      "start": 75.96,
+      "end": 76.38,
+      "type": "word",
+      "logprob": -0.00010947483951895265
+    },
+    {
+      "text": " ",
+      "start": 76.38,
+      "end": 76.46,
+      "type": "spacing",
+      "logprob": -0.0002658013836480677
+    },
+    {
+      "text": "batteries",
+      "start": 76.46,
+      "end": 76.96,
+      "type": "word",
+      "logprob": -0.0002658013836480677
+    },
+    {
+      "text": " ",
+      "start": 76.96,
+      "end": 77.3,
+      "type": "spacing",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": "are",
+      "start": 77.3,
+      "end": 77.42,
+      "type": "word",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": " ",
+      "start": 77.42,
+      "end": 77.46,
+      "type": "spacing",
+      "logprob": -7.629365427419543e-06
+    },
+    {
+      "text": "cleared",
+      "start": 77.46,
+      "end": 77.78,
+      "type": "word",
+      "logprob": -7.629365427419543e-06
+    },
+    {
+      "text": " ",
+      "start": 77.78,
+      "end": 77.82,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "to",
+      "start": 77.82,
+      "end": 77.96,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 77.96,
+      "end": 78.02,
+      "type": "spacing",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": "fire.",
+      "start": 78.02,
+      "end": 78.36,
+      "type": "word",
+      "logprob": -2.469889568601502e-05
+    },
+    {
+      "text": " ",
+      "start": 78.36,
+      "end": 78.46,
+      "type": "spacing",
+      "logprob": -0.00016115797916427255
+    },
+    {
+      "text": "Then",
+      "start": 80.24,
+      "end": 80.4,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": " ",
+      "start": 80.4,
+      "end": 80.44,
+      "type": "spacing",
+      "logprob": -7.545663538621739e-05
+    },
+    {
+      "text": "we",
+      "start": 80.44,
+      "end": 80.56,
+      "type": "word",
+      "logprob": -7.545663538621739e-05
+    },
+    {
+      "text": " ",
+      "start": 80.56,
+      "end": 80.62,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "meet",
+      "start": 80.62,
+      "end": 80.78,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 80.78,
+      "end": 80.84,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "them",
+      "start": 80.84,
+      "end": 81.04,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 81.04,
+      "end": 81.08,
+      "type": "spacing",
+      "logprob": -1.2636104656849056e-05
+    },
+    {
+      "text": "face",
+      "start": 81.08,
+      "end": 81.3,
+      "type": "word",
+      "logprob": -1.2636104656849056e-05
+    },
+    {
+      "text": " ",
+      "start": 81.3,
+      "end": 81.34,
+      "type": "spacing",
+      "logprob": -0.01416344940662384
+    },
+    {
+      "text": "to",
+      "start": 81.34,
+      "end": 81.46,
+      "type": "word",
+      "logprob": -0.01416344940662384
+    },
+    {
+      "text": " ",
+      "start": 81.46,
+      "end": 81.52,
+      "type": "spacing",
+      "logprob": -2.396077979938127e-05
+    },
+    {
+      "text": "face.",
+      "start": 81.52,
+      "end": 81.88,
+      "type": "word",
+      "logprob": -2.884818386519328e-05
+    },
+    {
+      "text": " ",
+      "start": 81.88,
+      "end": 82.24,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "No",
+      "start": 82.24,
+      "end": 82.36,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 82.36,
+      "end": 82.42,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "more",
+      "start": 82.42,
+      "end": 82.58,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 82.58,
+      "end": 82.64,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "hiding",
+      "start": 82.64,
+      "end": 82.96,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 82.96,
+      "end": 83.02,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "behind",
+      "start": 83.02,
+      "end": 83.38,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 83.38,
+      "end": 83.42,
+      "type": "spacing",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": "machines.",
+      "start": 83.42,
+      "end": 84.06,
+      "type": "word",
+      "logprob": -3.0461291316896677e-05
+    },
+    {
+      "text": " ",
+      "start": 84.06,
+      "end": 84.32,
+      "type": "spacing",
+      "logprob": -0.0002791491860989481
+    },
+    {
+      "text": "Board",
+      "start": 84.32,
+      "end": 84.6,
+      "type": "word",
+      "logprob": -0.0002791491860989481
+    },
+    {
+      "text": " ",
+      "start": 84.6,
+      "end": 84.64,
+      "type": "spacing",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": "the",
+      "start": 84.64,
+      "end": 84.72,
+      "type": "word",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": " ",
+      "start": 84.72,
+      "end": 84.78,
+      "type": "spacing",
+      "logprob": -1.1801649634435307e-05
+    },
+    {
+      "text": "lift.",
+      "start": 84.78,
+      "end": 85.1,
+      "type": "word",
+      "logprob": -4.346075802459381e-05
+    },
+    {
+      "text": " ",
+      "start": 85.1,
+      "end": 85.38,
+      "type": "spacing",
+      "logprob": -9.77468371274881e-05
+    },
+    {
+      "text": "Next",
+      "start": 85.38,
+      "end": 85.58,
+      "type": "word",
+      "logprob": -9.77468371274881e-05
+    },
+    {
+      "text": " ",
+      "start": 85.58,
+      "end": 85.66,
+      "type": "spacing",
+      "logprob": -7.629365427419543e-06
+    },
+    {
+      "text": "stop,",
+      "start": 85.66,
+      "end": 85.94,
+      "type": "word",
+      "logprob": -0.0007279229117557407
+    },
+    {
+      "text": " ",
+      "start": 85.94,
+      "end": 86.24,
+      "type": "spacing",
+      "logprob": -0.00010275312524754554
+    },
+    {
+      "text": "Apex",
+      "start": 86.24,
+      "end": 86.62,
+      "type": "word",
+      "logprob": -0.00010275312524754554
+    },
+    {
+      "text": " ",
+      "start": 86.62,
+      "end": 86.72,
+      "type": "spacing",
+      "logprob": -0.0001264730526600033
+    },
+    {
+      "text": "Bastion.",
+      "start": 86.72,
+      "end": 87.26,
+      "type": "word",
+      "logprob": -0.00031063561525002115
+    }
+  ],
+  "transcription_id": "7IXiqan0GAuOCFCHuv5x",
+  "audio_duration_secs": 90.0,
+  "request_id": null,
+  "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
+  "audio_sha256": "c47b6fcbe5479e5479677b429ee8b4041c346b57212805de886aa5d1ecc3451f",
+  "model": "scribe_v2"
+}

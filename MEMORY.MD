@@ -4,6 +4,36 @@ Last reviewed: 2026-11-05. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
+## Server restart request — 2026-11-05
+
+Requested restart of the normal Docker stack. Live inspection found no project
+containers; compose restart had nothing to restart. Ran docker compose up -d,
+which downloaded absent images, rebuilt backend/website and created the absent
+project database volume. No data deletion or cleanup was performed. All three
+services now run; PostgreSQL is healthy and pg_isready accepts connections.
+Backend, website root and website API proxy return HTTP 200 after startup;
+early startup probes briefly saw an empty response/502 before Django was ready.
+Applied previously read Docker Compose/build and PostgreSQL guidance. No source
+or assets changed; no unit tests/import required. Memory-only documentation
+update, no Git publication. Leave services running.
+
+## Docker startup and root virtualenv populated — 2026-11-05
+
+Explicit user request supersedes prior local-install deferral. Started default
+db/backend/website with docker compose up -d; missing images were built and the
+absent project database volume created, with existing migrations applied at startup.
+Services remain running; no existing volumes removed. Created ignored root .venv
+using Python 3.14.10, upgraded pip to 26.3 and installed all six canonical root
+requirements plus dependencies. pip check passed with no broken requirements.
+Verified Compose config, running services, healthy PostgreSQL and pg_isready;
+backend countries/basic, website root and website API proxy each return HTTP 200
+via 127.0.0.1 and curl --noproxy. Initial localhost Invoke-WebRequest calls timed
+out; cause uninvestigated. Website build passed with npm audit findings
+(6 moderate/10 high), deprecated Clerk package and bundle-size warning; unchanged.
+README/HANDOFF updated. No project code/assets changed; no unit tests or Godot
+import needed. No exports or Git publication. Root requirements remains the sole
+manifest; Django test runner continues to use Docker.
+
 ## Authorized cleanup publication — 2026-11-05
 
 User explicitly authorized committing and pushing the current dependency cleanup,
@@ -1805,5 +1835,12 @@ Implemented and elevated the Post-Level 5 ("Names Without Numbers Aftermath") ep
 - **UI & Subtitles**: Enhanced `NamesWithoutNumbersAftermath.cs` with cyber-bordered subtitle panels (`#00f0ff` top accent), stylized glass-morphism Skip button, and character-color-coded subtitle modulation matching each operative's identity.
 - **Verification**: Clean C# build (0 errors, 153 existing warnings); background Godot editor import exit 0; full `run_tests.ps1` passed NUnit 100/100, GdUnit4 214/214 (0 errors, 0 failures, 0 orphans, report_414), and containerized Django 104/104. All Docker stack containers remain up and healthy.
 
+## English voice coverage — 2026-11-05
 
+Implemented shared mission-owned FIFO speech with stable English cue IDs, localized subtitles, duplicate suppression and lifecycle cancellation. Connected gameplay intros/events, recruitment and all 36 optional collectible lines; Mission 4/5 adapters no longer own competing audio. Added reproducible 301-entry inventory, cached full-recording Scribe transcription, per-cue media/provenance evidence and strict coverage gate. Generated missing gameplay takes, replaced four stale briefing recordings and a confirmed wrong Foundry aftermath take; preserved authored dialogue/campaign flow and existing Skip/Continue. Historical Cyber-Grave receipts recovered by exact hashes. All historical provenance gaps were recovered from authenticated ElevenLabs history by matching MPEG frames after ID3 removal. Eight technical takes use explicit number/unit forms and separator pauses without changing display text. Seven ASR pronunciation/word-recognition candidates and subjective listening acceptance remain open; all 296 spoken occurrences otherwise have imports, decode/transcript/provenance evidence. Natural production playback/mixer capture passed for all three Mission 5 testimonies, a later log, pause/resume, the repaired Foundry epilogue and four briefing lines/Continue; C# build, NUnit 276/276 and five Python inventory checks passed. Two first-run arrival-subtitle regressions were corrected. Final background import exited 0; NUnit 276/276, GdUnit4 309/309 (report_501, zero errors/failures/orphans), and five Python checks passed. The aggregate runner exited 1 because the Docker D: bind mount could not read `/app/manage.py`; identical final backend source passed Django 104/104 from a temporary copy inside the existing backend container, cleaned up after testing. No services restarted/stopped. Existing addon/editor and standalone review shutdown diagnostics are recorded separately; changes stay local/uncommitted and no exports run.
 
+Handoff finalized at the user’s request. Implementation and automated verification are complete; seven pronunciation/word-recognition listening candidates remain explicitly unaccepted. Per-mission/speaker totals, strict-gate limitations and the Docker Django test fallback are recorded in `docs/voice-coverage`. Changes remain local and uncommitted.
+
+## Voice coverage Git publication — 2026-11-05
+
+The user explicitly authorized committing and pushing the current voice coverage changes. Remote preflight found `main` one existing commit ahead of `origin/main` and no remote divergence. The publication includes the shared speech queue, recordings, provenance/coverage reports, tests, tooling and project documentation. Existing verification remains as recorded above; no code/assets were edited for this Git-only operation and no tests/imports/exports were rerun. Seven listening candidates remain open. Publication result will be verified against the remote branch after pushing.

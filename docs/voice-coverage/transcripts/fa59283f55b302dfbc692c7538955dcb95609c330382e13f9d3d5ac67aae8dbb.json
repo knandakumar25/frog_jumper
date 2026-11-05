@@ -1,0 +1,202 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Three originals: family, residency, and civic registration. Authenticate each terminal. Leave the archive intact",
+  "words": [
+    {
+      "text": "Three",
+      "start": 0.1,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -0.0007745603215880692
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.5,
+      "type": "spacing",
+      "logprob": -0.0005644158809445798
+    },
+    {
+      "text": "originals:",
+      "start": 0.52,
+      "end": 1.14,
+      "type": "word",
+      "logprob": -0.0014780047757085412
+    },
+    {
+      "text": " ",
+      "start": 1.14,
+      "end": 1.14,
+      "type": "spacing",
+      "logprob": -0.0007098776986822486
+    },
+    {
+      "text": "family,",
+      "start": 1.66,
+      "end": 2.06,
+      "type": "word",
+      "logprob": -0.0006109359128458891
+    },
+    {
+      "text": " ",
+      "start": 2.06,
+      "end": 2.06,
+      "type": "spacing",
+      "logprob": -4.8040190449682996e-05
+    },
+    {
+      "text": "residency,",
+      "start": 2.6,
+      "end": 3.2,
+      "type": "word",
+      "logprob": -0.00040331441960006487
+    },
+    {
+      "text": " ",
+      "start": 3.2,
+      "end": 3.58,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "and",
+      "start": 3.58,
+      "end": 3.68,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 3.68,
+      "end": 3.78,
+      "type": "spacing",
+      "logprob": -3.4689302992774174e-05
+    },
+    {
+      "text": "civic",
+      "start": 3.78,
+      "end": 4.019,
+      "type": "word",
+      "logprob": -3.4689302992774174e-05
+    },
+    {
+      "text": " ",
+      "start": 4.019,
+      "end": 4.08,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "registration.",
+      "start": 4.08,
+      "end": 4.84,
+      "type": "word",
+      "logprob": -2.7716473176461968e-05
+    },
+    {
+      "text": " ",
+      "start": 4.84,
+      "end": 4.84,
+      "type": "spacing",
+      "logprob": -0.0039058837573975325
+    },
+    {
+      "text": "Authenticate",
+      "start": 5.34,
+      "end": 5.96,
+      "type": "word",
+      "logprob": -0.002307538111078126
+    },
+    {
+      "text": " ",
+      "start": 5.96,
+      "end": 6.08,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "each",
+      "start": 6.08,
+      "end": 6.28,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 6.28,
+      "end": 6.34,
+      "type": "spacing",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": "terminal.",
+      "start": 6.34,
+      "end": 6.78,
+      "type": "word",
+      "logprob": -2.5058557285875497e-05
+    },
+    {
+      "text": " ",
+      "start": 6.78,
+      "end": 6.78,
+      "type": "spacing",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": "Leave",
+      "start": 7.32,
+      "end": 7.54,
+      "type": "word",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": " ",
+      "start": 7.54,
+      "end": 7.58,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "the",
+      "start": 7.58,
+      "end": 7.68,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 7.68,
+      "end": 7.76,
+      "type": "spacing",
+      "logprob": -1.2159273865108844e-05
+    },
+    {
+      "text": "archive",
+      "start": 7.76,
+      "end": 8.24,
+      "type": "word",
+      "logprob": -1.2159273865108844e-05
+    },
+    {
+      "text": " ",
+      "start": 8.24,
+      "end": 8.4,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "intact",
+      "start": 8.4,
+      "end": 8.94,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    }
+  ],
+  "transcription_id": "MjKO3iGFFnINPjzEgCjp",
+  "audio_duration_secs": 9.288,
+  "request_id": null,
+  "audio_path": "assets/audio/names/sector3.ogg",
+  "audio_sha256": "fa59283f55b302dfbc692c7538955dcb95609c330382e13f9d3d5ac67aae8dbb",
+  "model": "scribe_v2"
+}

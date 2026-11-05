@@ -1,0 +1,272 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate 03, airspace intercept protocol. Aero Centurion flight deck mechanoid authorized to deploy overdrive micro missiles against invaders",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -0.002179153962060809
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.48,
+      "type": "spacing",
+      "logprob": -0.34988293051719666
+    },
+    {
+      "text": "slate",
+      "start": 0.48,
+      "end": 0.74,
+      "type": "word",
+      "logprob": -0.34988293051719666
+    },
+    {
+      "text": " ",
+      "start": 0.74,
+      "end": 0.8,
+      "type": "spacing",
+      "logprob": -0.5771635174751282
+    },
+    {
+      "text": "03,",
+      "start": 0.8,
+      "end": 1.42,
+      "type": "word",
+      "logprob": -0.219963232662811
+    },
+    {
+      "text": " ",
+      "start": 1.42,
+      "end": 1.42,
+      "type": "spacing",
+      "logprob": -0.004206856247037649
+    },
+    {
+      "text": "airspace",
+      "start": 2.22,
+      "end": 2.82,
+      "type": "word",
+      "logprob": -0.004206856247037649
+    },
+    {
+      "text": " ",
+      "start": 2.82,
+      "end": 3.26,
+      "type": "spacing",
+      "logprob": -0.0005306981038302183
+    },
+    {
+      "text": "intercept",
+      "start": 3.26,
+      "end": 3.72,
+      "type": "word",
+      "logprob": -0.0005306981038302183
+    },
+    {
+      "text": " ",
+      "start": 3.72,
+      "end": 3.76,
+      "type": "spacing",
+      "logprob": -2.1934269170742482e-05
+    },
+    {
+      "text": "protocol.",
+      "start": 3.76,
+      "end": 4.34,
+      "type": "word",
+      "logprob": -0.00022313180508919887
+    },
+    {
+      "text": " ",
+      "start": 4.34,
+      "end": 4.36,
+      "type": "spacing",
+      "logprob": -0.3990918695926666
+    },
+    {
+      "text": "Aero",
+      "start": 5.0,
+      "end": 5.22,
+      "type": "word",
+      "logprob": -0.3990918695926666
+    },
+    {
+      "text": " ",
+      "start": 5.22,
+      "end": 5.34,
+      "type": "spacing",
+      "logprob": -0.20734035968780518
+    },
+    {
+      "text": "Centurion",
+      "start": 5.34,
+      "end": 6.0,
+      "type": "word",
+      "logprob": -0.0928189052760394
+    },
+    {
+      "text": " ",
+      "start": 6.0,
+      "end": 6.18,
+      "type": "spacing",
+      "logprob": -0.0013310391223058105
+    },
+    {
+      "text": "flight",
+      "start": 6.18,
+      "end": 6.4,
+      "type": "word",
+      "logprob": -0.0013310391223058105
+    },
+    {
+      "text": " ",
+      "start": 6.4,
+      "end": 6.52,
+      "type": "spacing",
+      "logprob": -8.34430247778073e-05
+    },
+    {
+      "text": "deck",
+      "start": 6.52,
+      "end": 6.7,
+      "type": "word",
+      "logprob": -8.34430247778073e-05
+    },
+    {
+      "text": " ",
+      "start": 6.7,
+      "end": 6.86,
+      "type": "spacing",
+      "logprob": -0.10634627193212509
+    },
+    {
+      "text": "mechanoid",
+      "start": 6.86,
+      "end": 7.44,
+      "type": "word",
+      "logprob": -0.07090315714655542
+    },
+    {
+      "text": " ",
+      "start": 7.44,
+      "end": 7.46,
+      "type": "spacing",
+      "logprob": -0.0002746204845607281
+    },
+    {
+      "text": "authorized",
+      "start": 7.92,
+      "end": 8.74,
+      "type": "word",
+      "logprob": -0.0002746204845607281
+    },
+    {
+      "text": " ",
+      "start": 8.74,
+      "end": 8.78,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "to",
+      "start": 8.78,
+      "end": 8.88,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 8.88,
+      "end": 8.9,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "deploy",
+      "start": 8.9,
+      "end": 9.4,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 9.4,
+      "end": 9.64,
+      "type": "spacing",
+      "logprob": -0.00018439977429807186
+    },
+    {
+      "text": "overdrive",
+      "start": 9.64,
+      "end": 10.26,
+      "type": "word",
+      "logprob": -0.00018439977429807186
+    },
+    {
+      "text": " ",
+      "start": 10.26,
+      "end": 10.4,
+      "type": "spacing",
+      "logprob": -0.1007298082113266
+    },
+    {
+      "text": "micro",
+      "start": 10.4,
+      "end": 10.74,
+      "type": "word",
+      "logprob": -0.1007298082113266
+    },
+    {
+      "text": " ",
+      "start": 10.74,
+      "end": 10.84,
+      "type": "spacing",
+      "logprob": -0.5760258436203003
+    },
+    {
+      "text": "missiles",
+      "start": 10.84,
+      "end": 11.4,
+      "type": "word",
+      "logprob": -0.5760258436203003
+    },
+    {
+      "text": " ",
+      "start": 11.4,
+      "end": 11.82,
+      "type": "spacing",
+      "logprob": -8.34461570775602e-06
+    },
+    {
+      "text": "against",
+      "start": 11.82,
+      "end": 12.16,
+      "type": "word",
+      "logprob": -8.34461570775602e-06
+    },
+    {
+      "text": " ",
+      "start": 12.16,
+      "end": 12.22,
+      "type": "spacing",
+      "logprob": -9.083335316972807e-05
+    },
+    {
+      "text": "invaders",
+      "start": 12.22,
+      "end": 12.86,
+      "type": "word",
+      "logprob": -9.083335316972807e-05
+    }
+  ],
+  "transcription_id": "ikPI5HQ0pZzZ4QEb0zy5",
+  "audio_duration_secs": 13.1889375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m08.fragment3.mp3",
+  "audio_sha256": "500b93b871f360195fb67cf82ab506d25aeaf2a6cef4dde733ed5e45b6844bbd",
+  "model": "scribe_v2"
+}

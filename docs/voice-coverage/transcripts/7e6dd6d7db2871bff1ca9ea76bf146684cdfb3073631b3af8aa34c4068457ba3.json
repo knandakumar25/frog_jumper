@@ -1,0 +1,790 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Beyond the neon, the city waits. Every rooftop is watched. Every signal is traced. But one operative moves beyond their reach: Cyber Shogun. Your deployment begins tonight. Follow the rooftops. Keep your blade ready. Somewhere beneath these lights, the resistance is still alive. This is Axiom Seven. Secure channel established. Stand by for your mission briefing",
+  "words": [
+    {
+      "text": "Beyond",
+      "start": 1.06,
+      "end": 1.38,
+      "type": "word",
+      "logprob": -0.00029952809563837945
+    },
+    {
+      "text": " ",
+      "start": 1.38,
+      "end": 1.42,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "the",
+      "start": 1.42,
+      "end": 1.5,
+      "type": "word",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": " ",
+      "start": 1.5,
+      "end": 1.56,
+      "type": "spacing",
+      "logprob": -0.0002329078270122409
+    },
+    {
+      "text": "neon,",
+      "start": 1.56,
+      "end": 1.9,
+      "type": "word",
+      "logprob": -0.0002046836496447213
+    },
+    {
+      "text": " ",
+      "start": 1.9,
+      "end": 2.32,
+      "type": "spacing",
+      "logprob": -1.0847986231965479e-05
+    },
+    {
+      "text": "the",
+      "start": 2.32,
+      "end": 2.38,
+      "type": "word",
+      "logprob": -1.0847986231965479e-05
+    },
+    {
+      "text": " ",
+      "start": 2.38,
+      "end": 2.46,
+      "type": "spacing",
+      "logprob": -1.7165990357170813e-05
+    },
+    {
+      "text": "city",
+      "start": 2.46,
+      "end": 2.68,
+      "type": "word",
+      "logprob": -1.7165990357170813e-05
+    },
+    {
+      "text": " ",
+      "start": 2.68,
+      "end": 2.76,
+      "type": "spacing",
+      "logprob": -8.725739462533966e-05
+    },
+    {
+      "text": "waits.",
+      "start": 2.76,
+      "end": 3.1,
+      "type": "word",
+      "logprob": -7.394632029900094e-05
+    },
+    {
+      "text": " ",
+      "start": 3.1,
+      "end": 3.6,
+      "type": "spacing",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": "Every",
+      "start": 3.6,
+      "end": 3.78,
+      "type": "word",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": " ",
+      "start": 3.78,
+      "end": 3.88,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "rooftop",
+      "start": 3.88,
+      "end": 4.24,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 4.24,
+      "end": 4.28,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "is",
+      "start": 4.28,
+      "end": 4.4,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 4.4,
+      "end": 4.44,
+      "type": "spacing",
+      "logprob": -2.2053474822314456e-05
+    },
+    {
+      "text": "watched.",
+      "start": 4.44,
+      "end": 4.8,
+      "type": "word",
+      "logprob": -4.860393846684019e-05
+    },
+    {
+      "text": " ",
+      "start": 4.8,
+      "end": 5.24,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "Every",
+      "start": 5.24,
+      "end": 5.42,
+      "type": "word",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": " ",
+      "start": 5.42,
+      "end": 5.54,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "signal",
+      "start": 5.54,
+      "end": 5.86,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 5.86,
+      "end": 6.12,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "is",
+      "start": 6.12,
+      "end": 6.24,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 6.24,
+      "end": 6.3,
+      "type": "spacing",
+      "logprob": -1.0490362910786644e-05
+    },
+    {
+      "text": "traced.",
+      "start": 6.3,
+      "end": 6.7,
+      "type": "word",
+      "logprob": -0.0020547717608029154
+    },
+    {
+      "text": " ",
+      "start": 6.7,
+      "end": 6.7,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "But",
+      "start": 11.1,
+      "end": 11.24,
+      "type": "word",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": " ",
+      "start": 11.24,
+      "end": 11.28,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "one",
+      "start": 11.28,
+      "end": 11.5,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 11.5,
+      "end": 11.56,
+      "type": "spacing",
+      "logprob": -7.30726242181845e-05
+    },
+    {
+      "text": "operative",
+      "start": 11.56,
+      "end": 11.94,
+      "type": "word",
+      "logprob": -7.30726242181845e-05
+    },
+    {
+      "text": " ",
+      "start": 11.94,
+      "end": 12.04,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "moves",
+      "start": 12.04,
+      "end": 12.36,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 12.36,
+      "end": 12.4,
+      "type": "spacing",
+      "logprob": -4.768360213347478e-06
+    },
+    {
+      "text": "beyond",
+      "start": 12.4,
+      "end": 12.68,
+      "type": "word",
+      "logprob": -4.768360213347478e-06
+    },
+    {
+      "text": " ",
+      "start": 12.68,
+      "end": 12.72,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "their",
+      "start": 12.72,
+      "end": 12.86,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 12.86,
+      "end": 12.94,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "reach:",
+      "start": 12.94,
+      "end": 13.26,
+      "type": "word",
+      "logprob": -0.08229609330490462
+    },
+    {
+      "text": " ",
+      "start": 13.26,
+      "end": 13.26,
+      "type": "spacing",
+      "logprob": -0.0008821171941235662
+    },
+    {
+      "text": "Cyber",
+      "start": 13.78,
+      "end": 14.08,
+      "type": "word",
+      "logprob": -0.0008821171941235662
+    },
+    {
+      "text": " ",
+      "start": 14.08,
+      "end": 14.2,
+      "type": "spacing",
+      "logprob": -0.0004003438516519964
+    },
+    {
+      "text": "Shogun.",
+      "start": 14.2,
+      "end": 14.66,
+      "type": "word",
+      "logprob": -0.03199415545012536
+    },
+    {
+      "text": " ",
+      "start": 14.66,
+      "end": 15.24,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "Your",
+      "start": 15.24,
+      "end": 15.34,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 15.34,
+      "end": 15.4,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "deployment",
+      "start": 15.4,
+      "end": 15.9,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 15.9,
+      "end": 15.92,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "begins",
+      "start": 15.92,
+      "end": 16.3,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 16.3,
+      "end": 16.34,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "tonight.",
+      "start": 16.34,
+      "end": 16.74,
+      "type": "word",
+      "logprob": -1.1205180265427828e-05
+    },
+    {
+      "text": " ",
+      "start": 16.74,
+      "end": 16.74,
+      "type": "spacing",
+      "logprob": -6.318072337307967e-06
+    },
+    {
+      "text": "Follow",
+      "start": 21.1,
+      "end": 21.34,
+      "type": "word",
+      "logprob": -6.318072337307967e-06
+    },
+    {
+      "text": " ",
+      "start": 21.34,
+      "end": 21.36,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "the",
+      "start": 21.36,
+      "end": 21.42,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 21.42,
+      "end": 21.5,
+      "type": "spacing",
+      "logprob": -6.6756979322235566e-06
+    },
+    {
+      "text": "rooftops.",
+      "start": 21.5,
+      "end": 22.02,
+      "type": "word",
+      "logprob": -7.4306824697285065e-06
+    },
+    {
+      "text": " ",
+      "start": 22.02,
+      "end": 22.46,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "Keep",
+      "start": 22.46,
+      "end": 22.64,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 22.64,
+      "end": 22.68,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "your",
+      "start": 22.68,
+      "end": 22.78,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 22.78,
+      "end": 22.86,
+      "type": "spacing",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": "blade",
+      "start": 22.86,
+      "end": 23.12,
+      "type": "word",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": " ",
+      "start": 23.12,
+      "end": 23.22,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "ready.",
+      "start": 23.22,
+      "end": 23.5,
+      "type": "word",
+      "logprob": -3.973638437552533e-07
+    },
+    {
+      "text": " ",
+      "start": 23.5,
+      "end": 23.5,
+      "type": "spacing",
+      "logprob": -7.271502545336261e-05
+    },
+    {
+      "text": "Somewhere",
+      "start": 24.18,
+      "end": 24.54,
+      "type": "word",
+      "logprob": -7.271502545336261e-05
+    },
+    {
+      "text": " ",
+      "start": 24.54,
+      "end": 24.58,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "beneath",
+      "start": 24.58,
+      "end": 24.84,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 24.84,
+      "end": 24.9,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "these",
+      "start": 24.9,
+      "end": 25.1,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 25.1,
+      "end": 25.14,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "lights,",
+      "start": 25.14,
+      "end": 25.46,
+      "type": "word",
+      "logprob": -5.790162406680923e-07
+    },
+    {
+      "text": " ",
+      "start": 25.46,
+      "end": 25.96,
+      "type": "spacing",
+      "logprob": -1.585470999998506e-05
+    },
+    {
+      "text": "the",
+      "start": 25.96,
+      "end": 26.02,
+      "type": "word",
+      "logprob": -1.585470999998506e-05
+    },
+    {
+      "text": " ",
+      "start": 26.02,
+      "end": 26.06,
+      "type": "spacing",
+      "logprob": -0.0021891456563025713
+    },
+    {
+      "text": "resistance",
+      "start": 26.06,
+      "end": 26.62,
+      "type": "word",
+      "logprob": -0.0021891456563025713
+    },
+    {
+      "text": " ",
+      "start": 26.62,
+      "end": 26.86,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "is",
+      "start": 26.86,
+      "end": 26.98,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 26.98,
+      "end": 27.06,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "still",
+      "start": 27.06,
+      "end": 27.22,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 27.22,
+      "end": 27.26,
+      "type": "spacing",
+      "logprob": -5.8412379075889476e-06
+    },
+    {
+      "text": "alive.",
+      "start": 27.26,
+      "end": 27.72,
+      "type": "word",
+      "logprob": -3.039639962783743e-05
+    },
+    {
+      "text": " ",
+      "start": 27.72,
+      "end": 27.72,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "This",
+      "start": 33.1,
+      "end": 33.22,
+      "type": "word",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": " ",
+      "start": 33.22,
+      "end": 33.28,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "is",
+      "start": 33.28,
+      "end": 33.4,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 33.4,
+      "end": 33.48,
+      "type": "spacing",
+      "logprob": -0.0020068997982889414
+    },
+    {
+      "text": "Axiom",
+      "start": 33.48,
+      "end": 33.92,
+      "type": "word",
+      "logprob": -0.0012049981849486357
+    },
+    {
+      "text": " ",
+      "start": 33.92,
+      "end": 34.04,
+      "type": "spacing",
+      "logprob": -0.004000400193035603
+    },
+    {
+      "text": "Seven.",
+      "start": 34.04,
+      "end": 34.36,
+      "type": "word",
+      "logprob": -0.003334243004777212
+    },
+    {
+      "text": " ",
+      "start": 34.36,
+      "end": 34.78,
+      "type": "spacing",
+      "logprob": -4.732496745418757e-05
+    },
+    {
+      "text": "Secure",
+      "start": 34.78,
+      "end": 35.1,
+      "type": "word",
+      "logprob": -4.732496745418757e-05
+    },
+    {
+      "text": " ",
+      "start": 35.1,
+      "end": 35.2,
+      "type": "spacing",
+      "logprob": -1.9311717551317997e-05
+    },
+    {
+      "text": "channel",
+      "start": 35.2,
+      "end": 35.48,
+      "type": "word",
+      "logprob": -1.9311717551317997e-05
+    },
+    {
+      "text": " ",
+      "start": 35.48,
+      "end": 35.52,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "established.",
+      "start": 35.52,
+      "end": 36.08,
+      "type": "word",
+      "logprob": -1.0430807435568568e-06
+    },
+    {
+      "text": " ",
+      "start": 36.08,
+      "end": 36.56,
+      "type": "spacing",
+      "logprob": -3.2782016205601394e-05
+    },
+    {
+      "text": "Stand",
+      "start": 36.56,
+      "end": 36.8,
+      "type": "word",
+      "logprob": -3.2782016205601394e-05
+    },
+    {
+      "text": " ",
+      "start": 36.8,
+      "end": 36.84,
+      "type": "spacing",
+      "logprob": -0.029750533401966095
+    },
+    {
+      "text": "by",
+      "start": 36.84,
+      "end": 37.2,
+      "type": "word",
+      "logprob": -0.029750533401966095
+    },
+    {
+      "text": " ",
+      "start": 37.2,
+      "end": 37.22,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "for",
+      "start": 37.22,
+      "end": 37.32,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 37.32,
+      "end": 37.36,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "your",
+      "start": 37.36,
+      "end": 37.48,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 37.48,
+      "end": 37.52,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "mission",
+      "start": 37.52,
+      "end": 37.78,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 37.78,
+      "end": 37.86,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "briefing",
+      "start": 37.86,
+      "end": 38.24,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    }
+  ],
+  "transcription_id": "KtSGJmQPGOwwKnqrwZoe",
+  "audio_duration_secs": 40.0,
+  "request_id": null,
+  "audio_path": "assets/cutscenes/deployment/narration.ogg",
+  "audio_sha256": "7e6dd6d7db2871bff1ca9ea76bf146684cdfb3073631b3af8aa34c4068457ba3",
+  "model": "scribe_v2"
+}

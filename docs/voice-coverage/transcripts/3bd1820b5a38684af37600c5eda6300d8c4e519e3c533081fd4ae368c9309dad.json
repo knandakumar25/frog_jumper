@@ -1,0 +1,230 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "We have their names. Isolate the command, then defend the recovery. No one erases them again",
+  "words": [
+    {
+      "text": "We",
+      "start": 0.1,
+      "end": 0.18,
+      "type": "word",
+      "logprob": -0.00019131260341964662
+    },
+    {
+      "text": " ",
+      "start": 0.18,
+      "end": 0.22,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "have",
+      "start": 0.22,
+      "end": 0.36,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 0.36,
+      "end": 0.38,
+      "type": "spacing",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": "their",
+      "start": 0.4,
+      "end": 0.52,
+      "type": "word",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": " ",
+      "start": 0.52,
+      "end": 0.58,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "names.",
+      "start": 0.58,
+      "end": 1.06,
+      "type": "word",
+      "logprob": -0.0002179718377609182
+    },
+    {
+      "text": " ",
+      "start": 1.06,
+      "end": 1.08,
+      "type": "spacing",
+      "logprob": -0.00011324241495458409
+    },
+    {
+      "text": "Isolate",
+      "start": 1.8,
+      "end": 2.2,
+      "type": "word",
+      "logprob": -3.65272884924447e-05
+    },
+    {
+      "text": " ",
+      "start": 2.2,
+      "end": 2.24,
+      "type": "spacing",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": "the",
+      "start": 2.24,
+      "end": 2.32,
+      "type": "word",
+      "logprob": -1.490105023549404e-05
+    },
+    {
+      "text": " ",
+      "start": 2.32,
+      "end": 2.34,
+      "type": "spacing",
+      "logprob": -0.0004898302140645683
+    },
+    {
+      "text": "command,",
+      "start": 2.34,
+      "end": 2.86,
+      "type": "word",
+      "logprob": -0.0005887012448511086
+    },
+    {
+      "text": " ",
+      "start": 2.86,
+      "end": 3.18,
+      "type": "spacing",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": "then",
+      "start": 3.18,
+      "end": 3.32,
+      "type": "word",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": " ",
+      "start": 3.32,
+      "end": 3.36,
+      "type": "spacing",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": "defend",
+      "start": 3.36,
+      "end": 3.68,
+      "type": "word",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": " ",
+      "start": 3.68,
+      "end": 3.72,
+      "type": "spacing",
+      "logprob": -4.291525328881107e-06
+    },
+    {
+      "text": "the",
+      "start": 3.72,
+      "end": 3.78,
+      "type": "word",
+      "logprob": -4.291525328881107e-06
+    },
+    {
+      "text": " ",
+      "start": 3.78,
+      "end": 3.82,
+      "type": "spacing",
+      "logprob": -0.00026675479602999985
+    },
+    {
+      "text": "recovery.",
+      "start": 3.82,
+      "end": 4.36,
+      "type": "word",
+      "logprob": -0.00028145238239732053
+    },
+    {
+      "text": " ",
+      "start": 4.36,
+      "end": 4.66,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "No",
+      "start": 4.66,
+      "end": 4.76,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 4.76,
+      "end": 4.82,
+      "type": "spacing",
+      "logprob": -7.271740287251305e-06
+    },
+    {
+      "text": "one",
+      "start": 4.82,
+      "end": 4.9,
+      "type": "word",
+      "logprob": -7.271740287251305e-06
+    },
+    {
+      "text": " ",
+      "start": 4.9,
+      "end": 4.94,
+      "type": "spacing",
+      "logprob": -6.937739817658439e-05
+    },
+    {
+      "text": "erases",
+      "start": 4.94,
+      "end": 5.34,
+      "type": "word",
+      "logprob": -3.003990241268184e-05
+    },
+    {
+      "text": " ",
+      "start": 5.34,
+      "end": 5.4,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "them",
+      "start": 5.4,
+      "end": 5.5,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 5.5,
+      "end": 5.56,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "again",
+      "start": 5.56,
+      "end": 5.92,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    }
+  ],
+  "transcription_id": "CjetP9UpoxUyM1Kj9KDD",
+  "audio_duration_secs": 6.2229375,
+  "request_id": null,
+  "audio_path": "assets/audio/names/sector4.ogg",
+  "audio_sha256": "3bd1820b5a38684af37600c5eda6300d8c4e519e3c533081fd4ae368c9309dad",
+  "model": "scribe_v2"
+}

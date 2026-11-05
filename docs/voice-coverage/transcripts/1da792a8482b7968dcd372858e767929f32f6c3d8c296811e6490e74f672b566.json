@@ -1,0 +1,174 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data blade secured. Axiom seven: Enforcer signatures converging. Reach the extraction gate",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.08,
+      "end": 0.3,
+      "type": "word",
+      "logprob": -0.00026603974401950836
+    },
+    {
+      "text": " ",
+      "start": 0.3,
+      "end": 0.36,
+      "type": "spacing",
+      "logprob": -0.013890971429646015
+    },
+    {
+      "text": "blade",
+      "start": 0.36,
+      "end": 0.64,
+      "type": "word",
+      "logprob": -0.013890971429646015
+    },
+    {
+      "text": " ",
+      "start": 0.64,
+      "end": 0.72,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "secured.",
+      "start": 0.72,
+      "end": 1.28,
+      "type": "word",
+      "logprob": -3.3091882755798e-05
+    },
+    {
+      "text": " ",
+      "start": 1.28,
+      "end": 1.28,
+      "type": "spacing",
+      "logprob": -0.0010055014863610268
+    },
+    {
+      "text": "Axiom",
+      "start": 1.96,
+      "end": 2.42,
+      "type": "word",
+      "logprob": -0.0006060665376935503
+    },
+    {
+      "text": " ",
+      "start": 2.42,
+      "end": 2.56,
+      "type": "spacing",
+      "logprob": -0.0030990452505648136
+    },
+    {
+      "text": "seven:",
+      "start": 2.56,
+      "end": 2.92,
+      "type": "word",
+      "logprob": -0.048753323731943965
+    },
+    {
+      "text": " ",
+      "start": 2.92,
+      "end": 2.92,
+      "type": "spacing",
+      "logprob": -0.11284162104129791
+    },
+    {
+      "text": "Enforcer",
+      "start": 3.46,
+      "end": 3.9,
+      "type": "word",
+      "logprob": -0.02828291080732015
+    },
+    {
+      "text": " ",
+      "start": 3.9,
+      "end": 4.0,
+      "type": "spacing",
+      "logprob": -6.90197994117625e-05
+    },
+    {
+      "text": "signatures",
+      "start": 4.0,
+      "end": 4.42,
+      "type": "word",
+      "logprob": -6.90197994117625e-05
+    },
+    {
+      "text": " ",
+      "start": 4.42,
+      "end": 4.5,
+      "type": "spacing",
+      "logprob": -1.5616295058862306e-05
+    },
+    {
+      "text": "converging.",
+      "start": 4.5,
+      "end": 5.1,
+      "type": "word",
+      "logprob": -1.826049397509037e-05
+    },
+    {
+      "text": " ",
+      "start": 5.1,
+      "end": 5.1,
+      "type": "spacing",
+      "logprob": -1.1086402082582936e-05
+    },
+    {
+      "text": "Reach",
+      "start": 5.7,
+      "end": 5.9,
+      "type": "word",
+      "logprob": -1.1086402082582936e-05
+    },
+    {
+      "text": " ",
+      "start": 5.9,
+      "end": 6.0,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "the",
+      "start": 6.0,
+      "end": 6.08,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 6.08,
+      "end": 6.12,
+      "type": "spacing",
+      "logprob": -5.936446541454643e-05
+    },
+    {
+      "text": "extraction",
+      "start": 6.12,
+      "end": 6.66,
+      "type": "word",
+      "logprob": -5.936446541454643e-05
+    },
+    {
+      "text": " ",
+      "start": 6.66,
+      "end": 6.76,
+      "type": "spacing",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": "gate",
+      "start": 6.76,
+      "end": 6.98,
+      "type": "word",
+      "logprob": -5.245195097813848e-06
+    }
+  ],
+  "transcription_id": "QKNhZyezlCunmJ5iLpBn",
+  "audio_duration_secs": 7.3839375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m01.event.b99bdf78b0fc.mp3",
+  "audio_sha256": "1da792a8482b7968dcd372858e767929f32f6c3d8c296811e6490e74f672b566",
+  "model": "scribe_v2"
+}

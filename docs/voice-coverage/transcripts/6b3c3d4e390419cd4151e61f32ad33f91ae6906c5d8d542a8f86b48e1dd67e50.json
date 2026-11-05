@@ -1,0 +1,202 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Second stage secure. One final formation, then we give the queue its names back",
+  "words": [
+    {
+      "text": "Second",
+      "start": 0.1,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -7.64102369430475e-05
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.42,
+      "type": "spacing",
+      "logprob": -3.635817120084539e-05
+    },
+    {
+      "text": "stage",
+      "start": 0.42,
+      "end": 0.62,
+      "type": "word",
+      "logprob": -3.635817120084539e-05
+    },
+    {
+      "text": " ",
+      "start": 0.62,
+      "end": 0.68,
+      "type": "spacing",
+      "logprob": -0.00018463814922142774
+    },
+    {
+      "text": "secure.",
+      "start": 0.68,
+      "end": 1.04,
+      "type": "word",
+      "logprob": -0.00045661983728807954
+    },
+    {
+      "text": " ",
+      "start": 1.04,
+      "end": 1.32,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "One",
+      "start": 1.32,
+      "end": 1.42,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 1.42,
+      "end": 1.52,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "final",
+      "start": 1.52,
+      "end": 1.76,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 1.76,
+      "end": 1.78,
+      "type": "spacing",
+      "logprob": -9.07141511561349e-05
+    },
+    {
+      "text": "formation,",
+      "start": 1.8,
+      "end": 2.24,
+      "type": "word",
+      "logprob": -0.007108040917955805
+    },
+    {
+      "text": " ",
+      "start": 2.24,
+      "end": 2.5,
+      "type": "spacing",
+      "logprob": -1.156323378381785e-05
+    },
+    {
+      "text": "then",
+      "start": 2.5,
+      "end": 2.62,
+      "type": "word",
+      "logprob": -1.156323378381785e-05
+    },
+    {
+      "text": " ",
+      "start": 2.62,
+      "end": 2.66,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "we",
+      "start": 2.66,
+      "end": 2.72,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 2.72,
+      "end": 2.76,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "give",
+      "start": 2.76,
+      "end": 2.86,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 2.86,
+      "end": 2.9,
+      "type": "spacing",
+      "logprob": -9.298280929215252e-06
+    },
+    {
+      "text": "the",
+      "start": 2.9,
+      "end": 2.98,
+      "type": "word",
+      "logprob": -9.298280929215252e-06
+    },
+    {
+      "text": " ",
+      "start": 2.98,
+      "end": 3.04,
+      "type": "spacing",
+      "logprob": -0.04986276850104332
+    },
+    {
+      "text": "queue",
+      "start": 3.04,
+      "end": 3.16,
+      "type": "word",
+      "logprob": -0.04986276850104332
+    },
+    {
+      "text": " ",
+      "start": 3.16,
+      "end": 3.2,
+      "type": "spacing",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": "its",
+      "start": 3.2,
+      "end": 3.32,
+      "type": "word",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": " ",
+      "start": 3.32,
+      "end": 3.38,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "names",
+      "start": 3.38,
+      "end": 3.64,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 3.64,
+      "end": 3.68,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "back",
+      "start": 3.68,
+      "end": 3.9,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    }
+  ],
+  "transcription_id": "58s9rEaTAWYdw13nSd8p",
+  "audio_duration_secs": 4.2725,
+  "request_id": null,
+  "audio_path": "assets/audio/names/defense_2.ogg",
+  "audio_sha256": "6b3c3d4e390419cd4151e61f32ad33f91ae6906c5d8d542a8f86b48e1dd67e50",
+  "model": "scribe_v2"
+}

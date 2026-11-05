@@ -1,0 +1,328 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate zero one E biosynthesis. Log. Subjects four oh one through four eighty transferred to incubation. Neural mapping running at ninety-four percent",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.08,
+      "end": 0.32,
+      "type": "word",
+      "logprob": -0.0005153281381353736
+    },
+    {
+      "text": " ",
+      "start": 0.32,
+      "end": 0.4,
+      "type": "spacing",
+      "logprob": -0.18024380505084991
+    },
+    {
+      "text": "slate",
+      "start": 0.4,
+      "end": 0.74,
+      "type": "word",
+      "logprob": -0.18024380505084991
+    },
+    {
+      "text": " ",
+      "start": 0.74,
+      "end": 1.22,
+      "type": "spacing",
+      "logprob": -0.029968515038490295
+    },
+    {
+      "text": "zero",
+      "start": 1.22,
+      "end": 1.46,
+      "type": "word",
+      "logprob": -0.029968515038490295
+    },
+    {
+      "text": " ",
+      "start": 1.46,
+      "end": 1.58,
+      "type": "spacing",
+      "logprob": -0.00016068121476564556
+    },
+    {
+      "text": "one",
+      "start": 1.58,
+      "end": 1.84,
+      "type": "word",
+      "logprob": -0.00016068121476564556
+    },
+    {
+      "text": " ",
+      "start": 1.84,
+      "end": 2.14,
+      "type": "spacing",
+      "logprob": -0.0027314042672514915
+    },
+    {
+      "text": "E",
+      "start": 2.14,
+      "end": 2.3,
+      "type": "word",
+      "logprob": -0.0027314042672514915
+    },
+    {
+      "text": " ",
+      "start": 2.3,
+      "end": 2.58,
+      "type": "spacing",
+      "logprob": -0.1608799695968628
+    },
+    {
+      "text": "biosynthesis.",
+      "start": 2.6,
+      "end": 3.7,
+      "type": "word",
+      "logprob": -0.15232126042246819
+    },
+    {
+      "text": " ",
+      "start": 3.7,
+      "end": 3.7,
+      "type": "spacing",
+      "logprob": -0.00026592056383378804
+    },
+    {
+      "text": "Log.",
+      "start": 4.56,
+      "end": 4.86,
+      "type": "word",
+      "logprob": -0.03864576250634855
+    },
+    {
+      "text": " ",
+      "start": 4.86,
+      "end": 4.88,
+      "type": "spacing",
+      "logprob": -0.0003887851198669523
+    },
+    {
+      "text": "Subjects",
+      "start": 5.54,
+      "end": 5.98,
+      "type": "word",
+      "logprob": -0.0003887851198669523
+    },
+    {
+      "text": " ",
+      "start": 5.98,
+      "end": 6.08,
+      "type": "spacing",
+      "logprob": -0.038075610995292664
+    },
+    {
+      "text": "four",
+      "start": 6.08,
+      "end": 6.26,
+      "type": "word",
+      "logprob": -0.038075610995292664
+    },
+    {
+      "text": " ",
+      "start": 6.26,
+      "end": 6.3,
+      "type": "spacing",
+      "logprob": -0.012194954790174961
+    },
+    {
+      "text": "oh",
+      "start": 6.3,
+      "end": 6.34,
+      "type": "word",
+      "logprob": -0.012194954790174961
+    },
+    {
+      "text": " ",
+      "start": 6.34,
+      "end": 6.48,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "one",
+      "start": 6.48,
+      "end": 6.68,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 6.68,
+      "end": 6.8,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "through",
+      "start": 6.8,
+      "end": 7.02,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 7.02,
+      "end": 7.06,
+      "type": "spacing",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": "four",
+      "start": 7.06,
+      "end": 7.2,
+      "type": "word",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": " ",
+      "start": 7.2,
+      "end": 7.3,
+      "type": "spacing",
+      "logprob": -0.0011213688412681222
+    },
+    {
+      "text": "eighty",
+      "start": 7.3,
+      "end": 7.58,
+      "type": "word",
+      "logprob": -0.0011213688412681222
+    },
+    {
+      "text": " ",
+      "start": 7.58,
+      "end": 7.94,
+      "type": "spacing",
+      "logprob": -8.856858039507642e-05
+    },
+    {
+      "text": "transferred",
+      "start": 7.94,
+      "end": 8.54,
+      "type": "word",
+      "logprob": -8.856858039507642e-05
+    },
+    {
+      "text": " ",
+      "start": 8.54,
+      "end": 8.56,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "to",
+      "start": 8.56,
+      "end": 8.66,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 8.66,
+      "end": 8.7,
+      "type": "spacing",
+      "logprob": -0.0008744944934733212
+    },
+    {
+      "text": "incubation.",
+      "start": 8.7,
+      "end": 9.4,
+      "type": "word",
+      "logprob": -0.0007952767610442442
+    },
+    {
+      "text": " ",
+      "start": 9.4,
+      "end": 9.4,
+      "type": "spacing",
+      "logprob": -9.16677454370074e-05
+    },
+    {
+      "text": "Neural",
+      "start": 10.1,
+      "end": 10.36,
+      "type": "word",
+      "logprob": -9.16677454370074e-05
+    },
+    {
+      "text": " ",
+      "start": 10.36,
+      "end": 10.44,
+      "type": "spacing",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": "mapping",
+      "start": 10.44,
+      "end": 10.76,
+      "type": "word",
+      "logprob": -1.2040065485052764e-05
+    },
+    {
+      "text": " ",
+      "start": 10.76,
+      "end": 10.84,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "running",
+      "start": 10.84,
+      "end": 11.2,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 11.2,
+      "end": 11.24,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "at",
+      "start": 11.24,
+      "end": 11.38,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 11.38,
+      "end": 11.44,
+      "type": "spacing",
+      "logprob": -0.0041217380203306675
+    },
+    {
+      "text": "ninety-four",
+      "start": 11.44,
+      "end": 11.94,
+      "type": "word",
+      "logprob": -0.0022863333158304818
+    },
+    {
+      "text": " ",
+      "start": 11.94,
+      "end": 12.0,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "percent",
+      "start": 12.0,
+      "end": 12.44,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    }
+  ],
+  "transcription_id": "SuHV3p6gqGfm3z5SvjF6",
+  "audio_duration_secs": 12.8174375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m06.fragment1.mp3",
+  "audio_sha256": "cd6da77a32b7d67fd6322de8444936516c6e621e753ee312c5872d06496c5481",
+  "model": "scribe_v2"
+}

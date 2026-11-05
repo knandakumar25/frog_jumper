@@ -1,0 +1,188 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Archive. The coolant map serves homes as well as weapons. Spare the district",
+  "words": [
+    {
+      "text": "Archive.",
+      "start": 0.1,
+      "end": 0.66,
+      "type": "word",
+      "logprob": -0.0070421603886643425
+    },
+    {
+      "text": " ",
+      "start": 0.66,
+      "end": 0.66,
+      "type": "spacing",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": "The",
+      "start": 1.18,
+      "end": 1.26,
+      "type": "word",
+      "logprob": -4.3748852476710454e-05
+    },
+    {
+      "text": " ",
+      "start": 1.26,
+      "end": 1.3,
+      "type": "spacing",
+      "logprob": -0.0022708598989993334
+    },
+    {
+      "text": "coolant",
+      "start": 1.3,
+      "end": 1.6,
+      "type": "word",
+      "logprob": -0.0022708598989993334
+    },
+    {
+      "text": " ",
+      "start": 1.6,
+      "end": 1.66,
+      "type": "spacing",
+      "logprob": -0.00029559535323642194
+    },
+    {
+      "text": "map",
+      "start": 1.66,
+      "end": 1.84,
+      "type": "word",
+      "logprob": -0.00029559535323642194
+    },
+    {
+      "text": " ",
+      "start": 1.84,
+      "end": 1.94,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "serves",
+      "start": 1.94,
+      "end": 2.22,
+      "type": "word",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": " ",
+      "start": 2.22,
+      "end": 2.28,
+      "type": "spacing",
+      "logprob": -0.04998592287302017
+    },
+    {
+      "text": "homes",
+      "start": 2.28,
+      "end": 2.62,
+      "type": "word",
+      "logprob": -0.04998592287302017
+    },
+    {
+      "text": " ",
+      "start": 2.62,
+      "end": 2.66,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "as",
+      "start": 2.66,
+      "end": 2.76,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 2.76,
+      "end": 2.8,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "well",
+      "start": 2.8,
+      "end": 2.92,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 2.92,
+      "end": 2.96,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "as",
+      "start": 2.96,
+      "end": 3.06,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 3.06,
+      "end": 3.1,
+      "type": "spacing",
+      "logprob": -1.8954096958623268e-05
+    },
+    {
+      "text": "weapons.",
+      "start": 3.1,
+      "end": 3.54,
+      "type": "word",
+      "logprob": -9.763577213561803e-05
+    },
+    {
+      "text": " ",
+      "start": 3.54,
+      "end": 3.54,
+      "type": "spacing",
+      "logprob": -0.00029094755882397294
+    },
+    {
+      "text": "Spare",
+      "start": 4.0,
+      "end": 4.26,
+      "type": "word",
+      "logprob": -0.00029094755882397294
+    },
+    {
+      "text": " ",
+      "start": 4.26,
+      "end": 4.3,
+      "type": "spacing",
+      "logprob": -5.8412379075889476e-06
+    },
+    {
+      "text": "the",
+      "start": 4.3,
+      "end": 4.38,
+      "type": "word",
+      "logprob": -5.8412379075889476e-06
+    },
+    {
+      "text": " ",
+      "start": 4.38,
+      "end": 4.42,
+      "type": "spacing",
+      "logprob": -0.002204251941293478
+    },
+    {
+      "text": "district",
+      "start": 4.42,
+      "end": 4.86,
+      "type": "word",
+      "logprob": -0.002204251941293478
+    }
+  ],
+  "transcription_id": "f3FFuRVa13bCeuSnU4Bb",
+  "audio_duration_secs": 5.20125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m04.fragment2.mp3",
+  "audio_sha256": "70bd22545b615f2cb60a46ab6c4e5c3166ca3ffee34c2ee7b1afeed135bc3e4b",
+  "model": "scribe_v2"
+}

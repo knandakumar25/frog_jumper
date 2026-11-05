@@ -100,7 +100,7 @@ public partial class ApexBastionMission : LaterCodeLevel, IFiniteCombatHost
             2 => "DATA SLATE 02 // SUMMIT POWER MATRIX: The Void Commander channels stratospheric lightning directly into the upper throne room spire.",
             _ => "DATA SLATE 03 // BASTION PRAETOR DIRECTIVE: Supreme mechanoid guardian granted autonomous tactical command over all Citadel flak batteries."
         });
-        _dialogue?.SetDialogueLine(text, "AXIOM-7 // TRANSMISSION ONLINE");
+
         return text;
     }
 

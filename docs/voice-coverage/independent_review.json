@@ -1,0 +1,298 @@
+{
+  "m01.event.b99bdf78b0fc": {
+    "recording_sha256": "1da792a8482b7968dcd372858e767929f32f6c3d8c296811e6490e74f672b566",
+    "expected": "DATA-BLADE SECURED. AXIOM-7: Enforcer signatures converging. Reach the extraction gate!",
+    "scribe": "Data blade secured. Axiom seven: Enforcer signatures converging. Reach the extraction gate",
+    "whisper": "Data Blade secured. Axiom 7. Enforcer signatures converging. Reach the extraction gate.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m02.fragment1": {
+    "recording_sha256": "f7325c01fad5fbd12edc3e66e6f5670e704f9353da2be0e48f3e633f2efd2e05",
+    "expected": "LOG: They fenced our neighbourhoods one street at a time, calling each fence temporary.",
+    "scribe": "Log. They fenced our neighborhoods one street at a time, calling each fence temporary",
+    "whisper": "Log. They fenced our neighborhoods one street at a time, calling each fence temporary.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m02.fragment3": {
+    "recording_sha256": "965fa749f4c0fe6d53ea252cd25f647c024daec38ea29d8e1863131f344b94cd",
+    "expected": "LOG: Zone 4 held four thousand families. The census says forty.",
+    "scribe": "Log. Zone Four held 4,000 families. The census says 40",
+    "whisper": "Log, zone four, held 4,000 families. The census says 40.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m03.intro": {
+    "recording_sha256": "c74eb482923a0e449f883b95dd172d222e643cec11a00f6f1a7e52f14db3faa2",
+    "expected": "Comm towers are broadcasting denial of service. Reach the relay and black out their patrol network.",
+    "scribe": "Com towers are broadcasting denial of service. Reach the relay and black out their patrol network",
+    "whisper": "Comm towers are broadcasting denial of service, reach the relay and black out their patrol network.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m03.event.ba4f252bdb19": {
+    "recording_sha256": "aa0342dfc79f48fdf37e5cb27f3edc7b868deec27e7080c54bae0fa7b83ed5af",
+    "expected": "Listen. That is what a free city sounds like. Comm grid down.",
+    "scribe": "Listen, that is what a free city sounds like. Calm grid down",
+    "whisper": "Listen, that is what a free city sounds like. Calm grid down.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m05.fragment2": {
+    "recording_sha256": "5ab70902b65a994baf915aab91c80796bc0678a1a5dec0c9729eeffb040ca634",
+    "expected": "I repaired these water pipes for thirty years. Yesterday the district said I had never lived here.",
+    "scribe": "I repaired these water pipes for 30 years. Yesterday, the district said I had never lived here.",
+    "whisper": "I repaired these water pipes for 30 years. Yesterday the district said I had never lived here.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m06.intro": {
+    "recording_sha256": "845413d2bba797eaf8e6c28d1d8d1e0095264a88b50b9ac63b5851e6061c4380",
+    "expected": "Depth -400m. Bio-synthetic incubators and heavy conduits ahead. Breach perimeter and extract captives.",
+    "scribe": "Depth 400 meter. Biosynthetic incubators and heavy conduits ahead. Breach perimeter and extract captives",
+    "whisper": "Depth 400 meter. Bio-synthetic incubators and heavy conduits ahead. Breach perimeter and extract captives.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m06.fragment1": {
+    "recording_sha256": "cd6da77a32b7d67fd6322de8444936516c6e621e753ee312c5872d06496c5481",
+    "expected": "DATA SLATE 01 // BIO-SYNTHESIS LOG: Subjects 401 through 480 transferred to incubation. Neural mapping running at 94%.",
+    "scribe": "Data slate zero one E biosynthesis. Log. Subjects four oh one through four eighty transferred to incubation. Neural mapping running at ninety-four percent",
+    "whisper": "Data Slate 01 eBioSynthesis Log Subjects 401-480 Transferred to incubation Neural mapping running at 94%",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m06.fragment2": {
+    "recording_sha256": "ac37c50fc5a10997d04168991448c6c0c7c3ac50293d471905558f91b6883e7f",
+    "expected": "DATA SLATE 02 // GEOTHERMAL SIPHON: Overdrive reactor feeding primary conduits. Any disruption threatens structural containment.",
+    "scribe": "Data slate 02 now geothermal siphon. Overdrive reactor feeding primary conduits. Any disruption threatens structural containment",
+    "whisper": "DataSlate-02, now geothermal siphon, overdrive reactor feeding primary conduits, any disruption threatens structural containment.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m07.intro": {
+    "recording_sha256": "ada0195bbd266a7b0a7d035deb97bb99e1e56c046823d79e6a8703287efa04f5",
+    "expected": "Sub-surface industrial rift reached. Ambient temperature 4,000 K. Sever primary coolant loops and breach the core.",
+    "scribe": "Subsurface industrial rift reached. Ambient temperature 4,000K. Severe primary coolant loops and breach the core",
+    "whisper": "Subsurface industrial rift reached. Ambient temperature 4,000 K. Severe primary coolant loops and breach the core.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m07.fragment1": {
+    "recording_sha256": "b342f107dbc72b72d310f44b52e4a1117598f9ec7525c0710fabd50ec17fa1a6",
+    "expected": "DATA SLATE 01 // GEOTHERMAL TELEMETRY: Plasma core channeling 14,000 gigawatts into the Citadel Spire's orbital emitter array.",
+    "scribe": "Data slate 01: geothermal telemetry. Plasma core channeling fourteen thousand gigawatts into the Citadel Spire's orbital emitter array",
+    "whisper": "data slate 01, geothermal telemetry, plasma core channeling 14,000 gigawatts into the Citadel Spires orbital emitter array.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m07.fragment2": {
+    "recording_sha256": "41a45099aacbc623d1db2d89b1e27c29ea5860244636c2e34de2ff1ead7abf7f",
+    "expected": "DATA SLATE 02 // CONTAINMENT FAULT: Cryo-coolant pressure dropping. High-voltage magnetic conduits cannot withstand thermal runaway.",
+    "scribe": "Data slate zero two: containment fault. Cryo coolant pressure dropping. High voltage magnetic conduits cannot withstand thermal runaway",
+    "whisper": "Data Slate 02, containment fault, cryo-coolant pressure dropping, high-voltage magnetic conduits cannot withstand thermal runaway.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m08.intro": {
+    "recording_sha256": "642935f05e0478eb83b6737cf1738c5c8393f723d5ced90c1f31d19353064244",
+    "expected": "Elevation 1,200m. Storm wind shear at maximum. Infiltrate the perimeter and commandeer the Bay 4 VTOL.",
+    "scribe": "Elevation one two hundred. Storm wind shear at maximum. Infiltrate the perimeter and commandeer the Bay Four VTOL",
+    "whisper": "Elevation 1-200. Storm wind shear at maximum. Infiltrate the perimeter and commandeer the Bay 4 VTUL.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m08.fragment1": {
+    "recording_sha256": "7a0fed77caa1ed53fc41098c369ef2236881615e880b55234de72c5ee9b1a412",
+    "expected": "DATA SLATE 01 // AVIATION MANIFEST: Citadel Air Corps operates at 1,200m. Patrols maintain tight containment corridors across municipal sectors.",
+    "scribe": "Data slate 01, Wash Aviation Manifest. Citadel Air Corps operates at one two hundred meters. Patrols maintain tight containment corridors across municipal sectors",
+    "whisper": "Data Slate 01, Wash Aviation Manifest, Citadel Air Corps operates at 1-200 meters. Patrols maintain tight containment corridors across municipal sectors.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m08.fragment3": {
+    "recording_sha256": "1831a2cc8ce41a3aed536f20e2df2d05cc74af7077d56d54d40f39abe8d4c501",
+    "expected": "DATA SLATE 03 // AIRSPACE INTERCEPT PROTOCOL: Aero-Centurion flight-deck mechanoid authorized to deploy overdrive micro-missiles against invaders.",
+    "scribe": "Data Slate 03: Chi-Ching Airspace Intercept Protocol. Aero Centurion flight deck mechanoid authorized to deploy overdrive micro missiles against invaders",
+    "whisper": "Data Slate 03 – Qi Qing Airspace Intercept Protocol Aerosensurian Flight Deck Mechanoid authorized to deploy overdrive micro-missiles against invaders.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m09.fragment1": {
+    "recording_sha256": "32cddd45b89f841717ab46a67862f3de4f0f3ebb34a95e497bc603ad161dac05",
+    "expected": "DATA SLATE 01 // EXTERIOR MAINTENANCE LOG: Gantry 42 elevation 2,500m. Gale-force shears require magnetic boot solenoids.",
+    "scribe": "Data slate zero one. Exterior maintenance log. Gantry 42 elevation 2500 meter. Gale force shears require magnetic boot solenoids",
+    "whisper": "data slate 01, exterior maintenance log, gantry, 42 elevation 2500 meter, gale force shears require magnetic boots solenoids.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m09.fragment2": {
+    "recording_sha256": "b4f578a839a40e0362703811be0b21ddf8cde09470b0d2a696d67341c75b1ed9",
+    "expected": "DATA SLATE 02 // EXHAUST MANIFOLD OVERHEAT: Cryogenic louvers vent excess reactor heat directly through exterior armor seams.",
+    "scribe": "Data slate zero two. Exhaust manifold overheat. Cryogenic louvers vent excess reactor heat directly through exterior armor seams",
+    "whisper": "Data Slate 0-2, exhaust, manifold overheat, cryogenic louvers vent excess reactor heat directly through exterior armor seams.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m09.fragment3": {
+    "recording_sha256": "476d46712702f99604255bbcd6ad5a75d142563c6cc1e4d83c7173b93cd27408",
+    "expected": "DATA SLATE 03 // SPIRE SENTINEL PROTOCOL: Automated aerial defense mechanoid V-9 authorized to fire overdrive plasma salvos.",
+    "scribe": "Data Slate 03, Spire Sentinel Protocol. Automated aerial defense mechanoid V9 authorized to fire overdrive plasma salvos",
+    "whisper": "Data Slate 03, the Spire Sentinel Protocol, automated aerial defense mechanoid V-9 authorized to fire overdrive plasma salvos.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m10.fragment1": {
+    "recording_sha256": "d8dc67f226351e8a5dde17def50176fb939a469458e62ff426048e6dc42a04fb",
+    "expected": "DATA SLATE 01 // QUANTUM MAINFRAME ARCHITECTURE: The Cyber-Nexus processes city-wide biometric tracking and combat drone subroutines.",
+    "scribe": "Data Slate 01, shuch, quantum mainframe architecture. The Cyber Nexus processes citywide biometric tracking and combat drone subroutines",
+    "whisper": "DataSlate-01, SHUTCH, Quantum Mainframe Architecture, the CyberNexus processes citywide biometric tracking and combat drone subroutines.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m11.fragment2": {
+    "recording_sha256": "2eaa3c9e3d844d5d563fc6490f626567b2ebf3c8136ecb2afae6abb919deaf5b",
+    "expected": "DATA SLATE 02 // SUMMIT POWER MATRIX: The Void Commander channels stratospheric lightning directly into the upper throne room spire.",
+    "scribe": "Data slate zero two. Shh. Summit power. Matrix. The void. Commander channels stratospheric lightning directly into the upper throne room spire",
+    "whisper": "Data Slate 0-2, Shhh, Summit Power. Matrix. The Void. Commander channel stratospheric lightning directly into the upper throne room spire.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "m11.fragment3": {
+    "recording_sha256": "bbc642176c45e873cb91debac9dd8bcf0c33b96c647dd0a105c756964dbed9f8",
+    "expected": "DATA SLATE 03 // BASTION PRAETOR DIRECTIVE: Supreme mechanoid guardian granted autonomous tactical command over all Citadel flak batteries.",
+    "scribe": "Data slate zero three. Bastion Praetor directive. Supreme Mechanoid Guardian granted autonomous tactical command over all Citadel flak batteries",
+    "whisper": "Data Slate 03, Bastion Praetor Directive, Supreme Mechanoid Guardian granted autonomous tactical command over all Citadel Flak batteries.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.apex_bastion_intro.01": {
+    "recording_sha256": "049133f70d970b7a73868a0f4d5016dd0315f6f7cd3f9e30a680018e81bef843",
+    "expected": "Level one hundred. Forty-five hundred meters. This is Apex Bastion, fortress of the Praetorian Guard.",
+    "scribe": "Level 100, 4,500 meters. This is Apex Bastion, fortress of the Praetorian Guard. ",
+    "whisper": "Level 100, 4500 meters. This is Apex Bastion, fortress of the Praetorian Guard.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.cyber_grave_intro.02": {
+    "recording_sha256": "51de3c2f0f9d2710fd60a7ffadff5dfdc08979cc73681536fb5dfa00d4accd0c",
+    "expected": "Descent telemetry confirmed. We are four hundred meters beneath Downtown Core. The registry logs terminate at a subterranean facility designated Cyber-Grave.",
+    "scribe": "Descent telemetry confirmed. We are 400 meters beneath downtown core. The registry logs terminate at a subterranean facility designated Cyber Grave. ",
+    "whisper": "Descent telemetry confirmed. We are 400 meters beneath downtown core. The registry logs terminate at a subterranean facility designated Cybergrave.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.foundry_forge_aftermath.08": {
+    "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+    "expected": "Their low-altitude cover is gone. Stratos Docks is exposed. We have our way into the Spire.",
+    "scribe": "Their low-altitude cover is gone. Stratus Docks is exposed. We have our way into the spire. ",
+    "whisper": "Their low-altitude cover is gone. Stratus Dox is exposed. We have our way into the spire.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.foundry_forge_intro.06": {
+    "recording_sha256": "153d93ae3724956de592659dac387abefdd23729e46a16c2cab860e02154f45a",
+    "expected": "Turrets on the catwalks. Slag below. I have a route over the coolant lines. Watch your footing.",
+    "scribe": "Turrets on the catwalks. Slag below. I have a road over the coolant lines. Watch your footing. ",
+    "whisper": "Turrets on the catwalks slag below. I have a road over the coolant lines watch your footing",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.judgment_day_aftermath.03": {
+    "recording_sha256": "4d85662532c60309c2bbbd57e779fe2df81dbf91c835452cca83e5ab804c2c6c",
+    "expected": "Ten million people kept in the dark. Now the lights are coming on, from the sumps to the cloudline.",
+    "scribe": "Ten million people kept in the dark. Now the lights are coming on, from the sumps to the cloud line. ",
+    "whisper": "10 million people kept in the dark, now the lights are coming on, from the sumps to the cloud line.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.names_without_numbers.07": {
+    "recording_sha256": "5c2f59683f33c75dc291f069097aabb66dad30483a5b5ec67f8d5a0cfa99bfe2",
+    "expected": "Kaito, you did it! The outer barrier just dropped. The entire queue is crossing over. Nobody is being turned away!",
+    "scribe": "Kaito, you did it. The outer barrier just dropped. The entire queue is crossing over. Nobody's being turned away. ",
+    "whisper": "Kaido you did it. The outer barrier just dropped. The entire queue is crossing over. Nobody's being turned away",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.neon_rust_aftermath.05": {
+    "recording_sha256": "4377eb11d0f7f61126f883ffa0815867cc804ac30b7d1836c873a8a1b0bc5687",
+    "expected": "Put those crates on the service line. We hauled enough weight for their machines. Let it carry something useful.",
+    "scribe": "Put those crates on the service line. We hold enough weight for their machines. Let it carry something useful. ",
+    "whisper": "Put those crates on the service line, we hold enough weight for their machines. Let it carry something useful.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.shattered_aegis_intro.02": {
+    "recording_sha256": "388325974020ff00689f406f35feeacecad3ea51bfa883df2836a370d7eb454c",
+    "expected": "No patrol feed to follow now. Just sightlines and bad intentions. There’s a service road beneath the western gun deck.",
+    "scribe": "No patrol feed to follow now. Just sight lines and bad intentions. There's a service road beneath the western gun deck. ",
+    "whisper": "No patrol feed to follow now. Just sight lines and bad intentions. There's a service road beneath the western gun deck.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.shattered_aegis_intro.08": {
+    "recording_sha256": "388325974020ff00689f406f35feeacecad3ea51bfa883df2836a370d7eb454c",
+    "expected": "Border Commander Voss. This crossing is closed. Return to your assigned district. You will not receive another warning.",
+    "scribe": "Order Commander Voss. This crossing is closed. Return to your assigned district. You will not receive another warning. ",
+    "whisper": "Order commander Voss. This crossing is closed return to your assigned district. You will not receive another warning",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.spire_outer_hull_intro.01": {
+    "recording_sha256": "c7586e76ff09c930b5c0d1700933a2f81b5b7db206aed65f848b6d44369063f6",
+    "expected": "Altitude twenty-five hundred meters. Wind gusts above sixty-five knots. Perimeter flak is tracking our approach.",
+    "scribe": "Altitude 2,500 meters. Wind gusts above 65 knots. Perimeter flak is tracking our approach. ",
+    "whisper": "Altitude 2500 meters. Wind gusts above 65 knots. Perimeter flak is tracking our approach.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.spire_outer_hull_intro.03": {
+    "recording_sha256": "c7586e76ff09c930b5c0d1700933a2f81b5b7db206aed65f848b6d44369063f6",
+    "expected": "Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.",
+    "scribe": "Catwalks at gantry 42. Narrow rails, but they run straight up the armor. I have our landing. ",
+    "whisper": "Catwalks at Gantry 42. Narrow rails, but they run straight up the armor. I have our landing.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.stratos_docks_intro.01": {
+    "recording_sha256": "f22fd1481b5705bb61856d8c7de1eb5d77e36c11ace8ca7c241632d7bc53dbec",
+    "expected": "Altitude twelve hundred meters. Wind shear forty-five knots. Commercial transit is grounded. Stratos Docks is under lockdown.",
+    "scribe": "Altitude 1200 meters. Wind shear 45 knots. Commercial transit is grounded. Stratos Docks is under lockdown. ",
+    "whisper": "Altitude 1200 meters. Windshear 45 knots. Commercial transit is grounded. Stratostocks is under lockdown.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.stratos_docks_intro.02": {
+    "recording_sha256": "f22fd1481b5705bb61856d8c7de1eb5d77e36c11ace8ca7c241632d7bc53dbec",
+    "expected": "Three gunships on the upper pads. But Bay Four has a heavy transport fueled and idling. That is our ride.",
+    "scribe": "Three gunships on the upper pads, but Bay 4 has a heavy transport fueled and idling. That is our ride. ",
+    "whisper": "Three gun ships on the upper pads, but Bay 4 has a heavy transport fueled and idling. That is our ride.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "cinematic.stratos_docks_intro.06": {
+    "recording_sha256": "f22fd1481b5705bb61856d8c7de1eb5d77e36c11ace8ca7c241632d7bc53dbec",
+    "expected": "I can cover the flak crossing with my solar barrier. Stay close until we are off the flight line.",
+    "scribe": "I can cover the flat crossing with my solar barrier. Stay close until we are off the flight line. ",
+    "whisper": "I can cover the flat crossing with my solar barrier. Stay close until we are off the flight line.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "deployment.4": {
+    "recording_sha256": "7e6dd6d7db2871bff1ca9ea76bf146684cdfb3073631b3af8aa34c4068457ba3",
+    "expected": "This is AXIOM-7. Secure channel established. Stand by for your mission briefing.",
+    "scribe": "This is Axiom Seven. Secure channel established. Stand by for your mission briefing",
+    "whisper": "This is Axiom 7. Secure channel established. Stand by for your mission briefing.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  },
+  "briefing.1": {
+    "recording_sha256": "53b239e363c21f94da6ae3ea18450820a1d5b0b9ea062861031ade42dae22ade",
+    "expected": "Greetings, Operative. I am AXIOM-7. Earth, 2157: The Xelthara Collective invaded, declared humanity obsolete, and carved our world into occupied containment sectors.",
+    "scribe": "Greetings, operative. I am Axiom Seven. Earth, 2157. The Zelthara Collective invaded, declared humanity obsolete, and carved our world into occupied containment sectors",
+    "whisper": "Greetings, Operative. I am Axiom 7. Earth 2157. The Xelthara Collective invaded, declared humanity obsolete, and carved our world into occupied containment sectors.",
+    "model": "Systran/faster-whisper-small.en",
+    "acceptance": "automated independent evidence; subjective listening pending"
+  }
+}

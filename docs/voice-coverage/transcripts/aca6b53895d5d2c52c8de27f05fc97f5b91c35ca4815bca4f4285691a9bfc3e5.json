@@ -1,0 +1,104 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Stay together. There is room for everyone",
+  "words": [
+    {
+      "text": "Stay",
+      "start": 0.12,
+      "end": 0.22,
+      "type": "word",
+      "logprob": -0.000179036331246607
+    },
+    {
+      "text": " ",
+      "start": 0.22,
+      "end": 0.28,
+      "type": "spacing",
+      "logprob": -1.1801649634435307e-05
+    },
+    {
+      "text": "together.",
+      "start": 0.28,
+      "end": 0.68,
+      "type": "word",
+      "logprob": -0.0012564342881281239
+    },
+    {
+      "text": " ",
+      "start": 0.68,
+      "end": 0.96,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "There",
+      "start": 0.96,
+      "end": 1.08,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 1.08,
+      "end": 1.12,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "is",
+      "start": 1.12,
+      "end": 1.24,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 1.24,
+      "end": 1.28,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "room",
+      "start": 1.28,
+      "end": 1.5,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 1.5,
+      "end": 1.52,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "for",
+      "start": 1.52,
+      "end": 1.64,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.7,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "everyone",
+      "start": 1.7,
+      "end": 2.18,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    }
+  ],
+  "transcription_id": "JvRYW7fiACHJgVv3b6rM",
+  "audio_duration_secs": 2.4613125,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/crossing.ogg",
+  "audio_sha256": "aca6b53895d5d2c52c8de27f05fc97f5b91c35ca4815bca4f4285691a9bfc3e5",
+  "model": "scribe_v2"
+}

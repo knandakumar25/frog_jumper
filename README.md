@@ -5,20 +5,34 @@ A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with
 ## Python dependencies
 
 Root `requirements.txt` is the single Python dependency manifest. The duplicate
-`backend/requirements.txt` and the local root `.venv` have been removed. No local
-virtual environment or packages are recreated automatically.
+`backend/requirements.txt` remains removed. A Git-ignored root `.venv` is available
+for local Python work; packages are installed only when explicitly requested.
+
+To populate it with all six direct requirements and their dependencies:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip check
+```
 
 The backend image builds from the repository root with `backend/Dockerfile`:
 `docker compose build backend`. Its Dockerfile-specific ignore file limits the
 build context to backend source and root requirements. Dependencies are installed
 inside the image. Django tests use the running backend container through
 `./run_tests.ps1 -Suite django`; the runner performs no package installation.
-Keep the normal Docker stack running. Local `.venv` installation is deferred until
-the user explicitly requests it.
+Keep the normal Docker stack running with `docker compose up -d`.
 
 Validated on 2026-11-05: Compose configuration, backend image build and dependency
 imports passed; all suites passed (Django 104, NUnit 276, GdUnit4 303). No local
-virtualenv was recreated or populated.
+virtualenv was recreated or populated during that earlier cleanup validation.
+
+Local setup verified on 2026-11-05: Python 3.14.10, pip 26.3, all six direct
+requirements plus dependencies installed in `.venv`, and `pip check` passed.
+The three default Docker services are running; PostgreSQL accepts connections.
+HTTP checks passed with status 200 at `http://127.0.0.1:5173/` and
+`http://127.0.0.1:8000/api/auth/countries/basic/`, including the website API proxy.
 
 ## Later campaign repair (2026-11-05)
 
@@ -941,3 +955,13 @@ Replay and loading an owned temporary save activate arrival; the save was remove
 Existing import diagnostics and Docker bind-mount fault remain. Physical input
 hardware and speaker-listening checks are outstanding. Changes are local and
 uncommitted; production/reproduction details are in tools/cutscene/README.md.
+
+## English campaign speech coverage
+
+Gameplay story dialogue now uses one mission-owned English speech queue across all twelve missions, including recruitment, Mission 5 civilian testimony, and later collectible logs. Localized subtitles retain their existing keys; ordinary status messages remain silent and cannot interrupt speech. The queue follows clip completion, pauses with gameplay, and cancels on recovery, results and scene teardown. Existing cinematic Skip and briefing Continue controls remain available.
+
+The reproducible inventory, per-mission/speaker totals, transcript discrepancies and historical provenance gaps are in [the voice coverage report](docs/voice-coverage/README.md). `python tools/gameplay/english_voice_coverage.py` rebuilds the gameplay inventory; `python tools/gameplay/audit_english_voice.py --check` is the strict evidence gate. Generation/transcription are opt-in cached ElevenLabs authoring tools; runtime makes no API calls. Automated transcript evidence does not imply subjective listening acceptance.
+
+Coverage evidence currently includes 296 spoken cue occurrences and five explicit silent classifications. All required clips have imports, decoded audio, English transcripts and provenance. Seven pronunciation/word-recognition candidates remain flagged for listening acceptance; the strict coverage gate remains open until they are resolved. See the [content review](docs/voice-coverage/REVIEW.md).
+
+Validation on 2026-11-05: C# build/import, NUnit 276, GdUnit4 309 (zero errors/failures/orphans), five inventory checks, and Django 104 passed. The normal aggregate runner encountered a Docker Desktop D: mount error; Django was verified using an unchanged temporary source copy in the existing backend container. This workaround did not repair the host mount or restart services.

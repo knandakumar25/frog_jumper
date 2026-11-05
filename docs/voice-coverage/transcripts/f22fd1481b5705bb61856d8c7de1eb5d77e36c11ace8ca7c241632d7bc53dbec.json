@@ -1,0 +1,2246 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Altitude 1200 meters. Wind shear 45 knots. Commercial transit is grounded. Stratos Docks is under lockdown. Three gunships on the upper pads, but Bay 4 has a heavy transport fueled and idling. That is our ride. Magnetic mooring clamps, reinforced locks. Get me to the release valves, and I will free that bird. Those fuel lines carry liquid hydrogen. One spark could take the deck with it. We keep this clean. Air traffic control is calling in interceptors. The flight grid is trying to pin us on the catwalks. I can cover the flat crossing with my solar barrier. Stay close until we are off the flight line. Dual-phase lasers across the maintenance route. I will cross first and open a path through the security grid. Flight path ready. Once we have the transport, we climb toward the Spire upper command ring. Weapons live. Breach the flight deck, seize that gunship, and take this fight upstairs. Axiom force, move out.",
+  "words": [
+    {
+      "text": "Altitude",
+      "start": 0.2,
+      "end": 0.74,
+      "type": "word",
+      "logprob": -0.0016042232746258378
+    },
+    {
+      "text": " ",
+      "start": 0.74,
+      "end": 0.84,
+      "type": "spacing",
+      "logprob": -0.03459510579705238
+    },
+    {
+      "text": "1200",
+      "start": 0.84,
+      "end": 1.5,
+      "type": "word",
+      "logprob": -0.13079088920801496
+    },
+    {
+      "text": " ",
+      "start": 1.5,
+      "end": 1.54,
+      "type": "spacing",
+      "logprob": -0.000395815703086555
+    },
+    {
+      "text": "meters.",
+      "start": 1.54,
+      "end": 1.92,
+      "type": "word",
+      "logprob": -0.014776168025231786
+    },
+    {
+      "text": " ",
+      "start": 1.92,
+      "end": 1.92,
+      "type": "spacing",
+      "logprob": -3.9219088648678735e-05
+    },
+    {
+      "text": "Wind",
+      "start": 2.5,
+      "end": 2.62,
+      "type": "word",
+      "logprob": -3.9219088648678735e-05
+    },
+    {
+      "text": " ",
+      "start": 2.62,
+      "end": 2.72,
+      "type": "spacing",
+      "logprob": -0.014008058235049248
+    },
+    {
+      "text": "shear",
+      "start": 2.72,
+      "end": 2.9,
+      "type": "word",
+      "logprob": -0.014008058235049248
+    },
+    {
+      "text": " ",
+      "start": 2.9,
+      "end": 3.02,
+      "type": "spacing",
+      "logprob": -2.276871418871451e-05
+    },
+    {
+      "text": "45",
+      "start": 3.02,
+      "end": 3.6,
+      "type": "word",
+      "logprob": -2.9206216254351602e-06
+    },
+    {
+      "text": " ",
+      "start": 3.6,
+      "end": 3.66,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "knots.",
+      "start": 3.66,
+      "end": 4.04,
+      "type": "word",
+      "logprob": -6.337938657452469e-06
+    },
+    {
+      "text": " ",
+      "start": 4.04,
+      "end": 4.04,
+      "type": "spacing",
+      "logprob": -4.8874615458771586e-05
+    },
+    {
+      "text": "Commercial",
+      "start": 4.62,
+      "end": 5.02,
+      "type": "word",
+      "logprob": -4.8874615458771586e-05
+    },
+    {
+      "text": " ",
+      "start": 5.02,
+      "end": 5.12,
+      "type": "spacing",
+      "logprob": -0.0004887578543275595
+    },
+    {
+      "text": "transit",
+      "start": 5.12,
+      "end": 5.54,
+      "type": "word",
+      "logprob": -0.0004887578543275595
+    },
+    {
+      "text": " ",
+      "start": 5.54,
+      "end": 5.6,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "is",
+      "start": 5.6,
+      "end": 5.76,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 5.76,
+      "end": 5.8,
+      "type": "spacing",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": "grounded.",
+      "start": 5.8,
+      "end": 6.32,
+      "type": "word",
+      "logprob": -3.708722740864485e-06
+    },
+    {
+      "text": " ",
+      "start": 6.32,
+      "end": 6.32,
+      "type": "spacing",
+      "logprob": -0.0016631354810670018
+    },
+    {
+      "text": "Stratos",
+      "start": 6.96,
+      "end": 7.3,
+      "type": "word",
+      "logprob": -0.001316909262511347
+    },
+    {
+      "text": " ",
+      "start": 7.3,
+      "end": 7.36,
+      "type": "spacing",
+      "logprob": -0.03836280480027199
+    },
+    {
+      "text": "Docks",
+      "start": 7.36,
+      "end": 7.68,
+      "type": "word",
+      "logprob": -0.007780795672442764
+    },
+    {
+      "text": " ",
+      "start": 7.68,
+      "end": 7.98,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "is",
+      "start": 7.98,
+      "end": 8.06,
+      "type": "word",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": " ",
+      "start": 8.06,
+      "end": 8.119,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "under",
+      "start": 8.119,
+      "end": 8.32,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 8.32,
+      "end": 8.38,
+      "type": "spacing",
+      "logprob": -1.7404405298293568e-05
+    },
+    {
+      "text": "lockdown.",
+      "start": 8.38,
+      "end": 8.96,
+      "type": "word",
+      "logprob": -0.00015373352895646045
+    },
+    {
+      "text": " ",
+      "start": 8.96,
+      "end": 8.96,
+      "type": "spacing",
+      "logprob": -8.511180931236595e-05
+    },
+    {
+      "text": "Three",
+      "start": 10.26,
+      "end": 10.4,
+      "type": "word",
+      "logprob": -6.270212179515511e-05
+    },
+    {
+      "text": " ",
+      "start": 10.4,
+      "end": 10.48,
+      "type": "spacing",
+      "logprob": -0.00014852374442853034
+    },
+    {
+      "text": "gunships",
+      "start": 10.48,
+      "end": 10.94,
+      "type": "word",
+      "logprob": -0.014687095357658109
+    },
+    {
+      "text": " ",
+      "start": 10.94,
+      "end": 10.98,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "on",
+      "start": 10.98,
+      "end": 11.04,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 11.04,
+      "end": 11.06,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "the",
+      "start": 11.06,
+      "end": 11.12,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 11.12,
+      "end": 11.16,
+      "type": "spacing",
+      "logprob": -1.4543427823809907e-05
+    },
+    {
+      "text": "upper",
+      "start": 11.16,
+      "end": 11.3,
+      "type": "word",
+      "logprob": -1.4543427823809907e-05
+    },
+    {
+      "text": " ",
+      "start": 11.3,
+      "end": 11.4,
+      "type": "spacing",
+      "logprob": -0.0005583396414294839
+    },
+    {
+      "text": "pads,",
+      "start": 11.4,
+      "end": 11.74,
+      "type": "word",
+      "logprob": -0.11627199100330472
+    },
+    {
+      "text": " ",
+      "start": 11.74,
+      "end": 11.74,
+      "type": "spacing",
+      "logprob": -0.00010930894495686516
+    },
+    {
+      "text": "but",
+      "start": 12.48,
+      "end": 12.6,
+      "type": "word",
+      "logprob": -0.00010930894495686516
+    },
+    {
+      "text": " ",
+      "start": 12.6,
+      "end": 12.64,
+      "type": "spacing",
+      "logprob": -0.006729321554303169
+    },
+    {
+      "text": "Bay",
+      "start": 12.64,
+      "end": 12.82,
+      "type": "word",
+      "logprob": -0.006729321554303169
+    },
+    {
+      "text": " ",
+      "start": 12.82,
+      "end": 12.98,
+      "type": "spacing",
+      "logprob": -0.1906440407037735
+    },
+    {
+      "text": "4",
+      "start": 12.98,
+      "end": 13.0,
+      "type": "word",
+      "logprob": -3.969590397900902e-05
+    },
+    {
+      "text": " ",
+      "start": 13.0,
+      "end": 13.04,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "has",
+      "start": 13.04,
+      "end": 13.14,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 13.14,
+      "end": 13.2,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "a",
+      "start": 13.2,
+      "end": 13.22,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 13.22,
+      "end": 13.28,
+      "type": "spacing",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": "heavy",
+      "start": 13.28,
+      "end": 13.48,
+      "type": "word",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": " ",
+      "start": 13.48,
+      "end": 13.52,
+      "type": "spacing",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": "transport",
+      "start": 13.52,
+      "end": 13.94,
+      "type": "word",
+      "logprob": -3.6954811548639555e-06
+    },
+    {
+      "text": " ",
+      "start": 13.94,
+      "end": 14.06,
+      "type": "spacing",
+      "logprob": -0.0006435230607166886
+    },
+    {
+      "text": "fueled",
+      "start": 14.06,
+      "end": 14.36,
+      "type": "word",
+      "logprob": -0.0006435230607166886
+    },
+    {
+      "text": " ",
+      "start": 14.36,
+      "end": 14.46,
+      "type": "spacing",
+      "logprob": -1.2874520507466514e-05
+    },
+    {
+      "text": "and",
+      "start": 14.46,
+      "end": 14.56,
+      "type": "word",
+      "logprob": -1.2874520507466514e-05
+    },
+    {
+      "text": " ",
+      "start": 14.56,
+      "end": 14.64,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "idling.",
+      "start": 14.64,
+      "end": 14.96,
+      "type": "word",
+      "logprob": -1.5087825853957579e-05
+    },
+    {
+      "text": " ",
+      "start": 14.96,
+      "end": 14.96,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "That",
+      "start": 15.38,
+      "end": 15.46,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 15.46,
+      "end": 15.5,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "is",
+      "start": 15.5,
+      "end": 15.58,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 15.58,
+      "end": 15.62,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "our",
+      "start": 15.62,
+      "end": 15.72,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 15.72,
+      "end": 15.76,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "ride.",
+      "start": 15.76,
+      "end": 16.0,
+      "type": "word",
+      "logprob": -0.0032348450245990533
+    },
+    {
+      "text": " ",
+      "start": 16.0,
+      "end": 16.0,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "Magnetic",
+      "start": 20.24,
+      "end": 20.68,
+      "type": "word",
+      "logprob": -0.0038551785983145237
+    },
+    {
+      "text": " ",
+      "start": 20.68,
+      "end": 20.8,
+      "type": "spacing",
+      "logprob": -7.152531907195225e-06
+    },
+    {
+      "text": "mooring",
+      "start": 20.8,
+      "end": 21.06,
+      "type": "word",
+      "logprob": -7.152531907195225e-06
+    },
+    {
+      "text": " ",
+      "start": 21.06,
+      "end": 21.16,
+      "type": "spacing",
+      "logprob": -5.3165931603871286e-05
+    },
+    {
+      "text": "clamps,",
+      "start": 21.16,
+      "end": 21.56,
+      "type": "word",
+      "logprob": -0.0017486545797770045
+    },
+    {
+      "text": " ",
+      "start": 21.56,
+      "end": 21.9,
+      "type": "spacing",
+      "logprob": -3.397406908334233e-05
+    },
+    {
+      "text": "reinforced",
+      "start": 21.9,
+      "end": 22.46,
+      "type": "word",
+      "logprob": -3.397406908334233e-05
+    },
+    {
+      "text": " ",
+      "start": 22.46,
+      "end": 22.54,
+      "type": "spacing",
+      "logprob": -0.003189241047948599
+    },
+    {
+      "text": "locks.",
+      "start": 22.54,
+      "end": 22.9,
+      "type": "word",
+      "logprob": -0.002688672541504881
+    },
+    {
+      "text": " ",
+      "start": 22.9,
+      "end": 22.9,
+      "type": "spacing",
+      "logprob": -6.079655122448457e-06
+    },
+    {
+      "text": "Get",
+      "start": 23.48,
+      "end": 23.6,
+      "type": "word",
+      "logprob": -6.079655122448457e-06
+    },
+    {
+      "text": " ",
+      "start": 23.6,
+      "end": 23.64,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "me",
+      "start": 23.64,
+      "end": 23.72,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 23.72,
+      "end": 23.76,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "to",
+      "start": 23.76,
+      "end": 23.84,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 23.84,
+      "end": 23.88,
+      "type": "spacing",
+      "logprob": -3.933898824470816e-06
+    },
+    {
+      "text": "the",
+      "start": 23.88,
+      "end": 23.94,
+      "type": "word",
+      "logprob": -3.933898824470816e-06
+    },
+    {
+      "text": " ",
+      "start": 23.94,
+      "end": 23.98,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "release",
+      "start": 23.98,
+      "end": 24.26,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": " ",
+      "start": 24.26,
+      "end": 24.34,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "valves,",
+      "start": 24.34,
+      "end": 24.68,
+      "type": "word",
+      "logprob": -0.05528276731703435
+    },
+    {
+      "text": " ",
+      "start": 24.68,
+      "end": 24.86,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "and",
+      "start": 24.86,
+      "end": 24.94,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 24.94,
+      "end": 25.02,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "I",
+      "start": 25.02,
+      "end": 25.06,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 25.06,
+      "end": 25.1,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "will",
+      "start": 25.1,
+      "end": 25.24,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 25.24,
+      "end": 25.3,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "free",
+      "start": 25.3,
+      "end": 25.48,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": " ",
+      "start": 25.48,
+      "end": 25.54,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "that",
+      "start": 25.54,
+      "end": 25.7,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 25.7,
+      "end": 25.74,
+      "type": "spacing",
+      "logprob": -9.65590606938349e-06
+    },
+    {
+      "text": "bird.",
+      "start": 25.74,
+      "end": 26.08,
+      "type": "word",
+      "logprob": -0.00038235838073887864
+    },
+    {
+      "text": " ",
+      "start": 26.08,
+      "end": 26.08,
+      "type": "spacing",
+      "logprob": -0.0004996005445718765
+    },
+    {
+      "text": "Those",
+      "start": 30.24,
+      "end": 30.48,
+      "type": "word",
+      "logprob": -1.7881233361549675e-05
+    },
+    {
+      "text": " ",
+      "start": 30.48,
+      "end": 30.54,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "fuel",
+      "start": 30.54,
+      "end": 30.74,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 30.74,
+      "end": 30.8,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "lines",
+      "start": 30.8,
+      "end": 31.18,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 31.18,
+      "end": 31.22,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "carry",
+      "start": 31.22,
+      "end": 31.44,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 31.44,
+      "end": 31.52,
+      "type": "spacing",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": "liquid",
+      "start": 31.52,
+      "end": 31.76,
+      "type": "word",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": " ",
+      "start": 31.76,
+      "end": 31.82,
+      "type": "spacing",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": "hydrogen.",
+      "start": 31.82,
+      "end": 32.38,
+      "type": "word",
+      "logprob": -1.6556185679898288e-05
+    },
+    {
+      "text": " ",
+      "start": 32.38,
+      "end": 32.82,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "One",
+      "start": 32.86,
+      "end": 32.96,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 32.96,
+      "end": 33.1,
+      "type": "spacing",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": "spark",
+      "start": 33.1,
+      "end": 33.44,
+      "type": "word",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": " ",
+      "start": 33.44,
+      "end": 33.48,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "could",
+      "start": 33.48,
+      "end": 33.6,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 33.6,
+      "end": 33.64,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "take",
+      "start": 33.64,
+      "end": 33.8,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 33.8,
+      "end": 33.84,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "the",
+      "start": 33.84,
+      "end": 33.9,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 33.9,
+      "end": 33.94,
+      "type": "spacing",
+      "logprob": -1.2159273865108844e-05
+    },
+    {
+      "text": "deck",
+      "start": 33.94,
+      "end": 34.14,
+      "type": "word",
+      "logprob": -1.2159273865108844e-05
+    },
+    {
+      "text": " ",
+      "start": 34.14,
+      "end": 34.18,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "with",
+      "start": 34.18,
+      "end": 34.3,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 34.3,
+      "end": 34.36,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "it.",
+      "start": 34.36,
+      "end": 34.52,
+      "type": "word",
+      "logprob": -1.3231993155689755e-05
+    },
+    {
+      "text": " ",
+      "start": 34.52,
+      "end": 34.88,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "We",
+      "start": 34.88,
+      "end": 34.96,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 34.96,
+      "end": 35.0,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "keep",
+      "start": 35.0,
+      "end": 35.16,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 35.16,
+      "end": 35.2,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "this",
+      "start": 35.2,
+      "end": 35.36,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 35.36,
+      "end": 35.4,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "clean.",
+      "start": 35.4,
+      "end": 35.76,
+      "type": "word",
+      "logprob": -0.00010483183219397081
+    },
+    {
+      "text": " ",
+      "start": 35.76,
+      "end": 35.76,
+      "type": "spacing",
+      "logprob": -7.497983460780233e-05
+    },
+    {
+      "text": "Air",
+      "start": 40.26,
+      "end": 40.4,
+      "type": "word",
+      "logprob": -7.497983460780233e-05
+    },
+    {
+      "text": " ",
+      "start": 40.4,
+      "end": 40.44,
+      "type": "spacing",
+      "logprob": -0.0052674319595098495
+    },
+    {
+      "text": "traffic",
+      "start": 40.44,
+      "end": 40.78,
+      "type": "word",
+      "logprob": -0.0052674319595098495
+    },
+    {
+      "text": " ",
+      "start": 40.78,
+      "end": 40.82,
+      "type": "spacing",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": "control",
+      "start": 40.82,
+      "end": 41.26,
+      "type": "word",
+      "logprob": -2.7418097943154862e-06
+    },
+    {
+      "text": " ",
+      "start": 41.26,
+      "end": 41.32,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "is",
+      "start": 41.32,
+      "end": 41.44,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 41.44,
+      "end": 41.5,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "calling",
+      "start": 41.5,
+      "end": 41.76,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 41.76,
+      "end": 41.8,
+      "type": "spacing",
+      "logprob": -7.283422019099817e-05
+    },
+    {
+      "text": "in",
+      "start": 41.8,
+      "end": 41.9,
+      "type": "word",
+      "logprob": -7.283422019099817e-05
+    },
+    {
+      "text": " ",
+      "start": 41.9,
+      "end": 41.94,
+      "type": "spacing",
+      "logprob": -0.0008677055011503398
+    },
+    {
+      "text": "interceptors.",
+      "start": 41.94,
+      "end": 42.68,
+      "type": "word",
+      "logprob": -0.0006043962885786851
+    },
+    {
+      "text": " ",
+      "start": 42.68,
+      "end": 42.68,
+      "type": "spacing",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": "The",
+      "start": 43.34,
+      "end": 43.42,
+      "type": "word",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": " ",
+      "start": 43.42,
+      "end": 43.46,
+      "type": "spacing",
+      "logprob": -4.9828242481453344e-05
+    },
+    {
+      "text": "flight",
+      "start": 43.46,
+      "end": 43.68,
+      "type": "word",
+      "logprob": -4.9828242481453344e-05
+    },
+    {
+      "text": " ",
+      "start": 43.68,
+      "end": 43.72,
+      "type": "spacing",
+      "logprob": -4.6967357775429264e-05
+    },
+    {
+      "text": "grid",
+      "start": 43.72,
+      "end": 43.88,
+      "type": "word",
+      "logprob": -4.6967357775429264e-05
+    },
+    {
+      "text": " ",
+      "start": 43.88,
+      "end": 43.92,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "is",
+      "start": 43.92,
+      "end": 44.04,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 44.04,
+      "end": 44.1,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "trying",
+      "start": 44.1,
+      "end": 44.32,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 44.32,
+      "end": 44.34,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "to",
+      "start": 44.34,
+      "end": 44.44,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 44.44,
+      "end": 44.48,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "pin",
+      "start": 44.48,
+      "end": 44.6,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 44.6,
+      "end": 44.64,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "us",
+      "start": 44.64,
+      "end": 44.76,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 44.76,
+      "end": 44.8,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "on",
+      "start": 44.8,
+      "end": 44.88,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 44.88,
+      "end": 44.9,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "the",
+      "start": 44.9,
+      "end": 44.98,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 44.98,
+      "end": 45.02,
+      "type": "spacing",
+      "logprob": -0.0019549084827303886
+    },
+    {
+      "text": "catwalks.",
+      "start": 45.02,
+      "end": 45.6,
+      "type": "word",
+      "logprob": -0.0018370767227445918
+    },
+    {
+      "text": " ",
+      "start": 45.6,
+      "end": 45.6,
+      "type": "spacing",
+      "logprob": -0.00035255891270935535
+    },
+    {
+      "text": "I",
+      "start": 50.26,
+      "end": 50.3,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 50.3,
+      "end": 50.34,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "can",
+      "start": 50.34,
+      "end": 50.48,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 50.48,
+      "end": 50.52,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "cover",
+      "start": 50.52,
+      "end": 50.72,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 50.72,
+      "end": 50.76,
+      "type": "spacing",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": "the",
+      "start": 50.76,
+      "end": 50.86,
+      "type": "word",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": " ",
+      "start": 50.86,
+      "end": 50.9,
+      "type": "spacing",
+      "logprob": -0.39080163836479187
+    },
+    {
+      "text": "flat",
+      "start": 50.9,
+      "end": 51.08,
+      "type": "word",
+      "logprob": -0.39080163836479187
+    },
+    {
+      "text": " ",
+      "start": 51.08,
+      "end": 51.18,
+      "type": "spacing",
+      "logprob": -2.5629668016335927e-05
+    },
+    {
+      "text": "crossing",
+      "start": 51.18,
+      "end": 51.54,
+      "type": "word",
+      "logprob": -2.5629668016335927e-05
+    },
+    {
+      "text": " ",
+      "start": 51.54,
+      "end": 51.58,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "with",
+      "start": 51.58,
+      "end": 51.7,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 51.7,
+      "end": 51.72,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "my",
+      "start": 51.72,
+      "end": 51.86,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 51.86,
+      "end": 51.92,
+      "type": "spacing",
+      "logprob": -0.00018225439998786896
+    },
+    {
+      "text": "solar",
+      "start": 51.92,
+      "end": 52.14,
+      "type": "word",
+      "logprob": -0.00018225439998786896
+    },
+    {
+      "text": " ",
+      "start": 52.14,
+      "end": 52.22,
+      "type": "spacing",
+      "logprob": -1.585470999998506e-05
+    },
+    {
+      "text": "barrier.",
+      "start": 52.22,
+      "end": 52.5,
+      "type": "word",
+      "logprob": -1.8313338614461827e-05
+    },
+    {
+      "text": " ",
+      "start": 52.5,
+      "end": 52.52,
+      "type": "spacing",
+      "logprob": -2.8609820219571702e-05
+    },
+    {
+      "text": "Stay",
+      "start": 53.18,
+      "end": 53.38,
+      "type": "word",
+      "logprob": -2.8609820219571702e-05
+    },
+    {
+      "text": " ",
+      "start": 53.38,
+      "end": 53.44,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "close",
+      "start": 53.44,
+      "end": 53.74,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 53.74,
+      "end": 53.8,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "until",
+      "start": 53.8,
+      "end": 54.04,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 54.04,
+      "end": 54.08,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "we",
+      "start": 54.08,
+      "end": 54.14,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 54.14,
+      "end": 54.18,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "are",
+      "start": 54.18,
+      "end": 54.3,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 54.3,
+      "end": 54.38,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "off",
+      "start": 54.38,
+      "end": 54.54,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 54.54,
+      "end": 54.58,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "the",
+      "start": 54.6,
+      "end": 54.66,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 54.66,
+      "end": 54.7,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "flight",
+      "start": 54.7,
+      "end": 54.9,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 54.9,
+      "end": 54.96,
+      "type": "spacing",
+      "logprob": -3.158996332786046e-05
+    },
+    {
+      "text": "line.",
+      "start": 54.96,
+      "end": 55.18,
+      "type": "word",
+      "logprob": -0.0005910726467845961
+    },
+    {
+      "text": " ",
+      "start": 55.18,
+      "end": 55.18,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "Dual-phase",
+      "start": 60.24,
+      "end": 60.78,
+      "type": "word",
+      "logprob": -0.05295284925377928
+    },
+    {
+      "text": " ",
+      "start": 60.78,
+      "end": 60.88,
+      "type": "spacing",
+      "logprob": -1.1324817933200393e-05
+    },
+    {
+      "text": "lasers",
+      "start": 60.88,
+      "end": 61.3,
+      "type": "word",
+      "logprob": -1.1324817933200393e-05
+    },
+    {
+      "text": " ",
+      "start": 61.3,
+      "end": 61.36,
+      "type": "spacing",
+      "logprob": -4.660974445869215e-05
+    },
+    {
+      "text": "across",
+      "start": 61.36,
+      "end": 61.7,
+      "type": "word",
+      "logprob": -4.660974445869215e-05
+    },
+    {
+      "text": " ",
+      "start": 61.7,
+      "end": 61.74,
+      "type": "spacing",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": "the",
+      "start": 61.74,
+      "end": 61.8,
+      "type": "word",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": " ",
+      "start": 61.8,
+      "end": 61.84,
+      "type": "spacing",
+      "logprob": -1.7881233361549675e-05
+    },
+    {
+      "text": "maintenance",
+      "start": 61.84,
+      "end": 62.14,
+      "type": "word",
+      "logprob": -1.7881233361549675e-05
+    },
+    {
+      "text": " ",
+      "start": 62.14,
+      "end": 62.24,
+      "type": "spacing",
+      "logprob": -0.00015448330668732524
+    },
+    {
+      "text": "route.",
+      "start": 62.24,
+      "end": 62.44,
+      "type": "word",
+      "logprob": -0.00013596796209943326
+    },
+    {
+      "text": " ",
+      "start": 62.44,
+      "end": 62.44,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "I",
+      "start": 63.02,
+      "end": 63.06,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 63.06,
+      "end": 63.1,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "will",
+      "start": 63.1,
+      "end": 63.2,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 63.2,
+      "end": 63.24,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "cross",
+      "start": 63.24,
+      "end": 63.48,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 63.48,
+      "end": 63.58,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "first",
+      "start": 63.58,
+      "end": 63.9,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 63.9,
+      "end": 64.019,
+      "type": "spacing",
+      "logprob": -5.709961988031864e-05
+    },
+    {
+      "text": "and",
+      "start": 64.019,
+      "end": 64.099,
+      "type": "word",
+      "logprob": -5.709961988031864e-05
+    },
+    {
+      "text": " ",
+      "start": 64.099,
+      "end": 64.16,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "open",
+      "start": 64.16,
+      "end": 64.319,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 64.319,
+      "end": 64.34,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "a",
+      "start": 64.36,
+      "end": 64.4,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 64.4,
+      "end": 64.459,
+      "type": "spacing",
+      "logprob": -1.4305012882687151e-05
+    },
+    {
+      "text": "path",
+      "start": 64.459,
+      "end": 64.739,
+      "type": "word",
+      "logprob": -1.4305012882687151e-05
+    },
+    {
+      "text": " ",
+      "start": 64.739,
+      "end": 64.78,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "through",
+      "start": 64.78,
+      "end": 64.98,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 64.98,
+      "end": 65.019,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "the",
+      "start": 65.019,
+      "end": 65.099,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 65.099,
+      "end": 65.14,
+      "type": "spacing",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": "security",
+      "start": 65.14,
+      "end": 65.48,
+      "type": "word",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": " ",
+      "start": 65.48,
+      "end": 65.56,
+      "type": "spacing",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": "grid.",
+      "start": 65.56,
+      "end": 65.78,
+      "type": "word",
+      "logprob": -0.000304899337606912
+    },
+    {
+      "text": " ",
+      "start": 65.78,
+      "end": 65.78,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "Flight",
+      "start": 70.26,
+      "end": 70.46,
+      "type": "word",
+      "logprob": -0.00013290952483657748
+    },
+    {
+      "text": " ",
+      "start": 70.46,
+      "end": 70.56,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "path",
+      "start": 70.56,
+      "end": 70.76,
+      "type": "word",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": " ",
+      "start": 70.76,
+      "end": 70.84,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "ready.",
+      "start": 70.84,
+      "end": 71.1,
+      "type": "word",
+      "logprob": -5.568169495973052e-05
+    },
+    {
+      "text": " ",
+      "start": 71.1,
+      "end": 71.1,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "Once",
+      "start": 71.74,
+      "end": 71.98,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 71.98,
+      "end": 72.04,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "we",
+      "start": 72.04,
+      "end": 72.14,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 72.14,
+      "end": 72.18,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "have",
+      "start": 72.18,
+      "end": 72.3,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 72.3,
+      "end": 72.34,
+      "type": "spacing",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": "the",
+      "start": 72.34,
+      "end": 72.4,
+      "type": "word",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": " ",
+      "start": 72.4,
+      "end": 72.46,
+      "type": "spacing",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": "transport,",
+      "start": 72.46,
+      "end": 73.0,
+      "type": "word",
+      "logprob": -2.6771939656100584e-05
+    },
+    {
+      "text": " ",
+      "start": 73.0,
+      "end": 73.0,
+      "type": "spacing",
+      "logprob": -4.577531944960356e-05
+    },
+    {
+      "text": "we",
+      "start": 73.5,
+      "end": 73.6,
+      "type": "word",
+      "logprob": -4.577531944960356e-05
+    },
+    {
+      "text": " ",
+      "start": 73.6,
+      "end": 73.66,
+      "type": "spacing",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": "climb",
+      "start": 73.66,
+      "end": 74.0,
+      "type": "word",
+      "logprob": -4.6491513785440475e-06
+    },
+    {
+      "text": " ",
+      "start": 74.0,
+      "end": 74.04,
+      "type": "spacing",
+      "logprob": -3.576214658096433e-05
+    },
+    {
+      "text": "toward",
+      "start": 74.04,
+      "end": 74.34,
+      "type": "word",
+      "logprob": -3.576214658096433e-05
+    },
+    {
+      "text": " ",
+      "start": 74.34,
+      "end": 74.38,
+      "type": "spacing",
+      "logprob": -5.245071224635467e-05
+    },
+    {
+      "text": "the",
+      "start": 74.38,
+      "end": 74.5,
+      "type": "word",
+      "logprob": -5.245071224635467e-05
+    },
+    {
+      "text": " ",
+      "start": 74.5,
+      "end": 74.54,
+      "type": "spacing",
+      "logprob": -0.47423768043518066
+    },
+    {
+      "text": "Spire",
+      "start": 74.54,
+      "end": 74.92,
+      "type": "word",
+      "logprob": -0.18970293993534143
+    },
+    {
+      "text": " ",
+      "start": 74.92,
+      "end": 75.04,
+      "type": "spacing",
+      "logprob": -0.20142659544944763
+    },
+    {
+      "text": "upper",
+      "start": 75.04,
+      "end": 75.24,
+      "type": "word",
+      "logprob": -0.20142659544944763
+    },
+    {
+      "text": " ",
+      "start": 75.24,
+      "end": 75.26,
+      "type": "spacing",
+      "logprob": -0.0015541153261438012
+    },
+    {
+      "text": "command",
+      "start": 75.26,
+      "end": 75.64,
+      "type": "word",
+      "logprob": -0.0015541153261438012
+    },
+    {
+      "text": " ",
+      "start": 75.64,
+      "end": 75.72,
+      "type": "spacing",
+      "logprob": -3.755022044060752e-05
+    },
+    {
+      "text": "ring.",
+      "start": 75.72,
+      "end": 75.96,
+      "type": "word",
+      "logprob": -0.0036672668473329397
+    },
+    {
+      "text": " ",
+      "start": 75.96,
+      "end": 75.96,
+      "type": "spacing",
+      "logprob": -5.638440416078083e-05
+    },
+    {
+      "text": "Weapons",
+      "start": 80.24,
+      "end": 80.56,
+      "type": "word",
+      "logprob": -0.0021303151020219957
+    },
+    {
+      "text": " ",
+      "start": 80.56,
+      "end": 80.66,
+      "type": "spacing",
+      "logprob": -6.460934673668817e-05
+    },
+    {
+      "text": "live.",
+      "start": 80.66,
+      "end": 81.18,
+      "type": "word",
+      "logprob": -0.0001472466508857906
+    },
+    {
+      "text": " ",
+      "start": 81.18,
+      "end": 81.58,
+      "type": "spacing",
+      "logprob": -0.0007686044555157423
+    },
+    {
+      "text": "Breach",
+      "start": 81.58,
+      "end": 81.88,
+      "type": "word",
+      "logprob": -0.0007686044555157423
+    },
+    {
+      "text": " ",
+      "start": 81.88,
+      "end": 81.92,
+      "type": "spacing",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": "the",
+      "start": 81.92,
+      "end": 82.02,
+      "type": "word",
+      "logprob": -1.4066597032069694e-05
+    },
+    {
+      "text": " ",
+      "start": 82.02,
+      "end": 82.06,
+      "type": "spacing",
+      "logprob": -8.4638240878121e-06
+    },
+    {
+      "text": "flight",
+      "start": 82.06,
+      "end": 82.28,
+      "type": "word",
+      "logprob": -8.4638240878121e-06
+    },
+    {
+      "text": " ",
+      "start": 82.28,
+      "end": 82.36,
+      "type": "spacing",
+      "logprob": -1.1086402082582936e-05
+    },
+    {
+      "text": "deck,",
+      "start": 82.36,
+      "end": 82.58,
+      "type": "word",
+      "logprob": -0.0015331210073782132
+    },
+    {
+      "text": " ",
+      "start": 82.58,
+      "end": 82.72,
+      "type": "spacing",
+      "logprob": -2.2649508537142538e-05
+    },
+    {
+      "text": "seize",
+      "start": 82.72,
+      "end": 83.0,
+      "type": "word",
+      "logprob": -2.2649508537142538e-05
+    },
+    {
+      "text": " ",
+      "start": 83.0,
+      "end": 83.06,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "that",
+      "start": 83.06,
+      "end": 83.2,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 83.2,
+      "end": 83.3,
+      "type": "spacing",
+      "logprob": -1.3828182090946939e-05
+    },
+    {
+      "text": "gunship,",
+      "start": 83.3,
+      "end": 83.72,
+      "type": "word",
+      "logprob": -4.6473837414851005e-05
+    },
+    {
+      "text": " ",
+      "start": 83.72,
+      "end": 83.76,
+      "type": "spacing",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": "and",
+      "start": 83.76,
+      "end": 83.88,
+      "type": "word",
+      "logprob": -2.145764938177308e-06
+    },
+    {
+      "text": " ",
+      "start": 83.88,
+      "end": 83.92,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "take",
+      "start": 83.92,
+      "end": 84.08,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 84.08,
+      "end": 84.14,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "this",
+      "start": 84.14,
+      "end": 84.3,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 84.3,
+      "end": 84.36,
+      "type": "spacing",
+      "logprob": -1.8954096958623268e-05
+    },
+    {
+      "text": "fight",
+      "start": 84.36,
+      "end": 84.54,
+      "type": "word",
+      "logprob": -1.8954096958623268e-05
+    },
+    {
+      "text": " ",
+      "start": 84.54,
+      "end": 84.58,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "upstairs.",
+      "start": 84.58,
+      "end": 85.26,
+      "type": "word",
+      "logprob": -1.5232242529034718e-06
+    },
+    {
+      "text": " ",
+      "start": 85.26,
+      "end": 85.26,
+      "type": "spacing",
+      "logprob": -0.00011514954530866817
+    },
+    {
+      "text": "Axiom",
+      "start": 85.76,
+      "end": 86.12,
+      "type": "word",
+      "logprob": -6.947119672986445e-05
+    },
+    {
+      "text": " ",
+      "start": 86.12,
+      "end": 86.22,
+      "type": "spacing",
+      "logprob": -0.5231519341468811
+    },
+    {
+      "text": "force,",
+      "start": 86.22,
+      "end": 86.48,
+      "type": "word",
+      "logprob": -0.43780133376518887
+    },
+    {
+      "text": " ",
+      "start": 86.48,
+      "end": 86.58,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "move",
+      "start": 86.58,
+      "end": 86.76,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 86.76,
+      "end": 86.88,
+      "type": "spacing",
+      "logprob": -2.0265558760002023e-06
+    },
+    {
+      "text": "out.",
+      "start": 86.88,
+      "end": 87.16,
+      "type": "word",
+      "logprob": -0.002213173311531591
+    }
+  ],
+  "transcription_id": "7yX4HfUKab6cBv0Kttb9",
+  "audio_duration_secs": 90.0,
+  "request_id": null,
+  "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
+  "audio_sha256": "f22fd1481b5705bb61856d8c7de1eb5d77e36c11ace8ca7c241632d7bc53dbec",
+  "model": "scribe_v2"
+}

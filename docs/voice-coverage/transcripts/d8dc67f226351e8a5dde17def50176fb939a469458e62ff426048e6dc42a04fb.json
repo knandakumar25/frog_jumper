@@ -1,0 +1,258 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data Slate 01, shuch, quantum mainframe architecture. The Cyber Nexus processes citywide biometric tracking and combat drone subroutines",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.08,
+      "end": 0.34,
+      "type": "word",
+      "logprob": -0.03175998479127884
+    },
+    {
+      "text": " ",
+      "start": 0.34,
+      "end": 0.42,
+      "type": "spacing",
+      "logprob": -0.2076677829027176
+    },
+    {
+      "text": "Slate",
+      "start": 0.42,
+      "end": 0.7,
+      "type": "word",
+      "logprob": -0.2076677829027176
+    },
+    {
+      "text": " ",
+      "start": 0.7,
+      "end": 0.78,
+      "type": "spacing",
+      "logprob": -0.4799322485923767
+    },
+    {
+      "text": "01,",
+      "start": 0.78,
+      "end": 1.38,
+      "type": "word",
+      "logprob": -0.07171506252052495
+    },
+    {
+      "text": " ",
+      "start": 1.38,
+      "end": 1.7,
+      "type": "spacing",
+      "logprob": -0.37345755100250244
+    },
+    {
+      "text": "shuch,",
+      "start": 1.7,
+      "end": 2.06,
+      "type": "word",
+      "logprob": -0.37741120159626007
+    },
+    {
+      "text": " ",
+      "start": 2.06,
+      "end": 2.52,
+      "type": "spacing",
+      "logprob": -0.38689684867858887
+    },
+    {
+      "text": "quantum",
+      "start": 2.52,
+      "end": 2.86,
+      "type": "word",
+      "logprob": -0.38689684867858887
+    },
+    {
+      "text": " ",
+      "start": 2.86,
+      "end": 2.94,
+      "type": "spacing",
+      "logprob": -2.407998726994265e-05
+    },
+    {
+      "text": "mainframe",
+      "start": 2.94,
+      "end": 3.48,
+      "type": "word",
+      "logprob": -2.407998726994265e-05
+    },
+    {
+      "text": " ",
+      "start": 3.48,
+      "end": 3.66,
+      "type": "spacing",
+      "logprob": -5.6622808187967166e-05
+    },
+    {
+      "text": "architecture.",
+      "start": 3.66,
+      "end": 4.3,
+      "type": "word",
+      "logprob": -0.0001513305032858625
+    },
+    {
+      "text": " ",
+      "start": 4.3,
+      "end": 4.32,
+      "type": "spacing",
+      "logprob": -1.9073304429184645e-05
+    },
+    {
+      "text": "The",
+      "start": 5.24,
+      "end": 5.34,
+      "type": "word",
+      "logprob": -1.9073304429184645e-05
+    },
+    {
+      "text": " ",
+      "start": 5.34,
+      "end": 5.38,
+      "type": "spacing",
+      "logprob": -0.523160457611084
+    },
+    {
+      "text": "Cyber",
+      "start": 5.38,
+      "end": 5.68,
+      "type": "word",
+      "logprob": -0.523160457611084
+    },
+    {
+      "text": " ",
+      "start": 5.68,
+      "end": 5.74,
+      "type": "spacing",
+      "logprob": -0.003910158760845661
+    },
+    {
+      "text": "Nexus",
+      "start": 5.74,
+      "end": 6.04,
+      "type": "word",
+      "logprob": -0.003910158760845661
+    },
+    {
+      "text": " ",
+      "start": 6.04,
+      "end": 6.12,
+      "type": "spacing",
+      "logprob": -0.0001227780303452164
+    },
+    {
+      "text": "processes",
+      "start": 6.12,
+      "end": 6.72,
+      "type": "word",
+      "logprob": -0.0001227780303452164
+    },
+    {
+      "text": " ",
+      "start": 6.72,
+      "end": 7.0,
+      "type": "spacing",
+      "logprob": -1.2755313036905136e-05
+    },
+    {
+      "text": "citywide",
+      "start": 7.0,
+      "end": 7.62,
+      "type": "word",
+      "logprob": -0.027571247850119107
+    },
+    {
+      "text": " ",
+      "start": 7.62,
+      "end": 7.74,
+      "type": "spacing",
+      "logprob": -0.00010072677832795307
+    },
+    {
+      "text": "biometric",
+      "start": 7.74,
+      "end": 8.38,
+      "type": "word",
+      "logprob": -0.00010072677832795307
+    },
+    {
+      "text": " ",
+      "start": 8.38,
+      "end": 8.46,
+      "type": "spacing",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": "tracking",
+      "start": 8.46,
+      "end": 8.84,
+      "type": "word",
+      "logprob": -3.814689989667386e-06
+    },
+    {
+      "text": " ",
+      "start": 8.84,
+      "end": 9.26,
+      "type": "spacing",
+      "logprob": -0.001434369827620685
+    },
+    {
+      "text": "and",
+      "start": 9.26,
+      "end": 9.34,
+      "type": "word",
+      "logprob": -0.001434369827620685
+    },
+    {
+      "text": " ",
+      "start": 9.34,
+      "end": 9.46,
+      "type": "spacing",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": "combat",
+      "start": 9.46,
+      "end": 9.82,
+      "type": "word",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": " ",
+      "start": 9.82,
+      "end": 9.92,
+      "type": "spacing",
+      "logprob": -9.417090768693015e-05
+    },
+    {
+      "text": "drone",
+      "start": 9.92,
+      "end": 10.22,
+      "type": "word",
+      "logprob": -9.417090768693015e-05
+    },
+    {
+      "text": " ",
+      "start": 10.22,
+      "end": 10.36,
+      "type": "spacing",
+      "logprob": -2.47952248173533e-05
+    },
+    {
+      "text": "subroutines",
+      "start": 10.36,
+      "end": 11.18,
+      "type": "word",
+      "logprob": -0.00048133929927148114
+    }
+  ],
+  "transcription_id": "dTaKvgvXVYGGbJKrFkPQ",
+  "audio_duration_secs": 11.5635625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m10.fragment1.mp3",
+  "audio_sha256": "d8dc67f226351e8a5dde17def50176fb939a469458e62ff426048e6dc42a04fb",
+  "model": "scribe_v2"
+}

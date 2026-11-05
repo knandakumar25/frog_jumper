@@ -1,0 +1,160 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Citadel Summit reached. Engage the Void Commander. Liberate the Machine Empire",
+  "words": [
+    {
+      "text": "Citadel",
+      "start": 0.1,
+      "end": 0.5,
+      "type": "word",
+      "logprob": -0.0005224942287895828
+    },
+    {
+      "text": " ",
+      "start": 0.5,
+      "end": 0.62,
+      "type": "spacing",
+      "logprob": -0.5339558124542236
+    },
+    {
+      "text": "Summit",
+      "start": 0.62,
+      "end": 0.96,
+      "type": "word",
+      "logprob": -0.5339558124542236
+    },
+    {
+      "text": " ",
+      "start": 0.96,
+      "end": 1.1,
+      "type": "spacing",
+      "logprob": -0.00119304982945323
+    },
+    {
+      "text": "reached.",
+      "start": 1.1,
+      "end": 1.5,
+      "type": "word",
+      "logprob": -0.005971388483885676
+    },
+    {
+      "text": " ",
+      "start": 1.5,
+      "end": 1.96,
+      "type": "spacing",
+      "logprob": -4.017272294731811e-05
+    },
+    {
+      "text": "Engage",
+      "start": 1.96,
+      "end": 2.54,
+      "type": "word",
+      "logprob": -4.017272294731811e-05
+    },
+    {
+      "text": " ",
+      "start": 2.54,
+      "end": 2.58,
+      "type": "spacing",
+      "logprob": -9.679325739853084e-05
+    },
+    {
+      "text": "the",
+      "start": 2.58,
+      "end": 2.68,
+      "type": "word",
+      "logprob": -9.679325739853084e-05
+    },
+    {
+      "text": " ",
+      "start": 2.68,
+      "end": 2.7,
+      "type": "spacing",
+      "logprob": -0.0336628295481205
+    },
+    {
+      "text": "Void",
+      "start": 2.7,
+      "end": 2.96,
+      "type": "word",
+      "logprob": -0.0336628295481205
+    },
+    {
+      "text": " ",
+      "start": 2.96,
+      "end": 3.04,
+      "type": "spacing",
+      "logprob": -0.004140139557421207
+    },
+    {
+      "text": "Commander.",
+      "start": 3.04,
+      "end": 3.54,
+      "type": "word",
+      "logprob": -0.003819196653785184
+    },
+    {
+      "text": " ",
+      "start": 3.54,
+      "end": 3.54,
+      "type": "spacing",
+      "logprob": -0.0003738896339200437
+    },
+    {
+      "text": "Liberate",
+      "start": 4.18,
+      "end": 4.64,
+      "type": "word",
+      "logprob": -0.00023372572468094432
+    },
+    {
+      "text": " ",
+      "start": 4.64,
+      "end": 4.66,
+      "type": "spacing",
+      "logprob": -2.753696753643453e-05
+    },
+    {
+      "text": "the",
+      "start": 4.66,
+      "end": 4.74,
+      "type": "word",
+      "logprob": -2.753696753643453e-05
+    },
+    {
+      "text": " ",
+      "start": 4.74,
+      "end": 4.78,
+      "type": "spacing",
+      "logprob": -0.003605414880439639
+    },
+    {
+      "text": "Machine",
+      "start": 4.78,
+      "end": 5.22,
+      "type": "word",
+      "logprob": -0.003605414880439639
+    },
+    {
+      "text": " ",
+      "start": 5.22,
+      "end": 5.34,
+      "type": "spacing",
+      "logprob": -7.581423415103927e-05
+    },
+    {
+      "text": "Empire",
+      "start": 5.34,
+      "end": 5.88,
+      "type": "word",
+      "logprob": -7.581423415103927e-05
+    }
+  ],
+  "transcription_id": "lLZEnJ7i1OVRn8otgDi0",
+  "audio_duration_secs": 6.2229375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m12.intro.mp3",
+  "audio_sha256": "95bdf3f8e2f964a35f01b7d3cb6da3f5dd35ded3f2fd465f1d09ca8bd4840563",
+  "model": "scribe_v2"
+}

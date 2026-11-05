@@ -1,0 +1,272 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Data slate 03: emergency protocol. In event of core breach, planetary sky shields will collapse across all municipal sectors",
+  "words": [
+    {
+      "text": "Data",
+      "start": 0.1,
+      "end": 0.38,
+      "type": "word",
+      "logprob": -0.0007515705074183643
+    },
+    {
+      "text": " ",
+      "start": 0.38,
+      "end": 0.48,
+      "type": "spacing",
+      "logprob": -0.5766505002975464
+    },
+    {
+      "text": "slate",
+      "start": 0.48,
+      "end": 0.78,
+      "type": "word",
+      "logprob": -0.5766505002975464
+    },
+    {
+      "text": " ",
+      "start": 0.78,
+      "end": 0.86,
+      "type": "spacing",
+      "logprob": -0.07993776351213455
+    },
+    {
+      "text": "03:",
+      "start": 1.06,
+      "end": 1.5,
+      "type": "word",
+      "logprob": -0.19862385554415596
+    },
+    {
+      "text": " ",
+      "start": 1.5,
+      "end": 1.5,
+      "type": "spacing",
+      "logprob": -0.10020938515663147
+    },
+    {
+      "text": "emergency",
+      "start": 2.88,
+      "end": 3.4,
+      "type": "word",
+      "logprob": -0.10020938515663147
+    },
+    {
+      "text": " ",
+      "start": 3.4,
+      "end": 3.48,
+      "type": "spacing",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": "protocol.",
+      "start": 3.48,
+      "end": 4.059,
+      "type": "word",
+      "logprob": -0.00039287173583741404
+    },
+    {
+      "text": " ",
+      "start": 4.059,
+      "end": 4.059,
+      "type": "spacing",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": "In",
+      "start": 4.84,
+      "end": 4.92,
+      "type": "word",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": " ",
+      "start": 4.92,
+      "end": 4.94,
+      "type": "spacing",
+      "logprob": -8.702239938429557e-06
+    },
+    {
+      "text": "event",
+      "start": 4.94,
+      "end": 5.26,
+      "type": "word",
+      "logprob": -8.702239938429557e-06
+    },
+    {
+      "text": " ",
+      "start": 5.26,
+      "end": 5.32,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "of",
+      "start": 5.32,
+      "end": 5.44,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 5.44,
+      "end": 5.5,
+      "type": "spacing",
+      "logprob": -0.00013505500101018697
+    },
+    {
+      "text": "core",
+      "start": 5.5,
+      "end": 5.7,
+      "type": "word",
+      "logprob": -0.00013505500101018697
+    },
+    {
+      "text": " ",
+      "start": 5.7,
+      "end": 5.8,
+      "type": "spacing",
+      "logprob": -5.483612312673358e-06
+    },
+    {
+      "text": "breach,",
+      "start": 5.8,
+      "end": 6.18,
+      "type": "word",
+      "logprob": -1.7063410138819434e-05
+    },
+    {
+      "text": " ",
+      "start": 6.18,
+      "end": 6.62,
+      "type": "spacing",
+      "logprob": -0.0005576247931458056
+    },
+    {
+      "text": "planetary",
+      "start": 6.62,
+      "end": 7.1,
+      "type": "word",
+      "logprob": -0.0005576247931458056
+    },
+    {
+      "text": " ",
+      "start": 7.1,
+      "end": 7.22,
+      "type": "spacing",
+      "logprob": -0.001110890181735158
+    },
+    {
+      "text": "sky",
+      "start": 7.22,
+      "end": 7.46,
+      "type": "word",
+      "logprob": -0.001110890181735158
+    },
+    {
+      "text": " ",
+      "start": 7.46,
+      "end": 7.56,
+      "type": "spacing",
+      "logprob": -0.0004471732536330819
+    },
+    {
+      "text": "shields",
+      "start": 7.56,
+      "end": 7.94,
+      "type": "word",
+      "logprob": -0.0004471732536330819
+    },
+    {
+      "text": " ",
+      "start": 7.94,
+      "end": 8.24,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "will",
+      "start": 8.24,
+      "end": 8.36,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 8.36,
+      "end": 8.4,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "collapse",
+      "start": 8.4,
+      "end": 8.82,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 8.82,
+      "end": 8.86,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "across",
+      "start": 8.86,
+      "end": 9.3,
+      "type": "word",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": " ",
+      "start": 9.3,
+      "end": 9.4,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "all",
+      "start": 9.4,
+      "end": 9.58,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 9.58,
+      "end": 9.62,
+      "type": "spacing",
+      "logprob": -7.521823135903105e-05
+    },
+    {
+      "text": "municipal",
+      "start": 9.62,
+      "end": 10.1,
+      "type": "word",
+      "logprob": -7.521823135903105e-05
+    },
+    {
+      "text": " ",
+      "start": 10.1,
+      "end": 10.22,
+      "type": "spacing",
+      "logprob": -1.549708758830093e-05
+    },
+    {
+      "text": "sectors",
+      "start": 10.22,
+      "end": 10.68,
+      "type": "word",
+      "logprob": -1.549708758830093e-05
+    }
+  ],
+  "transcription_id": "5RwC90Sz0LR3qjNLUv81",
+  "audio_duration_secs": 11.0526875,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m07.fragment3.mp3",
+  "audio_sha256": "1e5988e2cd99c07d38b6746788d3477c8b64af154c78ef449425a699cc27e7b2",
+  "model": "scribe_v2"
+}

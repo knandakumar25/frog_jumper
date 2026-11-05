@@ -1,0 +1,328 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Greetings, operative. I am Axiom Seven. Earth, 2157. The Zelthara Collective invaded, declared humanity obsolete, and carved our world into occupied containment sectors",
+  "words": [
+    {
+      "text": "Greetings,",
+      "start": 0.1,
+      "end": 0.54,
+      "type": "word",
+      "logprob": -0.0026014367176685482
+    },
+    {
+      "text": " ",
+      "start": 0.54,
+      "end": 0.6,
+      "type": "spacing",
+      "logprob": -0.01123141311109066
+    },
+    {
+      "text": "operative.",
+      "start": 0.6,
+      "end": 1.04,
+      "type": "word",
+      "logprob": -0.010114482411154313
+    },
+    {
+      "text": " ",
+      "start": 1.04,
+      "end": 1.72,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "I",
+      "start": 1.72,
+      "end": 2.0,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 2.0,
+      "end": 2.06,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "am",
+      "start": 2.06,
+      "end": 2.2,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 2.2,
+      "end": 2.26,
+      "type": "spacing",
+      "logprob": -0.0029098333325237036
+    },
+    {
+      "text": "Axiom",
+      "start": 2.26,
+      "end": 2.78,
+      "type": "word",
+      "logprob": -0.0017506206593679962
+    },
+    {
+      "text": " ",
+      "start": 2.78,
+      "end": 2.88,
+      "type": "spacing",
+      "logprob": -0.17902690172195435
+    },
+    {
+      "text": "Seven.",
+      "start": 2.88,
+      "end": 3.34,
+      "type": "word",
+      "logprob": -0.14944229154692343
+    },
+    {
+      "text": " ",
+      "start": 3.34,
+      "end": 3.34,
+      "type": "spacing",
+      "logprob": -5.8412379075889476e-06
+    },
+    {
+      "text": "Earth,",
+      "start": 3.98,
+      "end": 4.24,
+      "type": "word",
+      "logprob": -0.033977784202003626
+    },
+    {
+      "text": " ",
+      "start": 4.24,
+      "end": 4.24,
+      "type": "spacing",
+      "logprob": -0.0001012035645544529
+    },
+    {
+      "text": "2157.",
+      "start": 4.72,
+      "end": 5.82,
+      "type": "word",
+      "logprob": -0.0009209420216393482
+    },
+    {
+      "text": " ",
+      "start": 5.82,
+      "end": 5.82,
+      "type": "spacing",
+      "logprob": -1.4543427823809907e-05
+    },
+    {
+      "text": "The",
+      "start": 6.5,
+      "end": 6.58,
+      "type": "word",
+      "logprob": -1.4543427823809907e-05
+    },
+    {
+      "text": " ",
+      "start": 6.58,
+      "end": 6.64,
+      "type": "spacing",
+      "logprob": -0.040020089596509933
+    },
+    {
+      "text": "Zelthara",
+      "start": 6.64,
+      "end": 7.12,
+      "type": "word",
+      "logprob": -0.015260317381034838
+    },
+    {
+      "text": " ",
+      "start": 7.12,
+      "end": 7.2,
+      "type": "spacing",
+      "logprob": -0.002485997276380658
+    },
+    {
+      "text": "Collective",
+      "start": 7.2,
+      "end": 7.62,
+      "type": "word",
+      "logprob": -0.002485997276380658
+    },
+    {
+      "text": " ",
+      "start": 7.62,
+      "end": 7.68,
+      "type": "spacing",
+      "logprob": -4.660974445869215e-05
+    },
+    {
+      "text": "invaded,",
+      "start": 7.68,
+      "end": 8.18,
+      "type": "word",
+      "logprob": -4.500048407862778e-05
+    },
+    {
+      "text": " ",
+      "start": 8.18,
+      "end": 8.18,
+      "type": "spacing",
+      "logprob": -9.536697689327411e-06
+    },
+    {
+      "text": "declared",
+      "start": 8.68,
+      "end": 9.1,
+      "type": "word",
+      "logprob": -9.536697689327411e-06
+    },
+    {
+      "text": " ",
+      "start": 9.1,
+      "end": 9.18,
+      "type": "spacing",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": "humanity",
+      "start": 9.18,
+      "end": 9.7,
+      "type": "word",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": " ",
+      "start": 9.7,
+      "end": 9.9,
+      "type": "spacing",
+      "logprob": -6.437280717364047e-06
+    },
+    {
+      "text": "obsolete,",
+      "start": 9.9,
+      "end": 10.44,
+      "type": "word",
+      "logprob": -0.00010714931623725634
+    },
+    {
+      "text": " ",
+      "start": 10.44,
+      "end": 10.9,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "and",
+      "start": 10.9,
+      "end": 10.98,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 10.98,
+      "end": 11.1,
+      "type": "spacing",
+      "logprob": -6.198863957251888e-06
+    },
+    {
+      "text": "carved",
+      "start": 11.1,
+      "end": 11.46,
+      "type": "word",
+      "logprob": -6.198863957251888e-06
+    },
+    {
+      "text": " ",
+      "start": 11.46,
+      "end": 11.52,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "our",
+      "start": 11.52,
+      "end": 11.62,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 11.62,
+      "end": 11.72,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "world",
+      "start": 11.72,
+      "end": 12.1,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 12.1,
+      "end": 12.48,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "into",
+      "start": 12.48,
+      "end": 12.68,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 12.68,
+      "end": 12.74,
+      "type": "spacing",
+      "logprob": -5.638440416078083e-05
+    },
+    {
+      "text": "occupied",
+      "start": 12.74,
+      "end": 13.28,
+      "type": "word",
+      "logprob": -5.638440416078083e-05
+    },
+    {
+      "text": " ",
+      "start": 13.28,
+      "end": 13.38,
+      "type": "spacing",
+      "logprob": -2.13382354559144e-05
+    },
+    {
+      "text": "containment",
+      "start": 13.38,
+      "end": 13.92,
+      "type": "word",
+      "logprob": -2.13382354559144e-05
+    },
+    {
+      "text": " ",
+      "start": 13.92,
+      "end": 14.06,
+      "type": "spacing",
+      "logprob": -9.417489309271332e-06
+    },
+    {
+      "text": "sectors",
+      "start": 14.06,
+      "end": 14.58,
+      "type": "word",
+      "logprob": -9.417489309271332e-06
+    }
+  ],
+  "transcription_id": "edfulgxcY2YMOQuGpgf2",
+  "audio_duration_secs": 14.90725,
+  "request_id": null,
+  "audio_path": "assets/speech/AXIOM-7/english/AXIOM-7-1.mp3",
+  "audio_sha256": "53b239e363c21f94da6ae3ea18450820a1d5b0b9ea062861031ade42dae22ade",
+  "model": "scribe_v2"
+}

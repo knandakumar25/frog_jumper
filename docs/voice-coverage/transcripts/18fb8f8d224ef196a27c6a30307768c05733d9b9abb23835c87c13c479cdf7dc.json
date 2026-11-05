@@ -1,0 +1,216 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Apex Titan has joined. Practice tectonic slam on the safe rubble before the defended breach",
+  "words": [
+    {
+      "text": "Apex",
+      "start": 0.1,
+      "end": 0.46,
+      "type": "word",
+      "logprob": -0.0015699454816058278
+    },
+    {
+      "text": " ",
+      "start": 0.46,
+      "end": 0.54,
+      "type": "spacing",
+      "logprob": -0.001851393491961062
+    },
+    {
+      "text": "Titan",
+      "start": 0.54,
+      "end": 0.96,
+      "type": "word",
+      "logprob": -0.001851393491961062
+    },
+    {
+      "text": " ",
+      "start": 0.96,
+      "end": 1.0,
+      "type": "spacing",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": "has",
+      "start": 1.0,
+      "end": 1.16,
+      "type": "word",
+      "logprob": -2.622600959512056e-06
+    },
+    {
+      "text": " ",
+      "start": 1.16,
+      "end": 1.22,
+      "type": "spacing",
+      "logprob": -4.768360213347478e-06
+    },
+    {
+      "text": "joined.",
+      "start": 1.22,
+      "end": 1.58,
+      "type": "word",
+      "logprob": -0.0007286230004735574
+    },
+    {
+      "text": " ",
+      "start": 1.58,
+      "end": 1.58,
+      "type": "spacing",
+      "logprob": -7.271502545336261e-05
+    },
+    {
+      "text": "Practice",
+      "start": 2.14,
+      "end": 2.52,
+      "type": "word",
+      "logprob": -7.271502545336261e-05
+    },
+    {
+      "text": " ",
+      "start": 2.52,
+      "end": 2.62,
+      "type": "spacing",
+      "logprob": -0.05514237657189369
+    },
+    {
+      "text": "tectonic",
+      "start": 2.62,
+      "end": 3.04,
+      "type": "word",
+      "logprob": -0.05514237657189369
+    },
+    {
+      "text": " ",
+      "start": 3.04,
+      "end": 3.14,
+      "type": "spacing",
+      "logprob": -0.00014053787162993103
+    },
+    {
+      "text": "slam",
+      "start": 3.14,
+      "end": 3.5,
+      "type": "word",
+      "logprob": -0.00014053787162993103
+    },
+    {
+      "text": " ",
+      "start": 3.5,
+      "end": 3.68,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "on",
+      "start": 3.68,
+      "end": 3.74,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 3.74,
+      "end": 3.78,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "the",
+      "start": 3.78,
+      "end": 3.88,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 3.88,
+      "end": 3.94,
+      "type": "spacing",
+      "logprob": -1.811964830267243e-05
+    },
+    {
+      "text": "safe",
+      "start": 3.94,
+      "end": 4.16,
+      "type": "word",
+      "logprob": -1.811964830267243e-05
+    },
+    {
+      "text": " ",
+      "start": 4.16,
+      "end": 4.26,
+      "type": "spacing",
+      "logprob": -0.0007652691565454006
+    },
+    {
+      "text": "rubble",
+      "start": 4.26,
+      "end": 4.54,
+      "type": "word",
+      "logprob": -0.0007652691565454006
+    },
+    {
+      "text": " ",
+      "start": 4.54,
+      "end": 4.84,
+      "type": "spacing",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": "before",
+      "start": 4.84,
+      "end": 5.18,
+      "type": "word",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": " ",
+      "start": 5.18,
+      "end": 5.22,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "the",
+      "start": 5.22,
+      "end": 5.28,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 5.28,
+      "end": 5.32,
+      "type": "spacing",
+      "logprob": -0.0013305629836395383
+    },
+    {
+      "text": "defended",
+      "start": 5.32,
+      "end": 5.74,
+      "type": "word",
+      "logprob": -0.0013305629836395383
+    },
+    {
+      "text": " ",
+      "start": 5.74,
+      "end": 5.82,
+      "type": "spacing",
+      "logprob": -0.0001932195882545784
+    },
+    {
+      "text": "breach",
+      "start": 5.82,
+      "end": 6.22,
+      "type": "word",
+      "logprob": -0.0001932195882545784
+    }
+  ],
+  "transcription_id": "fckKRmtRFIqI5NDOBwpy",
+  "audio_duration_secs": 6.5480625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m02.event.339fc4fa5aab.mp3",
+  "audio_sha256": "18fb8f8d224ef196a27c6a30307768c05733d9b9abb23835c87c13c479cdf7dc",
+  "model": "scribe_v2"
+}

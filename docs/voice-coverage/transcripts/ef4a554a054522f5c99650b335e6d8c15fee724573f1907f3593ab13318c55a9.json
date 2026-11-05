@@ -1,0 +1,160 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Beacon neutralized. The dojo gate is unsealed. Take the data blade",
+  "words": [
+    {
+      "text": "Beacon",
+      "start": 0.1,
+      "end": 0.4,
+      "type": "word",
+      "logprob": -0.0018784035928547382
+    },
+    {
+      "text": " ",
+      "start": 0.4,
+      "end": 0.5,
+      "type": "spacing",
+      "logprob": -0.0023272354155778885
+    },
+    {
+      "text": "neutralized.",
+      "start": 0.5,
+      "end": 1.3,
+      "type": "word",
+      "logprob": -0.0021880776572894924
+    },
+    {
+      "text": " ",
+      "start": 1.3,
+      "end": 1.7,
+      "type": "spacing",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": "The",
+      "start": 1.7,
+      "end": 1.8,
+      "type": "word",
+      "logprob": -9.775113539944869e-06
+    },
+    {
+      "text": " ",
+      "start": 1.8,
+      "end": 1.84,
+      "type": "spacing",
+      "logprob": -0.02361202798783779
+    },
+    {
+      "text": "dojo",
+      "start": 1.84,
+      "end": 2.16,
+      "type": "word",
+      "logprob": -0.011813702933977765
+    },
+    {
+      "text": " ",
+      "start": 2.16,
+      "end": 2.28,
+      "type": "spacing",
+      "logprob": -8.535020606359467e-05
+    },
+    {
+      "text": "gate",
+      "start": 2.28,
+      "end": 2.5,
+      "type": "word",
+      "logprob": -8.535020606359467e-05
+    },
+    {
+      "text": " ",
+      "start": 2.5,
+      "end": 2.8,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "is",
+      "start": 2.8,
+      "end": 2.9,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 2.9,
+      "end": 2.96,
+      "type": "spacing",
+      "logprob": -1.3828182090946939e-05
+    },
+    {
+      "text": "unsealed.",
+      "start": 2.96,
+      "end": 3.62,
+      "type": "word",
+      "logprob": -9.733492475384587e-05
+    },
+    {
+      "text": " ",
+      "start": 3.62,
+      "end": 4.12,
+      "type": "spacing",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": "Take",
+      "start": 4.12,
+      "end": 4.34,
+      "type": "word",
+      "logprob": -3.2186455882765586e-06
+    },
+    {
+      "text": " ",
+      "start": 4.34,
+      "end": 4.38,
+      "type": "spacing",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": "the",
+      "start": 4.38,
+      "end": 4.46,
+      "type": "word",
+      "logprob": -4.172316494077677e-06
+    },
+    {
+      "text": " ",
+      "start": 4.46,
+      "end": 4.5,
+      "type": "spacing",
+      "logprob": -0.004741496406495571
+    },
+    {
+      "text": "data",
+      "start": 4.5,
+      "end": 4.74,
+      "type": "word",
+      "logprob": -0.004741496406495571
+    },
+    {
+      "text": " ",
+      "start": 4.74,
+      "end": 4.82,
+      "type": "spacing",
+      "logprob": -0.00011157367407577112
+    },
+    {
+      "text": "blade",
+      "start": 4.82,
+      "end": 5.18,
+      "type": "word",
+      "logprob": -0.00011157367407577112
+    }
+  ],
+  "transcription_id": "e3ow9DTgKZqo8IrC82lA",
+  "audio_duration_secs": 5.526375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m01.event.2be03f9af630.mp3",
+  "audio_sha256": "ef4a554a054522f5c99650b335e6d8c15fee724573f1907f3593ab13318c55a9",
+  "model": "scribe_v2"
+}

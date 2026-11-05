@@ -1,0 +1,164 @@
+[
+  {
+    "cue": 1,
+    "request_sha256": "4595e32b70486acf9cb236df8b6a888e11a7238db90ec84d89e96e0fb68bc817",
+    "audio_sha256": "1a290d95207ca613518310031b1f5a1cea22c423f96ac9cf9441479b461a592e",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "Descent telemetry confirmed. We are four hundred meters beneath Downtown Core. The registry logs terminate at a subterranean facility designated Cyber-Grave.",
+    "text_sha256": "22a94bf8becfe7d9ae5512dd4142f65746e78d826b4e1fd4635d56cd2dc481a6",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 2,
+    "request_sha256": "7af0fec9fb4829d4d97480761ef7ffe254b04a3f7de11093d08d7ef9cc1d8c70",
+    "audio_sha256": "89da0d69c28dc25ae269a7e59df06a75c1a0ed42dad6676a8dc2a0d7f1b645f8",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "A grave? No. They do not bury the dead here. They process the living into machine components. Look at the conduits along the shaft.",
+    "text_sha256": "726caccd1d60cdf605f26af63aea53d4935489f90e91f051385e312f8c58b28c",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 3,
+    "request_sha256": "98973df79056332ef8b956c2640564601846b0ffb371e3765057793a032dc31f",
+    "audio_sha256": "eb563915e033e289137029e845177081c7f8075bc212c5c68db5d4b2efd68292",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "The resonance down here is sickening... it’s not mechanical hum. It’s thousands of bio-signals trapped in forced synchronization. A dissonance of stolen lives.",
+    "text_sha256": "84aa72a96c50a2ef2c2828d563c9ec906ae2f27c3f153f3b339f32370c47a137",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 4,
+    "request_sha256": "6378b71825809eccd15be73809ad0b500debdffc7612df1e595b4ddf8b0eefb2",
+    "audio_sha256": "4714768d01e148a18e0d5d955381169d05739f2829ae5504d2308d5b5ab3f6f9",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "They told our people the relocated citizens were sent to agricultural preserves. Cages. They put them in pressurized stasis pods. Stagnant water... drowning without an ocean.",
+    "text_sha256": "640ddcea7b7b90b24e1f98899c32aae11648490df79ab503f81bfd4405b76dd5",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 5,
+    "request_sha256": "d95dd4b9e374d70f2007bfa07fa534a90e142278a55967bfc9f348bc3ac44204",
+    "audio_sha256": "c118559d0ae010e7514d5d7b043908153c7190bec3c358468bb6e2ffc801d05f",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "The foundry uses geothermal siphon reactors. The pressure in those pipes could blow half the district above if the coolant fails. Heavy plating, blast doors... they knew someone would come to tear it down.",
+    "text_sha256": "76439481b540fc54a970219292ea93cf318f4d8b07d52919a9cc6d9db180cf06",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 6,
+    "request_sha256": "de0dc5e904d6d1408ab7d69be1c2a628751dc9ed0b093a7eb82f7b549d15cbf7",
+    "audio_sha256": "29bdbe10753e807ba9cafee88534d50e68897d7e46fccc86ebd803e6c032a734",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "Secondary security grid is active. High-energy plasma conduits and chemical vapor sluices. I've marked the access shafts. We drop through the ventilation before the blast doors seal.",
+    "text_sha256": "1bd7ec9cb4f0d9f25a4a177b10221c45e87e2d6724fd6eeed978fefd2939b1f6",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 7,
+    "request_sha256": "7fcf30422bfecacbc5094a9cfc58e71815d7ce12da8284c1a75bed973532f460",
+    "audio_sha256": "ddb80273d046fcd737ee1fb1d2842db5f38fbe821dbee363ab627506cab05222",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "I'm locking our transponder signals to the orbital blind spot. Once you breach the inner vault, you will have no topside extraction. Every operative must come back together.",
+    "text_sha256": "ea01f16dd7532accade6bde9e14be4ebf5072674c6d14dd9abbe82946aa91c08",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 8,
+    "request_sha256": "3dd3ec70218651c88289957e4277afd65a2cb1adb81f0a9276ea237fdc24c8bd",
+    "audio_sha256": "a5027f52b528ef40cdf2ce35e5921ed39916d030e973af5055c954ff60c9f6e9",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "Every pod will open. Not one name left behind in this dark. Shogun, give the order.",
+    "text_sha256": "81f0ee54a04453f42ee1be774071c1b589a6e023634767e935b677072d8f8a39",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  },
+  {
+    "cue": 9,
+    "request_sha256": "5c30c1a44fff126817aa5f869c669e7aaf270ead641879bea124af09955d2c24",
+    "audio_sha256": "64cf7044d972e68575f5172e4352fed42c707e0fc7dbc5a72d453c4bb8720331",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 0.94,
+      "use_speaker_boost": true
+    },
+    "source": "ElevenLabs HTTPS TTS; exact unmodified MP3 cache",
+    "text": "We breach the perimeter, sever the conduits, and evacuate the captives. Axiom Force—engage!",
+    "text_sha256": "e4bc660697fe13e94a64a23469d83c6f602593f9be5af76a15c3efd89dbe99ec",
+    "recovery": "Exact source and request hashes checked against existing generation cache"
+  }
+]

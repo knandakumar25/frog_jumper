@@ -1,0 +1,118 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Crossing secured. Updating the mission: bring them home",
+  "words": [
+    {
+      "text": "Crossing",
+      "start": 0.1,
+      "end": 0.42,
+      "type": "word",
+      "logprob": -0.002483737887814641
+    },
+    {
+      "text": " ",
+      "start": 0.42,
+      "end": 0.52,
+      "type": "spacing",
+      "logprob": -2.95634672511369e-05
+    },
+    {
+      "text": "secured.",
+      "start": 0.52,
+      "end": 1.04,
+      "type": "word",
+      "logprob": -0.00013208307427703403
+    },
+    {
+      "text": " ",
+      "start": 1.04,
+      "end": 1.04,
+      "type": "spacing",
+      "logprob": -0.0012571059633046389
+    },
+    {
+      "text": "Updating",
+      "start": 1.62,
+      "end": 2.08,
+      "type": "word",
+      "logprob": -0.0012571059633046389
+    },
+    {
+      "text": " ",
+      "start": 2.08,
+      "end": 2.12,
+      "type": "spacing",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": "the",
+      "start": 2.12,
+      "end": 2.18,
+      "type": "word",
+      "logprob": -1.6689286894688848e-06
+    },
+    {
+      "text": " ",
+      "start": 2.18,
+      "end": 2.22,
+      "type": "spacing",
+      "logprob": -8.344646857949556e-07
+    },
+    {
+      "text": "mission:",
+      "start": 2.22,
+      "end": 2.52,
+      "type": "word",
+      "logprob": -0.006632047705053878
+    },
+    {
+      "text": " ",
+      "start": 2.52,
+      "end": 2.54,
+      "type": "spacing",
+      "logprob": -0.0788969099521637
+    },
+    {
+      "text": "bring",
+      "start": 3.12,
+      "end": 3.28,
+      "type": "word",
+      "logprob": -0.0788969099521637
+    },
+    {
+      "text": " ",
+      "start": 3.28,
+      "end": 3.32,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "them",
+      "start": 3.32,
+      "end": 3.44,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 3.44,
+      "end": 3.5,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "home",
+      "start": 3.5,
+      "end": 3.82,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    }
+  ],
+  "transcription_id": "WYgqIHnaCTGLILrwBRXh",
+  "audio_duration_secs": 4.179625,
+  "request_id": null,
+  "audio_path": "assets/audio/aegis/home.ogg",
+  "audio_sha256": "91680c4ae18bcdbf84d28fb5ef2fb68d8051893d6c4785c5816a869337fb386c",
+  "model": "scribe_v2"
+}

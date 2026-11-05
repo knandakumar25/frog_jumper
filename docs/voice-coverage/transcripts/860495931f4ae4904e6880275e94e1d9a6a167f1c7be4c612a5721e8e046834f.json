@@ -1,0 +1,146 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Archive. Crossing permits expired before their holders reached the wall.",
+  "words": [
+    {
+      "text": "Archive.",
+      "start": 0.08,
+      "end": 0.64,
+      "type": "word",
+      "logprob": -0.020308433944592252
+    },
+    {
+      "text": " ",
+      "start": 0.64,
+      "end": 0.64,
+      "type": "spacing",
+      "logprob": -0.0001481661747675389
+    },
+    {
+      "text": "Crossing",
+      "start": 1.18,
+      "end": 1.48,
+      "type": "word",
+      "logprob": -0.0001481661747675389
+    },
+    {
+      "text": " ",
+      "start": 1.48,
+      "end": 1.58,
+      "type": "spacing",
+      "logprob": -0.0004472924047149718
+    },
+    {
+      "text": "permits",
+      "start": 1.58,
+      "end": 1.96,
+      "type": "word",
+      "logprob": -0.0004472924047149718
+    },
+    {
+      "text": " ",
+      "start": 1.96,
+      "end": 2.26,
+      "type": "spacing",
+      "logprob": -2.4437606043647975e-05
+    },
+    {
+      "text": "expired",
+      "start": 2.26,
+      "end": 2.88,
+      "type": "word",
+      "logprob": -2.4437606043647975e-05
+    },
+    {
+      "text": " ",
+      "start": 2.88,
+      "end": 2.92,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "before",
+      "start": 2.92,
+      "end": 3.18,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 3.18,
+      "end": 3.22,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "their",
+      "start": 3.22,
+      "end": 3.34,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 3.34,
+      "end": 3.38,
+      "type": "spacing",
+      "logprob": -4.482168878894299e-05
+    },
+    {
+      "text": "holders",
+      "start": 3.38,
+      "end": 3.74,
+      "type": "word",
+      "logprob": -4.482168878894299e-05
+    },
+    {
+      "text": " ",
+      "start": 3.74,
+      "end": 3.84,
+      "type": "spacing",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": "reached",
+      "start": 3.84,
+      "end": 4.12,
+      "type": "word",
+      "logprob": -1.0728830375228426e-06
+    },
+    {
+      "text": " ",
+      "start": 4.12,
+      "end": 4.16,
+      "type": "spacing",
+      "logprob": -2.288792165927589e-05
+    },
+    {
+      "text": "the",
+      "start": 4.16,
+      "end": 4.26,
+      "type": "word",
+      "logprob": -2.288792165927589e-05
+    },
+    {
+      "text": " ",
+      "start": 4.26,
+      "end": 4.3,
+      "type": "spacing",
+      "logprob": -0.0031791406217962503
+    },
+    {
+      "text": "wall.",
+      "start": 4.3,
+      "end": 4.64,
+      "type": "word",
+      "logprob": -0.02511404324322939
+    }
+  ],
+  "transcription_id": "qlRRoLAYtVvTaAj20jA2",
+  "audio_duration_secs": 4.9690625,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m04.fragment3.mp3",
+  "audio_sha256": "860495931f4ae4904e6880275e94e1d9a6a167f1c7be4c612a5721e8e046834f",
+  "model": "scribe_v2"
+}

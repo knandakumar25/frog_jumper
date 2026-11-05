@@ -1,0 +1,202 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Sentry fire ahead. Time your kinetic parry on the shot, and it becomes theirs",
+  "words": [
+    {
+      "text": "Sentry",
+      "start": 0.12,
+      "end": 0.42,
+      "type": "word",
+      "logprob": -0.00011357636443184067
+    },
+    {
+      "text": " ",
+      "start": 0.42,
+      "end": 0.52,
+      "type": "spacing",
+      "logprob": -0.0009322587866336107
+    },
+    {
+      "text": "fire",
+      "start": 0.52,
+      "end": 0.82,
+      "type": "word",
+      "logprob": -0.0009322587866336107
+    },
+    {
+      "text": " ",
+      "start": 0.82,
+      "end": 0.88,
+      "type": "spacing",
+      "logprob": -2.50339189733495e-06
+    },
+    {
+      "text": "ahead.",
+      "start": 0.88,
+      "end": 1.22,
+      "type": "word",
+      "logprob": -0.00028262752774329175
+    },
+    {
+      "text": " ",
+      "start": 1.22,
+      "end": 1.22,
+      "type": "spacing",
+      "logprob": -7.867782187531702e-06
+    },
+    {
+      "text": "Time",
+      "start": 1.82,
+      "end": 2.08,
+      "type": "word",
+      "logprob": -7.867782187531702e-06
+    },
+    {
+      "text": " ",
+      "start": 2.08,
+      "end": 2.12,
+      "type": "spacing",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": "your",
+      "start": 2.12,
+      "end": 2.3,
+      "type": "word",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": " ",
+      "start": 2.3,
+      "end": 2.34,
+      "type": "spacing",
+      "logprob": -0.0028204445261508226
+    },
+    {
+      "text": "kinetic",
+      "start": 2.34,
+      "end": 2.68,
+      "type": "word",
+      "logprob": -0.0028204445261508226
+    },
+    {
+      "text": " ",
+      "start": 2.68,
+      "end": 2.78,
+      "type": "spacing",
+      "logprob": -5.543078441405669e-05
+    },
+    {
+      "text": "parry",
+      "start": 2.78,
+      "end": 3.1,
+      "type": "word",
+      "logprob": -3.349688915932347e-05
+    },
+    {
+      "text": " ",
+      "start": 3.1,
+      "end": 3.16,
+      "type": "spacing",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": "on",
+      "start": 3.16,
+      "end": 3.28,
+      "type": "word",
+      "logprob": -1.5497195136049413e-06
+    },
+    {
+      "text": " ",
+      "start": 3.28,
+      "end": 3.32,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "the",
+      "start": 3.32,
+      "end": 3.42,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 3.42,
+      "end": 3.46,
+      "type": "spacing",
+      "logprob": -1.9073468138230965e-06
+    },
+    {
+      "text": "shot,",
+      "start": 3.46,
+      "end": 3.72,
+      "type": "word",
+      "logprob": -0.05038815140578663
+    },
+    {
+      "text": " ",
+      "start": 3.72,
+      "end": 3.72,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "and",
+      "start": 4.2,
+      "end": 4.28,
+      "type": "word",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": " ",
+      "start": 4.28,
+      "end": 4.32,
+      "type": "spacing",
+      "logprob": 0.0
+    },
+    {
+      "text": "it",
+      "start": 4.32,
+      "end": 4.42,
+      "type": "word",
+      "logprob": 0.0
+    },
+    {
+      "text": " ",
+      "start": 4.42,
+      "end": 4.44,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "becomes",
+      "start": 4.44,
+      "end": 4.88,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 4.88,
+      "end": 4.94,
+      "type": "spacing",
+      "logprob": -1.4305104514278355e-06
+    },
+    {
+      "text": "theirs",
+      "start": 4.94,
+      "end": 5.36,
+      "type": "word",
+      "logprob": -1.4305104514278355e-06
+    }
+  ],
+  "transcription_id": "VjyRw1XEjsASofmKejBQ",
+  "audio_duration_secs": 5.712125,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m01.event.3464a63ef614.mp3",
+  "audio_sha256": "effdd246eebdbd1cce6383316670c1140e90d8c88a6f6ef7f9cdef15f3fefbd9",
+  "model": "scribe_v2"
+}

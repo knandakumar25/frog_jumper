@@ -1,0 +1,258 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "My daughter wrote our names inside her coat. The scanner called us a number that no longer existed.",
+  "words": [
+    {
+      "text": "My",
+      "start": 0.1,
+      "end": 0.2,
+      "type": "word",
+      "logprob": -0.00025519452174194157
+    },
+    {
+      "text": " ",
+      "start": 0.2,
+      "end": 0.28,
+      "type": "spacing",
+      "logprob": -4.887569048150908e-06
+    },
+    {
+      "text": "daughter",
+      "start": 0.28,
+      "end": 0.56,
+      "type": "word",
+      "logprob": -4.887569048150908e-06
+    },
+    {
+      "text": " ",
+      "start": 0.56,
+      "end": 0.6,
+      "type": "spacing",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": "wrote",
+      "start": 0.6,
+      "end": 0.82,
+      "type": "word",
+      "logprob": -5.960462772236497e-07
+    },
+    {
+      "text": " ",
+      "start": 0.82,
+      "end": 0.86,
+      "type": "spacing",
+      "logprob": -6.318072337307967e-06
+    },
+    {
+      "text": "our",
+      "start": 0.86,
+      "end": 0.98,
+      "type": "word",
+      "logprob": -6.318072337307967e-06
+    },
+    {
+      "text": " ",
+      "start": 0.98,
+      "end": 1.04,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "names",
+      "start": 1.04,
+      "end": 1.32,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 1.32,
+      "end": 1.36,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "inside",
+      "start": 1.36,
+      "end": 1.72,
+      "type": "word",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": " ",
+      "start": 1.72,
+      "end": 1.74,
+      "type": "spacing",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": "her",
+      "start": 1.74,
+      "end": 1.88,
+      "type": "word",
+      "logprob": -4.768370445162873e-07
+    },
+    {
+      "text": " ",
+      "start": 1.88,
+      "end": 1.92,
+      "type": "spacing",
+      "logprob": -1.1324817933200393e-05
+    },
+    {
+      "text": "coat.",
+      "start": 1.92,
+      "end": 2.26,
+      "type": "word",
+      "logprob": -0.0002297136881679762
+    },
+    {
+      "text": " ",
+      "start": 2.26,
+      "end": 2.26,
+      "type": "spacing",
+      "logprob": -7.510157047363464e-06
+    },
+    {
+      "text": "The",
+      "start": 2.7,
+      "end": 2.8,
+      "type": "word",
+      "logprob": -7.510157047363464e-06
+    },
+    {
+      "text": " ",
+      "start": 2.8,
+      "end": 2.84,
+      "type": "spacing",
+      "logprob": -1.7762025890988298e-05
+    },
+    {
+      "text": "scanner",
+      "start": 2.88,
+      "end": 3.16,
+      "type": "word",
+      "logprob": -1.7762025890988298e-05
+    },
+    {
+      "text": " ",
+      "start": 3.16,
+      "end": 3.28,
+      "type": "spacing",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": "called",
+      "start": 3.28,
+      "end": 3.48,
+      "type": "word",
+      "logprob": -1.7881377516459906e-06
+    },
+    {
+      "text": " ",
+      "start": 3.48,
+      "end": 3.5,
+      "type": "spacing",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": "us",
+      "start": 3.5,
+      "end": 3.6,
+      "type": "word",
+      "logprob": -1.1920922133867862e-06
+    },
+    {
+      "text": " ",
+      "start": 3.6,
+      "end": 3.66,
+      "type": "spacing",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": "a",
+      "start": 3.66,
+      "end": 3.7,
+      "type": "word",
+      "logprob": -2.264974000354414e-06
+    },
+    {
+      "text": " ",
+      "start": 3.7,
+      "end": 3.78,
+      "type": "spacing",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": "number",
+      "start": 3.78,
+      "end": 4.08,
+      "type": "word",
+      "logprob": -3.576278118089249e-07
+    },
+    {
+      "text": " ",
+      "start": 4.08,
+      "end": 4.12,
+      "type": "spacing",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": "that",
+      "start": 4.12,
+      "end": 4.26,
+      "type": "word",
+      "logprob": -7.152555099310121e-07
+    },
+    {
+      "text": " ",
+      "start": 4.26,
+      "end": 4.32,
+      "type": "spacing",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": "no",
+      "start": 4.32,
+      "end": 4.46,
+      "type": "word",
+      "logprob": -1.1920928244535389e-07
+    },
+    {
+      "text": " ",
+      "start": 4.46,
+      "end": 4.5,
+      "type": "spacing",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": "longer",
+      "start": 4.5,
+      "end": 4.78,
+      "type": "word",
+      "logprob": -2.3841855067985307e-07
+    },
+    {
+      "text": " ",
+      "start": 4.78,
+      "end": 4.84,
+      "type": "spacing",
+      "logprob": -1.6569954823353328e-05
+    },
+    {
+      "text": "existed.",
+      "start": 4.84,
+      "end": 5.5,
+      "type": "word",
+      "logprob": -0.08666500437243485
+    }
+  ],
+  "transcription_id": "mIj6o8v32tHV5dAoa8nf",
+  "audio_duration_secs": 5.8514375,
+  "request_id": null,
+  "audio_path": "assets/audio/english/m05.fragment1.mp3",
+  "audio_sha256": "e29c9cba70006ef67d540b2008c37ef1b7ca27475747962c7c41fbe6d5562d86",
+  "model": "scribe_v2"
+}
