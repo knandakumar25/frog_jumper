@@ -5,7 +5,12 @@
     "voice": "Daniel",
     "start": 0.0,
     "end": 10.0,
-    "text": "AXIOM-7: Bastion Praetor core neutralized. The high fortress battlements are cleared. Flak artillery arrays across the stratospheric summit have gone completely silent."
+    "text": "Praetor neutralized. Battlements clear. The summit flak arrays have fallen silent.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Praetor neutralized. Battlements clear. The summit flak arrays have fallen silent.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 2,
@@ -13,7 +18,12 @@
     "voice": "George",
     "start": 10.0,
     "end": 20.0,
-    "text": "TITAN: That was their supreme guardian? Heavy armor, but its servos couldn't take my kinetic hammer. Now look at those blast doors... thick enough to withstand orbital bombardment."
+    "text": "Heavy armor, weak servos. Now those blast doors look less welcoming. Think they heard what happened to their guardian?",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: Heavy armor, weak servos. Now those blast doors look less welcoming. Think they heard what happened to their guardian?",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 3,
@@ -21,7 +31,12 @@
     "voice": "Sarah",
     "start": 20.0,
     "end": 30.0,
-    "text": "OCEANUS: Look at the atmospheric sensors. Barometric pressure is plummeting, but the temperature is surging. The entire summit is wrapped in a localized void hurricane."
+    "text": "Pressure falling, temperature rising. That storm around the summit is getting tighter. This is not normal weather.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: Pressure falling, temperature rising. That storm around the summit is getting tighter. This is not normal weather.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 4,
@@ -29,7 +44,12 @@
     "voice": "Brian",
     "start": 30.0,
     "end": 40.0,
-    "text": "SURYA: It is not weather. The Void Commander is siphoning raw energy from the upper atmosphere straight into the Throne Room. My bulwark shields are picking up intense electromagnetic distortion."
+    "text": "It is a power siphon. He is drawing energy straight into the throne room. My shields can feel the distortion.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: It is a power siphon. He is drawing energy straight into the throne room. My shields can feel the distortion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 5,
@@ -37,7 +57,12 @@
     "voice": "Matilda",
     "start": 40.0,
     "end": 50.0,
-    "text": "AURA: The dissonance... it's deafening now. An overwhelming psychic frequency echoing from behind those doors. He knows we broke through his army, and he is waiting."
+    "text": "The dissonance behind those doors is deafening. He knows we are here. He has stopped hiding.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: The dissonance behind those doors is deafening. He knows we are here. He has stopped hiding.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 6,
@@ -45,7 +70,12 @@
     "voice": "Eric",
     "start": 50.0,
     "end": 60.0,
-    "text": "MIRAGE: I've sliced into the gate relays. The Praetor's biometric master key was the only lock left. Disengaging hydraulic security bolts... three... two... one."
+    "text": "Gate relays unlocked. The Praetor key was the last barrier. Releasing the hydraulic bolts. Three. Two. One.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Gate relays unlocked. The Praetor key was the last barrier. Releasing the hydraulic bolts. Three. Two. One.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 7,
@@ -53,7 +83,12 @@
     "voice": "Daniel",
     "start": 60.0,
     "end": 70.0,
-    "text": "AXIOM-7: Warning: Blast doors unsealing. Sensor telemetry beyond this threshold confirms the Void Commander's throne chamber. Extreme lethal power readings detected."
+    "text": "Blast doors opening. Throne chamber confirmed. Lethal energy readings beyond the threshold. Proceed together.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Blast doors opening. Throne chamber confirmed. Lethal energy readings beyond the threshold. Proceed together.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 8,
@@ -61,14 +96,24 @@
     "voice": "Brian",
     "start": 70.0,
     "end": 80.0,
-    "text": "SURYA: Twelve sectors. We fought from the flooded ruins of Old Tokyo, through the underground bio-labs, up the Spire hull, and across these clouds. This is the end of the line."
+    "text": "From the flooded ruins to the clouds. All this way, all these people depending on us. We finish it here.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: From the flooded ruins to the clouds. All this way, all these people depending on us. We finish it here.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 9,
     "speaker": "KAITO",
-    "voice": "Chris",
+    "voice": "Adam",
     "start": 80.0,
     "end": 90.0,
-    "text": "KAITO: We set out to free this city, and we finish it together. Axiom Force, draw steel. Behind these doors is Judgment Day!"
+    "text": "We set out to free this city. We finish together. Axiom Force, draw steel. Behind these doors is Judgment Day.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: We set out to free this city. We finish together. Axiom Force, draw steel. Behind these doors is Judgment Day.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

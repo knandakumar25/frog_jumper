@@ -16,8 +16,8 @@ public partial class SpireOuterHullAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("spire_outer_hull", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -77,6 +77,7 @@ public partial class SpireOuterHullAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -84,6 +85,7 @@ public partial class SpireOuterHullAftermathStage : Control
 
         // Stratospheric sky, stars, distant clouds, and liberated city glow far below
         DrawStratosphereVista(t);
+        CampaignArtwork.DrawEnvironment(this, "spire_outer_hull", Seconds, aftermath: true, drawBase: true);
 
         // Citadel Spire summit wall and structural pylons on screen right
         DrawSpireSummitWall(t);
@@ -377,66 +379,7 @@ public partial class SpireOuterHullAftermathStage : Control
 
     private void DrawSquadSilhouettes(float t, int shot)
     {
-        // Squad positioned between x=720 and 1240 facing right toward the portal
-        (Vector2 pos, Color accent, string role)[] squad = {
-            (new(1180, 680), ColorMirage, "Mirage"),   // Mirage up front near console
-            (new(1100, 680), ColorKaito, "Kaito"),     // Kaito center-front
-            (new(1020, 680), ColorSurya, "Surya"),     // Surya behind Kaito
-            (new(940, 680), ColorAura, "Aura"),       // Aura observing core
-            (new(860, 680), ColorOceanus, "Oceanus"),  // Oceanus looking back/forward
-            (new(780, 680), ColorTitan, "Titan")       // Titan standing guard
-        };
-
-        foreach (var op in squad)
-        {
-            Vector2 p = op.pos;
-
-            // Operative body silhouette
-            float h = (op.role == "Titan") ? 74f : 64f;
-            float w = (op.role == "Titan") ? 28f : 20f;
-
-            // Legs
-            DrawLine(p, p - new Vector2(-4, h * 0.4f), new Color("090d16"), 4f);
-            DrawLine(p, p - new Vector2(6, h * 0.4f), new Color("090d16"), 4f);
-
-            // Torso
-            DrawRect(new Rect2(p.X - w * 0.5f, p.Y - h * 0.85f, w, h * 0.5f), new Color("0b0f19"));
-
-            // Head & cowl/visor
-            Vector2 headPos = new(p.X + 2, p.Y - h * 0.92f);
-            DrawCircle(headPos, 7.5f, new Color("0f172a"));
-
-            // Glowing operative energy visor / weapon / accent
-            DrawCircle(headPos + new Vector2(3, -1), 2.5f, op.accent);
-
-            // Specific character gear highlights
-            if (op.role == "Kaito")
-            {
-                // Katana drawn at side with glowing blade tip
-                DrawLine(p + new Vector2(-12, -h * 0.6f), p + new Vector2(16, -10), op.accent, 2.5f);
-            }
-            else if (op.role == "Mirage")
-            {
-                // Twin phase daggers
-                DrawLine(p + new Vector2(6, -h * 0.5f), p + new Vector2(18, -h * 0.55f), op.accent, 2f);
-            }
-            else if (op.role == "Titan")
-            {
-                // Heavy shoulder pauldron & power gauntlet
-                DrawRect(new Rect2(p.X - 16, p.Y - h * 0.85f, 10, 14), op.accent);
-            }
-            else if (op.role == "Surya")
-            {
-                // Solar shield emitter ring
-                DrawCircle(p + new Vector2(-10, -h * 0.55f), 5f, op.accent);
-            }
-            else if (op.role == "Aura")
-            {
-                // Floating harmonic prism aura
-                float floatY = Mathf.Sin(t * 3f) * 4f;
-                DrawCircle(p + new Vector2(0, -h * 1.05f + floatY), 3.5f, op.accent);
-            }
-        }
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     private void DrawAtmosphericSteamAndParticles(float t)

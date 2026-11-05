@@ -445,11 +445,13 @@ func stop_menu_music() -> void:
 	pass
 
 # ─── Level Progression ──────────────────────────────────────────────────────────
-# Unlocks the next level in the sequence if the current one is completed.
+## Advances runtime level selection through the complete catalog without lowering replay progress or exposing Mission 13.
 func unlock_next_level(current_level: int) -> void:
-	if current_level >= unlocked_levels and current_level < 9:
+	var catalog = load("res://scripts/managers/LevelCatalogBridge.cs").new()
+	var final_mission: int = catalog.Count()
+	if current_level >= unlocked_levels and current_level < final_mission:
 		unlocked_levels = current_level + 1
-	elif current_level == 9:
+	elif current_level == final_mission:
 		print("Global: Campaign Complete! All sectors liberated.")
 
 ## Lets a scene with contextual gameplay instructions temporarily hide the generic menu prompt.

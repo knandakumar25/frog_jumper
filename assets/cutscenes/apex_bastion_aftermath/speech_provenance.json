@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Praetor neutralized. Battlements clear. The summit flak arrays have fallen silent.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "f5db8f08b06f2ed53a56285aaf605283368710555cdb71aa3e6de39ac1b11f48",
+    "request_sha256": "35bc602070853322427be31455426b23fb299fdd03f399712585870a9e412742"
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Heavy armor, weak servos. Now those blast doors look less welcoming. Think they heard what happened to their guardian?",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e802d7becde3f6f97e707d2e928892405a67092822066a7c82fad684b045e839",
+    "request_sha256": "c025431045287454e865b81c626ce63aa90460c43a335d48f41a67b1d26d4672"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Pressure falling, temperature rising. That storm around the summit is getting tighter. This is not normal weather.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "9f0b4b7de482965c135bc9f58a0ce8c14a61f45370a6e2ab9ea9106e82df4ec4",
+    "request_sha256": "9cd865744193072e0702a2105516337c6d3dafef0f11784191b412faf94b3b6f"
+  },
+  {
+    "cue": 4,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "It is a power siphon. He is drawing energy straight into the throne room. My shields can feel the distortion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "968f2fe6fab81f6018300bbae6737dc3af1fa9805d26c9729ee3e85536ef44ae",
+    "request_sha256": "8c2d17419461721f2da90bc2173745feb77d49bfa7992f1df81521482b6f94ef"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The dissonance behind those doors is deafening. He knows we are here. He has stopped hiding.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "6a1b15b0bd71457293b2494c3111e1a78d45eccc0d1a83c3352f109e4d79d238",
+    "request_sha256": "3c4afefda1965ff5785c076aec49a9c241a038f732198ed1e211ab0d807d8c6b"
+  },
+  {
+    "cue": 6,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Gate relays unlocked. The Praetor key was the last barrier. Releasing the hydraulic bolts. Three. Two. One.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "749dffff5d6b8f8895482cbbbc960cb5a0ab3daacb67833185ad9fba8ef6834a",
+    "request_sha256": "da753aca71d4560981c515d5bf5cf4583b5728ea2f310baa7336a2f3aa044031"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Blast doors opening. Throne chamber confirmed. Lethal energy readings beyond the threshold. Proceed together.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "6f337712bbadd8118b0de743ea4eceb1dec53d30470aee737698392f3356deaf",
+    "request_sha256": "d6e7dc330c5d32474bc25d042efa8805e2ca80279c1095a45a3ce3b8cc663949"
+  },
+  {
+    "cue": 8,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "From the flooded ruins to the clouds. All this way, all these people depending on us. We finish it here.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "ba1468bb96006a319ffc55a2c198433b0fc7e42347784bbc0e6ca810e4c2508e",
+    "request_sha256": "abbb2152724a5030fd11e69bc2ad23f2ea7148c49e021b8b3743620d58c3ae32"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "We set out to free this city. We finish together. Axiom Force, draw steel. Behind these doors is Judgment Day.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "29c60973c010e37d29fa86e14c040755b79c1e19cdaf184fe367118b6469ec4c",
+    "request_sha256": "f5841b662894283c9dd87f080effb9bf74f82e4451ca389859f871982b8ee168"
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Transport clear of the caldera. Core temperature rising. Geothermal containment has failed.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "4b98fcdf9e7754f04686a792cb1be73d73d6d8829ca6a8769fa4109b96518a3c",
+    "request_sha256": "4e4c1a586d856773b06499ba3727575d95464401f5a3a6c4c86dc60cb7d244e7"
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The rift is buckling. Those severed conduits are feeding the surge straight back into their power grid.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d6a823f4967091cc3364ad3563fcf0a5c8ff3bc87749ede6fd0cc47c58a09a36",
+    "request_sha256": "65599c3984253d5b27a4eb34a610fc852be89e4861934702cf60a2dac78d49ab"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The reservoirs have burst. Steam is pouring through the flues. The river is finding its bed again.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d6a823f4967091cc3364ad3563fcf0a5c8ff3bc87749ede6fd0cc47c58a09a36",
+    "request_sha256": "7f0c01aad39face2f36e353f4e3733088b92b06d036c8076581b1018604e34d8"
+  },
+  {
+    "cue": 4,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Listen to the sky. That hum is breaking apart. The field that held us under glass is coming down.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d64ff537fef64df2b94e5f182d21fd7bec64d3e24fa828768e665728b9e0c63a",
+    "request_sha256": "a46a5d26eb3427d00739751564ac4af46692ab212dcff6a2f0fded8499fd7cf8"
+  },
+  {
+    "cue": 5,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The emitters along Sector Four are arcing. There. The shield lattice is splitting.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "313f3712b557065b3caaf573cb69fb00aa72607bf2badc6e88b7fa1527870558",
+    "request_sha256": "b7861549528e69e8020d90549caf7f9320ce2420833e52ab6bf33232d657afd5"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e390be4a22685924a07da3a678c3fb7e6cfa269ccf6c66c7cb5819a225808e29",
+    "request_sha256": "e75d26bf8de72f918aaac247fd996c7769446745e70cb0032e96fe9be7d10444"
+  },
+  {
+    "cue": 7,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Ten years under a false twilight. Ten years of looking up at a shield we could never touch. No more.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "c8b4768cfb3f684024cb5c44d0e8a311b4dbca51a88310ca0508edfbb583501e",
+    "request_sha256": "065c3dc2cf4a7019d0611e79000660ba2b68ba15ad6e7e8fe14ed41421ff4943"
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Their low-altitude cover is gone. Stratos Docks is exposed. We have our way into the Spire.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "7ff89060de09f538323ecd8a4b21d4f91366c4c05c7352f4c48c9cc0746723eb",
+    "request_sha256": "a09872c654648d670f8bb3fb81cbc58343889edeb3b7384bfc214f1e7e0f4d30"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Regroup at the rim and rearm. We are taking the high docks. Axiom Force, prepare for insertion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "bdb788785f9c920da0f0f8971a7392fc1ea1c28859a02b112b603c0dac23ed91",
+    "request_sha256": "073b1834fcbb848c5cede425a4728b5cc824c26cc50cefd06b92c6f21214a0e5"
+  }
+]

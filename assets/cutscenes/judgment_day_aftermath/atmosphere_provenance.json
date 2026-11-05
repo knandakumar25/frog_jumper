@@ -1,0 +1,11 @@
+{
+  "scene": "judgment_day_aftermath",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "884dd6a29a83d2af2e8c422a81612ae9186cc43c44ac6beab0c810d8605e8b53",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "wind",
+    "dawn harmonics"
+  ]
+}

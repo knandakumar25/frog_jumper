@@ -151,8 +151,9 @@ if ($Suite -eq "all" -or $Suite -eq "gdunit") {
     $GodotExe = $CandidateGodotPaths | Where-Object { Test-Path $_ } | Select-Object -First 1
 
     if ($GodotExe -and (Test-Path $GodotExe)) {
-        $proc = Start-Process -FilePath $GodotExe -ArgumentList "--headless --path `"$ProjectRoot`" -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode" -Wait -PassThru -NoNewWindow
-        if ($proc.ExitCode -eq 0) {
+        # Invoke the console directly so the child engine's diagnostics and exit status reach this runner.
+        & $GodotExe --headless --path $ProjectRoot -s addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests/ --ignoreHeadlessMode
+        if ($LASTEXITCODE -eq 0) {
             $Results["GdUnit4"] = "PASSED"
         } else {
             $Results["GdUnit4"] = "FAILED"
@@ -172,3 +173,7 @@ foreach ($key in $Results.Keys) {
     Write-Host ("{0,-15} : {1}" -f $key, $status) -ForegroundColor $color
 }
 Write-Host "======================================================`n" -ForegroundColor Cyan
+
+# A readable summary must also fail automation when any required suite failed or was skipped.
+if (@($Results.Values | Where-Object { $_ -ne "PASSED" }).Count -gt 0) { exit 1 }
+exit 0

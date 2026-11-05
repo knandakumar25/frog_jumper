@@ -30,19 +30,22 @@ public partial class StratosDocksIntro : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/stratos_docks_intro/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0.0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Altitude 1,200 meters. Wind shear 45 knots. High Command has grounded all commercial transit and initiated priority lockdown across Stratos Docks.",
-        "MIRAGE: Thermal scan shows three patrol gunships on the upper pads, but the heavy VTOL transport in Bay 4 is fueled and idling. That's our ticket up the Spire.",
-        "TITAN: Mooring clamps are reinforced magnetic titan-locks. I'll need to slam the primary release valves before that bird can lift off.",
-        "OCEANUS: The fueling lines are pressurized liquid hydrogen. One rogue spark and the whole flight deck goes up. We keep this clean.",
-        "AURA: I'm tracking air traffic control communications. The automated flight grid is scrambling drone interceptors to bottle us up on the catwalks.",
-        "SURYA: My solar barrier can deflect their anti-aircraft flak batteries along the open gantry. Stick close to my shield when we cross the flight line.",
-        "MIRAGE: The security grid uses dual-phase motion lasers across the maintenance gantries. I'll phase through first and disable the local tripwires.",
-        "AXIOM-7: Flight path calculated. Once the VTOL is secured, we will punch directly through the Spire's mid-tier intake vents into the upper command ring.",
-        "KAITO: Weapons live, squad. We breach the flight deck, seize that gunship, and take this fight to the Spire. Move out!",
+        "AXIOM-7: Altitude twelve hundred meters. Wind shear forty-five knots. Commercial transit is grounded. Stratos Docks is under lockdown.",
+        "MIRAGE: Three gunships on the upper pads. But Bay Four has a heavy transport fueled and idling. That is our ride.",
+        "TITAN: Magnetic mooring clamps. Reinforced locks. Get me to the release valves, and I will free that bird.",
+        "OCEANUS: Those fuel lines carry liquid hydrogen. One spark could take the deck with it. We keep this clean.",
+        "AURA: Air traffic control is calling in interceptors. The flight grid is trying to pin us on the catwalks.",
+        "SURYA: I can cover the flak crossing with my solar barrier. Stay close until we are off the flight line.",
+        "MIRAGE: Dual-phase lasers across the maintenance route. I will cross first and open a path through the security grid.",
+        "AXIOM-7: Flight path ready. Once we have the transport, we climb toward the Spire upper command ring.",
+        "KAITO: Weapons live. Breach the flight deck, seize that gunship, and take this fight upstairs. Axiom Force, move out.",
         ""
     };
 
@@ -71,6 +74,7 @@ public partial class StratosDocksIntro : CanvasLayer
     /// <summary>Constructs seekable visual stage and responsive UI elements.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
         _previousMouseMode = Input.MouseMode;
         Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -174,6 +178,10 @@ public partial class StratosDocksIntro : CanvasLayer
 
         Seek(0);
         if (!_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Creates non-crashing audio player inside tree.</summary>
@@ -190,26 +198,17 @@ public partial class StratosDocksIntro : CanvasLayer
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        double audioTime = -1;
-        if (_speech?.Stream != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            audioTime = _speech.GetPlaybackPosition() + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency();
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-
-        if (audioTime >= 0)
-        {
-            if (Math.Abs(audioTime - _lastAudio) < 0.0001) _stalled += delta;
-            else { _stalled = 0; _lastAudio = audioTime; }
-            if (_stalled < 0.25) Elapsed = Math.Max(Elapsed, audioTime);
-            else Elapsed += delta;
-        }
-        else
-        {
-            Elapsed += delta;
-        }
-
-        Seek(Elapsed);
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
         if (Elapsed >= Duration) Finish();
     }
 
@@ -266,46 +265,58 @@ public partial class StratosDocksIntro : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
-        if (_speech != null && IsInsideTree()) _speech.Stop();
-        if (_ambience != null && IsInsideTree()) _ambience.Stop();
-
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
-
-        if (EnterMissionOnFinish && !_navigating && IsInsideTree())
+        if (EnterMissionOnFinish && IsInsideTree())
         {
-            _navigating = true;
-            string targetScene = "res://scenes/gameplay/level8.tscn";
-            if (!ResourceLoader.Exists(targetScene)) targetScene = "res://scenes/main_menu/level_selection.tscn";
-
-            if (GetTree() != null)
-            {
-                GetTree().Paused = false;
-                GetTree().ChangeSceneToFile(targetScene);
-            }
+            CampaignProgress.PrepareMission(8);
+            GetTree().Paused = false;
+            GetTree().ChangeSceneToFile(LevelCatalog.ScenePath(8));
         }
+        else QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Captures Escape, Space, Enter, Gamepad, and Click to skip playback.</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event.IsActionPressed("ui_cancel") || @event.IsActionPressed("ui_accept") ||
-            (@event is InputEventKey key && key.Pressed && (key.Keycode == Key.Space || key.Keycode == Key.Enter || key.Keycode == Key.Escape)) ||
-            (@event is InputEventJoypadButton joy && joy.Pressed && (joy.ButtonIndex == JoyButton.Start || joy.ButtonIndex == JoyButton.A)))
-        {
-            GetViewport()?.SetInputAsHandled();
-            Finish();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Restores mouse mode and prompt visibility on exit.</summary>
     public override void _ExitTree()
     {
-        Input.MouseMode = _previousMouseMode;
-        var global = GetNodeOrNull<Node>("/root/Global");
-        global?.Call("set_control_prompt_visible", _previousPromptVisible);
-        base._ExitTree();
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 }

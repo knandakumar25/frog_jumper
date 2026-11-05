@@ -27,19 +27,22 @@ public partial class StratosDocksAftermath : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/stratos_docks_aftermath/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: VTOL flight systems online. Avionics decoupled from Citadel air traffic control. Dual ion-thrusters at 100% output.",
-        "MIRAGE: Look at those flight decks shrink behind us. The fleet is grounded, their interceptors crippled in their berths. The sky is ours.",
-        "TITAN: Feels good to fly something built like a fortress. Hydraulic clamps didn't stand a chance. This bird can take a pounding.",
-        "OCEANUS: Look through the storm squall below. The city lights are shining without the sky-shield dome. Three municipal sectors breathing free tonight.",
-        "AURA: I can hear the Citadel's distress broadcast. High command is in full panic. They're scrambling all exterior hull automated defense batteries.",
-        "SURYA: Sensor lock dead ahead! We've broken through the storm ceiling... Look at the Spire. Kilometers of armored exterior plating.",
-        "AXIOM-7: Telemetry warning: Outer Spire heavy anti-air batteries detecting our radar signature. Direct flight to the summit is blocked by automated hull turrets.",
-        "MIRAGE: Then we don't land at the top. We insert directly onto the exterior maintenance catwalks. We scale the Spire outer hull on foot!",
-        "KAITO: Agreed. Secure your harnesses. We breach the Spire's outer skin and carve our way to the summit. Operatives—prepare for exterior insertion!",
+        "AXIOM-7: Flight systems online. Citadel traffic control disconnected. Both ion thrusters are at full output.",
+        "MIRAGE: Look at the docks behind us. Their fleet is still in its berths. We got out before the net closed.",
+        "TITAN: Now this is a transport. Built like a fortress. Those mooring clamps never stood a chance.",
+        "OCEANUS: The city lights are clear through the storm. No shield overhead. Three districts can see the sky tonight.",
+        "AURA: Citadel command is calling every exterior battery to readiness. They know where we are headed.",
+        "SURYA: Target lock ahead. We are through the cloud ceiling. Look at that wall of armor.",
+        "AXIOM-7: Outer hull batteries have our signature. Direct flight to the summit is blocked. We need another approach.",
+        "MIRAGE: Then we land below them. Maintenance catwalks on the outer hull. We climb the rest on foot.",
+        "KAITO: Agreed. Secure your harnesses. We breach their outer skin and work our way up. Prepare for exterior insertion.",
         ""
     };
 
@@ -67,6 +70,7 @@ public partial class StratosDocksAftermath : CanvasLayer
     /// <summary>Constructs procedural stage, subtitle panel, skip button, and starts audio playback.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
         _previousMouseMode = Input.MouseMode;
         Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -140,13 +144,17 @@ public partial class StratosDocksAftermath : CanvasLayer
         _skip.Pressed += Finish;
 
         // Audio streams
-        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "Master" };
+        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "SFX" };
         AddChild(_speech);
 
-        _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "Master", VolumeDb = -4f };
+        _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "SFX", VolumeDb = -4f };
         AddChild(_ambience);
 
         StartPlayback();
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Initiates atmosphere playback and optional mastered speech dialogue.</summary>
@@ -170,36 +178,18 @@ public partial class StratosDocksAftermath : CanvasLayer
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        double current;
-        if (_speech != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            current = _speech.GetPlaybackPosition();
-            if (Math.Abs(current - _lastAudio) < 0.0001)
-            {
-                _stalled += delta;
-                if (_stalled > 0.5) current = Elapsed + delta;
-            }
-            else
-            {
-                _stalled = 0;
-                _lastAudio = current;
-            }
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-        else
-        {
-            current = Elapsed + delta;
-        }
-
-        Elapsed = Math.Max(Elapsed, current);
-
-        if (Elapsed >= Duration)
-        {
-            Finish();
-            return;
-        }
-
-        Seek(Elapsed);
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Samples any timeline second without completing, updating stage graphics and subtitle text.</summary>
@@ -241,18 +231,13 @@ public partial class StratosDocksAftermath : CanvasLayer
     public override void _Input(InputEvent input)
     {
         if (HasFinished || !IsInsideTree()) return;
-        bool skip = input is InputEventKey { Pressed: true, Echo: false } key &&
-            key.Keycode is Key.Escape or Key.Space or Key.Enter;
-        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
         skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
-        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse &&
-            _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
         if (!skip) return;
-        GetViewport()?.SetInputAsHandled();
-        foreach (StringName action in InputMap.GetActions())
-        {
-            if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
-        }
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
         Finish();
     }
 
@@ -261,17 +246,38 @@ public partial class StratosDocksAftermath : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
-        _speech?.Stop();
-        _ambience?.Stop();
-
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
+        QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Restores persistent prompt visibility and mouse cursor mode when leaving scene tree.</summary>
     public override void _ExitTree()
     {
-        Input.MouseMode = _previousMouseMode;
-        GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", _previousPromptVisible);
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 }

@@ -10,10 +10,13 @@ using System.Linq;
 /// mechanoid boss encounter ("Vanguard-9"), and extraction via the central Cyber-Nexus airlock.
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
+public partial class SpireOuterHullMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression, gates, boss phases, and objectives.</summary>
     public SpireProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -36,6 +39,7 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
     private SpireSentinelBoss2D? _boss;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private bool _bossSpawned;
 
@@ -65,6 +69,9 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
 
     /// <inheritdoc/>
     protected override string TitleCardTitle(string narrativeTitle) => "SPIRE OUTER HULL";
+
+    /// <inheritdoc/>
+    protected override string TitleCardObjective(string narrativeObjective) => "Ascend the exposed hull. Disable flak batteries and the drone relay. Defeat the Spire Sentinel and enter the Cyber-Nexus.";
 
     /// <inheritdoc/>
     protected override IEnumerable<(string Name, Vector2 Position)> Shrines => new[]
@@ -109,7 +116,8 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
         // Wall-jump columns across exterior structural pylons and crane shafts
         foreach (float wx in new[] { 1700f, 1880f, 6300f, 8500f, 12300f, 14900f, 19500f, 23900f })
         {
-            AddPlatform(wx, 240, 24, 360, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 240, 24, 200, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Gantry 42 Exterior Insertion
@@ -144,16 +152,16 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
 
         // Ability-Gated Obstacles
         // Sector 2: Cryogenic coolant leak requiring Oceanus Douse
-        AddGate("CryoShaftGate", GateKind.FireVent, new Vector2(4600, 600));
+        AddObjectiveGate("CryoShaftGate", GateKind.FireVent, new Vector2(4600, 600), "coolant_shaft_douse");
 
         // Sector 2 exit: Heavy magnetic hull clamp brace requiring Apex Titan Slam
-        AddGate("TitanBraceBulkhead", GateKind.RubbleWall, new Vector2(8600, 600));
+        AddObjectiveGate("TitanBraceBulkhead", GateKind.RubbleWall, new Vector2(8600, 600), "clamp_brace_shatter");
 
         // Sector 3 exit: Flak artillery barrage corridor requiring Surya Prime Bulwark
-        AddGate("FlakBulwarkGate", GateKind.HeatVent, new Vector2(14600, 600));
+        AddObjectiveGate("FlakBulwarkGate", GateKind.HeatVent, new Vector2(14600, 600), "flak_barrier_deflect");
 
         // Sector 4: Drone relay acoustic sonic lock requiring Aura Phoenicia Resonate
-        AddGate("DroneRelaySonicGate", GateKind.SonicLock, new Vector2(18600, 600));
+        AddObjectiveGate("DroneRelaySonicGate", GateKind.SonicLock, new Vector2(18600, 600), "relay_resonance_disable");
     }
 
     /// <summary>Builds interactive cryogenic louvers, laser grids, and Cyber-Nexus airlock terminal.</summary>
@@ -189,6 +197,7 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.5f,
             Damage = 35f
         };
+        TrackPhaseBoundary(laserGrid, "laser_grid_phase");
         Actors.AddChild(laserGrid);
         _lasers.Add(laserGrid);
 
@@ -271,6 +280,7 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
         AddEncounter("summit3", new Rect2(22800, 200, 1000, 500), new[] { (new Vector2(23100, 554), true), (new Vector2(23400, 554), false) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -279,7 +289,9 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "summit1", "summit2", "summit3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -296,7 +308,7 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             if (id == "spire_sentinel_phase:3")
@@ -313,36 +325,40 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 20400f && Player.GlobalPosition.X <= 24100f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check milestone conditions
         if (!Progress.Has("gantry_ingress") && Progress.CanComplete("gantry_ingress"))
             CommitObjective("gantry_ingress");
 
-        if (!Progress.Has("coolant_shaft_douse") && Progress.CanComplete("coolant_shaft_douse"))
+        if (!Progress.Has("coolant_shaft_douse") && Progress.CanComplete("coolant_shaft_douse") && HasActionEvidence("coolant_shaft_douse"))
             CommitObjective("coolant_shaft_douse");
 
-        if (!Progress.Has("clamp_brace_shatter") && Progress.CanComplete("clamp_brace_shatter"))
+        if (!Progress.Has("clamp_brace_shatter") && Progress.CanComplete("clamp_brace_shatter") && HasActionEvidence("clamp_brace_shatter"))
             CommitObjective("clamp_brace_shatter");
 
         if (!Progress.Has("exhaust_conduits_cleared") && Progress.CanComplete("exhaust_conduits_cleared"))
             CommitObjective("exhaust_conduits_cleared");
 
-        if (!Progress.Has("laser_grid_phase") && Progress.CanComplete("laser_grid_phase"))
+        if (!Progress.Has("laser_grid_phase") && Progress.CanComplete("laser_grid_phase") && HasActionEvidence("laser_grid_phase"))
             CommitObjective("laser_grid_phase");
 
-        if (!Progress.Has("flak_barrier_deflect") && Progress.CanComplete("flak_barrier_deflect"))
+        if (!Progress.Has("flak_barrier_deflect") && Progress.CanComplete("flak_barrier_deflect") && HasActionEvidence("flak_barrier_deflect"))
             CommitObjective("flak_barrier_deflect");
 
         if (!Progress.Has("battery_deck_cleared") && Progress.CanComplete("battery_deck_cleared"))
             CommitObjective("battery_deck_cleared");
 
-        if (!Progress.Has("relay_resonance_disable") && Progress.CanComplete("relay_resonance_disable"))
+        if (!Progress.Has("relay_resonance_disable") && Progress.CanComplete("relay_resonance_disable") && HasActionEvidence("relay_resonance_disable"))
             CommitObjective("relay_resonance_disable");
 
         if (!Progress.Has("elevator_ascent_breach") && Progress.CanComplete("elevator_ascent_breach"))
             CommitObjective("elevator_ascent_breach");
 
         // Spawn Spire Sentinel Boss when entering Sector 5 summit arena
-        if (!_bossSpawned && Player.GlobalPosition.X >= 20400f && Progress.Has("elevator_ascent_breach"))
+        if (!_bossSpawned && !Progress.Has("spire_sentinel_phase:3") && Player.GlobalPosition.X >= 20400f && Progress.Has("elevator_ascent_breach"))
         {
             SpawnSpireSentinelBoss();
         }
@@ -356,13 +372,14 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
         }
     }
 
+    /// <summary>Creates the mission-owned arena boss, binds its player/HUD and accepts phase changes only after supporting defenders.</summary>
     private void SpawnSpireSentinelBoss()
     {
         _bossSpawned = true;
         _boss = new SpireSentinelBoss2D
         {
             Name = "SpireSentinelBoss",
-            GlobalPosition = new Vector2(21800, 320)
+            GlobalPosition = new Vector2(21800, 510)
         };
         _boss.BossHealthChanged += (curr, max, phase) =>
         {
@@ -377,7 +394,10 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
                 CommitObjective("spire_sentinel_phase:3");
         };
 
+        _boss.Target = Player;
+        _boss.PhaseAcceptance = stage => Progress.CanComplete("spire_sentinel_phase:" + stage);
         Actors.AddChild(_boss);
+        GetNode<CyberCombatHud>("CyberCombatHud").BindCampaignBoss(_boss);
     }
 
     /// <inheritdoc/>
@@ -418,6 +438,9 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -441,7 +464,9 @@ public partial class SpireOuterHullMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
+        ResetArenaAttempt(ref _boss, ref _bossSpawned, "spire_sentinel_phase", new[] { "summit1", "summit2", "summit3" });
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))
         {

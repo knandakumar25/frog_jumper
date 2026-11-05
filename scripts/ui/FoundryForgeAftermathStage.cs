@@ -15,8 +15,8 @@ public partial class FoundryForgeAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("foundry_forge", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -79,6 +79,7 @@ public partial class FoundryForgeAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -86,6 +87,7 @@ public partial class FoundryForgeAftermathStage : Control
 
         // Volcanic caldera rim backdrop and distant storm clouds
         DrawCalderaAndAtmosphere(t);
+        CampaignArtwork.DrawEnvironment(this, "foundry_forge", Seconds, aftermath: true, drawBase: true);
 
         // Distant Neo-Kyoto metropolis skyline with the Citadel Spire
         DrawCitySkylineAndSpire(t);
@@ -377,23 +379,7 @@ public partial class FoundryForgeAftermathStage : Control
     /// <summary>Renders all 6 Axiom Force squad members staged on the gantry overlooking the skyline.</summary>
     private void DrawOperativeSilhouettes(float t, int shot)
     {
-        // 1. Mirage Blade (Left scout, phase daggers ready)
-        DrawCharacterSilhouette(new Vector2(560, 670), ColorMirage, "MIRAGE", shot == 4);
-
-        // 2. Oceanus (Aquifer tender, hydro veil)
-        DrawCharacterSilhouette(new Vector2(720, 665), ColorOceanus, "OCEANUS", shot == 2);
-
-        // 3. Cyber Shogun / Kaito (Squad leader, center vanguard with plasma katana)
-        DrawCharacterSilhouette(new Vector2(960, 660), ColorKaito, "KAITO", shot == 0 || shot == 6 || shot == 7 || shot == 8, true);
-
-        // 4. Aura Phoenicia (Prism weaver, acoustic resonance waves)
-        DrawCharacterSilhouette(new Vector2(1160, 665), ColorAura, "AURA", shot == 3);
-
-        // 5. Apex Titan (Heavy juggernaut, fists clenched)
-        DrawCharacterSilhouette(new Vector2(1360, 655), ColorTitan, "TITAN", shot == 1, false, true);
-
-        // 6. Surya Prime (Bulwark tank, tactical comms link)
-        DrawCharacterSilhouette(new Vector2(1480, 660), ColorSurya, "SURYA", shot == 5);
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Draws a styled operative silhouette with glowing cyber energy highlights.</summary>

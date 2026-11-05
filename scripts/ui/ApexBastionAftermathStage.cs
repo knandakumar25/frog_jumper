@@ -15,8 +15,8 @@ public partial class ApexBastionAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("apex_bastion", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -77,6 +77,7 @@ public partial class ApexBastionAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -84,6 +85,7 @@ public partial class ApexBastionAftermathStage : Control
 
         // Stratospheric void storm sky & clouds
         DrawStratosphericStormSky(t);
+        CampaignArtwork.DrawEnvironment(this, "apex_bastion", Seconds, aftermath: true, drawBase: true);
 
         // Dynamic void lightning strikes arcing through clouds
         DrawVoidLightningStrikes(t);
@@ -316,52 +318,7 @@ public partial class ApexBastionAftermathStage : Control
     /// <summary>Draws all 6 operative silhouettes standing on the battlements and advancing toward the unsealed doors.</summary>
     private void DrawSquadSilhouettes(float t, int shot)
     {
-        // Operatives base positions (x coordinates on gantry, Y = 660)
-        float advance = (shot == 8) ? Mathf.Clamp((t - 80f) / 10f, 0f, 1f) * 60f : 0f;
-
-        (float X, Color Glow, string Name)[] ops = {
-            (460f + advance, ColorOceanus, "Oceanus"),
-            (550f + advance, ColorAura, "Aura"),
-            (640f + advance, ColorSurya, "Surya"),
-            (740f + advance, ColorTitan, "Titan"),
-            (840f + advance, ColorMirage, "Mirage"),
-            (950f + advance, ColorKaito, "Kaito")
-        };
-
-        for (int i = 0; i < ops.Length; i++)
-        {
-            var op = ops[i];
-            Vector2 pos = new(op.X, 660);
-
-            // Operative dark silhouette
-            Vector2[] body = {
-                pos + new Vector2(-12, 0),
-                pos + new Vector2(-16, -30),
-                pos + new Vector2(-10, -55),
-                pos + new Vector2(-6, -72),
-                pos + new Vector2(6, -72),
-                pos + new Vector2(10, -55),
-                pos + new Vector2(16, -30),
-                pos + new Vector2(12, 0)
-            };
-            DrawColoredPolygon(body, new Color("0a0f1d"));
-
-            // Distinctive head circle
-            DrawCircle(pos + new Vector2(0, -80), 8f, new Color("0a0f1d"));
-
-            // Glowing signature weapon / aura accent
-            DrawCircle(pos + new Vector2(12, -45), 3.5f, op.Glow);
-
-            // Kaito's glowing blade drawn in Shot 8
-            if (op.Name == "Kaito")
-            {
-                float bladeAngle = (shot == 8) ? -0.85f : -0.2f;
-                Vector2 hilt = pos + new Vector2(14, -45);
-                Vector2 tip = hilt + new Vector2(Mathf.Cos(bladeAngle), Mathf.Sin(bladeAngle)) * 36f;
-                DrawLine(hilt, tip, ColorKaito, 2.8f);
-                DrawLine(hilt, tip, Colors.White, 1.2f);
-            }
-        }
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     private void DrawScanlines()

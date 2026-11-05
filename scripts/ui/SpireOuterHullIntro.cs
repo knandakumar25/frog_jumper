@@ -2,7 +2,7 @@ using System;
 using Godot;
 
 /// <summary>
-/// Skippable 90-second Pre-Level 9 cinematic prelude overlay ("Exterior Breach — Spire Outer Hull").
+/// Skippable 90-second Pre-Level 9 cinematic prelude overlay ("Exterior Breach â€” Spire Outer Hull").
 /// Coordinates stratospheric weather staging, multi-speaker dialogue subtitles, and combat telemetry
 /// across nine authored beats establishing the high-altitude insertion onto the exterior catwalks of the Citadel Spire.
 /// </summary>
@@ -30,19 +30,22 @@ public partial class SpireOuterHullIntro : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/spire_outer_hull_intro/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0.0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Altitude 2,500 meters. Approaching the Citadel Spire exterior flank. Wind gusts exceeding 65 knots. Automated perimeter flak batteries are tracking our trajectory.",
-        "SURYA: Target lock detected on our port engine! Raising forward solar barrier to absorb their heavy flak bursts. Keep us steady in the turbulence!",
-        "MIRAGE: Look at that monolithic wall of armor plating... Catwalks sighted at Gantry Level 42. Narrow maintenance rails running straight up the hull.",
-        "TITAN: The shear winds out there will rip a mech clean off the wall. Magnetize your boot solenoids and check your harness tethers!",
-        "OCEANUS: Thermal exhaust vents along the ascent shaft are venting sub-zero cryogenic coolant. Surfaces will be slick with black ice.",
-        "AURA: Citadel security mainframe is alerting all defensive automated drone wings. Aerial interceptors are launching from exterior silo racks above us!",
-        "AXIOM-7: Cargo bay depressurized. Side ramps deploying. Once you drop onto the gantry, I will take the gunship into high-orbit cloud cover to evade anti-air destruction.",
-        "MIRAGE: One-way drop. We scale the Spire exterior on foot, punch through the blast doors into the Cyber-Nexus, or fall into the abyss.",
-        "KAITO: Axiom Force! Weapons armed, grapples locked! Leap to the catwalks and begin the ascent! BREACH NOW!",
+        "AXIOM-7: Altitude twenty-five hundred meters. Wind gusts above sixty-five knots. Perimeter flak is tracking our approach.",
+        "SURYA: Port engine lock. Raising the forward barrier. Keep her steady while I take the flak.",
+        "MIRAGE: Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.",
+        "TITAN: That wind could peel a mech off the wall. Magnetize your boots. Check every tether twice.",
+        "OCEANUS: Cryogenic exhaust along the shaft. Expect black ice on the rails. Test your footing before you jump.",
+        "AURA: Drone wings are launching from the silos above. The mainframe is sending everything it has down this wall.",
+        "AXIOM-7: Cargo bay depressurized. Ramps deploying. After insertion, I will take the transport into cloud cover.",
+        "MIRAGE: One-way drop. We climb to the Cyber-Nexus airlock. Stay on the hull, and we have a way through.",
+        "KAITO: Weapons armed. Harnesses locked. Axiom Force, onto the catwalks. Begin the ascent.",
         ""
     };
 
@@ -71,6 +74,7 @@ public partial class SpireOuterHullIntro : CanvasLayer
     /// <summary>Constructs seekable visual stage and responsive UI elements.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
         _previousMouseMode = Input.MouseMode;
         Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -158,7 +162,7 @@ public partial class SpireOuterHullIntro : CanvasLayer
         ui.AddChild(_skip);
 
         // Ambient high-altitude atmosphere audio
-        _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "Master" };
+        _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "SFX" };
         AddChild(_ambience);
         string atmospherePath = $"{ArtPath.TrimEnd('/')}/atmosphere.ogg";
         if (ResourceLoader.Exists(atmospherePath))
@@ -169,7 +173,7 @@ public partial class SpireOuterHullIntro : CanvasLayer
         }
 
         // Voice track
-        _speech = new AudioStreamPlayer { Name = "Speech", Bus = "Master" };
+        _speech = new AudioStreamPlayer { Name = "Speech", Bus = "SFX" };
         AddChild(_speech);
         if (ResourceLoader.Exists(SpeechPath))
         {
@@ -179,34 +183,28 @@ public partial class SpireOuterHullIntro : CanvasLayer
         }
 
         UpdateSubtitles(0.0);
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Advances deterministic timeline and synchronizes visual state.</summary>
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        double target = Elapsed;
-        if (_speech != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            double pos = _speech.GetPlaybackPosition();
-            if (pos > _lastAudio) { _lastAudio = pos; _stalled = 0; }
-            else { _stalled += delta; }
-
-            if (_stalled > 0.3) target += delta;
-            else target = Math.Max(target, pos);
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-        else
-        {
-            target += delta;
-        }
-
-        Seek(target);
-
-        if (Elapsed >= Duration)
-        {
-            Finish();
-        }
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Jumps timeline to specified position and updates subtitles and stage.</summary>
@@ -219,13 +217,17 @@ public partial class SpireOuterHullIntro : CanvasLayer
             _stage.QueueRedraw();
         }
 
-        if (_speech != null && _speech.Stream != null && Math.Abs(_speech.GetPlaybackPosition() - Elapsed) > 0.25)
-        {
-            if (Elapsed < Duration) _speech.Play((float)Elapsed);
-            else _speech.Stop();
-        }
-
         UpdateSubtitles(Elapsed);
+    }
+
+    /// <summary>Scrubs owned audio only on an explicit request, keeping natural playback and missing-speech fallback uninterrupted.</summary>
+    public void SeekPlayback(double seconds)
+    {
+        Seek(seconds);
+        _lastAudio = -1; _stalled = 0;
+        if (!IsInsideTree() || HasFinished) return;
+        if (_speech?.Stream != null) _speech.Play((float)Elapsed);
+        if (_ambience?.Stream != null) _ambience.Play((float)Elapsed);
     }
 
     private void UpdateSubtitles(double time)
@@ -273,46 +275,58 @@ public partial class SpireOuterHullIntro : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
-        if (_speech != null && IsInsideTree()) _speech.Stop();
-        if (_ambience != null && IsInsideTree()) _ambience.Stop();
-
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
-
-        if (EnterMissionOnFinish && !_navigating && IsInsideTree())
+        if (EnterMissionOnFinish && IsInsideTree())
         {
-            _navigating = true;
-            string targetScene = "res://scenes/gameplay/level9.tscn";
-            if (!ResourceLoader.Exists(targetScene)) targetScene = "res://scenes/main_menu/level_selection.tscn";
-
-            if (GetTree() != null)
-            {
-                GetTree().Paused = false;
-                GetTree().ChangeSceneToFile(targetScene);
-            }
+            CampaignProgress.PrepareMission(9);
+            GetTree().Paused = false;
+            GetTree().ChangeSceneToFile(LevelCatalog.ScenePath(9));
         }
+        else QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Captures Escape, Space, Enter, Gamepad, and Click to skip playback.</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event.IsActionPressed("ui_cancel") || @event.IsActionPressed("ui_accept") ||
-            (@event is InputEventKey key && key.Pressed && (key.Keycode == Key.Space || key.Keycode == Key.Enter || key.Keycode == Key.Escape)) ||
-            (@event is InputEventJoypadButton joy && joy.Pressed && (joy.ButtonIndex == JoyButton.Start || joy.ButtonIndex == JoyButton.A)))
-        {
-            GetViewport()?.SetInputAsHandled();
-            Finish();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Restores mouse mode and prompt visibility on exit.</summary>
     public override void _ExitTree()
     {
-        Input.MouseMode = _previousMouseMode;
-        var global = GetNodeOrNull<Node>("/root/Global");
-        global?.Call("set_control_prompt_visible", _previousPromptVisible);
-        base._ExitTree();
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 }

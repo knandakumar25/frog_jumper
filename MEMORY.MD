@@ -1,8 +1,250 @@
 # Axiom Force — Project Memory
 
-Last reviewed: 2026-11-02. This file preserves durable decisions and useful
+Last reviewed: 2026-11-05. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
+
+## Authorized Git publication — 2026-11-05
+
+User explicitly requested pushing the current changes, authorizing the needed
+local commit and normal push to origin/main. Prepared the complete repair batch,
+including the existing one-line removal of graphifyy from root requirements.txt.
+Fetch confirmed main and origin/main matched at c2ad661 before publication.
+Ignored .validation captures, temporary outputs and secrets remain excluded.
+Prior validation remains Django 104/NUnit 276/Godot 303 passing with zero test
+errors, failures or orphans; this Git/documentation-only task does not rerun engine
+imports or tests. No exports. Keep all four normal Docker services running.
+Physical-device, pacing and subjective-listening acceptance remains pending.
+The commit and remote branch identify the final publication revision.
+
+## Levels 5–12 repair implemented and verified — 2026-11-05
+
+User authorized the complete c2ad661 repair plan, local/uncommitted and no exports.
+Latest user preference: leave Docker running; earlier request to pause is rescinded.
+Read/applied router, Godot C#/Essentials interactions/debug/UI, GDScript/headless,
+nodes/physics/UI/audio, level/input/assets/audio/save, PostgreSQL JSONB, official
+Docker Compose/build and ElevenLabs TTS skills. MCP identity is this project in
+session frog-jumper@73bf095c77ca37a3. Normal stack rebuilt/started before edits;
+all four services up. Media generated in owned Docker Blender/Python/FFmpeg runs.
+
+Implemented action evidence independent of defenders, full protected crossings,
+full-height interlocks, pod context attack, accepted terminal consumption, finite
+formation acceptance/sequential waves, six targeted layer-2 bosses with HUD,
+defender-held phases, actual parry returns, arena retries and durable defeat/reward
+receipts. Fixed remote cleanup cancelling manual waves, under-catwalk defender
+access, a blocked heat exit and Mission 12's post-heat formation location. Results
+await transactional stable JSONB settlement/high-water progress and main-thread
+unlocks; Retry Save reuses its token. Continue 5→6/6→7 and final menu repaired;
+Global's obsolete Mission 9 unlock limit now uses twelve-mission LevelCatalog.
+Fourteen later cinematic lifecycles restore cursor/help/audio, release Skip actions,
+defer navigation, remove overlays and complete once on every exit/fallback path.
+
+Produced seven inspected original environment families: 54 PNG plates with layers,
+matching six boss pairs and distinct aftermaths, sharing approved operative artwork.
+Generated 117 complete natural-speed cast takes across thirteen missing tracks,
+preserving Cyber-Grave intro speech. Real IDs came from recorded cast provenance;
+Commander uses existing imperial Bill voice. Three retakes corrected possessives/
+shortened one overrun, without truncation or acceleration. Fourteen unique original
+atmosphere beds validate full 90/120-second timelines and unclipped output. Shipped
+manifests/timing/provenance/hashes and media validation cover all 28 audio tracks.
+
+Final checks: build passes with zero errors/155 project-addon warnings. Final
+run_tests.ps1 passes Django 104, NUnit 276 and GdUnit4 303 with zero errors,
+failures, skips or orphans. Real engine coverage includes all-six-boss melee and
+parry returns, actual gates/crossings/pod input, phase/support/checkpoint/terminal
+behavior, eight Skip routes on all fourteen overlays, teardown/fallbacks, mounted
+speech sampling and pending/failure/retry/direct-play results UI. Owned PG tests
+verify high-water progress, concurrency, discarded committed responses and outage
+reporting; cleanup is scoped to owned campaigns/receipts. Docker cleanup guidance
+applies only to disposable test helpers; normal services stay running.
+
+Each Mission 6–12 reached actual results from fresh entry through production
+movement, attacks, swaps, signatures and interactions, without injected milestones,
+health overrides or direct enemy damage. Accepted playthroughs and raw diagnostic
+failures remain separate under ignored .validation/later-campaign/. Bot development
+stalls included targeting held bosses before support, returning to already-used
+props and one-way catwalk navigation; those were diagnostic runner failures.
+Mission 10 nodes now explicitly mark accepted collection. Mission 5 Continue and
+both acts/all later prologues/Replay/owned-fixture Resume/direct Level Select/final
+menu were exercised through actual MCP scene transitions; the exact temporary
+resume fixture was removed. No existing campaign was selected for review.
+
+All 126 later cinematic shots inspected at three requested resolutions, with
+800×600 checks: 504 correctly sized native captures and no subtitle-bound failures.
+Final visual review fixed frozen Apex/Judgment aftermath redraws; natural playback
+sampling no longer scrubs speech each frame in Spire intro/Nexus aftermath. New
+mounted-audio regression verifies separate explicit SeekPlayback. Fourteen unique
+beds and complete audio decoding remain validated, with original cast provenance.
+
+Background imports completed; all 54 PNG sidecars exist. Existing addon TLS/HTTP/
+socket errors and the same 27 ObjectDB/12-resource/PagedAllocator import-shutdown
+diagnostics from the initial refresh remain separate from clean project tests.
+Baseline source checker remains 10 unrelated errors/27 warnings. Whitespace check
+passes. HEAD c2ad661 unchanged; local/uncommitted, unstaged, no exports. All owned
+review games stopped, user's editor left open, four normal Docker services up.
+README/HANDOFF/docs/LATER_CAMPAIGN_ACCEPTANCE.md record final evidence. Physical
+controller/touch use, human pacing and subjective listening are explicitly pending
+human acceptance, not claimed by automation. Do not rerun finished checks solely
+because this memory or documentation is read or edited.
+
+## Morning handoff: Levels 5–12 review and asset improvements — 2026-11-04
+
+User requested saving ALL findings from the gameplay/scene and asset reviews,
+then shutting down all Docker servers and continuing in the morning. The findings below are the HISTORICAL c2ad661 audit, repaired by the verified
+2026-11-05 implementation above; retain them for traceability. Human acceptance
+remains explicitly pending. Compare 127b3af..c2ad661 for the audited work.
+Earlier entries calling later missions fully verified refer to historical test
+results, not acceptance of the actual interaction paths identified below.
+
+### Priority gameplay and campaign repairs
+
+1. Boss combat, Missions 7–12: all six new boss classes omit explicit enemy
+   collision layers. Runtime confirmed VoidCommanderBoss2D defaults to layer 1,
+   while the actual player AttackArea scans mask 2. Standard attacks cannot
+   detect these boss bodies. Boss targeting searches GetFirstNodeInGroup("player"),
+   but runtime players across the sampled missions have no "player" group.
+   Prefer explicit mission-owned target references and consistent existing
+   enemy-layer conventions; verify actual melee and projectile collisions.
+2. Mission 6 GenePod.cs handles only mouse/touch in _Input; no keyboard/controller
+   action or attack-damage path invokes TryLiberate. Both pods are mandatory.
+   Add the normal context action and accurate prompts using current bindings;
+   retain proximity, prerequisites and duplicate guards.
+3. Missions 6–12 auto-commit ability milestones in UpdateMission from ledger
+   eligibility alone. They do not subscribe to gate completion/ability success.
+   Runtime Level 12 reproduction: diagnostically complete ingress1/ingress2,
+   await a frame, and the HUD advances to siphon-grid neutralization while the
+   player remains at (200,554), without Oceanus/Titan actions. Replace these
+   placeholders with actual gate effects, successful local phase crossings and
+   Bulwark-protected traversal. Distinguish readiness from completed action.
+4. Missions 6–12 construct WildfireEncounter without Acceptance wired to their
+   ledger's CanStartFormation. Premature groups can spawn/die while their combat
+   completion is rejected. WildfireEncounter retains dead slots when such a
+   group reactivates, increasing the risk of stalls. Connect formation eligibility,
+   enforce sequential waves and cover rejected completion/recovery explicitly.
+5. Some late terminals consume their one-shot state before CommitObjective accepts
+   the event. Level 12 sets _coreTerminalOverridden and hides its terminal before
+   the remaining garrison prerequisite is satisfied. Failed acceptance cannot
+   be retried afterward. Check eligibility and accepted commit BEFORE hiding or
+   marking terminals used; audit the similar Mission 10/11 terminal handling.
+6. CodeLevel.CompleteMission routes Mission 5 and 6 aftermaths to ShowScorecard,
+   which passes nextMission=0. Their results omit Continue to 6/7 and therefore
+   omit the expected intro route. Use explicit next-mission scorecards.
+7. ShowCampaignCompleteScorecard reveals the generic Preview button, whose
+   OnPreviewPressed fallback launches act_ii_opening.tscn. Give the final victory
+   action a deliberate final destination instead of returning to Act II.
+8. New boss recovery routines retain the boss, _bossSpawned, health/phase state
+   and projectiles rather than defining a fresh attempt. Phase milestone signals
+   can be missed when supporting defenders have not been cleared at threshold
+   time. Define attempt reset, durable defeat, owned projectile cancellation and
+   order-independent phase/defender reconciliation, following the stronger Level 4
+   pattern. Avoid repairing this by injecting ledger events in normal gameplay.
+9. VoidPlasmaSlash2D calls player.TakeDamage(Damage), which treats it as an
+   environmental hit and bypasses ranged parry. Use the source-aware damage path.
+   Several new reflected projectile rays scan mask 4 while bosses default to 1;
+   align masks/layers and preserve reflected projectiles instead of cancelling
+   them immediately after the original player hit. Test real Kaito parries.
+10. Shared PostgreSQL persistence issue: CampaignProgress.CompleteMission starts
+    an unawaited UpdateSessionAsync; its SQL directly assigns current_level=@level.
+    Replaying an earlier mission can lower the saved campaign position even while
+    runtime unlocked_levels stays high. This predates some reviewed scenes but
+    affects the expanded campaign. Preserve highest reached progress and surface
+    save success/failure without adding local fallback storage. Review finale
+    completion persistence deliberately; do not invent a save migration blindly.
+
+### Asset, presentation and cinematic repairs
+
+- Git shows no new raster image/model/Blender asset files after 127b3af in assets/:
+  later visuals are procedural C# drawing. This is not evidence of corrupt new
+  textures. Existing original Mission 5 plates and character/environment assets
+  remain present. Reuse the established art direction rather than assuming
+  placeholder silhouettes satisfy the earlier production standard.
+- Later cinematic operatives are much simpler silhouettes with small colored
+  markers, losing identifiable armor, weapons and proportions. Improve identity,
+  native-scale readability, framing and character size; several opening views
+  have large empty areas and very small squads. These are visual judgments from
+  actual captures, not a completed shot-by-shot animation acceptance review.
+- Missions 6–12 reuse the city skyline/backdrop and similar foundation/deck layout
+  despite underground, volcanic, interior and summit settings. Give environments
+  their stated visual identities and assess traversal variety separately from
+  palette changes. Preserve routes until functional repairs are verified.
+- Generic menu navigation/rotation help appears over gameplay and many later
+  cinematics. Hide/restore it through the established lifecycle. Some central
+  mission briefings overlap sector labels; Mission 9 displays an obsolete
+  narrative-slot briefing about defeating Void Commander Kelthara/liberating Earth.
+  Supply correct current objectives and review responsive layout/localization.
+- Of the fourteen Mission 6–12 intro/aftermath scenes, thirteen lack their
+  configured dialogue.ogg; Cyber-Grave intro is the exception. Text/cues and
+  historical "voiced" claims do not establish recorded voice availability.
+  Restore established-cast performances with timing/provenance and full-cue QA.
+- Docker Python verified thirteen atmosphere.ogg files are byte-for-byte identical
+  copies of a single 120-second, 22050Hz Ogg. Reuse is technically valid but lacks
+  the documented scene-specific audio character. Foundry aftermath lacks even its
+  configured atmosphere.ogg; Mission 6 gameplay requests nonexistent
+  assets/audio/cyber_grave/atmosphere.ogg and logs two resource-load errors.
+  Repair paths and provide intentional scene atmosphere/mix, retaining fallback.
+- Several later aftermath Finish methods emit Finished but neither remove nor
+  hide their overlay. Runtime confirmed JudgmentDayAftermath stays visible at
+  layer 40 after Escape with HasFinished=true and not queued for deletion. The
+  scorecard is layer 50: do NOT claim this proves results are hidden. Remove
+  completed overlays, restore cursor/prompt and handle independent teardown.
+  Regress all Skip inputs, event consumption/action release and deferred handoffs.
+
+### Evidence, tools, limits and next session
+
+- Applied router, Godot C#/nodes/scenes/physics/audio/animation/UI, Microsoft
+  C# Essentials debugging lesson, asset-creation, PostgreSQL JSONB guidance and
+  official Docker Compose/build skills. PostgreSQL work was source inspection;
+  no database rows, saves, credentials or schema were changed. No live database
+  connection was configured as part of this review.
+- Godot AI MCP connected through tools/cutscene/mcp_probe.py to this project,
+  Godot 4.7.2, session frog-jumper@e584f15002611430. Launched/captured all eight
+  mission scenes and all fourteen later cinematic scenes with autosave=false.
+  Some mission property probes timed out; captures were inspected. This was
+  entry/composition inspection plus targeted diagnostics, NOT complete combat
+  traversal or full-duration/all-shot cinematic verification. Two bespoke eval
+  probes caused tool-side errors; stopped/relaunched only owned review games.
+  Do not misclassify those probe errors as project failures.
+- Temporary captures are in Windows TEMP: axiom-audit-level5.png through
+  axiom-audit-level12.png, axiom-audit-<cinematic-name>.png and the fourteen-image
+  axiom-audit-contact.png. They may disappear; regenerate when needed.
+- Current dotnet build --no-restore passed with 0 warnings/errors. Reference
+  checker inspected 4485 files and returned the known 10 addon/main-menu signal
+  errors and 27 warnings. Full unit suites were NOT rerun for this read-only
+  audit. Historical 264 NUnit/289 Godot/104 Django passes do not cover these
+  defects: many later tests advance objectives by calling CommitObjective or
+  CompleteCombatEvent rather than exercising real interactions.
+- Rebuilt existing axiom-force-cutscene media image for validation only. Docker
+  backend Python 3.14.10 checked audio hashes and Ogg page/duration validity;
+  Blender 4.3.2 in an isolated read-only, network-disabled container decoded the
+  two existing Mission 5 district plates: 1920x1080, four channels, alpha 0..1.
+  No new art, audio, rendering, game export or source changes were produced.
+  Temporary media validation container exited/was removed normally.
+- Recommended order tomorrow: repair combat/interaction/progression blockers,
+  navigation and recovery first; verify real action paths; then improve scene
+  artwork/audio/layout and re-run cinematic/campaign regressions. Existing work
+  is implemented but requires these corrections before playability acceptance.
+  Human pacing, physical hardware and subjective listening remain outstanding.
+- Shutdown completed at user's explicit request: docker compose stop stopped
+  backend, db, website and ollama, all exited 0; docker ps shows no running
+  containers. Containers/volumes/images preserved. Editor remains stopped on
+  Level 1. Restart/verify normal stack before future code edits. No commits,
+  staging or pushes; only MEMORY.MD contains the orientation/audit handoff edits.
+
+## Codex return and repository orientation — 2026-11-04
+
+Reviewed the Markdown inventory/headings, current agent policies, recent campaign
+documentation and Git history through c2ad661. The catalog now contains 12 missions:
+Acts I (1–4), II (5–7), III (8–12). Levels 1–3 revisions, Mission 5 aftermath,
+and later mission/cinematic additions are implemented; earlier chat plans are
+superseded by those commits. Latest implementation is Judgment Day gameplay,
+prologue and campaign finale epilogue. Recorded latest suites: NUnit 264/264,
+Godot 289/289 (report_486, zero failures/errors/orphans), Django 104/104; these
+were not rerun for this orientation. Human pacing, hardware and listening checks
+remain distinct from automated results. Older four/five-mission descriptions in
+agent guides/README and historical audit material are stale; use current catalog
+and dated implementation records. Working tree was clean before this required
+memory-only update; main equals the local origin/main tracking ref. No fetch,
+service operations, code/assets edits, imports, tests or Git publication performed.
 
 ## Standing Directive: NO Docker MCP Mentions or Work — 2026-11-04
 

@@ -4,7 +4,7 @@ using Godot;
 /// Swept molten mortar projectile launched by IGNIS-COLOSSUS during Mission 7.
 /// Deflectable by Kaito's katana parry; reflection redirects the superheated magma back to the boss.
 /// </summary>
-public partial class FoundrySlagBall2D : Area2D
+public partial class FoundrySlagBall2D : Area2D, ICampaignProjectile
 {
     /// <summary>Travel speed in pixels per second.</summary>
     [Export] public float Speed { get; set; } = 460f;
@@ -46,6 +46,7 @@ public partial class FoundrySlagBall2D : Area2D
             return;
         }
         Reflected = true;
+        _age = 0;
         Vector2 offset = OwningBoss.GlobalPosition - GlobalPosition;
         Direction = offset.LengthSquared() > 0 ? offset.Normalized() : -Direction;
         Rotation = Direction.Angle();
@@ -65,61 +66,54 @@ public partial class FoundrySlagBall2D : Area2D
     {
         if (_cancelled) return;
         _age += (float)delta;
-        if (_age >= Lifetime || !IsInstanceValid(OwningBoss) || OwningBoss!.IsDying || OwningBoss.IsQueuedForDeletion())
-        {
-            Cancel();
-            return;
-        }
-
-        if (Direction.LengthSquared() <= 0)
-        {
-            Cancel();
-            return;
-        }
-
-        if (Reflected && IsInstanceValid(OwningBoss))
+        if (_age >= Lifetime || !IsInstanceValid(OwningBoss) || OwningBoss!.IsDying || OwningBoss.IsQueuedForDeletion() || Direction.LengthSquared() <= 0)
+        { Cancel(); return; }
+        if (Reflected)
         {
             Vector2 offset = OwningBoss.GlobalPosition - GlobalPosition;
             if (offset.LengthSquared() > 0) Direction = offset.Normalized();
         }
-
         Vector2 end = GlobalPosition + Direction * Speed * (float)delta;
-        var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, end, Reflected ? 5u : 1u);
+        var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, end, Reflected ? 2u : 1u);
         query.HitFromInside = true;
-
         if (Reflected)
         {
+            // Return fire belongs only to its launching boss; other enemies and the reflector cannot consume it.
             var excluded = new Godot.Collections.Array<Rid>();
-            if (IsInsideTree())
-            {
-                foreach (Node node in GetTree().GetNodesInGroup("player"))
-                    if (node is CollisionObject2D body) excluded.Add(body.GetRid());
-            }
             if (IsInstanceValid(_reflector)) excluded.Add(_reflector!.GetRid());
+            foreach (Node enemy in GetTree().GetNodesInGroup("enemies"))
+                if (enemy is CollisionObject2D body && body != OwningBoss) excluded.Add(body.GetRid());
             query.Exclude = excluded;
         }
-
         var hit = GetWorld2D().DirectSpaceState.IntersectRay(query);
         if (hit.Count > 0)
         {
-            var body = hit["collider"].AsGodotObject();
-            if (body is CyberShogun player && !Reflected)
+            var collider = hit["collider"].AsGodotObject();
+            if (!Reflected && collider is CyberShogun player)
             {
                 _reflector = player;
-                bool parrying = player.IsParrying && !player.IsBulwarked;
-                GlobalPosition = end;
-                player.TakeDamageFrom(Damage, Direction * 280 + new Vector2(0, -90), this);
-                if (parrying && Reflected) return;
+                GlobalPosition = hit["position"].AsVector2();
+                player.TakeDamageFrom(Damage, Direction * 160f, this);
+                // Parry changes this very projectile synchronously. Keep its new return trajectory alive.
+                if (Reflected) { GlobalPosition += Direction * 4; return; }
+                Cancel(); return;
             }
-            else if (Reflected && body == OwningBoss)
+            if (Reflected && collider == OwningBoss)
             {
                 OwningBoss.TakeDamage(40f);
+                Cancel(); return;
             }
-            Cancel();
-            return;
+            if (!Reflected && collider is StaticBody2D) { Cancel(); return; }
         }
-
         GlobalPosition = end;
         Rotation = Direction.Angle();
     }
+    /// <summary>Readable molten core and hot trail for the code-built IGNIS artillery.</summary>
+    public override void _Draw()
+    {
+        DrawCircle(Vector2.Zero, 13, new Color("ff6622"));
+        DrawCircle(Vector2.Zero, 6, new Color("fff0ac"));
+        DrawLine(new Vector2(-32, 0), Vector2.Zero, new Color("ff9a3388"), 9);
+    }
+
 }

@@ -31,19 +31,22 @@ public partial class ApexBastionIntro : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/apex_bastion_intro/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Freight lift arrived at Spire Level 100. Elevation: four-thousand five-hundred meters. Atmospheric pressure critical. Welcome to the Apex Bastion—the personal fortress of the Praetorian Guard.",
-        "TITAN: Look at these battlements... obsidian-alloy plating three meters thick. Automated plasma turrets tracking every inch of the courtyard. They've turned the entire spire summit into an active warzone.",
-        "OCEANUS: The clouds are beneath us now. Sub-zero gale-force winds are whipping across the ramparts. One slip off these outer parapets and it's a four-kilometer drop back to the city.",
-        "MIRAGE: Motion sensors pinging dozens of heavy signatures. Those aren't automated drones—those are the Void Commander's elite Praetorian shock-troopers and cyber-samurai. They're locked and loaded.",
-        "AURA: Their comms are chillingly silent. No panic, no distress calls. They know the Cyber-Nexus is gone, and they know we're here. They have sworn an oath to fight to the last machine cycle.",
-        "SURYA: The stairway beyond the courtyard leads directly to the Throne Room. Look at the perimeter gate: heavy barrier shields and heavy kinetic artillery. We will need all our strength to breach it.",
-        "AXIOM-7: Warning: Deep scans detect a colossal mechanized war chassis guarding the grand gatehouse: The Bastion Praetor. It is the final guardian defending access to the Void Commander.",
-        "MIRAGE: We broke their street gangs in the District. We drowned their bio-labs in the Grave. We tore their sky-shields down in the Forge. We are not stopping on the front porch.",
-        "KAITO: Axiom Force has come too far to falter. Through the Praetorian Guard, through the Praetor mech, and straight to the Void Commander's throne. Blades drawn—breach the Bastion!",
+        "AXIOM-7: Level one hundred. Forty-five hundred meters. This is Apex Bastion, fortress of the Praetorian Guard.",
+        "TITAN: Three meters of obsidian alloy. Plasma guns covering the courtyard. They have turned the summit into a killing ground.",
+        "OCEANUS: The clouds are below us. Ice on the parapets, crosswinds over the rail. Stay away from those edges.",
+        "MIRAGE: Heavy signatures ahead. Praetorian shock troops and cyber-samurai. The Commander's personal guard. They know we are here.",
+        "AURA: Their comms are silent. No panic. They know the Nexus is gone, and they mean to hold this wall anyway.",
+        "SURYA: The stairway leads to the throne room. Artillery at the perimeter gate. We will need every operative to break through.",
+        "AXIOM-7: Colossal war chassis at the gatehouse. Bastion Praetor. The last mechanized guardian between us and the Commander.",
+        "MIRAGE: We broke the registry, emptied the Grave, and brought their sky-shields down. We are not stopping at the front door.",
+        "KAITO: Through the Guard, through the Praetor, and on to the throne. Axiom Force, blades drawn. Breach the Bastion.",
         ""
     };
 
@@ -70,6 +73,7 @@ public partial class ApexBastionIntro : CanvasLayer
     /// <summary>Constructs visual stage, subtitle container, skip button, and audio streams.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
 
         _stage = GetNodeOrNull<ApexBastionStage>("ApexBastionStage");
@@ -164,7 +168,7 @@ public partial class ApexBastionIntro : CanvasLayer
         _ui.AddChild(_skip);
 
         // Audio streams
-        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "Master" };
+        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "SFX" };
         AddChild(_speech);
 
         _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "Music", VolumeDb = -2f };
@@ -193,42 +197,28 @@ public partial class ApexBastionIntro : CanvasLayer
         }
 
         Seek(0);
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Advances the monotonic playback clock and handles auto-completion upon reaching 90s.</summary>
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        double current;
-        if (_speech != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            current = _speech.GetPlaybackPosition();
-            if (Math.Abs(current - _lastAudio) < 0.0001)
-            {
-                _stalled += delta;
-                if (_stalled > 0.5) current = Elapsed + delta;
-            }
-            else
-            {
-                _stalled = 0;
-                _lastAudio = current;
-            }
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-        else
-        {
-            current = Elapsed + delta;
-        }
-
-        Elapsed = Math.Max(Elapsed, current);
-
-        if (Elapsed >= Duration)
-        {
-            Finish();
-            return;
-        }
-
-        Seek(Elapsed);
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Samples any timeline second without completing, updating stage graphics and subtitle text.</summary>
@@ -267,21 +257,17 @@ public partial class ApexBastionIntro : CanvasLayer
     }
 
     /// <summary>Handles keyboard, controller, mouse, and touch skip shortcuts.</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event.IsActionPressed("ui_cancel") ||
-            @event.IsActionPressed("ui_accept") ||
-            (@event is InputEventKey k && k.Pressed && !k.Echo &&
-             (k.Keycode == Key.Escape || k.Keycode == Key.Space || k.Keycode == Key.Enter)) ||
-            (@event is InputEventJoypadButton j && j.Pressed &&
-             (j.ButtonIndex == JoyButton.Start || j.ButtonIndex == JoyButton.A)) ||
-            (@event is InputEventMouseButton m && m.Pressed && m.ButtonIndex == MouseButton.Left))
-        {
-            Finish();
-            GetViewport()?.SetInputAsHandled();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Completes the cinematic presentation, silences audio players, and transitions to Mission 11.</summary>
@@ -289,28 +275,44 @@ public partial class ApexBastionIntro : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
-        _speech?.Stop();
-        _ambience?.Stop();
-        EmitSignal(SignalName.Finished);
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
+        EmitSignal(SignalName.Finished);
         if (EnterMissionOnFinish && IsInsideTree())
         {
-            string nextScene = ResourceLoader.Exists("res://scenes/gameplay/level11.tscn")
-                ? "res://scenes/gameplay/level11.tscn"
-                : "res://scenes/main_menu/level_selection.tscn";
-            GetTree().ChangeSceneToFile(nextScene);
+            CampaignProgress.PrepareMission(11);
+            GetTree().Paused = false;
+            GetTree().ChangeSceneToFile(LevelCatalog.ScenePath(11));
         }
-        else
-        {
-            QueueFree();
-        }
+        else QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Ensures audio streams are silenced if overlay is freed directly from tree.</summary>
     public override void _ExitTree()
     {
-        if (_speech != null && _speech.Playing) _speech.Stop();
-        if (_ambience != null && _ambience.Playing) _ambience.Stop();
-        base._ExitTree();
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 }

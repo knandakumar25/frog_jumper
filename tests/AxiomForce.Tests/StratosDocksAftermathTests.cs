@@ -47,7 +47,7 @@ public class StratosDocksAftermathTests
         Assert.That(json, Does.Contain("MIRAGE"));
         Assert.That(json, Does.Contain("SURYA"));
         Assert.That(json, Does.Contain("KAITO"));
-        Assert.That(json, Does.Contain("VTOL"));
-        Assert.That(json, Does.Contain("Spire"));
+        Assert.That(json, Does.Contain("ion thrusters"));
+        Assert.That(json, Does.Contain("outer hull"));
     }
 }

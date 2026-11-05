@@ -23,6 +23,7 @@ public partial class GenePod : Node2D
         Mission.Player.GlobalPosition.DistanceTo(GlobalPosition + new Vector2(0, -46)) < 140;
 
     private float _timer;
+    private bool _usingPad;
     private readonly float[] _bubbleYs = { -30f, -60f, -90f, -120f };
     private readonly float[] _bubbleXs = { -10f, 8f, -6f, 12f };
 
@@ -49,6 +50,14 @@ public partial class GenePod : Node2D
     public override void _Input(InputEvent input)
     {
         if (!IsInsideTree() || Mission == null || Mission.GameplaySuspended || !InRange) return;
+        if (input is InputEventJoypadButton or InputEventJoypadMotion) _usingPad = true;
+        else if (input is InputEventKey or InputEventMouseButton) _usingPad = false;
+        if (input.IsActionPressed("attack") && !input.IsEcho() && TryLiberate())
+        {
+            GetViewport().SetInputAsHandled();
+            Input.ActionRelease("attack");
+            return;
+        }
         Vector2? point = input is InputEventScreenTouch { Pressed: true } touch ? touch.Position :
             input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse ? mouse.Position : null;
         if (!point.HasValue) return;
@@ -118,6 +127,8 @@ public partial class GenePod : Node2D
         // Context prompt indicator when in range and ready
         if (InRange && ready && !done)
         {
+            DrawString(ThemeDB.FallbackFont, new Vector2(-100, -192),
+                WildfireText.Binding("attack", _usingPad) + " // " + Caption, fontSize: 15, modulate: rimColor);
             float pulse = 0.7f + 0.3f * Mathf.Sin(_timer * 8f);
             DrawArc(new Vector2(0, -170), 12, 0, Mathf.Tau, 16, new Color(0f, 1f, 0.8f, pulse), 2f);
         }

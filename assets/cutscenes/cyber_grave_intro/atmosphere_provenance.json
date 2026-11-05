@@ -1,0 +1,11 @@
+{
+  "scene": "cyber_grave_intro",
+  "duration": 120,
+  "rate": 22050,
+  "sha256": "9da86d89896f4d6d3ead6ae759daaf0d1251d729a9c73dc298e50152f83449d4",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "machinery",
+    "steam"
+  ]
+}

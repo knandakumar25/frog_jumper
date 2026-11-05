@@ -50,16 +50,23 @@ public static class CampaignProgress
         return roster;
     }
 
-    /// <summary>
-    /// Records a finished mission: unlocks the next one, saves score and progress to the active session, and returns the
-    /// next mission's scene path (or null after the final mission).
-    /// </summary>
-    public static string? CompleteMission(int completedMission, int points)
+    /// <summary>Awaits PostgreSQL settlement, then applies runtime unlocks on the engine main thread.
+    /// Direct scene play without a campaign may navigate; failed active-campaign saves keep forward actions disabled.</summary>
+    public static async Task<CompletionSaveResult> CompleteMissionAsync(int completedMission, int points, string runToken, int sessionId)
     {
-        if (LevelCatalog.HasNext(completedMission)) Global?.Call("unlock_next_level", completedMission);
-        var sessions = SessionManager.Instance;
-        if (sessions != null && sessions.CurrentSessionId > 0)
-            _ = sessions.UpdateSessionAsync(sessions.CurrentSessionId, LevelCatalog.Clamp(completedMission + 1), points, 0);
-        return LevelCatalog.HasNext(completedMission) ? LevelCatalog.ScenePath(completedMission + 1) : null;
+        var result = await CampaignSettlement.SaveAsync(sessionId, completedMission, points, runToken).ConfigureAwait(false);
+        var applied = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        Callable.From(() =>
+        {
+            try
+            {
+                if (result.Status != CompletionSaveStatus.Failed && LevelCatalog.HasNext(completedMission))
+                    Global?.Call("unlock_next_level", completedMission);
+                applied.SetResult();
+            }
+            catch (System.Exception exception) { applied.SetException(exception); }
+        }).CallDeferred();
+        await applied.Task.ConfigureAwait(false);
+        return result;
     }
 }

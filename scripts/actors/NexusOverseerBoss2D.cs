@@ -35,6 +35,13 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
     /// <summary>Whether the boss has reached 0 HP and is in defeat sequence.</summary>
     public bool IsDying { get; private set; } = false;
 
+    /// <summary>Explicit mission-owned player used for aiming; no global group lookup is required.</summary>
+    public CyberShogun? Target { get; set; }
+    /// <summary>Mission authority for accepting the current health boundary after its defenders are cleared.</summary>
+    public Func<int, bool>? PhaseAcceptance { get; set; }
+    /// <summary>True at a health boundary while supporting defenders still prevent phase advancement.</summary>
+    public bool PhaseBlocked { get; private set; }
+
     private Vector2 _originPosition;
     private float _hoverTimer;
     private float _attackCooldown;
@@ -45,12 +52,15 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
     /// <summary>Initializes boss positioning, groups, procedural visuals, and HUD telemetry.</summary>
     public override void _Ready()
     {
+        CollisionLayer = 2;
+        CollisionMask = 1;
         AddToGroup("enemies");
         AddToGroup("boss");
         _originPosition = GlobalPosition;
         CurrentHealth = MaxHealth;
 
         SetupVisuals();
+        CampaignArtwork.AttachBoss(this, "cyber_nexus");
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
@@ -145,31 +155,29 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
     /// <summary>Applies damage to health pool and drives phase transitions.</summary>
     public void TakeDamage(float amount)
     {
-        if (IsDying) return;
-
-        CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
-
-        // Phase transitions at 66% and 33% health
-        if (CurrentPhase == 1 && CurrentHealth <= MaxHealth * 0.66f)
+        if (IsDying || amount < 0 || !float.IsFinite(amount)) return;
+        float boundary = PhaseFloor;
+        int oldPhase = CurrentPhase;
+        bool wasBlocked = PhaseBlocked;
+        CurrentHealth = Math.Max(boundary, CurrentHealth - amount);
+        PhaseBlocked = CurrentHealth <= boundary && PhaseAcceptance?.Invoke(CurrentPhase) == false;
+        if (CurrentHealth <= boundary && !PhaseBlocked && CurrentPhase < 3)
         {
-            CurrentPhase = 2;
-            OnPhaseShift(2);
+            ++CurrentPhase;
+            OnPhaseShift(CurrentPhase);
         }
-        else if (CurrentPhase == 2 && CurrentHealth <= MaxHealth * 0.33f)
+        if (amount > 0 || oldPhase != CurrentPhase || wasBlocked != PhaseBlocked)
+            EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
+        if (CurrentHealth <= 0 && !PhaseBlocked)
         {
-            CurrentPhase = 3;
-            OnPhaseShift(3);
-        }
-
-        EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
-
-        if (CurrentHealth <= 0 && !IsDying)
-        {
-            IsDying = true;
-            OnDefeated();
+            IsDying = true; OnDefeated();
         }
     }
 
+    /// <summary>Damage stops at the current authored phase threshold; excess damage never skips defenders or a phase.</summary>
+    private float PhaseFloor => CurrentPhase switch { 1 => MaxHealth * 0.66f, 2 => MaxHealth * 0.33f, _ => 0 };
+
+    /// <summary>Updates phase-specific armor and weapon feedback.</summary>
     private void OnPhaseShift(int newPhase)
     {
         if (_coreSphere != null)
@@ -182,8 +190,12 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
         }
     }
 
+    /// <summary>Stops owned attacks and emits the accepted defeat before visual teardown.</summary>
     private void OnDefeated()
     {
+        // Accepted defeat immediately removes the hurtbox; visual fade may outlive checkpoint recovery.
+        SetDeferred(CollisionObject2D.PropertyName.CollisionLayer, 0);
+        SetDeferred(CollisionObject2D.PropertyName.CollisionMask, 0);
         EmitSignal(SignalName.BossDefeated);
 
         // Clear active hostile projectiles
@@ -213,6 +225,8 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         if (IsDying) return;
+        if (CurrentHealth <= PhaseFloor) TakeDamage(0);
+        if (IsDying) return;
 
         _hoverTimer += (float)delta;
         if (_orbitalRing != null)
@@ -239,11 +253,12 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
         }
     }
 
+    /// <summary>Aims the current phase attack at the explicit mission player.</summary>
     private void ExecuteAttackPattern()
     {
         if (!IsInsideTree() || IsDying) return;
 
-        Node2D? target = GetTree()?.GetFirstNodeInGroup("player") as Node2D;
+        Node2D? target = IsInstanceValid(Target) ? Target : null;
         Vector2 targetPos = target?.GlobalPosition ?? (GlobalPosition + Vector2.Left * 400);
         Vector2 diff = targetPos - GlobalPosition;
         Vector2 dir = diff.LengthSquared() > 0 ? diff.Normalized() : Vector2.Left;
@@ -265,6 +280,7 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
         }
     }
 
+    /// <summary>Creates a projectile owned by this arena attempt.</summary>
     private void SpawnBolt(Vector2 direction)
     {
         var parent = GetParent();

@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Spire Sentinel neutralized. Summit catwalk secured. Pressure is stabilizing at the Cyber-Nexus intake.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "24c64cec3a3b2ef54db8e2575ef873767e18f4d23c453001c9cf56c40554ba78",
+    "request_sha256": "df5fbb5df852e467bb59dfd72c38651786d374c433dde90630e7c57099b1a942"
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "My boots are still humming from that climb. And now an airlock built to survive bombardment. Of course.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "79984746833372b667d5695c72d9e6911a7badb64709748bdef3a72e9c7a7350",
+    "request_sha256": "d6e6e5d5db84ee890ea804fc27a8baf43ff1bf02a43199c8d3e8a0fd048f5c03"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Look down through the haze. No shield over the skyline. The city is awake. Remember who we are doing this for.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "984a6d6876ac301b753c74fdae671c33ce42cd33ffd3d24799a7d489c65aed55",
+    "request_sha256": "5c5dc38e06c439739d0ae741bc78e67926501ef5eeb33abe5da0d9def059c3a3"
+  },
+  {
+    "cue": 4,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The Nexus is still running. Leave its factories online, and they can rebuild that defense grid within hours.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "252966380b0edfd3ae761683acb144aa4214425dcf66a4022eeb3de56377df58",
+    "request_sha256": "ced3aaa342796a323cce85e31d760b4f27ef46abb2016f934b9f5a69e36db71f"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "I can feel it through the deck. So many linked processors. A hive of stolen signals behind one bulkhead.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e0b3bc3a0e2f7472b3cd3d76f055c0bd5b11cc90080d02f35c3615a17f26870f",
+    "request_sha256": "d086be657ea097376d5acd29bbb5110f765806ce2fa8f4159a6324b1e80f7db3"
+  },
+  {
+    "cue": 6,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Terminal override accepted. Security is folding. Stand clear. The pressure seal is breaking.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "62ed98c99ac0047a712da1fa04f6fe06a4b9805b94bed109491e4c19396f9aba",
+    "request_sha256": "5fbbaa9273989d9e08124c6581152c509b38153d28cc93f4a3eee3cd2c5cf814"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Atmospheric purge complete. Intake airlock opening. Quantum mainframe chambers confirmed beyond the threshold.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "9e890a4fec3465d6356d4d8605ef3f2b31157d780f161f932f5f152c57539e58",
+    "request_sha256": "66a48c3d80f0f37de4b0fc9fb7eb36e6feea4f1917f9dacd1a172d2d6d64edbc"
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Optical conduits, floating prisms, laser baffles. A whole labyrinth. We will have to watch every step.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "a2d22671b7608701e6677df5dd966c2a58eefe0e83bd8f67f30488440809cf9f",
+    "request_sha256": "312871f15c9926da16206feac3c3e3265a1850c0f61f48440a900da14a3440b1"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Then we tread carefully and strike deep. Silence the Nexus core. Axiom Force, through the airlock.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "22173f484c848994f4f2366c7618da4d577240be9529fa1f490cc54179e1af28",
+    "request_sha256": "63b80946dd4cc1cd3b513e60b9881ce6649afd6ef4a74e1361e3676d039e13a3"
+  }
+]

@@ -72,7 +72,9 @@ public class ApexBastionIntroTests
             Assert.That(start, Is.GreaterThanOrEqualTo(lastEnd));
             Assert.That(end, Is.GreaterThan(start));
             Assert.That(speaker, Is.Not.Empty);
-            Assert.That(text, Does.Contain(speaker));
+            // Speech text excludes character labels; subtitles retain the explicit speaker for accessibility.
+            Assert.That(text, Is.Not.Empty);
+            Assert.That(item.GetProperty("subtitle").GetString(), Does.StartWith(speaker + ":"));
 
             lastEnd = end;
         }

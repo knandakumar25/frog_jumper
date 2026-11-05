@@ -1,0 +1,11 @@
+{
+  "scene": "cyber_nexus_aftermath",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "d4bd810c90ab5976241bcc8bee1830a4dc6601b682e2dcbbb2b51c12a2440324",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "machinery",
+    "steam"
+  ]
+}

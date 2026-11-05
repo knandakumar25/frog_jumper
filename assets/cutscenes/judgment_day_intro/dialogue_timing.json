@@ -1,0 +1,96 @@
+{
+  "duration": 90,
+  "rate": 44100,
+  "cues": [
+    {
+      "cue": 1,
+      "speaker": "AXIOM-7",
+      "start": 0.15,
+      "end": 8.648503401360545,
+      "window_end": 9.85,
+      "decoded_samples": 374784,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 2,
+      "speaker": "SURYA",
+      "start": 10.15,
+      "end": 16.651587301587302,
+      "window_end": 19.85,
+      "decoded_samples": 286720,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 3,
+      "speaker": "OCEANUS",
+      "start": 20.15,
+      "end": 27.348185941043084,
+      "window_end": 29.85,
+      "decoded_samples": 317440,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 4,
+      "speaker": "MIRAGE",
+      "start": 30.15,
+      "end": 35.86210884353741,
+      "window_end": 39.85,
+      "decoded_samples": 251904,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 5,
+      "speaker": "TITAN",
+      "start": 40.15,
+      "end": 46.419387755102036,
+      "window_end": 49.85,
+      "decoded_samples": 276480,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 6,
+      "speaker": "AURA",
+      "start": 50.15,
+      "end": 58.13766439909297,
+      "window_end": 59.85,
+      "decoded_samples": 352256,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 7,
+      "speaker": "VOID COMMANDER",
+      "start": 60.15,
+      "end": 68.69494331065759,
+      "window_end": 69.85,
+      "decoded_samples": 376832,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 8,
+      "speaker": "MIRAGE",
+      "start": 70.15,
+      "end": 75.72278911564626,
+      "window_end": 79.85,
+      "decoded_samples": 245760,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 9,
+      "speaker": "KAITO",
+      "start": 80.15,
+      "end": 87.58038548752835,
+      "window_end": 89.85,
+      "decoded_samples": 327680,
+      "tempo": 1.0,
+      "complete_take": true
+    }
+  ]
+}

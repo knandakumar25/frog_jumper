@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Altitude twenty-five hundred meters. Wind gusts above sixty-five knots. Perimeter flak is tracking our approach.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "2b42fb35fd2803bb4a4a59a8674e19c2073857b7d9121bf7593dd6c8f5c6dd08",
+    "request_sha256": "61d8f57f3309695c7422375f25d1cf6c40c60f2d62ca7c0c71ecd6ac7ce05291"
+  },
+  {
+    "cue": 2,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Port engine lock. Raising the forward barrier. Keep her steady while I take the flak.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "bd5d4154dd52b58fdd1edbbefe0dba81264402e1b660ac80aec768291f7b20ed",
+    "request_sha256": "bfa7c33d5d829a9fe4aa430740da8006052bab967ba47a73079f1e1c6b973281"
+  },
+  {
+    "cue": 3,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "85dba559f8dca21522587df8e90eb3577fca6091cd80dbd44f9de9fb44581031",
+    "request_sha256": "a31d2a1dac2d556596f8ef6f1ae1226d736b48b8ed2ff99edf47583a6210dac2"
+  },
+  {
+    "cue": 4,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "That wind could peel a mech off the wall. Magnetize your boots. Check every tether twice.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "631610b3e6d91950d24d652fc8bece909deedfb60811400a9451c1970da78839",
+    "request_sha256": "16018421c6d9f1e85bf6cda1fe340ff6bbdb01cfb0514a445a0a3ac4373b3939"
+  },
+  {
+    "cue": 5,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Cryogenic exhaust along the shaft. Expect black ice on the rails. Test your footing before you jump.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "0ea8570f0ed5a846517b8e290c6ddca747aec56ee295c5d90a3438109a0f726b",
+    "request_sha256": "0645a4b5747bfdce6b3ffb2f8e5be41d907511409ffc97dfbcbdc0280a778264"
+  },
+  {
+    "cue": 6,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Drone wings are launching from the silos above. The mainframe is sending everything it has down this wall.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "5877824a44fc127d5023e1b4fdc79c4ae6b8f3590fe0dc5dc45c0bdbd5290863",
+    "request_sha256": "1fc0f9bc5d19e8a54510948da12f550ee226c8bd686af9d9dd61c5b6dd6cd1d9"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Cargo bay depressurized. Ramps deploying. After insertion, I will take the transport into cloud cover.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "47a97ed7f77080f38b3ac1862a4c272ac0e2e6eee3af5898f205f83f2b98d68f",
+    "request_sha256": "8825c3aab1ccaea8f2e8d711f1cf32b5152b7059705f677a84dc6f8e1c930c33"
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "One-way drop. We climb to the Cyber-Nexus airlock. Stay on the hull, and we have a way through.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "5e159030b2e62e982a25e62d4863dc41b61ad3be0191e4cd6483f91d6fb151f9",
+    "request_sha256": "a333a5110a99d4932b34777ba26ae3a3806ef1501e4fb4d6309f21a337ec8342"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Weapons armed. Harnesses locked. Axiom Force, onto the catwalks. Begin the ascent.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "47e84cfcfaa32332e6fcbc602c34eec08f453e4ba204be8541728c1581fd7f84",
+    "request_sha256": "c8ad5969b96a23f4371391052aebd409442630b48bf7f3af7c57264652432df9"
+  }
+]

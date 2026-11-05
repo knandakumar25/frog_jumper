@@ -9,8 +9,20 @@ using System.Linq;
 /// the multi-phase Spire Sentinel mechanoid boss encounter, and Cyber-Nexus airlock extraction
 /// without Godot engine dependencies.
 /// </summary>
-public sealed class SpireProgress
+public sealed class SpireProgress : ILaterMissionProgress
 {
+    /// <inheritdoc/>
+    public IReadOnlyList<string> ObjectiveIds => Objectives;
+
+    /// <inheritdoc/>
+    public void ResetArena(string phasePrefix, string[] formations)
+    {
+        if (Has(phasePrefix + ":3")) return;
+        _done.RemoveWhere(id => id.StartsWith(phasePrefix + ":", StringComparison.Ordinal) ||
+            formations.Any(f => id == "encounter:" + f));
+        // Slot reward receipts deliberately survive an abandoned arena attempt.
+    }
+
     private readonly HashSet<string> _done = new(StringComparer.Ordinal);
     private readonly HashSet<string> _rewards = new(StringComparer.Ordinal);
 

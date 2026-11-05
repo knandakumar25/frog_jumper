@@ -9,10 +9,13 @@ using System.Linq;
 /// superheated cryogenic coolant vents, ultrasonic containment locks, and full 6-operative synergy.
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
+public partial class CyberGraveMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression and objectives.</summary>
     public CyberGraveProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -34,6 +37,7 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
     private PalaceObjective _exitTrigger = null!;
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private int _currentSector = -1;
     private Vector2 _previousPlayerPos;
@@ -51,7 +55,7 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.22f, 0.42f, 0.38f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/audio/cyber_grave/atmosphere.ogg";
+    protected override string MusicPath => "res://assets/cutscenes/cyber_grave_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string TitleCardTitle(string narrativeTitle) =>
@@ -111,7 +115,8 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
         // Wall-jump columns for vertical mobility across sectors
         foreach (float wx in new[] { 1400f, 1580f, 5200f, 7600f, 9800f, 11800f, 19200f, 21400f })
         {
-            AddPlatform(wx, 260, 24, 340, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 260, 24, 180, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Subterranean Freight Sump overhead gantries
@@ -146,16 +151,16 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
 
         // Ability-gated obstacles
         // Sector 2 entrance: Reinforced bulkhead requiring Titan's Slam
-        AddGate("StasisBulkhead", GateKind.RubbleWall, new Vector2(4000, 600));
+        AddGate("StasisBulkhead", GateKind.RubbleWall, new Vector2(4000, 600), new Vector2(120, 1700));
 
         // Sector 3 entrance: Superheated coolant vent requiring Oceanus's Douse
-        AddGate("CoolantVentGate", GateKind.FireVent, new Vector2(8500, 600));
+        AddObjectiveGate("CoolantVentGate", GateKind.FireVent, new Vector2(8500, 600), "coolant_override");
 
         // Sector 4 entrance: Ultrasonic frequency lock requiring Aura's Resonate
-        AddGate("ResonanceLock", GateKind.SonicLock, new Vector2(13000, 600));
+        AddObjectiveGate("ResonanceLock", GateKind.SonicLock, new Vector2(13000, 600), "resonance_bypass");
 
         // Sector 5 entrance: High-intensity radiation vent requiring Surya's Bulwark
-        AddGate("RadiationSiphonGate", GateKind.HeatVent, new Vector2(17500, 600));
+        AddObjectiveGate("RadiationSiphonGate", GateKind.HeatVent, new Vector2(17500, 600), "siphon_contain");
     }
 
     /// <summary>Builds interactive stasis pods, coolant vents, laser grids, and the vault extraction console.</summary>
@@ -214,6 +219,7 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.2f,
             Damage = 25f
         };
+        TrackPhaseBoundary(laser, "grid_phase");
         Actors.AddChild(laser);
 
         // Sector 6: Central Vault Decryption Terminal
@@ -299,6 +305,7 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
         AddEncounter("core3", new Rect2(24500, 200, 1000, 500), new[] { (new Vector2(24800, 554), true), (new Vector2(25100, 554), false) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -307,7 +314,9 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "core1", "core2", "core3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -324,7 +333,7 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             // When vault override finishes, activate extraction exit
@@ -342,6 +351,10 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 22400f && Player.GlobalPosition.X <= 25700f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check sector completion events based on player position and clears
         if (!Progress.Has("sump_breach") && Progress.CanComplete("sump_breach"))
             CommitObjective("sump_breach");
@@ -349,16 +362,16 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
         if (!Progress.Has("incubation_cleared") && Progress.CanComplete("incubation_cleared"))
             CommitObjective("incubation_cleared");
 
-        if (!Progress.Has("coolant_override") && Progress.CanComplete("coolant_override"))
+        if (!Progress.Has("coolant_override") && Progress.CanComplete("coolant_override") && HasActionEvidence("coolant_override"))
             CommitObjective("coolant_override");
 
-        if (!Progress.Has("resonance_bypass") && Progress.CanComplete("resonance_bypass"))
+        if (!Progress.Has("resonance_bypass") && Progress.CanComplete("resonance_bypass") && HasActionEvidence("resonance_bypass"))
             CommitObjective("resonance_bypass");
 
-        if (!Progress.Has("grid_phase") && Progress.CanComplete("grid_phase"))
+        if (!Progress.Has("grid_phase") && Progress.CanComplete("grid_phase") && HasActionEvidence("grid_phase"))
             CommitObjective("grid_phase");
 
-        if (!Progress.Has("siphon_contain") && Progress.CanComplete("siphon_contain"))
+        if (!Progress.Has("siphon_contain") && Progress.CanComplete("siphon_contain") && HasActionEvidence("siphon_contain"))
             CommitObjective("siphon_contain");
 
         if (!Progress.Has("core_defense:1") && Progress.CanComplete("core_defense:1"))
@@ -372,11 +385,9 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
 
         // Interaction with the vault terminal
         if (_vaultTerminal != null && !_vaultTerminal.Collected &&
-            Progress.Has("core_defense:3") &&
             Player.GlobalPosition.DistanceTo(_vaultTerminal.GlobalPosition) < 120f)
         {
-            _vaultTerminal.SetCollected();
-            CommitObjective("vault_override");
+            AcceptTerminal(_vaultTerminal, "vault_override", CommitObjective);
         }
 
         // Final extraction reached
@@ -425,6 +436,9 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -448,6 +462,7 @@ public partial class CyberGraveMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))

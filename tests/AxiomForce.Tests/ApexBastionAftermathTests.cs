@@ -47,8 +47,8 @@ public class ApexBastionAftermathTests
         Assert.That(json, Does.Contain("AURA"));
         Assert.That(json, Does.Contain("MIRAGE"));
         Assert.That(json, Does.Contain("KAITO"));
-        Assert.That(json, Does.Contain("Bastion Praetor"));
-        Assert.That(json, Does.Contain("Throne Room"));
+        Assert.That(json, Does.Contain("Praetor"));
+        Assert.That(json, Does.Contain("throne room"));
         Assert.That(json, Does.Contain("Judgment Day"));
     }
 }

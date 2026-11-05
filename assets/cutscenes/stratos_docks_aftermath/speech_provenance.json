@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Flight systems online. Citadel traffic control disconnected. Both ion thrusters are at full output.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "a7a179bafdec7f3b1f11e3b3fc8f7a235973484f3a21fbf58f8322af5d799afa",
+    "request_sha256": "072f1e12343fb8a42ca1c11e8184e453b202996920ad279e021da1fe3d32e7c8"
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Look at the docks behind us. Their fleet is still in its berths. We got out before the net closed.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "3faf3d0ab292b7319f5ef86b60a6272787319e290bfa7b8a7e738a95a67cf099",
+    "request_sha256": "86e0642ad27c69939d425f183a37d8da4845d0c4eba0fcd8a85bdba98accaa8b"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Now this is a transport. Built like a fortress. Those mooring clamps never stood a chance.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "f8ff2e6158e9db3b4020c7ef9642292a9ab4f6238d57c68e7e43a9870a4733ca",
+    "request_sha256": "9773471fe54894bff3600568602712deeb5c48fe05c1ddc5920eb45fe5469597"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The city lights are clear through the storm. No shield overhead. Three districts can see the sky tonight.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "bc39dae3c0fdaf3606f52e78582399164fb6c705e645426b74b4b4d94f9c548b",
+    "request_sha256": "3c7308fe82f6ca2bdfb9f40c869fdce1b0a42261782ef7534b1c464ce0c1ee77"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Citadel command is calling every exterior battery to readiness. They know where we are headed.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "6f0aa362bd6fd11c919ced918e601d1955edc4ddfb40a9e06fbbe8cc3d866aa6",
+    "request_sha256": "aa67f7221426becc324079d6a3fc98ef7de5a9b0feac6392f0103549496fe26a"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Target lock ahead. We are through the cloud ceiling. Look at that wall of armor.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "c18fca7ad6e673c9805e8c16ccf83a4ac2507722f938bbfa7aec8c25e231d7a1",
+    "request_sha256": "da220273d47b22c0357e755943e043ce217a144c94652ce8f8ecf98078fd4a52"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Outer hull batteries have our signature. Direct flight to the summit is blocked. We need another approach.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "67cf2e19f4e35a66c3ba19ebe26a2c0244633a3ae17f64af8c7dbbdd81d3cc51",
+    "request_sha256": "e9d3c3e91f24bda97aba6a8f6d50a2ca7f7757c9971112d775fd97f3dfe4b4d3"
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Then we land below them. Maintenance catwalks on the outer hull. We climb the rest on foot.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e6bbc1d2a9eb1fadd6ea63a2287e954421f2fefb2b4446d7500e41c0c94c57e4",
+    "request_sha256": "788254953ccc3cc6726b364d15d03525351d7d16e593aab9ae74ef9cae7a6e22"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Agreed. Secure your harnesses. We breach their outer skin and work our way up. Prepare for exterior insertion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "1eca94847907bbad16eaae777bfa165779290f91590a88bcc61dc05be25fb50d",
+    "request_sha256": "6df2d5ab0fd3c44fd1994c5fd930acd37f987f6a6590299c17c43d9214f8e1c8"
+  }
+]

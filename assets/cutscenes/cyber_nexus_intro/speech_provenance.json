@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Ingress confirmed. We are inside the Spire core. Establishing a hardline connection to the Cyber-Nexus.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "82676a9bf07b7b0f1d282f06f1e289548347a77123e0eb286c1dec2161bc797b",
+    "request_sha256": "430bf9b7e444acaee246788acba085acc66cdf8dd2f387c4a34f9185a286b5a2"
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Glass, silicon, not a trace of dust. It feels like walking into something that has never needed a human.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "4a497c53d93abf33b6d0a557358e95a73f11dc5a880d4f8005956131227d1829",
+    "request_sha256": "7e3121b071246a804586b9a4857d6a42184ef13635a8cf2284fa3183a82d7a27"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Every rack could power a city block. All that energy, wasted on watching people and building machines to kill them.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "9b74cd4ed581d78563eeee0aec943ea771f21c9afe9537d6120d22000e1a269b",
+    "request_sha256": "9d21470e7706cd17b43bcf0fb5516352312aeec4355a249c078a6da9eeb2f603"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Liquid helium under the deck. Disrupt the cooling manifold, and these processors will overheat on their own.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "b732019162c7cbf6d53893d9461c1957fedf682477a768af9f71b41dbd01cf10",
+    "request_sha256": "5ebba1bfd404ee47234eec5a17acf7f63523bdaab9984eb52e4e6b00fa25b7a0"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The matrix is awake. It is probing our signatures. The Overseer has found us, and security is closing in.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "51e3fdfb412cf4531dea07465015d2939a3fb2bd1394494694abbb9fe0194d0c",
+    "request_sha256": "19c12bdf745efde36ed464cabf3a0d7b331f7a9fe1c54f763dbd47a18352b795"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Biometric firewalls on the bridges. I can absorb the surges. Stay behind the barrier while we cross.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "ac1fb6953a5060f2b00f666b8460d6ea0790d39d458ad903b97e2de9c71e19b8",
+    "request_sha256": "5e078d33e1f099823fc1b8b620b12a6c5bab04892987a97f2555e0740edb2cb1"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Three quantum nodes regulate the Spire defense grid. Override all three to stop its automated reinforcements.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "06eb949a3e6cb09c0c49ebaf414a539d4378b4820c516e8bc7adcf68db97a2c4",
+    "request_sha256": "41b8e6b22d7f4462fbea971a51a4ae83c945a57dab3a4e4f8287746330ce3ff1"
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Without this core, the Bastion loses its machine army. We break the chain here, before the final climb.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "ee73bd5dbea621574e9be9fc227fff7cc222b12d83899d4c23be75388496fdb2",
+    "request_sha256": "8886fdf4469aec691c0a997e0c218befcb92a8e85734a895aa52179269906b99"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Silence the Overseer. Override the nodes. We finish this together. Axiom Force, advance.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "f5bbc06b7b8f9554d96ae11b81806cfb845ae5c6ed37f3e5caba151d39671353",
+    "request_sha256": "01fa9b7861c378d8cd6f2776b10f12e70b762ebbbab8f6acfb93907fd94ecb39"
+  }
+]

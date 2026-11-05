@@ -20,7 +20,7 @@ func test_skip_and_natural_finish_stop_owned_audio_and_emit_once() -> void:
 			var skip := InputEventKey.new()
 			skip.pressed = true
 			skip.keycode = KEY_ESCAPE
-			overlay.call("_UnhandledInput", skip)
+			overlay.call("_Input", skip)
 		overlay.call("Finish")
 		assert_bool(overlay.get("HasFinished")).is_true()
 		assert_bool(overlay.get_node("Atmosphere").playing).is_false()
@@ -31,15 +31,15 @@ func test_skip_and_natural_finish_stop_owned_audio_and_emit_once() -> void:
 
 
 func test_missing_art_uses_results_fallback() -> void:
-	## Procedural visual stage remains valid and resilient, and overlay finishes cleanly.
+	## Missing essential art reveals results once and removes the unusable overlay.
 	var overlay: Node = load(OVERLAY).new()
 	overlay.set("SpeechPath", "")
 	overlay.set("ArtPath", "res://missing-art-dir/")
 	var count := [0]
 	overlay.connect("Finished", func() -> void: count[0] += 1)
 	add_child(overlay)
-	await get_tree().process_frame
-	overlay.call("Finish")
+	for frame in 4:
+		await get_tree().process_frame
 	assert_int(count[0]).is_equal(1)
 	if is_instance_valid(overlay):
 		overlay.free()

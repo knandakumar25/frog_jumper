@@ -1,0 +1,96 @@
+{
+  "duration": 90,
+  "rate": 44100,
+  "cues": [
+    {
+      "cue": 1,
+      "speaker": "AXIOM-7",
+      "start": 0.15,
+      "end": 7.626825396825398,
+      "window_end": 7.85,
+      "decoded_samples": 329728,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 2,
+      "speaker": "KAITO",
+      "start": 8.15,
+      "end": 14.326507936507937,
+      "window_end": 17.85,
+      "decoded_samples": 272384,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 3,
+      "speaker": "TITAN",
+      "start": 18.15,
+      "end": 25.162426303854872,
+      "window_end": 27.85,
+      "decoded_samples": 309248,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 4,
+      "speaker": "OCEANUS",
+      "start": 28.15,
+      "end": 33.95498866213152,
+      "window_end": 37.85,
+      "decoded_samples": 256000,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 5,
+      "speaker": "AURA",
+      "start": 38.15,
+      "end": 43.72278911564626,
+      "window_end": 47.85,
+      "decoded_samples": 245760,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 6,
+      "speaker": "MIRAGE",
+      "start": 48.15,
+      "end": 54.140748299319725,
+      "window_end": 57.85,
+      "decoded_samples": 264192,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 7,
+      "speaker": "SURYA",
+      "start": 58.15,
+      "end": 64.46582766439909,
+      "window_end": 67.85,
+      "decoded_samples": 278528,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 8,
+      "speaker": "TITAN",
+      "start": 68.15,
+      "end": 73.62990929705217,
+      "window_end": 77.85,
+      "decoded_samples": 241664,
+      "tempo": 1.0,
+      "complete_take": true
+    },
+    {
+      "cue": 9,
+      "speaker": "KAITO",
+      "start": 78.15,
+      "end": 84.93022675736962,
+      "window_end": 89.85,
+      "decoded_samples": 299008,
+      "tempo": 1.0,
+      "complete_take": true
+    }
+  ]
+}

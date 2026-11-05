@@ -1,0 +1,11 @@
+{
+  "scene": "foundry_forge_intro",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "f19c724349031b54b971b5fbe096b3ae71b1fbda6cce8012aee94abbd35fcad2",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "machinery",
+    "steam"
+  ]
+}

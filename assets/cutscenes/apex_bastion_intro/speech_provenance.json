@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Level one hundred. Forty-five hundred meters. This is Apex Bastion, fortress of the Praetorian Guard.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "bbeb8a9b8e00da7474f118f1b42cbe43db44cbb1cd4b855f05a1982170d431b3",
+    "request_sha256": "ffda16acb1917bb44127e505c62e97180691f453fb679bf0dc1e7827530dbe2b"
+  },
+  {
+    "cue": 2,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Three meters of obsidian alloy. Plasma guns covering the courtyard. They have turned the summit into a killing ground.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "6107536b2b9de7cfe80485f19702e296a25d0a72291b6a08a7c851776382e964",
+    "request_sha256": "9b2c6f60df6bbfacfe54eb4fa5b2857488cab2ba458809f62537f58e8bb9f819"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The clouds are below us. Ice on the parapets, crosswinds over the rail. Stay away from those edges.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d176a5d0796e094138c4344f6308f2890a8a66247899b9f14155a7563ff1f965",
+    "request_sha256": "7f1dddb97155c9bd52ff34035d821b2d48377a3cbdc0e617527610fdf9a272a0"
+  },
+  {
+    "cue": 4,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Heavy signatures ahead. Praetorian shock troops and cyber-samurai. The Commander's personal guard. They know we are here.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "1af148a3616a935790010aa4b5f7ffafbed5b1020762c1408e483b5039c502bf",
+    "request_sha256": "15fc78d87bb9b3b67fb167d83f538d3aec662f97b5fa7a433d97cc40ae511681"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Their comms are silent. No panic. They know the Nexus is gone, and they mean to hold this wall anyway.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "22c1e930b4c2cf99ce260d82eea4e7b7a5eb12a4992d60d45692a79f097b37ef",
+    "request_sha256": "c46198a1cb6ff1c4a07f47e71a57dcd3d86cf02a3536fd620d816e0f1075729b"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The stairway leads to the throne room. Artillery at the perimeter gate. We will need every operative to break through.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "49c83695c9bf4018ee007cf8300866ccd73a99c366c5a82fdd5115ce4e15938d",
+    "request_sha256": "b1c1473c82af056eb3561eca761652079b4ad6863f4422f8864278cbadd37a65"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Colossal war chassis at the gatehouse. Bastion Praetor. The last mechanized guardian between us and the Commander.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "57a703ad4c378ca596c46c9778cbe3068021a5909303dae54591de031790828f",
+    "request_sha256": "373922d1535b604236a6d06ce1bb6d7e73b4dc3fbeda1f0f4dc8ede88101386b"
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "We broke the registry, emptied the Grave, and brought their sky-shields down. We are not stopping at the front door.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "2e414ce53ec40e7f9cbc0bd626e02dcf5a2ab1e3cf41e2db2b63c7cb9112d77b",
+    "request_sha256": "d08e31abf4ddb09c60a7f0e9d73de12d05f9873073e520691f6457adbbcaa790"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Through the Guard, through the Praetor, and on to the throne. Axiom Force, blades drawn. Breach the Bastion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "35aed320fabd701022ea934c1ce75cd319be4f9606fcc94844d08a7954eb0a4c",
+    "request_sha256": "a74c8deb492e00f5cc1d818277aca767d10031bb2a0b43d28a0aca59196c99b2"
+  }
+]

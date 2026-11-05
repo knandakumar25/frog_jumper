@@ -4,7 +4,7 @@ using Godot;
 /// Swept high-velocity crescent plasma blade projectile launched by the Void Commander during Mission 12 (Judgment Day).
 /// Deflectable by Kaito's Kinetic Parry; reflection redirects the crescent slash back to the boss for heavy counter damage.
 /// </summary>
-public partial class VoidPlasmaSlash2D : Area2D
+public partial class VoidPlasmaSlash2D : Area2D, ICampaignProjectile
 {
     /// <summary>Travel speed in pixels per second.</summary>
     [Export] public float Speed { get; set; } = 580f;
@@ -24,6 +24,7 @@ public partial class VoidPlasmaSlash2D : Area2D
     /// <summary>Whether this projectile has been successfully parried and redirected.</summary>
     public bool Reflected { get; private set; }
 
+    private CyberShogun? _reflector;
     private float _age;
     private bool _cancelled;
     private Line2D? _trail;
@@ -94,6 +95,7 @@ public partial class VoidPlasmaSlash2D : Area2D
             return;
         }
         Reflected = true;
+        _age = 0;
         Speed = 800f;
         Vector2 offset = OwningBoss.GlobalPosition - GlobalPosition;
         Direction = offset.LengthSquared() > 0 ? offset.Normalized() : -Direction;
@@ -115,57 +117,46 @@ public partial class VoidPlasmaSlash2D : Area2D
     {
         if (_cancelled) return;
         _age += (float)delta;
-        if (_age >= Lifetime || !IsInstanceValid(OwningBoss) || OwningBoss!.IsDying || OwningBoss.IsQueuedForDeletion())
-        {
-            Cancel();
-            return;
-        }
-
-        if (Direction.LengthSquared() <= 0)
-        {
-            Cancel();
-            return;
-        }
-
-        if (Reflected && IsInstanceValid(OwningBoss))
+        if (_age >= Lifetime || !IsInstanceValid(OwningBoss) || OwningBoss!.IsDying || OwningBoss.IsQueuedForDeletion() || Direction.LengthSquared() <= 0)
+        { Cancel(); return; }
+        if (Reflected)
         {
             Vector2 offset = OwningBoss.GlobalPosition - GlobalPosition;
-            if (offset.LengthSquared() > 0)
-            {
-                Direction = Direction.Lerp(offset.Normalized(), 4.5f * (float)delta);
-                Rotation = Direction.Angle();
-            }
+            if (offset.LengthSquared() > 0) Direction = offset.Normalized();
         }
-
-        Vector2 start = GlobalPosition;
-        Vector2 end = start + Direction * Speed * (float)delta;
-
-        // Swept raycast check
-        var space = GetWorld2D()?.DirectSpaceState;
-        if (space != null)
+        Vector2 end = GlobalPosition + Direction * Speed * (float)delta;
+        var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, end, Reflected ? 2u : 1u);
+        query.HitFromInside = true;
+        if (Reflected)
         {
-            var query = PhysicsRayQueryParameters2D.Create(start, end, Reflected ? 4u : 1u);
-            query.HitFromInside = true;
-            var hit = space.IntersectRay(query);
-
-            if (hit.Count > 0)
-            {
-                var collider = hit["collider"].As<Node>();
-                if (Reflected && collider == OwningBoss)
-                {
-                    OwningBoss?.TakeDamage(Damage * 1.6f);
-                    Cancel();
-                    return;
-                }
-                if (!Reflected && collider is CyberShogun player)
-                {
-                    player.TakeDamage(Damage);
-                    Cancel();
-                    return;
-                }
-            }
+            // Return fire belongs only to its launching boss; other enemies and the reflector cannot consume it.
+            var excluded = new Godot.Collections.Array<Rid>();
+            if (IsInstanceValid(_reflector)) excluded.Add(_reflector!.GetRid());
+            foreach (Node enemy in GetTree().GetNodesInGroup("enemies"))
+                if (enemy is CollisionObject2D body && body != OwningBoss) excluded.Add(body.GetRid());
+            query.Exclude = excluded;
         }
-
+        var hit = GetWorld2D().DirectSpaceState.IntersectRay(query);
+        if (hit.Count > 0)
+        {
+            var collider = hit["collider"].AsGodotObject();
+            if (!Reflected && collider is CyberShogun player)
+            {
+                _reflector = player;
+                GlobalPosition = hit["position"].AsVector2();
+                player.TakeDamageFrom(Damage, Direction * 160f, this);
+                // Parry changes this very projectile synchronously. Keep its new return trajectory alive.
+                if (Reflected) { GlobalPosition += Direction * 4; return; }
+                Cancel(); return;
+            }
+            if (Reflected && collider == OwningBoss)
+            {
+                OwningBoss.TakeDamage(55f);
+                Cancel(); return;
+            }
+            if (!Reflected && collider is StaticBody2D) { Cancel(); return; }
+        }
         GlobalPosition = end;
+        Rotation = Direction.Angle();
     }
 }

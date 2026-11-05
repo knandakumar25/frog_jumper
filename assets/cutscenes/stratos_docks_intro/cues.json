@@ -2,64 +2,127 @@
   {
     "index": 1,
     "speaker": "AXIOM-7",
-    "text": "Altitude 1,200 meters. Wind shear 45 knots. High Command has grounded all commercial transit and initiated priority lockdown across Stratos Docks.",
+    "text": "Altitude twelve hundred meters. Wind shear forty-five knots. Commercial transit is grounded. Stratos Docks is under lockdown.",
     "start": 0.0,
-    "end": 10.0
+    "end": 10.0,
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Altitude twelve hundred meters. Wind shear forty-five knots. Commercial transit is grounded. Stratos Docks is under lockdown.",
+    "cue": 1,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 2,
-    "speaker": "Mirage Blade",
-    "text": "Thermal scan shows three patrol gunships on the upper pads, but the heavy VTOL transport in Bay 4 is fueled and idling. That's our ticket up the Spire.",
+    "speaker": "MIRAGE",
+    "text": "Three gunships on the upper pads. But Bay Four has a heavy transport fueled and idling. That is our ride.",
     "start": 10.0,
-    "end": 20.0
+    "end": 20.0,
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Three gunships on the upper pads. But Bay Four has a heavy transport fueled and idling. That is our ride.",
+    "cue": 2,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 3,
-    "speaker": "Apex Titan",
-    "text": "Mooring clamps are reinforced magnetic titan-locks. I'll need to slam the primary release valves before that bird can lift off.",
+    "speaker": "TITAN",
+    "text": "Magnetic mooring clamps. Reinforced locks. Get me to the release valves, and I will free that bird.",
     "start": 20.0,
-    "end": 30.0
+    "end": 30.0,
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: Magnetic mooring clamps. Reinforced locks. Get me to the release valves, and I will free that bird.",
+    "cue": 3,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 4,
-    "speaker": "Oceanus",
-    "text": "The fueling lines are pressurized liquid hydrogen. One rogue spark and the whole flight deck goes up. We keep this clean.",
+    "speaker": "OCEANUS",
+    "text": "Those fuel lines carry liquid hydrogen. One spark could take the deck with it. We keep this clean.",
     "start": 30.0,
-    "end": 40.0
+    "end": 40.0,
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: Those fuel lines carry liquid hydrogen. One spark could take the deck with it. We keep this clean.",
+    "cue": 4,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 5,
-    "speaker": "Aura Phoenicia",
-    "text": "I'm tracking air traffic control communications. The automated flight grid is scrambling drone interceptors to bottle us up on the catwalks.",
+    "speaker": "AURA",
+    "text": "Air traffic control is calling in interceptors. The flight grid is trying to pin us on the catwalks.",
     "start": 40.0,
-    "end": 50.0
+    "end": 50.0,
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: Air traffic control is calling in interceptors. The flight grid is trying to pin us on the catwalks.",
+    "cue": 5,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 6,
-    "speaker": "Surya Prime",
-    "text": "My solar barrier can deflect their anti-aircraft flak batteries along the open gantry. Stick close to my shield when we cross the flight line.",
+    "speaker": "SURYA",
+    "text": "I can cover the flak crossing with my solar barrier. Stay close until we are off the flight line.",
     "start": 50.0,
-    "end": 60.0
+    "end": 60.0,
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: I can cover the flak crossing with my solar barrier. Stay close until we are off the flight line.",
+    "cue": 6,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 7,
-    "speaker": "Mirage Blade",
-    "text": "The security grid uses dual-phase motion lasers across the maintenance gantries. I'll phase through first and disable the local tripwires.",
+    "speaker": "MIRAGE",
+    "text": "Dual-phase lasers across the maintenance route. I will cross first and open a path through the security grid.",
     "start": 60.0,
-    "end": 70.0
+    "end": 70.0,
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Dual-phase lasers across the maintenance route. I will cross first and open a path through the security grid.",
+    "cue": 7,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 8,
     "speaker": "AXIOM-7",
-    "text": "Flight path calculated. Once the VTOL is secured, we will punch directly through the Spire's mid-tier intake vents into the upper command ring.",
+    "text": "Flight path ready. Once we have the transport, we climb toward the Spire upper command ring.",
     "start": 70.0,
-    "end": 80.0
+    "end": 80.0,
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Flight path ready. Once we have the transport, we climb toward the Spire upper command ring.",
+    "cue": 8,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 9,
-    "speaker": "Cyber Shogun",
-    "text": "Weapons live, squad. We breach the flight deck, seize that gunship, and take this fight to the Spire. Move out!",
+    "speaker": "KAITO",
+    "text": "Weapons live. Breach the flight deck, seize that gunship, and take this fight upstairs. Axiom Force, move out.",
     "start": 80.0,
-    "end": 90.0
+    "end": 90.0,
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Weapons live. Breach the flight deck, seize that gunship, and take this fight upstairs. Axiom Force, move out.",
+    "cue": 9,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

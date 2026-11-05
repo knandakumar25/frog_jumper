@@ -218,7 +218,7 @@ public partial class SessionManager : Node
 
 				string sql = @"
 					UPDATE game_sessions
-					SET current_level = @level, total_score = total_score + @score, collectables = collectables + @coll, last_played = @last
+					SET current_level = GREATEST(current_level, @level), total_score = total_score + @score, collectables = collectables + @coll, last_played = @last
 					WHERE id = @id;";
 
 				using var cmd = new NpgsqlCommand(sql, conn);

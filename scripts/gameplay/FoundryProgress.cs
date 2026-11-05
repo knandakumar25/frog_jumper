@@ -8,8 +8,20 @@ using System.Linq;
 /// radiation containment breaches, the multi-phase IGNIS-COLOSSUS boss encounter,
 /// and sky-shield collapse extraction without Godot engine dependencies.
 /// </summary>
-public sealed class FoundryProgress
+public sealed class FoundryProgress : ILaterMissionProgress
 {
+    /// <inheritdoc/>
+    public IReadOnlyList<string> ObjectiveIds => Objectives;
+
+    /// <inheritdoc/>
+    public void ResetArena(string phasePrefix, string[] formations)
+    {
+        if (Has(phasePrefix + ":3")) return;
+        _done.RemoveWhere(id => id.StartsWith(phasePrefix + ":", StringComparison.Ordinal) ||
+            formations.Any(f => id == "encounter:" + f));
+        // Slot reward receipts deliberately survive an abandoned arena attempt.
+    }
+
     private readonly HashSet<string> _done = new(StringComparer.Ordinal);
     private readonly HashSet<string> _rewards = new(StringComparer.Ordinal);
 

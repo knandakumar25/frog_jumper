@@ -15,8 +15,8 @@ public partial class StratosDocksAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("stratos_docks", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -76,6 +76,7 @@ public partial class StratosDocksAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -83,6 +84,7 @@ public partial class StratosDocksAftermathStage : Control
 
         // Atmospheric storm background and twilight horizon
         DrawSkyAndClouds(t);
+        CampaignArtwork.DrawEnvironment(this, "stratos_docks", Seconds, aftermath: true, drawBase: true);
 
         // Receding Stratos Docks floating gantries & beacon towers
         DrawRecedingDocks(t);
@@ -280,14 +282,7 @@ public partial class StratosDocksAftermathStage : Control
 
     private void DrawSquadSilhouettes(float t, int shot)
     {
-        // Operative silhouettes inside gunship hold / cockpit
-        Vector2 basePos = new(760, 520);
-        DrawCircle(basePos + new Vector2(40, -8), 8f, ColorKaito);      // Kaito
-        DrawCircle(basePos + new Vector2(10, -6), 7f, ColorMirage);     // Mirage
-        DrawCircle(basePos + new Vector2(-20, -4), 8f, ColorTitan);     // Titan
-        DrawCircle(basePos + new Vector2(-50, -6), 7f, ColorOceanus);   // Oceanus
-        DrawCircle(basePos + new Vector2(-80, -6), 7f, ColorAura);      // Aura
-        DrawCircle(basePos + new Vector2(-110, -5), 8f, ColorSurya);    // Surya
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     private void DrawTacticalTelemetry(float t, int shot)

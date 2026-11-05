@@ -29,8 +29,21 @@ public partial class CyberLaserGrid2D : Node2D
 	private AudioStreamPlayer2D? _humPlayer;
 	private PointLight2D? _glowLight;
 
+	/// <summary>Resolves authored children or builds the beam and damage area for code-instantiated mission fields.</summary>
 	public override void _Ready()
 	{
+		if (GetNodeOrNull<Line2D>("BeamLine") == null)
+		{
+			var beam = new Line2D { Name = "BeamLine", DefaultColor = LaserColor, Width = 4 };
+			beam.AddPoint(Vector2.Zero); beam.AddPoint(Vector2.Down * BeamLength);
+			AddChild(beam);
+		}
+		if (GetNodeOrNull<Area2D>("HazardArea") == null)
+		{
+			var area = new Area2D { Name = "HazardArea", CollisionLayer = 0, CollisionMask = 1 };
+			area.AddChild(new CollisionShape2D { Name = "CollisionShape2D" });
+			AddChild(area);
+		}
 		_beamLine = GetNodeOrNull<Line2D>("BeamLine");
 		_hazardArea = GetNodeOrNull<Area2D>("HazardArea");
 		_collisionShape = GetNodeOrNull<CollisionShape2D>("HazardArea/CollisionShape2D");
@@ -42,7 +55,7 @@ public partial class CyberLaserGrid2D : Node2D
 			_segmentShape = new SegmentShape2D
 			{
 				A = Vector2.Zero,
-				B = Direction.Normalized() * BeamLength
+				B = (Direction.LengthSquared() > 0 ? Direction.Normalized() : Vector2.Down) * BeamLength
 			};
 			_collisionShape.Shape = _segmentShape;
 		}
@@ -95,13 +108,13 @@ public partial class CyberLaserGrid2D : Node2D
 			float pulse = 3.0f + Mathf.Sin((float)Time.GetTicksMsec() * 0.03f) * 1.2f;
 			_beamLine.Width = pulse;
 			_beamLine.SetPointPosition(0, Vector2.Zero);
-			_beamLine.SetPointPosition(1, Direction.Normalized() * BeamLength);
+			_beamLine.SetPointPosition(1, (Direction.LengthSquared() > 0 ? Direction.Normalized() : Vector2.Down) * BeamLength);
 		}
 
 		if (_glowLight != null)
 		{
 			_glowLight.Energy = 1.4f + Mathf.Sin((float)Time.GetTicksMsec() * 0.02f) * 0.4f;
-			_glowLight.Position = Direction.Normalized() * (BeamLength * 0.5f);
+			_glowLight.Position = (Direction.LengthSquared() > 0 ? Direction.Normalized() : Vector2.Down) * (BeamLength * 0.5f);
 		}
 	}
 
@@ -143,7 +156,7 @@ public partial class CyberLaserGrid2D : Node2D
 
 		if (body is CyberShogun shogun)
 		{
-			Vector2 knockback = -Direction.Normalized() * 250.0f + new Vector2(0f, -120f);
+			Vector2 knockback = -(Direction.LengthSquared() > 0 ? Direction.Normalized() : Vector2.Down) * 250.0f + new Vector2(0f, -120f);
 			shogun.TakeDamage(Damage, knockback);
 		}
 		else if (body.HasMethod("TakeDamage"))

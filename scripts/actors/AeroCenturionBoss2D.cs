@@ -35,6 +35,13 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
     /// <summary>Whether the boss has reached 0 HP and is in defeat sequence.</summary>
     public bool IsDying { get; private set; } = false;
 
+    /// <summary>Explicit mission-owned player used for aiming; no global group lookup is required.</summary>
+    public CyberShogun? Target { get; set; }
+    /// <summary>Mission authority for accepting the current health boundary after its defenders are cleared.</summary>
+    public Func<int, bool>? PhaseAcceptance { get; set; }
+    /// <summary>True at a health boundary while supporting defenders still prevent phase advancement.</summary>
+    public bool PhaseBlocked { get; private set; }
+
     private Vector2 _originPosition;
     private float _hoverTimer;
     private float _attackCooldown;
@@ -44,12 +51,15 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
     /// <summary>Initializes boss positioning, groups, procedural visuals, and HUD telemetry.</summary>
     public override void _Ready()
     {
+        CollisionLayer = 2;
+        CollisionMask = 1;
         AddToGroup("enemies");
         AddToGroup("boss");
         _originPosition = GlobalPosition;
         CurrentHealth = MaxHealth;
 
         SetupVisuals();
+        CampaignArtwork.AttachBoss(this, "stratos_docks");
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
@@ -122,6 +132,8 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         if (IsDying) return;
+        if (CurrentHealth <= PhaseFloor) TakeDamage(0);
+        if (IsDying) return;
 
         float dt = (float)delta;
         _hoverTimer += dt;
@@ -170,7 +182,7 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
     {
         if (!IsInsideTree() || IsDying) return;
 
-        Node2D? target = GetTree().GetFirstNodeInGroup("player") as Node2D;
+        Node2D? target = IsInstanceValid(Target) ? Target : null;
         Vector2 targetPos = target?.GlobalPosition ?? (GlobalPosition + Vector2.Left * 400);
         Vector2 diff = targetPos - GlobalPosition;
         Vector2 dir = diff.LengthSquared() > 0 ? diff.Normalized() : Vector2.Left;
@@ -197,33 +209,34 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
     /// <summary>Applies incoming damage, managing phase transitions and defeat sequence.</summary>
     public void TakeDamage(float amount)
     {
-        if (IsDying) return;
-
-        CurrentHealth = Math.Max(0, CurrentHealth - amount);
-
-        // Check phase transitions
-        if (CurrentHealth <= MaxHealth * 0.35f)
+        if (IsDying || amount < 0 || !float.IsFinite(amount)) return;
+        float boundary = PhaseFloor;
+        int oldPhase = CurrentPhase;
+        bool wasBlocked = PhaseBlocked;
+        CurrentHealth = Math.Max(boundary, CurrentHealth - amount);
+        PhaseBlocked = CurrentHealth <= boundary && PhaseAcceptance?.Invoke(CurrentPhase) == false;
+        if (CurrentHealth <= boundary && !PhaseBlocked && CurrentPhase < 3)
         {
-            CurrentPhase = 3;
-            if (_coreLight != null) _coreLight.Color = new Color(1f, 0.15f, 0.1f, 1f); // Emergency Overdrive Red
+            ++CurrentPhase;
+            if (_coreLight != null) _coreLight.Color = CurrentPhase == 2 ? new Color("ff9900") : new Color("ff2255");
         }
-        else if (CurrentHealth <= MaxHealth * 0.70f)
-        {
-            CurrentPhase = 2;
-            if (_coreLight != null) _coreLight.Color = new Color(1f, 0.6f, 0.1f, 1f); // Storm Amber
-        }
-
-        EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
-
-        if (CurrentHealth <= 0)
+        if (amount > 0 || oldPhase != CurrentPhase || wasBlocked != PhaseBlocked)
+            EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
+        if (CurrentHealth <= 0 && !PhaseBlocked)
         {
             Die();
         }
     }
 
+    /// <summary>Damage stops at the current authored phase threshold; excess damage never skips defenders or a phase.</summary>
+    private float PhaseFloor => CurrentPhase switch { 1 => MaxHealth * 0.70f, 2 => MaxHealth * 0.35f, _ => 0 };
+
     /// <summary>Initiates the flight-deck defeat sequence and alerts listeners.</summary>
     private void Die()
     {
+        // Accepted defeat removes collision immediately while the authored visual fade completes.
+        SetDeferred(CollisionObject2D.PropertyName.CollisionLayer, 0);
+        SetDeferred(CollisionObject2D.PropertyName.CollisionMask, 0);
         if (IsDying) return;
         IsDying = true;
         SetPhysicsProcess(false);

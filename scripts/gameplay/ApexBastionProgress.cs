@@ -10,8 +10,20 @@ using System.Linq;
 /// the multi-phase Bastion Praetor boss encounter, citadel blast doors breach, and throne room extraction
 /// without Godot engine dependencies.
 /// </summary>
-public sealed class ApexBastionProgress
+public sealed class ApexBastionProgress : ILaterMissionProgress
 {
+    /// <inheritdoc/>
+    public IReadOnlyList<string> ObjectiveIds => Objectives;
+
+    /// <inheritdoc/>
+    public void ResetArena(string phasePrefix, string[] formations)
+    {
+        if (Has(phasePrefix + ":3")) return;
+        _done.RemoveWhere(id => id.StartsWith(phasePrefix + ":", StringComparison.Ordinal) ||
+            formations.Any(f => id == "encounter:" + f));
+        // Slot reward receipts deliberately survive an abandoned arena attempt.
+    }
+
     private readonly HashSet<string> _done = new(StringComparer.Ordinal);
     private readonly HashSet<string> _rewards = new(StringComparer.Ordinal);
 

@@ -47,6 +47,6 @@ public class FoundryForgeIntroTests
         Assert.That(json, Does.Contain("MIRAGE"));
         Assert.That(json, Does.Contain("SURYA"));
         Assert.That(json, Does.Contain("Foundry Forge"));
-        Assert.That(json, Does.Contain("sky shields"));
+        Assert.That(json, Does.Contain("sky-shields"));
     }
 }

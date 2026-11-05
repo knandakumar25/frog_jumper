@@ -10,10 +10,13 @@ using System.Linq;
 /// and full 6-operative synergy. Overloading the core collapses the Citadel Spire's planetary sky-shields.
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
+public partial class FoundryForgeMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression, gates, boss phases, and objectives.</summary>
     public FoundryProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -36,6 +39,7 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
     private IgnisColossusBoss2D? _boss;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private bool _bossSpawned;
 
@@ -112,7 +116,8 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
         // Wall-jump columns for vertical mobility across basalt chimneys
         foreach (float wx in new[] { 1600f, 1780f, 6200f, 8400f, 12200f, 14800f, 19400f, 23800f })
         {
-            AddPlatform(wx, 260, 24, 340, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 260, 24, 180, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Basalt Ingress catwalks
@@ -147,16 +152,16 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
 
         // Ability-Gated Obstacles
         // Sector 2: Superheated steam jet requiring Oceanus Douse
-        AddGate("CoolantVentGate", GateKind.FireVent, new Vector2(4500, 600));
+        AddObjectiveGate("CoolantVentGate", GateKind.FireVent, new Vector2(4500, 600), "coolant_douse");
 
         // Sector 2 exit: Heavy magnetic pressure valve requiring Apex Titan Slam
-        AddGate("PressureValveBulkhead", GateKind.RubbleWall, new Vector2(8500, 600));
+        AddObjectiveGate("PressureValveBulkhead", GateKind.RubbleWall, new Vector2(8500, 600), "valve_shatter");
 
         // Sector 3: High-frequency ultrasonic barrier requiring Aura Resonate
-        AddGate("SonicLockGate", GateKind.SonicLock, new Vector2(14500, 600));
+        AddObjectiveGate("SonicLockGate", GateKind.SonicLock, new Vector2(14500, 600), "resonance_disable");
 
         // Sector 4: Extreme radiation vent requiring Surya Prime Bulwark
-        AddGate("RadiationVentGate", GateKind.HeatVent, new Vector2(17800, 600));
+        AddObjectiveGate("RadiationVentGate", GateKind.HeatVent, new Vector2(17800, 600), "radiation_bulwark");
     }
 
     /// <summary>Builds interactive coolant vents, laser security grids, and extraction console.</summary>
@@ -192,6 +197,7 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.4f,
             Damage = 28f
         };
+        TrackPhaseBoundary(laser, "arc_phase");
         Actors.AddChild(laser);
         _lasers.Add(laser);
 
@@ -274,6 +280,7 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
         AddEncounter("boss3", new Rect2(22800, 200, 1000, 500), new[] { (new Vector2(23100, 554), true), (new Vector2(23400, 554), false) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -282,7 +289,9 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "boss1", "boss2", "boss3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -299,7 +308,7 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             if (id == "boss_phase:3")
@@ -316,50 +325,54 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 20400f && Player.GlobalPosition.X <= 24100f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check milestone conditions
         if (!Progress.Has("ingress_breach") && Progress.CanComplete("ingress_breach"))
             CommitObjective("ingress_breach");
 
-        if (!Progress.Has("coolant_douse") && Progress.CanComplete("coolant_douse"))
+        if (!Progress.Has("coolant_douse") && Progress.CanComplete("coolant_douse") && HasActionEvidence("coolant_douse"))
             CommitObjective("coolant_douse");
 
-        if (!Progress.Has("valve_shatter") && Progress.CanComplete("valve_shatter"))
+        if (!Progress.Has("valve_shatter") && Progress.CanComplete("valve_shatter") && HasActionEvidence("valve_shatter"))
             CommitObjective("valve_shatter");
 
         if (!Progress.Has("turbines_overloaded") && Progress.CanComplete("turbines_overloaded"))
             CommitObjective("turbines_overloaded");
 
-        if (!Progress.Has("arc_phase") && Progress.CanComplete("arc_phase"))
+        if (!Progress.Has("arc_phase") && Progress.CanComplete("arc_phase") && HasActionEvidence("arc_phase"))
             CommitObjective("arc_phase");
 
-        if (!Progress.Has("resonance_disable") && Progress.CanComplete("resonance_disable"))
+        if (!Progress.Has("resonance_disable") && Progress.CanComplete("resonance_disable") && HasActionEvidence("resonance_disable"))
             CommitObjective("resonance_disable");
 
         if (!Progress.Has("conduits_severed") && Progress.CanComplete("conduits_severed"))
             CommitObjective("conduits_severed");
 
-        if (!Progress.Has("radiation_bulwark") && Progress.CanComplete("radiation_bulwark"))
+        if (!Progress.Has("radiation_bulwark") && Progress.CanComplete("radiation_bulwark") && HasActionEvidence("radiation_bulwark"))
             CommitObjective("radiation_bulwark");
 
         if (!Progress.Has("core_overlook_breach") && Progress.CanComplete("core_overlook_breach"))
             CommitObjective("core_overlook_breach");
 
         // Spawn Boss when entering Sector 5
-        if (!_bossSpawned && Player.GlobalPosition.X >= 20400f)
+        if (!_bossSpawned && !Progress.Has("boss_phase:3") && Player.GlobalPosition.X >= 20400f)
         {
             SpawnBoss();
         }
 
         // Interaction with the core terminal
         if (_coreTerminal != null && !_coreTerminal.Collected &&
-            Progress.Has("core_overlook_breach") &&
+            Progress.Has("boss_phase:3") &&
             Player.GlobalPosition.DistanceTo(_coreTerminal.GlobalPosition) < 130f)
         {
             _coreTerminal.SetCollected();
         }
 
         // Final extraction reached after boss defeat
-        if (_exitTrigger != null && Progress.CanExtract &&
+        if (_exitTrigger != null && Progress.CanExtract && _coreTerminal.Collected &&
             Player.GlobalPosition.DistanceTo(_exitTrigger.GlobalPosition) < 140f)
         {
             CompleteMission();
@@ -373,7 +386,7 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
         _boss = new IgnisColossusBoss2D
         {
             Name = "IgnisColossus",
-            Position = new Vector2(21800, 480)
+            Position = new Vector2(21800, 510)
         };
         _boss.BossHealthChanged += (curr, max, phase) =>
         {
@@ -388,7 +401,10 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
                 CommitObjective("boss_phase:3");
         };
 
+        _boss.Target = Player;
+        _boss.PhaseAcceptance = stage => Progress.CanComplete("boss_phase:" + stage);
         Actors.AddChild(_boss);
+        GetNode<CyberCombatHud>("CyberCombatHud").BindCampaignBoss(_boss);
     }
 
     /// <inheritdoc/>
@@ -429,6 +445,9 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -452,7 +471,9 @@ public partial class FoundryForgeMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
+        ResetArenaAttempt(ref _boss, ref _bossSpawned, "boss_phase", new[] { "boss1", "boss2", "boss3" });
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))
         {

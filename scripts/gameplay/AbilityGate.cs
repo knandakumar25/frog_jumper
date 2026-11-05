@@ -21,6 +21,8 @@ public enum GateKind
 /// </summary>
 public partial class AbilityGate : Node2D
 {
+    /// <summary>Optional owning objective identifier used by later missions to report accepted physical action evidence.</summary>
+    public string ObjectiveId { get; set; } = "";
     /// <summary>Optional mission defense/suspension check, evaluated before any gate state changes.</summary>
     public System.Func<bool>? Acceptance { get; set; }
     /// <summary>Which obstacle this is.</summary>

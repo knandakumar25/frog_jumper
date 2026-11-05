@@ -5,7 +5,12 @@
     "voice": "Daniel",
     "start": 0.0,
     "end": 8.0,
-    "text": "AXIOM-7: Extraction transport clear of the caldera rim. Core temperature exceeding 12,000 Kelvin. Geothermal containment failure is total."
+    "text": "Transport clear of the caldera. Core temperature rising. Geothermal containment has failed.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 8.0,
+    "subtitle": "AXIOM-7: Transport clear of the caldera. Core temperature rising. Geothermal containment has failed.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 2,
@@ -13,7 +18,12 @@
     "voice": "George",
     "start": 8.0,
     "end": 18.0,
-    "text": "TITAN: Look down at the rift. The entire foundation is buckling! The plasma conduits we severed are feeding thermal feedback straight into their power grid."
+    "text": "The rift is buckling. Those severed conduits are feeding the surge straight back into their power grid.",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: The rift is buckling. Those severed conduits are feeding the surge straight back into their power grid.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 3,
@@ -21,7 +31,12 @@
     "voice": "Sarah",
     "start": 18.0,
     "end": 28.0,
-    "text": "OCEANUS: The coolant reservoirs broke their banks! Flash steam is choking the subterranean flues... the river is reclaiming its bed beneath the stone."
+    "text": "The reservoirs have burst. Steam is pouring through the flues. The river is finding its bed again.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: The reservoirs have burst. Steam is pouring through the flues. The river is finding its bed again.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 4,
@@ -29,7 +44,12 @@
     "voice": "Matilda",
     "start": 28.0,
     "end": 38.0,
-    "text": "AURA: The harmonic hum... it's spiking into ultrasonic dissonance! Listen to the sky—the resonance field that held this city under glass is tearing itself apart!"
+    "text": "Listen to the sky. That hum is breaking apart. The field that held us under glass is coming down.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: Listen to the sky. That hum is breaking apart. The field that held us under glass is coming down.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 5,
@@ -37,7 +57,12 @@
     "voice": "Eric",
     "start": 38.0,
     "end": 48.0,
-    "text": "MIRAGE: Look at the horizon! The sky-shield emitter towers along Sector 4 are arcing! The hexagonal lattice is fracturing!"
+    "text": "The emitters along Sector Four are arcing. There. The shield lattice is splitting.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: The emitters along Sector Four are arcing. There. The shield lattice is splitting.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 6,
@@ -45,7 +70,12 @@
     "voice": "Brian",
     "start": 48.0,
     "end": 58.0,
-    "text": "SURYA // COMMS: Telemetry confirmed across all civilian bands! The planetary sky-shield grid has collapsed over Neo-Kyoto! The Citadel's iron dome is gone!"
+    "text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 7,
@@ -53,7 +83,12 @@
     "voice": "Adam",
     "start": 58.0,
     "end": 68.0,
-    "text": "KAITO: Ten years under their simulated twilight. For ten years, the Citadel Spire ruled from behind an untouchable shield. No more."
+    "text": "Ten years under a false twilight. Ten years of looking up at a shield we could never touch. No more.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Ten years under a false twilight. Ten years of looking up at a shield we could never touch. No more.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 8,
@@ -61,7 +96,12 @@
     "voice": "Adam",
     "start": 68.0,
     "end": 78.0,
-    "text": "KAITO: Look up at the Spire. Without their shield, their guns are blind to low-altitude strikes. The high docks at Stratos are wide open to an air assault."
+    "text": "Their low-altitude cover is gone. Stratos Docks is exposed. We have our way into the Spire.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Their low-altitude cover is gone. Stratos Docks is exposed. We have our way into the Spire.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 9,
@@ -69,6 +109,11 @@
     "voice": "Adam",
     "start": 78.0,
     "end": 90.0,
-    "text": "KAITO: Act Two is finished. Regroup at the rim, rearm the squad, and prepare for high-altitude insertion. Next stop: Stratos Docks!"
+    "text": "Regroup at the rim and rearm. We are taking the high docks. Axiom Force, prepare for insertion.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 12.0,
+    "subtitle": "KAITO: Regroup at the rim and rearm. We are taking the high docks. Axiom Force, prepare for insertion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

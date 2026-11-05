@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Singularity contained. Reactor signature zero. The Commander's control network is down across every relay.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "4c315227efbb8bc06fbcc9fe6cd86e4e8cff5417809a6d4e091135d868a9a78e",
+    "request_sha256": "b10901aa23550d3d1689b000294fdbe8830c2aacc88d5b33f265d875b23a90e2"
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The firewalls are down. Broadcast is open to everyone. Look below us. The quarantine barriers are dropping.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "53bd03905ca98717f192552e8ec6bcb51567c9ecdc34e62d184fcf3e0a24d207",
+    "request_sha256": "d6176f1156d7d14e8e42425657977b8cc23a8e0b7379c6856dc0ce1dc340c539"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Ten million people kept in the dark. Now the lights are coming on, from the sumps to the cloudline.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "7c0b1128e0c6eefa3a3ea70c18808aab5970ea1e4a9264950a703fafd2c923bc",
+    "request_sha256": "1de06933e8f2b884a7cd39a85cb83c147001c6d7c3e03760d1c677eff7dca2e0"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The scrubbers are reversing. That is ocean air coming through the broken windows. The storm is finally passing.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d0b36c03c3bee70dcd4d9de34627ecfd052ed872840c96a378534305c4abb25c",
+    "request_sha256": "a56350e8f13050ac131ce73e531c2b2daa0b3d0e1bc3c2394e528dbc2f121bb5"
+  },
+  {
+    "cue": 5,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Actual sunlight. After fifty years, my cells are drinking it in. I had forgotten it could feel this warm.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "cd49f8a03a6eaf5936e13dc5e0f516e46b574cefb2e7d9499bcac342a5ed5c5d",
+    "request_sha256": "dee8b68fd6fdf51165cf539577630f67b25b219c10cf849d96232003d07a6302"
+  },
+  {
+    "cue": 6,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "I hear voices. Singing, laughing, crying. No suppression signal. No one telling them to be quiet. Just people.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "5b7db84e71b08d123701f322b06e39a75e45bc3a0eea59b24d556f49dd25f293",
+    "request_sha256": "c2c83e415a33cbce205c5c174dd843a834c9c2c86831362d17264c1af843afca"
+  },
+  {
+    "cue": 7,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Imperial control erased. Identities restored to their owners in all twelve districts. Mission complete.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "02bf294be2a4f8d353d26f87f5837065c22ff80e1bc06b131ab489f78d2964c4",
+    "request_sha256": "dda315d31c71997914cdc1fb7abfa78c8d92783f621e70ed051b23a95921698d"
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Castaways. Rogues. Ghosts in the gridlock. Today we stood together, and gave them their tomorrow back.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "f5c971d7538d1415cedc1e350349ee6387fd28bc079a87152363128881c8b5c8",
+    "request_sha256": "1b307e5a874c550403e5870acc08875f187019af9f1afc19c6935f6c4ed1f0a3"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The dawn belongs to all of us. Axiom Force, stand down. Our city is free.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "194fe9188cc63e928f4154c99f443ce8fd2df0de55df54bb7d31ab31ae5eb434",
+    "request_sha256": "470646d74e5a85b91f568a25a2dc1844dab82519985b8377256f84a20bbca7bf"
+  }
+]

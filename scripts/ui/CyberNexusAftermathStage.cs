@@ -15,8 +15,8 @@ public partial class CyberNexusAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("cyber_nexus", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -77,6 +77,7 @@ public partial class CyberNexusAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -84,6 +85,7 @@ public partial class CyberNexusAftermathStage : Control
 
         // Mainframe cyber-chasm and perspective digital grid
         DrawMainframeBackdrop(t);
+        CampaignArtwork.DrawEnvironment(this, "cyber_nexus", Seconds, aftermath: true, drawBase: true);
 
         // Server towers with flashing core meltdown error banners
         DrawGlitchingServerMonoliths(t);
@@ -374,31 +376,7 @@ public partial class CyberNexusAftermathStage : Control
     /// <summary>Draws all 6 operative silhouettes positioned across the gantry platform.</summary>
     private void DrawSquadSilhouettes(float t, int shot)
     {
-        // Walkway foundation deck
-        DrawRect(new Rect2(0, 690, 1920, 390), ColorDeck);
-        DrawLine(new Vector2(0, 690), new Vector2(1920, 690), ColorSteel, 4f);
-        DrawLine(new Vector2(0, 694), new Vector2(1920, 694), ColorCyan, 1.5f);
-
-        // Squad positions along the deck (advancing toward lift x=1480 at Shot 8)
-        float walkAdvance = (shot == 8) ? Mathf.Clamp((t - 80f) / 8f, 0f, 1f) * 110f : 0f;
-
-        // 1. Kaito (Cyber Shogun)
-        DrawOperativeSilhouette(new Vector2(980 + walkAdvance, 690), ColorKaito, "Kaito", shot == 8);
-
-        // 2. Mirage Blade
-        DrawOperativeSilhouette(new Vector2(1320 + walkAdvance * 0.8f, 690), ColorMirage, "Mirage", shot == 6 || shot == 8);
-
-        // 3. Apex Titan
-        DrawOperativeSilhouette(new Vector2(1090 + walkAdvance * 0.6f, 690), ColorTitan, "Titan", shot == 2);
-
-        // 4. Oceanus
-        DrawOperativeSilhouette(new Vector2(760 + walkAdvance * 0.7f, 690), ColorOceanus, "Oceanus", shot == 3);
-
-        // 5. Surya Prime
-        DrawOperativeSilhouette(new Vector2(880 + walkAdvance * 0.7f, 690), ColorSurya, "Surya", shot == 4);
-
-        // 6. Aura Phoenicia
-        DrawOperativeSilhouette(new Vector2(650 + walkAdvance * 0.6f, 690), ColorAura, "Aura", shot == 5);
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Draws a single operative silhouette with combat stance and glowing weapon/accent.</summary>

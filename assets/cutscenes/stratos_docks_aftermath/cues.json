@@ -5,7 +5,12 @@
     "voice": "Daniel",
     "start": 0.0,
     "end": 10.0,
-    "text": "AXIOM-7: VTOL flight systems online. Avionics decoupled from Citadel air traffic control. Dual ion-thrusters at 100% output."
+    "text": "Flight systems online. Citadel traffic control disconnected. Both ion thrusters are at full output.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Flight systems online. Citadel traffic control disconnected. Both ion thrusters are at full output.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 2,
@@ -13,7 +18,12 @@
     "voice": "Eric",
     "start": 10.0,
     "end": 20.0,
-    "text": "MIRAGE: Look at those flight decks shrink behind us. The fleet is grounded, their interceptors crippled in their berths. The sky is ours."
+    "text": "Look at the docks behind us. Their fleet is still in its berths. We got out before the net closed.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Look at the docks behind us. Their fleet is still in its berths. We got out before the net closed.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 3,
@@ -21,7 +31,12 @@
     "voice": "George",
     "start": 20.0,
     "end": 30.0,
-    "text": "TITAN: Feels good to fly something built like a fortress. Hydraulic clamps didn't stand a chance. This bird can take a pounding."
+    "text": "Now this is a transport. Built like a fortress. Those mooring clamps never stood a chance.",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: Now this is a transport. Built like a fortress. Those mooring clamps never stood a chance.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 4,
@@ -29,7 +44,12 @@
     "voice": "Sarah",
     "start": 30.0,
     "end": 40.0,
-    "text": "OCEANUS: Look through the storm squall below. The city lights are shining without the sky-shield dome. Three municipal sectors breathing free tonight."
+    "text": "The city lights are clear through the storm. No shield overhead. Three districts can see the sky tonight.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: The city lights are clear through the storm. No shield overhead. Three districts can see the sky tonight.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 5,
@@ -37,7 +57,12 @@
     "voice": "Matilda",
     "start": 40.0,
     "end": 50.0,
-    "text": "AURA: I can hear the Citadel's distress broadcast. High command is in full panic. They're scrambling all exterior hull automated defense batteries."
+    "text": "Citadel command is calling every exterior battery to readiness. They know where we are headed.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: Citadel command is calling every exterior battery to readiness. They know where we are headed.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 6,
@@ -45,7 +70,12 @@
     "voice": "Brian",
     "start": 50.0,
     "end": 60.0,
-    "text": "SURYA: Sensor lock dead ahead! We've broken through the storm ceiling... Look at the Spire. Kilometers of armored exterior plating."
+    "text": "Target lock ahead. We are through the cloud ceiling. Look at that wall of armor.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: Target lock ahead. We are through the cloud ceiling. Look at that wall of armor.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 7,
@@ -53,7 +83,12 @@
     "voice": "Daniel",
     "start": 60.0,
     "end": 70.0,
-    "text": "AXIOM-7: Telemetry warning: Outer Spire heavy anti-air batteries detecting our radar signature. Direct flight to the summit is blocked by automated hull turrets."
+    "text": "Outer hull batteries have our signature. Direct flight to the summit is blocked. We need another approach.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Outer hull batteries have our signature. Direct flight to the summit is blocked. We need another approach.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 8,
@@ -61,7 +96,12 @@
     "voice": "Eric",
     "start": 70.0,
     "end": 80.0,
-    "text": "MIRAGE: Then we don't land at the top. We insert directly onto the exterior maintenance catwalks. We scale the Spire outer hull on foot!"
+    "text": "Then we land below them. Maintenance catwalks on the outer hull. We climb the rest on foot.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Then we land below them. Maintenance catwalks on the outer hull. We climb the rest on foot.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 9,
@@ -69,6 +109,11 @@
     "voice": "Adam",
     "start": 80.0,
     "end": 90.0,
-    "text": "KAITO: Agreed. Secure your harnesses. We breach the Spire's outer skin and carve our way to the summit. Operatives—prepare for exterior insertion!"
+    "text": "Agreed. Secure your harnesses. We breach their outer skin and work our way up. Prepare for exterior insertion.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Agreed. Secure your harnesses. We breach their outer skin and work our way up. Prepare for exterior insertion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

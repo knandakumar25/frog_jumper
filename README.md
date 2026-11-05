@@ -1,6 +1,37 @@
 # Axiom Force
 
-A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. All five levels are side-scrolling platformers. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
+A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
+
+## Later campaign repair (2026-11-05)
+
+Missions 6–12 now require actual accepted ability actions and full protected
+crossings, independently of defender clearance. Pods use the attack binding or
+click/tap. Sequential waves, reachable boss hurtboxes, parry return shots,
+defender-held phases and arena retries preserve accepted progress and one-time
+rewards. Terminal attempts remain usable until accepted.
+
+Results restore Continue 5→6 and 6→7 and end with **Return to Main Menu**. Runtime
+unlocks and PostgreSQL saves use the twelve-mission campaign boundary. A stable
+per-run receipt settles score/progress atomically, with visible save status and
+Retry Save; replay cannot lower progress or duplicate an uncertain settlement.
+
+Seven original layered environment families and matching boss plates replace the
+later generic skyline. Recognizable approved operative art is shared with fourteen
+cinematics. Thirteen missing dialogue tracks use 117 complete natural-speed takes
+from the established cast; fourteen distinct atmosphere beds include the missing
+Foundry aftermath. Provenance, dimensions, cue timing and hashes ship beside assets.
+Cinematics consume Skip, release actions, remove finished overlays and restore
+owned cursor/help/audio state. Small windows retain readable subtitle text.
+
+See [verification and human acceptance](docs/LATER_CAMPAIGN_ACCEPTANCE.md) for
+reproduction tools, current evidence and the physical-device/listening checklist.
+Automated verification passes: **104 Django, 276 NUnit and 303 Godot tests**, with
+zero Godot errors, failures or orphans. Missions 6–12 each reached actual results
+from fresh entry using movement/combat/abilities; all 126 later cinematic shots
+were reviewed at three aspect ratios, plus a small-window check (504 captures).
+Human pacing, physical-device and listening acceptance remains on the checklist.
+Existing addon import/TLS/shutdown diagnostics are documented separately. The user authorized Git publication of this verified batch. No game exports were
+produced. The four normal Docker services remain running.
 
 ---
 

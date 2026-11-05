@@ -1,0 +1,11 @@
+{
+  "scene": "spire_outer_hull_intro",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "335f952f6d3c7d3adc00ac4982ead2bd135a327fd4648c801c6d84af0bfcc508",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "wind",
+    "flight"
+  ]
+}

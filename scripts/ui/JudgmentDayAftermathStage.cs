@@ -16,8 +16,8 @@ public partial class JudgmentDayAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("judgment_day", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -76,6 +76,7 @@ public partial class JudgmentDayAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -95,6 +96,7 @@ public partial class JudgmentDayAftermathStage : Control
 
         // Summit cathedral overlook, observation balcony, and shattered dais
         DrawCathedralOverlook(t);
+        CampaignArtwork.DrawEnvironment(this, "judgment_day", Seconds, aftermath: true, drawBase: false);
 
         // Operative squad silhouettes on the balcony
         DrawOperativeSquad(t);
@@ -289,54 +291,7 @@ public partial class JudgmentDayAftermathStage : Control
 
     private void DrawOperativeSquad(float t)
     {
-        // 6 Operatives standing on balcony deck in heroic ensemble formation:
-        // Titan (x:620), Oceanus (x:740), Surya (x:860), Kaito (x:980), Mirage (x:1100), Aura (x:1220)
-        (string name, float x, Color col, float height)[] squad = {
-            ("Titan", 620f, ColorTitan, 78f),
-            ("Oceanus", 740f, ColorOceanus, 68f),
-            ("Surya", 860f, ColorSurya, 72f),
-            ("Kaito", 980f, ColorKaito, 70f),
-            ("Mirage", 1100f, ColorMirage, 66f),
-            ("Aura", 1220f, ColorAura, 65f)
-        };
-
-        float groundY = 700f;
-
-        for (int i = 0; i < squad.Length; i++)
-        {
-            var op = squad[i];
-            Vector2 foot = new(op.x, groundY);
-            Vector2 head = new(op.x, groundY - op.height);
-
-            // Soft operative backlight glow from rising sun
-            DrawCircle(new Vector2(op.x, groundY - op.height * 0.6f), 38f, new Color(op.col.R, op.col.G, op.col.B, 0.15f));
-
-            // Body silhouette (dark obsidian)
-            DrawCapsule(new Vector2(op.x, groundY - op.height * 0.5f), new Vector2(16f, op.height * 0.7f), new Color("0a0714"));
-
-            // Head silhouette
-            DrawCircle(head, 9f, new Color("0a0714"));
-
-            // Glowing cybernetic visor / accent trim
-            DrawLine(head + new Vector2(-4, 0), head + new Vector2(4, 0), op.col, 2.5f);
-
-            // Glowing shoulder / chassis lines
-            DrawLine(head + new Vector2(-10, 15), head + new Vector2(-4, 35), op.col, 2f);
-            DrawLine(head + new Vector2(10, 15), head + new Vector2(4, 35), op.col, 2f);
-
-            // Sheathed weapons on hip/back
-            if (op.name == "Kaito")
-            {
-                // Katana scabbard on hip
-                DrawLine(foot + new Vector2(-12, -25), foot + new Vector2(18, -10), new Color(0.9f, 0.2f, 0.25f, 0.9f), 3f);
-            }
-            else if (op.name == "Titan")
-            {
-                // Heavy hammer resting head-down on the balcony floor
-                DrawLine(foot + new Vector2(-16, 0), foot + new Vector2(-16, -55), new Color(0.7f, 0.4f, 0.95f, 0.9f), 4f);
-                DrawRect(new Rect2(op.x - 24, groundY - 14, 16, 14), ColorTitan);
-            }
-        }
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     private void DrawCapsule(Vector2 center, Vector2 size, Color color)

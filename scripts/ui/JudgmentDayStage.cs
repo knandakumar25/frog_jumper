@@ -17,8 +17,8 @@ public partial class JudgmentDayStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("judgment_day", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -73,7 +73,8 @@ public partial class JudgmentDayStage : Control
     /// <param name="viewport">The active viewport canvas item.</param>
     public override void _Draw()
     {
-        Vector2 size = GetViewportRect().Size;
+        Vector2 viewport = GetViewportRect().Size;
+        Vector2 size = new(1920, 1080);
         if (size.X <= 0 || size.Y <= 0) size = new Vector2(1920, 1080);
 
         int shot = ResolveCurrentShot(Seconds);
@@ -81,6 +82,7 @@ public partial class JudgmentDayStage : Control
 
         // Smooth camera focal point interpolation
         Vector2 camTarget = CameraTargets[Math.Clamp(shot, 0, CameraTargets.Length - 1)];
+        camTarget = CampaignArtwork.Focus(ArtPath, Seconds, camTarget);
         float camZoom = CameraZooms[Math.Clamp(shot, 0, CameraZooms.Length - 1)];
 
         if (shot < CameraTargets.Length - 1)
@@ -91,10 +93,13 @@ public partial class JudgmentDayStage : Control
         }
 
         // Apply camera transformation centered on (size / 2)
-        DrawSetTransform(size * 0.5f - camTarget * camZoom, 0f, new Vector2(camZoom, camZoom));
+        float fit = Mathf.Min(viewport.X / 1920, viewport.Y / 1080);
+        Vector2 margin = (viewport - size * fit) * .5f;
+        DrawSetTransform(margin + (size * .5f - camTarget * camZoom) * fit, 0, Vector2.One * fit * camZoom);
 
         // 1. Cosmic Void Singularity Background Sky & Accretion Swirl
         DrawCosmicSkyAndSingularity(size, Seconds);
+        CampaignArtwork.DrawEnvironment(this, "judgment_day", Seconds, aftermath: false, drawBase: false);
 
         // 2. Grand Cathedral Throne Room Architecture & Columns
         DrawCathedralArchitecture(size, Seconds);
@@ -112,10 +117,10 @@ public partial class JudgmentDayStage : Control
         DrawSetTransform(Vector2.Zero, 0f, Vector2.One);
 
         // 7. Atmospheric Dust Motes & Cosmic Arcs
-        DrawCosmicParticles(size, Seconds);
+        DrawCosmicParticles(viewport, Seconds);
 
         // 8. CRT Scanlines & Anamorphic Letterbox Bars
-        DrawCinemaOverlays(size);
+        DrawCinemaOverlays(viewport);
     }
 
     /// <summary>Draws the swirling cosmic void singularity, event horizon, and coronal flare emissions.</summary>
@@ -303,42 +308,13 @@ public partial class JudgmentDayStage : Control
         Vector2 tipL = hiltL + new Vector2(-35, -75);
         DrawLine(hiltL, tipL, new Color(ColorVoidMagenta.R, ColorVoidMagenta.G, ColorVoidMagenta.B, bladeGlow), 4.5f);
         DrawLine(hiltL, tipL, Colors.White, 1.8f);
+        CampaignArtwork.DrawCommander(this, cmdPos);
     }
 
     /// <summary>Draws all six operatives of Axiom Force in battle formation facing the dais.</summary>
     private void DrawAxiomForceSquad(Vector2 size, float t, int shot)
     {
-        float baseY = size.Y * 0.74f;
-
-        // 1. Kaito Kurogane (Center Vanguard) - x: size.X * 0.5f - 40
-        DrawOperativeSilhouette(new Vector2(size.X * 0.5f - 40, baseY), ColorKaito, "Kaito", t, true);
-
-        // 2. Surya Prime (Right Tank) - x: size.X * 0.5f + 140
-        DrawOperativeSilhouette(new Vector2(size.X * 0.5f + 140, baseY), ColorSurya, "Surya", t, false);
-        // Golden Solar Bulwark Barrier
-        Vector2 shieldPos = new(size.X * 0.5f + 140, baseY - 40);
-        DrawArc(shieldPos, 48f, -Mathf.Pi * 0.6f, Mathf.Pi * 0.6f, 16, new Color(ColorSurya.R, ColorSurya.G, ColorSurya.B, 0.65f + 0.25f * Mathf.Sin(t * 4f)), 4f);
-
-        // 3. Oceanus (Left Vanguard) - x: size.X * 0.5f - 180
-        DrawOperativeSilhouette(new Vector2(size.X * 0.5f - 180, baseY), ColorOceanus, "Oceanus", t, false);
-        // Hydro Spirals
-        Vector2 hydroPos = new(size.X * 0.5f - 180, baseY - 35);
-        DrawArc(hydroPos, 35f, 0f, Mathf.Tau, 24, new Color(ColorOceanus.R, ColorOceanus.G, ColorOceanus.B, 0.5f + 0.3f * Mathf.Sin(t * 3f)), 2.5f);
-
-        // 4. Mirage Blade (Far Left Infiltrator) - x: size.X * 0.5f - 320
-        DrawOperativeSilhouette(new Vector2(size.X * 0.5f - 320, baseY + 10), ColorMirage, "Mirage", t, false, true);
-
-        // 5. Apex Titan (Far Right Juggernaut) - x: size.X * 0.5f + 290
-        DrawOperativeSilhouette(new Vector2(size.X * 0.5f + 290, baseY - 5), ColorTitan, "Titan", t, false);
-        // Kinetic Violet Lightning Knuckles
-        Vector2 fistPos = new(size.X * 0.5f + 275, baseY - 35);
-        DrawCircle(fistPos, 8f, new Color(ColorTitan.R, ColorTitan.G, ColorTitan.B, 0.8f + 0.2f * Mathf.Sin(t * 6f)));
-
-        // 6. Aura Phoenicia (Elevated Mid-Support) - x: size.X * 0.5f + 40
-        float levitateY = baseY - 20f + 6f * Mathf.Sin(t * 2.5f);
-        DrawOperativeSilhouette(new Vector2(size.X * 0.5f + 40, levitateY), ColorAura, "Aura", t, false);
-        // Sonic Prism Rings
-        DrawArc(new Vector2(size.X * 0.5f + 40, levitateY - 40), 28f, 0f, Mathf.Tau, 18, new Color(ColorAura.R, ColorAura.G, ColorAura.B, 0.6f + 0.2f * Mathf.Sin(t * 5f)), 2.5f);
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Draws a single operative silhouette with distinct weapon glow, visor, and stance.</summary>

@@ -1,0 +1,11 @@
+{
+  "scene": "stratos_docks_intro",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "e867ab21ad9429531f7fa2f78a2ac65816f73f59c619e649ab55e0f6088ffd97",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "wind",
+    "flight"
+  ]
+}

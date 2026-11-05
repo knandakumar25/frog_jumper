@@ -120,6 +120,7 @@ public abstract partial class CodeLevel : Node2D
     private OperativeRoster? _hintRoster;
     private CyberVictoryScorecard? _scorecard;
     private int _maxCombo = 1;
+    private bool _previousMenuPromptVisible;
 
     // ─── Lifecycle ───────────────────────────────────────────────────────────
 
@@ -128,6 +129,9 @@ public abstract partial class CodeLevel : Node2D
     {
         ProcessMode = ProcessModeEnum.Always;
         var global = GetNodeOrNull<Node>("/root/Global");
+        var prompt = global?.Get("_prompt_label").AsGodotObject() as CanvasItem;
+        _previousMenuPromptVisible = prompt?.IsVisibleInTree() ?? true;
+        global?.Call("set_control_prompt_visible", false);
         global?.Set("reached_finish", false);
         GetTree().Paused = false;
         global?.Call("stop_menu_music");
@@ -208,6 +212,7 @@ public abstract partial class CodeLevel : Node2D
     /// <summary>Leaves the tree unpaused so a scene change never inherits a paused state, and unsubscribes from the roster.</summary>
     public override void _ExitTree()
     {
+        GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", _previousMenuPromptVisible);
         if (_hintRoster != null) _hintRoster.OperativeUnlocked -= OnOperativeUnlocked;
         if (GetTree() != null) GetTree().Paused = false;
     }
@@ -347,7 +352,7 @@ public abstract partial class CodeLevel : Node2D
     // ─── Backdrop ────────────────────────────────────────────────────────────
 
     /// <summary>Adds the backdrop on its own canvas layer so it can scroll slower than the world.</summary>
-    private void BuildBackdrop()
+    protected virtual void BuildBackdrop()
     {
         var layer = new CanvasLayer { Name = "BackdropLayer", Layer = -10 };
         AddChild(layer);
@@ -374,7 +379,7 @@ public abstract partial class CodeLevel : Node2D
     }
 
     /// <summary>Keeps the backdrop sliding at a fraction of camera speed (parallax), clamped so no edge is ever exposed.</summary>
-    private void UpdateBackdrop()
+    protected virtual void UpdateBackdrop()
     {
         if (_camera == null) return;
         Vector2 viewport = GetViewport().GetVisibleRect().Size;
@@ -539,7 +544,7 @@ public abstract partial class CodeLevel : Node2D
     }
 
     /// <summary>Records extraction once; the first three missions retain their scenes for cinematic/results replay.</summary>
-    protected async void CompleteMission()
+    protected void CompleteMission()
     {
         if (_finishing) return;
         _finishing = MissionComplete = true;
@@ -551,7 +556,8 @@ public abstract partial class CodeLevel : Node2D
         int finalScore = _gameManager.Points;
         int peakCombo = _maxCombo;
         string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}".ToUpperInvariant();
-        string? nextScene = CampaignProgress.CompleteMission(MissionNumber, finalScore);
+        _scorecard?.ConfigureCompletion(MissionNumber, finalScore, System.Guid.NewGuid().ToString(),
+            SessionManager.Instance?.CurrentSessionId ?? -1);
         if (MissionNumber == 3)
         {
             // Retain the mission for Replay; capture results before any deferred cinematic work.
@@ -559,7 +565,7 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new NeonRustAftermath { Name = "NeonRustAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 4);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 4));
             // Extraction can run inside physics dispatch. The overlay and its fallback share a deferred handoff.
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
@@ -571,7 +577,7 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new NamesWithoutNumbersAftermath { Name = "NamesWithoutNumbersAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, MissionNumber + 1));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
@@ -582,7 +588,7 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new CyberGraveAftermath { Name = "CyberGraveAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, MissionNumber + 1));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
@@ -616,14 +622,14 @@ public abstract partial class CodeLevel : Node2D
         if (MissionNumber == 7)
         {
             var aftermath = new FoundryForgeAftermath { Name = "FoundryForgeAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowActIIScorecard(finalScore, peakCombo, operative);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowActIIScorecard(finalScore, peakCombo, operative));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
         if (MissionNumber == 8)
         {
             var aftermath = new StratosDocksAftermath { Name = "StratosDocksAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 9);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 9));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
@@ -633,7 +639,7 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new SpireOuterHullAftermath { Name = "SpireOuterHullAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 10);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 10));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
@@ -643,7 +649,7 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new CyberNexusAftermath { Name = "CyberNexusAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 11);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 11));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
@@ -653,7 +659,7 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new ApexBastionAftermath { Name = "ApexBastionAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 12);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowMissionScorecard(finalScore, peakCombo, operative, 12));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
@@ -663,13 +669,23 @@ public abstract partial class CodeLevel : Node2D
             foreach (Node child in GetChildren())
                 if (child != _scorecard) FreezeForEpilogue(child);
             var aftermath = new JudgmentDayAftermath { Name = "JudgmentDayAftermath", Layer = 40 };
-            aftermath.Finished += () => _scorecard?.ShowCampaignCompleteScorecard(finalScore, peakCombo, operative);
+            aftermath.Finished += () => DeferResults(() => _scorecard?.ShowCampaignCompleteScorecard(finalScore, peakCombo, operative));
             Callable.From(() => { if (IsInsideTree()) AddChild(aftermath); else aftermath.Free(); }).CallDeferred();
             return;
         }
         if (MissionNumber == 4) _scorecard?.ShowActScorecard(finalScore, peakCombo, operative);
         else _scorecard?.ShowScorecard(finalScore, peakCombo, operative);
 
+    }
+
+    /// <summary>Safely reveals results after a cinematic finishes or is independently removed; scene teardown is ignored.</summary>
+    private void DeferResults(System.Action show)
+    {
+        Callable.From(() =>
+        {
+            if (GodotObject.IsInstanceValid(this) && IsInsideTree() && !IsQueuedForDeletion() &&
+                GodotObject.IsInstanceValid(_scorecard) && _scorecard!.IsInsideTree()) show();
+        }).CallDeferred();
     }
 
     /// <summary>Freezes explicit Pausable/Always descendants too, including pause input, and silences mission audio.</summary>

@@ -1,0 +1,25 @@
+{
+  "generator": "Original planar emission geometry rendered in Docker Blender 4.3.2",
+  "source": "tools/cutscene/render_later_campaign.py",
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "layers": [
+    "opaque base",
+    "transparent architecture",
+    "transparent emissive accents"
+  ],
+  "boss_dimensions": null,
+  "collision": "None; authoritative collision remains in Godot",
+  "rights": "Original project geometry; no external stock assets",
+  "representative_review": "Agent-inspected native-scale target before remaining family assets",
+  "files": {
+    "aftermath_base.png": "d07e5f8311ad433624defa8af56a62f8ee0b1448c74f407be7c051741860f983",
+    "aftermath_lights.png": "b2fa5936b5c8175023dbc4c334df185bf675afa0a824a0712cbe8c62e148a848",
+    "aftermath_structure.png": "0336136ab61bd1111baf789e37d17266ea963ff73336f8cc0b04c9d9d92b7cdc",
+    "environment_base.png": "1bc7832d6d613168ee873702045f7173901f21ba956a60fc3db46b18967b38e1",
+    "environment_lights.png": "9ab40953389d292a6e06a3e9b603c2b0482af13baf8742779d6ad2a78614ea1a",
+    "environment_structure.png": "2656863cf5ab0782aab33f82b6a27efac2a231726cb8c199f478714451ab942c"
+  }
+}

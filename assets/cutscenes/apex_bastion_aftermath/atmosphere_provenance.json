@@ -1,0 +1,12 @@
+{
+  "scene": "apex_bastion_aftermath",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "dd1f9e0e1557eb5aaeaa005386be25b7a70ea5849d414e9d1ceaa39431b6ca6d",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "wind",
+    "hydraulics",
+    "fortress"
+  ]
+}

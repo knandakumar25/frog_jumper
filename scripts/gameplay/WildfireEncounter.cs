@@ -49,7 +49,9 @@ public partial class WildfireEncounter : Node2D
     /// <summary>Releases remote actors without completion or rewards, using the same generation and reward safeguards as recovery.</summary>
     public void RetireIfRemote()
     {
-        if (!Mission.GameplaySuspended && Active && Mission.EncounterRetirementDistance > 0 &&
+        // Explicit sequential defense waves belong to the whole arena, including support at its far end.
+        // Only recovery may abandon them; proximity retirement would cancel a newly accepted next stage.
+        if (!ManualActivation && !Mission.GameplaySuspended && Active && Mission.EncounterRetirementDistance > 0 &&
             Mathf.Abs(Mission.CombatPlayer.GlobalPosition.X - Activation.GetCenter().X) > Mission.EncounterRetirementDistance)
             ResetIncomplete();
     }
@@ -88,8 +90,8 @@ public partial class WildfireEncounter : Node2D
         if (generation != _generation || !Active || !_dead.Add(index)) return;
         Mission.RewardMember($"{Id}:{index}");
         if (_dead.Count != Members.Length) return;
-        Active = false;
-        Mission.CompleteCombatEvent("encounter:" + Id);
+        if (Mission.TryCompleteCombatEvent("encounter:" + Id)) Active = false;
+        else ResetIncomplete(); // A rejected event abandons these dead slots; the next eligible activation starts cleanly.
     }
 
     /// <summary>Disables abandoned actors immediately; deferred deletion keeps physics callbacks safe.</summary>

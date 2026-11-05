@@ -11,10 +11,13 @@ using System.Linq;
 /// The Void Commander (750 HP)—in a multi-phase encounter before initiating Singularity Core containment to liberate the world.
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
+public partial class JudgmentDayMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression, gates, boss phases, and objectives.</summary>
     public JudgmentDayProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -37,6 +40,7 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
     private VoidCommanderBoss2D? _boss;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private bool _bossSpawned;
     private bool _coreTerminalOverridden;
@@ -113,7 +117,8 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
         // Wall-jump pylon columns across cathedral chambers
         foreach (float wx in new[] { 1600f, 1850f, 6500f, 8800f, 12500f, 15000f, 20000f, 24500f })
         {
-            AddPlatform(wx, 240, 24, 360, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 240, 24, 200, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Singularity Ingress Gantry
@@ -151,16 +156,16 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
 
         // Ability-Gated Obstacles
         // Sector 2: Geothermal power siphon coolant manifold requiring Oceanus Hydro Torrent
-        AddGate("PowerSiphonCoolantGate", GateKind.FireVent, new Vector2(4800, 600));
+        AddObjectiveGate("PowerSiphonCoolantGate", GateKind.FireVent, new Vector2(4800, 600), "siphon_coolant_doused");
 
         // Sector 2 exit: Reinforced dark-matter siphon clamp barricade requiring Apex Titan Slam
-        AddGate("SiphonMooringClampGate", GateKind.RubbleWall, new Vector2(8800, 600));
+        AddObjectiveGate("SiphonMooringClampGate", GateKind.RubbleWall, new Vector2(8800, 600), "siphon_clamp_shattered");
 
         // Sector 3 exit: Concentrated cosmic radiation thermal emission vent requiring Surya Prime Bulwark
-        AddGate("CosmicRadiationVentGate", GateKind.HeatVent, new Vector2(14800, 600));
+        AddObjectiveGate("CosmicRadiationVentGate", GateKind.HeatVent, new Vector2(14800, 600), "cosmic_vent_absorbed");
 
         // Sector 4: Harmonic acoustic security lock requiring Aura Phoenicia Resonate
-        AddGate("HarmonicAcousticLockGate", GateKind.SonicLock, new Vector2(18800, 600));
+        AddObjectiveGate("HarmonicAcousticLockGate", GateKind.SonicLock, new Vector2(18800, 600), "harmonic_lock_resonated");
     }
 
     /// <summary>Builds coolant vents, laser fields, core containment console, and extraction beacon.</summary>
@@ -196,6 +201,7 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.5f,
             Damage = 35f
         };
+        TrackPhaseBoundary(laserGrid, "laser_curtain_phased");
         Actors.AddChild(laserGrid);
         _lasers.Add(laserGrid);
 
@@ -265,7 +271,8 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
         // Sector 3: Void Barrier & Gravitational Corridor encounters
         AddEncounter("barrier1", new Rect2(10000, 200, 1000, 500), new[] { (new Vector2(10200, 554), true), (new Vector2(10500, 554), false) });
         AddEncounter("barrier2", new Rect2(11400, 200, 1000, 500), new[] { (new Vector2(11600, 554), true), (new Vector2(11900, 554), true) });
-        AddEncounter("barrier3", new Rect2(13200, 200, 1000, 500), new[] { (new Vector2(13400, 554), false), (new Vector2(13700, 554), true) });
+        // These defenders unlock after the heat crossing, so they occupy its safe exit rather than the earlier corridor.
+        AddEncounter("barrier3", new Rect2(14950, 200, 850, 500), new[] { (new Vector2(15200, 554), false), (new Vector2(15500, 554), true) });
 
         // Sector 4: Cathedral Vaulted Ascent encounters
         AddEncounter("vault1", new Rect2(16000, 200, 1000, 500), new[] { (new Vector2(16200, 554), true), (new Vector2(16500, 554), false) });
@@ -280,6 +287,7 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
         AddEncounter("citadel_remnant1", new Rect2(26200, 200, 1000, 500), new[] { (new Vector2(26400, 554), true), (new Vector2(26700, 554), true) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -288,7 +296,9 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "boss1", "boss2", "boss3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -305,7 +315,7 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             if (id == "core_containment_initiated")
@@ -322,36 +332,40 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 20400f && Player.GlobalPosition.X <= 24700f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check milestone conditions
         if (!Progress.Has("ingress_secured") && Progress.CanComplete("ingress_secured"))
             CommitObjective("ingress_secured");
 
-        if (!Progress.Has("siphon_coolant_doused") && Progress.CanComplete("siphon_coolant_doused"))
+        if (!Progress.Has("siphon_coolant_doused") && Progress.CanComplete("siphon_coolant_doused") && HasActionEvidence("siphon_coolant_doused"))
             CommitObjective("siphon_coolant_doused");
 
-        if (!Progress.Has("siphon_clamp_shattered") && Progress.CanComplete("siphon_clamp_shattered"))
+        if (!Progress.Has("siphon_clamp_shattered") && Progress.CanComplete("siphon_clamp_shattered") && HasActionEvidence("siphon_clamp_shattered"))
             CommitObjective("siphon_clamp_shattered");
 
         if (!Progress.Has("siphon_grid_neutralized") && Progress.CanComplete("siphon_grid_neutralized"))
             CommitObjective("siphon_grid_neutralized");
 
-        if (!Progress.Has("laser_curtain_phased") && Progress.CanComplete("laser_curtain_phased"))
+        if (!Progress.Has("laser_curtain_phased") && Progress.CanComplete("laser_curtain_phased") && HasActionEvidence("laser_curtain_phased"))
             CommitObjective("laser_curtain_phased");
 
-        if (!Progress.Has("cosmic_vent_absorbed") && Progress.CanComplete("cosmic_vent_absorbed"))
+        if (!Progress.Has("cosmic_vent_absorbed") && Progress.CanComplete("cosmic_vent_absorbed") && HasActionEvidence("cosmic_vent_absorbed"))
             CommitObjective("cosmic_vent_absorbed");
 
         if (!Progress.Has("barrier_corridor_cleared") && Progress.CanComplete("barrier_corridor_cleared"))
             CommitObjective("barrier_corridor_cleared");
 
-        if (!Progress.Has("harmonic_lock_resonated") && Progress.CanComplete("harmonic_lock_resonated"))
+        if (!Progress.Has("harmonic_lock_resonated") && Progress.CanComplete("harmonic_lock_resonated") && HasActionEvidence("harmonic_lock_resonated"))
             CommitObjective("harmonic_lock_resonated");
 
         if (!Progress.Has("cathedral_vault_scaled") && Progress.CanComplete("cathedral_vault_scaled"))
             CommitObjective("cathedral_vault_scaled");
 
         // Spawn Void Commander boss when entering Sector 5 Dais
-        if (!_bossSpawned && Player.GlobalPosition.X >= 20400f && Progress.Has("cathedral_vault_scaled"))
+        if (!_bossSpawned && !Progress.Has("void_commander_phase:3") && Player.GlobalPosition.X >= 20400f && Progress.Has("cathedral_vault_scaled"))
         {
             SpawnVoidCommanderBoss();
         }
@@ -359,12 +373,12 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
         // Check core containment override console in Sector 6
         if (Progress.Has("void_commander_phase:3") && !Progress.Has("core_containment_initiated"))
         {
-            if (!_coreTerminalOverridden && Player.GlobalPosition.DistanceTo(_coreTerminal.GlobalPosition) <= 90f)
+            if (!_coreTerminalOverridden && Player.GlobalPosition.DistanceTo(_coreTerminal.GlobalPosition) <= 90f &&
+                AcceptTerminal(_coreTerminal, "core_containment_initiated", CommitObjective))
             {
                 _coreTerminalOverridden = true;
                 _coreTerminal.Visible = false;
                 _acceptedSound?.Play();
-                CommitObjective("core_containment_initiated");
             }
         }
 
@@ -377,13 +391,14 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
         }
     }
 
+    /// <summary>Creates the mission-owned arena boss, binds its player/HUD and accepts phase changes only after supporting defenders.</summary>
     private void SpawnVoidCommanderBoss()
     {
         _bossSpawned = true;
         _boss = new VoidCommanderBoss2D
         {
             Name = "VoidCommanderBoss",
-            GlobalPosition = new Vector2(21800, 300)
+            GlobalPosition = new Vector2(21800, 510)
         };
         _boss.BossHealthChanged += (curr, max, phase) =>
         {
@@ -398,7 +413,10 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
                 CommitObjective("void_commander_phase:3");
         };
 
+        _boss.Target = Player;
+        _boss.PhaseAcceptance = stage => Progress.CanComplete("void_commander_phase:" + stage);
         Actors.AddChild(_boss);
+        GetNode<CyberCombatHud>("CyberCombatHud").BindCampaignBoss(_boss);
     }
 
     /// <inheritdoc/>
@@ -441,6 +459,9 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -464,7 +485,9 @@ public partial class JudgmentDayMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
+        ResetArenaAttempt(ref _boss, ref _bossSpawned, "void_commander_phase", new[] { "boss1", "boss2", "boss3" });
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))
         {

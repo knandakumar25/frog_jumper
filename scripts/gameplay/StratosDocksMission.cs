@@ -10,10 +10,13 @@ using System.Linq;
 /// the multi-phase Aero-Centurion flight-deck mechanoid boss, and commandeering a heavy military VTOL gunship.
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
+public partial class StratosDocksMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression, gates, boss phases, and objectives.</summary>
     public StratosProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -36,6 +39,7 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
     private AeroCenturionBoss2D? _boss;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private bool _bossSpawned;
 
@@ -115,7 +119,8 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
         // Wall-jump columns across mooring pylons and crane towers
         foreach (float wx in new[] { 1600f, 1780f, 6200f, 8400f, 12200f, 14800f, 19400f, 23800f })
         {
-            AddPlatform(wx, 260, 24, 340, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 260, 24, 180, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Perimeter Catwalks
@@ -150,16 +155,16 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
 
         // Ability-Gated Obstacles
         // Sector 2: Cryogenic fuel leak requiring Oceanus Douse
-        AddGate("CryoFuelGate", GateKind.FireVent, new Vector2(4500, 600));
+        AddObjectiveGate("CryoFuelGate", GateKind.FireVent, new Vector2(4500, 600), "cryo_fuel_douse");
 
         // Sector 2 exit: Heavy magnetic titan-clamp mooring lock requiring Apex Titan Slam
-        AddGate("TitanClampBulkhead", GateKind.RubbleWall, new Vector2(8500, 600));
+        AddObjectiveGate("TitanClampBulkhead", GateKind.RubbleWall, new Vector2(8500, 600), "titan_clamp_shatter");
 
         // Sector 3 exit: High-frequency acoustic radar lock requiring Aura Phoenicia Resonate
-        AddGate("RadarSonicLockGate", GateKind.SonicLock, new Vector2(14500, 600));
+        AddObjectiveGate("RadarSonicLockGate", GateKind.SonicLock, new Vector2(14500, 600), "radar_resonance_disable");
 
         // Sector 4: Flak battery artillery corridor requiring Surya Prime Bulwark
-        AddGate("FlakBulwarkGate", GateKind.HeatVent, new Vector2(17800, 600));
+        AddObjectiveGate("FlakBulwarkGate", GateKind.HeatVent, new Vector2(17800, 600), "flak_bulwark_breach");
     }
 
     /// <summary>Builds interactive cryogenic fuel vents, scanner grids, and VTOL boarding console.</summary>
@@ -195,6 +200,7 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.4f,
             Damage = 28f
         };
+        TrackPhaseBoundary(laser, "scanner_grid_phase");
         Actors.AddChild(laser);
         _lasers.Add(laser);
 
@@ -277,6 +283,7 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
         AddEncounter("hangar3", new Rect2(22800, 200, 1000, 500), new[] { (new Vector2(23100, 554), true), (new Vector2(23400, 554), false) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -285,7 +292,9 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "hangar1", "hangar2", "hangar3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -302,7 +311,7 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             if (id == "aero_guardian_phase:3")
@@ -319,50 +328,54 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 20400f && Player.GlobalPosition.X <= 24100f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check milestone conditions
         if (!Progress.Has("perimeter_ingress") && Progress.CanComplete("perimeter_ingress"))
             CommitObjective("perimeter_ingress");
 
-        if (!Progress.Has("cryo_fuel_douse") && Progress.CanComplete("cryo_fuel_douse"))
+        if (!Progress.Has("cryo_fuel_douse") && Progress.CanComplete("cryo_fuel_douse") && HasActionEvidence("cryo_fuel_douse"))
             CommitObjective("cryo_fuel_douse");
 
-        if (!Progress.Has("titan_clamp_shatter") && Progress.CanComplete("titan_clamp_shatter"))
+        if (!Progress.Has("titan_clamp_shatter") && Progress.CanComplete("titan_clamp_shatter") && HasActionEvidence("titan_clamp_shatter"))
             CommitObjective("titan_clamp_shatter");
 
         if (!Progress.Has("fuel_conduits_secured") && Progress.CanComplete("fuel_conduits_secured"))
             CommitObjective("fuel_conduits_secured");
 
-        if (!Progress.Has("scanner_grid_phase") && Progress.CanComplete("scanner_grid_phase"))
+        if (!Progress.Has("scanner_grid_phase") && Progress.CanComplete("scanner_grid_phase") && HasActionEvidence("scanner_grid_phase"))
             CommitObjective("scanner_grid_phase");
 
-        if (!Progress.Has("radar_resonance_disable") && Progress.CanComplete("radar_resonance_disable"))
+        if (!Progress.Has("radar_resonance_disable") && Progress.CanComplete("radar_resonance_disable") && HasActionEvidence("radar_resonance_disable"))
             CommitObjective("radar_resonance_disable");
 
         if (!Progress.Has("scanner_array_cleared") && Progress.CanComplete("scanner_array_cleared"))
             CommitObjective("scanner_array_cleared");
 
-        if (!Progress.Has("flak_bulwark_breach") && Progress.CanComplete("flak_bulwark_breach"))
+        if (!Progress.Has("flak_bulwark_breach") && Progress.CanComplete("flak_bulwark_breach") && HasActionEvidence("flak_bulwark_breach"))
             CommitObjective("flak_bulwark_breach");
 
         if (!Progress.Has("hangar_overlook_breach") && Progress.CanComplete("hangar_overlook_breach"))
             CommitObjective("hangar_overlook_breach");
 
         // Spawn Boss when entering Sector 5
-        if (!_bossSpawned && Player.GlobalPosition.X >= 20400f)
+        if (!_bossSpawned && !Progress.Has("aero_guardian_phase:3") && Player.GlobalPosition.X >= 20400f)
         {
             SpawnBoss();
         }
 
         // Interaction with the VTOL command terminal
         if (_vtolTerminal != null && !_vtolTerminal.Collected &&
-            Progress.Has("hangar_overlook_breach") &&
+            Progress.Has("aero_guardian_phase:3") &&
             Player.GlobalPosition.DistanceTo(_vtolTerminal.GlobalPosition) < 130f)
         {
             _vtolTerminal.SetCollected();
         }
 
         // Final extraction reached after boss defeat
-        if (_exitTrigger != null && Progress.CanExtract &&
+        if (_exitTrigger != null && Progress.CanExtract && _vtolTerminal.Collected &&
             Player.GlobalPosition.DistanceTo(_exitTrigger.GlobalPosition) < 140f)
         {
             CompleteMission();
@@ -376,7 +389,7 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
         _boss = new AeroCenturionBoss2D
         {
             Name = "AeroCenturion",
-            Position = new Vector2(21800, 480)
+            Position = new Vector2(21800, 510)
         };
         _boss.BossHealthChanged += (curr, max, phase) =>
         {
@@ -391,7 +404,10 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
                 CommitObjective("aero_guardian_phase:3");
         };
 
+        _boss.Target = Player;
+        _boss.PhaseAcceptance = stage => Progress.CanComplete("aero_guardian_phase:" + stage);
         Actors.AddChild(_boss);
+        GetNode<CyberCombatHud>("CyberCombatHud").BindCampaignBoss(_boss);
     }
 
     /// <inheritdoc/>
@@ -432,6 +448,9 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -455,7 +474,9 @@ public partial class StratosDocksMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
+        ResetArenaAttempt(ref _boss, ref _bossSpawned, "aero_guardian_phase", new[] { "hangar1", "hangar2", "hangar3" });
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))
         {

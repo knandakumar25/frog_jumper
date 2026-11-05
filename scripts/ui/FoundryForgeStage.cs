@@ -14,8 +14,8 @@ public partial class FoundryForgeStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("foundry_forge", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -75,6 +75,7 @@ public partial class FoundryForgeStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -82,6 +83,7 @@ public partial class FoundryForgeStage : Control
 
         // Volcanic rift basalt rock formations and cavernous roof
         DrawBasaltRiftBackground(t);
+        CampaignArtwork.DrawEnvironment(this, "foundry_forge", Seconds, aftermath: false, drawBase: true);
 
         // Surging rivers of molten geothermal plasma flowing through subterranean trenches
         DrawMoltenPlasmaRivers(t);
@@ -327,20 +329,7 @@ public partial class FoundryForgeStage : Control
     /// <summary>Renders distinctive Axiom Force squad operative silhouettes staged on the catwalk.</summary>
     private void DrawOperativeSilhouettes(float t, int shot)
     {
-        // 1. MIRAGE BLADE (Zayd Al-Mansoor) - Scout stance at X=480 scoping the route
-        DrawMirageSilhouette(new Vector2(480, 660), t, shot == 5);
-
-        // 2. OCEANUS (Kiana Vaea) - Standing at X=660 observing the boiled waterways
-        DrawOceanusSilhouette(new Vector2(660, 660), t, shot == 3);
-
-        // 3. CYBER SHOGUN (Kaito Kurogane) - Vanguard stance at X=860 pointing drawn blade
-        DrawKaitoSilhouette(new Vector2(860, 660), t, shot == 1 || shot >= 7);
-
-        // 4. AURA PHOENICIA (Maya Khoury) - At X=1140 tuning into turbine frequencies
-        DrawAuraSilhouette(new Vector2(1140, 660), t, shot == 4);
-
-        // 5. APEX TITAN (King Tariq Nzinga) - Bulwark frame at X=1360 with fists clenched
-        DrawTitanSilhouette(new Vector2(1360, 660), t, shot == 2 || shot == 7);
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Renders Mirage Blade crouched on the catwalk railing, scanning the slag trenches.</summary>

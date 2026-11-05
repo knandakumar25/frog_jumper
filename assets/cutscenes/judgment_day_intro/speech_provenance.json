@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Summit reached. Five thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "3ed1d0043d79b47056be4198a6526af95abae5cc9830f529a9ffffddd281b687",
+    "request_sha256": "b3f7be38bc702953117ab290c6e1a0c2d7b452911bc088282e4a23798c15fde1"
+  },
+  {
+    "cue": 2,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "That event horizon is bending the light around the dais. Stay behind my bulwark. The radiation is climbing.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "a7db57836e4972f6c151b8d4b600dc8dbde5efcf44d66e07d64c98cdab3d124b",
+    "request_sha256": "44d03d2d28729711a2e17101e54e3b3effb41205d22f287ab85b602bd5ee4bdf"
+  },
+  {
+    "cue": 3,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "He is draining the planetary geothermal grid into that core. One command, and he could purge the civilian population.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "433954167db5e103cd0593d94362be95f03aaa542aabebd0900f97ba59675a4c",
+    "request_sha256": "afe1fa733793222bd8576900b4872b4affbf108bc03ed58d15cc70cca30dfb2d"
+  },
+  {
+    "cue": 4,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "No guards. No drone army. Just him, waiting on that throne. He knew we would make it this far.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "8a77f11aff91f53849b16175ba805a33d5e92102badfe30fdb997ea3ce947898",
+    "request_sha256": "343625bd894633c3fca259bc98c31f53d6e4acc6edc900cf84ee7ef9e3e829c4"
+  },
+  {
+    "cue": 5,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "We broke his tanks, his labs, and his fortress. Let him wait. That crown is coming off today.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "fcef7900938cd8e9174c7b1e5279b41f0df349b5d4d7cc353065fc84cf45112a",
+    "request_sha256": "2be891b7703b5d2c53477b533f5f65b1aa10a98d117d348c7e5228dd9e31a4b7"
+  },
+  {
+    "cue": 6,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Beneath all that noise, I can hear them. Millions of people down below, still holding on. Still singing for the dawn.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e571928a4f08d5d86e93c7f04b76b29782e1a38ac836c0670ab845370ab2648d",
+    "request_sha256": "1e91510fabd212e0130e8a4511ae3e8a17505b2fd3961501016415c552c406b7"
+  },
+  {
+    "cue": 7,
+    "speaker": "VOID COMMANDER",
+    "voice": "Bill",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "You crawled out of the scrap heaps to kneel before me. Your insurrection ends here. Axiom Force dies tonight.",
+    "cast_source": "assets/cutscenes/shattered_aegis_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "fc33209d6a4945aec7e00214e0fd6e31794fafed90a1781a458ab3145b30e4ff",
+    "request_sha256": "72b0e708b613e0d8cc0a946af2c7334f3105e754200f0d857922daaac3959b47"
+  },
+  {
+    "cue": 8,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Phase blades ready. Shields synchronized. Every scar brought us here. We finish this together.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "3247ed971bb26752e37d50508204cbbbdd66a90a281b0cf6748f7ad8ccd69437",
+    "request_sha256": "ebf0fbd60759e3a4c2ae436d135216ac40886b0f56a2de5d6c618dfdb345ace2"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "For every stolen name, every life the machine took. Axiom Force, draw your weapons. Strike down the Commander.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "bf0abe80e6baa513b7e2224544c82315d41c03922507e3127ad9844e1a7886cd",
+    "request_sha256": "c69ac7cfa43e2ecf6ea665be6ba3837c1d7bcb8ed530077bb63253443d322a86"
+  }
+]

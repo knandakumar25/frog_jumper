@@ -1,0 +1,11 @@
+{
+  "scene": "stratos_docks_aftermath",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "c9893407f6977eef6dda7f677eefa76a91deb15564e5c377692ddaae80d94e79",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "wind",
+    "flight"
+  ]
+}

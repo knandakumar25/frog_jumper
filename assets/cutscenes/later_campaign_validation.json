@@ -1,0 +1,198 @@
+{
+  "cyber_grave_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 120.0,
+      "peak_dbfs": -1.7921216060600298,
+      "sha256": "51de3c2f0f9d2710fd60a7ffadff5dfdc08979cc73681536fb5dfa00d4accd0c"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 120.0,
+      "peak_dbfs": -6.415937260135678,
+      "sha256": "9da86d89896f4d6d3ead6ae759daaf0d1251d729a9c73dc298e50152f83449d4"
+    }
+  ],
+  "cyber_grave_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.6492923750868438,
+      "sha256": "0a7e466b3e0b087ad46f0d7f2e46396e34e6213b451b5b1b20e68299b4e3bb41"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -6.880906002591773,
+      "sha256": "8f3746c858ff84ace097682abbf19d68ac716c2a46ed5aa4aa8c795bbdf36ecc"
+    }
+  ],
+  "foundry_forge_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.5514517867656532,
+      "sha256": "153d93ae3724956de592659dac387abefdd23729e46a16c2cab860e02154f45a"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -8.824375938787846,
+      "sha256": "f19c724349031b54b971b5fbe096b3ae71b1fbda6cce8012aee94abbd35fcad2"
+    }
+  ],
+  "foundry_forge_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.9191359904074234,
+      "sha256": "e01a79a9c302d93511492e163bc377db4b9dc3c3003c6ea7a90b81668e4b0bdd"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -6.53042902397729,
+      "sha256": "89fdcb83ca07cee6f746cf93018f8053d7e47edcebe2fcc6903aa31ca5a729f5"
+    }
+  ],
+  "stratos_docks_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.4810666421069965,
+      "sha256": "f22fd1481b5705bb61856d8c7de1eb5d77e36c11ace8ca7c241632d7bc53dbec"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -11.077729451952969,
+      "sha256": "e867ab21ad9429531f7fa2f78a2ac65816f73f59c619e649ab55e0f6088ffd97"
+    }
+  ],
+  "stratos_docks_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.5685818474822395,
+      "sha256": "a4046554668e60c1551050c615e40880e76feccd258c901cec8175c965dbf4b3"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -10.49157060316464,
+      "sha256": "c9893407f6977eef6dda7f677eefa76a91deb15564e5c377692ddaae80d94e79"
+    }
+  ],
+  "spire_outer_hull_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.7869101372642084,
+      "sha256": "c7586e76ff09c930b5c0d1700933a2f81b5b7db206aed65f848b6d44369063f6"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -8.621763528166255,
+      "sha256": "335f952f6d3c7d3adc00ac4982ead2bd135a327fd4648c801c6d84af0bfcc508"
+    }
+  ],
+  "spire_outer_hull_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.706852300860001,
+      "sha256": "573faa859ace2656ca3ab43df4fbde9b3d0e9f9a77c761be9b0cf166df6610e5"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -8.908241367039258,
+      "sha256": "31d93bb22b92121853a16207aa0fb7732664c47881a84b0f49d864d80d5a71b3"
+    }
+  ],
+  "cyber_nexus_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.7644714275041162,
+      "sha256": "8a081e990a4d0670c6f174fae37f06da387148ad40d25a23bcc373e8a6fe289e"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -9.585206924110373,
+      "sha256": "3186853b67afd553fb581dba01d95fd49e6f2f5f565c1275a89fa55513f113db"
+    }
+  ],
+  "cyber_nexus_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.813325410797909,
+      "sha256": "c47b6fcbe5479e5479677b429ee8b4041c346b57212805de886aa5d1ecc3451f"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -8.799519407415433,
+      "sha256": "d4bd810c90ab5976241bcc8bee1830a4dc6601b682e2dcbbb2b51c12a2440324"
+    }
+  ],
+  "apex_bastion_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.7104019743817616,
+      "sha256": "049133f70d970b7a73868a0f4d5016dd0315f6f7cd3f9e30a680018e81bef843"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -9.410367776211157,
+      "sha256": "460489013dac88e21bd2a8b919429a7fa6e7452788abadd3feed59ca8f9bb54b"
+    }
+  ],
+  "apex_bastion_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.5172926836430851,
+      "sha256": "92dc2ac803869672e01f8da9ed1545d5448d592bd3ac585dc90972573c13ce0f"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -8.463009167709364,
+      "sha256": "dd1f9e0e1557eb5aaeaa005386be25b7a70ea5849d414e9d1ceaa39431b6ca6d"
+    }
+  ],
+  "judgment_day_intro": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.652818598530994,
+      "sha256": "4d2e60bc1406511495cfae788001f07e1701b999baf529b7e78c4f7249a3828b"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -9.334725937574966,
+      "sha256": "8730c300ad7d87f30514efbe367e6955714536ef0ad17f54587bcd4db555c7a3"
+    }
+  ],
+  "judgment_day_aftermath": [
+    {
+      "track": "dialogue",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -1.6227314686949508,
+      "sha256": "4d85662532c60309c2bbbd57e779fe2df81dbf91c835452cca83e5ab804c2c6c"
+    },
+    {
+      "track": "atmosphere",
+      "decoded_duration": 90.0,
+      "peak_dbfs": -14.369190888280631,
+      "sha256": "884dd6a29a83d2af2e8c422a81612ae9186cc43c44ac6beab0c810d8605e8b53"
+    }
+  ]
+}

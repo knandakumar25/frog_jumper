@@ -235,6 +235,24 @@ public partial class CyberCombatHud : CanvasLayer
 		}
 	}
 
+	/// <summary>Connects a later mission's explicitly spawned boss and restores visible telemetry after an arena retry.</summary>
+	public void BindCampaignBoss(Node boss)
+	{
+		if (_bossStatusContainer != null) { _bossStatusContainer.Visible = true; _bossStatusContainer.Modulate = Colors.White; }
+		boss.Connect("BossHealthChanged", Callable.From<float, float, int>((current, max, phase) =>
+		{
+			OnBossHealthChanged(current, max, phase);
+			if (_bossPhaseBadge != null && boss.Get("PhaseBlocked").AsBool())
+				_bossPhaseBadge.Text = "CLEAR SUPPORTING DEFENDERS // PHASE HELD";
+		}));
+		boss.Connect("BossDefeated", Callable.From(OnBossDefeated));
+		OnBossHealthChanged(boss.Get("CurrentHealth").AsSingle(), boss.Get("MaxHealth").AsSingle(), boss.Get("CurrentPhase").AsInt32());
+	}
+
+	/// <summary>Hides abandoned boss telemetry until the replacement arena attempt is spawned.</summary>
+	public void HideCampaignBoss() { if (_bossStatusContainer != null) _bossStatusContainer.Visible = false; }
+
+	/// <summary>Displays current boss health and the actual numbered phase for both legacy and later bosses.</summary>
 	private void OnBossHealthChanged(float current, float max, int phase)
 	{
 		if (_bossHealthBar != null)
@@ -253,9 +271,9 @@ public partial class CyberCombatHud : CanvasLayer
 
 		if (_bossPhaseBadge != null)
 		{
-			if (phase == 2)
+			if (phase >= 2)
 			{
-				_bossPhaseBadge.Text = "PHASE 2 // OVERDRIVE RAGE";
+				_bossPhaseBadge.Text = $"PHASE {phase} // OVERDRIVE";
 				_bossPhaseBadge.Modulate = new Color(1.0f, 0.25f, 0.25f, 1f);
 			}
 			else

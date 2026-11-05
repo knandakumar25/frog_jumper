@@ -27,19 +27,22 @@ public partial class CyberGraveAftermath : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/cyber_grave_aftermath/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 8.0, 18.0, 28.0, 38.0, 48.0, 58.0, 68.0, 78.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Ascent telemetry locked. Freight lift rising from sub-level six. All seventeen liberated captives secured on platform.",
-        "OCEANUS: Their vital signs are stabilizing. The stasis fluid in their lungs is clearing... breathe slowly, you're safe now. No one will ever cage you again.",
-        "AURA: The scream in the network... it's fading. For miles beneath the concrete, the forced resonance has broken. Their minds belong to them again.",
-        "TITAN: Reactor pressure is venting safely into the geothermal sinks. The containment walls held. The foundation beneath Downtown Core won't collapse.",
-        "MIRAGE: Take a look at the data disk I pulled from the vault terminal. This wasn't an isolated rogue lab. Every pod order was authorized directly from the Citadel Spire.",
-        "SURYA // COMMS: Kaito! Extraction corridor is clear topside. Emergency medics and underground transit convoys are standing by at the maintenance junction.",
-        "SURYA // COMMS: Warning: Citadel high command has detected the breach. Heavy orbital defense arrays are rotating to lock down the upper sectors.",
-        "KAITO: They turned our people into machine components and buried them in the dark. But the Cyber-Grave is empty today. Every captive returns with us.",
-        "KAITO: Tend to the wounded. Rest for one hour. When we reach the surface, we take the fight straight to the Citadel Spire. Axiom Force—ascend!",
+        "AXIOM-7: Ascent locked. All seventeen captives are aboard. The lift is clear of sub-level six.",
+        "OCEANUS: Their breathing is settling. Easy now. You are safe. No one is putting you back in those pods.",
+        "AURA: The voices in the network are fading. The forced link is broken. Their minds belong to them again.",
+        "TITAN: Pressure is venting into the geothermal sinks. The walls held. Downtown Core is still standing.",
+        "MIRAGE: I pulled the vault orders. Every pod, every transfer, signed off by the Citadel. This goes all the way up.",
+        "SURYA // COMMS: The surface corridor is clear. Medics and transit crews are waiting at the maintenance junction.",
+        "SURYA // COMMS: Citadel command has spotted the breach. Their orbital defenses are turning toward the upper sectors.",
+        "KAITO: They buried living people down here. Today the Cyber-Grave is empty. Every captive comes home with us.",
+        "KAITO: Tend to the wounded. We rest for an hour, then take the fight to the Spire. Axiom Force, ascend.",
         ""
     };
 
@@ -67,6 +70,7 @@ public partial class CyberGraveAftermath : CanvasLayer
     /// <summary>Constructs procedural stage, subtitle panel, skip button, and starts audio playback.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
         _previousMouseMode = Input.MouseMode;
         Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -164,6 +168,10 @@ public partial class CyberGraveAftermath : CanvasLayer
         Seek(0);
 
         if (!_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Creates an AudioStreamPlayer node with safe missing-resource handling.</summary>
@@ -188,10 +196,11 @@ public partial class CyberGraveAftermath : CanvasLayer
             double position = _speech.GetPlaybackPosition();
             _stalled = position <= _lastAudio ? _stalled + delta : 0;
             _lastAudio = position;
-            if (_stalled < 0.5)
-                clock = Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
         Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
         if (Elapsed >= Duration) Finish();
     }
 
@@ -223,7 +232,7 @@ public partial class CyberGraveAftermath : CanvasLayer
         };
         if (_panelStyle != null) _panelStyle.BorderColor = speakerColor;
 
-        _subtitle.AddThemeFontSizeOverride("font_size", (int)Math.Clamp(GetViewport().GetVisibleRect().Size.Y / 45, 14, 22));
+        _subtitle.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
         _subtitle.Text = Localized($"CYBER_GRAVE_AFTERMATH_CUE_{cue}", Lines[Math.Min(cue, Lines.Length - 1)]);
         if (_panel != null) _panel.Visible = cue >= 0 && cue < 9 && !string.IsNullOrEmpty(Lines[cue]);
     }
@@ -232,18 +241,13 @@ public partial class CyberGraveAftermath : CanvasLayer
     public override void _Input(InputEvent input)
     {
         if (HasFinished || !IsInsideTree()) return;
-        bool skip = input is InputEventKey { Pressed: true, Echo: false } key &&
-            key.Keycode is Key.Escape or Key.Space or Key.Enter;
-        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
         skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
-        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse &&
-            _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
         if (!skip) return;
         GetViewport().SetInputAsHandled();
-        foreach (StringName action in InputMap.GetActions())
-        {
-            if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
-        }
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
         Finish();
     }
 
@@ -252,16 +256,39 @@ public partial class CyberGraveAftermath : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
-        _speech?.Stop();
-        _ambience?.Stop();
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
+
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
+        QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Restores persistent prompt visibility and mouse cursor mode when leaving scene tree.</summary>
     public override void _ExitTree()
     {
-        Input.MouseMode = _previousMouseMode;
-        GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", _previousPromptVisible);
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 
     /// <summary>Retrieves localized text with safe fallback.</summary>

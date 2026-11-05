@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Ascent locked. All seventeen captives are aboard. The lift is clear of sub-level six.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "adc13170694623bc096a8f357175cab47a66fb98c80fed268bbf103ebf5d5355",
+    "request_sha256": "7b3057290880aab1cf27d1418f5464a5b1c654263a128dda2894532672ea5d47"
+  },
+  {
+    "cue": 2,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Their breathing is settling. Easy now. You are safe. No one is putting you back in those pods.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d768d92232d169ab7540b36e34628085671c28a1a161287b1ff5695b317806a1",
+    "request_sha256": "e0a3e993ff26f97c6c62e40e06c8e6c510ad85d1ded4c889b312d3140069d36b"
+  },
+  {
+    "cue": 3,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The voices in the network are fading. The forced link is broken. Their minds belong to them again.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "9dc64761a83682f9858f66deebf2160ac60b6d1293ed7cc93d1e72d04472e207",
+    "request_sha256": "4421893104d44b8995f17885f2cb750467575b851b77d983f25127f3b009aac7"
+  },
+  {
+    "cue": 4,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Pressure is venting into the geothermal sinks. The walls held. Downtown Core is still standing.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "22c1be8f89bbd9fcb55149f69577be56843ec20bf2a4761a6a25c8e9107af039",
+    "request_sha256": "4c73f3c8df5dc5785c7cf7368cb4d2ed3f99d80b6dd0442585689a768047e76b"
+  },
+  {
+    "cue": 5,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "I pulled the vault orders. Every pod, every transfer, signed off by the Citadel. This goes all the way up.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "d4eead47a9a358fba349eb50418cb9ad9d5f97bc969b502d5904814c6690f8b3",
+    "request_sha256": "bf3940705693807db191207aaebd8de65eb75ef4d0366c75a022da6836c20ef4"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The surface corridor is clear. Medics and transit crews are waiting at the maintenance junction.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "a1469484608062acb3de09b6b15f4d6ddc90f31815f0458fc0cb5a2b5e8830d4",
+    "request_sha256": "7b1b02cd21c8870d45be3eb216aa0c4804200f0e1b13b8960254b7b8456d6ae0"
+  },
+  {
+    "cue": 7,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Citadel command has spotted the breach. Their orbital defenses are turning toward the upper sectors.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "c637610a47b9debf1b78a21498705afe106acaafc91dae800d7426376c054368",
+    "request_sha256": "dba584509f5f6f5f6177de356b5dd90e59cc8937d2d32b5730abeb670e4c81e6"
+  },
+  {
+    "cue": 8,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "They buried living people down here. Today the Cyber-Grave is empty. Every captive comes home with us.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "b7df9724d270a7aa2765564b4a8420df300d1a306d782cf8accb11b76f153377",
+    "request_sha256": "073c4d4fa9248bf0e48c979dbae75f937b8cf278cbd9aa197aaf0e66a3bafe1b"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Tend to the wounded. We rest for an hour, then take the fight to the Spire. Axiom Force, ascend.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "8d6c6bd673dd1f48060243986bf3ec8ea73b3b3e1f545547703adbd303b4b543",
+    "request_sha256": "fad0e164e9c80211249d2e0c228545106cad2eb468e3b2e6982ac2b19e42af8f"
+  }
+]

@@ -5,15 +5,27 @@
     "duration": 10.0,
     "speaker": "AXIOM-7",
     "voice": "Daniel",
-    "text": "AXIOM-7: Citadel Summit reached. Elevation: five-thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber—the heart of the Citadel and the seat of the Void Commander."
+    "text": "Summit reached. Five thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "end": 10.0,
+    "subtitle": "AXIOM-7: Summit reached. Five thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber.",
+    "cue": 1,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 1,
     "start": 10.0,
     "duration": 10.0,
     "speaker": "SURYA",
-    "voice": "Arjun",
-    "text": "SURYA: The cosmic radiation in this room is off the charts. Look at the event horizon... gravity itself is warping around the dais. Stand close behind my bulwark!"
+    "voice": "Brian",
+    "text": "That event horizon is bending the light around the dais. Stay behind my bulwark. The radiation is climbing.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "end": 20.0,
+    "subtitle": "SURYA: That event horizon is bending the light around the dais. Stay behind my bulwark. The radiation is climbing.",
+    "cue": 2,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 2,
@@ -21,7 +33,13 @@
     "duration": 10.0,
     "speaker": "OCEANUS",
     "voice": "Sarah",
-    "text": "OCEANUS: Thermal and energy telemetry confirmed. The Commander is draining the entire planetary geothermal grid straight into the singularity. He's preparing to purge the entire civilian population with one command."
+    "text": "He is draining the planetary geothermal grid into that core. One command, and he could purge the civilian population.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "end": 30.0,
+    "subtitle": "OCEANUS: He is draining the planetary geothermal grid into that core. One command, and he could purge the civilian population.",
+    "cue": 3,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 3,
@@ -29,7 +47,13 @@
     "duration": 10.0,
     "speaker": "MIRAGE",
     "voice": "Eric",
-    "text": "MIRAGE: No Praetorian guards. No drone legions. No mechanized armies. Just him on that floating obsidian throne. He knew we were coming... and he's waiting for us."
+    "text": "No guards. No drone army. Just him, waiting on that throne. He knew we would make it this far.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "end": 40.0,
+    "subtitle": "MIRAGE: No guards. No drone army. Just him, waiting on that throne. He knew we would make it this far.",
+    "cue": 4,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 4,
@@ -37,23 +61,41 @@
     "duration": 10.0,
     "speaker": "TITAN",
     "voice": "George",
-    "text": "TITAN: Let him wait! We broke his tanks at the Aegis, flattened his labs in the Grave, and wrecked his fortress at the Bastion. That armored crown is coming off today."
+    "text": "We broke his tanks, his labs, and his fortress. Let him wait. That crown is coming off today.",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "end": 50.0,
+    "subtitle": "TITAN: We broke his tanks, his labs, and his fortress. Let him wait. That crown is coming off today.",
+    "cue": 5,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 5,
     "start": 50.0,
     "duration": 10.0,
     "speaker": "AURA",
-    "voice": "River",
-    "text": "AURA: The psychic dissonance is deafening, but underneath it... I can hear the heartbeat of millions across the eleven liberated sectors below. They are singing for the dawn."
+    "voice": "Matilda",
+    "text": "Beneath all that noise, I can hear them. Millions of people down below, still holding on. Still singing for the dawn.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "end": 60.0,
+    "subtitle": "AURA: Beneath all that noise, I can hear them. Millions of people down below, still holding on. Still singing for the dawn.",
+    "cue": 6,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 6,
     "start": 60.0,
     "duration": 10.0,
-    "speaker": "AXIOM-7",
-    "voice": "Daniel",
-    "text": "VOICE OF THE VOID COMMANDER: 'You crawled out of the scrap heaps and broken alleys only to kneel before godhood. Your insurrection ends here. Axiom Force dies tonight.'"
+    "speaker": "VOID COMMANDER",
+    "voice": "Bill",
+    "text": "You crawled out of the scrap heaps to kneel before me. Your insurrection ends here. Axiom Force dies tonight.",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "model": "eleven_multilingual_v2",
+    "end": 70.0,
+    "subtitle": "VOID COMMANDER: You crawled out of the scrap heaps to kneel before me. Your insurrection ends here. Axiom Force dies tonight.",
+    "cue": 7,
+    "cast_source": "assets/cutscenes/shattered_aegis_intro/cues.json"
   },
   {
     "index": 7,
@@ -61,14 +103,26 @@
     "duration": 10.0,
     "speaker": "MIRAGE",
     "voice": "Eric",
-    "text": "MIRAGE: Phase blades energized. Shields synchronized. Every hack, every duel, every scar brought us to this threshold. We finish this together."
+    "text": "Phase blades ready. Shields synchronized. Every scar brought us here. We finish this together.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "end": 80.0,
+    "subtitle": "MIRAGE: Phase blades ready. Shields synchronized. Every scar brought us here. We finish this together.",
+    "cue": 8,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "index": 8,
     "start": 80.0,
     "duration": 10.0,
     "speaker": "KAITO",
-    "voice": "Liam",
-    "text": "KAITO: Axiom Force! For every name stripped away, for every life stolen by the machine, for the liberation of the world—draw your weapons. Strike down the Commander!"
+    "voice": "Adam",
+    "text": "For every stolen name, every life the machine took. Axiom Force, draw your weapons. Strike down the Commander.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "end": 90.0,
+    "subtitle": "KAITO: For every stolen name, every life the machine took. Axiom Force, draw your weapons. Strike down the Commander.",
+    "cue": 9,
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

@@ -15,8 +15,8 @@ public partial class CyberGraveAftermathStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("cyber_grave", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -75,6 +75,7 @@ public partial class CyberGraveAftermathStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -82,6 +83,7 @@ public partial class CyberGraveAftermathStage : Control
 
         // Subterranean vertical shaft background with downward rushing parallax
         DrawShaftBackground(t);
+        CampaignArtwork.DrawEnvironment(this, "cyber_grave", Seconds, aftermath: true, drawBase: true);
 
         // Rising geothermal steam and exhaust plumes from reactor containment
         DrawRisingSteamPlumes(t);
@@ -286,20 +288,7 @@ public partial class CyberGraveAftermathStage : Control
     /// <summary>Renders distinctive Axiom Force squad operative silhouettes staged across the lift.</summary>
     private void DrawOperativeSilhouettes(float t, int shot)
     {
-        // 1. OCEANUS (Kiana Vaea) - Kneeling by civilians at X=650, administering hydro-mist
-        DrawOceanusSilhouette(new Vector2(650, 720), t, shot == 1);
-
-        // 2. AURA PHOENICIA (Maya Khoury) - Standing at X=1180, hands up with ultrasonic prism rings
-        DrawAuraSilhouette(new Vector2(1180, 720), t, shot == 2);
-
-        // 3. APEX TITAN (King Tariq Nzinga) - Heavy bulwark frame at X=1420 leaning against railing
-        DrawTitanSilhouette(new Vector2(1420, 720), t, shot == 3);
-
-        // 4. MIRAGE BLADE (Zayd Al-Mansoor) - Stealth stance at X=520 holding glowing holographic slate
-        DrawMirageSilhouette(new Vector2(520, 720), t, shot == 4);
-
-        // 5. CYBER SHOGUN (Kaito Kurogane) - Vanguard stance at X=960 facing upward with sheathed blade
-        DrawKaitoSilhouette(new Vector2(960, 720), t, shot >= 7);
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Renders Oceanus kneeling and channeling soothing hydro-cellular mist.</summary>

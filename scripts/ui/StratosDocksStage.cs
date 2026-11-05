@@ -15,8 +15,8 @@ public partial class StratosDocksStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("stratos_docks", ArtPath);
 
     // Operative color accents
     private static readonly Color ColorKaito = new("00f0ff");    // Cyan
@@ -66,17 +66,17 @@ public partial class StratosDocksStage : Control
         float tInShot = GetShotProgress(Seconds, shot);
 
         Vector2 camPos = InterpolateCameraPosition(shot, tInShot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float zoom = InterpolateCameraZoom(shot, tInShot);
 
         // Apply camera transformation centered on 1920x1080 design space
-        Vector2 designCenter = new(960, 540);
-        Vector2 offset = (designCenter - camPos) * zoom;
-        Vector2 scale = (viewport / new Vector2(1920, 1080)) * zoom;
-
-        DrawSetTransform(offset + (viewport - new Vector2(1920, 1080) * scale) * 0.5f, 0, scale);
+        float fit = Mathf.Min(viewport.X / 1920, viewport.Y / 1080);
+        Vector2 margin = (viewport - new Vector2(1920, 1080) * fit) * .5f;
+        DrawSetTransform(margin + (new Vector2(960, 540) - camPos * zoom) * fit, 0, Vector2.One * fit * zoom);
 
         // 1. Stormy Sky & Distant Storm Clouds
         DrawSkyAndClouds(Seconds);
+        CampaignArtwork.DrawEnvironment(this, "stratos_docks", Seconds, aftermath: false, drawBase: true);
 
         // 2. Distant Citadel Spire in Storm Background
         DrawDistantSpireInStorm(Seconds);
@@ -272,13 +272,7 @@ public partial class StratosDocksStage : Control
     /// <summary>Draws the 6 operatives gathered on the gantry overlooking Bay 4.</summary>
     private void DrawSquad(float time, int shot)
     {
-        // Positions along gantry: Titan, Oceanus, Kaito, Mirage, Aura, Surya
-        DrawOperativeSilhouette(new Vector2(580, 650), ColorTitan, 1.15f, "TITAN");
-        DrawOperativeSilhouette(new Vector2(680, 650), ColorOceanus, 0.95f, "OCEANUS");
-        DrawOperativeSilhouette(new Vector2(790, 650), ColorKaito, 1.0f, "KAITO");
-        DrawOperativeSilhouette(new Vector2(910, 650), ColorMirage, 0.95f, "MIRAGE");
-        DrawOperativeSilhouette(new Vector2(1010, 650), ColorAura, 0.9f, "AURA");
-        DrawOperativeSilhouette(new Vector2(1110, 650), ColorSurya, 1.05f, "SURYA");
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Draws a humanoid operative silhouette with energy ability rim glow.</summary>

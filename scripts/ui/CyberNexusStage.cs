@@ -15,8 +15,8 @@ public partial class CyberNexusStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("cyber_nexus", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -76,6 +76,7 @@ public partial class CyberNexusStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -83,6 +84,7 @@ public partial class CyberNexusStage : Control
 
         // Cybernetic vertical chasm background gradient
         DrawChasmGradient(t);
+        CampaignArtwork.DrawEnvironment(this, "cyber_nexus", Seconds, aftermath: false, drawBase: true);
 
         // Towering server monoliths on left and right flanks
         DrawServerMonoliths(t);
@@ -376,70 +378,7 @@ public partial class CyberNexusStage : Control
 
     private void DrawSquadSilhouettes(float t, int shot)
     {
-        // 6 operatives on the gantry bridge (Kaito center, Mirage, Titan, Surya, Oceanus, Aura)
-        (Vector2 pos, Color accent, string role)[] squad = {
-            (new(900, 680), ColorKaito, "Kaito"),      // Center-left, near console
-            (new(1020, 680), ColorMirage, "Mirage"),   // Center-right, scanning core
-            (new(780, 680), ColorSurya, "Surya"),      // Left of Kaito
-            (new(1140, 680), ColorAura, "Aura"),      // Right of Mirage
-            (new(680, 680), ColorTitan, "Titan"),      // Heavy rear left
-            (new(1260, 680), ColorOceanus, "Oceanus")  // Rear right, examining conduits
-        };
-
-        foreach (var op in squad)
-        {
-            Vector2 p = op.pos;
-
-            float h = (op.role == "Titan") ? 74f : 64f;
-            float w = (op.role == "Titan") ? 28f : 20f;
-
-            // Legs
-            DrawLine(p, p - new Vector2(-4, h * 0.4f), new Color("090d16"), 4f);
-            DrawLine(p, p - new Vector2(6, h * 0.4f), new Color("090d16"), 4f);
-
-            // Torso
-            DrawRect(new Rect2(p.X - w * 0.5f, p.Y - h * 0.85f, w, h * 0.5f), new Color("0b0f19"));
-
-            // Head & cowl/visor
-            Vector2 headPos = new(p.X + 2, p.Y - h * 0.92f);
-            DrawCircle(headPos, 7.5f, new Color("0f172a"));
-
-            // Glowing operative energy visor / weapon / accent
-            DrawCircle(headPos + new Vector2(3, -1), 2.5f, op.accent);
-
-            // Specific character gear highlights
-            if (op.role == "Kaito")
-            {
-                // Katana drawn at side with glowing blade tip
-                DrawLine(p + new Vector2(-12, -h * 0.6f), p + new Vector2(16, -10), op.accent, 2.5f);
-            }
-            else if (op.role == "Mirage")
-            {
-                // Twin phase daggers
-                DrawLine(p + new Vector2(6, -h * 0.5f), p + new Vector2(18, -h * 0.55f), op.accent, 2f);
-            }
-            else if (op.role == "Titan")
-            {
-                // Heavy shoulder pauldron & power gauntlet
-                DrawRect(new Rect2(p.X - 16, p.Y - h * 0.85f, 10, 14), op.accent);
-            }
-            else if (op.role == "Surya")
-            {
-                // Solar shield emitter ring
-                DrawCircle(p + new Vector2(-10, -h * 0.55f), 5f, op.accent);
-            }
-            else if (op.role == "Aura")
-            {
-                // Floating harmonic prism aura
-                float floatY = Mathf.Sin(t * 3f) * 4f;
-                DrawCircle(p + new Vector2(0, -h * 1.05f + floatY), 3.5f, op.accent);
-            }
-            else if (op.role == "Oceanus")
-            {
-                // Hydro conduits on torso
-                DrawLine(p + new Vector2(-6, -h * 0.7f), p + new Vector2(-6, -h * 0.4f), op.accent, 2f);
-            }
-        }
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     private void DrawTacticalTelemetry(float t, int shot)

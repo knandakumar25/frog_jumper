@@ -35,6 +35,13 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
     /// <summary>Whether the boss has reached 0 HP and is in defeat sequence.</summary>
     public bool IsDying { get; private set; } = false;
 
+    /// <summary>Explicit mission-owned player used for aiming; no global group lookup is required.</summary>
+    public CyberShogun? Target { get; set; }
+    /// <summary>Mission authority for accepting the current health boundary after its defenders are cleared.</summary>
+    public Func<int, bool>? PhaseAcceptance { get; set; }
+    /// <summary>True at a health boundary while supporting defenders still prevent phase advancement.</summary>
+    public bool PhaseBlocked { get; private set; }
+
     private Vector2 _originPosition;
     private float _hoverTimer;
     private float _attackCooldown;
@@ -44,19 +51,26 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
     /// <summary>Initializes boss positioning, groups, and HUD telemetry.</summary>
     public override void _Ready()
     {
+        CollisionLayer = 2;
+        CollisionMask = 1;
         AddToGroup("enemies");
         AddToGroup("boss");
         _originPosition = GlobalPosition;
         CurrentHealth = MaxHealth;
+        if (GetNodeOrNull<CollisionShape2D>("CollisionShape2D") == null)
+            AddChild(new CollisionShape2D { Name = "CollisionShape2D", Shape = new RectangleShape2D { Size = new Vector2(160, 156) } });
         _sprite = GetNodeOrNull<AnimatedSprite2D>("Sprite2D");
         _coreLight = GetNodeOrNull<PointLight2D>("CoreLight");
 
+        CampaignArtwork.AttachBoss(this, "foundry_forge");
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
     /// <summary>Executes hover traversal, phase-specific attacks, and projectile volleys.</summary>
     public override void _PhysicsProcess(double delta)
     {
+        if (IsDying) return;
+        if (CurrentHealth <= PhaseFloor) TakeDamage(0);
         if (IsDying) return;
 
         float dt = (float)delta;
@@ -80,6 +94,7 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
         );
 
         MoveAndSlide();
+        QueueRedraw();
 
         if (_sprite != null && Math.Abs(Velocity.X) > 5f)
         {
@@ -106,7 +121,7 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
     {
         if (!IsInsideTree() || IsDying) return;
 
-        Node2D? target = GetTree().GetFirstNodeInGroup("player") as Node2D;
+        Node2D? target = IsInstanceValid(Target) ? Target : null;
         Vector2 targetPos = target?.GlobalPosition ?? (GlobalPosition + Vector2.Left * 400);
         Vector2 diff = targetPos - GlobalPosition;
         Vector2 dir = diff.LengthSquared() > 0 ? diff.Normalized() : Vector2.Left;
@@ -133,34 +148,34 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
     /// <summary>Applies incoming damage, managing phase transitions and death handling.</summary>
     public void TakeDamage(float amount)
     {
-        if (IsDying) return;
-
-        CurrentHealth = Math.Max(0, CurrentHealth - amount);
-
-        // Check phase transitions
+        if (IsDying || amount < 0 || !float.IsFinite(amount)) return;
+        float boundary = PhaseFloor;
         int oldPhase = CurrentPhase;
-        if (CurrentHealth <= MaxHealth * 0.35f)
+        bool wasBlocked = PhaseBlocked;
+        CurrentHealth = Math.Max(boundary, CurrentHealth - amount);
+        PhaseBlocked = CurrentHealth <= boundary && PhaseAcceptance?.Invoke(CurrentPhase) == false;
+        if (CurrentHealth <= boundary && !PhaseBlocked && CurrentPhase < 3)
         {
-            CurrentPhase = 3;
-            if (_coreLight != null) _coreLight.Color = new Color(1f, 0.2f, 0.1f, 1f); // Blazing red overdrive
+            ++CurrentPhase;
+            if (_coreLight != null) _coreLight.Color = CurrentPhase == 2 ? new Color("ff9900") : new Color("ff2255");
         }
-        else if (CurrentHealth <= MaxHealth * 0.70f)
-        {
-            CurrentPhase = 2;
-            if (_coreLight != null) _coreLight.Color = new Color(1f, 0.6f, 0.1f, 1f); // Hot orange
-        }
-
-        EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
-
-        if (CurrentHealth <= 0)
+        if (amount > 0 || oldPhase != CurrentPhase || wasBlocked != PhaseBlocked)
+            EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
+        if (CurrentHealth <= 0 && !PhaseBlocked)
         {
             Die();
         }
     }
 
+    /// <summary>Damage stops at the current authored phase threshold; excess damage never skips defenders or a phase.</summary>
+    private float PhaseFloor => CurrentPhase switch { 1 => MaxHealth * 0.70f, 2 => MaxHealth * 0.35f, _ => 0 };
+
     /// <summary>Initiates the core overload defeat sequence and alerts listeners.</summary>
     private void Die()
     {
+        // Accepted defeat removes collision immediately while the authored visual fade completes.
+        SetDeferred(CollisionObject2D.PropertyName.CollisionLayer, 0);
+        SetDeferred(CollisionObject2D.PropertyName.CollisionMask, 0);
         if (IsDying) return;
         IsDying = true;
         SetPhysicsProcess(false);
@@ -190,4 +205,18 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
             QueueFree();
         }
     }
+    /// <summary>Draws the armored geothermal guardian even when no optional sprite or light children were authored.</summary>
+    public override void _Draw()
+    {
+        Color hot = CurrentPhase == 3 ? new Color("ff2255") : new Color("ffaa33");
+        DrawRect(new Rect2(-78, -76, 156, 150), new Color("25313f"));
+        DrawRect(new Rect2(-100, -55, 44, 96), new Color("526172"));
+        DrawRect(new Rect2(56, -55, 44, 96), new Color("526172"));
+        DrawCircle(new Vector2(0, -8), 34, new Color("101822"));
+        DrawCircle(new Vector2(0, -8), 22 + Mathf.Sin(_hoverTimer * 5) * 3, hot);
+        DrawLine(new Vector2(-45, -52), new Vector2(45, -52), hot, 9);
+        for (int side = -1; side <= 1; side += 2)
+            DrawLine(new Vector2(side * 48, 46), new Vector2(side * 62, 77), new Color("8495a6"), 24);
+    }
+
 }

@@ -46,6 +46,6 @@ public class CyberGraveAftermathTests
         Assert.That(json, Does.Contain("MIRAGE"));
         Assert.That(json, Does.Contain("SURYA"));
         Assert.That(json, Does.Contain("KAITO"));
-        Assert.That(json, Does.Contain("Citadel Spire"));
+        Assert.That(json, Does.Contain("Spire"));
     }
 }

@@ -1,5 +1,83 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Later campaign repair implemented and verified — 2026-11-05
+
+Repair source baseline: c2ad661. The user subsequently authorized committing and
+pushing the current verified batch to origin/main. No game exports.
+Docker's four normal services were built/started before code edits and remain up.
+The user's later message rescinded pausing containers at completion.
+
+Implemented gameplay/action evidence, full-height mandatory gates/interlocks,
+continuous protected crossings, pod keyboard/pad context input, accepted terminal
+consumption, formation eligibility, sequential waves and explicit completion
+acceptance. Manual defense waves no longer retire from opposite-end proximity.
+Decorative columns now leave 160px beneath them for reachable ground combat;
+Mission 12's post-heat formation is on the safe exit. Bosses preserve HP/thresholds,
+use explicit player targets and layer-2 hurtboxes, hold phases for defenders, expose
+HUD telemetry and support real source-aware projectile parries. Recovery resets
+unfinished arena phases/formations/projectiles while retaining prior progress,
+accepted defeat and deduplicated rewards. Death fades remove collision immediately.
+
+CampaignSettlement claims a stable per-run JSONB receipt and updates score plus
+GREATEST high-water progress in one PostgreSQL transaction. Results await that and
+main-thread unlocks, show saving/failure/retry/no-campaign status, and gate forward
+navigation. Continue 5→6, 6→7 and final Return to Main Menu are repaired. Global's
+obsolete Mission 9 cap now follows LevelCatalog. Replay/Resume/Level Select remain
+direct entry; no Mission 13 or separate completed-campaign flag was added.
+
+Fourteen later cinematic owners capture/restore cursor and menu help, stop owned
+audio, consume all Skip routes, release mapped actions, defer navigation and emit
+completion exactly once, including independent removal. Finished aftermaths free.
+Missing artwork safely completes; missing speech retains full timed subtitles.
+Shared speaker framing, recognizable approved operative sheets and small-window
+subtitle scaling retain the original schedules, lighting/particles/camera effects.
+Seven reviewed Blender environment families supply 54 original PNG plates,
+distinct aftermath settings and six matching boss pairs. Thirteen missing speech
+tracks comprise 117 full natural-speed takes with real established voice IDs.
+Fourteen unique synthesized beds and complete audio validation/provenance ship.
+See docs/LATER_CAMPAIGN_ACCEPTANCE.md for tools and human acceptance checklist.
+
+Final verification: `dotnet build AxiomForce.csproj --no-restore` succeeds with zero
+errors and 155 project/addon warnings. Final `run_tests.ps1` passes Django 104/104,
+NUnit 276/276 and GdUnit4 303/303: zero errors, failures, skipped tests or orphans.
+New real engine checks cover melee/parry against all six bosses, wrong/right
+gates, spatial phase/heat crossing, keyboard/controller pod input, phase support
+ordering, checkpoint attempts, premature terminals, all fourteen overlays' eight
+Skip routes, missing media/independent removal, real speech sampling and save UI
+pending/failure/retry/no-campaign behavior. PostgreSQL fixtures cover high-water
+progress, eight concurrent retries, discarded committed responses and failures;
+all fixture campaigns/receipts are removed by exact ownership.
+
+Fresh input-driven runs reached actual results in every Mission 6–12, including
+real attacks, swaps, signatures, pod actions, terminals and checkpoint recovery.
+No ledger injections, health overrides or direct enemy damage were used by the
+playthrough bot. Optimized simulation times are not human pacing evidence.
+Accepted runs and separate diagnostic failures are under ignored
+`.validation/later-campaign/`; `accepted-playthroughs.json` points to raw attempts.
+MCP navigation verified both acts, all later prologues, Continue, direct Replay,
+owned PostgreSQL Resume, direct Level Select and final Return to Main Menu. No
+existing campaign was selected for review. All owned game processes were stopped;
+the user's editor remains open and all four normal Docker services remain up.
+
+Every later cinematic cue was inspected at 1920×1080, 1920×1200 and 2560×1080,
+with 800×600 subtitle/control checks: 504 native captures, no size or subtitle-bound
+failures. Final review caught/fixed missing redraw requests in Apex/Judgment
+aftermaths and per-frame audio scrubbing in Nexus aftermath/Spire intro. Full
+28-track decoding confirms exact duration, unclipped peaks and fourteen distinct
+atmospheres; all 117 new takes fit complete windows at speed 1. Physical controller/
+touch use, normal-speed pacing and subjective listening remain explicitly human
+acceptance items in docs/LATER_CAMPAIGN_ACCEPTANCE.md.
+
+Background Godot refresh completed and all 54 PNG import sidecars exist. Existing
+asset_placer TLS/HTTP and Godot-AI socket diagnostics remain during import, followed
+by the same 27 ObjectDB/12-resource/PagedAllocator shutdown diagnostics observed in
+the initial refresh; these are separate from zero-orphan project test results.
+Project checker retains the baseline 10 errors/27 warnings in unrelated addon/menu/
+UID paths. Git diff whitespace check passes. The repair was verified from baseline c2ad661 before the user authorized Git
+publication. No game exports were produced. `run_tests.ps1` now preserves Godot console output
+and returns failure for any failed/skipped required suite instead of summary-only
+success. README and MEMORY contain the final outcome, not historical pass claims.
+
 ## Canonical Campaign Architecture (3-Act Structure, 12 Missions)
 Formally established the 3-Act campaign structure across 12 canonical missions:
 - **Act I: Fracturing the Grid (Missions 1–4)** *(Complete)*:

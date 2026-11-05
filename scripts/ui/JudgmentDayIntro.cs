@@ -31,19 +31,23 @@ public partial class JudgmentDayIntro : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/judgment_day_intro/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+    private double _lastAudio = -1, _stalled;
+
     private static readonly double[] Starts = { 0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Citadel Summit reached. Elevation: five-thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber—the heart of the Citadel and the seat of the Void Commander.",
-        "SURYA: The cosmic radiation in this room is off the charts. Look at the event horizon... gravity itself is warping around the dais. Stand close behind my bulwark!",
-        "OCEANUS: Thermal and energy telemetry confirmed. The Commander is draining the entire planetary geothermal grid straight into the singularity. He's preparing to purge the entire civilian population with one command.",
-        "MIRAGE: No Praetorian guards. No drone legions. No mechanized armies. Just him on that floating obsidian throne. He knew we were coming... and he's waiting for us.",
-        "TITAN: Let him wait! We broke his tanks at the Aegis, flattened his labs in the Grave, and wrecked his fortress at the Bastion. That armored crown is coming off today.",
-        "AURA: The psychic dissonance is deafening, but underneath it... I can hear the heartbeat of millions across the eleven liberated sectors below. They are singing for the dawn.",
-        "VOICE OF THE VOID COMMANDER: 'You crawled out of the scrap heaps and broken alleys only to kneel before godhood. Your insurrection ends here. Axiom Force dies tonight.'",
-        "MIRAGE: Phase blades energized. Shields synchronized. Every hack, every duel, every scar brought us to this threshold. We finish this together.",
-        "KAITO: Axiom Force! For every name stripped away, for every life stolen by the machine, for the liberation of the world—draw your weapons. Strike down the Commander!",
+        "AXIOM-7: Summit reached. Five thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber.",
+        "SURYA: That event horizon is bending the light around the dais. Stay behind my bulwark. The radiation is climbing.",
+        "OCEANUS: He is draining the planetary geothermal grid into that core. One command, and he could purge the civilian population.",
+        "MIRAGE: No guards. No drone army. Just him, waiting on that throne. He knew we would make it this far.",
+        "TITAN: We broke his tanks, his labs, and his fortress. Let him wait. That crown is coming off today.",
+        "AURA: Beneath all that noise, I can hear them. Millions of people down below, still holding on. Still singing for the dawn.",
+        "VOID COMMANDER: You crawled out of the scrap heaps to kneel before me. Your insurrection ends here. Axiom Force dies tonight.",
+        "MIRAGE: Phase blades ready. Shields synchronized. Every scar brought us here. We finish this together.",
+        "KAITO: For every stolen name, every life the machine took. Axiom Force, draw your weapons. Strike down the Commander.",
         ""
     };
 
@@ -72,6 +76,7 @@ public partial class JudgmentDayIntro : CanvasLayer
     /// </summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         Layer = 40;
 
         _stage = new JudgmentDayStage
@@ -85,6 +90,10 @@ public partial class JudgmentDayIntro : CanvasLayer
         BuildUi();
         MountAudio();
         Seek(0);
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Constructs the responsive HUD overlay for dialogue subtitle captions and skip button.</summary>
@@ -173,7 +182,7 @@ public partial class JudgmentDayIntro : CanvasLayer
     /// <summary>Mounts voiceover audio and looping void storm atmosphere stream if present on disk.</summary>
     private void MountAudio()
     {
-        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "Master" };
+        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "SFX" };
         AddChild(_speech);
 
         _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "Music", VolumeDb = -2f };
@@ -206,15 +215,18 @@ public partial class JudgmentDayIntro : CanvasLayer
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        Elapsed += delta;
-        if (Elapsed >= Duration)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            Finish();
-            return;
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-
-        Seek(Elapsed);
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Positions the cutscene at an arbitrary timeline offset and synchronizes visuals.</summary>
@@ -253,21 +265,17 @@ public partial class JudgmentDayIntro : CanvasLayer
     }
 
     /// <summary>Handles keyboard, controller, mouse, and touch skip shortcuts.</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event.IsActionPressed("ui_cancel") ||
-            @event.IsActionPressed("ui_accept") ||
-            (@event is InputEventKey k && k.Pressed && !k.Echo &&
-             (k.Keycode == Key.Escape || k.Keycode == Key.Space || k.Keycode == Key.Enter)) ||
-            (@event is InputEventJoypadButton j && j.Pressed &&
-             (j.ButtonIndex == JoyButton.Start || j.ButtonIndex == JoyButton.A)) ||
-            (@event is InputEventMouseButton m && m.Pressed && m.ButtonIndex == MouseButton.Left))
-        {
-            Finish();
-            GetViewport()?.SetInputAsHandled();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Completes the cinematic presentation, silences audio players, and transitions to Mission 12.</summary>
@@ -275,28 +283,44 @@ public partial class JudgmentDayIntro : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
-        _speech?.Stop();
-        _ambience?.Stop();
-        EmitSignal(SignalName.Finished);
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
+        EmitSignal(SignalName.Finished);
         if (EnterMissionOnFinish && IsInsideTree())
         {
-            string nextScene = ResourceLoader.Exists("res://scenes/gameplay/level12.tscn")
-                ? "res://scenes/gameplay/level12.tscn"
-                : "res://scenes/main_menu/level_selection.tscn";
-            GetTree().ChangeSceneToFile(nextScene);
+            CampaignProgress.PrepareMission(12);
+            GetTree().Paused = false;
+            GetTree().ChangeSceneToFile(LevelCatalog.ScenePath(12));
         }
-        else
-        {
-            QueueFree();
-        }
+        else QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Ensures audio streams are silenced if overlay is freed directly from tree.</summary>
     public override void _ExitTree()
     {
-        if (_speech != null && _speech.Playing) _speech.Stop();
-        if (_ambience != null && _ambience.Playing) _ambience.Stop();
-        base._ExitTree();
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 }

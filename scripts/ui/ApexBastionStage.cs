@@ -15,8 +15,8 @@ public partial class ApexBastionStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("apex_bastion", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -76,6 +76,7 @@ public partial class ApexBastionStage : Control
         Vector2 margin = (Size - new Vector2(1920f, 1080f) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // 2. Camera-zoomed cinematic world layer
@@ -83,6 +84,7 @@ public partial class ApexBastionStage : Control
 
         // Stratospheric twilight sky, stars, and sea of clouds at 4,000m
         DrawStratosphereSkyAndClouds(t);
+        CampaignArtwork.DrawEnvironment(this, "apex_bastion", Seconds, aftermath: false, drawBase: true);
 
         // Distant grand stairway and colossal Throne Room vault portal
         DrawGrandStairwayAndThroneVault(t);
@@ -375,26 +377,7 @@ public partial class ApexBastionStage : Control
     /// <summary>Draws all 6 operative silhouettes advancing from the lift onto the courtyard.</summary>
     private void DrawSquadSilhouettes(float t, int shot)
     {
-        // Advance progress onto courtyard (X = 320 to 600)
-        float advance = Mathf.Clamp(t / 15f, 0f, 1f) * 160f;
-
-        // 1. Kaito (Cyber Shogun) - leading the squad
-        DrawOperative(new Vector2(480 + advance, 660), ColorKaito, "Kaito");
-
-        // 2. Mirage Blade
-        DrawOperative(new Vector2(400 + advance * 0.9f, 660), ColorMirage, "Mirage");
-
-        // 3. Apex Titan
-        DrawOperative(new Vector2(340 + advance * 0.8f, 660), ColorTitan, "Titan");
-
-        // 4. Oceanus
-        DrawOperative(new Vector2(280 + advance * 0.75f, 660), ColorOceanus, "Oceanus");
-
-        // 5. Surya Prime
-        DrawOperative(new Vector2(220 + advance * 0.7f, 660), ColorSurya, "Surya");
-
-        // 6. Aura Phoenicia
-        DrawOperative(new Vector2(160 + advance * 0.65f, 660), ColorAura, "Aura");
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Draws an individual operative silhouette with glowing weapon/visor accent.</summary>

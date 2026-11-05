@@ -5,7 +5,12 @@
     "voice": "Daniel",
     "start": 0.0,
     "end": 10.0,
-    "text": "AXIOM-7: Nexus Overseer core neutralized. All three quantum processing nodes have collapsed into terminal logic cascades. Mainframe defense grid has flatlined across the entire Citadel."
+    "text": "Overseer neutralized. All three processing nodes are down. The Citadel automated defense grid has flatlined.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Overseer neutralized. All three processing nodes are down. The Citadel automated defense grid has flatlined.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 2,
@@ -13,7 +18,12 @@
     "voice": "Eric",
     "start": 10.0,
     "end": 20.0,
-    "text": "MIRAGE: Look at the server towers—they're dumping petabytes of encrypted garbage! The automated reinforcement queues just zeroed out. The Citadel's robot army is dead in the water."
+    "text": "The reinforcement queues just emptied. No fresh drones, no replacement squads. Their machine army has nowhere to go.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: The reinforcement queues just emptied. No fresh drones, no replacement squads. Their machine army has nowhere to go.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 3,
@@ -21,7 +31,12 @@
     "voice": "George",
     "start": 20.0,
     "end": 30.0,
-    "text": "TITAN: That Overseer thought its containment prisms could cage us. Turned its fancy laser ring into scrap metal. Look at the cooling lines—liquid helium is blowing every gasket in the room."
+    "text": "Containment prisms. Fancy name for a cage. Now look at them. Scrap metal, and coolant leaking through every seam.",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: Containment prisms. Fancy name for a cage. Now look at them. Scrap metal, and coolant leaking through every seam.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 4,
@@ -29,7 +44,12 @@
     "voice": "Sarah",
     "start": 30.0,
     "end": 40.0,
-    "text": "OCEANUS: The thermal runaway is accelerating. The entire subterranean mainframe is melting down behind us. We can't linger here—the deck plating is already vibrating from reactor shockwaves."
+    "text": "Thermal runaway is accelerating. Feel that vibration? We cannot stay on this deck. Keep moving toward the lift.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: Thermal runaway is accelerating. Feel that vibration? We cannot stay on this deck. Keep moving toward the lift.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 5,
@@ -37,7 +57,12 @@
     "voice": "Brian",
     "start": 40.0,
     "end": 50.0,
-    "text": "SURYA: The digital shield is broken, but look up through the gantry shaft. The Praetorian automated batteries have switched to emergency auxiliary generators. The Bastion above is locking down."
+    "text": "The Bastion has switched to auxiliary power. We broke its link to the Nexus, but its local guns still work.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: The Bastion has switched to auxiliary power. We broke its link to the Nexus, but its local guns still work.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 6,
@@ -45,7 +70,12 @@
     "voice": "Matilda",
     "start": 50.0,
     "end": 60.0,
-    "text": "AURA: I hear them... heavy hydraulic footsteps. Praetorian battle mechs and elite cyber-samurai are rallying on the perimeter ramparts above. They know their brain is dead, and they're digging in for a final stand."
+    "text": "Heavy footsteps above us. Praetorian mechs and cyber-samurai. They know the network is dead. They are making their stand.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: Heavy footsteps above us. Praetorian mechs and cyber-samurai. They know the network is dead. They are making their stand.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 7,
@@ -53,7 +83,12 @@
     "voice": "Eric",
     "start": 60.0,
     "end": 70.0,
-    "text": "MIRAGE: The Apex Ascent Lift is online! I've bypassed the executive security lockout. This high-speed freight lift will take us straight through the Bastion's throat!"
+    "text": "Ascent lift online. Executive lockout bypassed. Everyone aboard. This takes us straight into the Bastion.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Ascent lift online. Executive lockout bypassed. Everyone aboard. This takes us straight into the Bastion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 8,
@@ -61,14 +96,24 @@
     "voice": "Daniel",
     "start": 70.0,
     "end": 80.0,
-    "text": "AXIOM-7: Warning: Sensor telemetry detects extreme energy signatures atop the Spire. The Void Commander is aware of the Nexus collapse and has ordered the Bastion to fire at will."
+    "text": "Extreme energy readings at the summit. The Commander has detected the Nexus collapse. Bastion batteries are cleared to fire.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Extreme energy readings at the summit. The Commander has detected the Nexus collapse. Bastion batteries are cleared to fire.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 9,
     "speaker": "KAITO",
-    "voice": "Chris",
+    "voice": "Adam",
     "start": 80.0,
     "end": 90.0,
-    "text": "KAITO: Then we give them the fight they asked for. No more hiding behind machines and algorithms. Board the lift. Next stop: The Apex Bastion!"
+    "text": "Then we meet them face to face. No more hiding behind machines. Board the lift. Next stop, Apex Bastion.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Then we meet them face to face. No more hiding behind machines. Board the lift. Next stop, Apex Bastion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

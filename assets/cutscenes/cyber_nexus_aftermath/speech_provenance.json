@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Overseer neutralized. All three processing nodes are down. The Citadel automated defense grid has flatlined.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "0a38e194367db88acf4900f18db5eec7572beb11555a7b5d35b60040917031bc",
+    "request_sha256": "59a4794b56ed0bb3937224833266dcfc9cb1af3c7f374a86e953d94ad3641d5b"
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The reinforcement queues just emptied. No fresh drones, no replacement squads. Their machine army has nowhere to go.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "8f2a25ef928abc1436990ae756d6e65e4837573ed41ab8186f207af0e76d585c",
+    "request_sha256": "84e537807851e318fe39e850667c834d17044d4540743f028a92505ea24387f6"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Containment prisms. Fancy name for a cage. Now look at them. Scrap metal, and coolant leaking through every seam.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "8fffab83f498fd6a4a67ec68f1df32105828efd2efd8e4037eb917067ea41a66",
+    "request_sha256": "eb9aead221c0d7f83236d96a36cc92e7949e83d2c2e9d11537e62a123ce73a63"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Thermal runaway is accelerating. Feel that vibration? We cannot stay on this deck. Keep moving toward the lift.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "8e843d34ea5971e79ea412bd70cc55a2c6cbcf23f45f7dbf71455e344805b667",
+    "request_sha256": "510ff8c4530df7852af6d6cc30559545fb3c91d5327d244b85885c1cac5303d9"
+  },
+  {
+    "cue": 5,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "The Bastion has switched to auxiliary power. We broke its link to the Nexus, but its local guns still work.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "31a26e856fdf77d97625b52bd5216bdad6c47bef2ef49560c4674dd0e4b03a8e",
+    "request_sha256": "0226a1f4a5c8e202c2f3cf65a62bad5ba6c3c418ca510efab7450865aea4c5df"
+  },
+  {
+    "cue": 6,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Heavy footsteps above us. Praetorian mechs and cyber-samurai. They know the network is dead. They are making their stand.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "5fcdf5b9ae73f0f5ab5127ec9e5c7c32a29ae3a4dd3c36787f2558c23e69651b",
+    "request_sha256": "0d57125e7c937579d4581b523916354af42f205cad0a2bcfa345c97e1633adb2"
+  },
+  {
+    "cue": 7,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Ascent lift online. Executive lockout bypassed. Everyone aboard. This takes us straight into the Bastion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "7f4cb6972c89e8e1a1f82545c71a14162acd2cd45768d3d879e18ceaa4e7ac6a",
+    "request_sha256": "bca7c1d9548a5bcd7dc0c25869e66ee143e46c4dae586ac52bf9f2301c4bdb95"
+  },
+  {
+    "cue": 8,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Extreme energy readings at the summit. The Commander has detected the Nexus collapse. Bastion batteries are cleared to fire.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "4f2d9983608b820ddf139ba2ecaa72d4f0f44774f4e5b0556e54043341bd5a88",
+    "request_sha256": "2efe6c5fe993b9a5b67ac020d2d62a091d56cd00a12eaf8d0623830e9bda3bfe"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Then we meet them face to face. No more hiding behind machines. Board the lift. Next stop, Apex Bastion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "aac034ae01d748b314c8ff1b234ef5c9487477c855e71cbfe9e6ae41628647a0",
+    "request_sha256": "1e6f53daf44d65931982562ab9171173de692b67ff6509c55fa029df33d06917"
+  }
+]

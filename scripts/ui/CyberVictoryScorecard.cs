@@ -22,12 +22,22 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private Button? _previewBtn;
 	private int _nextMission;
 	private bool _navigating;
+	private bool _campaignVictory;
+	private bool _saveConfigured, _savePending;
+	private CompletionSaveResult? _saveResult;
+	private int _saveMission, _saveScore, _saveSession;
+	private string _runToken = "";
+	private Label? _saveLabel;
+	private Button? _retrySaveBtn;
 	private Input.MouseModeEnum _previousMouseMode;
+	private bool _previousPromptVisible;
 
 	/// <summary>Resolves the terminal controls; Continue is optional for existing scene callers.</summary>
 	public override void _Ready()
 	{
 		_previousMouseMode = Input.MouseMode;
+		var prompt = GetNodeOrNull<Node>("/root/Global")?.Get("_prompt_label").AsGodotObject() as CanvasItem;
+		_previousPromptVisible = prompt?.IsVisibleInTree() ?? true;
 		_rootPanel = GetNodeOrNull<Control>("RootPanel");
 		_titleLabel = GetNodeOrNull<Label>("RootPanel/MainVBox/TitleLabel");
 		_rankLabel = GetNodeOrNull<Label>("RootPanel/MainVBox/RankPanel/RankLabel");
@@ -40,6 +50,15 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		_jinglePlayer = GetNodeOrNull<AudioStreamPlayer>("JinglePlayer");
 		_continueBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/ContinueBtn");
 		_previewBtn = GetNodeOrNull<Button>("RootPanel/MainVBox/PreviewBtn");
+		var box = GetNodeOrNull<VBoxContainer>("RootPanel/MainVBox");
+		if (box != null)
+		{
+			_saveLabel = new Label { Name = "SaveStatus", HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart };
+			box.AddChild(_saveLabel); box.MoveChild(_saveLabel, 2);
+			_retrySaveBtn = new Button { Name = "RetrySave", Text = "RETRY SAVE", Visible = false };
+			_retrySaveBtn.Pressed += PersistCompletion;
+			box.AddChild(_retrySaveBtn); box.MoveChild(_retrySaveBtn, 3);
+		}
 		if (_previewBtn != null) _previewBtn.Pressed += OnPreviewPressed;
 		if (_continueBtn != null) _continueBtn.Pressed += OnContinuePressed;
 
@@ -80,11 +99,12 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	public void ShowCampaignCompleteScorecard(int score, int maxCombo, string operative)
 	{
 		RenderScorecard(score, maxCombo, operative, 0);
+		_campaignVictory = true;
 		if (_titleLabel != null) _titleLabel.Text = "CAMPAIGN COMPLETE";
 		if (_previewBtn != null)
 		{
-			string text = Tr("CAMPAIGN_VICTORY");
-			_previewBtn.Text = text == "CAMPAIGN_VICTORY" || string.IsNullOrWhiteSpace(text) ? "SECTOR CLEARED // LIBERATION ACHIEVED" : text;
+			_previewBtn.Text = "RETURN TO MAIN MENU";
+            _previewBtn.Disabled = false;
 			_previewBtn.Visible = true;
 		}
 	}
@@ -106,11 +126,13 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private void RenderScorecard(int score, int maxCombo, string operative, int nextMission)
 	{
 		if (_rootPanel == null) return;
+		_campaignVictory = false;
 		if (_titleLabel != null) _titleLabel.Text = "MISSION COMPLETE";
 		if (_previewBtn != null) _previewBtn.Visible = false;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
 		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
 		if (_continueBtn != null && _nextMission > 0) _continueBtn.Text = $"CONTINUE TO LEVEL {_nextMission}";
+		RefreshSaveStatus();
 		_rootPanel.Visible = true;
 		if (IsInsideTree()) Input.MouseMode = Input.MouseModeEnum.Visible;
 		if (IsInsideTree()) GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", false);
@@ -182,7 +204,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	/// <summary>Prepares the story-earned squad before entering the supplied next mission.</summary>
 	private void OnContinuePressed()
 	{
-		if (_nextMission <= 0 || !IsInsideTree() || _navigating) return;
+		if (_nextMission <= 0 || !IsInsideTree() || _navigating || !CanLeaveResults) return;
 		CampaignProgress.PrepareMission(_nextMission);
 		if (_nextMission == 6 && ResourceLoader.Exists("res://scenes/cutscenes/cyber_grave_intro.tscn"))
 		{
@@ -221,15 +243,15 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	/// <summary>Reloads the still-current mission, preserving Replay after an overlay cinematic.</summary>
 	private void OnReplayPressed()
 	{
-		if (!IsInsideTree() || _navigating) return;
+		if (!IsInsideTree() || _navigating || !CanLeaveResults) return;
 		_navigating = true;
-		GetTree().Paused = false;
-		GetTree().ReloadCurrentScene();
+		Callable.From(() => { if (!IsInsideTree()) return; GetTree().Paused = false; GetTree().ReloadCurrentScene(); }).CallDeferred();
 	}
 
 	/// <summary>Returns to the existing mission selector.</summary>
 	private void OnLevelSelectPressed()
 	{
+		if (!CanLeaveResults) return;
 		Navigate("res://scenes/main_menu/level_selection.tscn");
 	}
 
@@ -243,6 +265,8 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private void OnPreviewPressed()
 	{
 		if (_previewBtn is not { Visible: true }) return;
+		if (_campaignVictory) { OnMainMenuPressed(); return; }
+		if (!CanLeaveResults) return;
 		if (_titleLabel?.Text == "ACT II COMPLETE" || (_previewBtn.Text != null && _previewBtn.Text.Contains("ACT III")))
 		{
 			Navigate("res://scenes/ui/act_ii_end_screen.tscn");
@@ -258,8 +282,47 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	{
 		if (!IsInsideTree() || _navigating) return;
 		_navigating = true;
-		GetTree().Paused = false;
-		GetTree().ChangeSceneToFile(path);
+		Callable.From(() => { if (!IsInsideTree()) return; GetTree().Paused = false; GetTree().ChangeSceneToFile(path); }).CallDeferred();
+	}
+
+	/// <summary>Captures one immutable extraction snapshot and starts its awaited save while the aftermath plays.</summary>
+	public void ConfigureCompletion(int mission, int score, string runToken, int sessionId)
+	{
+		if (_saveConfigured) return;
+		_saveConfigured = true;
+		_saveMission = mission; _saveScore = score; _runToken = runToken; _saveSession = sessionId;
+		PersistCompletion();
+	}
+
+	/// <summary>Forward navigation is permitted only after confirmed settlement or direct play with no active campaign.</summary>
+	private bool CanLeaveResults => !_saveConfigured || (!_savePending && _saveResult?.Status != CompletionSaveStatus.Failed);
+
+	/// <summary>Async UI event boundary: awaits the entire transaction and main-thread state update, including retries.
+	/// A lost response reuses the captured run token; exceptions become a visible retry state.</summary>
+	private async void PersistCompletion()
+	{
+		if (!_saveConfigured || _savePending) return;
+		_savePending = true;
+		RefreshSaveStatus();
+		CompletionSaveResult result;
+		try { result = await CampaignProgress.CompleteMissionAsync(_saveMission, _saveScore, _runToken, _saveSession); }
+		catch (System.Exception) { result = new(CompletionSaveStatus.Failed, Error: "Campaign save could not be confirmed. Retry Save."); }
+		Callable.From(() =>
+		{
+			if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
+			_savePending = false; _saveResult = result;
+			RefreshSaveStatus();
+		}).CallDeferred();
+	}
+
+	/// <summary>Shows pending/saved/failed/direct-play status beside results and gates campaign navigation.</summary>
+	private void RefreshSaveStatus()
+	{
+		if (_saveLabel != null) _saveLabel.Text = !_saveConfigured ? "" : _savePending ? "SAVING CAMPAIGN…" : _saveResult?.Status switch
+		{ CompletionSaveStatus.Saved => "CAMPAIGN SAVED", CompletionSaveStatus.NoActiveCampaign => "DIRECT PLAY // NO ACTIVE CAMPAIGN", _ => "SAVE NOT CONFIRMED // RETRY SAVE OR RETURN TO MAIN MENU" };
+		if (_retrySaveBtn != null) _retrySaveBtn.Visible = !_savePending && _saveResult?.Status == CompletionSaveStatus.Failed;
+		foreach (var button in new[] { _continueBtn, _replayBtn, _levelSelectBtn }) if (button != null) button.Disabled = !CanLeaveResults;
+		if (_previewBtn != null) _previewBtn.Disabled = !_campaignVictory && !CanLeaveResults;
 	}
 
 	/// <summary>Handles pointer and direct touch before Global's legacy mouse suppression consumes them.</summary>
@@ -270,9 +333,9 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		if (input is InputEventScreenTouch { Pressed: true } touch) point = touch.Position;
 		else if (input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse) point = mouse.Position;
 		else return;
-		foreach (var button in new[] { _continueBtn, _previewBtn, _replayBtn, _levelSelectBtn, _mainMenuBtn })
+		foreach (var button in new[] { _continueBtn, _previewBtn, _replayBtn, _levelSelectBtn, _mainMenuBtn, _retrySaveBtn })
 		{
-			if (button is not { Visible: true } || !button.GetGlobalRect().HasPoint(point)) continue;
+			if (button is not { Visible: true, Disabled: false } || !button.GetGlobalRect().HasPoint(point)) continue;
 			GetViewport().SetInputAsHandled();
 			button.EmitSignal(Button.SignalName.Pressed);
 			return;
@@ -283,6 +346,6 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	public override void _ExitTree()
 	{
 		Input.MouseMode = _previousMouseMode;
-		GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", true);
+		GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", _previousPromptVisible);
 	}
 }

@@ -27,19 +27,22 @@ public partial class SpireOuterHullAftermath : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/spire_outer_hull_aftermath/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Spire Sentinel mechanized defense chassis neutralized. Exterior summit catwalk secured. Telemetry reports ambient pressure stabilizing at the intake threshold.",
-        "TITAN: That scrapheap put up a hell of a fight. Two-thousand meters of vertical climbing, and my solenoids are still humming. Look at that airlock door... built to survive a nuclear strike.",
-        "OCEANUS: Look behind us, everyone. Look down through the stratospheric haze. Neo-Kyoto's skyline is clear. No sky-shield cage, no surveillance grid. The people are awake.",
-        "SURYA: But the machine's brain still ticks. As long as the Cyber-Nexus operates, the Citadel can reboot the defensive grid and synthesize automated armies in hours.",
-        "AURA: I feel the acoustic vibration through the steel floor. It's not just machinery... it's a hive mind. Petabytes of surveillance algorithms and neural networks, churning behind that bulkhead.",
-        "MIRAGE: Terminal override sequence accepted. The security protocols are folding! Stand by... pressure seal breaking!",
-        "AXIOM-7: Atmospheric purge complete. Central Cyber-Nexus airlock opening. Thermal sensors detecting multi-layered quantum mainframe chambers beyond the portal.",
-        "MIRAGE: By the stars... it's a digital labyrinth. Floating holographic data prisms, quantum conduits, automated laser baffles. One wrong step and the mainframe burns you to ash.",
-        "KAITO: Then we tread carefully and strike deep. We shatter the Cyber-Nexus core and blind the Citadel forever. Axiom Force—into the Nexus!",
+        "AXIOM-7: Spire Sentinel neutralized. Summit catwalk secured. Pressure is stabilizing at the Cyber-Nexus intake.",
+        "TITAN: My boots are still humming from that climb. And now an airlock built to survive bombardment. Of course.",
+        "OCEANUS: Look down through the haze. No shield over the skyline. The city is awake. Remember who we are doing this for.",
+        "SURYA: The Nexus is still running. Leave its factories online, and they can rebuild that defense grid within hours.",
+        "AURA: I can feel it through the deck. So many linked processors. A hive of stolen signals behind one bulkhead.",
+        "MIRAGE: Terminal override accepted. Security is folding. Stand clear. The pressure seal is breaking.",
+        "AXIOM-7: Atmospheric purge complete. Intake airlock opening. Quantum mainframe chambers confirmed beyond the threshold.",
+        "MIRAGE: Optical conduits, floating prisms, laser baffles. A whole labyrinth. We will have to watch every step.",
+        "KAITO: Then we tread carefully and strike deep. Silence the Nexus core. Axiom Force, through the airlock.",
         ""
     };
 
@@ -66,6 +69,7 @@ public partial class SpireOuterHullAftermath : CanvasLayer
     /// <summary>Constructs visual stage, subtitle container, skip button, and audio streams.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
 
         _stage = GetNodeOrNull<SpireOuterHullAftermathStage>("SpireOuterHullAftermathStage");
@@ -160,7 +164,7 @@ public partial class SpireOuterHullAftermath : CanvasLayer
         _ui.AddChild(_skip);
 
         // Audio streams
-        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "Master" };
+        _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "SFX" };
         AddChild(_speech);
 
         _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "Music", VolumeDb = -2f };
@@ -168,6 +172,10 @@ public partial class SpireOuterHullAftermath : CanvasLayer
 
         TreeExiting += OnTreeExiting;
         StartPlayback();
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     private void StartPlayback()
@@ -198,36 +206,18 @@ public partial class SpireOuterHullAftermath : CanvasLayer
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        double current;
-        if (_speech != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            current = _speech.GetPlaybackPosition();
-            if (Math.Abs(current - _lastAudio) < 0.0001)
-            {
-                _stalled += delta;
-                if (_stalled > 0.5) current = Elapsed + delta;
-            }
-            else
-            {
-                _stalled = 0;
-                _lastAudio = current;
-            }
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-        else
-        {
-            current = Elapsed + delta;
-        }
-
-        Elapsed = Math.Max(Elapsed, current);
-
-        if (Elapsed >= Duration)
-        {
-            Finish();
-            return;
-        }
-
-        Seek(Elapsed);
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Samples any timeline second without completing, updating stage graphics and subtitle text.</summary>
@@ -266,21 +256,17 @@ public partial class SpireOuterHullAftermath : CanvasLayer
     }
 
     /// <summary>Handles keyboard, controller, mouse, and touch skip shortcuts.</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event.IsActionPressed("ui_cancel") ||
-            @event.IsActionPressed("ui_accept") ||
-            (@event is InputEventKey k && k.Pressed && !k.Echo &&
-             (k.Keycode == Key.Escape || k.Keycode == Key.Space || k.Keycode == Key.Enter)) ||
-            (@event is InputEventJoypadButton j && j.Pressed &&
-             (j.ButtonIndex == JoyButton.Start || j.ButtonIndex == JoyButton.A)) ||
-            (@event is InputEventMouseButton m && m.Pressed && m.ButtonIndex == MouseButton.Left))
-        {
-            Finish();
-            GetViewport().SetInputAsHandled();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Completes the cinematic presentation, silences audio players, and emits Finished.</summary>
@@ -288,9 +274,38 @@ public partial class SpireOuterHullAftermath : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
-        _speech?.Stop();
-        _ambience?.Stop();
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
+
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
         QueueFree();
     }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
+    }
+    /// <summary>Independent removal restores ownership and releases the retained mission exactly once.</summary>
+    public override void _ExitTree()
+    {
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
+    }
+
 }

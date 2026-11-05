@@ -5,7 +5,12 @@
     "voice": "Daniel",
     "start": 0.0,
     "end": 10.0,
-    "text": "AXIOM-7: Freight lift arrived at Spire Level 100. Elevation: four-thousand five-hundred meters. Atmospheric pressure critical. Welcome to the Apex Bastion—the personal fortress of the Praetorian Guard."
+    "text": "Level one hundred. Forty-five hundred meters. This is Apex Bastion, fortress of the Praetorian Guard.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Level one hundred. Forty-five hundred meters. This is Apex Bastion, fortress of the Praetorian Guard.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 2,
@@ -13,7 +18,12 @@
     "voice": "George",
     "start": 10.0,
     "end": 20.0,
-    "text": "TITAN: Look at these battlements... obsidian-alloy plating three meters thick. Automated plasma turrets tracking every inch of the courtyard. They've turned the entire spire summit into an active warzone."
+    "text": "Three meters of obsidian alloy. Plasma guns covering the courtyard. They have turned the summit into a killing ground.",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: Three meters of obsidian alloy. Plasma guns covering the courtyard. They have turned the summit into a killing ground.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 3,
@@ -21,7 +31,12 @@
     "voice": "Sarah",
     "start": 20.0,
     "end": 30.0,
-    "text": "OCEANUS: The clouds are beneath us now. Sub-zero gale-force winds are whipping across the ramparts. One slip off these outer parapets and it's a four-kilometer drop back to the city."
+    "text": "The clouds are below us. Ice on the parapets, crosswinds over the rail. Stay away from those edges.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: The clouds are below us. Ice on the parapets, crosswinds over the rail. Stay away from those edges.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 4,
@@ -29,7 +44,12 @@
     "voice": "Eric",
     "start": 30.0,
     "end": 40.0,
-    "text": "MIRAGE: Motion sensors pinging dozens of heavy signatures. Those aren't automated drones—those are the Void Commander's elite Praetorian shock-troopers and cyber-samurai. They're locked and loaded."
+    "text": "Heavy signatures ahead. Praetorian shock troops and cyber-samurai. The Commander's personal guard. They know we are here.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Heavy signatures ahead. Praetorian shock troops and cyber-samurai. The Commander's personal guard. They know we are here.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 5,
@@ -37,7 +57,12 @@
     "voice": "Matilda",
     "start": 40.0,
     "end": 50.0,
-    "text": "AURA: Their comms are chillingly silent. No panic, no distress calls. They know the Cyber-Nexus is gone, and they know we're here. They have sworn an oath to fight to the last machine cycle."
+    "text": "Their comms are silent. No panic. They know the Nexus is gone, and they mean to hold this wall anyway.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: Their comms are silent. No panic. They know the Nexus is gone, and they mean to hold this wall anyway.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 6,
@@ -45,7 +70,12 @@
     "voice": "Brian",
     "start": 50.0,
     "end": 60.0,
-    "text": "SURYA: The stairway beyond the courtyard leads directly to the Throne Room. Look at the perimeter gate: heavy barrier shields and heavy kinetic artillery. We will need all our strength to breach it."
+    "text": "The stairway leads to the throne room. Artillery at the perimeter gate. We will need every operative to break through.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: The stairway leads to the throne room. Artillery at the perimeter gate. We will need every operative to break through.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 7,
@@ -53,7 +83,12 @@
     "voice": "Daniel",
     "start": 60.0,
     "end": 70.0,
-    "text": "AXIOM-7: Warning: Deep scans detect a colossal mechanized war chassis guarding the grand gatehouse: The Bastion Praetor. It is the final guardian defending access to the Void Commander."
+    "text": "Colossal war chassis at the gatehouse. Bastion Praetor. The last mechanized guardian between us and the Commander.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Colossal war chassis at the gatehouse. Bastion Praetor. The last mechanized guardian between us and the Commander.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 8,
@@ -61,14 +96,24 @@
     "voice": "Eric",
     "start": 70.0,
     "end": 80.0,
-    "text": "MIRAGE: We broke their street gangs in the District. We drowned their bio-labs in the Grave. We tore their sky-shields down in the Forge. We are not stopping on the front porch."
+    "text": "We broke the registry, emptied the Grave, and brought their sky-shields down. We are not stopping at the front door.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: We broke the registry, emptied the Grave, and brought their sky-shields down. We are not stopping at the front door.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 9,
     "speaker": "KAITO",
-    "voice": "Chris",
+    "voice": "Adam",
     "start": 80.0,
     "end": 90.0,
-    "text": "KAITO: Axiom Force has come too far to falter. Through the Praetorian Guard, through the Praetor mech, and straight to the Void Commander's throne. Blades drawn—breach the Bastion!"
+    "text": "Through the Guard, through the Praetor, and on to the throne. Axiom Force, blades drawn. Breach the Bastion.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Through the Guard, through the Praetor, and on to the throne. Axiom Force, blades drawn. Breach the Bastion.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

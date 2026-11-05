@@ -27,19 +27,22 @@ public partial class CyberNexusAftermath : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/cyber_nexus_aftermath/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Nexus Overseer core neutralized. All three quantum processing nodes have collapsed into terminal logic cascades. Mainframe defense grid has flatlined across the entire Citadel.",
-        "MIRAGE: Look at the server towers—they're dumping petabytes of encrypted garbage! The automated reinforcement queues just zeroed out. The Citadel's robot army is dead in the water.",
-        "TITAN: That Overseer thought its containment prisms could cage us. Turned its fancy laser ring into scrap metal. Look at the cooling lines—liquid helium is blowing every gasket in the room.",
-        "OCEANUS: The thermal runaway is accelerating. The entire subterranean mainframe is melting down behind us. We can't linger here—the deck plating is already vibrating from reactor shockwaves.",
-        "SURYA: The digital shield is broken, but look up through the gantry shaft. The Praetorian automated batteries have switched to emergency auxiliary generators. The Bastion above is locking down.",
-        "AURA: I hear them... heavy hydraulic footsteps. Praetorian battle mechs and elite cyber-samurai are rallying on the perimeter ramparts above. They know their brain is dead, and they're digging in for a final stand.",
-        "MIRAGE: The Apex Ascent Lift is online! I've bypassed the executive security lockout. This high-speed freight lift will take us straight through the Bastion's throat!",
-        "AXIOM-7: Warning: Sensor telemetry detects extreme energy signatures atop the Spire. The Void Commander is aware of the Nexus collapse and has ordered the Bastion to fire at will.",
-        "KAITO: Then we give them the fight they asked for. No more hiding behind machines and algorithms. Board the lift. Next stop: The Apex Bastion!",
+        "AXIOM-7: Overseer neutralized. All three processing nodes are down. The Citadel automated defense grid has flatlined.",
+        "MIRAGE: The reinforcement queues just emptied. No fresh drones, no replacement squads. Their machine army has nowhere to go.",
+        "TITAN: Containment prisms. Fancy name for a cage. Now look at them. Scrap metal, and coolant leaking through every seam.",
+        "OCEANUS: Thermal runaway is accelerating. Feel that vibration? We cannot stay on this deck. Keep moving toward the lift.",
+        "SURYA: The Bastion has switched to auxiliary power. We broke its link to the Nexus, but its local guns still work.",
+        "AURA: Heavy footsteps above us. Praetorian mechs and cyber-samurai. They know the network is dead. They are making their stand.",
+        "MIRAGE: Ascent lift online. Executive lockout bypassed. Everyone aboard. This takes us straight into the Bastion.",
+        "AXIOM-7: Extreme energy readings at the summit. The Commander has detected the Nexus collapse. Bastion batteries are cleared to fire.",
+        "KAITO: Then we meet them face to face. No more hiding behind machines. Board the lift. Next stop, Apex Bastion.",
         ""
     };
 
@@ -66,6 +69,7 @@ public partial class CyberNexusAftermath : CanvasLayer
     /// <summary>Constructs visual stage, subtitle container, skip button, and audio streams.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
 
         _stage = GetNodeOrNull<CyberNexusAftermathStage>("CyberNexusAftermathStage");
@@ -160,7 +164,7 @@ public partial class CyberNexusAftermath : CanvasLayer
         _ui.AddChild(_skip);
 
         // Ambience Player (looped procedural atmospheric audio)
-        _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "Master" };
+        _ambience = new AudioStreamPlayer { Name = "Atmosphere", Bus = "SFX" };
         AddChild(_ambience);
         string ambPath = ArtPath.TrimEnd('/') + "/atmosphere.ogg";
         if (ResourceLoader.Exists(ambPath))
@@ -176,7 +180,7 @@ public partial class CyberNexusAftermath : CanvasLayer
         }
 
         // Voice Player
-        _speech = new AudioStreamPlayer { Name = "Speech", Bus = "Master" };
+        _speech = new AudioStreamPlayer { Name = "Speech", Bus = "SFX" };
         AddChild(_speech);
         if (!string.IsNullOrEmpty(SpeechPath) && ResourceLoader.Exists(SpeechPath))
         {
@@ -189,78 +193,65 @@ public partial class CyberNexusAftermath : CanvasLayer
         }
 
         UpdateSubtitles();
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Advances deterministic playback clock and triggers stage redraw.</summary>
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        if (_speech != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            double pos = _speech.GetPlaybackPosition();
-            if (Math.Abs(pos - _lastAudio) < 0.001)
-            {
-                _stalled += delta;
-                if (_stalled > 0.5) Elapsed += delta;
-            }
-            else
-            {
-                _stalled = 0;
-                Elapsed = pos;
-            }
-            _lastAudio = pos;
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-        else
-        {
-            Elapsed += delta;
-        }
-
-        if (_stage != null)
-        {
-            _stage.Seconds = (float)Elapsed;
-            _stage.QueueRedraw();
-        }
-
-        UpdateSubtitles();
-
-        if (Elapsed >= Duration)
-        {
-            Finish();
-        }
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Handles ESC, Enter, Space, and gamepad skip inputs.</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event.IsActionPressed("ui_cancel") ||
-            @event.IsActionPressed("ui_accept") ||
-            (@event is InputEventKey key && key.Pressed &&
-             (key.Keycode == Key.Escape || key.Keycode == Key.Space || key.Keycode == Key.Enter)) ||
-            (@event is InputEventJoypadButton joy && joy.Pressed &&
-             (joy.ButtonIndex == JoyButton.Start || joy.ButtonIndex == JoyButton.A)))
-        {
-            GetViewport()?.SetInputAsHandled();
-            Finish();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Positions timeline clock deterministically for testing or seek scrubbing.</summary>
     public void Seek(double seconds)
     {
         Elapsed = Math.Clamp(seconds, 0, Duration);
-        if (_speech != null && _speech.Playing)
-        {
-            _speech.Seek((float)Elapsed);
-        }
+        // Natural playback calls Seek every frame; sampling visuals must never restart the speech decoder.
         if (_stage != null)
         {
             _stage.Seconds = (float)Elapsed;
             _stage.QueueRedraw();
         }
         UpdateSubtitles();
+    }
+
+    /// <summary>Explicit playback scrubbing is separate from ordinary per-frame visual timeline sampling.</summary>
+    public void SeekPlayback(double seconds)
+    {
+        Seek(seconds);
+        _lastAudio = -1; _stalled = 0;
+        if (!IsInsideTree() || HasFinished) return;
+        if (_speech?.Stream != null) _speech.Play((float)Elapsed);
+        if (_ambience?.Stream != null) _ambience.Play((float)Elapsed);
     }
 
     /// <summary>Stops playback audio, marks cutscene finished, and raises Finished exactly once.</summary>
@@ -268,19 +259,39 @@ public partial class CyberNexusAftermath : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
-        if (_speech != null && _speech.Playing) _speech.Stop();
-        if (_ambience != null && _ambience.Playing) _ambience.Stop();
-
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
+        QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Ensures audio streams are silenced if overlay is freed directly from tree.</summary>
     public override void _ExitTree()
     {
-        if (_speech != null && _speech.Playing) _speech.Stop();
-        if (_ambience != null && _ambience.Playing) _ambience.Stop();
-        base._ExitTree();
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 
     /// <summary>Updates subtitle text and border accent color based on current elapsed seconds.</summary>

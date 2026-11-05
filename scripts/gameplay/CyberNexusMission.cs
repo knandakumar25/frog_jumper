@@ -10,10 +10,13 @@ using System.Linq;
 /// boss encounter ("Overseer-10"), and extraction via the central express ascent elevator into the Apex Bastion.
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
+public partial class CyberNexusMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression, gates, boss phases, and objectives.</summary>
     public NexusProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -38,6 +41,7 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
     private NexusOverseerBoss2D? _boss;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private bool _bossSpawned;
     private bool _nodeAlphaOverridden;
@@ -114,7 +118,8 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
         // Wall-jump server monoliths across the abyssal mainframe core
         foreach (float wx in new[] { 1700f, 1880f, 6300f, 8500f, 12300f, 14900f, 19500f, 23900f })
         {
-            AddPlatform(wx, 240, 24, 360, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 240, 24, 200, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Main Ingress Gantry
@@ -149,16 +154,16 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
 
         // Ability-Gated Obstacles
         // Sector 2: Liquid helium pipe rupture requiring Oceanus Hydro Torrent
-        AddGate("HeliumLeakGate", GateKind.FireVent, new Vector2(4600, 600));
+        AddObjectiveGate("HeliumLeakGate", GateKind.FireVent, new Vector2(4600, 600), "helium_manifold_doused");
 
         // Sector 2 exit: Reinforced titanium server bracket requiring Apex Titan Slam
-        AddGate("ServerBracketBulkhead", GateKind.RubbleWall, new Vector2(8600, 600));
+        AddObjectiveGate("ServerBracketBulkhead", GateKind.RubbleWall, new Vector2(8600, 600), "server_bracket_shattered");
 
         // Sector 3 exit: Biometric scanner firewall corridor requiring Surya Prime Bulwark
-        AddGate("BiometricFirewallGate", GateKind.HeatVent, new Vector2(14600, 600));
+        AddObjectiveGate("BiometricFirewallGate", GateKind.HeatVent, new Vector2(14600, 600), "biometric_firewall_absorbed");
 
         // Sector 4: Neural matrix cipher sonic lock requiring Aura Phoenicia Resonate
-        AddGate("NeuralCipherSonicGate", GateKind.SonicLock, new Vector2(18600, 600));
+        AddObjectiveGate("NeuralCipherSonicGate", GateKind.SonicLock, new Vector2(18600, 600), "cipher_resonance_bypassed");
     }
 
     /// <summary>Builds cryogenic louvers, optical laser firewalls, quantum override nodes, and lift trigger.</summary>
@@ -194,6 +199,7 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.5f,
             Damage = 35f
         };
+        TrackPhaseBoundary(laserGrid, "laser_firewall_phased");
         Actors.AddChild(laserGrid);
         _lasers.Add(laserGrid);
 
@@ -292,6 +298,7 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
         AddEncounter("core3", new Rect2(22800, 200, 1000, 500), new[] { (new Vector2(23100, 554), true), (new Vector2(23400, 554), false) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -300,7 +307,9 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "core1", "core2", "core3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -317,7 +326,7 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             if (id == "quantum_nodes_overridden")
@@ -334,59 +343,63 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 20400f && Player.GlobalPosition.X <= 24100f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check milestone conditions
         if (!Progress.Has("ingress_confirmed") && Progress.CanComplete("ingress_confirmed"))
             CommitObjective("ingress_confirmed");
 
-        if (!Progress.Has("helium_manifold_doused") && Progress.CanComplete("helium_manifold_doused"))
+        if (!Progress.Has("helium_manifold_doused") && Progress.CanComplete("helium_manifold_doused") && HasActionEvidence("helium_manifold_doused"))
             CommitObjective("helium_manifold_doused");
 
-        if (!Progress.Has("server_bracket_shattered") && Progress.CanComplete("server_bracket_shattered"))
+        if (!Progress.Has("server_bracket_shattered") && Progress.CanComplete("server_bracket_shattered") && HasActionEvidence("server_bracket_shattered"))
             CommitObjective("server_bracket_shattered");
 
         if (!Progress.Has("cooling_vaults_secured") && Progress.CanComplete("cooling_vaults_secured"))
             CommitObjective("cooling_vaults_secured");
 
-        if (!Progress.Has("laser_firewall_phased") && Progress.CanComplete("laser_firewall_phased"))
+        if (!Progress.Has("laser_firewall_phased") && Progress.CanComplete("laser_firewall_phased") && HasActionEvidence("laser_firewall_phased"))
             CommitObjective("laser_firewall_phased");
 
-        if (!Progress.Has("biometric_firewall_absorbed") && Progress.CanComplete("biometric_firewall_absorbed"))
+        if (!Progress.Has("biometric_firewall_absorbed") && Progress.CanComplete("biometric_firewall_absorbed") && HasActionEvidence("biometric_firewall_absorbed"))
             CommitObjective("biometric_firewall_absorbed");
 
         if (!Progress.Has("optical_conduits_secured") && Progress.CanComplete("optical_conduits_secured"))
             CommitObjective("optical_conduits_secured");
 
-        if (!Progress.Has("cipher_resonance_bypassed") && Progress.CanComplete("cipher_resonance_bypassed"))
+        if (!Progress.Has("cipher_resonance_bypassed") && Progress.CanComplete("cipher_resonance_bypassed") && HasActionEvidence("cipher_resonance_bypassed"))
             CommitObjective("cipher_resonance_bypassed");
 
         if (!Progress.Has("neural_substation_breached") && Progress.CanComplete("neural_substation_breached"))
             CommitObjective("neural_substation_breached");
 
         // Spawn Nexus Overseer Boss when entering Sector 5 quantum core arena
-        if (!_bossSpawned && Player.GlobalPosition.X >= 20400f && Progress.Has("neural_substation_breached"))
+        if (!_bossSpawned && !Progress.Has("nexus_overseer_phase:3") && Player.GlobalPosition.X >= 20400f && Progress.Has("neural_substation_breached"))
         {
             SpawnNexusOverseerBoss();
         }
 
         // Check quantum processing nodes interaction in Sector 6
-        if (Progress.Has("nexus_overseer_phase:3") && !Progress.Has("quantum_nodes_overridden"))
+        if (Progress.CanComplete("quantum_nodes_overridden"))
         {
             if (!_nodeAlphaOverridden && Player.GlobalPosition.DistanceTo(_nodeAlpha.GlobalPosition) <= 90f)
             {
                 _nodeAlphaOverridden = true;
-                _nodeAlpha.Visible = false;
+                _nodeAlpha.SetCollected();
                 _acceptedSound?.Play();
             }
             if (!_nodeBetaOverridden && Player.GlobalPosition.DistanceTo(_nodeBeta.GlobalPosition) <= 90f)
             {
                 _nodeBetaOverridden = true;
-                _nodeBeta.Visible = false;
+                _nodeBeta.SetCollected();
                 _acceptedSound?.Play();
             }
             if (!_nodeGammaOverridden && Player.GlobalPosition.DistanceTo(_nodeGamma.GlobalPosition) <= 90f)
             {
                 _nodeGammaOverridden = true;
-                _nodeGamma.Visible = false;
+                _nodeGamma.SetCollected();
                 _acceptedSound?.Play();
             }
 
@@ -405,13 +418,14 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
         }
     }
 
+    /// <summary>Creates the mission-owned arena boss, binds its player/HUD and accepts phase changes only after supporting defenders.</summary>
     private void SpawnNexusOverseerBoss()
     {
         _bossSpawned = true;
         _boss = new NexusOverseerBoss2D
         {
             Name = "NexusOverseerBoss",
-            GlobalPosition = new Vector2(21800, 320)
+            GlobalPosition = new Vector2(21800, 510)
         };
         _boss.BossHealthChanged += (curr, max, phase) =>
         {
@@ -426,7 +440,10 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
                 CommitObjective("nexus_overseer_phase:3");
         };
 
+        _boss.Target = Player;
+        _boss.PhaseAcceptance = stage => Progress.CanComplete("nexus_overseer_phase:" + stage);
         Actors.AddChild(_boss);
+        GetNode<CyberCombatHud>("CyberCombatHud").BindCampaignBoss(_boss);
     }
 
     /// <inheritdoc/>
@@ -468,6 +485,9 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -491,7 +511,9 @@ public partial class CyberNexusMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
+        ResetArenaAttempt(ref _boss, ref _bossSpawned, "nexus_overseer_phase", new[] { "core1", "core2", "core3" });
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))
         {

@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Thermal telemetry online. Four thousand Kelvin at the source. We have reached the Foundry Forge.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "524b5c06ecff05d2d0d83d87a34e1c066e4c13b1fbf028f3e09441beae009774",
+    "request_sha256": "493b9b56621be47048d16764b5582f9bef178f4dd68389bb65dfd993fcb53944"
+  },
+  {
+    "cue": 2,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Those conduits feed the Citadel sky-shields. Shut this reactor down, and their fortress loses its cover.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "2a7cc8213776982eb880a90aefdc39fad9f611217c7c960c7a76b8d032997804",
+    "request_sha256": "bee3cd7916c697ecb56e087901341b1f140f1a0aa2915a17fec93227d1350d06"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Forced labor built this place. Heavy coils, thick walls. They planned for a meltdown. They did not plan for us.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "ad0119a77f4283cebac3168ce8a0266cfeb8a6925d3f54a4e3e9b0e7dcc95f88",
+    "request_sha256": "6318bb6545a5bd2691364ef6a3035682b9a6b07bbd365796a6855ba548c76adb"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Three aquifers drained to cool their turbines. Break the valves, and the river can take its course again.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "96a41246917f11ba7eccf3820993d1f904b387aede00606a8b155d20cbba29e1",
+    "request_sha256": "b811745f6a5c32b4318883e3c752334c2894f0a2781f69d5d83cc32cd446fe84"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "That turbine is deafening. But beneath the grind, I can hear a fault in the containment lattice.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "b3791f31c014f90011f76aa11963b9280a7081bf8ba6dc8da98218daba52cbdd",
+    "request_sha256": "add268f60be85669895e59caf1c9e8a779ebab422788a4da10c7f013871f6f67"
+  },
+  {
+    "cue": 6,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Turrets on the catwalks. Slag below. I have a route over the coolant lines. Watch your footing.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "a0bf2ac4b67461c35684c99ffcd28f7e198a3d904e99eaf678ad0c3be265c2d3",
+    "request_sha256": "2b3acbe098741bf451ec4b18c3ff4b6e20bac575993cb11baf66032eefd90121"
+  },
+  {
+    "cue": 7,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "My bulwark will cover the radiation crossing. Once we breach the core, we move straight to extraction.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "87f59e8ba15800c3e63cc80369808dd2c33a1986c61c53e760bbfa20a3b6ac37",
+    "request_sha256": "1f9219f0dd244929950006af99af7a2f25f273ac87f1a1ab186b44762f693ebc"
+  },
+  {
+    "cue": 8,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "When that reactor goes, their shield goes with it. Let us see how brave they are without it.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "56724a295f5d7d83c8ae507af4b953a7f83d51ab0d8e64a548b4e030c2900b33",
+    "request_sha256": "a0b01b8754101b1367f0cf49fbd3061206f49402e36154d8dda5e7b823f2461e"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Sever the coolant lines. Overload the reactor. Break their sky-shields. Axiom Force, drop in.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e4cefeaff0fe2529420de0088858c1c78363b3bcf1662b07a03a6e3af08534e2",
+    "request_sha256": "e04b5146a738548f62e5d1f43b2748b0e68cc12c73e4c1139486405e6c6494f9"
+  }
+]

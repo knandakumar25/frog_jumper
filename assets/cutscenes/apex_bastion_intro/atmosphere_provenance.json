@@ -1,0 +1,12 @@
+{
+  "scene": "apex_bastion_intro",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "460489013dac88e21bd2a8b919429a7fa6e7452788abadd3feed59ca8f9bb54b",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "wind",
+    "hydraulics",
+    "fortress"
+  ]
+}

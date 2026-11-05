@@ -1,0 +1,173 @@
+[
+  {
+    "cue": 1,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Altitude twelve hundred meters. Wind shear forty-five knots. Commercial transit is grounded. Stratos Docks is under lockdown.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "3f475d2af567b1c0880f6a9c93086523d23c1a379954a5c69fd1e2eaccd0d162",
+    "request_sha256": "a3fe4521bbc5e745903130d54ad7d88740eea1e7441cb6845ffd2d36e50cdb6f"
+  },
+  {
+    "cue": 2,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Three gunships on the upper pads. But Bay Four has a heavy transport fueled and idling. That is our ride.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "e15bf301b072f6d3ba0b2aa1e361b5b33eeae145b17a60fcde128e5de95b2182",
+    "request_sha256": "f0c1fc11f5167731c869dd6f4dff807d6a62a2138fbaf55fd256ed0a557f4d4d"
+  },
+  {
+    "cue": 3,
+    "speaker": "TITAN",
+    "voice": "George",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Magnetic mooring clamps. Reinforced locks. Get me to the release valves, and I will free that bird.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "cab4004534ba2ecbfe93df431cb10b51e75fa48a9d25785f152dbbe7357ad42e",
+    "request_sha256": "46351dfbe2933200cbad81d66f3bf0a13fc893b6220996e340a7339a0b46eee0"
+  },
+  {
+    "cue": 4,
+    "speaker": "OCEANUS",
+    "voice": "Sarah",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Those fuel lines carry liquid hydrogen. One spark could take the deck with it. We keep this clean.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "948648f3f027ecfd5fa300c91077f9d2ed53fa2ad29ae91ee07d5e0e6821fe47",
+    "request_sha256": "eed00dcf7adae8ae1da276e97b0652522c52fa21a7045003eb5cecead5ed2575"
+  },
+  {
+    "cue": 5,
+    "speaker": "AURA",
+    "voice": "Matilda",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Air traffic control is calling in interceptors. The flight grid is trying to pin us on the catwalks.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "723d4efe091f0f1be6f857236778cd253b635134307f6252f1e91b5dfc5368fa",
+    "request_sha256": "5c37f8664210f99c339aa5a4aa18c64ad941274e2dc0bda53ec2d0336777ef4b"
+  },
+  {
+    "cue": 6,
+    "speaker": "SURYA",
+    "voice": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "I can cover the flak crossing with my solar barrier. Stay close until we are off the flight line.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "18ebd217a6f35ada368b49f52bdd94c36262f7a7bd5e3e4e3ceb17dcb5b1cf69",
+    "request_sha256": "7e34ee39a5882dff5e091bcc03adaabea478043dad342289fd1e2d4d04b98515"
+  },
+  {
+    "cue": 7,
+    "speaker": "MIRAGE",
+    "voice": "Eric",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Dual-phase lasers across the maintenance route. I will cross first and open a path through the security grid.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "f0a84ef1c39735c3af3db0da389566b5721fc135c63243fa6672d5e04bf88309",
+    "request_sha256": "a6a95856727a798153f582c8aa5099db080fe89712f4bf4704c5b11c6e4f6c28"
+  },
+  {
+    "cue": 8,
+    "speaker": "AXIOM-7",
+    "voice": "Daniel",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Flight path ready. Once we have the transport, we climb toward the Spire upper command ring.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "32bcd6ca5db3fdd716b4f0602160786121fa0bb4e55bb23d82b98d3fef0c507f",
+    "request_sha256": "669b5759696ca4e3a3f723e1aa1420471c58edccd00f368caf43c6011aecf535"
+  },
+  {
+    "cue": 9,
+    "speaker": "KAITO",
+    "voice": "Adam",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.12,
+      "speed": 1,
+      "use_speaker_boost": true
+    },
+    "text": "Weapons live. Breach the flight deck, seize that gunship, and take this fight upstairs. Axiom Force, move out.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
+    "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
+    "source_sha256": "f3996eaad7ab5888de0ac92cfd4d977119650f735e6911e7e9f5feb5fec7730a",
+    "request_sha256": "1e275ab36f74e65fe3d43c96b6bc14b3af9d0ecb6354a2d69769ccdc126dd43a"
+  }
+]

@@ -15,8 +15,8 @@ public partial class SpireOuterHullStage : Control
     /// <summary>Monotonic timeline sample in seconds provided by the cutscene controller.</summary>
     public float Seconds { get; set; }
 
-    /// <summary>All visuals are generated procedurally, guaranteeing zero missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    /// <summary>Requires authored environment art and cue metadata; the owner supplies a safe completion fallback.</summary>
+    public bool ResourcesAvailable => CampaignArtwork.Available("spire_outer_hull", ArtPath);
 
     // Operative color accents
     private static readonly Color ColorKaito = new("00f0ff");    // Cyan
@@ -66,17 +66,17 @@ public partial class SpireOuterHullStage : Control
         float tInShot = GetShotProgress(Seconds, shot);
 
         Vector2 camPos = InterpolateCameraPosition(shot, tInShot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float zoom = InterpolateCameraZoom(shot, tInShot);
 
         // Apply camera transformation centered on 1920x1080 design space
-        Vector2 designCenter = new(960, 540);
-        Vector2 offset = (designCenter - camPos) * zoom;
-        Vector2 scale = (viewport / new Vector2(1920, 1080)) * zoom;
-
-        DrawSetTransform(offset + (viewport - new Vector2(1920, 1080) * scale) * 0.5f, 0, scale);
+        float fit = Mathf.Min(viewport.X / 1920, viewport.Y / 1080);
+        Vector2 margin = (viewport - new Vector2(1920, 1080) * fit) * .5f;
+        DrawSetTransform(margin + (new Vector2(960, 540) - camPos * zoom) * fit, 0, Vector2.One * fit * zoom);
 
         // 1. Stratospheric Sky & Storm Ceiling Below
         DrawSkyAndClouds(Seconds);
+        CampaignArtwork.DrawEnvironment(this, "spire_outer_hull", Seconds, aftermath: false, drawBase: true);
 
         // 2. Colossal Spire Outer Hull (Vertical Monolith)
         DrawSpireOuterHull(Seconds, shot);
@@ -300,36 +300,7 @@ public partial class SpireOuterHullStage : Control
 
     private void DrawOperatives(float t, int shot)
     {
-        // Operative silhouettes positioned at the threshold of the open cargo bay
-        float hoverY = Mathf.Sin(t * 2f) * 6f;
-        Vector2 bayPos = new(480, 480 + hoverY);
-
-        // 1. Surya Prime (Bulwark Tank) - rear left
-        DrawOperativeSilhouette(bayPos + new Vector2(30, 80), ColorSurya, shot == 1);
-
-        // 2. Apex Titan (Juggernaut) - middle left
-        DrawOperativeSilhouette(bayPos + new Vector2(65, 75), ColorTitan, shot == 3, 1.2f);
-
-        // 3. Oceanus (Tactician) - center
-        DrawOperativeSilhouette(bayPos + new Vector2(100, 80), ColorOceanus, shot == 4);
-
-        // 4. Aura Phoenicia (Prism Weaver) - middle right
-        DrawOperativeSilhouette(bayPos + new Vector2(135, 82), ColorAura, shot == 5);
-
-        // 5. Mirage Blade (Assassin) - front threshold
-        DrawOperativeSilhouette(bayPos + new Vector2(170, 78), ColorMirage, shot == 2 || shot == 7);
-
-        // 6. Cyber Shogun (Kaito) - lead point at edge
-        DrawOperativeSilhouette(bayPos + new Vector2(205, 76), ColorKaito, shot == 8, 1.05f);
-
-        // Shot 8: Kaito drawing glowing katana energy trail
-        if (shot == 8)
-        {
-            Vector2 kaitoHand = bayPos + new Vector2(215, 60);
-            Vector2 bladeTip = kaitoHand + new Vector2(40, -45);
-            DrawLine(kaitoHand, bladeTip, ColorKaito, 3f);
-            DrawLine(kaitoHand, bladeTip, new Color(1f, 1f, 1f), 1.5f);
-        }
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     private void DrawOperativeSilhouette(Vector2 pos, Color accent, bool highlighted, float scale = 1.0f)

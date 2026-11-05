@@ -28,19 +28,22 @@ public partial class ApexBastionAftermath : CanvasLayer
     public bool HasFinished { get; private set; }
 
     // Dialogue timing cue start points (matching assets/cutscenes/apex_bastion_aftermath/cues.json)
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0 };
 
     // Dialogue text per cue
     private static readonly string[] Lines = {
-        "AXIOM-7: Bastion Praetor core neutralized. The high fortress battlements are cleared. Flak artillery arrays across the stratospheric summit have gone completely silent.",
-        "TITAN: That was their supreme guardian? Heavy armor, but its servos couldn't take my kinetic hammer. Now look at those blast doors... thick enough to withstand orbital bombardment.",
-        "OCEANUS: Look at the atmospheric sensors. Barometric pressure is plummeting, but the temperature is surging. The entire summit is wrapped in a localized void hurricane.",
-        "SURYA: It is not weather. The Void Commander is siphoning raw energy from the upper atmosphere straight into the Throne Room. My bulwark shields are picking up intense electromagnetic distortion.",
-        "AURA: The dissonance... it's deafening now. An overwhelming psychic frequency echoing from behind those doors. He knows we broke through his army, and he is waiting.",
-        "MIRAGE: I've sliced into the gate relays. The Praetor's biometric master key was the only lock left. Disengaging hydraulic security bolts... three... two... one.",
-        "AXIOM-7: Warning: Blast doors unsealing. Sensor telemetry beyond this threshold confirms the Void Commander's throne chamber. Extreme lethal power readings detected.",
-        "SURYA: Twelve sectors. We fought from the flooded ruins of Old Tokyo, through the underground bio-labs, up the Spire hull, and across these clouds. This is the end of the line.",
-        "KAITO: We set out to free this city, and we finish it together. Axiom Force, draw steel. Behind these doors is Judgment Day!",
+        "AXIOM-7: Praetor neutralized. Battlements clear. The summit flak arrays have fallen silent.",
+        "TITAN: Heavy armor, weak servos. Now those blast doors look less welcoming. Think they heard what happened to their guardian?",
+        "OCEANUS: Pressure falling, temperature rising. That storm around the summit is getting tighter. This is not normal weather.",
+        "SURYA: It is a power siphon. He is drawing energy straight into the throne room. My shields can feel the distortion.",
+        "AURA: The dissonance behind those doors is deafening. He knows we are here. He has stopped hiding.",
+        "MIRAGE: Gate relays unlocked. The Praetor key was the last barrier. Releasing the hydraulic bolts. Three. Two. One.",
+        "AXIOM-7: Blast doors opening. Throne chamber confirmed. Lethal energy readings beyond the threshold. Proceed together.",
+        "SURYA: From the flooded ruins to the clouds. All this way, all these people depending on us. We finish it here.",
+        "KAITO: We set out to free this city. We finish together. Axiom Force, draw steel. Behind these doors is Judgment Day.",
         ""
     };
 
@@ -67,6 +70,7 @@ public partial class ApexBastionAftermath : CanvasLayer
     /// <summary>Constructs visual stage, subtitle container, skip button, and audio streams.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
 
         _stage = GetNodeOrNull<ApexBastionAftermathStage>("ApexBastionAftermathStage");
@@ -162,20 +166,28 @@ public partial class ApexBastionAftermath : CanvasLayer
             {
                 Name = "Speech",
                 Stream = GD.Load<AudioStream>(SpeechPath),
-                Bus = "Dialogue"
+                Bus = "SFX"
             };
             AddChild(_speech);
             _speech.Play();
         }
 
         Seek(0);
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Supports timeline seeking and precise positioning for tests.</summary>
     public void Seek(double seconds)
     {
         Elapsed = Math.Clamp(seconds, 0, Duration);
-        if (_stage != null) _stage.Seconds = (float)Elapsed;
+        if (_stage != null)
+        {
+            _stage.Seconds = (float)Elapsed;
+            _stage.QueueRedraw(); // Clock changes must redraw the opening gates, speaker framing and particles.
+        }
         UpdateSubtitles();
     }
 
@@ -219,62 +231,32 @@ public partial class ApexBastionAftermath : CanvasLayer
     public override void _Process(double delta)
     {
         if (HasFinished) return;
-
-        if (_speech != null && _speech.Playing)
+        double clock = Elapsed + delta;
+        if (_speech is { Playing: true })
         {
-            double pos = _speech.GetPlaybackPosition();
-            if (Math.Abs(pos - _lastAudio) < 0.0001)
-            {
-                _stalled += delta;
-                if (_stalled > 0.5) Elapsed += delta;
-            }
-            else
-            {
-                _stalled = 0;
-                _lastAudio = pos;
-                Elapsed = pos;
-            }
+            double position = _speech.GetPlaybackPosition();
+            _stalled = position <= _lastAudio ? _stalled + delta : 0;
+            _lastAudio = position;
+            if (_stalled < .5)
+                clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
-        else
-        {
-            Elapsed += delta;
-        }
-
-        if (_stage != null) _stage.Seconds = (float)Elapsed;
-        UpdateSubtitles();
-
-        if (Elapsed >= Duration)
-        {
-            Finish();
-        }
+        Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
+        if (Elapsed >= Duration) Finish();
     }
 
     /// <summary>Multi-input skip handling (ESC, Space, Enter, Gamepad Start/A, mouse/touch click).</summary>
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent input)
     {
-        if (HasFinished) return;
-
-        if (@event is InputEventKey key && key.Pressed && !key.Echo)
-        {
-            if (key.Keycode is Key.Escape or Key.Space or Key.Enter or Key.KpEnter)
-            {
-                GetViewport()?.SetInputAsHandled();
-                Finish();
-            }
-        }
-        else if (@event is InputEventJoypadButton joy && joy.Pressed)
-        {
-            if (joy.ButtonIndex is JoyButton.Start or JoyButton.A)
-            {
-                GetViewport()?.SetInputAsHandled();
-                Finish();
-            }
-        }
-        else if (@event is InputEventMouseButton mouse && mouse.Pressed && mouse.ButtonIndex == MouseButton.Left)
-        {
-            GetViewport()?.SetInputAsHandled();
-            Finish();
-        }
+        if (HasFinished || !IsInsideTree()) return;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
+        skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        if (!skip) return;
+        GetViewport().SetInputAsHandled();
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
+        Finish();
     }
 
     /// <summary>Completes playback, silences audio, and raises the Finished signal.</summary>
@@ -282,18 +264,38 @@ public partial class ApexBastionAftermath : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
-        if (_speech != null && _speech.Playing) _speech.Stop();
-        if (_ambience != null && _ambience.Playing) _ambience.Stop();
-
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
         EmitSignal(SignalName.Finished);
+        QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Safely ensures all owned audio is stopped on tree removal.</summary>
     public override void _ExitTree()
     {
-        if (_speech != null && _speech.Playing) _speech.Stop();
-        if (_ambience != null && _ambience.Playing) _ambience.Stop();
-        base._ExitTree();
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 }

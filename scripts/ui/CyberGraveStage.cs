@@ -12,7 +12,7 @@ public partial class CyberGraveStage : Control
     /// <summary>Timeline sample supplied by the overlay; motion never accumulates frame error.</summary>
     public float Seconds { get; set; }
     /// <summary>All procedural visual passes can render without requiring external textures, ensuring zero-missing-resource crashes.</summary>
-    public bool ResourcesAvailable => true;
+    public bool ResourcesAvailable => CampaignArtwork.Available("cyber_grave", ArtPath);
 
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
@@ -74,6 +74,7 @@ public partial class CyberGraveStage : Control
         Vector2 margin = (Size - new Vector2(1920, 1080) * fit) * 0.5f;
 
         Vector2 camPos = GetSmoothCameraPosition(t, shot);
+        camPos = CampaignArtwork.Focus(ArtPath, Seconds, camPos);
         float camZoom = GetSmoothCameraZoom(t, shot);
 
         // Apply letterboxed 1920x1080 canvas transformation
@@ -81,6 +82,7 @@ public partial class CyberGraveStage : Control
 
         // 2. Shaft architecture and rushing parallax struts
         DrawShaftBackground(t);
+        CampaignArtwork.DrawEnvironment(this, "cyber_grave", Seconds, aftermath: false, drawBase: true);
 
         // 3. Bioluminescent chemical nutrient conduits and energy nodes
         DrawBioNutrientConduits(t);
@@ -319,27 +321,7 @@ public partial class CyberGraveStage : Control
     /// <summary>Draws stylized squad operative silhouettes positioned across the elevator platform.</summary>
     private void DrawOperativeSilhouettes(float t, int shot)
     {
-        float rumble = Mathf.Sin(t * 26.0f) * 1.5f;
-        float baseFloor = 720.0f + rumble;
-
-        // Squad layout: [Surya, Oceanus, Kaito, Aura, Mirage, Titan]
-        // 1. Surya Prime (Left flank, bulwark beacon transmitter)
-        DrawSuryaSilhouette(new Vector2(580, baseFloor), t, shot == 6);
-
-        // 2. Oceanus (Center-left, looking down toward the labs)
-        DrawOceanusSilhouette(new Vector2(740, baseFloor), t, shot is 3 or 7);
-
-        // 3. Cyber Shogun Kaito (Center, commanding stance with katana)
-        DrawKaitoSilhouette(new Vector2(920, baseFloor), t, shot is 1 or 8);
-
-        // 4. Aura Phoenicia (Center-right, sensory resonance tuning)
-        DrawAuraSilhouette(new Vector2(1100, baseFloor), t, shot == 2);
-
-        // 5. Mirage Blade (Right, crouching infiltration scout)
-        DrawMirageSilhouette(new Vector2(1260, baseFloor), t, shot == 5);
-
-        // 6. Apex Titan (Far right, towering kinetic juggernaut)
-        DrawTitanSilhouette(new Vector2(1420, baseFloor), t, shot == 4);
+        CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
     /// <summary>Draws Kaito's silhouette with katana blade gleam and signature crimson scarf glow.</summary>

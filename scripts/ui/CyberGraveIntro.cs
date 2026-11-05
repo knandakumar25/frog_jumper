@@ -28,6 +28,9 @@ public partial class CyberGraveIntro : CanvasLayer
     /// <summary>True once completion has been consumed; repeated input cannot show gameplay twice.</summary>
     public bool HasFinished { get; private set; }
 
+    private CinematicOwnership? _ownership;
+    private bool _completionDelivered;
+
     private static readonly double[] Starts = { 0, 1.0, 14.5, 27.5, 40.0, 53.5, 68.5, 82.0, 93.5, 102.0, 111.0 };
 
     private static readonly string[] Lines = {
@@ -67,6 +70,7 @@ public partial class CyberGraveIntro : CanvasLayer
     /// <summary>Builds independent responsive presentation and starts optional audio only inside the tree.</summary>
     public override void _Ready()
     {
+        _ownership = new CinematicOwnership(this);
         ProcessMode = ProcessModeEnum.Always;
         _previousMouseMode = Input.MouseMode;
         Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -144,6 +148,10 @@ public partial class CyberGraveIntro : CanvasLayer
         Seek(0);
 
         if (!_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
+            if (_speech != null) _speech.Bus = "SFX";
+        if (_ambience != null) { _ambience.Bus = "Music"; _ambience.VolumeDb = -6; }
+        CinematicOwnership.LayoutSubtitles(_panel);
+        if (_stage != null && !_stage.ResourcesAvailable) Callable.From(Finish).CallDeferred();
     }
 
     /// <summary>Loads optional audio without emitting missing-resource errors; all players belong to this overlay.</summary>
@@ -168,10 +176,11 @@ public partial class CyberGraveIntro : CanvasLayer
             double position = _speech.GetPlaybackPosition();
             _stalled = position <= _lastAudio ? _stalled + delta : 0;
             _lastAudio = position;
-            if (_stalled < 0.5)
+            if (_stalled < .5)
                 clock = System.Math.Max(Elapsed, position + AudioServer.GetTimeSinceLastMix() - AudioServer.GetOutputLatency());
         }
         Seek(clock);
+        _subtitle?.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
         if (Elapsed >= Duration) Finish();
     }
 
@@ -203,7 +212,7 @@ public partial class CyberGraveIntro : CanvasLayer
         };
         if (_panelStyle != null) _panelStyle.BorderColor = speakerColor;
 
-        _subtitle.AddThemeFontSizeOverride("font_size", (int)System.Math.Clamp(GetViewport().GetVisibleRect().Size.Y / 45, 14, 22));
+        _subtitle.AddThemeFontSizeOverride("font_size", CinematicOwnership.SubtitleFont(_subtitle!));
         _subtitle.Text = Localized($"CYBER_GRAVE_CUE_{cue}", Lines[cue]);
         if (_panel != null) _panel.Visible = cue > 0 && cue < 10;
     }
@@ -223,18 +232,13 @@ public partial class CyberGraveIntro : CanvasLayer
     public override void _Input(InputEvent input)
     {
         if (HasFinished || !IsInsideTree()) return;
-        bool skip = input is InputEventKey { Pressed: true, Echo: false } key &&
-            key.Keycode is Key.Escape or Key.Space or Key.Enter;
-        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A;
+        bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
+        skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;
         skip |= input is InputEventScreenTouch { Pressed: true } touch && _skip != null && _skip.GetGlobalRect().HasPoint(touch.Position);
-        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse &&
-            _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
+        skip |= input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _skip != null && _skip.GetGlobalRect().HasPoint(mouse.Position);
         if (!skip) return;
         GetViewport().SetInputAsHandled();
-        foreach (StringName action in InputMap.GetActions())
-        {
-            if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
-        }
+        foreach (StringName action in InputMap.GetActions()) if (InputMap.EventIsAction(input, action)) Input.ActionRelease(action);
         Finish();
     }
 
@@ -243,30 +247,45 @@ public partial class CyberGraveIntro : CanvasLayer
     {
         if (HasFinished) return;
         HasFinished = true;
-        _speech?.Stop();
-        _ambience?.Stop();
-        EmitSignal(SignalName.Finished);
+        StopOwnedAudio();
+        foreach (StringName action in InputMap.GetActions()) if (Input.IsActionPressed(action)) Input.ActionRelease(action);
+        if (IsInsideTree()) Callable.From(DeliverCompletion).CallDeferred();
+        else { _completionDelivered = true; EmitSignal(SignalName.Finished); }
+    }
 
+    /// <summary>Delivers completion once beyond input dispatch, then removes the overlay or enters the prepared mission.</summary>
+    private void DeliverCompletion()
+    {
+        if (_completionDelivered || !IsInsideTree()) return;
+        _completionDelivered = true;
+        _ownership?.Restore();
+        EmitSignal(SignalName.Finished);
         if (EnterMissionOnFinish && IsInsideTree())
         {
             CampaignProgress.PrepareMission(6);
-            if (LevelCatalog.Count >= 6)
-            {
-                GetTree().ChangeSceneToFile(LevelCatalog.ScenePath(6));
-            }
-            else
-            {
-                // Fallback to level selection if scene 6 not yet authored
-                GetTree().ChangeSceneToFile("res://scenes/main_menu/level_selection.tscn");
-            }
+            GetTree().Paused = false;
+            GetTree().ChangeSceneToFile(LevelCatalog.ScenePath(6));
         }
+        else QueueFree();
+    }
+
+    /// <summary>Stops only audio owned by this presentation on natural completion, Skip and independent removal.</summary>
+    private void StopOwnedAudio()
+    {
+        if (GodotObject.IsInstanceValid(_speech)) _speech!.Stop();
+        if (GodotObject.IsInstanceValid(_ambience)) _ambience!.Stop();
     }
 
     /// <summary>Restores cursor and persistent prompts when leaving the tree.</summary>
     public override void _ExitTree()
     {
-        Input.MouseMode = _previousMouseMode;
-        GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", _previousPromptVisible);
+        StopOwnedAudio();
+        _ownership?.Restore();
+        if (!_completionDelivered)
+        {
+            HasFinished = _completionDelivered = true;
+            EmitSignal(SignalName.Finished);
+        }
     }
 
     /// <summary>Retrieves localized text with safe fallback.</summary>

@@ -7,8 +7,20 @@ using System.Linq;
 /// Tracks sector progression, stasis pod liberations, coolant overrides, barrier bypasses,
 /// and core security encounters without Godot engine dependencies so it can be verified in pure NUnit.
 /// </summary>
-public sealed class CyberGraveProgress
+public sealed class CyberGraveProgress : ILaterMissionProgress
 {
+    /// <inheritdoc/>
+    public IReadOnlyList<string> ObjectiveIds => Objectives;
+
+    /// <inheritdoc/>
+    public void ResetArena(string phasePrefix, string[] formations)
+    {
+        if (Has(phasePrefix + ":3")) return;
+        _done.RemoveWhere(id => id.StartsWith(phasePrefix + ":", StringComparison.Ordinal) ||
+            formations.Any(f => id == "encounter:" + f));
+        // Slot reward receipts deliberately survive an abandoned arena attempt.
+    }
+
     private readonly HashSet<string> _done = new(StringComparer.Ordinal);
     private readonly HashSet<string> _rewards = new(StringComparer.Ordinal);
 

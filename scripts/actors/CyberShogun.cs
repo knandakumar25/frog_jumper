@@ -707,7 +707,7 @@ public partial class CyberShogun : BaseCharacter
         return true;
     }
 
-    /// <summary>Resets all transient combat state at a training checkpoint without changing profile or saves.</summary>
+    /// <summary>Resets transient combat and protection windows at a checkpoint without changing the operative profile or saves.</summary>
     public void ResetAtCheckpoint(Vector2 position)
     {
         Position = position;
@@ -715,6 +715,8 @@ public partial class CyberShogun : BaseCharacter
         IsMoving = true;
         _isAttacking = _attackPressed = _qPressed = _dashPressed = false;
         _actionRemaining = _wallPushRemaining = _invulnerabilityTimer = _shieldRegenCooldown = 0;
+        // Recovery starts a fresh action window; abandoned protection must never count as a new spatial crossing.
+        AbilityCooldownTimer = _parryRemaining = _phaseRemaining = _bulwarkRemaining = 0;
         DashCooldownTimer = ComboTimer = 0;
         ComboCount = 0;
         ActiveAction = "idle";
@@ -755,7 +757,12 @@ public partial class CyberShogun : BaseCharacter
 		if (IsBulwarked) return;                                // Solar Bulwark absorbs hazards and ranged fire
 		if (IsParrying && ranged)                               // Kinetic Parry throws ranged attacks back
 		{
-			if (source is CyberBossMissile2D missile)
+			if (source is ICampaignProjectile returning)
+            {
+                returning.Reflect();
+                if (source is Node2D projectile) EmitSignal(SignalName.ParryDeflected, projectile);
+            }
+            else if (source is CyberBossMissile2D missile)
             {
                 // Reflect the owned projectile itself so counterfire travels back to its launching mech.
                 missile.Reflect();

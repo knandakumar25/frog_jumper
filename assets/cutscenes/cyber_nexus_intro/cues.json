@@ -5,7 +5,12 @@
     "voice": "Daniel",
     "start": 0.0,
     "end": 10.0,
-    "text": "AXIOM-7: Ingress confirmed. We have crossed into the Citadel Spire interior core. Establishing hardline link into the Cyber-Nexus mainframe architecture."
+    "text": "Ingress confirmed. We are inside the Spire core. Establishing a hardline connection to the Cyber-Nexus.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Ingress confirmed. We are inside the Spire core. Establishing a hardline connection to the Cyber-Nexus.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 2,
@@ -13,7 +18,12 @@
     "voice": "Eric",
     "start": 10.0,
     "end": 20.0,
-    "text": "MIRAGE: Look at the scale of this place... It’s like stepping inside the belly of a leviathan made of glowing glass and cold silicon. Not a speck of dust."
+    "text": "Glass, silicon, not a trace of dust. It feels like walking into something that has never needed a human.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Glass, silicon, not a trace of dust. It feels like walking into something that has never needed a human.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 3,
@@ -21,7 +31,12 @@
     "voice": "George",
     "start": 20.0,
     "end": 30.0,
-    "text": "TITAN: Listen to that hum. The whole tower is vibrating. Every server rack in here could power an entire city block, and they're using it to run death machines."
+    "text": "Every rack could power a city block. All that energy, wasted on watching people and building machines to kill them.",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "TITAN: Every rack could power a city block. All that energy, wasted on watching people and building machines to kill them.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 4,
@@ -29,7 +44,12 @@
     "voice": "Sarah",
     "start": 30.0,
     "end": 40.0,
-    "text": "OCEANUS: High-pressure liquid helium conduits are running beneath the deck plating. If we rupture the manifold cooling lines, the quantum processors will melt themselves down."
+    "text": "Liquid helium under the deck. Disrupt the cooling manifold, and these processors will overheat on their own.",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "OCEANUS: Liquid helium under the deck. Disrupt the cooling manifold, and these processors will overheat on their own.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 5,
@@ -37,7 +57,12 @@
     "voice": "Matilda",
     "start": 40.0,
     "end": 50.0,
-    "text": "AURA: The neural matrix is awake! It’s probing our bio-signatures. The Nexus Overseer knows we’re here, and it’s rerouting automated security drones to our sector."
+    "text": "The matrix is awake. It is probing our signatures. The Overseer has found us, and security is closing in.",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AURA: The matrix is awake. It is probing our signatures. The Overseer has found us, and security is closing in.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 6,
@@ -45,7 +70,12 @@
     "voice": "Brian",
     "start": 50.0,
     "end": 60.0,
-    "text": "SURYA: High-frequency defensive lasers and biometric firewalls are locking down the bridges ahead. My solar barrier can absorb their electromagnetic surges—stay behind me!"
+    "text": "Biometric firewalls on the bridges. I can absorb the surges. Stay behind the barrier while we cross.",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "SURYA: Biometric firewalls on the bridges. I can absorb the surges. Stay behind the barrier while we cross.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 7,
@@ -53,7 +83,12 @@
     "voice": "Daniel",
     "start": 60.0,
     "end": 70.0,
-    "text": "AXIOM-7: Mainframe telemetry analyzed: Three quantum processing nodes regulate the Spire's defense grid. Neutralizing all three will cause a fatal cascading logic failure."
+    "text": "Three quantum nodes regulate the Spire defense grid. Override all three to stop its automated reinforcements.",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "AXIOM-7: Three quantum nodes regulate the Spire defense grid. Override all three to stop its automated reinforcements.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 8,
@@ -61,14 +96,24 @@
     "voice": "Eric",
     "start": 70.0,
     "end": 80.0,
-    "text": "MIRAGE: Once the Nexus falls, the Praetorian guards at the Apex Bastion will lose their automated reinforcements. This is where we break their spine."
+    "text": "Without this core, the Bastion loses its machine army. We break the chain here, before the final climb.",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "MIRAGE: Without this core, the Bastion loses its machine army. We break the chain here, before the final climb.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
     "cue": 9,
     "speaker": "KAITO",
-    "voice": "Liam",
+    "voice": "Adam",
     "start": 80.0,
     "end": 90.0,
-    "text": "KAITO: No retreats, no hesitations. We strike the processing nodes, silence the Overseer, and tear the Citadel's digital throne to pieces. Axiom Force—advance!"
+    "text": "Silence the Overseer. Override the nodes. We finish this together. Axiom Force, advance.",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "model": "eleven_multilingual_v2",
+    "duration": 10.0,
+    "subtitle": "KAITO: Silence the Overseer. Override the nodes. We finish this together. Axiom Force, advance.",
+    "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   }
 ]

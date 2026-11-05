@@ -11,10 +11,13 @@ using System.Linq;
 /// leading directly to the Grand Citadel Throne Room (Mission 12).
 /// Implements <see cref="IFiniteCombatHost"/> for deterministic, finite-formation encounter pacing.
 /// </summary>
-public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
+public partial class ApexBastionMission : LaterCodeLevel, IFiniteCombatHost
 {
     /// <summary>Scene-local mission ledger tracking sector progression, gates, boss phases, and objectives.</summary>
     public ApexBastionProgress Progress { get; } = new();
+
+    /// <inheritdoc/>
+    protected override ILaterMissionProgress Ledger => Progress;
 
     /// <summary>Whether all prerequisite milestones have been reached to allow extraction.</summary>
     public bool CanExtract => Progress.CanExtract;
@@ -37,6 +40,7 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
     private CyberDialogueBubble _dialogue = null!;
     private AudioStreamPlayer _acceptedSound = null!;
     private BastionPraetorBoss2D? _boss;
+    private readonly HashSet<string> _milestoneRewards = new();
     private bool _recovering;
     private bool _bossSpawned;
     private bool _breachTerminalOverridden;
@@ -111,7 +115,8 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
         // Wall-jump pylon columns across the stratospheric fortress
         foreach (float wx in new[] { 1600f, 1850f, 6500f, 8800f, 12500f, 15000f, 20000f, 24500f })
         {
-            AddPlatform(wx, 240, 24, 360, PalaceSurface.Wall, false);
+            // Keep 160 px beneath decorative supports so ground defenders remain reachable.
+            AddPlatform(wx, 240, 24, 200, PalaceSurface.Wall, false);
         }
 
         // Sector 1: Stratospheric Summit Gantry
@@ -146,16 +151,16 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
 
         // Ability-Gated Obstacles
         // Sector 2: Plasma flak coolant pipe rupture requiring Oceanus Hydro Torrent
-        AddGate("FlakCoolantGate", GateKind.FireVent, new Vector2(4800, 600));
+        AddObjectiveGate("FlakCoolantGate", GateKind.FireVent, new Vector2(4800, 600), "flak_coolant_doused");
 
         // Sector 2 exit: Reinforced magnetic titan-clamp mooring barricade requiring Apex Titan Slam
-        AddGate("MooringClampGate", GateKind.RubbleWall, new Vector2(8800, 600));
+        AddObjectiveGate("MooringClampGate", GateKind.RubbleWall, new Vector2(8800, 600), "titan_clamp_shattered");
 
         // Sector 3 exit: Concentrated plasma radiation thermal vents requiring Surya Prime Bulwark
-        AddGate("PlasmaRadiationGate", GateKind.HeatVent, new Vector2(14800, 600));
+        AddObjectiveGate("PlasmaRadiationGate", GateKind.HeatVent, new Vector2(14800, 600), "thermal_vent_absorbed");
 
         // Sector 4: Harmonic dissonance acoustic security lock requiring Aura Phoenicia Resonate
-        AddGate("AcousticLockGate", GateKind.SonicLock, new Vector2(18800, 600));
+        AddObjectiveGate("AcousticLockGate", GateKind.SonicLock, new Vector2(18800, 600), "acoustic_lock_resonated");
     }
 
     /// <summary>Builds coolant louvers, perimeter laser grids, fortress breach terminal, and extraction beacon.</summary>
@@ -191,6 +196,7 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
             InactiveDuration = 1.5f,
             Damage = 35f
         };
+        TrackPhaseBoundary(laserGrid, "laser_curtain_phased");
         Actors.AddChild(laserGrid);
         _lasers.Add(laserGrid);
 
@@ -275,6 +281,7 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
         AddEncounter("breach1", new Rect2(25200, 200, 1000, 500), new[] { (new Vector2(25500, 554), true), (new Vector2(25800, 554), true) });
     }
 
+    /// <summary>Creates a finite formation whose activation and completion obey ledger prerequisites.</summary>
     private void AddEncounter(string id, Rect2 activation, (Vector2 Position, bool Gunner)[] members)
     {
         var encounter = new WildfireEncounter
@@ -283,7 +290,9 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
             Id = id,
             Activation = activation,
             Members = members,
-            Mission = this
+            Mission = this,
+            ManualActivation = new[] { "arena1", "arena2", "arena3" }.Contains(id),
+            Acceptance = () => Progress.CanStartFormation(id)
         };
         Actors.AddChild(encounter);
         _encounters.Add(encounter);
@@ -300,7 +309,7 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
             {
                 _acceptedSound.Play();
             }
-            Score.AddPoint();
+            if (_milestoneRewards.Add(id)) Score.AddPoint();
             CurrentObjective = ComputeObjective();
 
             if (id == "citadel_blast_doors_breached")
@@ -317,36 +326,40 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
         base.UpdateMission();
         if (GameplaySuspended || Player == null) return;
 
+        // Accepted stages explicitly start their next finite wave anywhere within the defense arena.
+        if (Player.GlobalPosition.X >= 20400f && Player.GlobalPosition.X <= 24700f)
+            foreach (var encounter in _encounters.Where(e => e.ManualActivation)) encounter.Activate();
+
         // Auto-check milestone conditions
         if (!Progress.Has("staging_secured") && Progress.CanComplete("staging_secured"))
             CommitObjective("staging_secured");
 
-        if (!Progress.Has("flak_coolant_doused") && Progress.CanComplete("flak_coolant_doused"))
+        if (!Progress.Has("flak_coolant_doused") && Progress.CanComplete("flak_coolant_doused") && HasActionEvidence("flak_coolant_doused"))
             CommitObjective("flak_coolant_doused");
 
-        if (!Progress.Has("titan_clamp_shattered") && Progress.CanComplete("titan_clamp_shattered"))
+        if (!Progress.Has("titan_clamp_shattered") && Progress.CanComplete("titan_clamp_shattered") && HasActionEvidence("titan_clamp_shattered"))
             CommitObjective("titan_clamp_shattered");
 
         if (!Progress.Has("flak_battery_neutralized") && Progress.CanComplete("flak_battery_neutralized"))
             CommitObjective("flak_battery_neutralized");
 
-        if (!Progress.Has("laser_curtain_phased") && Progress.CanComplete("laser_curtain_phased"))
+        if (!Progress.Has("laser_curtain_phased") && Progress.CanComplete("laser_curtain_phased") && HasActionEvidence("laser_curtain_phased"))
             CommitObjective("laser_curtain_phased");
 
-        if (!Progress.Has("thermal_vent_absorbed") && Progress.CanComplete("thermal_vent_absorbed"))
+        if (!Progress.Has("thermal_vent_absorbed") && Progress.CanComplete("thermal_vent_absorbed") && HasActionEvidence("thermal_vent_absorbed"))
             CommitObjective("thermal_vent_absorbed");
 
         if (!Progress.Has("lower_redoubt_cleared") && Progress.CanComplete("lower_redoubt_cleared"))
             CommitObjective("lower_redoubt_cleared");
 
-        if (!Progress.Has("acoustic_lock_resonated") && Progress.CanComplete("acoustic_lock_resonated"))
+        if (!Progress.Has("acoustic_lock_resonated") && Progress.CanComplete("acoustic_lock_resonated") && HasActionEvidence("acoustic_lock_resonated"))
             CommitObjective("acoustic_lock_resonated");
 
         if (!Progress.Has("elevator_shaft_scaled") && Progress.CanComplete("elevator_shaft_scaled"))
             CommitObjective("elevator_shaft_scaled");
 
         // Spawn Bastion Praetor Boss when entering Sector 5 grand redoubt
-        if (!_bossSpawned && Player.GlobalPosition.X >= 20400f && Progress.Has("elevator_shaft_scaled"))
+        if (!_bossSpawned && !Progress.Has("bastion_praetor_phase:3") && Player.GlobalPosition.X >= 20400f && Progress.Has("elevator_shaft_scaled"))
         {
             SpawnBastionPraetorBoss();
         }
@@ -354,12 +367,12 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
         // Check citadel blast doors breach terminal interaction in Sector 6
         if (Progress.Has("bastion_praetor_phase:3") && !Progress.Has("citadel_blast_doors_breached"))
         {
-            if (!_breachTerminalOverridden && Player.GlobalPosition.DistanceTo(_breachTerminal.GlobalPosition) <= 90f)
+            if (!_breachTerminalOverridden && Player.GlobalPosition.DistanceTo(_breachTerminal.GlobalPosition) <= 90f &&
+                AcceptTerminal(_breachTerminal, "citadel_blast_doors_breached", CommitObjective))
             {
                 _breachTerminalOverridden = true;
                 _breachTerminal.Visible = false;
                 _acceptedSound?.Play();
-                CommitObjective("citadel_blast_doors_breached");
             }
         }
 
@@ -372,13 +385,14 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
         }
     }
 
+    /// <summary>Creates the mission-owned arena boss, binds its player/HUD and accepts phase changes only after supporting defenders.</summary>
     private void SpawnBastionPraetorBoss()
     {
         _bossSpawned = true;
         _boss = new BastionPraetorBoss2D
         {
             Name = "BastionPraetorBoss",
-            GlobalPosition = new Vector2(21800, 300)
+            GlobalPosition = new Vector2(21800, 510)
         };
         _boss.BossHealthChanged += (curr, max, phase) =>
         {
@@ -393,7 +407,10 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
                 CommitObjective("bastion_praetor_phase:3");
         };
 
+        _boss.Target = Player;
+        _boss.PhaseAcceptance = stage => Progress.CanComplete("bastion_praetor_phase:" + stage);
         Actors.AddChild(_boss);
+        GetNode<CyberCombatHud>("CyberCombatHud").BindCampaignBoss(_boss);
     }
 
     /// <inheritdoc/>
@@ -435,6 +452,9 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     public void CompleteCombatEvent(string id) => Progress.Complete(id);
 
+    /// <summary>Returns explicit acceptance so rejected deaths cannot strand encounter slots.</summary>
+    public bool TryCompleteCombatEvent(string id) => !GameplaySuspended && Progress.Complete(id);
+
     /// <inheritdoc/>
     public bool CanActivateEncounter(int members) =>
         !GameplaySuspended && _encounters.Sum(e => e.LivingMembers) + members <= 6;
@@ -458,7 +478,9 @@ public partial class ApexBastionMission : CodeLevel, IFiniteCombatHost
     protected override void OnRecoveryStarting()
     {
         _recovering = true;
+        ClearTransientCombat();
         _acceptedSound?.Stop();
+        ResetArenaAttempt(ref _boss, ref _bossSpawned, "bastion_praetor_phase", new[] { "arena1", "arena2", "arena3" });
         foreach (var e in _encounters) e.ResetIncomplete();
         foreach (Node n in Actors.FindChildren("*", "", true, false))
         {

@@ -1,0 +1,11 @@
+{
+  "scene": "judgment_day_intro",
+  "duration": 90,
+  "rate": 22050,
+  "sha256": "8730c300ad7d87f30514efbe367e6955714536ef0ad17f54587bcd4db555c7a3",
+  "source": "Original seeded container Python synthesis; no sampled or duplicated complete atmosphere",
+  "layers": [
+    "singularity",
+    "machinery"
+  ]
+}
