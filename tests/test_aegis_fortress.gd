@@ -243,7 +243,7 @@ func test_extraction_freezes_once_and_has_only_implemented_destinations() -> voi
 	assert_bool(mission.get("MissionComplete")).is_true()
 	var results := mission.get_node("CyberVictoryScorecard/RootPanel/MainVBox")
 	assert_str(results.get_node("TitleLabel").text).is_equal("ACT I COMPLETE")
-	assert_bool(results.get_node("ContinueBtn").visible).is_false()
+	assert_bool(results.get_node("ContinueBtn").visible).is_true()
 	assert_bool(results.get_node("ButtonsHBox/ReplayBtn").visible).is_true()
 	for node in mission.get_node("Actors").find_children("*", "", true, false):
 		assert_bool(node.can_process()).is_false()

@@ -54,7 +54,8 @@ public static class CampaignProgress
     /// Direct scene play without a campaign may navigate; failed active-campaign saves keep forward actions disabled.</summary>
     public static async Task<CompletionSaveResult> CompleteMissionAsync(int completedMission, int points, string runToken, int sessionId)
     {
-        var result = await CampaignSettlement.SaveAsync(sessionId, completedMission, points, runToken).ConfigureAwait(false);
+        string operative = Global?.Get("selected_character").AsString() ?? OperativeRoster.Current.Active;
+        var result = await CampaignSettlement.SaveAsync(sessionId, completedMission, points, runToken, operative: operative).ConfigureAwait(false);
         var applied = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         Callable.From(() =>
         {

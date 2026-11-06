@@ -120,8 +120,8 @@ func test_teardown_restores_presentation_state() -> void:
 	assert_int(Input.mouse_mode).is_equal(mode)
 
 
-func test_only_act_completion_exposes_preview_and_retains_captured_results() -> void:
-	## Ordinary mission results preserve Continue; Act I gains its separate preview with unchanged score labels.
+func test_act_completion_returns_to_world_and_retains_captured_results() -> void:
+	## Ordinary and Act I results share extraction routing; the Act II opening belongs to its world entrance.
 	var card: Node = load("res://scenes/ui/cyber_victory_scorecard.tscn").instantiate()
 	add_child(card)
 	card.call("ShowMissionScorecard", 150, 4, "KAITO", 4)
@@ -129,8 +129,8 @@ func test_only_act_completion_exposes_preview_and_retains_captured_results() -> 
 	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_true()
 	var score: String = card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text
 	card.call("ShowActScorecard", 150, 4, "KAITO")
-	assert_bool(card.get_node("RootPanel/MainVBox/PreviewBtn").visible).is_true()
-	assert_str(card.get_node("RootPanel/MainVBox/PreviewBtn").text).is_equal("CONTINUE TO ACT II")
-	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_false()
+	assert_bool(card.get_node("RootPanel/MainVBox/PreviewBtn").visible).is_false()
+	assert_str(card.get_node("RootPanel/MainVBox/ContinueBtn").text).is_equal(tr("Return to Neo-Kyoto"))
+	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_true()
 	assert_str(card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text).is_equal(score)
 	card.free()

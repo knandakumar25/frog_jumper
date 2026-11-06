@@ -47,6 +47,7 @@
   "scenes/ui/act_ii_end_screen.tscn",
   "scenes/ui/act_iii_start_screen.tscn",
   "scenes/ui/cyber_victory_scorecard.tscn",
+  "scenes/world/neo_kyoto.tscn",
   "scripts/actors/AeroCenturionBoss2D.cs",
   "scripts/actors/AeroMissile2D.cs",
   "scripts/actors/BaseCharacter.cs",
@@ -228,5 +229,14 @@
   "scripts/ui/WildfireStage.cs",
   "scripts/ui/animated_menu_backdrop.gd",
   "scripts/ui/audio_options.gd",
-  "scripts/ui/loading_screen.gd"
+  "scripts/ui/loading_screen.gd",
+  "scripts/world/ExplorationPlayer.cs",
+  "scripts/world/NeoKyotoWorld.cs",
+  "scripts/world/WorldCatalog.cs",
+  "scripts/world/WorldChunkView.cs",
+  "scripts/world/WorldGeneration.cs",
+  "scripts/world/WorldMap.cs",
+  "scripts/world/WorldNavigation.cs",
+  "scripts/world/WorldSave.cs",
+  "scripts/world/WorldText.cs"
 ]

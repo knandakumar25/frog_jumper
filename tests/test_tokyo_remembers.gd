@@ -129,14 +129,14 @@ func test_pointer_and_touch_skip_only_inside_button() -> void:
 		overlay.free()
 
 
-func test_final_scorecard_hides_continue_and_preserves_grades() -> void:
-	## The optional target changes navigation only; existing grade thresholds and final-mission callers remain valid.
+func test_final_scorecard_returns_to_world_and_preserves_grades() -> void:
+	## Every result returns to exploration while existing grade thresholds remain valid.
 	var card: Node = load(SCORECARD).instantiate()
 	card.call("_Ready")
 	card.call("ShowMissionScorecard", 120, 3, "KAITO", 2)
 	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_true()
 	assert_str(card.get_node("RootPanel/MainVBox/RankPanel/RankLabel").text).contains("S RANK")
 	card.call("ShowScorecard", 49, 1, "KAITO")
-	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_false()
+	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_true()
 	assert_str(card.get_node("RootPanel/MainVBox/RankPanel/RankLabel").text).contains("B RANK")
 	card.free()

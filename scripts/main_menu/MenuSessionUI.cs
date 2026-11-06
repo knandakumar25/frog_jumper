@@ -189,6 +189,8 @@ public partial class MenuSessionUI : Node
 		_confirmPopup.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/YesButton")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
+	/// <summary>Confirms save deletion or resumes the selected campaign through its committed world/mission route.
+	/// Storage errors keep the current confirmation open so repeating the action retries without changing scenes.</summary>
 	public async void ConfirmAction()
 	{
 		string deleteMode = (string)_confirmPopup.GetMeta("delete_mode", "none");
@@ -221,13 +223,15 @@ public partial class MenuSessionUI : Node
 		// Continue session
 		int sessionId   = _confirmPopup.GetMeta("session_id").AsInt32();
 		var sessionData = (Godot.Collections.Dictionary)_confirmPopup.GetMeta("session_data");
-		await SessionManager.Instance.LoadSessionAsync(sessionId);
+		if (!await SessionManager.Instance.LoadSessionAsync(sessionId)) { WorldNavigation.ShowSaveError(this); return; }
 
 		// Older sessions may point at the removed tutorial (0) or retired missions; the catalog clamps them.
 		int levelNum = LevelCatalog.Clamp(sessionData["current_level"].AsInt32());
 		// The squad is rebuilt from progress, so the saved character is only honoured if it is unlocked by this mission.
 		CampaignProgress.PrepareMission(levelNum, sessionData["character"].AsString());
-		string levelScene = LevelCatalog.ScenePath(levelNum);
+		string levelScene;
+		try { levelScene = await WorldNavigation.ResumePath(sessionId, levelNum, sessionData["character"].AsString()); }
+		catch (System.Exception) { WorldNavigation.ShowSaveError(this); return; }
 
 		_confirmPopup.Visible = false;
 		LoadingScreen.LoadScene(GetTree(), levelScene);

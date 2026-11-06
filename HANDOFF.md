@@ -1,5 +1,52 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Neo-Kyoto implementation — 2026-11-06
+
+Added the separate streamed exploration scene/controllers/map, stable sixteen-region
+catalog, 48 destinations, 256 free stations, two underground elevator networks and
+twelve mission terminals. Map/terrain share geography; chunk generation is engine-free
+and off-thread, with nine resident scenes and 25 cached payloads. Integer chunk origin
+rebasing keeps Godot coordinates local. Original Blender environment/landmark modules
+and six directional atlases are reproducible through the opt-in Docker art pipeline.
+
+Results now return to exploration, including act/finale results; mission selection
+marks an entrance, and story openings launch at that terminal. PostgreSQL settlement
+atomically stores extraction alongside its receipt/reward; duplicate receipts cannot
+overwrite later transit. World snapshots are campaign-scoped/versioned, with safe
+legacy arrival, mission/world resume, operative and waypoint. Entry/transit/replay/menu
+changes save before leaving; failure exposes retry with no local persistence fallback.
+Ninety world labels have offline-authored seventeen-language text. Proper-name roots
+stay canonical Latin, with localized geographic descriptors; native review is pending.
+
+The live unsaved-preview pass verified all twelve terminal routes, including Act II,
+Act III end/start routing and the finale intro. Fixed overlapping Spire interactions
+by choosing the nearest terminal, and corrected the Blender atlas's east/west row
+order with cardinal-facing assertions. Mission-card requests coalesce while saving;
+late async continuations check node validity, and retry/status controls remain visible
+inside the map as well as the HUD. Future world versions cannot partially settle a
+reward or be silently downgraded. Saving exploration updates campaign character/date.
+
+Final verification: build (0 errors; final incremental build 0 warnings, previous
+full build 153 existing warnings), background import exit 0, Django 111/111,
+NUnit 314/314, Godot 321/321 (report_524, zero
+errors/failures/orphans), Python 20/20 and localization gate PASS (1,565 required
+entries per locale). Eleven NUnit world tests cover all transactional returns,
+legacy/independent/outage/version rejection and a 120-stop bounded-cache sweep.
+These final suites ran after the UI/lifecycle and facing fixes. Final live map/city
+smoke checks passed; the agent-started preview was stopped and the user's editor
+remains open. README, HANDOFF and MEMORY.MD are updated; changes remain uncommitted.
+
+Rendered 32-stop debug sweep on Iris Xe at 1920×1094: frame intervals median
+16.677 ms, p95 17.728 ms, max 43.013 ms; 9 resident/25 cached throughout, static
+memory 103.3–109.9 MB. Live checks covered rural/coastal/underground, 4/8 m/s movement,
+controller Back/D-pad navigation and roof alpha 0.302. All 46 PNG size/alpha/import
+checks passed. This short run is not sustained 1080p/60 certification or a complete
+manual combat playthrough. Native art/language acceptance remains pending.
+Existing addon TLS/editor-shutdown/resource diagnostics persist during import; the
+generic reference checker flags existing addon signal/inheritance cases, none in
+the new world scene. No containers stopped, game exports, commits or pushes.
+See docs/NEO_KYOTO.md for usage, architecture and measured limits.
+
 ## Localization completion continuation — 2026-11-06
 
 Supersedes the missing-cell counts in the historical entries below. Current gate:

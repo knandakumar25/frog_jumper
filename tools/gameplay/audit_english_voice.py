@@ -27,9 +27,10 @@ def all_cues():
     reachable += ''.join(p.read_text(encoding='utf-8-sig') for p in (ROOT/'scripts/gameplay').glob('*Mission.cs'))
     # Menu arrivals are reached before the corresponding mission rather than from its own script.
     reachable += ''.join(p.read_text(encoding='utf-8-sig') for p in (ROOT/'scripts/main_menu').glob('*.cs'))
-    # Follow resource references through scorecard/menu scenes to external arrival scenes.
+    # Follow resource references through scorecard/menu scenes and the central world launch catalog.
     # Code-built overlays are already named in the mission and shared base source above.
-    pending = ['scenes/ui/cyber_victory_scorecard.tscn']
+    # Static C# type calls do not contain a res:// path to their declaration, so name that routing root explicitly.
+    pending = ['scenes/ui/cyber_victory_scorecard.tscn', 'scripts/world/WorldSave.cs']
     visited = set()
     while pending:
         resource = pending.pop()

@@ -2036,3 +2036,38 @@ Use tools/playwright/README.md for the isolated test workflow. Test proxy host p
 ## Browser sign-in Git publication — 2026-11-06
 
 The user explicitly authorized committing and pushing the current changes. Remote preflight verified main and origin/main matched with no divergence. Publication includes the browser Clerk handoff, backend migration/security, menu lifecycle/focus controls, seventeen-language copy, isolated browser tooling, regressions and project documentation. Local environment keys and ignored validation logs are excluded. This Git-only operation reuses the recorded final verification (Django 111, NUnit 303, Godot 319, Python 20 and Playwright 4); no code/assets changed and no tests/imports/exports/deployments were rerun. Seven historical voice-review items and deferred platforms remain as documented.
+## Neo-Kyoto implementation — 2026-11-06
+
+Implemented separate 128 km exploration with stable sixteen-region geography, 48
+destinations, 256 free stations, two underground layers, map/minimap, logical origin
+rebasing and bounded worker streaming (9 scenes/25 cached chunks). Mission settlement
+stores world extraction atomically with exactly-once rewards; world/mission resume,
+transit/entry/replay commits, legacy arrival and campaign isolation use PostgreSQL
+only. Mission cards mark entrances; results including Mission 12 return to exploration.
+Original Blender kit and seventeen-language authored world labels are included;
+geographic roots retain canonical Latin spelling, localized descriptors, native review
+pending. Fixed nearest-terminal selection for adjacent Spire entrances, atlas-facing
+row order, duplicate mission-card requests and async node-lifetime checks. Map and
+HUD both expose save status/retry. All twelve live entrance routes passed; PostgreSQL
+tests verify all returns, receipt retries, legacy/independent saves, outages and
+rollback on unsupported versions. Final build/import exited 0; Django 111/111,
+NUnit 314/314, Godot 321/321 (report_524, zero errors/failures/orphans), Python
+20/20 and the 1,565-key/locale localization gate passed. All 46 PNG size/alpha/import
+checks passed. Iris Xe rendered 32-stop debug sweep at 1920×1094: frame intervals
+median 16.677 ms, p95 17.728 ms, max 43.013 ms, nine scenes/25 cached throughout;
+static memory 103.3–109.9 MB. Sustained 1080p/60 and native art/language acceptance
+remain unverified; no full manual combat playthrough is claimed. Existing addon
+import/shutdown diagnostics remain. Three normal Docker services are running;
+agent-started preview stopped, user's editor preserved. No exports, staging,
+commits or pushes. See docs/NEO_KYOTO.md for controls, architecture and measured limits.
+
+## Neo-Kyoto Git publication — 2026-11-06
+
+The user explicitly authorized committing and pushing the current Neo-Kyoto changes.
+Remote preflight confirmed main and origin/main matched with no divergence. Publication
+includes exploration, original assets and generation tools, seventeen-language labels,
+campaign persistence/routing, regressions and project documentation. Ignored validation
+artifacts and environment credentials are excluded. This Git-only publication reuses
+the recorded final build/import, Django 111, NUnit 314, Godot 321, Python 20 and live
+twelve-entrance verification; no code/assets changed or tests/imports/exports rerun.
+Sustained 1080p/60 and native art/language acceptance remain open as documented.

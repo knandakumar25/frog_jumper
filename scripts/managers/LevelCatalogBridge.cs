@@ -6,6 +6,15 @@ using Godot;
 /// </summary>
 public partial class LevelCatalogBridge : RefCounted
 {
+    private bool _entranceSelectionPending;
+    /// <summary>Routes mission cards to a saved world entrance waypoint, preserving direct Mission 1 opening for new campaigns.</summary>
+    public async void SelectEntrance(Node owner,int number)
+    {
+        if(_entranceSelectionPending) return;
+        _entranceSelectionPending=true;
+        try { await WorldNavigation.SelectEntrance(owner,number); }
+        finally { _entranceSelectionPending=false; }
+    }
     /// <summary>Number of playable missions.</summary>
     public int Count() => LevelCatalog.Count;
 

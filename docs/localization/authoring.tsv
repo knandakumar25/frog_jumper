@@ -342,8 +342,8 @@ Press SPACE / ENTER to Advance  |  Press ESC to Skip	Press SPACE / ENTER to Adva
 ACT_II_SKIP	SKIP // ESC / START	interface	True
 WILDFIRE_SKIP	SKIP // ESC / START	interface	True
 CYBER_GRAVE_SKIP	SKIP // ESC / START	interface	True
-CONTINUE_TO_ACT_III	SECTOR CLEARED // ACT II COMPLETE	interface	True
-CONTINUE_TO_ACT_II	CONTINUE TO ACT II	interface	True
+CONTINUE_TO_ACT_III	SECTOR CLEARED // ACT II COMPLETE	interface	False
+CONTINUE_TO_ACT_II	CONTINUE TO ACT II	interface	False
 FOUNDRY_FORGE_SKIP	SKIP // ESC / START	interface	True
 Loading... 	Loading... 	interface	True
 CITY_VOICE_SKIP	SKIP // ESC / START	interface	True
@@ -1664,3 +1664,98 @@ AUTH_EXPIRED	Sign-in expired. Please try again.	interface	True
 AUTH_NETWORK	Connection lost. Retrying…	interface	True
 AUTH_ERROR	Unable to sign in. Please try again.	interface	True
 AUTH_BROWSER_ERROR	Unable to open browser. Try opening it again.	interface	True
++	+	interface	True
+Aurora Strand	Aurora Strand	interface	True
+Beacon of Dawn	Beacon of Dawn	interface	True
+Blackstone Shrine	Blackstone Shrine	interface	True
+Blueglass Strand	Blueglass Strand	interface	True
+Campaign saved	Campaign saved	interface	True
+Cedar Gate	Cedar Gate	interface	True
+Cedarcrest Highlands	Cedarcrest Highlands	interface	True
+Cedarwild Lodge	Cedarwild Lodge	interface	True
+Cedarwild Preserve	Cedarwild Preserve	interface	True
+Cinderwater Basin	Cinderwater Basin	interface	True
+Citadel Forecourt	Citadel Forecourt	interface	True
+Citadel Ring	Citadel Ring	interface	True
+Clear waypoint	Clear waypoint	interface	True
+Close map	Close map	interface	True
+Cloudstep Landing	Cloudstep Landing	interface	True
+Cloudstep Reservoir	Cloudstep Reservoir	interface	True
+Concrete Junction	Concrete Junction	interface	True
+Concrete Wards	Concrete Wards	interface	True
+Crane Sunset Pier	Crane Sunset Pier	interface	True
+Downtown Core	Downtown Core	interface	True
+Downtown underground	Downtown underground	interface	True
+Eagle Overlook	Eagle Overlook	interface	True
+Eastlight Exchange	Eastlight Exchange	interface	True
+Eastlight Harbor	Eastlight Harbor	interface	True
+Elevator	Elevator	interface	True
+Ember Railcut	Ember Railcut	interface	True
+Enter mission	Enter mission	interface	True
+Firefly Glade	Firefly Glade	interface	True
+Floodgate Cathedral	Floodgate Cathedral	interface	True
+Foundry Basin	Foundry Basin	interface	True
+Foundry Exchange	Foundry Exchange	interface	True
+Foundry underworks	Foundry underworks	interface	True
+Free transit	Free transit	interface	True
+Golden Orchard	Golden Orchard	interface	True
+Helios Array	Helios Array	interface	True
+Heron Sanctuary	Heron Sanctuary	interface	True
+Interact	Interact	interface	True
+Iron Memory Depot	Iron Memory Depot	interface	True
+Kurogane Escarpment	Kurogane Escarpment	interface	True
+Kurogane Palace Walls	Kurogane Palace Walls	interface	True
+Kurogane Trailhead	Kurogane Trailhead	interface	True
+Lantern Plaza	Lantern Plaza	interface	True
+Lightning Saddle	Lightning Saddle	interface	True
+Meridian Square	Meridian Square	interface	True
+Mirrorwater Promenade	Mirrorwater Promenade	interface	True
+Mission locked	Mission locked	interface	True
+Moonbridge Garden	Moonbridge Garden	interface	True
+Move: WASD / left stick · Run: Shift / L3 · Map: M / Back · Interact: E / A · Squad: Tab / Y	Move: WASD / left stick · Run: Shift / L3 · Map: M / Back · Interact: E / A · Squad: Tab / Y	interface	True
+Neo-Kyoto · 128 × 128 km	Neo-Kyoto · 128 × 128 km	interface	True
+Northlight Coast	Northlight Coast	interface	True
+Northlight Quay	Northlight Quay	interface	True
+Old Kyoto	Old Kyoto	interface	True
+Open map	Open map	interface	True
+"Pan: WASD / left stick
+Zoom: + − / shoulders
+Right-drag to pan · click for waypoint"	"Pan: WASD / left stick
+Zoom: + − / shoulders
+Right-drag to pan · click for waypoint"	interface	True
+Pan: WASD / left stick\nZoom: + − / shoulders\nRight-drag to pan · click for waypoint	Pan: WASD / left stick\nZoom: + − / shoulders\nRight-drag to pan · click for waypoint	interface	False
+Preview · no active campaign	Preview · no active campaign	interface	True
+Rainline Viaduct	Rainline Viaduct	interface	True
+Reclamation Landing	Reclamation Landing	interface	True
+Reclamation Wetlands	Reclamation Wetlands	interface	True
+Reedglass Observatory	Reedglass Observatory	interface	True
+Registry Needle	Registry Needle	interface	True
+Retry Save	Retry Save	interface	True
+Return to Neo-Kyoto	Return to Neo-Kyoto	interface	True
+Return to main menu	Return to main menu	interface	True
+Rootglass Conservatory	Rootglass Conservatory	interface	True
+Rustrail Belt	Rustrail Belt	interface	True
+Rustrail Concourse	Rustrail Concourse	interface	True
+Save failed. Retry to continue.	Save failed. Retry to continue.	interface	True
+Saving campaign…	Saving campaign…	interface	True
+Sea Prism Lighthouse	Sea Prism Lighthouse	interface	True
+Set waypoint	Set waypoint	interface	True
+Silent Ramparts	Silent Ramparts	interface	True
+Skyline Terrace	Skyline Terrace	interface	True
+Skywatch Monastery	Skywatch Monastery	interface	True
+Solar Belt	Solar Belt	interface	True
+Spire of Axiom	Spire of Axiom	interface	True
+Stormbreak Camp	Stormbreak Camp	interface	True
+Stormbreak Peaks	Stormbreak Peaks	interface	True
+Sunwheel Plaza	Sunwheel Plaza	interface	True
+Surface	Surface	interface	True
+The Suspended Forum	The Suspended Forum	interface	True
+Thunder Observatory	Thunder Observatory	interface	True
+Tidal Customs House	Tidal Customs House	interface	True
+Tideglass Coast	Tideglass Coast	interface	True
+Tideglass Landing	Tideglass Landing	interface	True
+Transit · landmarks · mission entrances	Transit · landmarks · mission entrances	interface	True
+Vulcan Furnace	Vulcan Furnace	interface	True
+Walk · Run · Explore	Walk · Run · Explore	interface	True
+Windcut Ridge	Windcut Ridge	interface	True
+−	−	interface	True

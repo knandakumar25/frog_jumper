@@ -34,7 +34,8 @@
       "SCENE_GLOBAL_TEXT_AD931C26",
       "HUD_PRIMARY_ABILITY",
       "UI_DISPLAY_PAIR",
-      "UI_SCHEMA_TEXT"
+      "UI_SCHEMA_TEXT",
+      "Neo-Kyoto · 128 × 128 km"
     ],
     "reason": "Established brand, operative/civilian names and version identifiers may retain spelling, including whole-name composites. Three UI schema rows contain format fields only; their display arguments are localized separately. Existing localized names remain preserved."
   },
@@ -261,6 +262,45 @@
       "traditionalchinese",
       "turkish",
       "vietnamese"
+    ],
+    "+": [
+      "spanish",
+      "eurofrench",
+      "brazilianportuguese",
+      "german",
+      "italian",
+      "polish",
+      "arabic",
+      "turkish",
+      "japanese",
+      "korean",
+      "mandarin",
+      "hebrew",
+      "traditionalchinese",
+      "indonesian",
+      "vietnamese",
+      "thai"
+    ],
+    "−": [
+      "spanish",
+      "eurofrench",
+      "brazilianportuguese",
+      "german",
+      "italian",
+      "polish",
+      "arabic",
+      "turkish",
+      "japanese",
+      "korean",
+      "mandarin",
+      "hebrew",
+      "traditionalchinese",
+      "indonesian",
+      "vietnamese",
+      "thai"
+    ],
+    "Surface": [
+      "eurofrench"
     ]
   },
   "shared_words_reason": "These spellings are shared words or established loanwords in the listed languages; equality with English alone is not a missing translation.",

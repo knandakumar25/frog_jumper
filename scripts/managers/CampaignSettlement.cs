@@ -18,7 +18,7 @@ public static class CampaignSettlement
     /// <summary>Claims one run in the existing game_state schema. Locks only the selected campaign and never lowers progress.
     /// Optional connection override is for owned integration fixtures and outage tests, never a fallback store.</summary>
     public static async Task<CompletionSaveResult> SaveAsync(int sessionId, int mission, int score, string runToken,
-        string? connectionString = null)
+        string? connectionString = null, string operative = OperativeRoster.Starter)
     {
         if (sessionId <= 0) return new(CompletionSaveStatus.NoActiveCampaign);
         if (mission < 1 || mission > LevelCatalog.Count || score < 0 || !Guid.TryParse(runToken, out _))
@@ -56,9 +56,13 @@ public static class CampaignSettlement
                 update.Parameters.AddWithValue("level", LevelCatalog.Clamp(mission + 1));
                 update.Parameters.AddWithValue("score", score);
                 update.Parameters.AddWithValue("last", DateTime.UtcNow.ToString("O"));
-                await using var reader = await update.ExecuteReaderAsync().ConfigureAwait(false);
-                await reader.ReadAsync().ConfigureAwait(false);
-                level = reader.GetInt32(0); total = reader.GetInt32(1);
+                await using (var reader = await update.ExecuteReaderAsync().ConfigureAwait(false))
+                {
+                    await reader.ReadAsync().ConfigureAwait(false);
+                    level = reader.GetInt32(0); total = reader.GetInt32(1);
+                }
+                // A lost settlement response must never reapply the return over subsequent transit or a new mission entry.
+                await WorldStorage.SettleReturnAsync(connection, transaction, sessionId, mission, operative).ConfigureAwait(false);
             }
             else
             {

@@ -2,14 +2,14 @@
   "structural_pass": true,
   "languages": {
     "english": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": []
     },
     "spanish": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -52,11 +52,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "eurofrench": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -88,11 +91,15 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "Surface",
+        "−"
       ]
     },
     "brazilianportuguese": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -123,11 +130,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "german": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -159,11 +169,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "italian": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -195,11 +208,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "polish": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -228,11 +244,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "arabic": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -252,11 +271,14 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "turkish": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -282,11 +304,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "japanese": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -306,11 +331,14 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "korean": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -330,11 +358,14 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "mandarin": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -354,11 +385,14 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "hebrew": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -379,11 +413,14 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "traditionalchinese": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -403,11 +440,14 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "indonesian": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -433,11 +473,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "vietnamese": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -462,11 +505,14 @@
         "UI_SCHEMA_TEXT",
         "PREVIEW_KATANA",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     },
     "thai": {
-      "required": 1477,
+      "required": 1565,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -486,7 +532,10 @@
         "UI_DISPLAY_PAIR",
         "UI_SCHEMA_TEXT",
         "UI_PREVIEW_STATUS",
-        "UI_LOADING_PROGRESS"
+        "UI_LOADING_PROGRESS",
+        "+",
+        "Neo-Kyoto · 128 × 128 km",
+        "−"
       ]
     }
   },
@@ -707,11 +756,11 @@
         },
         {
           "source": "scripts/managers/global.gd",
-          "line": 211
+          "line": 214
         },
         {
           "source": "scripts/managers/global.gd",
-          "line": 213
+          "line": 216
         },
         {
           "source": "scenes/main_menu/leaderboard.tscn",
@@ -9195,11 +9244,11 @@
         },
         {
           "source": "scripts/managers/global.gd",
-          "line": 211
+          "line": 214
         },
         {
           "source": "scripts/managers/global.gd",
-          "line": 213
+          "line": 216
         }
       ],
       "trigger": "catalog reference",
@@ -9245,11 +9294,11 @@
         },
         {
           "source": "scripts/managers/global.gd",
-          "line": 211
+          "line": 214
         },
         {
           "source": "scripts/managers/global.gd",
-          "line": 213
+          "line": 216
         }
       ],
       "trigger": "catalog reference",
@@ -9773,7 +9822,7 @@
       "locations": [
         {
           "source": "scripts/managers/global.gd",
-          "line": 217
+          "line": 220
         }
       ],
       "trigger": "catalog reference",
@@ -13370,7 +13419,7 @@
       "locations": [
         {
           "source": "scripts/managers/global.gd",
-          "line": 219
+          "line": 222
         }
       ],
       "trigger": "catalog reference",
@@ -13408,7 +13457,7 @@
       "locations": [
         {
           "source": "scripts/managers/global.gd",
-          "line": 223
+          "line": 226
         }
       ],
       "trigger": "catalog reference",
@@ -13446,7 +13495,7 @@
       "locations": [
         {
           "source": "scripts/managers/global.gd",
-          "line": 225
+          "line": 228
         }
       ],
       "trigger": "catalog reference",
@@ -13580,15 +13629,10 @@
     {
       "key": "CONTINUE_TO_ACT_III",
       "english": "SECTOR CLEARED // ACT II COMPLETE",
-      "locations": [
-        {
-          "source": "scripts/ui/CyberVictoryScorecard.cs",
-          "line": 93
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -13618,15 +13662,10 @@
     {
       "key": "CONTINUE_TO_ACT_II",
       "english": "CONTINUE TO ACT II",
-      "locations": [
-        {
-          "source": "scripts/ui/CyberVictoryScorecard.cs",
-          "line": 120
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -64515,6 +64554,3009 @@
         "vietnamese": true,
         "thai": true
       }
+    },
+    {
+      "key": "+",
+      "english": "+",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Aurora Strand",
+      "english": "Aurora Strand",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Beacon of Dawn",
+      "english": "Beacon of Dawn",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Blackstone Shrine",
+      "english": "Blackstone Shrine",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Blueglass Strand",
+      "english": "Blueglass Strand",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Campaign saved",
+      "english": "Campaign saved",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cedar Gate",
+      "english": "Cedar Gate",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cedarcrest Highlands",
+      "english": "Cedarcrest Highlands",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cedarwild Lodge",
+      "english": "Cedarwild Lodge",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cedarwild Preserve",
+      "english": "Cedarwild Preserve",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cinderwater Basin",
+      "english": "Cinderwater Basin",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Citadel Forecourt",
+      "english": "Citadel Forecourt",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Citadel Ring",
+      "english": "Citadel Ring",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Clear waypoint",
+      "english": "Clear waypoint",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Close map",
+      "english": "Close map",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cloudstep Landing",
+      "english": "Cloudstep Landing",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Cloudstep Reservoir",
+      "english": "Cloudstep Reservoir",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Concrete Junction",
+      "english": "Concrete Junction",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Concrete Wards",
+      "english": "Concrete Wards",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Crane Sunset Pier",
+      "english": "Crane Sunset Pier",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Downtown Core",
+      "english": "Downtown Core",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Downtown underground",
+      "english": "Downtown underground",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Eagle Overlook",
+      "english": "Eagle Overlook",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Eastlight Exchange",
+      "english": "Eastlight Exchange",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Eastlight Harbor",
+      "english": "Eastlight Harbor",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Elevator",
+      "english": "Elevator",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Ember Railcut",
+      "english": "Ember Railcut",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Enter mission",
+      "english": "Enter mission",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Firefly Glade",
+      "english": "Firefly Glade",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Floodgate Cathedral",
+      "english": "Floodgate Cathedral",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Foundry Basin",
+      "english": "Foundry Basin",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Foundry Exchange",
+      "english": "Foundry Exchange",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Foundry underworks",
+      "english": "Foundry underworks",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Free transit",
+      "english": "Free transit",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Golden Orchard",
+      "english": "Golden Orchard",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Helios Array",
+      "english": "Helios Array",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Heron Sanctuary",
+      "english": "Heron Sanctuary",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Interact",
+      "english": "Interact",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Iron Memory Depot",
+      "english": "Iron Memory Depot",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Kurogane Escarpment",
+      "english": "Kurogane Escarpment",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Kurogane Palace Walls",
+      "english": "Kurogane Palace Walls",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Kurogane Trailhead",
+      "english": "Kurogane Trailhead",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Lantern Plaza",
+      "english": "Lantern Plaza",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Lightning Saddle",
+      "english": "Lightning Saddle",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Meridian Square",
+      "english": "Meridian Square",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Mirrorwater Promenade",
+      "english": "Mirrorwater Promenade",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Mission locked",
+      "english": "Mission locked",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Moonbridge Garden",
+      "english": "Moonbridge Garden",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Move: WASD / left stick · Run: Shift / L3 · Map: M / Back · Interact: E / A · Squad: Tab / Y",
+      "english": "Move: WASD / left stick · Run: Shift / L3 · Map: M / Back · Interact: E / A · Squad: Tab / Y",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Neo-Kyoto · 128 × 128 km",
+      "english": "Neo-Kyoto · 128 × 128 km",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Northlight Coast",
+      "english": "Northlight Coast",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Northlight Quay",
+      "english": "Northlight Quay",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Old Kyoto",
+      "english": "Old Kyoto",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Open map",
+      "english": "Open map",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Pan: WASD / left stick\nZoom: + − / shoulders\nRight-drag to pan · click for waypoint",
+      "english": "Pan: WASD / left stick\nZoom: + − / shoulders\nRight-drag to pan · click for waypoint",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 2
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Pan: WASD / left stick\\nZoom: + − / shoulders\\nRight-drag to pan · click for waypoint",
+      "english": "Pan: WASD / left stick\\nZoom: + − / shoulders\\nRight-drag to pan · click for waypoint",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": false,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Preview · no active campaign",
+      "english": "Preview · no active campaign",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Rainline Viaduct",
+      "english": "Rainline Viaduct",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Reclamation Landing",
+      "english": "Reclamation Landing",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Reclamation Wetlands",
+      "english": "Reclamation Wetlands",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Reedglass Observatory",
+      "english": "Reedglass Observatory",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Registry Needle",
+      "english": "Registry Needle",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Retry Save",
+      "english": "Retry Save",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Return to Neo-Kyoto",
+      "english": "Return to Neo-Kyoto",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Return to main menu",
+      "english": "Return to main menu",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Rootglass Conservatory",
+      "english": "Rootglass Conservatory",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Rustrail Belt",
+      "english": "Rustrail Belt",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Rustrail Concourse",
+      "english": "Rustrail Concourse",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Save failed. Retry to continue.",
+      "english": "Save failed. Retry to continue.",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Saving campaign…",
+      "english": "Saving campaign…",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Sea Prism Lighthouse",
+      "english": "Sea Prism Lighthouse",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Set waypoint",
+      "english": "Set waypoint",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Silent Ramparts",
+      "english": "Silent Ramparts",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Skyline Terrace",
+      "english": "Skyline Terrace",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Skywatch Monastery",
+      "english": "Skywatch Monastery",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Solar Belt",
+      "english": "Solar Belt",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Spire of Axiom",
+      "english": "Spire of Axiom",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Stormbreak Camp",
+      "english": "Stormbreak Camp",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Stormbreak Peaks",
+      "english": "Stormbreak Peaks",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Sunwheel Plaza",
+      "english": "Sunwheel Plaza",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Surface",
+      "english": "Surface",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "The Suspended Forum",
+      "english": "The Suspended Forum",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Thunder Observatory",
+      "english": "Thunder Observatory",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Tidal Customs House",
+      "english": "Tidal Customs House",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Tideglass Coast",
+      "english": "Tideglass Coast",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Tideglass Landing",
+      "english": "Tideglass Landing",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Transit · landmarks · mission entrances",
+      "english": "Transit · landmarks · mission entrances",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Vulcan Furnace",
+      "english": "Vulcan Furnace",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Walk · Run · Explore",
+      "english": "Walk · Run · Explore",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Windcut Ridge",
+      "english": "Windcut Ridge",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "−",
+      "english": "−",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
     }
   ],
   "subtitle_mappings": [
@@ -67532,71 +70574,71 @@
   "subsystems": {
     "interface": {
       "english": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "spanish": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "eurofrench": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "brazilianportuguese": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "german": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "italian": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "polish": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "arabic": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "turkish": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "japanese": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "korean": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "mandarin": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "hebrew": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "traditionalchinese": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "indonesian": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "vietnamese": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       },
       "thai": {
-        "required": 1152,
+        "required": 1240,
         "missing": 0
       }
     },

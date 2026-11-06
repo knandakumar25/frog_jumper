@@ -1,9 +1,26 @@
 # Axiom Force
 
+## Neo-Kyoto exploration
+
+After Mission 1, results return to a streamed 128 km × 128 km region with sixteen
+districts, 48 named destinations, 256 free transit stations and Downtown/Foundry
+underground layers. Walk/run with WASD or a controller; M/Back opens the pan/zoom
+map and transit list. Missions launch through their story-gated world entrances;
+aftermaths, results, replay and the final return to exploration remain available.
+World progress uses the existing PostgreSQL save store with retry on failure.
+See [controls, architecture and art workflow](docs/NEO_KYOTO.md).
+
+The rendered debug sweep held nine resident chunks and 25 cached chunks. Median
+frame interval was 16.68 ms; p95 was 17.73 ms, so sustained 1080p/60 remains an
+acceptance target. Native art/language review also remains pending.
+
+Final verification: Django 111, NUnit 314, Godot 321 (zero errors/failures/orphans),
+20 offline Python checks, build/import and all twelve live entrance routes passed.
+
 ## Written localization — catalog complete (2026-11-06)
 
 Login and settings share seventeen languages, ISO aliases, script fonts and RTL
-direction. All 1,492 currently required entries per language are populated, with
+direction. All 1,565 currently required entries per language are populated, with
 zero missing cells, malformed format contracts or unexplained English matches.
 English speech, cue timing and the original English catalog remain unchanged.
 Dynamic HUD, result and roster text refresh without restarting gameplay or audio.
@@ -21,7 +38,7 @@ changes. The loading tagline is a separate translated label rather than embedded
 English artwork. Forty directly referenced raster assets were inspected using
 Blender in Docker; brand-only logos remain unchanged.
 
-Verification passes: Django 104, NUnit 290, Godot 317 (zero suite errors,
+Localization checkpoint verification passed: Django 104, NUnit 290, Godot 317 (zero suite errors,
 failures or orphans), plus 19 offline Python checks. Godot import exits 0;
 existing editor-addon/shutdown diagnostics remain documented in HANDOFF.md.
 The backend, database and website remain running. No game exports or Git

@@ -46,18 +46,13 @@ func _find_node_recursive(node: Node, target_name: String) -> Node:
 		if found: return found
 	return null
 
-## Launches a mission with the squad the player had at that point of the story.
+## Selects a world entrance waypoint; mission launch happens at its story-gated terminal.
 func _start_level(level_idx: int) -> void:
 	if level_idx < 1 or level_idx > catalog.Count():
 		printerr("Level " + str(level_idx) + " not defined in catalog!")
 		return
 
-	var scene_path = catalog.ScenePath(level_idx)
-	catalog.PrepareMission(level_idx)
-	GameManager.set_game_state(GameManager.State.GAMEPLAY)
-	Global.reached_finish = false
-	Global.stop_menu_music()
-	LoadingScreen.load_scene(get_tree(), scene_path)
+	catalog.SelectEntrance(self, level_idx)
 
 # Button callbacks mapped to mission numbers.
 ## Launches campaign mission 1.
@@ -69,28 +64,28 @@ func _on_level_3_pressed() -> void: _start_level(3)
 ## Launches campaign mission 4.
 func _on_level_4_pressed() -> void: _start_level(4)
 
-## Enters Mission 5 directly; the Act II opening belongs to Level 4 Continue.
+## Marks Mission 5's world entrance; story introductions play when entering its terminal.
 func _on_level_5_pressed() -> void: _start_level(5)
 
-## Enters Mission 6 directly; the Cyber-Grave cinematic belongs to Level 5 Continue.
+## Marks Mission 6's world entrance; story introductions play when entering its terminal.
 func _on_level_6_pressed() -> void: _start_level(6)
 
-## Enters Mission 7 directly; the Foundry Forge cinematic belongs to Level 6 Continue.
+## Marks Mission 7's world entrance; story introductions play when entering its terminal.
 func _on_level_7_pressed() -> void: _start_level(7)
 
-## Enters Mission 8 directly; the Stratos Docks cinematic belongs to Level 7 Continue / Act III start.
+## Marks Mission 8's world entrance; story introductions play when entering its terminal.
 func _on_level_8_pressed() -> void: _start_level(8)
 
-## Enters Mission 9 directly; the Spire Outer Hull cinematic belongs to Level 8 Continue.
+## Marks Mission 9's world entrance; story introductions play when entering its terminal.
 func _on_level_9_pressed() -> void: _start_level(9)
 
-## Enters Mission 10 directly; the Cyber-Nexus cinematic belongs to Level 9 Continue.
+## Marks Mission 10's world entrance; story introductions play when entering its terminal.
 func _on_level_10_pressed() -> void: _start_level(10)
 
-## Enters Mission 11 directly; the Apex Bastion cinematic belongs to Level 10 Continue.
+## Marks Mission 11's world entrance; story introductions play when entering its terminal.
 func _on_level_11_pressed() -> void: _start_level(11)
 
-## Enters Mission 12 directly.
+## Marks Mission 12's world entrance; story introductions play when entering its terminal.
 func _on_level_12_pressed() -> void: _start_level(12)
 
 ## Returns to the main menu through the existing loading screen.

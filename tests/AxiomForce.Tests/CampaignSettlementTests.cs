@@ -39,9 +39,10 @@ public class CampaignSettlementTests
     {
         if (_session <= 0) return;
         await using var connection = new NpgsqlConnection(_connection); await connection.OpenAsync();
-        await using var command = new NpgsqlCommand(@"DELETE FROM game_state WHERE state_key LIKE @prefix;
+        await using var command = new NpgsqlCommand(@"DELETE FROM game_state WHERE state_key LIKE @prefix OR state_key=@world;
             DELETE FROM game_sessions WHERE id=@id AND character=@character", connection);
         command.Parameters.AddWithValue("prefix", $"mission-completion:{_session}:%");
+        command.Parameters.AddWithValue("world", $"world:{_session}");
         command.Parameters.AddWithValue("id", _session); command.Parameters.AddWithValue("character", _character);
         await command.ExecuteNonQueryAsync(); _session = 0;
     }

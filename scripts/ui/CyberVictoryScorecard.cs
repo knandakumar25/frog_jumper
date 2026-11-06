@@ -22,7 +22,6 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private Button? _previewBtn;
 	private int _nextMission;
 	private bool _navigating;
-	private bool _campaignVictory;
 	private bool _saveConfigured, _savePending;
 	private CompletionSaveResult? _saveResult;
 	private int _saveMission, _saveScore, _saveSession;
@@ -84,55 +83,35 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		=> RenderScorecard(score, maxCombo, operative, nextMission);
 
     	/// <summary>Shows Act II finale results upon completing Mission 7 (The Foundry Forge).</summary>
-	public void ShowActIIScorecard(int score, int maxCombo, string operative)
-	{
-		RenderScorecard(score, maxCombo, operative, 0);
-		if (_titleLabel != null) _titleLabel.Text = "ACT II COMPLETE";
-		if (_previewBtn != null)
-		{
-			string text = Tr("CONTINUE_TO_ACT_III");
-			_previewBtn.Text = text == "CONTINUE_TO_ACT_III" || string.IsNullOrWhiteSpace(text) ? "SECTOR CLEARED // ACT II COMPLETE" : text;
-			_previewBtn.Visible = true;
-		}
-	}
+    public void ShowActIIScorecard(int score, int maxCombo, string operative)
+    {
+        RenderScorecard(score, maxCombo, operative, 0);
+        if (_titleLabel != null) _titleLabel.Text = "ACT II COMPLETE";
+    }
 
-	/// <summary>Shows Campaign Victory results with S/A/B grading, Replay, Level Select, and Main Menu.</summary>
-	public void ShowCampaignCompleteScorecard(int score, int maxCombo, string operative)
-	{
-		RenderScorecard(score, maxCombo, operative, 0);
-		_campaignVictory = true;
-		if (_titleLabel != null) _titleLabel.Text = "CAMPAIGN COMPLETE";
-		if (_previewBtn != null)
-		{
-			_previewBtn.Text = "RETURN TO MAIN MENU";
-            _previewBtn.Disabled = false;
-			_previewBtn.Visible = true;
-		}
-	}
+    /// <summary>Finale results return to exploration after the existing aftermath and retain replay.</summary>
+    public void ShowCampaignCompleteScorecard(int score, int maxCombo, string operative)
+    {
+        RenderScorecard(score, maxCombo, operative, 0);
+        if (_titleLabel != null) _titleLabel.Text = "CAMPAIGN COMPLETE";
+    }
 
-	/// <summary>Shows Act I results with the Act II opening, Replay, Level Select and Main Menu.</summary>
+    /// <summary>Act I results return to extraction; the Act II opening belongs to Mission 5's entrance.</summary>
     public void ShowActScorecard(int score, int maxCombo, string operative)
     {
         RenderScorecard(score, maxCombo, operative, 0);
         if (_titleLabel != null) _titleLabel.Text = "ACT I COMPLETE";
-        if (_previewBtn != null)
-        {
-            string text = Tr("CONTINUE_TO_ACT_II");
-            _previewBtn.Text = text == "CONTINUE_TO_ACT_II" || string.IsNullOrWhiteSpace(text) ? "CONTINUE TO ACT II" : text;
-            _previewBtn.Visible = true;
-        }
     }
 
 	/// <summary>Renders the captured results, optionally showing Continue; grading is shared by all callers.</summary>
 	private void RenderScorecard(int score, int maxCombo, string operative, int nextMission)
 	{
 		if (_rootPanel == null) return;
-		_campaignVictory = false;
 		if (_titleLabel != null) _titleLabel.Text = "MISSION COMPLETE";
 		if (_previewBtn != null) _previewBtn.Visible = false;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
-		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
-		if (_continueBtn != null && _nextMission > 0) WildfireText.SetText(_continueBtn, "Text", "UI_CYBERVICTORYSCORECARD_RENDERSCORECARD_D7261F81", $"CONTINUE TO LEVEL {_nextMission}");
+		// Every result, including act/finale results, returns to the committed nearby extraction.
+		if (_continueBtn != null) { _continueBtn.Visible = true; _continueBtn.Text = WorldText.Get("Return to Neo-Kyoto"); }
 		RefreshSaveStatus();
 		_rootPanel.Visible = true;
 		if (IsInsideTree()) Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -202,52 +181,31 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		}
 	}
 
-	/// <summary>Prepares the story-earned squad before entering the supplied next mission.</summary>
-	private void OnContinuePressed()
-	{
-		if (_nextMission <= 0 || !IsInsideTree() || _navigating || !CanLeaveResults) return;
-		CampaignProgress.PrepareMission(_nextMission);
-		if (_nextMission == 6 && ResourceLoader.Exists("res://scenes/cutscenes/cyber_grave_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/cyber_grave_intro.tscn");
-		}
-		else if (_nextMission == 7 && ResourceLoader.Exists("res://scenes/cutscenes/foundry_forge_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/foundry_forge_intro.tscn");
-		}
-		else if (_nextMission == 8 && ResourceLoader.Exists("res://scenes/cutscenes/stratos_docks_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/stratos_docks_intro.tscn");
-		}
-		else if (_nextMission == 9 && ResourceLoader.Exists("res://scenes/cutscenes/spire_outer_hull_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/spire_outer_hull_intro.tscn");
-		}
-		else if (_nextMission == 10 && ResourceLoader.Exists("res://scenes/cutscenes/cyber_nexus_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/cyber_nexus_intro.tscn");
-		}
-		else if (_nextMission == 11 && ResourceLoader.Exists("res://scenes/cutscenes/apex_bastion_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/apex_bastion_intro.tscn");
-		}
-		else if (_nextMission == 12 && ResourceLoader.Exists("res://scenes/cutscenes/judgment_day_intro.tscn"))
-		{
-			Navigate("res://scenes/cutscenes/judgment_day_intro.tscn");
-		}
-		else
-		{
-			Navigate(LevelCatalog.ScenePath(_nextMission));
-		}
-	}
+    /// <summary>Returns to the extraction committed alongside settlement; missions launch at world terminals.</summary>
+    private void OnContinuePressed()
+    {
+        if (!IsInsideTree() || _navigating || !CanLeaveResults) return;
+        Navigate(WorldCatalog.Scene);
+    }
 
 	/// <summary>Reloads the still-current mission, preserving Replay after an overlay cinematic.</summary>
-	private void OnReplayPressed()
-	{
-		if (!IsInsideTree() || _navigating || !CanLeaveResults) return;
-		_navigating = true;
-		Callable.From(() => { if (!IsInsideTree()) return; GetTree().Paused = false; GetTree().ReloadCurrentScene(); }).CallDeferred();
-	}
+    private async void OnReplayPressed()
+    {
+        if (!IsInsideTree() || _navigating || !CanLeaveResults) return;
+        _navigating = true;
+        try
+        {
+            if (_saveSession > 0)
+            {
+                var state = await WorldStorage.LoadAsync(_saveSession, LevelCatalog.Clamp(_saveMission + 1));
+                if (state != null) await WorldStorage.SaveAsync(_saveSession, state with { Resume = "mission", Mission = _saveMission });
+            }
+            if (!IsInsideTree()) return;
+            GetTree().Paused = false;
+            GetTree().ReloadCurrentScene();
+        }
+        catch (System.Exception) { _navigating = false; WorldNavigation.ShowSaveError(this); }
+    }
 
 	/// <summary>Returns to the existing mission selector.</summary>
 	private void OnLevelSelectPressed()
@@ -262,21 +220,8 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		Navigate("res://scenes/main_menu/main_menu.tscn");
 	}
 
-	/// <summary>Launches Act II Opening after Act I, or Act II End Screen after Act II.</summary>
-	private void OnPreviewPressed()
-	{
-		if (_previewBtn is not { Visible: true }) return;
-		if (_campaignVictory) { OnMainMenuPressed(); return; }
-		if (!CanLeaveResults) return;
-		if (_titleLabel?.Text == "ACT II COMPLETE" || (_previewBtn.Text != null && _previewBtn.Text.Contains("ACT III")))
-		{
-			Navigate("res://scenes/ui/act_ii_end_screen.tscn");
-		}
-		else
-		{
-			Navigate("res://scenes/cutscenes/act_ii_opening.tscn");
-		}
-	}
+    /// <summary>Compatibility action for older result scenes uses the same saved extraction route.</summary>
+    private void OnPreviewPressed() => OnContinuePressed();
 
 	/// <summary>Consumes repeated navigation input and releases any legacy pause before changing scene.</summary>
 	private void Navigate(string path)
@@ -323,7 +268,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		{ CompletionSaveStatus.Saved => "CAMPAIGN SAVED", CompletionSaveStatus.NoActiveCampaign => "DIRECT PLAY // NO ACTIVE CAMPAIGN", _ => "SAVE NOT CONFIRMED // RETRY SAVE OR RETURN TO MAIN MENU" };
 		if (_retrySaveBtn != null) _retrySaveBtn.Visible = !_savePending && _saveResult?.Status == CompletionSaveStatus.Failed;
 		foreach (var button in new[] { _continueBtn, _replayBtn, _levelSelectBtn }) if (button != null) button.Disabled = !CanLeaveResults;
-		if (_previewBtn != null) _previewBtn.Disabled = !_campaignVictory && !CanLeaveResults;
+		if (_previewBtn != null) _previewBtn.Disabled = !CanLeaveResults;
 	}
 
 	/// <summary>Handles pointer and direct touch before Global's legacy mouse suppression consumes them.</summary>

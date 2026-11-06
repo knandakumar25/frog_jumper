@@ -180,6 +180,9 @@ func _on_joy_connection_changed(device: int, connected: bool) -> void:
 # Monitors input events to automatically toggle between Keyboard and Gamepad modes,
 # and strictly consumes any mouse input to remove cursor compatibility.
 func _input(event: InputEvent) -> void:
+	# Exploration owns a pointer-driven map; other scenes retain their existing keyboard/controller policy.
+	if get_tree().current_scene != null and get_tree().current_scene.is_in_group("world_exploration"):
+		return
 	# Consume all mouse events to disable cursor and mouse interaction project-wide
 	if event is InputEventMouse:
 		get_viewport().set_input_as_handled()
