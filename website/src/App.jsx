@@ -42,8 +42,8 @@ function MainLayout() {
           <Route path="/:locale/tech-hub" element={<TechHub />} />
           <Route path="/:locale/design-system" element={<DesignSystem />} />
           <Route path="/:locale/faq" element={<FAQ />} />
-          <Route path="/:locale/login" element={<Login />} />
-          <Route path="/:locale/signup" element={<Signup />} />
+          <Route path="/:locale/login/*" element={<Login />} />
+          <Route path="/:locale/signup/*" element={<Signup />} />
           <Route path="/:locale/account" element={<Account />} />
           <Route path="/:locale/account/2fa" element={<TwoFactor />} />
           <Route path="/auth/browser-confirm" element={<BrowserAuth />} />

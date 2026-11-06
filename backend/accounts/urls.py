@@ -13,7 +13,10 @@ from .onboarding_views import (
     OnboardingStartView, OnboardingValidateTokenView, OnboardingCompleteView
 )
 
+from .browser_auth import BrowserStartView, BrowserConfirmView, BrowserPollView, BrowserCancelView
+
 urlpatterns = [
+    path('browser-cancel/', BrowserCancelView.as_view(), name='browser_cancel'),
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

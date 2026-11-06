@@ -1,17 +1,17 @@
 """Email-gated onboarding: Clerk signup -> country + date of birth -> account.
 
-Clerk and Django share no state today. A user who signs up through Clerk's
-hosted Account Portal gets a client-side Clerk session and *nothing* on the
-Django side. This module is the missing link:
+Clerk owns credentials; a verified Clerk identity does not itself create a
+Django game profile. This module retains the separate email-gated profile step:
 
     POST /api/auth/onboarding/start/          -> email a tokenised link
     GET  /api/auth/onboarding/validate-token/ -> is this link still good?
     POST /api/auth/onboarding/complete/       -> create the User, return JWTs
 
-The Django User does not exist until the third step succeeds. The design premise
-is that a Clerk session is not proof of anything -- the user must demonstrate
-control of the mailbox, so the token lives only in the email body and /start/
-never returns it.
+The Django User does not exist until the third step succeeds. The user must
+also demonstrate control of the mailbox, so the token lives only in the email
+body and /start/ never returns it. A game handoff association additionally
+requires a verified Clerk session for that same subject. Its public ID and
+locale survive email-tab completion; game approval remains a separate click.
 
 NOTE ON authentication_classes
 ------------------------------
@@ -19,9 +19,8 @@ NOTE ON authentication_classes
 `permission_classes = [AllowAny]` does NOT stop DRF from running the configured
 authenticators, and JWTAuthentication raises AuthenticationFailed on a stale or
 malformed Bearer token -- producing a 401 *before* the permission check is ever
-reached. Every visitor whose localStorage still holds an expired accessToken
-(client.js only clears it after a *failed* refresh) would be locked out of an
-endpoint that is meant to be anonymous.
+reached. An unrelated stale in-memory website token must not prevent mailbox
+validation or profile completion on an endpoint intended to be anonymous.
 """
 
 import hashlib
@@ -337,7 +336,18 @@ class OnboardingStartView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
+        """Email a profile-creation link, optionally preserving a verified public game request."""
         clerk_user_id = request.data.get("clerk_user_id")
+        # A public handoff association requires proof of the same Clerk identity.
+        browser_session = None
+        if request.data.get('session_id'):
+            from .browser_auth import clerk_subject, live_request
+            if clerk_subject(request.data.get('clerk_token', '')) != clerk_user_id:
+                return Response({'error': 'identity_mismatch'}, status=403)
+            with transaction.atomic():
+                browser_session = live_request(request.data)
+            if browser_session is None:
+                return Response({'error': 'request_expired'}, status=410)
 
         # Validated before anything else: a fabricated id must never reach the
         # network, and this is the first abuse control.
@@ -403,6 +413,11 @@ class OnboardingStartView(APIView):
         cooldown = _setting("ONBOARDING_RESEND_COOLDOWN", 60)
 
         if existing is not None and existing.last_sent_at:
+            # A request may join an email flow already in progress. The verified
+            # subject can attach it without rotating the emailed link or sending mail.
+            if browser_session is not None:
+                existing.browser_session = browser_session
+                existing.save(update_fields=['browser_session'])
             elapsed = (now - existing.last_sent_at).total_seconds()
             if elapsed < cooldown:
                 return Response(
@@ -434,6 +449,7 @@ class OnboardingStartView(APIView):
             # Rotate rather than resend: the stored value is a hash, so the
             # previous link cannot be reproduced -- and rotating kills it
             # immediately, which is the behaviour we want anyway.
+            existing.browser_session = browser_session
             existing.email = clerk_user.email
             existing.token_hash = _hash_token(raw_token)
             existing.first_name = clerk_user.first_name
@@ -445,6 +461,7 @@ class OnboardingStartView(APIView):
             existing.expires_at = expires_at
             existing.save(
                 update_fields=[
+                    "browser_session",
                     "email",
                     "token_hash",
                     "first_name",
@@ -460,6 +477,7 @@ class OnboardingStartView(APIView):
         else:
             try:
                 pending = PendingRegistration.objects.create(
+                    browser_session=browser_session,
                     clerk_user_id=clerk_user_id,
                     email=clerk_user.email,
                     token_hash=_hash_token(raw_token),
@@ -505,6 +523,7 @@ class OnboardingValidateTokenView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request):
+        """Validate mailbox proof without consuming it and expose its saved presentation locale."""
         raw_token = request.query_params.get("token") or ""
         if not raw_token:
             return Response({"error": "token_required"}, status=status.HTTP_400_BAD_REQUEST)
@@ -528,6 +547,7 @@ class OnboardingValidateTokenView(APIView):
                 "first_name": pending.first_name,
                 "last_name": pending.last_name,
                 "expires_at": pending.expires_at,
+                "browser_locale": pending.browser_session.locale if pending.browser_session else None,
             },
             status=status.HTTP_200_OK,
         )
@@ -563,6 +583,7 @@ class OnboardingCompleteView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
+        """Consume mailbox proof once, create the profile and return memory-only session credentials."""
         serializer = OnboardingCompleteSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
@@ -624,6 +645,9 @@ class OnboardingCompleteView(APIView):
                 "refresh": str(refresh),
                 "access": str(refresh.access_token),
                 "user": UserProfileSerializer(user).data,
+                # Public ID only: the email recipient must still explicitly approve.
+                "browser_session_id": str(pending.browser_session.session_id) if pending.browser_session else None,
+                "browser_locale": pending.browser_session.locale if pending.browser_session else None,
             },
             status=status.HTTP_200_OK,
         )

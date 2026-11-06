@@ -3,41 +3,28 @@ extends GdUnitTestSuite
 ## Runtime checks of selector parity, bundled script glyphs and a live English speech owner's locale change.
 
 
-func test_login_and_settings_expose_identical_seventeen_languages() -> void:
-	## Tests actual login items against the settings script's dictionary; neither path submits authentication.
-	var login: Node = load("res://scenes/main_menu/login_scene.tscn").instantiate()
-	add_child(login)
+func test_settings_exposes_all_seventeen_languages() -> void:
+	## Settings remains the single game language picker after browser authentication replaces login.
+	var service := get_node("/root/LocaleService")
 	var settings: Node = load("res://scripts/ui/audio_options.gd").new()
 	add_child(settings)
-	var selector: OptionButton = login.get_node("LanguageSelector")
-	var languages: Dictionary = settings.get("languages")
-	assert_int(selector.item_count).is_equal(17)
-	assert_int(languages.size()).is_equal(17)
-	for index in range(selector.item_count):
-		assert_bool(languages.has(selector.get_item_text(index))).is_true()
-	login.free()
+	assert_int(settings.get("languages").size()).is_equal(17)
+	assert_int(service.call("GetLanguages").size()).is_equal(17)
 	settings.free()
 
 
-func test_login_selection_follows_external_locale_changes() -> void:
-	## A settings-driven change updates the login picker without clearing a partially entered login.
+func test_browser_auth_controls_retranslate_without_credential_fields() -> void:
+	## Exercise the real menu component without opening a browser or making an API request.
 	var service := get_node("/root/LocaleService")
 	var previous := TranslationServer.get_locale()
-	var login: Node = load("res://scenes/main_menu/login_scene.tscn").instantiate()
-	add_child(login)
-	var selector: OptionButton = login.get_node("LanguageSelector")
-	var email: LineEdit = login.get_node("SplitGrid/RightAuthColumn/CenterContainer/AuthPanel/VBox/InputGroup/EmailInput")
-	email.text = "unfinished@example.invalid"
+	var panel: Node = load("res://scripts/main_menu/BrowserSignInUI.cs").new()
+	add_child(panel)
 	service.call("ApplyLocale", "japanese")
-	assert_int(selector.selected).is_equal(9)
-	assert_str(email.text).is_equal("unfinished@example.invalid")
-	service.call("ApplyLocale", "arabic")
-	assert_int(selector.selected).is_equal(7)
-	assert_str(email.text).is_equal("unfinished@example.invalid")
-	assert_bool(selector.fit_to_longest_item).is_false()
-	assert_bool(selector.clip_text).is_true()
-	assert_bool(selector.get_theme_stylebox("normal_mirrored") == selector.get_theme_stylebox("normal")).is_true()
-	login.free()
+	var button := panel.find_child("AUTH_LOGIN", true, false) as Button
+	assert_str(button.text).is_equal(tr("AUTH_LOGIN"))
+	assert_bool(button.visible).is_true()
+	assert_int(panel.find_children("*", "LineEdit", true, false).size()).is_equal(0)
+	panel.free()
 	service.call("ApplyLocale", previous)
 
 
@@ -147,7 +134,7 @@ func test_loading_locale_change_refreshes_logo_and_status_without_changing_targe
 	var previous := TranslationServer.get_locale()
 	service.call("ApplyLocale", "japanese")
 	var loading: Node = load("res://scenes/main_menu/loading_screen.tscn").instantiate()
-	loading.set("TargetScenePath", "res://scenes/main_menu/login_scene.tscn")
+	loading.set("TargetScenePath", "res://scenes/main_menu/main_menu.tscn")
 	add_child(loading)
 	loading.set_process(false)
 	await get_tree().create_timer(0.35).timeout
@@ -160,9 +147,9 @@ func test_loading_locale_change_refreshes_logo_and_status_without_changing_targe
 		expected = "res://assets/images/axiom_force_title_2d.png"
 	assert_str(banner.texture.resource_path).is_equal(expected)
 	assert_str(label.tr(label.text)).is_equal(tr("INITIALIZING SYSTEM..."))
-	assert_str(loading.get("TargetScenePath")).is_equal("res://scenes/main_menu/login_scene.tscn")
+	assert_str(loading.get("TargetScenePath")).is_equal("res://scenes/main_menu/main_menu.tscn")
 	# The test deliberately never polls to transition, so consume its completed request explicitly.
-	assert_object(ResourceLoader.load_threaded_get("res://scenes/main_menu/login_scene.tscn")).is_not_null()
+	assert_object(ResourceLoader.load_threaded_get("res://scenes/main_menu/main_menu.tscn")).is_not_null()
 	loading.free()
 	service.call("ApplyLocale", previous)
 

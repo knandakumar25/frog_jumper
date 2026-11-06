@@ -26,10 +26,10 @@ public partial class MainMenu : Control
 	private ColorRect   _quitBackground;
 	private Panel       _instructionsPopup;
 	private HBoxContainer _titleContainer;
-	private Button       _browserLoginButton;
 	private Label       _navPromptLabel;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
+	/// <summary>Initialize menu presentation, guest navigation, profile display and browser sign-in controls.</summary>
 	public override void _Ready()
 	{
 		GD.Print("main_menu: _ready() start");
@@ -42,7 +42,6 @@ public partial class MainMenu : Control
 			_quitBackground     = GetNode<ColorRect>("QuitBackground");
 			_instructionsPopup  = GetNode<Panel>("InstructionsPopup");
 			_titleContainer     = GetNode<HBoxContainer>("TitleContainer");
-			_browserLoginButton = GetNodeOrNull<Button>("ButtonContainer/LoginButton"); // Adjust path if needed
 
 			// 2. Instantiate and Initialize Managers.
 			InitializeManagers();
@@ -114,6 +113,7 @@ public partial class MainMenu : Control
 		}
 	}
 
+	/// <summary>Compose specialized menu managers and the menu-owned browser authentication panel.</summary>
 	private void InitializeManagers()
 	{
 		// Background Manager.
@@ -150,7 +150,8 @@ public partial class MainMenu : Control
 		// Auth UI.
 		_authUI = new MenuAuthUI { Name = "MenuAuthUI" };
 		AddChild(_authUI);
-		_authUI.Initialize(_browserLoginButton, GetNode<Control>("ProfileContainer"));
+		_authUI.Initialize(GetNode<Control>("ProfileContainer"));
+		GetNode<Control>("ProfileContainer").AddChild(new BrowserSignInUI());
 
 		// Session UI.
 		_sessionUI = new MenuSessionUI { Name = "MenuSessionUI" };

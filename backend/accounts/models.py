@@ -33,6 +33,7 @@ class PendingRegistration(models.Model):
     it surfaces as a 409 -- rather than as an IntegrityError raised at signup.
     """
 
+    browser_session = models.ForeignKey('BrowserSession', on_delete=models.SET_NULL, null=True, blank=True)
     clerk_user_id = models.CharField(max_length=64, unique=True)
     email = models.EmailField()
     # sha256 hex of the raw token, never the token itself. The raw value exists
@@ -53,12 +54,20 @@ class PendingRegistration(models.Model):
         return f"Pending registration for {self.email}"
 
 class BrowserSession(models.Model):
+    """Public approval handle with hashed device proof and terminal timestamps."""
+    secret_hash = models.CharField(max_length=64, blank=True, default='')
+    expires_at = models.DateTimeField(null=True, blank=True)
+    consumed_at = models.DateTimeField(null=True, blank=True)
+    cancelled_at = models.DateTimeField(null=True, blank=True)
+    intent = models.CharField(max_length=8, default='login')
+    locale = models.CharField(max_length=32, default='en-US')
     session_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_authorized = models.BooleanField(default=False)
 
     def __str__(self):
+        """Identify approval state for administration without revealing device proof."""
         return f"Session {self.session_id} - Authorized: {self.is_authorized}"
 
 class TwoFactorCode(models.Model):

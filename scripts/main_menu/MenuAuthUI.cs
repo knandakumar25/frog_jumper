@@ -15,11 +15,10 @@ public partial class MenuAuthUI : Node
 	private Label           _guestStatusLabel;
 	private HBoxContainer   _profileDisplayContainer;
 	private VBoxContainer   _guestDisplayContainer;
-	private Button          _browserLoginButton;
 
-	public void Initialize(Button loginButton, Control profileContainer)
+	/// <summary>Build the existing guest/profile display and observe the in-memory game session.</summary>
+	public void Initialize(Control profileContainer)
 	{
-		_browserLoginButton = loginButton;
 
 		// 1. Create GoHUD-Styled Chamfered Cyber-Frame PanelContainer
 		var frame = new PanelContainer
@@ -208,6 +207,7 @@ public partial class MenuAuthUI : Node
 		UpdateAuthUI();
 	}
 
+	/// <summary>Use the shared HUD frame, with a native fallback when the addon is unavailable.</summary>
 	private static StyleBox CreateGoHudCutStyleBox()
 	{
 		var cutScript = GD.Load<GDScript>("res://addons/gohud/widgets/go_stylebox_cut.gd");
@@ -245,19 +245,19 @@ public partial class MenuAuthUI : Node
 		return fallback;
 	}
 
+	/// <summary>End only the game session.</summary>
 	private void OnLogoutPressed()
 	{
 		AuthManager.Instance.Logout();
 		UpdateAuthUI();
 	}
 
+	/// <summary>Render the active profile or guest identity; discard stale avatar data.</summary>
 	private void UpdateAuthUI()
 	{
 		var user = AuthManager.Instance?.CurrentUser;
 		if (user != null)
 		{
-			if (_browserLoginButton != null)
-				_browserLoginButton.Visible = false;
 
 			_usernameLabel.Text = user.Username;
 
@@ -315,6 +315,7 @@ public partial class MenuAuthUI : Node
 		}
 	}
 
+	/// <summary>Translate profile presentation without altering account identifiers.</summary>
 	public void UpdateLocalizedTexts()
 	{
 		if (_headerLabel != null)
@@ -331,5 +332,12 @@ public partial class MenuAuthUI : Node
 		}
 	}
 
+	/// <summary>Detach the persistent authentication service when leaving this menu.</summary>
+	public override void _ExitTree()
+	{
+		if (AuthManager.Instance != null) AuthManager.Instance.OnProfileUpdated -= UpdateAuthUI;
+	}
+
+	/// <summary>Resolve the current presentation locale.</summary>
 	private string Tr(string text) => MainMenu.Tr(text);
 }

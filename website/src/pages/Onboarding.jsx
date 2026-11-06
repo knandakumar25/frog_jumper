@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 // Via the gate: without a publishable key the stub returns a signed-out,
 // loaded state, so start mode never POSTs and token mode (no Clerk session
 // needed) still works. See src/auth/clerkGate.jsx.
-import { useUser } from '../auth/clerkGate.jsx';
+import { useUser, useClerkSession } from '../auth/clerkGate.jsx';
+import { gameRequest, confirmationPath } from '../auth/gameHandoff';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../translations/LanguageContext';
@@ -56,8 +57,10 @@ function Heading({ children }) {
 
 const Onboarding = () => {
   const { t } = useTranslation();
+  const { getToken } = useClerkSession();
+  const handoff = gameRequest();
   const { loginWithTokens } = useAuth();
-  const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
+  const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode, setSelectedLanguage, parseLocaleCode } = useLanguage();
   const currentLocale = getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
 
   const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
@@ -98,6 +101,10 @@ const Onboarding = () => {
         });
         if (cancelled) return;
         setProfile(res.data);
+        // The emailed token resolves the persisted request even in a fresh tab
+        // with no Clerk cookies or original locale query.
+        const savedLocale = parseLocaleCode(res.data.browser_locale);
+        if (savedLocale) setSelectedLanguage(savedLocale.langId);
         setTokenPhase('form');
       } catch (err) {
         if (cancelled) return;
@@ -125,7 +132,7 @@ const Onboarding = () => {
     return () => {
       cancelled = true;
     };
-  }, [token]);
+  }, [token, parseLocaleCode, setSelectedLanguage]);
 
   const startOnboarding = useCallback(async () => {
     setStartPhase('sending');
@@ -133,6 +140,7 @@ const Onboarding = () => {
     try {
       const res = await apiClient.post('/auth/onboarding/start/', {
         clerk_user_id: clerkUser.id,
+        ...(handoff ? {session_id: handoff, clerk_token: await getToken()} : {}),
       });
       setStartInfo(res.data);
       setStartPhase('sent');
@@ -155,7 +163,7 @@ const Onboarding = () => {
       }
       setStartPhase('error');
     }
-  }, [clerkUser, t]);
+  }, [clerkUser, t, handoff, getToken]);
 
   useEffect(() => {
     if (isTokenMode || !clerkLoaded || !clerkUser) return;
@@ -193,7 +201,11 @@ const Onboarding = () => {
       // once on mount with [] deps, so updating tokens without the auth context does
       // not update `user` -- a same-document navigate() would leave Account.jsx
       // seeing null and bouncing straight back to /login.
-      window.location.assign(`/${currentLocale}`);
+      if (res.data.browser_session_id) {
+        // Keep the verified onboarding session in memory across this route change.
+        window.history.pushState({}, '', confirmationPath(res.data.browser_session_id, res.data.browser_locale || currentLocale));
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      } else window.location.assign(`/${currentLocale}`);
     } catch (err) {
       const statusCode = err.response?.status;
       if (statusCode === 410) {

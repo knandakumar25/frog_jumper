@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-/// <summary>Stable language identities shared by login, settings, fonts and narrative data; never persisted as operative IDs.</summary>
+/// <summary>Stable language identities shared by Settings, browser handoff, fonts and narrative data; never persisted as operative IDs.</summary>
 public static class LocaleCatalog
 {
     /// <summary>Catalog column, Godot ISO locale, selector label and script-specific font. RTL applies to written layout only.</summary>

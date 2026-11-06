@@ -1278,5 +1278,13 @@
   "Run": "PREVIEW_RUN",
   "Katana": "PREVIEW_KATANA",
   "{0}{1}": "UI_PREVIEW_STATUS",
-  "{0}{1}%": "UI_LOADING_PROGRESS"
+  "{0}{1}%": "UI_LOADING_PROGRESS",
+  "Log In": "AUTH_LOGIN",
+  "Sign Up": "AUTH_SIGNUP",
+  "Open Browser Again": "AUTH_REOPEN",
+  "Complete sign-in in your browser.": "AUTH_WAITING",
+  "Sign-in expired. Please try again.": "AUTH_EXPIRED",
+  "Connection lost. Retrying…": "AUTH_NETWORK",
+  "Unable to sign in. Please try again.": "AUTH_ERROR",
+  "Unable to open browser. Try opening it again.": "AUTH_BROWSER_ERROR"
 }

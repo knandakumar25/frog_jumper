@@ -33,7 +33,7 @@ public partial class LocaleService : Node
     /// <summary>Raised after fonts and narrative metadata have changed; listeners may refresh text without replaying events.</summary>
     [Signal] public delegate void LanguageChangedEventHandler(string catalogName);
 
-    /// <summary>Returns identical selector contents to GDScript settings and C# login.</summary>
+    /// <summary>Returns the shared language selector contents used by game Settings.</summary>
     public Godot.Collections.Dictionary GetLanguages()
     {
         var result = new Godot.Collections.Dictionary();

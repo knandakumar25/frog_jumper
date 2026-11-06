@@ -106,18 +106,29 @@ class WrittenLocalizationTests(unittest.TestCase):
     def test_login_results_and_all_twelve_missions_are_inventory_roots(self):
         """Direct-play/previews remain localization requirements even without a literal main-scene reference."""
         _, reachable = catalog.reachable_sources()
-        self.assertIn('scenes/main_menu/login_scene.tscn', reachable)
+        self.assertNotIn('scenes/main_menu/login_scene.tscn', reachable)
+        self.assertIn('scenes/main_menu/main_menu.tscn', reachable)
         self.assertIn('scenes/ui/cyber_victory_scorecard.tscn', reachable)
         for number in range(1, 13):
             self.assertIn(f'scenes/gameplay/level{number}.tscn', reachable)
 
-    def test_seeded_login_scene_labels_stay_required(self):
-        """Catalog existence cannot hide English-only native Label text from the next coverage run."""
-        data = catalog.report()
-        for source in ('// RECLAIM EARTH - SECURE AUTHENTICATION TERMINAL',
-                       'Access tactical databases, synchronize operative sessions, and deploy to active operational sectors across Earth.'):
-            entry = next(item for item in data['entries'] if item['english'] == source)
-            self.assertTrue(entry['required'], source)
+    def test_browser_auth_has_every_language(self):
+        """New browser handoff strings must have all seventeen nonempty translations."""
+        languages, rows = catalog.read_catalog()
+        auth = [row for row in rows if row[''].startswith('AUTH_')]
+        self.assertEqual(len(auth), 9)
+        for row in auth:
+            for language in languages:
+                self.assertTrue(row[language].strip(), (row[''], language))
+
+    def test_browser_confirmation_copy_covers_seventeen_website_locales(self):
+        """Browser handoff wording keeps the account placeholder and covers the same seventeen languages."""
+        data = json.loads((ROOT/'website/src/translations/browser_auth.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(data), 17)
+        for language, values in data.items():
+            self.assertEqual(len(values), 4, language)
+            self.assertTrue(all(value.strip() for value in values), language)
+            self.assertIn('{{account}}', values[2], language)
 
     def test_syntax_inventory_excludes_lookup_key_templates_and_colors(self):
         """Translation-key construction and render colors must never be localized as visible prose."""

@@ -85,8 +85,8 @@ LEVEL_16_TITLE	True Climax / Post-Game Bonus	interface	False
 ACT2_ARC1_TITLE	ACT II - ARC 1: FRACTURING THE SEGREGATION GRID	interface	False
 ACT2_ARC2_TITLE	ACT II - ARC 2: THE RESOURCE RECLAMATION FRONT	interface	False
 ACT2_ARC3_TITLE	ACT II - ARC 3: DISMANTLING CORPORATE GOVERNANCE	interface	False
-No internet connection. Please check your network and try again.	No internet connection. Please check your network and try again.	interface	True
-Connection Error	Connection Error	interface	True
+No internet connection. Please check your network and try again.	No internet connection. Please check your network and try again.	interface	False
+Connection Error	Connection Error	interface	False
 CONTINUE	CONTINUE	interface	True
 HOW TO PLAY	HOW TO PLAY	interface	True
 // DEPLOY MISSION	// DEPLOY MISSION	interface	True
@@ -122,8 +122,8 @@ Restart Level	Restart Level	interface	True
 Delete this saved game?	Delete this saved game?	interface	True
 Delete ALL saved games?	Delete ALL saved games?	interface	True
 This cannot be undone.	This cannot be undone.	interface	True
-Visit Website	Visit Website	interface	True
-OK	OK	interface	True
+Visit Website	Visit Website	interface	False
+OK	OK	interface	False
 LEVEL_9_SETTING	The Pacific Ocean is being systematically drained by Deep-Sea Hydrogen Siphoning Conduits. Superheated brine discharge has acidified a 300-kilometer coastal stretch, destroying fishing communities.	interface	False
 LEVEL_10_SETTING	The Stratos Docks high-altitude cargo terminal at 4,000 meters processes Earth's strip-mined minerals, ocean hydrogen, and biological samples for permanent off-world export.	interface	False
 LEVEL_11_SETTING	Sector 7 Core is the surveillance and enforcement power hub: the computational backbone of every colonial security camera, curfew drone, biometric checkpoint, and predictive detention algorithm on the western continent.	interface	False
@@ -149,20 +149,20 @@ LEVEL_13_OBJECTIVE	Infiltrate the Obsidian Vault, extract the Original Land Trea
 LEVEL_14_OBJECTIVE	Push across the 400-meter bridge under sustained artillery fire to reach the Citadel's entrance gate: a relentless grinding advance using Ronin's shield and Siren's drone barrage.	interface	False
 LEVEL_15_OBJECTIVE	Defeat the Xelthara High Overseer using the Axiom Force's combined Ultimate Protocols in a coordinated final assault.	interface	False
 LEVEL_16_OBJECTIVE	Destroy the Collective Will's Singularity Engine core by coordinating generator overloads and a final combined strike before the mothership completes its erasure of Earth.	interface	False
-Welcome	Welcome	interface	True
-Email	Email	interface	True
-Username	Username	interface	True
-Password	Password	interface	True
-Login	Login	interface	True
-Sign Up	Sign Up	interface	True
-Need an account? Sign Up	Need an account? Sign Up	interface	True
-Back to Login	Back to Login	interface	True
-Error occurred	Error occurred	interface	True
-Please enter both email and password	Please enter both email and password	interface	True
-Invalid email or password	Invalid email or password	interface	True
-Please fill in all fields	Please fill in all fields	interface	True
-Account created successfully! Please log in.	Account created successfully! Please log in.	interface	True
-Registration failed. Username or email may be taken.	Registration failed. Username or email may be taken.	interface	True
+Welcome	Welcome	interface	False
+Email	Email	interface	False
+Username	Username	interface	False
+Password	Password	interface	False
+Login	Login	interface	False
+Sign Up	Sign Up	interface	False
+Need an account? Sign Up	Need an account? Sign Up	interface	False
+Back to Login	Back to Login	interface	False
+Error occurred	Error occurred	interface	False
+Please enter both email and password	Please enter both email and password	interface	False
+Invalid email or password	Invalid email or password	interface	False
+Please fill in all fields	Please fill in all fields	interface	False
+Account created successfully! Please log in.	Account created successfully! Please log in.	interface	False
+Registration failed. Username or email may be taken.	Registration failed. Username or email may be taken.	interface	False
 Display Mode	Display Mode	interface	True
 Fullscreen	Fullscreen	interface	True
 Windowed Fullscreen	Windowed Fullscreen	interface	True
@@ -1473,7 +1473,7 @@ SCENE_MAIN_MENU_TEXT_5422A7D4	v1.0.4-NEON-PULSE	interface	True
 SCENE_MAIN_MENU_TEXT_C94F818D	PRESS ANY KEY TO REBIND...	interface	True
 SCENE_MAIN_MENU_TEXT_F666C86F	[ AWAITING INPUT... ]	interface	True
 SCENE_MAIN_MENU_TEXT_89713B9C	Accept	interface	True
-SCENE_MAIN_MENU_TEXT_19766ED6	Cancel	interface	True
+SCENE_MAIN_MENU_TEXT_19766ED6	Cancel	interface	False
 SCENE_OPERATIVE_UPGRADE_SCREEN_TEXT_A1DD6828	◄ RETURN TO MATRIX	interface	True
 SCENE_OPERATIVE_UPGRADE_SCREEN_TEXT_DC3FAECD	OPERATIVE AUGMENTATION MATRIX	interface	True
 SCENE_OPERATIVE_UPGRADE_SCREEN_TEXT_E1E0ECFE	⚡ BANK: 250 SPARKS	interface	True
@@ -1634,11 +1634,11 @@ TAB / 1-6 SWAP | 	TAB / 1-6 SWAP | 	interface	True
 Operative	Operative	interface	True
 Total Score	Total Score	interface	True
 SCENE_GAME_HOME_TEXT_921FEAF5	v1.0.4  |  RESISTANCE PROTOCOL ACTIVE  |  AXIOM FORCE	interface	True
-SCENE_LOGIN_SCENE_TEXT_13968299	// RECLAIM EARTH - SECURE AUTHENTICATION TERMINAL	interface	True
-SCENE_LOGIN_SCENE_TEXT_C83707FB	Access tactical databases, synchronize operative sessions, and deploy to active operational sectors across Earth.	interface	True
-SCENE_LOGIN_SCENE_TEXT_2EFBB9CA	[SYSTEM STATUS: ONLINE]  [ENCRYPTION: 256-BIT SECURE]	interface	True
-SCENE_LOGIN_SCENE_TEXT_77621DF3	TERMINAL ACCESS	interface	True
-SCENE_LOGIN_SCENE_TEXT_09BF25EF	Email Address	interface	True
+SCENE_LOGIN_SCENE_TEXT_13968299	// RECLAIM EARTH - SECURE AUTHENTICATION TERMINAL	interface	False
+SCENE_LOGIN_SCENE_TEXT_C83707FB	Access tactical databases, synchronize operative sessions, and deploy to active operational sectors across Earth.	interface	False
+SCENE_LOGIN_SCENE_TEXT_2EFBB9CA	[SYSTEM STATUS: ONLINE]  [ENCRYPTION: 256-BIT SECURE]	interface	False
+SCENE_LOGIN_SCENE_TEXT_77621DF3	TERMINAL ACCESS	interface	False
+SCENE_LOGIN_SCENE_TEXT_09BF25EF	Email Address	interface	False
 ABILITY_TACTICAL	TACTICAL	interface	True
 ABILITY_CATEGORY_PRIMARY	PRIMARY	interface	True
 ABILITY_CATEGORY_SECONDARY	SECONDARY	interface	True
@@ -1655,3 +1655,12 @@ PREVIEW_RUN	Run	interface	True
 PREVIEW_KATANA	Katana	interface	True
 UI_PREVIEW_STATUS	{0}{1}	interface	True
 UI_LOADING_PROGRESS	{0}{1}%	interface	True
+AUTH_LOGIN	Log In	interface	True
+AUTH_SIGNUP	Sign Up	interface	True
+AUTH_REOPEN	Open Browser Again	interface	True
+AUTH_CANCEL	Cancel	interface	True
+AUTH_WAITING	Complete sign-in in your browser.	interface	True
+AUTH_EXPIRED	Sign-in expired. Please try again.	interface	True
+AUTH_NETWORK	Connection lost. Retrying…	interface	True
+AUTH_ERROR	Unable to sign in. Please try again.	interface	True
+AUTH_BROWSER_ERROR	Unable to open browser. Try opening it again.	interface	True

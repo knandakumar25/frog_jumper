@@ -4,23 +4,23 @@ Structural gate: **PASS**.
 
 | Language | Required | Missing | Format mismatches | Identical: review |
 | --- | ---: | ---: | ---: | ---: |
-| english | 1492 | 0 | 0 | 0 |
-| spanish | 1492 | 0 | 0 | 0 |
-| eurofrench | 1492 | 0 | 0 | 0 |
-| brazilianportuguese | 1492 | 0 | 0 | 0 |
-| german | 1492 | 0 | 0 | 0 |
-| italian | 1492 | 0 | 0 | 0 |
-| polish | 1492 | 0 | 0 | 0 |
-| arabic | 1492 | 0 | 0 | 0 |
-| turkish | 1492 | 0 | 0 | 0 |
-| japanese | 1492 | 0 | 0 | 0 |
-| korean | 1492 | 0 | 0 | 0 |
-| mandarin | 1492 | 0 | 0 | 0 |
-| hebrew | 1492 | 0 | 0 | 0 |
-| traditionalchinese | 1492 | 0 | 0 | 0 |
-| indonesian | 1492 | 0 | 0 | 0 |
-| vietnamese | 1492 | 0 | 0 | 0 |
-| thai | 1492 | 0 | 0 | 0 |
+| english | 1477 | 0 | 0 | 0 |
+| spanish | 1477 | 0 | 0 | 0 |
+| eurofrench | 1477 | 0 | 0 | 0 |
+| brazilianportuguese | 1477 | 0 | 0 | 0 |
+| german | 1477 | 0 | 0 | 0 |
+| italian | 1477 | 0 | 0 | 0 |
+| polish | 1477 | 0 | 0 | 0 |
+| arabic | 1477 | 0 | 0 | 0 |
+| turkish | 1477 | 0 | 0 | 0 |
+| japanese | 1477 | 0 | 0 | 0 |
+| korean | 1477 | 0 | 0 | 0 |
+| mandarin | 1477 | 0 | 0 | 0 |
+| hebrew | 1477 | 0 | 0 | 0 |
+| traditionalchinese | 1477 | 0 | 0 | 0 |
+| indonesian | 1477 | 0 | 0 | 0 |
+| vietnamese | 1477 | 0 | 0 | 0 |
+| thai | 1477 | 0 | 0 | 0 |
 
 Unbound display candidates: 0.
 

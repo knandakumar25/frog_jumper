@@ -82,6 +82,12 @@ def inventory():
     for name in sorted(reachable):
         source = files[name].read_text(encoding='utf-8-sig')
         # Direct key/fallback pairs are authoritative only inside the same call.
+        # Browser status/button keys flow through event callbacks rather than
+        # literal Tr calls. Keep every referenced key inside the normal gate.
+        for value, offset in quoted(source):
+            if value.startswith('AUTH_') and value in entries:
+                entries[value]['required'] = True
+                entries[value]['locations'].append(dict(source=name, line=source[:offset].count('\n')+1))
         for match in re.finditer(r'(?:WildfireText\.(?:Get|Format|KeyValue)|Localized)\(\s*"([^"{}]+)"\s*,\s*("(?:\\.|[^"\\])*")', source):
             key, english = match[1], json.loads(match[2])
             entry = entries.setdefault(key, dict(key=key, english=english, locations=[], trigger='runtime fallback call',

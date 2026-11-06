@@ -14,7 +14,7 @@ func _ready() -> void:
 		if not slider.is_connected("value_changed", _on_volume_changed):
 			slider.connect("value_changed", _on_volume_changed)
 
-	# Use the same language identities and display names as login.
+	# Use the canonical game language identities and display names.
 	_load_languages()
 
 	# Set initial language display
@@ -41,7 +41,7 @@ func _update_volume_label(val: float) -> void:
 		lbl.text = tr("Volume") + "   [ " + str(pct) + "% ]"
 
 
-## Populates settings from the shared language catalog used by login.
+## Populates Settings from the shared game language catalog.
 func _load_languages() -> void:
 	languages = LocaleService.GetLanguages()
 

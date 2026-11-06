@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { gameRequest, confirmationPath } from '../auth/gameHandoff';
 // Via the gate so a keyless build shows a notice instead of throwing.
 import { SignUp } from '../auth/clerkGate.jsx';
 import { useLanguage } from '../translations/LanguageContext';
@@ -8,10 +10,15 @@ import { useLanguage } from '../translations/LanguageContext';
 
 export default function Signup() {
   const { selectedLanguage, selectedCountry, LANGUAGE_CONFIG, getLocaleCode } = useLanguage();
-  const currentLocale = getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
+  // Keep the public handoff association while Clerk advances its nested form.
+  const [handoff] = useState(gameRequest);
+  const suffix = handoff ? `/game/${handoff}` : "";
+  const { locale: routeLocale } = useParams();
+  const currentLocale = routeLocale || getLocaleCode(selectedLanguage, selectedCountry, LANGUAGE_CONFIG);
+  const target = handoff ? confirmationPath(handoff, currentLocale) : null;
 
   return (
-    <div className="relative overflow-hidden pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
+    <div data-handoff-target={target || ''} className="relative overflow-hidden pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
       <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_50%_15%,#0a2230_0%,#06121b_50%,#050505_100%)]"></div>
       <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(0,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,243,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"></div>
 
@@ -35,14 +42,14 @@ export default function Signup() {
         <div className="flex justify-center">
           <SignUp
             routing="path"
-            path={`/${currentLocale}/signup`}
-            signInUrl={`/${currentLocale}/login`}
+            path={`/${currentLocale}/signup${suffix}`}
+            signInUrl={`/${currentLocale}/login${suffix}`}
             // Where the user finishes onboarding. BARE, with no locale segment:
             // the "*" catch-all in App.jsx discards the query string, so a
             // locale-prefixed path would break the ?token= link. Also set in
             // the Clerk dashboard for the hosted Account Portal -- this prop
             // only covers the embedded component.
-            signUpForceRedirectUrl="/onboarding"
+            forceRedirectUrl={target || "/onboarding"}
             fallbackRedirectUrl="/onboarding"
             appearance={{
               elements: {

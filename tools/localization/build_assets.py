@@ -21,6 +21,13 @@ def build(seed_english=False):
     """Preserve catalog translations, import authored cells, and bind cue identities separately from audio paths."""
     languages, rows = read_catalog()
     by_key = {row['']: row for row in rows}
+    # Browser sign-in is written UI only; these cells never create speech cues.
+    auth = json.loads(Path(__file__).with_name('browser_auth.json').read_text(encoding='utf-8'))
+    for index, key in enumerate(auth['keys']):
+        if key not in by_key:
+            row = {'': key, **{language: auth[language][index] for language in languages}}
+            rows.append(row)
+            by_key[key] = row
     card_sources = mission_card_sources()
     common_sources = {'HUD_OBJECTIVE': 'OBJECTIVE / {objective}',
                       'HUD_FRAGMENTS': 'MEMORY FRAGMENTS {found} / {total}',

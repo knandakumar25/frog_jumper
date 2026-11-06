@@ -7,6 +7,8 @@ import {
   SignIn as RealSignIn,
   SignUp as RealSignUp,
   useUser as useRealUser,
+  useAuth as useRealAuth,
+  useClerk as useRealClerk,
 } from '@clerk/clerk-react';
 
 /**
@@ -85,4 +87,17 @@ export function useUser() {
   if (!CLERK_ENABLED) return { user: null, isLoaded: true, isSignedIn: false };
   // eslint-disable-next-line react-hooks/rules-of-hooks -- same reasoning
   return useRealUser();
+}
+
+/** Safe session access when a deployment intentionally has no Clerk key. */
+export function useClerkSession() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks -- build-time constant
+  if (CLERK_ENABLED) return useRealAuth();
+  return { isLoaded: true, isSignedIn: false, getToken: async () => null };
+}
+/** Account switching keeps the public game request in its return URL. */
+export function useClerkClient() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks -- build-time constant
+  if (CLERK_ENABLED) return useRealClerk();
+  return { signOut: async () => {} };
 }

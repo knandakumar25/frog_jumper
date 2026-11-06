@@ -2,14 +2,14 @@
   "structural_pass": true,
   "languages": {
     "english": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": []
     },
     "spanish": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -56,7 +56,7 @@
       ]
     },
     "eurofrench": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -64,7 +64,6 @@
         "Volume",
         "Points",
         "Score",
-        "OK",
         "Kaito Kurogane",
         "Kiana Vaea",
         "Arjun Varma",
@@ -93,13 +92,12 @@
       ]
     },
     "brazilianportuguese": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": [
         "Volume",
-        "OK",
         "Surya Prime",
         "Kaito Kurogane",
         "Kiana Vaea",
@@ -129,12 +127,11 @@
       ]
     },
     "german": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": [
-        "OK",
         "Surya Prime",
         "Kaito Kurogane",
         "Kiana Vaea",
@@ -166,15 +163,13 @@
       ]
     },
     "italian": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": [
         "Volume",
         "No",
-        "OK",
-        "Password",
         "Surya Prime",
         "Kaito Kurogane",
         "Kiana Vaea",
@@ -204,12 +199,11 @@
       ]
     },
     "polish": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": [
-        "OK",
         "Oceanus",
         "Surya Prime",
         "Kaito Kurogane",
@@ -238,7 +232,7 @@
       ]
     },
     "arabic": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -262,7 +256,7 @@
       ]
     },
     "turkish": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -292,12 +286,11 @@
       ]
     },
     "japanese": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": [
-        "OK",
         "Aura Phoenicia",
         "Maya Khoury",
         "UI_CYBERCOMBATHUD_ONDASHCOOLDOWNUPDATED_A683045F",
@@ -317,7 +310,7 @@
       ]
     },
     "korean": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -341,7 +334,7 @@
       ]
     },
     "mandarin": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -365,7 +358,7 @@
       ]
     },
     "hebrew": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -390,7 +383,7 @@
       ]
     },
     "traditionalchinese": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -414,7 +407,7 @@
       ]
     },
     "indonesian": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -444,7 +437,7 @@
       ]
     },
     "vietnamese": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -473,7 +466,7 @@
       ]
     },
     "thai": {
-      "required": 1492,
+      "required": 1477,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -3726,20 +3719,10 @@
     {
       "key": "No internet connection. Please check your network and try again.",
       "english": "No internet connection. Please check your network and try again.",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 167,
-          "binding": "source alias"
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 220
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -3769,23 +3752,10 @@
     {
       "key": "Connection Error",
       "english": "Connection Error",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 125
-        },
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 176
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 215
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -5042,19 +5012,10 @@
     {
       "key": "Visit Website",
       "english": "Visit Website",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 121
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 159
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -5084,23 +5045,10 @@
     {
       "key": "OK",
       "english": "OK",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 126
-        },
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 179
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 228
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -5955,15 +5903,10 @@
     {
       "key": "Welcome",
       "english": "Welcome",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 116
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -5993,15 +5936,10 @@
     {
       "key": "Email",
       "english": "Email",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 117
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6031,19 +5969,10 @@
     {
       "key": "Username",
       "english": "Username",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 118
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 123
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6073,19 +6002,10 @@
     {
       "key": "Password",
       "english": "Password",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 119
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 128
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6115,19 +6035,10 @@
     {
       "key": "Login",
       "english": "Login",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 120
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 134
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6157,15 +6068,10 @@
     {
       "key": "Sign Up",
       "english": "Sign Up",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 120
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6195,19 +6101,10 @@
     {
       "key": "Need an account? Sign Up",
       "english": "Need an account? Sign Up",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 122
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 147
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6237,15 +6134,10 @@
     {
       "key": "Back to Login",
       "english": "Back to Login",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 122
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6275,15 +6167,10 @@
     {
       "key": "Error occurred",
       "english": "Error occurred",
-      "locations": [
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 140
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6313,16 +6200,10 @@
     {
       "key": "Please enter both email and password",
       "english": "Please enter both email and password",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 229,
-          "binding": "source alias"
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6352,16 +6233,10 @@
     {
       "key": "Invalid email or password",
       "english": "Invalid email or password",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 243,
-          "binding": "source alias"
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6391,16 +6266,10 @@
     {
       "key": "Please fill in all fields",
       "english": "Please fill in all fields",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 260,
-          "binding": "source alias"
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6430,16 +6299,10 @@
     {
       "key": "Account created successfully! Please log in.",
       "english": "Account created successfully! Please log in.",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 270,
-          "binding": "source alias"
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -6469,16 +6332,10 @@
     {
       "key": "Registration failed. Username or email may be taken.",
       "english": "Registration failed. Username or email may be taken.",
-      "locations": [
-        {
-          "source": "scripts/main_menu/LoginScene.cs",
-          "line": 277,
-          "binding": "source alias"
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -7663,10 +7520,6 @@
         {
           "source": "scripts/main_menu/GameHome.cs",
           "line": 60
-        },
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 55
         },
         {
           "source": "scenes/main_menu/main_menu.tscn",
@@ -9725,11 +9578,11 @@
       "locations": [
         {
           "source": "scripts/main_menu/MenuAuthUI.cs",
-          "line": 56
+          "line": 55
         },
         {
           "source": "scripts/main_menu/MenuAuthUI.cs",
-          "line": 322
+          "line": 323
         }
       ],
       "trigger": "catalog reference",
@@ -9767,11 +9620,11 @@
       "locations": [
         {
           "source": "scripts/main_menu/MenuAuthUI.cs",
-          "line": 131
+          "line": 130
         },
         {
           "source": "scripts/main_menu/MenuAuthUI.cs",
-          "line": 326
+          "line": 327
         }
       ],
       "trigger": "catalog reference",
@@ -57320,15 +57173,10 @@
     {
       "key": "SCENE_MAIN_MENU_TEXT_19766ED6",
       "english": "Cancel",
-      "locations": [
-        {
-          "source": "scenes/main_menu/main_menu.tscn",
-          "line": 506
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -63514,15 +63362,10 @@
     {
       "key": "SCENE_LOGIN_SCENE_TEXT_13968299",
       "english": "// RECLAIM EARTH - SECURE AUTHENTICATION TERMINAL",
-      "locations": [
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 61
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -63552,15 +63395,10 @@
     {
       "key": "SCENE_LOGIN_SCENE_TEXT_C83707FB",
       "english": "Access tactical databases, synchronize operative sessions, and deploy to active operational sectors across Earth.",
-      "locations": [
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 67
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -63590,15 +63428,10 @@
     {
       "key": "SCENE_LOGIN_SCENE_TEXT_2EFBB9CA",
       "english": "[SYSTEM STATUS: ONLINE]  [ENCRYPTION: 256-BIT SECURE]",
-      "locations": [
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 74
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -63628,15 +63461,10 @@
     {
       "key": "SCENE_LOGIN_SCENE_TEXT_77621DF3",
       "english": "TERMINAL ACCESS",
-      "locations": [
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 107
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -63666,15 +63494,10 @@
     {
       "key": "SCENE_LOGIN_SCENE_TEXT_09BF25EF",
       "english": "Email Address",
-      "locations": [
-        {
-          "source": "scenes/main_menu/login_scene.tscn",
-          "line": 117
-        }
-      ],
+      "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -64330,6 +64153,368 @@
         "vietnamese": true,
         "thai": true
       }
+    },
+    {
+      "key": "AUTH_LOGIN",
+      "english": "Log In",
+      "locations": [
+        {
+          "source": "scripts/main_menu/BrowserSignInUI.cs",
+          "line": 26
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_SIGNUP",
+      "english": "Sign Up",
+      "locations": [
+        {
+          "source": "scripts/main_menu/BrowserSignInUI.cs",
+          "line": 27
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_REOPEN",
+      "english": "Open Browser Again",
+      "locations": [
+        {
+          "source": "scripts/main_menu/BrowserSignInUI.cs",
+          "line": 32
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_CANCEL",
+      "english": "Cancel",
+      "locations": [
+        {
+          "source": "scripts/main_menu/BrowserSignInUI.cs",
+          "line": 33
+        },
+        {
+          "source": "scenes/main_menu/main_menu.tscn",
+          "line": 506
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_WAITING",
+      "english": "Complete sign-in in your browser.",
+      "locations": [
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 57
+        },
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 83
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_EXPIRED",
+      "english": "Sign-in expired. Please try again.",
+      "locations": [
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 79
+        },
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 102
+        },
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 104
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_NETWORK",
+      "english": "Connection lost. Retrying…",
+      "locations": [
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 99
+        },
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 100
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_ERROR",
+      "english": "Unable to sign in. Please try again.",
+      "locations": [
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 106
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "AUTH_BROWSER_ERROR",
+      "english": "Unable to open browser. Try opening it again.",
+      "locations": [
+        {
+          "source": "scripts/managers/AuthManager.cs",
+          "line": 43
+        }
+      ],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": true,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
     }
   ],
   "subtitle_mappings": [
@@ -64341,7 +64526,7 @@
       "audio_path": "assets/audio/english/m01.intro.mp3",
       "display_text": "KAITO: They do not just take our land; they delete our soul. We will save the story.",
       "subtitle_key": "SUBTITLE_M01_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M01_INTRO"
     },
     {
       "id": "m01.fragment1",
@@ -64351,7 +64536,7 @@
       "audio_path": "assets/audio/english/m01.fragment1.mp3",
       "display_text": "ARCHIVE LOG: The garden once marked the changing of each imperial season.",
       "subtitle_key": "SUBTITLE_M01_FRAGMENT1",
-      "previous_inventory_key": "PALACE_ARCHIVE_ROOF"
+      "previous_inventory_key": "SUBTITLE_M01_FRAGMENT1"
     },
     {
       "id": "m01.fragment2",
@@ -64361,7 +64546,7 @@
       "audio_path": "assets/audio/english/m01.fragment2.mp3",
       "display_text": "ARCHIVE LOG: The dojo sheltered historians during the first occupation.",
       "subtitle_key": "SUBTITLE_M01_FRAGMENT2",
-      "previous_inventory_key": "PALACE_ARCHIVE_ROOF"
+      "previous_inventory_key": "SUBTITLE_M01_FRAGMENT2"
     },
     {
       "id": "m01.fragment3",
@@ -64371,7 +64556,7 @@
       "audio_path": "assets/audio/english/m01.fragment3.mp3",
       "display_text": "ARCHIVE LOG: The Data-Blade holds the testimony of every erased district.",
       "subtitle_key": "SUBTITLE_M01_FRAGMENT3",
-      "previous_inventory_key": "PALACE_ARCHIVE_ROOF"
+      "previous_inventory_key": "SUBTITLE_M01_FRAGMENT3"
     },
     {
       "id": "m01.event.3464a63ef614",
@@ -64381,7 +64566,7 @@
       "audio_path": "assets/audio/english/m01.event.3464a63ef614.mp3",
       "display_text": "AXIOM-7: Sentry fire ahead. Time your Kinetic Parry on the shot and it becomes theirs.",
       "subtitle_key": "SUBTITLE_M01_EVENT_3464A63EF614",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M01_EVENT_3464A63EF614"
     },
     {
       "id": "m01.event.1c0db99c7753",
@@ -64391,7 +64576,7 @@
       "audio_path": "assets/audio/english/m01.event.1c0db99c7753.mp3",
       "display_text": "AXIOM-7: The demolition beacon is shielded. Only parried sentry fire can overload that field.",
       "subtitle_key": "SUBTITLE_M01_EVENT_1C0DB99C7753",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M01_EVENT_1C0DB99C7753"
     },
     {
       "id": "m01.event.b99bdf78b0fc",
@@ -64401,7 +64586,7 @@
       "audio_path": "assets/audio/english/m01.event.b99bdf78b0fc.mp3",
       "display_text": "DATA-BLADE SECURED. AXIOM-7: Enforcer signatures converging. Reach the extraction gate!",
       "subtitle_key": "SUBTITLE_M01_EVENT_B99BDF78B0FC",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M01_EVENT_B99BDF78B0FC"
     },
     {
       "id": "m01.event.3f776f8eee75",
@@ -64411,7 +64596,7 @@
       "audio_path": "assets/audio/english/m01.event.3f776f8eee75.mp3",
       "display_text": "The dojo falls, but the resistance rises. Tokyo remembers.",
       "subtitle_key": "SUBTITLE_M01_EVENT_3F776F8EEE75",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M01_EVENT_3F776F8EEE75"
     },
     {
       "id": "m01.event.2be03f9af630",
@@ -64421,7 +64606,7 @@
       "audio_path": "assets/audio/english/m01.event.2be03f9af630.mp3",
       "display_text": "AXIOM-7: Beacon neutralized. The dojo gate is unsealed. Take the Data-Blade!",
       "subtitle_key": "SUBTITLE_M01_EVENT_2BE03F9AF630",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M01_EVENT_2BE03F9AF630"
     },
     {
       "id": "m02.intro",
@@ -64471,7 +64656,7 @@
       "audio_path": "assets/audio/english/m02.event.c49c88a5424d.mp3",
       "display_text": "OCEANUS: As long as I draw breath, they will not relocate us like cargo in our own city. The tide rises HERE.",
       "subtitle_key": "SUBTITLE_M02_EVENT_C49C88A5424D",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M02_EVENT_C49C88A5424D"
     },
     {
       "id": "m02.event.45471e891cc5",
@@ -64491,7 +64676,7 @@
       "audio_path": "assets/audio/english/m02.event.541fec473cff.mp3",
       "display_text": "APEX TITAN: Nobody crosses me today, little ones. When the shells come, stand close. I am the wall they hit.",
       "subtitle_key": "SUBTITLE_M02_EVENT_541FEC473CFF",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M02_EVENT_541FEC473CFF"
     },
     {
       "id": "m02.event.339fc4fa5aab",
@@ -64521,7 +64706,7 @@
       "audio_path": "assets/audio/english/m03.intro.mp3",
       "display_text": "AXIOM-7: Comm towers are broadcasting denial of service. Reach the relay and black out their patrol network.",
       "subtitle_key": "SUBTITLE_M03_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_INTRO"
     },
     {
       "id": "m03.fragment1",
@@ -64561,7 +64746,7 @@
       "audio_path": "assets/audio/english/m03.event.1ea1dfff1c3c.mp3",
       "display_text": "AURA PHOENICIA: Their denial-of-service hums in C-flat. Offended, honestly. Let me answer it.",
       "subtitle_key": "SUBTITLE_M03_EVENT_1EA1DFFF1C3C",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_EVENT_1EA1DFFF1C3C"
     },
     {
       "id": "m03.event.56b01a155b48",
@@ -64571,7 +64756,7 @@
       "audio_path": "assets/audio/english/m03.event.56b01a155b48.mp3",
       "display_text": "AXIOM-7: Aura Phoenicia has joined. Her Harmonic Pulse can open sonic locks, like the door at the tower.",
       "subtitle_key": "SUBTITLE_M03_EVENT_56B01A155B48",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_EVENT_56B01A155B48"
     },
     {
       "id": "m03.event.3f881f398929",
@@ -64581,7 +64766,7 @@
       "audio_path": "assets/audio/english/m03.event.3f881f398929.mp3",
       "display_text": "MIRAGE BLADE: Patrols are blind. The route to the Border Fortress is open. Moving before you finish applauding.",
       "subtitle_key": "SUBTITLE_M03_EVENT_3F881F398929",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_EVENT_3F881F398929"
     },
     {
       "id": "m03.event.bf8138121a4f",
@@ -64591,7 +64776,7 @@
       "audio_path": "assets/audio/english/m03.event.bf8138121a4f.mp3",
       "display_text": "AXIOM-7: Mirage Blade has joined. His Phase Blink slips through laser fields that would kill anyone else.",
       "subtitle_key": "SUBTITLE_M03_EVENT_BF8138121A4F",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_EVENT_BF8138121A4F"
     },
     {
       "id": "m03.event.225899420c7f",
@@ -64601,7 +64786,7 @@
       "audio_path": "assets/audio/english/m03.event.225899420c7f.mp3",
       "display_text": "AXIOM-7: Target secured. Proceed to the next objective.",
       "subtitle_key": "SUBTITLE_M03_EVENT_225899420C7F",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_EVENT_225899420C7F"
     },
     {
       "id": "m03.event.ba4f252bdb19",
@@ -64611,7 +64796,7 @@
       "audio_path": "assets/audio/english/m03.event.ba4f252bdb19.mp3",
       "display_text": "AURA PHOENICIA: Listen. That is what a free city sounds like. Comm grid down.",
       "subtitle_key": "SUBTITLE_M03_EVENT_BA4F252BDB19",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M03_EVENT_BA4F252BDB19"
     },
     {
       "id": "m04.intro",
@@ -64621,7 +64806,7 @@
       "audio_path": "assets/audio/english/m04.intro.mp3",
       "display_text": "AXIOM-7: Reach Surya. Secure the heat works, disable the gun deck, and breach the inner curtain.",
       "subtitle_key": "SUBTITLE_M04_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M04_INTRO"
     },
     {
       "id": "m04.fragment1",
@@ -64631,7 +64816,7 @@
       "audio_path": "assets/audio/english/m04.fragment1.mp3",
       "display_text": "ARCHIVE: Every gun watches a road inside the border.",
       "subtitle_key": "SUBTITLE_M04_FRAGMENT1",
-      "previous_inventory_key": "AEGIS_OBJECTIVE_1"
+      "previous_inventory_key": "SUBTITLE_M04_FRAGMENT1"
     },
     {
       "id": "m04.fragment2",
@@ -64641,7 +64826,7 @@
       "audio_path": "assets/audio/english/m04.fragment2.mp3",
       "display_text": "ARCHIVE: The coolant map serves homes as well as weapons. Spare the district.",
       "subtitle_key": "SUBTITLE_M04_FRAGMENT2",
-      "previous_inventory_key": "AEGIS_OBJECTIVE_2"
+      "previous_inventory_key": "SUBTITLE_M04_FRAGMENT2"
     },
     {
       "id": "m04.fragment3",
@@ -64651,7 +64836,7 @@
       "audio_path": "assets/audio/english/m04.fragment3.mp3",
       "display_text": "ARCHIVE: Crossing permits expired before their holders reached the wall.",
       "subtitle_key": "SUBTITLE_M04_FRAGMENT3",
-      "previous_inventory_key": "AEGIS_OBJECTIVE_3"
+      "previous_inventory_key": "SUBTITLE_M04_FRAGMENT3"
     },
     {
       "id": "m05.intro",
@@ -64671,7 +64856,7 @@
       "audio_path": "assets/audio/english/m05.fragment1.mp3",
       "display_text": "CIVILIAN TESTIMONY: My daughter wrote our names inside her coat. The scanner called us a number that no longer existed.",
       "subtitle_key": "SUBTITLE_M05_FRAGMENT1",
-      "previous_inventory_key": "NAMES_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M05_FRAGMENT1"
     },
     {
       "id": "m05.fragment2",
@@ -64681,7 +64866,7 @@
       "audio_path": "assets/audio/english/m05.fragment2.mp3",
       "display_text": "CIVILIAN TESTIMONY: I repaired these water pipes for thirty years. Yesterday the district said I had never lived here.",
       "subtitle_key": "SUBTITLE_M05_FRAGMENT2",
-      "previous_inventory_key": "NAMES_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M05_FRAGMENT2"
     },
     {
       "id": "m05.fragment3",
@@ -64691,7 +64876,7 @@
       "audio_path": "assets/audio/english/m05.fragment3.mp3",
       "display_text": "CIVILIAN TESTIMONY: Keep the original. That was what my mother said. A name is more than permission to pass.",
       "subtitle_key": "SUBTITLE_M05_FRAGMENT3",
-      "previous_inventory_key": "NAMES_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M05_FRAGMENT3"
     },
     {
       "id": "m06.intro",
@@ -64711,7 +64896,7 @@
       "audio_path": "assets/audio/english/m06.fragment1.mp3",
       "display_text": "DATA SLATE 01 // BIO-SYNTHESIS LOG: Subjects 401 through 480 transferred to incubation. Neural mapping running at 94%.",
       "subtitle_key": "SUBTITLE_M06_FRAGMENT1",
-      "previous_inventory_key": "CYBER_GRAVE_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M06_FRAGMENT1"
     },
     {
       "id": "m06.fragment2",
@@ -64721,7 +64906,7 @@
       "audio_path": "assets/audio/english/m06.fragment2.mp3",
       "display_text": "DATA SLATE 02 // GEOTHERMAL SIPHON: Overdrive reactor feeding primary conduits. Any disruption threatens structural containment.",
       "subtitle_key": "SUBTITLE_M06_FRAGMENT2",
-      "previous_inventory_key": "CYBER_GRAVE_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M06_FRAGMENT2"
     },
     {
       "id": "m06.fragment3",
@@ -64731,7 +64916,7 @@
       "audio_path": "assets/audio/english/m06.fragment3.mp3",
       "display_text": "DATA SLATE 03 // EXTRACTION DIRECTIVE: Evacuate all personnel. No human component may fall into enemy command hands.",
       "subtitle_key": "SUBTITLE_M06_FRAGMENT3",
-      "previous_inventory_key": "CYBER_GRAVE_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M06_FRAGMENT3"
     },
     {
       "id": "m07.intro",
@@ -64751,7 +64936,7 @@
       "audio_path": "assets/audio/english/m07.fragment1.mp3",
       "display_text": "DATA SLATE 01 // GEOTHERMAL TELEMETRY: Plasma core channeling 14,000 gigawatts into the Citadel Spire's orbital emitter array.",
       "subtitle_key": "SUBTITLE_M07_FRAGMENT1",
-      "previous_inventory_key": "CYBER_FORGE_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M07_FRAGMENT1"
     },
     {
       "id": "m07.fragment2",
@@ -64761,7 +64946,7 @@
       "audio_path": "assets/audio/english/m07.fragment2.mp3",
       "display_text": "DATA SLATE 02 // CONTAINMENT FAULT: Cryo-coolant pressure dropping. High-voltage magnetic conduits cannot withstand thermal runaway.",
       "subtitle_key": "SUBTITLE_M07_FRAGMENT2",
-      "previous_inventory_key": "CYBER_FORGE_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M07_FRAGMENT2"
     },
     {
       "id": "m07.fragment3",
@@ -64771,7 +64956,7 @@
       "audio_path": "assets/audio/english/m07.fragment3.mp3",
       "display_text": "DATA SLATE 03 // EMERGENCY PROTOCOL: In event of core breach, planetary sky-shields will collapse across all municipal sectors.",
       "subtitle_key": "SUBTITLE_M07_FRAGMENT3",
-      "previous_inventory_key": "CYBER_FORGE_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M07_FRAGMENT3"
     },
     {
       "id": "m08.intro",
@@ -64791,7 +64976,7 @@
       "audio_path": "assets/audio/english/m08.fragment1.mp3",
       "display_text": "DATA SLATE 01 // AVIATION MANIFEST: Citadel Air Corps operates at 1,200m. Patrols maintain tight containment corridors across municipal sectors.",
       "subtitle_key": "SUBTITLE_M08_FRAGMENT1",
-      "previous_inventory_key": "STRATOS_DOCKS_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M08_FRAGMENT1"
     },
     {
       "id": "m08.fragment2",
@@ -64801,7 +64986,7 @@
       "audio_path": "assets/audio/english/m08.fragment2.mp3",
       "display_text": "DATA SLATE 02 // CRYO-HYDROGEN RESERVES: Heavy military gunship in Bay 4 spooled with supercharged hydrogen fuel cells.",
       "subtitle_key": "SUBTITLE_M08_FRAGMENT2",
-      "previous_inventory_key": "STRATOS_DOCKS_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M08_FRAGMENT2"
     },
     {
       "id": "m08.fragment3",
@@ -64811,7 +64996,7 @@
       "audio_path": "assets/audio/english/m08.fragment3.mp3",
       "display_text": "DATA SLATE 03 // AIRSPACE INTERCEPT PROTOCOL: Aero-Centurion flight-deck mechanoid authorized to deploy overdrive micro-missiles against invaders.",
       "subtitle_key": "SUBTITLE_M08_FRAGMENT3",
-      "previous_inventory_key": "STRATOS_DOCKS_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M08_FRAGMENT3"
     },
     {
       "id": "m09.intro",
@@ -64821,7 +65006,7 @@
       "audio_path": "assets/audio/english/m09.intro.mp3",
       "display_text": "SECTOR 09 // SPIRE OUTER HULL // ELEVATION 2,500M",
       "subtitle_key": "SUBTITLE_M09_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M09_INTRO"
     },
     {
       "id": "m09.fragment1",
@@ -64831,7 +65016,7 @@
       "audio_path": "assets/audio/english/m09.fragment1.mp3",
       "display_text": "DATA SLATE 01 // EXTERIOR MAINTENANCE LOG: Gantry 42 elevation 2,500m. Gale-force shears require magnetic boot solenoids.",
       "subtitle_key": "SUBTITLE_M09_FRAGMENT1",
-      "previous_inventory_key": "SPIRE_OUTER_HULL_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M09_FRAGMENT1"
     },
     {
       "id": "m09.fragment2",
@@ -64841,7 +65026,7 @@
       "audio_path": "assets/audio/english/m09.fragment2.mp3",
       "display_text": "DATA SLATE 02 // EXHAUST MANIFOLD OVERHEAT: Cryogenic louvers vent excess reactor heat directly through exterior armor seams.",
       "subtitle_key": "SUBTITLE_M09_FRAGMENT2",
-      "previous_inventory_key": "SPIRE_OUTER_HULL_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M09_FRAGMENT2"
     },
     {
       "id": "m09.fragment3",
@@ -64851,7 +65036,7 @@
       "audio_path": "assets/audio/english/m09.fragment3.mp3",
       "display_text": "DATA SLATE 03 // SPIRE SENTINEL PROTOCOL: Automated aerial defense mechanoid V-9 authorized to fire overdrive plasma salvos.",
       "subtitle_key": "SUBTITLE_M09_FRAGMENT3",
-      "previous_inventory_key": "SPIRE_OUTER_HULL_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M09_FRAGMENT3"
     },
     {
       "id": "m10.intro",
@@ -64861,7 +65046,7 @@
       "audio_path": "assets/audio/english/m10.intro.mp3",
       "display_text": "SECTOR 10 // THE CYBER-NEXUS // CITADEL SPIRE CORE",
       "subtitle_key": "SUBTITLE_M10_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M10_INTRO"
     },
     {
       "id": "m10.fragment1",
@@ -64871,7 +65056,7 @@
       "audio_path": "assets/audio/english/m10.fragment1.mp3",
       "display_text": "DATA SLATE 01 // QUANTUM MAINFRAME ARCHITECTURE: The Cyber-Nexus processes city-wide biometric tracking and combat drone subroutines.",
       "subtitle_key": "SUBTITLE_M10_FRAGMENT1",
-      "previous_inventory_key": "CYBER_NEXUS_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M10_FRAGMENT1"
     },
     {
       "id": "m10.fragment2",
@@ -64881,7 +65066,7 @@
       "audio_path": "assets/audio/english/m10.fragment2.mp3",
       "display_text": "DATA SLATE 02 // SUB-ZERO COOLANT SYSTEM: Liquid helium manifolds keep the central quantum core from thermal meltdown under maximum processing load.",
       "subtitle_key": "SUBTITLE_M10_FRAGMENT2",
-      "previous_inventory_key": "CYBER_NEXUS_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M10_FRAGMENT2"
     },
     {
       "id": "m10.fragment3",
@@ -64891,7 +65076,7 @@
       "audio_path": "assets/audio/english/m10.fragment3.mp3",
       "display_text": "DATA SLATE 03 // NEXUS OVERSEER DEFENSE DIRECTIVE: Primary mainframe security guardian authorized to purge unauthorized bio-signatures.",
       "subtitle_key": "SUBTITLE_M10_FRAGMENT3",
-      "previous_inventory_key": "CYBER_NEXUS_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M10_FRAGMENT3"
     },
     {
       "id": "m11.intro",
@@ -64901,7 +65086,7 @@
       "audio_path": "assets/audio/english/m11.intro.mp3",
       "display_text": "SECTOR 11 // THE APEX BASTION // STRATOSPHERIC SUMMIT 4,000M",
       "subtitle_key": "SUBTITLE_M11_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M11_INTRO"
     },
     {
       "id": "m11.fragment1",
@@ -64911,7 +65096,7 @@
       "audio_path": "assets/audio/english/m11.fragment1.mp3",
       "display_text": "DATA SLATE 01 // PRAETORIAN DOCTRINE: The Citadel's elite guard mechanoids are programmed to fight to complete destruction.",
       "subtitle_key": "SUBTITLE_M11_FRAGMENT1",
-      "previous_inventory_key": "APEX_BASTION_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M11_FRAGMENT1"
     },
     {
       "id": "m11.fragment2",
@@ -64921,7 +65106,7 @@
       "audio_path": "assets/audio/english/m11.fragment2.mp3",
       "display_text": "DATA SLATE 02 // SUMMIT POWER MATRIX: The Void Commander channels stratospheric lightning directly into the upper throne room spire.",
       "subtitle_key": "SUBTITLE_M11_FRAGMENT2",
-      "previous_inventory_key": "APEX_BASTION_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M11_FRAGMENT2"
     },
     {
       "id": "m11.fragment3",
@@ -64931,7 +65116,7 @@
       "audio_path": "assets/audio/english/m11.fragment3.mp3",
       "display_text": "DATA SLATE 03 // BASTION PRAETOR DIRECTIVE: Supreme mechanoid guardian granted autonomous tactical command over all Citadel flak batteries.",
       "subtitle_key": "SUBTITLE_M11_FRAGMENT3",
-      "previous_inventory_key": "APEX_BASTION_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M11_FRAGMENT3"
     },
     {
       "id": "m12.intro",
@@ -64941,7 +65126,7 @@
       "audio_path": "assets/audio/english/m12.intro.mp3",
       "display_text": "AXIOM-7: CITADEL SUMMIT REACHED // ENGAGE THE VOID COMMANDER // LIBERATE THE MACHINE EMPIRE",
       "subtitle_key": "SUBTITLE_M12_INTRO",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_M12_INTRO"
     },
     {
       "id": "m12.fragment1",
@@ -64951,7 +65136,7 @@
       "audio_path": "assets/audio/english/m12.fragment1.mp3",
       "display_text": "DATA SLATE 01 // SINGULARITY GENESIS: The dark matter reactor was engineered to consume planetary energy reserves to sustain the imperial elite.",
       "subtitle_key": "SUBTITLE_M12_FRAGMENT1",
-      "previous_inventory_key": "JUDGMENT_DAY_FRAGMENT_1"
+      "previous_inventory_key": "SUBTITLE_M12_FRAGMENT1"
     },
     {
       "id": "m12.fragment2",
@@ -64961,7 +65146,7 @@
       "audio_path": "assets/audio/english/m12.fragment2.mp3",
       "display_text": "DATA SLATE 02 // IMPERIAL DECREE: All civilian identity registries slated for permanent eradication upon Singularity Core reaching 100% capacity.",
       "subtitle_key": "SUBTITLE_M12_FRAGMENT2",
-      "previous_inventory_key": "JUDGMENT_DAY_FRAGMENT_2"
+      "previous_inventory_key": "SUBTITLE_M12_FRAGMENT2"
     },
     {
       "id": "m12.fragment3",
@@ -64971,7 +65156,7 @@
       "audio_path": "assets/audio/english/m12.fragment3.mp3",
       "display_text": "DATA SLATE 03 // THE DAWN OF AXIOM: Six operatives stood together when millions fell. Their names will be remembered across eternity.",
       "subtitle_key": "SUBTITLE_M12_FRAGMENT3",
-      "previous_inventory_key": "JUDGMENT_DAY_FRAGMENT_3"
+      "previous_inventory_key": "SUBTITLE_M12_FRAGMENT3"
     },
     {
       "id": "aegis.handoff",
@@ -65411,7 +65596,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Praetor neutralized. Battlements clear. The summit flak arrays have fallen silent.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_01"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.02",
@@ -65421,7 +65606,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "TITAN: Heavy armor, weak servos. Now those blast doors look less welcoming. Think they heard what happened to their guardian?",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_02"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.03",
@@ -65431,7 +65616,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "OCEANUS: Pressure falling, temperature rising. That storm around the summit is getting tighter. This is not normal weather.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_03"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.04",
@@ -65441,7 +65626,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "SURYA: It is a power siphon. He is drawing energy straight into the throne room. My shields can feel the distortion.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_04"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.05",
@@ -65451,7 +65636,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "AURA: The dissonance behind those doors is deafening. He knows we are here. He has stopped hiding.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_05"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.06",
@@ -65461,7 +65646,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: Gate relays unlocked. The Praetor key was the last barrier. Releasing the hydraulic bolts. Three. Two. One.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_06"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.07",
@@ -65471,7 +65656,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Blast doors opening. Throne chamber confirmed. Lethal energy readings beyond the threshold. Proceed together.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_07"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.08",
@@ -65481,7 +65666,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "SURYA: From the flooded ruins to the clouds. All this way, all these people depending on us. We finish it here.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_08"
     },
     {
       "id": "cinematic.apex_bastion_aftermath.09",
@@ -65491,7 +65676,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_aftermath/dialogue.ogg",
       "display_text": "KAITO: We set out to free this city. We finish together. Axiom Force, draw steel. Behind these doors is Judgment Day.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_09"
     },
     {
       "id": "cinematic.apex_bastion_intro.01",
@@ -65501,7 +65686,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Level one hundred. Forty-five hundred meters. This is Apex Bastion, fortress of the Praetorian Guard.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_01"
     },
     {
       "id": "cinematic.apex_bastion_intro.02",
@@ -65511,7 +65696,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "TITAN: Three meters of obsidian alloy. Plasma guns covering the courtyard. They have turned the summit into a killing ground.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_02"
     },
     {
       "id": "cinematic.apex_bastion_intro.03",
@@ -65521,7 +65706,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "OCEANUS: The clouds are below us. Ice on the parapets, crosswinds over the rail. Stay away from those edges.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_03"
     },
     {
       "id": "cinematic.apex_bastion_intro.04",
@@ -65531,7 +65716,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "MIRAGE: Heavy signatures ahead. Praetorian shock troops and cyber-samurai. The Commander's personal guard. They know we are here.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_04"
     },
     {
       "id": "cinematic.apex_bastion_intro.05",
@@ -65541,7 +65726,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "AURA: Their comms are silent. No panic. They know the Nexus is gone, and they mean to hold this wall anyway.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_05"
     },
     {
       "id": "cinematic.apex_bastion_intro.06",
@@ -65551,7 +65736,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "SURYA: The stairway leads to the throne room. Artillery at the perimeter gate. We will need every operative to break through.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_06"
     },
     {
       "id": "cinematic.apex_bastion_intro.07",
@@ -65561,7 +65746,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Colossal war chassis at the gatehouse. Bastion Praetor. The last mechanized guardian between us and the Commander.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_07"
     },
     {
       "id": "cinematic.apex_bastion_intro.08",
@@ -65571,7 +65756,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "MIRAGE: We broke the registry, emptied the Grave, and brought their sky-shields down. We are not stopping at the front door.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_08"
     },
     {
       "id": "cinematic.apex_bastion_intro.09",
@@ -65581,7 +65766,7 @@
       "audio_path": "assets/cutscenes/apex_bastion_intro/dialogue.ogg",
       "display_text": "KAITO: Through the Guard, through the Praetor, and on to the throne. Axiom Force, blades drawn. Breach the Bastion.",
       "subtitle_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_09"
     },
     {
       "id": "cinematic.wildfire.01",
@@ -65841,7 +66026,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Overseer neutralized. All three processing nodes are down. The Citadel automated defense grid has flatlined.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_01"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.02",
@@ -65851,7 +66036,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: The reinforcement queues just emptied. No fresh drones, no replacement squads. Their machine army has nowhere to go.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_02"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.03",
@@ -65861,7 +66046,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "TITAN: Containment prisms. Fancy name for a cage. Now look at them. Scrap metal, and coolant leaking through every seam.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_03"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.04",
@@ -65871,7 +66056,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "OCEANUS: Thermal runaway is accelerating. Feel that vibration? We cannot stay on this deck. Keep moving toward the lift.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_04"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.05",
@@ -65881,7 +66066,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "SURYA: The Bastion has switched to auxiliary power. We broke its link to the Nexus, but its local guns still work.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_05"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.06",
@@ -65891,7 +66076,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "AURA: Heavy footsteps above us. Praetorian mechs and cyber-samurai. They know the network is dead. They are making their stand.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_06"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.07",
@@ -65901,7 +66086,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: Ascent lift online. Executive lockout bypassed. Everyone aboard. This takes us straight into the Bastion.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_07"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.08",
@@ -65911,7 +66096,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Extreme energy readings at the summit. The Commander has detected the Nexus collapse. Bastion batteries are cleared to fire.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_08"
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.09",
@@ -65921,7 +66106,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_aftermath/dialogue.ogg",
       "display_text": "KAITO: Then we meet them face to face. No more hiding behind machines. Board the lift. Next stop, Apex Bastion.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_09"
     },
     {
       "id": "cinematic.cyber_nexus_intro.01",
@@ -65931,7 +66116,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Ingress confirmed. We are inside the Spire core. Establishing a hardline connection to the Cyber-Nexus.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_01"
     },
     {
       "id": "cinematic.cyber_nexus_intro.02",
@@ -65941,7 +66126,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "MIRAGE: Glass, silicon, not a trace of dust. It feels like walking into something that has never needed a human.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_02"
     },
     {
       "id": "cinematic.cyber_nexus_intro.03",
@@ -65951,7 +66136,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "TITAN: Every rack could power a city block. All that energy, wasted on watching people and building machines to kill them.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_03"
     },
     {
       "id": "cinematic.cyber_nexus_intro.04",
@@ -65961,7 +66146,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "OCEANUS: Liquid helium under the deck. Disrupt the cooling manifold, and these processors will overheat on their own.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_04"
     },
     {
       "id": "cinematic.cyber_nexus_intro.05",
@@ -65971,7 +66156,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "AURA: The matrix is awake. It is probing our signatures. The Overseer has found us, and security is closing in.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_05"
     },
     {
       "id": "cinematic.cyber_nexus_intro.06",
@@ -65981,7 +66166,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "SURYA: Biometric firewalls on the bridges. I can absorb the surges. Stay behind the barrier while we cross.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_06"
     },
     {
       "id": "cinematic.cyber_nexus_intro.07",
@@ -65991,7 +66176,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Three quantum nodes regulate the Spire defense grid. Override all three to stop its automated reinforcements.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_07"
     },
     {
       "id": "cinematic.cyber_nexus_intro.08",
@@ -66001,7 +66186,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "MIRAGE: Without this core, the Bastion loses its machine army. We break the chain here, before the final climb.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_08"
     },
     {
       "id": "cinematic.cyber_nexus_intro.09",
@@ -66011,7 +66196,7 @@
       "audio_path": "assets/cutscenes/cyber_nexus_intro/dialogue.ogg",
       "display_text": "KAITO: Silence the Overseer. Override the nodes. We finish this together. Axiom Force, advance.",
       "subtitle_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_CYBER_NEXUS_INTRO_09"
     },
     {
       "id": "cinematic.foundry_forge_aftermath.01",
@@ -66201,7 +66386,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Singularity contained. Reactor signature zero. The Commander's control network is down across every relay.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_01"
     },
     {
       "id": "cinematic.judgment_day_aftermath.02",
@@ -66211,7 +66396,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: The firewalls are down. Broadcast is open to everyone. Look below us. The quarantine barriers are dropping.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_02"
     },
     {
       "id": "cinematic.judgment_day_aftermath.03",
@@ -66221,7 +66406,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "TITAN: Ten million people kept in the dark. Now the lights are coming on, from the sumps to the cloudline.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_03"
     },
     {
       "id": "cinematic.judgment_day_aftermath.04",
@@ -66231,7 +66416,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "OCEANUS: The scrubbers are reversing. That is ocean air coming through the broken windows. The storm is finally passing.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_04"
     },
     {
       "id": "cinematic.judgment_day_aftermath.05",
@@ -66241,7 +66426,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "SURYA: Actual sunlight. After fifty years, my cells are drinking it in. I had forgotten it could feel this warm.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_05"
     },
     {
       "id": "cinematic.judgment_day_aftermath.06",
@@ -66251,7 +66436,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "AURA: I hear voices. Singing, laughing, crying. No suppression signal. No one telling them to be quiet. Just people.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_06"
     },
     {
       "id": "cinematic.judgment_day_aftermath.07",
@@ -66261,7 +66446,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Imperial control erased. Identities restored to their owners in all twelve districts. Mission complete.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_07"
     },
     {
       "id": "cinematic.judgment_day_aftermath.08",
@@ -66271,7 +66456,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "KAITO: Castaways. Rogues. Ghosts in the gridlock. Today we stood together, and gave them their tomorrow back.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_08"
     },
     {
       "id": "cinematic.judgment_day_aftermath.09",
@@ -66281,7 +66466,7 @@
       "audio_path": "assets/cutscenes/judgment_day_aftermath/dialogue.ogg",
       "display_text": "KAITO: The dawn belongs to all of us. Axiom Force, stand down. Our city is free.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_09"
     },
     {
       "id": "cinematic.judgment_day_intro.01",
@@ -66291,7 +66476,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Summit reached. Five thousand meters. Atmospheric containment failing. We are inside the Void Singularity Chamber.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_01"
     },
     {
       "id": "cinematic.judgment_day_intro.02",
@@ -66301,7 +66486,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "SURYA: That event horizon is bending the light around the dais. Stay behind my bulwark. The radiation is climbing.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_02"
     },
     {
       "id": "cinematic.judgment_day_intro.03",
@@ -66311,7 +66496,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "OCEANUS: He is draining the planetary geothermal grid into that core. One command, and he could purge the civilian population.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_03"
     },
     {
       "id": "cinematic.judgment_day_intro.04",
@@ -66321,7 +66506,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "MIRAGE: No guards. No drone army. Just him, waiting on that throne. He knew we would make it this far.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_04"
     },
     {
       "id": "cinematic.judgment_day_intro.05",
@@ -66331,7 +66516,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "TITAN: We broke his tanks, his labs, and his fortress. Let him wait. That crown is coming off today.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_05"
     },
     {
       "id": "cinematic.judgment_day_intro.06",
@@ -66341,7 +66526,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "AURA: Beneath all that noise, I can hear them. Millions of people down below, still holding on. Still singing for the dawn.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_06"
     },
     {
       "id": "cinematic.judgment_day_intro.07",
@@ -66351,7 +66536,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "VOID COMMANDER: You crawled out of the scrap heaps to kneel before me. Your insurrection ends here. Axiom Force dies tonight.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_07"
     },
     {
       "id": "cinematic.judgment_day_intro.08",
@@ -66361,7 +66546,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "MIRAGE: Phase blades ready. Shields synchronized. Every scar brought us here. We finish this together.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_08"
     },
     {
       "id": "cinematic.judgment_day_intro.09",
@@ -66371,7 +66556,7 @@
       "audio_path": "assets/cutscenes/judgment_day_intro/dialogue.ogg",
       "display_text": "KAITO: For every stolen name, every life the machine took. Axiom Force, draw your weapons. Strike down the Commander.",
       "subtitle_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_JUDGMENT_DAY_INTRO_09"
     },
     {
       "id": "cinematic.names_without_numbers.01",
@@ -66381,7 +66566,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "CIVILIAN AMARA: My name is Amara. Look at the terminal... it's not red anymore. It knows who I am.",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_01"
     },
     {
       "id": "cinematic.names_without_numbers.02",
@@ -66391,7 +66576,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "CIVILIANS: I'm Elias. My family is on the manifest. We're on the board!",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_02"
     },
     {
       "id": "cinematic.names_without_numbers.03",
@@ -66401,7 +66586,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "MIRAGE: Biometric carrier wave is completely flatlined. Not a single camera knows how to track them now.",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_03"
     },
     {
       "id": "cinematic.names_without_numbers.04",
@@ -66411,7 +66596,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "AURA: The frequency in the air changed. The static in their comms... it isn't fear anymore. It's a chorus.",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_04"
     },
     {
       "id": "cinematic.names_without_numbers.05",
@@ -66421,7 +66606,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "OCEANUS: Transit gates are opening. Water filtration and ration vaults unlocked. They're finally treated as people, not contraband.",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_05"
     },
     {
       "id": "cinematic.names_without_numbers.06",
@@ -66431,7 +66616,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "TITAN: The occupation spent five years building those locks. Took us five minutes to tear the teeth out of them.",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_06"
     },
     {
       "id": "cinematic.names_without_numbers.07",
@@ -66441,7 +66626,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "SURYA // COMMS: Kaito, you did it! The outer barrier just dropped. The entire queue is crossing over. Nobody is being turned away!",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_07"
     },
     {
       "id": "cinematic.names_without_numbers.08",
@@ -66451,7 +66636,7 @@
       "audio_path": "assets/cutscenes/names_without_numbers/dialogue.ogg",
       "display_text": "KAITO: Let them come. The people have their names back. Now, we take the rest of the city. Squad—fall in.",
       "subtitle_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_08"
     },
     {
       "id": "cinematic.neon_rust_aftermath.01",
@@ -66761,7 +66946,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Spire Sentinel neutralized. Summit catwalk secured. Pressure is stabilizing at the Cyber-Nexus intake.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_01"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.02",
@@ -66771,7 +66956,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "TITAN: My boots are still humming from that climb. And now an airlock built to survive bombardment. Of course.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_02"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.03",
@@ -66781,7 +66966,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "OCEANUS: Look down through the haze. No shield over the skyline. The city is awake. Remember who we are doing this for.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_03"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.04",
@@ -66791,7 +66976,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "SURYA: The Nexus is still running. Leave its factories online, and they can rebuild that defense grid within hours.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_04"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.05",
@@ -66801,7 +66986,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "AURA: I can feel it through the deck. So many linked processors. A hive of stolen signals behind one bulkhead.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_05"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.06",
@@ -66811,7 +66996,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: Terminal override accepted. Security is folding. Stand clear. The pressure seal is breaking.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_06"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.07",
@@ -66821,7 +67006,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Atmospheric purge complete. Intake airlock opening. Quantum mainframe chambers confirmed beyond the threshold.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_07"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.08",
@@ -66831,7 +67016,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: Optical conduits, floating prisms, laser baffles. A whole labyrinth. We will have to watch every step.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_08"
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.09",
@@ -66841,7 +67026,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_aftermath/dialogue.ogg",
       "display_text": "KAITO: Then we tread carefully and strike deep. Silence the Nexus core. Axiom Force, through the airlock.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_AFTERMATH_09"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.01",
@@ -66851,7 +67036,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Altitude twenty-five hundred meters. Wind gusts above sixty-five knots. Perimeter flak is tracking our approach.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_01"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.02",
@@ -66861,7 +67046,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "SURYA: Port engine lock. Raising the forward barrier. Keep her steady while I take the flak.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_02"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.03",
@@ -66871,7 +67056,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "MIRAGE: Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_03"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.04",
@@ -66881,7 +67066,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "TITAN: That wind could peel a mech off the wall. Magnetize your boots. Check every tether twice.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_04"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.05",
@@ -66891,7 +67076,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "OCEANUS: Cryogenic exhaust along the shaft. Expect black ice on the rails. Test your footing before you jump.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_05"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.06",
@@ -66901,7 +67086,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "AURA: Drone wings are launching from the silos above. The mainframe is sending everything it has down this wall.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_06"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.07",
@@ -66911,7 +67096,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Cargo bay depressurized. Ramps deploying. After insertion, I will take the transport into cloud cover.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_07"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.08",
@@ -66921,7 +67106,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "MIRAGE: One-way drop. We climb to the Cyber-Nexus airlock. Stay on the hull, and we have a way through.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_08"
     },
     {
       "id": "cinematic.spire_outer_hull_intro.09",
@@ -66931,7 +67116,7 @@
       "audio_path": "assets/cutscenes/spire_outer_hull_intro/dialogue.ogg",
       "display_text": "KAITO: Weapons armed. Harnesses locked. Axiom Force, onto the catwalks. Begin the ascent.",
       "subtitle_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_09"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.01",
@@ -66941,7 +67126,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Flight systems online. Citadel traffic control disconnected. Both ion thrusters are at full output.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_01"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.02",
@@ -66951,7 +67136,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: Look at the docks behind us. Their fleet is still in its berths. We got out before the net closed.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_02"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.03",
@@ -66961,7 +67146,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "TITAN: Now this is a transport. Built like a fortress. Those mooring clamps never stood a chance.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_03"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.04",
@@ -66971,7 +67156,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "OCEANUS: The city lights are clear through the storm. No shield overhead. Three districts can see the sky tonight.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_04"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.05",
@@ -66981,7 +67166,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "AURA: Citadel command is calling every exterior battery to readiness. They know where we are headed.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_05"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.06",
@@ -66991,7 +67176,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "SURYA: Target lock ahead. We are through the cloud ceiling. Look at that wall of armor.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_06"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.07",
@@ -67001,7 +67186,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "AXIOM-7: Outer hull batteries have our signature. Direct flight to the summit is blocked. We need another approach.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_07"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.08",
@@ -67011,7 +67196,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "MIRAGE: Then we land below them. Maintenance catwalks on the outer hull. We climb the rest on foot.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_08"
     },
     {
       "id": "cinematic.stratos_docks_aftermath.09",
@@ -67021,7 +67206,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_aftermath/dialogue.ogg",
       "display_text": "KAITO: Agreed. Secure your harnesses. We breach their outer skin and work our way up. Prepare for exterior insertion.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_AFTERMATH_09"
     },
     {
       "id": "cinematic.stratos_docks_intro.01",
@@ -67031,7 +67216,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Altitude twelve hundred meters. Wind shear forty-five knots. Commercial transit is grounded. Stratos Docks is under lockdown.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_01",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_01"
     },
     {
       "id": "cinematic.stratos_docks_intro.02",
@@ -67041,7 +67226,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "MIRAGE: Three gunships on the upper pads. But Bay Four has a heavy transport fueled and idling. That is our ride.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_02",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_02"
     },
     {
       "id": "cinematic.stratos_docks_intro.03",
@@ -67051,7 +67236,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "TITAN: Magnetic mooring clamps. Reinforced locks. Get me to the release valves, and I will free that bird.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_03",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_03"
     },
     {
       "id": "cinematic.stratos_docks_intro.04",
@@ -67061,7 +67246,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "OCEANUS: Those fuel lines carry liquid hydrogen. One spark could take the deck with it. We keep this clean.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_04",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_04"
     },
     {
       "id": "cinematic.stratos_docks_intro.05",
@@ -67071,7 +67256,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "AURA: Air traffic control is calling in interceptors. The flight grid is trying to pin us on the catwalks.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_05",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_05"
     },
     {
       "id": "cinematic.stratos_docks_intro.06",
@@ -67081,7 +67266,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "SURYA: I can cover the flak crossing with my solar barrier. Stay close until we are off the flight line.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_06",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_06"
     },
     {
       "id": "cinematic.stratos_docks_intro.07",
@@ -67091,7 +67276,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "MIRAGE: Dual-phase lasers across the maintenance route. I will cross first and open a path through the security grid.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_07",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_07"
     },
     {
       "id": "cinematic.stratos_docks_intro.08",
@@ -67101,7 +67286,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "AXIOM-7: Flight path ready. Once we have the transport, we climb toward the Spire upper command ring.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_08",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_08"
     },
     {
       "id": "cinematic.stratos_docks_intro.09",
@@ -67111,7 +67296,7 @@
       "audio_path": "assets/cutscenes/stratos_docks_intro/dialogue.ogg",
       "display_text": "KAITO: Weapons live. Breach the flight deck, seize that gunship, and take this fight upstairs. Axiom Force, move out.",
       "subtitle_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_09",
-      "previous_inventory_key": null
+      "previous_inventory_key": "SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_09"
     },
     {
       "id": "cinematic.tokyo.01",
@@ -67311,7 +67496,7 @@
       "audio_path": "assets/speech/AXIOM-7/english/AXIOM-7-1.mp3",
       "display_text": "Greetings, Operative. I am AXIOM-7. Earth, 2157: The Xelthara Collective invaded, declared humanity obsolete, and carved our world into occupied containment sectors.",
       "subtitle_key": "STORY_LINE_1_INTRO",
-      "previous_inventory_key": "STORY_LINE_1"
+      "previous_inventory_key": "STORY_LINE_1_INTRO"
     },
     {
       "id": "briefing.2",
@@ -67347,71 +67532,71 @@
   "subsystems": {
     "interface": {
       "english": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "spanish": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "eurofrench": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "brazilianportuguese": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "german": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "italian": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "polish": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "arabic": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "turkish": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "japanese": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "korean": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "mandarin": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "hebrew": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "traditionalchinese": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "indonesian": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "vietnamese": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       },
       "thai": {
-        "required": 1167,
+        "required": 1152,
         "missing": 0
       }
     },

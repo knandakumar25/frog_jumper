@@ -150,39 +150,4 @@ class CountryBasicListViewTest(APITestCase):
         self.assertEqual(full, basic)
 
 
-class BrowserSessionViewsTest(APITestCase):
-    def setUp(self):
-        self.start_url = reverse('browser_start')
-        self.confirm_url = reverse('browser_confirm')
-        self.poll_url = reverse('browser_poll')
-        self.user = User.objects.create_user(
-            username='browsertester',
-            email='browser@example.com',
-            password='Password123!',
-            country='Australia'
-        )
-
-    def test_browser_session_flow(self):
-        # 1. Start session
-        start_res = self.client.post(self.start_url)
-        self.assertEqual(start_res.status_code, status.HTTP_200_OK)
-        session_id = start_res.data['session_id']
-
-        # 2. Poll before auth -> should return pending
-        poll_res = self.client.get(f"{self.poll_url}?session_id={session_id}")
-        self.assertEqual(poll_res.status_code, status.HTTP_200_OK)
-        self.assertEqual(poll_res.data['status'], 'pending')
-
-        # 3. Confirm with authenticated user
-        self.client.force_authenticate(user=self.user)
-        confirm_res = self.client.post(self.confirm_url, {'session_id': session_id}, format='json')
-        self.assertEqual(confirm_res.status_code, status.HTTP_200_OK)
-        self.assertEqual(confirm_res.data['status'], 'authorized')
-
-        # 4. Poll after auth -> should return tokens and user data
-        self.client.force_authenticate(user=None) # logout
-        poll_res2 = self.client.get(f"{self.poll_url}?session_id={session_id}")
-        self.assertEqual(poll_res2.status_code, status.HTTP_200_OK)
-        self.assertIn('access', poll_res2.data)
-        self.assertIn('refresh', poll_res2.data)
-        self.assertEqual(poll_res2.data['user']['username'], 'browsertester')
+# Browser handoff security and single-use regressions live in test_browser_auth.py.

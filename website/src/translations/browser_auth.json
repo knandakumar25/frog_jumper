@@ -1,0 +1,104 @@
+{
+  "en": [
+    "Use another account",
+    "No active request. Start sign-in from the game.",
+    "Authorize the running game as {{account}}?",
+    "Sign-in expired. Please try again."
+  ],
+  "es": [
+    "Usar otra cuenta",
+    "No hay ninguna solicitud activa. Inicia sesión desde el juego.",
+    "¿Autorizar el juego en ejecución como {{account}}?",
+    "El inicio de sesión caducó. Inténtalo de nuevo."
+  ],
+  "fr": [
+    "Utiliser un autre compte",
+    "Aucune demande active. Lancez la connexion depuis le jeu.",
+    "Autoriser le jeu en cours avec le compte {{account}} ?",
+    "La connexion a expiré. Réessayez."
+  ],
+  "pt": [
+    "Usar outra conta",
+    "Nenhuma solicitação ativa. Inicie o login pelo jogo.",
+    "Autorizar o jogo em execução como {{account}}?",
+    "O login expirou. Tente novamente."
+  ],
+  "de": [
+    "Anderes Konto verwenden",
+    "Keine aktive Anfrage. Starte die Anmeldung im Spiel.",
+    "Das laufende Spiel als {{account}} autorisieren?",
+    "Die Anmeldung ist abgelaufen. Versuche es erneut."
+  ],
+  "it": [
+    "Usa un altro account",
+    "Nessuna richiesta attiva. Avvia l’accesso dal gioco.",
+    "Autorizzare il gioco in esecuzione come {{account}}?",
+    "L’accesso è scaduto. Riprova."
+  ],
+  "pl": [
+    "Użyj innego konta",
+    "Brak aktywnego żądania. Rozpocznij logowanie w grze.",
+    "Autoryzować uruchomioną grę jako {{account}}?",
+    "Logowanie wygasło. Spróbuj ponownie."
+  ],
+  "ar": [
+    "استخدام حساب آخر",
+    "لا يوجد طلب نشط. ابدأ تسجيل الدخول من اللعبة.",
+    "هل تريد السماح للعبة الجارية باستخدام حساب {{account}}؟",
+    "انتهت مهلة تسجيل الدخول. حاول مجددًا."
+  ],
+  "tr": [
+    "Başka bir hesap kullan",
+    "Etkin istek yok. Giriş işlemini oyundan başlatın.",
+    "Çalışan oyun {{account}} hesabıyla yetkilendirilsin mi?",
+    "Giriş süresi doldu. Tekrar deneyin."
+  ],
+  "ja": [
+    "別のアカウントを使用",
+    "有効なリクエストがありません。ゲームからログインを開始してください。",
+    "実行中のゲームを {{account}} として認証しますか？",
+    "ログインの有効期限が切れました。もう一度お試しください。"
+  ],
+  "ko": [
+    "다른 계정 사용",
+    "활성 요청이 없습니다. 게임에서 로그인을 시작하세요.",
+    "실행 중인 게임에 {{account}} 계정으로 권한을 부여할까요?",
+    "로그인 시간이 만료되었습니다. 다시 시도하세요."
+  ],
+  "zh": [
+    "使用其他账户",
+    "没有有效请求。请从游戏中开始登录。",
+    "要以 {{account}} 身份授权正在运行的游戏吗？",
+    "登录已过期。请重试。"
+  ],
+  "he": [
+    "שימוש בחשבון אחר",
+    "אין בקשה פעילה. יש להתחיל את הכניסה מתוך המשחק.",
+    "לאשר למשחק הפועל להשתמש בחשבון {{account}}?",
+    "תוקף הכניסה פג. יש לנסות שוב."
+  ],
+  "zh_tw": [
+    "使用其他帳戶",
+    "沒有有效請求。請從遊戲中開始登入。",
+    "要以 {{account}} 身分授權正在執行的遊戲嗎？",
+    "登入已逾期。請重試。"
+  ],
+  "id": [
+    "Gunakan akun lain",
+    "Tidak ada permintaan aktif. Mulai proses masuk dari game.",
+    "Izinkan game yang sedang berjalan menggunakan akun {{account}}?",
+    "Waktu masuk habis. Silakan coba lagi."
+  ],
+  "vi": [
+    "Dùng tài khoản khác",
+    "Không có yêu cầu đang hoạt động. Hãy bắt đầu đăng nhập từ trò chơi.",
+    "Cho phép trò chơi đang chạy sử dụng tài khoản {{account}}?",
+    "Phiên đăng nhập đã hết hạn. Vui lòng thử lại."
+  ],
+  "th": [
+    "ใช้บัญชีอื่น",
+    "ไม่มีคำขอที่ใช้งานอยู่ กรุณาเริ่มเข้าสู่ระบบจากเกม",
+    "อนุญาตให้เกมที่กำลังทำงานใช้บัญชี {{account}} หรือไม่?",
+    "การเข้าสู่ระบบหมดอายุ กรุณาลองอีกครั้ง"
+  ]
+}

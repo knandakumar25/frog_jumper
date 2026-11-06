@@ -130,8 +130,9 @@ export function LanguageProvider({ children }) {
   // Sync state with URL route changes
   useEffect(() => {
     const pathParts = location.pathname.split('/').filter(Boolean);
-    const potentialLocale = pathParts[0];
-    if (potentialLocale && potentialLocale !== 'auth') {
+    const potentialLocale = ['auth', 'onboarding'].includes(pathParts[0])
+      ? new URLSearchParams(location.search).get('locale') : pathParts[0];
+    if (potentialLocale) {
       const match = parseLocaleCode(potentialLocale);
       if (match) {
         if (match.langId !== selectedLanguage) {
@@ -140,7 +141,7 @@ export function LanguageProvider({ children }) {
 
       }
     }
-  }, [location.pathname, selectedLanguage]);
+  }, [location.pathname, location.search, selectedLanguage]);
 
   // Update i18n, RTL direction, and HTML title dynamically
   useEffect(() => {

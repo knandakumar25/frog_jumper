@@ -1,5 +1,30 @@
 # Axiom Force — Project Memory
 
+## Production PostgreSQL deployment question — 2026-11-06
+
+User clarified this was curiosity only and explicitly deferred production
+hosting/database work. Do not start a Neon migration, API storage refactor or
+production deployment setup without a new request. Current setup stays as-is.
+
+Read-only review: current Compose PostgreSQL uses a host-local named volume;
+exporting the game does not deploy that database. Self-hosted production PostgreSQL
+is possible, so Neon is optional. Given the user's existing Neon/Vercel setup,
+recommended topology is game and website -> authenticated HTTPS Django API ->
+Neon PostgreSQL; keep local Docker PostgreSQL for development. This is advice,
+not an approved implementation or verification of the user's remote Neon setup.
+
+Release blockers confirmed in source: PostgresStorage and SessionManager make
+direct client Npgsql connections, defaulting to 127.0.0.1; AuthManager hardcodes
+localhost:8000. Do not distribute shared database credentials with released
+clients. Move state/session operations behind authenticated, user-scoped API
+endpoints; configure the public API URL. Django also still uses development
+settings/runserver; production needs server-side secrets, HTTPS, database TLS,
+migrations and production configuration. PostgreSQL-only persistence can remain,
+with network access required for persistence under the no-local-save policy.
+Consulted official Neon Django, Docker production and Django deployment guidance.
+No runtime configuration, database data or containers were changed. No tests or
+Godot refresh required. Only this memory entry is edited; no commit/push authorized.
+
 ## Git publication request — 2026-11-06
 
 User explicitly requested pushing the current verified changes, including the
@@ -8,7 +33,9 @@ fonts/licenses, tests/reports, Python 3.15.2 image configuration and the Godot A
 launcher fix. No credential-shaped literal was found; virtual environments,
 validation captures, caches and private connection capabilities remain excluded.
 Fetched origin and confirmed main had no incoming commits before publication.
-Target is origin/main. This Git-only task changes no code/assets and reuses the
+Published commit 96a30dc to origin/main; remote SHA matched local HEAD and the
+working tree was clean after publication. That Git-only task changed no code/assets
+and reused the
 preceding verified build/import, 104 Django, 290 NUnit, 317 Godot and 19 Python
 checks; no test rerun, editor refresh, export or container operation is needed.
 Native linguistic certification and earlier engine diagnostics remain documented.
@@ -1995,3 +2022,17 @@ workaround also failed with the host D: mount error. No Django pass is claimed.
 Next: restore the expected English-only display casing without forcing uppercase on
 translations, resolve/verify the Docker D: mount, rerun the full checks, then continue
 missing translations and visual/artwork/native review. No exports/staging/commits/pushes.
+
+## Browser sign-in — 2026-11-06
+
+Implemented browser-only desktop login/signup from the main menu, explicit account approval, guest play, cancellable polling/reopen controls and memory-only game credentials. Clerk owns all credential entry. Requests use a hashed private secret, POST polling/cancellation, a fifteen-minute deadline and transactional single-use redemption. Configured RS256 issuer/JWKS/origin verification matches only Clerk IDs; no email merging. PostgreSQL preserves the public onboarding association and locale across emailed links. Old secretless requests must restart. Clerk factor routes retain the public UUID in their base path; no private proof enters the browser URL. Logout affects only the game session. Settings retains all seventeen languages; new game/browser copy is localized.
+
+Verified real Clerk login/MFA, signed-in reloads, full switching to a second account, signup/email/phone verification, captured onboarding mail in a fresh browser context, Django-session approval, cancellation/replay/browser closure and browser storage checks. The Windows game displayed the exact Clerk-approved identity, hid both buttons and focused Play. Win32 sampling separately confirmed minimized-window restoration and foreground ownership. Disposable development accounts and the isolated PostgreSQL database were removed; normal backend/db/website remain running.
+
+Final verification: build, background import exit 0, Django 111/111, NUnit 303/303, Godot 319/319 (report_518, zero errors/failures/orphans), Python 20/20, localization gate and Playwright 4/4. The final build/import and full run_tests.ps1 rerun completed successfully after all source edits. Import retains pre-existing addon TLS/editor-shutdown/leaked-resource diagnostics. Strict voice coverage still flags seven historical listening/evidence candidates; no speech/audio was changed. Its regenerated report now resolves current subtitle aliases.
+
+Use tools/playwright/README.md for the isolated test workflow. Test proxy host port 18002 avoids Godot MCP's 8002 WebSocket port. AuthManager reads Godot's process environment for AXIOM_API_BASE_URL and sends explicit Content-Length JSON for WSGI compatibility. GDScript sees cleared C# string properties as empty strings. macOS/Linux verification, mobile and production rollout remain deferred; OS-denied activation/taskbar fallback was implemented but not forcibly reproduced. The implementation performed no exports, deployments or storage migration. Git publication is separately authorized below.
+
+## Browser sign-in Git publication — 2026-11-06
+
+The user explicitly authorized committing and pushing the current changes. Remote preflight verified main and origin/main matched with no divergence. Publication includes the browser Clerk handoff, backend migration/security, menu lifecycle/focus controls, seventeen-language copy, isolated browser tooling, regressions and project documentation. Local environment keys and ignored validation logs are excluded. This Git-only operation reuses the recorded final verification (Django 111, NUnit 303, Godot 319, Python 20 and Playwright 4); no code/assets changed and no tests/imports/exports/deployments were rerun. Seven historical voice-review items and deferred platforms remain as documented.

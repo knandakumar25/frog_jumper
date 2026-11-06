@@ -166,6 +166,10 @@ else:
 # email verification must stay enabled in the Clerk dashboard or every signup
 # answers 403 email_not_verified.
 CLERK_SECRET_KEY = os.environ.get('CLERK_SECRET_KEY', '')
+# Trusted verification configuration; no issuer or origin is inferred from a token.
+CLERK_ISSUER = os.environ.get('CLERK_ISSUER', '').rstrip('/')
+CLERK_JWKS_URL = os.environ.get('CLERK_JWKS_URL', CLERK_ISSUER + '/.well-known/jwks.json')
+CLERK_AUTHORIZED_PARTIES = [origin.strip() for origin in os.environ.get('CLERK_AUTHORIZED_PARTIES', 'http://localhost:5173').split(',') if origin.strip()]
 CLERK_API_BASE = os.environ.get('CLERK_API_BASE', 'https://api.clerk.com/v1')
 try:
     CLERK_TIMEOUT = float(os.environ.get('CLERK_TIMEOUT', '10'))
