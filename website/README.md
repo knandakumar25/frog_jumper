@@ -18,7 +18,7 @@ The official web portal and companion dashboard for **Axiom Force**, built with 
 ## Architecture & Integration
 
 - **Frontend**: React 19, Vite, Tailwind CSS, Lucide icons.
-- **Backend API**: Django REST Framework (Python 3.14) running at `http://localhost:8000/api/`.
+- **Backend API**: Django REST Framework (Python 3.15.2) running at `http://localhost:8000/api/`.
 
 ## Development Setup
 

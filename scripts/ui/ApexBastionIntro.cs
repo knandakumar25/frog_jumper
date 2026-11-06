@@ -252,7 +252,7 @@ public partial class ApexBastionIntro : CanvasLayer
         };
 
         if (_panelStyle != null) _panelStyle.BorderColor = borderColor;
-        if (_subtitle != null) _subtitle.Text = Lines[Math.Min(cue, Lines.Length - 1)];
+        if (_subtitle != null) _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_APEX_BASTION_INTRO_{cue + 1:D2}", Lines[Math.Min(cue, Lines.Length - 1)]);
         if (_panel != null) _panel.Visible = cue >= 0 && cue < 9 && !string.IsNullOrEmpty(Lines[cue]);
     }
 

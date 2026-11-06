@@ -486,10 +486,10 @@ public partial class FoundryForgeStage : Control
         if (shot == 6)
         {
             // Comms link with Surya Prime
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), "SURYA // TACTICAL RADIATION UPLINK", HorizontalAlignment.Left, -1, 14, ColorSurya);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), "SOLAR BULWARK SYNC: 100% ONLINE", HorizontalAlignment.Left, -1, 13, Colors.White);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), "REACTOR CORE TEMP: 4,120° KELVIN", HorizontalAlignment.Left, -1, 13, ColorLavaCore);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 110), "OVERLOAD WINDOW: 180 SECONDS CRITICAL", HorizontalAlignment.Left, -1, 13, ColorLavaGlow);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_A1594572", "SURYA // TACTICAL RADIATION UPLINK"), HorizontalAlignment.Left, -1, 14, ColorSurya);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_C4075EF3", "SOLAR BULWARK SYNC: 100% ONLINE"), HorizontalAlignment.Left, -1, 13, Colors.White);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_14975099", "REACTOR CORE TEMP: 4,120° KELVIN"), HorizontalAlignment.Left, -1, 13, ColorLavaCore);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 110), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_B93E61A9", "OVERLOAD WINDOW: 180 SECONDS CRITICAL"), HorizontalAlignment.Left, -1, 13, ColorLavaGlow);
 
             // Circular temperature meter
             Vector2 meterCenter = new(center.X + 110, center.Y);
@@ -500,17 +500,17 @@ public partial class FoundryForgeStage : Control
         else
         {
             // Facility schematic & Citadel sky shield vectors
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), "FACILITY: THE FOUNDRY FORGE // SECTOR 7", HorizontalAlignment.Left, -1, 14, ColorCyan);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), "OBJECTIVE: SEVER COOLANT & OVERLOAD REACTOR", HorizontalAlignment.Left, -1, 13, Colors.White);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), "CITADEL SKY-SHIELD STATUS: 100% ACTIVE", HorizontalAlignment.Left, -1, 13, ColorLavaGlow);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 110), "ACT II CLIMAX: DROP THE SHIELDS", HorizontalAlignment.Left, -1, 13, ColorKaito);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_C275F5E6", "FACILITY: THE FOUNDRY FORGE // SECTOR 7"), HorizontalAlignment.Left, -1, 14, ColorCyan);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_4179E02C", "OBJECTIVE: SEVER COOLANT & OVERLOAD REACTOR"), HorizontalAlignment.Left, -1, 13, Colors.White);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_46F4DD9C", "CITADEL SKY-SHIELD STATUS: 100% ACTIVE"), HorizontalAlignment.Left, -1, 13, ColorLavaGlow);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 110), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_C2139808", "ACT II CLIMAX: DROP THE SHIELDS"), HorizontalAlignment.Left, -1, 13, ColorKaito);
 
             // Wireframe core schematic
             Vector2 wireCenter = new(center.X + 110, center.Y);
             DrawCircle(wireCenter, 28, ColorLavaCore * 0.3f);
             DrawArc(wireCenter, 28, 0, Mathf.Tau, 24, ColorLavaGlow * 0.8f, 2f);
             DrawLine(wireCenter, wireCenter + new Vector2(0, -50), ColorCyan, 2f);
-            DrawString(ThemeDB.FallbackFont, wireCenter + new Vector2(-40, -55), "TO SKY SHIELDS", HorizontalAlignment.Left, -1, 11, ColorCyan);
+            DrawString(ThemeDB.FallbackFont, wireCenter + new Vector2(-40, -55), WildfireText.Get("UI_FOUNDRYFORGESTAGE_DRAWREACTORCOREHOLOGRAM_D480A3C8", "TO SKY SHIELDS"), HorizontalAlignment.Left, -1, 11, ColorCyan);
         }
     }
 

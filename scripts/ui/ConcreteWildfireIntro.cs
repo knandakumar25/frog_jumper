@@ -61,7 +61,7 @@ public partial class ConcreteWildfireIntro : CanvasLayer
             HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
         _subtitle.AddThemeFontSizeOverride("font_size", 22);
         panel.AddChild(_subtitle);
-        var skip = new Button { Name = "Skip", Text = Localized("WILDFIRE_SKIP", "SKIP // ESC / START"),
+        var skip = new Button { Name = "Skip", Text = "WILDFIRE_SKIP",
             AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
         ui.AddChild(skip);
         _skip = skip;

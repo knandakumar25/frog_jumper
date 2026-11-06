@@ -109,7 +109,7 @@ public partial class RecruitBeat : Node2D
         {
             int slot = System.Linq.Enumerable.ToList(OperativeRoster.RosterOrder).IndexOf(OperativeRoster.Normalize(Operative)) + 1;
             // Swap bindings are handled directly by CyberShogun rather than an InputMap action.
-            string swap = _usingTouch ? WildfireText.Get("WF_TOUCH_SWAP", "Squad") : _usingPad ? "D-Pad Down / Back" : $"{slot} / Tab";
+            string swap = _usingTouch ? WildfireText.Get("WF_TOUCH_SWAP", "Squad") : _usingPad ? "D-Pad Down / Back" : WildfireText.Interpolate("UI_RECRUITBEAT_REFRESHPROMPT_574535D3", $"{slot} / Tab");
             string template = WildfireText.Get("RECRUIT_SWAP_PROMPT", "{operative} JOINED - {swap}: swap, then {name}: {hint}");
             Level.ShowPrompt(template.Replace("{operative}", Operative.ToUpperInvariant()).Replace("{swap}", swap)
                 .Replace("{name}", name).Replace("{hint}", hint));

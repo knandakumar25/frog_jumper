@@ -245,7 +245,7 @@ public partial class SpireOuterHullIntro : CanvasLayer
         if (cue >= 0 && cue < Lines.Length)
         {
             string line = Lines[cue];
-            if (_subtitle != null) _subtitle.Text = line;
+            if (_subtitle != null) _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_SPIRE_OUTER_HULL_INTRO_{cue + 1:D2}", Lines[cue]);
             UpdateBorderColor(line);
         }
         else

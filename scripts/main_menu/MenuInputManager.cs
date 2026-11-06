@@ -99,7 +99,7 @@ public partial class MenuInputManager : Node
 
 			var nameLbl = new Label
 			{
-				Text = actionTitle.ToUpper(),
+				Text = actionTitle,
 				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
 				VerticalAlignment = VerticalAlignment.Center
 			};
@@ -123,7 +123,7 @@ public partial class MenuInputManager : Node
 
 			var rebindBtn = new Button
 			{
-				Text = Tr("Rebind").ToUpper(),
+				Text = Tr("Rebind"),
 				CustomMinimumSize = new Vector2(120, 44)
 			};
 			if (settingsManager != null)
@@ -167,7 +167,7 @@ public partial class MenuInputManager : Node
 
 		if (_promptLabel != null)
 		{
-			_promptLabel.Text = $"{Tr("PRESS ANY KEY TO REBIND")} [{actionTitle.ToUpper()}]...";
+			_promptLabel.Text = $"{Tr("PRESS ANY KEY TO REBIND")} [{actionTitle}]...";
 			_promptLabel.AddThemeFontOverride("font", orbitronFont);
 			_promptLabel.AddThemeFontSizeOverride("font_size", 18);
 			_promptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
@@ -212,7 +212,7 @@ public partial class MenuInputManager : Node
 
 				if (_detectedKeyLabel != null)
 				{
-					_detectedKeyLabel.Text = $"{Tr("PROPOSED KEY")}: [ {keyName.ToUpper()} ]";
+					_detectedKeyLabel.Text = $"{Tr("PROPOSED KEY")}: [ {keyName} ]";
 					_detectedKeyLabel.AddThemeColorOverride("font_color", new Color(1f, 0.9f, 0.2f, 1f));
 				}
 				if (_acceptKeyButton != null)

@@ -125,6 +125,18 @@ public partial class CharacterSelection : Control
 		}
 	}
 
+	/// <summary>Refreshes presentation only; selecting or replaying the operative would reset an active preview.</summary>
+	public override void _Notification(int what)
+	{
+		if (what != NotificationTranslationChanged || !IsNodeReady()) return;
+		TranslateUI();
+		UpdateRosterButtons();
+		UpdateUpgradeButtonText();
+		_speedMeter?.QueueRedraw();
+		_agilityMeter?.QueueRedraw();
+	}
+
+	/// <summary>Retains the historical hook; LocaleService owns the shared font and direction policy.</summary>
 	private static void FixFontForLocale(Node node)
 	{
 		// Native Orbitron & Rajdhani sci-fi fonts handle Arabic via Cairo font fallbacks configured in global.gd.
@@ -159,7 +171,9 @@ public partial class CharacterSelection : Control
 				SizeFlagsHorizontal = SizeFlags.ExpandFill, MouseFilter = MouseFilterEnum.Ignore
 			};
 			button.AddThemeFontSizeOverride("font_size", 15);
-			button.Pressed += () => PreviewStudyAction(button.Text);
+			// Display text may change language; animation dispatch always uses the canonical action.
+			WildfireText.SetText(button, "Text", "UI_SCHEMA_TEXT", $"{MovementDisplay(action)}");
+			button.Pressed += () => PreviewStudyAction(action);
 			grid.AddChild(button);
 			_artButtons.Add(button);
 		}
@@ -195,7 +209,10 @@ public partial class CharacterSelection : Control
 			break;
 		}
 		if (_artStatus != null)
-			_artStatus.Text = action + (abilityPreview ? " • visual ability preview" : " • character preview");
+		{
+			string suffix = abilityPreview ? " • visual ability preview" : " • character preview";
+			WildfireText.SetText(_artStatus, "Text", "UI_PREVIEW_STATUS", $"{MovementDisplay(action)}{WildfireText.DisplayValue(suffix)}");
+		}
 	}
 
 	/// <summary>Refreshes artwork and visible movement controls, then rebuilds focus for the merged dossier.</summary>
@@ -211,7 +228,7 @@ public partial class CharacterSelection : Control
 		};
 		var selectedButton = GetNodeOrNull<Button>("MainLayout/LeftListPanel/VBox/CharacterGrid/" + rosterNode);
 		if (selectedButton != null) ConfigureMergedFocus(selectedButton);
-		if (_artStatus != null) _artStatus.Text = "Idle • character preview";
+		if (_artStatus != null) BindSchemaText(_artStatus, "Idle • character preview");
 	}
 
     /// <summary>Connects visible movement, ability, and footer rows; hidden melee buttons never receive focus.</summary>
@@ -323,21 +340,8 @@ public partial class CharacterSelection : Control
 		}
 	}
 
-	/// <summary>
-	/// Converts text to uppercase, but avoids doing so for scripts (Arabic, Hebrew, CJK) where uppercase doesn't exist.
-	/// </summary>
-	private static string SafeToUpper(string text)
-	{
-		if (string.IsNullOrEmpty(text)) return "";
-		string locale = TranslationServer.GetLocale()?.ToLower() ?? "";
-		if (locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") ||
-			locale.Contains("ko") || locale.Contains("zh"))
-		{
-			return text;
-		}
-		return text.ToUpper();
-	}
-
+	/// <summary>Uses the original English tactical styling and preserves translated casing, including Turkish dotted I.</summary>
+	private static string SafeToUpper(string text) => WildfireText.EnglishUppercase(text ?? "");
 	public void _on_cyber_shogun_pressed()  => SelectOperative("Cyber Shogun");
 	public void _on_oceanus_pressed()       => SelectOperative("Oceanus");
 	public void _on_surya_prime_pressed()    => SelectOperative("Surya Prime");
@@ -373,6 +377,7 @@ public partial class CharacterSelection : Control
 		SelectOperative(_currentSelectedCharacter);
 	}
 
+	/// <summary>Refreshes the upgrade cost indicator without changing progression or spending sparks.</summary>
 	private void UpdateUpgradeButtonText()
 	{
 		if (_upgradeOperativeBtn == null) return;
@@ -383,12 +388,12 @@ public partial class CharacterSelection : Control
 			lvl = data.Level;
 			bool canLevel = CharacterProgressionManager.Instance.CanLevelUp(_currentSelectedCharacter);
 			_upgradeOperativeBtn.Text = canLevel
-				? $"⚡ UPGRADE OPERATIVE [LVL {lvl}] (!)"
-				: $"⚡ UPGRADE OPERATIVE [LVL {lvl}]";
+				? WildfireText.Interpolate("UI_CHARACTERSELECTION_UPDATEUPGRADEBUTTONTEXT_7270D91F", $"⚡ UPGRADE OPERATIVE [LVL {lvl}] (!)")
+				: WildfireText.Interpolate("UI_CHARACTERSELECTION_UPDATEUPGRADEBUTTONTEXT_EE25105F", $"⚡ UPGRADE OPERATIVE [LVL {lvl}]");
 		}
 		else
 		{
-			_upgradeOperativeBtn.Text = $"⚡ UPGRADE OPERATIVE [LVL {lvl}]";
+			WildfireText.SetText(_upgradeOperativeBtn, "Text", "UI_CHARACTERSELECTION_UPDATEUPGRADEBUTTONTEXT_EE25105F", $"⚡ UPGRADE OPERATIVE [LVL {lvl}]");
 		}
 	}
 
@@ -414,49 +419,49 @@ public partial class CharacterSelection : Control
 		{
 			baseSpeed = 96f;
 			baseAgility = 97f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Oceanus"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KIANA VAEA"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
+			if (_selectedNameLabel != null) BindSchemaText(_selectedNameLabel, "Oceanus", true);
+			if (_civilianNameLabel != null) BindSchemaText(_civilianNameLabel, "IDENTITY: KIANA VAEA", true);
+			if (_classTagLabel != null)     BindSchemaText(_classTagLabel, "// CLASS: HYDROKINETIC PLASMA MANIPULATOR");
 		}
 		else if (characterName == "Surya Prime")
 		{
 			baseSpeed = 97f;
 			baseAgility = 98f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Surya Prime"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ARJUN VARMA"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: COSMIC SOLAR VANGUARD");
+			if (_selectedNameLabel != null) BindSchemaText(_selectedNameLabel, "Surya Prime", true);
+			if (_civilianNameLabel != null) BindSchemaText(_civilianNameLabel, "IDENTITY: ARJUN VARMA", true);
+			if (_classTagLabel != null)     BindSchemaText(_classTagLabel, "// CLASS: COSMIC SOLAR VANGUARD");
 		}
 		else if (characterName == "Mirage Blade")
 		{
 			baseSpeed = 99f;
 			baseAgility = 99f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Mirage Blade"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: ZAYD AL-MANSOOR"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: CRYSTALLINE PHANTOM");
+			if (_selectedNameLabel != null) BindSchemaText(_selectedNameLabel, "Mirage Blade", true);
+			if (_civilianNameLabel != null) BindSchemaText(_civilianNameLabel, "IDENTITY: ZAYD AL-MANSOOR", true);
+			if (_classTagLabel != null)     BindSchemaText(_classTagLabel, "// CLASS: CRYSTALLINE PHANTOM");
 		}
 		else if (characterName == "Apex Titan")
 		{
 			baseSpeed = 93f;
 			baseAgility = 94f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Apex Titan"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KING TARIQ NZINGA"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
+			if (_selectedNameLabel != null) BindSchemaText(_selectedNameLabel, "Apex Titan", true);
+			if (_civilianNameLabel != null) BindSchemaText(_civilianNameLabel, "IDENTITY: KING TARIQ NZINGA", true);
+			if (_classTagLabel != null)     BindSchemaText(_classTagLabel, "// CLASS: ELECTRO-MAGNETIC STORM VANGUARD");
 		}
 		else if (characterName == "Aura Phoenicia" || characterName == "Phoenicia")
 		{
 			baseSpeed = 96f;
 			baseAgility = 98f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Aura Phoenicia"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: MAYA KHOURY"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: ULTRASONIC PRISM WEAVER");
+			if (_selectedNameLabel != null) BindSchemaText(_selectedNameLabel, "Aura Phoenicia", true);
+			if (_civilianNameLabel != null) BindSchemaText(_civilianNameLabel, "IDENTITY: MAYA KHOURY", true);
+			if (_classTagLabel != null)     BindSchemaText(_classTagLabel, "// CLASS: ULTRASONIC PRISM WEAVER");
 		}
 		else
 		{
 			baseSpeed = 98f;
 			baseAgility = 96f;
-			if (_selectedNameLabel != null) _selectedNameLabel.Text = SafeToUpper(Tr("Cyber Shogun"));
-			if (_civilianNameLabel != null) _civilianNameLabel.Text = SafeToUpper(Tr("IDENTITY: KAITO KUROGANE"));
-			if (_classTagLabel != null)     _classTagLabel.Text     = Tr("// CLASS: CYBERNETIC SHOGUN WARRIOR");
+			if (_selectedNameLabel != null) BindSchemaText(_selectedNameLabel, "Cyber Shogun", true);
+			if (_civilianNameLabel != null) BindSchemaText(_civilianNameLabel, "IDENTITY: KAITO KUROGANE", true);
+			if (_classTagLabel != null)     BindSchemaText(_classTagLabel, "// CLASS: CYBERNETIC SHOGUN WARRIOR");
 		}
 
 		if (CharacterProgressionManager.Instance != null)
@@ -466,21 +471,18 @@ public partial class CharacterSelection : Control
 			baseAgility = Mathf.Clamp(baseAgility * (1.0f + mods.speedBonusPct * 0.5f), 0f, 100f);
 		}
 
-		_speedMeter?.SetStat(Tr("SPEED"), baseSpeed);
-		_agilityMeter?.SetStat(Tr("AGILITY"), baseAgility);
+		// The custom meters translate during drawing and must retain their source identities.
+		_speedMeter?.SetStat("SPEED", baseSpeed);
+		_agilityMeter?.SetStat("AGILITY", baseAgility);
 		UpdateUpgradeButtonText();
 		UpdateRosterButtons();
 
 		// Update ability preview buttons and details
 		var abilities = GetOperativeAbilities(characterName);
-		if (_primaryAbilityBtn != null && abilities.Length > 0)
-			_primaryAbilityBtn.Text = $"⚡ {SafeToUpper(Tr(abilities[0].Name))}";
-		if (_secondaryAbilityBtn != null && abilities.Length > 1)
-			_secondaryAbilityBtn.Text = $"🛡️ {SafeToUpper(Tr(abilities[1].Name))}";
-		if (_dashAbilityBtn != null && abilities.Length > 2)
-			_dashAbilityBtn.Text = $"💨 {SafeToUpper(Tr(abilities[2].Name))}";
-		if (_slamAbilityBtn != null && abilities.Length > 3)
-			_slamAbilityBtn.Text = $"💥 {SafeToUpper(Tr(abilities[3].Name))}";
+		BindAbilityButton(_primaryAbilityBtn, "⚡", abilities, 0);
+		BindAbilityButton(_secondaryAbilityBtn, "🛡️", abilities, 1);
+		BindAbilityButton(_dashAbilityBtn, "💨", abilities, 2);
+		BindAbilityButton(_slamAbilityBtn, "💥", abilities, 3);
 
 		if (abilities.Length > 0)
 		{
@@ -495,7 +497,7 @@ public partial class CharacterSelection : Control
 		}
 		if (_cardStatusLabel != null)
 		{
-			_cardStatusLabel.Text = Tr("● 2D TACTICAL OPERATIVE READY");
+			BindSchemaText(_cardStatusLabel, "● 2D TACTICAL OPERATIVE READY");
 			_cardStatusLabel.Modulate = new Color(0.2f, 0.9f, 0.5f, 0.85f);
 		}
 
@@ -525,37 +527,74 @@ public partial class CharacterSelection : Control
 		}
 		if (_cardStatusLabel != null)
 		{
-			_cardStatusLabel.Text = $"▶ EXECUTING 2D TACTICAL: {SafeToUpper(Tr(ability.Name))}";
+			WildfireText.SetText(_cardStatusLabel, "Text", "UI_CHARACTERSELECTION_PREVIEWABILITY_89B104C4", $"▶ EXECUTING 2D TACTICAL: {WildfireText.DisplayValue(ability.Name, englishUppercase: true)}");
 			_cardStatusLabel.Modulate = new Color(0f, 0.94f, 1f, 1f);
 		}
 
 	}
 
+	/// <summary>Shows schema-owned ability fields as refreshable translations without changing preview actions or animation IDs.</summary>
 	private void UpdateAbilityDisplay(OperativeAbilityData ability, bool isPreviewing)
 	{
 		if (_abilityBadgeLabel != null)
 		{
-			string dmgText = ability.Damage > 0 ? $"DMG: {ability.Damage:F0}" : "TACTICAL";
-			_abilityBadgeLabel.Text = $"[{ability.Category}] {SafeToUpper(Tr(ability.Name))} • CD: {ability.Cooldown:F1}s • {dmgText}";
+			object damage = ability.Damage > 0
+				? WildfireText.TemplateValue("ABILITY_DAMAGE", $"DMG: {ability.Damage:F0}")
+				: WildfireText.KeyValue("ABILITY_TACTICAL", "TACTICAL");
+			WildfireText.SetText(_abilityBadgeLabel, "Text", "UI_CHARACTERSELECTION_UPDATEABILITYDISPLAY_F0B3BF3A", $"[{AbilityCategoryText(ability.Category)}] {WildfireText.DisplayValue(ability.Name, englishUppercase: true)} • CD: {ability.Cooldown:F1}s • {damage}");
+			_abilityBadgeLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
 		}
 		if (_abilityDescLabel != null)
 		{
-			_abilityDescLabel.Text = Tr(ability.Description);
+			BindSchemaText(_abilityDescLabel, ability.Description);
 		}
 		if (_abilityStatusLabel != null)
 		{
 			if (isPreviewing)
 			{
-				_abilityStatusLabel.Text = $"▶ PREVIEWING: {SafeToUpper(Tr(ability.Name))}...";
+				WildfireText.SetText(_abilityStatusLabel, "Text", "UI_CHARACTERSELECTION_UPDATEABILITYDISPLAY_8ADF05DF", $"▶ PREVIEWING: {WildfireText.DisplayValue(ability.Name, englishUppercase: true)}...");
 				_abilityStatusLabel.Modulate = new Color(0f, 0.94f, 1f, 1f);
 			}
 			else
 			{
-				_abilityStatusLabel.Text = Tr("✔ READY // SELECT ABILITY TO PREVIEW");
+				BindSchemaText(_abilityStatusLabel, "✔ READY // SELECT ABILITY TO PREVIEW");
 				_abilityStatusLabel.Modulate = new Color(0.2f, 1f, 0.5f, 0.9f);
 			}
 		}
 	}
+
+	/// <summary>Binds schema-owned text while retaining the English source for future locale changes.</summary>
+	private static void BindSchemaText(Label? label, string source, bool englishUppercase = false)
+	{
+		if (label != null) WildfireText.SetText(label, "Text", "UI_SCHEMA_TEXT", $"{WildfireText.DisplayValue(source, englishUppercase)}");
+	}
+
+	/// <summary>Keeps a loadout button's icon and canonical ability name separate from its translated display.</summary>
+	private static void BindAbilityButton(Button? button, string icon, OperativeAbilityData[] abilities, int index)
+	{
+		if (button != null && index < abilities.Length)
+			WildfireText.SetText(button, "Text", "UI_DISPLAY_PAIR", $"{icon} {WildfireText.DisplayValue(abilities[index].Name, englishUppercase: true)}");
+	}
+
+	/// <summary>Maps stable ability-category IDs to semantic display keys; these IDs still select the same gameplay slots.</summary>
+	private static object AbilityCategoryText(string category) => category switch
+	{
+		"PRIMARY" => WildfireText.KeyValue("ABILITY_CATEGORY_PRIMARY", "PRIMARY"),
+		"SECONDARY" => WildfireText.KeyValue("ABILITY_CATEGORY_SECONDARY", "SECONDARY"),
+		"MOBILITY" => WildfireText.KeyValue("ABILITY_CATEGORY_MOBILITY", "MOBILITY"),
+		"SLAM" => WildfireText.KeyValue("ABILITY_CATEGORY_SLAM", "SLAM"),
+		_ => WildfireText.DisplayValue(category)
+	};
+
+	/// <summary>Translates movement captions while preserving their stable animation dispatch names.</summary>
+	private static object MovementDisplay(string action) => action switch
+	{
+		"Idle" => WildfireText.KeyValue("PREVIEW_IDLE", "Idle"),
+		"Walk" => WildfireText.KeyValue("PREVIEW_WALK", "Walk"),
+		"Run" => WildfireText.KeyValue("PREVIEW_RUN", "Run"),
+		"Katana" => WildfireText.KeyValue("PREVIEW_KATANA", "Katana"),
+		_ => WildfireText.DisplayValue(action)
+	};
 
 	private static OperativeAbilityData[] GetOperativeAbilities(string characterName)
 	{

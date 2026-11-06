@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "language": "vietnamese",
+    "description": "Mission card metadata; no additional story events."
+  },
+  "levels": {},
+  "acts": {},
+  "mission_cards": {
+    "1": {
+      "title_key": "MISSION_01_TITLE",
+      "objective_key": "MISSION_01_BRIEFING"
+    },
+    "2": {
+      "title_key": "MISSION_02_TITLE",
+      "objective_key": "MISSION_02_BRIEFING"
+    },
+    "3": {
+      "title_key": "MISSION_03_TITLE",
+      "objective_key": "MISSION_03_BRIEFING"
+    },
+    "4": {
+      "title_key": "MISSION_04_TITLE",
+      "objective_key": "MISSION_04_BRIEFING"
+    },
+    "5": {
+      "title_key": "MISSION_05_TITLE",
+      "objective_key": "MISSION_05_BRIEFING"
+    },
+    "6": {
+      "title_key": "MISSION_06_TITLE",
+      "objective_key": "MISSION_06_BRIEFING"
+    },
+    "7": {
+      "title_key": "MISSION_07_TITLE",
+      "objective_key": "MISSION_07_BRIEFING"
+    },
+    "8": {
+      "title_key": "MISSION_08_TITLE",
+      "objective_key": "MISSION_08_BRIEFING"
+    },
+    "9": {
+      "title_key": "MISSION_09_TITLE",
+      "objective_key": "MISSION_09_BRIEFING"
+    },
+    "10": {
+      "title_key": "MISSION_10_TITLE",
+      "objective_key": "MISSION_10_BRIEFING"
+    },
+    "11": {
+      "title_key": "MISSION_11_TITLE",
+      "objective_key": "MISSION_11_BRIEFING"
+    },
+    "12": {
+      "title_key": "MISSION_12_TITLE",
+      "objective_key": "MISSION_12_BRIEFING"
+    }
+  }
+}

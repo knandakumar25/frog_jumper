@@ -16,12 +16,17 @@ public static class EnglishSpeechCatalog
         var result = new Dictionary<string, Cue>(StringComparer.Ordinal);
         const string path = "res://assets/audio/english/cues.json";
         if (!FileAccess.FileExists(path)) return result;
+        // Written localization owns subtitle mappings independently of recording IDs,
+        // provenance and cue ordering. Older inventories inferred some keys incorrectly.
+        const string bindingsPath = "res://assets/translations/subtitle_bindings.json";
+        var bindings = FileAccess.FileExists(bindingsPath)
+            ? JsonSerializer.Deserialize<Dictionary<string, string>>(FileAccess.GetFileAsString(bindingsPath))! : new();
         using var document = JsonDocument.Parse(FileAccess.GetFileAsString(path));
         foreach (var row in document.RootElement.EnumerateArray())
         {
             string id = row.GetProperty("id").GetString()!;
             result[id] = new Cue(id, row.GetProperty("display_text").GetString()!,
-                row.GetProperty("subtitle_key").GetString() ?? "", "res://" + row.GetProperty("audio_path").GetString(),
+                bindings.GetValueOrDefault(id, row.GetProperty("subtitle_key").GetString() ?? ""), "res://" + row.GetProperty("audio_path").GetString(),
                 row.GetProperty("classification").GetString()!);
         }
         return result;

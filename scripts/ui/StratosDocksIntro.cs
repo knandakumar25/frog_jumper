@@ -133,7 +133,7 @@ public partial class StratosDocksIntro : CanvasLayer
         var skip = new Button
         {
             Name = "Skip",
-            Text = "SKIP // ESC / START",
+            Text = "TOKYO_SKIP",
             AnchorLeft = 1f,
             AnchorRight = 1f,
             OffsetLeft = -260,
@@ -230,7 +230,7 @@ public partial class StratosDocksIntro : CanvasLayer
 
         if (cue >= 0 && cue < Lines.Length && !string.IsNullOrEmpty(Lines[cue]))
         {
-            if (_subtitle != null) _subtitle.Text = Lines[cue];
+            if (_subtitle != null) _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_STRATOS_DOCKS_INTRO_{cue + 1:D2}", Lines[cue]);
             if (_panel != null)
             {
                 _panel.Visible = true;

@@ -56,6 +56,13 @@ public partial class OperativeUpgradeScreen : Control
 		UISoundManager.AutoWireButtons(this);
 	}
 
+	/// <summary>Updates formatted progression captions in place when the locale changes; never purchases or reopens upgrades.</summary>
+	public override void _Notification(int what)
+	{
+		if (what == NotificationTranslationChanged && IsNodeReady() && Visible)
+			RefreshUI();
+	}
+
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event.IsActionPressed("ui_cancel") || (@event is InputEventKey keyEvent && keyEvent.Pressed && keyEvent.Keycode == Key.Escape))
@@ -147,10 +154,11 @@ public partial class OperativeUpgradeScreen : Control
 		var defs = CharacterProgressionManager.GetUpgradeDefs(_currentOperative);
 
 		// Operative Name & Class
-		if (_operativeNameLabel != null) _operativeNameLabel.Text = _currentOperative.ToUpperInvariant();
+		if (_operativeNameLabel != null)
+			WildfireText.SetText(_operativeNameLabel, "Text", "UI_SCHEMA_TEXT", $"{WildfireText.DisplayValue(_currentOperative, englishUppercase: true)}");
 		if (_operativeClassLabel != null)
 		{
-			_operativeClassLabel.Text = $"// LEVEL {hero.Level} AUGMENTATION PROFILE";
+			WildfireText.SetText(_operativeClassLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_E27F28E5", $"// LEVEL {hero.Level} AUGMENTATION PROFILE");
 		}
 
 		// Level & Sparks Progress
@@ -159,14 +167,14 @@ public partial class OperativeUpgradeScreen : Control
 
 		if (_levelBadgeLabel != null)
 		{
-			_levelBadgeLabel.Text = isMaxLevel ? "LVL 10 [MAX]" : $"LVL {hero.Level:D2}";
+			_levelBadgeLabel.Text = isMaxLevel ? "LVL 10 [MAX]" : WildfireText.Interpolate("UI_OPERATIVEUPGRADESCREEN_REFRESHUI_0D221D8C", $"LVL {hero.Level:D2}");
 		}
 
 		if (_sparksProgressLabel != null)
 		{
 			_sparksProgressLabel.Text = isMaxLevel
 				? "⚡ MAXIMUM AUGMENTATION ACHIEVED"
-				: $"⚡ {hero.CurrentSparks} / {requiredSparks} SPARKS";
+				: WildfireText.Interpolate("UI_OPERATIVEUPGRADESCREEN_REFRESHUI_40E755D9", $"⚡ {hero.CurrentSparks} / {requiredSparks} SPARKS");
 		}
 
 		if (_sparksProgressBar != null)
@@ -183,27 +191,27 @@ public partial class OperativeUpgradeScreen : Control
 			_levelUpBtn.Disabled = !canLevel;
 			_levelUpBtn.Text = isMaxLevel
 				? "MAX LEVEL"
-				: (canLevel ? $"⚡ LEVEL UP ({requiredSparks} SPARKS)" : $"LEVEL UP ({requiredSparks} SPARKS)");
+				: (canLevel ? WildfireText.Interpolate("UI_OPERATIVEUPGRADESCREEN_REFRESHUI_0FB72824", $"⚡ LEVEL UP ({requiredSparks} SPARKS)") : WildfireText.Interpolate("UI_OPERATIVEUPGRADESCREEN_REFRESHUI_485E8D77", $"LEVEL UP ({requiredSparks} SPARKS)"));
 		}
 
 		// Skill Points & Bank
 		if (_skillPointsLabel != null)
 		{
-			_skillPointsLabel.Text = $"SKILL POINTS: {hero.SkillPoints}";
+			WildfireText.SetText(_skillPointsLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_F44E89EA", $"SKILL POINTS: {hero.SkillPoints}");
 			_skillPointsLabel.Modulate = hero.SkillPoints > 0 ? new Color(1f, 0.85f, 0.2f) : new Color(0.6f, 0.6f, 0.7f);
 		}
 
 		if (_bankSparksLabel != null)
 		{
-			_bankSparksLabel.Text = $"⚡ BANK: {mgr.GlobalSparksBank} SPARKS";
+			WildfireText.SetText(_bankSparksLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_5F702566", $"⚡ BANK: {mgr.GlobalSparksBank} SPARKS");
 		}
 
 		// Effective Stats
 		var mods = mgr.GetEffectiveModifiers(_currentOperative);
-		if (_healthStatLabel != null) _healthStatLabel.Text = $"+{mods.healthBonusPct * 100f:F0}% HP";
-		if (_speedStatLabel != null)  _speedStatLabel.Text  = $"+{mods.speedBonusPct * 100f:F1}% SPD";
-		if (_damageStatLabel != null) _damageStatLabel.Text = $"+{mods.damageBonusPct * 100f:F0}% ATK";
-		if (_cdrStatLabel != null)    _cdrStatLabel.Text    = $"-{mods.cooldownReductionPct * 100f:F0}% CDR";
+		if (_healthStatLabel != null) WildfireText.SetText(_healthStatLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_0FC5D2EC", $"+{mods.healthBonusPct * 100f:F0}% HP");
+		if (_speedStatLabel != null)  WildfireText.SetText(_speedStatLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_4C34DBE4", $"+{mods.speedBonusPct * 100f:F1}% SPD");
+		if (_damageStatLabel != null) WildfireText.SetText(_damageStatLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_477FC9D9", $"+{mods.damageBonusPct * 100f:F0}% ATK");
+		if (_cdrStatLabel != null)    WildfireText.SetText(_cdrStatLabel, "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_EC907676", $"-{mods.cooldownReductionPct * 100f:F0}% CDR");
 
 		// Upgrade Tracks (3 tracks)
 		for (int i = 0; i < 3 && i < defs.Length; i++)
@@ -214,7 +222,7 @@ public partial class OperativeUpgradeScreen : Control
 
 			if (_trackNameLabels[i] != null)
 			{
-				_trackNameLabels[i].Text = $"{def.Icon} {def.Name}";
+				WildfireText.SetText(_trackNameLabels[i], "Text", "UI_DISPLAY_PAIR", $"{def.Icon} {WildfireText.DisplayValue(def.Name)}");
 			}
 
 			if (_trackRankLabels[i] != null)
@@ -224,7 +232,7 @@ public partial class OperativeUpgradeScreen : Control
 				{
 					pips += (p <= rank) ? "■ " : "□ ";
 				}
-				_trackRankLabels[i].Text = $"[ {pips.Trim()} ]  RANK {rank}/{CharacterProgressionManager.MaxUpgradeRank}";
+				WildfireText.SetText(_trackRankLabels[i], "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_0FFA836F", $"[ {pips.Trim()} ]  RANK {rank}/{CharacterProgressionManager.MaxUpgradeRank}");
 				_trackRankLabels[i].Modulate = isMaxRank ? new Color(1f, 0.84f, 0.2f) : new Color(0f, 0.94f, 1f);
 			}
 
@@ -248,7 +256,7 @@ public partial class OperativeUpgradeScreen : Control
 					string nextDesc = (rank + 1 < def.RankDescriptions.Length)
 						? def.RankDescriptions[rank + 1]
 						: $"+{def.StatBonusPerRank * 100f:F0}% {def.StatLabel}";
-					_trackNextLabels[i].Text = $"NEXT: {nextDesc}";
+					WildfireText.SetText(_trackNextLabels[i], "Text", "UI_OPERATIVEUPGRADESCREEN_REFRESHUI_847542EC", $"NEXT: {WildfireText.DisplayValue(nextDesc)}");
 					_trackNextLabels[i].Modulate = new Color(1f, 0.75f, 0.2f);
 				}
 			}

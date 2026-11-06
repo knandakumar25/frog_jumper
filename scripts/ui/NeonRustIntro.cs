@@ -69,7 +69,7 @@ public partial class NeonRustIntro : CanvasLayer
             HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
         _subtitle.AddThemeFontSizeOverride("font_size", 22);
         panel.AddChild(_subtitle);
-        var skip = new Button { Name = "Skip", Text = Localized("SILENT_FREIGHT_SKIP", "SKIP // ESC / START"),
+        var skip = new Button { Name = "Skip", Text = "SILENT_FREIGHT_SKIP",
             AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
         ui.AddChild(skip);
         _skip = skip;

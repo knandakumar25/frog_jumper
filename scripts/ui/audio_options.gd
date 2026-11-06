@@ -1,32 +1,8 @@
 extends Control
 
-# Language mapping: display name -> locale code
-# The language list is loaded dynamically from the translations CSV header so new
-# languages can be added by updating the CSV without editing this script.
+## Audio settings presentation; language identities come from the shared LocaleCatalog.
+## Display labels map to stable catalog names rather than persisted game identities.
 var languages: Dictionary = {}
-const TRANSLATION_CSV: String = "res://assets/translations/Translations - Sheet1.csv"
-
-# Known display overrides: locale_code -> [English name, native name]
-const LANGUAGE_OVERRIDES := {
-	"english": ["English", "English"],
-	"spanish": ["Spanish", "Español"],
-	"eurofrench": ["French", "Français"],
-	"brazilianportuguese": ["Portuguese", "Português"],
-	"german": ["German", "Deutsch"],
-	"italian": ["Italian", "Italiano"],
-	"polish": ["Polish", "Polski"],
-	"arabic": ["Arabic", "العربية"],
-	"turkish": ["Turkish", "Türkçe"],
-	"japanese": ["Japanese", "日本語"],
-	"korean": ["Korean", "한국어"],
-	"mandarin": ["Mandarin", "簡體中文"],
-	"traditionalchinese": ["Traditional Chinese", "繁體中文"],
-	"indonesian": ["Indonesian", "Bahasa Indonesia"],
-	"vietnamese": ["Vietnamese", "Tiếng Việt"],
-	"thai": ["Thai", "ไทย"],
-	"hebrew": ["Hebrew", "עברית"]
-}
-
 var selected_language = ""
 
 # Called when the node enters the scene tree for the first time.
@@ -38,11 +14,11 @@ func _ready() -> void:
 		if not slider.is_connected("value_changed", _on_volume_changed):
 			slider.connect("value_changed", _on_volume_changed)
 
-	# Load languages dynamically from the translations CSV
-	_load_languages_from_csv()
+	# Use the same language identities and display names as login.
+	_load_languages()
 
 	# Set initial language display
-	var current_locale = TranslationServer.get_locale()
+	var current_locale: String = LocaleService.Canonical(TranslationServer.get_locale())
 	var lang_btn = get_node_or_null("VBoxContainer/LanguageButton")
 	for lang_name in languages.keys():
 		if languages[lang_name] == current_locale:
@@ -52,80 +28,28 @@ func _ready() -> void:
 			break
 
 
+## Refreshes the displayed percentage after a slider edit.
 func _on_volume_changed(val: float) -> void:
 	_update_volume_label(val)
 
 
+## Displays localized volume while retaining the numeric percentage.
 func _update_volume_label(val: float) -> void:
 	var lbl = get_node_or_null("VBoxContainer/VolumeLabel")
 	if lbl != null:
 		var pct = int(round(val * 100.0))
-		lbl.text = tr("Volume").to_upper() + "   [ " + str(pct) + "% ]"
+		lbl.text = tr("Volume") + "   [ " + str(pct) + "% ]"
 
 
-func _load_languages_from_csv() -> void:
-	# Attempt to read the CSV header and extract locale codes
-	var f = FileAccess.open(TRANSLATION_CSV, FileAccess.READ)
-	if f == null:
-		push_error("audio_options: Failed to open translations CSV: " + TRANSLATION_CSV)
-		return
-	var header_line = f.get_line()
-	f.close()
-
-	if header_line == "":
-		push_error("audio_options: translations CSV header is empty")
-		return
-
-	var cols = header_line.split(",")
-	# First column is the key, remaining columns are locale codes
-	for i in range(1, cols.size()):
-		var code = cols[i].strip_edges().to_lower()
-		if code == "":
-			continue
-		var display: String = ""
-		if LANGUAGE_OVERRIDES.has(code):
-			var pair = LANGUAGE_OVERRIDES[code]
-			display = str(pair[0]) + " (" + str(pair[1]) + ")"
-		else:
-			# Fallback: show code in both English and native position
-			display = code.capitalize() + " (" + code + ")"
-		languages[display] = code
+## Populates settings from the shared language catalog used by login.
+func _load_languages() -> void:
+	languages = LocaleService.GetLanguages()
 
 
-const LOCALE_ISO_MAP: Dictionary = {
-	"english": "en",
-	"spanish": "es",
-	"eurofrench": "fr",
-	"brazilianportuguese": "pt_BR",
-	"german": "de",
-	"italian": "it",
-	"polish": "pl",
-	"arabic": "ar",
-	"turkish": "tr",
-	"japanese": "ja",
-	"korean": "ko",
-	"mandarin": "zh_CN",
-	"hebrew": "he",
-	"traditionalchinese": "zh_TW",
-	"indonesian": "id",
-	"vietnamese": "vi",
-	"thai": "th"
-}
-
+## Applies presentation in place; never reloads missions or restarts audio.
 func apply_language_change() -> void:
 	if selected_language != "":
-		var raw_locale = languages[selected_language]
-		var iso_code = LOCALE_ISO_MAP.get(raw_locale, raw_locale)
-		TranslationServer.set_locale(iso_code)
-		TranslationServer.set_locale(raw_locale)
-		var global_node = get_node_or_null("/root/Global")
-		if global_node != null:
-			if global_node.has_method("update_font_for_locale"):
-				global_node.update_font_for_locale(raw_locale)
-			if global_node.has_method("update_prompt_text"):
-				global_node.update_prompt_text()
+		LocaleService.ApplyLocale(languages[selected_language])
 		var slider = get_node_or_null("VBoxContainer/MasterSlider")
 		if slider != null:
 			_update_volume_label(slider.value)
-		print("audio_options: TranslationServer.set_locale set to '", raw_locale, "' / '", iso_code, "'. Active locale is now: '", TranslationServer.get_locale(), "'")
-

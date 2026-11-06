@@ -91,11 +91,11 @@ public partial class WildfireStage : Control
         }
         DrawSetTransform(margin,0,Vector2.One*fit);
         DrawRect(new Rect2(0,0,1920,90),new Color(0,0,0,.85f));
-        DrawString(ThemeDB.FallbackFont,new Vector2(85,58),"CONTAINMENT ZONE 04 // ARRIVAL",fontSize:24,modulate:Cyan);
+        DrawString(ThemeDB.FallbackFont,new Vector2(85,58),WildfireText.Get("UI_WILDFIRESTAGE__DRAW_D4E2C1BE", "CONTAINMENT ZONE 04 // ARRIVAL"),fontSize:24,modulate:Cyan);
         if (shot == 5)
         {
-            DrawString(ThemeDB.FallbackFont,new Vector2(540,230),"THE CONCRETE WILDFIRE",fontSize:44,modulate:new Color("edb66a"));
-            DrawString(ThemeDB.FallbackFont,new Vector2(700,270),"FOLLOW THE EVACUATION ROAD",fontSize:22,modulate:Cyan);
+            DrawString(ThemeDB.FallbackFont,new Vector2(540,230),WildfireText.Get("UI_WILDFIRESTAGE__DRAW_55E6069D", "THE CONCRETE WILDFIRE"),fontSize:44,modulate:new Color("edb66a"));
+            DrawString(ThemeDB.FallbackFont,new Vector2(700,270),WildfireText.Get("UI_WILDFIRESTAGE__DRAW_B75DC7A7", "FOLLOW THE EVACUATION ROAD"),fontSize:22,modulate:Cyan);
         }
         float fade = t < 1 ? 1-t : Mathf.Clamp(t-59,0,1);
         DrawRect(new Rect2(0,0,1920,1080),new Color(0,0,0,fade));
@@ -107,16 +107,16 @@ public partial class WildfireStage : Control
     {
         DrawRect(new Rect2(880,210,850,430),new Color(.005f,.025f,.05f,.95f));
         DrawRect(new Rect2(880,210,850,430),Cyan,false,2);
-        DrawString(ThemeDB.FallbackFont,new Vector2(920,265),"AXIOM-7 // BIOMETRIC NETWORK",fontSize:24,modulate:Cyan);
+        DrawString(ThemeDB.FallbackFont,new Vector2(920,265),WildfireText.Get("UI_WILDFIRESTAGE_DRAWSPIREPROJECTION_D87F5668", "AXIOM-7 // BIOMETRIC NETWORK"),fontSize:24,modulate:Cyan);
         for (int i=0;i<3;i++)
         {
             Vector2 p = new(1000+i*250,390);
             DrawRect(new Rect2(p-new Vector2(12,45),new Vector2(24,90)),Cyan);
             DrawLine(p+new Vector2(0,45),new Vector2(1305,540),Cyan,2);
-            DrawString(ThemeDB.FallbackFont,p+new Vector2(-45,-65),$"SPIRE {i+1}",fontSize:20,modulate:Colors.White);
+            DrawString(ThemeDB.FallbackFont,p+new Vector2(-45,-65),WildfireText.Interpolate("UI_WILDFIRESTAGE_DRAWSPIREPROJECTION_8CFB0505", $"SPIRE {i+1}"),fontSize:20,modulate:Colors.White);
         }
         DrawRect(new Rect2(1180,530,250,18),new Color(.3f,.9f,1,.5f+progress*.3f));
-        DrawString(ThemeDB.FallbackFont,new Vector2(1180,590),"ENERGY MEMBRANE",fontSize:22,modulate:Cyan);
+        DrawString(ThemeDB.FallbackFont,new Vector2(1180,590),WildfireText.Get("UI_WILDFIRESTAGE_DRAWSPIREPROJECTION_E2DE08DC", "ENERGY MEMBRANE"),fontSize:22,modulate:Cyan);
     }
 
     /// <summary>Composites optional layers in the shared 1920 by 1080 native coordinate frame.</summary>

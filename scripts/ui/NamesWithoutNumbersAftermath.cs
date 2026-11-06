@@ -72,7 +72,7 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
         _subtitle = new Label { Name = "Subtitle", AutowrapMode = TextServer.AutowrapMode.WordSmart, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
         _subtitle.AddThemeFontSizeOverride("font_size", 22);
         panel.AddChild(_subtitle);
-        _skip = new Button { Name = "Skip", Text = "SKIP // ESC / START", AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
+        _skip = new Button { Name = "Skip", Text = "TOKYO_SKIP", AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
         var skipStyle = new StyleBoxFlat {
             BgColor = new Color(.01f, .03f, .05f, .85f),
             BorderColor = new Color("00f0ff"),
@@ -137,7 +137,7 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
         int cue = 0;
         for (int i = 1; i < Starts.Length; i++) if (Elapsed >= Starts[i]) cue = i;
         _subtitle.AddThemeFontSizeOverride("font_size", (int)System.Math.Clamp(GetViewport().GetVisibleRect().Size.Y / 45, 14, 22));
-        _subtitle.Text = Lines[cue];
+        _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_NAMES_WITHOUT_NUMBERS_{cue + 1:D2}", Lines[cue]);
         _subtitle.GetParent<Control>().Visible = cue < Lines.Length - 1;
         // Modulate subtitle color to match speaker identity
         _subtitle.Modulate = cue switch {

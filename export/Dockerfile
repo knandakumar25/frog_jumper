@@ -9,7 +9,10 @@
 # Built and run only through the `export` compose profile, which is excluded
 # from `docker compose up`: exports are exclusive and must not race game or
 # website work.
-FROM mcr.microsoft.com/dotnet/sdk:10.0
+# Bookworm's Python binaries use an older glibc baseline than the .NET runtime
+# image, avoiding a dependency on Trixie's newer glibc in the Apple helper.
+FROM python:3.15.2-slim-bookworm AS python-runtime
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS python-verified
 
 ENV DEBIAN_FRONTEND=noninteractive \
     GODOT_VERSION=4.7.2 \
@@ -33,6 +36,16 @@ RUN apt-get update \
         libfontconfig1 \
         libgl1 \
     && rm -rf /var/lib/apt/lists/*
+
+# Keep export orchestration on the same application Python version. Distribution
+# python3 remains available for OS tools; /usr/local/bin wins on the explicit PATH.
+# Validate native standard-library dependencies when the opt-in image is built.
+COPY --from=python-runtime /usr/local/ /usr/local/
+RUN python3 -c "import sys, ssl, ctypes, zlib, bz2, lzma, sqlite3; assert sys.version_info[:3] == (3, 15, 2), sys.version"
+
+# The Python-only stage can be checked without downloading export tools or
+# generating any game artifacts. Ordinary exporter builds continue below.
+FROM python-verified AS exporter
 
 # Android command-line tools, then the packages the exporter preset targets
 # (platform-tools, the android-34 platform and build-tools 34.0.0). Licenses

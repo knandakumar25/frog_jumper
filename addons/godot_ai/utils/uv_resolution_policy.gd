@@ -12,6 +12,12 @@ const PUBLIC_INDEX := "https://pypi.org/simple"
 const PUBLIC_FLAT_INDEX := "https://pypi.org/simple/godot-ai/"
 const QUALIFICATION_INDEX_ENV := "GODOT_AI_QUALIFICATION_PYTHON_INDEX"
 const _BASE_ARGS := [
+	# The plugin's binary dependencies support 3.14; keep its tooling interpreter
+	# independent of the application's Python so host upgrades cannot break launch.
+	"--python", "3.14",
+	# Trust the operating system's certificate store, including installed local CAs.
+	# Certificate verification remains enabled for all package downloads.
+	"--system-certs",
 	"--isolated",
 	"--no-config",
 	"--no-env-file",

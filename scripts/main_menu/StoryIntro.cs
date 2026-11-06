@@ -67,13 +67,7 @@ public partial class StoryIntro : Control
 
 		// Initialize the dialogue sequence using localized translation keys.
 		// The first line includes BBCode for centering and coloring the header.
-		dialogueLines = new List<string>
-		{
-			$"[center][color=#00FF00]{TranslationServer.Translate("STORY_LINE_1")}[/color][/center]\n\n{TranslationServer.Translate("STORY_LINE_1_INTRO")}",
-			TranslationServer.Translate("STORY_LINE_2"),
-			TranslationServer.Translate("STORY_LINE_3"),
-			TranslationServer.Translate("STORY_LINE_4")
-		};
+		RefreshWrittenLines();
 
 		// Localize the title banner.
 		var titleBanner = GetNodeOrNull<Label>("TitleBanner");
@@ -110,6 +104,36 @@ public partial class StoryIntro : Control
 		StartNextLine();
 	}
 
+    /// <summary>Rebuilds only the translated written lines; stable English recording indices remain unchanged.</summary>
+    private void RefreshWrittenLines()
+    {
+		dialogueLines = new List<string>
+		{
+			$"[center][color=#00FF00]{TranslationServer.Translate("STORY_LINE_1")}[/color][/center]\n\n{TranslationServer.Translate("STORY_LINE_1_INTRO")}",
+			TranslationServer.Translate("STORY_LINE_2"),
+			TranslationServer.Translate("STORY_LINE_3"),
+			TranslationServer.Translate("STORY_LINE_4")
+		};
+    }
+
+    /// <summary>Updates an active subtitle at its reveal fraction without calling StartNextLine or replaying speech.</summary>
+    public override void _Notification(int what)
+    {
+        if (what != NotificationTranslationChanged || dialogueLines.Count == 0) return;
+        double fraction = currentText.Length > 0 ? (double)currentCharIndex / currentText.Length : 0;
+        RefreshWrittenLines();
+        if (currentLineIndex >= dialogueLines.Count) return;
+        currentText = dialogueLines[currentLineIndex];
+        currentCharIndex = System.Math.Clamp((int)(currentText.Length * fraction), 0, currentText.Length);
+        if (cyberBubble != null) cyberBubble.RelocalizeLine(currentText);
+        else if (dialogueLabel != null)
+        {
+            dialogueLabel.Text = currentText;
+            dialogueLabel.VisibleCharacters = isTyping ? currentCharIndex : -1;
+        }
+        UpdateStoryPrompts();
+    }
+
 	/// <summary>
 	/// Updates the "Continue" and "Skip" button labels based on whether the user is using a gamepad.
 	/// </summary>
@@ -120,11 +144,11 @@ public partial class StoryIntro : Control
 
 		if (skipButton != null)
 		{
-			skipButton.Text = isGamepad ? "Skip (START) >>>" : "Skip (ESC) >>>";
+			skipButton.Text = isGamepad ? TranslationServer.Translate("Skip") + " (START) >>>" : TranslationServer.Translate("Skip") + " (ESC) >>>";
 		}
 		if (continueButton != null)
 		{
-			continueButton.Text = isGamepad ? "Continue (A) >>>" : "Continue (SPACE) >>>";
+			continueButton.Text = isGamepad ? TranslationServer.Translate("Continue") + " (A) >>>" : TranslationServer.Translate("Continue") + " (SPACE) >>>";
 		}
 	}
 

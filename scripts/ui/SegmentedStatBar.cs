@@ -44,34 +44,14 @@ public partial class SegmentedStatBar : Control
 	/// </summary>
 	private static Font GetActiveFont(Font defaultFont)
 	{
-		string locale = TranslationServer.GetLocale().ToLower();
-		if (locale.Contains("ar"))
-		{
-			return GD.Load<Font>("res://assets/fonts/Cairo.ttf") ?? defaultFont;
-		}
-		if (locale.Contains("he") || locale.Contains("ja") || locale.Contains("ko") || locale.Contains("zh"))
-		{
-			return GD.Load<Font>("res://assets/fonts/NotoSans-Regular.ttf") ?? defaultFont;
-		}
-		return defaultFont;
+        string path = "res://assets/fonts/" + LocaleCatalog.Resolve(TranslationServer.GetLocale()).Font;
+        return GD.Load<Font>(path) ?? defaultFont;
 	}
 
 	/// <summary>
-	/// Converts text to uppercase only for locales that support the concept of casing.
-	/// Prevents corruption of scripts like Arabic, Japanese, Korean, or Chinese.
+	/// Preserves authored casing, including Turkish dotted I and scripts without letter case.
 	/// </summary>
-	private static string SafeToUpper(string text)
-	{
-		if (string.IsNullOrEmpty(text)) return "";
-		string locale = TranslationServer.GetLocale().ToLower();
-		if (locale.Contains("ar") || locale.Contains("he") || locale.Contains("ja") ||
-		    locale.Contains("ko") || locale.Contains("zh"))
-		{
-			return text;
-		}
-		return text.ToUpper();
-	}
-
+	private static string SafeToUpper(string text) => text ?? "";
 	/// <summary>
 	/// Performs the low-level vector drawing of the stat label and the LED segment bar.
 	/// </summary>
@@ -83,8 +63,10 @@ public partial class SegmentedStatBar : Control
 		// 1. Render Label Header & Numeric Value.
 		Color textColor = new Color(0.85f, 0.92f, 1f, 0.95f);
 		Color cyanColor = new Color(0f, 0.94f, 1f, 1f);
-		DrawString(RajdhaniFont, new Vector2(0, 16), SafeToUpper(StatName), HorizontalAlignment.Left, size.X, 16, textColor);
-		DrawString(RajdhaniFont, new Vector2(0, 16), $"{(int)Value} / 100", HorizontalAlignment.Right, size.X, 16, cyanColor);
+		DrawString(GetActiveFont(RajdhaniFont), new Vector2(0, 16), SafeToUpper(TranslationServer.Translate(StatName)), HorizontalAlignment.Left, size.X, 16, textColor);
+		// A fraction remains value/maximum in RTL menus; automatic bidi otherwise reverses its operands.
+		DrawString(RajdhaniFont, new Vector2(0, 16), $"{(int)Value} / 100", HorizontalAlignment.Right, size.X, 16, cyanColor,
+			direction: TextServer.Direction.Ltr);
 
 		// 2. LED Segment Bar Calculations.
 		float startY = 22f;

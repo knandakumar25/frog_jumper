@@ -103,14 +103,14 @@ public partial class TokyoStage : Control
             for (int i = 0; i < 8; i++)
                 DrawLine(new Vector2(1280, 330 + i * 37), new Vector2(1700, 330 + i * 37), new Color(.2f, .65f, .7f, .3f * a), 1);
             DrawArc(new Vector2(1510, 485), 112, 0, Mathf.Tau * Mathf.Clamp(t - 29, 0, 1), 64, Cyan, 2, true);
-            DrawString(ThemeDB.FallbackFont, new Vector2(1280, 290), "AXIOM-7 // SECURE UPLINK", fontSize: 22, modulate: Cyan);
-            DrawString(ThemeDB.FallbackFont, new Vector2(1380, 480), "CONTAINMENT", fontSize: 24, modulate: Cyan);
-            DrawString(ThemeDB.FallbackFont, new Vector2(1410, 520), "ZONE 04", fontSize: 36, modulate: Colors.White);
-            DrawString(ThemeDB.FallbackFont, new Vector2(1300, 650), "THE CONCRETE WILDFIRE", fontSize: 22, modulate: new Color("edb66a"));
+            DrawString(ThemeDB.FallbackFont, new Vector2(1280, 290), WildfireText.Get("UI_TOKYOSTAGE__DRAW_35087085", "AXIOM-7 // SECURE UPLINK"), fontSize: 22, modulate: Cyan);
+            DrawString(ThemeDB.FallbackFont, new Vector2(1380, 480), WildfireText.Get("UI_TOKYOSTAGE__DRAW_7F7BB49B", "CONTAINMENT"), fontSize: 24, modulate: Cyan);
+            DrawString(ThemeDB.FallbackFont, new Vector2(1410, 520), WildfireText.Get("UI_TOKYOSTAGE__DRAW_594C8E0C", "ZONE 04"), fontSize: 36, modulate: Colors.White);
+            DrawString(ThemeDB.FallbackFont, new Vector2(1300, 650), WildfireText.Get("UI_TOKYOSTAGE__DRAW_55E6069D", "THE CONCRETE WILDFIRE"), fontSize: 22, modulate: new Color("edb66a"));
         }
         DrawSetTransform(margin, 0, Vector2.One * fit);
         DrawRect(new Rect2(0, 0, 1920, 90), new Color(0, 0, 0, .8f));
-        DrawString(ThemeDB.FallbackFont, new Vector2(85, 58), "TOKYO REMEMBERS // ARCHIVE SECURED", fontSize: 24, modulate: Cyan);
+        DrawString(ThemeDB.FallbackFont, new Vector2(85, 58), WildfireText.Get("UI_TOKYOSTAGE__DRAW_98905AC0", "TOKYO REMEMBERS // ARCHIVE SECURED"), fontSize: 24, modulate: Cyan);
         float fade = t < 1 ? 1 - t : Mathf.Clamp((t - 39) / 1, 0, 1);
         DrawRect(new Rect2(0, 0, 1920, 1080), new Color(0, 0, 0, fade));
         DrawSetTransform(Vector2.Zero);

@@ -97,19 +97,19 @@ public partial class WildfireAftermathStage : Control
         if (shot == 4)
         {
             DrawLine(new Vector2(1020,775),new Vector2(1500,775),Cyan,4);
-            DrawString(ThemeDB.FallbackFont,new Vector2(1050,735),"CORRIDOR OPEN // FREE PASSAGE",fontSize:23,modulate:Cyan);
+            DrawString(ThemeDB.FallbackFont,new Vector2(1050,735),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE__DRAW_89897EC0", "CORRIDOR OPEN // FREE PASSAGE"),fontSize:23,modulate:Cyan);
         }
         if (shot == 5) DrawManifest(u);
         if (shot >= 6)
             for (int i=0;i<7;i++) DrawRect(new Rect2(Mathf.PosMod(i*210+t*40,1920),375,60,4),new Color("e9b875"));
         DrawSetTransform(margin,0,Vector2.One*fit);
         DrawRect(new Rect2(0,0,1920,90),new Color(0,0,0,.86f));
-        DrawString(ThemeDB.FallbackFont,new Vector2(85,58),"THROUGH THE BREACH // EVACUATION SECURED",fontSize:24,modulate:Cyan);
+        DrawString(ThemeDB.FallbackFont,new Vector2(85,58),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE__DRAW_201C063A", "THROUGH THE BREACH // EVACUATION SECURED"),fontSize:24,modulate:Cyan);
         if (shot == 8)
         {
             DrawRect(new Rect2(0,90,1920,730),new Color(.01f,.025f,.045f,.97f));
-            DrawString(ThemeDB.FallbackFont,new Vector2(750,365),"NEXT MISSION",fontSize:32,modulate:Cyan);
-            DrawString(ThemeDB.FallbackFont,new Vector2(400,445),"NEON RUST AND DATA DUST",fontSize:48,modulate:new Color("edb66a"));
+            DrawString(ThemeDB.FallbackFont,new Vector2(750,365),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE__DRAW_C792021A", "NEXT MISSION"),fontSize:32,modulate:Cyan);
+            DrawString(ThemeDB.FallbackFont,new Vector2(400,445),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE__DRAW_05649996", "NEON RUST AND DATA DUST"),fontSize:48,modulate:new Color("edb66a"));
         }
         float fade = t < 1 ? 1-t : Mathf.Clamp(t-74,0,1);
         DrawRect(new Rect2(0,0,1920,1080),new Color(0,0,0,fade));
@@ -122,11 +122,11 @@ public partial class WildfireAftermathStage : Control
         Layer(_terminal,Colors.White);
         DrawRect(new Rect2(300,180,1320,470),new Color(.005f,.025f,.05f,.95f));
         DrawRect(new Rect2(300,180,1320,470),Cyan,false,2);
-        DrawString(ThemeDB.FallbackFont,new Vector2(350,240),"RECOVERED MANIFEST // REGIONAL TRANSIT POWER",fontSize:27,modulate:Cyan);
+        DrawString(ThemeDB.FallbackFont,new Vector2(350,240),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE_DRAWMANIFEST_481DBDAF", "RECOVERED MANIFEST // REGIONAL TRANSIT POWER"),fontSize:27,modulate:Cyan);
         Vector2[] route = { new(430,480),new(750,480),new(980,360),new(1430,360) };
         for (int i=0;i<3;i++) DrawLine(route[i],route[i].Lerp(route[i+1],Mathf.Clamp(progress*4-i,0,1)),Cyan,5);
-        DrawString(ThemeDB.FallbackFont,new Vector2(350,540),"CHECKPOINT",fontSize:24,modulate:Colors.White);
-        DrawString(ThemeDB.FallbackFont,new Vector2(1100,550),"DEPOT / PATROL UPLINK",fontSize:24,modulate:Colors.White);
+        DrawString(ThemeDB.FallbackFont,new Vector2(350,540),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE_DRAWMANIFEST_0DE32428", "CHECKPOINT"),fontSize:24,modulate:Colors.White);
+        DrawString(ThemeDB.FallbackFont,new Vector2(1100,550),WildfireText.Get("UI_WILDFIREAFTERMATHSTAGE_DRAWMANIFEST_717D8F4B", "DEPOT / PATROL UPLINK"),fontSize:24,modulate:Colors.White);
         for (int i=0;i<3;i++)
         {
             Vector2 tower = new(1110+i*150,350);

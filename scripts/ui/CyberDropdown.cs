@@ -54,17 +54,25 @@ public partial class CyberDropdown : Control
 
 	public string SelectedValue => (_selectedIndex >= 0 && _selectedIndex < _items.Count) ? _items[_selectedIndex] : "";
 
+	/// <summary>Creates a keyboard-accessible selector whose font covers every offered language simultaneously.</summary>
 	public override void _Ready()
 	{
 		CustomMinimumSize = new Vector2(320, 52);
 		MouseFilter = MouseFilterEnum.Ignore; // Completely eliminate cursor compatibility
 		FocusMode = FocusModeEnum.All;
-		_font = GD.Load<Font>("res://assets/fonts/Rajdhani-Bold.ttf") ?? ThemeDB.FallbackFont;
+		_font = GD.Load<Font>("res://assets/fonts/LocaleSelectorFont.tres") ?? ThemeDB.FallbackFont;
+		AddThemeFontOverride("font", _font);
 
 		FocusEntered += () => { _isHovered = true;  QueueRedraw(); };
 		FocusExited  += () => { _isHovered = false; QueueRedraw(); };
 
 		CreatePopupLayer();
+	}
+
+	/// <summary>Redraws manually painted selection text when the active presentation language changes.</summary>
+	public override void _Notification(int what)
+	{
+		if (what == NotificationTranslationChanged) QueueRedraw();
 	}
 
 	/// <summary>
@@ -320,9 +328,19 @@ public partial class CyberDropdown : Control
 		// Render the current selection text.
 		string text = SelectedValue;
 		if (string.IsNullOrEmpty(text)) text = "Select Language";
+		text = Tr(text);
 
-		Vector2 textPos = new Vector2(16, size.Y / 2.0f + 6);
-		DrawString(_font, textPos, text, HorizontalAlignment.Left, -1, 20, _textColor);
+		// Shape translated/RTL text within the space left by the arrow. Long
+		// selections remain inside the control instead of painting over neighbors.
+		using var line = new TextLine
+		{
+			Direction = IsLayoutRtl() ? TextServer.Direction.Rtl : TextServer.Direction.Ltr,
+			Alignment = IsLayoutRtl() ? HorizontalAlignment.Right : HorizontalAlignment.Left,
+			Width = Mathf.Max(0, size.X - 64),
+			TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis
+		};
+		line.AddString(text, _font, 20);
+		line.Draw(GetCanvasItem(), new Vector2(16, (size.Y - line.GetSize().Y) / 2.0f), _textColor);
 
 		// Render the animated dropdown arrow indicator (▼ / ▲).
 		string arrow = _isOpen ? "▲" : "▼";

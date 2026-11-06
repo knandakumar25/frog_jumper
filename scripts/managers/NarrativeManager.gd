@@ -57,7 +57,14 @@ func _ready() -> void:
 func get_level(level_number) -> Dictionary:
 	var key := str(level_number)
 	var levels := _data.get("levels", {}) as Dictionary
-	return levels.get(key, {}) as Dictionary
+	var result: Dictionary = (levels.get(key, {}) as Dictionary).duplicate(true)
+	# Only card metadata is consumed by the current campaign. Preserve older prose
+	# for archival APIs, but never mistake its dialogue arrays for runtime events.
+	var card: Dictionary = (_data.get("mission_cards", {}) as Dictionary).get(key, {})
+	if not card.is_empty():
+		result["title"] = tr(card["title_key"])
+		result["objective"] = tr(card["objective_key"])
+	return result
 
 
 ## Returns one dialogue entry by zero-based index for a given level.
@@ -134,6 +141,7 @@ func reload_for_locale(locale: String) -> void:
 # Internal method to load and parse the JSON narrative file for a given locale.
 # Includes a fallback mechanism to the English version if the target file is missing.
 func _load_for_locale(locale: String) -> void:
+	locale = LocaleService.Canonical(locale)
 	var path := NARRATIVE_DIR + locale + ".json"
 
 	# Fallback Logic: If the locale-specific file is missing, try the fallback.

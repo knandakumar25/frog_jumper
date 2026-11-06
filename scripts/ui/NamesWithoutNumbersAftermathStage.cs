@@ -300,7 +300,7 @@ public partial class NamesWithoutNumbersAftermathStage : Control
             DrawArc(satPos, 36 + pulse * 20, 0, Mathf.Tau, 32, new Color(ColorSurya, 0.35f), 2);
             DrawLine(satPos - new Vector2(25, 0), satPos + new Vector2(25, 0), ColorSurya, 2);
             DrawLine(satPos - new Vector2(0, 25), satPos + new Vector2(0, 25), ColorSurya, 2);
-            DrawString(ThemeDB.FallbackFont, new Vector2(330, 395), "SURYA // COMMS LINK", fontSize: 16, modulate: ColorSurya);
+            DrawString(ThemeDB.FallbackFont, new Vector2(330, 395), WildfireText.Get("UI_NAMESWITHOUTNUMBERSAFTERMATHSTAGE_DRAWOPERATIVES_54F4CC75", "SURYA // COMMS LINK"), fontSize: 16, modulate: ColorSurya);
         }
 
         // Shot 7: Kaito Vanguard Leader Rally
@@ -308,7 +308,7 @@ public partial class NamesWithoutNumbersAftermathStage : Control
         {
             DrawSpeakerBeacon(1020, 826, ColorKaito, t);
             DrawOperative(1020, 826, ColorKaito, 0);
-            DrawString(ThemeDB.FallbackFont, new Vector2(965, 862), "KAITO // COMMAND", fontSize: 18, modulate: ColorKaito);
+            DrawString(ThemeDB.FallbackFont, new Vector2(965, 862), WildfireText.Get("UI_NAMESWITHOUTNUMBERSAFTERMATHSTAGE_DRAWOPERATIVES_C9FE73BD", "KAITO // COMMAND"), fontSize: 18, modulate: ColorKaito);
         }
     }
 

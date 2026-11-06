@@ -101,6 +101,10 @@ def all_cues():
         rows.append(dict(id=f'briefing.{n}', mission=0, source='scripts/main_menu/StoryIntro.cs', trigger='briefing Continue',
             speaker='AXIOM-7', text=text, text_sha256=sha(text.encode()), subtitle_key=f'STORY_LINE_{n}',
             audio_path=f'assets/speech/AXIOM-7/english/AXIOM-7-{n}.mp3', voice_id=CAST['AXIOM-7'], classification='speech'))
+    # Use the runtime subtitle map rather than historical inferred aliases.
+    bindings = read(ROOT/'assets/translations/subtitle_bindings.json', {})
+    for row in rows:
+        row['subtitle_key'] = bindings.get(row['id'], row.get('subtitle_key'))
     return rows
 
 

@@ -317,7 +317,7 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         string instruction = target.Length > 0 ? TargetGuidance(target)
             : WildfireText.Get("NR_" + objective.Key + "_LOCAL", objective.Text);
         if (objective.Key is "PHASE" or "ESCAPE") instruction += " / " + ContextBinding("karate");
-        return $"{Progress.Shipments}/3 CARGO  {Progress.Uplinks}/2 UPLINKS\n{instruction}";
+        return WildfireText.Interpolate("UI_NEONRUSTMISSION_COMPUTEOBJECTIVE_DD0F3113", $"{Progress.Shipments}/3 CARGO  {Progress.Uplinks}/2 UPLINKS\n{instruction}");
     }
 
     /// <summary>Names the target, required operative and only its unresolved local defenders; no sector-wide clearance hint survives.</summary>

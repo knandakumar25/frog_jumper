@@ -1,0 +1,29 @@
+{
+  "language": "eurofrench",
+  "review": "Agent-authored display categories, damage/cooldown fragments and tagline; physical controls/format-only patterns retain literal identity.",
+  "translations": {
+    "PRIMARY": "PRINCIPALE",
+    "SECONDARY": "SECONDAIRE",
+    "MOBILITY": "MOBILITÉ",
+    "SLAM": "FRAPPE",
+    "TACTICAL": "TACTIQUE",
+    "DMG: {0:F0}": "DGT : {0:F0}",
+    "RECLAIM EARTH": "RECONQUÉRIR LA TERRE",
+    "[{0}] {1} • CD: {2:F1}s • {3}": "[{0}] {1} • REC : {2:F1}s • {3}",
+    "{0} {1}": "{0} {1}",
+    "[SHIFT] {0} ({1:0.0}s)": "[SHIFT] {0} ({1:0.0}s)",
+    "[SEC: OMEGA]": "[SEC: OMEGA]",
+    "{0} / Tab": "{0} / Tab",
+    "Y / LB": "Y / LB",
+    "[Q / RT]": "[Q / RT]",
+    "v1.0.4-NEON-PULSE": "v1.0.4-NEON-PULSE",
+    "◆ AXIOM-OS v4.7": "◆ AXIOM-OS v4.7",
+    "{0}": "{0}",
+    "Idle": "Repos",
+    "Walk": "Marche",
+    "Run": "Course",
+    "Katana": "Katana",
+    "{0}{1}": "{0}{1}",
+    "{0}{1}%": "{0}{1}%"
+  }
+}

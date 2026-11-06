@@ -126,12 +126,12 @@ public partial class ShatteredAegisStage : Control
         }
         DrawSetTransform(margin,0,Vector2.One*fit);
         DrawRect(new Rect2(0,0,1920,88),new Color(0,0,0,.88f));
-        DrawString(ThemeDB.FallbackFont,new Vector2(55,57),"THE WALL THAT FACES INWARD // BORDER DEFENSE FORTRESS",fontSize:24,modulate:Gold);
+        DrawString(ThemeDB.FallbackFont,new Vector2(55,57),WildfireText.Get("UI_SHATTEREDAEGISSTAGE__DRAW_2EA9D1F4", "THE WALL THAT FACES INWARD // BORDER DEFENSE FORTRESS"),fontSize:24,modulate:Gold);
         if (shot == 12)
         {
             DrawRect(new Rect2(0,88,1920,992),new Color(.008f,.015f,.03f,Mathf.Clamp(u*2,0,1)));
-            DrawString(ThemeDB.FallbackFont,new Vector2(430,450),"LEVEL 4: SHATTERED AEGIS",fontSize:48,modulate:Gold);
-            DrawString(ThemeDB.FallbackFont,new Vector2(650,515),"BORDER FORTRESS // APPROACH",fontSize:26,modulate:Colors.White);
+            DrawString(ThemeDB.FallbackFont,new Vector2(430,450),WildfireText.Get("UI_SHATTEREDAEGISSTAGE__DRAW_1BCF424C", "LEVEL 4: SHATTERED AEGIS"),fontSize:48,modulate:Gold);
+            DrawString(ThemeDB.FallbackFont,new Vector2(650,515),WildfireText.Get("UI_SHATTEREDAEGISSTAGE__DRAW_B878D0A4", "BORDER FORTRESS // APPROACH"),fontSize:26,modulate:Colors.White);
         }
         DrawSetTransform(Vector2.Zero,0,Vector2.One);
     }
@@ -151,7 +151,7 @@ public partial class ShatteredAegisStage : Control
         {
             DrawRect(new Rect2(650,400,620,200),new Color(.18f,.23f,.29f));
             DrawLine(new Vector2(650,600),new Vector2(1270,600),Gold,4);
-            DrawString(ThemeDB.FallbackFont,new Vector2(790,510),"BEYOND THE CURTAIN",fontSize:22,modulate:Gold);
+            DrawString(ThemeDB.FallbackFont,new Vector2(790,510),WildfireText.Get("UI_SHATTEREDAEGISSTAGE_TACTICALINSERTS_00E30ECC", "BEYOND THE CURTAIN"),fontSize:22,modulate:Gold);
         }
     }
 

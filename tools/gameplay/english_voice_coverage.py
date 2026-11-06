@@ -127,6 +127,10 @@ def inventory():
                 row['subtitle_key'] = key[1].replace('{found}', row['id'][-1])
                 if row['subtitle_key'].endswith('_'):
                     row['subtitle_key'] += row['id'][-1]
+    # Written localization owns the corrected mappings; audio IDs/order stay independent.
+    bindings = read(ROOT/'assets/translations/subtitle_bindings.json', {})
+    for row in rows:
+        row['subtitle_key'] = bindings.get(row['id'], row.get('subtitle_key'))
     write(OUT/'cues.json', rows)
     return rows
 

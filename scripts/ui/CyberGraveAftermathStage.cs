@@ -282,7 +282,7 @@ public partial class CyberGraveAftermathStage : Control
 
         // Bio-stability status display floating above the captive cluster
         float bioPulse = 0.7f + 0.3f * Mathf.Sin(t * 2.5f);
-        DrawString(ThemeDB.FallbackFont, new Vector2(690, 655), "CAPTIVES SECURED: 17 // STABLE", HorizontalAlignment.Left, -1, 13, ColorBioGreen * bioPulse);
+        DrawString(ThemeDB.FallbackFont, new Vector2(690, 655), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWRESCUEDCAPTIVES_2F42A3D1", "CAPTIVES SECURED: 17 // STABLE"), HorizontalAlignment.Left, -1, 13, ColorBioGreen * bioPulse);
     }
 
     /// <summary>Renders distinctive Axiom Force squad operative silhouettes staged across the lift.</summary>
@@ -460,10 +460,10 @@ public partial class CyberGraveAftermathStage : Control
         if (shot == 4)
         {
             // Decrypted Vault Ledger - Cyber-Grave linked to Citadel Spire
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), "CENTRAL VAULT LEDGER // DECRYPTED", HorizontalAlignment.Left, -1, 14, ColorMirage);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), "FACILITY AUTHORIZATION: CITADEL SPIRE", HorizontalAlignment.Left, -1, 13, Colors.White);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), "BIO-SYNTHETIC QUOTA: 10,000 CONVERSIONS", HorizontalAlignment.Left, -1, 13, ColorAmber);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 110), "DIRECTIVE ORIGIN: HIGH ARCHITECT VOID", HorizontalAlignment.Left, -1, 13, ColorKaito);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_C4DA1C13", "CENTRAL VAULT LEDGER // DECRYPTED"), HorizontalAlignment.Left, -1, 14, ColorMirage);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_398BB7DF", "FACILITY AUTHORIZATION: CITADEL SPIRE"), HorizontalAlignment.Left, -1, 13, Colors.White);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_457B7694", "BIO-SYNTHETIC QUOTA: 10,000 CONVERSIONS"), HorizontalAlignment.Left, -1, 13, ColorAmber);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 110), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_203BD49C", "DIRECTIVE ORIGIN: HIGH ARCHITECT VOID"), HorizontalAlignment.Left, -1, 13, ColorKaito);
 
             // Wireframe spire blueprint
             Vector2 spireTip = new(center.X + 110, center.Y - 80);
@@ -480,8 +480,8 @@ public partial class CyberGraveAftermathStage : Control
             Color statusColor = shot == 6 ? ColorAmber : ColorSurya;
             string statusHeader = shot == 6 ? "ALERT: ORBITAL DEFENSE ARRAYS ARMED" : "SURYA // TOPSIDE EXTRACTION ROUTE";
             DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 30), statusHeader, HorizontalAlignment.Left, -1, 14, statusColor);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), "SURFACE SECTOR: UPPER TRANSIT JUNCTION", HorizontalAlignment.Left, -1, 13, Colors.White);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), "MEDIC TRANSPORTS: SECURED & ARMED", HorizontalAlignment.Left, -1, 13, ColorBioGreen);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 60), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_79ECDE64", "SURFACE SECTOR: UPPER TRANSIT JUNCTION"), HorizontalAlignment.Left, -1, 13, Colors.White);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 85), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_E1DB50CA", "MEDIC TRANSPORTS: SECURED & ARMED"), HorizontalAlignment.Left, -1, 13, ColorBioGreen);
 
             // Radar display
             Vector2 radarCenter = new(center.X + 110, center.Y);
@@ -493,10 +493,10 @@ public partial class CyberGraveAftermathStage : Control
         else
         {
             // Shot 7: Kaito rally call
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 35), "AXIOM FORCE // STATUS REPORT", HorizontalAlignment.Left, -1, 14, ColorKaito);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 70), "OPERATION: SUBTERRANEAN BREACH COMPLETE", HorizontalAlignment.Left, -1, 13, ColorCyan);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 100), "CASUALTIES: ZERO CIVILIANS LOST", HorizontalAlignment.Left, -1, 13, ColorBioGreen);
-            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 130), "NEXT TARGET: CITADEL SPIRE", HorizontalAlignment.Left, -1, 14, ColorAmber);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 35), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_6378A004", "AXIOM FORCE // STATUS REPORT"), HorizontalAlignment.Left, -1, 14, ColorKaito);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 70), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_451D781F", "OPERATION: SUBTERRANEAN BREACH COMPLETE"), HorizontalAlignment.Left, -1, 13, ColorCyan);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 100), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_A4B8142D", "CASUALTIES: ZERO CIVILIANS LOST"), HorizontalAlignment.Left, -1, 13, ColorBioGreen);
+            DrawString(ThemeDB.FallbackFont, new Vector2(frame.Position.X + 20, frame.Position.Y + 130), WildfireText.Get("UI_CYBERGRAVEAFTERMATHSTAGE_DRAWHOLOGRAPHICINTELLIGENCE_013BC19D", "NEXT TARGET: CITADEL SPIRE"), HorizontalAlignment.Left, -1, 14, ColorAmber);
         }
     }
 

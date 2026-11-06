@@ -236,7 +236,7 @@ public partial class JudgmentDayAftermath : CanvasLayer
         int index = GetCueIndex(elapsed);
         if (_subtitle != null && index >= 0 && index < Lines.Length)
         {
-            _subtitle.Text = Lines[index];
+            _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_JUDGMENT_DAY_AFTERMATH_{index + 1:D2}", Lines[index]);
             UpdateSpeakerStyle(Lines[index]);
         }
     }

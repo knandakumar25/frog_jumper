@@ -1,0 +1,125 @@
+{
+  "description": "Context corrections applied during the machine-assisted campaign draft review. Ascent locked means the escape route is secured; battery means an artillery emplacement, not an electrical cell. English source dialogue is unchanged.",
+  "sources": [
+    "AXIOM-7: Ascent locked. All seventeen captives are aboard. The lift is clear of sub-level six.",
+    "AXIOM-7: Battery silent. All three shelter groups are clear. The evacuation corridor is secure.",
+    "KAITO: Tend to the wounded. We rest for an hour, then take the fight to the Spire. Axiom Force, ascend."
+  ],
+  "translations": {
+    "eurofrench": [
+      "AXIOM-7 : Montée sécurisée. Les dix-sept captifs sont à bord. L'ascenseur a quitté le sixième sous-sol.",
+      "AXIOM-7 : Batterie d'artillerie neutralisée. Les trois groupes des abris sont hors de danger. Le couloir d'évacuation est sécurisé.",
+      "KAITO : Soignez les blessés. Nous nous reposons une heure, puis nous portons le combat jusqu'à la Flèche. Axiom Force, en avant vers le sommet."
+    ],
+    "brazilianportuguese": [
+      "AXIOM-7: Subida garantida. Todos os dezessete prisioneiros estão a bordo. O elevador já passou pelo sexto subsolo.",
+      "AXIOM-7: Bateria de artilharia neutralizada. Os três grupos dos abrigos estão a salvo. O corredor de evacuação está seguro.",
+      "KAITO: Cuidem dos feridos. Descansamos por uma hora e depois levamos a luta ao Pináculo. Axiom Force, vamos subir."
+    ],
+    "german": [
+      "AXIOM-7: Aufstieg gesichert. Alle siebzehn Gefangenen sind an Bord. Der Aufzug hat die sechste Unterebene verlassen.",
+      "AXIOM-7: Geschützbatterie ausgeschaltet. Alle drei Gruppen aus den Schutzräumen sind außer Gefahr. Der Evakuierungskorridor ist gesichert.",
+      "KAITO: Versorgt die Verwundeten. Wir ruhen eine Stunde, dann tragen wir den Kampf zum Turm. Axiom Force, aufwärts."
+    ],
+    "italian": [
+      "AXIOM-7: Ascesa assicurata. Tutti i diciassette prigionieri sono a bordo. L'ascensore ha superato il sesto livello sotterraneo.",
+      "AXIOM-7: Batteria d'artiglieria neutralizzata. Tutti e tre i gruppi dei rifugi sono al sicuro. Il corridoio di evacuazione è sicuro.",
+      "KAITO: Curate i feriti. Riposiamo per un'ora, poi portiamo la battaglia alla Guglia. Axiom Force, saliamo."
+    ],
+    "polish": [
+      "AXIOM-7: Droga w górę zabezpieczona. Wszyscy jeńcy, cała siedemnastka, są na pokładzie. Winda minęła szósty poziom podziemny.",
+      "AXIOM-7: Bateria artyleryjska uciszona. Wszystkie trzy grupy ze schronów są bezpieczne. Korytarz ewakuacyjny jest zabezpieczony.",
+      "KAITO: Zajmijcie się rannymi. Odpoczniemy godzinę, a potem przeniesiemy walkę do Iglicy. Axiom Force, ruszamy w górę."
+    ],
+    "arabic": [
+      "AXIOM-7: مسار الصعود مؤمّن. جميع الأسرى السبعة عشر على متن المصعد. تجاوز المصعد المستوى السادس تحت الأرض.",
+      "AXIOM-7: تم إسكات بطارية المدفعية. مجموعات الملاجئ الثلاث جميعها بأمان. ممر الإخلاء مؤمّن.",
+      "KAITO: اعتنوا بالجرحى. نستريح ساعة، ثم ننقل المعركة إلى البرج. Axiom Force، إلى الأعلى."
+    ],
+    "turkish": [
+      "AXIOM-7: Yükseliş rotası güvence altında. On yedi tutsağın tamamı asansörde. Asansör altıncı yeraltı katını geçti.",
+      "AXIOM-7: Topçu bataryası susturuldu. Sığınaklardaki üç grup da güvende. Tahliye koridoru güvenli.",
+      "KAITO: Yaralılarla ilgilenin. Bir saat dinlenip savaşı Kule'ye taşıyacağız. Axiom Force, yukarı."
+    ],
+    "japanese": [
+      "AXIOM-7：上昇経路確保。捕虜17名全員搭乗。昇降機は地下第6層を通過した。",
+      "AXIOM-7：砲台制圧。避難所の3グループは全員無事だ。避難通路の安全を確保した。",
+      "KAITO：負傷者を手当てしろ。1時間休んだら、尖塔へ攻め込む。Axiom Force、上を目指すぞ。"
+    ],
+    "korean": [
+      "AXIOM-7: 상승 경로 확보. 포로 17명 전원 탑승했습니다. 승강기는 지하 6층을 통과했습니다.",
+      "AXIOM-7: 포대 제압 완료. 세 대피소의 인원 모두 안전합니다. 대피 통로를 확보했습니다.",
+      "KAITO: 부상자를 돌봐라. 한 시간 쉬고 첨탑으로 진격한다. Axiom Force, 위로 올라간다."
+    ],
+    "mandarin": [
+      "AXIOM-7：上升路线已确保。十七名俘虏全部登上升降机。升降机已通过地下第六层。",
+      "AXIOM-7：炮台已被压制。三个避难所的人员全部安全。疏散通道已确保安全。",
+      "KAITO：照顾伤员。休息一小时，然后向尖塔进攻。Axiom Force，向上进发。"
+    ],
+    "hebrew": [
+      "AXIOM-7: נתיב העלייה מאובטח. כל שבעה עשר השבויים במעלית. המעלית עברה את המפלס השישי מתחת לקרקע.",
+      "AXIOM-7: סוללת התותחים נוטרלה. כל שלוש הקבוצות מהמקלטים מחוץ לסכנה. מסדרון הפינוי מאובטח.",
+      "KAITO: טפלו בפצועים. ננוח שעה ואז נעביר את הקרב אל הצריח. Axiom Force, עולים."
+    ],
+    "traditionalchinese": [
+      "AXIOM-7：上升路線已確保。十七名俘虜全數登上升降機。升降機已通過地下第六層。",
+      "AXIOM-7：砲台已被壓制。三個避難所的人員全數安全。疏散通道已確保安全。",
+      "KAITO：照顧傷員。休息一小時，然後向尖塔進攻。Axiom Force，向上進發。"
+    ],
+    "indonesian": [
+      "AXIOM-7: Jalur naik aman. Ketujuh belas tawanan sudah di dalam lift. Lift telah melewati lantai bawah tanah keenam.",
+      "AXIOM-7: Baterai artileri dilumpuhkan. Ketiga kelompok dari tempat perlindungan sudah selamat. Koridor evakuasi aman.",
+      "KAITO: Rawat yang terluka. Kita istirahat satu jam, lalu membawa pertempuran ke Spire. Axiom Force, kita naik."
+    ],
+    "vietnamese": [
+      "AXIOM-7: Đã bảo đảm đường đi lên. Cả mười bảy tù nhân đã vào thang máy. Thang máy đã vượt qua tầng ngầm thứ sáu.",
+      "AXIOM-7: Trận địa pháo đã bị vô hiệu hóa. Cả ba nhóm từ nơi trú ẩn đều an toàn. Hành lang sơ tán đã được bảo đảm.",
+      "KAITO: Chăm sóc người bị thương. Nghỉ một giờ, rồi tiến đánh Ngọn Tháp. Axiom Force, tiến lên trên."
+    ],
+    "thai": [
+      "AXIOM-7: เส้นทางขึ้นปลอดภัยแล้ว เชลยทั้งสิบเจ็ดคนขึ้นลิฟต์ครบแล้ว ลิฟต์ผ่านชั้นใต้ดินที่หกแล้ว",
+      "AXIOM-7: ฐานปืนใหญ่ถูกทำลายแล้ว ผู้คนจากที่หลบภัยทั้งสามกลุ่มปลอดภัย เส้นทางอพยพปลอดภัยแล้ว",
+      "KAITO: ดูแลผู้บาดเจ็บ เราพักหนึ่งชั่วโมง แล้วบุกไปสู้ที่หอคอย Axiom Force ขึ้นไปกันเถอะ"
+    ]
+  },
+  "individual": {
+    "eurofrench": {
+      "Bypass drone acoustic relay with Aura Resonate": "Contournez le relais acoustique des drones avec la résonance d'Aura",
+      "Cross radiation bridge under Surya Bulwark": "Traversez le pont irradié sous le rempart de Surya",
+      "Douse flak battery coolant pipe with Oceanus": "Arrosez le tuyau de refroidissement de la batterie antiaérienne avec Oceanus",
+      "Douse power siphon coolant manifold with Oceanus": "Arrosez le collecteur de refroidissement du siphon d'énergie avec Oceanus",
+      "Shatter dark-matter siphon clamp with Titan Slam": "Brisez la bride du siphon de matière noire avec la frappe de Titan",
+      "Shatter reinforced server bracket with Titan Slam": "Brisez le support renforcé du serveur avec la frappe de Titan"
+    },
+    "japanese": {
+      "Rank 1: When HP < 30%, gain 20% kinetic shield and +10% speed for 6s.": "ランク1：HPが30%未満になると、6秒間20%のキネティックシールドと速度+10%を獲得。",
+      "SECURE CHANNEL ESTABLISHED\n\nENCRYPTED UPLINK  /  07\nMISSION BRIEFING INCOMING": "安全な通信回線を確立\n\n暗号化アップリンク  /  07\n作戦説明を受信中",
+      "MIRAGE: Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.": "MIRAGE：ガントリー42に足場がある。狭いレールだが、装甲に沿って真上へ伸びている。着地点を見つけた。"
+    },
+    "korean": {
+      "AXIOM-7: Singularity contained. Reactor signature zero. The Commander's control network is down across every relay.": "AXIOM-7: 특이점 봉쇄 완료. 원자로 신호는 0입니다. 사령관의 통제망은 모든 중계기에서 정지했습니다.",
+      "Breach primary reactor containment overlook": "주 원자로 격납 구역의 전망대를 돌파하라",
+      "SEC.04 // PRIMARY CONTAINMENT OVERLOOK": "구역.04 // 주 격납 구역 전망대",
+      "Rank 5: +80% Crater radius; triggers secondary aftershock 1.5s later.": "랭크 5: 분화구 반경 +80%; 1.5초 후 추가 여진이 발생합니다."
+    },
+    "mandarin": {
+      "MIRAGE: Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.": "MIRAGE：四十二号龙门架有检修步道。轨道虽窄，却沿着装甲直通上方。我找到落脚点了。"
+    },
+    "traditionalchinese": {
+      "MIRAGE: Catwalks at Gantry Forty-Two. Narrow rails, but they run straight up the armor. I have our landing.": "MIRAGE：四十二號龍門架有檢修步道。軌道雖窄，卻沿著裝甲直通上方。我找到落腳點了。"
+    },
+    "hebrew": {
+      "Scale the high-altitude exterior pylons at 2,500m, defeat Spire Sentinel, and breach the core airlock.": "טפסו על העמודים החיצוניים בגובה 2,500 מטר, הביסו את זקיף הצריח ופרצו את תא מעבר האוויר המרכזי.",
+      "Storm the stratospheric summit fortress at 4,000m, bypass automated flak batteries, and breach the Grand Citadel core.": "הסתערו על מבצר הפסגה בסטרטוספירה בגובה 4,000 מטר, עקפו סוללות נ״מ אוטומטיות ופרצו אל לב המצודה הגדולה."
+    },
+    "indonesian": {
+      "SECURE CHANNEL ESTABLISHED\n\nENCRYPTED UPLINK  /  07\nMISSION BRIEFING INCOMING": "SALURAN AMAN TERHUBUNG\n\nUPLINK TERENKRIPSI  /  07\nMENERIMA PENGARAHAN MISI",
+      "Scale cathedral vaulted elevator to Grand Throne Dais": "Naiki lift di bawah kubah katedral menuju panggung singgasana agung"
+    },
+    "vietnamese": {
+      "AXIOM-7: Singularity contained. Reactor signature zero. The Commander's control network is down across every relay.": "AXIOM-7: Đã khống chế điểm kỳ dị. Tín hiệu lò phản ứng bằng không. Mạng điều khiển của Chỉ huy đã ngừng hoạt động tại mọi trạm chuyển tiếp.",
+      "Campaign save could not be confirmed. Retry Save.": "Không thể xác nhận bản lưu chiến dịch. Hãy thử lưu lại.",
+      "Survive Praetor twin-linked plasma flak bursts": "Sống sót qua các loạt pháo plasma phòng không nòng đôi của Praetor"
+    }
+  }
+}

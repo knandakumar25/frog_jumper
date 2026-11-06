@@ -1,0 +1,146 @@
+{
+  "spanish": [
+    "AXIOM-7: Extracción confirmada. La baliza de demolición está desactivada. La Hoja de Datos está a salvo.",
+    "KAITO: Querían borrar todas las voces de este lugar. Las sacamos de aquí.",
+    "AXIOM-7: El archivo sobrevivió. Lo que recuperaste no puede restaurar estos muros, pero su historia perdurará.",
+    "KAITO: El dojo cae, pero la resistencia se alza. Tokio recuerda.",
+    "AXIOM-7: El tráfico de los Ejecutores apunta a la Zona de Contención Cuatro. Descansa mientras puedas. El Incendio de Hormigón nos espera.",
+    "KAITO: Entonces seguimos adelante.",
+    "OMITIR // ESC / START"
+  ],
+  "eurofrench": [
+    "AXIOM-7 : Extraction confirmée. La balise de démolition est hors ligne. La Lame de données est en sécurité.",
+    "KAITO : Ils voulaient effacer toutes les voix de ce lieu. Nous les avons emportées avec nous.",
+    "AXIOM-7 : Les archives ont survécu. Ce que vous avez récupéré ne peut pas restaurer ces murs, mais leur histoire perdurera.",
+    "KAITO : Le dojo tombe, mais la résistance se lève. Tokyo se souvient.",
+    "AXIOM-7 : Les mouvements des Exécuteurs indiquent la Zone de confinement quatre. Reposez-vous tant que vous le pouvez. L'Incendie de béton nous attend.",
+    "KAITO : Alors, on continue.",
+    "PASSER // ESC / START"
+  ],
+  "brazilianportuguese": [
+    "AXIOM-7: Extração confirmada. O sinalizador de demolição está desligado. A Lâmina de Dados está segura.",
+    "KAITO: Eles queriam apagar todas as vozes deste lugar. Nós as levamos conosco.",
+    "AXIOM-7: O arquivo sobreviveu. O que você recuperou não pode restaurar estas paredes, mas sua história vai perdurar.",
+    "KAITO: O dojo cai, mas a resistência se ergue. Tóquio se lembra.",
+    "AXIOM-7: A movimentação dos Executores aponta para a Zona de Contenção Quatro. Descanse enquanto puder. O Incêndio de Concreto vem a seguir.",
+    "KAITO: Então seguimos em frente.",
+    "PULAR // ESC / START"
+  ],
+  "german": [
+    "AXIOM-7: Evakuierung bestätigt. Das Abrisssignal ist deaktiviert. Die Datenklinge ist gesichert.",
+    "KAITO: Sie wollten jede Stimme an diesem Ort auslöschen. Wir haben sie hinausgetragen.",
+    "AXIOM-7: Das Archiv hat überlebt. Eure Funde können diese Mauern nicht wiederherstellen, aber ihre Geschichte wird fortbestehen.",
+    "KAITO: Das Dojo fällt, doch der Widerstand erhebt sich. Tokio erinnert sich.",
+    "AXIOM-7: Die Truppenbewegungen weisen auf Eindämmungszone Vier hin. Ruht euch aus, solange ihr könnt. Als Nächstes kommt der Betonbrand.",
+    "KAITO: Dann gehen wir weiter.",
+    "ÜBERSPRINGEN // ESC / START"
+  ],
+  "italian": [
+    "AXIOM-7: Estrazione confermata. Il segnalatore di demolizione è disattivato. La Lama Dati è al sicuro.",
+    "KAITO: Volevano cancellare ogni voce di questo luogo. Le abbiamo portate fuori.",
+    "AXIOM-7: L'archivio è sopravvissuto. Ciò che avete recuperato non può ricostruire queste mura, ma la loro storia durerà.",
+    "KAITO: Il dojo cade, ma la resistenza si rialza. Tokyo ricorda.",
+    "AXIOM-7: Gli spostamenti degli Esecutori indicano la Zona di Contenimento Quattro. Riposate finché potete. L'Incendio di Cemento ci attende.",
+    "KAITO: Allora continuiamo.",
+    "SALTA // ESC / START"
+  ],
+  "polish": [
+    "AXIOM-7: Ewakuacja potwierdzona. Nadajnik wyburzeniowy wyłączony. Ostrze Danych jest bezpieczne.",
+    "KAITO: Chcieli wymazać wszystkie głosy tego miejsca. Wynieśliśmy je stąd.",
+    "AXIOM-7: Archiwum przetrwało. Odzyskane materiały nie odbudują tych murów, ale ich historia przetrwa.",
+    "KAITO: Dojo upada, lecz opór rośnie. Tokio pamięta.",
+    "AXIOM-7: Ruch sił Egzekutorów wskazuje na Czwartą Strefę Izolacji. Odpocznijcie, póki możecie. Następny jest Betonowy Pożar.",
+    "KAITO: Więc ruszamy dalej.",
+    "POMIŃ // ESC / START"
+  ],
+  "arabic": [
+    "أكسيوم-7: تأكد الإجلاء. توقفت منارة الهدم. نصل البيانات في أمان.",
+    "كايتو: أرادوا محو كل صوت في هذا المكان. حملنا تلك الأصوات معنا إلى الخارج.",
+    "أكسيوم-7: نجا الأرشيف. ما استعدتموه لن يرمم هذه الجدران، لكن تاريخها سيبقى.",
+    "كايتو: يسقط الدوجو، لكن المقاومة تنهض. طوكيو تتذكر.",
+    "أكسيوم-7: تحركات قوات الإنفاذ تشير إلى منطقة الاحتواء الرابعة. استريحوا ما دمتم تستطيعون. حريق الخرسانة هو وجهتنا التالية.",
+    "كايتو: إذن نواصل المسير.",
+    "تخطي // ESC / START"
+  ],
+  "turkish": [
+    "AXIOM-7: Tahliye doğrulandı. Yıkım işaretçisi devre dışı. Veri Kılıcı güvende.",
+    "KAITO: Buradaki her sesi silmek istediler. O sesleri buradan çıkardık.",
+    "AXIOM-7: Arşiv kurtuldu. Kurtardıklarınız bu duvarları geri getiremez, ama tarihleri yaşayacak.",
+    "KAITO: Dojo yıkılıyor, ama direniş yükseliyor. Tokyo hatırlıyor.",
+    "AXIOM-7: İnfaz birliklerinin hareketleri Dördüncü Tecrit Bölgesi'ni gösteriyor. Fırsatınız varken dinlenin. Sırada Beton Yangını var.",
+    "KAITO: Öyleyse yola devam.",
+    "ATLA // ESC / START"
+  ],
+  "japanese": [
+    "アクシオム7：脱出を確認。解体ビーコンは停止した。データブレードは確保済みだ。",
+    "カイト：奴らはこの場所の声をすべて消そうとした。俺たちはその声を運び出した。",
+    "アクシオム7：アーカイブは生き残った。回収したものではこの壁を元に戻せないが、その歴史は残る。",
+    "カイト：道場は倒れても、抵抗は立ち上がる。東京は忘れない。",
+    "アクシオム7：執行部隊の動きは第4収容区域に向かっている。休めるうちに休め。次はコンクリートの業火だ。",
+    "カイト：ならば、進み続ける。",
+    "スキップ // ESC / START"
+  ],
+  "korean": [
+    "액시엄-7: 탈출 확인. 철거 신호기는 정지했다. 데이터 블레이드는 확보했다.",
+    "카이토: 놈들은 이곳의 모든 목소리를 지우려 했다. 우리는 그 목소리를 데리고 나왔다.",
+    "액시엄-7: 기록 보관소는 살아남았다. 회수한 자료로 이 벽을 복원할 수는 없지만, 그 역사는 남을 것이다.",
+    "카이토: 도장은 무너져도 저항은 일어선다. 도쿄는 기억한다.",
+    "액시엄-7: 집행 부대의 이동은 제4격리 구역을 가리킨다. 쉴 수 있을 때 쉬어라. 다음은 콘크리트 들불이다.",
+    "카이토: 그럼 계속 전진한다.",
+    "건너뛰기 // ESC / START"
+  ],
+  "mandarin": [
+    "公理-7：撤离确认。拆除信标已关闭。数据之刃已安全回收。",
+    "海斗：他们想抹去这里的每一个声音。我们把这些声音带出来了。",
+    "公理-7：档案保存下来了。你们找回的东西无法重建这些墙壁，但它们的历史将延续。",
+    "海斗：道场倒下，反抗却已崛起。东京铭记。",
+    "公理-7：执法部队正在向第四隔离区移动。趁现在休息吧。下一站是混凝土野火。",
+    "海斗：那就继续前进。",
+    "跳过 // ESC / START"
+  ],
+  "hebrew": [
+    "אקסיום-7: החילוץ אושר. משואת ההריסה הושבתה. להב הנתונים מאובטח.",
+    "קאיטו: הם רצו למחוק כל קול במקום הזה. הוצאנו את הקולות האלה מכאן.",
+    "אקסיום-7: הארכיון שרד. מה שחילצתם לא יוכל לשקם את הקירות האלה, אבל ההיסטוריה שלהם תישמר.",
+    "קאיטו: הדוג'ו נופל, אבל ההתנגדות קמה. טוקיו זוכרת.",
+    "אקסיום-7: תנועת כוחות האכיפה מצביעה על אזור הבידוד הרביעי. נוחו כל עוד אפשר. שרפת הבטון היא היעד הבא.",
+    "קאיטו: אז ממשיכים לנוע.",
+    "דילוג // ESC / START"
+  ],
+  "traditionalchinese": [
+    "公理-7：撤離確認。拆除信標已關閉。資料之刃已安全回收。",
+    "海斗：他們想抹去這裡的每一個聲音。我們把這些聲音帶出來了。",
+    "公理-7：檔案保存下來了。你們找回的東西無法重建這些牆壁，但它們的歷史將延續。",
+    "海斗：道場倒下，反抗卻已崛起。東京銘記。",
+    "公理-7：執法部隊正在向第四隔離區移動。趁現在休息吧。下一站是混凝土野火。",
+    "海斗：那就繼續前進。",
+    "略過 // ESC / START"
+  ],
+  "indonesian": [
+    "AXIOM-7: Evakuasi dikonfirmasi. Suar penghancuran sudah mati. Pedang Data aman.",
+    "KAITO: Mereka ingin menghapus setiap suara di tempat ini. Kita membawa suara-suara itu keluar.",
+    "AXIOM-7: Arsip selamat. Apa yang kalian pulihkan tidak bisa membangun kembali tembok ini, tetapi sejarahnya akan bertahan.",
+    "KAITO: Dojo runtuh, tetapi perlawanan bangkit. Tokyo mengingat.",
+    "AXIOM-7: Pergerakan pasukan Penegak mengarah ke Zona Penahanan Empat. Beristirahatlah selagi bisa. Berikutnya, Kebakaran Beton.",
+    "KAITO: Kalau begitu, kita terus bergerak.",
+    "LEWATI // ESC / START"
+  ],
+  "vietnamese": [
+    "AXIOM-7: Xác nhận sơ tán. Đèn hiệu phá dỡ đã ngừng hoạt động. Lưỡi Kiếm Dữ Liệu đã an toàn.",
+    "KAITO: Chúng muốn xóa sạch mọi tiếng nói nơi đây. Chúng ta đã mang những tiếng nói ấy ra ngoài.",
+    "AXIOM-7: Kho lưu trữ đã sống sót. Những gì các bạn thu hồi không thể dựng lại các bức tường này, nhưng lịch sử của chúng sẽ trường tồn.",
+    "KAITO: Võ đường sụp đổ, nhưng kháng chiến trỗi dậy. Tokyo vẫn nhớ.",
+    "AXIOM-7: Quân Chấp Pháp đang hướng về Khu Cách Ly Bốn. Hãy nghỉ ngơi khi còn có thể. Tiếp theo là Biển Lửa Bê Tông.",
+    "KAITO: Vậy ta tiếp tục tiến lên.",
+    "BỎ QUA // ESC / START"
+  ],
+  "thai": [
+    "แอกเซียม-7: ยืนยันการอพยพ สัญญาณรื้อถอนหยุดทำงานแล้ว ดาบข้อมูลปลอดภัย",
+    "ไคโตะ: พวกมันต้องการลบทุกเสียงในสถานที่แห่งนี้ เราพาเสียงเหล่านั้นออกมาแล้ว",
+    "แอกเซียม-7: คลังเอกสารรอดแล้ว สิ่งที่พวกคุณกู้คืนมาไม่อาจสร้างกำแพงเหล่านี้ขึ้นใหม่ แต่ประวัติศาสตร์ของมันจะคงอยู่",
+    "ไคโตะ: สำนักดาบพังทลาย แต่การต่อต้านลุกขึ้น โตเกียวยังจดจำ",
+    "แอกเซียม-7: ความเคลื่อนไหวของกองกำลังผู้บังคับใช้มุ่งไปยังเขตกักกันที่สี่ พักเสียตอนที่ยังพักได้ จุดหมายต่อไปคือเพลิงคอนกรีต",
+    "ไคโตะ: ถ้าอย่างนั้น เราก็เดินหน้าต่อ",
+    "ข้าม // ESC / START"
+  ]
+}

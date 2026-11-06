@@ -32,11 +32,12 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	private Input.MouseModeEnum _previousMouseMode;
 	private bool _previousPromptVisible;
 
-	/// <summary>Resolves the terminal controls; Continue is optional for existing scene callers.</summary>
+	/// <summary>Resolves terminal controls; detached scene tests skip the live global prompt lookup.</summary>
 	public override void _Ready()
 	{
 		_previousMouseMode = Input.MouseMode;
-		var prompt = GetNodeOrNull<Node>("/root/Global")?.Get("_prompt_label").AsGodotObject() as CanvasItem;
+		var prompt = IsInsideTree()
+			? GetNodeOrNull<Node>("/root/Global")?.Get("_prompt_label").AsGodotObject() as CanvasItem : null;
 		_previousPromptVisible = prompt?.IsVisibleInTree() ?? true;
 		_rootPanel = GetNodeOrNull<Control>("RootPanel");
 		_titleLabel = GetNodeOrNull<Label>("RootPanel/MainVBox/TitleLabel");
@@ -131,7 +132,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		if (_previewBtn != null) _previewBtn.Visible = false;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
 		if (_continueBtn != null) _continueBtn.Visible = _nextMission > 0;
-		if (_continueBtn != null && _nextMission > 0) _continueBtn.Text = $"CONTINUE TO LEVEL {_nextMission}";
+		if (_continueBtn != null && _nextMission > 0) WildfireText.SetText(_continueBtn, "Text", "UI_CYBERVICTORYSCORECARD_RENDERSCORECARD_D7261F81", $"CONTINUE TO LEVEL {_nextMission}");
 		RefreshSaveStatus();
 		_rootPanel.Visible = true;
 		if (IsInsideTree()) Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -166,17 +167,17 @@ public partial class CyberVictoryScorecard : CanvasLayer
 
 		if (_scoreLabel != null)
 		{
-			_scoreLabel.Text = $"FINAL SCORE: {score} PTS";
+			WildfireText.SetText(_scoreLabel, "Text", "UI_CYBERVICTORYSCORECARD_RENDERSCORECARD_EF1F4E5A", $"FINAL SCORE: {score} PTS");
 		}
 
 		if (_comboLabel != null)
 		{
-			_comboLabel.Text = $"PEAK COMBO: {maxCombo}x STRIKE";
+			WildfireText.SetText(_comboLabel, "Text", "UI_CYBERVICTORYSCORECARD_RENDERSCORECARD_D0D59A16", $"PEAK COMBO: {maxCombo}x STRIKE");
 		}
 
 		if (_operativeLabel != null)
 		{
-			_operativeLabel.Text = $"OPERATIVE: {operative}";
+            WildfireText.SetText(_operativeLabel, "Text", "UI_CYBERVICTORYSCORECARD_RENDERSCORECARD_DF6F8A63", $"OPERATIVE: {WildfireText.DisplayValue(operative, englishUppercase: true)}");
 		}
 
 		// Play fanfare jingle

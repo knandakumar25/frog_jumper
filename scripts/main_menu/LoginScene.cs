@@ -40,6 +40,8 @@ public partial class LoginScene : Control
 
 	// State tracking
 	private bool _isSignupMode = false;
+	private string _errorKey = "";
+	private string _popupKey = "";
 	private readonly List<string> _localeCodes = new();
 	private const string TARGET_WEBSITE_URL = "https://axiomforcereclaimearth.vercel.app";
 
@@ -85,8 +87,21 @@ public partial class LoginScene : Control
 	}
 
 	/// <summary>
-	/// Sets the initial visibility of UI elements based on the default Login mode.
+	/// Retranslates visible form labels and known errors without clearing user-entered text.
 	/// </summary>
+	public override void _Notification(int what)
+    {
+        // Notification can arrive before _Ready resolves the form; never clear user-entered fields.
+        if (what == NotificationTranslationChanged && _title != null)
+        {
+            UpdateLocalizedText();
+            // Locale changes may come from settings or restored session state,
+            // rather than the selector itself. Keep its selected identity in sync.
+            if (_languageSelector != null) PopulateLanguageSelector();
+        }
+    }
+
+    /// <summary>Sets initial form visibility without altering user data.</summary>
 	private void SetupUI()
 	{
 		_usernameInput.Visible = false;
@@ -105,7 +120,8 @@ public partial class LoginScene : Control
 		_submitButton.Text = _isSignupMode ? Tr("Sign Up") : Tr("Login");
 		_websiteButton.Text = Tr("Visit Website");
 		_toggleModeButton.Text = _isSignupMode ? Tr("Back to Login") : Tr("Need an account? Sign Up");
-		_errorLabel.Text = Tr("Error occurred");
+		if (!string.IsNullOrEmpty(_errorKey)) _errorLabel.Text = Tr(_errorKey);
+		if (!string.IsNullOrEmpty(_popupKey)) _popupMessage.Text = Tr(_popupKey);
 		_popupTitle.Text = Tr("Connection Error");
 		_popupOkButton.Text = Tr("OK");
 	}
@@ -148,7 +164,7 @@ public partial class LoginScene : Control
 		}
 		else
 		{
-			ShowNetworkErrorPopup(Tr("No internet connection. Please check your network and try again."));
+			ShowNetworkErrorPopup("No internet connection. Please check your network and try again.");
 		}
 	}
 
@@ -158,7 +174,8 @@ public partial class LoginScene : Control
 	private void ShowNetworkErrorPopup(string message)
 	{
 		_popupTitle.Text = Tr("Connection Error");
-		_popupMessage.Text = message;
+		_popupKey = message;
+		_popupMessage.Text = Tr(message);
 		_popupOkButton.Text = Tr("OK");
 		_networkErrorPopup.Visible = true;
 	}
@@ -209,7 +226,7 @@ public partial class LoginScene : Control
 
 		if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
 		{
-			ShowError(Tr("Please enter both email and password"));
+			ShowError("Please enter both email and password");
 			return;
 		}
 
@@ -223,7 +240,7 @@ public partial class LoginScene : Control
 		}
 		else
 		{
-			ShowError(Tr("Invalid email or password"));
+			ShowError("Invalid email or password");
 			_submitButton.Disabled = false;
 		}
 	}
@@ -240,7 +257,7 @@ public partial class LoginScene : Control
 
 		if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
 		{
-			ShowError(Tr("Please fill in all fields"));
+			ShowError("Please fill in all fields");
 			return;
 		}
 
@@ -250,14 +267,14 @@ public partial class LoginScene : Control
 		bool success = await AuthManager.Instance.RegisterAsync(username, email, password);
 		if (success)
 		{
-			ShowError(Tr("Account created successfully! Please log in."));
+			ShowError("Account created successfully! Please log in.");
 			_isSignupMode = false;
 			_usernameInput.Visible = false;
 			UpdateLocalizedText();
 		}
 		else
 		{
-			ShowError(Tr("Registration failed. Username or email may be taken."));
+			ShowError("Registration failed. Username or email may be taken.");
 		}
 		_submitButton.Disabled = false;
 	}
@@ -267,69 +284,37 @@ public partial class LoginScene : Control
 	/// </summary>
 	private void ShowError(string message)
 	{
-		_errorLabel.Text = message;
+		_errorKey = message;
+		_errorLabel.Text = Tr(message);
 		_errorLabel.Visible = true;
 	}
 
 	/// <summary>
-	/// Parses the translation CSV file to find all available locale codes and
-	/// populates the language selection dropdown.
+	/// Populates the login selector from the same stable language catalog as settings.
 	/// </summary>
 	private void PopulateLanguageSelector()
 	{
-		// Read the CSV header to find available locales.
-		string path = "res://assets/translations/Translations - Sheet1.csv";
-		using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
-		if (file == null) return;
-
-		string header = file.GetLine();
-		string[] locales = header.Split(',');
-
-		// Map internal locale codes to user-friendly display names.
-		var localeMap = new Dictionary<string, string>
-		{
-			{ "english", "English" },
-			{ "spanish", "Spanish (Español)" },
-			{ "eurofrench", "French (Français)" },
-			{ "brazilianportuguese", "Portuguese (Brasil)" },
-			{ "german", "German (Deutsch)" },
-			{ "italian", "Italian (Italiano)" },
-			{ "japanese", "Japanese (日本語)" },
-			{ "korean", "Korean (한국어)" },
-			{ "mandarin", "Chinese (中文)" },
-			{ "polish", "Polish (Polski)" },
-			{ "turkish", "Turkish (Türkçe)" },
-			{ "arabic", "Arabic (العربية)" },
-			{ "hebrew", "Hebrew (עברית)" }
-		};
-
-		_languageSelector.Clear();
-		_localeCodes.Clear();
-
-		int currentSelectedIdx = 0;
-		string activeLocale = TranslationServer.GetLocale().Trim().ToLower();
-
-		for (int i = 1; i < locales.Length; i++)
-		{
-			string code = locales[i].Trim().ToLower();
-			if (string.IsNullOrEmpty(code)) continue;
-
-			if (localeMap.TryGetValue(code, out string readableName))
-			{
-				_languageSelector.AddItem(readableName);
-				_localeCodes.Add(code);
-
-				if (code == activeLocale)
-				{
-					currentSelectedIdx = _localeCodes.Count - 1;
-				}
-			}
-		}
-
-		if (_localeCodes.Count > 0)
-		{
-			_languageSelector.Select(currentSelectedIdx);
-		}
+        // The selector simultaneously displays every script, before any locale
+        // has been selected. Its popup needs the same complete fallback chain.
+        var selectorFont = GD.Load<Font>("res://assets/fonts/LocaleSelectorFont.tres");
+        _languageSelector.AddThemeFontOverride("font", selectorFont);
+        _languageSelector.GetPopup().AddThemeFontOverride("font", selectorFont);
+        // Native-script item widths must not expand an anchored picker past the viewport.
+        _languageSelector.FitToLongestItem = false;
+        _languageSelector.ClipText = true;
+        _languageSelector.TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis;
+        // OptionButton requests separate RTL styles; keep the authored neon frame in both directions.
+        foreach (string state in new[] { "normal", "hover", "pressed", "disabled" })
+            _languageSelector.AddThemeStyleboxOverride(state + "_mirrored", _languageSelector.GetThemeStylebox(state));
+        _languageSelector.Clear();
+        _localeCodes.Clear();
+        string current = LocaleCatalog.Resolve(TranslationServer.GetLocale()).Key;
+        foreach (var language in LocaleCatalog.All)
+        {
+            _languageSelector.AddItem(language.DisplayName);
+            _localeCodes.Add(language.Key);
+            if (language.Key == current) _languageSelector.Select(_localeCodes.Count - 1);
+        }
 	}
 
 	/// <summary>
@@ -341,7 +326,7 @@ public partial class LoginScene : Control
 		if (index >= 0 && index < _localeCodes.Count)
 		{
 			string selectedLocale = _localeCodes[(int)index];
-			TranslationServer.SetLocale(selectedLocale);
+			GetNode<LocaleService>("/root/LocaleService").ApplyLocale(selectedLocale);
 			UpdateLocalizedText();
 		}
 	}

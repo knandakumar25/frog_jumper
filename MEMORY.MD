@@ -1,6 +1,109 @@
 # Axiom Force — Project Memory
 
-Last reviewed: 2026-11-05. This file preserves durable decisions and useful
+## Git publication request — 2026-11-06
+
+User explicitly requested pushing the current verified changes, including the
+commit needed for publication. Reviewed all 233 changed/new files: localization,
+fonts/licenses, tests/reports, Python 3.15.2 image configuration and the Godot AI
+launcher fix. No credential-shaped literal was found; virtual environments,
+validation captures, caches and private connection capabilities remain excluded.
+Fetched origin and confirmed main had no incoming commits before publication.
+Target is origin/main. This Git-only task changes no code/assets and reuses the
+preceding verified build/import, 104 Django, 290 NUnit, 317 Godot and 19 Python
+checks; no test rerun, editor refresh, export or container operation is needed.
+Native linguistic certification and earlier engine diagnostics remain documented.
+
+## Localization completion continuation — 2026-11-06
+
+User resumed the full written localization task. Current structural gate passes:
+1,492 required entries per seventeen locales, 301 mapped cues, no missing or
+malformed cells, unexplained English matches or conservative unbound candidates.
+Spanish campaign is directly authored; fifteen other campaign additions record
+machine assistance plus agent format/numeric/context review, not external native
+certification. Fixed dropped prefixes/clauses and combat ambiguities; importer
+validates exact-source conflicts/fields. Prior rejected local model drafts remain
+excluded. Original English catalog and speech invariants pass offline checks.
+
+Live MCP checked all login locales; inspected representative scripts/RTL, roster,
+results, Mission 1 and loading. Fixed picker bounds/mirrored frame, mixed-script
+fonts, source-retaining roster/HUD/upgrade captions, translated preview command
+identity, loading locale refresh and RTL numeric fractions. Blender in Docker
+inspected 40 directly referenced raster assets; loading tagline is now a separate
+translated label. Full native editorial certification and exhaustive branching
+visual QA remain release work. Three transient engine font-metric null-RID messages
+were observed during live scene/locale switching; no script stack was attached.
+Final build: 0 errors, 154 existing warnings. Background import exits 0 with
+existing addon TLS/editor shutdown resource diagnostics; no script parse or
+assembly-load failure. Full run_tests.ps1 passes Django 104, NUnit 290 and Godot
+report_514 317/317, zero suite errors/failures/orphans and no exit-leak warning.
+Focused verbose report_513 passes 8 tests after the loading test consumes its
+threaded request and finishes its fade. All 14 localization Python tests pass on
+host and Docker Python 3.15.2; all 5 voice inventory tests pass. Root .venv pip
+check is clean. Earlier reports/missing-cell counts are superseded. Final live
+screenshots confirm RTL numeric order and Japanese-to-Thai loading logo/status
+refresh with unchanged target. Website/backend/proxy return HTTP 200, PostgreSQL
+is healthy, backend reports Python 3.15.2. QA game stopped; editor preserved.
+README, HANDOFF and localization guide are current. CSV whitespace diagnostics
+include intentional source spacing/multiline target whitespace; not a clean
+whitespace-check claim.
+
+**Leave project containers running** per the user's latest override. Do not pause.
+The subsequent user request explicitly authorizes committing and pushing this batch.
+No subagents or exports are authorized. Preserve editor PID 12880;
+stop only the QA game, and never autosave user editor scenes.
+
+## Python upgrade, Godot AI recovery and localization resumption — 2026-11-06
+
+Started the normal three-service Docker stack before code edits. Backend now uses
+python:3.15.2-slim-trixie and reports Python 3.15.2; pip check and Django system
+check pass. Recreated ignored root .venv on host Python 3.15.2, installed all six
+root requirements/dependencies, and verified pip check. Retained the broken 3.14
+venv under ignored .validation/venv-backups/20261106-314. Cutscene orchestration
+uses the same pinned image; Blender retains its ABI-matched embedded Python.
+The opt-in export Dockerfile copies Python 3.15.2 from Bookworm for its older
+glibc baseline. Its new python-verified setup stage built successfully: native
+stdlib imports pass and smoke tests report Python 3.15.2 and .NET SDK 10.0.403.
+Only this setup stage was built; no Android/Godot export tooling or game export
+ran. Cutscene image build, Python 3.15.2 CLI/help and Blender 4.3.2 startup pass;
+Blender reports bundled Python 3.13.5. Disposable smoke containers self-removed.
+
+Godot AI's original production uvx command failed TLS trust, then failed its
+no-build dependency resolution under host Python 3.15 (missing PyYAML wheels).
+The shared launch policy now explicitly selects uv-managed Python 3.14 and the
+system CA store, retaining TLS validation, canonical indexes and release cutoff.
+Exact corrected uvx launch resolves 73 packages and CLI help exits successfully.
+After the user reloaded the plugin, authenticated MCP confirmed the real project
+session, existing editor PID 12880 and matching plugin/server 4.4.1. Read-only
+client status confirms Codex, Claude Code/Desktop, Antigravity and VS Code are
+configured; eight other installed client entries remain mismatched and unchanged.
+No editor
+was closed or scene saved. A future plugin update can overwrite this local patch.
+An attempted separate background MCP launch was blocked by automatic approval
+review; recovery used the existing editor's normal plugin reload instead.
+
+LocaleService autoload and prior dirty localization files remain present; no
+specific accidentally reverted scene change was identified. Restored English-only
+uppercase styling for mission titles, roster ability labels, combat HUD identities
+and scorecard names, preserving authored casing elsewhere. Guarded the scorecard
+startup global lookup for detached scene tests. Added a Turkish/English
+live scorecard round-trip regression. Existing English audio was not regenerated.
+Build passes with 0 errors and 154 existing warnings. All twelve offline Python
+voice/localization checks pass. Refreshed Roslyn/coverage reports retain 1,376
+required entries and zero unbound candidates; coverage intentionally fails for
+missing cells. Final background import exits 0. Full run_tests.ps1 passes:
+Django 104/104, NUnit 290/290, GdUnit4 report_506 314/314 with zero suite
+failures/errors/orphans. English casing and Turkish live-switch regression pass.
+The earlier report_505 had one synthetic translation-collision failure, corrected
+by unique test-only display names; it is superseded by report_506. Detached
+scorecard absolute-path diagnostics are resolved. Existing addon/engine TLS,
+GCHandle and import-shutdown resource diagnostics remain outside suite accounting;
+do not describe the engine log as clean. Diff whitespace check passes. Backend,
+website and website API proxy return HTTP 200; database is healthy.
+Whole-client translation authoring remains incomplete (prior 1,200 missing cells
+per non-English language); visual/native-language review remains outstanding.
+Leave services running. All changes remain local/uncommitted; no game exports.
+
+Last reviewed: 2026-11-06. This file preserves durable decisions and useful
 context across sessions. Follow current user instructions and `AGENTS.md`;
 this summary does not replace them. Verify live environment state before acting.
 
@@ -1844,3 +1947,51 @@ Handoff finalized at the user’s request. Implementation and automated verifica
 ## Voice coverage Git publication — 2026-11-05
 
 The user explicitly authorized committing and pushing the current voice coverage changes. Remote preflight found `main` one existing commit ahead of `origin/main` and no remote divergence. The publication includes the shared speech queue, recordings, provenance/coverage reports, tests, tooling and project documentation. Existing verification remains as recorded above; no code/assets were edited for this Git-only operation and no tests/imports/exports were rerun. Seven listening candidates remain open. Committed the 305-file voice coverage change as `c40880c` and pushed `main` to `origin`, including the existing local dependency-cleanup commit `6e93c0c`. Verified the remote main hash exactly matched the new feature commit, `git fsck --connectivity-only --no-dangling` passed, and the working tree was clean. Git emitted a nonfatal object-write permission diagnostic during commit creation, but commit creation, remote upload and connectivity verification all succeeded. This memory follow-up records the verified publication outcome.
+
+## Speech-to-text recommendation — 2026-11-05
+
+Compared the user-linked Godot Whisper addon, Ollama Python plus a Godot Python bridge, and C# OllamaSharp for the existing Godot 4.7.2/.NET 10 game. Recommendation: prototype Godot Whisper for local STT; use C# rather than embedded Python if adding an Ollama-backed conversational layer later. The store addon is marked unstable; suitability is an architectural recommendation, not a measured performance or compatibility result. Python bridges such as py4godot exist. Ollama supports an audio-transcription endpoint, but Liquid AI currently documents LFM3-Omni's Ollama audio path for macOS; do not assume Windows support from the client language. The Ollama library Phonon model is TTS, distinct from the similarly named dictation app. Inspected OllamaSharp client interface lacks typed transcription methods, so raw HTTP/audio support needs validation. Only primary documentation/source and project configuration were reviewed; no packages/models installed or code/assets changed, and no tests/imports/exports/commits/pushes performed. README/HANDOFF record the proposed feature and remaining validation.
+
+
+## Written localization implementation checkpoint — 2026-11-05
+
+Implemented shared seventeen-language catalog/selectors/ISO/fonts/RTL/narrative reload,
+corrected subtitle mappings, dynamic UI bindings and bundled licensed script fonts.
+Offline-authored Tokyo, twelve mission title/briefing pairs and HUD templates are
+filled across sixteen non-English languages; four missing narrative files add only
+card references. Bulk local-model drafts failed wording spot checks and were rejected,
+not imported. Whole-client localization remains incomplete: 1,200 missing required
+cells per target language (1,376 required entries). See docs/localization for the
+reproducible inventory, English-audio baseline, review flags and remaining visual/
+artwork/authoring work. Targeted GdUnit 4/4 (report_503, zero errors/failures/orphans)
+and final Python checks passed 12/12; final full-suite results are recorded below.
+No speech resources/order/timing, registry/save/API identities or website code changed.
+Latest user instruction supersedes the earlier leave-running preference: pause work for today and shut down the project server. Backend/website/db were stopped and verified Exited (0); data and containers are retained.
+No exports, staging, commits or pushes.
+
+Localization cleanup note (2026-11-05): automatic approval review blocked recursive removal of the task-only temporary authoring environment/model folders. They remain under the user Temp directory, outside the repository and runtime dependencies. No cleanup escalation was attempted. Final source checks also exclude generated lookup-key templates and color literals from player-facing inventory.
+
+
+## End-of-day localization handoff — 2026-11-05
+
+User explicitly stopped work for today and asked to shut down the server. No more
+implementation edits were made after that request. Stopped only the three normal
+Compose services (backend, website, db), all Exited (0); retained volumes/containers
+and left the user's Godot editor/unrelated services alone. Changes remain local,
+uncommitted and not push ready. Resume from the current HANDOFF.md section.
+
+Final verification at the pause checkpoint: background Godot import exited 0,
+with existing addon TLS/editor-shutdown diagnostics and leaked-resource warnings.
+C# build passed (0 errors; 154 code warnings plus one transient PDB-copy retry).
+NUnit passed 290/290. All 12 Python inventory/localization checks passed, including
+English audio hashes and cue order/words/timing; original 250 CSV keys and English
+source cells are preserved. GdUnit4 report_504 executed 284 cases with 37 assertion
+failures, 0 errors and 0 orphans. Failures include mission-header English casing,
+roster ability-button English casing, and the Tokyo results operative-name casing.
+Do not claim this checkpoint is push/release ready. Django could not read the D:
+bind mount (/app/manage.py: No such device); docker cp for the copied-source test
+workaround also failed with the host D: mount error. No Django pass is claimed.
+
+Next: restore the expected English-only display casing without forcing uppercase on
+translations, resolve/verify the Docker D: mount, rerun the full checks, then continue
+missing translations and visual/artwork/native review. No exports/staging/commits/pushes.

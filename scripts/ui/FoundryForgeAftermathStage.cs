@@ -428,7 +428,7 @@ public partial class FoundryForgeAftermathStage : Control
         DrawRect(new Rect2(60, 50, 480, 110), new Color(ColorCyan, 0.4f), false, 1.5f);
 
         // Title and phase
-        DrawString(ThemeDB.FallbackFont, new Vector2(75, 78), "AXIOM-7 // GEOTHERMAL TELEMETRY", HorizontalAlignment.Left, -1, 14, ColorCyan);
+        DrawString(ThemeDB.FallbackFont, new Vector2(75, 78), WildfireText.Get("UI_FOUNDRYFORGEAFTERMATHSTAGE_DRAWHOLOGRAPHICTELEMETRY_DF063C8B", "AXIOM-7 // GEOTHERMAL TELEMETRY"), HorizontalAlignment.Left, -1, 14, ColorCyan);
 
         // Dynamic Shield Integrity Readout
         float shieldPct = 100f;

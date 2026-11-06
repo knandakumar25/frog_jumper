@@ -125,7 +125,7 @@ public partial class NeonRustStage : Control
         }
         DrawSetTransform(margin, 0, Vector2.One * fit);
         DrawRect(new Rect2(0, 0, 1920, 88), new Color(0, 0, 0, .88f));
-        DrawString(ThemeDB.FallbackFont, new Vector2(70, 57), "SILENT FREIGHT // REGIONAL TRANSIT DEPOT", fontSize: 24, modulate: Cyan);
+        DrawString(ThemeDB.FallbackFont, new Vector2(70, 57), WildfireText.Get("UI_NEONRUSTSTAGE__DRAW_9FFD3A0E", "SILENT FREIGHT // REGIONAL TRANSIT DEPOT"), fontSize: 24, modulate: Cyan);
         if (shot == 8)
         {
             DrawRect(new Rect2(0, 210, 1920, 390), new Color(.008f, .02f, .04f, .92f));

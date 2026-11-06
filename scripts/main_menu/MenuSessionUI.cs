@@ -107,7 +107,7 @@ public partial class MenuSessionUI : Node
 			// Session Card using CyberButton
 			var sessionBtn = new CyberButton
 			{
-				MainText = $"[{idx:D2}] {Tr(character).ToUpper()}",
+				MainText = $"[{idx:D2}] {Tr(character)}",
 				SubText = $"{Tr("Level")} {level}   |   {Tr("Score")} {score}   |   {lastPlayed}",
 				IndexText = "00",
 				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,

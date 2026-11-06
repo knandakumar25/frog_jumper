@@ -268,6 +268,17 @@ public partial class CyberDialogueBubble : Control
 		TriggerHoloGlitch();
 	}
 
+    /// <summary>Replaces written text at the same reveal fraction; does not replay audio, restart transmission or emit completion.</summary>
+    public void RelocalizeLine(string text)
+    {
+        if (_dialogueLabel == null) return;
+        double fraction = _totalCharCount > 0 ? (double)_currentCharIndex / _totalCharCount : 0;
+        _dialogueLabel.Text = text;
+        _totalCharCount = _dialogueLabel.GetTotalCharacterCount();
+        _currentCharIndex = System.Math.Clamp((int)(_totalCharCount * fraction), 0, _totalCharCount);
+        _dialogueLabel.VisibleCharacters = _isTyping ? _currentCharIndex : -1;
+    }
+
 	/// <summary>
 	/// Triggers a brief holographic chromatic aberration / scanline glitch on line reveal.
 	/// </summary>

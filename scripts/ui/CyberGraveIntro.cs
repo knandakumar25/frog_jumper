@@ -130,7 +130,7 @@ public partial class CyberGraveIntro : CanvasLayer
         var skip = new Button
         {
             Name = "Skip",
-            Text = Localized("CYBER_GRAVE_SKIP", "SKIP // ESC / START"),
+            Text = "CYBER_GRAVE_SKIP",
             AnchorLeft = 1,
             AnchorRight = 1,
             OffsetLeft = -270,

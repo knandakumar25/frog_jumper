@@ -101,7 +101,7 @@ public partial class NeonRustAftermathStage : Control
         {
             Vector2[] route={new(1050,600),new(1170,550),new(1300,570),new(1460,480)};
             DrawPolyline(route,shot==3?Accents[1]:Accents[4],3,true);
-            DrawString(ThemeDB.FallbackFont,new Vector2(1060,630),shot==3?"POWER // NEIGHBORHOODS":"SERVICE ROAD // APPROACHES",fontSize:20,modulate:Cyan);
+            DrawString(ThemeDB.FallbackFont,new Vector2(1060,630),shot==3?WildfireText.Get("UI_NEONRUSTAFTERMATHSTAGE__DRAW_AED4B82D", "POWER // NEIGHBORHOODS"):WildfireText.Get("UI_NEONRUSTAFTERMATHSTAGE__DRAW_2BDFE874", "SERVICE ROAD // APPROACHES"),fontSize:20,modulate:Cyan);
         }
         if (shot==6)
             for (int i=0;i<7;i++)
@@ -112,11 +112,13 @@ public partial class NeonRustAftermathStage : Control
             }
         DrawSetTransform(margin,0,Vector2.One*fit);
         DrawRect(new Rect2(0,0,1920,88),new Color(0,0,0,.88f));
-        DrawString(ThemeDB.FallbackFont,new Vector2(70,57),"THE CITY FINDS ITS VOICE // EXTRACTION",fontSize:24,modulate:Cyan);
+        DrawString(ThemeDB.FallbackFont,new Vector2(70,57),WildfireText.Get("UI_NEONRUSTAFTERMATHSTAGE__DRAW_6D24A389", "THE CITY FINDS ITS VOICE // EXTRACTION"),fontSize:24,modulate:Cyan);
         if (shot==10)
         {
             DrawRect(new Rect2(0,88,1920,992),new Color(0,0,0,Mathf.Min(1,u*2)));
-            DrawString(ThemeDB.FallbackFont,new Vector2(390,475),Tr("CITY_VOICE_NEXT") is string next && next!="CITY_VOICE_NEXT"?next:"NEXT: SHATTERED AEGIS",fontSize:48,modulate:Cyan);
+            // Compare the lookup result to its literal key; localizing the key
+            // itself would make the fallback decision depend on another alias.
+            DrawString(ThemeDB.FallbackFont,new Vector2(390,475),Tr("CITY_VOICE_NEXT") is string next && next!="CITY_VOICE_NEXT"?next:WildfireText.Get("UI_NEONRUSTAFTERMATHSTAGE__DRAW_2FB515AD", "NEXT: SHATTERED AEGIS"),fontSize:48,modulate:Cyan);
         }
         DrawSetTransform(Vector2.Zero,0,Vector2.One);
     }

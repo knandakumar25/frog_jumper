@@ -369,11 +369,7 @@ public partial class CyberButton : Control
 		return input;
 	}
 
-	private static string SafeToUpper(string text)
-	{
-		if (string.IsNullOrEmpty(text)) return "";
-		return text.ToUpper();
-	}
-
+	/// <summary>Preserves authored casing, including Turkish dotted I and scripts without letter case.</summary>
+	private static string SafeToUpper(string text) => text ?? "";
 	private string Tr(string text) => MainMenu.Tr(text);
 }

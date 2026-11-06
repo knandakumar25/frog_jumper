@@ -81,6 +81,7 @@ public partial class CyberCombatHud : CanvasLayer
 		}
 	}
 
+	/// <summary>Refreshes the active loadout's localized names and theme without changing its gameplay identity.</summary>
 	private void OnOperativeProfileChanged(OperativeProfile profile)
 	{
 		if (profile == null) return;
@@ -88,17 +89,18 @@ public partial class CyberCombatHud : CanvasLayer
 		if (_katanaBadge != null)
 		{
 			string abilityInput = _player is IsometricOperative ? "[Q / RT]" : "[F]";
-			_katanaBadge.Text = $"{abilityInput} {profile.PrimaryAbilityName.ToUpper()}";
+			WildfireText.SetText(_katanaBadge, "Text", "HUD_PRIMARY_ABILITY", $"{abilityInput} {WildfireText.DisplayValue(profile.PrimaryAbilityName, englishUppercase: true)}");
 			_katanaBadge.Modulate = profile.ThemeColor;
 		}
 
 		if (_dashBadge != null)
 		{
-			_dashBadge.Text = $"[SHIFT] {profile.DashAbilityName.ToUpper()} // READY";
+			WildfireText.SetText(_dashBadge, "Text", "UI_CYBERCOMBATHUD_ONOPERATIVEPROFILECHANGED_6315AA8C", $"[SHIFT] {WildfireText.DisplayValue(profile.DashAbilityName, englishUppercase: true)} // READY");
 			_dashBadge.Modulate = profile.ThemeColor;
 		}
 	}
 
+	/// <summary>Updates health bars and localized operative status; standalone test nodes never create tweens.</summary>
 	private void OnHealthChanged(float currentHealth, float maxHealth, float currentShield, float maxShield)
 	{
 		if (_healthBar != null)
@@ -132,26 +134,27 @@ public partial class CyberCombatHud : CanvasLayer
 		if (_statusLabel != null)
 		{
 			string opTag = _player?.ActiveProfile != null
-				? $"{_player.ActiveProfile.DisplayName.ToUpper()} // "
+				? $"{_player.ActiveProfile.DisplayName} // "
 				: "";
-			_statusLabel.Text = $"{opTag}SHIELD: {(int)currentShield}/{(int)maxShield} | HP: {(int)currentHealth}/{(int)maxHealth}";
+			WildfireText.SetText(_statusLabel, "Text", "UI_CYBERCOMBATHUD_ONHEALTHCHANGED_CFD797B5", $"{WildfireText.DisplayValue(opTag, englishUppercase: true)}SHIELD: {(int)currentShield}/{(int)maxShield} | HP: {(int)currentHealth}/{(int)maxHealth}");
 		}
 	}
 
+	/// <summary>Displays the active dash's localized cooldown while retaining canonical names for subsequent locale changes.</summary>
 	private void OnDashCooldownUpdated(float remaining, float maxDuration)
 	{
 		if (_dashBadge == null) return;
-		string dashName = _player?.ActiveProfile?.DashAbilityName.ToUpper() ?? "BLADE DASH";
+		string dashName = _player?.ActiveProfile?.DashAbilityName ?? "BLADE DASH";
 		var themeColor = _player?.ActiveProfile?.ThemeColor ?? new Color(0f, 0.94f, 1f, 1f);
 
 		if (remaining > 0.05f)
 		{
-			_dashBadge.Text = $"[SHIFT] {dashName} ({remaining:0.0}s)";
+			WildfireText.SetText(_dashBadge, "Text", "UI_CYBERCOMBATHUD_ONDASHCOOLDOWNUPDATED_A683045F", $"[SHIFT] {WildfireText.DisplayValue(dashName, englishUppercase: true)} ({remaining:0.0}s)");
 			_dashBadge.Modulate = new Color(0.6f, 0.6f, 0.6f, 0.8f);
 		}
 		else
 		{
-			_dashBadge.Text = $"[SHIFT] {dashName} // READY";
+			WildfireText.SetText(_dashBadge, "Text", "UI_CYBERCOMBATHUD_ONDASHCOOLDOWNUPDATED_6315AA8C", $"[SHIFT] {WildfireText.DisplayValue(dashName, englishUppercase: true)} // READY");
 			_dashBadge.Modulate = themeColor;
 		}
 	}
@@ -171,7 +174,7 @@ public partial class CyberCombatHud : CanvasLayer
 				_ => "HYPER OVERDRIVE!"
 			};
 
-			_comboLabel.Text = $"{comboCount}x COMBO // {title}";
+			WildfireText.SetText(_comboLabel, "Text", "UI_CYBERCOMBATHUD_ONCOMBOCHANGED_BF63C51E", $"{comboCount}x COMBO // {WildfireText.DisplayValue(title)}");
 			if (IsInsideTree())
 			{
 				var tween = CreateTween();
@@ -273,7 +276,7 @@ public partial class CyberCombatHud : CanvasLayer
 		{
 			if (phase >= 2)
 			{
-				_bossPhaseBadge.Text = $"PHASE {phase} // OVERDRIVE";
+				WildfireText.SetText(_bossPhaseBadge, "Text", "UI_CYBERCOMBATHUD_ONBOSSHEALTHCHANGED_DF587709", $"PHASE {phase} // OVERDRIVE");
 				_bossPhaseBadge.Modulate = new Color(1.0f, 0.25f, 0.25f, 1f);
 			}
 			else

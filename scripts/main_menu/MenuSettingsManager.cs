@@ -188,11 +188,11 @@ public partial class MenuSettingsManager : Node
 		{
 			var slider = _settingsPopup?.GetNodeOrNull<HSlider>("VBoxContainer/AudioOptions/VBoxContainer/MasterSlider");
 			int pct = slider != null ? (int)Math.Round(slider.Value * 100.0) : 100;
-			volLbl.Text = $"{Tr("Volume").ToUpper()}   [ {pct}% ]";
+			volLbl.Text = $"{Tr("Volume")}   [ {pct}% ]";
 		}
 
 		var langLbl = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/LanguageLabel");
-		if (langLbl != null) langLbl.Text = Tr("Language").ToUpper();
+		if (langLbl != null) langLbl.Text = Tr("Language");
 
 		var applyBtn = _settingsPopup?.GetNodeOrNull<Button>("VBoxContainer/ButtonContainer/ApplyButton");
 		if (applyBtn != null) applyBtn.Text = Tr("Apply");
@@ -204,7 +204,7 @@ public partial class MenuSettingsManager : Node
 		if (controlsBtn != null) controlsBtn.Text = Tr("// REBIND CONTROLS");
 
 		var displayLbl = _settingsPopup?.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/DisplayLabel");
-		if (displayLbl != null) displayLbl.Text = Tr("Display Mode").ToUpper();
+		if (displayLbl != null) displayLbl.Text = Tr("Display Mode");
 
 		PopulateDisplayModeButtons();
 
@@ -345,21 +345,21 @@ public partial class MenuSettingsManager : Node
 			var dispLbl = _settingsPopup.GetNodeOrNull<Label>("VBoxContainer/AudioOptions/VBoxContainer/DisplayLabel");
 			if (volLbl != null)
 			{
-				volLbl.Text = Tr("Volume").ToUpper() + " [ 100% ]";
+				volLbl.Text = Tr("Volume") + " [ 100% ]";
 				volLbl.AddThemeFontOverride("font", orbitronFont);
 				volLbl.AddThemeFontSizeOverride("font_size", 16);
 				volLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));
 			}
 			if (langLbl != null)
 			{
-				langLbl.Text = Tr("Language").ToUpper();
+				langLbl.Text = Tr("Language");
 				langLbl.AddThemeFontOverride("font", orbitronFont);
 				langLbl.AddThemeFontSizeOverride("font_size", 16);
 				langLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));
 			}
 			if (dispLbl != null)
 			{
-				dispLbl.Text = Tr("Display Mode").ToUpper();
+				dispLbl.Text = Tr("Display Mode");
 				dispLbl.AddThemeFontOverride("font", orbitronFont);
 				dispLbl.AddThemeFontSizeOverride("font_size", 16);
 				dispLbl.AddThemeColorOverride("font_color", new Color(0.9f, 0.95f, 1f, 0.9f));

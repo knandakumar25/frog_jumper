@@ -29,8 +29,10 @@ public partial class LoadingScreen : Control
 	private int   _loadingStatus  = 0;
 	private float _fadeDuration   = 0.3f;
 	private bool  _loadingStarted = false;
+	private int _lastProgressPercent;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
+	/// <summary>Resolves loading controls, retains native text sources and starts the requested asynchronous transition.</summary>
 	public override void _Ready()
 	{
 		// Resolve UI components for progress reporting.
@@ -41,21 +43,10 @@ public partial class LoadingScreen : Control
 		var loadingLabel = GetNodeOrNull<Label>("CenterContainer/MainPanel/VBoxContainer/LoadingLabel");
 		if (loadingLabel != null)
 		{
-			loadingLabel.Text = Tr("INITIALIZING SYSTEM...");
+			loadingLabel.Text = "INITIALIZING SYSTEM...";
 		}
 
-		// Apply the localized branding logo to the loading banner.
-		if (HasNode("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner"))
-		{
-			var logoBanner = GetNode<TextureRect>("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner");
-			string resPath = GetLocalizedTitleLogoPath();
-			string globalPath = ProjectSettings.GlobalizePath(resPath);
-			if (System.IO.File.Exists(globalPath))
-			{
-				var img = Image.LoadFromFile(globalPath);
-				if (img != null) logoBanner.Texture = ImageTexture.CreateFromImage(img);
-			}
-		}
+		RefreshTitleLogo();
 
 		if (string.IsNullOrEmpty(TargetScenePath))
 		{
@@ -72,13 +63,37 @@ public partial class LoadingScreen : Control
 		if (error == Error.Ok)
 		{
 			_loadingStarted = true;
-			_statusLabel.Text = Tr("Loading scene...");
+			_statusLabel.Text = "Loading scene...";
 		}
 		else
 		{
 			GD.PushError("Failed to start loading: " + TargetScenePath);
-			_statusLabel.Text = Tr("Error: Failed to start loading");
+			_statusLabel.Text = "Error: Failed to start loading";
 		}
+	}
+
+	/// <summary>Refreshes branding without restarting the loader, progress, fade or target scene.</summary>
+	public override void _Notification(int what)
+	{
+		if (what != NotificationTranslationChanged || !IsNodeReady()) return;
+		RefreshTitleLogo();
+		if (_loadingStarted && _loadingStatus == (int)ResourceLoader.ThreadLoadStatus.InProgress)
+			UpdateProgressText(_lastProgressPercent);
+	}
+
+	/// <summary>Retains progress numerically so a locale change can redraw it without restarting a threaded request.</summary>
+	private void UpdateProgressText(int percent)
+	{
+		_lastProgressPercent = percent;
+		_statusLabel.Text = WildfireText.Interpolate("UI_LOADING_PROGRESS", $"{WildfireText.KeyValue("Loading... ", "Loading... ")}{percent}%");
+	}
+
+	/// <summary>Uses imported title textures; the separate native Label owns the translated tagline.</summary>
+	private void RefreshTitleLogo()
+	{
+		var banner = GetNodeOrNull<TextureRect>("CenterContainer/MainPanel/VBoxContainer/TitleLogoBanner");
+		string path = GetLocalizedTitleLogoPath();
+		if (banner != null && ResourceLoader.Exists(path)) banner.Texture = GD.Load<Texture2D>(path);
 	}
 
 	// ─── Fade helpers ────────────────────────────────────────────────────────
@@ -113,6 +128,7 @@ public partial class LoadingScreen : Control
 	}
 
 	// ─── Progress poll ───────────────────────────────────────────────────────
+	/// <summary>Polls the existing threaded request and updates progress or initiates its completed transition.</summary>
 	public override void _Process(double delta)
 	{
 		if (string.IsNullOrEmpty(TargetScenePath) || !_loadingStarted) return;
@@ -124,7 +140,7 @@ public partial class LoadingScreen : Control
 		switch ((ResourceLoader.ThreadLoadStatus)_loadingStatus)
 		{
 			case ResourceLoader.ThreadLoadStatus.InvalidResource:
-				_statusLabel.Text = Tr("Error: Invalid resource");
+				_statusLabel.Text = "Error: Invalid resource";
 				GD.PushError("Failed to load scene: " + TargetScenePath);
 				_loadingStarted = false;
 				break;
@@ -134,19 +150,19 @@ public partial class LoadingScreen : Control
 				{
 					float p = (float)progress[0];
 					_progressBar.Value = p * 100.0f;
-					_statusLabel.Text  = Tr("Loading... ") + (int)(p * 100) + "%";
+					UpdateProgressText((int)(p * 100));
 				}
 				break;
 
 			case ResourceLoader.ThreadLoadStatus.Failed:
-				_statusLabel.Text = Tr("Error: Loading failed");
+				_statusLabel.Text = "Error: Loading failed";
 				GD.PushError("Failed to load scene: " + TargetScenePath);
 				_loadingStarted = false;
 				break;
 
 			case ResourceLoader.ThreadLoadStatus.Loaded:
 				_progressBar.Value = 100.0f;
-				_statusLabel.Text  = Tr("Complete!");
+				_statusLabel.Text  = "Complete!";
 				_loadingStarted    = false;
 				// Sequence the final scene transition.
 				_ = OnLoadingCompleteAsync();
@@ -198,8 +214,4 @@ public partial class LoadingScreen : Control
 		return TitleLogo.GetLocalizedTitle2DPath();
 	}
 
-	private string Tr(string text)
-	{
-		return TranslationServer.Translate(text);
-	}
 }

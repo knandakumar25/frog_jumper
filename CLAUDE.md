@@ -6,7 +6,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 ## Technical Stack
 - **Engine**: Godot 4.7.2 .NET
 - **Language**: C# (.NET 10)
-- **Backend**: Django REST Framework (Python 3.14)
+- **Backend**: Django REST Framework (Python 3.15.2)
 - **Frontend Web**: React + Vite
 - **Architecture**: Component-based with specialized Managers (e.g., `SessionManager`, `UISoundManager`, `OperativeRegistry`).
 - **UI & Gameplay Approach**: High-fidelity 2D combat platforming with 4-level linear campaign chain, dynamic combat HUD, and a squad of operatives that are unlocked through the story (roster screen, in-level swap).

@@ -1,0 +1,29 @@
+{
+  "language": "italian",
+  "review": "Agent-authored display categories, damage/cooldown fragments and tagline; physical controls/format-only patterns retain literal identity.",
+  "translations": {
+    "PRIMARY": "PRIMARIA",
+    "SECONDARY": "SECONDARIA",
+    "MOBILITY": "MOBILITÀ",
+    "SLAM": "SCHIANTO",
+    "TACTICAL": "TATTICA",
+    "DMG: {0:F0}": "DANNI: {0:F0}",
+    "RECLAIM EARTH": "RICONQUISTA LA TERRA",
+    "[{0}] {1} • CD: {2:F1}s • {3}": "[{0}] {1} • RIC: {2:F1}s • {3}",
+    "{0} {1}": "{0} {1}",
+    "[SHIFT] {0} ({1:0.0}s)": "[SHIFT] {0} ({1:0.0}s)",
+    "[SEC: OMEGA]": "[SEC: OMEGA]",
+    "{0} / Tab": "{0} / Tab",
+    "Y / LB": "Y / LB",
+    "[Q / RT]": "[Q / RT]",
+    "v1.0.4-NEON-PULSE": "v1.0.4-NEON-PULSE",
+    "◆ AXIOM-OS v4.7": "◆ AXIOM-OS v4.7",
+    "{0}": "{0}",
+    "Idle": "Riposo",
+    "Walk": "Cammina",
+    "Run": "Corri",
+    "Katana": "Katana",
+    "{0}{1}": "{0}{1}",
+    "{0}{1}%": "{0}{1}%"
+  }
+}

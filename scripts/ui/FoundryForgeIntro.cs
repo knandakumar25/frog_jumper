@@ -133,7 +133,7 @@ public partial class FoundryForgeIntro : CanvasLayer
         var skip = new Button
         {
             Name = "Skip",
-            Text = Localized("FOUNDRY_FORGE_SKIP", "SKIP // ESC / START"),
+            Text = "FOUNDRY_FORGE_SKIP",
             AnchorLeft = 1,
             AnchorRight = 1,
             OffsetLeft = -270,

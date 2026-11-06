@@ -1,8 +1,53 @@
 # Axiom Force
 
+## Written localization — catalog complete (2026-11-06)
+
+Login and settings share seventeen languages, ISO aliases, script fonts and RTL
+direction. All 1,492 currently required entries per language are populated, with
+zero missing cells, malformed format contracts or unexplained English matches.
+English speech, cue timing and the original English catalog remain unchanged.
+Dynamic HUD, result and roster text refresh without restarting gameplay or audio.
+
+Spanish campaign text is authored directly; the remaining campaign additions use
+machine-assisted drafts with agent checks and contextual corrections. This is
+structural completion and representative presentation QA, not native-speaker
+certification. External linguistic review remains recommended before release.
+See [coverage](docs/localization/coverage.md) and the
+[authoring and review guide](docs/localization/README.md) for scope and provenance.
+
+Both language pickers include fonts for every displayed script. Roster ability
+categories/damage and preview captions retain canonical gameplay IDs across locale
+changes. The loading tagline is a separate translated label rather than embedded
+English artwork. Forty directly referenced raster assets were inspected using
+Blender in Docker; brand-only logos remain unchanged.
+
+Verification passes: Django 104, NUnit 290, Godot 317 (zero suite errors,
+failures or orphans), plus 19 offline Python checks. Godot import exits 0;
+existing editor-addon/shutdown diagnostics remain documented in HANDOFF.md.
+The backend, database and website remain running. No game exports or Git
+publication were performed.
+
+
 A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
 
+## Godot AI startup
+
+The pinned Godot AI 4.4.1 launcher uses an isolated uv-managed Python 3.14 tooling
+interpreter and the operating system certificate store (`--system-certs`). Its
+dependencies currently lack all required Python 3.15 wheels under the plugin's
+no-source-build policy. Certificate validation, canonical package sources and
+the release dependency cutoff remain enabled. After a launcher-policy update,
+click **Reload Plugin** in the Godot AI dock. A plugin reinstall/update can replace
+this local policy patch; recheck these flags if the same startup failure returns.
+
 ## Python dependencies
+
+Application Docker images and the root `.venv` target Python **3.15.2**. Backend
+and cutscene orchestration use the pinned official slim image; the opt-in export
+Dockerfile copies the same Python version with a build-time native-library check.
+Blender keeps its bundled interpreter for `bpy` compatibility. Backend, cutscene
+CLI and exporter Python setup-stage smoke tests verify Python 3.15.2; the exporter
+stage also verifies .NET 10.0.403 and native Python imports without exporting a game.
 
 Root `requirements.txt` is the single Python dependency manifest. The duplicate
 `backend/requirements.txt` remains removed. A Git-ignored root `.venv` is available
@@ -28,7 +73,7 @@ Validated on 2026-11-05: Compose configuration, backend image build and dependen
 imports passed; all suites passed (Django 104, NUnit 276, GdUnit4 303). No local
 virtualenv was recreated or populated during that earlier cleanup validation.
 
-Local setup verified on 2026-11-05: Python 3.14.10, pip 26.3, all six direct
+Local setup verified on 2026-11-06: Python 3.15.2, pip 26.3, all six direct
 requirements plus dependencies installed in `.venv`, and `pip check` passed.
 The three default Docker services are running; PostgreSQL accepts connections.
 HTTP checks passed with status 200 at `http://127.0.0.1:5173/` and
@@ -577,7 +622,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 |---|---|---|
 | **Game Engine** | Godot 4.7.2 .NET | C# scripting with .NET 10 runtime (`net10.0`). |
 | **Core Architecture** | Component & Manager Pattern | `OperativeRegistry`, `SessionManager`, `UISoundManager`, `CyberCombatHud`. |
-| **Backend API** | Django 5.x / DRF | Python 3.14 REST API managing authentication and high scores. |
+| **Backend API** | Django 5.x / DRF | Python 3.15.2 REST API managing authentication and high scores. |
 | **Web Frontend** | React + Vite + Tailwind | Web dashboard and player hub. |
 | **Database** | PostgreSQL 18 | Sole persistent application store; no local save fallback. |
 
@@ -589,7 +634,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 
 - [Godot 4.7.2 .NET (Mono)](https://godotengine.org/)
 - [.NET 10 SDK](https://dotnet.microsoft.com/) — **required on Windows, not from Docker**
-- Python 3.14 (for Django backend tests and sound synthesis tools)
+- Python 3.15.2 (for Django backend tests and sound synthesis tools)
 
 > **"Failed to load .NET runtime, specifically hostfxr" on launching Godot** means Windows has no usable .NET SDK. The Godot editor is a native Windows binary that loads Windows `hostfxr.dll`, so the Linux .NET inside the export image cannot satisfy it. Confirm with `dotnet --list-sdks` and by checking that `C:\Program Files\dotnet\host\fxr\` exists. If the installer leaves `C:\Program Files\dotnet` without `dotnet.exe` and `host\`, install per-user and point Godot at it:
 >
@@ -635,7 +680,7 @@ container can briefly precede the HTTP server accepting connections.
   `http://127.0.0.1:8000/api/auth/countries/basic/`.
   Initial image downloads/builds can delay readiness.
 - Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default, so the stack also boots without one
-- `backend/Dockerfile` builds on Python 3.14; `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
+- `backend/Dockerfile` builds on Python 3.15.2; `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
 
 ### Exporting the Game (Docker)
 
@@ -965,3 +1010,9 @@ The reproducible inventory, per-mission/speaker totals, transcript discrepancies
 Coverage evidence currently includes 296 spoken cue occurrences and five explicit silent classifications. All required clips have imports, decoded audio, English transcripts and provenance. Seven pronunciation/word-recognition candidates remain flagged for listening acceptance; the strict coverage gate remains open until they are resolved. See the [content review](docs/voice-coverage/REVIEW.md).
 
 Validation on 2026-11-05: C# build/import, NUnit 276, GdUnit4 309 (zero errors/failures/orphans), five inventory checks, and Django 104 passed. The normal aggregate runner encountered a Docker Desktop D: mount error; Django was verified using an unchanged temporary source copy in the existing backend container. This workaround did not repair the host mount or restart services.
+
+## Speech recognition evaluation
+
+Speech-to-text is proposed, not implemented. The current recommendation is to prototype [Godot Whisper](https://github.com/appsinacup/godot-whisper) behind a C# adapter for local player voice input. Its Asset Store listing is marked unstable, so Godot 4.7.2 compatibility, recognition latency during combat, and exported-build native libraries still need validation. Keep normal game audio quality and resample only microphone input for recognition.
+
+OllamaSharp is the preferred C# client if an Ollama-backed conversational feature is added later. As checked on 2026-11-05, [Liquid AI documents LFM3-Omni audio input through Ollama on macOS](https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/blob/main/README.md); the Ollama [Phonon model](https://ollama.com/library/phonon) is text-to-speech. These are not currently selected as the Windows game's STT dependency.

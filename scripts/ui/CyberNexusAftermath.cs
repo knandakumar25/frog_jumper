@@ -303,7 +303,7 @@ public partial class CyberNexusAftermath : CanvasLayer
         if (cueIndex >= 0 && cueIndex < Lines.Length)
         {
             string line = Lines[cueIndex];
-            _subtitle.Text = line;
+            _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_CYBER_NEXUS_AFTERMATH_{cueIndex + 1:D2}", Lines[cueIndex]);
             _panel?.SetVisible(!string.IsNullOrWhiteSpace(line));
 
             // Apply speaker color border styling

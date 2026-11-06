@@ -1,0 +1,29 @@
+{
+  "language": "indonesian",
+  "review": "Agent-authored display categories, damage/cooldown fragments and tagline; physical controls/format-only patterns retain literal identity.",
+  "translations": {
+    "PRIMARY": "UTAMA",
+    "SECONDARY": "SEKUNDER",
+    "MOBILITY": "MOBILITAS",
+    "SLAM": "HANTAMAN",
+    "TACTICAL": "TAKTIS",
+    "DMG: {0:F0}": "KERUSAKAN: {0:F0}",
+    "RECLAIM EARTH": "REBUT KEMBALI BUMI",
+    "[{0}] {1} • CD: {2:F1}s • {3}": "[{0}] {1} • JEDA: {2:F1}s • {3}",
+    "{0} {1}": "{0} {1}",
+    "[SHIFT] {0} ({1:0.0}s)": "[SHIFT] {0} ({1:0.0}s)",
+    "[SEC: OMEGA]": "[SEC: OMEGA]",
+    "{0} / Tab": "{0} / Tab",
+    "Y / LB": "Y / LB",
+    "[Q / RT]": "[Q / RT]",
+    "v1.0.4-NEON-PULSE": "v1.0.4-NEON-PULSE",
+    "◆ AXIOM-OS v4.7": "◆ AXIOM-OS v4.7",
+    "{0}": "{0}",
+    "Idle": "Diam",
+    "Walk": "Berjalan",
+    "Run": "Berlari",
+    "Katana": "Katana",
+    "{0}{1}": "{0}{1}",
+    "{0}{1}%": "{0}{1}%"
+  }
+}

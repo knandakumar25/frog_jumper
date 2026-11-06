@@ -45,7 +45,7 @@ services:
       retries: 12
     restart: unless-stopped
 
-  # Django REST Framework on Python 3.14. The image's entrypoint waits for
+  # Django REST Framework on Python 3.15.2. The image's entrypoint waits for
   # PostgreSQL and applies migrations before starting the dev server.
   backend:
     build:

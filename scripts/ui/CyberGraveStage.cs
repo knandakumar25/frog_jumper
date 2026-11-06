@@ -479,7 +479,7 @@ public partial class CyberGraveStage : Control
 
         // Subterranean facility title label
         DrawString(ThemeDB.FallbackFont, new Vector2(hudPos.X - 180, hudPos.Y - 55),
-            "FACILITY: CYBER-GRAVE // LABS", HorizontalAlignment.Left, -1, 14, ColorCyan);
+            WildfireText.Get("UI_CYBERGRAVESTAGE_DRAWHOLOGRAPHICTELEMETRY_0B228379", "FACILITY: CYBER-GRAVE // LABS"), HorizontalAlignment.Left, -1, 14, ColorCyan);
         DrawString(ThemeDB.FallbackFont, new Vector2(hudPos.X - 180, hudPos.Y + 60),
             depthStr, HorizontalAlignment.Left, -1, 16, ColorAmber);
     }

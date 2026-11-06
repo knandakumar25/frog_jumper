@@ -4,7 +4,7 @@
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/ui/LoadingScreen.cs" id="1_loading_script"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
-[ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_logo.jpg" id="4_title_logo_texture"]
+[ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_2d.png" id="4_title_logo_texture"]
 [ext_resource type="Script" path="res://scripts/ui/CyberCircularSpinner.cs" id="5_cyber_spinner"]
 
 [node name="LoadingScreen" type="Control"]
@@ -61,6 +61,14 @@ layout_mode = 2
 texture = ExtResource("4_title_logo_texture")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="LocalizedTagline" type="Label" parent="CenterContainer/MainPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0.5, 1)
+theme_override_font_sizes/font_size = 24
+text = "RECLAIM EARTH"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="SpinnerContainer" type="Control" parent="CenterContainer/MainPanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)

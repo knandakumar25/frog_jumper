@@ -197,7 +197,7 @@ public partial class ApexBastionAftermath : CanvasLayer
         int cue = GetCurrentCue();
         if (_subtitle != null)
         {
-            _subtitle.Text = Lines[cue];
+            _subtitle.Text = WildfireText.Get($"SUBTITLE_CINEMATIC_APEX_BASTION_AFTERMATH_{cue + 1:D2}", Lines[cue]);
         }
 
         if (_panelStyle != null)

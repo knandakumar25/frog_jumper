@@ -357,8 +357,8 @@ public partial class StratosDocksStage : Control
         // Header Telemetry text bar at top left
         DrawRect(new Rect2(30, 30, 360, 48), new Color(0.01f, 0.03f, 0.06f, 0.85f));
         DrawRect(new Rect2(30, 30, 360, 48), new Color("00f0ff"), false, 1.5f);
-        DrawString(ThemeDB.FallbackFont, new Vector2(44, 52), "STRATOS DOCKS // AVIATION SECTOR 08", HorizontalAlignment.Left, -1, 11, new Color("00f0ff"));
-        DrawString(ThemeDB.FallbackFont, new Vector2(44, 68), $"ALTITUDE: 1,240M  |  WIND: 48KT  |  LOCKDOWN: ACTIVE", HorizontalAlignment.Left, -1, 10, Colors.White);
+        DrawString(ThemeDB.FallbackFont, new Vector2(44, 52), WildfireText.Get("UI_STRATOSDOCKSSTAGE_DRAWTELEMETRY_FA0D0B4C", "STRATOS DOCKS // AVIATION SECTOR 08"), HorizontalAlignment.Left, -1, 11, new Color("00f0ff"));
+        DrawString(ThemeDB.FallbackFont, new Vector2(44, 68), WildfireText.Interpolate("UI_STRATOSDOCKSSTAGE_DRAWTELEMETRY_2DC8E301", $"ALTITUDE: 1,240M  |  WIND: 48KT  |  LOCKDOWN: ACTIVE"), HorizontalAlignment.Left, -1, 10, Colors.White);
     }
 
     /// <summary>Draws 2.39:1 anamorphic cinema bars.</summary>

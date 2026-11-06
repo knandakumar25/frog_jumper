@@ -28,9 +28,9 @@ func _ready() -> void:
 
 	_register_all_translations()
 
-	# Set default locale to english (matching the CSV column name).
-	TranslationServer.set_locale("english")
-	print("Global: Locale set to 'english'")
+	# Use ISO locale for Godot text direction/shaping; LocaleCatalog maps legacy column names.
+	TranslationServer.set_locale("en")
+	print("Global: Locale set to 'en'")
 
 	# Configure Cairo & NotoSans as universal fallbacks for sci-fi fonts (Orbitron / Rajdhani)
 	# to ensure correct rendering of Arabic, Hebrew, and CJK characters.
@@ -42,27 +42,6 @@ func _ready() -> void:
 	_setup_prompt_banner()
 
 # ─── Localization & Fonts ──────────────────────────────────────────────────────
-# Mapping from Godot's internal locale names to ISO codes for translation matching.
-const LOCALE_ISO_MAP: Dictionary = {
-	"english": "en",
-	"spanish": "es",
-	"eurofrench": "fr",
-	"brazilianportuguese": "pt_BR",
-	"german": "de",
-	"italian": "it",
-	"polish": "pl",
-	"arabic": "ar",
-	"turkish": "tr",
-	"japanese": "ja",
-	"korean": "ko",
-	"mandarin": "zh_CN",
-	"hebrew": "he",
-	"traditionalchinese": "zh_TW",
-	"indonesian": "id",
-	"vietnamese": "vi",
-	"thai": "th"
-}
-
 # Registers all .translation files found in the translations directory.
 func _register_all_translations() -> void:
 	var translations_dir = "res://assets/translations/"
@@ -76,9 +55,10 @@ func _register_all_translations() -> void:
 				if ResourceLoader.exists(full_path):
 					var trans = load(full_path)
 					if trans is Translation:
+						LocaleService.RegisterSourceAliases(trans)
 						TranslationServer.add_translation(trans)
 						var raw = trans.locale
-						var iso = LOCALE_ISO_MAP.get(raw, raw)
+						var iso = LocaleService.Iso(raw)
 						if iso != raw:
 							# Duplicate translation to register it under the ISO code as well.
 							var iso_trans = trans.duplicate()
@@ -292,26 +272,24 @@ func show_gamepad_toast(message: String) -> void:
 	tween.tween_callback(canvas.queue_free)
 
 # ─── System Settings & Rendering ────────────────────────────────────────────────
-# Dynamically adjusts the window mode (Fullscreen, Windowed, etc.).
+## Configures explicit script fonts and shared sci-fi font fallbacks after a locale change.
 func update_font_for_locale(locale_code: String) -> void:
-	var loc = locale_code.to_lower()
-	var is_arabic = "ar" in loc
+	var loc: String = LocaleService.Canonical(locale_code)
+	var is_arabic: bool = loc == "arabic"
 	var cairo_font = load("res://assets/fonts/Cairo.ttf")
 	var arabic_font = load("res://assets/fonts/NotoSansArabic.ttf")
-	var noto_font = load("res://assets/fonts/NotoSans-Regular.ttf")
+	var noto_font = load(LocaleService.FontPath(loc))
 
-	var fallbacks_list = []
-	if is_arabic and cairo_font != null:
-		fallbacks_list.append(cairo_font)
-	if arabic_font != null: fallbacks_list.append(arabic_font)
+	var fallbacks_list: Array[Font] = []
 	if noto_font != null: fallbacks_list.append(noto_font)
+	if arabic_font != null and arabic_font != noto_font: fallbacks_list.append(arabic_font)
 
 	if is_arabic and cairo_font != null:
 		ThemeDB.fallback_font = cairo_font
 		print("Global: Set ThemeDB.fallback_font to Cairo.ttf for Arabic")
 	elif noto_font != null:
 		ThemeDB.fallback_font = noto_font
-		print("Global: Set ThemeDB.fallback_font to NotoSans-Regular.ttf")
+		print("Global: Locale font: ", LocaleService.FontPath(loc))
 
 	# Patch custom theme resource cyber_shogun.tres so Buttons and Labels in CharacterSelection switch fonts for Arabic.
 	if ResourceLoader.exists("res://assets/themes/cyber_shogun.tres"):
@@ -342,7 +320,7 @@ func update_font_for_locale(locale_code: String) -> void:
 				var f = load(font_path)
 				if f != null and f is FontFile:
 					f.fallbacks = fallbacks_list
-		print("Global: Configured Cairo & Arabic font fallbacks for Orbitron & Rajdhani sci-fi fonts")
+		print("Global: Configured explicit script fallbacks for sci-fi fonts")
 
 	# Cursor compatibility completely removed - hide mouse cursor globally
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

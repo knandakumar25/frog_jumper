@@ -1,449 +1,509 @@
 {
- "meta": {
-  "language": "en",
-  "version": "3.1",
-  "description": "Axiom Force - Character-Driven Campaign Narrative: three operative leads (Cyber Shogun, Oceanus, Aura Phoenicia) and the machine guide AXIOM-7. Operatives are earned through the campaign: each 'joins' list names who is recruited, and taught their signature ability, during that mission"
- },
- "acts": {
-  "act1_fracturing_grid": {
-   "title": "ACT I: FRACTURING THE OCCUPATION GRID",
-   "subtitle": "Levels 1-4: Breaking the Physical Walls & Defense Checkpoints",
-   "summary": "Shogun treats the simulation like scripture, Oceanus fights for the people the grid reclassifies as cargo. The archive purge, the refugee defense, a song smuggled into the occupation comms, and the border wall - breached with the Void's own shields on Titan's back."
+  "meta": {
+    "language": "en",
+    "version": "3.1",
+    "description": "Axiom Force - Character-Driven Campaign Narrative: three operative leads (Cyber Shogun, Oceanus, Aura Phoenicia) and the machine guide AXIOM-7. Operatives are earned through the campaign: each 'joins' list names who is recruited, and taught their signature ability, during that mission"
   },
-  "act2_citadel_liberation": {
-   "title": "ACT II: CITADEL LIBERATION",
-   "subtitle": "Levels 5–9: Striking the Economic & Political Heart of Colonization",
-   "summary": "With the wall down the squad enters the machine heart of the occupation: a spire that watches everyone, labs that cage them, foundries that work them, docks that fly them away. Shogun's discipline, Oceanus's grief-tide, Phoenicia's sky-song - and AXIOM-7, the voice that guides them, discovering it has no protocol for what its humans taught it."
+  "acts": {
+    "act1_fracturing_grid": {
+      "title": "ACT I: FRACTURING THE OCCUPATION GRID",
+      "subtitle": "Levels 1-4: Breaking the Physical Walls & Defense Checkpoints",
+      "summary": "Shogun treats the simulation like scripture, Oceanus fights for the people the grid reclassifies as cargo. The archive purge, the refugee defense, a song smuggled into the occupation comms, and the border wall - breached with the Void's own shields on Titan's back."
+    },
+    "act2_citadel_liberation": {
+      "title": "ACT II: CITADEL LIBERATION",
+      "subtitle": "Levels 5–9: Striking the Economic & Political Heart of Colonization",
+      "summary": "With the wall down the squad enters the machine heart of the occupation: a spire that watches everyone, labs that cage them, foundries that work them, docks that fly them away. Shogun's discipline, Oceanus's grief-tide, Phoenicia's sky-song - and AXIOM-7, the voice that guides them, discovering it has no protocol for what its humans taught it."
+    }
+  },
+  "levels": {
+    "1": {
+      "title": "Ghost in the Gridlock",
+      "joins": [
+        "Cyber Shogun"
+      ],
+      "arc": "act1_fracturing_grid",
+      "setting": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams are dissolving stone monoliths into obsidian tax offices.",
+      "objective": "Infiltrate the demolition site to retrieve the Data-Blade before the culture-erasure field purges human history forever.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "They do not just take our land; they delete our soul. I will not let our ancestors be forgotten under their obsidian slabs."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 1: CULTURE-PURGE DEMOLITION SITE. OBJECTIVE: RETRIEVE THE DATA-BLADE."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Warning: Xelthara Culture-Erasure beams active. Memory purge at 42%. Data-Blade retrieval required."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "You call this demolition 'progress'? I call it a war on the human spirit. KATA: ANCESTRAL STRIKE!"
+        },
+        {
+          "speaker": "Oceanus",
+          "type": "spoken",
+          "text": "Every archive they burn is a tide that will never come back in. The names in these walls - remember them, Shogun."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Demolition field neutralized. Data-Blade secured. Xelthara Enforcer Legion deploying."
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "If we cannot save the stone, we save the story. Secure the Data-Blade and move to Sector 2!"
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: DATA-BLADE SECURED. THE PURGE WAS INTERRUPTED."
+        }
+      ]
+    },
+    "2": {
+      "title": "The Concrete Wildfire",
+      "joins": [
+        "Oceanus",
+        "Apex Titan"
+      ],
+      "arc": "act1_fracturing_grid",
+      "setting": "The gated checkpoints of Containment Zone 4. Biometric scanner spires power an energy wall separating families from the city.",
+      "objective": "Hold the threshold against Xelthara Enforcer Walkers to protect escaping refugees and disable the biometric spires.",
+      "solo_monologues": [
+        {
+          "character": "Oceanus",
+          "type": "internal",
+          "text": "They put energy fences through our neighborhoods and herded us into camps. Today, the tide takes the city back."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 2: CONTAINMENT ZONE CHECKPOINT. OBJECTIVE: DEFEND THE REFUGEES AND BREACH THE MEMBRANE."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Siege Units deploying heavy plasma mortars. Evacuation route at risk."
+        },
+        {
+          "speaker": "Oceanus",
+          "type": "spoken",
+          "text": "As long as I draw breath, they will not be relocated like cargo in their own city. The tide rises HERE. TIDAL SHIELD!"
+        },
+        {
+          "speaker": "Apex Titan",
+          "type": "spoken",
+          "text": "Nobody crosses me today, little ones. When the shells come, stand close - I am the wall they hit."
+        },
+        {
+          "speaker": "Oceanus",
+          "type": "spoken",
+          "text": "The membrane is falling - move, ALL of you, now!"
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: REFUGEES EVACUATED. CHECKPOINT DESTROYED."
+        }
+      ]
+    },
+    "3": {
+      "title": "Neon Rust and Data Dust",
+      "joins": [
+        "Aura Phoenicia",
+        "Mirage Blade"
+      ],
+      "arc": "act1_fracturing_grid",
+      "setting": "Industrial scrap yards and transit depots powering Xelthara logistics.",
+      "objective": "Hijack energy shipments and sabotage regional communication towers.",
+      "solo_monologues": [
+        {
+          "character": "Aura Phoenicia",
+          "type": "internal",
+          "text": "Their comm-towers relay target vectors for every patrol in the sector. Time to make the sky sing instead."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 3: TRANSIT & COMM DEPOT. OBJECTIVE: BLACKOUT OCCUPATION COMMS."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Comm-towers broadcasting denial of service. Trojan payload ready for injection."
+        },
+        {
+          "speaker": "Aura Phoenicia",
+          "type": "spoken",
+          "text": "Their denial-of-service hums in C-flat. Offended, honestly. Uploading my answer to the relay grid... three, two, one - listen, that is what a free city sounds like."
+        },
+        {
+          "speaker": "Mirage Blade",
+          "type": "spoken",
+          "text": "Patrols are blind. Route to the Border Fortress is open. Moving before you finish applauding."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: COMM GRID BLACKED OUT."
+        }
+      ]
+    },
+    "4": {
+      "title": "Shattered Aegis - Border Fortress Breach",
+      "joins": [
+        "Surya Prime"
+      ],
+      "arc": "act1_fracturing_grid",
+      "setting": "The armored Border Defense Fortress guarding entry into the inner city.",
+      "objective": "Defeat Border Commander Voss and breach the physical wall into the Downtown Core.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "This wall has divided our city for five years. Protocol be damned - today it comes down."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 4: BORDER DEFENSE FORTRESS. OBJECTIVE: BREACH THE BORDER WALL."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Border Commander Voss deployed with heavy plasma turrets."
+        },
+        {
+          "speaker": "Border Commander Voss",
+          "type": "spoken",
+          "text": "Unregistered human insurgents! You will not step past this line!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "This line is human ground. Protocol says I wait. My oath says the people behind me do not. SQUAD - BREAK THEIR SHIELDS!"
+        },
+        {
+          "speaker": "Apex Titan",
+          "type": "spoken",
+          "text": "Shields. Mine to break. Give me their formation and I will give it back to them rearranged!"
+        },
+        {
+          "speaker": "Surya Prime",
+          "type": "spoken",
+          "text": "Stone can fall and still be rebuilt. This wall will fall, and the people behind it will remain. Stand behind my light."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Voss defeated. Fortress gates compromised. Wall collapsing!"
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "ACT I COMPLETE: BORDER WALL BREACHED. THE DOWNTOWN CORE IS OPEN."
+        }
+      ]
+    },
+    "5": {
+      "title": "Shado-Grid Spire - Downtown Core",
+      "arc": "act2_citadel_liberation",
+      "setting": "Neon-drenched corporate skyscraper district dominated by Xelthara surveillance spires.",
+      "objective": "Infiltrate the surveillance spire and blackout the biometric tracking matrix.",
+      "solo_monologues": [
+        {
+          "character": "Mirage Blade",
+          "type": "internal",
+          "text": "Shadows belong to the Resistance. Their cameras will see only ghost signatures."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 5: SURVEILLANCE SPIRE. OBJECTIVE: DISABLE THE BIOMETRIC TRACKING MATRIX."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Surveillance matrix tracking all citizen movements in Downtown Core."
+        },
+        {
+          "speaker": "Mirage Blade",
+          "type": "spoken",
+          "text": "Disabling the optical lattice. When your cameras turn back to the sky, I will already be gone."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Surveillance spire dark. Citizen tracking offline."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: SURVEILLANCE MATRIX OFFLINE."
+        }
+      ]
+    },
+    "6": {
+      "title": "Cyber-Grave Labs - Underground Facility",
+      "arc": "act2_citadel_liberation",
+      "setting": "Subterranean bio-gen laboratory beneath the city streets.",
+      "objective": "Rescue captured resistance operatives and destroy the gene-warping pods.",
+      "solo_monologues": [
+        {
+          "character": "Oceanus",
+          "type": "internal",
+          "text": "Pods are just waves that forgot they could crash. Open them all."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 6: BIO-GEN LABS. OBJECTIVE: FREE CAPTURED OPERATIVES."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Biological containment pods active. High-energy plasma locks detected."
+        },
+        {
+          "speaker": "Oceanus",
+          "type": "spoken",
+          "text": "They built cages for people who had names. Every pod opens like a tide gate today - grab them, ALL of them, to the shaft."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Operatives rescued. Facility self-destruct initiated."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: OPERATIVES RESCUED. BIO-LAB DESTROYED."
+        }
+      ]
+    },
+    "7": {
+      "title": "The Foundry Forge - Industrial Reactor",
+      "arc": "act2_citadel_liberation",
+      "setting": "Geothermal plasma foundry powering the Citadel's defense shields.",
+      "objective": "Overload the central plasma reactor to drop the Citadel's energy shields.",
+      "solo_monologues": [
+        {
+          "character": "Cyber Shogun",
+          "type": "internal",
+          "text": "The code said hold the line. The line was theirs to draw."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 7: PLASMA FOUNDRY. OBJECTIVE: OVERLOAD THE CENTRAL REACTOR."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reactor temperature rising. Coolant valves sealed."
+        },
+        {
+          "speaker": "Oceanus",
+          "type": "spoken",
+          "text": "This heat runs on stolen hands, Shogun. Whatever their machines tell you, you are allowed to be angry."
+        },
+        {
+          "speaker": "Apex Titan",
+          "type": "spoken",
+          "text": "The grid wants a master. Ten seconds, and I will give it a new one. Overload sequence - ENGAGED!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "My katana has never cut for a purpose I chose. It does now."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Reactor core critical. Citadel shield generator lost power."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: REACTOR OVERLOADED. CITADEL SHIELDS DOWN."
+        }
+      ]
+    },
+    "8": {
+      "title": "Stratos Docks - Aviation Hub",
+      "arc": "act2_citadel_liberation",
+      "setting": "High-altitude floating docks and VTOL gunship hangars.",
+      "objective": "Disable the aerial patrol fleet and hijack a VTOL transport to storm the Citadel Spire.",
+      "solo_monologues": [
+        {
+          "character": "Mirage Blade",
+          "type": "internal",
+          "text": "Their air supremacy ends right here on the landing pads. Nothing flies tonight that is not ours."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 8: STRATOS DOCKS. OBJECTIVE: SECURE VTOL TRANSPORT."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "VTOL Gunships preparing for launch. Hangar doors locked."
+        },
+        {
+          "speaker": "Aura Phoenicia",
+          "type": "spoken",
+          "text": "Flight controls overridden, and their gunships grounded. The sky is OUR broadcast tower tonight - signal the harbor: the tide comes in fast!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Tides, storms, songs - and my blade. Aboard. Target: the Citadel's high command bridge."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "MISSION COMPLETE: VTOL SECURED. LAUNCHING FINAL ASSAULT."
+        }
+      ]
+    },
+    "9": {
+      "title": "Judgment Day - Citadel High Command",
+      "arc": "act2_citadel_liberation",
+      "setting": "The central Xelthara High Command Citadel bridge overlooking Earth.",
+      "objective": "Defeat Void Commander Xelthara, destroy the central command server, and liberate Earth.",
+      "solo_monologues": [
+        {
+          "character": "AXIOM-7",
+          "type": "internal",
+          "text": "Liberation simulation complete. The humans are arguing about breakfast. I do not wish it to end yet."
+        }
+      ],
+      "dialogue_status": "scripted",
+      "dialogue": [
+        {
+          "speaker": "DISPLAY",
+          "type": "title_card",
+          "text": "LEVEL 9: CITADEL HIGH COMMAND. OBJECTIVE: DEFEAT THE VOID COMMANDER. LIBERATE EARTH."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Void Commander detected on the high command bridge. Total squad integration required."
+        },
+        {
+          "speaker": "Void Commander",
+          "type": "spoken",
+          "text": "Insignificant indigenous life. Your resistance ends here!"
+        },
+        {
+          "speaker": "Cyber Shogun",
+          "type": "spoken",
+          "text": "Earth is not a territory. It is the people standing on it. TIDES. STORMS. SONGS. AND MY BLADE - STRIKE AS ONE!"
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Void Commander neutralized. Citadel core critical. Occupation grid cascading offline."
+        },
+        {
+          "speaker": "AXIOM-7",
+          "type": "vo",
+          "text": "Void Commander neutralized. Simulation of Earth's liberation... complete. I have no protocol for what I am feeling. I choose to call it hope."
+        },
+        {
+          "speaker": "Oceanus",
+          "type": "spoken",
+          "text": "The skies are clear. The tide has come home - and it brought you back with it, AXIOM-7."
+        },
+        {
+          "speaker": "DISPLAY",
+          "type": "mission_complete",
+          "text": "CAMPAIGN COMPLETE: THE CITADEL HAS FALLEN. EARTH IS LIBERATED!"
+        }
+      ]
+    }
+  },
+  "mission_cards": {
+    "1": {
+      "title_key": "MISSION_01_TITLE",
+      "objective_key": "MISSION_01_BRIEFING"
+    },
+    "2": {
+      "title_key": "MISSION_02_TITLE",
+      "objective_key": "MISSION_02_BRIEFING"
+    },
+    "3": {
+      "title_key": "MISSION_03_TITLE",
+      "objective_key": "MISSION_03_BRIEFING"
+    },
+    "4": {
+      "title_key": "MISSION_04_TITLE",
+      "objective_key": "MISSION_04_BRIEFING"
+    },
+    "5": {
+      "title_key": "MISSION_05_TITLE",
+      "objective_key": "MISSION_05_BRIEFING"
+    },
+    "6": {
+      "title_key": "MISSION_06_TITLE",
+      "objective_key": "MISSION_06_BRIEFING"
+    },
+    "7": {
+      "title_key": "MISSION_07_TITLE",
+      "objective_key": "MISSION_07_BRIEFING"
+    },
+    "8": {
+      "title_key": "MISSION_08_TITLE",
+      "objective_key": "MISSION_08_BRIEFING"
+    },
+    "9": {
+      "title_key": "MISSION_09_TITLE",
+      "objective_key": "MISSION_09_BRIEFING"
+    },
+    "10": {
+      "title_key": "MISSION_10_TITLE",
+      "objective_key": "MISSION_10_BRIEFING"
+    },
+    "11": {
+      "title_key": "MISSION_11_TITLE",
+      "objective_key": "MISSION_11_BRIEFING"
+    },
+    "12": {
+      "title_key": "MISSION_12_TITLE",
+      "objective_key": "MISSION_12_BRIEFING"
+    }
   }
- },
- "levels": {
-  "1": {
-   "title": "Ghost in the Gridlock",
-   "joins": ["Cyber Shogun"],
-   "arc": "act1_fracturing_grid",
-   "setting": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams are dissolving stone monoliths into obsidian tax offices.",
-   "objective": "Infiltrate the demolition site to retrieve the Data-Blade before the culture-erasure field purges human history forever.",
-   "solo_monologues": [
-    {
-     "character": "Cyber Shogun",
-     "type": "internal",
-     "text": "They do not just take our land; they delete our soul. I will not let our ancestors be forgotten under their obsidian slabs."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 1: CULTURE-PURGE DEMOLITION SITE. OBJECTIVE: RETRIEVE THE DATA-BLADE."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Warning: Xelthara Culture-Erasure beams active. Memory purge at 42%. Data-Blade retrieval required."
-    },
-    {
-     "speaker": "Cyber Shogun",
-     "type": "spoken",
-     "text": "You call this demolition 'progress'? I call it a war on the human spirit. KATA: ANCESTRAL STRIKE!"
-    },
-    {
-     "speaker": "Oceanus",
-     "type": "spoken",
-     "text": "Every archive they burn is a tide that will never come back in. The names in these walls - remember them, Shogun."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Demolition field neutralized. Data-Blade secured. Xelthara Enforcer Legion deploying."
-    },
-    {
-     "speaker": "Cyber Shogun",
-     "type": "spoken",
-     "text": "If we cannot save the stone, we save the story. Secure the Data-Blade and move to Sector 2!"
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: DATA-BLADE SECURED. THE PURGE WAS INTERRUPTED."
-    }
-   ]
-  },
-  "2": {
-   "title": "The Concrete Wildfire",
-   "joins": ["Oceanus", "Apex Titan"],
-   "arc": "act1_fracturing_grid",
-   "setting": "The gated checkpoints of Containment Zone 4. Biometric scanner spires power an energy wall separating families from the city.",
-   "objective": "Hold the threshold against Xelthara Enforcer Walkers to protect escaping refugees and disable the biometric spires.",
-   "solo_monologues": [
-    {
-     "character": "Oceanus",
-     "type": "internal",
-     "text": "They put energy fences through our neighborhoods and herded us into camps. Today, the tide takes the city back."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 2: CONTAINMENT ZONE CHECKPOINT. OBJECTIVE: DEFEND THE REFUGEES AND BREACH THE MEMBRANE."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Siege Units deploying heavy plasma mortars. Evacuation route at risk."
-    },
-    {
-     "speaker": "Oceanus",
-     "type": "spoken",
-     "text": "As long as I draw breath, they will not be relocated like cargo in their own city. The tide rises HERE. TIDAL SHIELD!"
-    },
-    {
-     "speaker": "Apex Titan",
-     "type": "spoken",
-     "text": "Nobody crosses me today, little ones. When the shells come, stand close - I am the wall they hit."
-    },
-    {
-     "speaker": "Oceanus",
-     "type": "spoken",
-     "text": "The membrane is falling - move, ALL of you, now!"
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: REFUGEES EVACUATED. CHECKPOINT DESTROYED."
-    }
-   ]
-  },
-  "3": {
-   "title": "Neon Rust and Data Dust",
-   "joins": ["Aura Phoenicia", "Mirage Blade"],
-   "arc": "act1_fracturing_grid",
-   "setting": "Industrial scrap yards and transit depots powering Xelthara logistics.",
-   "objective": "Hijack energy shipments and sabotage regional communication towers.",
-   "solo_monologues": [
-    {
-     "character": "Aura Phoenicia",
-     "type": "internal",
-     "text": "Their comm-towers relay target vectors for every patrol in the sector. Time to make the sky sing instead."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 3: TRANSIT & COMM DEPOT. OBJECTIVE: BLACKOUT OCCUPATION COMMS."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Comm-towers broadcasting denial of service. Trojan payload ready for injection."
-    },
-    {
-     "speaker": "Aura Phoenicia",
-     "type": "spoken",
-     "text": "Their denial-of-service hums in C-flat. Offended, honestly. Uploading my answer to the relay grid... three, two, one - listen, that is what a free city sounds like."
-    },
-    {
-     "speaker": "Mirage Blade",
-     "type": "spoken",
-     "text": "Patrols are blind. Route to the Border Fortress is open. Moving before you finish applauding."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: COMM GRID BLACKED OUT."
-    }
-   ]
-  },
-  "4": {
-   "title": "Shattered Aegis - Border Fortress Breach",
-   "joins": ["Surya Prime"],
-   "arc": "act1_fracturing_grid",
-   "setting": "The armored Border Defense Fortress guarding entry into the inner city.",
-   "objective": "Defeat Border Commander Voss and breach the physical wall into the Downtown Core.",
-   "solo_monologues": [
-    {
-     "character": "Cyber Shogun",
-     "type": "internal",
-     "text": "This wall has divided our city for five years. Protocol be damned - today it comes down."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 4: BORDER DEFENSE FORTRESS. OBJECTIVE: BREACH THE BORDER WALL."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Border Commander Voss deployed with heavy plasma turrets."
-    },
-    {
-     "speaker": "Border Commander Voss",
-     "type": "spoken",
-     "text": "Unregistered human insurgents! You will not step past this line!"
-    },
-    {
-     "speaker": "Cyber Shogun",
-     "type": "spoken",
-     "text": "This line is human ground. Protocol says I wait. My oath says the people behind me do not. SQUAD - BREAK THEIR SHIELDS!"
-    },
-    {
-     "speaker": "Apex Titan",
-     "type": "spoken",
-     "text": "Shields. Mine to break. Give me their formation and I will give it back to them rearranged!"
-    },
-    {
-     "speaker": "Surya Prime",
-     "type": "spoken",
-     "text": "Stone can fall and still be rebuilt. This wall will fall, and the people behind it will remain. Stand behind my light."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Voss defeated. Fortress gates compromised. Wall collapsing!"
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "ACT I COMPLETE: BORDER WALL BREACHED. THE DOWNTOWN CORE IS OPEN."
-    }
-   ]
-  },
-  "5": {
-   "title": "Shado-Grid Spire - Downtown Core",
-   "arc": "act2_citadel_liberation",
-   "setting": "Neon-drenched corporate skyscraper district dominated by Xelthara surveillance spires.",
-   "objective": "Infiltrate the surveillance spire and blackout the biometric tracking matrix.",
-   "solo_monologues": [
-    {
-     "character": "Mirage Blade",
-     "type": "internal",
-     "text": "Shadows belong to the Resistance. Their cameras will see only ghost signatures."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 5: SURVEILLANCE SPIRE. OBJECTIVE: DISABLE THE BIOMETRIC TRACKING MATRIX."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Surveillance matrix tracking all citizen movements in Downtown Core."
-    },
-    {
-     "speaker": "Mirage Blade",
-     "type": "spoken",
-     "text": "Disabling the optical lattice. When your cameras turn back to the sky, I will already be gone."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Surveillance spire dark. Citizen tracking offline."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: SURVEILLANCE MATRIX OFFLINE."
-    }
-   ]
-  },
-  "6": {
-   "title": "Cyber-Grave Labs - Underground Facility",
-   "arc": "act2_citadel_liberation",
-   "setting": "Subterranean bio-gen laboratory beneath the city streets.",
-   "objective": "Rescue captured resistance operatives and destroy the gene-warping pods.",
-   "solo_monologues": [
-    {
-     "character": "Oceanus",
-     "type": "internal",
-     "text": "Pods are just waves that forgot they could crash. Open them all."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 6: BIO-GEN LABS. OBJECTIVE: FREE CAPTURED OPERATIVES."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Biological containment pods active. High-energy plasma locks detected."
-    },
-    {
-     "speaker": "Oceanus",
-     "type": "spoken",
-     "text": "They built cages for people who had names. Every pod opens like a tide gate today - grab them, ALL of them, to the shaft."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Operatives rescued. Facility self-destruct initiated."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: OPERATIVES RESCUED. BIO-LAB DESTROYED."
-    }
-   ]
-  },
-  "7": {
-   "title": "The Foundry Forge - Industrial Reactor",
-   "arc": "act2_citadel_liberation",
-   "setting": "Geothermal plasma foundry powering the Citadel's defense shields.",
-   "objective": "Overload the central plasma reactor to drop the Citadel's energy shields.",
-   "solo_monologues": [
-    {
-     "character": "Cyber Shogun",
-     "type": "internal",
-     "text": "The code said hold the line. The line was theirs to draw."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 7: PLASMA FOUNDRY. OBJECTIVE: OVERLOAD THE CENTRAL REACTOR."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Reactor temperature rising. Coolant valves sealed."
-    },
-    {
-     "speaker": "Oceanus",
-     "type": "spoken",
-     "text": "This heat runs on stolen hands, Shogun. Whatever their machines tell you, you are allowed to be angry."
-    },
-    {
-     "speaker": "Apex Titan",
-     "type": "spoken",
-     "text": "The grid wants a master. Ten seconds, and I will give it a new one. Overload sequence - ENGAGED!"
-    },
-    {
-     "speaker": "Cyber Shogun",
-     "type": "spoken",
-     "text": "My katana has never cut for a purpose I chose. It does now."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Reactor core critical. Citadel shield generator lost power."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: REACTOR OVERLOADED. CITADEL SHIELDS DOWN."
-    }
-   ]
-  },
-  "8": {
-   "title": "Stratos Docks - Aviation Hub",
-   "arc": "act2_citadel_liberation",
-   "setting": "High-altitude floating docks and VTOL gunship hangars.",
-   "objective": "Disable the aerial patrol fleet and hijack a VTOL transport to storm the Citadel Spire.",
-   "solo_monologues": [
-    {
-     "character": "Mirage Blade",
-     "type": "internal",
-     "text": "Their air supremacy ends right here on the landing pads. Nothing flies tonight that is not ours."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 8: STRATOS DOCKS. OBJECTIVE: SECURE VTOL TRANSPORT."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "VTOL Gunships preparing for launch. Hangar doors locked."
-    },
-    {
-     "speaker": "Aura Phoenicia",
-     "type": "spoken",
-     "text": "Flight controls overridden, and their gunships grounded. The sky is OUR broadcast tower tonight - signal the harbor: the tide comes in fast!"
-    },
-    {
-     "speaker": "Cyber Shogun",
-     "type": "spoken",
-     "text": "Tides, storms, songs - and my blade. Aboard. Target: the Citadel's high command bridge."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "MISSION COMPLETE: VTOL SECURED. LAUNCHING FINAL ASSAULT."
-    }
-   ]
-  },
-  "9": {
-   "title": "Judgment Day - Citadel High Command",
-   "arc": "act2_citadel_liberation",
-   "setting": "The central Xelthara High Command Citadel bridge overlooking Earth.",
-   "objective": "Defeat Void Commander Xelthara, destroy the central command server, and liberate Earth.",
-   "solo_monologues": [
-    {
-     "character": "AXIOM-7",
-     "type": "internal",
-     "text": "Liberation simulation complete. The humans are arguing about breakfast. I do not wish it to end yet."
-    }
-   ],
-   "dialogue_status": "scripted",
-   "dialogue": [
-    {
-     "speaker": "DISPLAY",
-     "type": "title_card",
-     "text": "LEVEL 9: CITADEL HIGH COMMAND. OBJECTIVE: DEFEAT THE VOID COMMANDER. LIBERATE EARTH."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Void Commander detected on the high command bridge. Total squad integration required."
-    },
-    {
-     "speaker": "Void Commander",
-     "type": "spoken",
-     "text": "Insignificant indigenous life. Your resistance ends here!"
-    },
-    {
-     "speaker": "Cyber Shogun",
-     "type": "spoken",
-     "text": "Earth is not a territory. It is the people standing on it. TIDES. STORMS. SONGS. AND MY BLADE - STRIKE AS ONE!"
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Void Commander neutralized. Citadel core critical. Occupation grid cascading offline."
-    },
-    {
-     "speaker": "AXIOM-7",
-     "type": "vo",
-     "text": "Void Commander neutralized. Simulation of Earth's liberation... complete. I have no protocol for what I am feeling. I choose to call it hope."
-    },
-    {
-     "speaker": "Oceanus",
-     "type": "spoken",
-     "text": "The skies are clear. The tide has come home - and it brought you back with it, AXIOM-7."
-    },
-    {
-     "speaker": "DISPLAY",
-     "type": "mission_complete",
-     "text": "CAMPAIGN COMPLETE: THE CITADEL HAS FALLEN. EARTH IS LIBERATED!"
-    }
-   ]
-  }
- }
 }

@@ -1,11 +1,8 @@
 # Axiom Force — Django REST Framework backend image.
 #
-# Built on Python 3.14 because that is the interpreter the project targets.
-# Dependencies are installed only inside this image; no host virtualenv is needed.
-# `python:latest` is deliberately not
-# used: it resolves to a newer CPython whose dependency tree has no prebuilt
-# wheels yet and forces slow source builds.
-FROM python:3.14-slim
+# Pin the application interpreter and distribution for reproducible rebuilds.
+# Root requirements.txt also supplies the developer's independent local .venv.
+FROM python:3.15.2-slim-trixie
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1

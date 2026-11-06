@@ -1,0 +1,26 @@
+{
+  "description": "Manually corrected gameplay instructions. Clear means defeat defenders, douse is an action, and parry timing must remain explicit. Array order follows sources.",
+  "sources": [
+    "Clear flak battery mounting deck",
+    "Douse flak battery coolant pipe with Oceanus",
+    "Shield charge overloaded. Parry again.",
+    "BEACON SHIELD / {charges} CHARGES\nKINETIC PARRY: {ability} as nearby sentry fire lands"
+  ],
+  "translations": {
+    "eurofrench": ["Éliminez les défenseurs de la plateforme de la batterie antiaérienne", "Arrosez le tuyau de refroidissement de la batterie antiaérienne avec Oceanus", "Charge du bouclier surchargée. Parez encore.", "BOUCLIER DE BALISE / {charges} CHARGES\nPARADE CINÉTIQUE : {ability} au moment où les tirs des sentinelles proches vous atteignent"],
+    "brazilianportuguese": ["Elimine os defensores da plataforma da bateria antiaérea", "Encharque o tubo de refrigeração da bateria antiaérea com Oceanus", "Carga do escudo sobrecarregada. Apare novamente.", "ESCUDO DO SINALIZADOR / {charges} CARGAS\nAPARO CINÉTICO: {ability} quando os disparos das sentinelas próximas atingirem você"],
+    "german": ["Säubere das Montagedeck der Flakbatterie von Feinden", "Flute das Kühlmittelrohr der Flakbatterie mit Oceanus", "Schildladung überlastet. Pariere erneut.", "BAKEN-SCHILD / {charges} LADUNGEN\nKINETISCHE PARADE: {ability}, sobald dich das Feuer naher Wachen trifft"],
+    "italian": ["Elimina i difensori della piattaforma della batteria antiaerea", "Inonda il tubo di raffreddamento della batteria antiaerea con Oceanus", "Carica dello scudo sovraccarica. Para di nuovo.", "SCUDO DEL SEGNALATORE / {charges} CARICHE\nPARATA CINETICA: {ability} quando arrivano i colpi delle sentinelle vicine"],
+    "polish": ["Oczyść platformę baterii przeciwlotniczej z wrogów", "Zalej przewód chłodziwa baterii przeciwlotniczej za pomocą Oceanus", "Ładunek tarczy przeciążony. Sparuj ponownie.", "TARCZA NADAJNIKA / {charges} ŁADUNKÓW\nPARADA KINETYCZNA: {ability}, gdy trafią cię pociski pobliskich wartowników"],
+    "arabic": ["طهّر منصة بطارية المدفعية المضادة للطائرات من الأعداء", "أغرق أنبوب تبريد بطارية المدفعية المضادة للطائرات باستخدام Oceanus", "شحنة الدرع محمّلة فوق طاقتها. نفّذ الصد مجددًا.", "درع المنارة / {charges} شحنات\nالصد الحركي: {ability} لحظة وصول نيران الحراس القريبين"],
+    "turkish": ["Uçaksavar bataryası platformundaki düşmanları temizle", "Oceanus ile uçaksavar bataryasının soğutma borusunu suya boğ", "Kalkan yükü aşırı yüklendi. Yeniden savuştur.", "İŞARET KALKANI / {charges} YÜK\nKİNETİK SAVUŞTURMA: yakındaki nöbetçilerin ateşi isabet ederken {ability}"],
+    "japanese": ["対空砲台の設置甲板から敵を排除する", "Oceanusで対空砲台の冷却管に水を浴びせる", "シールドの充填が過負荷状態。もう一度パリィしろ。", "ビーコンシールド / 残り{charges}回\nキネティックパリィ：近くの歩哨の弾が当たる瞬間に{ability}"],
+    "korean": ["대공 포대 설치 갑판의 적을 제거하라", "Oceanus로 대공 포대 냉각관에 물을 쏟아부어라", "보호막 충전이 과부하 상태입니다. 다시 쳐내십시오.", "비콘 보호막 / 충전 {charges}회\n키네틱 패리: 근처 보초의 탄환이 맞는 순간 {ability}"],
+    "mandarin": ["清除防空炮台安装甲板上的敌人", "使用Oceanus浇灌防空炮台的冷却管", "护盾充能过载。再次招架。", "信标护盾 / 剩余{charges}次\n动能招架：附近哨兵的子弹命中瞬间使用{ability}"],
+    "hebrew": ["טהרו מאויבים את משטח ההתקנה של סוללת הנ״מ", "הציפו את צינור הקירור של סוללת הנ״מ בעזרת Oceanus", "מטען המגן בעומס יתר. הדפו שוב.", "מגן המשואה / {charges} מטענים\nהדיפה קינטית: {ability} ברגע שפוגעים בכם קליעי הזקיפים הקרובים"],
+    "traditionalchinese": ["清除防空砲台安裝甲板上的敵人", "使用Oceanus澆灌防空砲台的冷卻管", "護盾充能過載。再次招架。", "信標護盾 / 剩餘{charges}次\n動能招架：附近哨兵的子彈命中瞬間使用{ability}"],
+    "indonesian": ["Habisi musuh di dek pemasangan baterai antipesawat", "Siram pipa pendingin baterai antipesawat menggunakan Oceanus", "Muatan perisai kelebihan beban. Tangkis lagi.", "PERISAI SUAR / {charges} MUATAN\nTANGKISAN KINETIK: {ability} tepat saat tembakan penjaga terdekat mengenai sasaran"],
+    "vietnamese": ["Tiêu diệt địch trên sàn lắp đặt trận địa pháo phòng không", "Dùng Oceanus dội nước vào ống làm mát trận địa pháo phòng không", "Năng lượng khiên quá tải. Đỡ đòn lần nữa.", "KHIÊN HẢI ĐĂNG / {charges} LƯỢT\nĐỠ ĐÒN ĐỘNG NĂNG: dùng {ability} đúng lúc đạn của lính gác gần đó chạm tới"],
+    "thai": ["กำจัดศัตรูบนแท่นติดตั้งปืนต่อสู้อากาศยาน", "ใช้ Oceanus สาดน้ำใส่ท่อหล่อเย็นของฐานปืนต่อสู้อากาศยาน", "ประจุโล่เกินกำลัง ปัดป้องอีกครั้ง", "โล่สัญญาณ / {charges} ประจุ\nปัดป้องจลน์: ใช้ {ability} ในจังหวะที่กระสุนของยามใกล้เคียงกำลังจะโดนตัว"]
+  }
+}

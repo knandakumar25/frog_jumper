@@ -14,6 +14,29 @@ using System.Collections.Generic;
 /// </summary>
 public abstract partial class CodeLevel : Node2D
 {
+    private Label? _missionHeading;
+    private Label? _missionBriefing;
+    private Label? _actHeading;
+
+    /// <summary>Retranslates visible mission metadata and counters without rebuilding the level or its cinematic/audio owners.</summary>
+    public override void _Notification(int what)
+    {
+        if (what != NotificationTranslationChanged || !IsInsideTree() || _controlsLabel == null) return;
+        RefreshControlsHint();
+        UpdateFragmentLabel();
+        if (GodotObject.IsInstanceValid(_missionHeading))
+        {
+            var entry = LevelCatalog.Get(MissionNumber);
+            string title = WildfireText.EnglishUppercase(WildfireText.Get($"MISSION_{MissionNumber:D2}_TITLE", entry.Title));
+            _missionHeading!.Text = WildfireText.Format("MISSION_HEADING", "MISSION {number}: {title}",
+                ("number", MissionNumber), ("title", title));
+        }
+        if (GodotObject.IsInstanceValid(_missionBriefing))
+            _missionBriefing!.Text = WildfireText.Get($"MISSION_{MissionNumber:D2}_BRIEFING", _missionBriefing.Text);
+        if (GodotObject.IsInstanceValid(_actHeading))
+            _actHeading!.Text = WildfireText.Get(MissionNumber == 1 ? "CAMPAIGN_ACT_I_TITLE" : "CAMPAIGN_ACT_II_TITLE",
+                MissionNumber == 1 ? "ACT I" : "ACT II // THE UNREGISTERED");
+    }
     // ─── Level definition (override in subclasses) ───────────────────────────
     /// <summary>This mission's number in <see cref="LevelCatalog"/>.</summary>
     protected abstract int MissionNumber { get; }
@@ -200,8 +223,8 @@ public abstract partial class CodeLevel : Node2D
         UpdateShrines();
         CollectFragments();
         UpdateMission();
-        CurrentObjective = ComputeObjective();
-        _objectiveLabel.Text = "OBJECTIVE  /  " + CurrentObjective.ToUpperInvariant();
+        CurrentObjective = TranslationServer.Translate(ComputeObjective());
+        _objectiveLabel.Text = WildfireText.Format("HUD_OBJECTIVE", "OBJECTIVE / {objective}", ("objective", CurrentObjective));
         if (_player.GlobalPosition.Y > WorldBounds.End.Y + KillMargin) RecoverFromFall();
     }
 
@@ -568,7 +591,7 @@ public abstract partial class CodeLevel : Node2D
         // Snapshot before any cinematic or asynchronous work: results describe the extraction instant.
         int finalScore = _gameManager.Points;
         int peakCombo = _maxCombo;
-        string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}".ToUpperInvariant();
+        string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}";
         _scorecard?.ConfigureCompletion(MissionNumber, finalScore, System.Guid.NewGuid().ToString(),
             SessionManager.Instance?.CurrentSessionId ?? -1);
         if (MissionNumber == 3)
@@ -785,7 +808,8 @@ public abstract partial class CodeLevel : Node2D
         string objective = narrative?.Call("get_level_objective", entry.NarrativeKey).AsString() ?? "";
         objective = TitleCardObjective(objective);
         if (string.IsNullOrEmpty(title)) title = entry.Title;
-        title = TitleCardTitle(title);
+        title = WildfireText.EnglishUppercase(WildfireText.Get($"MISSION_{MissionNumber:D2}_TITLE", TitleCardTitle(title)));
+        objective = WildfireText.Get($"MISSION_{MissionNumber:D2}_BRIEFING", objective);
         var card = new VBoxContainer { Name = "TitleCard", MouseFilter = Control.MouseFilterEnum.Ignore };
         card.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.Center);
         card.OffsetLeft = -560; card.OffsetRight = 560; card.OffsetTop = -120; card.OffsetBottom = 40;
@@ -797,16 +821,19 @@ public abstract partial class CodeLevel : Node2D
             string actTitle = TranslationServer.Translate(actKey);
             var actHeading = NewLabel(actTitle == actKey ? fallback : actTitle, 24, MissionNumber == 5 ? new Color("#e4b777") : new Color("#77efff"));
             actHeading.Name = "ActHeading";
+            _actHeading = actHeading;
             actHeading.HorizontalAlignment = HorizontalAlignment.Center;
             card.AddChild(actHeading);
         }
-        var heading = NewLabel($"MISSION {MissionNumber}: {title.ToUpperInvariant()}", 34, new Color("#77efff"));
+        var heading = NewLabel(WildfireText.Format("MISSION_HEADING", "MISSION {number}: {title}", ("number", MissionNumber), ("title", title)), 34, new Color("#77efff"));
         heading.Name = "MissionHeading";
+        _missionHeading = heading;
         heading.HorizontalAlignment = HorizontalAlignment.Center;
         card.AddChild(heading);
         if (!string.IsNullOrEmpty(objective))
         {
             var sub = NewLabel(objective, 16, new Color("#ffe9c9"));
+            _missionBriefing = sub;
             sub.HorizontalAlignment = HorizontalAlignment.Center;
             card.AddChild(sub);
         }
@@ -819,7 +846,7 @@ public abstract partial class CodeLevel : Node2D
     }
 
     /// <summary>Refreshes the optional-fragment counter shown under the objective.</summary>
-    private void UpdateFragmentLabel() => _fragmentLabel.Text = _fragments.Count == 0 ? "" : $"MEMORY FRAGMENTS  {MemoryFragmentsFound} / {FragmentTotal}";
+    private void UpdateFragmentLabel() => _fragmentLabel.Text = _fragments.Count == 0 ? "" : WildfireText.Format("HUD_FRAGMENTS", "MEMORY FRAGMENTS {found} / {total}", ("found", MemoryFragmentsFound), ("total", FragmentTotal));
 
     /// <summary>Rebuilds the controls hint for the active device, adding the swap keys once a second operative exists.</summary>
     private void RefreshControlsHint()
@@ -827,8 +854,10 @@ public abstract partial class CodeLevel : Node2D
         if (_controlsLabel == null) return;
         bool canSwap = OperativeRoster.Current.Unlocked.Count > 1;
         _controlsLabel.Text = _usingPad
-            ? "L STICK MOVE | A JUMP | X ATTACK | Y ABILITY | RB DASH | " + (canSwap ? "D-PAD DOWN / BACK SWAP | " : "") + "START PAUSE"
-            : "A / D MOVE | SPACE JUMP | F ATTACK | Q ABILITY | SHIFT DASH | " + (canSwap ? "TAB / 1-6 SWAP | " : "") + "ESC PAUSE";
+            ? WildfireText.Format("HUD_PAD_CONTROLS", "L STICK MOVE | A JUMP | X ATTACK | Y ABILITY | RB DASH | {swap}START PAUSE",
+                ("swap", canSwap ? TranslationServer.Translate("D-PAD DOWN / BACK SWAP | ").ToString() : ""))
+            : WildfireText.Format("HUD_KEY_CONTROLS", "A / D MOVE | SPACE JUMP | F ATTACK | Q ABILITY | SHIFT DASH | {swap}ESC PAUSE",
+                ("swap", canSwap ? TranslationServer.Translate("TAB / 1-6 SWAP | ").ToString() : ""));
     }
 
     /// <summary>Starts the stage music and instantiates the shared pause menu used by the other levels.</summary>
