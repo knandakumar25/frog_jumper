@@ -28,7 +28,7 @@ Resumed work from overnight pause. Restarted the Docker compose stack (`docker c
   - Django Tests: 111/111 passed.
   - NUnit (.NET 10) Tests: 353/353 passed in `AxiomForce.Tests.csproj` (including `WorldExpansionPhase3Tests.cs`).
   - GdUnit4 Tests: 70/70 test suites (330/330 test cases) passed with 0 errors, 0 failures, 0 flaky, 0 skipped, 0 orphans (including `test_world_expansion_phase3.gd`).
-- Git Policy: No commits or pushes performed. Working tree is clean and local, awaiting user instruction.
+- Git Publication: Committed (`6f20ba3`) and pushed to `origin/main` per explicit user instruction. Working tree clean.
 
 ## Neo-Kyoto Living Resistance World: Phase 2 Delivery — 2026-11-06
 
