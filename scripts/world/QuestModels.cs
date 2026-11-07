@@ -62,12 +62,15 @@ public sealed record QuestBranchChoice(
 
 /// <summary>
 /// One-time completion rewards awarded upon committing a quest turn-in.
+/// Supports Hero Sparks, City Credits, bonus modules/gadgets, and faction reputation points.
 /// </summary>
 public sealed record QuestReward(
     int HeroSparks,
     int CityCredits,
     string? BonusModuleId = null,
-    string? BonusGadgetId = null
+    string? BonusGadgetId = null,
+    string? FactionId = null,
+    int FactionReputation = 0
 );
 
 /// <summary>

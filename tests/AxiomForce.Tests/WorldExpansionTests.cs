@@ -50,7 +50,7 @@ public class WorldExpansionTests
     [Test]
     public void NamedResidentsHaveAuthoredSchedulesAndDialog()
     {
-        Assert.That(WorldContentCatalog.Residents.Count, Is.EqualTo(6));
+        Assert.That(WorldContentCatalog.Residents.Count, Is.GreaterThanOrEqualTo(6));
 
         string[] expected = { "npc_sora", "npc_gen", "npc_ren", "npc_maya_chen", "npc_barik", "npc_yuki" };
         foreach (var id in expected)
@@ -70,7 +70,7 @@ public class WorldExpansionTests
     [Test]
     public void QuestsAndBranchesMatchNarrativeChain()
     {
-        Assert.That(WorldContentCatalog.Quests.Count, Is.EqualTo(8));
+        Assert.That(WorldContentCatalog.Quests.Count, Is.GreaterThanOrEqualTo(8));
 
         // Old Kyoto Chain
         var qOk1 = WorldContentCatalog.Quests.First(q => q.Id == "quest_ok_01");
@@ -108,11 +108,11 @@ public class WorldExpansionTests
     [Test]
     public void ChallengesAndSideOperationsAreRegistered()
     {
-        Assert.That(WorldContentCatalog.Challenges.Count, Is.EqualTo(6));
+        Assert.That(WorldContentCatalog.Challenges.Count, Is.GreaterThanOrEqualTo(6));
         Assert.That(WorldContentCatalog.Challenges.Count(c => c.RegionId == 5), Is.EqualTo(3));
         Assert.That(WorldContentCatalog.Challenges.Count(c => c.RegionId == 9), Is.EqualTo(3));
 
-        Assert.That(WorldContentCatalog.SideOperations.Count, Is.EqualTo(2));
+        Assert.That(WorldContentCatalog.SideOperations.Count, Is.GreaterThanOrEqualTo(2));
         Assert.That(WorldContentCatalog.SideOperations.Any(s => s.Id == "side_op_palace_vault" && s.RegionId == 5), Is.True);
         Assert.That(WorldContentCatalog.SideOperations.Any(s => s.Id == "side_op_viaduct_defense" && s.RegionId == 9), Is.True);
     }

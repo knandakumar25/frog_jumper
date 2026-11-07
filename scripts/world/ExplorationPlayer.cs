@@ -3,7 +3,7 @@ using System;
 
 /// <summary>
 /// Separate eight-direction exploration controller supporting on-foot navigation,
-/// top-down combat actions, traversal perks, and the starter electric bike.
+/// top-down combat actions, traversal perks, the starter electric bike, and the utility boat.
 /// Mission combat controllers remain untouched.
 /// </summary>
 public partial class ExplorationPlayer : CharacterBody2D
@@ -12,6 +12,7 @@ public partial class ExplorationPlayer : CharacterBody2D
     public bool MovementEnabled { get; set; }
     public int Facing { get; private set; }
     public bool IsRidingBike { get; private set; }
+    public bool IsRidingBoat { get; private set; }
     public bool InInterior { get; set; }
 
     // Top-down combat and operative status
@@ -28,6 +29,7 @@ public partial class ExplorationPlayer : CharacterBody2D
 
     private Sprite2D _sprite = null!;
     private Sprite2D? _bikeSprite;
+    private Sprite2D? _boatSprite;
     private string _operative = "";
     private double _stride;
 
@@ -42,7 +44,7 @@ public partial class ExplorationPlayer : CharacterBody2D
         _sprite = new Sprite2D { Hframes = 4, Vframes = 8, Offset = new(0, -23), Scale = Vector2.One * .65f };
         AddChild(_sprite);
 
-        // Optional visual indicator for electric bike mount
+        // Visual indicator for electric bike mount
         _bikeSprite = new Sprite2D
         {
             Name = "BikeMountSprite",
@@ -52,6 +54,17 @@ public partial class ExplorationPlayer : CharacterBody2D
             ZIndex = -1
         };
         AddChild(_bikeSprite);
+
+        // Visual indicator for utility boat mount
+        _boatSprite = new Sprite2D
+        {
+            Name = "BoatMountSprite",
+            Offset = new(0, -5),
+            Scale = Vector2.One * 0.8f,
+            Visible = false,
+            ZIndex = -1
+        };
+        AddChild(_boatSprite);
 
         AddChild(new Camera2D { Position = new(0, -40), PositionSmoothingEnabled = false, Zoom = Vector2.One * .8f });
         RefreshOperative();
@@ -90,8 +103,8 @@ public partial class ExplorationPlayer : CharacterBody2D
             return true;
         }
 
-        // Electric bikes cannot be operated inside buildings, in water, or off designated terrain
-        if (InInterior || WorldCatalog.Water(currentMetres))
+        // Electric bikes cannot be operated inside buildings, in water, or while on a boat
+        if (InInterior || IsRidingBoat || WorldCatalog.Water(currentMetres))
         {
             return false;
         }
@@ -101,10 +114,37 @@ public partial class ExplorationPlayer : CharacterBody2D
         return true;
     }
 
+    /// <summary>Toggles mounting the utility boat at the current player position.</summary>
+    public bool ToggleBoat() => ToggleBoat(new WorldPoint(0, 0));
+
+    /// <summary>Toggles mounting the utility boat at coordinates.</summary>
+    public bool ToggleBoatAt(double x, double y, int layer = 0) => ToggleBoat(new WorldPoint(x, y, layer));
+
+    /// <summary>Toggles mounting the utility boat on water surfaces outside interiors.</summary>
+    public bool ToggleBoat(WorldPoint currentMetres)
+    {
+        if (IsRidingBoat)
+        {
+            IsRidingBoat = false;
+            if (_boatSprite != null) _boatSprite.Visible = false;
+            return true;
+        }
+
+        // Boats can only be operated in water outside interiors and cannot be mounted while on bike
+        if (InInterior || IsRidingBike || !WorldCatalog.Water(currentMetres))
+        {
+            return false;
+        }
+
+        IsRidingBoat = true;
+        if (_boatSprite != null) _boatSprite.Visible = true;
+        return true;
+    }
+
     /// <summary>Executes top-down light attack for the current operative.</summary>
     public bool ExecuteAttack()
     {
-        if (IsAttacking || AttackCooldown > 0 || IsRidingBike) return false;
+        if (IsAttacking || AttackCooldown > 0 || IsRidingBike || IsRidingBoat) return false;
         IsAttacking = true;
         AttackCooldown = 0.45;
         ShieldRegenTimer = 3.0; // Reset shield regen delay
@@ -114,7 +154,7 @@ public partial class ExplorationPlayer : CharacterBody2D
     /// <summary>Executes defensive guard or parry stance.</summary>
     public bool ExecuteDefend(bool active)
     {
-        if (IsRidingBike) return false;
+        if (IsRidingBike || IsRidingBoat) return false;
         IsDefending = active;
         return true;
     }
@@ -122,7 +162,7 @@ public partial class ExplorationPlayer : CharacterBody2D
     /// <summary>Performs evasive dash / dodge roll.</summary>
     public bool ExecuteDodge()
     {
-        if (DodgeCooldown > 0 || IsRidingBike) return false;
+        if (DodgeCooldown > 0 || IsRidingBike || IsRidingBoat) return false;
         DodgeCooldown = 1.0;
         return true;
     }
@@ -153,7 +193,7 @@ public partial class ExplorationPlayer : CharacterBody2D
     }
 
     /// <summary>
-    /// Moves at 4/8 metres per second on foot, or up to 20 m/s when riding the electric bike on arterial roads.
+    /// Moves at 4/8 metres per second on foot, up to 20 m/s on bike, or 14 m/s on boat.
     /// </summary>
     public override void _PhysicsProcess(double delta)
     {
@@ -183,8 +223,11 @@ public partial class ExplorationPlayer : CharacterBody2D
         float speed;
         if (IsRidingBike)
         {
-            // Bike: 20 m/s on arterial road, 14 m/s on open rough ground
-            speed = 20.0f;
+            speed = 20.0f; // Bike: ~20 m/s on roads
+        }
+        else if (IsRidingBoat)
+        {
+            speed = 14.0f; // Utility Boat: ~14 m/s on water
         }
         else
         {

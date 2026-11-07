@@ -84,6 +84,8 @@ public sealed class CampaignProgressionState
     public Dictionary<string, CampaignHeroProgression> Operatives { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public HashSet<string> UnlockedModules { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public HashSet<string> UnlockedGadgets { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public Dictionary<string, int> FactionReputation { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public HashSet<string> UnlockedHqAmenities { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
     /// Available catalog of tactical modules offering balanced tradeoffs.
@@ -93,7 +95,12 @@ public sealed class CampaignProgressionState
         new TacticalModule("mod_kinetic_coil", "Kinetic Flux Coil", "Increases melee slash damage by +10% at the cost of -5% max shield capacity.", StatModifierType.SlashDamage, 0.10f, StatModifierType.ShieldCapacity, -0.05f, 200),
         new TacticalModule("mod_aegis_plating", "Aegis Nano-Plating", "Reinforces shield capacity by +10% while reducing dash cooldown recovery by -5%.", StatModifierType.ShieldCapacity, 0.10f, StatModifierType.CooldownReduction, -0.05f, 200),
         new TacticalModule("mod_thermal_sink", "Thermal Siphon Heatsink", "Accelerates ability cooldowns by +8% with a -5% reduction in melee impact damage.", StatModifierType.CooldownReduction, 0.08f, StatModifierType.SlashDamage, -0.05f, 250),
-        new TacticalModule("mod_hull_reinforce", "Composite Hull Lattice", "Expands operative maximum health by +12% at the cost of -4% movement speed.", StatModifierType.MaxHealth, 0.12f, StatModifierType.MoveSpeed, -0.04f, 250)
+        new TacticalModule("mod_hull_reinforce", "Composite Hull Lattice", "Expands operative maximum health by +12% at the cost of -4% movement speed.", StatModifierType.MaxHealth, 0.12f, StatModifierType.MoveSpeed, -0.04f, 250),
+        // Faction-specialized sidegrade modules
+        new TacticalModule("mod_courier_booster", "Courier Kinetic Booster", "Independent Couriers specialty: +10% movement agility with -5% max shield capacity.", StatModifierType.MoveSpeed, 0.10f, StatModifierType.ShieldCapacity, -0.05f, 300),
+        new TacticalModule("mod_reclamation_mesh", "Reclamation Reinforced Mesh", "Reclamation Guild specialty: +10% max shield capacity with -5% slash impact damage.", StatModifierType.ShieldCapacity, 0.10f, StatModifierType.SlashDamage, -0.05f, 300),
+        new TacticalModule("mod_free_signal_tuner", "Signal Resonance Tuner", "Free Signal Collective specialty: +10% cooldown recovery with -5% max health.", StatModifierType.CooldownReduction, 0.10f, StatModifierType.MaxHealth, -0.05f, 300),
+        new TacticalModule("mod_civic_nanobound", "Civic Nano-Restorative", "Civic Recovery Network specialty: +10% max health with -5% cooldown recovery.", StatModifierType.MaxHealth, 0.10f, StatModifierType.CooldownReduction, -0.05f, 300)
     };
 
     /// <summary>
@@ -128,6 +135,48 @@ public sealed class CampaignProgressionState
     {
         if (level >= MaxLevel) return 0;
         return 100 + (level - 1) * 140 + (level - 1) * (level - 1) * 10;
+    }
+
+    /// <summary>
+    /// Retrieves current reputation points with a specified faction.
+    /// </summary>
+    public int GetFactionReputation(string factionId)
+    {
+        return FactionReputation.TryGetValue(factionId, out int points) ? points : 0;
+    }
+
+    /// <summary>
+    /// Computes the current relationship tier with a faction based on accumulated reputation.
+    /// </summary>
+    public FactionTier GetFactionTier(string factionId)
+    {
+        return FactionId.CalculateTier(GetFactionReputation(factionId));
+    }
+
+    /// <summary>
+    /// Adds reputation points for a faction.
+    /// </summary>
+    public void AddFactionReputation(string factionId, int points)
+    {
+        if (string.IsNullOrWhiteSpace(factionId) || points <= 0) return;
+        int current = GetFactionReputation(factionId);
+        FactionReputation[factionId] = current + points;
+    }
+
+    /// <summary>
+    /// Unlocks an HQ amenity if sufficient City Credits are available.
+    /// </summary>
+    public bool UnlockHqAmenity(string amenityId, int costCredits = 250)
+    {
+        if (string.IsNullOrWhiteSpace(amenityId) || UnlockedHqAmenities.Contains(amenityId))
+            return false;
+
+        if (CityCredits < costCredits)
+            return false;
+
+        CityCredits -= costCredits;
+        UnlockedHqAmenities.Add(amenityId);
+        return true;
     }
 
     /// <summary>

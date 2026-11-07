@@ -14,7 +14,9 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
     Dictionary<int, string>? DistrictChoices = null,
     HashSet<string>? UnlockedVehicles = null,
     string? ActiveVehicle = null,
-    double WorldTimeMinutes = 0.0) : IEquatable<WorldSave>
+    double WorldTimeMinutes = 0.0,
+    Dictionary<string, int>? FactionReputation = null,
+    HashSet<string>? UnlockedHqAmenities = null) : IEquatable<WorldSave>
 {
     /// <summary>Creates a safe post-mission arrival; completion, including Mission 12, always resumes exploration.</summary>
     public static WorldSave AfterMission(int mission, string operative=OperativeRoster.Starter)
@@ -22,7 +24,8 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
         var entrance=WorldCatalog.Entrances[LevelCatalog.Clamp(mission)-1].Position;
         var safe=WorldCatalog.NearestStation(entrance).Position;
         return new(1,WorldCatalog.Identity,safe,null,safe,"world",LevelCatalog.Clamp(mission),OperativeRoster.Normalize(operative),
-            new Dictionary<string, string?>(), new Dictionary<string, int>(), new Dictionary<int, string>(), new HashSet<string> { "veh_starter_bike" }, null, 0.0);
+            new Dictionary<string, string?>(), new Dictionary<string, int>(), new Dictionary<int, string>(), new HashSet<string> { "veh_starter_bike" }, null, 0.0,
+            new Dictionary<string, int>(), new HashSet<string>());
     }
 
     /// <summary>Rejects unsupported identities, unsafe coordinates and unknown modes instead of overwriting future saves.</summary>
@@ -64,6 +67,8 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
         if (!DictEqual(ActiveQuests, other.ActiveQuests)) return false;
         if (!DictEqual(DistrictChoices, other.DistrictChoices)) return false;
         if (!SetEqual(UnlockedVehicles, other.UnlockedVehicles)) return false;
+        if (!DictEqual(FactionReputation, other.FactionReputation)) return false;
+        if (!SetEqual(UnlockedHqAmenities, other.UnlockedHqAmenities)) return false;
 
         return true;
     }
@@ -100,16 +105,25 @@ public static class WorldStorage
         await using(var read=new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key",connection,transaction))
         {
             read.Parameters.AddWithValue("key",$"world:{session}");
-            if(await read.ExecuteScalarAsync().ConfigureAwait(false) is string json)
+            await using var reader=await read.ExecuteReaderAsync();
+            if(await reader.ReadAsync() && !reader.IsDBNull(0))
             {
-                var previous=JsonSerializer.Deserialize<WorldSave>(json);
-                if(previous?.Valid()!=true) throw new InvalidOperationException("Unsupported world state.");
-                state=state with {Waypoint=previous.Waypoint};
+                var existing=JsonSerializer.Deserialize<WorldSave>(reader.GetString(0));
+                if(existing!=null && existing.Valid() && existing.Waypoint!=null) state=state with { Waypoint=existing.Waypoint };
             }
         }
+        await SaveAsync(connection,transaction,session,state);
+    }
+
+    /// <summary>Single-row atomic save with standard retry at callsite on transient errors.</summary>
+    public static async Task SaveAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,WorldSave state)
+    {
+        if(!state.Valid()) throw new InvalidOperationException("Invalid exploration snapshot state rejected.");
+        await EnsureAsync(connection,transaction).ConfigureAwait(false);
         await WriteAsync(connection,transaction,session,state).ConfigureAwait(false);
     }
-    /// <summary>Reads one campaign. Missing legacy data gets a safe arrival after Mission 1; outages propagate to retry UI.</summary>
+
+    /// <summary>Reads one campaign's exploration snapshot, populating unvisited campaigns at their latest safe mission terminal.</summary>
     public static async Task<WorldSave?> LoadAsync(int session,int progress,string? connectionString=null,string? preferredOperative=null)
     {
         if(session<=0) return null;
@@ -125,6 +139,7 @@ public static class WorldStorage
         if(state?.Valid()!=true) throw new InvalidOperationException("Invalid world state.");
         return state;
     }
+
     /// <summary>Locks the selected existing campaign before writing, serializing entry, transit and mission settlement.</summary>
     public static async Task SaveAsync(int session,WorldSave state,string? connectionString=null)
     {
@@ -146,12 +161,14 @@ public static class WorldStorage
         }
         await transaction.CommitAsync().ConfigureAwait(false);
     }
+
     /// <summary>Creates the existing generic JSONB store without replacing any document or schema version.</summary>
     private static async Task EnsureAsync(NpgsqlConnection connection,NpgsqlTransaction? transaction)
     {
         await using var command=new NpgsqlCommand("CREATE TABLE IF NOT EXISTS game_state (state_key text PRIMARY KEY, schema_version integer NOT NULL DEFAULT 1, value jsonb NOT NULL)",connection,transaction);
         await command.ExecuteNonQueryAsync().ConfigureAwait(false);
     }
+
     /// <summary>Writes inside an already locked campaign transaction; future versions cannot be silently downgraded.</summary>
     public static async Task WriteAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,WorldSave state)
     {

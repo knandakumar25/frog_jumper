@@ -56,6 +56,7 @@ public partial class NeoKyotoWorld : Node2D
             { "busy", _busy }, { "map_open", _mapOpen }, { "progress", Progress },
             { "moving_enabled", _player?.MovementEnabled ?? false },
             { "riding_bike", _player?.IsRidingBike ?? false },
+            { "riding_boat", _player?.IsRidingBoat ?? false },
             { "alert_state", CurrentAlert.ToString() },
             { "world_time", _worldTimeMinutes }
         };
@@ -271,12 +272,16 @@ public partial class NeoKyotoWorld : Node2D
         var landmark = WorldCatalog.Landmarks.FirstOrDefault(e => e.Position.Distance(p) < 30);
         if (landmark != null) return WorldText.Get(landmark.Name);
 
-        // Bike status
-        string bikeHint = _player.IsRidingBike ? "Dismount bike: V" : "Electric bike: V";
-        return $"{WorldText.Get("Walk · Run · Explore")} · {bikeHint}";
+        // Vehicle status
+        string vehicleHint;
+        if (_player.IsRidingBoat) vehicleHint = "Dismount boat: V";
+        else if (WorldCatalog.Water(p)) vehicleHint = "Utility boat: V";
+        else if (_player.IsRidingBike) vehicleHint = "Dismount bike: V";
+        else vehicleHint = "Electric bike: V";
+        return $"{WorldText.Get("Walk · Run · Explore")} · {vehicleHint}";
     }
 
-    /// <summary>Handles map, interaction, bike toggle, waypoint and squad actions with a single operation gate.</summary>
+    /// <summary>Handles map, interaction, vehicle toggle, waypoint and squad actions with a single operation gate.</summary>
     public override void _UnhandledInput(InputEvent input)
     {
         if (input.IsActionPressed("world_map")) { ToggleMap(); GetViewport().SetInputAsHandled(); return; }
@@ -292,7 +297,15 @@ public partial class NeoKyotoWorld : Node2D
 
         if (input.IsActionPressed("world_bike"))
         {
-            _player.ToggleBike(PositionMetres);
+            var p = PositionMetres;
+            if (_player.IsRidingBoat || WorldCatalog.Water(p))
+            {
+                _player.ToggleBoat(p);
+            }
+            else
+            {
+                _player.ToggleBike(p);
+            }
             GetViewport().SetInputAsHandled();
             return;
         }
@@ -353,6 +366,7 @@ public partial class NeoKyotoWorld : Node2D
     {
         _player.RestoreFullVitals();
         if (_player.IsRidingBike) _player.ToggleBike(PositionMetres);
+        if (_player.IsRidingBoat) _player.ToggleBoat(PositionMetres);
         _hint.Text = $"Resting at {interior.Name} • Vitals restored";
     }
 

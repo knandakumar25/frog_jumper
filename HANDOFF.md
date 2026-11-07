@@ -1,5 +1,33 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Neo-Kyoto Living Resistance World: Phase 2 Delivery — 2026-11-06
+
+Following Phase 0 & Phase 1, completed full implementation and verification of **Phase 2: Urban Expansion** from `docs/NEO_KYOTO_EXPANSION_PLAN.md`.
+
+### Urban Core Content Delivery (Phase 2):
+- **5 Urban Districts Authored**: Downtown Core (Region 6), Eastlight Harbor (Region 7), Citadel Ring (Region 10), Rustrail Belt (Region 13), and Foundry Basin (Region 14), fully integrating surface and underground networks (Downtown Underworks and Foundry Underworks).
+- **27 New Authored Quests (35 Quests in Catalog)**:
+  - 15 District Quests: 5 three-part storylines detailing surveillance disruption, dockworker strikes, perimeter defense breaches, rail convoy escort, and geothermal furnace cooling.
+  - 12 Faction Quests: 3 quests each for Civic Recovery Network, Independent Couriers, Reclamation Guild, and Free Signal Collective, rewarding faction reputation and specialized tactical modules.
+- **Faction Progression & Tiers**:
+  - Implemented 3 relationship tiers: `Contact` (0-99), `Trusted` (100-249), `Partner` (250+) in `DistrictState.cs` and `CampaignProgressionState.cs`.
+  - Added 4 faction-specific tradeoff modules (`mod_courier_booster`, `mod_reclamation_mesh`, `mod_free_signal_tuner`, `mod_civic_nanobound`) conforming to the strict 20% passive bonus ceiling.
+- **15 New Regional Challenges (21 in Catalog)**: 3 per urban district covering sprint races, operative ability traversal puzzles, and discovery trails.
+- **5 New Replayable Side Operations (7 in Catalog)**: Added *Data Haven Infiltration*, *Harbor Slipway Sabotage*, *Citadel Perimeter Breach*, *Freight Line Interception*, and *Smelting Core Shutdown*.
+- **Vehicle Traversal (Utility Boat)**: Added the `veh_utility_boat` (~14 m/s max speed on waterways/canals). Implemented `ToggleBoat(WorldPoint)` in `ExplorationPlayer.cs`, enforcing water-only mounting, dismount-to-foot, and prohibiting concurrent bike usage.
+- **5 Urban Safehouses & HQ Customization**:
+  - Added 5 district safehouses: *Underground Terminal 01*, *Old Customs Drydock*, *Forward Outpost Delta*, *Depot Maintenance Bunker*, and *Sub-Furnace Refuge* with resting and vitals restoration.
+  - Implemented Old Kyoto Headquarters customization: `TacticalHoloTable`, `SquadQuarters`, `MemorialShrine`, `ReclamationWorkbench`, and `SignalArray`.
+- **15 New Named Residents (21 in Catalog)**: 3 authored residents per urban district with Day and Evening schedule routines.
+
+### Verification Results:
+- `dotnet build AxiomForce.csproj`: 0 errors.
+- Godot Headless Background Import: Completed with exit code 0.
+- Django Backend Tests: 111/111 passed in Docker.
+- NUnit (.NET 10) Tests: 337/337 passed (including 9 new tests in `WorldExpansionPhase2Tests.cs`).
+- GdUnit4 Tests: 327/327 passed across 69 test suites with 0 errors, 0 failures, 0 orphans (including `test_world_expansion_phase2.gd`).
+- Docker containers remain active and healthy. Git working tree remains local and uncommitted (no commit or push authorized).
+
 ## Neo-Kyoto Living Resistance World: Phase 0 & Phase 1 Delivery — 2026-11-06
 
 Following Codex's weekly limit handoff, completed Phase 0 & Phase 1 of `docs/NEO_KYOTO_EXPANSION_PLAN.md`

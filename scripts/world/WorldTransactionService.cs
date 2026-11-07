@@ -99,6 +99,8 @@ public static class WorldTransactionService
             // Grant rewards once
             progression.GlobalSparksBank += quest.Reward.HeroSparks;
             progression.CityCredits += quest.Reward.CityCredits;
+            if (!string.IsNullOrEmpty(quest.Reward.FactionId) && quest.Reward.FactionReputation > 0)
+                progression.AddFactionReputation(quest.Reward.FactionId, quest.Reward.FactionReputation);
             if (!string.IsNullOrEmpty(quest.Reward.BonusModuleId))
                 progression.UnlockedModules.Add(quest.Reward.BonusModuleId);
             if (!string.IsNullOrEmpty(quest.Reward.BonusGadgetId))
