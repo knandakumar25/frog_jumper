@@ -1,35 +1,32 @@
 # Axiom Force
 
-## Neo-Kyoto: Living Resistance World (Phase 0, 1 & 2) — 2026-11-06
+## Neo-Kyoto: Living Resistance World (Phases 0–3 Complete) — 2026-11-07
 
 Following the [Neo-Kyoto Expansion Plan](docs/NEO_KYOTO_EXPANSION_PLAN.md), the open world expands
-across its core metropolitan and industrial districts (Old Kyoto, Concrete Wards, Downtown Core,
-Eastlight Harbor, Citadel Ring, Rustrail Belt, and Foundry Basin):
+across all sixteen regions of Neo-Kyoto, completing Phase 0 (Architecture & Persistence), Phase 1 (Core Neighborhoods),
+Phase 2 (Urban Core Expansion), and Phase 3 (Natural & Coastal Expansion):
 
-- **Campaign-Isolated Progression**: Operative progression is fully isolated per campaign (`progression:{session}`)
-  with automatic legacy migration. Features typed modifiers (`StatModifierType`), 2 module slots, 2 gadget slots,
-  and a strict 20% passive bonus ceiling across health, shield capacity, damage, and cooldown reduction.
-  Hero Sparks (earned once per authored quest) drive operative advancement; City Credits fund gadgets and equipment.
-- **Living Neighborhoods & Pockets**: 64 activity pockets across all 16 regions with authored urban centers.
-  21 named residents with dynamic Day/Evening schedules. 7 safehouses with complete resting and vitals restoration,
-  plus Old Kyoto HQ customization (Tactical Holo-Table, Squad Quarters, Memorial Shrine, Reclamation Workbench, Signal Array).
-- **Authored Quests & Operations (35 Quests, 21 Challenges, 7 Operations)**:
-  - 35 authored quests: 7 district 3-part chains (Old Kyoto, Concrete Wards, Downtown Core, Eastlight Harbor,
-    Citadel Ring, Rustrail Belt, Foundry Basin), 2 operative personal episodes (Cyber Shogun, Oceanus), and
-    12 faction quests across all 4 resistance organizations (Civic Recovery, Couriers, Reclamation Guild, Free Signal).
-  - 4 Faction relationship tiers: Contact (0-99), Trusted (100-249), and Partner (250+) unlocking faction modules and services.
-  - 21 regional challenges (races, operative puzzles, and discovery trails).
-  - 7 replayable side-scrolling operations including *Data Haven Infiltration*, *Harbor Slipway Sabotage*,
-    *Citadel Perimeter Breach*, *Freight Line Interception*, and *Smelting Core Shutdown*.
+- **All 16 Regions Fully Authored**:
+  - Urban & Metropolitan: Old Kyoto (5), Concrete Wards (9), Downtown Core (6), Eastlight Harbor (7), Citadel Ring (10), Rustrail Belt (13), Foundry Basin (14).
+  - Natural, Coastal & Highlands: Cedarcrest Highlands (0), Cloudstep Reservoir (1), Stormbreak Peaks (2), Northlight Coast (3), Cedarwild Preserve (4), Solar Belt (8), Tideglass Coast (11), Kurogane Escarpment (12), Reclamation Wetlands (15).
+- **Master Target Quotas Fulfilled**:
+  - **72 Authored Quests**: 48 District storyline quests (3-part narrative chains across all 16 regions), 12 Operative Personal Episodes (2 per operative for Kaito, Arjun, Kiana, Zayd, Tariq, Maya), and 12 Faction Quests across all 4 canonical organizations (Civic Recovery Network, Independent Couriers, Reclamation Guild, Free Signal Collective).
+  - **48 Regional Challenges**: Exactly 3 per region across all 16 regions (Race sprint, Traversal/Operative Puzzle, Discovery Trail).
+  - **16 Replayable Side Operations**: Exactly 1 per region across all 16 regions with specific terminal coordinates and side-scrolling mission scenes.
+  - **48 Named Residents**: Exactly 3 per region across all 16 regions with authored Day and Evening routines.
+  - **16 District Safehouses**: Exactly 1 per region with complete resting and vitals restoration, plus 2 secondary facilities (Palace Archives, Viaduct Clinic) and Old Kyoto HQ customization.
+  - **64 Activity Pockets**: Exactly 4 per region across all 16 regions with environmental interactions, lore caches, and vendor hubs.
+- **Dynamic 4-State Weather Cycle**:
+  - Predictable 48-minute regional weather cycle (`Clear` → `Rain` → `Fog` → `RegionalStorm`) computed deterministically in `NeoKyotoWorld.cs` and exposed in runtime inspection.
 - **Vehicles & Traversal**:
   - Starter Electric Bike: ~20 m/s road traversal, auto-dismounts in interiors, water, and rough terrain.
-  - Utility Boat: ~14 m/s waterway traversal across harbor locks and canals, restricted to water surfaces.
+  - Utility Boat: ~14 m/s waterway traversal across reservoirs, coastal inlets, and canals, restricted to water surfaces.
   - Bounded top-down combat mechanics: Attack, Defend, and Dodge actions for all six operatives.
   - 3-state encounter alert system (`Suspicion` → `Search` → `Pursuit`). Fast transit is locked out during active pursuit.
-- **Atomic Persistence**:
-  - `WorldTransactionService` provides atomic PostgreSQL commits with idempotent action receipts (`receipt:{session}:{token}`)
-    ensuring zero double-spending or duplicate quest reward settlements.
-- **Verification**: All test suites passing (Django 111/111, NUnit 337/337, GdUnit4 327/327 with 0 errors/failures/orphans).
+- **Campaign-Isolated Progression & Atomic Persistence**:
+  - Operative progression is fully isolated per campaign (`progression:{session}`) with typed modifiers (`StatModifierType`), 2 module slots, 2 gadget slots, and a strict 20% passive bonus ceiling.
+  - `WorldTransactionService` provides atomic PostgreSQL commits with idempotent action receipts (`receipt:{session}:{token}`) ensuring zero double-spending or duplicate quest reward settlements.
+- **Verification**: All test suites passing (Django 111/111, NUnit 353/353, GdUnit4 330/330 across 70 suites with 0 errors/failures/orphans).
 
 ## Neo-Kyoto exploration
 

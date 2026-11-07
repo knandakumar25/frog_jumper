@@ -12,6 +12,33 @@ using System.Threading.Tasks;
 public partial class NeoKyotoWorld : Node2D
 {
     public enum AlertState { None, Suspicion, Search, Pursuit }
+    public enum WeatherState { Clear, Rain, Fog, RegionalStorm }
+
+    /// <summary>
+    /// Computes the regional weather state according to a deterministic 48-minute cycle:
+    /// - 00 to 24 min: Clear
+    /// - 24 to 32 min: Rain
+    /// - 32 to 40 min: Fog
+    /// - 40 to 48 min: RegionalStorm
+    /// </summary>
+    /// <param name="worldMinutes">Current world elapsed time in minutes.</param>
+    /// <returns>The active WeatherState enum value.</returns>
+    public static WeatherState GetWeatherForTime(double worldMinutes)
+    {
+        double cycle = (worldMinutes % 48.0 + 48.0) % 48.0;
+        return cycle switch
+        {
+            < 24.0 => WeatherState.Clear,
+            < 32.0 => WeatherState.Rain,
+            < 40.0 => WeatherState.Fog,
+            _ => WeatherState.RegionalStorm
+        };
+    }
+
+    /// <summary>
+    /// The current weather state computed from the active instance's world simulation time.
+    /// </summary>
+    public WeatherState CurrentWeather => GetWeatherForTime(_worldTimeMinutes);
 
     private readonly WorldStream _stream = new();
     private readonly Dictionary<ChunkAddress, WorldChunkView> _views = new();
@@ -58,7 +85,8 @@ public partial class NeoKyotoWorld : Node2D
             { "riding_bike", _player?.IsRidingBike ?? false },
             { "riding_boat", _player?.IsRidingBoat ?? false },
             { "alert_state", CurrentAlert.ToString() },
-            { "world_time", _worldTimeMinutes }
+            { "world_time", _worldTimeMinutes },
+            { "weather", CurrentWeather.ToString() }
         };
     }
 

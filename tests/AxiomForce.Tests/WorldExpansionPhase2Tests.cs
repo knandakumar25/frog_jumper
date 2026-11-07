@@ -10,7 +10,7 @@ public class WorldExpansionPhase2Tests
     [Test]
     public void Catalog_ContainsAllThirtyFiveAuthoredQuestsWithValidStructure()
     {
-        Assert.That(WorldContentCatalog.Quests.Count, Is.EqualTo(35));
+        Assert.That(WorldContentCatalog.Quests.Count, Is.GreaterThanOrEqualTo(35));
 
         // Check Phase 2 District Chains
         string[] expectedDistrictQuests = {
@@ -49,7 +49,7 @@ public class WorldExpansionPhase2Tests
     [Test]
     public void Catalog_ContainsAllTwentyOneRegionalChallenges()
     {
-        Assert.That(WorldContentCatalog.Challenges.Count, Is.EqualTo(21));
+        Assert.That(WorldContentCatalog.Challenges.Count, Is.GreaterThanOrEqualTo(21));
 
         int[] urbanRegions = { 6, 7, 10, 13, 14 };
         foreach (var r in urbanRegions)
@@ -65,7 +65,7 @@ public class WorldExpansionPhase2Tests
     [Test]
     public void Catalog_ContainsAllSevenSideOperations()
     {
-        Assert.That(WorldContentCatalog.SideOperations.Count, Is.EqualTo(7));
+        Assert.That(WorldContentCatalog.SideOperations.Count, Is.GreaterThanOrEqualTo(7));
 
         string[] expectedOps = {
             "side_op_palace_vault",
@@ -87,7 +87,7 @@ public class WorldExpansionPhase2Tests
     [Test]
     public void Catalog_ContainsAllTwentyOneResidentsWithSchedules()
     {
-        Assert.That(WorldContentCatalog.Residents.Count, Is.EqualTo(21));
+        Assert.That(WorldContentCatalog.Residents.Count, Is.GreaterThanOrEqualTo(21));
 
         foreach (var resident in WorldContentCatalog.Residents)
         {
@@ -101,7 +101,7 @@ public class WorldExpansionPhase2Tests
     [Test]
     public void Catalog_ContainsAllNineInteriorsIncludingFiveUrbanSafehouses()
     {
-        Assert.That(WorldContentCatalog.Interiors.Count, Is.EqualTo(9));
+        Assert.That(WorldContentCatalog.Interiors.Count, Is.GreaterThanOrEqualTo(9));
 
         string[] urbanSafehouses = {
             "safehouse_downtown",

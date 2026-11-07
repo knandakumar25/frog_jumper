@@ -89,6 +89,10 @@ public sealed class DistrictState
             6 => unlockedCampaignMission > 6 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Downtown Core (Mission 5/6)
             14 => unlockedCampaignMission > 7 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Foundry Basin (Mission 7)
             7 => unlockedCampaignMission > 8 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Eastlight Harbor (Mission 8)
+            4 => unlockedCampaignMission > 8 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Cedarwild Preserve
+            0 => unlockedCampaignMission > 9 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Cedarcrest Highlands (Mission 9)
+            2 => unlockedCampaignMission > 10 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Stormbreak Peaks (Mission 10)
+            12 => unlockedCampaignMission > 11 ? DistrictEra.Aftermath : DistrictEra.PreMission, // Kurogane Escarpment (Mission 11)
             _ => unlockedCampaignMission > 1 ? DistrictEra.Aftermath : DistrictEra.PreMission
         };
     }
