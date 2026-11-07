@@ -1,5 +1,32 @@
 # Axiom Force — Project Memory
 
+## Neo-Kyoto Living Resistance World: Phase 0 & Phase 1 Delivery — 2026-11-06
+
+Picked up the expansion plan from Codex (weekly usage limit) and implemented Phase 0 & Phase 1
+of the Neo-Kyoto Living Resistance World (`docs/NEO_KYOTO_EXPANSION_PLAN.md`).
+
+### Deliverables & Implementation:
+- **Campaign-Isolated Progression (Phase 0)**:
+  - Implemented `CampaignProgressionState.cs` storing per-campaign operative upgrades (`progression:{session}`).
+  - Built automatic migration from legacy shared documents, typed stat modifiers (`StatModifierType`), 2 module slots, 2 gadget slots, and a strict 20% passive ceiling across health, shield capacity, damage, and cooldown reduction.
+  - Hero Sparks awarded once per authored quest; City Credits used for equipment and gadgets.
+- **Atomic Transactions & Save State (Phase 0)**:
+  - Built `WorldTransactionService.cs` committing quest completions and item purchases atomically in PostgreSQL with stable action receipts (`receipt:{session}:{token}`) preventing duplicate rewards or spending.
+  - Extended `WorldSave.cs` with `CompletedQuests`, `ActiveQuests`, `DistrictChoices`, `UnlockedVehicles`, `ActiveVehicle`, and `WorldTimeMinutes`, implementing explicit `IEquatable<WorldSave>` for collection value equality.
+- **Living Neighborhoods & Traversal (Phase 1)**:
+  - Implemented `WorldContentCatalog.cs` with 64 activity pockets, 6 named residents (Ren, Hana, Kenji in Old Kyoto; Taro, Maya, Jin in Concrete Wards) with Day/Evening schedules, and 2 district safehouses (*The Lantern Hearth* and *Sub-Viaduct Shelter 04*) with vitals restoration.
+  - Authored 8 quests (Old Kyoto 3-part chain, Concrete Wards 3-part chain, Cyber Shogun & Oceanus operative episodes), 6 regional challenges, and 2 replayable side operations (*Palace Vault Reclamation*, *Viaduct Grid Defense*).
+  - Extended `ExplorationPlayer.cs` with starter Electric Bike traversal (~20 m/s road speed, auto-dismount in interiors/water) and bounded top-down combat actions (Attack, Defend, Dodge, damage mitigation).
+  - Extended `NeoKyotoWorld.cs` with 48-minute day/night cycle, 3-state encounter alert system (`Suspicion` → `Search` → `Pursuit` with fast-transit lockout during Pursuit), safehouse resting, and quest objective HUD tracker while preserving the exact 316 fast-transit destinations.
+
+### Verification:
+- Docker Preflight: Stack verified healthy (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`).
+- Godot Headless Import: Exited with code 0.
+- Django Tests: 111/111 passed in Docker.
+- NUnit Tests: 328/328 passed (8 new tests in `WorldExpansionTests.cs`).
+- GdUnit4 Tests: 324/324 passed across 68 suites with 0 errors, 0 failures, 0 orphans (including `test_world_expansion_phase1.gd`).
+- Working tree remains local and uncommitted (no commit or push authorized).
+
 ## Production PostgreSQL deployment question — 2026-11-06
 
 User clarified this was curiosity only and explicitly deferred production

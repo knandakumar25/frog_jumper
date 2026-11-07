@@ -1,5 +1,33 @@
 # Axiom Force
 
+## Neo-Kyoto: Living Resistance World (Phase 0 & Phase 1) — 2026-11-06
+
+Following the [Neo-Kyoto Expansion Plan](docs/NEO_KYOTO_EXPANSION_PLAN.md), the open world expands
+from geographical exploration into an authored, living resistance space:
+
+- **Campaign-Isolated Progression**: Operative progression is fully isolated per campaign (`progression:{session}`)
+  with automatic legacy migration. Features typed modifiers (`StatModifierType`), 2 module slots, 2 gadget slots,
+  and a strict 20% passive bonus ceiling across health, shield capacity, damage, and cooldown reduction.
+  Hero Sparks (earned once per authored quest) drive operative advancement; City Credits fund gadgets and equipment.
+- **Living Neighborhoods & Pockets**: 64 activity pockets defined across 16 regions, with detailed authored content
+  for Old Kyoto (Region 5) and Concrete Wards (Region 9). 6 named residents (Ren, Hana, Kenji, Taro, Maya, Jin)
+  with dynamic Day/Evening schedules. 2 safehouses (*The Lantern Hearth* and *Sub-Viaduct Shelter 04*) providing
+  secure resting, conversation, and vitals restoration.
+- **Authored Quests & Operations**:
+  - 8 authored quests: Old Kyoto 3-part chain (*The Lantern Circuit* → *Names Behind the Walls* → *The Moonbridge Promise*),
+    Concrete Wards 3-part chain (*The Broken Line* → *Signal Under Rain* → *Shelter and Steel*), and operative episodes
+    for Cyber Shogun (*Honor Among Cinders*) and Oceanus (*Tides of Memory*).
+  - 6 regional challenges across Old Kyoto and Concrete Wards (time trials, rooftop navigation, and drone defense).
+  - 2 replayable side-scrolling operations: *Palace Vault Reclamation* and *Viaduct Grid Defense*.
+- **Vehicles & Top-Down Combat**:
+  - Starter Electric Bike: mounts on arterial roads for ~20 m/s traversal, auto-dismounts in interiors, water, and rough terrain.
+  - Bounded top-down combat mechanics: Attack, Defend, and Dodge actions for all six operatives with base stat scaling.
+  - 3-state encounter alert system (`Suspicion` → `Search` → `Pursuit`). Fast transit is locked out during active pursuit.
+- **Atomic Persistence**:
+  - `WorldTransactionService` provides atomic PostgreSQL commits with idempotent action receipts (`receipt:{session}:{token}`)
+    ensuring zero double-spending or duplicate quest reward settlements.
+- **Verification**: All test suites passing (Django 111/111, NUnit 328/328, GdUnit4 324/324 with 0 errors/failures/orphans).
+
 ## Neo-Kyoto exploration
 
 After Mission 1, results return to a streamed 128 km × 128 km region with sixteen

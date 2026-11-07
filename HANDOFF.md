@@ -1,5 +1,31 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Neo-Kyoto Living Resistance World: Phase 0 & Phase 1 Delivery — 2026-11-06
+
+Following Codex's weekly limit handoff, completed Phase 0 & Phase 1 of `docs/NEO_KYOTO_EXPANSION_PLAN.md`
+without breaking existing campaign progression, transit, or story cutscenes.
+
+### Architectural Core (Phase 0):
+- **Campaign-Isolated Progression**: Added `CampaignProgressionState.cs` storing per-campaign operative upgrades (`progression:{session}`). Includes automatic one-time baseline migration from legacy shared documents, typed stat modifiers (`StatModifierType`), 2 module slots, 2 gadget slots, and a strict 20% passive ceiling across health, shield capacity, damage, and cooldown reduction.
+- **Atomic Transactions & Idempotency**: Added `WorldTransactionService.cs` committing quest completions and item purchases atomically in PostgreSQL with stable action receipts (`receipt:{session}:{token}`) preventing double-reward settlement and replay exploits.
+- **Extended World Save State**: Extended `WorldSave.cs` with `CompletedQuests`, `ActiveQuests`, `DistrictChoices`, `UnlockedVehicles`, `ActiveVehicle`, and `WorldTimeMinutes`. Implemented explicit `IEquatable<WorldSave>` to ensure value-equality for collections during JSON round-trips.
+
+### Content & Traversal (Phase 1):
+- **Living Neighborhoods & Pockets**: Authored 64 activity pockets in `WorldContentCatalog.cs` across all 16 regions, with dense content for Old Kyoto (Region 5) and Concrete Wards (Region 9).
+- **Named Residents & Safehouses**: Added 6 named residents (Ren, Hana, Kenji in Old Kyoto; Taro, Maya, Jin in Concrete Wards) with Day/Evening schedules. Implemented 2 district safehouses (*The Lantern Hearth* and *Sub-Viaduct Shelter 04*) providing secure resting, conversation, and vitals restoration.
+- **Authored Quests & Operations**: Added 8 quests (Old Kyoto 3-part chain: *The Lantern Circuit* → *Names Behind the Walls* → *The Moonbridge Promise*; Concrete Wards 3-part chain: *The Broken Line* → *Signal Under Rain* → *Shelter and Steel*; and operative episodes for Cyber Shogun *Honor Among Cinders* and Oceanus *Tides of Memory*). Added 6 regional challenges and 2 replayable side operations (*Palace Vault Reclamation*, *Viaduct Grid Defense*).
+- **Vehicles & Bounded Combat**: Added starter Electric Bike to `ExplorationPlayer.cs` (~20 m/s road speed, auto-dismount in interiors/water). Added top-down combat actions (Attack, Defend, Dodge, damage mitigation) and 3-state encounter alert logic (`Suspicion` → `Search` → `Pursuit`) with transit lockout during Pursuit.
+- **World Cycle & Map Safety**: `NeoKyotoWorld.cs` advances a 48-minute day/night cycle, updates resident schedule markers, and renders quest HUD objectives while preserving the exact 316 fast-transit destinations.
+
+### Verification Results:
+- `dotnet build AxiomForce.csproj`: Built with 0 errors.
+- Godot Headless Background Import: Completed with exit code 0.
+- Django Backend Tests: 111/111 passed in Docker.
+- NUnit (.NET 10) Tests: 328/328 passed (including 8 new tests in `WorldExpansionTests.cs`).
+- GdUnit4 Tests: 324/324 passed across 68 test suites with 0 errors, 0 failures, 0 orphans (including `test_world_expansion_phase1.gd` and `test_world_exploration.gd`).
+- Docker containers (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`) remain active and healthy.
+- Git working tree remains local and uncommitted (no commit or push authorized).
+
 ## Neo-Kyoto implementation — 2026-11-06
 
 Added the separate streamed exploration scene/controllers/map, stable sixteen-region

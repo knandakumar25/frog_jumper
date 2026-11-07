@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -7,20 +8,86 @@ using NpgsqlTypes;
 
 /// <summary>Versioned PostgreSQL exploration snapshot. Campaign ID stays in the database key, never shared static state.</summary>
 public sealed record WorldSave(int Version, string World, WorldPoint Position, WorldPoint? Waypoint,
-    WorldPoint LastExtraction, string Resume, int Mission, string Operative)
+    WorldPoint LastExtraction, string Resume, int Mission, string Operative,
+    Dictionary<string, string?>? CompletedQuests = null,
+    Dictionary<string, int>? ActiveQuests = null,
+    Dictionary<int, string>? DistrictChoices = null,
+    HashSet<string>? UnlockedVehicles = null,
+    string? ActiveVehicle = null,
+    double WorldTimeMinutes = 0.0) : IEquatable<WorldSave>
 {
     /// <summary>Creates a safe post-mission arrival; completion, including Mission 12, always resumes exploration.</summary>
     public static WorldSave AfterMission(int mission, string operative=OperativeRoster.Starter)
     {
         var entrance=WorldCatalog.Entrances[LevelCatalog.Clamp(mission)-1].Position;
         var safe=WorldCatalog.NearestStation(entrance).Position;
-        return new(1,WorldCatalog.Identity,safe,null,safe,"world",LevelCatalog.Clamp(mission),OperativeRoster.Normalize(operative));
+        return new(1,WorldCatalog.Identity,safe,null,safe,"world",LevelCatalog.Clamp(mission),OperativeRoster.Normalize(operative),
+            new Dictionary<string, string?>(), new Dictionary<string, int>(), new Dictionary<int, string>(), new HashSet<string> { "veh_starter_bike" }, null, 0.0);
     }
+
     /// <summary>Rejects unsupported identities, unsafe coordinates and unknown modes instead of overwriting future saves.</summary>
     public bool Valid() => Version==1 && World==WorldCatalog.Identity && WorldCatalog.InBounds(Position)
         && WorldCatalog.InBounds(LastExtraction) && (Waypoint==null || WorldCatalog.InBounds(Waypoint.Value))
         && Resume is "world" or "mission" && Mission>=1 && Mission<=LevelCatalog.Count
         && OperativeRoster.RosterOrder.Contains(Operative);
+
+    /// <summary>Returns a copy of the state with a quest marked as completed, updating any chosen branch.</summary>
+    public WorldSave WithQuestCompleted(string questId, string? branchChoice)
+    {
+        var completed = CompletedQuests != null ? new Dictionary<string, string?>(CompletedQuests) : new();
+        var active = ActiveQuests != null ? new Dictionary<string, int>(ActiveQuests) : new();
+        completed[questId] = branchChoice;
+        active.Remove(questId);
+
+        var choices = DistrictChoices != null ? new Dictionary<int, string>(DistrictChoices) : new();
+        if (!string.IsNullOrEmpty(branchChoice))
+        {
+            var quest = Array.Find(WorldContentCatalog.Quests as QuestDefinition[] ?? Array.Empty<QuestDefinition>(), q => q.Id == questId);
+            if (quest != null) choices[quest.RegionId] = branchChoice;
+        }
+
+        return this with { CompletedQuests = completed, ActiveQuests = active, DistrictChoices = choices };
+    }
+
+    /// <summary>Value-based equality for records with nested collections.</summary>
+    public bool Equals(WorldSave? other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        if (Version != other.Version || World != other.World || Position != other.Position ||
+            Waypoint != other.Waypoint || LastExtraction != other.LastExtraction ||
+            Resume != other.Resume || Mission != other.Mission || Operative != other.Operative ||
+            Math.Abs(WorldTimeMinutes - other.WorldTimeMinutes) > 0.0001 || ActiveVehicle != other.ActiveVehicle)
+            return false;
+
+        if (!DictEqual(CompletedQuests, other.CompletedQuests)) return false;
+        if (!DictEqual(ActiveQuests, other.ActiveQuests)) return false;
+        if (!DictEqual(DistrictChoices, other.DistrictChoices)) return false;
+        if (!SetEqual(UnlockedVehicles, other.UnlockedVehicles)) return false;
+
+        return true;
+    }
+
+    public override int GetHashCode() => HashCode.Combine(Version, World, Position, Waypoint, LastExtraction, Resume, Mission, Operative);
+
+    private static bool DictEqual<K, V>(Dictionary<K, V>? a, Dictionary<K, V>? b) where K : notnull
+    {
+        if (ReferenceEquals(a, b)) return true;
+        if (a == null || b == null) return (a == null || a.Count == 0) && (b == null || b.Count == 0);
+        if (a.Count != b.Count) return false;
+        foreach (var kvp in a)
+        {
+            if (!b.TryGetValue(kvp.Key, out var bVal) || !EqualityComparer<V>.Default.Equals(kvp.Value, bVal)) return false;
+        }
+        return true;
+    }
+
+    private static bool SetEqual<T>(HashSet<T>? a, HashSet<T>? b)
+    {
+        if (ReferenceEquals(a, b)) return true;
+        if (a == null || b == null) return (a == null || a.Count == 0) && (b == null || b.Count == 0);
+        return a.SetEquals(b);
+    }
 }
 
 /// <summary>Database-only world persistence; transaction helpers allow mission settlement and extraction to commit together.</summary>
