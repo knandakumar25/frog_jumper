@@ -26,14 +26,14 @@ public sealed record WorldEntrance(int Mission, WorldPoint Position);
 public static class WorldCatalog
 {
     public const int Size = 128000, RegionSize = 32000, ChunkSize = 128;
-    public const string Identity = "neo-kyoto-v1";
+    public const string Identity = "neo-los-angeles-v1";
     public const string Scene = "res://scenes/world/neo_kyoto.tscn";
     public static readonly IReadOnlyList<WorldRegion> Regions = new[]
     {
-        new WorldRegion(0,"Cedarcrest Highlands","highland"), new(1,"Cloudstep Reservoir","reservoir"), new(2,"Stormbreak Peaks","mountain"), new(3,"Northlight Coast","coast"),
-        new(4,"Cedarwild Preserve","forest"), new(5,"Old Kyoto","palace"), new(6,"Downtown Core","tower"), new(7,"Eastlight Harbor","harbor"),
-        new(8,"Solar Belt","solar"), new(9,"Concrete Wards","concrete"), new(10,"Citadel Ring","citadel"), new(11,"Tideglass Coast","coast"),
-        new(12,"Kurogane Escarpment","mountain"), new(13,"Rustrail Belt","rail"), new(14,"Foundry Basin","foundry"), new(15,"Reclamation Wetlands","wetland")
+        new WorldRegion(0,"Angeles Crest Highlands","highland"), new(1,"Castaic Aqueduct Reservoir","reservoir"), new(2,"San Gabriel Peaks","mountain"), new(3,"Malibu Coast","coast"),
+        new(4,"Topanga Canyon Preserve","forest"), new(5,"Historic Core & Little Tokyo","palace"), new(6,"Downtown LA Core","tower"), new(7,"San Pedro Harbor","harbor"),
+        new(8,"Mojave Solar Belt","solar"), new(9,"Concrete Wards & LA River","concrete"), new(10,"Century Citadel Ring","citadel"), new(11,"Santa Monica Coast","coast"),
+        new(12,"Kurogane Ridge Escarpment","mountain"), new(13,"Alameda Rustrail Belt","rail"), new(14,"Vernon Foundry Basin","foundry"), new(15,"Ballona Reclamation Wetlands","wetland")
     };
     public static readonly IReadOnlyList<WorldStation> Stations = Enumerable.Range(0,256)
         .Select(i => new WorldStation(i, new(4000+(i%16)*8000,4000+(i/16)*8000))).ToArray();

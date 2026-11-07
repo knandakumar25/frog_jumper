@@ -130,7 +130,7 @@ func test_act_completion_returns_to_world_and_retains_captured_results() -> void
 	var score: String = card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text
 	card.call("ShowActScorecard", 150, 4, "KAITO")
 	assert_bool(card.get_node("RootPanel/MainVBox/PreviewBtn").visible).is_false()
-	assert_str(card.get_node("RootPanel/MainVBox/ContinueBtn").text).is_equal(tr("Return to Neo-Kyoto"))
+	assert_str(card.get_node("RootPanel/MainVBox/ContinueBtn").text).is_equal(tr("Return to Neo-Los Angeles"))
 	assert_bool(card.get_node("RootPanel/MainVBox/ContinueBtn").visible).is_true()
 	assert_str(card.get_node("RootPanel/MainVBox/StatsGrid/ScoreLabel").text).is_equal(score)
 	card.free()

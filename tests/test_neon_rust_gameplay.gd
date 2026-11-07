@@ -230,7 +230,7 @@ func test_aftermath_is_frozen_and_extraction_requires_escape() -> void:
 	assert_bool(card.visible).is_true()
 	assert_str(card.get_node("MainVBox/StatsGrid/ScoreLabel").text).is_equal("FINAL SCORE: %d PTS" % score)
 	assert_str(card.get_node("MainVBox/StatsGrid/OperativeLabel").text).contains("KAITO")
-	assert_str(card.get_node("MainVBox/ContinueBtn").text).is_equal(tr("Return to Neo-Kyoto"))
+	assert_str(card.get_node("MainVBox/ContinueBtn").text).is_equal(tr("Return to Neo-Los Angeles"))
 	for button in ["ReplayBtn","LevelSelectBtn","MainMenuBtn"]:
 		assert_bool(card.get_node("MainVBox/ButtonsHBox/"+button).visible).is_true()
 	m.free()

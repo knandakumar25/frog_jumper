@@ -13,8 +13,8 @@ public class WorldTests
         Assert.That(WorldCatalog.Landmarks.Count,Is.EqualTo(48));
         Assert.That(WorldCatalog.Landmarks.Select(l=>l.Name).Distinct().Count(),Is.EqualTo(48));
         Assert.That(WorldCatalog.Stations.Count,Is.EqualTo(256));
-        Assert.That(WorldCatalog.Region(new(1,1)).Name,Is.EqualTo("Cedarcrest Highlands"));
-        Assert.That(WorldCatalog.Region(new(127999,127999)).Name,Is.EqualTo("Reclamation Wetlands"));
+        Assert.That(WorldCatalog.Region(new(1,1)).Name,Is.EqualTo("Angeles Crest Highlands"));
+        Assert.That(WorldCatalog.Region(new(127999,127999)).Name,Is.EqualTo("Ballona Reclamation Wetlands"));
         Assert.That(WorldCatalog.Entrances.Select(e=>WorldCatalog.Region(e.Position).Id),Is.EqualTo(new[]{5,9,13,10,6,6,14,10,10,10,10,10}));
     }
     /// <summary>All transit and mission arrivals lie on connected arterials with no water/prop blockage within a foot radius.</summary>
@@ -99,6 +99,8 @@ public class WorldTests
             Assert.That(WorldMissionRouting.LaunchPath(i),Does.EndWith(".tscn"));
         }
         Assert.That((WorldSave.AfterMission(1) with {Version=2}).Valid(),Is.False);
+        Assert.That((WorldSave.AfterMission(1) with {World="neo-kyoto-v1"}).Valid(),Is.True);
+        Assert.That((WorldSave.AfterMission(1) with {World="invalid-world"}).Valid(),Is.False);
         Assert.That((WorldSave.AfterMission(1) with {Position=new(0,0,3)}).Valid(),Is.False);
         Assert.That(WorldMissionRouting.LaunchPath(5),Does.EndWith("act_ii_opening.tscn"));
         Assert.That(WorldMissionRouting.LaunchPath(8),Does.EndWith("act_ii_end_screen.tscn"));

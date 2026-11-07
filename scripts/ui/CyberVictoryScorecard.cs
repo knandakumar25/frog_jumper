@@ -111,7 +111,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 		if (_previewBtn != null) _previewBtn.Visible = false;
 		_nextMission = nextMission > 0 && nextMission <= LevelCatalog.Count ? nextMission : 0;
 		// Every result, including act/finale results, returns to the committed nearby extraction.
-		if (_continueBtn != null) { _continueBtn.Visible = true; _continueBtn.Text = WorldText.Get("Return to Neo-Kyoto"); }
+		if (_continueBtn != null) { _continueBtn.Visible = true; _continueBtn.Text = WorldText.Get("Return to Neo-Los Angeles"); }
 		RefreshSaveStatus();
 		_rootPanel.Visible = true;
 		if (IsInsideTree()) Input.MouseMode = Input.MouseModeEnum.Visible;

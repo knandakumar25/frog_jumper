@@ -1,14 +1,25 @@
 # Axiom Force
 
-## Neo-Kyoto: Living Resistance World (Phases 0–3 Complete) — 2026-11-07
+## Neo-Los Angeles 2157: Living Resistance World (Master Roadmap Complete: Phases 0–4) — 2026-11-07
 
-Following the [Neo-Kyoto Expansion Plan](docs/NEO_KYOTO_EXPANSION_PLAN.md), the open world expands
-across all sixteen regions of Neo-Kyoto, completing Phase 0 (Architecture & Persistence), Phase 1 (Core Neighborhoods),
-Phase 2 (Urban Core Expansion), and Phase 3 (Natural & Coastal Expansion):
+The open world exploration map is grounded in the game's canonical master setting: **Greater Los Angeles Resistance Basin, 2157 (Neo-Los Angeles)**.
+Following the [World Expansion Plan](docs/NEO_KYOTO_EXPANSION_PLAN.md), the open world spans a massive 128 km × 128 km streamed terrain
+across all sixteen districts, completing all phases of the master roadmap: Phase 0 (Architecture & Persistence),
+Phase 1 (Core Neighborhoods), Phase 2 (Urban Core Expansion), Phase 3 (Natural & Coastal Expansion), and Phase 4 (Endgame & Final Acceptance):
 
-- **All 16 Regions Fully Authored**:
-  - Urban & Metropolitan: Old Kyoto (5), Concrete Wards (9), Downtown Core (6), Eastlight Harbor (7), Citadel Ring (10), Rustrail Belt (13), Foundry Basin (14).
-  - Natural, Coastal & Highlands: Cedarcrest Highlands (0), Cloudstep Reservoir (1), Stormbreak Peaks (2), Northlight Coast (3), Cedarwild Preserve (4), Solar Belt (8), Tideglass Coast (11), Kurogane Escarpment (12), Reclamation Wetlands (15).
+- **All 16 Districts Fully Authored & Liberated-World State (Los Angeles 2157)**:
+  - Urban & Metropolitan: Historic Core & Little Tokyo (5), Concrete Wards & LA River (9), Downtown LA Core (6), San Pedro Harbor (7), Century Citadel Ring (10), Alameda Rustrail Belt (13), Vernon Foundry Basin (14).
+  - Natural, Coastal & Highlands: Angeles Crest Highlands (0), Castaic Aqueduct Reservoir (1), San Gabriel Peaks (2), Malibu Coast (3), Topanga Canyon Preserve (4), Mojave Solar Belt (8), Santa Monica Coast (11), Kurogane Ridge Escarpment (12), Ballona Reclamation Wetlands (15).
+  - Post-Mission 12 all 16 districts transition into `DistrictEra.Liberated` supporting reconstruction tasks and historical combat archives.
+  - Backward compatibility: Exploration saves and PostgreSQL persistence accept both `"neo-los-angeles-v1"` and legacy `"neo-kyoto-v1"` identities.
+- **Endgame Systems (Phase 4 Deliverables)**:
+  - **16 Regional Reconstruction Tasks**: 1 per region focused on community infrastructure, civilian clinics, clean energy, and transit restoration.
+  - **8 Corpo Remnant Tactical Incidents**: High-threat localized patrol and sabotage encounters for liberated sectors.
+  - **6 Archive Historical Combat Simulations**: Replayable tactical battle milestones for each operative with custom mutator rules.
+  - **5 Operation Challenge Modifiers**: `Ironman Protocol` (1.50x), `Overclocked Mechanoids` (1.35x), `Glass Vanguard` (1.30x), `EMP Atmosphere` (1.20x), and `Axiom Protocol` (2.00x).
+  - **Operation Mastery Scoring**: 4 distinct achievement tiers (Bronze, Silver, Gold, Platinum) awarding Credits, Faction Reputation, and exclusive operative vehicle liveries/skins (`livery_gold_`, `skin_platinum_`).
+  - **Comprehensive Accessibility Profile**: High-contrast attack telegraphs, parry/dodge window scaling (1.0x–2.5x), puzzle assistance modes (`Standard`, `ExtendedClues`, `AutoSolveAllowed`), screen shake scaling (0.0x–1.0x), and controller glyph customisation.
+  - **Simulation & Streaming Performance Budget**: Strict runtime entity caps (16 civilians, 8 hostiles, 4 moving vehicles) across 9 resident and 25 cached chunks, guaranteeing p95 frame times within 18.0 ms and max streaming stalls <= 33.3 ms.
 - **Master Target Quotas Fulfilled**:
   - **72 Authored Quests**: 48 District storyline quests (3-part narrative chains across all 16 regions), 12 Operative Personal Episodes (2 per operative for Kaito, Arjun, Kiana, Zayd, Tariq, Maya), and 12 Faction Quests across all 4 canonical organizations (Civic Recovery Network, Independent Couriers, Reclamation Guild, Free Signal Collective).
   - **48 Regional Challenges**: Exactly 3 per region across all 16 regions (Race sprint, Traversal/Operative Puzzle, Discovery Trail).
@@ -26,9 +37,9 @@ Phase 2 (Urban Core Expansion), and Phase 3 (Natural & Coastal Expansion):
 - **Campaign-Isolated Progression & Atomic Persistence**:
   - Operative progression is fully isolated per campaign (`progression:{session}`) with typed modifiers (`StatModifierType`), 2 module slots, 2 gadget slots, and a strict 20% passive bonus ceiling.
   - `WorldTransactionService` provides atomic PostgreSQL commits with idempotent action receipts (`receipt:{session}:{token}`) ensuring zero double-spending or duplicate quest reward settlements.
-- **Verification**: All test suites passing (Django 111/111, NUnit 353/353, GdUnit4 330/330 across 70 suites with 0 errors/failures/orphans).
+- **Verification**: All test suites passing (Django 111/111, NUnit 361/361, GdUnit4 333/333 across 71 suites with 0 errors/failures/orphans).
 
-## Neo-Kyoto exploration
+## Neo-Los Angeles 2157 exploration
 
 After Mission 1, results return to a streamed 128 km × 128 km region with sixteen
 districts, 48 named destinations, 256 free transit stations and Downtown/Foundry

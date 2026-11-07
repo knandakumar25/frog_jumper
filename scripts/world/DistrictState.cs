@@ -82,17 +82,17 @@ public sealed class DistrictState
 
         return regionId switch
         {
-            5 => unlockedCampaignMission > 1 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Old Kyoto (Mission 1)
-            9 => unlockedCampaignMission > 2 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Concrete Wards (Mission 2)
-            13 => unlockedCampaignMission > 3 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Rustrail Belt (Mission 3)
-            10 => unlockedCampaignMission > 4 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Citadel Ring (Mission 4)
-            6 => unlockedCampaignMission > 6 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Downtown Core (Mission 5/6)
-            14 => unlockedCampaignMission > 7 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Foundry Basin (Mission 7)
-            7 => unlockedCampaignMission > 8 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Eastlight Harbor (Mission 8)
-            4 => unlockedCampaignMission > 8 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Cedarwild Preserve
-            0 => unlockedCampaignMission > 9 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Cedarcrest Highlands (Mission 9)
-            2 => unlockedCampaignMission > 10 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Stormbreak Peaks (Mission 10)
-            12 => unlockedCampaignMission > 11 ? DistrictEra.Aftermath : DistrictEra.PreMission, // Kurogane Escarpment (Mission 11)
+            5 => unlockedCampaignMission > 1 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Historic Core & Little Tokyo (Mission 1)
+            9 => unlockedCampaignMission > 2 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Concrete Wards & LA River (Mission 2)
+            13 => unlockedCampaignMission > 3 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Alameda Rustrail Belt (Mission 3)
+            10 => unlockedCampaignMission > 4 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Century Citadel Ring (Mission 4)
+            6 => unlockedCampaignMission > 6 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Downtown LA Core (Mission 5/6)
+            14 => unlockedCampaignMission > 7 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // Vernon Foundry Basin (Mission 7)
+            7 => unlockedCampaignMission > 8 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // San Pedro Harbor (Mission 8)
+            4 => unlockedCampaignMission > 8 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Topanga Canyon Preserve
+            0 => unlockedCampaignMission > 9 ? DistrictEra.Aftermath : DistrictEra.PreMission,   // Angeles Crest Highlands (Mission 9)
+            2 => unlockedCampaignMission > 10 ? DistrictEra.Aftermath : DistrictEra.PreMission,  // San Gabriel Peaks (Mission 10)
+            12 => unlockedCampaignMission > 11 ? DistrictEra.Aftermath : DistrictEra.PreMission, // Kurogane Ridge Escarpment (Mission 11)
             _ => unlockedCampaignMission > 1 ? DistrictEra.Aftermath : DistrictEra.PreMission
         };
     }

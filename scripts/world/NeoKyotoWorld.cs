@@ -72,6 +72,9 @@ public partial class NeoKyotoWorld : Node2D
     public int ResidentChunks => _views.Count;
     public int CachedChunks => _stream.Cache.Count;
 
+    /// <summary>Active accessibility and gameplay assist profile.</summary>
+    public AccessibilityProfile Accessibility { get; set; } = AccessibilityProfile.Default;
+
     /// <summary>Read-only diagnostic snapshot for Godot MCP, automated tours and on-machine streaming measurements.</summary>
     public Godot.Collections.Dictionary InspectionState()
     {
@@ -86,8 +89,60 @@ public partial class NeoKyotoWorld : Node2D
             { "riding_boat", _player?.IsRidingBoat ?? false },
             { "alert_state", CurrentAlert.ToString() },
             { "world_time", _worldTimeMinutes },
-            { "weather", CurrentWeather.ToString() }
+            { "weather", CurrentWeather.ToString() },
+            { "era", DistrictState.DetermineEra(WorldCatalog.Region(p).Id, Progress).ToString() },
+            { "accessibility_high_contrast", Accessibility.HighContrastTelegraphs },
+            { "accessibility_parry_scale", Accessibility.ParryTimingWindowScale },
+            { "accessibility_puzzle_assist", Accessibility.PuzzleAssist.ToString() },
+            { "reconstruction_tasks_count", EndgameContentCatalog.ReconstructionTasks.Count },
+            { "remnant_incidents_count", EndgameContentCatalog.RemnantIncidents.Count },
+            { "archive_simulations_count", EndgameContentCatalog.ArchiveSimulations.Count },
+            { "operation_modifiers_count", EndgameContentCatalog.Modifiers.Count }
         };
+    }
+
+    /// <summary>Evaluates an operation clear, returning rank, score, credits, and cosmetic unlocks for UI and GdUnit4 testing.</summary>
+    public Godot.Collections.Dictionary EvaluateOperationMastery(
+        string operationId,
+        float clearTimeSeconds,
+        float targetGoldTimeSeconds,
+        Godot.Collections.Array<string> activeModifierIds,
+        bool tookDamage
+    )
+    {
+        var res = EndgameContentCatalog.EvaluateMastery(
+            operationId,
+            clearTimeSeconds,
+            targetGoldTimeSeconds,
+            activeModifierIds.ToArray(),
+            tookDamage
+        );
+        return new Godot.Collections.Dictionary
+        {
+            { "rank", (int)res.Rank },
+            { "final_score", res.FinalScore },
+            { "credits", res.CreditsAwarded },
+            { "faction_rep", res.FactionReputationAwarded },
+            { "unlocked_cosmetic", res.UnlockedCosmetic ?? "" }
+        };
+    }
+
+    /// <summary>Configures the active parry timing window scale in accessibility settings.</summary>
+    public void SetParryTimingScale(float scale)
+    {
+        Accessibility.ParryTimingWindowScale = scale;
+    }
+
+    /// <summary>Calculates the effective parry window with current accessibility settings.</summary>
+    public float CalculateParryWindow(float baseWindowSeconds)
+    {
+        return Accessibility.CalculateParryWindow(baseWindowSeconds);
+    }
+
+    /// <summary>Calculates the effective screen shake intensity with current accessibility settings.</summary>
+    public float CalculateScreenShake(float baseIntensity)
+    {
+        return Accessibility.CalculateScreenShake(baseIntensity);
     }
 
     /// <summary>Builds UI and starts a database load. Direct scene inspection receives an unsaved preview, never a local save.</summary>
@@ -114,7 +169,7 @@ public partial class NeoKyotoWorld : Node2D
         State = loaded ?? WorldSave.AfterMission(1);
         _worldTimeMinutes = State.WorldTimeMinutes;
 
-        if (_session > 0 && loaded == null && Progress == 1) throw new InvalidOperationException("Finish Mission 1 before entering Neo-Kyoto.");
+        if (_session > 0 && loaded == null && Progress == 1) throw new InvalidOperationException("Finish Mission 1 before entering Neo-Los Angeles.");
         var roster = OperativeRoster.BeginLevel(Progress);
         if (Progress == 5) roster = OperativeRoster.BeginLevel(6);
         roster.SetActive(State.Operative);
@@ -619,7 +674,7 @@ public partial class NeoKyotoWorld : Node2D
 
         var side = new VBoxContainer { CustomMinimumSize = new(320, 0) };
         row.AddChild(side);
-        side.AddChild(new Label { Text = WorldText.Get("Neo-Kyoto · 128 × 128 km") });
+        side.AddChild(new Label { Text = WorldText.Get("Neo-Los Angeles 2157 · 128 × 128 km") });
         _mapStatus = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart };
         side.AddChild(_mapStatus);
         _mapRetry = AddButton(side, "Retry Save", RetryPendingOperation);

@@ -56,7 +56,7 @@ func test_all_mission_results_expose_extraction_including_finale() -> void:
 		card.call(method, 150, 4, "Cyber Shogun")
 		var box: Node = card.get_node("RootPanel/MainVBox")
 		assert_bool(box.get_node("ContinueBtn").visible).is_true()
-		assert_str(box.get_node("ContinueBtn").text).is_equal(tr("Return to Neo-Kyoto"))
+		assert_str(box.get_node("ContinueBtn").text).is_equal(tr("Return to Neo-Los Angeles"))
 		assert_bool(box.get_node("PreviewBtn").visible).is_false()
 		assert_bool(box.get_node("ButtonsHBox/ReplayBtn").visible).is_true()
 	card.free()

@@ -1,5 +1,77 @@
 # Axiom Force — Project Memory
 
+## Living Resistance World: Neo-Los Angeles 2157 Re-theming & Alignment — 2026-11-07
+
+Re-aligned and grounded the 128 km × 128 km open exploration resistance world to the game's canonical master lore setting: **Greater Los Angeles Resistance Basin, 2157 (Neo-Los Angeles)**. All 16 districts now bear iconic Los Angeles geographic names while keeping coordinates, numerical IDs, pocket topologies, and PostgreSQL save stores 100% stable and backward compatible.
+
+### Deliverables & Changes:
+- **Geography & District Identity (`scripts/world/WorldCatalog.cs`)**:
+  - `WorldCatalog.Identity` updated to `"neo-los-angeles-v1"`.
+  - 16 canonical districts mapped:
+    - 0: `Angeles Crest Highlands`
+    - 1: `Castaic Aqueduct Reservoir`
+    - 2: `San Gabriel Peaks`
+    - 3: `Malibu Coast`
+    - 4: `Topanga Canyon Preserve`
+    - 5: `Historic Core & Little Tokyo`
+    - 6: `Downtown LA Core`
+    - 7: `San Pedro Harbor`
+    - 8: `Mojave Solar Belt`
+    - 9: `Concrete Wards & LA River`
+    - 10: `Century Citadel Ring`
+    - 11: `Santa Monica Coast`
+    - 12: `Kurogane Ridge Escarpment`
+    - 13: `Alameda Rustrail Belt`
+    - 14: `Vernon Foundry Basin`
+    - 15: `Ballona Reclamation Wetlands`
+- **Persistence Backward Compatibility (`scripts/world/WorldSave.cs`)**:
+  - `Valid()` checks `(World == WorldCatalog.Identity || World == "neo-kyoto-v1")`.
+  - Added unit test coverage verifying that legacy saves remain valid and unrecognized world IDs are rejected.
+- **HUD & UI**:
+  - Map header in `NeoKyotoWorld.cs` updated to `"Neo-Los Angeles 2157 · 128 × 128 km"`.
+  - Scorecard continue button updated to `WorldText.Get("Return to Neo-Los Angeles")`.
+  - Added 17-language localization entries to `assets/translations/Translations - Sheet1.csv`.
+- **Display Alignments in Catalogs**:
+  - Safehouse and reconstruction task titles in `WorldContentCatalog.cs` and `EndgameContentCatalog.cs` updated to Los Angeles equivalents while keeping internal keys (`safehouse_old_kyoto`, `recon_cloudstep_sluice`) stable.
+
+### Verification Results:
+- Docker Preflight: Containers healthy (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`).
+- C# Build: `dotnet build AxiomForce.csproj` succeeded with 0 errors.
+- Godot Headless Import: Completed with exit code 0.
+- Full Test Suite (`.\run_tests.ps1`):
+  - Django Tests: **111 / 111 passed**.
+  - NUnit (.NET 10) Tests: **361 / 361 passed** (including legacy save backward compatibility and LA region assertions).
+  - GdUnit4 Tests: **71 / 71 suites (333 / 333 test cases) passed** with 0 errors, 0 failures, 0 flaky, 0 skipped, 0 orphans.
+- Git Status: No commits or pushes made. Working tree changes remain uncommitted and local.
+
+## Neo-Kyoto Living Resistance World: Phase 4 Delivery (Master Roadmap 100% Complete) — 2026-11-07
+
+Implemented and verified the fourth and final phase of the Living Resistance World: **Phase 4: Endgame and Final Acceptance** (`docs/NEO_KYOTO_EXPANSION_PLAN.md`). All phases across the entire master plan (0, 1, 2, 3, and 4) are now complete.
+
+### Phase 4 Deliverables Completed:
+- **Liberated-World Endgame Architecture (`scripts/world/EndgameContentCatalog.cs`)**:
+  - 16 Regional Reconstruction Tasks (1 per region from Region 0 to 15): Post-Mission 12 civic recovery projects unlocking persistent district services (`service_lantern_sanctuary`, `service_subway_express`, etc.).
+  - 8 Corpo Remnant Tactical Incidents: Localized post-liberation corporate skirmishes featuring recommended operatives, threat ratings, and credit rewards.
+  - 6 Archive Historical Combat Simulations: Dedicated tactical battle scenarios honoring the signature milestones of all six heroes with custom combat mutators.
+- **Operation Challenge Modifiers & Mastery Scoring**:
+  - 5 Challenge Modifiers: `op_mod_ironman` (1.50x), `op_mod_overclocked` (1.35x), `op_mod_glass_vanguard` (1.30x), `op_mod_emp_atmosphere` (1.20x), `op_mod_axiom_protocol` (2.00x).
+  - Evaluates operational clear times, modifier counts, and damage taken to award Bronze, Silver, Gold, or Platinum mastery ranks with tiered payouts and cosmetics (`livery_gold_`, `skin_platinum_`).
+- **Accessibility & Assist Profile (`scripts/world/AccessibilityProfile.cs`)**:
+  - High-contrast telegraphs, parry timing window scaling (1.0x–2.5x), puzzle assist modes (`Standard`, `ExtendedClues`, `AutoSolveAllowed`), screen shake scaling (0.0x–1.0x), and controller glyph selection.
+  - Implemented as pure C# class safe for standalone NUnit testing, with Godot runtime helper bridges in `NeoKyotoWorld.cs`.
+- **Simulation & Streaming Performance Budget (`scripts/world/WorldPerformanceBudget.cs`)**:
+  - Enforces runtime entity limits (16 civilians, 8 hostiles, 4 vehicles) across 9 resident and 25 cached chunks with a 33.3 ms stall threshold.
+
+### Verification Results:
+- Docker Preflight: Stack verified healthy (`axiom-force-website-1`, `axiom-force-backend-1`, `axiom-force-db-1`).
+- Build: `dotnet build AxiomForce.csproj` succeeded with 0 warnings, 0 errors.
+- Godot Headless Import: Completed with exit code 0 (`task-7885`).
+- Full Test Suite Runner (`run_tests.ps1`):
+  - Django Tests: 111 / 111 passed in Docker.
+  - NUnit (.NET 10) Tests: 361 / 361 passed (including 8 new tests in `WorldExpansionPhase4Tests.cs`).
+  - GdUnit4 Tests: 71 / 71 test suites (333 / 333 test cases) passed with 0 errors, 0 failures, 0 flaky, 0 skipped, 0 orphans (including `test_world_expansion_phase4.gd`).
+- Git Policy: No commits or pushes performed. Working tree is local and uncommitted, awaiting explicit user instruction.
+
 ## Neo-Kyoto Living Resistance World: Phase 3 Delivery (Master Plan Complete) — 2026-11-07
 
 Resumed work from overnight pause. Restarted the Docker compose stack (`docker compose up -d`), resolved the two minor test alignments from the evening session, implemented Godot runtime tests, and verified all suites passing across the full project.

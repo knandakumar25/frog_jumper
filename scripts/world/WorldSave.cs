@@ -28,8 +28,8 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
             new Dictionary<string, int>(), new HashSet<string>());
     }
 
-    /// <summary>Rejects unsupported identities, unsafe coordinates and unknown modes instead of overwriting future saves.</summary>
-    public bool Valid() => Version==1 && World==WorldCatalog.Identity && WorldCatalog.InBounds(Position)
+    /// <summary>Rejects unsupported identities, unsafe coordinates and unknown modes instead of overwriting future saves. Accepts both neo-los-angeles-v1 and legacy neo-kyoto-v1 saves.</summary>
+    public bool Valid() => Version==1 && (World==WorldCatalog.Identity || World=="neo-kyoto-v1") && WorldCatalog.InBounds(Position)
         && WorldCatalog.InBounds(LastExtraction) && (Waypoint==null || WorldCatalog.InBounds(Waypoint.Value))
         && Resume is "world" or "mission" && Mission>=1 && Mission<=LevelCatalog.Count
         && OperativeRoster.RosterOrder.Contains(Operative);
