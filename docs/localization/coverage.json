@@ -2,14 +2,14 @@
   "structural_pass": true,
   "languages": {
     "english": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
       "explained_shared": []
     },
     "spanish": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -54,12 +54,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "eurofrench": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -93,13 +92,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "Surface",
         "−"
       ]
     },
     "brazilianportuguese": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -132,12 +130,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "german": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -171,12 +169,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "italian": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -210,12 +208,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "polish": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -246,12 +244,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "arabic": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -273,12 +271,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "turkish": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -306,12 +303,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "japanese": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -333,12 +330,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "korean": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -360,12 +356,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "mandarin": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -387,12 +382,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "hebrew": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -415,12 +409,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "traditionalchinese": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -442,12 +435,11 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     },
     "indonesian": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -475,12 +467,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "vietnamese": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -507,12 +499,12 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
+        "Neo-Los Angeles 2157 · 128 × 128 km",
         "−"
       ]
     },
     "thai": {
-      "required": 1565,
+      "required": 1541,
       "missing": [],
       "malformed": [],
       "identical_requires_review": [],
@@ -534,7 +526,6 @@
         "UI_PREVIEW_STATUS",
         "UI_LOADING_PROGRESS",
         "+",
-        "Neo-Kyoto · 128 × 128 km",
         "−"
       ]
     }
@@ -20629,7 +20620,7 @@
     },
     {
       "key": "FOUNDRY_FORGE_AFTERMATH_CUE_5",
-      "english": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+      "english": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
       "locations": [
         {
           "source": "scripts/ui/FoundryForgeAftermath.cs",
@@ -29561,7 +29552,7 @@
     },
     {
       "key": "UI_ACTIIISTARTSCREEN_BUILDCONTENT_C5DCFA7A",
-      "english": "The planetary sky-shield has fallen. Neo-Kyoto is waking up.\n",
+      "english": "The planetary sky-shield has fallen. Neo-Los Angeles is waking up.\n",
       "locations": [
         {
           "source": "scripts/ui/ActIIIStartScreen.cs",
@@ -60196,7 +60187,7 @@
     },
     {
       "key": "SUBTITLE_CINEMATIC_FOUNDRY_FORGE_AFTERMATH_06",
-      "english": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+      "english": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
       "locations": [
         {
           "source": "scripts/ui/FoundryForgeAftermath.cs",
@@ -64792,7 +64783,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -64858,7 +64849,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -64957,7 +64948,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65089,7 +65080,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65155,7 +65146,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65221,7 +65212,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65353,7 +65344,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65452,7 +65443,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65551,7 +65542,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65782,7 +65773,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -65848,7 +65839,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66079,7 +66070,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66145,7 +66136,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66175,6 +66166,39 @@
     {
       "key": "Neo-Kyoto · 128 × 128 km",
       "english": "Neo-Kyoto · 128 × 128 km",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
+      "required": false,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Neo-Los Angeles 2157 · 128 × 128 km",
+      "english": "Neo-Los Angeles 2157 · 128 × 128 km",
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
@@ -66211,7 +66235,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66277,7 +66301,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66310,7 +66334,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66343,7 +66367,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66508,7 +66532,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -66640,6 +66664,39 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
+      "required": false,
+      "formatting": {
+        "fields": [],
+        "printf": [],
+        "bbcode": [],
+        "newlines": 0
+      },
+      "coverage": {
+        "english": true,
+        "spanish": true,
+        "eurofrench": true,
+        "brazilianportuguese": true,
+        "german": true,
+        "italian": true,
+        "polish": true,
+        "arabic": true,
+        "turkish": true,
+        "japanese": true,
+        "korean": true,
+        "mandarin": true,
+        "hebrew": true,
+        "traditionalchinese": true,
+        "indonesian": true,
+        "vietnamese": true,
+        "thai": true
+      }
+    },
+    {
+      "key": "Return to Neo-Los Angeles",
+      "english": "Return to Neo-Los Angeles",
+      "locations": [],
+      "trigger": "catalog reference",
+      "subsystem": "interface",
       "required": true,
       "formatting": {
         "fields": [],
@@ -66739,7 +66796,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -67036,7 +67093,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -67135,7 +67192,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -67333,7 +67390,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -67399,7 +67456,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -67465,7 +67522,7 @@
       "locations": [],
       "trigger": "catalog reference",
       "subsystem": "interface",
-      "required": true,
+      "required": false,
       "formatting": {
         "fields": [],
         "printf": [],
@@ -69296,7 +69353,7 @@
       "trigger": "cinematic",
       "classification": "speech",
       "audio_path": "assets/cutscenes/foundry_forge_aftermath/dialogue.ogg",
-      "display_text": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+      "display_text": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
       "subtitle_key": "FOUNDRY_FORGE_AFTERMATH_CUE_5",
       "previous_inventory_key": "FOUNDRY_FORGE_AFTERMATH_CUE_5"
     },
@@ -70574,71 +70631,71 @@
   "subsystems": {
     "interface": {
       "english": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "spanish": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "eurofrench": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "brazilianportuguese": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "german": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "italian": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "polish": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "arabic": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "turkish": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "japanese": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "korean": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "mandarin": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "hebrew": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "traditionalchinese": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "indonesian": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "vietnamese": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       },
       "thai": {
-        "required": 1240,
+        "required": 1216,
         "missing": 0
       }
     },
@@ -70877,7 +70934,8 @@
     "scripts/ui/DialogueUI.cs",
     "scripts/ui/GameOverUI.cs",
     "scripts/ui/InputBootstrap.cs",
-    "scripts/ui/MissionSummaryUI.cs"
+    "scripts/ui/MissionSummaryUI.cs",
+    "scripts/world/QuestModels.cs"
   ],
   "limitations": [
     "Literal inventory is conservative; visual/artwork and native-language review remain required.",

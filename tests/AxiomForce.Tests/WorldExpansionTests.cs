@@ -227,6 +227,72 @@ public class WorldTransactionTests
         _owned.Clear();
     }
 
+    /// <summary>A damaged world record is refused, not replaced by defaults that would erase the campaign.</summary>
+    [Test]
+    public async Task QuestCompletionRefusesToOverwriteDamagedWorldSave()
+    {
+        int session = await CreateCampaignAsync();
+        await WorldStorage.SaveAsync(session, WorldSave.AfterMission(1), _connection);
+        await using var c = new NpgsqlConnection(_connection);
+        await c.OpenAsync();
+        var damaged = WorldSave.AfterMission(1) with { Position = new WorldPoint(-5000, -5000) };
+        await using (var write = new NpgsqlCommand("UPDATE game_state SET value=@v::jsonb WHERE state_key=@k", c))
+        {
+            write.Parameters.AddWithValue("v", JsonSerializer.Serialize(damaged));
+            write.Parameters.AddWithValue("k", $"world:{session}");
+            await write.ExecuteNonQueryAsync();
+        }
+        var receipt = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _connection);
+        Assert.That(receipt.Status, Is.EqualTo(TransactionStatus.DatabaseError));
+        await using var read = new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@k", c);
+        read.Parameters.AddWithValue("k", $"world:{session}");
+        var stored = JsonSerializer.Deserialize<WorldSave>((string)(await read.ExecuteScalarAsync())!);
+        Assert.That(stored!.Position, Is.EqualTo(damaged.Position));
+    }
+
+    /// <summary>A second completion with a new token, as after a restart, must not pay twice.</summary>
+    [Test]
+    public async Task QuestRewardsCannotBeEarnedTwiceWithNewTokens()
+    {
+        int session = await CreateCampaignAsync();
+        var first = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _connection);
+        var second = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _connection);
+        Assert.That(first.Status, Is.EqualTo(TransactionStatus.Success));
+        Assert.That(second.Status, Is.EqualTo(TransactionStatus.AlreadyCommitted));
+        await using var c = new NpgsqlConnection(_connection);
+        await c.OpenAsync();
+        await using var t = await c.BeginTransactionAsync();
+        var progression = await CampaignProgressionState.LoadOrCreateAsync(session, c, t);
+        Assert.That(progression.CityCredits, Is.EqualTo(WorldContentCatalog.Quests.Single(q => q.Id == "quest_ok_01").Reward.CityCredits + new CampaignProgressionState().CityCredits));
+    }
+
+    /// <summary>The service enforces the quest chain and rejects branches the quest doesn't offer.</summary>
+    [Test]
+    public async Task QuestCompletionEnforcesPrerequisitesAndBranches()
+    {
+        int session = await CreateCampaignAsync();
+        var blocked = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_02", null, Guid.NewGuid().ToString(), _connection);
+        var badBranch = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", "not_a_choice", Guid.NewGuid().ToString(), _connection);
+        Assert.That(blocked.Status, Is.EqualTo(TransactionStatus.PrerequisitesNotMet));
+        Assert.That(badBranch.Status, Is.EqualTo(TransactionStatus.InvalidOperation));
+    }
+
+    /// <summary>Finishing a mission moves the player without erasing quests, choices or the clock.</summary>
+    [Test]
+    public async Task MissionSettlementKeepsQuestProgress()
+    {
+        int session = await CreateCampaignAsync();
+        var before = WorldSave.AfterMission(1) with { ActiveQuests = new() { ["quest_ok_02"] = 1 }, DistrictChoices = new() { [5] = "choice_artisan_guild" }, WorldTimeMinutes = 12 };
+        await WorldStorage.SaveAsync(session, before.WithQuestCompleted("quest_ok_01", null), _connection);
+        await CampaignSettlement.SaveAsync(session, 2, 10, Guid.NewGuid().ToString(), _connection, "Cyber Shogun");
+        var after = await WorldStorage.LoadAsync(session, 3, _connection);
+        Assert.That(after!.CompletedQuests, Does.ContainKey("quest_ok_01"));
+        Assert.That(after.ActiveQuests!["quest_ok_02"], Is.EqualTo(1));
+        Assert.That(after.DistrictChoices![5], Is.EqualTo("choice_artisan_guild"));
+        Assert.That(after.WorldTimeMinutes, Is.EqualTo(12));
+        Assert.That(after.Position, Is.EqualTo(WorldSave.AfterMission(2).Position));
+    }
+
     /// <summary>
     /// Verifies that quest completion commits rewards and receipt atomically, and retrying the same
     /// action token is idempotent without duplicating sparks or credits.

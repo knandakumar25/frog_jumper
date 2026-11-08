@@ -260,7 +260,7 @@
   },
   {
     "key": "UI_ACTIIISTARTSCREEN_BUILDCONTENT_C5DCFA7A",
-    "english": "The planetary sky-shield has fallen. Neo-Kyoto is waking up.\n",
+    "english": "The planetary sky-shield has fallen. Neo-Los Angeles is waking up.\n",
     "source": "scripts/ui/ActIIIStartScreen.cs",
     "line": 158,
     "kind": "source alias"
@@ -3928,7 +3928,7 @@
   },
   {
     "key": "UI_FOUNDRYFORGEAFTERMATH_LINES_B2C1D311",
-    "english": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "english": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
     "source": "scripts/ui/FoundryForgeAftermath.cs",
     "line": 42,
     "kind": "source alias"

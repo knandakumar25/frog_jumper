@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Npgsql;
@@ -93,7 +94,25 @@ public static class WorldTransactionService
                 }
             }
 
-            // 3. Load or create isolated campaign progression
+            // 3. Reject repeats and invalid requests before any reward. Reading on this transaction
+            // sees the row the session lock protects, so a new token can't earn a quest twice.
+            var worldState = await WorldStorage.ReadAsync(connection, transaction, session).ConfigureAwait(false) ?? WorldSave.AfterMission(1);
+            long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            if (worldState.CompletedQuests?.ContainsKey(questId) == true)
+            {
+                await transaction.CommitAsync().ConfigureAwait(false);
+                return new TransactionReceipt(actionToken, session, "quest_completion", questId, TransactionStatus.AlreadyCommitted, now, "Quest already completed");
+            }
+            if (quest.PrerequisiteQuestId != null && worldState.CompletedQuests?.ContainsKey(quest.PrerequisiteQuestId) != true)
+            {
+                return new TransactionReceipt(actionToken, session, "quest_completion", questId, TransactionStatus.PrerequisitesNotMet, now, $"Requires {quest.PrerequisiteQuestId}");
+            }
+            if (branchChoiceId != null && quest.BranchChoices?.Any(c => c.ChoiceId == branchChoiceId) != true)
+            {
+                return new TransactionReceipt(actionToken, session, "quest_completion", questId, TransactionStatus.InvalidOperation, now, "Unknown branch choice");
+            }
+
+            // 4. Load or create isolated campaign progression
             var progression = await CampaignProgressionState.LoadOrCreateAsync(session, connection, transaction).ConfigureAwait(false);
 
             // Grant rewards once
@@ -108,15 +127,11 @@ public static class WorldTransactionService
 
             await CampaignProgressionState.SaveAsync(session, progression, connection, transaction).ConfigureAwait(false);
 
-            // 4. Update the world save state with quest completion
-            var worldState = await WorldStorage.LoadAsync(session, 1, connectionString ?? PostgresStorage.ConnectionString).ConfigureAwait(false)
-                ?? WorldSave.AfterMission(1);
-
-            // Extend world state dictionary with quest completion flag
+            // 5. Extend the world state with the completion flag
             var updatedState = worldState.WithQuestCompleted(questId, branchChoiceId);
             await WorldStorage.WriteAsync(connection, transaction, session, updatedState).ConfigureAwait(false);
 
-            // 5. Store the immutable transaction receipt
+            // 6. Store the immutable transaction receipt
             var receipt = new TransactionReceipt(
                 actionToken,
                 session,

@@ -194,8 +194,8 @@ public static class WorldContentCatalog
             new("npc_tatsu", "Tatsu", "Wildlife Tracker", "Free Signal Collective", 4, "pocket_r4_sat1", new WorldPoint(12150, 43850), new WorldPoint(12020, 44015), "Even the wolves know to steer clear of the red sensor eyes.", "dialog_tatsu"),
             new("npc_botan", "Botan", "Herbal Bio-Chemist", "Civic Recovery Network", 4, "pocket_r4_sat2", new WorldPoint(11900, 44200), new WorldPoint(12020, 44015), "Forest canopy roots filter out the industrial chemical poisons.", "dialog_botan"),
 
-            // Region 5: Old Kyoto
-            new("npc_sora", "Sora", "Lantern Artisan & Civic Organizer", "Civic Recovery Network", 5, "ok_pocket_lantern_market", new WorldPoint(43820, 44210), new WorldPoint(44025, 44018), "Welcome back to Old Kyoto. The lanterns still burn.", "dialog_sora"),
+            // Region 5: Little Tokyo
+            new("npc_sora", "Sora", "Lantern Artisan & Civic Organizer", "Civic Recovery Network", 5, "ok_pocket_lantern_market", new WorldPoint(43820, 44210), new WorldPoint(44025, 44018), "Welcome back to Little Tokyo. The lanterns still burn.", "dialog_sora"),
             new("npc_gen", "Master Gen", "Historic Archivist & Memory Keeper", "Free Signal Collective", 5, "ok_pocket_palace_investigation", new WorldPoint(44255, 43905), new WorldPoint(44155, 44355), "Stone remembers what circuits forget.", "dialog_gen"),
             new("npc_ren", "Ren", "Independent Courier & Master Mechanic", "Independent Couriers", 5, "ok_pocket_hub", new WorldPoint(44010, 44005), new WorldPoint(43830, 44220), "Need a tune-up on that Echo-Rider?", "dialog_ren"),
 
@@ -258,8 +258,8 @@ public static class WorldContentCatalog
     {
         var list = new List<ActivityPocket>();
 
-        // Phase 1: Old Kyoto (5)
-        list.Add(new("ok_pocket_hub", "Old Kyoto Arrival Hub & Lantern Hearth", 5, new WorldPoint(44000, 44000), 96.0, true, new[] { "npc_ren" }, new[] { "safehouse_old_kyoto" }, new[] { "chal_ok_race" }));
+        // Phase 1: Little Tokyo (5)
+        list.Add(new("ok_pocket_hub", "Little Tokyo Arrival Hub & Lantern Hearth", 5, new WorldPoint(44000, 44000), 96.0, true, new[] { "npc_ren" }, new[] { "safehouse_old_kyoto" }, new[] { "chal_ok_race" }));
         list.Add(new("ok_pocket_lantern_market", "Lantern Market & Artisan Quarter", 5, new WorldPoint(43800, 44200), 80.0, true, new[] { "npc_sora" }, Array.Empty<string>(), new[] { "quest_ok_01", "chal_ok_puzzle" }));
         list.Add(new("ok_pocket_palace_investigation", "Palace Walls & Historic Underway", 5, new WorldPoint(44250, 43900), 90.0, false, new[] { "npc_gen" }, new[] { "interior_palace_archives" }, new[] { "quest_ok_02", "side_op_palace_vault" }));
         list.Add(new("ok_pocket_moonbridge", "Moonbridge Overlook & Shrine Gardens", 5, new WorldPoint(44150, 44350), 75.0, true, Array.Empty<string>(), Array.Empty<string>(), new[] { "quest_ok_03", "chal_ok_trail" }));
@@ -325,16 +325,16 @@ public static class WorldContentCatalog
         var list = new List<QuestDefinition>();
 
         // ── Phase 1 District Quests ───────────────────────────────────────────
-        // Old Kyoto (5)
+        // Little Tokyo (5)
         list.Add(new(
             "quest_ok_01", "Lanterns in the Shadow",
             "Restore ancient surveillance scramblers in the Lantern Market to shield resistance couriers from corporate scans.",
             5, QuestCategory.District, 1, null, null,
             new QuestObjective[]
             {
-                new("obj_ok01_1", "Speak with Sora at the Lantern Market.", ObjectiveType.Interact, new WorldPoint(43820, 44210), 14),
+                new("obj_ok01_1", "Speak with Sora at the Lantern Market.", ObjectiveType.Interact, new WorldPoint(43820, 44210), 14, "npc_sora"),
                 new("obj_ok01_2", "Repair the damaged market power conduit.", ObjectiveType.RepairConduit, new WorldPoint(43860, 44240), 12),
-                new("obj_ok01_3", "Neutralize lurking surveillance probes.", ObjectiveType.DefeatHostiles, new WorldPoint(43800, 44180), 20)
+                new("obj_ok01_3", "Neutralize the surveillance probes at the palace wall.", ObjectiveType.DefeatHostiles, new WorldPoint(44200, 43950), 20)
             },
             null,
             new QuestReward(100, 150)
@@ -345,15 +345,15 @@ public static class WorldContentCatalog
             5, QuestCategory.District, 1, "quest_ok_01", null,
             new QuestObjective[]
             {
-                new("obj_ok02_1", "Consult Master Gen near the Palace Archives.", ObjectiveType.Interact, new WorldPoint(44255, 43905), 14),
+                new("obj_ok02_1", "Consult Master Gen near the Palace Archives.", ObjectiveType.Interact, new WorldPoint(44255, 43905), 14, "npc_gen"),
                 new("obj_ok02_2", "Investigate excavated cipher shrine.", ObjectiveType.Investigate, new WorldPoint(44280, 43870), 12),
                 new("obj_ok02_3", "Defend Master Gen from extraction drones.", ObjectiveType.DefeatHostiles, new WorldPoint(44250, 43900), 22)
             },
             null,
-            new QuestReward(150, 200, "mod_kinetic_weave")
+            new QuestReward(150, 200, "mod_kinetic_coil")
         ));
         list.Add(new(
-            "quest_ok_03", "The Crossroads of Old Kyoto",
+            "quest_ok_03", "The Crossroads of Little Tokyo",
             "Help the residents decide whether to fortify the historic wall bastions or support the artisan guild.",
             5, QuestCategory.District, 1, "quest_ok_02", null,
             new QuestObjective[]
@@ -364,8 +364,8 @@ public static class WorldContentCatalog
             },
             new QuestBranchChoice[]
             {
-                new("choice_artisan_guild", "Support the Artisan Guild & Market Expansion", "Provides permanent subsidies for street artisans and merchant stalls; unlocks local trade discounts.", "Sora and the Lantern Artisans flourish, offering permanent discounts on all equipment in Old Kyoto.", "service_artisan_guild"),
-                new("choice_wall_defenses", "Fortify Historic Wall Bastions", "Installs automated defense turrets and perimeter radar; suppresses hostile patrols near palace grounds.", "Perimeter defenses are fortified, eliminating wandering machine patrols near the ancient palace.", "service_wall_defenses")
+                new("choice_artisan_guild", "Support the Artisan Guild & Market Expansion", "Funds stalls and workshops so the street artisans can grow the market.", "Sora and the Lantern Artisans get this season's materials. The wall repairs wait.", "service_artisan_guild"),
+                new("choice_wall_defenses", "Fortify Historic Wall Bastions", "Repairs the old wall bastions and posts lookouts over the palace grounds.", "The wall crews get this season's materials. The market expansion waits.", "service_wall_defenses")
             },
             new QuestReward(200, 300)
         ));
@@ -377,7 +377,7 @@ public static class WorldContentCatalog
             9, QuestCategory.District, 2, null, null,
             new QuestObjective[]
             {
-                new("obj_cw01_1", "Check in with Dr. Maya Chen at Shelter 04.", ObjectiveType.Interact, new WorldPoint(43995, 76035), 14),
+                new("obj_cw01_1", "Check in with Dr. Maya Chen at Shelter 04.", ObjectiveType.Interact, new WorldPoint(43995, 76035), 14, "npc_maya_chen"),
                 new("obj_cw01_2", "Deliver trauma kits to the residential courtyard.", ObjectiveType.DeliverPayload, new WorldPoint(44310, 75915), 16),
                 new("obj_cw01_3", "Repel Cronos security enforcers.", ObjectiveType.DefeatHostiles, new WorldPoint(44300, 75900), 22)
             },
@@ -390,12 +390,12 @@ public static class WorldContentCatalog
             9, QuestCategory.District, 2, "quest_cw_01", null,
             new QuestObjective[]
             {
-                new("obj_cw02_1", "Meet Barik at Viaduct Station.", ObjectiveType.Interact, new WorldPoint(43760, 76210), 14),
+                new("obj_cw02_1", "Meet Barik at Viaduct Station.", ObjectiveType.Interact, new WorldPoint(43760, 76210), 14, "npc_barik"),
                 new("obj_cw02_2", "Realign seismic dampener #1.", ObjectiveType.RepairConduit, new WorldPoint(43730, 76240), 12),
                 new("obj_cw02_3", "Realign seismic dampener #2.", ObjectiveType.RepairConduit, new WorldPoint(43790, 76180), 12)
             },
             null,
-            new QuestReward(150, 200, "gadget_grapple_wire")
+            new QuestReward(150, 200, null, "gadget_sonar_pulse")
         ));
         list.Add(new(
             "quest_cw_03", "A City That Bleeds",
@@ -409,8 +409,8 @@ public static class WorldContentCatalog
             },
             new QuestBranchChoice[]
             {
-                new("choice_medical_clinic", "Establish Emergency Trauma Clinic", "Expands ICU beds and rapid field triage; unlocks instant health regeneration in shelter.", "Dr. Chen opens a state-of-the-art triage facility, granting rapid field healing at safehouses.", "service_trauma_clinic"),
-                new("choice_workshop_expansion", "Expand Reclamation Heavy Workshop", "Installs industrial metal presses and salvage recycling; grants bonus credits from salvage.", "Barik completes the heavy workshop expansion, increasing credit yields from world exploration.", "service_salvage_press")
+                new("choice_medical_clinic", "Establish Emergency Trauma Clinic", "Turns the back rooms of Shelter 04 into a trauma clinic.", "Dr. Chen gets the ward's crews and supplies. The workshop expansion waits.", "service_trauma_clinic"),
+                new("choice_workshop_expansion", "Expand Reclamation Heavy Workshop", "Expands the salvage workshop with metal presses and recycling lines.", "Barik gets the ward's crews and supplies. The clinic waits.", "service_salvage_press")
             },
             new QuestReward(200, 300)
         ));
@@ -418,27 +418,27 @@ public static class WorldContentCatalog
         // ── Phase 2 Urban District Quests ─────────────────────────────────────
         // Downtown Core (6)
         list.Add(new("quest_dt_01", "Neon Heartbeat", "Tap into the high-voltage commercial power spine to re-energize the Underworks.", 6, QuestCategory.District, 5, null, null, new QuestObjective[] { new("obj_dt01_1", "Speak with Dr. Elena Vance in the Underworks.", ObjectiveType.Interact, new WorldPoint(76010, 44010, 1), 14), new("obj_dt01_2", "Splice commercial conduit.", ObjectiveType.RepairConduit, new WorldPoint(76080, 44040, 1), 12), new("obj_dt01_3", "Defend the splice team from Cronos patrol drones.", ObjectiveType.DefeatHostiles, new WorldPoint(76050, 44020, 1), 22) }, null, new QuestReward(120, 180)));
-        list.Add(new("quest_dt_02", "Shadows on the Glass", "Track corporate data runners through the neon-lit commercial skyways.", 6, QuestCategory.District, 5, "quest_dt_01", null, new QuestObjective[] { new("obj_dt02_1", "Intercept courier route at Neon Market.", ObjectiveType.Investigate, new WorldPoint(76200, 44150), 14), new("obj_dt02_2", "Extract encrypted flight ledger.", ObjectiveType.Interact, new WorldPoint(76180, 44120), 12), new("obj_dt02_3", "Evade corporate enforcers.", ObjectiveType.DefeatHostiles, new WorldPoint(76220, 44180), 20) }, null, new QuestReward(160, 240, "mod_optical_camo")));
+        list.Add(new("quest_dt_02", "Shadows on the Glass", "Track corporate data runners through the neon-lit commercial skyways.", 6, QuestCategory.District, 5, "quest_dt_01", null, new QuestObjective[] { new("obj_dt02_1", "Intercept courier route at Neon Market.", ObjectiveType.Investigate, new WorldPoint(76200, 44150), 14), new("obj_dt02_2", "Extract encrypted flight ledger.", ObjectiveType.Interact, new WorldPoint(76180, 44120), 12), new("obj_dt02_3", "Evade corporate enforcers.", ObjectiveType.DefeatHostiles, new WorldPoint(76220, 44180), 20) }, null, new QuestReward(160, 240, null, "gadget_emp_disruptor")));
         list.Add(new("quest_dt_03", "The High-Rise Pact", "Broker an alliance between civilian shelters and rooftop black market syndicates.", 6, QuestCategory.District, 5, "quest_dt_02", null, new QuestObjective[] { new("obj_dt03_1", "Convene summit on Skyline Terrace.", ObjectiveType.Interact, new WorldPoint(76100, 43800, 1), 16), new("obj_dt03_2", "Decide the civic resource priority.", ObjectiveType.MakeConsequentialChoice, new WorldPoint(76100, 43800, 1), 16), new("obj_dt03_3", "Seal the charter.", ObjectiveType.Interact, new WorldPoint(76100, 43800, 1), 16) }, new QuestBranchChoice[] { new("choice_dt_shelters", "Fund Civilian Underworks Shelters", "Rebuilds drainage refuges into reinforced civilian habitats.", "Underworks shelters gain automated medical terminals.", "service_underworks_habs"), new("choice_dt_blackmarket", "Empower Skyline Black Market", "Permits syndicates to run black-market trade across the upper catwalks.", "Skyline merchants stock rare operative upgrade matrices.", "service_skyline_bazaar") }, new QuestReward(220, 320)));
 
         // Eastlight Harbor (7)
         list.Add(new("quest_hb_01", "Salt and Silt", "Clear naval mines blocking civilian fishing trawlers in the outer harbor.", 7, QuestCategory.District, 7, null, null, new QuestObjective[] { new("obj_hb01_1", "Consult Captain Maro at the customs pier.", ObjectiveType.Interact, new WorldPoint(108010, 44010), 14), new("obj_hb01_2", "Disarm floating magnetic mine.", ObjectiveType.RepairConduit, new WorldPoint(108150, 43850), 16), new("obj_hb01_3", "Destroy torpedo drones.", ObjectiveType.DefeatHostiles, new WorldPoint(108180, 43880), 24) }, null, new QuestReward(120, 180)));
-        list.Add(new("quest_hb_02", "Gantry Infiltration", "Reprogram cargo cranes to move containerized medical supplies.", 7, QuestCategory.District, 7, "quest_hb_01", null, new QuestObjective[] { new("obj_hb02_1", "Ascend cargo gantry controls.", ObjectiveType.Interact, new WorldPoint(107900, 44200), 14), new("obj_hb02_2", "Override container sorting logic.", ObjectiveType.Investigate, new WorldPoint(107920, 44230), 12), new("obj_hb02_3", "Repel wharf security guards.", ObjectiveType.DefeatHostiles, new WorldPoint(107880, 44180), 20) }, null, new QuestReward(160, 240, "mod_waterproof_seals")));
+        list.Add(new("quest_hb_02", "Gantry Infiltration", "Reprogram cargo cranes to move containerized medical supplies.", 7, QuestCategory.District, 7, "quest_hb_01", null, new QuestObjective[] { new("obj_hb02_1", "Ascend cargo gantry controls.", ObjectiveType.Interact, new WorldPoint(107900, 44200), 14), new("obj_hb02_2", "Override container sorting logic.", ObjectiveType.Investigate, new WorldPoint(107920, 44230), 12), new("obj_hb02_3", "Repel wharf security guards.", ObjectiveType.DefeatHostiles, new WorldPoint(107880, 44180), 20) }, null, new QuestReward(160, 240, "mod_courier_booster")));
         list.Add(new("quest_hb_03", "Tide of Change", "Determine harbor reconstruction: restore the public ferry network or construct fortified sea bastions.", 7, QuestCategory.District, 7, "quest_hb_02", null, new QuestObjective[] { new("obj_hb03_1", "Meet dockworker delegation at crane pier.", ObjectiveType.Interact, new WorldPoint(108250, 44100), 16), new("obj_hb03_2", "Choose the harbor development plan.", ObjectiveType.MakeConsequentialChoice, new WorldPoint(108250, 44100), 16), new("obj_hb03_3", "Ratify maritime agreement.", ObjectiveType.Interact, new WorldPoint(108250, 44100), 16) }, new QuestBranchChoice[] { new("choice_hb_ferry", "Restore Civilian Ferry Network", "Deploys high-speed civilian ferries connecting coastal districts.", "Water transit speed increased by 25%.", "service_public_ferry"), new("choice_hb_bastion", "Build Naval Gun Bastions", "Mounts automated coastal artillery to deny corporate gunboats.", "Coastal artillery shells hostile gunboats automatically.", "service_naval_bastion") }, new QuestReward(220, 320)));
 
         // Citadel Ring (10)
         list.Add(new("quest_ct_01", "Breaching the Aegis", "Disable automated scanner pylons protecting the outer perimeter of the Citadel.", 10, QuestCategory.District, 4, null, null, new QuestObjective[] { new("obj_ct01_1", "Report to Commander Locke at Outpost Delta.", ObjectiveType.Interact, new WorldPoint(76010, 76010), 14), new("obj_ct01_2", "Sever sensor feed to radar pylon.", ObjectiveType.RepairConduit, new WorldPoint(76250, 75850), 12), new("obj_ct01_3", "Neutralize automated sentry turrets.", ObjectiveType.DefeatHostiles, new WorldPoint(76220, 75820), 22) }, null, new QuestReward(120, 180)));
-        list.Add(new("quest_ct_02", "Signal in the Static", "Transmit decrypted rebel propaganda from the high broadcast array.", 10, QuestCategory.District, 4, "quest_ct_01", null, new QuestObjective[] { new("obj_ct02_1", "Meet Lyra at the spire lookout.", ObjectiveType.Interact, new WorldPoint(76250, 75850), 14), new("obj_ct02_2", "Align broadcast transmitter dish.", ObjectiveType.Investigate, new WorldPoint(76270, 75870), 12), new("obj_ct02_3", "Defend broadcast until uplink completes.", ObjectiveType.DefeatHostiles, new WorldPoint(76240, 75840), 24) }, null, new QuestReward(160, 240, "mod_jamming_field")));
+        list.Add(new("quest_ct_02", "Signal in the Static", "Transmit decrypted rebel propaganda from the high broadcast array.", 10, QuestCategory.District, 4, "quest_ct_01", null, new QuestObjective[] { new("obj_ct02_1", "Meet Lyra at the spire lookout.", ObjectiveType.Interact, new WorldPoint(76250, 75850), 14), new("obj_ct02_2", "Align broadcast transmitter dish.", ObjectiveType.Investigate, new WorldPoint(76270, 75870), 12), new("obj_ct02_3", "Defend broadcast until uplink completes.", ObjectiveType.DefeatHostiles, new WorldPoint(76240, 75840), 24) }, null, new QuestReward(160, 240, null, "gadget_decoy_emitter")));
         list.Add(new("quest_ct_03", "Fallen Crown", "Decide the fate of the captured military garrison: convert to hospital or repurpose as weapons testing bunker.", 10, QuestCategory.District, 4, "quest_ct_02", null, new QuestObjective[] { new("obj_ct03_1", "Inspect garrison grounds with Locke.", ObjectiveType.Interact, new WorldPoint(76150, 76300), 16), new("obj_ct03_2", "Determine garrison charter.", ObjectiveType.MakeConsequentialChoice, new WorldPoint(76150, 76300), 16), new("obj_ct03_3", "Execute directive.", ObjectiveType.Interact, new WorldPoint(76150, 76300), 16) }, new QuestBranchChoice[] { new("choice_ct_hospital", "Convert to Resistance Trauma Center", "Creates a massive medical staging hospital.", "Hero spark generation rate increased by 10%.", "service_garrison_hospital"), new("choice_ct_armory", "Repurpose as Ordnance Foundry", "Converts heavy armor bays into custom weapon modification stations.", "Unlocks military prototype weapon attachments.", "service_ordnance_foundry") }, new QuestReward(220, 320)));
 
         // Rustrail Belt (13)
         list.Add(new("quest_rr_01", "Sparks on the Track", "Clear rusted locomotives blocking vital supply transit through the Rustrail concourse.", 13, QuestCategory.District, 3, null, null, new QuestObjective[] { new("obj_rr01_1", "Confer with Foreman Briggs at the switchyard.", ObjectiveType.Interact, new WorldPoint(44010, 108010), 14), new("obj_rr01_2", "Release manual track brakes.", ObjectiveType.RepairConduit, new WorldPoint(43850, 108200), 14), new("obj_rr01_3", "Eliminate scrap scavenger ambush.", ObjectiveType.DefeatHostiles, new WorldPoint(43880, 108220), 20) }, null, new QuestReward(120, 180)));
-        list.Add(new("quest_rr_02", "Heavy Freight", "Escort an armored reclamation train carrying vital reactor shielding.", 13, QuestCategory.District, 3, "quest_rr_01", null, new QuestObjective[] { new("obj_rr02_1", "Mount the freight engine platform.", ObjectiveType.Interact, new WorldPoint(44180, 107900), 14), new("obj_rr02_2", "Deliver shielding core to maintenance bay.", ObjectiveType.DeliverPayload, new WorldPoint(44220, 107940), 16), new("obj_rr02_3", "Repel corporate rail-raiders.", ObjectiveType.DefeatHostiles, new WorldPoint(44190, 107910), 22) }, null, new QuestReward(160, 240, "mod_reinforced_chassis")));
+        list.Add(new("quest_rr_02", "Heavy Freight", "Escort an armored reclamation train carrying vital reactor shielding.", 13, QuestCategory.District, 3, "quest_rr_01", null, new QuestObjective[] { new("obj_rr02_1", "Mount the freight engine platform.", ObjectiveType.Interact, new WorldPoint(44180, 107900), 14), new("obj_rr02_2", "Deliver shielding core to maintenance bay.", ObjectiveType.DeliverPayload, new WorldPoint(44220, 107940), 16), new("obj_rr02_3", "Repel corporate rail-raiders.", ObjectiveType.DefeatHostiles, new WorldPoint(44190, 107910), 22) }, null, new QuestReward(160, 240, "mod_hull_reinforce")));
         list.Add(new("quest_rr_03", "Iron Arteries", "Decide Rustrail reconstruction: prioritize high-speed armored transit or expand civilian trade trains.", 13, QuestCategory.District, 3, "quest_rr_02", null, new QuestObjective[] { new("obj_rr03_1", "Gather rail union heads at the roundhouse.", ObjectiveType.Interact, new WorldPoint(44300, 108150), 16), new("obj_rr03_2", "Select the transit expansion policy.", ObjectiveType.MakeConsequentialChoice, new WorldPoint(44300, 108150), 16), new("obj_rr03_3", "Sign the union agreement.", ObjectiveType.Interact, new WorldPoint(44300, 108150), 16) }, new QuestBranchChoice[] { new("choice_rr_armored", "Armored Rapid Strike Trains", "Deploys high-speed trains that suppress enemy road patrols.", "Road patrols along rail lines are disabled.", "service_armored_express"), new("choice_rr_freight", "Civilian Cargo Caravans", "Opens trade cars for inter-district merchants.", "Increases city credits earned from all regional challenges by 20%.", "service_merchant_freight") }, new QuestReward(220, 320)));
 
         // Foundry Basin (14)
         list.Add(new("quest_fd_01", "Molten Metal", "Reopen the geothermal coolant bypass valves to prevent a critical slag explosion.", 14, QuestCategory.District, 7, null, null, new QuestObjective[] { new("obj_fd01_1", "Meet Master Cho at the Foundry Hub.", ObjectiveType.Interact, new WorldPoint(76010, 108010, 2), 14), new("obj_fd01_2", "Vent primary steam exhaust stack.", ObjectiveType.RepairConduit, new WorldPoint(75850, 107900), 14), new("obj_fd01_3", "Destroy automated coolant drones.", ObjectiveType.DefeatHostiles, new WorldPoint(75870, 107930), 20) }, null, new QuestReward(120, 180)));
-        list.Add(new("quest_fd_02", "Tempered Will", "Forge high-tensile armor plates for resistance field operatives.", 14, QuestCategory.District, 7, "quest_fd_01", null, new QuestObjective[] { new("obj_fd02_1", "Deliver rare alloy ingots to crucible.", ObjectiveType.DeliverPayload, new WorldPoint(76200, 108150), 14), new("obj_fd02_2", "Operate hydraulic forging press.", ObjectiveType.Interact, new WorldPoint(76220, 108170), 12), new("obj_fd02_3", "Defend crucible from saboteurs.", ObjectiveType.DefeatHostiles, new WorldPoint(76190, 76130), 24) }, null, new QuestReward(160, 240, "mod_heat_sink_coils")));
+        list.Add(new("quest_fd_02", "Tempered Will", "Forge high-tensile armor plates for resistance field operatives.", 14, QuestCategory.District, 7, "quest_fd_01", null, new QuestObjective[] { new("obj_fd02_1", "Deliver rare alloy ingots to crucible.", ObjectiveType.DeliverPayload, new WorldPoint(76200, 108150), 14), new("obj_fd02_2", "Operate hydraulic forging press.", ObjectiveType.Interact, new WorldPoint(76220, 108170), 12), new("obj_fd02_3", "Defend crucible from saboteurs.", ObjectiveType.DefeatHostiles, new WorldPoint(76130, 107830), 24) }, null, new QuestReward(160, 240, "mod_thermal_sink")));
         list.Add(new("quest_fd_03", "Fire and Slag", "Decide Foundry reconstruction: dedicate furnaces to armor fabrication or convert thermal vents to clean geothermal power.", 14, QuestCategory.District, 7, "quest_fd_02", null, new QuestObjective[] { new("obj_fd03_1", "Convene with smelter guildmasters.", ObjectiveType.Interact, new WorldPoint(76100, 107800), 16), new("obj_fd03_2", "Decide the thermal production directive.", ObjectiveType.MakeConsequentialChoice, new WorldPoint(76100, 107800), 16), new("obj_fd03_3", "Authorize furnace conversion.", ObjectiveType.Interact, new WorldPoint(76100, 107800), 16) }, new QuestBranchChoice[] { new("choice_fd_armor", "Dedicated Heavy Armor Plant", "Maximizes military armor synthesis.", "Operative shield maximum capacity increased by 10%.", "service_heavy_armor_works"), new("choice_fd_power", "Geothermal Clean Energy Grid", "Supplies free geothermal power to residential districts.", "Reduces fast travel recharge cost to 0 credits.", "service_clean_power_grid") }, new QuestReward(220, 320)));
 
         // ── Phase 3 Natural & Coastal District Quests (27 Quests: 9 Regions × 3) ───
@@ -514,17 +514,20 @@ public static class WorldContentCatalog
             int region = epRegions[i];
             int row = region / 4, col = region % 4;
             double bx = col * 32000 + 16000, by = row * 32000 + 16000;
+            string regionName = WorldCatalog.Regions[region].Name;
+            // Slice episodes sit inside the hostile palace pocket; the generic anchor is outside every pocket.
+            WorldPoint episodeAnchor = i == 0 ? new WorldPoint(44300, 43850) : i == 2 ? new WorldPoint(44210, 43840) : new WorldPoint(bx + 200, by - 200);
 
             // Episode 1
             list.Add(new(
                 $"quest_op_{tag}", $"{hero}: {ep1Titles[i]}",
-                $"{hero} undertakes a personal mission to recover lost operative battle telemetry in Region {region}.",
+                $"{hero} undertakes a personal mission to recover lost operative battle telemetry in {regionName}.",
                 region, QuestCategory.Operative, 1 + (i % 3), null, hero,
                 new QuestObjective[]
                 {
-                    new($"obj_op_{i}_1", $"Visit the operative memorial shrine.", ObjectiveType.Interact, new WorldPoint(bx + 200, by - 200), 14),
-                    new($"obj_op_{i}_2", $"Defeat hostile scavengers targeting the site.", ObjectiveType.DefeatHostiles, new WorldPoint(bx + 200, by - 200), 20),
-                    new($"obj_op_{i}_3", $"Synchronize with personal legacy datacore.", ObjectiveType.Investigate, new WorldPoint(bx + 200, by - 200), 12)
+                    new($"obj_op_{i}_1", $"Visit the operative memorial shrine.", ObjectiveType.Interact, episodeAnchor, 14),
+                    new($"obj_op_{i}_2", $"Defeat hostile scavengers targeting the site.", ObjectiveType.DefeatHostiles, episodeAnchor, 20),
+                    new($"obj_op_{i}_3", $"Synchronize with personal legacy datacore.", ObjectiveType.Investigate, episodeAnchor, 12)
                 },
                 null,
                 new QuestReward(150, 250, "mod_thermal_sink")
@@ -560,12 +563,12 @@ public static class WorldContentCatalog
         // Reclamation Guild
         list.Add(new("quest_rec_01", "Scrap Tithe", "Recover intact servo-actuators from the Foundry slag channels.", 14, QuestCategory.Faction, 7, null, null, new QuestObjective[] { new("obj_rec1", "Recover servo components.", ObjectiveType.Investigate, new WorldPoint(76000, 108000, 2), 14) }, null, new QuestReward(120, 180, null, null, FactionId.ReclamationGuild, 60)));
         list.Add(new("quest_rec_02", "Reverse Engineered", "Calibrate modular component workbench at Rustrail depot.", 13, QuestCategory.Faction, 3, "quest_rec_01", null, new QuestObjective[] { new("obj_rec2", "Calibrate laser workbench.", ObjectiveType.RepairConduit, new WorldPoint(44180, 107900), 14) }, null, new QuestReward(150, 250, null, null, FactionId.ReclamationGuild, 80)));
-        list.Add(new("quest_rec_03", "Heavy Reclamation", "Reclaim corporate smelting core blueprints and install them in the Foundry.", 14, QuestCategory.Faction, 7, "quest_rec_02", null, new QuestObjective[] { new("obj_rec3", "Secure smelting schematics.", ObjectiveType.Investigate, new WorldPoint(76220, 108170), 14) }, null, new QuestReward(200, 350, "mod_reclamation_rig", null, FactionId.ReclamationGuild, 120)));
+        list.Add(new("quest_rec_03", "Heavy Reclamation", "Reclaim corporate smelting core blueprints and install them in the Foundry.", 14, QuestCategory.Faction, 7, "quest_rec_02", null, new QuestObjective[] { new("obj_rec3", "Secure smelting schematics.", ObjectiveType.Investigate, new WorldPoint(76220, 108170), 14) }, null, new QuestReward(200, 350, "mod_reclamation_mesh", null, FactionId.ReclamationGuild, 120)));
 
         // Free Signal Collective
         list.Add(new("quest_fsc_01", "Ghost Frequency", "Broadcast cryptographic counter-signals through the Citadel outer array.", 10, QuestCategory.Faction, 4, null, null, new QuestObjective[] { new("obj_fsc1", "Deploy relay transmitter.", ObjectiveType.RepairConduit, new WorldPoint(76000, 76000), 14) }, null, new QuestReward(120, 180, null, null, FactionId.FreeSignalCollective, 60)));
-        list.Add(new("quest_fsc_02", "Memory Leak", "Recover erased history data drives from Old Kyoto archives.", 5, QuestCategory.Faction, 2, "quest_fsc_01", null, new QuestObjective[] { new("obj_fsc2", "Extract erased memory block.", ObjectiveType.Investigate, new WorldPoint(44260, 43910), 14) }, null, new QuestReward(150, 250, null, null, FactionId.FreeSignalCollective, 80)));
-        list.Add(new("quest_fsc_03", "Axiom Breaker", "Transmit master liberation sequence across the central Downtown uplink.", 6, QuestCategory.Faction, 6, "quest_fsc_02", null, new QuestObjective[] { new("obj_fsc3", "Broadcast liberation code.", ObjectiveType.Interact, new WorldPoint(76100, 43800, 1), 14) }, null, new QuestReward(200, 350, "mod_signal_ghost", null, FactionId.FreeSignalCollective, 120)));
+        list.Add(new("quest_fsc_02", "Memory Leak", "Recover erased history data drives from Little Tokyo archives.", 5, QuestCategory.Faction, 2, "quest_fsc_01", null, new QuestObjective[] { new("obj_fsc2", "Extract erased memory block.", ObjectiveType.Investigate, new WorldPoint(44260, 43910), 14) }, null, new QuestReward(150, 250, null, null, FactionId.FreeSignalCollective, 80)));
+        list.Add(new("quest_fsc_03", "Axiom Breaker", "Transmit master liberation sequence across the central Downtown uplink.", 6, QuestCategory.Faction, 6, "quest_fsc_02", null, new QuestObjective[] { new("obj_fsc3", "Broadcast liberation code.", ObjectiveType.Interact, new WorldPoint(76100, 43800, 1), 14) }, null, new QuestReward(200, 350, "mod_free_signal_tuner", null, FactionId.FreeSignalCollective, 120)));
 
         return list.ToArray();
     }
@@ -578,7 +581,7 @@ public static class WorldContentCatalog
         var list = new List<RegionalChallenge>();
 
         // Phase 1 & 2 Authored Challenges
-        // Old Kyoto (5)
+        // Little Tokyo (5)
         list.Add(new("chal_ok_race", "Lantern Mile Sprint", 5, ChallengeType.Race, new WorldPoint(44020, 44030), 45.0f, 60.0f, 100, 150));
         list.Add(new("chal_ok_puzzle", "Palace Wall Ascension", 5, ChallengeType.OperativePuzzle, new WorldPoint(44260, 43920), 40.0f, 55.0f, 100, 150));
         list.Add(new("chal_ok_trail", "Shrine Garden Circuit", 5, ChallengeType.DiscoveryTrail, new WorldPoint(44160, 44360), 90.0f, 120.0f, 100, 150));

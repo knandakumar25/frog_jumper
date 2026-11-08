@@ -27,6 +27,19 @@ public partial class ExplorationPlayer : CharacterBody2D
     public double DodgeCooldown { get; private set; }
     public double ShieldRegenTimer { get; private set; }
 
+    /// <summary>Length of the dodge's burst of movement and damage immunity.</summary>
+    public const double DodgeSeconds = 0.2;
+    private const float DodgeSpeed = 16f;
+    private double _dodgeTimer;
+    private Vector2 _dodgeDirection;
+    private bool _defeatRaised;
+
+    /// <summary>True during the dodge burst; incoming damage is ignored.</summary>
+    public bool IsDodging => _dodgeTimer > 0;
+
+    /// <summary>Raised once when health reaches zero. Restoring vitals re-arms it.</summary>
+    public event Action? Defeated;
+
     private Sprite2D _sprite = null!;
     private Sprite2D? _bikeSprite;
     private Sprite2D? _boatSprite;
@@ -54,6 +67,10 @@ public partial class ExplorationPlayer : CharacterBody2D
             ZIndex = -1
         };
         AddChild(_bikeSprite);
+        // No bike art exists yet, so the mount is drawn from shapes under the same toggled node.
+        _bikeSprite.AddChild(new Polygon2D { Name = "BikeFrame", Color = new Color("4edee5"), Polygon = new[] { new Vector2(-18, -6), new(14, -12), new(20, -6), new(-12, 0) } });
+        _bikeSprite.AddChild(new Polygon2D { Name = "BikeWheelRear", Color = new Color("1b2433"), Polygon = new[] { new Vector2(-24, -2), new(-16, -8), new(-8, -2), new(-16, 4) } });
+        _bikeSprite.AddChild(new Polygon2D { Name = "BikeWheelFront", Color = new Color("1b2433"), Polygon = new[] { new Vector2(10, -2), new(18, -8), new(26, -2), new(18, 4) } });
 
         // Visual indicator for utility boat mount
         _boatSprite = new Sprite2D
@@ -75,12 +92,15 @@ public partial class ExplorationPlayer : CharacterBody2D
     {
         string active = OperativeRoster.Current.Active;
         if (_operative == active || _sprite == null) return;
+        // Health carries over as a fraction, so swapping can't lose or gain it. The first load starts full.
+        float healthFraction = _operative.Length == 0 || MaxHealth <= 0 ? 1f : CurrentHealth / MaxHealth;
+        float shieldFraction = _operative.Length == 0 || MaxShield <= 0 ? 1f : CurrentShield / MaxShield;
         _operative = active;
         var profile = OperativeRegistry.GetProfile(active);
         MaxHealth = profile.MaxHealth;
         MaxShield = profile.MaxShield;
-        CurrentHealth = Math.Min(CurrentHealth, MaxHealth);
-        CurrentShield = Math.Min(CurrentShield, MaxShield);
+        CurrentHealth = MaxHealth * healthFraction;
+        CurrentShield = MaxShield * shieldFraction;
 
         int index = Array.IndexOf(new[] { "Cyber Shogun", "Oceanus", "Apex Titan", "Aura Phoenicia", "Mirage Blade", "Surya Prime" }, active);
         string path = $"res://assets/world/operative_{Math.Max(0, index)}.png";
@@ -110,6 +130,7 @@ public partial class ExplorationPlayer : CharacterBody2D
         }
 
         IsRidingBike = true;
+        IsDefending = false;
         if (_bikeSprite != null) _bikeSprite.Visible = true;
         return true;
     }
@@ -154,7 +175,7 @@ public partial class ExplorationPlayer : CharacterBody2D
     /// <summary>Executes defensive guard or parry stance.</summary>
     public bool ExecuteDefend(bool active)
     {
-        if (IsRidingBike || IsRidingBoat) return false;
+        if (IsRidingBike || IsRidingBoat) { IsDefending = false; return false; }
         IsDefending = active;
         return true;
     }
@@ -164,12 +185,18 @@ public partial class ExplorationPlayer : CharacterBody2D
     {
         if (DodgeCooldown > 0 || IsRidingBike || IsRidingBoat) return false;
         DodgeCooldown = 1.0;
+        _dodgeTimer = DodgeSeconds;
+        Vector2 input = MovementEnabled ? Input.GetVector("world_left", "world_right", "world_up", "world_down") : Vector2.Zero;
+        // With no direction held, dodge along the facing, which uses the same angle convention as _PhysicsProcess.
+        double angle = Facing * Math.PI / 4;
+        _dodgeDirection = input.LengthSquared() > 0 ? input.Normalized() : new Vector2((float)-Math.Sin(angle), (float)Math.Cos(angle));
         return true;
     }
 
     /// <summary>Applies incoming combat or environmental damage with armor mitigation.</summary>
     public void TakeDamage(float rawDamage)
     {
+        if (IsDodging || _defeatRaised) return;
         var profile = OperativeRegistry.GetProfile(_operative);
         float mitigated = rawDamage * (1.0f - profile.DamageReduction);
         if (IsDefending) mitigated *= 0.5f;
@@ -183,6 +210,11 @@ public partial class ExplorationPlayer : CharacterBody2D
 
         CurrentHealth = Math.Max(0, CurrentHealth - mitigated);
         ShieldRegenTimer = 4.0;
+        if (CurrentHealth <= 0)
+        {
+            _defeatRaised = true;
+            Defeated?.Invoke();
+        }
     }
 
     /// <summary>Full health and shield replenishment in safehouses and medical clinics.</summary>
@@ -190,6 +222,7 @@ public partial class ExplorationPlayer : CharacterBody2D
     {
         CurrentHealth = MaxHealth;
         CurrentShield = MaxShield;
+        _defeatRaised = false;
     }
 
     /// <summary>
@@ -221,7 +254,14 @@ public partial class ExplorationPlayer : CharacterBody2D
         Vector2 direction = MovementEnabled ? Input.GetVector("world_left", "world_right", "world_up", "world_down") : Vector2.Zero;
 
         float speed;
-        if (IsRidingBike)
+        if (_dodgeTimer > 0)
+        {
+            // The burst replaces normal movement and stops immediately if the world pauses play.
+            _dodgeTimer = Math.Max(0, _dodgeTimer - delta);
+            direction = MovementEnabled ? _dodgeDirection : Vector2.Zero;
+            speed = DodgeSpeed;
+        }
+        else if (IsRidingBike)
         {
             speed = 20.0f; // Bike: ~20 m/s on roads
         }

@@ -46,7 +46,8 @@ public sealed record QuestObjective(
     ObjectiveType Type,
     WorldPoint TargetLocation,
     double InteractionRadius = 16.0,
-    string? TargetEntityId = null
+    string? TargetEntityId = null,
+    int RequiredCount = 3
 );
 
 /// <summary>

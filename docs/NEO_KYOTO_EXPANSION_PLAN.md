@@ -1,6 +1,42 @@
-A previous agent produced the plan below to accomplish the user's task. Implement the plan in a fresh context. Treat the plan as the source of user intent, re-read files as needed, and carry the work through implementation and verification.
+> Historical note: an earlier agent wrote this plan for a fresh session to implement. That instruction no longer applies.
 
-# Neo-Kyoto: A Living Resistance World
+# Status as of 2026-11-08
+
+`README.md`, `HANDOFF.md` and `MEMORY.MD` once called this roadmap complete. It is not. **Everything from "Original plan" down is the original plan, not current state. Where they differ, this table wins.** The plan is kept as a list of possible future work and is not an instruction to implement it.
+
+Status was checked by reading the code and by automated tests that drive the real scene in preview mode with no saved campaign. No person has played these features, and saving through a scene was not tested end to end; the save service has its own database tests.
+
+| Word | Meaning |
+|---|---|
+| Playable | A player can reach and use it in a normal game. |
+| Partial | Part of it works; the row says which part. |
+| Data only | Defined in files and tests; players can't reach it. |
+| Disabled | Code exists but is switched off. |
+| Not built | No code. |
+
+| System | Status |
+|---|---|
+| Walking, running, map, waypoints, minimap, free transit, elevators, mission entrances, squad swap, autosave with Retry | Playable |
+| 8 quests in Little Tokyo and Concrete Wards, with conversations | Playable |
+| Branch choices in those quests | Partial: the choice is saved and shown as a story outcome, with no gameplay effect. The five choices in data-only quests still describe effects and must be reworded or built if those quests become playable |
+| Melee attack, dodge, guard, objective drone waves, alert states, defeat and return | Playable; waves appear only for quest objectives |
+| Operative combat abilities, parry, roaming patrols | Not built |
+| Electric bike | Playable, drawn from placeholder shapes |
+| Safehouse rest (sets the defeat return point), resident greetings, clock, resident day and evening positions | Playable |
+| Enterable building interiors | Not built; entrances heal or show a message. The Downtown and Foundry safehouses are placed where they can't be reached |
+| The other 64 quests, written conversations for residents | Data only |
+| 48 challenges, 16 side operations (their scenes don't exist) | Data only |
+| Boats | Disabled; water blocks the player |
+| Shops, modules, gadgets, spending credits | Data only; quest rewards are saved but can't be used |
+| Operative upgrades in the open world | Data only; world combat uses each operative's base stats |
+| Campaign-owned progression | Partial: quest rewards are written to it, but nothing in play reads it, including the upgrade screen |
+| Accessibility settings, weather, day/night lighting, liberated-world states | Data only |
+| Operative traversal abilities, leisure activities, ambient audio | Not built |
+| Performance limits | Partial: chunk counts and world hostiles are capped; the 60-minute stability test has not been run |
+
+# Original plan (not current state)
+
+## Neo-Kyoto: A Living Resistance World
 
 ## 1. Vision and design rules
 

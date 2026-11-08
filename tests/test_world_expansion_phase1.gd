@@ -48,6 +48,11 @@ func test_player_topdown_combat_actions_and_mitigation() -> void:
 	var dodged: bool = player.call("ExecuteDodge")
 	assert_bool(dodged).is_true()
 	assert_float(player.get("DodgeCooldown")).is_greater(0.0)
+	# The dodge burst ignores damage, then ends after 0.2 seconds.
+	player.call("TakeDamage", 30.0)
+	assert_float(player.get("CurrentShield")).is_equal(50.0)
+	await await_millis(300)
+	assert_bool(player.get("IsDodging")).is_false()
 	
 	# Damage mitigation: 30 damage absorbed by shield (50 -> 20)
 	player.call("TakeDamage", 30.0)

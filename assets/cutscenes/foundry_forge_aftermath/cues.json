@@ -70,11 +70,11 @@
     "voice": "Brian",
     "start": 48.0,
     "end": 58.0,
-    "text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "text": "Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
     "voice_id": "nPczCjzI2devNBz1zQrb",
     "model": "eleven_multilingual_v2",
     "duration": 10.0,
-    "subtitle": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "subtitle": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
     "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json"
   },
   {
