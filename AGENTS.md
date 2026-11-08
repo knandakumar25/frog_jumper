@@ -13,6 +13,28 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 
 ## Development Workflows
 
+### Mandatory Elephant-Goldfish Model (EGM) Skills (Every Run & All Tasks)
+
+- Whenever an agent executes ANY task, it **MUST read and apply the relevant skills from Google's Elephant-Goldfish Model (`google/elephant-goldfish-model`) on EVERY RUN, regardless of the prompt or task type**. This applies to all AI agents: Google Antigravity (Gemini), Claude Code, and OpenAI Codex.
+- The EGM architecture pairs a persistent contextual agent (**The Elephant**) with isolated, fresh-context adversarial reviewers (**The Goldfish**) to systematically eliminate unstated assumptions, design blind spots, and architectural drift:
+  1. **`egm-review-loop` & `egm-review`**: Orchestrate automated adversarial Goldfish review loops to audit proposed architectures, implementation plans, code edits, and documentation against structural and quality standards before finalizing.
+  2. **`egm-draft`**: Construction of technical specifications, plans, and design documents. Enforces **Artifact-First Delivery** (writing plans and large summaries directly to files/artifacts, never dumping raw blocks into chat), the **Plain-English Standard** (zero promotional fluff or decorative adjectives like "seamless" or "robust"), and **Default to Stress-Testing** without sycophancy or echo-chamber validation.
+  3. **`egm-brainstorm`**: Upstream interactive ideation, problem clarification, and architectural trade-off analysis utilizing TRIZ inventive principles.
+  4. **`egm-resolve`**: Primary Elephant resolution workflow for ingesting Goldfish deficiency reports, defending deliberate design decisions, and applying surgical fixes.
+  5. **`egm-bootstrap`**: Repository and directory-level documentation contract generation ("peanuts and hay"), establishing unambiguous file-level contracts, invariants, and side effects.
+  6. **`egm-drift-report`**: Continuous drift detection comparing documented designs against actual code implementation to report discrepancies.
+- **Execution Constraints & Personas**:
+  - **Artifact-First Delivery (MANDATORY)**: Never dump large proposals, specifications, or audit summaries directly into the chat pane. Always write them to files or the harness artifact directory and link them cleanly in chat.
+  - **Plain-English Standard & No Glazing**: Write all documents and communications in clear, direct, jargon-free plain English. Explain technical mechanisms plainly. Eliminate sycophancy (do not praise ideas as "great" or "brilliant"); lead with what is wrong, missing, or risky before affirming merits.
+  - **Adversarial Goldfish Subagents**: Leverage the specialized review personas registered in the environment (`egm-design`, `egm-implementation-readiness`, `egm-codebase-details`, `egm-structural`, `egm-style`, `egm-comprehension`, `egm-zoom-out`, `egm-inventive-catalyst`, `egm-synthesizer`) to audit proposals and changes with fresh context.
+  - **Stress-Testing by Default**: Actively find edge cases, failure modes, and counter-arguments before validating any solution.
+- **Installation Roots on this Machine**:
+  - Antigravity app/IDE: `C:\Users\karthiknk21\.gemini\config\skills\` & plugin `C:\Users\karthiknk21\.gemini\config\plugins\egm\`
+  - Antigravity CLI: `C:\Users\karthiknk21\.gemini\antigravity-cli\skills\`
+  - Claude Code: `C:\Users\karthiknk21\.claude\skills\` & marketplace plugin `C:\Users\karthiknk21\.claude\plugins\marketplaces\egm\`
+  - Codex: `C:\Users\karthiknk21\.agents\skills\`
+  - Each skill directory (`egm-bootstrap`, `egm-brainstorm`, `egm-draft`, `egm-drift-report`, `egm-resolve`, `egm-review`, `egm-review-loop`) contains its authoritative `SKILL.md` instructions and bundled resources. Always read and apply them on every run.
+
 ### Mandatory Game-Development Skills (All Game-Related Work)
 
 - Whenever an agent performs game-related work, it **MUST first read and apply the relevant skills from `gamedev-skills/awesome-gamedev-agent-skills`**. This applies to Codex, Claude Code, and Google Antigravity, including implementation, debugging, reviews, advice, planning, assets, and game-related documentation.

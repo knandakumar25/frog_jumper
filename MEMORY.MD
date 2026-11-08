@@ -1,5 +1,24 @@
 # Axiom Force — Project Memory
 
+## Mandatory Elephant-Goldfish Model (EGM) Workflow Directives — 2026-11-08
+
+- **Action**: Configured universal agent guidelines and individual agent guides ([`AGENTS.md`](file:///D:/Projects/frog_jumper/AGENTS.md), [`GEMINI.md`](file:///D:/Projects/frog_jumper/GEMINI.md), [`CLAUDE.md`](file:///D:/Projects/frog_jumper/CLAUDE.md), [`CODEX.md`](file:///D:/Projects/frog_jumper/CODEX.md)) to mandate the use of Google's Elephant-Goldfish Model (`google/elephant-goldfish-model`) skills on every run regardless of task type.
+- **EGM Skill Suite**:
+  - `egm-review-loop` & `egm-review`: Automated multi-agent review loops with fresh-context Goldfish auditors (`egm-design`, `egm-implementation-readiness`, `egm-codebase-details`, `egm-structural`, `egm-style`, `egm-comprehension`, `egm-zoom-out`, `egm-inventive-catalyst`, `egm-synthesizer`).
+  - `egm-draft`: Artifact-first delivery, plain-English standard, and default to stress-testing.
+  - `egm-brainstorm`: Upstream multi-lens ideation, clarifying questions, and TRIZ trade-offs.
+  - `egm-resolve`: Elephant resolution workflow for deficiency reports and surgical fixes.
+  - `egm-bootstrap`: Architectural contracts, leaf-level and blueprint `README.md` / `EGM.md` files.
+  - `egm-drift-report`: Codebase vs design document consistency and drift reporting.
+- **Skill Availability Verified**: EGM skills are installed across all 4 machine roots (`.gemini/config/skills/`, `.gemini/antigravity-cli/skills/`, `.claude/skills/`, `.agents/skills/`).
+- **Git Status**: Changes left local and uncommitted awaiting explicit user instruction.
+
+## Docker Services Shutdown — 2026-11-07
+
+- **Action**: Gracefully shut down all project Docker containers via `docker compose down`.
+- **Verification**: `docker ps` verified 0 active containers; `axiom-force-website-1`, `axiom-force-backend-1`, and `axiom-force-db-1` were cleanly stopped and removed.
+- **Git Status**: Working tree clean, code changes previously pushed to `origin/main` (`c8ca947`).
+
 ## Living Resistance World: Neo-Los Angeles 2157 Re-theming & Alignment — 2026-11-07
 
 Re-aligned and grounded the 128 km × 128 km open exploration resistance world to the game's canonical master lore setting: **Greater Los Angeles Resistance Basin, 2157 (Neo-Los Angeles)**. All 16 districts now bear iconic Los Angeles geographic names while keeping coordinates, numerical IDs, pocket topologies, and PostgreSQL save stores 100% stable and backward compatible.
