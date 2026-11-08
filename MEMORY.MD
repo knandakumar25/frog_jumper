@@ -1,5 +1,42 @@
 # Axiom Force — Project Memory
 
+## Open-world slice code review (read-only) — 2026-11-08
+
+- **Outcome**: reviewed the uncommitted working-tree diff at high effort and returned findings to the caller. No code changed and none of the findings has been fixed.
+- **Most serious findings**: `WorldTransactionService` now replaces an invalid version-1 world save with Mission 1 defaults where it used to return a database error; `tools/db/restore.ps1` runs `pg_restore --clean` without `--single-transaction`.
+- **Verification**: read the code only. No build, tests, Godot import or Docker commands were run, and findings were not independently verified.
+- **Git Status**: nothing staged, committed or pushed.
+
+## Open-world slice, setting canon and tooling fixes — 2026-11-08
+
+- **Correction**: older entries saying the world roadmap is 100% complete are wrong. Current truth is the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`: 8 quests in Little Tokyo and Concrete Wards are playable; the other 14 regions' content is data only.
+- **Decisions by owner**: build only that slice for now; canon is Los Angeles 2157 and Tokyo means Little Tokyo; Surya's line was spliced rather than regenerated.
+- **Done**: quests, conversations, drone combat, defeat return, save-merge and duplicate-reward fixes; setting text across game, website and sources; agent guides corrected; story bible marked historical; `tools/db` backup and restore; hash-bound `listening_acceptance.json`; `godot-ai` launch flags in `~/.claude.json`.
+- **Verified**: build 0 errors; import exit 0; Django 111, NUnit 375, GdUnit4 343 (`report_545`), Python 24, all passing with 0 orphans; localization gate passes. The voice gate still exits 1 for 7 flagged cues by design.
+- **Open**: human listening to the splice at about 51 s of the Mission 7 aftermath; human play of the slice; new conversation text is English only; website image needs a rebuild to show the text; `godot-ai` needs an MCP reconnect; cutscene and export images need rebuilding.
+- **Later reviews**: `/code-review` findings fixed, including the `quest_fd_02` location and repeated module reward. One EGM document-review round on the status table, not converged. EGM skills review documents, not code. Owner chose to reword the four playable branch choices as story outcomes rather than build effects; five data-only choices still describe effects.
+- **Git Status**: on the owner's request, committed and pushed to branch `feat/open-world-playable-slice`; not merged into `main`.
+
+## Docker stack stopped — 2026-11-08
+
+- **Action**: On the owner's request, ran `docker compose stop` after reading the Docker Compose skill. `backend`, `db` and `website` exited with code 0. Used `stop` instead of `down` because the database volume went missing once after an earlier `down`, cause unknown. Containers and `axiom-force_pgdata` remain; `docker compose up -d` restarts them.
+- **Note**: the stack must be running before the next code edit (preflight) and for `run_tests.ps1`.
+- **Git Status**: `MEMORY.MD` edited locally only; nothing staged, committed or pushed.
+
+## Docker stack started — 2026-11-08
+
+- **Action**: Ran `docker compose up -d` after reading the Docker Compose skill. `db` is healthy on 5432, `backend` is up on 8000 and `website` is up on 5173; the website returned HTTP 200 and Django responded (404 at the bare `/api/` path, which has no route).
+- **Risk found**: Compose created `axiom-force_pgdata` new at 2026-11-08T13:42:35Z, so PostgreSQL started empty and migrations rebuilt the schema. Any campaigns or accounts held in the earlier local volume are gone from this stack. The 2026-11-07 entry records `docker compose down` with no volume flag, so the cause of the missing volume is unknown.
+- **Git Status**: `MEMORY.MD` edited locally only; nothing staged, committed or pushed.
+
+## Project orientation read (Claude Code, read-only) — 2026-11-08
+
+- **Outcome**: Reviewed the Git history (461 commits, HEAD `f0b616f`) and project Markdown for orientation. No code, scene or asset changes, so no preflight, import or tests were run.
+- **Read in full**: agent guides (four copies differ only in title/blank lines), `docs/` plans and reviews except the audit appendix, `tools/gameplay` guides, `export/APPLE_RELEASE.md`, and the smaller asset/tool/localization/voice READMEs.
+- **Partial only (too large for one pass)**: `MEMORY.MD` and `HANDOFF.md` newest or selected sections plus headings; `README.md` and `Axiom Force.md` headings and opening. **Not read**: `tools/cutscene/README.md`, `docs/audit/SCENE_AND_ASSET_DETAILS.md`, and third-party `addons/` docs.
+- **Doc drift found**: the agent guides' overview still describes a 4-level campaign, while the code and logs have 12 missions plus an open world. `docs/NEO_KYOTO.md` still describes the pre-Los Angeles naming.
+- **Git Status**: `MEMORY.MD` edited locally only; nothing staged, committed or pushed.
+
 ## Mandatory Elephant-Goldfish Model (EGM) Workflow Directives — 2026-11-08
 
 - **Action**: Configured universal agent guidelines and individual agent guides ([`AGENTS.md`](file:///D:/Projects/frog_jumper/AGENTS.md), [`GEMINI.md`](file:///D:/Projects/frog_jumper/GEMINI.md), [`CLAUDE.md`](file:///D:/Projects/frog_jumper/CLAUDE.md), [`CODEX.md`](file:///D:/Projects/frog_jumper/CODEX.md)) to mandate the use of Google's Elephant-Goldfish Model (`google/elephant-goldfish-model`) skills on every run regardless of task type.

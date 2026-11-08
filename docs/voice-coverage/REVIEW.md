@@ -34,7 +34,11 @@ names such as Xelthara/Stratos/Kaito, and ambiguous consonants or vowels. Listen
 should prioritize `cinematic.shattered_aegis_intro.08` (Border/Order onset),
 `cinematic.foundry_forge_intro.06` (route/road),
 `cinematic.stratos_docks_intro.06` (flak/flat),
-`cinematic.neon_rust_aftermath.05` (hauled/hold), and `m07.intro` (sever/severe).
+`cinematic.neon_rust_aftermath.05` (hauled/hold), and `m07.intro` (sever/severe), plus `m03.event.ba4f252bdb19` (Comm/Calm) and
+`cinematic.foundry_forge_aftermath.08` (Stratos/Stratus). To sign one off after listening, add a
+record to `listening_acceptance.json`; it stops applying if the audio changes.
+Also listen to `cinematic.foundry_forge_aftermath.06`: "over Neo-Kyoto" was spliced out of the
+original take at about 51 s on 2026-11-08, and only speech recognition has checked it.
 They are deliberately still flagged; no replacement is justified solely by an
 uncertain recognition result. The strict coverage gate remains nonzero until
 these discrepancies and the other listed candidates receive acceptance.

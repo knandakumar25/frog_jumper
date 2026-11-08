@@ -1,6 +1,12 @@
 # Axiom Force
 
-## Neo-Los Angeles 2157: Living Resistance World (Master Roadmap Complete: Phases 0–4) — 2026-11-07
+## Open world status (2026-11-08)
+
+The Phase 0–4 roadmap below was logged as complete, but much of it is catalog data with no way to reach it in play. What is playable now: exploration, transit, missions, safehouses, the electric bike, and eight quests in Little Tokyo and Concrete Wards with conversations and drone combat. Branch choices are saved and shown as story outcomes, with no gameplay effect yet. Combat controls are (F/B attack, Space/RB dodge, Q/LB guard). The other 14 regions can be explored but have no working quests. Conversations are English only. See the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`.
+
+Back up saves with `tools/db/backup.ps1`; restore with `tools/db/restore.ps1 -File <dump> -ConfirmOverwrite <database>`. Saves live only in PostgreSQL. After listening to a flagged voice line, record it in `docs/voice-coverage/listening_acceptance.json`.
+
+## Neo-Los Angeles 2157: Living Resistance World (roadmap; see status above) — 2026-11-07
 
 The open world exploration map is grounded in the game's canonical master setting: **Greater Los Angeles Resistance Basin, 2157 (Neo-Los Angeles)**.
 Following the [World Expansion Plan](docs/NEO_KYOTO_EXPANSION_PLAN.md), the open world spans a massive 128 km × 128 km streamed terrain

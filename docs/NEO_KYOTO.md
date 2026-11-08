@@ -1,4 +1,6 @@
-# Neo-Kyoto exploration
+# Neo-Los Angeles exploration
+
+> Named Neo-Kyoto in earlier development. Code identifiers (`NeoKyotoWorld`, `neo_kyoto.tscn`, legacy save ID `neo-kyoto-v1`) keep that name for save and scene stability. Current district names are in `scripts/world/WorldCatalog.cs`. What is playable is listed in the status table of `NEO_KYOTO_EXPANSION_PLAN.md`.
 
 The initial surface is 128,000 × 128,000 metres (16,384 km²), north-up, divided
 into sixteen 32 km districts. Existing missions retain their own controllers and
@@ -28,7 +30,7 @@ Godot scenes; the data/prefetch window holds at most 25 chunks and one worker ba
 Scene creation applies one chunk per frame. Movement waits for all nine resident
 chunks, including after transit. Rendering rebases at chunk boundaries; physics,
 sprites and terrain cells use bounded local coordinates. Expansion must preserve
-existing region/station IDs, hash rules and `neo-kyoto-v1` identity. Changing the
+existing region/station IDs and hash rules. The world identity is `neo-los-angeles-v1`, and `neo-kyoto-v1` saves stay valid. Changing the
 generation contract requires an explicit save migration, not silently reseeding.
 This follows Godot's documented [2D precision limitations](https://docs.godotengine.org/en/stable/tutorials/physics/large_world_coordinates.html);
 the engine's double-precision build option does not increase 2D rendering precision.
@@ -45,7 +47,7 @@ Opening a world scene directly without a campaign is explicitly unsaved preview.
 
 The original Blender kit contains eight environment modules, sixteen architectural
 and sixteen scenic landmarks, and six four-frame/eight-direction operative atlases.
-The Old Kyoto block establishes the shared angled camera and amber/cyan basalt
+The Little Tokyo block establishes the shared angled camera and amber/cyan basalt
 palette. Foot colliders and fading upper sprites keep walking paths readable.
 Rebuild with `docker compose --profile cutscene run --rm --entrypoint blender
 cutscene --background --python tools/world/build_kit.py`. This is an opt-in art
@@ -77,7 +79,7 @@ The requested sustained 1080p/60 target therefore remains a performance acceptan
 target, not a certified result. A future release benchmark must use the authorized
 Docker export workflow separately; this task performed no export.
 
-Live MCP inspection covered the Old Kyoto reference block, highlands, coastline,
+Live MCP inspection covered the Little Tokyo reference block, highlands, coastline,
 both underground elevators, full-map framing, controller Back/D-pad navigation,
 4 m/s walk and 8 m/s run over sixty physics frames, and roof fading to 0.302 alpha.
 All 46 PNGs have the expected dimensions, transparent/drawn pixels and generated
@@ -85,3 +87,11 @@ Godot `.import` metadata. Full manual combat playthroughs and native art/languag
 acceptance are not implied by these checks. The generic scene-reference checker
 also reports existing addon signal/inheritance warnings; none target the new world
 scene. Unit tests and Godot imports provide the runtime resource checks.
+
+## Quests and combat
+
+Only Little Tokyo and Concrete Wards have playable quests (`WorldQuestRules.PlayableQuestIds`).
+E talks to the objective's resident or completes the objective at its location. F/B attacks,
+Space/RB dodges and Q/LB guards. Each combat objective spawns its own wave of drones; there are
+no roaming patrols. Defeat returns the player to the last safehouse or arrival and resets only
+the unfinished wave. The finale's spoken "twelve districts" does not match the map's 16 regions.

@@ -45,8 +45,8 @@
         "first_signal": 0.08,
         "last_signal": 4.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.fragment1",
@@ -93,8 +93,8 @@
         "first_signal": 0.02,
         "last_signal": 4.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.fragment2",
@@ -141,8 +141,8 @@
         "first_signal": 0.02,
         "last_signal": 4.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.fragment3",
@@ -189,8 +189,8 @@
         "first_signal": 0.02,
         "last_signal": 5.02
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.event.3464a63ef614",
@@ -237,8 +237,8 @@
         "first_signal": 0.02,
         "last_signal": 5.44
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.event.1c0db99c7753",
@@ -285,8 +285,8 @@
         "first_signal": 0.08,
         "last_signal": 5.56
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.event.b99bdf78b0fc",
@@ -341,8 +341,8 @@
         "first_signal": 0.08,
         "last_signal": 7.06
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.event.3f776f8eee75",
@@ -390,8 +390,8 @@
         "first_signal": 0.06,
         "last_signal": 4.06
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m01.event.2be03f9af630",
@@ -438,8 +438,8 @@
         "first_signal": 0.1,
         "last_signal": 5.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.intro",
@@ -486,8 +486,8 @@
         "first_signal": 0.04,
         "last_signal": 6.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.fragment1",
@@ -542,8 +542,8 @@
         "first_signal": 0.02,
         "last_signal": 5.38
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.fragment2",
@@ -590,8 +590,8 @@
         "first_signal": 0.02,
         "last_signal": 5.62
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.fragment3",
@@ -646,8 +646,8 @@
         "first_signal": 0.04,
         "last_signal": 5.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.event.c49c88a5424d",
@@ -694,8 +694,8 @@
         "first_signal": 0.0,
         "last_signal": 6.1765
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.event.45471e891cc5",
@@ -742,8 +742,8 @@
         "first_signal": 0.04,
         "last_signal": 6.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.event.541fec473cff",
@@ -790,8 +790,8 @@
         "first_signal": 0.0,
         "last_signal": 5.78
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.event.339fc4fa5aab",
@@ -838,8 +838,8 @@
         "first_signal": 0.06,
         "last_signal": 6.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m02.event.a0cc5d89538f",
@@ -886,8 +886,8 @@
         "first_signal": 0.02,
         "last_signal": 2.58
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.intro",
@@ -943,8 +943,8 @@
         "first_signal": 0.06,
         "last_signal": 6.48
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.fragment1",
@@ -991,8 +991,8 @@
         "first_signal": 0.02,
         "last_signal": 4.96
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.fragment2",
@@ -1039,8 +1039,8 @@
         "first_signal": 0.02,
         "last_signal": 4.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.fragment3",
@@ -1087,8 +1087,8 @@
         "first_signal": 0.02,
         "last_signal": 4.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.event.1ea1dfff1c3c",
@@ -1135,8 +1135,8 @@
         "first_signal": 0.1,
         "last_signal": 4.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.event.56b01a155b48",
@@ -1183,8 +1183,8 @@
         "first_signal": 0.02,
         "last_signal": 6.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.event.3f881f398929",
@@ -1231,8 +1231,8 @@
         "first_signal": 0.08,
         "last_signal": 4.8
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.event.bf8138121a4f",
@@ -1279,8 +1279,8 @@
         "first_signal": 0.06,
         "last_signal": 6.68
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m03.event.225899420c7f",
@@ -1353,10 +1353,10 @@
         "first_signal": 0.06,
         "last_signal": 3.36
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "m04.intro",
@@ -1403,8 +1403,8 @@
         "first_signal": 0.06,
         "last_signal": 5.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m04.fragment1",
@@ -1451,8 +1451,8 @@
         "first_signal": 0.02,
         "last_signal": 3.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m04.fragment2",
@@ -1499,8 +1499,8 @@
         "first_signal": 0.02,
         "last_signal": 4.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m04.fragment3",
@@ -1547,8 +1547,8 @@
         "first_signal": 0.0,
         "last_signal": 4.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m05.intro",
@@ -1595,8 +1595,8 @@
         "first_signal": 0.0,
         "last_signal": 5.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m05.fragment1",
@@ -1643,8 +1643,8 @@
         "first_signal": 0.06,
         "last_signal": 5.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m05.fragment2",
@@ -1699,8 +1699,8 @@
         "first_signal": 0.02,
         "last_signal": 4.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m05.fragment3",
@@ -1747,8 +1747,8 @@
         "first_signal": 0.06,
         "last_signal": 4.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m06.intro",
@@ -1801,8 +1801,8 @@
         "first_signal": 0.08,
         "last_signal": 8.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m06.fragment1",
@@ -1855,8 +1855,8 @@
         "first_signal": 0.08,
         "last_signal": 11.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m06.fragment2",
@@ -1909,8 +1909,8 @@
         "first_signal": 0.08,
         "last_signal": 10.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m06.fragment3",
@@ -1957,8 +1957,8 @@
         "first_signal": 0.04,
         "last_signal": 10.04
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m07.intro",
@@ -2013,10 +2013,10 @@
         "first_signal": 0.0,
         "last_signal": 8.78
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "m07.fragment1",
@@ -2071,8 +2071,8 @@
         "first_signal": 0.08,
         "last_signal": 10.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m07.fragment2",
@@ -2127,8 +2127,8 @@
         "first_signal": 0.04,
         "last_signal": 10.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m07.fragment3",
@@ -2175,8 +2175,8 @@
         "first_signal": 0.06,
         "last_signal": 10.76
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m08.intro",
@@ -2229,8 +2229,8 @@
         "first_signal": 0.06,
         "last_signal": 8.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m08.fragment1",
@@ -2283,8 +2283,8 @@
         "first_signal": 0.1,
         "last_signal": 11.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m08.fragment2",
@@ -2331,8 +2331,8 @@
         "first_signal": 0.06,
         "last_signal": 10.04
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m08.fragment3",
@@ -2385,8 +2385,8 @@
         "first_signal": 0.08,
         "last_signal": 12.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m09.intro",
@@ -2459,8 +2459,8 @@
         "first_signal": 0.08,
         "last_signal": 11.96
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m09.fragment2",
@@ -2515,8 +2515,8 @@
         "first_signal": 0.04,
         "last_signal": 11.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m09.fragment3",
@@ -2571,8 +2571,8 @@
         "first_signal": 0.08,
         "last_signal": 10.62
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m10.intro",
@@ -2643,8 +2643,8 @@
         "first_signal": 0.04,
         "last_signal": 11.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m10.fragment2",
@@ -2691,8 +2691,8 @@
         "first_signal": 0.08,
         "last_signal": 11.74
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m10.fragment3",
@@ -2739,8 +2739,8 @@
         "first_signal": 0.08,
         "last_signal": 11.2
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m11.intro",
@@ -2805,8 +2805,8 @@
         "first_signal": 0.08,
         "last_signal": 9.76
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m11.fragment2",
@@ -2859,8 +2859,8 @@
         "first_signal": 0.08,
         "last_signal": 10.28
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m11.fragment3",
@@ -2915,8 +2915,8 @@
         "first_signal": 0.08,
         "last_signal": 11.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m12.intro",
@@ -2963,8 +2963,8 @@
         "first_signal": 0.0,
         "last_signal": 5.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m12.fragment1",
@@ -3011,8 +3011,8 @@
         "first_signal": 0.08,
         "last_signal": 12.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m12.fragment2",
@@ -3059,8 +3059,8 @@
         "first_signal": 0.08,
         "last_signal": 13.02
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "m12.fragment3",
@@ -3107,8 +3107,8 @@
         "first_signal": 0.06,
         "last_signal": 11.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.handoff",
@@ -3155,8 +3155,8 @@
         "first_signal": 0.06,
         "last_signal": 5.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.surya",
@@ -3203,8 +3203,8 @@
         "first_signal": 0.0,
         "last_signal": 5.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.recruit",
@@ -3251,8 +3251,8 @@
         "first_signal": 0.02,
         "last_signal": 7.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.practice",
@@ -3299,8 +3299,8 @@
         "first_signal": 0.08,
         "last_signal": 4.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.ocean_route",
@@ -3347,8 +3347,8 @@
         "first_signal": 0.04,
         "last_signal": 4.4
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.titan_route",
@@ -3395,8 +3395,8 @@
         "first_signal": 0.02,
         "last_signal": 3.02
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.aura",
@@ -3443,8 +3443,8 @@
         "first_signal": 0.1,
         "last_signal": 3.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.arena",
@@ -3491,8 +3491,8 @@
         "first_signal": 0.06,
         "last_signal": 4.34
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.phase2",
@@ -3539,8 +3539,8 @@
         "first_signal": 0.02,
         "last_signal": 3.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.phase3",
@@ -3587,8 +3587,8 @@
         "first_signal": 0.02,
         "last_signal": 2.28
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.defeat",
@@ -3635,8 +3635,8 @@
         "first_signal": 0.06,
         "last_signal": 3.18
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.kaito",
@@ -3683,8 +3683,8 @@
         "first_signal": 0.02,
         "last_signal": 2.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.crossing",
@@ -3731,8 +3731,8 @@
         "first_signal": 0.0,
         "last_signal": 2.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "aegis.home",
@@ -3779,8 +3779,8 @@
         "first_signal": 0.08,
         "last_signal": 3.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.sector0",
@@ -3827,8 +3827,8 @@
         "first_signal": 0.08,
         "last_signal": 6.06
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.sector1",
@@ -3875,8 +3875,8 @@
         "first_signal": 0.04,
         "last_signal": 6.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.sector2",
@@ -3923,8 +3923,8 @@
         "first_signal": 0.02,
         "last_signal": 6.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.sector3",
@@ -3971,8 +3971,8 @@
         "first_signal": 0.08,
         "last_signal": 9.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.sector4",
@@ -4019,8 +4019,8 @@
         "first_signal": 0.06,
         "last_signal": 5.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.sector5",
@@ -4067,8 +4067,8 @@
         "first_signal": 0.08,
         "last_signal": 5.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.phase",
@@ -4115,8 +4115,8 @@
         "first_signal": 0.0,
         "last_signal": 3.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.signal",
@@ -4163,8 +4163,8 @@
         "first_signal": 0.06,
         "last_signal": 5.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.coolant",
@@ -4211,8 +4211,8 @@
         "first_signal": 0.04,
         "last_signal": 5.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.maintenance",
@@ -4259,8 +4259,8 @@
         "first_signal": 0.02,
         "last_signal": 3.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.record_1",
@@ -4307,8 +4307,8 @@
         "first_signal": 0.04,
         "last_signal": 3.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.record_2",
@@ -4355,8 +4355,8 @@
         "first_signal": 0.0,
         "last_signal": 4.12
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.record_3",
@@ -4403,8 +4403,8 @@
         "first_signal": 0.0,
         "last_signal": 5.58
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.isolate",
@@ -4451,8 +4451,8 @@
         "first_signal": 0.04,
         "last_signal": 6.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.defense_1",
@@ -4499,8 +4499,8 @@
         "first_signal": 0.0,
         "last_signal": 4.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.defense_2",
@@ -4547,8 +4547,8 @@
         "first_signal": 0.0,
         "last_signal": 4.2725
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.defense_3",
@@ -4595,8 +4595,8 @@
         "first_signal": 0.08,
         "last_signal": 6.58
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.commit",
@@ -4643,8 +4643,8 @@
         "first_signal": 0.04,
         "last_signal": 8.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "names.hint",
@@ -4691,8 +4691,8 @@
         "first_signal": 0.04,
         "last_signal": 8.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.02",
@@ -4747,8 +4747,8 @@
         "first_signal": 0.28,
         "last_signal": 5.44
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.03",
@@ -4803,8 +4803,8 @@
         "first_signal": 0.3,
         "last_signal": 11.44
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.04",
@@ -4859,8 +4859,8 @@
         "first_signal": 0.32,
         "last_signal": 7.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.05",
@@ -4915,8 +4915,8 @@
         "first_signal": 0.2,
         "last_signal": 5.68
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.06",
@@ -4971,8 +4971,8 @@
         "first_signal": 0.28,
         "last_signal": 7.38
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.07",
@@ -5027,8 +5027,8 @@
         "first_signal": 0.28,
         "last_signal": 6.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.08",
@@ -5083,8 +5083,8 @@
         "first_signal": 0.28,
         "last_signal": 10.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.09",
@@ -5139,8 +5139,8 @@
         "first_signal": 0.2,
         "last_signal": 6.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.10",
@@ -5195,8 +5195,8 @@
         "first_signal": 0.26,
         "last_signal": 2.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.act_ii_opening.11",
@@ -5251,8 +5251,8 @@
         "first_signal": 0.2,
         "last_signal": 2.58
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.01",
@@ -5313,8 +5313,8 @@
         "first_signal": 0.22,
         "last_signal": 5.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.02",
@@ -5375,8 +5375,8 @@
         "first_signal": 0.16,
         "last_signal": 7.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.03",
@@ -5437,8 +5437,8 @@
         "first_signal": 0.2,
         "last_signal": 6.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.04",
@@ -5499,8 +5499,8 @@
         "first_signal": 0.18,
         "last_signal": 6.74
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.05",
@@ -5561,8 +5561,8 @@
         "first_signal": 0.24,
         "last_signal": 5.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.06",
@@ -5623,8 +5623,8 @@
         "first_signal": 0.22,
         "last_signal": 7.32
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.07",
@@ -5685,8 +5685,8 @@
         "first_signal": 0.24,
         "last_signal": 8.4
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.08",
@@ -5747,8 +5747,8 @@
         "first_signal": 0.22,
         "last_signal": 6.5
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_aftermath.09",
@@ -5809,8 +5809,8 @@
         "first_signal": 0.2,
         "last_signal": 7.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.01",
@@ -5879,8 +5879,8 @@
         "first_signal": 0.18,
         "last_signal": 8.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.02",
@@ -5941,8 +5941,8 @@
         "first_signal": 0.14,
         "last_signal": 7.18
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.03",
@@ -6003,8 +6003,8 @@
         "first_signal": 0.16,
         "last_signal": 6.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.04",
@@ -6065,8 +6065,8 @@
         "first_signal": 0.22,
         "last_signal": 7.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.05",
@@ -6127,8 +6127,8 @@
         "first_signal": 0.24,
         "last_signal": 6.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.06",
@@ -6189,8 +6189,8 @@
         "first_signal": 0.22,
         "last_signal": 6.32
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.07",
@@ -6251,8 +6251,8 @@
         "first_signal": 0.22,
         "last_signal": 7.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.08",
@@ -6313,8 +6313,8 @@
         "first_signal": 0.24,
         "last_signal": 5.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.apex_bastion_intro.09",
@@ -6375,8 +6375,8 @@
         "first_signal": 0.22,
         "last_signal": 7.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.01",
@@ -6438,8 +6438,8 @@
         "first_signal": 0.32,
         "last_signal": 7.62
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.02",
@@ -6501,8 +6501,8 @@
         "first_signal": 0.2,
         "last_signal": 5.2
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.03",
@@ -6564,8 +6564,8 @@
         "first_signal": 0.2,
         "last_signal": 5.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.04",
@@ -6627,8 +6627,8 @@
         "first_signal": 0.26,
         "last_signal": 8.5
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.05",
@@ -6690,8 +6690,8 @@
         "first_signal": 0.24,
         "last_signal": 5.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.06",
@@ -6753,8 +6753,8 @@
         "first_signal": 0.22,
         "last_signal": 4.98
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire.07",
@@ -6816,8 +6816,8 @@
         "first_signal": 0.14,
         "last_signal": 0.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.01",
@@ -6878,8 +6878,8 @@
         "first_signal": 0.18,
         "last_signal": 6.5
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.02",
@@ -6940,8 +6940,8 @@
         "first_signal": 0.2,
         "last_signal": 5.62
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.03",
@@ -7002,8 +7002,8 @@
         "first_signal": 0.24,
         "last_signal": 5.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.04",
@@ -7064,8 +7064,8 @@
         "first_signal": 0.22,
         "last_signal": 6.2
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.05",
@@ -7126,8 +7126,8 @@
         "first_signal": 0.18,
         "last_signal": 6.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.06",
@@ -7188,8 +7188,8 @@
         "first_signal": 0.22,
         "last_signal": 4.98
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.07",
@@ -7250,8 +7250,8 @@
         "first_signal": 0.14,
         "last_signal": 5.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.08",
@@ -7312,8 +7312,8 @@
         "first_signal": 0.24,
         "last_signal": 5.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_aftermath.09",
@@ -7374,8 +7374,8 @@
         "first_signal": 0.16,
         "last_signal": 7.74
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.02",
@@ -7434,8 +7434,8 @@
         "first_signal": 0.22,
         "last_signal": 11.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.03",
@@ -7486,8 +7486,8 @@
         "first_signal": 0.14,
         "last_signal": 10.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.04",
@@ -7538,8 +7538,8 @@
         "first_signal": 0.24,
         "last_signal": 9.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.05",
@@ -7590,8 +7590,8 @@
         "first_signal": 0.18,
         "last_signal": 10.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.06",
@@ -7642,8 +7642,8 @@
         "first_signal": 0.14,
         "last_signal": 12.48
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.07",
@@ -7694,8 +7694,8 @@
         "first_signal": 0.14,
         "last_signal": 10.76
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.08",
@@ -7746,8 +7746,8 @@
         "first_signal": 0.16,
         "last_signal": 8.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.09",
@@ -7798,8 +7798,8 @@
         "first_signal": 0.16,
         "last_signal": 5.32
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_grave_intro.10",
@@ -7850,8 +7850,8 @@
         "first_signal": 0.2,
         "last_signal": 6.06
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.01",
@@ -7912,8 +7912,8 @@
         "first_signal": 0.18,
         "last_signal": 8.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.02",
@@ -7974,8 +7974,8 @@
         "first_signal": 0.24,
         "last_signal": 6.12
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.03",
@@ -8036,8 +8036,8 @@
         "first_signal": 0.22,
         "last_signal": 7.16
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.04",
@@ -8098,8 +8098,8 @@
         "first_signal": 0.18,
         "last_signal": 6.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.05",
@@ -8160,8 +8160,8 @@
         "first_signal": 0.22,
         "last_signal": 6.26
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.06",
@@ -8222,8 +8222,8 @@
         "first_signal": 0.2,
         "last_signal": 7.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.07",
@@ -8284,8 +8284,8 @@
         "first_signal": 0.2,
         "last_signal": 6.38
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.08",
@@ -8346,8 +8346,8 @@
         "first_signal": 0.18,
         "last_signal": 8.4
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_aftermath.09",
@@ -8408,8 +8408,8 @@
         "first_signal": 0.16,
         "last_signal": 7.28
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.01",
@@ -8470,8 +8470,8 @@
         "first_signal": 0.2,
         "last_signal": 7.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.02",
@@ -8532,8 +8532,8 @@
         "first_signal": 0.22,
         "last_signal": 6.26
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.03",
@@ -8594,8 +8594,8 @@
         "first_signal": 0.18,
         "last_signal": 6.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.04",
@@ -8656,8 +8656,8 @@
         "first_signal": 0.14,
         "last_signal": 6.2
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.05",
@@ -8718,8 +8718,8 @@
         "first_signal": 0.24,
         "last_signal": 6.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.06",
@@ -8780,8 +8780,8 @@
         "first_signal": 0.16,
         "last_signal": 5.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.07",
@@ -8842,8 +8842,8 @@
         "first_signal": 0.22,
         "last_signal": 7.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.08",
@@ -8904,8 +8904,8 @@
         "first_signal": 0.24,
         "last_signal": 6.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.cyber_nexus_intro.09",
@@ -8966,8 +8966,8 @@
         "first_signal": 0.14,
         "last_signal": 6.58
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.01",
@@ -9016,11 +9016,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "Transport clear of the caldera. Core temperature rising. Geothermal containment has failed. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 8.0,
         "peak": 0.7941822409629822,
         "rms": 0.10827727068082042,
@@ -9028,8 +9028,8 @@
         "first_signal": 0.22,
         "last_signal": 6.56
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.02",
@@ -9080,11 +9080,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "The rift is buckling. Those severed conduits are feeding the surge straight back into their power grid. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.8089233636856079,
         "rms": 0.08382630871133033,
@@ -9092,8 +9092,8 @@
         "first_signal": 0.2,
         "last_signal": 5.4
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.03",
@@ -9142,11 +9142,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "The reservoirs have burst. Steam is pouring through the flues. The river is finding its bed again. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.7434035539627075,
         "rms": 0.0991628460193683,
@@ -9154,8 +9154,8 @@
         "first_signal": 0.18,
         "last_signal": 5.56
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.04",
@@ -9204,11 +9204,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "Listen to the sky. That hum is breaking apart. The field that held us under glass is coming down. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.8120713233947754,
         "rms": 0.0887982306736137,
@@ -9216,8 +9216,8 @@
         "first_signal": 0.18,
         "last_signal": 6.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.05",
@@ -9266,11 +9266,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "The emitters along Sector Four are arcing. There, the shield lattice is splitting. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.7777608036994934,
         "rms": 0.07776024780684276,
@@ -9278,8 +9278,8 @@
         "first_signal": 0.26,
         "last_signal": 3.96
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.06",
@@ -9288,16 +9288,16 @@
       "source_line": 42,
       "trigger": "cinematic",
       "speaker": "SURYA",
-      "text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
-      "display_text": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+      "text": "Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
+      "display_text": "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
       "subtitle_key": "FOUNDRY_FORGE_AFTERMATH_CUE_5",
       "audio_path": "assets/cutscenes/foundry_forge_aftermath/dialogue.ogg",
       "start": 48.0,
       "end": 58.0,
-      "text_sha256": "69f0c2ed47df8f37f1e9b8884702ae9da186d8d5d4aeedd94ae804072fcf43ee",
+      "text_sha256": "1b1864646d5a412314fb9a741c16c1e9fed940092ebdbfb6ae353f04760c6642",
       "voice_id": "nPczCjzI2devNBz1zQrb",
       "model": "eleven_multilingual_v2",
-      "manifest_text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+      "manifest_text": "Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
       "provenance": {
         "cue": 6,
         "speaker": "SURYA",
@@ -9311,7 +9311,8 @@
           "speed": 1,
           "use_speaker_boost": true
         },
-        "text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+        "text": "Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
+        "edit": "Spliced from the original take below on 2026-11-08 to remove the words 'over Neo-Kyoto'. The source and request hashes describe that original take, which said: The sky-shield over Neo-Kyoto has collapsed. No new voice was generated.",
         "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
         "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
         "source_sha256": "e390be4a22685924a07da3a678c3fb7e6cfa269ccf6c66c7cb5819a225808e29",
@@ -9321,18 +9322,19 @@
         "cue": 6,
         "speaker": "SURYA",
         "start": 48.15,
-        "end": 54.93022675736961,
+        "end": 54.06424,
         "window_end": 57.85,
-        "decoded_samples": 299008,
+        "decoded_samples": 260818,
         "tempo": 1.0,
-        "complete_take": true
+        "complete_take": true,
+        "edited_from_complete_take": "Removed 'over Neo-Kyoto' (51.07-51.936 s) on 2026-11-08; no new voice generation."
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
-      "transcript": "Confirmed on civilian channels. The sky shield over Neo Kyoto has collapsed. Their iron dome is gone. ",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
+      "transcript": "Confirmed on civilian channels. The sky shield has collapsed. Their iron dome is gone. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.8319077491760254,
         "rms": 0.09245046882180716,
@@ -9340,8 +9342,8 @@
         "first_signal": 0.2,
         "last_signal": 6.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.07",
@@ -9390,11 +9392,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "Ten years under a false twilight. Ten years of looking up at a shield we could never touch. No more. ",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.767859160900116,
         "rms": 0.09071120940859642,
@@ -9402,8 +9404,8 @@
         "first_signal": 0.2,
         "last_signal": 6.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_aftermath.08",
@@ -9452,9 +9454,9 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "independent_review": {
-        "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "expected": "Their low-altitude cover is gone. Stratos Docks is exposed. We have our way into the Spire.",
         "scribe": "Their low-altitude cover is gone. Stratus Docks is exposed. We have our way into the spire. ",
         "whisper": "Their low-altitude cover is gone. Stratus Dox is exposed. We have our way into the spire.",
@@ -9464,7 +9466,7 @@
       "transcript": "Their low-altitude cover is gone. Stratus Docks is exposed. We have our way into the spire. ",
       "transcript_similarity": 0.9411764705882353,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 10.0,
         "peak": 0.7803513407707214,
         "rms": 0.08912994239400983,
@@ -9472,10 +9474,10 @@
         "first_signal": 0.22,
         "last_signal": 6.12
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "cinematic.foundry_forge_aftermath.09",
@@ -9524,11 +9526,11 @@
         "complete_take": true
       },
       "classification": "speech",
-      "recording_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+      "recording_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
       "transcript": "Regroup at the rim and rearm. We are taking the high docks. Axiom Force, prepare for insertion.",
       "transcript_similarity": 1.0,
       "media": {
-        "audio_sha256": "ea93b702922e910480de7479a6e40e37a27f85241213406ddfe7752adae7b312",
+        "audio_sha256": "e53cb78647700dcf71ba9fccd31da00bfbf0f83f05aad6e5b513872ca90049a2",
         "duration": 12.0,
         "peak": 0.7785988450050354,
         "rms": 0.08173577677960275,
@@ -9536,8 +9538,8 @@
         "first_signal": 0.16,
         "last_signal": 5.78
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.01",
@@ -9598,8 +9600,8 @@
         "first_signal": 0.2,
         "last_signal": 7.3
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.02",
@@ -9660,8 +9662,8 @@
         "first_signal": 0.22,
         "last_signal": 6.08
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.03",
@@ -9722,8 +9724,8 @@
         "first_signal": 0.16,
         "last_signal": 6.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.04",
@@ -9784,8 +9786,8 @@
         "first_signal": 0.14,
         "last_signal": 5.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.05",
@@ -9846,8 +9848,8 @@
         "first_signal": 0.24,
         "last_signal": 5.4
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.06",
@@ -9916,10 +9918,10 @@
         "first_signal": 0.22,
         "last_signal": 5.82
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "cinematic.foundry_forge_intro.07",
@@ -9980,8 +9982,8 @@
         "first_signal": 0.2,
         "last_signal": 6.12
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.08",
@@ -10042,8 +10044,8 @@
         "first_signal": 0.2,
         "last_signal": 5.32
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.foundry_forge_intro.09",
@@ -10104,8 +10106,8 @@
         "first_signal": 0.14,
         "last_signal": 6.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.01",
@@ -10166,8 +10168,8 @@
         "first_signal": 0.16,
         "last_signal": 7.86
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.02",
@@ -10228,8 +10230,8 @@
         "first_signal": 0.24,
         "last_signal": 5.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.03",
@@ -10298,8 +10300,8 @@
         "first_signal": 0.14,
         "last_signal": 5.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.04",
@@ -10360,8 +10362,8 @@
         "first_signal": 0.16,
         "last_signal": 6.74
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.05",
@@ -10422,8 +10424,8 @@
         "first_signal": 0.14,
         "last_signal": 6.44
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.06",
@@ -10484,8 +10486,8 @@
         "first_signal": 0.18,
         "last_signal": 7.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.07",
@@ -10546,8 +10548,8 @@
         "first_signal": 0.2,
         "last_signal": 7.56
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.08",
@@ -10608,8 +10610,8 @@
         "first_signal": 0.22,
         "last_signal": 7.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_aftermath.09",
@@ -10670,8 +10672,8 @@
         "first_signal": 0.22,
         "last_signal": 4.92
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.01",
@@ -10732,8 +10734,8 @@
         "first_signal": 0.16,
         "last_signal": 8.34
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.02",
@@ -10794,8 +10796,8 @@
         "first_signal": 0.2,
         "last_signal": 6.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.03",
@@ -10856,8 +10858,8 @@
         "first_signal": 0.2,
         "last_signal": 7.32
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.04",
@@ -10918,8 +10920,8 @@
         "first_signal": 0.2,
         "last_signal": 5.56
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.05",
@@ -10980,8 +10982,8 @@
         "first_signal": 0.14,
         "last_signal": 6.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.06",
@@ -11042,8 +11044,8 @@
         "first_signal": 0.22,
         "last_signal": 7.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.07",
@@ -11104,8 +11106,8 @@
         "first_signal": 0.22,
         "last_signal": 8.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.08",
@@ -11166,8 +11168,8 @@
         "first_signal": 0.18,
         "last_signal": 5.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.judgment_day_intro.09",
@@ -11228,8 +11230,8 @@
         "first_signal": 0.2,
         "last_signal": 7.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.01",
@@ -11285,8 +11287,8 @@
         "first_signal": 0.24,
         "last_signal": 5.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.02",
@@ -11342,8 +11344,8 @@
         "first_signal": 0.22,
         "last_signal": 3.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.03",
@@ -11399,8 +11401,8 @@
         "first_signal": 0.3,
         "last_signal": 5.18
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.04",
@@ -11456,8 +11458,8 @@
         "first_signal": 0.3,
         "last_signal": 6.52
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.05",
@@ -11513,8 +11515,8 @@
         "first_signal": 0.26,
         "last_signal": 8.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.06",
@@ -11570,8 +11572,8 @@
         "first_signal": 0.26,
         "last_signal": 5.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.07",
@@ -11635,8 +11637,8 @@
         "first_signal": 0.28,
         "last_signal": 6.5
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.names_without_numbers.08",
@@ -11692,8 +11694,8 @@
         "first_signal": 0.24,
         "last_signal": 7.8
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.01",
@@ -11748,8 +11750,8 @@
         "first_signal": 0.26,
         "last_signal": 8.26
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.02",
@@ -11804,8 +11806,8 @@
         "first_signal": 0.2,
         "last_signal": 6.06
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.03",
@@ -11860,8 +11862,8 @@
         "first_signal": 0.2,
         "last_signal": 4.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.04",
@@ -11916,8 +11918,8 @@
         "first_signal": 0.2,
         "last_signal": 6.2
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.05",
@@ -11980,10 +11982,10 @@
         "first_signal": 0.26,
         "last_signal": 6.0
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "cinematic.neon_rust_aftermath.06",
@@ -12038,8 +12040,8 @@
         "first_signal": 0.26,
         "last_signal": 4.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.07",
@@ -12094,8 +12096,8 @@
         "first_signal": 0.24,
         "last_signal": 6.76
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.08",
@@ -12150,8 +12152,8 @@
         "first_signal": 0.26,
         "last_signal": 5.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.09",
@@ -12206,8 +12208,8 @@
         "first_signal": 0.28,
         "last_signal": 4.66
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_aftermath.10",
@@ -12262,8 +12264,8 @@
         "first_signal": 0.22,
         "last_signal": 3.48
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.01",
@@ -12325,8 +12327,8 @@
         "first_signal": 0.24,
         "last_signal": 8.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.02",
@@ -12388,8 +12390,8 @@
         "first_signal": 0.2,
         "last_signal": 4.44
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.03",
@@ -12451,8 +12453,8 @@
         "first_signal": 0.2,
         "last_signal": 5.7
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.04",
@@ -12514,8 +12516,8 @@
         "first_signal": 0.2,
         "last_signal": 5.6
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.05",
@@ -12577,8 +12579,8 @@
         "first_signal": 0.28,
         "last_signal": 7.08
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.06",
@@ -12640,8 +12642,8 @@
         "first_signal": 0.2,
         "last_signal": 6.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.07",
@@ -12703,8 +12705,8 @@
         "first_signal": 0.26,
         "last_signal": 4.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.neon_rust_intro.08",
@@ -12766,8 +12768,8 @@
         "first_signal": 0.2,
         "last_signal": 4.34
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.01",
@@ -12822,8 +12824,8 @@
         "first_signal": 0.26,
         "last_signal": 9.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.02",
@@ -12886,8 +12888,8 @@
         "first_signal": 0.22,
         "last_signal": 6.5
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.03",
@@ -12942,8 +12944,8 @@
         "first_signal": 0.2,
         "last_signal": 5.48
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.04",
@@ -12998,8 +13000,8 @@
         "first_signal": 0.22,
         "last_signal": 6.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.05",
@@ -13054,8 +13056,8 @@
         "first_signal": 0.2,
         "last_signal": 7.36
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.06",
@@ -13110,8 +13112,8 @@
         "first_signal": 0.26,
         "last_signal": 5.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.07",
@@ -13166,8 +13168,8 @@
         "first_signal": 0.26,
         "last_signal": 5.52
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.08",
@@ -13230,10 +13232,10 @@
         "first_signal": 0.28,
         "last_signal": 7.98
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "cinematic.shattered_aegis_intro.09",
@@ -13288,8 +13290,8 @@
         "first_signal": 0.18,
         "last_signal": 6.5
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.10",
@@ -13344,8 +13346,8 @@
         "first_signal": 0.24,
         "last_signal": 9.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.11",
@@ -13400,8 +13402,8 @@
         "first_signal": 0.28,
         "last_signal": 6.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.shattered_aegis_intro.12",
@@ -13456,8 +13458,8 @@
         "first_signal": 0.2,
         "last_signal": 5.18
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.01",
@@ -13518,8 +13520,8 @@
         "first_signal": 0.16,
         "last_signal": 7.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.02",
@@ -13580,8 +13582,8 @@
         "first_signal": 0.2,
         "last_signal": 6.66
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.03",
@@ -13642,8 +13644,8 @@
         "first_signal": 0.16,
         "last_signal": 6.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.04",
@@ -13704,8 +13706,8 @@
         "first_signal": 0.22,
         "last_signal": 6.22
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.05",
@@ -13766,8 +13768,8 @@
         "first_signal": 0.2,
         "last_signal": 6.14
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.06",
@@ -13828,8 +13830,8 @@
         "first_signal": 0.22,
         "last_signal": 4.62
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.07",
@@ -13890,8 +13892,8 @@
         "first_signal": 0.16,
         "last_signal": 7.44
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.08",
@@ -13952,8 +13954,8 @@
         "first_signal": 0.16,
         "last_signal": 7.34
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_aftermath.09",
@@ -14014,8 +14016,8 @@
         "first_signal": 0.2,
         "last_signal": 6.82
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.01",
@@ -14084,8 +14086,8 @@
         "first_signal": 0.16,
         "last_signal": 7.82
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.02",
@@ -14146,8 +14148,8 @@
         "first_signal": 0.22,
         "last_signal": 4.58
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.03",
@@ -14216,8 +14218,8 @@
         "first_signal": 0.2,
         "last_signal": 5.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.04",
@@ -14278,8 +14280,8 @@
         "first_signal": 0.16,
         "last_signal": 5.48
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.05",
@@ -14340,8 +14342,8 @@
         "first_signal": 0.18,
         "last_signal": 6.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.06",
@@ -14402,8 +14404,8 @@
         "first_signal": 0.18,
         "last_signal": 6.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.07",
@@ -14464,8 +14466,8 @@
         "first_signal": 0.22,
         "last_signal": 7.76
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.08",
@@ -14526,8 +14528,8 @@
         "first_signal": 0.16,
         "last_signal": 5.38
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.spire_outer_hull_intro.09",
@@ -14588,8 +14590,8 @@
         "first_signal": 0.2,
         "last_signal": 5.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.01",
@@ -14650,8 +14652,8 @@
         "first_signal": 0.18,
         "last_signal": 7.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.02",
@@ -14712,8 +14714,8 @@
         "first_signal": 0.22,
         "last_signal": 4.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.03",
@@ -14774,8 +14776,8 @@
         "first_signal": 0.2,
         "last_signal": 5.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.04",
@@ -14836,8 +14838,8 @@
         "first_signal": 0.18,
         "last_signal": 5.88
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.05",
@@ -14898,8 +14900,8 @@
         "first_signal": 0.14,
         "last_signal": 5.46
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.06",
@@ -14960,8 +14962,8 @@
         "first_signal": 0.22,
         "last_signal": 4.4
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.07",
@@ -15022,8 +15024,8 @@
         "first_signal": 0.18,
         "last_signal": 7.08
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.08",
@@ -15084,8 +15086,8 @@
         "first_signal": 0.24,
         "last_signal": 4.8
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_aftermath.09",
@@ -15146,8 +15148,8 @@
         "first_signal": 0.16,
         "last_signal": 7.78
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.01",
@@ -15216,8 +15218,8 @@
         "first_signal": 0.16,
         "last_signal": 9.02
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.02",
@@ -15286,8 +15288,8 @@
         "first_signal": 0.24,
         "last_signal": 6.0
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.03",
@@ -15348,8 +15350,8 @@
         "first_signal": 0.16,
         "last_signal": 6.12
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.04",
@@ -15410,8 +15412,8 @@
         "first_signal": 0.16,
         "last_signal": 5.8
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.05",
@@ -15472,8 +15474,8 @@
         "first_signal": 0.2,
         "last_signal": 5.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.06",
@@ -15542,10 +15544,10 @@
         "first_signal": 0.18,
         "last_signal": 5.44
       },
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
       "issues": [
         "transcript discrepancy requires review"
-      ],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      ]
     },
     {
       "id": "cinematic.stratos_docks_intro.07",
@@ -15606,8 +15608,8 @@
         "first_signal": 0.22,
         "last_signal": 5.8
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.08",
@@ -15668,8 +15670,8 @@
         "first_signal": 0.18,
         "last_signal": 5.98
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.stratos_docks_intro.09",
@@ -15730,8 +15732,8 @@
         "first_signal": 0.16,
         "last_signal": 7.18
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.tokyo.01",
@@ -15793,8 +15795,8 @@
         "first_signal": 0.3,
         "last_signal": 5.94
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.tokyo.02",
@@ -15856,8 +15858,8 @@
         "first_signal": 0.26,
         "last_signal": 4.1
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.tokyo.03",
@@ -15919,8 +15921,8 @@
         "first_signal": 0.28,
         "last_signal": 6.9
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.tokyo.04",
@@ -15982,8 +15984,8 @@
         "first_signal": 0.24,
         "last_signal": 4.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.tokyo.05",
@@ -16045,8 +16047,8 @@
         "first_signal": 0.22,
         "last_signal": 7.26
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.tokyo.06",
@@ -16108,8 +16110,8 @@
         "first_signal": 0.24,
         "last_signal": 1.2
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.01",
@@ -16171,8 +16173,8 @@
         "first_signal": 0.26,
         "last_signal": 6.12
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.02",
@@ -16234,8 +16236,8 @@
         "first_signal": 0.2,
         "last_signal": 7.28
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.03",
@@ -16297,8 +16299,8 @@
         "first_signal": 0.2,
         "last_signal": 5.84
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.04",
@@ -16360,8 +16362,8 @@
         "first_signal": 0.26,
         "last_signal": 3.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.05",
@@ -16423,8 +16425,8 @@
         "first_signal": 0.2,
         "last_signal": 5.04
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.06",
@@ -16486,8 +16488,8 @@
         "first_signal": 0.26,
         "last_signal": 10.38
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.07",
@@ -16549,8 +16551,8 @@
         "first_signal": 0.28,
         "last_signal": 5.42
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.08",
@@ -16612,8 +16614,8 @@
         "first_signal": 0.2,
         "last_signal": 6.04
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "cinematic.wildfire_aftermath.09",
@@ -16684,8 +16686,8 @@
         "first_signal": 0.06,
         "last_signal": 5.74
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "deployment.2",
@@ -16734,8 +16736,8 @@
         "first_signal": 0.1,
         "last_signal": 5.76
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "deployment.3",
@@ -16784,8 +16786,8 @@
         "first_signal": 0.02,
         "last_signal": 6.72
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "deployment.4",
@@ -16842,8 +16844,8 @@
         "first_signal": 0.08,
         "last_signal": 5.26
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "briefing.1",
@@ -16899,8 +16901,8 @@
         "first_signal": 0.1,
         "last_signal": 14.64
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "briefing.2",
@@ -16947,8 +16949,8 @@
         "first_signal": 0.1,
         "last_signal": 13.14
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "briefing.3",
@@ -16995,8 +16997,8 @@
         "first_signal": 0.06,
         "last_signal": 17.24
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     },
     {
       "id": "briefing.4",
@@ -17043,8 +17045,8 @@
         "first_signal": 0.02,
         "last_signal": 12.54
       },
-      "issues": [],
-      "listening_acceptance": "pending human listening; ASR is not subjective acceptance"
+      "listening_acceptance": "pending human listening; ASR is not subjective acceptance",
+      "issues": []
     }
   ],
   "exclusions": [

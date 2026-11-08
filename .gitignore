@@ -74,3 +74,5 @@ reports/
 !.env.example
 
 .skill-install-staging/
+
+backups/

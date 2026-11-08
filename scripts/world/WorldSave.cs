@@ -73,8 +73,10 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
         return true;
     }
 
+    /// <summary>Hashes the scalar identity fields only; collections are compared in Equals, so equal saves still hash alike.</summary>
     public override int GetHashCode() => HashCode.Combine(Version, World, Position, Waypoint, LastExtraction, Resume, Mission, Operative);
 
+    /// <summary>Compares dictionaries by content, treating null and empty as the same.</summary>
     private static bool DictEqual<K, V>(Dictionary<K, V>? a, Dictionary<K, V>? b) where K : notnull
     {
         if (ReferenceEquals(a, b)) return true;
@@ -87,6 +89,7 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
         return true;
     }
 
+    /// <summary>Compares sets by content, treating null and empty as the same.</summary>
     private static bool SetEqual<T>(HashSet<T>? a, HashSet<T>? b)
     {
         if (ReferenceEquals(a, b)) return true;
@@ -98,7 +101,11 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
 /// <summary>Database-only world persistence; transaction helpers allow mission settlement and extraction to commit together.</summary>
 public static class WorldStorage
 {
-    /// <summary>Preserves a committed waypoint while settling the mission's safe return in the same transaction.</summary>
+    /// <summary>
+    /// Moves a campaign to its safe post-mission arrival in the settlement transaction.
+    /// Merges into the existing record, so quests, choices, vehicles, the waypoint and the
+    /// clock survive a mission. An absent or invalid record falls back to fresh defaults.
+    /// </summary>
     public static async Task SettleReturnAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,int mission,string operative)
     {
         var state=WorldSave.AfterMission(mission,operative);
@@ -109,10 +116,22 @@ public static class WorldStorage
             if(await reader.ReadAsync() && !reader.IsDBNull(0))
             {
                 var existing=JsonSerializer.Deserialize<WorldSave>(reader.GetString(0));
-                if(existing!=null && existing.Valid() && existing.Waypoint!=null) state=state with { Waypoint=existing.Waypoint };
+                if(existing!=null && existing.Valid()) state=existing with { World=state.World,Position=state.Position,LastExtraction=state.LastExtraction,Resume="world",Mission=state.Mission,Operative=state.Operative,ActiveVehicle=null };
             }
         }
         await SaveAsync(connection,transaction,session,state);
+    }
+
+    /// <summary>Reads a campaign's exploration record inside an open transaction. Returns null only if none exists; a damaged record throws so callers can't overwrite it with defaults.</summary>
+    public static async Task<WorldSave?> ReadAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session)
+    {
+        await EnsureAsync(connection,transaction).ConfigureAwait(false);
+        await using var read=new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key",connection,transaction);
+        read.Parameters.AddWithValue("key",$"world:{session}");
+        if(await read.ExecuteScalarAsync().ConfigureAwait(false) is not string json) return null;
+        var state=JsonSerializer.Deserialize<WorldSave>(json);
+        if(state?.Valid()!=true) throw new InvalidOperationException("Invalid world state.");
+        return state;
     }
 
     /// <summary>Single-row atomic save with standard retry at callsite on transient errors.</summary>

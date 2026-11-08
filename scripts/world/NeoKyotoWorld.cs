@@ -5,8 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 /// <summary>
-/// Streamed Neo-Kyoto exploration scene. Manages 64 activity pockets, resident schedules,
-/// safehouses, electric bike traversal, local alert states, quests, and PostgreSQL persistence.
+/// Streamed Neo-Los Angeles exploration scene (the class keeps its original name for save and scene stability).
+/// Runs walking, the electric bike, residents, safehouses, the eight playable slice quests with
+/// conversations and combat encounters, local alert states and PostgreSQL persistence.
 /// Scene mutations and UI run on the main thread; workers produce data only.
 /// </summary>
 public partial class NeoKyotoWorld : Node2D
@@ -57,6 +58,15 @@ public partial class NeoKyotoWorld : Node2D
     private Button _mapRetry = null!;
     private Func<Task>? _retryOperation;
     private bool _busy = true, _loaded, _mapOpen;
+    private WorldConversationPanel _conversation = null!;
+    private WorldEncounterController _encounter = null!;
+    private Label _combatLabel = null!;
+    // One token per quest, so retrying a failed completion can never earn its rewards twice.
+    private readonly Dictionary<string, string> _pendingCompletions = new();
+    private string? _trackedQuest;
+    private string _toast = "";
+    private double _toastSeconds;
+    private bool _lastIsDay = true;
     private double _autosave;
     private double _worldTimeMinutes;
     private int _session;
@@ -97,9 +107,44 @@ public partial class NeoKyotoWorld : Node2D
             { "reconstruction_tasks_count", EndgameContentCatalog.ReconstructionTasks.Count },
             { "remnant_incidents_count", EndgameContentCatalog.RemnantIncidents.Count },
             { "archive_simulations_count", EndgameContentCatalog.ArchiveSimulations.Count },
-            { "operation_modifiers_count", EndgameContentCatalog.Modifiers.Count }
+            { "operation_modifiers_count", EndgameContentCatalog.Modifiers.Count },
+            { "conversation_open", _conversation?.IsOpen ?? false },
+            { "live_hostiles", _encounter?.LiveCount ?? 0 },
+            { "wave", _encounter?.WaveKey ?? "" },
+            { "health", _player?.CurrentHealth ?? 0 },
+            { "last_toast", _toast },
+            { "completed_quests", State.CompletedQuests?.Count ?? 0 }
         };
     }
+
+    /// <summary>Moves the player for automated tests. Refused for a real campaign, so it can never alter a save.</summary>
+    public void PreviewPlace(double x, double y)
+    {
+        if (_session > 0) return;
+        _encounter.Clear();
+        Place(new WorldPoint(x, y));
+    }
+
+    /// <summary>Sets the world clock for automated tests. Refused for a real campaign.</summary>
+    public void PreviewSetWorldMinutes(double minutes)
+    {
+        if (_session <= 0) _worldTimeMinutes = minutes;
+    }
+
+    /// <summary>Spawns one drone for automated tests. Returns false when the budget refuses it.</summary>
+    public bool PreviewSpawnHostile(double x, double y) => _session <= 0 && _encounter.TrySpawn(x, y);
+
+    /// <summary>Marks a prerequisite quest finished for automated tests. Refused for a real campaign.</summary>
+    public void PreviewCompleteQuest(string questId)
+    {
+        if (_session <= 0) State = State.WithQuestCompleted(questId, null);
+    }
+
+    /// <summary>Reports the saved objective index of a quest, for automated tests.</summary>
+    public int ObjectiveIndex(string questId) => State.ActiveQuests != null && State.ActiveQuests.TryGetValue(questId, out int index) ? index : 0;
+
+    /// <summary>Reports whether a quest has been completed, for automated tests.</summary>
+    public bool IsQuestComplete(string questId) => State.CompletedQuests?.ContainsKey(questId) == true;
 
     /// <summary>Evaluates an operation clear, returning rank, score, credits, and cosmetic unlocks for UI and GdUnit4 testing.</summary>
     public Godot.Collections.Dictionary EvaluateOperationMastery(
@@ -154,6 +199,10 @@ public partial class NeoKyotoWorld : Node2D
         GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", false);
         _player = new ExplorationPlayer { Name = "ExplorationPlayer" };
         AddChild(_player);
+        _encounter = new WorldEncounterController { Name = "WorldEncounters", ZIndex = 3 };
+        AddChild(_encounter);
+        _encounter.WaveCleared += OnWaveCleared;
+        _player.Defeated += OnPlayerDefeated;
         BuildHud();
         _session = SessionManager.Instance?.CurrentSessionId ?? -1;
         Progress = Math.Max(1, GetNodeOrNull<Node>("/root/Global")?.Get("unlocked_levels").AsInt32() ?? 1);
@@ -175,9 +224,16 @@ public partial class NeoKyotoWorld : Node2D
         roster.SetActive(State.Operative);
         _player.RefreshOperative();
         GetNodeOrNull<Node>("/root/Global")?.Set("selected_character", roster.Active);
-        if (_session > 0) await WorldStorage.SaveAsync(_session, State with { Resume = "world", Operative = roster.Active });
+        if (_session > 0)
+        {
+            // Keep memory equal to what was written, or the next autosave would restore a stale resume mode.
+            var entered = State with { Resume = "world", Operative = roster.Active };
+            await WorldStorage.SaveAsync(_session, entered);
+            State = entered;
+        }
         if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
         Place(State.Position);
+        if (State.ActiveVehicle == WorldContentCatalog.StarterBike.Id) _player.ToggleBike(State.Position);
         _loaded = true;
         PopulateDestinations();
     }
@@ -196,6 +252,10 @@ public partial class NeoKyotoWorld : Node2D
         AddAction("world_zoom_in", Key.Equal, JoyButton.RightShoulder);
         AddAction("world_zoom_out", Key.Minus, JoyButton.LeftShoulder);
         AddAction("world_bike", Key.V, JoyButton.X);
+        // The shoulder buttons also zoom, but zoom is only read while the map is open.
+        AddAction("world_attack", Key.F, JoyButton.B);
+        AddAction("world_dodge", Key.Space, JoyButton.RightShoulder);
+        AddAction("world_defend", Key.Q, JoyButton.LeftShoulder);
     }
 
     /// <summary>Adds defaults only once, retaining any action bindings already configured in the project.</summary>
@@ -213,6 +273,7 @@ public partial class NeoKyotoWorld : Node2D
     {
         foreach (var view in _views.Values) { RemoveChild(view); view.QueueFree(); }
         _views.Clear();
+        _encounter.Clear();
         _origin = p.Chunk;
         _player.Position = ExplorationPlayer.Project(p.X - _origin.X * 128, p.Y - _origin.Y * 128);
         RebuildMarkers();
@@ -236,9 +297,14 @@ public partial class NeoKyotoWorld : Node2D
         var center = p.Chunk;
         if (center != _origin) { Rebase(center); RebuildMarkers(); }
 
-        // Advance 48-minute day/night cycle
-        _worldTimeMinutes += delta / 60.0;
-        if (_worldTimeMinutes >= 48.0) _worldTimeMinutes %= 48.0;
+        // The clock stops in menus and conversations, as the world's time rules require.
+        if (!_mapOpen && !_conversation.IsOpen)
+        {
+            _worldTimeMinutes += delta / 60.0;
+            if (_worldTimeMinutes >= 48.0) _worldTimeMinutes %= 48.0;
+        }
+        bool isDay = WorldQuestRules.IsDay(_worldTimeMinutes);
+        if (isDay != _lastIsDay) { _lastIsDay = isDay; RebuildMarkers(); }
 
         _stream.Pump(center);
         var cacheWindow = WorldStream.Window(center, 2).ToArray();
@@ -264,43 +330,43 @@ public partial class NeoKyotoWorld : Node2D
             }
         }
 
-        _player.MovementEnabled = !_busy && !_mapOpen && active.All(_views.ContainsKey);
+        _player.MovementEnabled = !_busy && !_mapOpen && !_conversation.IsOpen && active.All(_views.ContainsKey);
         foreach (var view in _views.Values) view.UpdateRoofs(_player.GlobalPosition);
 
-        // Update alert states based on active pocket
-        UpdateEncounterAlert(p);
+        UpdateEncounters(delta, p);
 
         // Refresh UI indicators
         string tod = (_worldTimeMinutes % 48.0) < 24.0 ? "Day" : "Night";
         _heading.Text = $"{WorldText.Get(WorldCatalog.Region(p).Name)}  /  {WorldText.Get(OperativeRoster.Current.Active)}  [{tod}]";
-        _hint.Text = NearbyHint(p);
-        UpdateQuestHud();
+        // A release can arrive while input is gated (saving, menus, mounting), so guard follows the held state here.
+        if (_player.IsDefending && !Input.IsActionPressed("world_defend")) _player.ExecuteDefend(false);
 
-        if (!_busy && !_mapOpen && (_autosave += delta) > 20)
+        if (_toastSeconds > 0) _toastSeconds -= delta;
+        _hint.Text = _toastSeconds > 0 ? _toast : NearbyHint(p);
+        UpdateQuestHud();
+        _combatLabel.Text = $"{WorldText.Get("Health")} {_player.CurrentHealth:0}/{_player.MaxHealth:0} · {WorldText.Get("Shield")} {_player.CurrentShield:0}/{_player.MaxShield:0}" + (CurrentAlert == AlertState.None ? "" : $" · {WorldText.Get(CurrentAlert.ToString())}");
+
+        // Saving is held during a conversation or pursuit, when a mid-write freeze would interrupt play.
+        if (!_busy && !_mapOpen && !_conversation.IsOpen && CurrentAlert != AlertState.Pursuit && (_autosave += delta) > 20)
         {
             _autosave = 0;
-            if (_session > 0) RunOperation(() => Commit(State with { Position = PositionMetres, Operative = OperativeRoster.Current.Active, WorldTimeMinutes = _worldTimeMinutes }));
+            if (_session > 0) RunOperation(() => Commit(BuildSnapshot()));
         }
     }
 
-    /// <summary>Updates local encounter alert (Suspicion -> Search -> Pursuit) in hostile pockets, or resets in safe zones.</summary>
-    private void UpdateEncounterAlert(WorldPoint p)
+    /// <summary>Starts objective waves, advances live drones, and derives the alert from what they are doing.</summary>
+    private void UpdateEncounters(double delta, WorldPoint p)
     {
-        var pocket = WorldContentCatalog.Pockets.FirstOrDefault(pk => pk.RegionId == WorldCatalog.Region(p).Id && pk.Center.Distance(p) <= pk.RadiusMetres);
-        if (pocket != null && pocket.IsSafeZone)
+        // Held while saving: otherwise a just-cleared wave could respawn before its progress is stored.
+        // MovementEnabled also covers chunk streaming, so drones never advance on a player who can't move.
+        if (_player.MovementEnabled)
         {
-            CurrentAlert = AlertState.None;
+            var combat = _encounter.WaveKey == null ? WorldQuestRules.FindCombat(State, p, Progress, OperativeRoster.Current.Active, IsRecruited) : null;
+            // Nearby objectives can overlap. A running wave keeps going until cleared or left, so kills are not reset.
+            if (combat != null) _encounter.StartWave(combat.Objective.Id, combat.Objective.TargetLocation, combat.Objective.RequiredCount);
+            _encounter.Tick(delta, p, _origin, damage => _player.TakeDamage(damage));
         }
-        else if (pocket != null && !pocket.IsSafeZone)
-        {
-            // Inside hostile encounter pocket: escalates with proximity
-            double dist = pocket.Center.Distance(p);
-            CurrentAlert = dist < 30 ? AlertState.Pursuit : dist < 60 ? AlertState.Search : AlertState.Suspicion;
-        }
-        else
-        {
-            CurrentAlert = AlertState.None;
-        }
+        CurrentAlert = _encounter.Alert;
 
         // Fast transit is disabled during active pursuit
         if (_travel != null)
@@ -314,36 +380,54 @@ public partial class NeoKyotoWorld : Node2D
     private void UpdateQuestHud()
     {
         if (_questLabel == null) return;
-        var activeQuest = WorldContentCatalog.Quests.FirstOrDefault(q => q.MinCampaignMission <= Progress && (State.CompletedQuests == null || !State.CompletedQuests.ContainsKey(q.Id)));
-        if (activeQuest != null)
+        var tracked = WorldQuestRules.Tracked(State, _trackedQuest, Progress, IsRecruited);
+        if (tracked != null)
         {
-            int objIdx = (State.ActiveQuests != null && State.ActiveQuests.TryGetValue(activeQuest.Id, out int idx)) ? idx : 0;
-            string objText = objIdx < activeQuest.Objectives.Count ? activeQuest.Objectives[objIdx].Description : "Ready to complete";
-            _questLabel.Text = $"⚡ {activeQuest.Title}: {objText}";
+            string operativeNote = tracked.Quest.RequiredOperative != null && tracked.Quest.RequiredOperative != OperativeRoster.Current.Active ? $" ({WorldText.Get(tracked.Quest.RequiredOperative)})" : "";
+            _questLabel.Text = $"⚡ {WorldText.Get(tracked.Quest.Title)}: {WorldText.Get(tracked.Objective.Description)}{operativeNote}";
             _questLabel.Visible = true;
         }
         else
         {
-            _questLabel.Text = "All regional resistance objectives secured";
+            _questLabel.Text = "";
             _questLabel.Visible = false;
         }
+    }
+
+    /// <summary>Whether a required operative has joined the squad in this campaign.</summary>
+    private static bool IsRecruited(string operative) => OperativeRoster.Current.IsUnlocked(operative);
+
+    /// <summary>Copies the live position, operative, clock and vehicle into the state, the one source for every save.</summary>
+    private WorldSave BuildSnapshot() => State with
+    {
+        Position = PositionMetres,
+        Operative = OperativeRoster.Current.Active,
+        WorldTimeMinutes = _worldTimeMinutes,
+        ActiveVehicle = _player.IsRidingBike ? WorldContentCatalog.StarterBike.Id : null
+    };
+
+    /// <summary>The single decision about what E does here, shared by the action and its on-screen hint so they can't disagree.</summary>
+    private (QuestAction? Quest, NamedResident? Resident, InteriorDefinition? Interior) ResolveInteractable(WorldPoint p)
+    {
+        bool isDay = WorldQuestRules.IsDay(_worldTimeMinutes);
+        var quest = WorldQuestRules.FindInteractable(State, p, Progress, isDay, OperativeRoster.Current.Active, IsRecruited);
+        var interior = WorldContentCatalog.Interiors.Where(i => i.EntranceLocation.Distance(p) < 14).OrderBy(i => i.EntranceLocation.Distance(p)).FirstOrDefault();
+        var resident = WorldContentCatalog.Residents.Where(r => (isDay ? r.DayLocation : r.EveningLocation).Distance(p) < 14).OrderBy(r => (isDay ? r.DayLocation : r.EveningLocation).Distance(p)).FirstOrDefault();
+        return (quest, resident, interior);
     }
 
     /// <summary>Names the nearest interactable instead of displaying inaccessible quest placeholders.</summary>
     private string NearbyHint(WorldPoint p)
     {
-        // Safehouse entrance
-        var interior = WorldContentCatalog.Interiors.FirstOrDefault(i => i.EntranceLocation.Distance(p) < 14);
+        var (quest, resident, interior) = ResolveInteractable(p);
+        if (quest != null) return $"{WorldText.Get(quest.Objective.Description)} / {WorldText.Get("Interact")}";
+        var openEntrance = WorldCatalog.NearbyEntrance(p);
+        if (openEntrance != null && openEntrance.Mission <= Progress) return $"{WorldText.Get("Enter mission")} {openEntrance.Mission} / {WorldText.Get("Interact")}";
+        if (resident != null) return $"{WorldText.Get(resident.Name)} ({WorldText.Get(resident.Title)}) / {WorldText.Get("Interact")}";
         if (interior != null) return $"{WorldText.Get(interior.Name)} / {WorldText.Get("Interact")}";
 
-        // Named resident
-        bool isDay = (_worldTimeMinutes % 48.0) < 24.0;
-        var resident = WorldContentCatalog.Residents.FirstOrDefault(r => (isDay ? r.DayLocation : r.EveningLocation).Distance(p) < 14);
-        if (resident != null) return $"{WorldText.Get(resident.Name)} ({resident.Title}) / {WorldText.Get("Interact")}";
-
-        // Mission Entrance
-        var entrance = WorldCatalog.NearbyEntrance(p);
-        if (entrance != null) return $"{WorldText.Get(entrance.Mission <= Progress ? "Enter mission" : "Mission locked")} {entrance.Mission} / {WorldText.Get("Interact")}";
+        // Open entrances returned earlier, so only a locked one can remain here.
+        if (openEntrance != null) return $"{WorldText.Get("Mission locked")} {openEntrance.Mission}";
 
         // Elevator
         if (WorldCatalog.Elevators.Any(e => e.Distance(p with { Layer = 0 }) < 8)) return $"{WorldText.Get("Elevator")} / {WorldText.Get("Interact")}";
@@ -357,9 +441,7 @@ public partial class NeoKyotoWorld : Node2D
 
         // Vehicle status
         string vehicleHint;
-        if (_player.IsRidingBoat) vehicleHint = "Dismount boat: V";
-        else if (WorldCatalog.Water(p)) vehicleHint = "Utility boat: V";
-        else if (_player.IsRidingBike) vehicleHint = "Dismount bike: V";
+        if (_player.IsRidingBike) vehicleHint = "Dismount bike: V";
         else vehicleHint = "Electric bike: V";
         return $"{WorldText.Get("Walk · Run · Explore")} · {vehicleHint}";
     }
@@ -367,7 +449,14 @@ public partial class NeoKyotoWorld : Node2D
     /// <summary>Handles map, interaction, vehicle toggle, waypoint and squad actions with a single operation gate.</summary>
     public override void _UnhandledInput(InputEvent input)
     {
+        if (_conversation.IsOpen)
+        {
+            if (input.IsActionPressed("ui_cancel")) { _conversation.Cancel(); GetViewport().SetInputAsHandled(); }
+            return;
+        }
         if (input.IsActionPressed("world_map")) { ToggleMap(); GetViewport().SetInputAsHandled(); return; }
+        // The controller's attack button doubles as ui_cancel, so combat is read first when no menu is open.
+        if (!_mapOpen && !_busy && _loaded && HandleCombatInput(input)) { GetViewport().SetInputAsHandled(); return; }
         if (input.IsActionPressed("ui_cancel")) { if (_mapOpen) ToggleMap(); GetViewport().SetInputAsHandled(); return; }
         if (_busy || !_loaded) return;
         if (_mapOpen)
@@ -380,15 +469,8 @@ public partial class NeoKyotoWorld : Node2D
 
         if (input.IsActionPressed("world_bike"))
         {
-            var p = PositionMetres;
-            if (_player.IsRidingBoat || WorldCatalog.Water(p))
-            {
-                _player.ToggleBoat(p);
-            }
-            else
-            {
-                _player.ToggleBike(p);
-            }
+            // Boats stay out of play until waterways work for vehicles, so V only ever means the bike.
+            _player.ToggleBike(PositionMetres);
             GetViewport().SetInputAsHandled();
             return;
         }
@@ -407,26 +489,20 @@ public partial class NeoKyotoWorld : Node2D
     {
         var p = PositionMetres;
 
-        // 1. Check Safehouse interior
-        var interior = WorldContentCatalog.Interiors.FirstOrDefault(i => i.EntranceLocation.Distance(p) < 14);
-        if (interior != null)
-        {
-            EnterSafehouse(interior);
-            return;
-        }
-
-        // 2. Check Named resident interaction
-        bool isDay = (_worldTimeMinutes % 48.0) < 24.0;
-        var resident = WorldContentCatalog.Residents.FirstOrDefault(r => (isDay ? r.DayLocation : r.EveningLocation).Distance(p) < 14);
+        // 1. A current quest step always wins, then an open mission, then a resident, then a building.
+        var (quest, resident, interior) = ResolveInteractable(p);
+        if (quest != null) { OpenObjective(quest); return; }
+        // Residents stand close to some terminals, and must not take over a mission the player is standing at.
+        var missionHere = WorldCatalog.NearbyEntrance(p);
+        if (missionHere != null && missionHere.Mission <= Progress) { RunOperation(() => EnterMission(missionHere.Mission)); return; }
         if (resident != null)
         {
-            InteractWithResident(resident);
+            // A resident standing at a door must not hide it, so the conversation offers the building too.
+            var door = interior;
+            _conversation.Open(resident.Name, new[] { resident.GreetingDialogue }, null, _ => { }, null, door?.Name, door == null ? null : () => EnterSafehouse(door));
             return;
         }
-
-        // 3. Check Mission entry
-        var entry = WorldCatalog.NearbyEntrance(p);
-        if (entry != null && entry.Mission <= Progress) { RunOperation(() => EnterMission(entry.Mission)); return; }
+        if (interior != null) { EnterSafehouse(interior); return; }
 
         // 4. Check Elevators
         for (int i = 0; i < 2; i++)
@@ -444,57 +520,131 @@ public partial class NeoKyotoWorld : Node2D
         if (WorldCatalog.NearestStation(p).Position.Distance(p with { Layer = 0 }) < 12) ToggleMap();
     }
 
-    /// <summary>Enters safehouse interior: heals operative, stows vehicle, restores full vitals.</summary>
+    /// <summary>
+    /// Stows the vehicle. Places offering care restore vitals and become the defeat return point.
+    /// Other buildings give no healing, so an interior inside a hostile pocket isn't a free recovery.
+    /// </summary>
     private void EnterSafehouse(InteriorDefinition interior)
     {
-        _player.RestoreFullVitals();
         if (_player.IsRidingBike) _player.ToggleBike(PositionMetres);
-        if (_player.IsRidingBoat) _player.ToggleBoat(PositionMetres);
-        _hint.Text = $"Resting at {interior.Name} • Vitals restored";
+        bool heals = interior.ProvidedServices.Any(s => s is "rest_heal" or "medical_clinic" or "first_aid");
+        if (!heals) { ShowToast(WorldText.Get(interior.Name)); return; }
+        _player.RestoreFullVitals();
+        ShowToast($"{WorldText.Get(interior.Name)} · {WorldText.Get("Vitals restored")}");
+        var entrance = interior.EntranceLocation;
+        RunOperation(() => Commit(BuildSnapshot() with { LastExtraction = entrance }));
     }
 
-    /// <summary>Interacts with a named resident, advancing active quest objectives if applicable.</summary>
-    private void InteractWithResident(NamedResident resident)
+    /// <summary>Shows a short message that survives the per-frame hint refresh.</summary>
+    private void ShowToast(string text, double seconds = 4)
     {
-        _hint.Text = $"{resident.Name}: \"{resident.GreetingDialogue}\"";
+        _toast = text;
+        _toastSeconds = seconds;
+    }
 
-        // Check if an active quest has an objective referencing this resident
-        var activeQuest = WorldContentCatalog.Quests.FirstOrDefault(q => q.MinCampaignMission <= Progress && (State.CompletedQuests == null || !State.CompletedQuests.ContainsKey(q.Id)));
-        if (activeQuest != null)
+    /// <summary>Reads the combat actions. Returns true when the event was used.</summary>
+    private bool HandleCombatInput(InputEvent input)
+    {
+        if (input.IsActionPressed("world_attack"))
         {
-            int objIdx = (State.ActiveQuests != null && State.ActiveQuests.TryGetValue(activeQuest.Id, out int idx)) ? idx : 0;
-            if (objIdx < activeQuest.Objectives.Count && activeQuest.Objectives[objIdx].TargetEntityId == resident.Id)
-            {
-                // Advance quest objective
-                int nextIdx = objIdx + 1;
-                if (nextIdx >= activeQuest.Objectives.Count)
-                {
-                    // Complete quest atomically
-                    string token = Guid.NewGuid().ToString();
-                    string? branch = activeQuest.BranchChoices?.Count > 0 ? activeQuest.BranchChoices[0].ChoiceId : null;
-                    RunOperation(async () =>
-                    {
-                        var receipt = await WorldTransactionService.CompleteQuestAsync(_session, activeQuest.Id, branch, token);
-                        if (receipt.Status is TransactionStatus.Success or TransactionStatus.AlreadyCommitted)
-                        {
-                            State = State.WithQuestCompleted(activeQuest.Id, branch);
-                        }
-                    });
-                }
-                else
-                {
-                    var activeDict = State.ActiveQuests != null ? new Dictionary<string, int>(State.ActiveQuests) : new();
-                    activeDict[activeQuest.Id] = nextIdx;
-                    State = State with { ActiveQuests = activeDict };
-                }
-            }
+            if (_player.ExecuteAttack())
+                _encounter.ResolveAttack(PositionMetres, _player.Facing, OperativeRegistry.GetProfile(OperativeRoster.Current.Active).MeleePrimaryDamage);
+            return true;
         }
+        if (input.IsActionPressed("world_dodge")) { _player.ExecuteDodge(); return true; }
+        if (input.IsActionPressed("world_defend")) { _player.ExecuteDefend(true); return true; }
+        if (input.IsActionReleased("world_defend")) { _player.ExecuteDefend(false); return true; }
+        return false;
+    }
+
+    /// <summary>Shows an objective's conversation. Finishing advances it; leaving changes nothing.</summary>
+    private void OpenObjective(QuestAction action)
+    {
+        var talk = WorldDialogueCatalog.For(action.Objective);
+        var choices = action.Objective.Type == ObjectiveType.MakeConsequentialChoice ? action.Quest.BranchChoices : null;
+        _conversation.Open(talk.Speaker, talk.Lines, choices, choice => AdvanceObjective(action, choice));
+    }
+
+    /// <summary>Stores the next step, applying state only after the write succeeds; the final step completes the quest.</summary>
+    private void AdvanceObjective(QuestAction action, string? choice)
+    {
+        var quest = action.Quest;
+        _trackedQuest = quest.Id;
+        int next = action.ObjectiveIndex + 1;
+        if (next >= quest.Objectives.Count) { CompleteQuest(quest); return; }
+        var active = State.ActiveQuests != null ? new Dictionary<string, int>(State.ActiveQuests) : new();
+        active[quest.Id] = next;
+        var snapshot = BuildSnapshot() with { ActiveQuests = active };
+        if (choice != null)
+        {
+            var choices = State.DistrictChoices != null ? new Dictionary<int, string>(State.DistrictChoices) : new();
+            choices[quest.RegionId] = choice;
+            snapshot = snapshot with { DistrictChoices = choices };
+        }
+        RunOperation(() => Commit(snapshot));
+    }
+
+    /// <summary>
+    /// Commits rewards and completion together. Any receipt other than success throws, so
+    /// RunOperation offers Retry and the HUD can't report a save that did not happen.
+    /// </summary>
+    private void CompleteQuest(QuestDefinition quest)
+    {
+        string? branch = null;
+        if (quest.BranchChoices is { Count: > 0 }) State.DistrictChoices?.TryGetValue(quest.RegionId, out branch);
+        if (!_pendingCompletions.TryGetValue(quest.Id, out string? token)) _pendingCompletions[quest.Id] = token = Guid.NewGuid().ToString();
+        string? finalBranch = branch;
+        RunOperation(async () =>
+        {
+            if (_session > 0)
+            {
+                var receipt = await WorldTransactionService.CompleteQuestAsync(_session, quest.Id, finalBranch, token);
+                if (receipt.Status is not (TransactionStatus.Success or TransactionStatus.AlreadyCommitted))
+                    throw new InvalidOperationException($"Quest completion refused: {receipt.Status}");
+                if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
+            }
+            _pendingCompletions.Remove(quest.Id);
+            State = BuildSnapshot().WithQuestCompleted(quest.Id, finalBranch);
+            ShowToast($"{WorldText.Get(quest.Title)} · +{quest.Reward.HeroSparks} {WorldText.Get("Sparks")} · +{quest.Reward.CityCredits} {WorldText.Get("Credits")}");
+        });
+    }
+
+    /// <summary>Advances the combat objective whose wave was just cleared.</summary>
+    private void OnWaveCleared(string objectiveId)
+    {
+        foreach (var quest in WorldQuestRules.PlayableQuests)
+        {
+            if (!WorldQuestRules.IsAvailable(quest, State, Progress, IsRecruited)) continue;
+            var action = WorldQuestRules.Current(quest, State);
+            if (action?.Objective.Id != objectiveId) continue;
+            // A personal quest only counts for its own operative; after a mid-fight swap the wave can be retried.
+            if (quest.RequiredOperative != null && quest.RequiredOperative != OperativeRoster.Current.Active)
+            {
+                ShowToast(WorldText.Get(quest.RequiredOperative));
+                return;
+            }
+            AdvanceObjective(action, null);
+            return;
+        }
+    }
+
+    /// <summary>
+    /// Ends the fight and returns to the last safe point. Quests and equipment are kept, and
+    /// only the unfinished wave resets. If the save fails, Retry repeats the same move.
+    /// </summary>
+    private void OnPlayerDefeated()
+    {
+        _encounter.Clear();
+        _player.RestoreFullVitals();
+        ShowToast(WorldText.Get("Defeated. Returned to safe arrival."));
+        var safe = State.LastExtraction;
+        RunOperation(() => MoveCommitted(safe));
     }
 
     /// <summary>Stores mission-resume mode and selected operative before any introduction or scene change.</summary>
     private async Task EnterMission(int mission)
     {
-        await Commit(State with { Position = PositionMetres, Resume = "mission", Mission = mission, Operative = OperativeRoster.Current.Active, WorldTimeMinutes = _worldTimeMinutes });
+        await Commit(BuildSnapshot() with { Resume = "mission", Mission = mission });
         if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
         CampaignProgress.PrepareMission(mission, State.Operative);
         LoadingScreen.LoadScene(GetTree(), WorldMissionRouting.LaunchPath(mission));
@@ -503,7 +653,7 @@ public partial class NeoKyotoWorld : Node2D
     /// <summary>Free transit/elevator travel commits first; a failed write leaves position and last committed state unchanged.</summary>
     private async Task MoveCommitted(WorldPoint destination)
     {
-        await Commit(State with { Position = destination, Resume = "world", Operative = OperativeRoster.Current.Active, WorldTimeMinutes = _worldTimeMinutes });
+        await Commit(BuildSnapshot() with { Position = destination, Resume = "world" });
         if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
         Place(destination);
         if (_mapOpen) ToggleMap();
@@ -553,7 +703,7 @@ public partial class NeoKyotoWorld : Node2D
     public void SetWaypoint(WorldPoint p)
     {
         if (_busy || !WorldCatalog.InBounds(p)) return;
-        RunOperation(() => Commit(State with { Position = PositionMetres, Waypoint = p, WorldTimeMinutes = _worldTimeMinutes }));
+        RunOperation(() => Commit(BuildSnapshot() with { Waypoint = p }));
     }
 
     /// <summary>Builds nearby landmarks, terminals, residents, and safehouses at local coordinates.</summary>
@@ -578,7 +728,7 @@ public partial class NeoKyotoWorld : Node2D
         }
 
         // Add Named Residents
-        bool isDay = (_worldTimeMinutes % 48.0) < 24.0;
+        bool isDay = WorldQuestRules.IsDay(_worldTimeMinutes);
         foreach (var res in WorldContentCatalog.Residents)
         {
             WorldPoint pos = isDay ? res.DayLocation : res.EveningLocation;
@@ -641,6 +791,10 @@ public partial class NeoKyotoWorld : Node2D
         header.AddChild(_hint);
         header.AddChild(new Label { Text = WorldText.Get("Move: WASD / stick · Run: Shift · Bike: V · Map: M · Interact: E / A · Squad: Tab") });
 
+        header.AddChild(new Label { Text = WorldText.Get("Attack: F / B · Dodge: Space / RB · Guard: Q / LB") });
+        _combatLabel = new Label();
+        header.AddChild(_combatLabel);
+
         _status = new Label();
         header.AddChild(_status);
         _retry = new Button { Text = WorldText.Get("Retry Save"), Visible = false };
@@ -654,6 +808,9 @@ public partial class NeoKyotoWorld : Node2D
         _mini.OffsetRight = -24;
         _mini.OffsetTop = 24;
         _mini.OffsetBottom = 204;
+
+        _conversation = new WorldConversationPanel();
+        root.AddChild(_conversation);
 
         _mapPanel = new PanelContainer { Name = "WorldMapPanel", Visible = false };
         _mapPanel.AddThemeStyleboxOverride("panel", new StyleBoxFlat { BgColor = new Color("0c1826") });
@@ -717,14 +874,20 @@ public partial class NeoKyotoWorld : Node2D
 
         AddButton(side, "Clear waypoint", () =>
         {
-            if (!_busy) RunOperation(() => Commit(State with { Position = PositionMetres, Waypoint = null, WorldTimeMinutes = _worldTimeMinutes }));
+            if (!_busy) RunOperation(() => Commit(BuildSnapshot() with { Waypoint = null }));
         });
 
         AddButton(side, "Return to main menu", () =>
         {
+            // After a failed save Retry might never succeed, so the player may leave and lose only the unsaved step.
+            if (_busy && _retry.Visible)
+            {
+                if (IsInsideTree()) LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/main_menu.tscn");
+                return;
+            }
             if (!_busy) RunOperation(async () =>
             {
-                await Commit(State with { Position = PositionMetres, Operative = OperativeRoster.Current.Active, WorldTimeMinutes = _worldTimeMinutes });
+                await Commit(BuildSnapshot());
                 if (GodotObject.IsInstanceValid(this) && IsInsideTree()) LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/main_menu.tscn");
             });
         });
@@ -750,6 +913,8 @@ public partial class NeoKyotoWorld : Node2D
         _destinationStations.Clear();
         foreach (var entrance in WorldCatalog.Entrances) Destination($"{WorldText.Get(entrance.Mission <= Progress ? "Enter mission" : "Mission locked")} {entrance.Mission}", entrance.Position, null);
         foreach (var landmark in WorldCatalog.Landmarks) Destination(WorldText.Get(landmark.Name), landmark.Position, null);
+        // Only the two slice safehouses are listed; the others have no playable content around them yet.
+        foreach (var safehouse in WorldContentCatalog.Interiors.Where(i => i.Id is "safehouse_old_kyoto" or "safehouse_concrete_wards")) Destination(WorldText.Get(safehouse.Name), safehouse.EntranceLocation, null);
         foreach (var station in WorldCatalog.Stations) Destination($"{WorldText.Get(WorldCatalog.Region(station.Position).Name)} / {station.Id + 1}", station.Position, station);
         _destinations.Select(0);
         _travel.Disabled = true;

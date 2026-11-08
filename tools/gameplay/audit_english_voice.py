@@ -222,8 +222,33 @@ def docker_media():
     write(ROOT/'assets/cutscenes/later_campaign_validation.json',evidence['later'])
 
 
+def listening_acceptance_records():
+    """Load human sign-offs from docs/voice-coverage/listening_acceptance.json.
+
+    Returns a dict of cue ID to record. A missing or empty file means nobody has
+    signed anything off, so every flagged cue stays flagged.
+    """
+    return {r['cue']: r for r in read(REPORT/'listening_acceptance.json', dict(records=[])).get('records', [])}
+
+
+def apply_listening_acceptance(cue_id, digest, issues, records):
+    """Return (remaining issues, status text) after applying one human sign-off.
+
+    Only a recognizer disagreement can be cleared, and only by an 'accepted'
+    record whose audio_sha256 equals the current recording. Re-recording or
+    editing the audio changes the hash, which voids the old sign-off. Other
+    issues (missing audio, bad hashes, clipping) are never cleared here.
+    """
+    record = records.get(cue_id)
+    if not record or not digest or record.get('decision') != 'accepted' or record.get('audio_sha256') != digest:
+        return issues, 'pending human listening; ASR is not subjective acceptance'
+    remaining = [issue for issue in issues if issue != 'transcript discrepancy requires review']
+    return remaining, f"accepted by {record.get('reviewer','unknown')} on {record.get('date','unknown')}"
+
+
 def audit(rows, media=False):
     """Check provenance, hashes, ASR discrepancies and decoded per-cue silence/clipping/bounds."""
+    acceptance = listening_acceptance_records()
     metrics = read(REPORT/'media.json', {})
     if media:
         for row in rows:
@@ -322,8 +347,8 @@ def audit(rows, media=False):
         timing = row.get('timing',{})
         if timing and (timing.get('start',row['start'])<row['start']-.05 or timing.get('end',row['end'])>row['end']+.05):
             issues.append('mixed-track cue exceeds subtitle window')
+        issues, item['listening_acceptance'] = apply_listening_acceptance(row['id'],item.get('recording_sha256'),issues,acceptance)
         item['issues'] = issues
-        item['listening_acceptance'] = 'pending human listening; ASR is not subjective acceptance'
         result.append(item)
     write(REPORT/'coverage.json', dict(cues=result, exclusions=[
         'Ordinary HUD/objective/status text and sector titles remain silent.',

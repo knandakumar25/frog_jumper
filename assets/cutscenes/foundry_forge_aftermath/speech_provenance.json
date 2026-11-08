@@ -111,7 +111,8 @@
       "speed": 1,
       "use_speaker_boost": true
     },
-    "text": "Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+    "text": "Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
+    "edit": "Spliced from the original take below on 2026-11-08 to remove the words 'over Neo-Kyoto'. The source and request hashes describe that original take, which said: The sky-shield over Neo-Kyoto has collapsed. No new voice was generated.",
     "cast_source": "assets/cutscenes/cyber_grave_intro/cues.json",
     "source": "ElevenLabs text-to-speech plugin; complete unmodified MP3 take",
     "source_sha256": "e390be4a22685924a07da3a678c3fb7e6cfa269ccf6c66c7cb5819a225808e29",

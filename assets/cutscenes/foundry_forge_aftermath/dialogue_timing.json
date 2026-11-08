@@ -56,11 +56,12 @@
       "cue": 6,
       "speaker": "SURYA",
       "start": 48.15,
-      "end": 54.93022675736961,
+      "end": 54.06424,
       "window_end": 57.85,
-      "decoded_samples": 299008,
+      "decoded_samples": 260818,
       "tempo": 1.0,
-      "complete_take": true
+      "complete_take": true,
+      "edited_from_complete_take": "Removed 'over Neo-Kyoto' (51.07-51.936 s) on 2026-11-08; no new voice generation."
     },
     {
       "cue": 7,

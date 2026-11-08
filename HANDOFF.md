@@ -1,5 +1,40 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Open-world slice, setting canon and tooling fixes — 2026-11-08
+
+**Correction:** entries below that call the world roadmap complete are wrong. `docs/NEO_KYOTO_EXPANSION_PLAN.md` now has the audited status table. Treat that table as current.
+
+**Completed**
+- Playable slice in `scripts/world/`: eight quests (`WorldQuestRules.PlayableQuestIds`), conversations (`WorldConversationPanel`, `WorldDialogueCatalog`), combat (`WorldHostile`, `WorldEncounterController`, F/Space/Q inputs), alert from real drone state, defeat return, healing only at care services, visible bike, boat prompt removed, clock paused in map and conversation.
+- Save fixes: mission settlement now merges instead of wiping quests; `CompleteQuestAsync` reads the world row on its own transaction, rejects repeats, missing prerequisites and unknown branches; failed receipts show Retry.
+- Canon is Los Angeles and Tokyo means Little Tokyo. Replaced Neo-Kyoto, Old Kyoto, Neo-Arcadia and Neo-Tokyo in player text, the website, and sources.
+- `dialogue.ogg` for the Mission 7 aftermath: cut 51.07–51.936 s ("over Neo-Kyoto"), padded after the line so later cues keep their times, re-encoded once with PyAV.
+- `tools/db/backup.ps1` and `restore.ps1`, `listening_acceptance.json` read by `audit_english_voice.py --check`, and `--system-certs` plus Python 3.14 added to the user-level `godot-ai` entry.
+
+**Decisions**
+- Melee reach is 3.4 m rather than the planned 2.5 m, because drones hold position at 2.8 m. Targets within 1 m always count as in the arc.
+- Drones are logic-only and don't collide. No ambient patrols. New conversation text is English only.
+- Internal IDs keep old names: `NeoKyotoWorld`, `neo_kyoto.tscn`, `safehouse_old_kyoto`, `quest_ok_*`.
+- The spliced track's transcript is derived from the old Scribe transcript, not newly paid for; `media.json` and `later_campaign_validation.json` hashes were updated after a PyAV decode (90.0 s, peak 0.839), not by the Docker media pass.
+
+**Verification (final edits, 2026-11-08)**
+- `dotnet build` 0 errors. Background Godot import exit 0. `run_tests.ps1` exit 0: Django 111/111, NUnit 375/375, GdUnit4 343/343 with 0 errors, failures and orphans (`reports/report_545`). Python 24/24. `catalog.py --check` passes. Backup and restore were trial-run against a temporary database.
+- A fresh-context review found 6 defects (wave reset on overlapping objectives, guard sticking on, residents taking over mission entrances, no exit after a failed save, health lost on swap, undocumented methods) and 2 edge cases; all were fixed before the final run.
+- `audit_english_voice.py --check` exits 1 by design for the same 7 flagged cues. Not checked: live play in the real game window, PostgreSQL-backed play through the scene (preview mode and service tests were used instead), the website in a browser.
+
+**Later reviews (same day)**
+- `/code-review` (high): fixed damaged saves being overwritten by defaults, `restore.ps1` now one transaction, personal quests no longer credited after a mid-fight swap, drones pause while the player is locked by streaming, guard clears on mounting, attack ring matches ground squash, cached the quest list, removed dead entry code.
+- EGM review of the status table (`codebase_details`, `style` personas, direct dispatch, one round, so not converged under the skill's two-clean-rounds rule). `egm-review` audits documents only, so it was not applied to code. The table was rewritten from its findings.
+- Follow-up fixes: the four playable branch choices now describe story outcomes instead of effects no code applies; `obj_fd02_3` moved into the hostile crucible pocket; `quest_dt_02` and `quest_ct_02` now award gadgets, so `mod_free_signal_tuner` comes only from `quest_fsc_03`. New NUnit checks cover combat objective regions for all 72 quests and that module award.
+- The five choices in data-only quests still describe effects; reword or build them if those quests become playable.
+
+**Limitations and next steps**
+- The `website` container serves a built image, so rebuild it to see the Little Tokyo text.
+- A person must listen to the splice and play the slice; automated tests can't judge either. The strict voice gate still reports 7 flagged cues until someone records acceptance.
+- The cutscene and export Docker images are gone, likely with the Docker data reset that removed `axiom-force_pgdata`. Rebuild them when needed.
+- `godot-ai` needs an MCP reconnect to pick up its new flags. Stale `assets/narrative` copies in other languages still mention the old setting; no code path showing them was confirmed.
+- Next: decide which remaining region or system to make playable using the status table.
+
 ## Living Resistance World: Neo-Los Angeles 2157 Re-theming & Phase 4 Delivery — 2026-11-07
 
 Re-themed and grounded the 128 km × 128 km open exploration world to the game's canonical master lore setting: **Greater Los Angeles Resistance Basin, 2157 (Neo-Los Angeles)**, while preserving 100% of underlying game mechanics, numerical district IDs, coordinate layouts, and database isolation.

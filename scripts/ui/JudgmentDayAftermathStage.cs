@@ -5,7 +5,7 @@ using Godot;
 /// Seekable 2D procedural cinematic tableau for the Mission 12 campaign finale epilogue ("Dawn of Axiom").
 /// Composes the grand liberation sequence atop the Spire summit at 5,000m: the collapsed Singularity Core
 /// bursting into a golden aurora, the perpetual storm dissipating into a radiant sunrise, the sprawling
-/// metropolis of Neo-Arcadia lighting up across all 12 districts, the shattered throne dais of the Void Commander,
+/// metropolis of Neo-Los Angeles lighting up across all 12 districts, the shattered throne dais of the Void Commander,
 /// and all six operatives standing united on the observation balcony to welcome the dawn of a free world.
 /// </summary>
 public partial class JudgmentDayAftermathStage : Control
@@ -91,7 +91,7 @@ public partial class JudgmentDayAftermathStage : Control
         // Collapsing Singularity Core aurora & rising luminescent motes
         DrawSingularityDawnAurora(t);
 
-        // Distant illuminated Neo-Arcadia metropolis skyline
+        // Distant illuminated Neo-Los Angeles metropolis skyline
         DrawDistantLiberatedMetropolis(t);
 
         // Summit cathedral overlook, observation balcony, and shattered dais

@@ -1,0 +1,4 @@
+{
+  "instructions": "Add one record per cue after listening on speakers or headphones: cue, audio_sha256 (recording_sha256 from coverage.json), reviewer, date, decision (accepted or rejected). A record stops applying if the audio changes.",
+  "records": []
+}

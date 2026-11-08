@@ -55,6 +55,13 @@ intervals. Godot checks selectors, live speech, result bindings, script glyphs,
 roster nested fields and stable preview commands. Final import, full-suite and
 representative screen results are recorded in root HANDOFF.md and MEMORY.MD.
 
+## Open-world slice text (2026-11-08)
+
+Quest conversations and the new combat labels in `scripts/world/` are English only and go through
+`WorldText.Get`, so they will pick up CSV translations when added. Until then they show in English
+in all languages. Neo-Kyoto was replaced in the three live campaign rows; the Mission 7 subtitle
+now omits the city to match the spliced recording.
+
 ## Verification on 2026-11-06
 
 The final gate has 1,492 required entries per locale and 301 subtitle mappings.

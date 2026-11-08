@@ -1,4 +1,6 @@
-﻿# **Axiom Force**
+﻿> **Historical document.** This early story bible is kept for reference and is no longer a plan. Its 16-level structure did not ship: the game has 12 missions, listed in `scripts/managers/LevelCatalog.cs`. Canon is Los Angeles, 2157, and "Tokyo" means the Little Tokyo district.
+
+# **Axiom Force**
 
 # **Operational Briefing: AXIOM-7 Interface**
 
@@ -126,7 +128,7 @@ AXIOM-7 ONLINE
 
 ## **Level 1: Ghost in the Gridlock**
 
-**Setting:** The ruins of the Imperial Palace Gardens. Xelthara terraforming beams are actively dissolving ancient stone lanterns and cherry blossoms, replacing them with sterile, obsidian-slab administrative monoliths.  
+**Setting:** The ruins of the Little Tokyo heritage gardens. Xelthara terraforming beams are actively dissolving ancient stone lanterns and cherry blossoms, replacing them with sterile, obsidian-slab administrative monoliths.  
 **Objective:** Infiltrate the active demolition site to retrieve the Data-Blade—a digital repository of forbidden history—before the Xelthara 'Culture-Erasure' field purges the site's memory forever.  
 **Solo Monologue/AXIOM-7 Interface:**
 
@@ -135,7 +137,7 @@ AXIOM-7 ONLINE
 
 **\[LEVEL SCRIPT START: CULTURAL ERASURE PROTOCOL\]**  
 *\[DISPLAY: Crimson text on black screen, simulated digital typewriter font.\]*  
-**ARCHIVE LOG: NEO-TOKYO CULTURE-PURGE.**  
+**ARCHIVE LOG: LITTLE TOKYO CULTURE-PURGE.**  
 **LOCATION: THE ETERNAL ZEN DOJO (SITE DESIGNATED: SETTLEMENT-BLOCK 01).**  
 **STATUS: DEMOLITION IN PROGRESS. ARCHITECTURAL ERASURE AT 42%.**  
 *(SCENE: The player stands in the courtyard of a thousand-year-old dojo. A massive Xelthara Terra-Walker looms over the gate, its obsidian legs crushing ancient stone lanterns into gravel. A demolition beam, a flickering violet laser, is slowly dissolving the intricate wood-carved eaves of the main hall.)*  
@@ -146,7 +148,7 @@ AXIOM-7 ONLINE
 *(PLAYER ACTION: Engage the Demolition Crew drones.)*  
 **CYBER SHOGUN (COMBAT LINE):** Every chip in this wood is a memory you cannot delete\! **KATA: ANCESTRAL STRIKE\!** *\[Plasma blades flare to a brilliant white-hot, slicing a drone clean in half.\]*  
 *(SCENE: A holographic projection of the proposed alien settlement—a sterile, cold monolith—flickers over the ruins of the dojo, showing what the colonizers intend to build here.)*  
-**CYBER SHOGUN:** Look at their 'paradise.' A tomb of glass and wire built on the grave of a millennium. I refuse to let human history be wiped clean to make room for your spreadsheets. As long as I stand, Tokyo remembers\!  
+**CYBER SHOGUN:** Look at their 'paradise.' A tomb of glass and wire built on the grave of everything this neighborhood kept alive. I refuse to let human history be wiped clean to make room for your spreadsheets. As long as I stand, Tokyo remembers\!  
 *(PLAYER OBJECTIVE: Destroy the Demolition Beacon to stop the Terra-Walker's beam.)*  
 **AXIOM-7 (V.O.):** Beacon neutralized. The demolition has stalled, but the colonial authorities are rerouting an Enforcer Legion. You are fighting a ghost battle, Shogun.  
 **CYBER SHOGUN:** Then I am a ghost that will haunt their settlements forever. If we cannot save the stone, we will save the story. Secure the Data-Blade\! Let them find only fire where they expected compliance\!  
@@ -1182,7 +1184,7 @@ The extraction engines are halted. The security grid is dark. The segregation wa
 | Zone | Title | Setting Theme | Primary Threat |
 | :---- | :---- | :---- | :---- |
 | 0 | Protocol Zero | Digital Simulation | Training Drones |
-| 1 | Ghost in the Gridlock | Neo-Tokyo Quarantine | Xelthara Comm-Security |
+| 1 | Ghost in the Gridlock | Little Tokyo Quarantine | Xelthara Comm-Security |
 | 2 | The Concrete Wildfire | Freeway Interchange | Xelthara Siege Units |
 | 3 | Static Glitch of the Black Market | Subterranean Data-Exchange | Xelthara Data-Wraiths |
 | 4 | Shattered Aegis of the Void Commander | Coastal Broadcast Tower | Propaganda Broadcasts |

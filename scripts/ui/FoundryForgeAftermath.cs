@@ -39,7 +39,7 @@ public partial class FoundryForgeAftermath : CanvasLayer
         "OCEANUS: The reservoirs have burst. Steam is pouring through the flues. The river is finding its bed again.",
         "AURA: Listen to the sky. That hum is breaking apart. The field that held us under glass is coming down.",
         "MIRAGE: The emitters along Sector Four are arcing. There. The shield lattice is splitting.",
-        "SURYA // COMMS: Confirmed on civilian channels. The sky-shield over Neo-Kyoto has collapsed. Their iron dome is gone.",
+        "SURYA // COMMS: Confirmed on civilian channels. The sky-shield has collapsed. Their iron dome is gone.",
         "KAITO: Ten years under a false twilight. Ten years of looking up at a shield we could never touch. No more.",
         "KAITO: Their low-altitude cover is gone. Stratos Docks is exposed. We have our way into the Spire.",
         "KAITO: Regroup at the rim and rearm. We are taking the high docks. Axiom Force, prepare for insertion.",

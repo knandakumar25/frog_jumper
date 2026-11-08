@@ -1,7 +1,7 @@
 # Axiom Force - Project Guide (Codex)
 
 ## Project Overview
-A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and React web client. The game is transitioning to a high-octane 2D Cyber-Action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*), featuring multi-operative synergy, dynamic combat HUDs, wall mobility, multi-phase boss mechs, and synthesized audio.
+A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and React web client. It is a 2D cyber-action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*) with a 12-mission, 3-act campaign, multi-operative synergy, dynamic combat HUDs, wall mobility, and multi-phase boss mechs, set in Los Angeles in 2157. Finishing Mission 1 opens a top-down open world (`scripts/world/`). In that world only Little Tokyo and Concrete Wards have playable quests and combat; the other 14 regions can be explored, but their quests, operations and endgame content are data only (see the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`). Saves are PostgreSQL-only, and the desktop game signs in through a Clerk browser flow.
 
 ## Technical Stack
 - **Engine**: Godot 4.7.2 .NET
@@ -9,7 +9,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 - **Backend**: Django REST Framework (Python 3.15.2)
 - **Frontend Web**: React + Vite
 - **Architecture**: Component-based with specialized Managers (e.g., `SessionManager`, `UISoundManager`, `OperativeRegistry`).
-- **UI & Gameplay Approach**: High-fidelity 2D combat platforming with 4-level linear campaign chain, dynamic combat HUD, and a squad of operatives that are unlocked through the story (roster screen, in-level swap).
+- **UI & Gameplay Approach**: High-fidelity 2D combat platforming with a 12-mission linear campaign (`LevelCatalog.cs`), dynamic combat HUD, and a squad of operatives that are unlocked through the story (roster screen, in-level swap).
 
 ## Development Workflows
 
@@ -78,7 +78,7 @@ docker ps
 - If Docker Desktop itself is down, start it and wait until `docker info` reports a live daemon before continuing.
 - If the project containers (Django backend, PostgreSQL, website) are missing from `docker ps`, start them from the project root with `docker compose up -d` and re-check with `docker ps`. If a container exits immediately, read `docker compose logs <service>` before editing.
 - Do not begin code edits while the stack is down, and never stop containers the user started.
-- The stack is defined in `docker-compose.yml`: `db` (PostgreSQL 18, 5432), `backend` (Django, 8000), `website` (Nginx, 5173). All three are always-on members of `docker compose up`.
+- The stack is defined in `docker-compose.yml`: `db` (`postgres:latest`, 5432), `backend` (Django, 8000), `website` (Nginx, 5173). All three are always-on members of `docker compose up`. The `cutscene`, `playwright` and `export` services only run under their own profiles. Back up saves manually with `tools/db/backup.ps1`.
 - **Game edits and website edits may run at the same time as the stack** — they do not conflict, so do not stop the containers to work on either.
 - **Game exports are exclusive.** Never run one while another export, a Godot import refresh, a website image build, or a game/website edit batch is still in progress, and never chain an export into the same command as other work. Finish or park everything else first.
 - The exporter is a one-shot service behind the `export` profile (`docker compose run --rm export <linux|windows|web|android|macos|ios|all>`, image `axiom-force-export`). A plain `docker compose up` never starts it, and starting the service by itself is inert: with no explicit target it prints usage and exits without building anything. Never add `export` to the default services, and rebuild the image after editing `export/export.sh` because the script is baked into it.
@@ -117,9 +117,7 @@ Run a background Godot refresh only after creating, modifying, or deleting game 
 > You can also run the individual test suites:
 > 1. **Django Unit Tests (Backend)**:
 >    ```powershell
->    python backend/manage.py test accounts
->    # Or directly using the virtual environment:
->    backend\.venv\Scripts\python.exe backend\manage.py test accounts
+>    docker compose exec -T backend python manage.py test accounts
 >    ```
 > 2. **NUnit Tests (.NET 10 C#)**:
 >    ```powershell
@@ -159,8 +157,9 @@ Run a background Godot refresh only after creating, modifying, or deleting game 
 - `CyberLaserGrid2D.cs` & `CyberHazardFloor2D.cs`: Cycling environmental 2D hazards.
 - `CharacterSelection.cs`: Squad roster screen (main menu): locked/unlocked operatives, Set Active, upgrades; no longer part of the new-game flow.
 - `OperativeRoster.cs` / `LevelCatalog.cs` / `CampaignProgress.cs`: engine-free unlock rules (who joins in which mission), the ordered mission list, and the glue to `Global` and saves. Operatives are earned through play; the squad is rebuilt from mission progress.
-- `CodeLevel.cs`: base class for code-built missions (`PalaceMission`, `ConcreteWildfireMission`, `NeonRustMission`, `ShatteredAegisMission`) with `PalacePlatform`, `AbilityGate` (operative-gated obstacles), `RecruitBeat` (unlock + in-level ability lesson) and `SquadStrip` HUD.
-- `scenes/gameplay/level1.tscn` to `level4.tscn`: 4-level linear 2D campaign progression (thin scenes that attach a `CodeLevel` subclass).
+- `CodeLevel.cs`: base class for code-built missions (`PalaceMission`, `ConcreteWildfireMission`, `NeonRustMission`, `ShatteredAegisMission`) and the later missions, with `PalacePlatform`, `AbilityGate` (operative-gated obstacles), `RecruitBeat` (unlock + in-level ability lesson) and `SquadStrip` HUD.
+- `scenes/gameplay/level1.tscn` to `level12.tscn`: 12-mission linear 2D campaign (thin scenes that attach a `CodeLevel` subclass).
+- `scripts/world/`: the open world. `NeoKyotoWorld.cs` keeps its original class name for save and scene stability. `WorldQuestRules.cs` lists the eight playable quests; `WorldEncounterController.cs` runs combat waves.
 
 ## Operative Roster
 1. **Cyber Shogun (Kaito Kurogane)**: Balanced Vanguard Striker (Katana combo, blade dash, parry).

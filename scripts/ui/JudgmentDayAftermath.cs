@@ -5,7 +5,7 @@ using Godot;
 /// Skippable 90-second post-mission cinematic epilogue overlay ("Dawn of Axiom // Mission 12 Aftermath").
 /// Coordinates camera choreography, multi-speaker dialogue subtitles, and atmospheric audio across
 /// nine authored story beats depicting the aftermath of the Void Commander's defeat, the collapse of
-/// the Singularity Core into a dawn aurora, the restoration of Neo-Arcadia's power grid, and the liberation of the world.
+/// the Singularity Core into a dawn aurora, the restoration of Neo-Los Angeles's power grid, and the liberation of the world.
 /// </summary>
 public partial class JudgmentDayAftermath : CanvasLayer
 {

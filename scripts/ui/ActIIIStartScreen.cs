@@ -155,7 +155,7 @@ public partial class ActIIIStartScreen : CanvasLayer
         var briefText = new Label
         {
             Name = "BriefingText",
-            Text = "The planetary sky-shield has fallen. Neo-Kyoto is waking up.\n" +
+            Text = "The planetary sky-shield has fallen. Neo-Los Angeles is waking up.\n" +
                    "High Command has locked down the Citadel Spire and scrambled interceptor drone wings across all sectors.\n" +
                    "With ground and subterranean transit sealed, the only insertion vector upward is through the clouds.\n" +
                    "Infiltrate Stratos Docks, commandeer a heavy military VTOL gunship, and scale the Spire.",

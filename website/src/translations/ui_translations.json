@@ -106,7 +106,7 @@
       "warriors": {
         "shogun": {
           "role": "Cybernetic Shogun Warrior",
-          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "desc": "A master cybernetic warrior from Little Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
           "lore": "\"My blade is forged in code, but my honor is written in blood.\""
         },
         "solaria": {
@@ -178,7 +178,7 @@
       "level_1": {
         "name": "Ghost in the Gridlock",
         "subtitle": "Cultural Erasure Protocol",
-        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "description": "The ruins of the Little Tokyo heritage gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
         "obj_0": "Engage Demolition Crew drones",
         "obj_1": "Neutralize the Demolition Beacon",
         "obj_2": "Secure the Data-Blade"
@@ -669,7 +669,7 @@
       "warriors": {
         "shogun": {
           "role": "Guerrero Shogun Cibernético",
-          "desc": "Un maestro guerrero cibernético de Neo-Tokio, armado con una katana de energía. Combina bushido tradicional con tecnología militar futurista.",
+          "desc": "Un maestro guerrero cibernético de Little Tokyo, armado con una katana de energía. Combina bushido tradicional con tecnología militar futurista.",
           "lore": "\"Mi espada está forjada en código, pero mi honor está escrito con sangre\"."
         },
         "solaria": {
@@ -736,7 +736,7 @@
       "level_1": {
         "name": "Fantasma en el Atolladero",
         "subtitle": "Protocolo de Borrado Cultural",
-        "description": "Las ruinas de los Jardines del Palacio Imperial. Los rayos de terraformación Xelthara disuelven las antiguas linternas de piedra. Recupera la Data-Blade, un depósito digital de historia prohibida, antes de que se borre para siempre.",
+        "description": "Las ruinas de los jardines patrimoniales de Little Tokyo. Los rayos de terraformación Xelthara disuelven las antiguas linternas de piedra. Recupera la Data-Blade, un depósito digital de historia prohibida, antes de que se borre para siempre.",
         "obj_0": "Enfrentar a los drones del equipo de demolición",
         "obj_1": "Neutralizar la baliza de demolición",
         "obj_2": "Asegurar la Data-Blade"
@@ -1226,7 +1226,7 @@
       "warriors": {
         "shogun": {
           "role": "Guerrier Shogun Cybernétique",
-          "desc": "Un maître guerrier cybernétique de Néo-Tokyo, armé d'un katana énergétique. Combine le bushido traditionnel avec une technologie militaire futuriste.",
+          "desc": "Un maître guerrier cybernétique de Little Tokyo, armé d'un katana énergétique. Combine le bushido traditionnel avec une technologie militaire futuriste.",
           "lore": "\"Ma lame est forgée en code, mais mon honneur est écrit dans le sang.\""
         },
         "solaria": {
@@ -1293,7 +1293,7 @@
       "level_1": {
         "name": "Fantôme dans l'Embouteillage",
         "subtitle": "Protocole d'Effacement Culturel",
-        "description": "Les ruines des jardins du palais impérial. Les rayons de terraformation Xelthara dissolvent les anciennes lanternes de pierre. Récupérez la Data-Blade — un référentiel numérique d'histoire interdite — avant qu'elle ne soit effacée à jamais.",
+        "description": "Les ruines des jardins patrimoniaux de Little Tokyo. Les rayons de terraformation Xelthara dissolvent les anciennes lanternes de pierre. Récupérez la Data-Blade — un référentiel numérique d'histoire interdite — avant qu'elle ne soit effacée à jamais.",
         "obj_0": "Engager les drones de l'équipe de démolition",
         "obj_1": "Neutraliser la balise de démolition",
         "obj_2": "Sécuriser la Data-Blade"
@@ -1783,7 +1783,7 @@
       "warriors": {
         "shogun": {
           "role": "Guerreiro Shogun Cibernético",
-          "desc": "Um mestre guerreiro cibernético de Neo-Tóquio, armado com uma katana de energia. Combina o bushido tradicional com tecnologia militar futurista.",
+          "desc": "Um mestre guerreiro cibernético de Little Tokyo, armado com uma katana de energia. Combina o bushido tradicional com tecnologia militar futurista.",
           "lore": "\"Minha lâmina é forjada em código, mas minha honra está escrita com sangue.\""
         },
         "solaria": {
@@ -1850,7 +1850,7 @@
       "level_1": {
         "name": "Fantasma no impasse",
         "subtitle": "Protocolo de Apagamento Cultural",
-        "description": "As ruínas dos Jardins do Palácio Imperial. As vigas de terraformação de Xelthara dissolvem antigas lanternas de pedra. Recupere o Data-Blade — um repositório digital de história proibida — antes que ele seja apagado para sempre.",
+        "description": "As ruínas dos jardins históricos de Little Tokyo. As vigas de terraformação de Xelthara dissolvem antigas lanternas de pedra. Recupere o Data-Blade — um repositório digital de história proibida — antes que ele seja apagado para sempre.",
         "obj_0": "Envolva drones da equipe de demolição",
         "obj_1": "Neutralize o farol de demolição",
         "obj_2": "Proteja o Data-Blade"
@@ -2340,7 +2340,7 @@
       "warriors": {
         "shogun": {
           "role": "Kybernetischer Shogun-Krieger",
-          "desc": "Ein meisterhafter kybernetischer Krieger aus Neo-Tokio, bewaffnet mit einem Energie-Katana. Kombiniert traditionelles Bushido mit futuristischer Militärtechnologie.",
+          "desc": "Ein meisterhafter kybernetischer Krieger aus Little Tokyo, bewaffnet mit einem Energie-Katana. Kombiniert traditionelles Bushido mit futuristischer Militärtechnologie.",
           "lore": "„Meine Klinge ist im Code geschmiedet, aber meine Ehre ist im Blut geschrieben.“"
         },
         "solaria": {
@@ -2407,7 +2407,7 @@
       "level_1": {
         "name": "Geist im Stillstand",
         "subtitle": "Protokoll zur kulturellen Löschung",
-        "description": "Die Ruinen der Kaiserpalastgärten. Xelthara-Terraforming-Strahlen lösen alte Steinlaternen auf. Holen Sie sich den Data-Blade – einen digitalen Aufbewahrungsort der verbotenen Geschichte – zurück, bevor er für immer gelöscht wird.",
+        "description": "Die Ruinen der historischen Gärten von Little Tokyo. Xelthara-Terraforming-Strahlen lösen alte Steinlaternen auf. Holen Sie sich den Data-Blade – einen digitalen Aufbewahrungsort der verbotenen Geschichte – zurück, bevor er für immer gelöscht wird.",
         "obj_0": "Setzen Sie die Drohnen der Demolition Crew ein",
         "obj_1": "Neutralisieren Sie das Sprengfeuer",
         "obj_2": "Sichern Sie den Data-Blade"
@@ -2897,7 +2897,7 @@
       "warriors": {
         "shogun": {
           "role": "Guerriero Shogun Cibernetico",
-          "desc": "Un maestro guerriero cibernetico di Neo-Tokyo, armato con una katana energetica. Combina il bushido tradizionale con la tecnologia militare futuristica.",
+          "desc": "Un maestro guerriero cibernetico di Little Tokyo, armato con una katana energetica. Combina il bushido tradizionale con la tecnologia militare futuristica.",
           "lore": "\"La mia lama è forgiata in codice, ma il mio onore è scritto nel sangue.\""
         },
         "solaria": {
@@ -2964,7 +2964,7 @@
       "level_1": {
         "name": "Fantasma nello stallo",
         "subtitle": "Protocollo di cancellazione culturale",
-        "description": "Le rovine dei giardini del Palazzo Imperiale. I raggi di terraformazione di Xelthara dissolvono le antiche lanterne di pietra. Recupera il Data-Blade, un archivio digitale di storia proibita, prima che venga cancellato per sempre.",
+        "description": "Le rovine dei giardini storici di Little Tokyo. I raggi di terraformazione di Xelthara dissolvono le antiche lanterne di pietra. Recupera il Data-Blade, un archivio digitale di storia proibita, prima che venga cancellato per sempre.",
         "obj_0": "Coinvolgi i droni della squadra di demolizione",
         "obj_1": "Neutralizza il faro da demolizione",
         "obj_2": "Proteggi il Data Blade"
@@ -3454,7 +3454,7 @@
       "warriors": {
         "shogun": {
           "role": "Cybernetyczny wojownik szoguna",
-          "desc": "Mistrz cybernetycznego wojownika z Neo-Tokio, uzbrojony w katanę energetyczną. Łączy tradycyjne bushido z futurystyczną technologią wojskową.",
+          "desc": "Mistrz cybernetycznego wojownika z Little Tokyo, uzbrojony w katanę energetyczną. Łączy tradycyjne bushido z futurystyczną technologią wojskową.",
           "lore": "„Moje ostrze jest wykute w kodzie, ale mój honor jest zapisany krwią”."
         },
         "solaria": {
@@ -3521,7 +3521,7 @@
       "level_1": {
         "name": "Duch w Gridlock",
         "subtitle": "Protokół wymazywania kulturowego",
-        "description": "Ruiny Ogrodów Pałacu Cesarskiego. Belki terraformujące Xelthara rozpuszczają starożytne kamienne latarnie. Odzyskaj Data-Blade — cyfrowe repozytorium zakazanej historii — zanim zostanie na zawsze usunięte.",
+        "description": "Ruiny Ogrodów Dziedzictwa Little Tokyo. Belki terraformujące Xelthara rozpuszczają starożytne kamienne latarnie. Odzyskaj Data-Blade — cyfrowe repozytorium zakazanej historii — zanim zostanie na zawsze usunięte.",
         "obj_0": "Zaangażuj drony ekipy rozbiórkowej",
         "obj_1": "Zneutralizuj sygnał rozbiórki",
         "obj_2": "Zabezpiecz Data-Blade"
@@ -4011,7 +4011,7 @@
       "warriors": {
         "shogun": {
           "role": "Sibernetik Shogun Savaşçısı",
-          "desc": "Neo-Tokyo'dan gelen, enerji katanasıyla silahlanmış usta bir sibernetik savaşçı. Geleneksel Bushido'yu fütüristik askeri teknolojiyle birleştiriyor.",
+          "desc": "Little Tokyo'dan gelen, enerji katanasıyla silahlanmış usta bir sibernetik savaşçı. Geleneksel Bushido'yu fütüristik askeri teknolojiyle birleştiriyor.",
           "lore": "\"Kılıcım şifreyle dövüldü ama onurum kanla yazılmıştır.\""
         },
         "solaria": {
@@ -4078,7 +4078,7 @@
       "level_1": {
         "name": "Kilitteki Hayalet",
         "subtitle": "Kültürel Silme Protokolü",
-        "description": "İmparatorluk Sarayı Bahçelerinin kalıntıları. Xelthara'nın dünyasallaştırma kirişleri antik taş fenerleri eritiyor. Tamamen silinmeden önce, yasaklanmış geçmişin dijital deposu olan Data-Blade'i alın.",
+        "description": "Little Tokyo Miras Bahçelerinin kalıntıları. Xelthara'nın dünyasallaştırma kirişleri antik taş fenerleri eritiyor. Tamamen silinmeden önce, yasaklanmış geçmişin dijital deposu olan Data-Blade'i alın.",
         "obj_0": "Yıkım Ekibi dronlarını devreye alın",
         "obj_1": "Yıkım İşaretini etkisiz hale getirin",
         "obj_2": "Data-Blade'i emniyete alın"
@@ -4568,7 +4568,7 @@
       "warriors": {
         "shogun": {
           "role": "サイバネティック将軍戦士",
-          "desc": "エネルギー刀を装備したネオ東京出身のマスターサイバネティック戦士。伝統的な武士道と未来的な軍事技術を組み合わせたものです。",
+          "desc": "エネルギー刀を装備したリトル・トーキョー出身のマスターサイバネティック戦士。伝統的な武士道と未来的な軍事技術を組み合わせたものです。",
           "lore": "「私の刃は暗号で鍛えられていますが、私の名誉は血で刻まれています。」"
         },
         "solaria": {
@@ -4635,7 +4635,7 @@
       "level_1": {
         "name": "グリッドロック内のゴースト",
         "subtitle": "文化消去プロトコル",
-        "description": "皇居外苑跡。ゼルタラのテラフォーミングビームは古代の石灯籠を溶かします。永久に消去される前に、禁じられた歴史のデジタル リポジトリであるデータ ブレードを取得します。",
+        "description": "リトル・トーキョー庭園跡。ゼルタラのテラフォーミングビームは古代の石灯籠を溶かします。永久に消去される前に、禁じられた歴史のデジタル リポジトリであるデータ ブレードを取得します。",
         "obj_0": "解体作業員のドローンと交戦する",
         "obj_1": "デモリッションビーコンを無力化する",
         "obj_2": "データブレードを保護する"
@@ -5125,7 +5125,7 @@
       "warriors": {
         "shogun": {
           "role": "사이버네틱 쇼군 전사",
-          "desc": "에너지 카타나로 무장한 네오도쿄 출신의 사이버네틱스 전사. 전통적인 무사도와 미래적인 군사 기술을 결합합니다.",
+          "desc": "에너지 카타나로 무장한 리틀 도쿄 출신의 사이버네틱스 전사. 전통적인 무사도와 미래적인 군사 기술을 결합합니다.",
           "lore": "\"내 검은 암호로 만들어졌지만, 내 명예는 피로 쓰여 있습니다.\""
         },
         "solaria": {
@@ -5192,7 +5192,7 @@
       "level_1": {
         "name": "교착상태에 빠진 유령",
         "subtitle": "문화 삭제 프로토콜",
-        "description": "황궁 정원의 유적. Xelthara 테라포밍 광선은 고대 석등을 용해시킵니다. 금지된 역사의 디지털 저장소인 데이터 블레이드가 영원히 지워지기 전에 회수하세요.",
+        "description": "리틀 도쿄 유산 정원의 유적. Xelthara 테라포밍 광선은 고대 석등을 용해시킵니다. 금지된 역사의 디지털 저장소인 데이터 블레이드가 영원히 지워지기 전에 회수하세요.",
         "obj_0": "Demolition Crew 드론 참여",
         "obj_1": "철거 신호기를 무력화하세요",
         "obj_2": "데이터 블레이드를 확보하세요"
@@ -5682,7 +5682,7 @@
       "warriors": {
         "shogun": {
           "role": "控制论将军战士",
-          "desc": "来自新东京的控制论战士大师，手持能量武士刀。将传统武士道与未来军事技术相结合。",
+          "desc": "来自小东京的控制论战士大师，手持能量武士刀。将传统武士道与未来军事技术相结合。",
           "lore": "“我的剑是用密码铸造的，但我的荣誉是用血写成的。”"
         },
         "solaria": {
@@ -5749,7 +5749,7 @@
       "level_1": {
         "name": "僵局中的幽灵",
         "subtitle": "文化擦除协议",
-        "description": "故宫花园遗址。泽尔塔拉改造光束溶解了古老的石灯笼。在数据刀片（禁忌历史的数字存储库）被永久删除之前取回它。",
+        "description": "小东京遗产花园遗址。泽尔塔拉改造光束溶解了古老的石灯笼。在数据刀片（禁忌历史的数字存储库）被永久删除之前取回它。",
         "obj_0": "与拆除人员无人机交战",
         "obj_1": "摧毁拆除信标",
         "obj_2": "保护数据刀片"
@@ -6239,7 +6239,7 @@
       "warriors": {
         "shogun": {
           "role": "לוחם שוגון קיברנטי",
-          "desc": "לוחם קיברנטי מאסטר מנאו-טוקיו, חמוש בקטאנה אנרגטית. משלב בושידו מסורתי עם טכנולוגיה צבאית עתידני.",
+          "desc": "לוחם קיברנטי מאסטר מליטל טוקיו, חמוש בקטאנה אנרגטית. משלב בושידו מסורתי עם טכנולוגיה צבאית עתידני.",
           "lore": "\"הלהב שלי מזויף בקוד, אבל הכבוד שלי כתוב בדם.\""
         },
         "solaria": {
@@ -6306,7 +6306,7 @@
       "level_1": {
         "name": "רוח רפאים בפקק",
         "subtitle": "פרוטוקול מחיקה תרבותית",
-        "description": "הריסות גני הארמון הקיסרי. קרני עיצוב השטח של הקסלת'ארה ממיסות פנסי אבן עתיקים. אחזר את להב הנתונים — מאגר דיגיטלי של היסטוריה אסורה — לפני שיימחק לנצח.",
+        "description": "הריסות גני המורשת של ליטל טוקיו. קרני עיצוב השטח של הקסלת'ארה ממיסות פנסי אבן עתיקים. אחזר את להב הנתונים — מאגר דיגיטלי של היסטוריה אסורה — לפני שיימחק לנצח.",
         "obj_0": "הילחם ברחפני צוות ההריסה",
         "obj_1": "נטרל את משואת ההריסה",
         "obj_2": "אבטח את להב הנתונים"
@@ -6796,7 +6796,7 @@
       "warriors": {
         "shogun": {
           "role": "المحارب السيبراني شوغون",
-          "desc": "محارب سيبراني محترف من طوكيو الجديدة، مسلح بكاتانا الطاقة. يجمع بين بوشيدو التقليدي والتكنولوجيا العسكرية المستقبلية.",
+          "desc": "محارب سيبراني محترف من ليتل طوكيو، مسلح بكاتانا الطاقة. يجمع بين بوشيدو التقليدي والتكنولوجيا العسكرية المستقبلية.",
           "lore": "\"شفرتي مزورة بالشفرة، لكن شرفي مكتوب بالدم.\""
         },
         "solaria": {
@@ -6868,7 +6868,7 @@
       "level_1": {
         "name": "شبح في الازدحام",
         "subtitle": "بروتوكول المحو الثقافي",
-        "description": "أنقاض حدائق القصر الإمبراطوري. تعمل أشعة استصلاح الأراضي لزيلثارا على إذابة الفوانيس الحجرية القديمة. استعد شفرة البيانات — وهي مستودع رقمي للتاريخ المحظور — قبل أن يتم محوها إلى الأبد.",
+        "description": "أنقاض حدائق التراث في ليتل طوكيو. تعمل أشعة استصلاح الأراضي لزيلثارا على إذابة الفوانيس الحجرية القديمة. استعد شفرة البيانات — وهي مستودع رقمي للتاريخ المحظور — قبل أن يتم محوها إلى الأبد.",
         "obj_0": "اشتبك مع طائرات فريق الهدم الآلية",
         "obj_1": "تعطيل منارة الهدم",
         "obj_2": "تأمين شفرة البيانات"
@@ -7359,7 +7359,7 @@
       "warriors": {
         "shogun": {
           "role": "控制论将军戰士",
-          "desc": "来自新东京的控制论戰士大师，手持能量武士刀。将传统武士道与未来军事技术相结合。",
+          "desc": "来自小东京的控制论戰士大师，手持能量武士刀。将传统武士道与未来军事技术相结合。",
           "lore": "“我的剑是用密碼铸造的，但我的荣誉是用血写成的。”"
         },
         "solaria": {
@@ -7426,7 +7426,7 @@
       "level_1": {
         "name": "僵局中的幽灵",
         "subtitle": "文化擦除协议",
-        "description": "故宫花园遗址。泽尔塔拉改造光束溶解了古老的石灯笼。在資料刀片（禁忌历史的数字存储库）被永久删除之前取回它。",
+        "description": "小东京遗产花园遗址。泽尔塔拉改造光束溶解了古老的石灯笼。在資料刀片（禁忌历史的数字存储库）被永久删除之前取回它。",
         "obj_0": "与拆除人员无人机交战",
         "obj_1": "摧毁拆除信标",
         "obj_2": "保护資料刀片"
@@ -7911,7 +7911,7 @@
       "warriors": {
         "shogun": {
           "role": "Cybernetic Shogun Warrior",
-          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "desc": "A master cybernetic warrior from Little Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
           "lore": "\"My blade is forged in code, but my honor is written in blood.\""
         },
         "solaria": {
@@ -7978,7 +7978,7 @@
       "level_1": {
         "name": "Ghost in the Gridlock",
         "subtitle": "Cultural Erasure Protocol",
-        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "description": "The ruins of the Little Tokyo heritage gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
         "obj_0": "Engage Demolition Crew drones",
         "obj_1": "Neutralize the Demolition Beacon",
         "obj_2": "Secure the Data-Blade"
@@ -8463,7 +8463,7 @@
       "warriors": {
         "shogun": {
           "role": "Cybernetic Shogun Warrior",
-          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "desc": "A master cybernetic warrior from Little Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
           "lore": "\"My blade is forged in code, but my honor is written in blood.\""
         },
         "solaria": {
@@ -8530,7 +8530,7 @@
       "level_1": {
         "name": "Ghost in the Gridlock",
         "subtitle": "Cultural Erasure Protocol",
-        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "description": "The ruins of the Little Tokyo heritage gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
         "obj_0": "Engage Demolition Crew drones",
         "obj_1": "Neutralize the Demolition Beacon",
         "obj_2": "Secure the Data-Blade"
@@ -9015,7 +9015,7 @@
       "warriors": {
         "shogun": {
           "role": "Cybernetic Shogun Warrior",
-          "desc": "A master cybernetic warrior from Neo-Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
+          "desc": "A master cybernetic warrior from Little Tokyo, armed with an energy katana. Combines traditional bushido with futuristic military tech.",
           "lore": "\"My blade is forged in code, but my honor is written in blood.\""
         },
         "solaria": {
@@ -9082,7 +9082,7 @@
       "level_1": {
         "name": "Ghost in the Gridlock",
         "subtitle": "Cultural Erasure Protocol",
-        "description": "The ruins of the Imperial Palace Gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
+        "description": "The ruins of the Little Tokyo heritage gardens. Xelthara terraforming beams dissolve ancient stone lanterns. Retrieve the Data-Blade — a digital repository of forbidden history — before it is erased forever.",
         "obj_0": "Engage Demolition Crew drones",
         "obj_1": "Neutralize the Demolition Beacon",
         "obj_2": "Secure the Data-Blade"
