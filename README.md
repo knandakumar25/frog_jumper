@@ -112,6 +112,10 @@ publication were performed.
 
 A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
 
+## Stand-in assets
+
+Candidate free packs for temporary art and audio, with license limits, are listed in [docs/STAND_IN_ASSETS.md](docs/STAND_IN_ASSETS.md). The electric bike, combat sounds, `PalaceSentry` body and `WorldHostile` body now use CC0 files from `assets/stand_in/`, loaded through `scripts/gameplay/StandInAssets.cs`. To return to the code-drawn versions and silent enemies, delete that folder and `tests/test_stand_in_assets.gd` with its `.uid` file.
+
 ## Godot AI startup
 
 The pinned Godot AI 4.4.1 launcher uses an isolated uv-managed Python 3.15 tooling
