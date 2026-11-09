@@ -10,22 +10,28 @@ public partial class WorldMap : Control
     public int Layer { get; set; }
     public double Zoom { get; private set; }=1;
     public WorldPoint Center { get; private set; }=new(64000,64000);
+    /// <summary>The city being drawn.</summary>
+    private WorldDefinition City => World?.Definition??WorldCatalog.Definition;
+    /// <summary>Middle of the current city's surface.</summary>
+    private WorldPoint Middle => new(City.Size/2.0,City.Size/2.0);
     private bool _drag;
     /// <summary>Metres per map pixel; underground layers initially frame their finite two-kilometre network.</summary>
-    private double MapScale => Mini?.25:Math.Min(Size.X,Size.Y)/(Layer==0?128000:2400)*Zoom;
+    private double MapScale => Mini?.25:Math.Min(Size.X,Size.Y)/(Layer==0?City.Size:2400)*Zoom;
     /// <summary>Centers on a marker without changing player state.</summary>
     public void FocusPoint(WorldPoint p)
     {
         bool changed=Layer!=p.Layer; Layer=p.Layer;
         if(changed) Zoom=1;
         // At regional zoom keep all geography framed; closer views follow the selected destination.
-        Center=Zoom<=1?(Layer==0?new(64000,64000):WorldCatalog.Elevators[Layer-1] with {Layer=Layer}):p;
+        Center=Zoom<=1?(Layer==0?Middle:City.Elevators[Layer-1] with {Layer=Layer}):p;
         QueueRedraw();
     }
     /// <summary>Clamps zoom to keep marker rendering bounded and map controls predictable.</summary>
     public void ChangeZoom(double factor) { Zoom=Math.Clamp(Zoom*factor,.75,128); QueueRedraw(); }
     /// <summary>Switches the visible layer without moving the player or granting mission access.</summary>
-    public void SelectLayer(int layer) { Layer=layer; Zoom=1; Center=layer==0?new(64000,64000):WorldCatalog.Elevators[layer-1] with {Layer=layer}; QueueRedraw(); }
+    public void SelectLayer(int layer) { Layer=layer; Zoom=1; Center=layer==0?Middle:City.Elevators[layer-1] with {Layer=layer}; QueueRedraw(); }
+    /// <summary>Frames the whole surface of the current city after arriving there.</summary>
+    public void ResetView() { Layer=0; Zoom=1; Center=Middle; QueueRedraw(); }
     /// <summary>Transforms logical metres to control-local map pixels.</summary>
     private Vector2 MapPoint(WorldPoint p) => Size/2+new Vector2((float)((p.X-Center.X)*MapScale),(float)((p.Y-Center.Y)*MapScale));
     /// <summary>Converts pointer/crosshair position back into logical world coordinates.</summary>
@@ -50,25 +56,29 @@ public partial class WorldMap : Control
         ClipContents=true;
         if(Layer==0)
         {
-            foreach(var region in WorldCatalog.Regions)
+            foreach(var region in City.Regions)
             {
-                var p=new WorldPoint(region.Id%4*32000,region.Id/4*32000);
-                var rect=new Rect2(MapPoint(p),Vector2.One*(float)(32000*MapScale));
-                var color=region.Id is 0 or 4 or 8 or 15?new Color("1c403b"):region.Id is 2 or 12?new Color("354151"):new Color("213349");
+                var p=new WorldPoint(region.Id%City.RegionColumns*City.RegionSize,region.Id/City.RegionColumns*City.RegionSize);
+                var rect=new Rect2(MapPoint(p),Vector2.One*(float)(City.RegionSize*MapScale));
+                var color=region.Biome is "highland" or "forest" or "solar" or "wetland"?new Color("1c403b"):region.Biome=="mountain"?new Color("354151"):new Color("213349");
                 DrawRect(rect,color); DrawRect(rect,new Color("53717b"),false,1);
-                if(!Mini && rect.Size.X>100) DrawString(ThemeDB.FallbackFont,rect.Position+new Vector2(8,24),WorldText.Get(region.Name),HorizontalAlignment.Left,-1,14,new Color("c8e6eb"));
             }
-            for(int i=0;i<16;i++)
+            for(int i=0;i<City.Size/WorldDefinition.ArterialSpacing;i++)
             {
-                double at=4000+i*8000;
-                DrawLine(MapPoint(new(at,0)),MapPoint(new(at,128000)),new Color("426678"),Mini?2:1);
-                DrawLine(MapPoint(new(0,at)),MapPoint(new(128000,at)),new Color("426678"),Mini?2:1);
+                double at=WorldDefinition.ArterialOffset+i*WorldDefinition.ArterialSpacing;
+                DrawLine(MapPoint(new(at,0)),MapPoint(new(at,City.Size)),new Color("426678"),Mini?2:1);
+                DrawLine(MapPoint(new(0,at)),MapPoint(new(City.Size,at)),new Color("426678"),Mini?2:1);
             }
-            for(int i=1;i<WorldCatalog.River.Length;i++) DrawLine(MapPoint(WorldCatalog.River[i-1]),MapPoint(WorldCatalog.River[i]),new Color("24657c"),Math.Max(2,(float)(360*MapScale)));
+            for(int i=1;i<City.River.Count;i++) DrawLine(MapPoint(City.River[i-1]),MapPoint(City.River[i]),new Color("24657c"),Math.Max(2,(float)(City.RiverHalfWidth*2*MapScale)));
             // Reservoir/coast footprints correspond to WorldCatalog.Water; arterial bridge decks remain visible above them.
-            var lakeCenter=MapPoint(new(48000,16000));
-            if(!Mini) DrawEllipse(lakeCenter,new((float)(7000*MapScale),(float)(9000*MapScale)),new Color("24657c"));
-            DrawRect(new Rect2(MapPoint(new(124000,0)),new((float)(4000*MapScale),(float)(128000*MapScale))),new Color("24657c"));
+            if(!Mini) foreach(var lake in City.Lakes) DrawEllipse(MapPoint(new(lake.CenterX,lake.CenterY)),new((float)(lake.RadiusX*MapScale),(float)(lake.RadiusY*MapScale)),new Color("24657c"));
+            foreach(var edge in City.SeaEdges)
+            {
+                float depth=(float)(edge.Depth*MapScale),full=(float)(City.Size*MapScale);
+                var start=edge.Side switch { SeaSide.South=>new WorldPoint(0,City.Size-edge.Depth),SeaSide.East=>new WorldPoint(City.Size-edge.Depth,0),_=>new WorldPoint(0,0) };
+                DrawRect(new Rect2(MapPoint(start),edge.Side is SeaSide.North or SeaSide.South?new Vector2(full,depth):new Vector2(depth,full)),new Color("24657c"));
+            }
+            if(City.CoastStartX is double coast) DrawRect(new Rect2(MapPoint(new(coast,0)),new((float)((City.Size-coast)*MapScale),(float)(City.Size*MapScale))),new Color("24657c"));
             if(Mini || Zoom>=16)
             {
                 double spanX=Size.X/MapScale/2,spanY=Size.Y/MapScale/2;
@@ -78,11 +88,23 @@ public partial class WorldMap : Control
                 for(int y=startY;y<=endY;y++) DrawLine(MapPoint(new(Center.X-spanX,y*128+32)),MapPoint(new(Center.X+spanX,y*128+32)),new Color("3d5262"),1);
             }
             // A parallel rail corridor remains identifiable without an enormous texture.
-            DrawLine(MapPoint(new(4000,108000)),MapPoint(new(124000,108000)),new Color("b99060"),2);
+            if(City.RailY is double rail) DrawLine(MapPoint(new(4000,rail)),MapPoint(new(City.Size-4000,rail)),new Color("b99060"),2);
+            // Names go last and step inside any sea strip, so coastal water can't hide them.
+            if(!Mini) foreach(var region in City.Regions)
+            {
+                double west=region.Id%City.RegionColumns*City.RegionSize,north=region.Id/City.RegionColumns*City.RegionSize;
+                foreach(var edge in City.SeaEdges)
+                {
+                    if(edge.Side==SeaSide.West && west==0) west=edge.Depth;
+                    if(edge.Side==SeaSide.North && north==0) north=edge.Depth;
+                }
+                var at=MapPoint(new(west,north));
+                if(City.RegionSize*MapScale>100) DrawString(ThemeDB.FallbackFont,at+new Vector2(8,24),WorldText.Get(region.Name),HorizontalAlignment.Left,-1,14,new Color("c8e6eb"));
+            }
         }
         else
         {
-            var elevator=WorldCatalog.Elevators[Layer-1];
+            var elevator=City.Elevators[Layer-1];
             DrawRect(new Rect2(MapPoint(elevator with {X=elevator.X-1024,Y=elevator.Y-1024}),Vector2.One*(float)(2048*MapScale)),new Color("253349"));
             for(int i=-8;i<=8;i++)
             {
@@ -96,21 +118,23 @@ public partial class WorldMap : Control
         {
             if(!Mini && Zoom<2)
             {
-                foreach(var region in WorldCatalog.Regions)
+                int perRegion=(City.RegionSize/WorldDefinition.ArterialSpacing)*(City.RegionSize/WorldDefinition.ArterialSpacing);
+                foreach(var region in City.Regions)
                 {
-                    var cluster=new WorldPoint(region.Id%4*32000+16000,region.Id/4*32000+16000);
+                    var cluster=new WorldPoint(region.Id%City.RegionColumns*City.RegionSize+City.RegionSize/2,region.Id/City.RegionColumns*City.RegionSize+City.RegionSize/2);
                     DrawCircle(MapPoint(cluster),9,new Color("287b87"));
-                    DrawString(ThemeDB.FallbackFont,MapPoint(cluster)+new Vector2(-7,5),"16",fontSize:12);
+                    DrawString(ThemeDB.FallbackFont,MapPoint(cluster)+new Vector2(-7,5),perRegion.ToString(),fontSize:12);
                 }
             }
-            else foreach(var station in WorldCatalog.Stations) Marker(station.Position,new Color("58dfe5"),4);
-            foreach(var landmark in WorldCatalog.Landmarks)
+            else foreach(var station in City.Stations) Marker(station.Position,new Color("58dfe5"),4);
+            foreach(var landmark in City.Landmarks)
             {
                 Marker(landmark.Position,new Color("e9be78"),3);
                 if(!Mini && Zoom>=8) DrawString(ThemeDB.FallbackFont,MapPoint(landmark.Position)+new Vector2(8,-8),WorldText.Get(landmark.Name),fontSize:13);
             }
         }
-        foreach(var entrance in WorldCatalog.Entrances.Where(e=>e.Position.Layer==Layer))
+        Marker(City.Skyport,new Color("9ad0ff"),5);
+        foreach(var entrance in City.Entrances.Where(e=>e.Position.Layer==Layer))
         {
             Color color=entrance.Mission<=World.Progress?new("f3b672"):new("6b7482");
             Marker(entrance.Position,color,6);

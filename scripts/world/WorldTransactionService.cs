@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -56,7 +57,7 @@ public static class WorldTransactionService
             return new TransactionReceipt(actionToken, session, "quest_completion", questId, TransactionStatus.InvalidOperation, DateTimeOffset.UtcNow.ToUnixTimeSeconds(), "Invalid arguments");
         }
 
-        var quest = Array.Find(WorldContentCatalog.Quests as QuestDefinition[] ?? System.Array.Empty<QuestDefinition>(), q => q.Id == questId);
+        var quest = CityRegistry.FindQuest(questId);
         if (quest == null)
         {
             return new TransactionReceipt(actionToken, session, "quest_completion", questId, TransactionStatus.InvalidOperation, DateTimeOffset.UtcNow.ToUnixTimeSeconds(), "Quest definition not found");
@@ -96,7 +97,10 @@ public static class WorldTransactionService
 
             // 3. Reject repeats and invalid requests before any reward. Reading on this transaction
             // sees the row the session lock protects, so a new token can't earn a quest twice.
-            var worldState = await WorldStorage.ReadAsync(connection, transaction, session).ConfigureAwait(false) ?? WorldSave.AfterMission(1);
+            // A city's quest is checked and recorded in that city's own save row.
+            var city = CityRegistry.CityOfQuest(questId);
+            var worldState = await WorldStorage.ReadAsync(connection, transaction, session, city).ConfigureAwait(false)
+                ?? (city == WorldCatalog.Definition ? WorldSave.AfterMission(1) : WorldSave.ArrivalIn(city, 1, OperativeRoster.Starter));
             long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             if (worldState.CompletedQuests?.ContainsKey(questId) == true)
             {
@@ -158,6 +162,80 @@ public static class WorldTransactionService
         {
             await transaction.RollbackAsync().ConfigureAwait(false);
             return new TransactionReceipt(actionToken, session, "quest_completion", questId, TransactionStatus.DatabaseError, DateTimeOffset.UtcNow.ToUnixTimeSeconds(), ex.Message);
+        }
+    }
+
+    /// <summary>Paid repeat clears allowed per operation, so replaying can't become a credit farm.</summary>
+    public const int MaxPaidRepeatClears = 5;
+
+    /// <summary>Reward for one clear, given how many clears came before: Sparks once, then a limited run of credits.</summary>
+    public static (int Sparks, int Credits) OperationReward(SideOperationDefinition operation, int priorClears) =>
+        priorClears <= 0 ? (operation.FirstClearSparks, 0) : priorClears <= MaxPaidRepeatClears ? (0, operation.RepeatCredits) : (0, 0);
+
+    /// <summary>
+    /// Records a finished city operation and grants its reward once. Idempotent across retries using
+    /// the action token. Touches only the city record and shared rewards, never campaign mission progress.
+    /// </summary>
+    /// <param name="operative">Operative active at the finish, kept so a swap during the operation isn't undone on return. Null leaves it unchanged.</param>
+    public static async Task<TransactionReceipt> CompleteOperationAsync(int session, string operationId, string actionToken, string? operative = null, string? connectionString = null)
+    {
+        long Now() => DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        TransactionReceipt Result(TransactionStatus status, string details) => new(actionToken, session, "operation_clear", operationId, status, Now(), details);
+        var found = CityRegistry.FindOperation(operationId);
+        if (session <= 0 || found == null || string.IsNullOrWhiteSpace(actionToken)) return Result(TransactionStatus.InvalidOperation, "Invalid arguments");
+
+        await using var connection = new NpgsqlConnection(connectionString ?? PostgresStorage.ConnectionString);
+        await connection.OpenAsync().ConfigureAwait(false);
+        await using var transaction = await connection.BeginTransactionAsync().ConfigureAwait(false);
+        try
+        {
+            await using (var lockCmd = new NpgsqlCommand("SELECT id FROM game_sessions WHERE id=@id FOR UPDATE", connection, transaction))
+            {
+                lockCmd.Parameters.AddWithValue("id", session);
+                if (await lockCmd.ExecuteScalarAsync().ConfigureAwait(false) == null) return Result(TransactionStatus.InvalidOperation, "Campaign session not found");
+            }
+
+            var (city, operation) = found.Value;
+            var state = await WorldStorage.ReadAsync(connection, transaction, session, city).ConfigureAwait(false);
+            if (state == null) return Result(TransactionStatus.PrerequisitesNotMet, "City has not been visited");
+
+            string receiptKey = $"receipt:{session}:{actionToken}";
+            await using (var checkCmd = new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key", connection, transaction))
+            {
+                checkCmd.Parameters.AddWithValue("key", receiptKey);
+                if (await checkCmd.ExecuteScalarAsync().ConfigureAwait(false) is string existingJson && JsonSerializer.Deserialize<TransactionReceipt>(existingJson) is { } existing)
+                {
+                    await transaction.CommitAsync().ConfigureAwait(false);
+                    return existing with { Status = TransactionStatus.AlreadyCommitted };
+                }
+            }
+
+            int prior = 0;
+            state.OperationClears?.TryGetValue(operationId, out prior);
+            var (sparks, credits) = OperationReward(operation, prior);
+            var progression = await CampaignProgressionState.LoadOrCreateAsync(session, connection, transaction).ConfigureAwait(false);
+            progression.GlobalSparksBank += sparks;
+            progression.CityCredits += credits;
+            await CampaignProgressionState.SaveAsync(session, progression, connection, transaction).ConfigureAwait(false);
+
+            var clears = state.OperationClears != null ? new Dictionary<string, int>(state.OperationClears) : new Dictionary<string, int>();
+            clears[operationId] = prior + 1;
+            await WorldStorage.WriteAsync(connection, transaction, session, state with { OperationClears = clears, Operative = operative ?? state.Operative }).ConfigureAwait(false);
+
+            var receipt = Result(TransactionStatus.Success, $"Earned {sparks} Sparks, {credits} Credits");
+            await using (var writeReceipt = new NpgsqlCommand("INSERT INTO game_state (state_key, schema_version, value) VALUES (@key, 1, @val)", connection, transaction))
+            {
+                writeReceipt.Parameters.AddWithValue("key", receiptKey);
+                writeReceipt.Parameters.AddWithValue("val", NpgsqlDbType.Jsonb, JsonSerializer.Serialize(receipt));
+                await writeReceipt.ExecuteNonQueryAsync().ConfigureAwait(false);
+            }
+            await transaction.CommitAsync().ConfigureAwait(false);
+            return receipt;
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync().ConfigureAwait(false);
+            return Result(TransactionStatus.DatabaseError, ex.Message);
         }
     }
 

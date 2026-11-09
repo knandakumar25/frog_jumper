@@ -26,7 +26,8 @@ public static class WorldNavigation
         try
         {
             var state=await WorldStorage.LoadAsync(session,progress)??WorldSave.AfterMission(Math.Max(1,progress-1));
-            state=state with {Resume="world",Waypoint=WorldCatalog.Entrances[mission-1].Position};
+            // Mission terminals are all in Los Angeles, so choosing one brings the player back from any city.
+            state=state with {Resume="world",Waypoint=WorldCatalog.Entrances[mission-1].Position,CurrentCity=null};
             if(session>0) await WorldStorage.SaveAsync(session,state);
             if(GodotObject.IsInstanceValid(owner) && owner.IsInsideTree()) LoadingScreen.LoadScene(owner.GetTree(),WorldCatalog.Scene);
         }

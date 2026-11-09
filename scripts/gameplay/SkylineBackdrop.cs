@@ -10,7 +10,11 @@ public enum SkylinePalette
     /// <summary>Dead comm district: teal and rust haze with cyan and magenta signage (Level 3).</summary>
     NeonRust,
     /// <summary>The fortified border: deep violet sky with cold white lights (Level 4).</summary>
-    Citadel
+    Citadel,
+    /// <summary>Early morning over the ocean: pale teal sky with soft pink lights (Honolulu).</summary>
+    Dawn,
+    /// <summary>Warm evening on the coast: amber sky with honey-coloured windows (Beirut).</summary>
+    Dusk
 }
 
 /// <summary>
@@ -50,6 +54,8 @@ public partial class SkylineBackdrop : Node2D
         SkylinePalette.Wildfire => (new Color("#1b0a12"), new Color("#7a2a1a"), new Color("#3a1418"), new Color("#2a0f14"), new Color("#170a0e"), new Color("#ffb34a"), new Color("#ff7a2e")),
         SkylinePalette.NeonRust => (new Color("#08141c"), new Color("#2c3e40"), new Color("#1d3138"), new Color("#15242b"), new Color("#0d171c"), new Color("#6ff3ff"), new Color("#ff5fb8")),
         SkylinePalette.Citadel => (new Color("#0b0a22"), new Color("#3b2a68"), new Color("#2a2152"), new Color("#1d1840"), new Color("#110e2a"), new Color("#e6eeff"), new Color("#8f7bff")),
+        SkylinePalette.Dawn => (new Color("#123a4a"), new Color("#c98f8a"), new Color("#2b5866"), new Color("#1e4453"), new Color("#132f3b"), new Color("#ffe2c0"), new Color("#ff9fb0")),
+        SkylinePalette.Dusk => (new Color("#2a1830"), new Color("#c9713a"), new Color("#5a2e3a"), new Color("#40222f"), new Color("#2a1722"), new Color("#ffd98a"), new Color("#ff9a4a")),
         _ => (new Color("#080b1f"), new Color("#2a3566"), new Color("#1f2a55"), new Color("#161e42"), new Color("#0d1230"), new Color("#ffd8a0"), new Color("#7a8cff"))
     };
 

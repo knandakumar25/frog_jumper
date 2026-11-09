@@ -9,18 +9,19 @@ public partial class WorldChunkView : Node2D
     private readonly List<Sprite2D> _roofs=new();
     private Color _ground;
     private Color _route;
+    private WorldDefinition _world=WorldCatalog.Definition;
     /// <summary>Applies one immutable worker payload. The owning world budgets chunk creation across frames.</summary>
-    public void Initialize(WorldChunkData data)
+    public void Initialize(WorldChunkData data,WorldDefinition world)
     {
-        _data=data;
-        var region=WorldCatalog.Region(new(data.Address.X*128,data.Address.Y*128));
+        _data=data; _world=world;
+        var region=world.Region(new(data.Address.X*128,data.Address.Y*128));
         _ground=data.Address.Layer>0?new("171d2b"):region.Biome switch
         {
-            "forest"=>new("18392f"),"highland"=>new("34443b"),"mountain"=>new("3e4654"),
+            "desert"=>new("4f4331"),"forest"=>new("18392f"),"highland"=>new("34443b"),"mountain"=>new("3e4654"),
             "wetland"=>new("254c45"),"coast"=>new("3e585b"),"solar"=>new("41463d"),
             "palace"=>new("273a42"),"foundry" or "rail"=>new("3c3038"),_=>new("202d3c")
         };
-        _route=WorldCatalog.Urban(new(data.Address.X*128,data.Address.Y*128,data.Address.Layer))?new("465867"):new("657266");
+        _route=world.Urban(new(data.Address.X*128,data.Address.Y*128,data.Address.Layer))?new("465867"):new("657266");
         ZIndex=-10;
         var props=new Node2D { YSortEnabled=true,ZIndex=10 }; AddChild(props);
         foreach(var prop in data.Props)
@@ -28,7 +29,7 @@ public partial class WorldChunkView : Node2D
             Vector2 at=ExplorationPlayer.Project(prop.X,prop.Y);
             var body=new StaticBody2D { Position=at,CollisionLayer=1,CollisionMask=2 }; props.AddChild(body);
             if(prop.Solid) body.AddChild(new CollisionShape2D { Shape=new RectangleShape2D { Size=ExplorationPlayer.Project(prop.Width,prop.Depth) } });
-            string path=$"res://assets/world/module_{prop.Kind}.png";
+            string path=$"{world.ArtFolder}module_{prop.Kind}.png";
             if(ResourceLoader.Exists(path))
             {
                 var roof=new Sprite2D { Texture=GD.Load<Texture2D>(path) };
@@ -57,7 +58,8 @@ public partial class WorldChunkView : Node2D
                 DrawLine(rect.Position+new Vector2(12,13),rect.Position+new Vector2(17,13),new Color(.5f,.65f,.65f,.12f),1);
         }
         // The Rustrail corridor is physical geography shared with the map, with sleepers and two continuous rails.
-        double railY=108000-_data.Address.Y*128;
+        // Cities without a railway leave RailY unset, so the corridor is skipped.
+        double railY=(_world.RailY??double.NegativeInfinity)-_data.Address.Y*128;
         if(_data.Address.Layer==0 && railY>=0 && railY<128)
         {
             for(int x=0;x<128;x+=4) DrawLine(ExplorationPlayer.Project(x,railY-2),ExplorationPlayer.Project(x,railY+2),new Color("866d52"),3);
