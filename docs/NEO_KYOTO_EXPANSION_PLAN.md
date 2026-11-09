@@ -18,6 +18,7 @@ Status was checked by reading the code and by automated tests that drive the rea
 |---|---|
 | Walking, running, map, waypoints, minimap, free transit, elevators, mission entrances, squad swap, autosave with Retry | Playable |
 | 8 quests in Little Tokyo and Concrete Wards, with conversations | Playable |
+| Other cities | Playable: Kyoto, Mumbai, Honolulu, Dubai, Luanda and Beirut (8 quests and 1 side-scrolling operation each), reached by Skyport. Text is English only |
 | Branch choices in those quests | Partial: the choice is saved and shown as a story outcome, with no gameplay effect. The five choices in data-only quests still describe effects and must be reworded or built if those quests become playable |
 | Melee attack, dodge, guard, objective drone waves, alert states, defeat and return | Playable; waves appear only for quest objectives |
 | Operative combat abilities, parry, roaming patrols | Not built |

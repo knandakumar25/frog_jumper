@@ -38,7 +38,8 @@ func test_world_streams_nine_chunks_and_map_blocks_movement() -> void:
 	assert_bool(player.get("MovementEnabled")).is_false()
 	var lists := world.find_children("*", "ItemList", true, false)
 	assert_int(lists.size()).is_equal(1)
-	assert_int(lists[0].item_count).is_equal(318)
+	# 12 terminals, 48 landmarks, the Skyport, 2 listed safehouses and 256 stations.
+	assert_int(lists[0].item_count).is_equal(319)
 	world.free()
 	await get_tree().process_frame
 	sessions.set("CurrentSessionId", previous)

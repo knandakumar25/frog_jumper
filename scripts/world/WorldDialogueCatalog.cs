@@ -40,8 +40,8 @@ public static class WorldDialogueCatalog
     public static Conversation For(QuestObjective objective) =>
         Conversations.TryGetValue(objective.Id, out var conversation)
             ? conversation
-            : new Conversation("Field Note", new[] { objective.Description });
+            : CityRegistry.FindConversation(objective.Id) ?? new Conversation("Field Note", new[] { objective.Description });
 
     /// <summary>Whether an objective has authored lines; tests use this to catch unwritten slice content.</summary>
-    public static bool HasAuthoredLines(string objectiveId) => Conversations.ContainsKey(objectiveId);
+    public static bool HasAuthoredLines(string objectiveId) => Conversations.ContainsKey(objectiveId) || CityRegistry.FindConversation(objectiveId) != null;
 }

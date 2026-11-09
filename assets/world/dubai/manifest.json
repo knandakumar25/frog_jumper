@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "source": "Original Blender procedural meshes: tools/world/build_kit.py dubai",
+  "license": "Project original assets",
+  "camera": "Orthographic north-up angled top-down",
+  "metres_to_pixels": 16,
+  "modules": 8,
+  "landmarks": 8,
+  "review": "Agent visual inspection only; player art acceptance pending"
+}

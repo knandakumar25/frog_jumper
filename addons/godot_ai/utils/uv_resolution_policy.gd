@@ -12,9 +12,9 @@ const PUBLIC_INDEX := "https://pypi.org/simple"
 const PUBLIC_FLAT_INDEX := "https://pypi.org/simple/godot-ai/"
 const QUALIFICATION_INDEX_ENV := "GODOT_AI_QUALIFICATION_PYTHON_INDEX"
 const _BASE_ARGS := [
-	# The plugin's binary dependencies support 3.14; keep its tooling interpreter
-	# independent of the application's Python so host upgrades cannot break launch.
-	"--python", "3.14",
+	# Keep the tooling interpreter explicit so other Python installs cannot change it.
+	# On 3.15 PyYAML has no PyPI wheel, so args() also adds the local wheel folder.
+	"--python", "3.15",
 	# Trust the operating system's certificate store, including installed local CAs.
 	# Certificate verification remains enabled for all package downloads.
 	"--system-certs",
@@ -67,7 +67,22 @@ static func args() -> Array[String]:
 			"--default-index", PUBLIC_INDEX,
 			"--find-links", PUBLIC_FLAT_INDEX,
 		])
+		var wheelhouse := local_wheelhouse()
+		if not wheelhouse.is_empty():
+			# Must follow the public entry: is_production_command() reads the first --find-links.
+			result.append_array(["--find-links", wheelhouse])
 	return result
+
+
+## Returns the folder holding the locally built pure-Python PyYAML wheel that lets
+## Python 3.15 launches keep --no-build, or "" when the folder does not exist, in
+## which case resolution fails with uv's normal missing-wheel error.
+static func local_wheelhouse() -> String:
+	var app_data := OS.get_environment("APPDATA").replace("\\", "/")
+	if app_data.is_empty():
+		return ""
+	var folder := app_data.path_join("uv/wheelhouse")
+	return folder if DirAccess.dir_exists_absolute(folder) else ""
 
 
 static func dependency_cutoff() -> String:

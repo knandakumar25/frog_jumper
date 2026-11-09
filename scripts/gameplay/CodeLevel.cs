@@ -38,6 +38,15 @@ public abstract partial class CodeLevel : Node2D
                 MissionNumber == 1 ? "ACT I" : "ACT II // THE UNREGISTERED");
     }
     // ─── Level definition (override in subclasses) ───────────────────────────
+    /// <summary>
+    /// True for optional operations launched from a city. They use this class's level building only:
+    /// no campaign roster reset, story cues, numbered title card or campaign scorecard.
+    /// </summary>
+    protected virtual bool IsCityOperation => false;
+    /// <summary>Title shown on a city operation's opening card.</summary>
+    protected virtual string CityOperationTitle => "";
+    /// <summary>Called instead of the campaign finish when a city operation ends, with the final score.</summary>
+    protected virtual void OnCityOperationFinished(int score) { }
     /// <summary>This mission's number in <see cref="LevelCatalog"/>.</summary>
     protected abstract int MissionNumber { get; }
     /// <summary>Playable world bounds the camera is limited to (left, top, right, bottom).</summary>
@@ -164,7 +173,8 @@ public abstract partial class CodeLevel : Node2D
         GetTree().Paused = false;
         global?.Call("stop_menu_music");
         // The squad is always rebuilt from campaign progress, however this mission was reached.
-        CampaignProgress.PrepareMission(MissionNumber, global?.Get("selected_character").AsString());
+        // City operations keep the squad the player brought; resetting it here would rewind campaign state.
+        if (!IsCityOperation) CampaignProgress.PrepareMission(MissionNumber, global?.Get("selected_character").AsString());
         _checkpoint = StartPosition;
 
         AddChild(new WorldEnvironment { Environment = GD.Load<Godot.Environment>("res://assets/themes/cyber_glow.tres") });
@@ -201,7 +211,7 @@ public abstract partial class CodeLevel : Node2D
         BuildAudioAndPause();
         Speech = new MissionSpeechQueue { Name = "MissionSpeechQueue", Mission = this };
         AddChild(Speech);
-        PlayStoryCue($"m{MissionNumber:00}.intro");
+        if (!IsCityOperation) PlayStoryCue($"m{MissionNumber:00}.intro");
         ShowSpeechSubtitle(IntroLine(), 11f);
         OnLevelReady();
         GD.Print($"{GetType().Name}: mission {MissionNumber} ready for {_player.ActiveProfile.DisplayName}");
@@ -591,6 +601,8 @@ public abstract partial class CodeLevel : Node2D
         // Snapshot before any cinematic or asynchronous work: results describe the extraction instant.
         int finalScore = _gameManager.Points;
         int peakCombo = _maxCombo;
+        // Returning here means a city operation can never reach campaign progress or its scorecard.
+        if (IsCityOperation) { OnCityOperationFinished(finalScore); return; }
         string operative = $"{_player.ActiveProfile.CivilianName} // {_player.ActiveProfile.DisplayName}";
         _scorecard?.ConfigureCompletion(MissionNumber, finalScore, System.Guid.NewGuid().ToString(),
             SessionManager.Instance?.CurrentSessionId ?? -1);
@@ -802,6 +814,21 @@ public abstract partial class CodeLevel : Node2D
     /// </summary>
     private void BuildTitleCard(Control root)
     {
+        if (IsCityOperation)
+        {
+            // No numbered heading: these fields stay null, so a language change can't look up a campaign entry.
+            var operationCard = NewLabel(WildfireText.EnglishUppercase(TranslationServer.Translate(CityOperationTitle)), 34, new Color("#77efff"));
+            operationCard.Name = "TitleCard";
+            operationCard.HorizontalAlignment = HorizontalAlignment.Center;
+            operationCard.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.Center);
+            operationCard.OffsetLeft = -560; operationCard.OffsetRight = 560; operationCard.OffsetTop = -120; operationCard.OffsetBottom = 40;
+            root.AddChild(operationCard);
+            var fade = operationCard.CreateTween();
+            fade.TweenInterval(3.2);
+            fade.TweenProperty(operationCard, "modulate:a", 0f, 1.2);
+            fade.TweenCallback(Callable.From(operationCard.QueueFree));
+            return;
+        }
         var entry = LevelCatalog.Get(MissionNumber);
         var narrative = GetNodeOrNull<Node>("/root/NarrativeManager");
         string title = narrative?.Call("get_level_title", entry.NarrativeKey).AsString() ?? "";

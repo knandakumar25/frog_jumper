@@ -16,8 +16,19 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
     string? ActiveVehicle = null,
     double WorldTimeMinutes = 0.0,
     Dictionary<string, int>? FactionReputation = null,
-    HashSet<string>? UnlockedHqAmenities = null) : IEquatable<WorldSave>
+    HashSet<string>? UnlockedHqAmenities = null,
+    string? CurrentCity = null,
+    Dictionary<string, int>? OperationClears = null) : IEquatable<WorldSave>
 {
+    /// <summary>
+    /// A first arrival in a city. Used only for cities other than Los Angeles, each of which keeps its own
+    /// record, so quest progress and region-numbered choices can't collide between cities.
+    /// </summary>
+    public static WorldSave ArrivalIn(WorldDefinition city, int mission, string operative) =>
+        new(1, city.Identity, city.Skyport, null, city.Skyport, "world", LevelCatalog.Clamp(mission), OperativeRoster.Normalize(operative),
+            new Dictionary<string, string?>(), new Dictionary<string, int>(), new Dictionary<int, string>(), new HashSet<string> { "veh_starter_bike" }, null, 0.0,
+            new Dictionary<string, int>(), new HashSet<string>());
+
     /// <summary>Creates a safe post-mission arrival; completion, including Mission 12, always resumes exploration.</summary>
     public static WorldSave AfterMission(int mission, string operative=OperativeRoster.Starter)
     {
@@ -29,10 +40,15 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
     }
 
     /// <summary>Rejects unsupported identities, unsafe coordinates and unknown modes instead of overwriting future saves. Accepts both neo-los-angeles-v1 and legacy neo-kyoto-v1 saves.</summary>
-    public bool Valid() => Version==1 && (World==WorldCatalog.Identity || World=="neo-kyoto-v1") && WorldCatalog.InBounds(Position)
-        && WorldCatalog.InBounds(LastExtraction) && (Waypoint==null || WorldCatalog.InBounds(Waypoint.Value))
-        && Resume is "world" or "mission" && Mission>=1 && Mission<=LevelCatalog.Count
-        && OperativeRoster.RosterOrder.Contains(Operative);
+    public bool Valid()
+    {
+        var city = CityRegistry.ForIdentity(World);
+        return Version==1 && city!=null && city.InBounds(Position)
+            && city.InBounds(LastExtraction) && (Waypoint==null || city.InBounds(Waypoint.Value))
+            && Resume is "world" or "mission" && Mission>=1 && Mission<=LevelCatalog.Count
+            && OperativeRoster.RosterOrder.Contains(Operative)
+            && (CurrentCity==null || CityRegistry.ById(CurrentCity)!=null);
+    }
 
     /// <summary>Returns a copy of the state with a quest marked as completed, updating any chosen branch.</summary>
     public WorldSave WithQuestCompleted(string questId, string? branchChoice)
@@ -45,7 +61,7 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
         var choices = DistrictChoices != null ? new Dictionary<int, string>(DistrictChoices) : new();
         if (!string.IsNullOrEmpty(branchChoice))
         {
-            var quest = Array.Find(WorldContentCatalog.Quests as QuestDefinition[] ?? Array.Empty<QuestDefinition>(), q => q.Id == questId);
+            var quest = CityRegistry.FindQuest(questId);
             if (quest != null) choices[quest.RegionId] = branchChoice;
         }
 
@@ -60,8 +76,10 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
         if (Version != other.Version || World != other.World || Position != other.Position ||
             Waypoint != other.Waypoint || LastExtraction != other.LastExtraction ||
             Resume != other.Resume || Mission != other.Mission || Operative != other.Operative ||
-            Math.Abs(WorldTimeMinutes - other.WorldTimeMinutes) > 0.0001 || ActiveVehicle != other.ActiveVehicle)
+            Math.Abs(WorldTimeMinutes - other.WorldTimeMinutes) > 0.0001 || ActiveVehicle != other.ActiveVehicle ||
+            CurrentCity != other.CurrentCity)
             return false;
+        if (!DictEqual(OperationClears, other.OperationClears)) return false;
 
         if (!DictEqual(CompletedQuests, other.CompletedQuests)) return false;
         if (!DictEqual(ActiveQuests, other.ActiveQuests)) return false;
@@ -116,18 +134,81 @@ public static class WorldStorage
             if(await reader.ReadAsync() && !reader.IsDBNull(0))
             {
                 var existing=JsonSerializer.Deserialize<WorldSave>(reader.GetString(0));
-                if(existing!=null && existing.Valid()) state=existing with { World=state.World,Position=state.Position,LastExtraction=state.LastExtraction,Resume="world",Mission=state.Mission,Operative=state.Operative,ActiveVehicle=null };
+                // Campaign missions always finish in Los Angeles, so any city the player had visited is left behind.
+                if(existing!=null && existing.Valid()) state=existing with { World=state.World,Position=state.Position,LastExtraction=state.LastExtraction,Resume="world",Mission=state.Mission,Operative=state.Operative,ActiveVehicle=null,CurrentCity=null };
             }
         }
         await SaveAsync(connection,transaction,session,state);
     }
 
+    /// <summary>Database key of a city's record. Los Angeles keeps the original key, so existing saves need no migration.</summary>
+    public static string StateKey(int session,WorldDefinition? city) => city==null || city==WorldCatalog.Definition ? $"world:{session}" : $"world:{session}:{city.Id}";
+
+    /// <summary>
+    /// Loads the record of the city the player is currently in. Los Angeles stores which city that
+    /// is. A missing city record falls back to Los Angeles rather than stranding the player.
+    /// </summary>
+    public static async Task<WorldSave?> LoadActiveAsync(int session,int progress,string? connectionString=null,string? preferredOperative=null)
+    {
+        var home=await LoadAsync(session,progress,connectionString,preferredOperative).ConfigureAwait(false);
+        var city=CityRegistry.ById(home?.CurrentCity);
+        if(home==null || city==null || city==WorldCatalog.Definition) return home;
+        await using var connection=new NpgsqlConnection(connectionString??PostgresStorage.ConnectionString);
+        await connection.OpenAsync().ConfigureAwait(false);
+        await using var transaction=await connection.BeginTransactionAsync().ConfigureAwait(false);
+        var state=await ReadAsync(connection,transaction,session,city).ConfigureAwait(false);
+        await transaction.CommitAsync().ConfigureAwait(false);
+        return state??home with { CurrentCity=null };
+    }
+
+    /// <summary>
+    /// Moves the player between cities as one transaction: the departure is stored, the arrival
+    /// record is created or updated, and Los Angeles records the new location. A failed write
+    /// changes nothing. Returns the arrival record the scene should now use.
+    /// </summary>
+    public static async Task<WorldSave> TravelAsync(int session,WorldSave departing,WorldDefinition destination,string? connectionString=null)
+    {
+        if(session<=0 || !departing.Valid()) throw new InvalidOperationException("An active campaign and valid world state are required.");
+        await using var connection=new NpgsqlConnection(connectionString??PostgresStorage.ConnectionString);
+        await connection.OpenAsync().ConfigureAwait(false);
+        await using var transaction=await connection.BeginTransactionAsync().ConfigureAwait(false);
+        await using(var selected=new NpgsqlCommand("SELECT id FROM game_sessions WHERE id=@id FOR UPDATE",connection,transaction))
+        {
+            selected.Parameters.AddWithValue("id",session);
+            if(await selected.ExecuteScalarAsync().ConfigureAwait(false)==null) throw new InvalidOperationException("Campaign no longer exists.");
+        }
+        await EnsureAsync(connection,transaction).ConfigureAwait(false);
+        bool leavingHome=CityRegistry.IsLosAngeles(departing.World);
+        var home=leavingHome?departing:await ReadAsync(connection,transaction,session).ConfigureAwait(false)??throw new InvalidOperationException("Campaign has no Los Angeles record.");
+        var arrival=TravelArrival(home,departing,destination,await ReadAsync(connection,transaction,session,destination).ConfigureAwait(false));
+        if(!leavingHome) await WriteAsync(connection,transaction,session,departing).ConfigureAwait(false);
+        if(destination==WorldCatalog.Definition) await WriteAsync(connection,transaction,session,arrival).ConfigureAwait(false);
+        else
+        {
+            await WriteAsync(connection,transaction,session,home with { CurrentCity=destination.Id }).ConfigureAwait(false);
+            await WriteAsync(connection,transaction,session,arrival).ConfigureAwait(false);
+        }
+        await transaction.CommitAsync().ConfigureAwait(false);
+        return arrival;
+    }
+
+    /// <summary>
+    /// Builds the record for arriving in a city, keeping that city's own quests. Pure, so tests and
+    /// the unsaved preview use exactly the same rule as a real campaign.
+    /// </summary>
+    public static WorldSave TravelArrival(WorldSave home,WorldSave departing,WorldDefinition destination,WorldSave? existing)
+    {
+        var baseState=destination==WorldCatalog.Definition?home with { CurrentCity=null }:existing??WorldSave.ArrivalIn(destination,departing.Mission,departing.Operative);
+        // LastExtraction is left alone: a safehouse rested at in this city stays the defeat return point.
+        return baseState with { Position=destination.Skyport,Resume="world",Operative=departing.Operative,WorldTimeMinutes=departing.WorldTimeMinutes,ActiveVehicle=null,Waypoint=null };
+    }
+
     /// <summary>Reads a campaign's exploration record inside an open transaction. Returns null only if none exists; a damaged record throws so callers can't overwrite it with defaults.</summary>
-    public static async Task<WorldSave?> ReadAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session)
+    public static async Task<WorldSave?> ReadAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,WorldDefinition? city=null)
     {
         await EnsureAsync(connection,transaction).ConfigureAwait(false);
         await using var read=new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key",connection,transaction);
-        read.Parameters.AddWithValue("key",$"world:{session}");
+        read.Parameters.AddWithValue("key",StateKey(session,city));
         if(await read.ExecuteScalarAsync().ConfigureAwait(false) is not string json) return null;
         var state=JsonSerializer.Deserialize<WorldSave>(json);
         if(state?.Valid()!=true) throw new InvalidOperationException("Invalid world state.");
@@ -193,7 +274,8 @@ public static class WorldStorage
     {
         if(!state.Valid()) throw new InvalidOperationException("Invalid world state.");
         await using var command=new NpgsqlCommand("INSERT INTO game_state(state_key,value) VALUES (@key,@value) ON CONFLICT(state_key) DO UPDATE SET value=EXCLUDED.value WHERE game_state.schema_version=1 AND (game_state.value->>'Version')::integer=1",connection,transaction);
-        command.Parameters.AddWithValue("key",$"world:{session}");
+        // The record's own identity picks the row, so a city can never overwrite Los Angeles.
+        command.Parameters.AddWithValue("key",StateKey(session,CityRegistry.ForIdentity(state.World)));
         command.Parameters.AddWithValue("value",NpgsqlDbType.Jsonb,JsonSerializer.Serialize(state));
         if(await command.ExecuteNonQueryAsync().ConfigureAwait(false)!=1) throw new InvalidOperationException("Unsupported world save version.");
     }

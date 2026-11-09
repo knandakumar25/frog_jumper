@@ -1,5 +1,28 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Multi-city open world and Kyoto — 2026-11-08
+
+Owner decisions: six operative home cities (Kyoto/Kaito, Mumbai/Arjun, Honolulu/Kiana, Dubai/Zayd, Luanda/King Tariq, Beirut/Maya), 4 compact districts each, top-down quests plus one optional side-scroller per city. **All six are built; the owner chose to review them together. No person has played any of them.**
+
+- The five later cities are data tables in `scripts/world/cities/<City>City.cs` built by `CityBuilder`. Operations derive from `BeaconOperationMission`. Godot needs one C# class per file for scene scripts, so never put two mission classes in one file. `AllCitiesTests` applies the data rules to every city; `WorldFingerprintTests` guards Los Angeles and Kyoto.
+- Story content rule: invented people and events, fights never at places of worship or memorials, and no reference to real wars, disasters or political groups. Beirut's harbor deliberately has no grain or silo content.
+
+- `WorldDefinition` (`scripts/world/WorldDefinition.cs`) holds what used to be hard-coded. `WorldCatalog` keeps Los Angeles and exposes it as `WorldCatalog.Definition`. The running scene holds its city in `_world` and passes it to workers; never add a changing static for the current city.
+- Saves: Los Angeles keeps `world:{session}`, with a new optional `CurrentCity`. Other cities use `world:{session}:{city}`. `WriteAsync` picks the row from the record's `World`. `TravelAsync` writes both ends in one transaction. Old saves need no migration.
+- Trap: the identity `neo-kyoto-v1` is an old name for **Los Angeles**. Kyoto is `kyoto-2157-v1`. `NeoKyotoWorld` and `neo_kyoto.tscn` are still the Los Angeles-era names for the shared scene.
+- `CodeLevel.IsCityOperation` skips the campaign roster reset, story cues, numbered title card and scorecard. `CityOperationMission` stores rewards through `WorldTransactionService.CompleteOperationAsync` and reloads the world.
+- To add a city: write a `CitySpec`, add it to `CityRegistry.All`, add a style in `build_kit.py`, and add its operation scene.
+- Limits: No person has played any city. Quest text and place names are English only, and `tools/world/localize.py` does not read `scripts/world/cities/`. Operations use the default music. Credits still can't be spent. Hostiles appear only for quest objectives, as in Los Angeles.
+- Verified: Godot import, un_tests.ps1\ (GdUnit4, NUnit, Django), \catalog.py --check\, real PostgreSQL round trips, Los Angeles and Kyoto fingerprints. Through godot-ai in the running game with real inputs: all Skyport flights; beacon, gate and results panel in all six operations; full route runs of Dubai, Beirut and Honolulu with sentries removed; one complete Mumbai quest with combat. Two independent Elephant-Goldfish reviews were run and their accepted findings fixed. Not verified: a person playing; full routes of Kyoto, Mumbai and Luanda; difficulty with sentries; the reward save and Retry in a real campaign from inside an operation. Known and left: opening the map in a fight pauses drones while the shield still regenerates (existing behaviour); the Skyport needs one extra press.
+- Existing hazard, not changed: `WorldExpansionTests.CleanupAsync` deletes `state_key LIKE '%:{id}%'`, which also matches other campaigns whose numbers contain that ID, in the development database. `KyotoSaveTests` uses an exact match instead.
+
+## uv tooling moved from Python 3.14.10 to 3.15.2 — 2026-11-08
+
+- `addons/godot_ai/utils/uv_resolution_policy.gd` now selects Python 3.15 and adds `%APPDATA%\uv\wheelhouse` as a second `--find-links`. The godot-ai entries for Claude Code, VS Code, Codex and Antigravity match.
+- That folder holds `pyyaml-6.0.3-py3-none-any.whl`, built once from uv's cached sdist with `PYYAML_FORCE_LIBYAML=0`, because PyYAML has no 3.15 wheel and there is no Visual C++ here. `--no-build` stays on for every launch. YAML runs on the slower pure-Python parser.
+- uv's Python 3.14.10, its cached environments and its cp314 wheels were removed. Python 3.12.16 was not touched.
+- Limits: a plugin update can overwrite the policy file. `~/.gemini/settings.json` still points at a `Python314` launcher that no longer exists, and was already broken. `.validation/venv-backups/20261106-314` is an old non-uv backup and was kept.
+
 ## Open-world slice, setting canon and tooling fixes — 2026-11-08
 
 **Correction:** entries below that call the world roadmap complete are wrong. `docs/NEO_KYOTO_EXPANSION_PLAN.md` now has the audited status table. Treat that table as current.

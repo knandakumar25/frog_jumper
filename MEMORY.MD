@@ -1,5 +1,23 @@
 # Axiom Force — Project Memory
 
+## Multi-city open world, Kyoto built first — 2026-11-08
+
+- **Decisions by owner**: six operative home cities (Kyoto, Mumbai, Honolulu, Dubai, Luanda, Beirut), compact 4-district worlds, build one city and review before the rest, top-down quests plus one optional side-scroller each. The campaign and its ending don't change.
+- **Outcome**: worlds are data (`WorldDefinition`, `CityBuilder`, `CityRegistry`). All six cities are built and reached through a free Skyport just south of the Little Tokyo station. Los Angeles and Kyoto generation are guarded by `WorldFingerprintTests`.
+- **Owner preference**: build all cities, then review together. Use godot-ai to test in the running game rather than only test hooks. Reconnect godot-ai after a session's process is stopped, because a session holds the launch config it started with.
+- **Content rule from owner**: real-city content must not reference or closely evoke real tragedies, even indirectly, to avoid harming people or causing backlash. Beirut's port grain content was removed for this reason. A keyword scan found nothing similar left; no person has read all the city text for it.
+- **Next**: owner plays the cities. City text is English except five interface labels.
+- **Docker**: on the owner's request, the stack was shut down with `docker compose stop` on 2026-11-08; containers and the save volume are kept. `docker compose start` brings it back.
+- **Git Status**: on the owner's request, committed with the uv change on branch `feat/operative-cities` and pushed. Not merged into `main`, following the PR #19 precedent.
+
+## uv moved from Python 3.14.10 to 3.15.2 — 2026-11-08
+
+- **Outcome**: uv manages Python 3.15.2 and 3.14.10 is removed. `godot-ai` launches on 3.15 in the plugin policy and in the Claude Code, VS Code, Codex and Antigravity configs.
+- **Decision by owner**: allow PyYAML alone to be built from source, since it has no 3.15 wheel. Implemented as one local pure-Python wheel in `%APPDATA%\uv\wheelhouse`, so every launch keeps `--no-build`.
+- **Verified**: 3.14.10 uninstalled; 20 cached 3.14 environments and 56 cp314 wheel entries deleted; 3.12.16 and 3.15.2 kept; all four saved client commands exit 0 on 3.15. The running Godot editor's godot-ai is already on 3.15.
+- **Open**: a client session that was connected to the old server must reconnect `godot-ai`. A plugin update can overwrite the policy file. `~/.gemini/settings.json` points at a missing `Python314` launcher.
+- **Git Status**: local and uncommitted.
+
 ## Open-world slice code review (read-only) — 2026-11-08
 
 - **Outcome**: reviewed the uncommitted working-tree diff at high effort and returned findings to the caller. No code changed and none of the findings has been fixed.
@@ -15,7 +33,14 @@
 - **Verified**: build 0 errors; import exit 0; Django 111, NUnit 375, GdUnit4 343 (`report_545`), Python 24, all passing with 0 orphans; localization gate passes. The voice gate still exits 1 for 7 flagged cues by design.
 - **Open**: human listening to the splice at about 51 s of the Mission 7 aftermath; human play of the slice; new conversation text is English only; website image needs a rebuild to show the text; `godot-ai` needs an MCP reconnect; cutscene and export images need rebuilding.
 - **Later reviews**: `/code-review` findings fixed, including the `quest_fd_02` location and repeated module reward. One EGM document-review round on the status table, not converged. EGM skills review documents, not code. Owner chose to reword the four playable branch choices as story outcomes rather than build effects; five data-only choices still describe effects.
-- **Git Status**: on the owner's request, committed and pushed to branch `feat/open-world-playable-slice`; not merged into `main`.
+- **Git Status**: on the owner's request, pushed and merged into `main` through PR #19 (rebase merge, commit `6cc7985`). Branch `feat/open-world-playable-slice` still exists locally and on GitHub.
+
+## Docker stack rebuilt from nothing — 2026-11-08
+
+- **Action**: On the owner's request, ran `docker compose up -d --wait`. The stack stopped earlier the same day was gone: containers, network, images and the `axiom-force_pgdata` volume had all disappeared, so Compose pulled `postgres:latest` (18.6), rebuilt the backend and website images and created a new empty volume at 2026-11-08T20:56:24Z.
+- **Data loss**: anything stored in the previous volume (created 13:42:35Z the same day) is gone. Cause: the owner deleted the Docker WSL distro, which is expected and not a fault. A fresh, empty stack after that is normal; don't treat it as a problem. Use `tools/db/backup.ps1` first if the data needs to survive.
+- **Effect**: the website image now includes the latest setting text.
+- **Git Status**: `MEMORY.MD` edited locally only; nothing staged, committed or pushed.
 
 ## Docker stack stopped — 2026-11-08
 

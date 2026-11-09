@@ -22,11 +22,17 @@ public sealed record WorldStation(int Id, WorldPoint Position);
 /// <summary>Story-gated mission terminal, adjacent to its extraction and transit endpoint.</summary>
 public sealed record WorldEntrance(int Mission, WorldPoint Position);
 
-/// <summary>Version-one authored geography. IDs and seed math remain stable when outer territory is added.</summary>
+/// <summary>
+/// The Los Angeles world: version-one authored geography, exposed as <see cref="Definition"/>.
+/// IDs and seed math remain stable. The static members forward to that definition, so code and
+/// tests that only ever concern Los Angeles keep working unchanged.
+/// </summary>
 public static class WorldCatalog
 {
     public const int Size = 128000, RegionSize = 32000, ChunkSize = 128;
     public const string Identity = "neo-los-angeles-v1";
+    /// <summary>Earlier name of this same Los Angeles world, still present in existing saves. It does not mean the Kyoto city.</summary>
+    public const string LegacyIdentity = "neo-kyoto-v1";
     public const string Scene = "res://scenes/world/neo_kyoto.tscn";
     public static readonly IReadOnlyList<WorldRegion> Regions = new[]
     {
@@ -44,32 +50,61 @@ public static class WorldCatalog
     /// <summary>Authored river spine, reused by terrain sampling and both map views.</summary>
     public static readonly WorldPoint[] River = { new(48000,0),new(52000,24000),new(60000,40000),new(62000,64000),new(72000,80000),new(90000,104000),new(116000,128000) };
 
-    /// <summary>Returns one of sixteen original districts without renumbering at boundaries.</summary>
-    public static WorldRegion Region(WorldPoint p) => Regions[Math.Clamp((int)(p.Y/RegionSize),0,3)*4+Math.Clamp((int)(p.X/RegionSize),0,3)];
-    /// <summary>Nearest surface endpoint, also used for safe extraction after underground missions.</summary>
-    public static WorldStation NearestStation(WorldPoint p) => Stations.MinBy(s => s.Position.Distance(p with { Layer=0 }))!;
-    /// <summary>Chooses the closest terminal within reach. Adjacent Spire terminals must not select an earlier mission's overlapping radius.</summary>
-    public static WorldEntrance? NearbyEntrance(WorldPoint p,double reach=8) => Entrances.Where(e=>e.Position.Distance(p)<reach).MinBy(e=>e.Position.Distance(p));
-    /// <summary>Shared main road/rail/trail lattice. Every endpoint lies on its connected arterial network.</summary>
-    public static bool Arterial(WorldPoint p, double halfWidth = 8) => GridDistance(p.X,8000,4000)<halfWidth || GridDistance(p.Y,8000,4000)<halfWidth;
-    /// <summary>Local streets join the arterial network; rural versions are narrower mountain/forest trails.</summary>
-    public static bool Route(WorldPoint p) => Arterial(p) || GridDistance(p.X,128,32)<5 || GridDistance(p.Y,128,32)<5;
-    /// <summary>Surface/underground finite bounds. Underground networks are two distinct 2 km squares.</summary>
-    public static bool InBounds(WorldPoint p) => double.IsFinite(p.X) && double.IsFinite(p.Y) && (p.Layer == 0
-        ? p.X>=0 && p.Y>=0 && p.X<Size && p.Y<Size
-        : p.Layer is 1 or 2 && Math.Abs(p.X-Elevators[p.Layer-1].X)<1024 && Math.Abs(p.Y-Elevators[p.Layer-1].Y)<1024);
-    /// <summary>Terrain water is physical except where the same route definition supplies a bridge.</summary>
-    public static bool Water(WorldPoint p)
+    /// <summary>
+    /// This world as data. The prop mapping and water values reproduce the original hand-written
+    /// rules exactly; WorldFingerprintTests fails if any of them drift. The Skyport stands on the
+    /// north-south arterial just south of the Little Tokyo station, where props never generate.
+    /// </summary>
+    public static readonly WorldDefinition Definition = new(BuildContent)
     {
-        if (p.Layer!=0 || Route(p)) return false;
-        double riverX=River[^1].X;
-        for(int i=1;i<River.Length;i++) if(p.Y<=River[i].Y) { double t=(p.Y-River[i-1].Y)/(River[i].Y-River[i-1].Y); riverX=River[i-1].X+(River[i].X-River[i-1].X)*t; break; }
-        return Math.Abs(p.X-riverX)<180 || (p.X>124000) || (Region(p).Id==1 && Math.Pow((p.X-48000)/7000,2)+Math.Pow((p.Y-16000)/9000,2)<1);
-    }
+        Id = "los-angeles",
+        Identity = Identity,
+        DisplayName = "Neo-Los Angeles",
+        MapTitle = "Neo-Los Angeles 2157 · 128 × 128 km",
+        Size = Size,
+        RegionColumns = 4,
+        RegionSize = RegionSize,
+        Regions = Regions,
+        Stations = Stations,
+        Entrances = Entrances,
+        Landmarks = Landmarks,
+        Elevators = Elevators,
+        LayerNames = new[] { "Surface", "Downtown underground", "Foundry underworks" },
+        River = River,
+        CoastStartX = 124000,
+        Lakes = new[] { new LakeFootprint(1, 48000, 16000, 7000, 9000) },
+        RailY = 108000,
+        UrbanRegionIds = new HashSet<int> { 5, 6, 7, 9, 10, 13, 14 },
+        PropKind = (region, urban, _) => urban ? (region == 5 ? 1 : region is 13 or 14 ? 3 : region == 10 ? 4 : 0) : region is 0 or 2 or 12 ? 6 : region == 8 ? 7 : 5,
+        ArtFolder = "res://assets/world/",
+        Skyport = new WorldPoint(44000, 44060)
+    };
+
+    /// <summary>Returns one of sixteen original districts without renumbering at boundaries.</summary>
+    public static WorldRegion Region(WorldPoint p) => Definition.Region(p);
+    /// <summary>Nearest surface endpoint, also used for safe extraction after underground missions.</summary>
+    public static WorldStation NearestStation(WorldPoint p) => Definition.NearestStation(p);
+    /// <summary>Chooses the closest terminal within reach. Adjacent Spire terminals must not select an earlier mission's overlapping radius.</summary>
+    public static WorldEntrance? NearbyEntrance(WorldPoint p,double reach=8) => Definition.NearbyEntrance(p,reach);
+    /// <summary>Shared main road/rail/trail lattice. Every endpoint lies on its connected arterial network.</summary>
+    public static bool Arterial(WorldPoint p, double halfWidth = 8) => Definition.Arterial(p,halfWidth);
+    /// <summary>Local streets join the arterial network; rural versions are narrower mountain/forest trails.</summary>
+    public static bool Route(WorldPoint p) => Definition.Route(p);
+    /// <summary>Surface/underground finite bounds. Underground networks are two distinct 2 km squares.</summary>
+    public static bool InBounds(WorldPoint p) => Definition.InBounds(p);
+    /// <summary>Terrain water is physical except where the same route definition supplies a bridge.</summary>
+    public static bool Water(WorldPoint p) => Definition.Water(p);
     /// <summary>Dense architecture families, distinct from natural terrain scatter.</summary>
-    public static bool Urban(WorldPoint p) => p.Layer>0 || Region(p).Id is 5 or 6 or 7 or 9 or 10 or 13 or 14;
-    /// <summary>Distance to a periodic line, continuous across chunk seams.</summary>
-    private static double GridDistance(double value, double spacing, double offset) { double r=((value-offset)%spacing+spacing)%spacing; return Math.Min(r,spacing-r); }
+    public static bool Urban(WorldPoint p) => Definition.Urban(p);
+
+    /// <summary>Gathers the Los Angeles content: only the slice quests and listed safehouses are in play.</summary>
+    private static CityContent BuildContent() => new(
+        WorldQuestRules.PlayableQuests,
+        WorldContentCatalog.Residents,
+        WorldContentCatalog.Interiors,
+        new HashSet<string> { "safehouse_old_kyoto", "safehouse_concrete_wards" },
+        Array.Empty<SideOperationDefinition>());
+
     /// <summary>Original grid addresses remain fixed; entrances occupy cleared road shoulders within 24m of transit.</summary>
     private static WorldEntrance[] BuildEntrances()
     {

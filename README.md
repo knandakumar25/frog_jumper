@@ -45,6 +45,26 @@ Phase 1 (Core Neighborhoods), Phase 2 (Urban Core Expansion), Phase 3 (Natural &
   - `WorldTransactionService` provides atomic PostgreSQL commits with idempotent action receipts (`receipt:{session}:{token}`) ensuring zero double-spending or duplicate quest reward settlements.
 - **Verification**: All test suites passing (Django 111/111, NUnit 361/361, GdUnit4 333/333 across 71 suites with 0 errors/failures/orphans).
 
+## Cities beyond Los Angeles
+
+Six cities join Los Angeles, one for each operative: Kyoto (Kaito), Mumbai (Arjun), Honolulu (Kiana), Dubai (Zayd),
+Luanda (King Tariq) and Beirut (Maya). Walk to the **Skyport** just south of the Little Tokyo station (Interact) to fly
+for free. Flights are blocked during pursuit. A city opens when its operative is on the squad.
+
+Each city is a 32 km square with four districts, eight quests with written conversations, eight residents, eight
+landmarks, a safehouse, and one optional side-scrolling operation entered from its terminal. An operation pays Sparks on
+the first clear and credits on up to five repeats. Cities never affect the 12-mission campaign; finishing a campaign
+mission always returns to Los Angeles.
+
+To add a city, write a `CitySpec` like `scripts/world/cities/MumbaiCity.cs`, add it to `CityRegistry.All`
+(`scripts/world/WorldDefinition.cs`), add a style to `tools/world/build_kit.py`, and add a `BeaconOperationMission`
+subclass in its own file with a thin scene. Each city saves to its own row, `world:{session}:{city}`; Los Angeles keeps
+`world:{session}`. Render city art with
+`docker compose --profile cutscene run --rm --entrypoint blender cutscene -b --python tools/world/build_kit.py -- mumbai`.
+
+Quest text, conversations and place names in these cities show in English in every language, as the Los Angeles quest
+conversations do. Only the five new interface labels are translated, and no native speaker has reviewed them.
+
 ## Neo-Los Angeles 2157 exploration
 
 After Mission 1, results return to a streamed 128 km × 128 km region with sixteen
@@ -94,10 +114,13 @@ A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with
 
 ## Godot AI startup
 
-The pinned Godot AI 4.4.1 launcher uses an isolated uv-managed Python 3.14 tooling
-interpreter and the operating system certificate store (`--system-certs`). Its
-dependencies currently lack all required Python 3.15 wheels under the plugin's
-no-source-build policy. Certificate validation, canonical package sources and
+The pinned Godot AI 4.4.1 launcher uses an isolated uv-managed Python 3.15 tooling
+interpreter and the operating system certificate store (`--system-certs`). PyYAML
+has no Python 3.15 wheel on PyPI, so the launcher also reads
+`%APPDATA%\uv\wheelhouse`, which holds one PyYAML 6.0.3 wheel built locally without
+its optional C extension (`PYYAML_FORCE_LIBYAML=0`). If that folder is lost, Godot AI
+fails with a missing-wheel error; rebuild the wheel with `uv build --wheel`. Launches
+keep `--no-build`, and certificate validation, canonical package sources and
 the release dependency cutoff remain enabled. After a launcher-policy update,
 click **Reload Plugin** in the Godot AI dock. A plugin reinstall/update can replace
 this local policy patch; recheck these flags if the same startup failure returns.

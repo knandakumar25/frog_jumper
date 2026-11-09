@@ -9,6 +9,8 @@ using System;
 public partial class ExplorationPlayer : CharacterBody2D
 {
     public const float PixelsPerMetre = 16, GroundAngle = .65f;
+    /// <summary>The city being walked in, set by the world scene; decides where water is.</summary>
+    public WorldDefinition City { get; set; } = WorldCatalog.Definition;
     public bool MovementEnabled { get; set; }
     public int Facing { get; private set; }
     public bool IsRidingBike { get; private set; }
@@ -124,7 +126,7 @@ public partial class ExplorationPlayer : CharacterBody2D
         }
 
         // Electric bikes cannot be operated inside buildings, in water, or while on a boat
-        if (InInterior || IsRidingBoat || WorldCatalog.Water(currentMetres))
+        if (InInterior || IsRidingBoat || City.Water(currentMetres))
         {
             return false;
         }
@@ -152,7 +154,7 @@ public partial class ExplorationPlayer : CharacterBody2D
         }
 
         // Boats can only be operated in water outside interiors and cannot be mounted while on bike
-        if (InInterior || IsRidingBike || !WorldCatalog.Water(currentMetres))
+        if (InInterior || IsRidingBike || !City.Water(currentMetres))
         {
             return false;
         }

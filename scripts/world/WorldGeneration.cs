@@ -13,24 +13,28 @@ public static class WorldGeneration
 {
     /// <summary>Small fixed integer hash avoids runtime-dependent System.Random and string hashing.</summary>
     public static uint Hash(int x,int y,int layer) { unchecked { uint n=(uint)x*374761393u+(uint)y*668265263u+(uint)layer*2246822519u+0x4e4b7631; n=(n^(n>>13))*1274126177u; return n^(n>>16); } }
-    /// <summary>Builds data only, safe on a worker thread. Protected endpoints and trails cannot receive solid props.</summary>
-    public static WorldChunkData Generate(ChunkAddress a)
+    /// <summary>Generates a Los Angeles chunk.</summary>
+    public static WorldChunkData Generate(ChunkAddress a) => Generate(WorldCatalog.Definition,a);
+    /// <summary>Builds data only for the given city, safe on a worker thread. Protected endpoints and trails cannot receive solid props.</summary>
+    public static WorldChunkData Generate(WorldDefinition world,ChunkAddress a)
     {
         byte[] terrain=new byte[256]; var props=new List<WorldProp>();
         for(int y=0;y<16;y++) for(int x=0;x<16;x++)
         {
             var p=new WorldPoint(a.X*128+x*8+4,a.Y*128+y*8+4,a.Layer);
-            terrain[y*16+x]=!WorldCatalog.InBounds(p)?(byte)3:WorldCatalog.Water(p)?(byte)2:WorldCatalog.Route(p)?(byte)1:(byte)0;
+            terrain[y*16+x]=!world.InBounds(p)?(byte)3:world.Water(p)?(byte)2:world.Route(p)?(byte)1:(byte)0;
         }
         for(int y=0;y<4;y++) for(int x=0;x<4;x++)
         {
             uint h=Hash(a.X*4+x,a.Y*4+y,a.Layer); double px=x*32+9+(h%5),py=y*32+9+((h>>4)%5);
             var p=new WorldPoint(a.X*128+px,a.Y*128+py,a.Layer);
-            bool urban=WorldCatalog.Urban(p); double w=urban?12:5,d=urban?10:4;
-            if(!WorldCatalog.InBounds(p) || WorldCatalog.Water(p) || WorldCatalog.Route(p) || WorldCatalog.Arterial(p,20)) continue;
-            if(WorldCatalog.Entrances.Any(e=>e.Position.Distance(p)<48) || WorldCatalog.Landmarks.Any(e=>e.Position.Distance(p)<24) || WorldCatalog.Elevators.Any(e=>e.Distance(p with {Layer=0})<32)) continue;
-            int region=WorldCatalog.Region(p).Id;
-            int kind=a.Layer>0?3:urban?(region==5?1:region is 13 or 14?3:region==10?4:0):region is 0 or 2 or 12?6:region==8?7:5;
+            bool urban=world.Urban(p); double w=urban?12:5,d=urban?10:4;
+            if(!world.InBounds(p) || world.Water(p) || world.Route(p) || world.Arterial(p,20)) continue;
+            if(world.Entrances.Any(e=>e.Position.Distance(p)<48) || world.Landmarks.Any(e=>e.Position.Distance(p)<24) || world.Elevators.Any(e=>e.Distance(p with {Layer=0})<32)) continue;
+            // Authored places in newer cities stay open; Los Angeles has none listed, so its chunks are unchanged.
+            if(world.ClearAreas.Any(e=>e.Distance(p)<32)) continue;
+            int region=world.Region(p).Id;
+            int kind=a.Layer>0?3:world.PropKind(region,urban,h);
             props.Add(new(px,py,w,d,kind,true));
         }
         return new(a,terrain,props);
@@ -43,6 +47,9 @@ public sealed class WorldStream
     private Task<WorldChunkData[]>? _pending;
     private ChunkAddress _requested;
     private readonly Dictionary<ChunkAddress,WorldChunkData> _cache=new();
+    private readonly WorldDefinition _world;
+    /// <summary>Creates a stream for one city. Changing city replaces the stream, so a late batch can't land in the wrong world.</summary>
+    public WorldStream(WorldDefinition? world=null) => _world=world??WorldCatalog.Definition;
     public IReadOnlyDictionary<ChunkAddress,WorldChunkData> Cache => _cache;
     public bool Busy => _pending!=null;
     /// <summary>Starts a worker batch without any Godot API calls; repeated requests wait for the previous bounded batch.</summary>
@@ -51,7 +58,8 @@ public sealed class WorldStream
         if(_pending!=null) return;
         _requested=center;
         var missing=Window(center,2).Where(a=>!_cache.ContainsKey(a)).ToArray();
-        _pending=Task.Run(()=>missing.Select(WorldGeneration.Generate).ToArray());
+        var world=_world;
+        _pending=Task.Run(()=>missing.Select(a=>WorldGeneration.Generate(world,a)).ToArray());
     }
     /// <summary>Accepts completed data on the main thread, evicts outside the current window and bounds cache at 25.</summary>
     public bool Pump(ChunkAddress center)

@@ -24,6 +24,12 @@ public static class WorldQuestRules
     public static readonly IReadOnlyList<QuestDefinition> PlayableQuests =
         WorldContentCatalog.Quests.Where(q => PlayableQuestIds.Contains(q.Id)).ToArray();
 
+    /// <summary>Whether a quest belongs to a city other than Los Angeles; those are always fully playable.</summary>
+    private static bool IsCityQuest(string id) => CityRegistry.All.Any(c => c != WorldCatalog.Definition && c.Content.Quests.Any(q => q.Id == id));
+
+    /// <summary>The quests in play in the city this save belongs to. Each city's progress stays in its own record.</summary>
+    public static IReadOnlyList<QuestDefinition> QuestsFor(WorldSave state) => (CityRegistry.ForIdentity(state.World) ?? WorldCatalog.Definition).Content.Quests;
+
     /// <summary>Whether the world clock is in its daytime half, which selects resident positions.</summary>
     public static bool IsDay(double worldMinutes) => (worldMinutes % 48.0) < 24.0;
 
@@ -34,7 +40,7 @@ public static class WorldQuestRules
     /// </summary>
     public static bool IsAvailable(QuestDefinition quest, WorldSave state, int progress, Func<string, bool> isRecruited)
     {
-        if (!PlayableQuestIds.Contains(quest.Id)) return false;
+        if (!PlayableQuestIds.Contains(quest.Id) && !IsCityQuest(quest.Id)) return false;
         if (state.CompletedQuests?.ContainsKey(quest.Id) == true) return false;
         if (progress <= quest.MinCampaignMission) return false;
         if (quest.PrerequisiteQuestId != null && state.CompletedQuests?.ContainsKey(quest.PrerequisiteQuestId) != true) return false;
@@ -52,7 +58,7 @@ public static class WorldQuestRules
     /// <summary>Resolves where an objective is right now; a resident target follows the day/evening schedule.</summary>
     public static WorldPoint ObjectivePoint(QuestObjective objective, bool isDay)
     {
-        var resident = objective.TargetEntityId == null ? null : WorldContentCatalog.Residents.FirstOrDefault(r => r.Id == objective.TargetEntityId);
+        var resident = objective.TargetEntityId == null ? null : CityRegistry.FindResident(objective.TargetEntityId);
         return resident == null ? objective.TargetLocation : isDay ? resident.DayLocation : resident.EveningLocation;
     }
 
@@ -83,7 +89,7 @@ public static class WorldQuestRules
     /// <summary>Chooses the quest shown on the HUD: the last one advanced if still open, otherwise the first available.</summary>
     public static QuestAction? Tracked(WorldSave state, string? preferredQuestId, int progress, Func<string, bool> isRecruited)
     {
-        var open = PlayableQuests.Where(q => IsAvailable(q, state, progress, isRecruited)).ToArray();
+        var open = QuestsFor(state).Where(q => IsAvailable(q, state, progress, isRecruited)).ToArray();
         var chosen = open.FirstOrDefault(q => q.Id == preferredQuestId) ?? open.FirstOrDefault();
         return chosen == null ? null : Current(chosen, state);
     }
@@ -91,7 +97,7 @@ public static class WorldQuestRules
     /// <summary>Lists the current step of each available quest the active operative may attempt.</summary>
     private static IEnumerable<QuestAction> Candidates(WorldSave state, int progress, string activeOperative, Func<string, bool> isRecruited)
     {
-        foreach (var quest in PlayableQuests)
+        foreach (var quest in QuestsFor(state))
         {
             if (!IsAvailable(quest, state, progress, isRecruited)) continue;
             if (quest.RequiredOperative != null && quest.RequiredOperative != activeOperative) continue;
