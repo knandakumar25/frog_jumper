@@ -20,6 +20,7 @@ public partial class WildfireGunner : CharacterBody2D
     private float _clock = 1.2f;
     private int _shots;
     private Vector2 _aim = Vector2.Left;
+    private AudioStreamPlayer2D? _roundSound;
 
     /// <summary>Builds a layer-two melee hurtbox and installs the matching generated sprite when available.</summary>
     public override void _Ready()
@@ -30,6 +31,7 @@ public partial class WildfireGunner : CharacterBody2D
         AddChild(new CollisionShape2D { Position = new Vector2(0, -36),
             Shape = new RectangleShape2D { Size = new Vector2(64, 72) } });
         WildfireVisual.AddSprite(this, "gunner", new Vector2(110, 100), new Vector2(0, -44));
+        _roundSound = StandInAssets.AddPlayer(this, StandInAssets.RoundShot, -11);
     }
 
     /// <summary>Locks a clear firing line for the configured warning; bullets never home after warning.</summary>
@@ -45,6 +47,7 @@ public partial class WildfireGunner : CharacterBody2D
             if (State == "burst")
             {
                 Mission.LaunchRound(muzzle, _aim, this);
+                StandInAssets.Play(_roundSound);
                 _shots++;
                 _clock = .22f;
                 if (_shots == 3) { State = "recovery"; _clock = RecoveryDuration; }
@@ -69,6 +72,7 @@ public partial class WildfireGunner : CharacterBody2D
         if (Health <= 0 || damage <= 0) return;
         Health = Mathf.Max(0, Health - damage);
         if (Health > 0) return;
+        StandInAssets.PlayDetached(this, StandInAssets.Explosion, -8);
         EmitSignal(SignalName.Defeated);
         QueueFree();
     }

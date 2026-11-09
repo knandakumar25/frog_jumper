@@ -16,6 +16,8 @@ public partial class PalaceSentry : CharacterBody2D
     private Vector2 _origin, _aim;
     private float _time, _cooldown = 1.8f, _windup, _beam, _flash, _contact;
     private bool _dead;
+    private AudioStreamPlayer2D? _beamSound;
+    private Sprite2D? _body;
 
     /// <summary>Installs the layer-two hurtbox used by the platform controller's real melee queries.</summary>
     public override void _Ready()
@@ -26,6 +28,9 @@ public partial class PalaceSentry : CharacterBody2D
         CollisionMask = 0;
         AddToGroup("enemies");
         AddChild(new CollisionShape2D { Shape = new CircleShape2D { Radius = 34 } });
+        _beamSound = StandInAssets.AddPlayer(this, StandInAssets.BeamShot, -9);
+        // The drone fills only about 15 of its frame's 32 pixels, so 4.5x matches the 34-radius hurtbox.
+        _body = StandInAssets.AddSheet(this, StandInAssets.DroneIdle, 8, 1, 4.5f, Vector2.Zero, TextureFilterEnum.Nearest);
     }
 
     /// <summary>Patrols a bounded hover lane, warns before firing, and damages only a player visible past world collision.</summary>
@@ -52,6 +57,7 @@ public partial class PalaceSentry : CharacterBody2D
             if (_windup <= 0)
             {
                 _beam = .13f;
+                StandInAssets.Play(_beamSound);
                 var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + _aim, 1);
                 var result = GetWorld2D().DirectSpaceState.IntersectRay(query);
                 if (result.Count > 0 && result["collider"].AsGodotObject() is CyberShogun player)
@@ -65,6 +71,12 @@ public partial class PalaceSentry : CharacterBody2D
             _aim = difference.LengthSquared() > .001f ? difference.Normalized() * 550 : Vector2.Left * 550;
             _windup = WarningDuration;
         }
+        if (_body != null)
+        {
+            _body.Frame = (int)(_time * 10) % 8;
+            // Values above 1 brighten the sprite, standing in for the hull's drawn hit flash.
+            _body.Modulate = _flash > 0 ? new Color(2.2f, 2.2f, 2.2f) : Colors.White;
+        }
         QueueRedraw();
     }
 
@@ -77,6 +89,7 @@ public partial class PalaceSentry : CharacterBody2D
         if (CurrentHealth <= 0)
         {
             _dead = true;
+            StandInAssets.PlayDetached(this, StandInAssets.Explosion, -8);
             EmitSignal(SignalName.Defeated);
             QueueFree();
         }
@@ -88,6 +101,17 @@ public partial class PalaceSentry : CharacterBody2D
     {
         if (_windup > 0 || _beam > 0)
             DrawLine(Vector2.Zero, _aim, _beam > 0 ? new Color("#ffad73") : new Color(1, .39f, .36f, .3f), _beam > 0 ? 7 : 1.5f, true);
+        if (_body == null) DrawHull();
+        if (CurrentHealth < MaxHealth)
+        {
+            DrawLine(new Vector2(-30,-44),new Vector2(30,-44),new Color("#16222d"),4);
+            DrawLine(new Vector2(-30,-44),new Vector2(-30 + 60 * CurrentHealth / MaxHealth,-44),new Color("#e889a2"),4);
+        }
+    }
+
+    /// <summary>Draws the original code-based saw housings and hull, used when the stand-in sprite is absent.</summary>
+    private void DrawHull()
+    {
         for (int side = -1; side <= 1; side += 2)
         {
             Vector2 center = new(side * 31, 9);
@@ -105,10 +129,5 @@ public partial class PalaceSentry : CharacterBody2D
         DrawLine(new Vector2(-20, -5), new Vector2(20, -5), new Color("#08131e"), 14, true);
         DrawLine(new Vector2(-14, -6), new Vector2(14, -6), new Color(_windup > 0 ? "#ff9d79" : "#a0f0ee"), 4, true);
         DrawLine(new Vector2(-8,14), new Vector2(8,14), new Color("#b27672"), 3, true);
-        if (CurrentHealth < MaxHealth)
-        {
-            DrawLine(new Vector2(-30,-44),new Vector2(30,-44),new Color("#16222d"),4);
-            DrawLine(new Vector2(-30,-44),new Vector2(-30 + 60 * CurrentHealth / MaxHealth,-44),new Color("#e889a2"),4);
-        }
     }
 }

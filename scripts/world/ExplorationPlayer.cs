@@ -44,6 +44,7 @@ public partial class ExplorationPlayer : CharacterBody2D
 
     private Sprite2D _sprite = null!;
     private Sprite2D? _bikeSprite;
+    private AudioStreamPlayer2D? _bikeEngine;
     private Sprite2D? _boatSprite;
     private string _operative = "";
     private double _stride;
@@ -69,10 +70,23 @@ public partial class ExplorationPlayer : CharacterBody2D
             ZIndex = -1
         };
         AddChild(_bikeSprite);
-        // No bike art exists yet, so the mount is drawn from shapes under the same toggled node.
-        _bikeSprite.AddChild(new Polygon2D { Name = "BikeFrame", Color = new Color("4edee5"), Polygon = new[] { new Vector2(-18, -6), new(14, -12), new(20, -6), new(-12, 0) } });
-        _bikeSprite.AddChild(new Polygon2D { Name = "BikeWheelRear", Color = new Color("1b2433"), Polygon = new[] { new Vector2(-24, -2), new(-16, -8), new(-8, -2), new(-16, 4) } });
-        _bikeSprite.AddChild(new Polygon2D { Name = "BikeWheelFront", Color = new Color("1b2433"), Polygon = new[] { new Vector2(10, -2), new(18, -8), new(26, -2), new(18, 4) } });
+        _bikeSprite.Texture = StandInAssets.Texture(StandInAssets.BikeTexture);
+        if (_bikeSprite.Texture != null)
+        {
+            // The stand-in is seen from above, so it turns with Facing. Move the lift from Offset to
+            // Position so the bike rotates about its own centre rather than swinging around the feet.
+            _bikeSprite.Offset = Vector2.Zero;
+            _bikeSprite.Position = new Vector2(0, -10);
+            _bikeSprite.Scale = Vector2.One * .45f;
+        }
+        else
+        {
+            // Without the stand-in art, the mount falls back to shapes under the same toggled node.
+            _bikeSprite.AddChild(new Polygon2D { Name = "BikeFrame", Color = new Color("4edee5"), Polygon = new[] { new Vector2(-18, -6), new(14, -12), new(20, -6), new(-12, 0) } });
+            _bikeSprite.AddChild(new Polygon2D { Name = "BikeWheelRear", Color = new Color("1b2433"), Polygon = new[] { new Vector2(-24, -2), new(-16, -8), new(-8, -2), new(-16, 4) } });
+            _bikeSprite.AddChild(new Polygon2D { Name = "BikeWheelFront", Color = new Color("1b2433"), Polygon = new[] { new Vector2(10, -2), new(18, -8), new(26, -2), new(18, 4) } });
+        }
+        _bikeEngine = StandInAssets.AddPlayer(this, StandInAssets.BikeEngine, -14, loop: true);
 
         // Visual indicator for utility boat mount
         _boatSprite = new Sprite2D
@@ -122,6 +136,7 @@ public partial class ExplorationPlayer : CharacterBody2D
         {
             IsRidingBike = false;
             if (_bikeSprite != null) _bikeSprite.Visible = false;
+            _bikeEngine?.Stop();
             return true;
         }
 
@@ -134,7 +149,19 @@ public partial class ExplorationPlayer : CharacterBody2D
         IsRidingBike = true;
         IsDefending = false;
         if (_bikeSprite != null) _bikeSprite.Visible = true;
+        UpdateBikeHeading();
+        StandInAssets.Play(_bikeEngine);
         return true;
+    }
+
+    /// <summary>
+    /// Points the top-down stand-in bike along <see cref="Facing"/>. Facing F moves along (-sin a, cos a)
+    /// with a = F * 45 degrees; the art faces up the image, so it needs a + 180 degrees. The fallback shapes
+    /// are drawn side-on and must not rotate.
+    /// </summary>
+    private void UpdateBikeHeading()
+    {
+        if (_bikeSprite?.Texture != null) _bikeSprite.Rotation = Facing * Mathf.Pi / 4 + Mathf.Pi;
     }
 
     /// <summary>Toggles mounting the utility boat at the current player position.</summary>
@@ -284,6 +311,7 @@ public partial class ExplorationPlayer : CharacterBody2D
         {
             // Atlas rows rotate south-facing Blender rig clockwise
             Facing = ((int)Math.Round(Math.Atan2(-direction.X, direction.Y) / (Math.PI / 4)) + 8) % 8;
+            UpdateBikeHeading();
             _stride += delta * (speed >= 8 ? 12 : 7);
         }
 

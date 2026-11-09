@@ -1,5 +1,16 @@
 # Axiom Force — Project Memory
 
+## Free stand-in assets — 2026-11-09
+
+- **Added**: CC0 Kenney bike sprite, engine loop, enemy shot, strike and explosion sounds in `assets/stand_in/`, via `StandInAssets.cs`; deleting the folder and `tests/test_stand_in_assets.gd` (with `.uid`) restores the old look.
+- **Enemy sprites added**: Foozle drone on `PalaceSentry`, hormelz robot on `WorldHostile`, from zips the owner downloaded by browser. itch.io returned 429 to scripted attempts; don't script it. `WildfireGunner` already had generated art. Platforms and backdrops left code-drawn on purpose.
+- **Review**: EGM codebase-details and structural reviewers found no code blockers; doc and comment fixes applied. Via godot-ai, Level 1 ran live with all 11 sentries showing the sprite and no errors; firing in live play was not reached.
+- **godot-ai fix**: Claude's user-level entry launched a Python in the wiped `%APPDATA%\uv\python`; it now uses `Local\Programs\Python\Python315\pythonw.exe`.
+- **Outcome of research**: shortlist in `docs/STAND_IN_ASSETS.md`.
+- **Verified**: licenses read on creator pages by web fetch; OpenGameArt and itch.io listing pages returned 403. Warped City's $0 download is unconfirmed. Code-drawn gaps were found by searching for `_Draw`, not by opening each class.
+- **Limits**: free packs are mostly pixel art and won't match the rendered art. Repository is private; Flambo19's terms forbid redistribution even if modified.
+- **Git Status**: local and uncommitted.
+
 ## Multi-city open world, Kyoto built first — 2026-11-08
 
 - **Decisions by owner**: six operative home cities (Kyoto, Mumbai, Honolulu, Dubai, Luanda, Beirut), compact 4-district worlds, build one city and review before the rest, top-down quests plus one optional side-scroller each. The campaign and its ending don't change.
@@ -7,8 +18,9 @@
 - **Owner preference**: build all cities, then review together. Use godot-ai to test in the running game rather than only test hooks. Reconnect godot-ai after a session's process is stopped, because a session holds the launch config it started with.
 - **Content rule from owner**: real-city content must not reference or closely evoke real tragedies, even indirectly, to avoid harming people or causing backlash. Beirut's port grain content was removed for this reason. A keyword scan found nothing similar left; no person has read all the city text for it.
 - **Next**: owner plays the cities. City text is English except five interface labels.
-- **Docker**: on the owner's request, the stack was shut down with `docker compose stop` on 2026-11-08; containers and the save volume are kept. `docker compose start` brings it back.
-- **Git Status**: on the owner's request, committed with the uv change on branch `feat/operative-cities` and pushed. Not merged into `main`, following the PR #19 precedent.
+- **Docker**: stopped on the owner's request on 2026-11-08. By 2026-11-09 Docker held no images, containers or volumes, and `%APPDATA%\uv` and the session temp folder were also gone (cause not established). `docker compose up -d --wait` rebuilt the stack with a new, empty database. Earlier saves are lost; no backup existed.
+- **godot-ai "Server exited after 0.0s" (2026-11-09)**: caused by the missing `%APPDATA%\uv\wheelhouse\pyyaml-6.0.3-py3-none-any.whl`. Rebuilt from the checksum-verified PyPI sdist with `PYYAML_FORCE_LIBYAML=0`; the plugin's launch arguments now exit 0. If that folder disappears again, the same failure returns. `uv python install 3.15.2` failed on an untrusted certificate, so uv uses the system 3.15.2 in `Programs\Python\Python315`. Owner must press Reload Plugin in Godot.
+- **Git Status**: on the owner's request, merged into `main` through PR #20 (rebase merge, commit `e3a598e`). Branch `feat/operative-cities` still exists locally and on GitHub. This memory update is local and uncommitted.
 
 ## uv moved from Python 3.14.10 to 3.15.2 — 2026-11-08
 

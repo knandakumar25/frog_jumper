@@ -1,5 +1,13 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Free stand-in assets — 2026-11-09
+
+Added: CC0 Kenney motorcycle sprite, bike engine loop, sentry and gunner shots, open-world drone strike, and enemy explosions, in `assets/stand_in/`. `StandInAssets.cs` tolerates missing files, so deleting the folder restores the old look; also delete `tests/test_stand_in_assets.gd` and its `.uid`. Uncommitted.
+
+Also added from packs the owner downloaded by browser (itch.io rate-limited scripted downloads): Foozle drone sprite on `PalaceSentry`, and hormelz 8-direction robot on `WorldHostile`, chosen by aim direction and action. Collision, damage, timing and AI are unchanged. Platforms and backdrops were deliberately left code-drawn. Sound levels were set without listening.
+
+`docs/STAND_IN_ASSETS.md` lists candidate free packs and their license limits. Licenses were read on the creators' pages except where that file says otherwise; OpenGameArt pages could not be opened automatically. Most packs are pixel art and will not match the game's rendered art. Flambo19's pack cannot be redistributed, even modified.
+
 ## Multi-city open world and Kyoto — 2026-11-08
 
 Owner decisions: six operative home cities (Kyoto/Kaito, Mumbai/Arjun, Honolulu/Kiana, Dubai/Zayd, Luanda/King Tariq, Beirut/Maya), 4 compact districts each, top-down quests plus one optional side-scroller per city. **All six are built; the owner chose to review them together. No person has played any of them.**
