@@ -30,7 +30,7 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
     /// <inheritdoc/>
     protected override Color PlatformTint => new(.65f,.74f,.83f);
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/audio/names/atmosphere.ogg";
+    public override string MusicPath => "res://assets/audio/names/atmosphere.ogg";
     /// <inheritdoc/>
     protected override string TitleCardTitle(string narrativeTitle) => WildfireText.Get("NAMES_TITLE", LevelCatalog.Get(5).Title);
     /// <inheritdoc/>
@@ -231,7 +231,9 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
         _accepted=new AudioStreamPlayer { Name="AccessAccepted",Bus="SFX",VolumeDb=-14,ProcessMode=ProcessModeEnum.Pausable };
         AddChild(_accepted);
         var music=GetNodeOrNull<AudioStreamPlayer>("AudioStreamPlayer");
-        if(music!=null){music.Bus="Music";music.VolumeDb=-21;music.ProcessMode=ProcessModeEnum.Pausable;if(music.Stream is AudioStreamOggVorbis loop)loop.Loop=true;}
+        // Bus and level come from CodeLevel's music gain table (it used to force -21 dB here,
+        // about -46 LUFS, which made the atmosphere close to inaudible); keep pausing and looping.
+        if(music!=null){music.ProcessMode=ProcessModeEnum.Pausable;if(music.Stream is AudioStreamOggVorbis loop)loop.Loop=true;}
         BuildArtwork();
     }
     /// <summary>Mirage must actually phase across the service access lane; an unrelated ability press cannot satisfy entry.</summary>

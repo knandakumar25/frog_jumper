@@ -56,7 +56,7 @@ public partial class FoundryForgeMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.55f, 0.22f, 0.08f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/foundry_forge_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/foundry_forge_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string TitleCardTitle(string narrativeTitle) =>

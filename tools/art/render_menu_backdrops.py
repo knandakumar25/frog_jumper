@@ -13,6 +13,9 @@ from pathlib import Path
 
 import bpy
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import render_quality  # noqa: E402  (needs this folder on sys.path first)
+
 W, H = 1920, 1080
 BATCHES = {}
 ORDER = 0
@@ -182,7 +185,8 @@ def render(name, output, preview):
     camera_obj.location = (0, 0, 40)
     scene = bpy.context.scene
     scene.camera = camera_obj
-    scene.render.engine = 'BLENDER_EEVEE'
+    # Cycles with anti-aliasing; see render_quality for why 16 samples and no denoise.
+    render_quality.apply_flat(scene)
     scene.render.resolution_x, scene.render.resolution_y = W, H
     scene.render.resolution_percentage = 100
     scene.render.film_transparent = True

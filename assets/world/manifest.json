@@ -5,6 +5,7 @@
   "camera": "Orthographic north-up angled top-down",
   "metres_to_pixels": 16,
   "modules": 8,
+  "landmarks": 32,
   "operatives": 6,
   "directions": 8,
   "frames": 4,
@@ -12,6 +13,5 @@
     96,
     128
   ],
-  "review": "Agent visual inspection completed; player/native art acceptance pending",
-  "landmarks": 32
+  "review": "Agent visual inspection completed; player/native art acceptance pending"
 }

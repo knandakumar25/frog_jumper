@@ -1,5 +1,67 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Asset quality pass (Python + Blender) — completed 2026-11-10
+
+Owner request: improve every asset with Python and Blender; regenerate (not upscale) art without source scripts. Full report, including open items: `docs/ASSET_QUALITY_AUDIT.md`.
+
+**Changed:**
+- `tools/art/render_quality.py`:
+  - `apply_flat` (Cycles, 16 samples, 1.5 px filter, no denoiser) is used by the menu-backdrop `render()` and every cutscene, gameplay-layer and later-campaign generator that calls it.
+  - `apply_lit` (512 samples, no denoiser, so Blender 4.3 and 5.2 use the same settings) is used by `build_kit.py` and the titles.
+  - `draw_flat_characters.py` keeps its own settings.
+- Re-rendered on host Blender 5.2 with `tools/assets/rerender_flat_art.py` (now `--python-exit-code 1`, with the later-campaign `--targets` job before `--produce`):
+  - Cutscene, gameplay and later-campaign layers went from mean edge softness 0.0–0.5 to 1.0.
+  - `images_after.json` shows no script-made image still jagged, no size change and no load error.
+- City kit (232 images): re-rendered at 512 samples.
+- Wildfire gameplay `facade.png`: the window columns moved 3 px left so the anti-aliased edge keeps the margin `validate_wildfire.py` requires.
+- Titles: `tools/art/render_title_logo.py` renders all 10 title texts into 32 game files and 39 files in each of `website/public/images` and `title_logos`.
+  - Chrome text is 3D. The cyan and magenta rims are grown from the text alpha in numpy and composited in 8-bit display values; 8-bit is pinned and float layers are refused. 3D outline growth threw spikes on sharp corners (Arabic, Hebrew, Japanese) and misfilled the Korean font's overlapping outlines.
+  - The plate renders once; a full run takes about 7 minutes.
+  - Arabic uses Noto Sans Arabic with no edge bevel (`FLAT_EDGE_FONTS`).
+  - Every requested title is shaped and glyph-checked before anything renders; `check_glyphs` and the Arabic shaping guard raise `ValueError`.
+  - Contact sheet: `.validation/asset_quality/titles_sheet.png`.
+- `generate_cyber_sfx.py`: seeded, with DC removal, fades and a sample-peak ceiling of 0.7. True peaks are now -2.1 dBTP or lower. blade_clash and drone_explosion are about 3 dB quieter.
+- Robot sheets: mipmaps on, plus `LinearWithMipmaps` in `WorldHostile.cs`.
+- Audit tools: `tools/assets/audit_images.py`, `compare_images.py`, `audit_audio.py` (trailing-silence detection fixed 2026-11-10). `rerender_flat_art.py` writes the menu backdrops to `.validation` only, so a default run keeps the committed EEVEE files.
+
+**Reverted or kept after review:**
+- Voice normalization was reverted: re-encoding changed hashes that the tests, transcripts and the owner's listening sign-off depend on. `normalize_audio.py` was deleted.
+- The Kenney stand-in sounds and the menu backdrops are restored from git. The Cycles backdrops looked identical to the EEVEE ones.
+
+**Verified (2026-11-10):**
+- All 15 validators pass: cutscene validators in container Python; `validate_aegis.py` and `validate_names.py` in container Blender.
+- `python -m unittest tests.test_written_localization tests.test_english_voice_inventory`: 20 OK.
+- `dotnet build`: 0 errors.
+- Headless Godot import: exit 0, no import errors; the only errors logged were asset-library TLS failures and shutdown messages.
+- `run_tests.ps1`: GdUnit4 357/357 with 0 errors, failures and orphans; Django and NUnit PASSED.
+- godot-ai: the main menu, `game_home.tscn` (new logo, clean alpha) and the `level2.tscn` Wildfire intro (re-rendered layers) run with no errors in the game log.
+- EGM review: three Goldfish reviewers; blocker and major findings fixed or reverted. Their one contested claim ("Latin titles dropped") was false.
+
+**Not verified:** no person has looked at every cutscene, city and language in the running game. `tools/world/qa.py` (a live MCP tour) was not run.
+
+**Owner decisions (2026-11-10):** keep the logos' wording and ignore the translation catalog; accept the smaller Arabic title; level-match voices at playback.
+
+**Voice playback gain (2026-11-10):**
+- `tools/assets/voice_gain.py` (cutscene container, ffmpeg) measures exactly the 98 played recordings: the 93 `speech` cues, AXIOM-7 briefing lines 1–4 (`SpeechPaths.BriefingLineCount`) and the deployment narration. It writes `assets/audio/voice_gain.json` with a gain toward -18 LUFS (clamped to +/-12), capped so the Voice limiter removes at most 2 dB of peak (`limit_budget_db`). It also records each recording's `expected_limiting_db` and sha256. The actual range is -4.1 to +5.5 dB, and 16 lines are capped (narration +4.6 dB, playing at -20.2 LUFS). Played levels span -20.2 to -18.0 LUFS, down from -24.8 to -13.9. On a missing or unmeasurable file it keeps the old table and exits 1.
+- `scripts/gameplay/SpeechPaths.cs` holds the engine-free path rules shared by the players and the tests. `scripts/managers/VoiceGain.cs` provides `GainDb(path)` (cuts only if the Voice bus is missing) and `Bus`; `Parse` tolerates wrong JSON shapes. `deployment_cutscene.gd` applies the narration gain (cuts only without the Voice bus or on Web, where sample playback skips bus effects). `MissionSpeechQueue` (base -2 dB, unchanged) and `StoryIntro` add the gain on each play and use the new `Voice` bus in `default_bus_layout.tres`, which sends into SFX and has an `AudioEffectHardLimiter` at -1 dB. The menu volume slider (bus 0) is unaffected.
+- Tests: NUnit `VoiceGainTests` (parsing, the exact set of played recordings via `SpeechPaths`, hash match, the gain rule and limiter budget); GdUnit `tests/test_voice_bus.gd` (bus, send, limiter at exactly -1 dB, table), `test_real_cue_plays_on_voice_bus_with_its_table_gain` in `tests/test_mission_speech_queue.gd`, and `test_narration_plays_on_voice_bus_with_its_table_gain` in `tests/test_deployment_cutscene.gd`.
+- EGM reviews: a first codebase-details review of this change had no blockers, and all 8 findings were fixed. A second round of all three reviewers (2026-11-10) found no blockers. Its findings were fixed (see the audit's Review section), except the Web limiter gap (partly contested: C# cannot export to Web) and the +24 dB mission music (reported, not changed).
+- Not judged by ear. No line is limited by more than 2 dB; listen to the deployment narration first. Mission speech plays about 2 dB under the briefing (the existing -2 dB offset).
+
+**Mission music level (2026-11-10, owner approved):**
+- `CodeLevel.BuildAudioAndPause` played mission music at +24 dB on Master: the default `Sakura-Girl-Yay` track at about +12.7 LUFS (clipping), and the atmospheres about 18 LU over speech.
+- `tools/assets/music_gain.py` (cutscene container) measures every `MusicPath => "res://..."` in `scripts/gameplay/*.cs`. It writes `assets/audio/music_gain.json` with target -29 LUFS, gains capped at a -1 dBTP true peak: -17.7 dB for the default track and -3.2 to -3.8 dB for the 8 atmospheres.
+- `CodeLevel` now plays the track on the Music bus at `MusicGain.GainDb(MusicPath)`. `NamesWithoutNumbersMission` no longer forces -21 dB (about -46 LUFS).
+- `scripts/managers/GainTable.cs` is the shared table parser and loader; `VoiceGain` and `MusicGain` wrap it.
+- Tests: NUnit `MusicGainTests` (track set from the sources, hashes, gain rule, pinned -29 target, -1 ceiling and limit). GdUnit `test_mission_music_plays_on_music_bus_with_its_table_gain` (missions 4 and 5) and `test_every_mission_scene_track_has_a_music_gain`, which reads the real `MusicPath` of all 12 levels and 6 city operations; `MusicPath` was made public for this. `MusicGain.GainDb` warns when a track has no entry.
+- An EGM design review found no blockers; its findings were fixed.
+- Not judged by ear. Listen for two things:
+  - whether -29 LUFS sounds thin for the melodic default track in missions 1–4 and the city operations, which have little speech;
+  - the step when an intro cutscene (atmosphere at about -31.7 LUFS) hands over to its mission (-29 LUFS), about 2.7 LU louder.
+- No ducking under speech. Menu music is a stub; the open world has no music; cutscene music was not changed.
+
+**Not changed (by design):** painted Level 1 backdrop, hand-drawn pose sheets, third-party music (clipping baked in), fonts, pixel-art stand-ins. Unused files are listed in the audit; none were deleted.
+
 ## Free stand-in assets — 2026-11-09
 
 Added: CC0 Kenney motorcycle sprite, bike engine loop, sentry and gunner shots, open-world drone strike, and enemy explosions, in `assets/stand_in/`. `StandInAssets.cs` tolerates missing files, so deleting the folder restores the old look; also delete `tests/test_stand_in_assets.gd` and its `.uid`. Uncommitted.

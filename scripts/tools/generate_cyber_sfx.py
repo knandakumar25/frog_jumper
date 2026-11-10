@@ -1,3 +1,12 @@
+"""Synthesize the project's combat and UI sound effects as 16-bit mono 44.1 kHz WAVs.
+
+Run with plain Python from anywhere: ``python scripts/tools/generate_cyber_sfx.py``.
+Writes to ``assets/audio/sfx/``. The noise generator is seeded, so every run produces
+identical files. ``create_wav`` removes any DC offset, adds short fades so no sound
+starts or stops mid-waveform (which clicks), and scales down any sound whose sample
+peak would exceed ``PEAK_CEILING``. Earlier versions clamped at full scale instead,
+which clipped blade_clash and drone_explosion (true peaks of +0.5 and +2.7 dBTP).
+"""
 import math
 import os
 import struct
@@ -5,8 +14,41 @@ import wave
 import random
 
 SAMPLE_RATE = 44100
+# Highest allowed sample peak, about -3.1 dBFS. The waveform between samples can rise
+# above the sample peak (true peak); noisy, distorted effects overshoot by up to ~3 dB,
+# so this keeps their true peak under 0 dBTP. Checked with ffmpeg's ebur128 true-peak meter.
+PEAK_CEILING = 0.7
+# Edge fades in seconds: short enough to keep each attack sharp, long enough to stop clicks.
+FADE_IN, FADE_OUT = 0.002, 0.005
+# Fixed seed so regenerating gives byte-identical files.
+random.seed(2157)
 
-def create_wav(filepath, samples):
+
+def finish(samples, fade=True):
+    """Remove DC offset, apply edge fades, and lower the level only if it would clip.
+
+    ``fade`` is False for loops such as laser_hum, which already apply their own 40 ms
+    fade at each end. Returns a new list; applies no gain above 1.0.
+    """
+    if not samples:
+        return samples
+    mean = sum(samples) / len(samples)
+    out = [s - mean for s in samples]
+    if fade:
+        fade_in, fade_out = int(FADE_IN * SAMPLE_RATE), int(FADE_OUT * SAMPLE_RATE)
+        for i in range(min(fade_in, len(out))):
+            out[i] *= i / fade_in
+        for i in range(min(fade_out, len(out))):
+            out[-1 - i] *= i / fade_out
+    peak = max(abs(s) for s in out)
+    if peak > PEAK_CEILING:
+        out = [s * PEAK_CEILING / peak for s in out]
+    return out
+
+
+def create_wav(filepath, samples, fade=True):
+    """Finish ``samples`` (see ``finish``) and write them as a 16-bit mono WAV."""
+    samples = finish(samples, fade)
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
     with wave.open(filepath, 'w') as wav_file:
         wav_file.setnchannels(1)  # Mono
@@ -232,12 +274,13 @@ def generate_victory_jingle():
     return samples
 
 if __name__ == '__main__':
-    out_dir = r"D:\Projects\frog_jumper\assets\audio\sfx"
+    # Resolve from this file so the script works from any folder or checkout.
+    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "assets", "audio", "sfx")
     create_wav(os.path.join(out_dir, "katana_slash.wav"), generate_katana_slash())
     create_wav(os.path.join(out_dir, "blade_clash.wav"), generate_blade_clash())
     create_wav(os.path.join(out_dir, "blade_dash.wav"), generate_blade_dash())
     create_wav(os.path.join(out_dir, "drone_explosion.wav"), generate_drone_explosion())
-    create_wav(os.path.join(out_dir, "laser_hum.wav"), generate_laser_hum())
+    create_wav(os.path.join(out_dir, "laser_hum.wav"), generate_laser_hum(), fade=False)  # loops
     create_wav(os.path.join(out_dir, "shield_hit.wav"), generate_shield_hit())
     create_wav(os.path.join(out_dir, "boss_cannon.wav"), generate_boss_cannon())
     create_wav(os.path.join(out_dir, "boss_alarm.wav"), generate_boss_alarm())

@@ -61,7 +61,7 @@ public partial class JudgmentDayMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.14f, 0.08f, 0.24f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/judgment_day_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/judgment_day_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string CompletionLine =>

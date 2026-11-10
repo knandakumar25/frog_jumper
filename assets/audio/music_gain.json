@@ -1,0 +1,61 @@
+{
+ "target_lufs": -29.0,
+ "max_gain_db": 30.0,
+ "ceiling_dbtp": -1.0,
+ "files": {
+  "res://assets/audio/names/atmosphere.ogg": {
+   "gain_db": -3.8,
+   "loudness_lufs": -25.2,
+   "true_peak_dbtp": -16.3,
+   "sha256": "433df090394b769682468dafe97db5e6bac311a2caebf3f1fced727fc4360a59"
+  },
+  "res://assets/cutscenes/apex_bastion_intro/atmosphere.ogg": {
+   "gain_db": -3.2,
+   "loudness_lufs": -25.8,
+   "true_peak_dbtp": -9.4,
+   "sha256": "460489013dac88e21bd2a8b919429a7fa6e7452788abadd3feed59ca8f9bb54b"
+  },
+  "res://assets/cutscenes/cyber_grave_intro/atmosphere.ogg": {
+   "gain_db": -3.2,
+   "loudness_lufs": -25.8,
+   "true_peak_dbtp": -6.4,
+   "sha256": "9da86d89896f4d6d3ead6ae759daaf0d1251d729a9c73dc298e50152f83449d4"
+  },
+  "res://assets/cutscenes/cyber_nexus_intro/atmosphere.ogg": {
+   "gain_db": -3.2,
+   "loudness_lufs": -25.8,
+   "true_peak_dbtp": -9.6,
+   "sha256": "3186853b67afd553fb581dba01d95fd49e6f2f5f565c1275a89fa55513f113db"
+  },
+  "res://assets/cutscenes/foundry_forge_intro/atmosphere.ogg": {
+   "gain_db": -3.3,
+   "loudness_lufs": -25.7,
+   "true_peak_dbtp": -8.6,
+   "sha256": "f19c724349031b54b971b5fbe096b3ae71b1fbda6cce8012aee94abbd35fcad2"
+  },
+  "res://assets/cutscenes/judgment_day_intro/atmosphere.ogg": {
+   "gain_db": -3.5,
+   "loudness_lufs": -25.5,
+   "true_peak_dbtp": -9.3,
+   "sha256": "8730c300ad7d87f30514efbe367e6955714536ef0ad17f54587bcd4db555c7a3"
+  },
+  "res://assets/cutscenes/spire_outer_hull_intro/atmosphere.ogg": {
+   "gain_db": -3.4,
+   "loudness_lufs": -25.6,
+   "true_peak_dbtp": -8.6,
+   "sha256": "335f952f6d3c7d3adc00ac4982ead2bd135a327fd4648c801c6d84af0bfcc508"
+  },
+  "res://assets/cutscenes/stratos_docks_intro/atmosphere.ogg": {
+   "gain_db": -3.3,
+   "loudness_lufs": -25.7,
+   "true_peak_dbtp": -11.1,
+   "sha256": "e867ab21ad9429531f7fa2f78a2ac65816f73f59c619e649ab55e0f6088ffd97"
+  },
+  "res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3": {
+   "gain_db": -17.7,
+   "loudness_lufs": -11.3,
+   "true_peak_dbtp": 0.3,
+   "sha256": "5c6a8748b6189c619028def7fd999578b550e121ebe1f65eb96731d0361da988"
+  }
+ }
+}

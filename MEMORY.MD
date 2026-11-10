@@ -1,5 +1,26 @@
 # Axiom Force — Project Memory
 
+## Asset quality pass — completed 2026-11-10
+
+- Outcome and verification are in `HANDOFF.md` and `docs/ASSET_QUALITY_AUDIT.md`. Committed and pushed to `main` on owner instruction (2026-11-10). The Docker stack was stopped with `docker compose stop` (containers and volumes kept); restart with `docker compose up -d`.
+- Durable decisions:
+  - Never re-encode voice audio to level-match it, because the hashes key the tests, transcripts and listening sign-off. Use a per-cue playback gain instead.
+  - Lit Blender renders use 512 samples with no denoiser, so the 4.3 and 5.2 builds match.
+  - Title neon rims are drawn in 2D from the text alpha: 3D outline growth spikes on sharp glyph corners.
+  - Owner decision (2026-11-10): titles keep the old logos' wording, ignoring the translation catalog; the smaller Arabic title is fine.
+  - Voice lines are level-matched at playback: `assets/audio/voice_gain.json` (from `tools/assets/voice_gain.py`), `VoiceGain.cs`, and a limited `Voice` bus that sends into SFX. Regenerate the table after any recording change; `VoiceGainTests` enforces this. Boosts are capped so the limiter removes at most 2 dB of peak; Web and missing-bus cases apply cuts only.
+  - Mission music (owner approved 2026-11-10) plays on the Music bus at a measured gain toward -29 LUFS (`assets/audio/music_gain.json` from `tools/assets/music_gain.py`, `MusicGain.cs`), replacing the old +24 dB on Master. Regenerate after any mission track change; `MusicGainTests` enforces this.
+  - A second EGM round (three Goldfish reviewers, 2026-11-10) found no blockers; its findings were fixed.
+- Blender traps: `bpy.data.images.load` and `image.save` need absolute paths; Cycles' `denoiser` enum lists no items from `bl_rna`; run generators with `--python-exit-code 1`.
+- Verified: all validators, the Python voice tests, `dotnet build`, Godot import, `run_tests.ps1` (final run 364/364, 0 errors, 0 orphans) and godot-ai checks of the home screen, the Wildfire intro and Level 1 music (Music bus, -17.7 dB).
+- Open listening checks: whether -29 LUFS is thin for the default mission track, and the ~2.7 LU step from intro cutscenes into their missions. No music ducking or music volume slider yet.
+
+## Docker data wiped again — 2026-11-09
+
+- **Cause (confirmed by owner):** the owner runs BleachBit and sometimes deliberately deletes the Docker virtual disk (`%LOCALAPPDATA%\Docker\wsl\disk\docker_data.vhdx`). That removes every image, container and the `axiom-force_pgdata` database. The same cleanup likely explains the missing `%APPDATA%\uv` and Claude temp folders. Treat these wipes as intended: rebuild, don't investigate.
+- Rebuilt with `docker compose up -d --wait`. Backend admin and website return 200, and 0 migrations are unapplied. The database is empty.
+- Merged as PR #21 (`ea674a3`) before the wipe; this note is uncommitted.
+
 ## Free stand-in assets — 2026-11-09
 
 - **Added**: CC0 Kenney bike sprite, engine loop, enemy shot, strike and explosion sounds in `assets/stand_in/`, via `StandInAssets.cs`; deleting the folder and `tests/test_stand_in_assets.gd` (with `.uid`) restores the old look.

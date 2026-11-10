@@ -6,18 +6,13 @@ The shared red/gold character geometry preserves the opening's outlined identity
 """
 import json
 import inspect
-import ast
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/cutscene'))
 from render_live import character_library, city
-# Debian's Blender omits OpenImageDenoise; planar emission renders need no denoising.
-renderer_source = (ROOT / 'tools/art/render_menu_backdrops.py').read_text()
-renderer = next(node for node in ast.parse(renderer_source).body if isinstance(node, ast.FunctionDef) and node.name == 'render')
-exec(ast.get_source_segment(renderer_source, renderer).replace("scene.render.engine = 'BLENDER_EEVEE'",
-     "scene.render.engine = 'CYCLES'; scene.cycles.samples = 1; scene.cycles.use_denoising = False"), city.__dict__)
+# Render settings come from tools/art/render_quality.py via the shared render().
 OUT = ROOT / 'assets/cutscenes/tokyo'
 PREVIEW = ROOT / '.validation/tokyo'
 

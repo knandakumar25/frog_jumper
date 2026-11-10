@@ -37,8 +37,34 @@ func _ready() -> void:
 	$UI/Skip.grab_focus()
 	if not narration_path.is_empty() and ResourceLoader.exists(narration_path):
 		narrator.stream = load(narration_path)
+		_apply_voice_gain(narration_path)
 		narrator.play()
 	seek_visuals(0.0)
+
+
+func _apply_voice_gain(path: String) -> void:
+	## Level-match the narration with the AXIOM-7 briefing that follows it, using the same table
+	## and Voice bus as scripts/managers/VoiceGain.cs. Volume does not affect the timeline,
+	## which is driven by playback position. Boosts are applied only where the Voice bus
+	## limiter runs: the bus must exist, and Web builds (whose default sample playback skips
+	## bus effects) get cuts only. A missing table or entry leaves the player unchanged.
+	const TABLE := "res://assets/audio/voice_gain.json"
+	if not FileAccess.file_exists(TABLE):
+		return
+	var bus := AudioServer.get_bus_index("Voice")
+	var table: Variant = JSON.parse_string(FileAccess.get_file_as_string(TABLE))
+	if not table is Dictionary or not (table as Dictionary).get("files") is Dictionary:
+		return
+	var entry: Variant = (table as Dictionary)["files"].get(path)
+	if not entry is Dictionary or not (entry as Dictionary).get("gain_db") is float:
+		return
+	# Same clamp as VoiceGain.MaxGainDb and MAX_GAIN_DB in tools/assets/voice_gain.py.
+	var gain := clampf((entry as Dictionary)["gain_db"], -12.0, 12.0)
+	if bus >= 0:
+		narrator.bus = "Voice"
+	if gain > 0.0 and (bus < 0 or OS.has_feature("web")):
+		gain = 0.0
+	narrator.volume_db += gain
 
 
 func _process(delta: float) -> void:

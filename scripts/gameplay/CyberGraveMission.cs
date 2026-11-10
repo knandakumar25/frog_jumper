@@ -55,7 +55,7 @@ public partial class CyberGraveMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.22f, 0.42f, 0.38f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/cyber_grave_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/cyber_grave_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string TitleCardTitle(string narrativeTitle) =>

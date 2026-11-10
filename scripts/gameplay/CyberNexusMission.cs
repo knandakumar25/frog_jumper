@@ -64,7 +64,7 @@ public partial class CyberNexusMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.12f, 0.28f, 0.45f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/cyber_nexus_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/cyber_nexus_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string CompletionLine => "CYBER-NEXUS MAIN CORE NEUTRALIZED // APEX BASTION ASCENT UNLOCKED";

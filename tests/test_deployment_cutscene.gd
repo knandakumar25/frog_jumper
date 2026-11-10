@@ -116,3 +116,20 @@ func test_touch_skips_only_inside_the_button() -> void:
 	scene._input(touch)
 	assert_bool(scene.transitioning).is_true()
 	scene.free()
+
+
+func test_narration_plays_on_voice_bus_with_its_table_gain() -> void:
+	## The narration path (VOICE, duplicated from SpeechPaths.DeploymentNarration) must be in the
+	## gain table, or it would play about 7 dB under the briefing that follows it.
+	var table: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/audio/voice_gain.json"))
+	var voice: String = preload("res://scripts/main_menu/deployment_cutscene.gd").VOICE
+	assert_bool((table["files"] as Dictionary).has(voice)).is_true()
+	var scene = SCENE.instantiate()
+	scene.transition_to_briefing = false
+	add_child(scene)
+	var gain: float = table["files"][scene.narration_path]["gain_db"]
+	assert_float(absf(gain)).is_greater(0.01)
+	assert_str(String(scene.narrator.bus)).is_equal("Voice")
+	assert_float(scene.narrator.volume_db).is_equal_approx(gain, 0.01)
+	remove_child(scene)
+	scene.free()

@@ -4,16 +4,13 @@ Run with Blender --background --python tools/cutscene/render.py. Intermediate
 plates go to .validation/deployment; only the packaged video enters the game.
 """
 import sys
-import inspect
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/art'))
 import render_menu_backdrops as art
 
-# The legacy helper names Eevee differently across Blender releases. Portable
-# emission-only CPU rendering keeps the legacy preview build usable in Docker.
-exec(inspect.getsource(art.render).replace("scene.render.engine = 'BLENDER_EEVEE'", "scene.render.engine = 'CYCLES'; scene.cycles.samples = 1; scene.cycles.use_denoising = False"), art.__dict__)
+# Render settings come from tools/art/render_quality.py via the shared render().
 
 
 def main():

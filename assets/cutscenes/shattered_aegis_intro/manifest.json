@@ -22,9 +22,9 @@
   "reused": [
     "neon_rust_aftermath/poses.png",
     "deployment/live/city_base.png",
-    "characters/rendered/heavy_atlas.png",
     "deployment/live/city_structure.png",
-    "deployment/live/city_lights.png"
+    "deployment/live/city_lights.png",
+    "characters/rendered/heavy_atlas.png"
   ],
   "palette": "Established red/gold Kaito, hydro Oceanus, violet Titan, prism Aura, emerald Mirage, solar gold Surya; original armored heavy Voss silhouette",
   "rights": "Original project geometry, no third-party stock or sampled atmosphere",

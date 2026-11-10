@@ -34,7 +34,8 @@ public partial class WorldHostile : Node2D
     {
         _strikeSound = StandInAssets.AddPlayer(this, StandInAssets.Strike, -9);
         // Scale keeps the robot close to the operative's height; the offset lifts its feet (about y 138 in a 256 cell) to the origin.
-        _body = StandInAssets.AddSheet(this, StandInAssets.RobotSheet("IdleAim", 8), 5, 5, .3f, new Vector2(0, -10), TextureFilterEnum.Linear);
+        // At 0.3x the 256 px cells shimmer when moving unless mipmaps are sampled; the sheets import with mipmaps on.
+        _body = StandInAssets.AddSheet(this, StandInAssets.RobotSheet("IdleAim", 8), 5, 5, .3f, new Vector2(0, -10), TextureFilterEnum.LinearWithMipmaps);
         _sheetKey = "IdleAim8";
         _sheetFrames = 24;
     }

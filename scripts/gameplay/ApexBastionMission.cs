@@ -61,7 +61,7 @@ public partial class ApexBastionMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.18f, 0.22f, 0.32f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/apex_bastion_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/apex_bastion_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string CompletionLine => "APEX BASTION DEFENSES SHATTERED // CITADEL THRONE ROOM BREACHED";

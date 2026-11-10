@@ -18,13 +18,13 @@
   "rights": "Original project geometry; no external stock assets",
   "representative_review": "Agent-inspected native-scale target before remaining family assets",
   "files": {
-    "aftermath_base.png": "634ffd9c63917570c1b21586b98b3a845a1af196ad1e83c9d71c106e8ebc67d6",
-    "aftermath_lights.png": "d9da817417aa2d0217d43911a699ea29cbf08bddbb51c273e5d143fcacc90fd6",
-    "aftermath_structure.png": "2f5c584ea3cc9ccaf89885638f96b768a0bca1b68dc897052dd68661445a6d2c",
-    "boss_lights.png": "ffdb76d10014710a9f9f6b720fa5e5641db2beb3d165765d2d574125030c7b9a",
-    "boss_structure.png": "4e3a5359c81a9ac4c7b03418bf92812d1e388eb28d719719719f1b17e2059405",
-    "environment_base.png": "d154176fff6de1a26321302e9b42cd89457d11ef376c748ee09e08fe22cb7324",
-    "environment_lights.png": "25f2a1ebda8ed14c79edf6d5f19d65022f43407143c6020fd3e3d94e7a0aa75c",
-    "environment_structure.png": "d3ef33422b43ac4b5283d43453b46c234212be80aa9913ff40e910be5fbd72cb"
+    "aftermath_base.png": "a65d6615ab794ac849a60edb12ff4f6b7b902fe091d747c0056e5d78082c3666",
+    "aftermath_lights.png": "4e32ea01162ba7fadf020edc6141f10af212e248f619073bfe69a88e12949d7a",
+    "aftermath_structure.png": "79b8d22287ac1922a1f4c86e5fff073f75fd419f02cea3701c0cf971074fb265",
+    "boss_lights.png": "f2e3a0957a8613d8fd06490078c88faec7ebf748d4697ba74cb578b4c5c00bfc",
+    "boss_structure.png": "3185408f9c1d047d790d0605f8bb45c47e724277fd1246c4680a467e58b2acc9",
+    "environment_base.png": "bcbb3cf71e5b4e109a82827a9f79e9f5740ad8b10d6225bfdf57273ef8471cf1",
+    "environment_lights.png": "d0125651437ff55e4f63779df8c5389a549292755af04844630d29ed4c26ce14",
+    "environment_structure.png": "27552d3fda1f4b62b8805dde3cbd64de5b5e52001691a12d7e5acd6bac0806f6"
   }
 }

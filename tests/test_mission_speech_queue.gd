@@ -119,3 +119,52 @@ func test_production_fall_recovery_cancels_active_and_pending_speech() -> void:
 	var owner: WeakRef = weakref(queue)
 	mission.free()
 	assert_object(owner.get_ref()).is_null()
+
+
+func test_real_cue_plays_on_voice_bus_with_its_table_gain() -> void:
+	## End to end: the path the catalog builds must hit the gain table, or every line silently gets 0 dB.
+	var mission := _mission()
+	var queue: Node = mission.get_node("MissionSpeechQueue")
+	mission.call("PlayStoryCue", "m05.fragment1")
+	queue.call("_Process", 0.0)
+	var player: AudioStreamPlayer = queue.get_node("EnglishSpeech")
+	var table: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/audio/voice_gain.json"))
+	var gain: float = table["files"]["res://assets/audio/english/m05.fragment1.mp3"]["gain_db"]
+	# A nonzero gain is needed to tell a table hit from the 0 dB fallback.
+	assert_float(absf(gain)).is_greater(0.01)
+	assert_str(String(player.bus)).is_equal("Voice")
+	assert_float(player.volume_db).is_equal_approx(-2.0 + gain, 0.01)
+	queue.call("Cancel")
+	mission.free()
+
+
+func test_mission_music_plays_on_music_bus_with_its_table_gain() -> void:
+	## Mission 4 uses the default track, mission 5 its own atmosphere (which used to force -21 dB);
+	## both must take the measured level from the music table instead of the old +24 dB on Master.
+	var table: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/audio/music_gain.json"))
+	for number in [4, 5]:
+		var mission := _mission(number)
+		var music: AudioStreamPlayer = mission.get_node("AudioStreamPlayer")
+		var gain: float = table["files"][music.stream.resource_path]["gain_db"]
+		assert_str(String(music.bus)).is_equal("Music")
+		assert_float(music.volume_db).is_equal_approx(gain, 0.01)
+		assert_float(music.volume_db).is_less(0.0)
+		mission.free()
+
+
+func test_every_mission_scene_track_has_a_music_gain() -> void:
+	## Reads each scene's real MusicPath (not a regex over the sources), so a track written in any
+	## form must be in the music table; otherwise it would play at its raw level.
+	var table: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/audio/music_gain.json"))
+	var scenes: Array[String] = []
+	for number in range(1, 13):
+		scenes.append("res://scenes/gameplay/level%d.tscn" % number)
+	for city in ["beirut_broadcast_tower", "dubai_salt_plant", "honolulu_pumping_station", "kyoto_kamo_locks",
+			"luanda_power_station", "mumbai_viaduct_grid"]:
+		scenes.append("res://scenes/gameplay/%s.tscn" % city)
+	for path in scenes:
+		var scene: Node = load(path).instantiate()
+		var track := String(scene.get("MusicPath"))
+		assert_str(track).is_not_empty()
+		assert_bool((table["files"] as Dictionary).has(track)).override_failure_message("%s: %s has no gain" % [path, track]).is_true()
+		scene.free()

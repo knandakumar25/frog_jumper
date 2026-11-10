@@ -59,8 +59,11 @@ public abstract partial class CodeLevel : Node2D
     protected virtual SkylinePalette SkylinePalette => SkylinePalette.Night;
     /// <summary>Colour multiplied onto every platform so each level gets its own mood without new art.</summary>
     protected virtual Color PlatformTint => Colors.White;
-    /// <summary>Music for the level.</summary>
-    protected virtual string MusicPath => "res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3";
+    /// <summary>
+    /// Music for the level. Public so tests can read every scene's real track; its playback level comes
+    /// from assets/audio/music_gain.json (re-run tools/assets/music_gain.py after changing a track).
+    /// </summary>
+    public virtual string MusicPath => "res://assets/music/Sakura-Girl-Yay-chosic.com_.mp3";
     /// <summary>Shrine checkpoints as (name, bottom-centre position).</summary>
     protected virtual IEnumerable<(string Name, Vector2 Position)> Shrines => System.Array.Empty<(string, Vector2)>();
     /// <summary>Hidden memory fragments (bottom-centre positions).</summary>
@@ -890,9 +893,12 @@ public abstract partial class CodeLevel : Node2D
     /// <summary>Starts the stage music and instantiates the shared pause menu used by the other levels.</summary>
     private void BuildAudioAndPause()
     {
+        // Music bus at the track's measured gain (assets/audio/music_gain.json), so every mission's
+        // music sits about 9 LU under speech. It used to play at +24 dB on Master, far over speech.
         var music = new AudioStreamPlayer
         {
-            Name = "AudioStreamPlayer", Stream = GD.Load<AudioStream>(MusicPath), VolumeDb = 24f, Autoplay = true
+            Name = "AudioStreamPlayer", Stream = GD.Load<AudioStream>(MusicPath), Bus = MusicGain.Bus,
+            VolumeDb = MusicGain.GainDb(MusicPath), Autoplay = true
         };
         AddChild(music);
         var pauseLayer = new CanvasLayer { Name = "CanvasLayer" };

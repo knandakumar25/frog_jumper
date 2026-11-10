@@ -4,7 +4,6 @@
 All imagery is original planar geometry using the established project art helpers.
 """
 import ast
-import inspect
 import sys
 from pathlib import Path
 import bpy
@@ -15,9 +14,7 @@ PREVIEW = ROOT / '.validation/deployment/live'
 sys.path.insert(0, str(ROOT / 'tools/art'))
 import render_menu_backdrops as city
 
-# Debian Blender 4.3 uses a different Eevee identifier than the original helper.
-# Emission-only Cycles keeps colors identical and renders portably on the CPU.
-exec(inspect.getsource(city.render).replace("scene.render.engine = 'BLENDER_EEVEE'", "scene.render.engine = 'CYCLES'; scene.cycles.samples = 1"), city.__dict__)
+# Render settings come from tools/art/render_quality.py via the shared render().
 
 
 def character_library():

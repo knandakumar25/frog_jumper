@@ -59,7 +59,7 @@ public partial class SpireOuterHullMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.2f, 0.4f, 0.55f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/spire_outer_hull_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/spire_outer_hull_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string CompletionLine => "SPIRE OUTER HULL BREACHED // CYBER-NEXUS AIRLOCK UNLOCKED";

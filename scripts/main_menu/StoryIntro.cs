@@ -61,8 +61,9 @@ public partial class StoryIntro : Control
 			GD.Print("StoryIntro: Stopped menu music via Global");
 		}
 
-		// Initialize the dedicated voice-over audio player.
-		voicePlayer = new AudioStreamPlayer();
+		// Initialize the dedicated voice-over audio player on the limited Voice bus (which sends
+		// into SFX at 0 dB, so the base level is unchanged); each line's gain is set on play.
+		voicePlayer = new AudioStreamPlayer { Bus = VoiceGain.Bus };
 		AddChild(voicePlayer);
 
 		// Initialize the dialogue sequence using localized translation keys.
@@ -114,6 +115,9 @@ public partial class StoryIntro : Control
 			TranslationServer.Translate("STORY_LINE_3"),
 			TranslationServer.Translate("STORY_LINE_4")
 		};
+		// The voice gain table covers exactly SpeechPaths.BriefingLineCount recordings.
+		if (dialogueLines.Count != SpeechPaths.BriefingLineCount)
+			GD.PushWarning($"StoryIntro: {dialogueLines.Count} lines but SpeechPaths.BriefingLineCount is {SpeechPaths.BriefingLineCount}; update it and re-run tools/assets/voice_gain.py");
     }
 
     /// <summary>Updates an active subtitle at its reveal fraction without calling StartNextLine or replaying speech.</summary>
@@ -206,8 +210,7 @@ public partial class StoryIntro : Control
 			typewriterTimer = 0f;
 
 			// Voice-over audio remains in English across all language versions, while subtitles match the selected language.
-			string speaker = "AXIOM-7";
-			string audioPath = $"res://assets/speech/{speaker}/english/AXIOM-7-{currentLineIndex + 1}.mp3";
+			string audioPath = SpeechPaths.Briefing(currentLineIndex + 1);
 
 			GD.Print($"StoryIntro: Attempting to load audio: {audioPath}");
 			AudioStream? stream = LoadAudioStream(audioPath);
@@ -215,6 +218,8 @@ public partial class StoryIntro : Control
 			{
 				GD.Print($"StoryIntro: Successfully loaded and playing: {audioPath}");
 				voicePlayer.Stream = stream;
+				// Level-match this briefing line with the others (0 dB if it is not in the table).
+				voicePlayer.VolumeDb = VoiceGain.GainDb(audioPath);
 				voicePlayer.Play();
 			}
 			else

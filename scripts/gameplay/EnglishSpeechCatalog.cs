@@ -26,7 +26,7 @@ public static class EnglishSpeechCatalog
         {
             string id = row.GetProperty("id").GetString()!;
             result[id] = new Cue(id, row.GetProperty("display_text").GetString()!,
-                bindings.GetValueOrDefault(id, row.GetProperty("subtitle_key").GetString() ?? ""), "res://" + row.GetProperty("audio_path").GetString(),
+                bindings.GetValueOrDefault(id, row.GetProperty("subtitle_key").GetString() ?? ""), SpeechPaths.CueResource(row.GetProperty("audio_path").GetString()!),
                 row.GetProperty("classification").GetString()!);
         }
         return result;

@@ -28,7 +28,10 @@ def facade():
     """Damaged inhabited housing with fractured roofline, cool windows and warm fire cavities."""
     art.poly('structure', [(24, 486), (24, 130), (95, 80), (157, 122), (230, 65), (260, 154),
                            (332, 105), (393, 150), (482, 114), (488, 486)], INK)
-    for x in [56, 180, 304, 428]:
+    # The right-hand window panels end at x+83; these columns keep them at 508 or less, so
+    # the 1.5 px anti-aliased edge stays inside the 512 px canvas and its required margin
+    # (validate_wildfire.py). They were 3 px further right when edges were unfiltered.
+    for x in [53, 177, 301, 425]:
         rectangle(x, 178, 16, 290, STEEL)
         for y in [195, 278, 365]:
             rectangle(x+25, y, 58, 42, STEEL)
@@ -125,9 +128,8 @@ def render(path, width=512, height=512):
     camera_object.location = (0, 0, 40)
     scene = bpy.context.scene
     scene.camera = camera_object
-    scene.render.engine = 'CYCLES'
-    scene.cycles.samples = 1
-    scene.cycles.use_denoising = False
+    # Anti-aliased emission rendering shared with every planar art helper.
+    art.render_quality.apply_flat(scene)
     scene.render.resolution_x, scene.render.resolution_y = width, height
     scene.render.resolution_percentage = 100
     scene.render.film_transparent = True

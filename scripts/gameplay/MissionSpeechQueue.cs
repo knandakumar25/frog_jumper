@@ -9,6 +9,8 @@ public partial class MissionSpeechQueue : Node
     public CodeLevel Mission { get; set; } = null!;
     /// <summary>Optional resource root for offline fallback testing; empty uses each catalog recording path.</summary>
     public string AudioDirectoryOverride { get; set; } = "";
+    /// <summary>Mission speech player volume (-2 dB, unchanged from before level matching); each line's gain is added to it.</summary>
+    public const float BaseVolumeDb = -2f;
     private readonly Queue<EnglishSpeechCatalog.Cue> _pending = new();
     private readonly HashSet<string> _seen = new(StringComparer.Ordinal);
     private AudioStreamPlayer? _player;
@@ -25,7 +27,8 @@ public partial class MissionSpeechQueue : Node
     public override void _Ready()
     {
         ProcessMode = ProcessModeEnum.Always;
-        _player = new AudioStreamPlayer { Name = "EnglishSpeech", Bus = "SFX", VolumeDb = -2 };
+        // Voice bus (limited, sends into SFX); each line's level-matching gain is added on play.
+        _player = new AudioStreamPlayer { Name = "EnglishSpeech", Bus = VoiceGain.Bus, VolumeDb = BaseVolumeDb };
         AddChild(_player);
         _player.Finished += OnFinished;
     }
@@ -67,6 +70,8 @@ public partial class MissionSpeechQueue : Node
         string path = string.IsNullOrEmpty(AudioDirectoryOverride) ? _current.AudioPath :
             AudioDirectoryOverride.TrimEnd('/') + "/" + _current.AudioPath[(_current.AudioPath.LastIndexOf('/') + 1)..];
         _player.Stream = ResourceLoader.Exists(path) ? GD.Load<AudioStream>(path) : null;
+        // Mission recordings differ by up to 10 LU; the per-line gain evens them out (0 dB if unlisted).
+        _player.VolumeDb = BaseVolumeDb + VoiceGain.GainDb(path);
         _fallbackRemaining = Math.Max(4, _current.Text.Length / 14f);
         Mission.ShowSpeechSubtitle(EnglishSpeechCatalog.Subtitle(_current),
             _player.Stream == null ? _fallbackRemaining : (float)_player.Stream.GetLength() + .2f);

@@ -59,7 +59,7 @@ public partial class StratosDocksMission : LaterCodeLevel, IFiniteCombatHost
     protected override Color PlatformTint => new(0.25f, 0.35f, 0.48f);
 
     /// <inheritdoc/>
-    protected override string MusicPath => "res://assets/cutscenes/stratos_docks_intro/atmosphere.ogg";
+    public override string MusicPath => "res://assets/cutscenes/stratos_docks_intro/atmosphere.ogg";
 
     /// <inheritdoc/>
     protected override string TitleCardTitle(string narrativeTitle) =>

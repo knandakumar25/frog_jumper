@@ -1,6 +1,8 @@
 """Author the original Neo-Kyoto modular kit in Blender, without external asset dependencies.
 
-Run through the opt-in cutscene Compose image with Blender's embedded Python.
+Run with host Blender 5.2 (``blender --background --factory-startup --python
+tools/world/build_kit.py``) or through the opt-in cutscene Compose image. The shipped kit
+was last rendered on host Blender 5.2; re-render the whole kit on one version.
 Orthographic camera, transparent PNGs, fixed lighting and shared geometry keep the
 six eight-direction/four-frame operative atlases and eight environment modules coherent.
 The first palace block is the reference family; no game export is performed.
@@ -13,7 +15,12 @@ from pathlib import Path
 import bpy
 from mathutils import Vector
 
-OUT = Path('/workspace/assets/world')
+# Repo-relative so the kit renders in the cutscene container (/workspace) and in host
+# Blender alike.
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'assets/world'
+sys.path.insert(0, str(ROOT / 'tools/art'))
+import render_quality  # noqa: E402
 OUT.mkdir(parents=True, exist_ok=True)
 
 
@@ -53,9 +60,8 @@ def setup(width, height, target, ortho):
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete(use_global=False)
     scene = bpy.context.scene
-    scene.render.engine = 'CYCLES'
-    scene.cycles.samples = 64
-    scene.cycles.use_denoising = False
+    # Low-noise lit rendering; see tools/art/render_quality.apply_lit.
+    render_quality.apply_lit(scene)
     scene.render.resolution_x = width
     scene.render.resolution_y = height
     scene.render.resolution_percentage = 100
