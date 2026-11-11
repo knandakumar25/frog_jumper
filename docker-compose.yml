@@ -12,7 +12,8 @@
 name: axiom-force
 
 services:
-  # Opt-in art pipeline; never starts with the application's always-on services.
+  # Opt-in ffmpeg media tooling (cutscene audio packaging and validators); never starts with
+  # the application's always-on services. It no longer contains Blender.
   cutscene:
     profiles: ["cutscene"]
     build:

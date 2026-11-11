@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getTitleLogoPath } from '../translations/titleLogo';
+import TitleLogo from './TitleLogo';
 import './Hero.css';
 
 const TYPEWRITER_KEYS = [
@@ -88,11 +88,12 @@ export default function Hero({ bgImage }) {
 
         <div className="hero__title-container flex justify-center my-4">
           <h1 className="sr-only">{t('hero.title_line1')} {t('hero.title_line2_prefix')}{t('hero.title_line2_highlight')}</h1>
-          <img 
-            src={getTitleLogoPath(i18n.language)} 
-            alt="AXIOM FORCE Logo" 
+          <TitleLogo
+            lang={i18n.language}
+            alt="AXIOM FORCE Logo"
             className="w-full max-w-[680px] h-auto object-contain drop-shadow-[0_0_35px_rgba(0,243,255,0.9)] select-none transition-all duration-300"
-            fetchpriority="high"
+            textClassName="text-4xl md:text-6xl"
+            fetchPriority="high"
           />
         </div>
 

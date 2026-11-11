@@ -255,7 +255,7 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
             var status=World.GetNode<Label>("AccessStatus");status.Text=WildfireText.Get("NAMES_ACCESS_ACCEPTED","ACCEPTED / CIVILIAN ACCESS RESTORED");status.Modulate=new Color("85dacb");
         }
         if(id=="commit") foreach(var gate in _civilianGates)
-        { var texture=GD.Load<Texture2D>("res://assets/environment/names/access_restored.png");if(texture!=null)gate.Texture=texture; }
+        { var texture=OptionalArt.Texture("res://assets/environment/names/access_restored.png");if(texture!=null)gate.Texture=texture; } // Absent until the art is regenerated.
         return true;
     }
     /// <summary>Updates exact interlocks, context prompts and sequential defenses; no countdown or endless spawn advances recovery.</summary>

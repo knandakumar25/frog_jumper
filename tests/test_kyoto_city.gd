@@ -108,10 +108,15 @@ func test_kyoto_quest_advances_and_progress_survives_a_round_trip() -> void:
 	await _close_world(world)
 
 
-func test_kyoto_art_exists_for_every_module_and_landmark() -> void:
+## Kyoto art awaits SpriteCook regeneration (docs/ART_REGENERATION.md): all 16 files or none.
+func test_kyoto_art_is_complete_or_absent() -> void:
+	var present := 0
 	for index in 8:
-		assert_bool(ResourceLoader.exists("res://assets/world/kyoto/module_%d.png" % index)).is_true()
-		assert_bool(ResourceLoader.exists("res://assets/world/kyoto/landmark_%d.png" % index)).is_true()
+		if ResourceLoader.exists("res://assets/world/kyoto/module_%d.png" % index):
+			present += 1
+		if ResourceLoader.exists("res://assets/world/kyoto/landmark_%d.png" % index):
+			present += 1
+	assert_bool(present == 0 or present == 16).is_true()
 
 
 func test_kamo_locks_builds_without_touching_campaign_progress() -> void:

@@ -3,7 +3,7 @@ import array
 import json
 import subprocess
 from pathlib import Path
-from validate_live import pixels
+from png_pixels import pixels
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT/'assets/cutscenes/names_without_numbers'
@@ -12,6 +12,9 @@ OUT = ROOT/'assets/cutscenes/names_without_numbers'
 def main():
     """Check native-size alpha, eight cast lines, 90-second audio tracks and measured non-overlap."""
     for name in ['district_structure','district_lights']:
+        if not (OUT/(name+'.png')).exists():  # Absent until regenerated with SpriteCook (docs/ART_REGENERATION.md).
+            print('SKIPPED (awaiting SpriteCook regeneration):', (OUT/(name+'.png')).name)
+            continue
         width,height,rows = pixels(OUT/(name+'.png'))
         assert (width,height)==(1920,1080),(name,width,height)
         alpha=[row[x] for row in rows for x in range(3,width*4,4)]

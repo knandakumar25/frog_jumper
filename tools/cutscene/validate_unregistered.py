@@ -4,7 +4,7 @@ import hashlib
 import json
 import subprocess
 from pathlib import Path
-from validate_live import pixels
+from png_pixels import pixels
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'assets/cutscenes/act_ii_opening'
@@ -16,6 +16,9 @@ def main():
     for scene in ['queue','scanner','registry','service','civilians']:
         for layer in (['structure','lights'] if scene == 'civilians' else ['base','structure','lights']):
             name = f'{scene}_{layer}'
+            if not (OUT/f'{name}.png').exists():  # Absent until regenerated with SpriteCook (docs/ART_REGENERATION.md).
+                print('SKIPPED (awaiting SpriteCook regeneration):', (OUT/f'{name}.png').name)
+                continue
             width,height,rows = pixels(OUT/f'{name}.png')
             assert (width,height) == (1920,1080), name
             alpha = [row[x] for row in rows for x in range(3,width*4,4)]

@@ -56,6 +56,19 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 - **Coverage gaps:** the graph holds C#, Python, JS/JSX, Markdown, JSON and YAML. It has **no GDScript (`.gd`)**, no scenes (`.tscn`) and no assets, so use normal file search for those. When the graph is missing, stale or disagrees with the working tree, trust the files and say so in the reply. Never claim a Graphify result you did not get.
 - Graphify supplements the EGM, game-development, Docker, testing and documentation rules above. It never authorizes commits, pushes or other outward-facing actions.
 
+### Art Pipeline: SpriteCook Only (Blender Retired)
+
+- **Blender is retired** (2026-11-11). Do not install or run Blender, and do not add `bpy` scripts, Blender add-ons, `.blend` files or Blender render steps. The Blender-made art, its generator scripts and the `blendot`, `blender_godot_pipeline` and `gltf_fix_blender_light_intensity` add-ons were deleted. The originals are in git history at `ca92679`. `addons/animation_combiner` (an FBX/GLB tool with Blender helper scripts) is still installed, pending an owner decision; do not use its Blender scripts.
+- **All new or replacement game and website art comes from SpriteCook.** Use the `spritecook@spritecook` plugin installed for Claude Code, Codex and Antigravity. Read and follow its skills before generating: `spritecook-workflow-essentials` first, then the task's skill (`spritecook-generate-sprites`, `spritecook-animate-assets`, `spritecook-generate-tilesets`, `spritecook-build-ui-kits`, `spritecook-polish-sprites`, `spritecook-use-assets-in-godot`).
+- **Generation spends paid credits.** Get the owner's explicit approval before each generation batch, with the asset list and expected credit cost. The owner has an account but no subscription yet, so the SpriteCook MCP server failing to connect is expected and not a fault.
+- **What to regenerate:** `docs/ART_REGENERATION.md` lists every deleted image, with its path, pixel size, layer role, frame layout, pivot and the code that loads it. `docs/art_regeneration.json` holds the same sizes.
+  - Save each new image at its listed path and exact size, so the game uses it with no code change.
+  - `ArtRegenerationSpecTests` (NUnit) fails if a regenerated file has the wrong size.
+  - Record each saved file's `asset_id` in `spritecook-assets.json` at the repository root (create it on first use).
+- **Until art returns, the game leaves gaps on purpose:** invisible actors that use the rendered sprites (the platformer operatives in most missions, the drone and the boss; an empty placeholder in `OperativeVisuals`), while Shogun's Level 1 and training art and the selection studies still show; sentries, open-world hostiles and Aegis civilians are drawn in code, blank cities and menus, cutscenes that skip, and an empty title slot (a text title on the website). Do not add stand-in art to fill these gaps unless the owner asks.
+- Check new art with `tools/assets/audit_images.py` and `tools/assets/compare_images.py`, which run on Pillow and numpy.
+- This rule never authorizes commits, pushes or spending credits.
+
 ### Mandatory Game-Development Skills (All Game-Related Work)
 
 - Whenever an agent performs game-related work, it **MUST first read and apply the relevant skills from `gamedev-skills/awesome-gamedev-agent-skills`**. This applies to Codex, Claude Code, and Google Antigravity, including implementation, debugging, reviews, advice, planning, assets, and game-related documentation.

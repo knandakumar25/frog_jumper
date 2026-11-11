@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
-import { getTitleLogoPath } from '../translations/titleLogo';
+import TitleLogo from '../components/TitleLogo';
 
 
 const OPERATIVES_PREVIEW = [
@@ -151,11 +151,12 @@ export default function Home() {
         {/* Top-Left Identity HUD */}
         <div className="absolute top-6 left-4 md:left-8 z-10 flex flex-col items-start gap-2.5">
           <h1 className="sr-only">AXIOM FORCE</h1>
-          <img
-            src={getTitleLogoPath(selectedLanguage)}
+          <TitleLogo
+            lang={selectedLanguage}
             alt="AXIOM FORCE Logo"
             className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_0_24px_rgba(0,243,255,0.85)] select-none"
-            fetchpriority="high"
+            textClassName="text-2xl md:text-3xl"
+            fetchPriority="high"
           />
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-warning-orange animate-ping"></span>

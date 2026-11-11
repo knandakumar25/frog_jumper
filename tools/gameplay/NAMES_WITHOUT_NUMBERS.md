@@ -1,5 +1,7 @@
 # Mission 5 production and acceptance
 
+> **Blender retired (2026-11-11).** The Blender render steps, the `render_*.py` scripts and every image they made were deleted. The image sections below are history only. The audio, narration, packaging and validation sections still apply. Run scripts with `docker compose --profile cutscene run --rm cutscene tools/<folder>/<script>.py`; the image now holds only Python and ffmpeg. The validators skip images that have not been regenerated yet. New art comes from SpriteCook: see `docs/ART_REGENERATION.md`.
+
 | Sector | World X | Required route | Target |
 | --- | --- | --- | --- |
 | Service | 0–4300 | Scanner timing, service defenders, Mirage phase at 3950 | 3–4 min |
@@ -46,12 +48,10 @@ were not measured because the remote play session stalled before the first forma
 Production commands use the existing opt-in Docker media image, never game exports:
 
 ```powershell
-docker compose --profile cutscene run --rm -T --entrypoint blender cutscene --background --python tools/gameplay/render_names.py -- --preview
-docker compose --profile cutscene run --rm -T --entrypoint blender cutscene --background --python tools/gameplay/render_names.py
 python tools/gameplay/narrate_names.py
 docker compose --profile cutscene run --rm -T --entrypoint python3 cutscene tools/gameplay/package_names.py
 docker compose --profile cutscene run --rm -T --entrypoint python3 cutscene tools/gameplay/sound_names.py
-docker compose --profile cutscene run --rm -T --entrypoint blender cutscene --background --python tools/gameplay/validate_names.py
+docker compose --profile cutscene run --rm cutscene tools/gameplay/validate_names.py
 ```
 
 This workstation's Docker D: bind mount failed; production used `docker cp` with

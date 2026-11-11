@@ -119,6 +119,8 @@ func test_touch_skips_only_inside_the_button() -> void:
 
 
 func test_narration_plays_on_voice_bus_with_its_table_gain() -> void:
+	if not preload("res://scripts/main_menu/deployment_stage.gd").art_available():
+		return  # Playback needs art awaiting SpriteCook regeneration (docs/ART_REGENERATION.md).
 	## The narration path (VOICE, duplicated from SpeechPaths.DeploymentNarration) must be in the
 	## gain table, or it would play about 7 dB under the briefing that follows it.
 	var table: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/audio/voice_gain.json"))

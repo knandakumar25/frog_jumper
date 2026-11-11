@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/actors/CyberBossMech2D.cs" id="1_boss_script"]
-[ext_resource type="SpriteFrames" path="res://assets/characters/rendered/heavy.tres" id="2_boss_tex"]
 
 [sub_resource type="CanvasItemMaterial" id="Material_baked_character"]
 light_mode = 1
@@ -28,9 +27,6 @@ script = ExtResource("1_boss_script")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("Material_baked_character")
 scale = Vector2(0.65, 0.65)
-sprite_frames = ExtResource("2_boss_tex")
-animation = &"idle"
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_boss")

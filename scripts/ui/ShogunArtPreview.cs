@@ -36,7 +36,8 @@ public partial class ShogunArtPreview : Control
     /// <summary>Loads both preserved art variants without modifying either resource.</summary>
     public override void _Ready()
     {
-        _originalFrames = GD.Load<SpriteFrames>("res://assets/characters/rendered/cyber_shogun.tres");
+        // Null while the rendered art awaits regeneration; _Draw then uses the study atlas instead.
+        _originalFrames = OperativeVisuals.TryLoadFrames("Cyber Shogun");
         _atlas = GD.Load<Texture2D>("res://assets/characters/shogun_study/poses.png");
         _locomotionAtlas = GD.Load<Texture2D>("res://assets/characters/shogun_study/locomotion.png");
         if (_atlas != null)
@@ -70,7 +71,7 @@ public partial class ShogunArtPreview : Control
         {
             ActiveOperativeId = id;
             _operativeArt = id == "cyber_shogun" ? null : OperativeStudyAtlas.Load(id);
-            _originalFrames = OperativeVisuals.LoadFrames(name);
+            _originalFrames = OperativeVisuals.TryLoadFrames(name);
         }
         Preview("Idle");
     }

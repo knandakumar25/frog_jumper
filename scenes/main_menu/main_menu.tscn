@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4]
+[gd_scene load_steps=11 format=4]
 
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
@@ -11,9 +11,6 @@
 [ext_resource type="Script" path="res://scripts/ui/CyberDropdown.cs" id="4_cyber_dropdown"]
 
 [ext_resource type="Script" path="res://scripts/ui/animated_menu_backdrop.gd" id="20_backdrop"]
-[ext_resource type="Texture2D" path="res://assets/images/menu_backdrops/city_base.png" id="21_base"]
-[ext_resource type="Texture2D" path="res://assets/images/menu_backdrops/city_structure.png" id="21_structure"]
-[ext_resource type="Texture2D" path="res://assets/images/menu_backdrops/city_lights.png" id="21_lights"]
 
 [node name="MainMenu" type="Control" unique_id=529692672]
 layout_mode = 3
@@ -35,9 +32,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("20_backdrop")
 setting = 0
-foundation = ExtResource("21_base")
-architecture = ExtResource("21_structure")
-illumination = ExtResource("21_lights")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000000001]
 environment = ExtResource("11_cyber_glow")

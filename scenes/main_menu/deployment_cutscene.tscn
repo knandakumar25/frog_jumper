@@ -1,18 +1,9 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/main_menu/deployment_cutscene.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/main_menu/deployment_stage.gd" id="2"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/city_base.png" id="3"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/city_structure.png" id="4"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/city_lights.png" id="5"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/roof_structure.png" id="6"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/roof_lights.png" id="7"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/shogun.png" id="8"]
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/drone_structure.png" id="9"]
-[ext_resource type="Texture2D" path="res://assets/characters/rendered/axiom7_portrait.png" id="10"]
 [ext_resource type="Shader" path="res://scripts/main_menu/deployment_scan.gdshader" id="11"]
 
-[ext_resource type="Texture2D" path="res://assets/cutscenes/deployment/live/drone_lights.png" id="12"]
 
 [sub_resource type="ShaderMaterial" id="Scan"]
 resource_local_to_scene = true
@@ -61,35 +52,29 @@ script = ExtResource("2")
 [node name="FarCity" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 position = Vector2(-300, -150)
 scale = Vector2(1.4, 1.4)
-texture = ExtResource("3")
 centered = false
 
 [node name="MidCity" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 position = Vector2(-300, -150)
 scale = Vector2(1.4, 1.4)
-texture = ExtResource("4")
 centered = false
 
 [node name="CityLights" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 position = Vector2(-300, -150)
 scale = Vector2(1.4, 1.4)
-texture = ExtResource("5")
 centered = false
 
 [node name="Roof" type="Node2D" parent="Frame/Screen/World/Stage"]
 visible = false
 
 [node name="Structure" type="Sprite2D" parent="Frame/Screen/World/Stage/Roof"]
-texture = ExtResource("6")
 centered = false
 
 [node name="Lights" type="Sprite2D" parent="Frame/Screen/World/Stage/Roof"]
-texture = ExtResource("7")
 centered = false
 
 [node name="Afterimage" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 visible = false
-texture = ExtResource("8")
 hframes = 8
 vframes = 5
 offset = Vector2(0, -192)
@@ -97,18 +82,15 @@ offset = Vector2(0, -192)
 [node name="Shogun" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 visible = false
 position = Vector2(530, 765)
-texture = ExtResource("8")
 hframes = 8
 vframes = 5
 offset = Vector2(0, -192)
 
 [node name="Drone" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 visible = false
-texture = ExtResource("9")
 
 [node name="DroneLights" type="Sprite2D" parent="Frame/Screen/World/Stage"]
 visible = false
-texture = ExtResource("12")
 
 [node name="Effects" type="Node2D" parent="Frame/Screen/World/Stage"]
 z_index = 10
@@ -121,7 +103,6 @@ z_index = 20
 material = SubResource("Scan")
 position = Vector2(1270, 465)
 scale = Vector2(0.62, 0.62)
-texture = ExtResource("10")
 
 [node name="Title" type="Label" parent="Frame/Screen/World/Stage/Transmission"]
 offset_left = 320.0

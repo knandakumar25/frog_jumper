@@ -1,8 +1,12 @@
 """Measure the quality of every project image and write a JSON report.
 
-Run with Blender's bundled Python, which provides numpy and image loading:
+Run with any Python that has Pillow and numpy, for example through uv (``--system-certs``
+because this machine's HTTPS inspection breaks uv's built-in certificates):
 
-    blender --background --factory-startup --python tools/assets/audit_images.py -- --out .validation/asset_quality/images.json
+    uv run --system-certs --with pillow --with numpy python tools/assets/audit_images.py --out .validation/asset_quality/images.json
+
+It ran inside Blender's bundled Python until Blender was retired on 2026-11-11; it now uses
+Pillow, so it works on regenerated SpriteCook art the same way.
 
 Inputs: all PNG/JPG files under ``assets/`` and ``website/public/``, except inside any
 ``.godot``, ``addons``, ``reports`` or ``.validation`` folder. Nothing is modified.
@@ -17,36 +21,39 @@ Per image it records:
   transparent area (opaque images included);
 * ``padding``: empty transparent margin on each side, as a share of the image;
 * ``content_hash``: SHA-1 of the file, used to find exact duplicates;
-* ``depth``: Blender's bits per pixel (for example 32 for 8-bit RGBA);
-* ``source``: the generator script for the image, the string ``'third-party (CC0)'`` for
-  stand-ins, or ``None`` for art with no generator script (hand-made or painted), which
-  cannot be re-rendered;
+* ``depth``: bits per pixel of the stored image (for example 32 for 8-bit RGBA, 24 for RGB);
+* ``source``: where the image comes from: ``'SpriteCook (docs/ART_REGENERATION.md)'`` for
+  art that replaces the deleted Blender renders, a script path for script-built art,
+  ``'third-party (CC0)'`` for stand-ins, or ``None`` for hand-made or painted art;
 * ``duplicates``: other audited paths with identical content (only when there are any);
-* ``error``: the load error, instead of the figures, for a file Blender cannot read.
+* ``error``: the load error, instead of the figures, for a file Pillow cannot read.
 """
 import argparse
 import hashlib
 import json
-import sys
 from pathlib import Path
 
-import bpy
 import numpy as np
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 # Folder names skipped wherever they appear in a path.
 SKIP = ('.godot', 'addons', 'reports', '.validation')
 
 # Folder or file path prefix -> script that produces it. Longest prefix wins.
+SPRITECOOK = 'SpriteCook (docs/ART_REGENERATION.md)'
 SOURCES = {
-    'assets/cutscenes/': 'tools/cutscene/render_*.py',
-    'assets/environments/later_campaign/': 'tools/cutscene/render_later_campaign.py',
-    'assets/environment/': 'tools/gameplay/*.py',
-    'assets/world/': 'tools/world/build_kit.py',
-    'assets/characters/rendered/': 'tools/art/draw_flat_characters.py',
+    'assets/cutscenes/': SPRITECOOK,
+    'assets/environments/later_campaign/': SPRITECOOK,
+    'assets/environment/': SPRITECOOK,
+    'assets/world/': SPRITECOOK,
+    'assets/characters/rendered/': SPRITECOOK,
     'assets/characters/shogun_study/campaign_atlas.png': 'tools/art/prepare_campaign_shogun.py',
-    'assets/images/menu_backdrops/': 'tools/art/render_menu_backdrops.py',
-    'assets/images/level1/ghost_gridlock.png': 'tools/art/render_level1_iso.py',
+    'assets/images/menu_backdrops/': SPRITECOOK,
+    'assets/images/level1/ghost_gridlock.png': SPRITECOOK,
+    'assets/images/axiom_force_title_2d': SPRITECOOK,
+    'website/public/images/axiom_force_title_2d': SPRITECOOK,
+    'website/public/images/title_logos/axiom_force_title_2d': SPRITECOOK,
     'assets/stand_in/': 'third-party (CC0)',
 }
 
@@ -61,19 +68,14 @@ def source_for(rel):
 
 
 def pixels(path):
-    """Load an image; return (height x width x 4 float32 array, bits per pixel). Frees the datablock.
+    """Load an image; return (height x width x 4 float32 array in 0..1, bits per pixel).
 
-    The path is made absolute first: Blender does not resolve a relative path against the
-    process's working directory, so ``.validation/...`` would fail to load.
+    Rows run top-down. Images without alpha are given an opaque alpha channel.
     """
-    image = bpy.data.images.load(str(Path(path).resolve()), check_existing=False)
-    try:
-        w, h = image.size
-        data = np.empty(w * h * 4, dtype=np.float32)
-        image.pixels.foreach_get(data)
-        return data.reshape(h, w, 4), image.depth
-    finally:
-        bpy.data.images.remove(image)
+    with Image.open(path) as image:
+        depth = len(image.getbands()) * (16 if image.mode.startswith('I;16') else 8)
+        rgba = np.asarray(image.convert('RGBA'), dtype=np.float32) / 255.0
+    return rgba, depth
 
 
 def edge_softness(alpha):
@@ -103,16 +105,16 @@ def padding(alpha):
     h, w = alpha.shape
     if len(rows) == 0:
         return [1.0, 1.0, 1.0, 1.0]
-    # Blender stores rows bottom-up, so the first non-empty row is the bottom margin.
-    return [round(cols[0] / w, 3), round((h - 1 - rows[-1]) / h, 3),
-            round((w - 1 - cols[-1]) / w, 3), round(rows[0] / h, 3)]
+    # Rows run top-down, so the first non-empty row gives the top margin.
+    return [round(cols[0] / w, 3), round(rows[0] / h, 3),
+            round((w - 1 - cols[-1]) / w, 3), round((h - 1 - rows[-1]) / h, 3)]
 
 
 def main():
     """Audit every image and write the JSON report named by ``--out``."""
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
-    args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
+    args = parser.parse_args()
     files = sorted(p for base in ('assets', 'website/public') for p in (ROOT / base).rglob('*')
                    if p.suffix.lower() in ('.png', '.jpg', '.jpeg'))
     report = []

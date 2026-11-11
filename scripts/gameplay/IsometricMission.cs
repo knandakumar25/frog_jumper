@@ -63,7 +63,8 @@ public partial class IsometricMission : Node2D
         _map = new Sprite2D
         {
             Name = "IsometricPalaceMap",
-            Texture = GD.Load<Texture2D>("res://assets/images/level1/ghost_gridlock.png"),
+            // Null (an empty map sprite) while the map awaits regeneration; see docs/ART_REGENERATION.md.
+            Texture = OptionalArt.Texture("res://assets/images/level1/ghost_gridlock.png"),
             Position = new Vector2(MapWidth * .5f, MapHeight * .5f),
             Scale = new Vector2(MapWidth / 4608f, MapHeight / 1536f),
             FlipV = true,

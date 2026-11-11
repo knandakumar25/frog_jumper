@@ -51,6 +51,13 @@ public partial class CyberBossMech2D : CharacterBody2D
 		_sprite = GetNodeOrNull<AnimatedSprite2D>("Sprite2D");
 		_eyeLight = GetNodeOrNull<PointLight2D>("EyeLight");
 		_thrusterSparks = GetNodeOrNull<CpuParticles2D>("ThrusterSparks");
+		if (_sprite != null)
+		{
+			// Loaded in code, not the scene, because the boss art awaits regeneration
+			// (docs/ART_REGENERATION.md); a missing file gives an invisible placeholder.
+			_sprite.SpriteFrames = OperativeVisuals.LoadFramesAt("res://assets/characters/rendered/heavy.tres");
+			_sprite.Play("idle");
+		}
 
 		if (ResourceLoader.Exists("res://scenes/gameplay/cyber_boss_missile_2d.tscn"))
 		{

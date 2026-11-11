@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://2qir8eoxanie"]
+[gd_scene load_steps=4 format=3 uid="uid://2qir8eoxanie"]
 
-[ext_resource type="Texture2D" uid="uid://cet2avjhfqbx1" path="res://assets/images/End (Idle).png" id="1_fu08x"]
 [ext_resource type="Script" uid="uid://cnmeabb7vr57l" path="res://scripts/gameplay/finish.gd" id="1_wlkrx"]
 [ext_resource type="AudioStream" uid="uid://u6yuawto7645" path="res://assets/music/church-bell-sound-effect-241382.mp3" id="3_njm7j"]
 
@@ -12,7 +11,6 @@ script = ExtResource("1_wlkrx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_fu08x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10.5)

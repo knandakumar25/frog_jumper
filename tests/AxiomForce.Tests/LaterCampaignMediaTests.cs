@@ -66,24 +66,7 @@ public class LaterCampaignMediaTests
         Assert.That(count, Is.EqualTo(117));
     }
 
-    /// <summary>Original layer and boss files retain the exact dimensions and hashes reviewed during production.</summary>
-    [Test]
-    public void SevenArtworkFamiliesMatchManifestsAndPngDimensions()
-    {
-        foreach (string family in Families)
-        {
-            string path = Path.Combine(Root(), "assets/environments/later_campaign", family);
-            using var manifest = JsonDocument.Parse(File.ReadAllText(Path.Combine(path, "manifest.json")));
-            foreach (var file in manifest.RootElement.GetProperty("files").EnumerateObject())
-            {
-                byte[] bytes = File.ReadAllBytes(Path.Combine(path, file.Name));
-                Assert.That(Convert.ToHexStringLower(SHA256.HashData(bytes)), Is.EqualTo(file.Value.GetString()));
-                int width = System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(16, 4));
-                int height = System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(20, 4));
-                bool boss = file.Name.StartsWith("boss_");
-                Assert.That(width, Is.EqualTo(boss ? 512 : 1920));
-                Assert.That(height, Is.EqualTo(boss ? 512 : 1080));
-            }
-        }
-    }
+    // The artwork hash and size check that lived here was replaced by ArtRegenerationSpecTests:
+    // the Blender layers were deleted on 2026-11-11 and their sizes are now held in
+    // docs/art_regeneration.json for SpriteCook regeneration.
 }

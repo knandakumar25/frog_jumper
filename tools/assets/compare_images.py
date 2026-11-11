@@ -1,9 +1,12 @@
-"""Build before/after comparison sheets for re-rendered images.
+"""Build before/after comparison sheets for replaced images (for example SpriteCook art
+against the old Blender renders restored from git into a scratch folder).
 
-Run with Blender's bundled Python (numpy and PNG I/O):
+Run with any Python that has Pillow and numpy, for example:
 
-    blender --background --factory-startup --python tools/assets/compare_images.py -- \
+    uv run --system-certs --with pillow --with numpy python tools/assets/compare_images.py \
         --before <folder of old PNGs> --after <folder of new PNGs> --out <sheet.png>
+
+It ran inside Blender's bundled Python until Blender was retired on 2026-11-11.
 
 Images are paired by file name. For each pair the sheet shows the same 3x-enlarged crop
 from both versions on a checkerboard (old on the left, new on the right), centred on the
@@ -17,8 +20,8 @@ import argparse
 import sys
 from pathlib import Path
 
-import bpy
 import numpy as np
+from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_images import edge_softness, pixels  # noqa: E402
@@ -62,18 +65,9 @@ def crop(px, centre):
 
 
 def save(array, path):
-    """Write a (height, width, 4) float array as a PNG through Blender.
-
-    The path is made absolute because Blender silently skips saving to a relative path
-    that is not under the (unsaved) blend file's folder.
-    """
-    h, w, _ = array.shape
-    image = bpy.data.images.new('sheet', w, h, alpha=True)
-    image.pixels.foreach_set(np.ascontiguousarray(array, dtype=np.float32).ravel())
-    image.filepath_raw = str(Path(path).resolve())
-    image.file_format = 'PNG'
-    image.save()
-    bpy.data.images.remove(image)
+    """Write a (height, width, 4) float array in 0..1, rows top-down, as an 8-bit RGBA PNG."""
+    data = np.clip(np.rint(np.asarray(array) * 255.0), 0, 255).astype(np.uint8)
+    Image.fromarray(data, 'RGBA').save(path)
 
 
 def main():
@@ -82,7 +76,7 @@ def main():
     parser.add_argument('--before', type=Path, required=True)
     parser.add_argument('--after', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
-    args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
+    args = parser.parse_args()
     rows, failures = [], 0
     for old_path in sorted(args.before.glob('*.png')):
         new_path = args.after / old_path.name
@@ -102,8 +96,8 @@ def main():
         rows.append(np.concatenate([crop(old, centre), gap, crop(new, centre)], axis=1))
     if rows:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        # Blender stores images bottom-up, so reverse the rows to put the first pair at the top.
-        save(np.concatenate(rows[::-1], axis=0), args.out)
+        # Rows run top-down, so the first pair is at the top of the sheet.
+        save(np.concatenate(rows, axis=0), args.out)
         print(f'sheet -> {args.out}')
     print(f'{failures} failure(s)')
     sys.exit(1 if failures else 0)

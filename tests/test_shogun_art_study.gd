@@ -25,8 +25,9 @@ func test_all_operatives_show_their_own_hand_drawn_art_and_preserve_originals() 
 		assert_bool(menu.get_node("MainLayout/RightShowcasePanel/VBox/CardImage").visible).is_false()
 		var expected = "res://assets/characters/shogun_study/poses.png" if id == "cyber_shogun" else "res://assets/characters/hand_drawn/" + id + "_poses.png"
 		assert_str(preview.get("StudyTexturePath")).is_equal(expected)
-		for suffix in [".tres", "_portrait.png", "_atlas.png"]:
-			assert_bool(ResourceLoader.exists("res://assets/characters/rendered/" + id + suffix)).is_true()
+		# The rendered sprites (assets/characters/rendered) were deleted pending SpriteCook
+		# regeneration, so they are no longer required here; the hand-drawn study art is.
+		assert_bool(ResourceLoader.exists(expected)).is_true()
 		assert_str(preview.get("CurrentAction")).is_equal("Idle")
 
 ## Each ability has one button in the unified dossier and drives the matching preview slot.

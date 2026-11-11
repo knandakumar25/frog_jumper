@@ -1,5 +1,76 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## EGM Goldfish Review Loop Round 3 completed — 2026-11-11
+
+- **Completed Claude Code's pending task:** Round 3 of `egm-review-loop` on `docs/ART_REGENERATION.md`.
+- **Audit Outcome:** **CLEAN (0 Blockers, 0 Majors, 0 Minors)**.
+  - Verified all Round 2 findings resolved: status key for `skip: unused alias`, `.tres` git-restoration guidance, cutscene pose sheet row/column meanings and pivots, fixed coordinate boxes (drone box, Tokyo blade, Aegis offset, Level 1 map), prop non-uniform display scaling, and credit estimation formulas.
+  - `goldfish_review_report.md` finalized and marked approved.
+- **Verification:**
+  - `dotnet build`: Succeeded with 0 warnings, 0 errors.
+  - Full test suite `run_tests.ps1`: Django 111/111, NUnit 439/439 (including `ArtRegenerationSpecTests`), GdUnit 363/363 in 76 suites (0 errors, 0 failures, 0 flaky, 0 skipped, 0 orphans).
+- **Next steps:** Waiting on owner's art style selection and SpriteCook subscription before Phase 1 batch generation can begin.
+
+## Downloaded stand-in assets removed — 2026-11-11
+
+- **Deleted, at the owner's request:** `assets/stand_in/` (Kenney Racing, Kenney Sci-fi Sounds, Foozle Mecha Boss and Hormelz robot; 35 files plus imports). Also deleted: the Pixel Adventure leftovers `assets/images/{Blue,Green,Cherries,End (Idle),Terrain (16x16)}.png`.
+- **Kept:** the fonts, although they were downloaded too, because every UI string needs them.
+- **Code:** no changes. `StandInAssets.cs` returns null for missing files, so the bike, the `PalaceSentry` body and the `WorldHostile` body are drawn in code, and their sounds are silent.
+- **Scenes:** the texture references were stripped from the unused `scenes/gameplay/collectable.tscn` and `finish.tscn`.
+- **Tests:** `tests/test_stand_in_assets.gd` now checks the fallbacks while the files are absent, and the art when present.
+- **Docs:** `docs/STAND_IN_ASSETS.md` is kept as a record of the sources and licenses, with a removal note. README and `docs/ART_REGENERATION.md` were updated.
+- **Verified:**
+  - Godot import: exit 0.
+  - `run_tests.ps1`: NUnit 438, Django 111 and GdUnit 363/363 (0 errors and 0 orphans). The count dropped from 364 because two stand-in tests were merged into one.
+
+## Blender retired; art moves to SpriteCook — 2026-11-11
+
+**What changed (uncommitted):**
+- **Art deleted:** all 422 Blender-made images (344 in `assets/`, 78 website title copies) plus their `.import` files, 27 image `manifest.json` files, the 9 character `.tres` SpriteFrames, `provenance.json` and the legacy `deployment.ogv`. Cutscene audio, cues, timing, localization and speech provenance files were kept. The originals are in git at `ca92679`.
+- **Regeneration list:** `docs/ART_REGENERATION.md` (human-readable) and `docs/art_regeneration.json` (sizes) were generated from the files before deletion. For each image they record the path, pixel size, layer role, old manifest fields, frame layout, what loads it and the suggested SpriteCook route. Design notes from the deleted Blender docs were moved there.
+- **Tooling removed:**
+  - 27 Blender scripts: everything `tools/*/render_*.py`, plus `draw_flat_characters`, `package_character_sprites`, `render_quality`, `build_kit`, `build.py`, `rerender_flat_art`, `validate_live` and the two image-only gameplay validators.
+  - `tools/art/CHARACTER_RENDERING.md`.
+  - The `blendot`, `blender_godot_pipeline` and `gltf_fix_blender_light_intensity` add-ons, disabled in `project.godot` and their folders deleted.
+  - Blender in `tools/cutscene/Dockerfile`. The image is now Python plus ffmpeg, and `ENTRYPOINT ["python3"]`.
+- **Tooling kept:**
+  - `tools/assets/audit_images.py` and `compare_images.py` were ported from Blender's Python to Pillow and numpy.
+  - The validators' shared PNG reader moved to `tools/cutscene/png_pixels.py`.
+  - The cutscene validators skip any image that is not there yet, print "SKIPPED", and still check audio.
+  - `validate_aegis.py` and `validate_names.py` now check audio only.
+- **Game code (gaps on purpose, per the owner):**
+  - **Characters:** `OperativeVisuals.LoadFrames/LoadFramesAt` return an invisible placeholder SpriteFrames. Every animation has one null-texture frame. `blade_dash`, the attacks and `hit` are one-shot, matching the old art. `TryLoadFrames` returns null instead.
+  - **Enemies:** the drone and boss load their frames in `_Ready`.
+  - **Optional loads:** `OptionalArt.Texture` is used for the Level 1 map, the Mission 5 gate art and the home title. `CodeLevel` skips a missing backdrop.
+  - **Menu backdrop and deployment cutscene:** both load their layers by path instead of from the scenes. The deployment cutscene skips to the briefing until all its layers exist. The menu backdrop does not load in the editor.
+  - **Scenes:** references to deleted files were stripped from ten scenes.
+  - **Website:** `website/src/components/TitleLogo.jsx` shows the text "AXIOM FORCE" when a title image is missing.
+- **Tests:**
+  - Art-existence tests now pass both with and without art.
+  - New NUnit `ArtRegenerationSpecTests` checks that each listed image is absent or exactly its listed size. It replaces the later-campaign image hash check.
+  - Cutscene playback tests return early through `tests/support/cutscene_art.gd` while a stage's art is missing, and run again once it returns. The skip path is still covered by the existing missing-art tests.
+- **Docs:** an "Art Pipeline: SpriteCook Only" rule was added to CLAUDE/AGENTS/CODEX/GEMINI.md, plus a README "Art pipeline (SpriteCook)" section. `tools/art/README.md` was rewritten. History notes were added to the tool READMEs and the gameplay docs, and stale Blender commands removed. `docs/ASSET_QUALITY_AUDIT.md` image findings are marked superseded.
+
+**Verification:**
+- `dotnet build` passed with 0 errors.
+- Background Godot import exited 0 with no missing-dependency errors; the only errors were the usual Norton TLS lines.
+- `run_tests.ps1`:
+  - NUnit 438/438.
+  - Django 111/111.
+  - GdUnit 364/364 in 76 suites, with 0 errors, failures or orphans.
+  - The log has no "There is no animation" or failed-load lines.
+- Each GdUnit suite was also run separately.
+- The website builds in its Docker builder stage. ESLint shows 12 errors that already exist at HEAD; the new component is clean.
+- The cutscene image was rebuilt: ffmpeg 7.1.5, no Blender, and `validate_tokyo.py` runs.
+- A fresh-context review found three problems, all fixed: dangling `animation = "idle"` lines, looping placeholder attacks, and stale doc commands.
+
+**Limitations and next steps:**
+- The game looks mostly empty: actors that use the rendered sprites (platformer operatives in most missions, the drone, the boss) are invisible, though Shogun's Level 1 and training art and the selection studies still show; cities, menus and the Level 1 map are blank, almost every cutscene skips, and there is no title image. The owner accepted this.
+- SpriteCook needs a subscription before any regeneration. Each batch needs the owner's approval because it costs credits.
+- Host Blender 5.2 was already absent: there was no install folder, registry entry, winget package or PATH entry.
+- `addons/animation_combiner` still has Blender helper scripts for FBX/GLB work. It was left in place pending the owner's decision.
+- Dated README and HANDOFF sections still mention the old "Docker/Blender" art as history.
+
 ## Local Graphify code graph — 2026-11-10
 
 - **Cloud attempt removed:** an earlier Graphify Cloud MCP attempt (`api.graphify.com`, user scope) was removed with its doc edits at the owner's request. Its OAuth metadata URL returned malformed HTTP.

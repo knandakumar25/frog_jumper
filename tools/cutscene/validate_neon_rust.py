@@ -3,7 +3,7 @@ import array
 import json
 import subprocess
 from pathlib import Path
-from validate_live import pixels
+from png_pixels import pixels
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'assets/cutscenes/neon_rust_intro'
@@ -13,6 +13,9 @@ def main():
     """Fail on incorrect sizes, clipped atlas cells, overlapping cues, wrong duration or clipped PCM."""
     records = []
     for name, size in [(name,(1920,1080)) for name in ['depot_structure','depot_lights','underpass_structure','underpass_lights','cargo_structure','cargo_lights','walkway_structure','walkway_lights']] + [('poses',(1536,1536))]:
+        if not (OUT/f'{name}.png').exists():  # Absent until regenerated with SpriteCook (docs/ART_REGENERATION.md).
+            print('SKIPPED (awaiting SpriteCook regeneration):', (OUT/f'{name}.png').name)
+            continue
         width,height,rows = pixels(OUT/f'{name}.png')
         assert (width,height) == size, name
         alpha = [row[x] for row in rows for x in range(3,width*4,4)]

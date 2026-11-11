@@ -1,5 +1,7 @@
 # Live deployment cinematic
 
+> **Blender retired (2026-11-11).** The Blender render steps, `render_*.py` scripts, `build.py`, the `--live`/`--reveal-only` entry points and every image they made were deleted. The image sections below are history only. The audio, narration, packaging and validation sections still apply. Run scripts with `docker compose --profile cutscene run --rm cutscene tools/<folder>/<script>.py`; the image now holds only Python and ffmpeg. The validators skip images that have not been regenerated yet. New art comes from SpriteCook: see `docs/ART_REGENERATION.md`.
+
 ## Mission 5 epilogue: Names Without Numbers
 
 `NamesWithoutNumbersAftermath` runs after extraction and before the existing Mission
@@ -22,9 +24,7 @@ recorded in `speech_provenance.json` and measured timing in `dialogue_timing.jso
 Production on a host with the Docker D: bind mount available:
 
 ```powershell
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_names_without_numbers.py -- --preview
 # Inspect .validation/names-without-numbers/district_artwork.png before full rendering.
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_names_without_numbers.py
 python tools/cutscene/narrate_names_without_numbers.py
 docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/package_names_without_numbers.py
 docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/validate_names_without_numbers.py
@@ -60,9 +60,7 @@ direct touch share that route. The scorecard handles pointer input before Global
 legacy mouse suppression and restores the previous cursor policy on exit.
 
 ```powershell
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_tokyo.py -- --preview
 # Inspect .validation/tokyo/dojo_artwork.png before producing the complete family.
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_tokyo.py
 docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/package_tokyo.py
 docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/validate_tokyo.py
 python tools/cutscene/review_tokyo.py
@@ -102,10 +100,7 @@ subtitle cues, fallback and guarded transition. `deployment_stage.gd` samples
 all animation analytically, so seeking never accumulates timers or particles.
 
 ```powershell
-docker compose --profile cutscene run --rm cutscene --reveal-only
-docker compose --profile cutscene run --rm cutscene --live
 # Revalidate without re-rendering:
-docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/validate_live.py
 ```
 
 Build the tool image first if absent (`docker compose --profile cutscene build cutscene`).
@@ -148,9 +143,7 @@ Checkpoint recovery does not reconstruct the level. Exploration maps remain defe
 review interface. `WILDFIRE_CUE_1` through `_7` and `WILDFIRE_SKIP` use English fallback.
 
 ```powershell
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_wildfire.py -- --preview
 # Inspect .validation/wildfire/checkpoint_artwork.png before the complete family.
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_wildfire.py
 docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/package_wildfire.py
 docker compose --profile cutscene run --rm --entrypoint python3 cutscene tools/cutscene/validate_wildfire.py
 ```
@@ -189,7 +182,6 @@ needs only approximately 1.033x fitting; all other cues remain at original speed
 Reproduce from the project root, leaving the normal services running:
 
 ```powershell
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_breach.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_breach.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_breach.py
 python tools/cutscene/review_breach.py
@@ -240,7 +232,6 @@ Reproduce the original transparent 1920×1080 depot, rail underpass, cargo and
 walkway layers and 1536×1536 missing-pose atlas (512 cells):
 
 ```powershell
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_neon_rust.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_neon_rust.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_neon_rust.py
 python tools/cutscene/review_neon_rust.py
@@ -301,9 +292,7 @@ Production commands from the project root:
 
 ```powershell
 docker compose build cutscene
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_city_voice.py -- --preview
 # Inspect .validation/city-voice/squad.png before rendering the family.
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_city_voice.py
 python tools/cutscene/narrate_city_voice.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_city_voice.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_city_voice.py
@@ -372,9 +361,7 @@ actual `heavy_atlas.png` boss silhouette, without instantiating a gameplay actor
 Reproduce from the project root:
 
 ```powershell
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_inward_wall.py -- --preview
 # Inspect .validation/inward-wall/approach_artwork.png before rendering the family.
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_inward_wall.py
 python tools/cutscene/narrate_inward_wall.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_inward_wall.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_inward_wall.py
@@ -455,9 +442,7 @@ are made. Provenance and measured fit bounds accompany cues.json.
 
 ```powershell
 docker compose build cutscene
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_unregistered.py -- --preview
 # Inspect .validation/unregistered/queue_artwork.png before rendering the family.
-docker compose run --rm --entrypoint blender cutscene --background --python tools/cutscene/render_unregistered.py
 python tools/cutscene/narrate_unregistered.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/package_unregistered.py
 docker compose run --rm --entrypoint python3 cutscene tools/cutscene/validate_unregistered.py

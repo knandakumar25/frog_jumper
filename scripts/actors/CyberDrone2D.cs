@@ -29,6 +29,13 @@ public partial class CyberDrone2D : CharacterBody2D
 
 		_sprite = GetNodeOrNull<AnimatedSprite2D>("Sprite2D");
 		_eyeLight = GetNodeOrNull<PointLight2D>("EyeLight");
+		if (_sprite != null)
+		{
+			// Loaded in code, not the scene, because the drone art awaits regeneration
+			// (docs/ART_REGENERATION.md); a missing file gives an invisible placeholder.
+			_sprite.SpriteFrames = OperativeVisuals.LoadFramesAt("res://assets/characters/rendered/vanguard.tres");
+			_sprite.Play("idle");
+		}
 	}
 
 	[Export] public float ContactDamage = 15.0f;

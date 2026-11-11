@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/actors/CyberShogun.cs" id="1"]
 [ext_resource type="AudioStream" uid="uid://b1fqj13jg2ww1" path="res://assets/music/arcade-game-jump-epic-stock-media-1-00-00.mp3" id="2"]
-[ext_resource type="SpriteFrames" path="res://assets/characters/rendered/cyber_shogun.tres" id="3"]
 
 [sub_resource type="CanvasItemMaterial" id="Material_baked_character"]
 light_mode = 1
@@ -21,9 +20,6 @@ script = ExtResource("1")
 material = SubResource("Material_baked_character")
 texture_filter = 2
 scale = Vector2(0.37, 0.37)
-sprite_frames = ExtResource("3")
-animation = &"idle"
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=957903126]
 position = Vector2(-2, 0.5)

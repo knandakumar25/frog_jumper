@@ -145,7 +145,11 @@ func test_loading_locale_change_refreshes_logo_and_status_without_changing_targe
 	var expected := "res://assets/images/axiom_force_title_2d_thai.png"
 	if not ResourceLoader.exists(expected):
 		expected = "res://assets/images/axiom_force_title_2d.png"
-	assert_str(banner.texture.resource_path).is_equal(expected)
+	# Title art awaits SpriteCook regeneration; with no file at all the banner stays empty.
+	if ResourceLoader.exists(expected):
+		assert_str(banner.texture.resource_path).is_equal(expected)
+	else:
+		assert_that(banner.texture).is_null()
 	assert_str(label.tr(label.text)).is_equal(tr("INITIALIZING SYSTEM..."))
 	assert_str(loading.get("TargetScenePath")).is_equal("res://scenes/main_menu/main_menu.tscn")
 	# The test deliberately never polls to transition, so consume its completed request explicitly.

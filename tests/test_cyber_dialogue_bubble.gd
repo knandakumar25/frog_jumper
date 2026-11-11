@@ -5,7 +5,8 @@ extends GdUnitTestSuite
 
 func test_dialogue_assets_exist() -> void:
 	assert_bool(FileAccess.file_exists("res://assets/textures/cyber_speech_frame.png")).is_true()
-	assert_bool(FileAccess.file_exists("res://assets/characters/rendered/axiom7_portrait.png")).is_true()
+	# The AXIOM-7 avatar (assets/characters/rendered/axiom7_portrait.png) awaits SpriteCook
+	# regeneration and is no longer wired into the scene; the bubble works without it.
 	assert_bool(FileAccess.file_exists("res://assets/textures/cyber_speech_pointer.png")).is_true()
 	assert_bool(FileAccess.file_exists("res://assets/shaders/cyber_dialogue_bubble.gdshader")).is_true()
 

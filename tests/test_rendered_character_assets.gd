@@ -1,4 +1,10 @@
 extends GdUnitTestSuite
+## Operative and enemy sprite resources in assets/characters/rendered.
+##
+## The Blender-made sprites were deleted on 2026-11-11 and await SpriteCook regeneration
+## (docs/ART_REGENERATION.md). Each test checks the full art contract when a file exists, and the
+## invisible-placeholder fallback when it does not, so the suite passes before and after
+## regeneration.
 
 const OPERATIVES := {
 	"Cyber Shogun": "cyber_shogun",
@@ -8,17 +14,23 @@ const OPERATIVES := {
 	"Apex Titan": "apex_titan",
 	"Aura Phoenicia": "phoenicia",
 }
+const ANIMATIONS := ["idle", "running", "jumping", "blade_dash", "sword_attack", "karate_attack"]
+const ROOT := "res://assets/characters/rendered/"
 
 
-func test_each_operative_has_original_model_portrait_and_combat_frames() -> void:
+## Checks a regenerated operative against the old layout: 768x1024 portrait, six 8-frame
+## animations cut from <id>_atlas.png, one-shot attacks and the original attack timings.
+func test_present_operative_art_matches_the_old_contract() -> void:
 	for id in OPERATIVES.values():
-		var prefix := "res://assets/characters/rendered/" + str(id)
-		var portrait = load(prefix + "_portrait.png") as Texture2D
-		assert_that(portrait).is_not_null()
-		assert_vector(portrait.get_size()).is_equal(Vector2(768, 1024))
+		var prefix := ROOT + str(id)
+		if ResourceLoader.exists(prefix + "_portrait.png"):
+			var portrait = load(prefix + "_portrait.png") as Texture2D
+			assert_vector(portrait.get_size()).is_equal(Vector2(768, 1024))
+		if not ResourceLoader.exists(prefix + ".tres"):
+			continue
 		var frames = load(prefix + ".tres") as SpriteFrames
 		assert_that(frames).is_not_null()
-		for animation in ["idle", "running", "jumping", "blade_dash", "sword_attack", "karate_attack"]:
+		for animation in ANIMATIONS:
 			assert_int(frames.get_frame_count(animation)).is_equal(8)
 			var first = frames.get_frame_texture(animation, 0) as AtlasTexture
 			var last = frames.get_frame_texture(animation, 7) as AtlasTexture
@@ -31,37 +43,51 @@ func test_each_operative_has_original_model_portrait_and_combat_frames() -> void
 		assert_float(8.0 / frames.get_animation_speed("blade_dash")).is_equal_approx(1.0 / 7.0, 0.001)
 
 
-func test_deploying_different_operative_changes_body_not_just_color() -> void:
+## Every operative gets its own frames when they exist, and the shared invisible placeholder
+## (which defines every animation actors play) when they do not.
+func test_deploying_an_operative_uses_its_frames_or_the_placeholder() -> void:
 	var player = load("res://scenes/gameplay/cyber_shogun.tscn").instantiate()
 	player.call("_Ready")
 	var sprite: AnimatedSprite2D = player.get_node("Sprite2D")
 	assert_int(sprite.material.light_mode).is_equal(CanvasItemMaterial.LIGHT_MODE_UNSHADED)
 	for operative in OPERATIVES:
 		player.call("ApplyOperativeProfile", operative)
-		assert_str(sprite.sprite_frames.resource_path).is_equal(
-			"res://assets/characters/rendered/" + OPERATIVES[operative] + ".tres")
+		var path: String = ROOT + OPERATIVES[operative] + ".tres"
+		if ResourceLoader.exists(path):
+			assert_str(sprite.sprite_frames.resource_path).is_equal(path)
+		else:
+			_assert_placeholder(sprite.sprite_frames)
 		assert_that(sprite.modulate).is_equal(Color.WHITE)
 	player.free()
 
 
-func test_selection_uses_the_matching_original_model_portrait() -> void:
+## The selection card shows the operative's portrait, or stays empty without one.
+func test_selection_uses_the_matching_portrait_when_present() -> void:
 	var runner = scene_runner("res://scenes/main_menu/character_selection.tscn")
 	var menu = runner.scene()
 	var card: TextureRect = menu.get_node("MainLayout/RightShowcasePanel/VBox/CardImage")
 	for operative in OPERATIVES:
 		menu.call("SelectOperative", operative)
-		assert_str(card.texture.resource_path).is_equal(
-			"res://assets/characters/rendered/" + OPERATIVES[operative] + "_portrait.png")
+		var path: String = ROOT + OPERATIVES[operative] + "_portrait.png"
+		if ResourceLoader.exists(path):
+			assert_str(card.texture.resource_path).is_equal(path)
+		else:
+			assert_that(card.texture).is_null()
 
 
-func test_enemies_use_their_own_animated_original_models() -> void:
+## Enemies load their own frames in code (not from the scene), with the placeholder as fallback.
+func test_enemies_use_their_own_frames_or_the_placeholder() -> void:
 	var scenes := {"cyber_drone_2d": "vanguard", "cyber_boss_mech_2d": "heavy"}
 	for scene_name in scenes:
 		var enemy = load("res://scenes/gameplay/" + scene_name + ".tscn").instantiate()
+		add_child(enemy)
 		var sprite: AnimatedSprite2D = enemy.get_node("Sprite2D")
-		assert_str(sprite.sprite_frames.resource_path).is_equal(
-			"res://assets/characters/rendered/" + scenes[scene_name] + ".tres")
-		assert_int(sprite.sprite_frames.get_frame_count("idle")).is_equal(8)
+		var path: String = ROOT + scenes[scene_name] + ".tres"
+		if ResourceLoader.exists(path):
+			assert_str(sprite.sprite_frames.resource_path).is_equal(path)
+			assert_int(sprite.sprite_frames.get_frame_count("idle")).is_equal(8)
+		else:
+			_assert_placeholder(sprite.sprite_frames)
 		enemy.free()
 
 
@@ -73,3 +99,13 @@ func test_rollback_portraits_and_reused_sprite_sheets_are_removed() -> void:
 		"res://assets/images/Gemini_Generated_Image_iv7rnaiv7rnaiv7r.png",
 	]:
 		assert_bool(FileAccess.file_exists(path)).is_false()
+
+
+## The placeholder must define every animation actors play, each with one empty frame, so
+## Play() never errors and nothing is drawn.
+func _assert_placeholder(frames: SpriteFrames) -> void:
+	assert_that(frames).is_not_null()
+	for animation in ANIMATIONS + ["default", "finished"]:
+		assert_bool(frames.has_animation(animation)).is_true()
+		assert_int(frames.get_frame_count(animation)).is_equal(1)
+		assert_that(frames.get_frame_texture(animation, 0)).is_null()

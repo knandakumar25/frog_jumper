@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { SignedIn, SignedOut, UserButton } from '../auth/clerkGate.jsx';
 import LanguageSelector from '../translations/LanguageSelector';
 import { useLanguage } from '../translations/LanguageContext';
-import { getTitleLogoPath } from '../translations/titleLogo';
+import TitleLogo from './TitleLogo';
 
 const NAV_LINKS = [
   { key: 'home', to: '' },
@@ -135,10 +135,10 @@ export default function Navbar() {
             {/* identity block */}
             <NavLink to={`/${currentLocale}`} className="flex items-center gap-3 select-none group">
               <span className="w-2 h-2 bg-tertiary-container shadow-[0_0_8px_#36fd0f] animate-pulse"></span>
-              <img
-                src={getTitleLogoPath(selectedLanguage)}
-                alt="AXIOM FORCE"
+              <TitleLogo
+                lang={selectedLanguage}
                 className="h-7 md:h-8 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,243,255,0.7)] group-hover:drop-shadow-[0_0_18px_rgba(0,243,255,0.95)] transition-all duration-300"
+                textClassName="text-base md:text-lg"
               />
               <span className="hidden md:inline font-mono text-[10px] tracking-[0.3em] text-on-surface-variant/60">//&nbsp;HLF&nbsp;OPS</span>
             </NavLink>

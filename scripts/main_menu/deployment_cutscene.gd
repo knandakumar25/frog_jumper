@@ -35,6 +35,11 @@ func _ready() -> void:
 		global.call('set_control_prompt_visible', false)
 	$UI/Skip.pressed.connect(finish)
 	$UI/Skip.grab_focus()
+	# Skip straight to the briefing while the cutscene art awaits regeneration
+	# (docs/ART_REGENERATION.md), as the C# cutscenes do when ResourcesAvailable is false.
+	if not stage.art_available():
+		finish.call_deferred()
+		return
 	if not narration_path.is_empty() and ResourceLoader.exists(narration_path):
 		narrator.stream = load(narration_path)
 		_apply_voice_gain(narration_path)

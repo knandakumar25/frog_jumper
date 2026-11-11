@@ -1,5 +1,6 @@
 class_name TestLaterCinematicLifecycle
 extends GdUnitTestSuite
+const ART := preload("res://tests/support/cutscene_art.gd")  # Cutscene art may await SpriteCook regeneration.
 ## Every later presentation shares exactly-once deferred completion, all supported Skip routes and owned teardown.
 
 const PREFIXES := ["CyberGrave", "FoundryForge", "StratosDocks", "SpireOuterHull", "CyberNexus", "ApexBastion", "JudgmentDay"]
@@ -20,6 +21,10 @@ func test_every_later_overlay_consumes_keyboard_pad_pointer_and_touch_skip() -> 
 	## Invoke the production input handler; completion is deferred and the overlay is actually removed.
 	for prefix in PREFIXES:
 		for suffix in ["Intro", "Aftermath"]:
+			# Without art the overlay skips itself; that path is covered by the missing-art tests.
+			var stage: String = "res://scripts/ui/%s%s.cs" % [prefix, "Stage" if suffix == "Intro" else "AftermathStage"]
+			if not ART.available(stage, self):
+				continue
 			for route in ["escape", "space", "enter", "start", "a", "b", "mouse", "touch"]:
 				var overlay := _overlay(prefix + suffix)
 				var count := [0]
@@ -85,6 +90,10 @@ func test_missing_essential_art_falls_back_and_independent_removal_delivers_once
 func test_visual_sampling_does_not_restart_natural_speech_playback() -> void:
 	## Real mounted audio remains at its current time when visuals sample; explicit playback scrubbing moves it.
 	for name in ["SpireOuterHullIntro", "CyberNexusAftermath"]:
+		# Without art the overlay skips itself; that path is covered by the missing-art tests.
+		var stage: String = "res://scripts/ui/%s.cs" % name.replace("Intro", "Stage").replace("Aftermath", "AftermathStage")
+		if not ART.available(stage, self):
+			continue
 		var overlay: Node = load("res://scripts/ui/%s.cs" % name).new()
 		if name.ends_with("Intro"):
 			overlay.set("EnterMissionOnFinish", false)

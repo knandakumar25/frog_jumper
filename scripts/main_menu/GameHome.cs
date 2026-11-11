@@ -31,7 +31,8 @@ public partial class GameHome : Control
 		if (_titleLogo != null)
 		{
 			string resPath = TitleLogo.GetLocalizedTitle2DPath();
-			var tex = GD.Load<Texture2D>(resPath);
+			// The title art can be missing until it is regenerated; the logo slot then stays empty.
+			var tex = OptionalArt.Texture(resPath);
 			if (tex != null)
 			{
 				_titleLogo.Texture = tex;

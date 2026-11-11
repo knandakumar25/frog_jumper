@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../translations/LanguageContext';
-import { getTitleLogoPath } from '../translations/titleLogo';
+import TitleLogo from './TitleLogo';
 import AccessibilityModal from './AccessibilityModal';
 
 export default function Footer() {
@@ -24,10 +24,10 @@ export default function Footer() {
             {/* Brand & Status Column */}
             <div className="md:col-span-7 flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <img 
-                  src={getTitleLogoPath(selectedLanguage)} 
-                  alt="AXIOM FORCE" 
+                <TitleLogo
+                  lang={selectedLanguage}
                   className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_14px_rgba(0,243,255,0.7)] select-none transition-all duration-300"
+                  textClassName="text-xl md:text-2xl"
                 />
                 <span className="font-mono text-[10px] tracking-[0.25em] text-primary-container/60 border border-primary-container/30 px-2 py-0.5">// OPS_TERMINAL</span>
               </div>

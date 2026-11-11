@@ -1,7 +1,13 @@
 @tool
 extends Control
-## Orthographic Blender illustrations composited and animated entirely in 2D.
+## Three layered menu illustrations composited and animated entirely in 2D.
 ## Three shared textures per screen; no video, model, viewport, or per-frame loads.
+##
+## The layers are not referenced from the scenes. When an export is left empty, _ready loads
+## assets/images/menu_backdrops/<prefix>_{base,structure,lights}.png if the file exists. The
+## Blender originals were deleted on 2026-11-11 and await SpriteCook regeneration
+## (docs/ART_REGENERATION.md); until then a missing layer is skipped and only the dark
+## background and procedural motion are drawn.
 
 @export_enum("City", "Command Bay") var setting: int = 0
 @export var foundation: Texture2D
@@ -18,7 +24,31 @@ const ART_SIZE := Vector2(1920, 1080)
 const CYAN := Color(0.22, 0.72, 0.79)
 
 
+## Folder holding the default layer files for both settings.
+const LAYER_FOLDER := "res://assets/images/menu_backdrops/"
+
+
+## Returns the default file name prefix for the chosen setting ("city" or "command_bay").
+func layer_prefix() -> String:
+	return "city" if setting == 0 else "command_bay"
+
+
+## Loads one default layer by suffix, or returns null when the file is absent.
+func _load_layer(suffix: String) -> Texture2D:
+	var path := "%s%s_%s.png" % [LAYER_FOLDER, layer_prefix(), suffix]
+	return load(path) as Texture2D if ResourceLoader.exists(path) else null
+
+
 func _ready() -> void:
+	# Fill empty exports from the default files; explicit scene assignments still win. Skipped in
+	# the editor (this is a @tool script) so saving the scene never writes the paths back into it.
+	if not Engine.is_editor_hint():
+		if foundation == null:
+			foundation = _load_layer("base")
+		if architecture == null:
+			architecture = _load_layer("structure")
+		if illumination == null:
+			illumination = _load_layer("lights")
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	focus_mode = Control.FOCUS_NONE
 	resized.connect(queue_redraw)

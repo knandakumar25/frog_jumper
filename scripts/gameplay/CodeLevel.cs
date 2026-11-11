@@ -401,7 +401,8 @@ public abstract partial class CodeLevel : Node2D
     {
         var layer = new CanvasLayer { Name = "BackdropLayer", Layer = -10 };
         AddChild(layer);
-        if (BackdropPath != null)
+        // A declared but missing backdrop (art awaiting regeneration) is skipped like a null path.
+        if (BackdropPath != null && ResourceLoader.Exists(BackdropPath))
         {
             _backdrop = new Sprite2D
             {

@@ -7,7 +7,7 @@ pose sheets supply the appearance. Set `ShogunArtPreview.UseOriginalDesign`
 to `true` to compare the preserved original flat artwork.
 
 This is a separate, experimental hand-drawn art variant. The original artwork in
-`assets/characters/rendered` is preserved and still used by campaign gameplay.
+`assets/characters/rendered` was Blender art and was deleted on 2026-11-11; it awaits SpriteCook regeneration (see `docs/ART_REGENERATION.md`).
 All six operatives now have selection-screen art studies. Cyber Shogun uses this
 folder; the five other operatives use `assets/characters/hand_drawn`. The shared
 preview retains its historical `ShogunArtPreview` class/node names for compatibility.

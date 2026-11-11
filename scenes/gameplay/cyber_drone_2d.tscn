@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b8dron2dcpt6k"]
 
 [ext_resource type="Script" path="res://scripts/actors/CyberDrone2D.cs" id="1_drone_script"]
-[ext_resource type="SpriteFrames" path="res://assets/characters/rendered/vanguard.tres" id="2_drone_texture"]
 
 [sub_resource type="CanvasItemMaterial" id="Material_baked_character"]
 light_mode = 1
@@ -29,9 +28,6 @@ script = ExtResource("1_drone_script")
 material = SubResource("Material_baked_character")
 texture_filter = 2
 scale = Vector2(0.3, 0.3)
-sprite_frames = ExtResource("2_drone_texture")
-animation = &"idle"
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_drone")

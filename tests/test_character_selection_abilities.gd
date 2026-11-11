@@ -83,12 +83,19 @@ func test_buttons_mouse_filter_ignored() -> void:
 
 	instance.free()
 
-## All preserved portrait resources remain available in the merged dossier without 3D nodes.
+## Each operative's card shows its portrait when one exists (portraits await SpriteCook
+## regeneration, docs/ART_REGENERATION.md), and the dossier never uses 3D nodes.
 func test_all_operatives_use_2d_cards_without_3d_models() -> void:
 	var instance = load("res://scenes/main_menu/character_selection.tscn").instantiate()
 	var card: TextureRect = instance.get_node("MainLayout/RightShowcasePanel/VBox/CardImage")
-	for operative in ["Cyber Shogun", "Oceanus", "Surya Prime", "Mirage Blade", "Apex Titan", "Aura Phoenicia"]:
+	var ids := {"Cyber Shogun": "cyber_shogun", "Oceanus": "oceanus", "Surya Prime": "surya_prime",
+		"Mirage Blade": "mirage_blade", "Apex Titan": "apex_titan", "Aura Phoenicia": "phoenicia"}
+	for operative in ids:
 		instance.call("SelectOperative", operative)
-		assert_that(card.texture).is_not_null()
+		var portrait: String = "res://assets/characters/rendered/%s_portrait.png" % ids[operative]
+		if ResourceLoader.exists(portrait):
+			assert_that(card.texture).is_not_null()
+		else:
+			assert_that(card.texture).is_null()
 	assert_int(instance.find_children("*", "Node3D", true, false).size()).is_equal(0)
 	instance.free()

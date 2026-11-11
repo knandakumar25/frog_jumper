@@ -1,5 +1,7 @@
 # Shattered Aegis — production and acceptance
 
+> **Blender retired (2026-11-11).** The Blender render steps, the `render_*.py` scripts and every image they made were deleted. The image sections below are history only. The audio, narration, packaging and validation sections still apply. Run scripts with `docker compose --profile cutscene run --rm cutscene tools/<folder>/<script>.py`; the image now holds only Python and ffmpeg. The validators skip images that have not been regenerated yet. New art comes from SpriteCook: see `docs/ART_REGENERATION.md`.
+
 ## Implemented direction
 Act I: testimony → civilian protection → occupation logistics → an opened border.
 This guide records the shipped implementation and its acceptance checks;

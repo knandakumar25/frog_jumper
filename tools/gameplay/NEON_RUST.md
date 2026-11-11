@@ -1,5 +1,7 @@
 # Neon Rust gameplay production and acceptance
 
+> **Blender retired (2026-11-11).** The Blender render steps, the `render_*.py` scripts and every image they made were deleted. The image sections below are history only. The audio, narration, packaging and validation sections still apply. Run scripts with `docker compose --profile cutscene run --rm cutscene tools/<folder>/<script>.py`; the image now holds only Python and ffmpeg. The validators skip images that have not been regenerated yet. New art comes from SpriteCook: see `docs/ART_REGENERATION.md`.
+
 Level 3 expands to 48,000px and eight linear sectors. The existing 75-second
 Silent Freight arrival is unchanged and excluded from all pacing targets.
 
@@ -66,8 +68,6 @@ Background depots: 1900x950; freight: 900x390; machinery: 330x350; supports:
 authored platforms and hazards retain authority.
 
 ```powershell
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/gameplay/render_neon_rust.py -- --preview
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/gameplay/render_neon_rust.py
 python tools/gameplay/validate_neon_rust.py
 ```
 

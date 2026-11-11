@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw2ys5k0m8bfw"]
+[gd_scene load_steps=6 format=3 uid="uid://dw2ys5k0m8bfw"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/ui/LoadingScreen.cs" id="1_loading_script"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="3_orbitron"]
-[ext_resource type="Texture2D" path="res://assets/images/axiom_force_title_2d.png" id="4_title_logo_texture"]
 [ext_resource type="Script" path="res://scripts/ui/CyberCircularSpinner.cs" id="5_cyber_spinner"]
 
 [node name="LoadingScreen" type="Control"]
@@ -58,7 +57,6 @@ theme_override_constants/separation = 16
 [node name="TitleLogoBanner" type="TextureRect" parent="CenterContainer/MainPanel/VBoxContainer"]
 custom_minimum_size = Vector2(620, 240)
 layout_mode = 2
-texture = ExtResource("4_title_logo_texture")
 expand_mode = 1
 stretch_mode = 5
 

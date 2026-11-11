@@ -2,6 +2,8 @@
 
 What was measured, what was changed with Python and Blender, what was deliberately left alone, and what is still open.
 
+> **Superseded for images (2026-11-11).** Blender was retired and every Blender-made image, the re-render scripts and the commands below were deleted. The image findings here describe art that no longer exists; see `docs/ART_REGENERATION.md` for the SpriteCook regeneration list. `audit_images.py` and `compare_images.py` now run on Pillow and numpy, not Blender. The audio findings still apply.
+
 ## Open problems and decisions
 
 - **Mission music level (fixed at playback, 2026-11-10, owner approved).** Mission music used to play at +24 dB on Master (`CodeLevel.BuildAudioAndPause`):

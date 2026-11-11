@@ -9,9 +9,17 @@ func test_both_menus_have_original_layered_2d_art_behind_ui() -> void:
 		assert_int(backdrop.get_index()).is_equal(0)
 		assert_int(backdrop.mouse_filter).is_equal(Control.MOUSE_FILTER_IGNORE)
 		assert_int(backdrop.focus_mode).is_equal(Control.FOCUS_NONE)
-		for texture in [backdrop.foundation, backdrop.architecture, backdrop.illumination]:
-			assert_that(texture).is_not_null()
-			assert_vector(texture.get_size()).is_equal(Vector2(1920, 1080))
+		# Layers load by path in _ready (not from the scene) and await SpriteCook regeneration
+		# (docs/ART_REGENERATION.md): each must be absent or a 1920x1080 texture.
+		backdrop._ready()
+		for suffix in ["base", "structure", "lights"]:
+			var path := "%s%s_%s.png" % [backdrop.LAYER_FOLDER, backdrop.layer_prefix(), suffix]
+			var texture: Texture2D = {"base": backdrop.foundation, "structure": backdrop.architecture,
+				"lights": backdrop.illumination}[suffix]
+			if ResourceLoader.exists(path):
+				assert_vector(texture.get_size()).is_equal(Vector2(1920, 1080))
+			else:
+				assert_that(texture).is_null()
 		assert_int(menu.find_children("*", "Node3D", true, false).size()).is_equal(0)
 		menu.free()
 

@@ -3,7 +3,11 @@ using Godot;
 /// <summary>Resolves the localized 2D title artwork.</summary>
 public static class TitleLogo
 {
-	/// <summary>Returns the existing localized title artwork using the shared locale aliases.</summary>
+	/// <summary>
+	/// Returns the localized title artwork path using the shared locale aliases, falling back to the
+	/// English file. The returned file may not exist while the titles await SpriteCook regeneration
+	/// (docs/ART_REGENERATION.md), so callers must check it before loading.
+	/// </summary>
 	public static string GetLocalizedTitle2DPath()
 	{
 		string langName = LocaleCatalog.Resolve(TranslationServer.GetLocale()).Key;

@@ -44,7 +44,7 @@ project/assembly_name="AxiomForce"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/animation_combiner/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/blendot/plugin.cfg", "res://addons/csg_blockout/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/gltf_fix_blender_light_intensity/plugin.cfg", "res://addons/godot_ai/plugin.cfg", "res://addons/gohud/plugin.cfg", "res://addons/mesh_material_copy_move_repair/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/ragdoll_generator/plugin.cfg")
+enabled=PackedStringArray("res://addons/animation_combiner/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/csg_blockout/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/godot_ai/plugin.cfg", "res://addons/gohud/plugin.cfg", "res://addons/mesh_material_copy_move_repair/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/ragdoll_generator/plugin.cfg")
 
 [gui]
 

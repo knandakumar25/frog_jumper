@@ -1,5 +1,49 @@
 # Axiom Force — Project Memory
 
+## Docker Services Shutdown — 2026-11-11
+
+- **Action:** Gracefully stopped and removed all project Docker containers via `docker compose down`.
+- **Verification:** `docker ps` confirmed 0 active containers. `axiom-force-website-1`, `axiom-force-backend-1`, and `axiom-force-db-1` cleanly stopped and removed along with network `axiom-force_default`.
+- **Git Status:** Working tree remains local and uncommitted.
+
+## EGM Goldfish Review Loop Round 3 completed — 2026-11-11
+
+- **Action:** Finished Claude Code's pending task: Round 3 adversarial audit of `docs/ART_REGENERATION.md` via `egm-review-loop`.
+- **Outcome:** **CLEAN (0 Blockers, 0 Majors, 0 Minors)**.
+  - Verified all Round 2 blockers resolved: status key for `skip: unused alias`, `.tres` git-restoration guidance, cutscene pose sheet row/column meanings and pivots, fixed coordinate boxes (drone box, Tokyo blade, Aegis offset, Level 1 map), prop non-uniform display scaling, and credit estimation formulas.
+  - Finalized `goldfish_review_report.md`.
+- **Verification:**
+  - `dotnet build`: 0 errors.
+  - `run_tests.ps1`: Django 111/111, NUnit 439/439 (including `ArtRegenerationSpecTests`), GdUnit 363/363 in 76 suites (0 errors, 0 failures, 0 orphans).
+- **Next steps:** Waiting on owner's art style selection and SpriteCook subscription before Phase 1 batch generation can begin.
+
+## Downloaded stand-ins removed — 2026-11-11
+
+- **Owner request:** delete the assets imported from online as well.
+- **Done (uncommitted):** `assets/stand_in/` and the five Pixel Adventure leftovers in `assets/images` are gone. The fonts were kept because the UI needs them.
+- **Fallbacks:** the code falls back to code-drawn shapes and silence through `StandInAssets.cs`. `test_stand_in_assets.gd` was rewritten to check the fallbacks.
+- **Verified:** full `run_tests.ps1` passes (GdUnit 363/363).
+- **Rule:** don't bring back third-party stand-ins unless the owner asks; art is SpriteCook only.
+
+## Blender retired; SpriteCook is the art tool — 2026-11-11
+
+- **Owner decisions:**
+  - Replace Blender completely with SpriteCook.
+  - Delete all Blender-made art and keep a regeneration list (`docs/ART_REGENERATION.md` and `docs/art_regeneration.json`).
+  - Leave gaps until the art is remade, with no stand-in art.
+  - Remove the Blender add-ons and Blender in the Docker image.
+  - The art style for SpriteCook is not decided yet ("N/A" for now).
+- **Done (uncommitted):** 422 images deleted, plus the Blender scripts, add-ons and Docker Blender. Loaders are null-safe. Cutscene playback tests are guarded by `tests/support/cutscene_art.gd`. `ArtRegenerationSpecTests` was added. Docs and agent rules were updated. Details are in HANDOFF.md.
+- **Verified:**
+  - Build: 0 errors. Godot import: exit 0.
+  - `run_tests.ps1`: NUnit 438, Django 111 and GdUnit 364/364 (0 errors and 0 orphans).
+  - The website Docker build and the rebuilt cutscene image (ffmpeg, no Blender) both work.
+- **Host Blender 5.2** was already gone, so there was nothing to uninstall.
+- **Open:**
+  - Regeneration waits on a SpriteCook subscription, and each batch needs the owner's approval for credits.
+  - Whether to remove `addons/animation_combiner`, which uses Blender for FBX/GLB, is undecided.
+  - The cutscene suite's playback tests are skipped until their art returns.
+
 ## SpriteCook plugin — 2026-11-11
 
 - **Installed:** the SpriteCook plugin 0.1.15 (skills plus a hosted MCP server at `mcp.spritecook.ai`), from the `spritecook` marketplace (`SpriteCook/claude-plugin`), in all three agents:
@@ -17,6 +61,8 @@
 - On owner request, ran `docker compose create`, which creates the containers without starting them. `db`, `backend` and `website` are in the **Created** state, not running.
 - The old containers, network and `axiom-force_pgdata` volume were gone, probably from cleanup. The volume was recreated empty, so the database has no saves until it is restored with `tools/db/backup.ps1`'s backups or the game is played again.
 - Start the stack with `docker compose up -d` (or `docker compose start`).
+- 2026-11-11: on owner request, ran `docker compose up -d`. The images, containers, network and `pgdata` volume were gone again (expected BleachBit cleanup), so Compose pulled `postgres:latest`, rebuilt backend and website, and created an empty volume. All three run: `db` healthy on 5432, `backend` on 8000 (migrations applied), `website` on 5173.
+- 2026-11-11: the "SpriteCook plugin auto-update" scheduled task reported LastRunTime 12:35:57 PM, result 0, but `update.log` has no "run start" line. The task still isn't running the script, so Codex and Antigravity don't auto-update yet.
 
 ## Graphify (local) — 2026-11-10
 

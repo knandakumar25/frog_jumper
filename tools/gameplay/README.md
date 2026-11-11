@@ -1,5 +1,7 @@
 # Wildfire gameplay production and review
 
+> **Blender retired (2026-11-11).** The Blender render steps, the `render_*.py` scripts and every image they made were deleted. The image sections below are history only. The audio, narration, packaging and validation sections still apply. Run scripts with `docker compose --profile cutscene run --rm cutscene tools/<folder>/<script>.py`; the image now holds only Python and ffmpeg. The validators skip images that have not been regenerated yet. New art comes from SpriteCook: see `docs/ART_REGENERATION.md`.
+
 The route is linear and scene-local. Stable identifiers are owned by
 `WildfireProgress`; mission completion requires three distinct shelter arrivals,
 three spires, `battery:core` and `barrier:final`. Recovery cancels impacts and rounds
@@ -32,8 +34,6 @@ Original art is made in the existing opt-in Docker image. Inspect the preview
 before making the family; no narration or existing cinematic assets are replaced:
 
 ```powershell
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/gameplay/render_wildfire.py -- --preview
-docker compose --profile cutscene run --rm --entrypoint blender cutscene --background --python tools/gameplay/render_wildfire.py
 python tools/gameplay/validate_wildfire.py
 ```
 

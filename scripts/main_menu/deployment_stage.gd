@@ -3,6 +3,22 @@ extends Node2D
 ## No timers, physics, unbounded particle emitters or per-frame node allocations.
 
 const CYAN := Color(0.23, 0.82, 0.91)
+## Texture for each child sprite, loaded in code rather than from the scene. The Blender
+## originals were deleted on 2026-11-11 and await SpriteCook regeneration
+## (docs/ART_REGENERATION.md): a regenerated file at the same path is picked up with no scene
+## edit, and a missing one leaves its sprite empty.
+const LAYERS := {
+	"FarCity": "res://assets/cutscenes/deployment/live/city_base.png",
+	"MidCity": "res://assets/cutscenes/deployment/live/city_structure.png",
+	"CityLights": "res://assets/cutscenes/deployment/live/city_lights.png",
+	"Roof/Structure": "res://assets/cutscenes/deployment/live/roof_structure.png",
+	"Roof/Lights": "res://assets/cutscenes/deployment/live/roof_lights.png",
+	"Afterimage": "res://assets/cutscenes/deployment/live/shogun.png",
+	"Shogun": "res://assets/cutscenes/deployment/live/shogun.png",
+	"Drone": "res://assets/cutscenes/deployment/live/drone_structure.png",
+	"DroneLights": "res://assets/cutscenes/deployment/live/drone_lights.png",
+	"Transmission/AXIOM7": "res://assets/characters/rendered/axiom7_portrait.png",
+}
 var seconds := 0.0
 @onready var effects: Node2D = $Effects
 @onready var camera: Camera2D = $CameraRig
@@ -12,8 +28,23 @@ var seconds := 0.0
 @onready var transmission: Node2D = $Transmission
 
 
+## True only when every layer file exists. The cutscene skips itself when this is false, the
+## same way the C# cutscene stages use ResourcesAvailable.
+static func art_available() -> bool:
+	for path: String in LAYERS.values():
+		if not ResourceLoader.exists(path):
+			return false
+	return true
+
+
 func _ready() -> void:
-	## Draw effects above scenery while keeping communication artwork in front.
+	## Assign whichever layer textures exist, then draw effects above scenery while keeping
+	## communication artwork in front.
+	for node_path: String in LAYERS:
+		var path: String = LAYERS[node_path]
+		var sprite := get_node_or_null(node_path) as Sprite2D
+		if sprite and ResourceLoader.exists(path):
+			sprite.texture = load(path)
 	effects.draw.connect(_draw_effects)
 
 
@@ -99,9 +130,10 @@ func _draw_effects() -> void:
 		var drone := Vector2(300 + index * 570 + sin(t * 0.27 + index) * 140, 190 + index * 58 + sin(t * 0.9 + index) * 12)
 		var aim := sin(t * 0.5 + index) * 180
 		effects.draw_colored_polygon(PackedVector2Array([drone, drone + Vector2(aim - 90, 590), drone + Vector2(aim + 130, 590)]), Color(0.40, 0.75, 0.85, 0.055))
-		if has_node('Drone'):
-			var texture: Texture2D = $Drone.texture
-			effects.draw_texture_rect_region(texture, Rect2(drone - Vector2(70, 20), Vector2(140, 40)), Rect2(840, 440, 240, 60))
+		# Either drone texture can be missing until the art is regenerated; skip it then.
+		if has_node('Drone') and $Drone.texture:
+			effects.draw_texture_rect_region($Drone.texture, Rect2(drone - Vector2(70, 20), Vector2(140, 40)), Rect2(840, 440, 240, 60))
+		if has_node('DroneLights') and $DroneLights.texture:
 			effects.draw_texture_rect_region($DroneLights.texture, Rect2(drone - Vector2(70, 20), Vector2(140, 40)), Rect2(840, 440, 240, 60))
 		effects.draw_circle(drone + Vector2(0, 8), 3, Color(0.9, 0.2, 0.22))
 	for index in range(8):

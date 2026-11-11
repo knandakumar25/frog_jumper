@@ -1,36 +1,29 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5n8qw7j8yak2"]
+[gd_scene load_steps=15 format=3 uid="uid://b5n8qw7j8yak2"]
 
 [ext_resource type="Theme" path="res://assets/themes/cyber_shogun.tres" id="10_cyber_theme"]
 [ext_resource type="Environment" path="res://assets/themes/cyber_glow.tres" id="11_cyber_glow"]
 [ext_resource type="Script" path="res://scripts/main_menu/StoryIntro.cs" id="1_story_intro_script"]
-[ext_resource type="Texture2D" path="res://assets/characters/rendered/axiom7_portrait.png" id="2_robot_image"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="4_orbitron"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Medium.ttf" id="5_rajdhani_med"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="6_rajdhani_bold"]
 [ext_resource type="PackedScene" uid="uid://cyber_dialogue_bubble_01" path="res://scenes/ui/CyberDialogueBubble.tscn" id="12_cyber_bubble"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qraa2"]
-atlas = ExtResource("2_robot_image")
 region = Rect2(0, 0, 166, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_138my"]
-atlas = ExtResource("2_robot_image")
 region = Rect2(166, 0, 166, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hetip"]
-atlas = ExtResource("2_robot_image")
 region = Rect2(332, 0, 166, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvc0k"]
-atlas = ExtResource("2_robot_image")
 region = Rect2(498, 0, 166, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpaj0"]
-atlas = ExtResource("2_robot_image")
 region = Rect2(664, 0, 166, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wsnv"]
-atlas = ExtResource("2_robot_image")
 region = Rect2(830, 0, 166, 250)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_robot"]
@@ -117,7 +110,6 @@ theme_override_constants/separation = 30
 [node name="RobotPortrait" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
-texture = ExtResource("2_robot_image")
 expand_mode = 1
 stretch_mode = 5
 

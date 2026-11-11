@@ -57,10 +57,10 @@ the first clear and credits on up to five repeats. Cities never affect the 12-mi
 mission always returns to Los Angeles.
 
 To add a city, write a `CitySpec` like `scripts/world/cities/MumbaiCity.cs`, add it to `CityRegistry.All`
-(`scripts/world/WorldDefinition.cs`), add a style to `tools/world/build_kit.py`, and add a `BeaconOperationMission`
+(`scripts/world/WorldDefinition.cs`), and add a `BeaconOperationMission`
 subclass in its own file with a thin scene. Each city saves to its own row, `world:{session}:{city}`; Los Angeles keeps
-`world:{session}`. Render city art with
-`docker compose --profile cutscene run --rm --entrypoint blender cutscene -b --python tools/world/build_kit.py -- mumbai`.
+`world:{session}`. City art (`assets/world/<city>/module_N.png` and `landmark_N.png`, 384x384) is made with SpriteCook;
+see [Art pipeline](#art-pipeline-spritecook). A city with no art yet still plays, with blank props.
 
 Quest text, conversations and place names in these cities show in English in every language, as the Los Angeles quest
 conversations do. Only the five new interface labels are translated, and no native speaker has reviewed them.
@@ -100,8 +100,8 @@ See [coverage](docs/localization/coverage.md) and the
 Both language pickers include fonts for every displayed script. Roster ability
 categories/damage and preview captions retain canonical gameplay IDs across locale
 changes. The loading tagline is a separate translated label rather than embedded
-English artwork. Forty directly referenced raster assets were inspected using
-Blender in Docker; brand-only logos remain unchanged.
+English artwork. Forty directly referenced raster assets were inspected at the time;
+brand-only logos remain unchanged.
 
 Localization checkpoint verification passed: Django 104, NUnit 290, Godot 317 (zero suite errors,
 failures or orphans), plus 19 offline Python checks. Godot import exits 0;
@@ -127,11 +127,27 @@ graphify query "how is mission music levelled"
 - **Output:** `graphify-out/` is git-ignored.
 - **Coverage:** the graph covers C#, Python, JS/JSX, Markdown, JSON and YAML. It does not include GDScript, scenes or assets.
 
+## Art pipeline (SpriteCook)
+
+Blender was retired on 2026-11-11. All game and website art is now made with the SpriteCook plugin (`spritecook@spritecook`, installed for Claude Code, Codex and Antigravity). Generation spends paid credits, so the owner approves each batch. The SpriteCook server will not connect until the account has a subscription.
+
+- **Deleted:** every image Blender made, which is 344 game images plus 78 website copies of the titles. Also deleted: the generator scripts, the `blendot`, `blender_godot_pipeline` and `gltf_fix_blender_light_intensity` editor add-ons, and Blender in the cutscene Docker image. The originals are in git at commit `ca92679`. `addons/animation_combiner` (an FBX/GLB tool with Blender helper scripts) is still installed, pending an owner decision.
+- **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
+- **Until then the game has gaps on purpose:**
+  - Actors drawn from the rendered sprites (the platformer operatives in most missions, the drone and the boss) are invisible but still play. `OperativeVisuals` gives them an empty placeholder animation set. Cyber Shogun's Level 1 and training art and the selection-screen pose studies still show, because they were not made with Blender. Sentries, open-world hostiles and Aegis civilians are drawn in code.
+  - Cities, menus and the Level 1 map have no art.
+  - Cutscenes skip.
+  - The title slot is empty in the game and shows text on the website (`website/src/components/TitleLogo.jsx`).
+- The downloaded CC0 stand-ins (`assets/stand_in/`) and the Pixel Adventure leftovers were deleted as well. The bike, sentries and open-world drones are drawn in code, and their sounds are silent.
+- Mentions of "Blender" or "Docker/Blender" artwork in the dated sections below describe art that has since been deleted.
+
 ## Asset quality tools
 
-`tools/assets/` measures and compares assets: `audit_images.py` and `compare_images.py` (run with Blender's Python) and `audit_audio.py` (ffmpeg, in the cutscene container).
+`tools/assets/` measures and compares assets:
+- `audit_images.py` and `compare_images.py` run on Pillow and numpy, for example `uv run --system-certs --no-project --with pillow --with numpy python tools/assets/audit_images.py --out .validation/asset_quality/images.json`. Use them to check SpriteCook art.
+- `audit_audio.py` uses ffmpeg in the cutscene container.
 
-`rerender_flat_art.py` re-renders the flat art families that use `apply_flat` in `tools/art/render_quality.py` (characters excluded). In November 2026 the cutscene, gameplay and later-campaign layers were re-rendered this way. The city kit (`tools/world/build_kit.py`), the synthesized sound effects (`scripts/tools/generate_cyber_sfx.py`) and the title logos (`tools/art/render_title_logo.py`) were regenerated by their own scripts.
+The synthesized sound effects come from `scripts/tools/generate_cyber_sfx.py`. The Blender re-render tools were removed with Blender on 2026-11-11.
 
 Voice files are never re-encoded, because tests, transcripts and the owner's listening sign-off record their hashes. Voice lines are level-matched at playback instead:
 - `tools/assets/voice_gain.py` (cutscene container) writes `assets/audio/voice_gain.json`.
@@ -143,7 +159,7 @@ Mission music is levelled the same way: `tools/assets/music_gain.py` writes `ass
 
 ## Stand-in assets
 
-Candidate free packs for temporary art and audio, with license limits, are listed in [docs/STAND_IN_ASSETS.md](docs/STAND_IN_ASSETS.md). The electric bike, combat sounds, `PalaceSentry` body and `WorldHostile` body now use CC0 files from `assets/stand_in/`, loaded through `scripts/gameplay/StandInAssets.cs`. To return to the code-drawn versions and silent enemies, delete that folder and `tests/test_stand_in_assets.gd` with its `.uid` file.
+Candidate free packs for temporary art and audio, with license limits, are listed in [docs/STAND_IN_ASSETS.md](docs/STAND_IN_ASSETS.md). The packs that were in use (the electric bike, combat sounds, the `PalaceSentry` and `WorldHostile` bodies) were deleted on 2026-11-11. `scripts/gameplay/StandInAssets.cs` returns null for the missing files, so those are drawn in code and silent. `tests/test_stand_in_assets.gd` checks those fallbacks.
 
 ## Godot AI startup
 
@@ -163,15 +179,14 @@ this local policy patch; recheck these flags if the same startup failure returns
 Application Docker images and the root `.venv` target Python **3.15.2**. Backend
 and cutscene orchestration use the pinned official slim image; the opt-in export
 Dockerfile copies the same Python version with a build-time native-library check.
-Blender keeps its bundled interpreter for `bpy` compatibility. Backend, cutscene
-CLI and exporter Python setup-stage smoke tests verify Python 3.15.2; the exporter
-stage also verifies .NET 10.0.403 and native Python imports without exporting a game.
+The cutscene image holds only Python and ffmpeg (Blender was removed on 2026-11-11). The exporter's
+setup stage verifies Python 3.15.2, .NET 10.0.403 and native Python imports without exporting a game.
 
 Root `requirements.txt` is the single Python dependency manifest. The duplicate
 `backend/requirements.txt` remains removed. A Git-ignored root `.venv` is available
 for local Python work; packages are installed only when explicitly requested.
 
-To populate it with all six direct requirements and their dependencies:
+To populate it with all seven direct requirements and their dependencies:
 
 ```powershell
 python -m venv .venv
@@ -966,19 +981,11 @@ compensated for audio latency. Missing, ended or stalled narration uses elapsed
 time; dialogue and subtitle windows remain unchanged. A responsive UI sits outside
 the action, and the cinematic preserves its 16:9 composition on wider/taller screens.
 
-Regenerate original Blender artwork in the opt-in Docker tool (no game export):
-
-```powershell
-docker compose --profile cutscene run --rm cutscene --reveal-only
-docker compose --profile cutscene run --rm cutscene --live
-```
-
-The first command produces the representative Shogun review target; the second
-produces layered PNGs, 40 pose regions and a validated manifest in
-`assets/cutscenes/deployment/live`. Preview renders/logs belong in `.validation/deployment`.
-See `tools/cutscene/README.md` for scene controls, MCP captures and validation.
-The old `deployment.ogv` and the no-argument/`--package-only` video build path remain
-as a legacy preview; normal playback does not load or decode video.
+The layered art in `assets/cutscenes/deployment/live` was deleted with Blender on
+2026-11-11 and is listed for SpriteCook regeneration in `docs/ART_REGENERATION.md`.
+`scripts/main_menu/deployment_stage.gd` loads each layer by path, and until all of
+them (and `assets/characters/rendered/axiom7_portrait.png`) exist the cutscene skips straight to the briefing. The legacy `deployment.ogv`
+video and its build script were removed too.
 Narration regeneration remains optional via `tools/cutscene/narrate.py` and the
 existing private API key/cue cache; live-art regeneration never requests paid speech.
 

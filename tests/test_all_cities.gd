@@ -69,11 +69,18 @@ func test_destroying_each_beacon_opens_the_way_to_the_results_panel() -> void:
 	sessions.set("CurrentSessionId", previous_session)
 
 
-func test_every_city_has_all_its_art() -> void:
+## City art awaits SpriteCook regeneration (docs/ART_REGENERATION.md). A city must have either
+## its full set of eight modules and eight landmarks or none at all, never a half-regenerated mix.
+func test_every_city_has_all_or_none_of_its_art() -> void:
 	for city in CITIES:
+		var present := 0
 		for index in 8:
-			assert_bool(ResourceLoader.exists("res://assets/world/%s/module_%d.png" % [city, index])).is_true()
-			assert_bool(ResourceLoader.exists("res://assets/world/%s/landmark_%d.png" % [city, index])).is_true()
+			if ResourceLoader.exists("res://assets/world/%s/module_%d.png" % [city, index]):
+				present += 1
+			if ResourceLoader.exists("res://assets/world/%s/landmark_%d.png" % [city, index]):
+				present += 1
+		assert_bool(present == 0 or present == 16).override_failure_message(
+			"%s has %d of 16 art files" % [city, present]).is_true()
 
 
 func test_every_operation_builds_with_beacon_gate_and_exit() -> void:
