@@ -112,6 +112,21 @@ publication were performed.
 
 A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
 
+## Code knowledge graph (Graphify, local)
+
+Agents query a local code graph built by the `graphifyy` Python package. Nothing is uploaded.
+
+```powershell
+uv tool install --system-certs --python 3.14 "graphifyy[mcp]"
+graphify update .                 # (re)build graphify-out/graph.json; no LLM; about 2 min
+graphify explain "MusicGain"      # a node and its connections, with file:line
+graphify query "how is mission music levelled"
+```
+
+- **Claude Code:** reads the graph through a local-scope MCP server, `graphify` (`graphify-mcp graphify-out/graph.json`).
+- **Output:** `graphify-out/` is git-ignored.
+- **Coverage:** the graph covers C#, Python, JS/JSX, Markdown, JSON and YAML. It does not include GDScript, scenes or assets.
+
 ## Asset quality tools
 
 `tools/assets/` measures and compares assets: `audit_images.py` and `compare_images.py` (run with Blender's Python) and `audit_audio.py` (ffmpeg, in the cutscene container).

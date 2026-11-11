@@ -35,6 +35,27 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
   - Codex: `C:\Users\karthiknk21\.agents\skills\`
   - Each skill directory (`egm-bootstrap`, `egm-brainstorm`, `egm-draft`, `egm-drift-report`, `egm-resolve`, `egm-review`, `egm-review-loop`) contains its authoritative `SKILL.md` instructions and bundled resources. Always read and apply them on every run.
 
+### Mandatory Graphify Knowledge-Graph Lookup (Every Run & All Tasks)
+
+- On **every run**, before answering a codebase question or editing code, query the local Graphify knowledge graph of this repository. This applies to every agent: Claude Code, Codex and Google Antigravity (Gemini).
+- **Local setup:** this uses the local `graphifyy` Python package only. There is no hosted service, account or network call.
+  - **Install:** `uv tool install --system-certs --python 3.14 "graphifyy[mcp]"`. `--system-certs` is needed because this machine's HTTPS inspection breaks uv's built-in certificates. Python 3.14 is needed because 3.15 has no prebuilt `tree-sitter` packages and no C++ compiler is installed.
+  - **Graph:** `graphify-out/graph.json`, which is git-ignored.
+  - **Claude Code:** a local-scope stdio MCP server named `graphify` (`claude mcp add --transport stdio graphify -- C:/Users/karthiknk21/.local/bin/graphify-mcp.exe D:/Projects/frog_jumper/graphify-out/graph.json`).
+  - **Codex:** a global stdio server named `graphify` in `~/.codex/config.toml`, same command and graph path (`codex mcp add graphify -- <exe> <graph.json>`).
+  - **Google Antigravity:** the app/IDE and the `agy` CLI share `~/.gemini/config/mcp_config.json`, which has a `graphify` entry (`agy mcp add graphify <exe> <graph.json>`).
+  - Check the entries with `claude mcp get graphify`, `codex mcp list` and `agy mcp list`. If MCP is unavailable, use the CLI below.
+- **How to use it:**
+  - **MCP tools:** `query_graph`, `get_node`, `get_neighbors`, `get_community`, `god_nodes`, `graph_stats` and `shortest_path`.
+  - **CLI equivalents:** `graphify query "<question>"`, `graphify explain "<Name>"`, `graphify path "<A>" "<B>"` and `graphify affected "<Name>"`.
+  - Use these to find callers, dependencies, the impact of a change, and paths between components.
+  - Confirm graph results against the source files before relying on them. Cite file paths and line numbers, not only node names.
+- **Keep it current:**
+  - After editing code, run `graphify update .` from the project root. It re-extracts code with tree-sitter and **does not call an LLM**, and it takes about 2 minutes from scratch, less when cached. The MCP server reloads `graph.json` when it changes.
+  - Do not run `/graphify`, `graphify label` or other LLM-backed commands without the owner's approval, because they send content to a model provider.
+- **Coverage gaps:** the graph holds C#, Python, JS/JSX, Markdown, JSON and YAML. It has **no GDScript (`.gd`)**, no scenes (`.tscn`) and no assets, so use normal file search for those. When the graph is missing, stale or disagrees with the working tree, trust the files and say so in the reply. Never claim a Graphify result you did not get.
+- Graphify supplements the EGM, game-development, Docker, testing and documentation rules above. It never authorizes commits, pushes or other outward-facing actions.
+
 ### Mandatory Game-Development Skills (All Game-Related Work)
 
 - Whenever an agent performs game-related work, it **MUST first read and apply the relevant skills from `gamedev-skills/awesome-gamedev-agent-skills`**. This applies to Codex, Claude Code, and Google Antigravity, including implementation, debugging, reviews, advice, planning, assets, and game-related documentation.

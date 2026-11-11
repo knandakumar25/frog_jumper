@@ -1,5 +1,28 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Local Graphify code graph — 2026-11-10
+
+- **Cloud attempt removed:** an earlier Graphify Cloud MCP attempt (`api.graphify.com`, user scope) was removed with its doc edits at the owner's request. Its OAuth metadata URL returned malformed HTTP.
+- **Now local:**
+  - `graphifyy` 0.9.106 is installed with `uv tool install --system-certs --python 3.14 "graphifyy[mcp]"`. 3.15 fails, because `tree-sitter` has no wheel and there is no MSVC. `--system-certs` is needed for this machine's TLS interception.
+  - The graph was built with `graphify update .`, which uses no LLM: 965 code files, 8,232 nodes, 16,985 edges, 372 communities.
+  - Output is in git-ignored `graphify-out/`.
+  - Claude Code has a local-scope stdio MCP server, `graphify`, which `claude mcp get graphify` reports as Connected.
+  - `graphify explain "MusicGain"` returned correct `file:line` edges.
+- **Agent rules:** CLAUDE/AGENTS/CODEX/GEMINI.md require a graph lookup every run, and `graphify update .` after code edits.
+- **Gaps:**
+  - No GDScript extractor, so `.gd` files are absent, and so are scenes and assets.
+  - The SQL extractor is missing (`graphifyy[sql]`).
+  - Cross-file call edges are sparse: `MusicGain` shows no edge from `CodeLevel`.
+  - The `/graphify` skill was not installed; it is LLM-backed and needs the owner's approval.
+  - The MCP tools load from the next Claude Code session.
+- **Codex and Antigravity:** both now have the same `graphify` stdio server.
+  - Codex: `~/.codex/config.toml`, via `codex mcp add`.
+  - Antigravity app and `agy` CLI: `~/.gemini/config/mcp_config.json`, via `agy mcp add`.
+  - Both CLIs rewrote their file's formatting; the existing servers kept their values.
+  - Backups: `*.pre-graphify-20261110183426`.
+  - A stdio probe (initialize, tools/list, get_node) returned the 10 tools and the correct MusicGain node.
+
 ## Asset quality pass (Python + Blender) — completed 2026-11-10
 
 Owner request: improve every asset with Python and Blender; regenerate (not upscale) art without source scripts. Full report, including open items: `docs/ASSET_QUALITY_AUDIT.md`.

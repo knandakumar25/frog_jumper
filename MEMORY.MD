@@ -1,5 +1,31 @@
 # Axiom Force — Project Memory
 
+## SpriteCook plugin — 2026-11-11
+
+- **Installed:** the SpriteCook plugin 0.1.15 (skills plus a hosted MCP server at `mcp.spritecook.ai`), from the `spritecook` marketplace (`SpriteCook/claude-plugin`), in all three agents:
+  - **Claude Code:** user scope. `autoUpdate: true` is set on the marketplace in `~/.claude/settings.json` and `plugins/known_marketplaces.json`, with backups `*.pre-autoupdate`.
+  - **Codex:** `codex plugin marketplace add` and `codex plugin add`, in `~/.codex/config.toml`, backup `.pre-spritecook`.
+  - **Antigravity:** it has no third-party marketplaces, so SpriteCook was imported with `agy plugin import <claude clone>`. It is listed with source claude-code.
+- No other plugins are installed from that marketplace.
+- **Auto-update for Codex and Antigravity:** neither has a setting for it. A script, `~/.agents/plugin-autoupdate/Update-SpriteCook.ps1`, updates all three and logs to `update.log`. The scheduled task "SpriteCook plugin auto-update" runs it at logon and daily at 10:00. The script works when run by hand under both PowerShell 5.1 and 7, but the task's on-demand runs report success without running the command.
+- **SpriteCook MCP:** it not connecting is expected. The owner has an account but no subscription yet, so don't treat it as a fault.
+- **HTTPS interception:** Norton Web/Mail Shield intercepts HTTPS on this machine, which is why uv needs `--system-certs`.
+- **Graphify:** the owner decided on local Graphify only. Don't revisit Graphify Cloud.
+
+## Docker stack — 2026-11-10
+
+- On owner request, ran `docker compose create`, which creates the containers without starting them. `db`, `backend` and `website` are in the **Created** state, not running.
+- The old containers, network and `axiom-force_pgdata` volume were gone, probably from cleanup. The volume was recreated empty, so the database has no saves until it is restored with `tools/db/backup.ps1`'s backups or the game is played again.
+- Start the stack with `docker compose up -d` (or `docker compose start`).
+
+## Graphify (local) — 2026-11-10
+
+- **Owner preference:** use the local `graphifyy` package, not Graphify Cloud. The cloud MCP and its doc edits were removed.
+- **Setup:** install with `--system-certs --python 3.14`; build with `graphify update .`, which uses no LLM. Claude Code has a local-scope MCP server, `graphify`, which reports Connected. Details are in HANDOFF.md.
+- **Other agents:** Codex (`~/.codex/config.toml`) and Antigravity (`~/.gemini/config/mcp_config.json`, shared by the app and the `agy` CLI) also have the `graphify` MCP server. A stdio probe of the server passed.
+- **Rule:** all four agent md files require a lookup every run and an update after code edits. LLM-backed graphify commands need approval.
+- **Gaps:** there is no GDScript coverage. Nothing has been committed.
+
 ## Asset quality pass — completed 2026-11-10
 
 - Outcome and verification are in `HANDOFF.md` and `docs/ASSET_QUALITY_AUDIT.md`. Committed and pushed to `main` on owner instruction (2026-11-10). The Docker stack was stopped with `docker compose stop` (containers and volumes kept); restart with `docker compose up -d`.
