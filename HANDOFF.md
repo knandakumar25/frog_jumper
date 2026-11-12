@@ -1,5 +1,22 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Resumed Claude UI batch — 2026-11-12
+
+Recovered Claude's last approved task from its project session: UI essentials,
+localized titles and installation of the skyline test as the city menu base.
+Reused existing SpriteCook assets; no additional generation or credits spent by Codex.
+Balance checked at 374. Replaced tiny initial button crops using Claude's completed
+2048x1152 button sheet. Added title rendering (17 game PNGs plus website copies),
+restored game/export/browser icon references, and merged UI file provenance/hashes.
+`render_titles.py` needs libraqm; Linux Docker Pillow supports the shaped text path.
+Verification: build completed with 0 errors; Django 111, NUnit 439, GdUnit4 363
+passed (GdUnit 0 errors/failures/orphans). Image audit: 58 images; all 17 game/web
+title comparisons passed. Actual menu capture shows skyline/buttons. Graphify updated.
+Editor import completed without asset failures but logged Android EditorSettings and
+resource cleanup errors at shutdown; see `reports/ui-batch/import-final.log` (ignored).
+Native-language editorial review remains outstanding.
+Mission props, city kits and additional cutscenes still need separate cost approval.
+
 ## Phase 1 characters complete — 2026-11-12
 
 - **Stage 3 (approved by the owner):**

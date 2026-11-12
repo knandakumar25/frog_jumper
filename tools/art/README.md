@@ -1,5 +1,11 @@
 # Art tools
 
+`fit_spritecook_image.py` crops/fits downloaded art to exact project sizes.
+`render_titles.py <plate.png>` typesets the 17 supported title variants and writes
+game/web copies; it requires Pillow with libraqm. `finish_ui_batch.py <buttons.png>`
+extracts the approved three-state button sheet, restores icon references and merges
+the UI batch into the manifest. These helpers use existing assets and spend no credits.
+
 Blender was retired on 2026-11-11. The Blender generators that used to live here (character sprites, menu backdrops, the Level 1 map, title logos and their shared render settings) were deleted with the art they made. New art comes from SpriteCook; see `docs/ART_REGENERATION.md` for what to remake and the "Art pipeline" rule in `CLAUDE.md`.
 
 What remains:

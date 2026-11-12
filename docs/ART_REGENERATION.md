@@ -4,6 +4,14 @@ Blender was retired on 2026-11-11 and every image it made was deleted. On 2026-1
 
 ## Rules
 
+**Approved UI batch update (2026-11-12):** the button states, dialogue frame/pointer,
+application icon, city menu base, and 17 localized title plates with website copies
+have been restored. The tables below retain the original deletion work order;
+check files and `spritecook-assets.json` for delivered assets. This batch reused
+existing SpriteCook output; Codex spent no additional credits. The Starter plan
+allows 1K source generation; older 2K/4K recommendations below require a different
+plan and are not authorization to spend credits. Other art remains pending.
+
 - **Same path, same size.** Save each new image at its listed path and exact pixel size, and the game loads it with no code change. Some screens appear only once their whole set exists (a cutscene's stage, a later-campaign family, a city); see each phase's shared rules. `ArtRegenerationSpecTests` (NUnit) fails on a wrong size; `docs/art_regeneration.json` holds the sizes and statuses.
 - **Status column.**
   - `remake`: generate it.

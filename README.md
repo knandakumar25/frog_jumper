@@ -1,5 +1,13 @@
 # Axiom Force
 
+## UI art batch (2026-11-12)
+
+SpriteCook button states, dialogue frame/pointer, application icon, city menu base and
+17 localized title plates are restored. Titles have matching website copies. The
+title helper requires Pillow with libraqm for Arabic and Hebrew; use Linux Docker
+when the Windows Pillow build lacks it. Provenance and file hashes are recorded
+in `spritecook-assets.json`. Other missing art remains listed in `docs/ART_REGENERATION.md`.
+
 ## Open world status (2026-11-08)
 
 The Phase 0–4 roadmap below was logged as complete, but much of it is catalog data with no way to reach it in play. What is playable now: exploration, transit, missions, safehouses, the electric bike, and eight quests in Little Tokyo and Concrete Wards with conversations and drone combat. Branch choices are saved and shown as story outcomes, with no gameplay effect yet. Combat controls are (F/B attack, Space/RB dodge, Q/LB guard). The other 14 regions can be explored but have no working quests. Conversations are English only. See the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`.

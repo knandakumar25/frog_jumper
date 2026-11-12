@@ -1,7 +1,38 @@
 # Axiom Force — Project Memory
 
+## UI batch publication request — 2026-11-12
+
+- Owner authorized committing and pushing the completed UI/title batch. Reviewed the file list, diff whitespace and manifest/tooling for credentials or signed URLs; none found. Existing successful test results apply because this task only changes documentation and Git state.
+
+## Codex resumed approved UI batch — 2026-11-12
+
+- Recovered Claude's final task from session `267ac7ea-…`: owner approved UI essentials and titles plus the menu background, about 8 credits. Claude also generated a detailed button-sheet retry before hitting its limit.
+- Live balance on resume: 374; Codex reused those existing assets and spent zero new credits.
+- Restored button states from the completed detailed sheet, generated 17 localized title files and website copies from the existing plate, and restored icon references. Existing partial work was preserved.
+- Linux Docker Pillow supplies libraqm for shaped Arabic/Hebrew text; Windows Pillow did not. Added documented title/finalization helpers and merged provenance/hashes.
+- Verification completed: .NET build 0 errors (151 existing warnings); Django 111, NUnit 439 and GdUnit4 363 passed, with GdUnit 0 errors/failures/orphans. Image audit covered 58 images; 17 game/web title comparisons passed. Actual menu captures show the skyline and buttons in use. Graphify updated locally without LLM calls.
+- Both background editor imports completed with all 17 title imports present and no asset-import failures, but editor shutdown logged `export/android/shutdown_adb_on_exit` and resource cleanup/leak errors. Runtime menu capture exited without errors. Native-language editorial review is still needed. Next paid batches remain unapproved.
+- Documentation catch-up covered current first-party notes and historical Git/session context; large historical archives and the scene-audit appendix were sampled, not exhaustively read. Their old roadmap completion claims are not current implementation status.
+- Fresh-context EGM review found differing website-title wording; fixed it using the preserved title table from `ca92679` (no Blender execution). Current-state docs/roadmap were cross-checked; historical roadmap completion claims remain overridden by the expansion status table.
+
+## Next art batch planned; cheap-model test passed — 2026-11-12
+
+- **Plan approved:** `~/.claude/plans/you-mentioned-some-problems-nifty-chipmunk.md`, the most images per credit for the remaining balance.
+- **Order:**
+  1. UI essentials (about 36 credits);
+  2. titles (one plate plus Pillow text, 12);
+  3. mission props in 3x3 grids (48);
+  4. city kits in 4x4 grids (about 108);
+  5. full-screen layers with what is left.
+- Each step needs the owner's cost approval.
+- **Starter plan limit:** 1K source images only (2K and 4K need Adventurer).
+- **Step 0 done (2 credits, balance 384):** `gpt-image-2` at `quality="low"`, `pixel=true`, 16:9, with the lineup sheet as the style reference, gave a good 608x342 pixel-art rainy LA skyline (asset `aedd07c1-…`).
+  - **Use this 2-credit route for large images instead of Nano Banana 2.1 (12).**
+  - Fitting to 1920x1080: either 4x nearest plus a centre crop, or non-integer nearest.
+
 ## Phase 1 characters complete — 2026-11-12
 
+- **Committed and pushed** at the owner's request: `e3372aa` on `main` (239 files), after the full test run passed. `main` matches `origin/main`. This note is the only change since.
 - **Stage 3 done:**
   - 5 operatives at 102 credits each, all custom animations (none contaminated, no redos);
   - `vanguard` and `heavy` idle at 20 each;

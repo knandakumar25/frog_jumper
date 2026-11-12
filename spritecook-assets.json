@@ -225,6 +225,26 @@
     {
       "asset_id": "88e9713e-2e43-43aa-8874-df233125e6c0",
       "label": "heavy idle animation (8f)"
+    },
+    {
+      "asset_id": "aedd07c1-d20c-475a-a9e9-922766be1e3a",
+      "label": "Step 0 test (2 credits, gpt-image-2 low, pixel, 608x342): rainy LA night skyline; candidate for menu_backdrops/city_base.png"
+    },
+    {
+      "asset_id": "90aa8c09-2693-4661-9dcc-2c70d3024ceb",
+      "label": "Approved UI batch: buttons"
+    },
+    {
+      "asset_id": "b33dbb5b-cf02-4d59-a9c5-19a70dc5d6f7",
+      "label": "Approved UI batch: speech"
+    },
+    {
+      "asset_id": "bbcd60a0-c881-456b-bce3-d77300317c20",
+      "label": "Approved UI batch: icon"
+    },
+    {
+      "asset_id": "841996c4-b6bd-414c-8796-afe3de85c908",
+      "label": "Approved UI batch: title"
     }
   ],
   "files": [
@@ -302,6 +322,221 @@
       "path": "assets/characters/rendered/heavy_atlas.png",
       "sha12": "a23b93702378",
       "source": "packed from the heavy animations"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_arabic.png",
+      "sha12": "3051b3fb8d96",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_brazilianportuguese.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_eurofrench.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_german.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_hebrew.png",
+      "sha12": "3fa5492a669a",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_indonesian.png",
+      "sha12": "a68231f2d268",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_italian.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_japanese.png",
+      "sha12": "d5838496c9ba",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_korean.png",
+      "sha12": "3074596af7c6",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_mandarin.png",
+      "sha12": "ce10d25b996f",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_polish.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_spanish.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_thai.png",
+      "sha12": "a027225fd63f",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_traditionalchinese.png",
+      "sha12": "0e0cde7d04b7",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_turkish.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/axiom_force_title_2d_vietnamese.png",
+      "sha12": "d45a07b5e342",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_arabic.png",
+      "sha12": "3051b3fb8d96",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_brazilianportuguese.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_eurofrench.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_german.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_hebrew.png",
+      "sha12": "3fa5492a669a",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_indonesian.png",
+      "sha12": "a68231f2d268",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_italian.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_japanese.png",
+      "sha12": "d5838496c9ba",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_korean.png",
+      "sha12": "3074596af7c6",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_mandarin.png",
+      "sha12": "ce10d25b996f",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_polish.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_spanish.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_thai.png",
+      "sha12": "a027225fd63f",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_traditionalchinese.png",
+      "sha12": "0e0cde7d04b7",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_turkish.png",
+      "sha12": "1e1f6c7465cf",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "website/public/images/axiom_force_title_2d_vietnamese.png",
+      "sha12": "d45a07b5e342",
+      "source": "841996c4-b6bd-414c-8796-afe3de85c908"
+    },
+    {
+      "path": "assets/images/cyber_button_hover.png",
+      "sha12": "2074c42e50d1",
+      "source": "90aa8c09-2693-4661-9dcc-2c70d3024ceb"
+    },
+    {
+      "path": "assets/images/cyber_button_normal.png",
+      "sha12": "08a7e32c8d56",
+      "source": "90aa8c09-2693-4661-9dcc-2c70d3024ceb"
+    },
+    {
+      "path": "assets/images/cyber_button_pressed.png",
+      "sha12": "c6cdc6b59f48",
+      "source": "90aa8c09-2693-4661-9dcc-2c70d3024ceb"
+    },
+    {
+      "path": "assets/textures/cyber_speech_frame.png",
+      "sha12": "df30adbe602f",
+      "source": "b33dbb5b-cf02-4d59-a9c5-19a70dc5d6f7"
+    },
+    {
+      "path": "assets/textures/cyber_speech_pointer.png",
+      "sha12": "f42ae14ecbed",
+      "source": "b33dbb5b-cf02-4d59-a9c5-19a70dc5d6f7"
+    },
+    {
+      "path": "assets/icons/axiom_force.png",
+      "sha12": "ba91e2a47672",
+      "source": "bbcd60a0-c881-456b-bce3-d77300317c20"
+    },
+    {
+      "path": "assets/icons/axiom_force.ico",
+      "sha12": "ee9fc0737b44",
+      "source": "bbcd60a0-c881-456b-bce3-d77300317c20"
+    },
+    {
+      "path": "website/public/favicon.svg",
+      "sha12": "9522f4d54ce2",
+      "source": "bbcd60a0-c881-456b-bce3-d77300317c20"
+    },
+    {
+      "path": "assets/images/menu_backdrops/city_base.png",
+      "sha12": "00ae504f4969",
+      "source": "aedd07c1-d20c-475a-a9e9-922766be1e3a"
     }
   ]
 }

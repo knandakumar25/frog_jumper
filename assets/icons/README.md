@@ -1,5 +1,10 @@
 # Axiom Force application icon
 
+Restored on 2026-11-12 from SpriteCook asset `bbcd60a0-c881-456b-bce3-d77300317c20`.
+The 1254x1254 PNG, Windows ICO and website favicon are present and referenced by
+the game, platform export presets and HTML entry points. File hashes are recorded
+in the root manifest. The instructions below describe the original restoration work.
+
 The icon images were deleted on 2026-11-12 with the rest of the project art. The originals are in git at commit `67eab0a`. Until a new icon exists, the game window, taskbar and exports use Godot's default icon.
 
 The new icon is made with SpriteCook; see `docs/ART_REGENERATION.md` ("Deleted on 2026-11-12"). To restore it:
