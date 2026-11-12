@@ -1,5 +1,127 @@
 # Axiom Force — Project Memory
 
+## Phase 1 characters complete — 2026-11-12
+
+- **Stage 3 done:**
+  - 5 operatives at 102 credits each, all custom animations (none contaminated, no redos);
+  - `vanguard` and `heavy` idle at 20 each;
+  - AXIOM-7 portrait made free from the base still.
+- **Credits:** Phase 1 total 696, balance 386.
+- **Files:** 15 PNGs and 8 `.tres` in `assets/characters/rendered`. The manifest has 56 asset IDs and 15 file hashes.
+- **Verification:** Godot import clean; full `run_tests.ps1` passed (GdUnit 363, 0 errors, 0 failures, 0 orphans; NUnit; Django).
+- **Helper:** the scratchpad `fetch_pack.sh` (download, preview, pack, restore `.tres`) is session-only; `tools/art/pack_spritecook_character.py` is the durable tool.
+
+## Characters: Stages 1–2 done; all remaining art deleted — 2026-11-12
+
+- **Owner decisions:**
+  - Art style is **pixel art**.
+  - Gameplay characters come first: 6 operative atlases and portraits, the vanguard and heavy idle atlases, and the AXIOM-7 portrait. World walk sheets, cutscene poses and civilians come later.
+  - Animations will be smooth SpriteCook ones, not repeated key poses.
+- **Plan:** credit-gated stages. Stage 1 lineup is approved (cap 150 credits). Stage 2 is the Shogun pilot, about 102. Stage 3 is the rest, about 550. The approved plan file is `~/.claude/plans/you-mentioned-some-problems-nifty-chipmunk.md`.
+  - The game keeps its own `.tres` (restored from `ca92679`). A new Pillow packer will build `<id>_atlas.png`.
+  - SpriteCook's Godot export is not used.
+- **Done:**
+  - Made the lineup as **one** 3x3 grid instead of 9 calls: 12 credits, balance 1,028. Asset `31620381-…`, recorded in the new root `spritecook-assets.json`.
+  - The designs are good and consistent, but most are front or three-quarter view.
+- **Stage 1 complete:** 12 credits spent, balance 1,028.
+  - The owner approved the designs and confirmed they already face right (three-quarter view), so no edit is needed.
+  - `auto_slice_asset` gave 7 clean slices but merged Phoenicia with Heavy. Those two were cut locally and uploaded with `create_asset_upload`/`finalize_asset_upload`.
+  - All 9 base stills are labelled and recorded in `spritecook-assets.json`. Slicing, uploads and relabelling cost 0 credits.
+- **Stage 2 (Shogun pilot) done:**
+  - 102 credits for the run, plus 20 to redo the run animation. The preset prompt inherited the 9-character lineup prompt and drew other operatives into the frames.
+  - **Use custom prompts for every animation from now on.**
+  - Balance 936 (a +30 rewards bonus was added).
+  - The atlas, portrait and `.tres` are in `assets/characters/rendered`.
+- **Owner correction (2026-11-12):** "remove all current art" (2026-11-11) meant **all** art, not only Blender art. Deleted the remaining 115 images and the hand-drawn overlay code; see HANDOFF.
+  - Hand-drawn art had hidden the new sprite in missions (`PalaceOperative` → `TrainingArtwork`).
+  - Only fonts remain.
+  - **The owner interrupted a 5-minute `run_tests.ps1` without being told how long it takes. Say the expected duration first, or run it in the background.**
+- **Final verification (2026-11-12):** the full `run_tests.ps1` in the background passed: GdUnit 363 (0 errors, 0 failures, 0 orphans), NUnit, Django.
+- **Next:**
+  - Recheck Mission 2.
+  - Stage 3 approval (about 550 credits).
+  - The 9 UI and icon remakes.
+- **Live prices:**
+  - base character 12;
+  - animation run: first 20, then 14 each;
+  - run/walk pose prep 12;
+  - NB2.1 still at 1K: 12;
+  - GPT-image-2 low at 1K: 2.
+
+## SpriteCook Starter plan; sign-in still needed — 2026-11-12
+
+- **Owner:** subscribed to the SpriteCook Starter plan.
+- **Checked:**
+  - `claude mcp list` still shows `plugin:spritecook:spritecook` as "Failed to connect (InvalidHTTPResponse)".
+  - No SpriteCook OAuth token is saved in Claude Code.
+  - `curl` reaches the server, which returns the normal 401 plus OAuth metadata at 200.
+  - There is no proxy, and the Norton certificate variables are already set.
+  - Conclusion: the server and account side look fine. Claude Code has not signed in, and sign-in can't run in a non-interactive session.
+- **Owner steps:**
+  - Run `/mcp` in an interactive Claude Code session, pick `spritecook` and Authenticate in the browser.
+  - If it still says InvalidHTTPResponse, run `claude plugin update spritecook@spritecook` and restart. After that, try excluding `mcp.spritecook.ai` and `api.spritecook.ai` from Norton's HTTPS scanning. Norton is suspected, not confirmed.
+  - Codex and Antigravity each need their own sign-in.
+- **Update (same day):** Claude Code is now signed in and connected (the owner used `/mcp` after `/reload-plugins` and a new session). Codex lists `spritecook` with auth "Unknown"; sign in with `codex mcp login spritecook`. Antigravity loads the server from `~/.gemini/config/plugins/spritecook/mcp_config.json` and needs its own sign-in in the app. The `agy` CLI list does not show plugin servers.
+- **Codex fix (same day):** `codex mcp login spritecook` failed with "OAuth metadata discovery failed ... error decoding response body". The cause was two SpriteCook plugins in Codex:
+  - the Claude marketplace copy that Claude set up, `spritecook@spritecook`, which uses `/mcp/claude`;
+  - SpriteCook's official Codex plugin, `spritecook@openai-curated-remote` 0.1.18, which uses `/mcp/openai`. Its app setup was completed through `/plugins`.
+  - The login command kept resolving to the Claude copy. The server itself was fine: its JSON replies are compressed only on request.
+  - Removed `spritecook@spritecook` and the `spritecook` marketplace from Codex. Backup: `~/.codex/config.toml.bak-spritecook-20261112`.
+  - Codex now has only the official plugin, and `codex mcp login` no longer applies.
+  - The agent rules and README now say which plugin each agent uses.
+- **Codex still has no SpriteCook tools (checked in a fresh `codex exec`):**
+  - The official plugin works through Codex's built-in ChatGPT apps connection (`codex_apps`). In `~/.codex/logs_2.sqlite` that connection has failed every time since 2026-11-04 with "error decoding response body".
+  - The other remote HTTP MCP servers (docker-docs) fail the same way. Local stdio servers work.
+  - Suspected cause: Norton HTTPS scanning. Not confirmed.
+  - Owner options: use Claude Code for SpriteCook (working), or exclude `codex.exe`, or `chatgpt.com` and `mcp.spritecook.ai`, from Norton's scanning and retest.
+- **Root cause confirmed (later the same day):**
+  - Norton Web/Mail Shield intercepts the TLS for `mcp.spritecook.ai`, `chatgpt.com` and `ai-backend-service.docker.com`. The certificate issuer is "Norton Web/Mail Shield Root".
+  - It corrupts chunked HTTP responses. `curl` against the Docker MCP gives "chunk hex-length char not a hex digit".
+  - That explains Claude Code's "InvalidHTTPResponse (tools fetch failed)", Codex's "error decoding response body" and the docker-docs failure.
+  - Fix, owner only: in Norton Web Shield, turn off HTTPS scanning, or add exceptions for those hosts and `api.spritecook.ai`. Then restart the apps.
+  - Retest with a `curl` POST initialize to `https://ai-backend-service.docker.com/mcp`.
+- **Fixed (later the same day):**
+  - The owner switched off Norton Safe Web → Settings → "HTTPS scanning". The other Safe Web switches were left on.
+  - Claude Code's SpriteCook tools now load. `get_credit_balance` reports 1,040 credits (1,000 subscription + 40 top-up), tier "apprentice" (the Starter plan), status active and 4 concurrent jobs.
+  - `npx spritecook-mcp setup` is not needed.
+- **Codex after the Norton fix:**
+  - The ChatGPT apps connection now loads. Codex lists every `spritecook_*` tool; the gateway's own cache in `~/.codex/cache/codex_apps_tools/` names them `spritecook.<tool>`.
+  - Every call fails with `-32001 Unknown tool({"name":"spritecook.<tool>"})`. Reproduced with `get_credit_balance`, `list_projects` and `list_generation_models` in fresh `codex exec` sessions.
+  - This is on the OpenAI apps gateway or SpriteCook app side, not local.
+  - Owner options: reconnect SpriteCook under chatgpt.com Settings → Apps (disconnect, then connect), then open a new Codex session. If it still fails, report it to SpriteCook (kimo@spritecook.ai) or OpenAI.
+  - Claude Code is unaffected.
+- **Antigravity switched to the API-key setup (same day):**
+  - Codex SpriteCook was fixed on the owner's side.
+  - Removed the old Claude-plugin copy for Antigravity: `~/.gemini/config/plugins/spritecook` and its `import_manifest.json` entry.
+  - Added Node to new PowerShell sessions through `$PROFILE`. VS Code started before Node was installed, so its terminals had a stale PATH.
+  - The owner ran `npx spritecook-mcp setup`. It wrote the Antigravity entry to `~/.gemini/antigravity/mcp_config.json`, which this install does not read. It also added a second `spritecook` server with a plain-text API key to `~/.claude.json`, `~/.codex/config.toml` and the project's `.vscode/mcp.json` (not git-ignored), and copied skills into `.agent/`, `.agents/`, `.claude/skills/`, `.github/skills/` and `~/.agents/skills/`.
+  - Fixed:
+    - moved the Antigravity entry into `~/.gemini/config/mcp_config.json` (`agy mcp list` shows `spritecook http enabled`);
+    - copied the 10 skills to `~/.gemini/config/skills` and `~/.gemini/antigravity-cli/skills`;
+    - removed every other addition.
+  - Backups, which contain the key: scratchpad `spritecook-npx-backup`.
+  - Verified: the key completes an MCP `initialize` on `api.spritecook.ai/mcp/`; Claude's plugin is still connected; Codex still has only `spritecook@openai-curated-remote`.
+- **Skill check:**
+  - All three agents have the same 10 SpriteCook skills, version 2026.10.20: Claude Code and Codex through their plugins, Antigravity in `~/.gemini/config/skills` and `~/.gemini/antigravity-cli/skills`.
+  - The npx copies were identical to the plugin copies (only line endings differed), so removing them lost nothing.
+- **SpriteCook skills made mandatory:**
+  - Added a "Mandatory SpriteCook Skills (All Asset-Related Work)" section to CLAUDE, AGENTS, CODEX and GEMINI. The four copies are identical.
+  - Verified by asking Codex and the Antigravity CLI an art request that did not mention SpriteCook. Both listed `create-game-assets` → `spritecook-workflow-essentials` → `spritecook-generate-sprites`, and confirmed they can read them.
+  - Antigravity's headless `--print` mode denies MCP calls, so the check told it to skip Graphify.
+- **Still blocking generation:** the art style choice, then approval of each phase's asset list and cost. The Phase 1 to 7 total is 316 images. At 12–18 credits each with the 1.5x retry factor, that is roughly 5,700–8,500 credits, so check the Starter allowance with `get_credit_balance` first.
+- **Docs updated (md only):**
+  - the "no subscription" sentence in CLAUDE, AGENTS, CODEX and GEMINI;
+  - README line 132;
+  - `docs/ART_REGENERATION.md` owner decision 2;
+  - HANDOFF line 69.
+  - Nothing committed.
+
+## Docker stack started; state check — 2026-11-12
+
+- **Action:** on the owner's request, read the git history and the Markdown files, then ran `docker compose up -d --wait`. `db`, `backend` and `website` are all healthy on ports 5432, 8000 and 5173.
+- **Repository state:** the Blender retirement, the stand-in removal and the EGM review work were committed and pushed by Antigravity as `67eab0a` on `main`. It matches `origin/main`, and the working tree is clean. The entries below that say "uncommitted" predate that commit.
+- **Review caveat:** Claude Code's four round 3 reviewers stopped on a usage limit before reporting. Round 3 in `goldfish_review_report.md` was recorded by Antigravity. `egm-review-loop` asks for two clean rounds in a row before it counts as converged, and only one clean round is recorded.
+
 ## Docker Services Shutdown — 2026-11-11
 
 - **Action:** Gracefully stopped and removed all project Docker containers via `docker compose down`.

@@ -9,7 +9,6 @@ using System.Collections.Generic;
 public partial class IsometricOperative : CyberShogun
 {
     private static bool _inputConfigured;
-    private static SpriteFrames? _aiShogunFrames;
     private CircleShape2D _queryShape = null!;
     private Vector2 _aimDirection = Vector2.Right;
     private Vector2 _moveDirection;
@@ -29,10 +28,8 @@ public partial class IsometricOperative : CyberShogun
     public override void _Ready()
     {
         EnsureInputActions();
-        // Supply an idle-capable sheet before CyberShogun's base ready method starts its animation.
-        Sprite2d = GetNode<AnimatedSprite2D>("Sprite2D");
-        _aiShogunFrames ??= BuildAiShogunFrames();
-        Sprite2d.SpriteFrames = _aiShogunFrames;
+        // CyberShogun's base ready method loads the operative's SpriteCook frames (or the invisible
+        // placeholder while they are not made yet) through OperativeVisuals before playing idle.
         base._Ready();
         OperativeProfileChanged += OnOperativeProfileChanged;
         ApplyMissionCharacterArt(ActiveProfile);
@@ -44,54 +41,17 @@ public partial class IsometricOperative : CyberShogun
         QueueRedraw();
     }
 
-    /// <summary>Uses the final AI-generated Shogun sheets in Level 1 and registry art for the other operatives.</summary>
+    /// <summary>Reloads the mission sprite frames when the squad swaps operatives.</summary>
     private void OnOperativeProfileChanged(OperativeProfile profile) => ApplyMissionCharacterArt(profile);
 
-    /// <summary>Swaps only the mission sprite frames so the training course and other scenes keep their current art.</summary>
+    /// <summary>
+    /// Uses the operative's SpriteCook frames from <c>OperativeVisuals</c>, the same frames as every
+    /// other mission. The hand-drawn Level 1 Shogun atlas was deleted on 2026-11-12.
+    /// </summary>
     private void ApplyMissionCharacterArt(OperativeProfile profile)
     {
-        if (profile.DisplayName == "Cyber Shogun")
-        {
-            _aiShogunFrames ??= BuildAiShogunFrames();
-            Sprite2d.SpriteFrames = _aiShogunFrames;
-            Sprite2d.Play("idle");
-            return;
-        }
-
         Sprite2d.SpriteFrames = OperativeVisuals.LoadFrames(profile.DisplayName);
         Sprite2d.Play("idle");
-    }
-
-    /// <summary>Builds the mission's frame set from the cropped AI-generated campaign atlas.</summary>
-    private static SpriteFrames BuildAiShogunFrames()
-    {
-        var atlas = GD.Load<Texture2D>("res://assets/characters/shogun_study/campaign_atlas.png");
-        var frames = new SpriteFrames();
-        AddAtlasAnimation(frames, atlas, "idle", 0, 2, 8f, true);
-        AddAtlasAnimation(frames, atlas, "default", 0, 2, 8f, true);
-        AddAtlasAnimation(frames, atlas, "running", 1, 8, 12f, true);
-        AddAtlasAnimation(frames, atlas, "jumping", 2, 8, 12f, false);
-        AddAtlasAnimation(frames, atlas, "blade_dash", 3, 8, 24f, false);
-        AddAtlasAnimation(frames, atlas, "sword_attack", 4, 8, 16f, false);
-        AddAtlasAnimation(frames, atlas, "karate_attack", 5, 8, 16f, false);
-        return frames;
-    }
-
-    /// <summary>Adds one row of fixed-size AI art frames under the animation name expected by CyberShogun.</summary>
-    private static void AddAtlasAnimation(SpriteFrames frames, Texture2D atlas, string name, int row, int count, float speed, bool loop)
-    {
-        if (frames.HasAnimation(name)) frames.RemoveAnimation(name);
-        frames.AddAnimation(name);
-        frames.SetAnimationSpeed(name, speed);
-        frames.SetAnimationLoopMode(name, loop ? SpriteFrames.LoopMode.Linear : SpriteFrames.LoopMode.None);
-        for (int column = 0; column < count; column++)
-        {
-            frames.AddFrame(name, new AtlasTexture
-            {
-                Atlas = atlas,
-                Region = new Rect2(column * 256, row * 256, 256, 256)
-            });
-        }
     }
 
     /// <summary>Routes keyboard, mouse, and right-stick motion to the current aim source.</summary>

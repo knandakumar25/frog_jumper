@@ -57,9 +57,9 @@ public partial class CyberButton : Control
 
 	// 2D NinePatch Background
 	private NinePatchRect _ninePatch;
-	private static Texture2D _texNormal;
-	private static Texture2D _texHover;
-	private static Texture2D _texPressed;
+	private static Texture2D? _texNormal;
+	private static Texture2D? _texHover;
+	private static Texture2D? _texPressed;
 
 	// 2D Typography Layer
 	private Control _labelLayer;
@@ -121,14 +121,17 @@ public partial class CyberButton : Control
 		}
 	}
 
+	/// <summary>
+	/// Loads the shared button textures and fonts once. The three button images were deleted on
+	/// 2026-11-12 and await SpriteCook regeneration (<c>docs/ART_REGENERATION.md</c>); until they
+	/// return, <c>OptionalArt</c> yields null, the nine-patch draws nothing and the button shows its
+	/// text only. A regenerated file at the same path is used with no code change.
+	/// </summary>
 	private static void LoadStaticResources()
 	{
-		if (_texNormal == null)
-			_texNormal = GD.Load<Texture2D>("res://assets/images/cyber_button_normal.png");
-		if (_texHover == null)
-			_texHover = GD.Load<Texture2D>("res://assets/images/cyber_button_hover.png");
-		if (_texPressed == null)
-			_texPressed = GD.Load<Texture2D>("res://assets/images/cyber_button_pressed.png");
+		_texNormal ??= OptionalArt.Texture("res://assets/images/cyber_button_normal.png");
+		_texHover ??= OptionalArt.Texture("res://assets/images/cyber_button_hover.png");
+		_texPressed ??= OptionalArt.Texture("res://assets/images/cyber_button_pressed.png");
 
 		if (_orbitronFont == null)
 		{

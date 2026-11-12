@@ -56,6 +56,11 @@ public partial class CyberDialogueBubble : Control
 		// Locate or create UI hierarchy
 		_frameBackground         = GetNodeOrNull<NinePatchRect>("FrameBackground");
 		_holoPointer             = GetNodeOrNull<TextureRect>("HoloPointer");
+		// The frame and pointer images were deleted on 2026-11-12 and await SpriteCook regeneration
+		// (docs/ART_REGENERATION.md). They load by path when present, so a regenerated file returns
+		// with no scene edit; until then the frame and pointer draw nothing and the text still shows.
+		if (_frameBackground != null) _frameBackground.Texture = OptionalArt.Texture("res://assets/textures/cyber_speech_frame.png");
+		if (_holoPointer != null) _holoPointer.Texture = OptionalArt.Texture("res://assets/textures/cyber_speech_pointer.png");
 		_avatarIcon              = GetNodeOrNull<TextureRect>("ContentMargin/VBoxContainer/HeaderBar/AvatarIcon");
 		_statusDot               = GetNodeOrNull<Label>("ContentMargin/VBoxContainer/HeaderBar/HeaderInfoVBox/StatusLineHBox/StatusDot");
 		_speakerLabel            = GetNodeOrNull<Label>("ContentMargin/VBoxContainer/HeaderBar/HeaderInfoVBox/StatusLineHBox/SpeakerNameLabel");

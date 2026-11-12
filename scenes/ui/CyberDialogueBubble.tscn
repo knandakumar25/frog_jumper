@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyber_dialogue_bubble_01"]
+[gd_scene load_steps=7 format=3 uid="uid://cyber_dialogue_bubble_01"]
 
 [ext_resource type="Script" path="res://scripts/ui/CyberDialogueBubble.cs" id="1_bubble_script"]
 [ext_resource type="Shader" path="res://assets/shaders/cyber_dialogue_bubble.gdshader" id="2_bubble_shader"]
-[ext_resource type="Texture2D" path="res://assets/textures/cyber_speech_frame.png" id="3_frame_tex"]
-[ext_resource type="Texture2D" path="res://assets/textures/cyber_speech_pointer.png" id="4_pointer_tex"]
 [ext_resource type="FontFile" path="res://assets/fonts/Orbitron-VariableFont.ttf" id="6_orbitron"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Medium.ttf" id="7_rajdhani_med"]
 [ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-Bold.ttf" id="8_rajdhani_bold"]
@@ -43,7 +41,6 @@ offset_left = -38.0
 offset_top = 150.0
 offset_right = 6.0
 offset_bottom = 210.0
-texture = ExtResource("4_pointer_tex")
 expand_mode = 1
 stretch_mode = 5
 
@@ -55,7 +52,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_frame_tex")
 patch_margin_left = 40
 patch_margin_top = 40
 patch_margin_right = 40

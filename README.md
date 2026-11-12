@@ -129,13 +129,29 @@ graphify query "how is mission music levelled"
 
 ## Art pipeline (SpriteCook)
 
-Blender was retired on 2026-11-11. All game and website art is now made with the SpriteCook plugin (`spritecook@spritecook`, installed for Claude Code, Codex and Antigravity). Generation spends paid credits, so the owner approves each batch. The SpriteCook server will not connect until the account has a subscription.
+Blender was retired on 2026-11-11. All game and website art is now made with the SpriteCook plugin (the `spritecook@spritecook` plugin in Claude Code, the official `spritecook@openai-curated-remote` plugin in Codex, and an API-key MCP entry in Antigravity). Generation spends paid credits, so the owner approves each batch. The account is on the SpriteCook Starter plan (2026-11-12). Each agent signs in to SpriteCook once before its tools work.
 
+- **Style:** pixel art (owner, 2026-11-12).
 - **Deleted:** every image Blender made, which is 344 game images plus 78 website copies of the titles. Also deleted: the generator scripts, the `blendot`, `blender_godot_pipeline` and `gltf_fix_blender_light_intensity` editor add-ons, and Blender in the cutscene Docker image. The originals are in git at commit `ca92679`. `addons/animation_combiner` (an FBX/GLB tool with Blender helper scripts) is still installed, pending an owner decision.
+- **Also deleted (2026-11-12):** every image that was left (115 files at commit `67eab0a`):
+  - the hand-drawn operative studies (`assets/characters/hand_drawn`, `shogun_study`) and the code that drew them over the real sprites (`TrainingArtwork`, `OperativeStudyAtlas`);
+  - the older title logos and their website copies;
+  - the UI art, backgrounds and template images;
+  - the app icon and favicon.
+  Of these, 9 are listed to remake; the rest are unused or superseded.
+- **Done so far:** Phase 1 characters (2026-11-12).
+  - Pixel-art atlases, portraits and restored `.tres` for all six operatives.
+  - The `vanguard` drone and `heavy` boss idle atlases.
+  - The AXIOM-7 portrait.
+  - Everything is packed by `tools/art/pack_spritecook_character.py`. Asset IDs are in `spritecook-assets.json`.
 - **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
 - **Until then the game has gaps on purpose:**
-  - Actors drawn from the rendered sprites (the platformer operatives in most missions, the drone and the boss) are invisible but still play. `OperativeVisuals` gives them an empty placeholder animation set. Cyber Shogun's Level 1 and training art and the selection-screen pose studies still show, because they were not made with Blender. Sentries, open-world hostiles and Aegis civilians are drawn in code.
-  - Cities, menus and the Level 1 map have no art.
+  - Every mission, Level 1, the squad cutscenes and the selection preview draw operatives from their SpriteCook atlas through `OperativeVisuals`.
+    - All six operatives, the drone and the boss now have pixel-art sprites.
+    - An actor without an atlas would be invisible but still play, using an empty placeholder animation set.
+    - Sentries, open-world hostiles and Aegis civilians are drawn in code.
+  - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline.
+  - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
   - Cutscenes skip.
   - The title slot is empty in the game and shows text on the website (`website/src/components/TitleLogo.jsx`).
 - The downloaded CC0 stand-ins (`assets/stand_in/`) and the Pixel Adventure leftovers were deleted as well. The bike, sentries and open-world drones are drawn in code, and their sounds are silent.
@@ -717,14 +733,14 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): eight sectors of freight sabotage, three shipments, two uplinks, a relay blackout and a blind-grid escape across 48,000px.
   4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him unlocks the crossing control, then opening the border and reaching extraction ends Act I with its scorecard.
   Each mission has three optional memory fragments, a story title card, and chasm recovery. Level 2 has four shrine checkpoints; the other missions have three. Its revised gameplay briefing replaces outdated title-card objective metadata.
-- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Cyber Shogun uses the approved AI-generated pose and locomotion sheets in missions; other operatives use their hand-drawn sheets. Levels 2–4 use a procedural skyline backdrop; Level 1 uses a painted garden under procedurally drawn platforms.
+- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Operatives use their SpriteCook pixel-art sprites (all six done 2026-11-12). Levels use a procedural skyline backdrop; Level 1's painted garden was deleted on 2026-11-12 and awaits regeneration.
 - **Dynamic Combat HUD** — Real-time telemetry monitoring health, shields, combo streaks (`DOUBLE STRIKE!`, `TRIPLE COMBO!`, `TACTICAL OVERDRIVE!`), operative ability status, and boss telemetry.
 - **Border Commander Voss (boss mech)** — Level 4 uses three phases at 300/200/100 HP, phase-two power pylons, aimed/spread missiles, marked defense lanes and stationary melee recovery. Parry returns the actual missile to its owner. Standalone mech scenes retain the legacy overdrive behavior.
 - **Tactical Victory Scorecard** — End-of-level combat assessment evaluating completion time, score, and damage taken to award combat grades (**S Rank / Flawless**, **A Rank / Vanguard**, **B Rank / Operative**) with victory fanfare.
 - **Dynamic 2D Environmental Hazards** — Pulsing lethal laser grids (`CyberLaserGrid2D`) and rhythmic electrified floor panels (`CyberHazardFloor2D`).
 - **4-Level Campaign Chain** — Linear mission progression through neon rooftops and industrial sectors (`level1.tscn` $\rightarrow$ `level4.tscn`).
 - **Synthesized 16-Bit SFX Engine** — Dedicated procedural sound design for blade slashes, dashes, clashes, laser hums, drone explosions, and boss alarms.
-- **Squad Roster** — Reached from the main menu. A two-panel layout pairs the roster (locked operatives marked) with one unified dossier containing the animated hand-drawn preview, identity, stats, movement controls, a single set of ability buttons, and Upgrade / Set Active actions. Keyboard and controller navigation follow the visible controls for each operative.
+- **Squad Roster** — Reached from the main menu. A two-panel layout pairs the roster (locked operatives marked) with one unified dossier containing the animated sprite preview (empty for operatives without SpriteCook art yet), identity, stats, movement controls, a single set of ability buttons, and Upgrade / Set Active actions. Keyboard and controller navigation follow the visible controls for each operative.
 - **Cross-Platform Backend & Web Portal** — Django REST Framework backend with PostgreSQL session leaderboards and a modern React + Vite frontend.
 
 ---

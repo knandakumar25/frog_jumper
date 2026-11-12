@@ -1,5 +1,5 @@
 extends GdUnitTestSuite
-## Regression coverage for shared operative previews, loadout routing, and art preservation.
+## Regression coverage for shared operative previews and loadout routing.
 
 const ROSTER = {
 	"Cyber Shogun": ["cyber_shogun", "Shogun's Flash", "Kinetic Parry", "Cyber Dash", "Ground Slam"],
@@ -11,24 +11,25 @@ const ROSTER = {
 }
 const STUDY = "MainLayout/RightShowcasePanel/VBox/ShogunArtStudy"
 
-## Each selection must change the actual art body while retaining its original flat assets.
-func test_all_operatives_show_their_own_hand_drawn_art_and_preserve_originals() -> void:
+## Each selection must switch the preview to that operative. The preview plays the operative's
+## SpriteCook frames when assets/characters/rendered/<id>.tres exists and shows an empty stage
+## otherwise (the old hand-drawn study art was deleted on 2026-11-12).
+func test_all_operatives_switch_preview_and_use_their_spritecook_frames_when_present() -> void:
 	var runner = scene_runner("res://scenes/main_menu/character_selection.tscn")
 	var menu = runner.scene()
 	var preview = menu.get_node(STUDY + "/ArtPreview")
-	assert_bool(preview.get("UseOriginalDesign")).is_false()
 	for operative in ROSTER:
 		menu.call("SelectOperative", operative)
 		var id = ROSTER[operative][0]
 		assert_str(preview.get("ActiveOperativeId")).is_equal(id)
 		assert_bool(menu.get_node(STUDY).visible).is_true()
 		assert_bool(menu.get_node("MainLayout/RightShowcasePanel/VBox/CardImage").visible).is_false()
-		var expected = "res://assets/characters/shogun_study/poses.png" if id == "cyber_shogun" else "res://assets/characters/hand_drawn/" + id + "_poses.png"
-		assert_str(preview.get("StudyTexturePath")).is_equal(expected)
-		# The rendered sprites (assets/characters/rendered) were deleted pending SpriteCook
-		# regeneration, so they are no longer required here; the hand-drawn study art is.
-		assert_bool(ResourceLoader.exists(expected)).is_true()
+		var frames_path = "res://assets/characters/rendered/" + id + ".tres"
+		assert_bool(preview.get("HasArt")).is_equal(ResourceLoader.exists(frames_path))
 		assert_str(preview.get("CurrentAction")).is_equal("Idle")
+	# The hand-drawn study folders must stay deleted.
+	assert_bool(DirAccess.dir_exists_absolute("res://assets/characters/hand_drawn")).is_false()
+	assert_bool(DirAccess.dir_exists_absolute("res://assets/characters/shogun_study")).is_false()
 
 ## Each ability has one button in the unified dossier and drives the matching preview slot.
 func test_every_loadout_button_drives_matching_ability_slot() -> void:
@@ -65,16 +66,14 @@ func test_movement_and_selection_reset_preview_state() -> void:
 		menu.call("SelectOperative", "Cyber Shogun")
 		assert_str(preview.get("CurrentAction")).is_equal("Idle")
 
-## Both comparison branches still accept Cyber Shogun's additional melee actions.
-func test_original_art_comparison_and_shogun_melee_remain_available() -> void:
+## The preview still accepts Cyber Shogun's additional melee actions.
+func test_shogun_melee_actions_remain_available() -> void:
 	var runner = scene_runner("res://scenes/main_menu/character_selection.tscn")
 	var menu = runner.scene()
 	var preview = menu.get_node(STUDY + "/ArtPreview")
-	for original in [true, false]:
-		preview.set("UseOriginalDesign", original)
-		for action in ["Katana", "Martial strike"]:
-			menu.call("PreviewStudyAction", action)
-			assert_str(preview.get("CurrentAction")).is_equal(action)
+	for action in ["Katana", "Martial strike"]:
+		menu.call("PreviewStudyAction", action)
+		assert_str(preview.get("CurrentAction")).is_equal(action)
 
 ## The merged dossier replaces the old third column and keeps its primary actions inside the panel.
 func test_merged_dossier_has_two_panels_and_contains_preview_and_deploy() -> void:

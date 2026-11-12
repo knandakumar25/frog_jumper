@@ -59,15 +59,44 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
 ### Art Pipeline: SpriteCook Only (Blender Retired)
 
 - **Blender is retired** (2026-11-11). Do not install or run Blender, and do not add `bpy` scripts, Blender add-ons, `.blend` files or Blender render steps. The Blender-made art, its generator scripts and the `blendot`, `blender_godot_pipeline` and `gltf_fix_blender_light_intensity` add-ons were deleted. The originals are in git history at `ca92679`. `addons/animation_combiner` (an FBX/GLB tool with Blender helper scripts) is still installed, pending an owner decision; do not use its Blender scripts.
-- **All new or replacement game and website art comes from SpriteCook.** Use the `spritecook@spritecook` plugin installed for Claude Code, Codex and Antigravity. Read and follow its skills before generating: `spritecook-workflow-essentials` first, then the task's skill (`spritecook-generate-sprites`, `spritecook-animate-assets`, `spritecook-generate-tilesets`, `spritecook-build-ui-kits`, `spritecook-polish-sprites`, `spritecook-use-assets-in-godot`).
-- **Generation spends paid credits.** Get the owner's explicit approval before each generation batch, with the asset list and expected credit cost. The owner has an account but no subscription yet, so the SpriteCook MCP server failing to connect is expected and not a fault.
+- **All new or replacement game and website art comes from SpriteCook.** Use SpriteCook through each agent's own setup: the `spritecook@spritecook` plugin (server `/mcp/claude`) in Claude Code; an API-key server entry named `spritecook` (`https://api.spritecook.ai/mcp/`) in Antigravity's `~/.gemini/config/mcp_config.json`, with the skills in `~/.gemini/config/skills` and `~/.gemini/antigravity-cli/skills` (Antigravity has no plugin; `npx spritecook-mcp setup` writes to `~/.gemini/antigravity/`, which this install does not read, and also adds duplicates for other apps); and SpriteCook's official Codex plugin `spritecook@openai-curated-remote` (server `/mcp/openai`, signed in as a Codex app through `/plugins`) in Codex. Do not install the Claude plugin in Codex; its `/mcp/claude` server fails Codex sign-in. Read and apply the SpriteCook skills for all asset work, as set out in "Mandatory SpriteCook Skills" below.
+- **Generation spends paid credits.** Get the owner's explicit approval before each generation batch, with the asset list and expected credit cost. The owner subscribed to the SpriteCook Starter plan on 2026-11-12. Each agent must sign in to SpriteCook once (in Claude Code: `/mcp`, pick `spritecook`, Authenticate; in Codex: the app setup in `/plugins`) before its tools work; a "Failed to connect" before sign-in is expected.
 - **What to regenerate:** `docs/ART_REGENERATION.md` lists every deleted image, with its path, pixel size, layer role, frame layout, pivot and the code that loads it. `docs/art_regeneration.json` holds the same sizes.
   - Save each new image at its listed path and exact size, so the game uses it with no code change.
   - `ArtRegenerationSpecTests` (NUnit) fails if a regenerated file has the wrong size.
   - Record each saved file's `asset_id` in `spritecook-assets.json` at the repository root (create it on first use).
-- **Until art returns, the game leaves gaps on purpose:** invisible actors that use the rendered sprites (the platformer operatives in most missions, the drone and the boss; an empty placeholder in `OperativeVisuals`), while Shogun's Level 1 and training art and the selection studies still show; sentries, open-world hostiles and Aegis civilians are drawn in code, blank cities and menus, cutscenes that skip, and an empty title slot (a text title on the website). Do not add stand-in art to fill these gaps unless the owner asks.
+- **Until art returns, the game leaves gaps on purpose:** any actor whose SpriteCook atlas is missing would be invisible (an empty placeholder in `OperativeVisuals`); the six operatives, the drone and the boss are done (Phase 1, 2026-11-12). Also: sentries, open-world hostiles and Aegis civilians drawn in code, blank cities and menus, cutscenes that skip, an empty title slot (a text title on the website), text-only buttons, a frameless speech bubble and default app and browser icons. Every other image (the hand-drawn studies, older logos, UI art, backgrounds and icons) was deleted on 2026-11-12; `docs/ART_REGENERATION.md` lists the 9 of those to remake. The art style is pixel art (owner, 2026-11-12). Do not add stand-in art to fill these gaps unless the owner asks.
 - Check new art with `tools/assets/audit_images.py` and `tools/assets/compare_images.py`, which run on Pillow and numpy.
 - This rule never authorizes commits, pushes or spending credits.
+
+### Mandatory SpriteCook Skills (All Asset-Related Work)
+
+- Whenever an agent does **any** work related to visual assets, it **MUST first read and apply the SpriteCook skills**. This applies to every agent: Claude Code, Codex and Google Antigravity.
+- **What counts as asset work:** creating, regenerating, editing, animating, polishing, cleaning up, uploading, importing, slicing, organizing, budgeting or planning any game or website art. This includes sprites, characters, portraits, enemies, props, tilesets, maps, backgrounds, parallax layers, cutscene layers, menus, UI kits, icons, title logos and textures. It also includes reviewing art, choosing an art style, and writing art specs or prompts. It covers both requests that name SpriteCook and requests that do not.
+- **Which skills to read:**
+  - Always read `spritecook-workflow-essentials` first (credits, downloads, asset manifests, safe sign-in handling, defaults).
+  - Then read every skill the task needs:
+
+    | Task | Skill |
+    |---|---|
+    | Still images: sprites, characters, props, backgrounds, layers, icons | `spritecook-generate-sprites` |
+    | Animations and character animation sets | `spritecook-animate-assets` |
+    | Tilesets and autotiles | `spritecook-generate-tilesets` |
+    | Using top-down 15-piece tilesets in a dual-grid renderer | `spritecook-use-dual-grid-tilesets` |
+    | Menus, HUDs and matching UI component sets | `spritecook-build-ui-kits` |
+    | Outline fixes, halos, edge debris and alpha cleanup | `spritecook-polish-sprites` |
+    | Bringing a local image into SpriteCook (references, edits, animation) | `spritecook-upload-assets` |
+    | Saved presets for a consistent style | `spritecook-use-presets` |
+    | Putting SpriteCook output into Godot (SpriteFrames, AnimatedSprite2D, TileSet) | `spritecook-use-assets-in-godot` |
+- **Where each agent finds them:**
+  - Claude Code: the `spritecook@spritecook` plugin skills (named `spritecook:spritecook-...`).
+  - Codex: the `spritecook@openai-curated-remote` plugin skills.
+  - Antigravity: `~/.gemini/config/skills/spritecook-*` (app/IDE) and `~/.gemini/antigravity-cli/skills/spritecook-*` (CLI).
+  - Use skill discovery first. If it does not show them, read the `SKILL.md` files directly from those locations. If they cannot be read, stop and resolve access before doing asset work; do not silently skip them.
+- **How they fit with the other rules:**
+  - Read them together with the game-development `create-game-assets` skill (art direction, asset manifest, quality gates) and with this project's Art Pipeline rule above (exact paths and sizes from `docs/ART_REGENERATION.md`, `spritecook-assets.json`, no stand-in art).
+  - When a SpriteCook skill and this project's rules disagree, the project's rules win.
+  - The skills never authorize spending credits: the owner's approval of each generation batch, with its asset list and expected cost, is still required. They also never authorize commits or pushes.
 
 ### Mandatory Game-Development Skills (All Game-Related Work)
 

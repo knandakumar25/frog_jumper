@@ -4,8 +4,9 @@ Blender was retired on 2026-11-11. The Blender generators that used to live here
 
 What remains:
 
-- `prepare_campaign_shogun.py` builds `assets/characters/shogun_study/campaign_atlas.png` from the AI-generated Shogun pose sheets with Pillow. It does not use Blender.
-- `capture_menu_backdrops.gd`, `capture_character_renders.gd`, `capture_operative_studies.gd` and `capture_shogun_study.gd` capture the real menus in Godot to `.validation/`. Run them with a real rendering driver; headless mode cannot capture rendered UI. Use them to review SpriteCook art in place.
+- `pack_spritecook_character.py` packs SpriteCook pixel-art animation strips into `assets/characters/rendered/<id>_atlas.png`. The layout is 256x256 cells, eight frames per row, feet on y=224, one whole-number nearest-neighbour scale per character, and each row anchored on its first frame. It can also write the portrait by enlarging the base still. The game's `.tres` files are restored unchanged from `ca92679` and cut that atlas. Run it with `uv run --system-certs --no-project --with pillow python tools/art/pack_spritecook_character.py --help`.
+- `capture_menu_backdrops.gd`, `capture_character_renders.gd` and `capture_operative_studies.gd` capture the real menus in Godot to `.validation/`.
+- The hand-drawn study art, `prepare_campaign_shogun.py` and `capture_shogun_study.gd` were deleted on 2026-11-12. Run them with a real rendering driver; headless mode cannot capture rendered UI. Use them to review SpriteCook art in place.
 
 ## Menu backdrop layers
 

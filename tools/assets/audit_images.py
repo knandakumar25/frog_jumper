@@ -48,7 +48,6 @@ SOURCES = {
     'assets/environment/': SPRITECOOK,
     'assets/world/': SPRITECOOK,
     'assets/characters/rendered/': SPRITECOOK,
-    'assets/characters/shogun_study/campaign_atlas.png': 'tools/art/prepare_campaign_shogun.py',
     'assets/images/menu_backdrops/': SPRITECOOK,
     'assets/images/level1/ghost_gridlock.png': SPRITECOOK,
     'assets/images/axiom_force_title_2d': SPRITECOOK,

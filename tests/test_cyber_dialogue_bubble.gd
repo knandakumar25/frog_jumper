@@ -3,12 +3,14 @@ extends GdUnitTestSuite
 
 ## GdUnit4 Test Suite for AXIOM-7 Cyber Dialogue Bubble
 
+## The shader must exist. The frame and pointer images were deleted on 2026-11-12 and await
+## SpriteCook regeneration, so the scene must not hard-reference them: the script loads them by
+## path when present. The AXIOM-7 avatar is likewise not wired into the scene.
 func test_dialogue_assets_exist() -> void:
-	assert_bool(FileAccess.file_exists("res://assets/textures/cyber_speech_frame.png")).is_true()
-	# The AXIOM-7 avatar (assets/characters/rendered/axiom7_portrait.png) awaits SpriteCook
-	# regeneration and is no longer wired into the scene; the bubble works without it.
-	assert_bool(FileAccess.file_exists("res://assets/textures/cyber_speech_pointer.png")).is_true()
 	assert_bool(FileAccess.file_exists("res://assets/shaders/cyber_dialogue_bubble.gdshader")).is_true()
+	var scene_text := FileAccess.get_file_as_string("res://scenes/ui/CyberDialogueBubble.tscn")
+	assert_str(scene_text).not_contains("cyber_speech_frame.png")
+	assert_str(scene_text).not_contains("cyber_speech_pointer.png")
 
 func test_cyber_dialogue_bubble_instantiation() -> void:
 	var path := "res://scenes/ui/CyberDialogueBubble.tscn"

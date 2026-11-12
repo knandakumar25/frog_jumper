@@ -8,7 +8,7 @@ const LEVEL2_PATH := "res://scenes/gameplay/level2.tscn"
 const LEVEL3_PATH := "res://scenes/gameplay/level3.tscn"
 const LEVEL4_PATH := "res://scenes/gameplay/level4.tscn"
 
-## Level 1 builds a platformer: operative with camera, painted backdrop, HUD, geometry and objectives.
+## Level 1 builds a platformer: operative with camera, backdrop (painted when present), HUD, geometry and objectives.
 func test_level1_loads_platformer_world() -> void:
 	var runner := scene_runner(LEVEL1_PATH)
 	var mission := runner.scene()
@@ -17,7 +17,10 @@ func test_level1_loads_platformer_world() -> void:
 	assert_that(player).is_not_null()
 	assert_that(player.get_node("Camera2D")).is_not_null()
 	assert_str(player.get_class()).is_not_equal("IsometricOperative")
-	assert_that(mission.get_node("BackdropLayer/PalaceGardenBackdrop").texture).is_not_null()
+	# The painted garden (assets/images/level1/palace_garden_painted.png) was deleted on 2026-11-12 and
+	# awaits SpriteCook regeneration. Until it returns the level uses its procedural skyline instead.
+	var painted := ResourceLoader.exists("res://assets/images/level1/palace_garden_painted.png")
+	assert_bool(mission.has_node("BackdropLayer/PalaceGardenBackdrop")).is_equal(painted)
 	assert_that(mission.get_node("CyberCombatHud")).is_not_null()
 	assert_that(mission.get_node("CanvasLayer/PauseMenu")).is_not_null()
 	assert_that(mission.get_node("PalaceGeometry/DojoGate")).is_not_null()

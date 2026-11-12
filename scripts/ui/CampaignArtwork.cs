@@ -99,27 +99,22 @@ public static class CampaignArtwork
         }
     }
 
-    /// <summary>Extracts approved pose regions with fixed foot pivots, retaining original proportions and transparent weapon extents.</summary>
+    /// <summary>
+    /// Draws one squad member from their SpriteCook atlas (<c>assets/characters/rendered/&lt;id&gt;_atlas.png</c>),
+    /// or nothing while that atlas is not made yet (an intentional gap). Each 256x256 atlas cell puts
+    /// the feet on y=224 and centres the body, so the cell is scaled to <paramref name="height"/> over
+    /// that baseline and placed with its baseline on <paramref name="feet"/>. A speaker uses the
+    /// second idle frame so the pose changes slightly while they talk.
+    /// </summary>
     private static void DrawOperative(CanvasItem canvas, string id, Vector2 feet, float height, bool speaking)
     {
-        if (id == "cyber_shogun")
-        {
-            var texture = Texture("res://assets/characters/shogun_study/poses.png");
-            if (texture == null) return;
-            var region = new Rect2(40, 70, 240, 260);
-            float scale = height / 260;
-            float center = texture.GetWidth() / 8f;
-            canvas.DrawTextureRectRegion(texture, new Rect2(feet.X + (region.Position.X - center) * scale,
-                feet.Y + (region.Position.Y - 330) * scale, region.Size.X * scale, region.Size.Y * scale), region);
-            return;
-        }
-        var art = OperativeStudyAtlas.Load(id);
-        int pose = speaking ? 1 : 0;
-        var source = art.Regions[pose];
-        float factor = height / art.StandingHeight;
-        float cellCenter = (pose % 4 + .5f) * art.Texture.GetWidth() / 4;
-        canvas.DrawTextureRectRegion(art.Texture, new Rect2(feet.X + (source.Position.X - cellCenter) * factor,
-            feet.Y + (source.Position.Y - art.Baselines[0]) * factor, source.Size.X * factor, source.Size.Y * factor), source);
+        var texture = Texture($"res://assets/characters/rendered/{id}_atlas.png");
+        if (texture == null) return;
+        const float cell = 256, baseline = 224;
+        float scale = height / baseline;
+        var region = new Rect2(speaking ? cell : 0, 0, cell, cell);
+        canvas.DrawTextureRectRegion(texture, new Rect2(feet.X - cell / 2 * scale, feet.Y - baseline * scale,
+            cell * scale, cell * scale), region);
     }
 
     /// <summary>Adds the matching rendered boss armor and emissive plate without changing collision or phase effects.</summary>

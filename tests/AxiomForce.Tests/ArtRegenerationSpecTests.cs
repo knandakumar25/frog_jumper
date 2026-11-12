@@ -31,12 +31,16 @@ public class ArtRegenerationSpecTests
         return images;
     }
 
-    /// <summary>The list must still describe every deleted image, with no duplicate paths.</summary>
+    /// <summary>
+    /// The list must still describe every deleted image, with no duplicate paths: the 422 Blender
+    /// images deleted on 2026-11-11 plus the 115 remaining images (hand-drawn studies, older logos,
+    /// UI art, backgrounds and icons) deleted on 2026-11-12.
+    /// </summary>
     [Test]
     public void SpecListsEveryDeletedImageOnce()
     {
         var images = Spec();
-        Assert.That(images, Has.Count.EqualTo(422));
+        Assert.That(images, Has.Count.EqualTo(537));
         Assert.That(images.Select(i => i.Path).Distinct().Count(), Is.EqualTo(images.Count));
         Assert.That(images.All(i => i.Width > 0 && i.Height > 0), Is.True);
     }
@@ -62,7 +66,11 @@ public class ArtRegenerationSpecTests
         }
     }
 
-    /// <summary>Each listed image is either absent or a PNG at exactly the listed size.</summary>
+    /// <summary>
+    /// Each listed PNG is either absent or a PNG at exactly the listed size. The few JPG, ICO and SVG
+    /// entries (old logos and icons) are not size-checked here: their headers differ, and an SVG
+    /// has no fixed pixel size.
+    /// </summary>
     [Test]
     public void RegeneratedImagesAreAbsentOrTheListedSize()
     {
@@ -70,7 +78,7 @@ public class ArtRegenerationSpecTests
         foreach (var (path, width, height) in Spec())
         {
             string file = Path.Combine(root, path);
-            if (!File.Exists(file)) continue;
+            if (!File.Exists(file) || !path.EndsWith(".png", StringComparison.OrdinalIgnoreCase)) continue;
             byte[] header = new byte[24];
             using (var stream = File.OpenRead(file)) stream.ReadExactly(header);
             // PNG signature, then the IHDR chunk holding big-endian width and height at bytes 16-23.

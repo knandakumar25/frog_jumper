@@ -1,2740 +1,3580 @@
 {
- "source_commit": "ca92679",
- "groups": [
-  {
-   "id": "characters",
-   "title": "Rendered operative and enemy sprites",
-   "images": [
+  "source_commit": "ca92679",
+  "groups": [
     {
-     "path": "assets/characters/rendered/apex_titan_atlas.png",
-     "width": 2048,
-     "height": 1536,
-     "status": "remake"
+      "id": "characters",
+      "title": "Rendered operative and enemy sprites",
+      "images": [
+        {
+          "path": "assets/characters/rendered/apex_titan_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/apex_titan_portrait.png",
+          "width": 768,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/axiom7_atlas.png",
+          "width": 2048,
+          "height": 256,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/characters/rendered/axiom7_portrait.png",
+          "width": 768,
+          "height": 768,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/axiom7_side.png",
+          "width": 256,
+          "height": 256,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/characters/rendered/cyber_shogun_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/cyber_shogun_portrait.png",
+          "width": 768,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/heavy_atlas.png",
+          "width": 2048,
+          "height": 256,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/heavy_portrait.png",
+          "width": 768,
+          "height": 768,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/characters/rendered/heavy_side.png",
+          "width": 256,
+          "height": 256,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/characters/rendered/mirage_blade_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/mirage_blade_portrait.png",
+          "width": 768,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/oceanus_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/oceanus_portrait.png",
+          "width": 768,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/phoenicia_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/phoenicia_portrait.png",
+          "width": 768,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/surya_prime_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/surya_prime_portrait.png",
+          "width": 768,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/vanguard_atlas.png",
+          "width": 2048,
+          "height": 256,
+          "status": "remake"
+        },
+        {
+          "path": "assets/characters/rendered/vanguard_portrait.png",
+          "width": 768,
+          "height": 768,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/characters/rendered/vanguard_side.png",
+          "width": 256,
+          "height": 256,
+          "status": "skip: unused"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/apex_titan_portrait.png",
-     "width": 768,
-     "height": 1024,
-     "status": "remake"
+      "id": "world_la",
+      "title": "Los Angeles",
+      "images": [
+        {
+          "path": "assets/world/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_10.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_11.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_13.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_14.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_16.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_17.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_19.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_20.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_22.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_23.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_25.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_26.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_28.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_29.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_31.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_32.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_34.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_35.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_37.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_38.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_40.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_41.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_43.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_44.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_46.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_47.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/landmark_8.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/world/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/operative_0.png",
+          "width": 384,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/operative_1.png",
+          "width": 384,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/operative_2.png",
+          "width": 384,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/operative_3.png",
+          "width": 384,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/operative_4.png",
+          "width": 384,
+          "height": 1024,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/operative_5.png",
+          "width": 384,
+          "height": 1024,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/axiom7_atlas.png",
-     "width": 2048,
-     "height": 256,
-     "status": "skip: unused"
+      "id": "world_kyoto",
+      "title": "Kyoto",
+      "images": [
+        {
+          "path": "assets/world/kyoto/landmark_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/kyoto/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/axiom7_portrait.png",
-     "width": 768,
-     "height": 768,
-     "status": "remake"
+      "id": "world_beirut",
+      "title": "Beirut",
+      "images": [
+        {
+          "path": "assets/world/beirut/landmark_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/beirut/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/axiom7_side.png",
-     "width": 256,
-     "height": 256,
-     "status": "skip: unused"
+      "id": "world_dubai",
+      "title": "Dubai",
+      "images": [
+        {
+          "path": "assets/world/dubai/landmark_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/dubai/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/cyber_shogun_atlas.png",
-     "width": 2048,
-     "height": 1536,
-     "status": "remake"
+      "id": "world_honolulu",
+      "title": "Honolulu",
+      "images": [
+        {
+          "path": "assets/world/honolulu/landmark_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/honolulu/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/cyber_shogun_portrait.png",
-     "width": 768,
-     "height": 1024,
-     "status": "remake"
+      "id": "world_luanda",
+      "title": "Luanda",
+      "images": [
+        {
+          "path": "assets/world/luanda/landmark_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/luanda/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/heavy_atlas.png",
-     "width": 2048,
-     "height": 256,
-     "status": "remake"
+      "id": "world_mumbai",
+      "title": "Mumbai",
+      "images": [
+        {
+          "path": "assets/world/mumbai/landmark_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/landmark_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_0.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_1.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_2.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_3.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_4.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_5.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_6.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        },
+        {
+          "path": "assets/world/mumbai/module_7.png",
+          "width": 384,
+          "height": 384,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/heavy_portrait.png",
-     "width": 768,
-     "height": 768,
-     "status": "skip: unused"
+      "id": "env_wildfire",
+      "title": "Concrete Wildfire props",
+      "images": [
+        {
+          "path": "assets/environment/wildfire/battery.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/wildfire/civilians.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/wildfire/facade.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/wildfire/gunner.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/wildfire/shelter.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/heavy_side.png",
-     "width": 256,
-     "height": 256,
-     "status": "skip: unused"
+      "id": "env_neon_rust",
+      "title": "Neon Rust props",
+      "images": [
+        {
+          "path": "assets/environment/neon_rust/coupler.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/neon_rust/depot.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/neon_rust/freight.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/neon_rust/laser.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/neon_rust/machinery.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/neon_rust/sonic.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/neon_rust/support.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/mirage_blade_atlas.png",
-     "width": 2048,
-     "height": 1536,
-     "status": "remake"
+      "id": "env_shattered_aegis",
+      "title": "Shattered Aegis props",
+      "images": [
+        {
+          "path": "assets/environment/shattered_aegis/civilians.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/shattered_aegis/controller.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/shattered_aegis/coolant.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/shattered_aegis/crossing.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/shattered_aegis/fortress.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/shattered_aegis/gun.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/mirage_blade_portrait.png",
-     "width": 768,
-     "height": 1024,
-     "status": "remake"
+      "id": "env_names",
+      "title": "Names without Numbers props",
+      "images": [
+        {
+          "path": "assets/environment/names/access_denied.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/names/access_restored.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/names/archive.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/names/civilians.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/names/district.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/names/scanner.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environment/names/terminal.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/oceanus_atlas.png",
-     "width": 2048,
-     "height": 1536,
-     "status": "remake"
+      "id": "later_cyber_grave",
+      "title": "Cyber Grave",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/cyber_grave/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_grave/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_grave/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_grave/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_grave/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_grave/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/oceanus_portrait.png",
-     "width": 768,
-     "height": 1024,
-     "status": "remake"
+      "id": "later_foundry_forge",
+      "title": "Foundry Forge",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/boss_lights.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/boss_structure.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/foundry_forge/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/phoenicia_atlas.png",
-     "width": 2048,
-     "height": 1536,
-     "status": "remake"
+      "id": "later_stratos_docks",
+      "title": "Stratos Docks",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/boss_lights.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/boss_structure.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/stratos_docks/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/phoenicia_portrait.png",
-     "width": 768,
-     "height": 1024,
-     "status": "remake"
+      "id": "later_spire_outer_hull",
+      "title": "Spire Outer Hull",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/boss_lights.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/boss_structure.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/spire_outer_hull/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/surya_prime_atlas.png",
-     "width": 2048,
-     "height": 1536,
-     "status": "remake"
+      "id": "later_cyber_nexus",
+      "title": "Cyber Nexus",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/boss_lights.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/boss_structure.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/cyber_nexus/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/surya_prime_portrait.png",
-     "width": 768,
-     "height": 1024,
-     "status": "remake"
+      "id": "later_apex_bastion",
+      "title": "Apex Bastion",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/boss_lights.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/boss_structure.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/apex_bastion/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/vanguard_atlas.png",
-     "width": 2048,
-     "height": 256,
-     "status": "remake"
+      "id": "later_judgment_day",
+      "title": "Judgment Day",
+      "images": [
+        {
+          "path": "assets/environments/later_campaign/judgment_day/aftermath_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/aftermath_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/aftermath_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/boss_lights.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/boss_structure.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/environment_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/environment_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/environments/later_campaign/judgment_day/environment_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/vanguard_portrait.png",
-     "width": 768,
-     "height": 768,
-     "status": "skip: unused"
+      "id": "menu_backdrops",
+      "title": "Menu backdrops",
+      "images": [
+        {
+          "path": "assets/images/menu_backdrops/city_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/menu_backdrops/city_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/menu_backdrops/city_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/menu_backdrops/command_bay_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/menu_backdrops/command_bay_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/menu_backdrops/command_bay_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
     },
     {
-     "path": "assets/characters/rendered/vanguard_side.png",
-     "width": 256,
-     "height": 256,
-     "status": "skip: unused"
+      "id": "level1_iso",
+      "title": "Level 1 isometric map",
+      "images": [
+        {
+          "path": "assets/images/level1/ghost_gridlock.png",
+          "width": 4608,
+          "height": 1536,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "titles",
+      "title": "Title logos (game)",
+      "images": [
+        {
+          "path": "assets/images/axiom_force_title_2d.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_ar.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_arabic.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_brazilianportuguese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_de.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_es.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_eurofrench.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_fr.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_german.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_he.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_hebrew.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_id.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_indonesian.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_it.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_italian.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_ja.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_japanese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_ko.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_korean.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_mandarin.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_pl.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_polish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_pt.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_spanish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_th.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_thai.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_tr.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_traditionalchinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_turkish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_vi.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_vietnamese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "remake"
+        },
+        {
+          "path": "assets/images/axiom_force_title_2d_zh.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        }
+      ]
+    },
+    {
+      "id": "titles_web",
+      "title": "Title logos (website copies)",
+      "images": [
+        {
+          "path": "website/public/images/axiom_force_title_2d.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_ar.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_arabic.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_arabic.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_brazilianportuguese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_brazilianportuguese.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_de.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_en.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_english.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_es.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_eurofrench.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_eurofrench.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_fr.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_french.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_german.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_german.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_he.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_hebrew.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_hebrew.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_id.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_indonesian.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_indonesian.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_it.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_italian.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_italian.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_ja.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_japanese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_japanese.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_ko.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_korean.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_korean.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_mandarin.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_mandarin.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_pl.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_polish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_polish.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_portuguese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_pt.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_simplified_chinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_spanish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_spanish.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_th.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_thai.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_thai.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_tr.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_traditional_chinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_traditionalchinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_traditionalchinese.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_turkish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_turkish.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_vi.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_vietnamese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "copy of `assets/images/axiom_force_title_2d_vietnamese.png`"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_zh.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_2d_zh_tw.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_ar.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_arabic.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_brazilianportuguese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_de.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_en.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_english.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_es.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_eurofrench.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_fr.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_french.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_german.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_he.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_hebrew.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_id.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_indonesian.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_it.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_italian.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_ja.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_japanese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_ko.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_korean.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_mandarin.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_pl.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_polish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_portuguese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_pt.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_simplified_chinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_spanish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_th.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_thai.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_tr.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_traditional_chinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_traditionalchinese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_turkish.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_vi.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_vietnamese.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_zh.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_2d_zh_tw.png",
+          "width": 1920,
+          "height": 588,
+          "status": "skip: unused alias"
+        }
+      ]
+    },
+    {
+      "id": "title_preview",
+      "title": "Old Blender title preview (unused)",
+      "images": [
+        {
+          "path": "assets/images/blender_title_preview.png",
+          "width": 1280,
+          "height": 600,
+          "status": "skip: unused"
+        }
+      ]
+    },
+    {
+      "id": "cs_deployment_live",
+      "title": "Deployment (opening cutscene)",
+      "images": [
+        {
+          "path": "assets/cutscenes/deployment/live/city_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/city_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/city_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/drone_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/drone_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/roof_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/roof_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/deployment/live/shogun.png",
+          "width": 4096,
+          "height": 2560,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_deployment_video",
+      "title": "Cutscene: deployment video (legacy)",
+      "images": []
+    },
+    {
+      "id": "cs_tokyo",
+      "title": "Tokyo Remembers",
+      "images": [
+        {
+          "path": "assets/cutscenes/tokyo/blade.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/tokyo/dojo_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/tokyo/dojo_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/tokyo/poses.png",
+          "width": 2048,
+          "height": 512,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_wildfire",
+      "title": "Concrete Wildfire arrival",
+      "images": [
+        {
+          "path": "assets/cutscenes/wildfire/blade.png",
+          "width": 512,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/checkpoint_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/checkpoint_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/civilians_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/civilians_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/poses.png",
+          "width": 2048,
+          "height": 512,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/siege_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire/siege_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_wildfire_aftermath",
+      "title": "Concrete Wildfire aftermath",
+      "images": [
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/poses.png",
+          "width": 3072,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/reunion_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/reunion_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/reunion_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/terminal_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/terminal_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "skip: unused"
+        },
+        {
+          "path": "assets/cutscenes/wildfire_aftermath/terminal_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_neon_rust_intro",
+      "title": "Neon Rust intro (Silent Freight)",
+      "images": [
+        {
+          "path": "assets/cutscenes/neon_rust_intro/cargo_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/cargo_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/depot_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/depot_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/poses.png",
+          "width": 1536,
+          "height": 1536,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/underpass_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/underpass_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/walkway_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_intro/walkway_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_neon_rust_aftermath",
+      "title": "Neon Rust aftermath",
+      "images": [
+        {
+          "path": "assets/cutscenes/neon_rust_aftermath/fortress_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_aftermath/fortress_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/neon_rust_aftermath/poses.png",
+          "width": 3072,
+          "height": 2560,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_shattered_aegis_intro",
+      "title": "Shattered Aegis intro",
+      "images": [
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/approach_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/approach_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/command_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/command_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/shield_road_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/shield_road_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/shattered_aegis_intro/surya.png",
+          "width": 1024,
+          "height": 512,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_names_without_numbers",
+      "title": "Names without Numbers epilogue",
+      "images": [
+        {
+          "path": "assets/cutscenes/names_without_numbers/district_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/names_without_numbers/district_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "cs_act_ii_opening",
+      "title": "Act II opening",
+      "images": [
+        {
+          "path": "assets/cutscenes/act_ii_opening/civilians_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/civilians_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/queue_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/queue_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/queue_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/registry_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/registry_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/registry_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/scanner_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/scanner_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/scanner_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/service_base.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/service_lights.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        },
+        {
+          "path": "assets/cutscenes/act_ii_opening/service_structure.png",
+          "width": 1920,
+          "height": 1080,
+          "status": "remake"
+        }
+      ]
+    },
+    {
+      "id": "hand_drawn_characters",
+      "title": "Hand-drawn operative studies (deleted 2026-11-12)",
+      "source_commit": "67eab0a",
+      "images": [
+        {
+          "path": "assets/characters/hand_drawn/apex_titan_poses.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "ac270df0abe7"
+        },
+        {
+          "path": "assets/characters/hand_drawn/mirage_blade_poses.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "56fd2e419b19"
+        },
+        {
+          "path": "assets/characters/hand_drawn/oceanus_poses.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "476aff450f0a"
+        },
+        {
+          "path": "assets/characters/hand_drawn/phoenicia_poses.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "877cbfa76c94"
+        },
+        {
+          "path": "assets/characters/hand_drawn/surya_prime_poses.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "6d3ac735332e"
+        },
+        {
+          "path": "assets/characters/shogun_study/campaign_atlas.png",
+          "width": 2048,
+          "height": 1536,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "a87cd3d8be63"
+        },
+        {
+          "path": "assets/characters/shogun_study/concept.png",
+          "width": 1536,
+          "height": 1024,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "3c5187d4db54"
+        },
+        {
+          "path": "assets/characters/shogun_study/locomotion.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "5386aa60fa0f"
+        },
+        {
+          "path": "assets/characters/shogun_study/poses.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "skip: superseded by the SpriteCook pixel atlases in assets/characters/rendered",
+          "sha12": "2b16e53f74b1"
+        }
+      ]
+    },
+    {
+      "id": "legacy_logos_game",
+      "title": "Older title logos and emblems in assets/images (deleted 2026-11-12)",
+      "source_commit": "67eab0a",
+      "images": [
+        {
+          "path": "assets/images/axiom_force_emblem_logo.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "d6393da93d02"
+        },
+        {
+          "path": "assets/images/axiom_force_logo_clean.png",
+          "width": 1106,
+          "height": 520,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "f846f355167b"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6f8151040c5b"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_ar.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "3f0a1595f50f"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_arabic.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "3f0a1595f50f"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_brazilianportuguese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6c31640ca151"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_de.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eddd2e417864"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_es.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "7779d57bf61b"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_eurofrench.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "206556b200d8"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_fr.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "206556b200d8"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_german.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eddd2e417864"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_he.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "51ccf76e8e6f"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_hebrew.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "51ccf76e8e6f"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_indonesian.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "a175e72764f2"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_it.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "08f6fdc338a4"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_italian.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "08f6fdc338a4"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_ja.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b514b6c98b61"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_japanese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b514b6c98b61"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_ko.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "310f7b1ea137"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_korean.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "310f7b1ea137"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_mandarin.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0da1310f8fd5"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_pl.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5befff7f2809"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_polish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5befff7f2809"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_pt.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6c31640ca151"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_spanish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "7779d57bf61b"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_thai.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "27ae4e9bf42a"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_tr.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "344a19ac7369"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_traditionalchinese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "58a3c8d00569"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_turkish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "344a19ac7369"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_vietnamese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5a20b68473fb"
+        },
+        {
+          "path": "assets/images/axiom_force_title_logo_zh.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0da1310f8fd5"
+        },
+        {
+          "path": "assets/images/cooltext474246181467297.png",
+          "width": 760,
+          "height": 137,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "c7f247157fe8"
+        }
+      ]
+    },
+    {
+      "id": "legacy_website_images",
+      "title": "Website title-logo copies and template images (deleted 2026-11-12)",
+      "source_commit": "67eab0a",
+      "images": [
+        {
+          "path": "website/public/icons.svg",
+          "width": 16,
+          "height": 17,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b45fa506195c"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6f8151040c5b"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_ar.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "3f0a1595f50f"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_arabic.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "3f0a1595f50f"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_brazilianportuguese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6c31640ca151"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_de.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eddd2e417864"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_es.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "7779d57bf61b"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_eurofrench.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "206556b200d8"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_fr.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "206556b200d8"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_german.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eddd2e417864"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_he.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "51ccf76e8e6f"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_hebrew.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "51ccf76e8e6f"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_it.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "08f6fdc338a4"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_italian.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "08f6fdc338a4"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_ja.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b514b6c98b61"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_japanese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b514b6c98b61"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_ko.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "310f7b1ea137"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_korean.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "310f7b1ea137"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_mandarin.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0da1310f8fd5"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_pl.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5befff7f2809"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_polish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5befff7f2809"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_pt.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6c31640ca151"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_spanish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "7779d57bf61b"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_tr.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "344a19ac7369"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_turkish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "344a19ac7369"
+        },
+        {
+          "path": "website/public/images/axiom_force_title_logo_zh.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0da1310f8fd5"
+        },
+        {
+          "path": "website/public/images/phoenicia.png",
+          "width": 900,
+          "height": 1200,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "504be715a705"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6f8151040c5b"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_ar.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "3f0a1595f50f"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_arabic.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "3f0a1595f50f"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_brazilianportuguese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6c31640ca151"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_de.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eddd2e417864"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_es.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "7779d57bf61b"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_eurofrench.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "206556b200d8"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_fr.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "206556b200d8"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_german.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eddd2e417864"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_he.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "51ccf76e8e6f"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_hebrew.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "51ccf76e8e6f"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_horizontal.jpg",
+          "width": 1584,
+          "height": 672,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b2018d9b89b5"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_it.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "08f6fdc338a4"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_italian.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "08f6fdc338a4"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_ja.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b514b6c98b61"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_japanese.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "b514b6c98b61"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_ko.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "310f7b1ea137"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_korean.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "310f7b1ea137"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_mandarin.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0da1310f8fd5"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_pl.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5befff7f2809"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_polish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5befff7f2809"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_pt.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "6c31640ca151"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_spanish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "7779d57bf61b"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_tr.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "344a19ac7369"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_turkish.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "344a19ac7369"
+        },
+        {
+          "path": "website/public/images/title_logos/axiom_force_title_logo_zh.jpg",
+          "width": 1376,
+          "height": 768,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0da1310f8fd5"
+        },
+        {
+          "path": "website/src/assets/hero.png",
+          "width": 343,
+          "height": 361,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "881ffbcaafc2"
+        },
+        {
+          "path": "website/src/assets/react.svg",
+          "width": 256,
+          "height": 228,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "35ef61ed53b3"
+        },
+        {
+          "path": "website/src/assets/vite.svg",
+          "width": 77,
+          "height": 47,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "5be21acd42eb"
+        }
+      ]
+    },
+    {
+      "id": "ui_and_backgrounds",
+      "title": "UI art and backgrounds (deleted 2026-11-12)",
+      "source_commit": "67eab0a",
+      "images": [
+        {
+          "path": "assets/images/clouds.png",
+          "width": 500,
+          "height": 500,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "57f09d75f37f"
+        },
+        {
+          "path": "assets/images/cursor.png",
+          "width": 48,
+          "height": 48,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "53bd9b544a7a"
+        },
+        {
+          "path": "assets/images/cyber_button_hover.png",
+          "width": 800,
+          "height": 140,
+          "status": "remake",
+          "sha12": "6781c9551bda"
+        },
+        {
+          "path": "assets/images/cyber_button_normal.png",
+          "width": 800,
+          "height": 140,
+          "status": "remake",
+          "sha12": "62e39a76410a"
+        },
+        {
+          "path": "assets/images/cyber_button_pressed.png",
+          "width": 800,
+          "height": 140,
+          "status": "remake",
+          "sha12": "ccadb1c550e9"
+        },
+        {
+          "path": "assets/images/cyber_cursor.png",
+          "width": 48,
+          "height": 48,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "53bd9b544a7a"
+        },
+        {
+          "path": "assets/images/level1/palace_garden_painted.png",
+          "width": 2149,
+          "height": 732,
+          "status": "remake",
+          "sha12": "9dc9e0bee09f"
+        },
+        {
+          "path": "assets/images/sky.png",
+          "width": 1024,
+          "height": 1024,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "eb51b1d7e131"
+        },
+        {
+          "path": "assets/images/story-screen-image.png",
+          "width": 1309,
+          "height": 749,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "956f030f9042"
+        },
+        {
+          "path": "assets/images/world_tileset.png",
+          "width": 256,
+          "height": 256,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "0e79cccafe2f"
+        },
+        {
+          "path": "assets/textures/cyber_speech_frame.png",
+          "width": 512,
+          "height": 320,
+          "status": "remake",
+          "sha12": "8a07c0925a38"
+        },
+        {
+          "path": "assets/textures/cyber_speech_pointer.png",
+          "width": 128,
+          "height": 128,
+          "status": "remake",
+          "sha12": "40533d37ddc9"
+        },
+        {
+          "path": "assets/textures/sublight_engine_plume.png",
+          "width": 128,
+          "height": 256,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "429affc3787a"
+        },
+        {
+          "path": "assets/textures/sublight_engine_slot.png",
+          "width": 256,
+          "height": 128,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "9c4bc788614e"
+        }
+      ]
+    },
+    {
+      "id": "app_icons",
+      "title": "Application and website icons (deleted 2026-11-12)",
+      "source_commit": "67eab0a",
+      "images": [
+        {
+          "path": "assets/icons/axiom_force.ico",
+          "width": 256,
+          "height": 256,
+          "status": "remake",
+          "sha12": "935d79141dc9"
+        },
+        {
+          "path": "assets/icons/axiom_force.png",
+          "width": 1254,
+          "height": 1254,
+          "status": "remake",
+          "sha12": "2e65096f2456"
+        },
+        {
+          "path": "icon.svg",
+          "width": 128,
+          "height": 128,
+          "status": "skip: unused (nothing loads it)",
+          "sha12": "f6369bae7e12"
+        },
+        {
+          "path": "website/public/favicon.svg",
+          "width": 100,
+          "height": 100,
+          "status": "remake",
+          "sha12": "876317eba803"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "world_la",
-   "title": "Los Angeles",
-   "images": [
-    {
-     "path": "assets/world/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_10.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_11.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_13.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_14.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_16.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_17.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_19.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_20.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_22.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_23.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_25.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_26.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_28.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_29.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_31.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_32.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_34.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_35.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_37.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_38.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_40.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_41.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_43.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_44.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_46.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_47.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/landmark_8.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "skip: unused"
-    },
-    {
-     "path": "assets/world/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/operative_0.png",
-     "width": 384,
-     "height": 1024,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/operative_1.png",
-     "width": 384,
-     "height": 1024,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/operative_2.png",
-     "width": 384,
-     "height": 1024,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/operative_3.png",
-     "width": 384,
-     "height": 1024,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/operative_4.png",
-     "width": 384,
-     "height": 1024,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/operative_5.png",
-     "width": 384,
-     "height": 1024,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "world_kyoto",
-   "title": "Kyoto",
-   "images": [
-    {
-     "path": "assets/world/kyoto/landmark_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/kyoto/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "world_beirut",
-   "title": "Beirut",
-   "images": [
-    {
-     "path": "assets/world/beirut/landmark_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/beirut/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "world_dubai",
-   "title": "Dubai",
-   "images": [
-    {
-     "path": "assets/world/dubai/landmark_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/dubai/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "world_honolulu",
-   "title": "Honolulu",
-   "images": [
-    {
-     "path": "assets/world/honolulu/landmark_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/honolulu/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "world_luanda",
-   "title": "Luanda",
-   "images": [
-    {
-     "path": "assets/world/luanda/landmark_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/luanda/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "world_mumbai",
-   "title": "Mumbai",
-   "images": [
-    {
-     "path": "assets/world/mumbai/landmark_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/landmark_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_0.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_1.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_2.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_3.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_4.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_5.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_6.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    },
-    {
-     "path": "assets/world/mumbai/module_7.png",
-     "width": 384,
-     "height": 384,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "env_wildfire",
-   "title": "Concrete Wildfire props",
-   "images": [
-    {
-     "path": "assets/environment/wildfire/battery.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/wildfire/civilians.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/wildfire/facade.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/wildfire/gunner.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/wildfire/shelter.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "env_neon_rust",
-   "title": "Neon Rust props",
-   "images": [
-    {
-     "path": "assets/environment/neon_rust/coupler.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/neon_rust/depot.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/neon_rust/freight.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/neon_rust/laser.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/neon_rust/machinery.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/neon_rust/sonic.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/neon_rust/support.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "env_shattered_aegis",
-   "title": "Shattered Aegis props",
-   "images": [
-    {
-     "path": "assets/environment/shattered_aegis/civilians.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/shattered_aegis/controller.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/shattered_aegis/coolant.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/shattered_aegis/crossing.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/shattered_aegis/fortress.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/shattered_aegis/gun.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "env_names",
-   "title": "Names without Numbers props",
-   "images": [
-    {
-     "path": "assets/environment/names/access_denied.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/names/access_restored.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/names/archive.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/names/civilians.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/names/district.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/names/scanner.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environment/names/terminal.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_cyber_grave",
-   "title": "Cyber Grave",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/cyber_grave/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_grave/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_grave/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_grave/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_grave/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_grave/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_foundry_forge",
-   "title": "Foundry Forge",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/boss_lights.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/boss_structure.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/foundry_forge/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_stratos_docks",
-   "title": "Stratos Docks",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/boss_lights.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/boss_structure.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/stratos_docks/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_spire_outer_hull",
-   "title": "Spire Outer Hull",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/boss_lights.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/boss_structure.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/spire_outer_hull/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_cyber_nexus",
-   "title": "Cyber Nexus",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/boss_lights.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/boss_structure.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/cyber_nexus/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_apex_bastion",
-   "title": "Apex Bastion",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/boss_lights.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/boss_structure.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/apex_bastion/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "later_judgment_day",
-   "title": "Judgment Day",
-   "images": [
-    {
-     "path": "assets/environments/later_campaign/judgment_day/aftermath_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "skip: unused"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/aftermath_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/aftermath_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/boss_lights.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/boss_structure.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/environment_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/environment_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/environments/later_campaign/judgment_day/environment_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "menu_backdrops",
-   "title": "Menu backdrops",
-   "images": [
-    {
-     "path": "assets/images/menu_backdrops/city_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/menu_backdrops/city_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/menu_backdrops/city_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/menu_backdrops/command_bay_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/menu_backdrops/command_bay_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/menu_backdrops/command_bay_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "level1_iso",
-   "title": "Level 1 isometric map",
-   "images": [
-    {
-     "path": "assets/images/level1/ghost_gridlock.png",
-     "width": 4608,
-     "height": 1536,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "titles",
-   "title": "Title logos (game)",
-   "images": [
-    {
-     "path": "assets/images/axiom_force_title_2d.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_ar.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_arabic.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_brazilianportuguese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_de.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_es.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_eurofrench.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_fr.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_german.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_he.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_hebrew.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_id.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_indonesian.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_it.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_italian.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_ja.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_japanese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_ko.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_korean.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_mandarin.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_pl.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_polish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_pt.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_spanish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_th.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_thai.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_tr.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_traditionalchinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_turkish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_vi.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_vietnamese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "remake"
-    },
-    {
-     "path": "assets/images/axiom_force_title_2d_zh.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    }
-   ]
-  },
-  {
-   "id": "titles_web",
-   "title": "Title logos (website copies)",
-   "images": [
-    {
-     "path": "website/public/images/axiom_force_title_2d.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_ar.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_arabic.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_arabic.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_brazilianportuguese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_brazilianportuguese.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_de.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_en.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_english.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_es.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_eurofrench.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_eurofrench.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_fr.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_french.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_german.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_german.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_he.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_hebrew.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_hebrew.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_id.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_indonesian.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_indonesian.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_it.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_italian.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_italian.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_ja.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_japanese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_japanese.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_ko.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_korean.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_korean.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_mandarin.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_mandarin.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_pl.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_polish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_polish.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_portuguese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_pt.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_simplified_chinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_spanish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_spanish.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_th.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_thai.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_thai.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_tr.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_traditional_chinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_traditionalchinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_traditionalchinese.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_turkish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_turkish.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_vi.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_vietnamese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "copy of `assets/images/axiom_force_title_2d_vietnamese.png`"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_zh.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/axiom_force_title_2d_zh_tw.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_ar.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_arabic.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_brazilianportuguese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_de.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_en.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_english.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_es.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_eurofrench.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_fr.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_french.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_german.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_he.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_hebrew.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_id.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_indonesian.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_it.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_italian.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_ja.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_japanese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_ko.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_korean.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_mandarin.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_pl.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_polish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_portuguese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_pt.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_simplified_chinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_spanish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_th.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_thai.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_tr.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_traditional_chinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_traditionalchinese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_turkish.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_vi.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_vietnamese.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_zh.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    },
-    {
-     "path": "website/public/images/title_logos/axiom_force_title_2d_zh_tw.png",
-     "width": 1920,
-     "height": 588,
-     "status": "skip: unused alias"
-    }
-   ]
-  },
-  {
-   "id": "title_preview",
-   "title": "Old Blender title preview (unused)",
-   "images": [
-    {
-     "path": "assets/images/blender_title_preview.png",
-     "width": 1280,
-     "height": 600,
-     "status": "skip: unused"
-    }
-   ]
-  },
-  {
-   "id": "cs_deployment_live",
-   "title": "Deployment (opening cutscene)",
-   "images": [
-    {
-     "path": "assets/cutscenes/deployment/live/city_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/city_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/city_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/drone_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/drone_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/roof_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/roof_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/deployment/live/shogun.png",
-     "width": 4096,
-     "height": 2560,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_deployment_video",
-   "title": "Cutscene: deployment video (legacy)",
-   "images": []
-  },
-  {
-   "id": "cs_tokyo",
-   "title": "Tokyo Remembers",
-   "images": [
-    {
-     "path": "assets/cutscenes/tokyo/blade.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/tokyo/dojo_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/tokyo/dojo_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/tokyo/poses.png",
-     "width": 2048,
-     "height": 512,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_wildfire",
-   "title": "Concrete Wildfire arrival",
-   "images": [
-    {
-     "path": "assets/cutscenes/wildfire/blade.png",
-     "width": 512,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/checkpoint_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/checkpoint_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/civilians_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/civilians_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/poses.png",
-     "width": 2048,
-     "height": 512,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/siege_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire/siege_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_wildfire_aftermath",
-   "title": "Concrete Wildfire aftermath",
-   "images": [
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/poses.png",
-     "width": 3072,
-     "height": 1536,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/reunion_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "skip: unused"
-    },
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/reunion_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "skip: unused"
-    },
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/reunion_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/terminal_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "skip: unused"
-    },
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/terminal_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "skip: unused"
-    },
-    {
-     "path": "assets/cutscenes/wildfire_aftermath/terminal_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_neon_rust_intro",
-   "title": "Neon Rust intro (Silent Freight)",
-   "images": [
-    {
-     "path": "assets/cutscenes/neon_rust_intro/cargo_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/cargo_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/depot_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/depot_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/poses.png",
-     "width": 1536,
-     "height": 1536,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/underpass_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/underpass_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/walkway_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_intro/walkway_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_neon_rust_aftermath",
-   "title": "Neon Rust aftermath",
-   "images": [
-    {
-     "path": "assets/cutscenes/neon_rust_aftermath/fortress_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_aftermath/fortress_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/neon_rust_aftermath/poses.png",
-     "width": 3072,
-     "height": 2560,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_shattered_aegis_intro",
-   "title": "Shattered Aegis intro",
-   "images": [
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/approach_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/approach_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/command_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/command_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/shield_road_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/shield_road_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/shattered_aegis_intro/surya.png",
-     "width": 1024,
-     "height": 512,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_names_without_numbers",
-   "title": "Names without Numbers epilogue",
-   "images": [
-    {
-     "path": "assets/cutscenes/names_without_numbers/district_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/names_without_numbers/district_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  },
-  {
-   "id": "cs_act_ii_opening",
-   "title": "Act II opening",
-   "images": [
-    {
-     "path": "assets/cutscenes/act_ii_opening/civilians_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/civilians_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/queue_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/queue_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/queue_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/registry_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/registry_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/registry_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/scanner_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/scanner_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/scanner_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/service_base.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/service_lights.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    },
-    {
-     "path": "assets/cutscenes/act_ii_opening/service_structure.png",
-     "width": 1920,
-     "height": 1080,
-     "status": "remake"
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -1,6 +1,6 @@
 # Art regeneration list (SpriteCook)
 
-Blender was retired on 2026-11-11 and every image it made was deleted. This file is the work order for remaking them with the SpriteCook plugin (`spritecook@spritecook`). The originals are in git at commit `ca92679`.
+Blender was retired on 2026-11-11 and every image it made was deleted. On 2026-11-12 every remaining image was deleted too: the hand-drawn operative studies, older logos, UI art, backgrounds and icons (see "Deleted on 2026-11-12"). This file is the work order for remaking them with SpriteCook. The Blender originals are in git at commit `ca92679`; the 2026-11-12 originals are at `67eab0a`.
 
 ## Rules
 
@@ -30,8 +30,8 @@ Blender was retired on 2026-11-11 and every image it made was deleted. This file
 
 ## Open owner decisions (block all generation)
 
-1. **Art style** for the whole set. Not decided yet.
-2. **SpriteCook subscription.** The account has none, so the MCP server does not connect.
+1. **Art style:** decided 2026-11-12, **pixel art** for the whole set.
+2. **SpriteCook sign-in.** The owner subscribed to the Starter plan on 2026-11-12. Each agent still has to sign in once before the tools connect.
 3. Approval of each phase's asset list and credit cost.
 
 Already decided: titles keep the wording of the old title images (owner, 2026-11-10).
@@ -39,10 +39,10 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 ## Until the art returns
 
 Gaps are intentional (owner decision):
-- **Invisible:** actors drawn from the rendered sprites (the platformer operatives in most missions, the drone and the boss). They still play, because `OperativeVisuals` gives them an empty placeholder.
-- **Still visible**, because their art was not made with Blender: Cyber Shogun's Level 1 and training art (`assets/characters/shogun_study`) and the selection-screen pose studies (`assets/characters/hand_drawn`).
+- **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 done 2026-11-12).
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
-- Cities, menus and the Level 1 map have no art.
+- Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline instead of the painted garden.
+- Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
 - Cutscenes skip.
 - The title slot is empty in the game; the website shows the words "AXIOM FORCE".
 
@@ -60,7 +60,7 @@ Phases run in this order because later images reuse earlier ones (see each secti
 | 6. City kits | Los Angeles first, then 6 cities | 141 |
 | 7. Menus, Level 1 map, titles | Menu backdrops, isometric map, 17 language titles | 24 |
 
-Totals: 316 to generate, 17 copies, 89 skipped (of 422 deleted images).
+Totals: 316 to generate, 17 copies, 89 skipped (of 422 deleted images), plus 9 to remake and 106 skipped from the 115 deleted on 2026-11-12. All 537 are in `docs/art_regeneration.json`.
 
 ## Fitting SpriteCook output to the exact size
 
@@ -99,6 +99,23 @@ SpriteCook returns its own sizes: it trims margins (`smart_crop_mode`), may add 
 8. **Titles:** compare each title's text with the old image by eye. Have a reader of Arabic, Hebrew, Thai, Japanese, Korean or Chinese check those titles. If SpriteCook cannot draw a script correctly, generate the plate without text and add the text with Pillow, using the font that `LocaleCatalog` lists for that language.
 
 ## Phase 1: Characters
+
+**Progress (2026-11-12):**
+- **Lineup:** all nine designs were made as one 3x3 pixel-art sheet (12 credits) and split into separate base stills (free). The asset IDs are in `spritecook-assets.json`.
+- **Cyber Shogun is done:**
+  - `cyber_shogun_atlas.png`, packed by `tools/art/pack_spritecook_character.py` at a 3x nearest scale;
+  - `cyber_shogun_portrait.png`, the base still enlarged;
+  - `cyber_shogun.tres`, restored from `ca92679`.
+  - Credits: one animation run of 102, plus a 20-credit run redo.
+- **Phase 1 complete (2026-11-12):**
+  - Atlases, portraits and restored `.tres` for all six operatives, plus `vanguard` and `heavy` idle atlases and `axiom7_portrait.png` (the AXIOM-7 base still, enlarged, free).
+  - Each operative was one run of six custom animations: 90 credits, plus 12 for the run-pose prep. Each enemy idle was 20.
+  - Phase 1 total: **696 credits**:
+    - lineup 12;
+    - Shogun 102 + 20;
+    - the other five 510;
+    - enemies 40.
+- **Lesson:** preset animations write their own prompt from the source asset's stored prompt. Slices of the lineup sheet inherit the nine-character prompt, which put other operatives into Shogun's first run. Use `custom_animations` with explicit single-character prompts for every animation, or upload a clean crop first.
 
 **Shows:** six operatives with distinct silhouettes: Cyber Shogun (samurai, katana), Surya Prime (solar shield bearer), Oceanus (water lancer), Mirage Blade (hooded dual-blade scout), Apex Titan (heavy gauntlet fighter) and Aura Phoenicia (prism weaver). Also AXIOM-7 (the guide AI), the `vanguard` drone and the `heavy` boss mech. The old style was flat shapes with ink outlines and solid colours, and no lighting.
 
@@ -1090,3 +1107,32 @@ These are unchanged:
 - the painted `axiom_force_title_logo*.jpg` files;
 - the fonts;
 - all cutscene audio, cue and dialogue files.
+
+## Deleted on 2026-11-12
+
+On the owner's instruction, every image left after the Blender deletion was removed. The originals are at commit `67eab0a`.
+
+**Groups in `docs/art_regeneration.json`** (each image has its size, status and `sha12`):
+
+| Group | Files |
+|---|---|
+| `hand_drawn_characters` | 9 |
+| `legacy_logos_game` | 32 |
+| `legacy_website_images` | 56 |
+| `ui_and_backgrounds` | 14 |
+| `app_icons` | 4 |
+
+**To remake (9).** Each is loaded by path, so a file saved at the same path and size returns with no code change:
+
+| File | Size | Loaded by | Until it returns |
+|---|---|---|---|
+| `assets/images/cyber_button_normal.png`, `_hover.png`, `_pressed.png` | 800x140 each | `scripts/ui/CyberButton.cs` (`OptionalArt`) | buttons show text only |
+| `assets/textures/cyber_speech_frame.png`, `cyber_speech_pointer.png` | 512x320 and 128x128 | `scripts/ui/CyberDialogueBubble.cs` (`OptionalArt`) | bubble has no frame or pointer |
+| `assets/images/level1/palace_garden_painted.png` | 2149x732 | `PalaceMission.BackdropPath` | procedural skyline |
+| `assets/icons/axiom_force.png`, `assets/icons/axiom_force.ico` | 1254x1254 PNG; ICO up to 256x256 | **re-add** `config/icon` and `config/windows_native_icon` to `project.godot`, and `application/icon` and `icons/icon_1024x1024` to `export_presets.cfg` | default Godot icon |
+| `website/public/favicon.svg` | SVG, 100x100 viewBox | **re-add** `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />` to `website/index.html` and `index.html` | browser default icon |
+
+**Skipped (106):**
+- **Superseded:** the hand-drawn studies (`assets/characters/hand_drawn`, `assets/characters/shogun_study`), replaced by the pixel atlases. The code that drew them (`TrainingArtwork`, `OperativeStudyAtlas`, the hand-drawn branch of `ShogunArtPreview`, Level 1's `campaign_atlas` frames) was removed, and every mission and the selection preview now use `OperativeVisuals`.
+- **Unused:** the older title-logo JPGs and emblems, the website's title-logo copies, `hero.png`, `phoenicia.png`, `icons.svg` and the React/Vite template images, plus `sky`, `clouds`, `world_tileset`, `story-screen-image`, the cursors, the engine plume and slot, and the default `icon.svg`.
+

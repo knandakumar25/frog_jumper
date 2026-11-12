@@ -1,5 +1,73 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 1 characters complete — 2026-11-12
+
+- **Stage 3 (approved by the owner):**
+  - one run of six custom animations each for Surya Prime, Oceanus, Mirage Blade, Apex Titan and Aura Phoenicia (102 credits each, including the run-pose prep);
+  - `vanguard` and `heavy` idle (20 each).
+  - All 26 animations showed only their own character; no redos were needed.
+- **Free work:** the AXIOM-7 portrait, from his base still.
+- **Phase 1 credits:** 696 in total. Balance 386.
+- **Files:** `assets/characters/rendered/` holds 15 PNGs plus 8 `.tres` (restored byte-identical from `ca92679`). Asset IDs and file `sha12` values are in `spritecook-assets.json`.
+- **Mission 2:** before Stage 3 started, it showed the pixel Cyber Shogun (the overlay is gone).
+- **Verification:**
+  - Godot import: clean, with 15 `.import` files.
+  - Full `run_tests.ps1`: all passed (GdUnit 363 with 0 errors, 0 failures and 0 orphans; NUnit; Django).
+- **Next phases, not started:**
+  - Phase 2: deployment cutscene;
+  - the 9 UI and icon remakes;
+  - open-world walk sheets (they need front and back views);
+  - cutscene poses.
+  - About 386 credits are left this month.
+
+## Pixel-art characters started; all remaining art deleted — 2026-11-12
+
+- **Owner decisions:**
+  - Art style is **pixel art**.
+  - Gameplay characters first: the 6 operative atlases and portraits, the vanguard and heavy idle atlases, and the AXIOM-7 portrait.
+  - Smooth SpriteCook animation.
+  - Credits are spent in stages, with approval each time.
+  - Then: **delete every remaining image** (the owner's instruction from 2026-11-11 had been read too narrowly as Blender art only).
+- **SpriteCook so far (134 credits, balance 936):**
+  - The lineup was one 3x3 sheet (12 credits), split into 9 base stills for free. Asset IDs are in the new root `spritecook-assets.json`.
+  - Cyber Shogun's animation run cost 102. Its preset run was contaminated by the lineup's nine-character prompt, so it was redone as a custom animation from the prepared run pose for 20 more.
+  - **Rule for the next runs:** use `custom_animations` with explicit single-character prompts for every animation.
+- **Cyber Shogun done:**
+  - `assets/characters/rendered/cyber_shogun_atlas.png` (2048x1536, 3x nearest scale);
+  - `cyber_shogun_portrait.png` (768x1024);
+  - `cyber_shogun.tres`, restored byte-identical from `ca92679`.
+  - New packer: `tools/art/pack_spritecook_character.py`.
+- **Deleted (115 images, originals at `67eab0a`):**
+  - the hand-drawn studies (`assets/characters/hand_drawn`, `shogun_study`);
+  - the older title-logo JPGs and the website copies;
+  - UI art, backgrounds, template images, the app icon (PNG and ICO), `icon.svg` and the favicon.
+  - All 115 are now in `docs/art_regeneration.json` (537 entries); 9 are marked remake.
+- **Code changes:**
+  - `PalaceOperative` no longer adds the hand-drawn `TrainingArtwork` overlay. It was hiding the real sprite in every code-built mission.
+  - Deleted `TrainingArtwork.cs` and `OperativeStudyAtlas.cs`.
+  - `ShogunArtPreview` plays only `OperativeVisuals` frames and adds `HasArt`; `UseOriginalDesign` and `StudyTexturePath` were removed.
+  - `IsometricOperative` dropped its `campaign_atlas` frames.
+  - `CampaignArtwork.DrawOperative` draws the atlas idle frame.
+  - `CyberButton` and `CyberDialogueBubble` load their textures through `OptionalArt` (the scene no longer hard-references them).
+  - The icon settings were removed from `project.godot` and `export_presets.cfg`, and the favicon link from both `index.html` files. `assets/icons/README.md` says how to re-add them.
+  - Deleted `tools/art/prepare_campaign_shogun.py` and `capture_shogun_study.gd`.
+- **Tests:**
+  - `ArtRegenerationSpecTests`: the count is 537, and only `.png` files are size-checked.
+  - `test_shogun_art_study.gd` was rewritten for SpriteCook frames.
+  - `test_cyber_dialogue_bubble.gd` checks that the scene has no hard texture references.
+  - `test_level1_2d_cyber_shogun.gd` expects the painted backdrop only when the file exists.
+- **Verification:**
+  - `dotnet build`: 0 errors.
+  - Godot import: clean.
+  - Full `run_tests.ps1` before the last fix: Django and NUnit passed, and GdUnit had 1 error (the Level 1 backdrop test), which was then fixed.
+  - The fixed file passes 9/9.
+  - Final full rerun: all passed (GdUnit 363 with 0 errors, 0 failures and 0 orphans; NUnit; Django).
+  - In game, Mission 2 showed Cyber Shogun, but that was before the overlay removal; recheck it.
+- **Next:**
+  - Recheck Mission 2 now that the overlay is gone.
+  - Get owner approval for Stage 3 (5 operatives at about 102 each, all custom animations; the drone and mech idles at 20 each).
+  - Later: the 9 UI and icon remakes, then the other phases.
+
 ## EGM Goldfish Review Loop Round 3 completed — 2026-11-11
 
 - **Completed Claude Code's pending task:** Round 3 of `egm-review-loop` on `docs/ART_REGENERATION.md`.
@@ -66,7 +134,8 @@
 
 **Limitations and next steps:**
 - The game looks mostly empty: actors that use the rendered sprites (platformer operatives in most missions, the drone, the boss) are invisible, though Shogun's Level 1 and training art and the selection studies still show; cities, menus and the Level 1 map are blank, almost every cutscene skips, and there is no title image. The owner accepted this.
-- SpriteCook needs a subscription before any regeneration. Each batch needs the owner's approval because it costs credits.
+- SpriteCook: the owner subscribed to the Starter plan on 2026-11-12. Before any regeneration, each agent must sign in once (Claude Code: `/mcp` → spritecook → Authenticate), the art style must be chosen, and each batch needs the owner's approval because it costs credits.
+- SpriteCook skills are mandatory for all asset work (2026-11-12): CLAUDE.md, AGENTS.md, CODEX.md and GEMINI.md have a "Mandatory SpriteCook Skills (All Asset-Related Work)" section. It covers what counts as asset work, a table of which skill fits which task, where each agent finds the skills, and that `spritecook-workflow-essentials` is always read first. Checked: given a portrait request that did not mention SpriteCook, Codex (`codex exec`) and Antigravity (`agy --print`) both named `create-game-assets`, then `spritecook-workflow-essentials`, then `spritecook-generate-sprites`, and confirmed they can read them.
 - Host Blender 5.2 was already absent: there was no install folder, registry entry, winget package or PATH entry.
 - `addons/animation_combiner` still has Blender helper scripts for FBX/GLB work. It was left in place pending the owner's decision.
 - Dated README and HANDOFF sections still mention the old "Docker/Blender" art as history.
