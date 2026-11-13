@@ -30,7 +30,7 @@ The Phase 1 notes below describe the deleted attempt and are kept for its lesson
     - for a layer made as an edit of a new base (`edit_asset_id`), in `style_asset_ids`. SpriteCook accepts `style_asset_ids` with either, but not `reference_asset_id` together with `edit_asset_id`.
   - The "Old sha256" column is the first 12 hex characters of the deleted file's SHA-256, for checking a restored copy.
 - **Also deleted files:** do not recreate the old `manifest.json` or `provenance.json` files; no code reads them. Character `.tres` files are restored from git, not generated (Phase 1).
-- **Resolution (owner, 2026-11-13): 2K and 4K only, never 1K.** SpriteCook offers the 1:1, 16:9 and 9:16 aspect ratios. Prices are about 12 credits per 1K image, 1.5x at 2K (about 18) and 2.5x at 4K (about 30); these come from the pricing page, so confirm them with `list_generation_models` before each phase.
+- **Resolution (owner, 2026-11-13): 2K and 4K only, never 1K.** SpriteCook offers the 1:1, 16:9 and 9:16 aspect ratios. Nano Banana 2.1 costs 18 credits at 2K and 30 at 4K (`list_generation_models`, 2026-11-13). Character animation runs cost 20 for the first animation, 14 for each further one, and 12 for each pose prep; a base character is 12 (`list_character_workflows`). Check again before each phase.
 - **Methods and budget.** Each image's production method is in `docs/art_regeneration.json` (`method`) and explained under "Methods". The phase budget is under "Adventurer budget". In an approval request, give the phase's planned credits and its 1.5x stop limit.
 
 ## Open owner decisions (block all generation)
@@ -44,7 +44,7 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 ## Until the art returns
 
 Gaps are intentional (owner decision):
-- **Invisible:** all six operatives, the `vanguard` drone and the `heavy` boss (empty placeholder frames; the 2026-11-12 Phase 1 art was deleted on 2026-11-13).
+- **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 redone 2026-11-13).
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
 - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline instead of the painted garden.
 - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
@@ -76,7 +76,7 @@ Each image's `method` in `docs/art_regeneration.json` is one of these:
 
 ### Adventurer budget
 
-Prices assumed: 2K image 18, 4K image 30, animation 15. Recompute this table from `list_generation_models` and `get_credit_balance` on day one.
+Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation run 20 + 14 per extra animation; each pose prep 12; base character 12. Balance on 2026-11-13: 2,280 (2,210 subscription + 70 top-up), plus a top-up of about 500 the owner is buying, so about 2,780 in all.
 
 | Phase | Paid work | Credits |
 |---|---|---|
@@ -85,12 +85,12 @@ Prices assumed: 2K image 18, 4K image 30, animation 15. Recompute this table fro
 | 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K 3x3 pose sheets, the second also holding both blades (36). Lights derived, poses composed | 216 |
 | 4. Mission props | 21 props on three 2K 3x3 sheets (54); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30) | 84 |
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
-| 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a 2K top-down base plus south, north and west walk animations (6 x 63 = 378). `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 540 |
+| 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 882 |
 | 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
-| **Total** | | **1,762** |
+| **Total** | | **2,104** |
 
-- **Retry reserve:** 1,238 of the month's 3,000 credits. Any Starter balance carried over is extra.
+- **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
 - **Totals:** 316 images to remake, 17 copies and 89 skipped (of 422 deleted images), plus 9 to remake and 106 skipped from the 115 deleted on 2026-11-12. All 537 are in `docs/art_regeneration.json`. About 60 paid generations and animation runs make all of them.
@@ -133,7 +133,28 @@ SpriteCook returns its own sizes: it trims margins (`smart_crop_mode`), may add 
 
 ## Phase 1: Characters
 
-**Status (2026-11-13): deleted, redo from the start.** The notes below record the 2026-11-12 attempt, whose files were all deleted.
+**Status: done again on 2026-11-13 (Adventurer plan, 634 credits).**
+- **Lineup:** three 2K Nano Banana 2.1 tries (54 credits).
+  - Try 1 clipped the top row.
+  - On tries 2 and 3 SpriteCook's pixel snap failed (64x96 and 32x32 outputs).
+  - Try 2's 2048x2048 raw was snapped locally: white flood-keyed from the edges, a 32-colour palette per cell, 8x block mode, giving 256x256 with ~84 px figures.
+  - Figures are three-quarter view facing right, which was the best SpriteCook gave from the old portraits.
+- **Crops:** the 9 crops were cut locally, and the 8 animated characters were uploaded as clean single-character assets (free).
+- **Portraits:** the 7 portraits are the crops enlarged with nearest-neighbour.
+- **Animations:**
+  - One custom platformer run per operative: 6 animations with explicit single-character prompts, 90 credits each.
+  - One idle run per enemy, 20 credits each.
+  - The vanguard idle did not loop, so it was repacked as frames 0-3-0 (free).
+- **Atlases and `.tres`:**
+  - The atlases are packed at 2x by `pack_spritecook_character.py`.
+  - The 8 `.tres` were restored from `ca92679`.
+  - Asset IDs and hashes are in `spritecook-assets.json`.
+- **Lesson:**
+  - Do not trust SpriteCook's pixel snap on multi-figure 2K sheets.
+  - Download `raw_url` (via `check_job_status(verbose=true)`) and snap locally.
+  - The character queue runs one character at a time (~1.5 min each), so a run that has not started is not stalled.
+
+The notes below record the deleted 2026-11-12 attempt.
 
 **Previous attempt (2026-11-12):**
 - **Lineup:** all nine designs were made as one 3x3 pixel-art sheet (12 credits) and split into separate base stills (free). The asset IDs are in `spritecook-assets.json`.

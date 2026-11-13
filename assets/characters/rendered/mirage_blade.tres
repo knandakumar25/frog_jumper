@@ -1,0 +1,305 @@
+[gd_resource type="SpriteFrames" load_steps=50 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/rendered/mirage_blade_atlas.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="idle_0"]
+
+atlas = ExtResource("1")
+
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_1"]
+
+atlas = ExtResource("1")
+
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_2"]
+
+atlas = ExtResource("1")
+
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_3"]
+
+atlas = ExtResource("1")
+
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_4"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_5"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_6"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="idle_7"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_0"]
+
+atlas = ExtResource("1")
+
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_1"]
+
+atlas = ExtResource("1")
+
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_2"]
+
+atlas = ExtResource("1")
+
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_3"]
+
+atlas = ExtResource("1")
+
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_4"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_5"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1280, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_6"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1536, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="running_7"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1792, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_0"]
+
+atlas = ExtResource("1")
+
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_1"]
+
+atlas = ExtResource("1")
+
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_2"]
+
+atlas = ExtResource("1")
+
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_3"]
+
+atlas = ExtResource("1")
+
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_4"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1024, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_5"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1280, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_6"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1536, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="jumping_7"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1792, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_0"]
+
+atlas = ExtResource("1")
+
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_1"]
+
+atlas = ExtResource("1")
+
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_2"]
+
+atlas = ExtResource("1")
+
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_3"]
+
+atlas = ExtResource("1")
+
+region = Rect2(768, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_4"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1024, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_5"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1280, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_6"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1536, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="blade_dash_7"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1792, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_0"]
+
+atlas = ExtResource("1")
+
+region = Rect2(0, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_1"]
+
+atlas = ExtResource("1")
+
+region = Rect2(256, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_2"]
+
+atlas = ExtResource("1")
+
+region = Rect2(512, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_3"]
+
+atlas = ExtResource("1")
+
+region = Rect2(768, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_4"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1024, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_5"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1280, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_6"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1536, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="sword_attack_7"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1792, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_0"]
+
+atlas = ExtResource("1")
+
+region = Rect2(0, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_1"]
+
+atlas = ExtResource("1")
+
+region = Rect2(256, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_2"]
+
+atlas = ExtResource("1")
+
+region = Rect2(512, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_3"]
+
+atlas = ExtResource("1")
+
+region = Rect2(768, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_4"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1024, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_5"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1280, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_6"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1536, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="karate_attack_7"]
+
+atlas = ExtResource("1")
+
+region = Rect2(1792, 1280, 256, 256)
+
+[resource]
+
+animations = [{"frames":[{"duration":1.0,"texture":SubResource("idle_0")},{"duration":1.0,"texture":SubResource("idle_1")},{"duration":1.0,"texture":SubResource("idle_2")},{"duration":1.0,"texture":SubResource("idle_3")},{"duration":1.0,"texture":SubResource("idle_4")},{"duration":1.0,"texture":SubResource("idle_5")},{"duration":1.0,"texture":SubResource("idle_6")},{"duration":1.0,"texture":SubResource("idle_7")}],"loop":true,"name":&"idle","speed":8.0},
+{"frames":[{"duration":1.0,"texture":SubResource("running_0")},{"duration":1.0,"texture":SubResource("running_1")},{"duration":1.0,"texture":SubResource("running_2")},{"duration":1.0,"texture":SubResource("running_3")},{"duration":1.0,"texture":SubResource("running_4")},{"duration":1.0,"texture":SubResource("running_5")},{"duration":1.0,"texture":SubResource("running_6")},{"duration":1.0,"texture":SubResource("running_7")}],"loop":true,"name":&"running","speed":12.0},
+{"frames":[{"duration":1.0,"texture":SubResource("jumping_0")},{"duration":1.0,"texture":SubResource("jumping_1")},{"duration":1.0,"texture":SubResource("jumping_2")},{"duration":1.0,"texture":SubResource("jumping_3")},{"duration":1.0,"texture":SubResource("jumping_4")},{"duration":1.0,"texture":SubResource("jumping_5")},{"duration":1.0,"texture":SubResource("jumping_6")},{"duration":1.0,"texture":SubResource("jumping_7")}],"loop":true,"name":&"jumping","speed":12.0},
+{"frames":[{"duration":1.0,"texture":SubResource("blade_dash_0")},{"duration":1.0,"texture":SubResource("blade_dash_1")},{"duration":1.0,"texture":SubResource("blade_dash_2")},{"duration":1.0,"texture":SubResource("blade_dash_3")},{"duration":1.0,"texture":SubResource("blade_dash_4")},{"duration":1.0,"texture":SubResource("blade_dash_5")},{"duration":1.0,"texture":SubResource("blade_dash_6")},{"duration":1.0,"texture":SubResource("blade_dash_7")}],"loop":false,"name":&"blade_dash","speed":56.0},
+{"frames":[{"duration":1.0,"texture":SubResource("sword_attack_0")},{"duration":1.0,"texture":SubResource("sword_attack_1")},{"duration":1.0,"texture":SubResource("sword_attack_2")},{"duration":1.0,"texture":SubResource("sword_attack_3")},{"duration":1.0,"texture":SubResource("sword_attack_4")},{"duration":1.0,"texture":SubResource("sword_attack_5")},{"duration":1.0,"texture":SubResource("sword_attack_6")},{"duration":1.0,"texture":SubResource("sword_attack_7")}],"loop":false,"name":&"sword_attack","speed":32.0},
+{"frames":[{"duration":1.0,"texture":SubResource("karate_attack_0")},{"duration":1.0,"texture":SubResource("karate_attack_1")},{"duration":1.0,"texture":SubResource("karate_attack_2")},{"duration":1.0,"texture":SubResource("karate_attack_3")},{"duration":1.0,"texture":SubResource("karate_attack_4")},{"duration":1.0,"texture":SubResource("karate_attack_5")},{"duration":1.0,"texture":SubResource("karate_attack_6")},{"duration":1.0,"texture":SubResource("karate_attack_7")}],"loop":false,"name":&"karate_attack","speed":26.666667},
+{"frames":[{"duration":1.0,"texture":SubResource("idle_0")},{"duration":1.0,"texture":SubResource("idle_1")},{"duration":1.0,"texture":SubResource("idle_2")},{"duration":1.0,"texture":SubResource("idle_3")},{"duration":1.0,"texture":SubResource("idle_4")},{"duration":1.0,"texture":SubResource("idle_5")},{"duration":1.0,"texture":SubResource("idle_6")},{"duration":1.0,"texture":SubResource("idle_7")}],"loop":true,"name":&"default","speed":8.0},
+{"frames":[{"duration":1.0,"texture":SubResource("idle_0")},{"duration":1.0,"texture":SubResource("idle_1")},{"duration":1.0,"texture":SubResource("idle_2")},{"duration":1.0,"texture":SubResource("idle_3")},{"duration":1.0,"texture":SubResource("idle_4")},{"duration":1.0,"texture":SubResource("idle_5")},{"duration":1.0,"texture":SubResource("idle_6")},{"duration":1.0,"texture":SubResource("idle_7")}],"loop":true,"name":&"finished","speed":8.0},
+{"frames":[{"duration":1.0,"texture":SubResource("jumping_0")},{"duration":1.0,"texture":SubResource("jumping_1")},{"duration":1.0,"texture":SubResource("jumping_2")},{"duration":1.0,"texture":SubResource("jumping_3")},{"duration":1.0,"texture":SubResource("jumping_4")},{"duration":1.0,"texture":SubResource("jumping_5")},{"duration":1.0,"texture":SubResource("jumping_6")},{"duration":1.0,"texture":SubResource("jumping_7")}],"loop":true,"name":&"falling","speed":12.0},
+{"frames":[{"duration":1.0,"texture":SubResource("jumping_0")},{"duration":1.0,"texture":SubResource("jumping_1")},{"duration":1.0,"texture":SubResource("jumping_2")},{"duration":1.0,"texture":SubResource("jumping_3")},{"duration":1.0,"texture":SubResource("jumping_4")},{"duration":1.0,"texture":SubResource("jumping_5")},{"duration":1.0,"texture":SubResource("jumping_6")},{"duration":1.0,"texture":SubResource("jumping_7")}],"loop":true,"name":&"double_jump","speed":12.0},
+{"frames":[{"duration":1.0,"texture":SubResource("idle_0")},{"duration":1.0,"texture":SubResource("idle_1")},{"duration":1.0,"texture":SubResource("idle_2")},{"duration":1.0,"texture":SubResource("idle_3")},{"duration":1.0,"texture":SubResource("idle_4")},{"duration":1.0,"texture":SubResource("idle_5")},{"duration":1.0,"texture":SubResource("idle_6")},{"duration":1.0,"texture":SubResource("idle_7")}],"loop":false,"name":&"hit","speed":8.0}]

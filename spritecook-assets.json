@@ -1,5 +1,290 @@
 {
   "_note": "SpriteCook asset IDs for project art. 'assets': asset_id and label (sha12 only where the asset itself was saved). 'files': saved game files with sha12 and the assets they were built from. No URLs or credentials. Reset on 2026-11-13: every file made on 2026-11-12 (Starter plan) was deleted at the owner's request before regenerating on the Adventurer plan; the old entries are in git at commit 3d05726. Do not reuse those asset IDs.",
-  "assets": [],
-  "files": []
+  "assets": [
+    {
+      "asset_id": "1ffba4ed-78ca-4f59-8e6f-4f26d2817644",
+      "label": "Phase 1 reference: 3x3 collage of the old ca92679 portraits (upload, free)"
+    },
+    {
+      "asset_id": "705e9b9e-60ca-4bda-9700-d32a149a831b",
+      "label": "REJECTED: lineup try 1 (2K, 18 cr): top row heads cut off"
+    },
+    {
+      "asset_id": "4dd114fa-9a3d-4614-9293-0b23793bb7fe",
+      "label": "CHOSEN: lineup try 2 (2K NB2.1, 18 cr). SpriteCook's pixel snap failed (64x96), so the 2048x2048 raw was snapped locally (white keyed, per-cell 32-colour palette, 8x block mode -> 256x256)"
+    },
+    {
+      "asset_id": "5da74826-722d-4587-b8f7-e64067bf6e9c",
+      "label": "REJECTED: lineup try 3 (2K, 18 cr): pixel snap failed (32x32); raw kept as alternative B"
+    },
+    {
+      "asset_id": "7e087ee1-f547-4359-986b-658aec0793e7",
+      "sha12": "08646dfe61ec",
+      "label": "cyber_shogun base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "e53d51d5-4df4-463a-b9d3-d4f8702376c8",
+      "sha12": "c713c55a893b",
+      "label": "surya_prime base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "ae44a2aa-214d-4c00-a542-6f0a9b95f9b9",
+      "sha12": "4b0b13e6f8f8",
+      "label": "oceanus base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "d668c01b-4d13-4653-8f76-a5c3638f97d6",
+      "sha12": "def856361dd5",
+      "label": "mirage_blade base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "3fc109a3-d9fe-4f34-9ca7-df926b5b7976",
+      "sha12": "2b7b27ba22c3",
+      "label": "apex_titan base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "1f40c6a7-54b9-4baf-be7b-99e1b73eef43",
+      "sha12": "e955bca9a3f2",
+      "label": "phoenicia base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "1e985a02-1dae-4d21-8567-c5279f72f938",
+      "sha12": "15e5b51ea91b",
+      "label": "vanguard base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "3ee6fb51-fdd0-481a-8a11-514a387b7aa2",
+      "sha12": "f1193e48daf9",
+      "label": "heavy base crop from the chosen lineup (upload, free)"
+    },
+    {
+      "asset_id": "285728a3-201a-42c5-b675-4d9cd533d9e9",
+      "label": "cyber_shogun idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "080485c9-4a3c-4d0f-bdc7-dfb10c298aed",
+      "label": "cyber_shogun running animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "2409ee32-3858-42f6-86af-fd7902600363",
+      "label": "cyber_shogun jumping animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "f3799b4c-ca38-47c6-aaad-260fe6db3319",
+      "label": "cyber_shogun blade_dash animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "3372046b-3e61-4277-beb1-84cfdebb11bd",
+      "label": "cyber_shogun sword_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "61e89e7c-732b-4a90-9d63-b41383c7df05",
+      "label": "cyber_shogun karate_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "535a8ec7-46bf-45ed-978c-c75ac7c01239",
+      "label": "surya_prime idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "25466faa-a31f-41a5-9dfe-2ae82588140c",
+      "label": "surya_prime running animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "7dcec314-9067-44b8-8b59-c020ce502e61",
+      "label": "surya_prime jumping animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "759c9ff1-1531-4e38-98ed-c18f7c62eb3a",
+      "label": "surya_prime blade_dash animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "2096a427-8521-4f71-8f83-03d19b397854",
+      "label": "surya_prime sword_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "ac4f7a1e-c73f-4b4d-9048-3a380679d2c4",
+      "label": "surya_prime karate_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "e18d2720-5fde-4f88-8ee6-38fa97f2c1ff",
+      "label": "oceanus idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "67fc793f-1ac0-478e-9aa7-4996bd7facaa",
+      "label": "oceanus running animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "f21a7361-d2bf-4e48-99e5-dd7f1026fcb9",
+      "label": "oceanus jumping animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "4c91e6b1-3693-42c8-9c0e-8c1fe445f2cb",
+      "label": "oceanus blade_dash animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "b9fd4e32-4c1e-42d0-b1e2-2ca5aa5b238e",
+      "label": "oceanus sword_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "5c5a385a-59de-475c-8971-4226caad3beb",
+      "label": "oceanus karate_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "d6cdbe9f-9a04-4f8c-8490-7cd62cd6c608",
+      "label": "mirage_blade idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "f68c2b65-85c9-4833-9f3d-9bfe24bfb15d",
+      "label": "mirage_blade running animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "afd8c5bb-d183-42d2-bd87-f6b3a450abf2",
+      "label": "mirage_blade jumping animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "15ec9fa9-03df-4ef9-9fa7-0871b6a2a194",
+      "label": "mirage_blade blade_dash animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "c3aa6cc4-4212-4009-aaf6-96404527d86e",
+      "label": "mirage_blade sword_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "0a80b2f9-bc8b-4c75-91bc-c49ee68337fc",
+      "label": "mirage_blade karate_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "b14d31f8-ddf6-421a-8444-1e4be44eb0eb",
+      "label": "apex_titan idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "4457aa04-0302-4de9-8e62-c5e79c791c2a",
+      "label": "apex_titan running animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "0d077de3-f250-404a-86ed-76f555ddb55c",
+      "label": "apex_titan jumping animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "af7207b2-c47f-4dfe-a873-8e1f162ee44d",
+      "label": "apex_titan blade_dash animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "39fe9731-4880-47bd-a507-7150c0a69a96",
+      "label": "apex_titan sword_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "20ef60ee-6df8-46eb-ac73-2fdba31e8f3e",
+      "label": "apex_titan karate_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "013792ea-bde9-4647-8118-f8e8adee2044",
+      "label": "phoenicia idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "3456b0e3-e6d7-4418-a61d-1a3636f37bf3",
+      "label": "phoenicia running animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "b49db1ea-c6b1-465e-bd1a-975447653c49",
+      "label": "phoenicia jumping animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "96b68624-da57-473a-a65f-c75fe4c1be8d",
+      "label": "phoenicia blade_dash animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "9a97aeaf-b584-4dba-9159-58764f23c859",
+      "label": "phoenicia sword_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "7f9841bf-fe4f-4bb4-ab80-8a404122aff6",
+      "label": "phoenicia karate_attack animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "bff401ca-9a5c-4142-9ded-e68c07bbb152",
+      "label": "vanguard idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "1e84a2e2-f892-4b3d-89ac-f2a63c8a51a3",
+      "label": "heavy idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/characters/rendered/cyber_shogun_portrait.png",
+      "sha12": "a516d95d96c8",
+      "source": "enlarged cyber_shogun base crop (7e087ee1-f547-4359-986b-658aec0793e7)"
+    },
+    {
+      "path": "assets/characters/rendered/surya_prime_portrait.png",
+      "sha12": "a4edad1beca4",
+      "source": "enlarged surya_prime base crop (e53d51d5-4df4-463a-b9d3-d4f8702376c8)"
+    },
+    {
+      "path": "assets/characters/rendered/oceanus_portrait.png",
+      "sha12": "174570871747",
+      "source": "enlarged oceanus base crop (ae44a2aa-214d-4c00-a542-6f0a9b95f9b9)"
+    },
+    {
+      "path": "assets/characters/rendered/mirage_blade_portrait.png",
+      "sha12": "dec3f3ebabbd",
+      "source": "enlarged mirage_blade base crop (d668c01b-4d13-4653-8f76-a5c3638f97d6)"
+    },
+    {
+      "path": "assets/characters/rendered/apex_titan_portrait.png",
+      "sha12": "29af1da5fda9",
+      "source": "enlarged apex_titan base crop (3fc109a3-d9fe-4f34-9ca7-df926b5b7976)"
+    },
+    {
+      "path": "assets/characters/rendered/phoenicia_portrait.png",
+      "sha12": "29a64cd00108",
+      "source": "enlarged phoenicia base crop (1f40c6a7-54b9-4baf-be7b-99e1b73eef43)"
+    },
+    {
+      "path": "assets/characters/rendered/axiom7_portrait.png",
+      "sha12": "8f0c6d3ab876",
+      "source": "enlarged axiom7 cell of lineup 4dd114fa (local crop, not uploaded)"
+    },
+    {
+      "path": "assets/characters/rendered/cyber_shogun_atlas.png",
+      "sha12": "98aea9748900",
+      "source": "packed at 2x by pack_spritecook_character.py from idle, running, jumping, blade_dash, sword_attack, karate_attack (285728a3, 080485c9, 2409ee32, f3799b4c, 3372046b, 61e89e7c)"
+    },
+    {
+      "path": "assets/characters/rendered/surya_prime_atlas.png",
+      "sha12": "fe6146e238d1",
+      "source": "packed at 2x by pack_spritecook_character.py from idle, running, jumping, blade_dash, sword_attack, karate_attack (535a8ec7, 25466faa, 7dcec314, 759c9ff1, 2096a427, ac4f7a1e)"
+    },
+    {
+      "path": "assets/characters/rendered/oceanus_atlas.png",
+      "sha12": "145bd7a05148",
+      "source": "packed at 2x by pack_spritecook_character.py from idle, running, jumping, blade_dash, sword_attack, karate_attack (e18d2720, 67fc793f, f21a7361, 4c91e6b1, b9fd4e32, 5c5a385a)"
+    },
+    {
+      "path": "assets/characters/rendered/mirage_blade_atlas.png",
+      "sha12": "fb9d79699815",
+      "source": "packed at 2x by pack_spritecook_character.py from idle, running, jumping, blade_dash, sword_attack, karate_attack (d6cdbe9f, f68c2b65, afd8c5bb, 15ec9fa9, c3aa6cc4, 0a80b2f9)"
+    },
+    {
+      "path": "assets/characters/rendered/apex_titan_atlas.png",
+      "sha12": "efa924385503",
+      "source": "packed at 2x by pack_spritecook_character.py from idle, running, jumping, blade_dash, sword_attack, karate_attack (b14d31f8, 4457aa04, 0d077de3, af7207b2, 39fe9731, 20ef60ee)"
+    },
+    {
+      "path": "assets/characters/rendered/phoenicia_atlas.png",
+      "sha12": "6dac4d238841",
+      "source": "packed at 2x by pack_spritecook_character.py from idle, running, jumping, blade_dash, sword_attack, karate_attack (013792ea, 3456b0e3, b49db1ea, 96b68624, 9a97aeaf, 7f9841bf)"
+    },
+    {
+      "path": "assets/characters/rendered/vanguard_atlas.png",
+      "sha12": "de2e72ee860f",
+      "source": "packed at 2x by pack_spritecook_character.py from idle (bff401ca); idle repacked as ping-pong frames 0-3-0 so the loop closes"
+    },
+    {
+      "path": "assets/characters/rendered/heavy_atlas.png",
+      "sha12": "5cb2f7972886",
+      "source": "packed at 2x by pack_spritecook_character.py from idle (1e84a2e2)"
+    }
+  ]
 }

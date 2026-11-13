@@ -1,5 +1,25 @@
 # Axiom Force — Project Memory
 
+## Phase 1 characters done — 2026-11-13
+
+- Phase 1 redone: 634 credits (54 on lineups, 580 on animations); balance 2,176 (including a +30 rewards bonus). 15 PNGs and 8 `.tres` in `assets/characters/rendered`; IDs and hashes in `spritecook-assets.json` (50 assets, 15 files).
+- Learned:
+  - SpriteCook's pixel snap breaks on multi-figure 2K sheets. Take `raw_url` from `check_job_status(verbose=true)` and snap locally.
+  - The character-animation queue runs one character at a time (~1.5 min each).
+  - Local sleeps and Monitor waits are not real time here. Check the server `Date` header, and don't declare a stall early (I wrongly reported one).
+  - The vanguard idle needed a ping-pong repack.
+- Verified: art spec 3/3, image audit OK, Godot import OK (15 .import), GdUnit character suites 25/0. Full suite not run (needs Docker; ask first). Nothing committed.
+
+## Real SpriteCook balance and prices — 2026-11-13
+
+- After the plugin reinstall and restart: Adventurer tier active, **2,280 credits** (2,210 subscription + 70 top-up), not 3,000. Prices: NB 2.1 18 at 2K and 30 at 4K (as assumed); animation run 20 + 14 per extra animation; each pose prep 12; base character 12. GPT Image 2 is 7 at 2K, and GPT 2.5 Flare/Sunburst are 14 at 2K and 17 at 4K (plus 8 per reference image).
+- Real plan total is 2,104 (the top-down operatives cost 720, not 378). Owner chose to **buy a ~500-credit top-up** to keep the full plan on NB 2.1 in one month (reserve about 676). Docs updated. Top-up confirmed: balance **2,780** (2,210 subscription + 570 top-up). Next: Phase 1 (598 credits) once the owner approves. No credits spent.
+
+## SpriteCook plugin reinstall — 2026-11-13
+
+- Owner upgraded to Adventurer. SpriteCook tools were missing because `~/.claude/plugins/cache` had been wiped (the plugin was still enabled and registered, but its files were gone). Reinstalled with `claude plugin marketplace update spritecook` and `claude plugin install spritecook@spritecook` (v0.1.15). `claude mcp list` shows `plugin:spritecook:spritecook` connected. The tools load only after a Claude Code restart.
+- Next: restart, then `get_credit_balance`, `list_generation_models` and `list_character_workflows`; recompute the Adventurer budget; propose Phase 1 for approval. No credits spent.
+
 ## .NET SDK version in docs — 2026-11-13
 
 - Owner: the latest C# .NET SDK is 11.0.100 (the only SDK installed on Windows). Recorded it in the agent guides' Language line and the README prerequisites. Projects still target `net10.0` (Godot 4.7.2); the Docker export image still pins .NET 10.0.403. Documentation only; no tests needed.

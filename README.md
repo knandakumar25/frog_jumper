@@ -8,7 +8,7 @@ icon and favicon, the city menu base and the 17 localized titles with their webs
 `spritecook-assets.json` is empty again and the icon references in `project.godot`,
 `export_presets.cfg` and both `index.html` files were removed. Operatives, the drone and
 the boss are invisible placeholders until the art is regenerated on the Adventurer plan.
-The deleted files are in git at `3d05726`. The redo is planned in `docs/ART_REGENERATION.md` ("Methods" and "Adventurer budget"): about 60 paid generations at 2K/4K (1,762 credits) make all 325 images, using grid sheets, layers derived locally and cutscene poses built from the Phase 1 animations (`tools/art/slice_sheet.py`, `derive_layers.py`, `compose_poses.py`, `pack_topdown.py`). The helpers in `tools/art/` are kept; the
+The deleted files are in git at `3d05726`. The redo is planned in `docs/ART_REGENERATION.md` ("Methods" and "Adventurer budget"): about 60 paid generations at 2K/4K (2,104 credits, with about 676 in reserve after the owner's top-up) make all 325 images, using grid sheets, layers derived locally and cutscene poses built from the Phase 1 animations (`tools/art/slice_sheet.py`, `derive_layers.py`, `compose_poses.py`, `pack_topdown.py`). The helpers in `tools/art/` are kept; the
 title helper needs Pillow with libraqm for Arabic and Hebrew (use Linux Docker on Windows).
 
 ## Open world status (2026-11-08)
@@ -151,12 +151,12 @@ Blender was retired on 2026-11-11. All game and website art is now made with the
   - the app icon and favicon.
   Of these, 9 are listed to remake; the rest are unused or superseded.
 - **Plan:** one month of the Adventurer plan, 2K/4K only; see `docs/ART_REGENERATION.md` ("Adventurer budget").
-- **Done so far:** nothing. The 2026-11-12 Phase 1 characters and UI batch were deleted on 2026-11-13 (owner request, to redo them on the Adventurer plan). `tools/art/pack_spritecook_character.py` still packs new character art.
+- **Done so far:** Phase 1 characters, redone on 2026-11-13 on the Adventurer plan (634 credits): pixel-art atlases, portraits and restored `.tres` for all six operatives, the `vanguard` and `heavy` idles, and the AXIOM-7 portrait. Asset IDs are in `spritecook-assets.json`.
 - **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
 - **Until then the game has gaps on purpose:**
   - Every mission, Level 1, the squad cutscenes and the selection preview draw operatives from their SpriteCook atlas through `OperativeVisuals`.
-    - No actor has an atlas at the moment (deleted 2026-11-13).
-    - An actor without an atlas is invisible but still play, using an empty placeholder animation set.
+    - All six operatives, the drone and the boss have pixel-art atlases again (2026-11-13).
+    - An actor without an atlas would be invisible but still play, using an empty placeholder animation set.
     - Sentries, open-world hostiles and Aegis civilians are drawn in code.
   - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline.
   - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
@@ -741,7 +741,7 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): eight sectors of freight sabotage, three shipments, two uplinks, a relay blackout and a blind-grid escape across 48,000px.
   4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him unlocks the crossing control, then opening the border and reaching extraction ends Act I with its scorecard.
   Each mission has three optional memory fragments, a story title card, and chasm recovery. Level 2 has four shrine checkpoints; the other missions have three. Its revised gameplay briefing replaces outdated title-card objective metadata.
-- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Operatives are invisible placeholders until their SpriteCook sprites are regenerated (the 2026-11-12 set was deleted on 2026-11-13). Levels use a procedural skyline backdrop; Level 1's painted garden was deleted on 2026-11-12 and awaits regeneration.
+- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Operatives use their SpriteCook pixel-art sprites (redone on the Adventurer plan, 2026-11-13). Levels use a procedural skyline backdrop; Level 1's painted garden was deleted on 2026-11-12 and awaits regeneration.
 - **Dynamic Combat HUD** — Real-time telemetry monitoring health, shields, combo streaks (`DOUBLE STRIKE!`, `TRIPLE COMBO!`, `TACTICAL OVERDRIVE!`), operative ability status, and boss telemetry.
 - **Border Commander Voss (boss mech)** — Level 4 uses three phases at 300/200/100 HP, phase-two power pylons, aimed/spread missiles, marked defense lanes and stationary melee recovery. Parry returns the actual missile to its owner. Standalone mech scenes retain the legacy overdrive behavior.
 - **Tactical Victory Scorecard** — End-of-level combat assessment evaluating completion time, score, and damage taken to award combat grades (**S Rank / Flawless**, **A Rank / Vanguard**, **B Rank / Operative**) with victory fanfare.

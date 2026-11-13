@@ -1,5 +1,27 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 1 characters redone — 2026-11-13
+
+- **Credits and files:** Adventurer plan, 634 credits (54 on three lineups, 580 on animation); balance afterwards 2,176. Files in `assets/characters/rendered/`:
+  - 6 operative atlases (2048x1536) and 6 portraits (768x1024);
+  - `axiom7_portrait.png` (768x768);
+  - `vanguard_atlas.png` and `heavy_atlas.png` (2048x256);
+  - 8 `.tres` restored unchanged from `ca92679`.
+- **Lineup:**
+  - SpriteCook's pixel snap failed on the 2K sheet, so the raw 2048x2048 was snapped locally (white flood-key, 32 colours per cell, 8x block mode).
+  - The figures are three-quarter view facing right.
+- **Animations:**
+  - Custom platformer runs with explicit single-character prompts, cut from uploaded clean crops; no presets were used.
+  - The vanguard idle was repacked ping-pong (0-3-0) because the generated loop ended with the cannon raised.
+  - Minor: some Phoenicia idle frames lighten her crest colour.
+- **Verified:**
+  - `ArtRegenerationSpecTests` 3/3.
+  - `audit_images.py`: 15 images, hard edges, margins on every side.
+  - Godot headless import exit 0, with 15 `.import` files generated. The log shows only the existing System.Runtime 11 and shutdown-leak errors.
+  - GdUnit `test_rendered_character_assets`, `test_shogun_art_study`, `test_character_selection_abilities` and `test_level1_2d_cyber_shogun`: 25 tests, 0 failures.
+  - The full `run_tests.ps1` was not run: it needs Docker (ask the owner first).
+- **Next:** Phase 2 (deployment cutscene, 54 credits) needs owner approval.
+
 ## Adventurer-plan art budget — 2026-11-13
 
 The owner will upgrade SpriteCook to Adventurer (3,000 credits/month, 2K/4K) for one month
@@ -10,7 +32,7 @@ Owner decisions: **2K and 4K only, never 1K**; produce scenes differently so the
   `docs/art_regeneration.json` now has a `method` (generate, sheet, animate, slice, derive,
   compose, render or copy). `docs/ART_REGENERATION.md` has new "Methods" and "Adventurer budget"
   sections, and the route lines were rewritten.
-- **Budget:** 1,762 planned credits (about 60 paid jobs), leaving a 1,238 reserve. Stop if a phase
+- **Budget (revised with real prices, 2026-11-13):** 2,104 planned credits. The balance is 2,280 (not 3,000) and the owner is adding a ~500 top-up, leaving a reserve of about 676. Top-down operatives cost 120 each, not 63, because every pose prep is 12. Image prices matched the estimates. The original estimate was 1,762 with a 1,238 reserve. Stop if a phase
   reaches 1.5x its budget. Prices are inferred from the pricing page (2K ≈ 18, 4K ≈ 30,
   animation ≈ 15), so recompute them with `list_generation_models` on day one.
 - **New free tools in `tools/art/`:** `slice_sheet.py`, `derive_layers.py` (lights, aftermath, drone,
