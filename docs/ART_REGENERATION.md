@@ -4,13 +4,14 @@ Blender was retired on 2026-11-11 and every image it made was deleted. On 2026-1
 
 ## Rules
 
-**Approved UI batch update (2026-11-12):** the button states, dialogue frame/pointer,
-application icon, city menu base, and 17 localized title plates with website copies
-have been restored. The tables below retain the original deletion work order;
-check files and `spritecook-assets.json` for delivered assets. This batch reused
-existing SpriteCook output; Codex spent no additional credits. The Starter plan
-allows 1K source generation; older 2K/4K recommendations below require a different
-plan and are not authorization to spend credits. Other art remains pending.
+**Reset (2026-11-13):** every file made with SpriteCook on 2026-11-12 (the Phase 1
+characters, their `.tres`, the button states, dialogue frame/pointer, application icon,
+favicon, city menu base and the 17 localized titles with website copies) was deleted
+at the owner's request, and `spritecook-assets.json` was emptied. Everything is
+`remake` again. The owner is moving to the Adventurer plan for the regeneration;
+check its resolution limits with `list_generation_models` before planning. The
+deleted files and old asset IDs are in git at `3d05726`; do not reuse those IDs.
+The Phase 1 notes below describe the deleted attempt and are kept for its lessons.
 
 - **Same path, same size.** Save each new image at its listed path and exact pixel size, and the game loads it with no code change. Some screens appear only once their whole set exists (a cutscene's stage, a later-campaign family, a city); see each phase's shared rules. `ArtRegenerationSpecTests` (NUnit) fails on a wrong size; `docs/art_regeneration.json` holds the sizes and statuses.
 - **Status column.**
@@ -47,7 +48,7 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 ## Until the art returns
 
 Gaps are intentional (owner decision):
-- **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 done 2026-11-12).
+- **Invisible:** all six operatives, the `vanguard` drone and the `heavy` boss (empty placeholder frames; the 2026-11-12 Phase 1 art was deleted on 2026-11-13).
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
 - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline instead of the painted garden.
 - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
@@ -108,7 +109,9 @@ SpriteCook returns its own sizes: it trims margins (`smart_crop_mode`), may add 
 
 ## Phase 1: Characters
 
-**Progress (2026-11-12):**
+**Status (2026-11-13): deleted, redo from the start.** The notes below record the 2026-11-12 attempt, whose files were all deleted.
+
+**Previous attempt (2026-11-12):**
 - **Lineup:** all nine designs were made as one 3x3 pixel-art sheet (12 credits) and split into separate base stills (free). The asset IDs are in `spritecook-assets.json`.
 - **Cyber Shogun is done:**
   - `cyber_shogun_atlas.png`, packed by `tools/art/pack_spritecook_character.py` at a 3x nearest scale;

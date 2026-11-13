@@ -1,12 +1,15 @@
 # Axiom Force
 
-## UI art batch (2026-11-12)
+## SpriteCook art reset (2026-11-13)
 
-SpriteCook button states, dialogue frame/pointer, application icon, city menu base and
-17 localized title plates are restored. Titles have matching website copies. The
-title helper requires Pillow with libraqm for Arabic and Hebrew; use Linux Docker
-when the Windows Pillow build lacks it. Provenance and file hashes are recorded
-in `spritecook-assets.json`. Other missing art remains listed in `docs/ART_REGENERATION.md`.
+All art made with SpriteCook on 2026-11-12 was deleted at the owner's request: the Phase 1
+character atlases, portraits and `.tres`, the button states, dialogue frame/pointer, app
+icon and favicon, the city menu base and the 17 localized titles with their website copies.
+`spritecook-assets.json` is empty again and the icon references in `project.godot`,
+`export_presets.cfg` and both `index.html` files were removed. Operatives, the drone and
+the boss are invisible placeholders until the art is regenerated on the Adventurer plan.
+The deleted files are in git at `3d05726`. The helpers in `tools/art/` are kept; the
+title helper needs Pillow with libraqm for Arabic and Hebrew (use Linux Docker on Windows).
 
 ## Open world status (2026-11-08)
 
@@ -137,7 +140,7 @@ graphify query "how is mission music levelled"
 
 ## Art pipeline (SpriteCook)
 
-Blender was retired on 2026-11-11. All game and website art is now made with the SpriteCook plugin (the `spritecook@spritecook` plugin in Claude Code, the official `spritecook@openai-curated-remote` plugin in Codex, and an API-key MCP entry in Antigravity). Generation spends paid credits, so the owner approves each batch. The account is on the SpriteCook Starter plan (2026-11-12). Each agent signs in to SpriteCook once before its tools work.
+Blender was retired on 2026-11-11. All game and website art is now made with the SpriteCook plugin (the `spritecook@spritecook` plugin in Claude Code, the official `spritecook@openai-curated-remote` plugin in Codex, and an API-key MCP entry in Antigravity). Generation spends paid credits, so the owner approves each batch. The account was on the SpriteCook Starter plan (2026-11-12); the owner is moving to the Adventurer plan for the regeneration (2026-11-13). Each agent signs in to SpriteCook once before its tools work.
 
 - **Style:** pixel art (owner, 2026-11-12).
 - **Deleted:** every image Blender made, which is 344 game images plus 78 website copies of the titles. Also deleted: the generator scripts, the `blendot`, `blender_godot_pipeline` and `gltf_fix_blender_light_intensity` editor add-ons, and Blender in the cutscene Docker image. The originals are in git at commit `ca92679`. `addons/animation_combiner` (an FBX/GLB tool with Blender helper scripts) is still installed, pending an owner decision.
@@ -147,16 +150,12 @@ Blender was retired on 2026-11-11. All game and website art is now made with the
   - the UI art, backgrounds and template images;
   - the app icon and favicon.
   Of these, 9 are listed to remake; the rest are unused or superseded.
-- **Done so far:** Phase 1 characters (2026-11-12).
-  - Pixel-art atlases, portraits and restored `.tres` for all six operatives.
-  - The `vanguard` drone and `heavy` boss idle atlases.
-  - The AXIOM-7 portrait.
-  - Everything is packed by `tools/art/pack_spritecook_character.py`. Asset IDs are in `spritecook-assets.json`.
+- **Done so far:** nothing. The 2026-11-12 Phase 1 characters and UI batch were deleted on 2026-11-13 (owner request, to redo them on the Adventurer plan). `tools/art/pack_spritecook_character.py` still packs new character art.
 - **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
 - **Until then the game has gaps on purpose:**
   - Every mission, Level 1, the squad cutscenes and the selection preview draw operatives from their SpriteCook atlas through `OperativeVisuals`.
-    - All six operatives, the drone and the boss now have pixel-art sprites.
-    - An actor without an atlas would be invisible but still play, using an empty placeholder animation set.
+    - No actor has an atlas at the moment (deleted 2026-11-13).
+    - An actor without an atlas is invisible but still play, using an empty placeholder animation set.
     - Sentries, open-world hostiles and Aegis civilians are drawn in code.
   - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline.
   - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
@@ -741,7 +740,7 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
   3. **Neon Rust and Data Dust** (Aura Phoenicia, then Mirage Blade join): eight sectors of freight sabotage, three shipments, two uplinks, a relay blackout and a blind-grid escape across 48,000px.
   4. **Shattered Aegis** (Surya Prime joins): the Border Fortress, superheated corridors, a laser curtain, and Border Commander Voss; defeating him unlocks the crossing control, then opening the border and reaching extraction ends Act I with its scorecard.
   Each mission has three optional memory fragments, a story title card, and chasm recovery. Level 2 has four shrine checkpoints; the other missions have three. Its revised gameplay briefing replaces outdated title-card objective metadata.
-- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Operatives use their SpriteCook pixel-art sprites (all six done 2026-11-12). Levels use a procedural skyline backdrop; Level 1's painted garden was deleted on 2026-11-12 and awaits regeneration.
+- **New-campaign flow** — New Game → AXIOM-7's story briefing → Mission 1. Operatives are invisible placeholders until their SpriteCook sprites are regenerated (the 2026-11-12 set was deleted on 2026-11-13). Levels use a procedural skyline backdrop; Level 1's painted garden was deleted on 2026-11-12 and awaits regeneration.
 - **Dynamic Combat HUD** — Real-time telemetry monitoring health, shields, combo streaks (`DOUBLE STRIKE!`, `TRIPLE COMBO!`, `TACTICAL OVERDRIVE!`), operative ability status, and boss telemetry.
 - **Border Commander Voss (boss mech)** — Level 4 uses three phases at 300/200/100 HP, phase-two power pylons, aimed/spread missiles, marked defense lanes and stationary melee recovery. Parry returns the actual missile to its owner. Standalone mech scenes retain the legacy overdrive behavior.
 - **Tactical Victory Scorecard** — End-of-level combat assessment evaluating completion time, score, and damage taken to award combat grades (**S Rank / Flawless**, **A Rank / Vanguard**, **B Rank / Operative**) with victory fanfare.

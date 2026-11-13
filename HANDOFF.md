@@ -1,5 +1,25 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## SpriteCook art reset — 2026-11-13
+
+Owner asked to delete every asset Claude and Codex made with SpriteCook on 2026-11-12,
+to redo them after a temporary upgrade to the Adventurer plan.
+
+- **Deleted (105 files incl. `.import`):** everything listed in the old `spritecook-assets.json`
+  `files` (15 character PNGs, 17 game titles + 17 website copies, 3 button states, speech
+  frame/pointer, `axiom_force.png`/`.ico`, `website/public/favicon.svg`, `menu_backdrops/city_base.png`)
+  plus the 8 character `.tres` (which point at the deleted atlases). Empty folders
+  `assets/characters/rendered` and `assets/images/menu_backdrops` were removed too.
+- **Unhooked:** icon lines in `project.godot`, icon paths in `export_presets.cfg` (back to `""`),
+  favicon `<link>` in `index.html` and `website/index.html`.
+- **Manifest:** `spritecook-assets.json` emptied; old IDs are in git at `3d05726` and should not be reused.
+- **Kept:** `tools/art/*` helpers, `docs/art_regeneration.json` (all entries were still `remake`).
+- **Not done:** the assets still exist in the owner's SpriteCook online library; the MCP has no
+  delete tool, so remove them in the SpriteCook web app if wanted.
+- **Verified:** Godot headless import exit 0 (logged a `System.Runtime 11.0` assembly-load error and the usual shutdown leak messages, none about deleted files); `dotnet build` 0 errors; `run_tests.ps1` exit 0: Django 111, NUnit 439, GdUnit4 363 passed (0 errors/failures/orphans, `reports/report_672`); `graphify update .` done.
+- **Next:** on the Adventurer plan, re-plan Phase 1 and the UI batch with `list_generation_models`
+  and get owner approval with an asset list and credit estimate before generating.
+
 ## Resumed Claude UI batch — 2026-11-12
 
 Recovered Claude's last approved task from its project session: UI essentials,

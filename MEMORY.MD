@@ -1,5 +1,16 @@
 # Axiom Force — Project Memory
 
+## SpriteCook art reset — 2026-11-13
+
+- Owner request: delete all SpriteCook assets Claude and Codex made on 2026-11-12; owner is temporarily upgrading to the Adventurer plan to regenerate.
+- Deleted 105 files (manifest `files` + 8 character `.tres` + `.import`s), removed icon/favicon references, emptied `spritecook-assets.json`. Originals at `3d05726`. Updated README, HANDOFF, ART_REGENERATION, icons README and the agent guides.
+- Online SpriteCook library copies were not deleted (no MCP delete tool).
+- **Verified:** Godot headless import exit 0 (logged a `System.Runtime 11.0` assembly-load error and the usual shutdown leak messages, none about deleted files); `dotnet build` 0 errors; `run_tests.ps1` exit 0: Django 111, NUnit 439, GdUnit4 363 passed (0 errors/failures/orphans, `reports/report_672`); `graphify update .` done.
+
+## Docker shutdown — 2026-11-12
+
+- Stopped all project Compose services at the owner's request. Confirmed no running `axiom-force` containers remain. Containers and persistent volumes were retained. Documentation-only task; no tests or Godot refresh required.
+
 ## UI batch publication request — 2026-11-12
 
 - Owner authorized committing and pushing the completed UI/title batch. Reviewed the file list, diff whitespace and manifest/tooling for credentials or signed URLs; none found. Existing successful test results apply because this task only changes documentation and Git state.
