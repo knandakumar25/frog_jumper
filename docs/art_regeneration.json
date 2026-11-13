@@ -9,13 +9,15 @@
           "path": "assets/characters/rendered/apex_titan_atlas.png",
           "width": 2048,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_apex_titan"
         },
         {
           "path": "assets/characters/rendered/apex_titan_portrait.png",
           "width": 768,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/axiom7_atlas.png",
@@ -27,7 +29,8 @@
           "path": "assets/characters/rendered/axiom7_portrait.png",
           "width": 768,
           "height": 768,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/axiom7_side.png",
@@ -39,19 +42,22 @@
           "path": "assets/characters/rendered/cyber_shogun_atlas.png",
           "width": 2048,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_cyber_shogun"
         },
         {
           "path": "assets/characters/rendered/cyber_shogun_portrait.png",
           "width": 768,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/heavy_atlas.png",
           "width": 2048,
           "height": 256,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_heavy"
         },
         {
           "path": "assets/characters/rendered/heavy_portrait.png",
@@ -69,55 +75,64 @@
           "path": "assets/characters/rendered/mirage_blade_atlas.png",
           "width": 2048,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_mirage_blade"
         },
         {
           "path": "assets/characters/rendered/mirage_blade_portrait.png",
           "width": 768,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/oceanus_atlas.png",
           "width": 2048,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_oceanus"
         },
         {
           "path": "assets/characters/rendered/oceanus_portrait.png",
           "width": 768,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/phoenicia_atlas.png",
           "width": 2048,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_phoenicia"
         },
         {
           "path": "assets/characters/rendered/phoenicia_portrait.png",
           "width": 768,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/surya_prime_atlas.png",
           "width": 2048,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_surya_prime"
         },
         {
           "path": "assets/characters/rendered/surya_prime_portrait.png",
           "width": 768,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "slice:lineup_2k"
         },
         {
           "path": "assets/characters/rendered/vanguard_atlas.png",
           "width": 2048,
           "height": 256,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:phase1_vanguard"
         },
         {
           "path": "assets/characters/rendered/vanguard_portrait.png",
@@ -141,205 +156,239 @@
           "path": "assets/world/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_10.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_11.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_13.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_14.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_16.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_17.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_19.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_20.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_22.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_23.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_25.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_26.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_28.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_29.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_1"
         },
         {
           "path": "assets/world/landmark_31.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_32.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_34.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_35.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_37.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_38.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_40.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_41.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_43.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_44.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_46.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_47.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/landmark_8.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_2"
         },
         {
           "path": "assets/world/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/module_2.png",
@@ -351,67 +400,78 @@
           "path": "assets/world/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_la_2k_3"
         },
         {
           "path": "assets/world/operative_0.png",
           "width": 384,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:topdown_operative_0"
         },
         {
           "path": "assets/world/operative_1.png",
           "width": 384,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:topdown_operative_1"
         },
         {
           "path": "assets/world/operative_2.png",
           "width": 384,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:topdown_operative_2"
         },
         {
           "path": "assets/world/operative_3.png",
           "width": 384,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:topdown_operative_3"
         },
         {
           "path": "assets/world/operative_4.png",
           "width": 384,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:topdown_operative_4"
         },
         {
           "path": "assets/world/operative_5.png",
           "width": 384,
           "height": 1024,
-          "status": "remake"
+          "status": "remake",
+          "method": "animate:topdown_operative_5"
         }
       ]
     },
@@ -423,97 +483,113 @@
           "path": "assets/world/kyoto/landmark_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         },
         {
           "path": "assets/world/kyoto/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_kyoto_2k_1"
         }
       ]
     },
@@ -525,97 +601,113 @@
           "path": "assets/world/beirut/landmark_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         },
         {
           "path": "assets/world/beirut/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_beirut_2k_1"
         }
       ]
     },
@@ -627,97 +719,113 @@
           "path": "assets/world/dubai/landmark_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         },
         {
           "path": "assets/world/dubai/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_dubai_2k_1"
         }
       ]
     },
@@ -729,97 +837,113 @@
           "path": "assets/world/honolulu/landmark_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         },
         {
           "path": "assets/world/honolulu/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_honolulu_2k_1"
         }
       ]
     },
@@ -831,97 +955,113 @@
           "path": "assets/world/luanda/landmark_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         },
         {
           "path": "assets/world/luanda/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_luanda_2k_1"
         }
       ]
     },
@@ -933,97 +1073,113 @@
           "path": "assets/world/mumbai/landmark_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/landmark_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_0.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_1.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_2.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_3.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_4.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_5.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_6.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         },
         {
           "path": "assets/world/mumbai/module_7.png",
           "width": 384,
           "height": 384,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:world_mumbai_2k_1"
         }
       ]
     },
@@ -1035,31 +1191,36 @@
           "path": "assets/environment/wildfire/battery.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/wildfire/civilians.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/wildfire/facade.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_wide_4k"
         },
         {
           "path": "assets/environment/wildfire/gunner.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/wildfire/shelter.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         }
       ]
     },
@@ -1071,43 +1232,50 @@
           "path": "assets/environment/neon_rust/coupler.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/neon_rust/depot.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_wide_4k"
         },
         {
           "path": "assets/environment/neon_rust/freight.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/neon_rust/laser.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/neon_rust/machinery.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/neon_rust/sonic.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/neon_rust/support.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         }
       ]
     },
@@ -1119,37 +1287,43 @@
           "path": "assets/environment/shattered_aegis/civilians.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/shattered_aegis/controller.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/shattered_aegis/coolant.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/shattered_aegis/crossing.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/shattered_aegis/fortress.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_wide_4k"
         },
         {
           "path": "assets/environment/shattered_aegis/gun.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         }
       ]
     },
@@ -1161,43 +1335,50 @@
           "path": "assets/environment/names/access_denied.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/names/access_restored.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/names/archive.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/names/civilians.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_3"
         },
         {
           "path": "assets/environment/names/district.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_wide_4k"
         },
         {
           "path": "assets/environment/names/scanner.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_3"
         },
         {
           "path": "assets/environment/names/terminal.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:props_2k_3"
         }
       ]
     },
@@ -1209,37 +1390,43 @@
           "path": "assets/environments/later_campaign/cyber_grave/aftermath_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/cyber_grave/environment_base.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_grave/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/cyber_grave/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_grave/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/cyber_grave/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_grave/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_1"
         },
         {
           "path": "assets/environments/later_campaign/cyber_grave/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/cyber_grave/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_grave/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_1"
         }
       ]
     },
@@ -1251,49 +1438,57 @@
           "path": "assets/environments/later_campaign/foundry_forge/aftermath_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/foundry_forge/environment_base.png"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/foundry_forge/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/foundry_forge/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/boss_lights.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/foundry_forge/boss_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/boss_structure.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:boss_2k"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_1"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/foundry_forge/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/foundry_forge/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_1"
         }
       ]
     },
@@ -1305,49 +1500,57 @@
           "path": "assets/environments/later_campaign/stratos_docks/aftermath_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/stratos_docks/environment_base.png"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/stratos_docks/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/stratos_docks/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/boss_lights.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/stratos_docks/boss_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/boss_structure.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:boss_2k"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_2"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/stratos_docks/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/stratos_docks/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_2"
         }
       ]
     },
@@ -1359,49 +1562,57 @@
           "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/spire_outer_hull/environment_base.png"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/spire_outer_hull/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/spire_outer_hull/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/boss_lights.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/spire_outer_hull/boss_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/boss_structure.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:boss_2k"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_2"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/spire_outer_hull/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/spire_outer_hull/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_2"
         }
       ]
     },
@@ -1413,49 +1624,57 @@
           "path": "assets/environments/later_campaign/cyber_nexus/aftermath_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/cyber_nexus/environment_base.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/cyber_nexus/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/cyber_nexus/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/boss_lights.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/cyber_nexus/boss_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/boss_structure.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:boss_2k"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_3"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/cyber_nexus/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/cyber_nexus/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_3"
         }
       ]
     },
@@ -1467,49 +1686,57 @@
           "path": "assets/environments/later_campaign/apex_bastion/aftermath_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/apex_bastion/environment_base.png"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/apex_bastion/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/apex_bastion/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/boss_lights.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/apex_bastion/boss_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/boss_structure.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:boss_2k"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_3"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/apex_bastion/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/apex_bastion/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_3"
         }
       ]
     },
@@ -1527,43 +1754,50 @@
           "path": "assets/environments/later_campaign/judgment_day/aftermath_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/judgment_day/aftermath_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/judgment_day/aftermath_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:aftermath_of assets/environments/later_campaign/judgment_day/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/judgment_day/boss_lights.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/judgment_day/boss_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/judgment_day/boss_structure.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:boss_2k"
         },
         {
           "path": "assets/environments/later_campaign/judgment_day/environment_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_4"
         },
         {
           "path": "assets/environments/later_campaign/judgment_day/environment_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/environments/later_campaign/judgment_day/environment_structure.png"
         },
         {
           "path": "assets/environments/later_campaign/judgment_day/environment_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:later_4k_4"
         }
       ]
     },
@@ -1575,37 +1809,43 @@
           "path": "assets/images/menu_backdrops/city_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "copy:assets/cutscenes/deployment/live/city_base.png"
         },
         {
           "path": "assets/images/menu_backdrops/city_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/images/menu_backdrops/city_structure.png"
         },
         {
           "path": "assets/images/menu_backdrops/city_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "copy:assets/cutscenes/deployment/live/city_structure.png"
         },
         {
           "path": "assets/images/menu_backdrops/command_bay_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:2K"
         },
         {
           "path": "assets/images/menu_backdrops/command_bay_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/images/menu_backdrops/command_bay_structure.png"
         },
         {
           "path": "assets/images/menu_backdrops/command_bay_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:2K"
         }
       ]
     },
@@ -1617,7 +1857,8 @@
           "path": "assets/images/level1/ghost_gridlock.png",
           "width": 4608,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:4K"
         }
       ]
     },
@@ -1629,7 +1870,8 @@
           "path": "assets/images/axiom_force_title_2d.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:4K"
         },
         {
           "path": "assets/images/axiom_force_title_2d_ar.png",
@@ -1641,13 +1883,15 @@
           "path": "assets/images/axiom_force_title_2d_arabic.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_brazilianportuguese.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_de.png",
@@ -1665,7 +1909,8 @@
           "path": "assets/images/axiom_force_title_2d_eurofrench.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_fr.png",
@@ -1677,7 +1922,8 @@
           "path": "assets/images/axiom_force_title_2d_german.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_he.png",
@@ -1689,7 +1935,8 @@
           "path": "assets/images/axiom_force_title_2d_hebrew.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_id.png",
@@ -1701,7 +1948,8 @@
           "path": "assets/images/axiom_force_title_2d_indonesian.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_it.png",
@@ -1713,7 +1961,8 @@
           "path": "assets/images/axiom_force_title_2d_italian.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_ja.png",
@@ -1725,7 +1974,8 @@
           "path": "assets/images/axiom_force_title_2d_japanese.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_ko.png",
@@ -1737,13 +1987,15 @@
           "path": "assets/images/axiom_force_title_2d_korean.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_mandarin.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_pl.png",
@@ -1755,7 +2007,8 @@
           "path": "assets/images/axiom_force_title_2d_polish.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_pt.png",
@@ -1767,7 +2020,8 @@
           "path": "assets/images/axiom_force_title_2d_spanish.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_th.png",
@@ -1779,7 +2033,8 @@
           "path": "assets/images/axiom_force_title_2d_thai.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_tr.png",
@@ -1791,13 +2046,15 @@
           "path": "assets/images/axiom_force_title_2d_traditionalchinese.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_turkish.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_vi.png",
@@ -1809,7 +2066,8 @@
           "path": "assets/images/axiom_force_title_2d_vietnamese.png",
           "width": 1920,
           "height": 588,
-          "status": "remake"
+          "status": "remake",
+          "method": "render:title_plate"
         },
         {
           "path": "assets/images/axiom_force_title_2d_zh.png",
@@ -1827,7 +2085,8 @@
           "path": "website/public/images/axiom_force_title_2d.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d.png`",
+          "method": "copy:assets/images/axiom_force_title_2d.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_ar.png",
@@ -1839,13 +2098,15 @@
           "path": "website/public/images/axiom_force_title_2d_arabic.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_arabic.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_arabic.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_arabic.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_brazilianportuguese.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_brazilianportuguese.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_brazilianportuguese.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_brazilianportuguese.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_de.png",
@@ -1875,7 +2136,8 @@
           "path": "website/public/images/axiom_force_title_2d_eurofrench.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_eurofrench.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_eurofrench.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_eurofrench.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_fr.png",
@@ -1893,7 +2155,8 @@
           "path": "website/public/images/axiom_force_title_2d_german.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_german.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_german.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_german.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_he.png",
@@ -1905,7 +2168,8 @@
           "path": "website/public/images/axiom_force_title_2d_hebrew.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_hebrew.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_hebrew.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_hebrew.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_id.png",
@@ -1917,7 +2181,8 @@
           "path": "website/public/images/axiom_force_title_2d_indonesian.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_indonesian.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_indonesian.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_indonesian.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_it.png",
@@ -1929,7 +2194,8 @@
           "path": "website/public/images/axiom_force_title_2d_italian.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_italian.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_italian.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_italian.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_ja.png",
@@ -1941,7 +2207,8 @@
           "path": "website/public/images/axiom_force_title_2d_japanese.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_japanese.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_japanese.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_japanese.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_ko.png",
@@ -1953,13 +2220,15 @@
           "path": "website/public/images/axiom_force_title_2d_korean.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_korean.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_korean.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_korean.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_mandarin.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_mandarin.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_mandarin.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_mandarin.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_pl.png",
@@ -1971,7 +2240,8 @@
           "path": "website/public/images/axiom_force_title_2d_polish.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_polish.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_polish.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_polish.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_portuguese.png",
@@ -1995,7 +2265,8 @@
           "path": "website/public/images/axiom_force_title_2d_spanish.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_spanish.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_spanish.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_spanish.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_th.png",
@@ -2007,7 +2278,8 @@
           "path": "website/public/images/axiom_force_title_2d_thai.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_thai.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_thai.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_thai.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_tr.png",
@@ -2025,13 +2297,15 @@
           "path": "website/public/images/axiom_force_title_2d_traditionalchinese.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_traditionalchinese.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_traditionalchinese.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_traditionalchinese.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_turkish.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_turkish.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_turkish.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_turkish.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_vi.png",
@@ -2043,7 +2317,8 @@
           "path": "website/public/images/axiom_force_title_2d_vietnamese.png",
           "width": 1920,
           "height": 588,
-          "status": "copy of `assets/images/axiom_force_title_2d_vietnamese.png`"
+          "status": "copy of `assets/images/axiom_force_title_2d_vietnamese.png`",
+          "method": "copy:assets/images/axiom_force_title_2d_vietnamese.png"
         },
         {
           "path": "website/public/images/axiom_force_title_2d_zh.png",
@@ -2313,49 +2588,57 @@
           "path": "assets/cutscenes/deployment/live/city_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:2K"
         },
         {
           "path": "assets/cutscenes/deployment/live/city_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/deployment/live/city_structure.png"
         },
         {
           "path": "assets/cutscenes/deployment/live/city_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:2K"
         },
         {
           "path": "assets/cutscenes/deployment/live/drone_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:drone_from assets/characters/rendered/vanguard_atlas.png"
         },
         {
           "path": "assets/cutscenes/deployment/live/drone_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:drone_from assets/characters/rendered/vanguard_atlas.png"
         },
         {
           "path": "assets/cutscenes/deployment/live/roof_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/deployment/live/roof_structure.png"
         },
         {
           "path": "assets/cutscenes/deployment/live/roof_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "generate:2K"
         },
         {
           "path": "assets/cutscenes/deployment/live/shogun.png",
           "width": 4096,
           "height": 2560,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1_cyber_shogun + sheet:poses_2k_1"
         }
       ]
     },
@@ -2372,25 +2655,29 @@
           "path": "assets/cutscenes/tokyo/blade.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:poses_2k_2"
         },
         {
           "path": "assets/cutscenes/tokyo/dojo_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/tokyo/dojo_structure.png"
         },
         {
           "path": "assets/cutscenes/tokyo/dojo_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_1"
         },
         {
           "path": "assets/cutscenes/tokyo/poses.png",
           "width": 2048,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1 + sheet:poses_2k"
         }
       ]
     },
@@ -2402,49 +2689,57 @@
           "path": "assets/cutscenes/wildfire/blade.png",
           "width": 512,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:poses_2k_2"
         },
         {
           "path": "assets/cutscenes/wildfire/checkpoint_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/wildfire/checkpoint_structure.png"
         },
         {
           "path": "assets/cutscenes/wildfire/checkpoint_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_1"
         },
         {
           "path": "assets/cutscenes/wildfire/civilians_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/wildfire/civilians_structure.png"
         },
         {
           "path": "assets/cutscenes/wildfire/civilians_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_1"
         },
         {
           "path": "assets/cutscenes/wildfire/poses.png",
           "width": 2048,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1 + sheet:poses_2k"
         },
         {
           "path": "assets/cutscenes/wildfire/siege_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/wildfire/siege_structure.png"
         },
         {
           "path": "assets/cutscenes/wildfire/siege_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_1"
         }
       ]
     },
@@ -2456,7 +2751,8 @@
           "path": "assets/cutscenes/wildfire_aftermath/poses.png",
           "width": 3072,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1 + sheet:poses_2k"
         },
         {
           "path": "assets/cutscenes/wildfire_aftermath/reunion_base.png",
@@ -2474,7 +2770,8 @@
           "path": "assets/cutscenes/wildfire_aftermath/reunion_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_2"
         },
         {
           "path": "assets/cutscenes/wildfire_aftermath/terminal_base.png",
@@ -2492,7 +2789,8 @@
           "path": "assets/cutscenes/wildfire_aftermath/terminal_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_2"
         }
       ]
     },
@@ -2504,55 +2802,64 @@
           "path": "assets/cutscenes/neon_rust_intro/cargo_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/neon_rust_intro/cargo_structure.png"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/cargo_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_2"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/depot_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/neon_rust_intro/depot_structure.png"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/depot_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_2"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/poses.png",
           "width": 1536,
           "height": 1536,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1 + sheet:poses_2k"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/underpass_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/neon_rust_intro/underpass_structure.png"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/underpass_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_3"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/walkway_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/neon_rust_intro/walkway_structure.png"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/walkway_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_3"
         }
       ]
     },
@@ -2564,19 +2871,22 @@
           "path": "assets/cutscenes/neon_rust_aftermath/fortress_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/neon_rust_aftermath/fortress_structure.png"
         },
         {
           "path": "assets/cutscenes/neon_rust_aftermath/fortress_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_3"
         },
         {
           "path": "assets/cutscenes/neon_rust_aftermath/poses.png",
           "width": 3072,
           "height": 2560,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1 + sheet:poses_2k"
         }
       ]
     },
@@ -2588,43 +2898,50 @@
           "path": "assets/cutscenes/shattered_aegis_intro/approach_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/shattered_aegis_intro/approach_structure.png"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/approach_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_3"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/command_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/shattered_aegis_intro/command_structure.png"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/command_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_4"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/shield_road_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/shattered_aegis_intro/shield_road_structure.png"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/shield_road_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_4"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/surya.png",
           "width": 1024,
           "height": 512,
-          "status": "remake"
+          "status": "remake",
+          "method": "compose:phase1 + sheet:poses_2k"
         }
       ]
     },
@@ -2636,13 +2953,15 @@
           "path": "assets/cutscenes/names_without_numbers/district_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/names_without_numbers/district_structure.png"
         },
         {
           "path": "assets/cutscenes/names_without_numbers/district_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_4"
         }
       ]
     },
@@ -2654,85 +2973,99 @@
           "path": "assets/cutscenes/act_ii_opening/civilians_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/act_ii_opening/civilians_structure.png"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/civilians_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_4"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/queue_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_5"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/queue_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/act_ii_opening/queue_structure.png"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/queue_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_5"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/registry_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_5"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/registry_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/act_ii_opening/registry_structure.png"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/registry_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_5"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/scanner_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_6"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/scanner_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/act_ii_opening/scanner_structure.png"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/scanner_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_6"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/service_base.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_6"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/service_lights.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "derive:lights_of assets/cutscenes/act_ii_opening/service_structure.png"
         },
         {
           "path": "assets/cutscenes/act_ii_opening/service_structure.png",
           "width": 1920,
           "height": 1080,
-          "status": "remake"
+          "status": "remake",
+          "method": "sheet:cutscenes_4k_6"
         }
       ]
     },
@@ -3460,21 +3793,24 @@
           "width": 800,
           "height": 140,
           "status": "remake",
-          "sha12": "6781c9551bda"
+          "sha12": "6781c9551bda",
+          "method": "sheet:ui_2k"
         },
         {
           "path": "assets/images/cyber_button_normal.png",
           "width": 800,
           "height": 140,
           "status": "remake",
-          "sha12": "62e39a76410a"
+          "sha12": "62e39a76410a",
+          "method": "sheet:ui_2k"
         },
         {
           "path": "assets/images/cyber_button_pressed.png",
           "width": 800,
           "height": 140,
           "status": "remake",
-          "sha12": "ccadb1c550e9"
+          "sha12": "ccadb1c550e9",
+          "method": "sheet:ui_2k"
         },
         {
           "path": "assets/images/cyber_cursor.png",
@@ -3488,7 +3824,8 @@
           "width": 2149,
           "height": 732,
           "status": "remake",
-          "sha12": "9dc9e0bee09f"
+          "sha12": "9dc9e0bee09f",
+          "method": "generate:2K"
         },
         {
           "path": "assets/images/sky.png",
@@ -3516,14 +3853,16 @@
           "width": 512,
           "height": 320,
           "status": "remake",
-          "sha12": "8a07c0925a38"
+          "sha12": "8a07c0925a38",
+          "method": "sheet:ui_2k"
         },
         {
           "path": "assets/textures/cyber_speech_pointer.png",
           "width": 128,
           "height": 128,
           "status": "remake",
-          "sha12": "40533d37ddc9"
+          "sha12": "40533d37ddc9",
+          "method": "sheet:ui_2k"
         },
         {
           "path": "assets/textures/sublight_engine_plume.png",
@@ -3551,14 +3890,16 @@
           "width": 256,
           "height": 256,
           "status": "remake",
-          "sha12": "935d79141dc9"
+          "sha12": "935d79141dc9",
+          "method": "derive:icon_from assets/icons/axiom_force.png"
         },
         {
           "path": "assets/icons/axiom_force.png",
           "width": 1254,
           "height": 1254,
           "status": "remake",
-          "sha12": "2e65096f2456"
+          "sha12": "2e65096f2456",
+          "method": "sheet:ui_2k"
         },
         {
           "path": "icon.svg",
@@ -3572,7 +3913,8 @@
           "width": 100,
           "height": 100,
           "status": "remake",
-          "sha12": "876317eba803"
+          "sha12": "876317eba803",
+          "method": "derive:icon_from assets/icons/axiom_force.png"
         }
       ]
     }

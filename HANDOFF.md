@@ -1,5 +1,32 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Adventurer-plan art budget — 2026-11-13
+
+The owner will upgrade SpriteCook to Adventurer (3,000 credits/month, 2K/4K) for one month
+and asked for a plan that makes every image in that month with room for retries.
+Owner decisions: **2K and 4K only, never 1K**; produce scenes differently so the list fits.
+
+- **Approach:** every file keeps its path and size, so no game code changed. Each image in
+  `docs/art_regeneration.json` now has a `method` (generate, sheet, animate, slice, derive,
+  compose, render or copy). `docs/ART_REGENERATION.md` has new "Methods" and "Adventurer budget"
+  sections, and the route lines were rewritten.
+- **Budget:** 1,762 planned credits (about 60 paid jobs), leaving a 1,238 reserve. Stop if a phase
+  reaches 1.5x its budget. Prices are inferred from the pricing page (2K ≈ 18, 4K ≈ 30,
+  animation ≈ 15), so recompute them with `list_generation_models` on day one.
+- **New free tools in `tools/art/`:** `slice_sheet.py`, `derive_layers.py` (lights, aftermath, drone,
+  icon), `compose_poses.py` and `pack_topdown.py`. Self-tested on synthetic fixtures in the
+  scratchpad: all checks passed (sizes, alpha 0/255, gutter bleed, pivots, feet at y=87, seeded
+  repeatability, error cases).
+- **Caveats:**
+  - `render_titles.py` has a crop box fitted to the deleted plate; adjust it for the new plate.
+  - `finish_ui_batch.py` is obsolete.
+  - 2x2 scene sheets and derived lights are untested on real SpriteCook output; a failing file
+    falls back to a single 2K generation paid from the reserve.
+  - No credits were spent.
+- **Verified (2026-11-13):** NUnit 422 passed and 17 failed. All 17 are PostgreSQL save-storage tests that could not connect, because the Docker containers were stopped at the owner's request; none involve art. `ArtRegenerationSpecTests` (all 3) passed with the new `method` field. `graphify update .` done. Django and GdUnit not run: they need the Docker stack, and the owner is asked before Docker is started. No Godot import was needed (no game files changed).
+- **Next:** after the upgrade, sign in, check prices, then ask for Phase 1 approval
+  (lineup plus 8 animation runs, 598 credits).
+
 ## SpriteCook art reset — 2026-11-13
 
 Owner asked to delete every asset Claude and Codex made with SpriteCook on 2026-11-12,

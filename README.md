@@ -8,7 +8,7 @@ icon and favicon, the city menu base and the 17 localized titles with their webs
 `spritecook-assets.json` is empty again and the icon references in `project.godot`,
 `export_presets.cfg` and both `index.html` files were removed. Operatives, the drone and
 the boss are invisible placeholders until the art is regenerated on the Adventurer plan.
-The deleted files are in git at `3d05726`. The helpers in `tools/art/` are kept; the
+The deleted files are in git at `3d05726`. The redo is planned in `docs/ART_REGENERATION.md` ("Methods" and "Adventurer budget"): about 60 paid generations at 2K/4K (1,762 credits) make all 325 images, using grid sheets, layers derived locally and cutscene poses built from the Phase 1 animations (`tools/art/slice_sheet.py`, `derive_layers.py`, `compose_poses.py`, `pack_topdown.py`). The helpers in `tools/art/` are kept; the
 title helper needs Pillow with libraqm for Arabic and Hebrew (use Linux Docker on Windows).
 
 ## Open world status (2026-11-08)
@@ -150,6 +150,7 @@ Blender was retired on 2026-11-11. All game and website art is now made with the
   - the UI art, backgrounds and template images;
   - the app icon and favicon.
   Of these, 9 are listed to remake; the rest are unused or superseded.
+- **Plan:** one month of the Adventurer plan, 2K/4K only; see `docs/ART_REGENERATION.md` ("Adventurer budget").
 - **Done so far:** nothing. The 2026-11-12 Phase 1 characters and UI batch were deleted on 2026-11-13 (owner request, to redo them on the Adventurer plan). `tools/art/pack_spritecook_character.py` still packs new character art.
 - **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
 - **Until then the game has gaps on purpose:**
@@ -789,7 +790,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 ### Prerequisites
 
 - [Godot 4.7.2 .NET (Mono)](https://godotengine.org/)
-- [.NET 10 SDK](https://dotnet.microsoft.com/) — **required on Windows, not from Docker**
+- [.NET SDK 11.0.100](https://dotnet.microsoft.com/) (latest; builds the `net10.0` projects) — **required on Windows, not from Docker**
 - Python 3.15.2 (for Django backend tests and sound synthesis tools)
 
 > **"Failed to load .NET runtime, specifically hostfxr" on launching Godot** means Windows has no usable .NET SDK. The Godot editor is a native Windows binary that loads Windows `hostfxr.dll`, so the Linux .NET inside the export image cannot satisfy it. Confirm with `dotnet --list-sdks` and by checking that `C:\Program Files\dotnet\host\fxr\` exists. If the installer leaves `C:\Program Files\dotnet` without `dotnet.exe` and `host\`, install per-user and point Godot at it:

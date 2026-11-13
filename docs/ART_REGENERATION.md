@@ -8,8 +8,8 @@ Blender was retired on 2026-11-11 and every image it made was deleted. On 2026-1
 characters, their `.tres`, the button states, dialogue frame/pointer, application icon,
 favicon, city menu base and the 17 localized titles with website copies) was deleted
 at the owner's request, and `spritecook-assets.json` was emptied. Everything is
-`remake` again. The owner is moving to the Adventurer plan for the regeneration;
-check its resolution limits with `list_generation_models` before planning. The
+`remake` again. The owner is moving to the Adventurer plan for one month to redo
+everything; see "Methods" and "Adventurer budget" below. The
 deleted files and old asset IDs are in git at `3d05726`; do not reuse those IDs.
 The Phase 1 notes below describe the deleted attempt and are kept for its lessons.
 
@@ -30,17 +30,13 @@ The Phase 1 notes below describe the deleted attempt and are kept for its lesson
     - for a layer made as an edit of a new base (`edit_asset_id`), in `style_asset_ids`. SpriteCook accepts `style_asset_ids` with either, but not `reference_asset_id` together with `edit_asset_id`.
   - The "Old sha256" column is the first 12 hex characters of the deleted file's SHA-256, for checking a restored copy.
 - **Also deleted files:** do not recreate the old `manifest.json` or `provenance.json` files; no code reads them. Character `.tres` files are restored from git, not generated (Phase 1).
-- **Settings and cost.** SpriteCook offers only the 1:1, 16:9 and 9:16 aspect ratios, and 1K, 2K or 4K source resolution. Nano Banana 2.1 costs 12, 18 or 30 credits at those resolutions at release; confirm with `list_generation_models`. Default plan:
-  - 1920x1080 layers: 16:9 at 2K.
-  - 512x512 and 384x384 sprites and portraits: 1:1 or 9:16 at 1K.
-  - The 4608x1536 map and the 1920x588 titles: 16:9 at 4K, cropped to the band.
-  - Pose and walk sheets: the character workflow (Phase 1).
-  - Estimate a phase's cost as images x per-image cost x 1.5 for retries, and put that figure in the approval request.
+- **Resolution (owner, 2026-11-13): 2K and 4K only, never 1K.** SpriteCook offers the 1:1, 16:9 and 9:16 aspect ratios. Prices are about 12 credits per 1K image, 1.5x at 2K (about 18) and 2.5x at 4K (about 30); these come from the pricing page, so confirm them with `list_generation_models` before each phase.
+- **Methods and budget.** Each image's production method is in `docs/art_regeneration.json` (`method`) and explained under "Methods". The phase budget is under "Adventurer budget". In an approval request, give the phase's planned credits and its 1.5x stop limit.
 
 ## Open owner decisions (block all generation)
 
 1. **Art style:** decided 2026-11-12, **pixel art** for the whole set.
-2. **SpriteCook sign-in.** The owner subscribed to the Starter plan on 2026-11-12. Each agent still has to sign in once before the tools connect.
+2. **SpriteCook sign-in and plan.** The owner subscribed to the Starter plan on 2026-11-12 and is upgrading to the Adventurer plan (3,000 credits a month, 2K and 4K) for one month to make this whole list. Each agent still has to sign in once before the tools connect.
 3. Approval of each phase's asset list and credit cost.
 
 Already decided: titles keep the wording of the old title images (owner, 2026-11-10).
@@ -57,19 +53,47 @@ Gaps are intentional (owner decision):
 
 ## Work order
 
-Phases run in this order because later images reuse earlier ones (see each section's "Needs first" line). Counts are images to generate.
+Phases run in this order because later images reuse earlier ones (see each section's "Needs first" line). Every file keeps its listed path and size, so the game code and its tests do not change. Only the way the files are made changed (2026-11-13), so that the whole list fits in one month of the Adventurer plan with room for retries.
 
-| Phase | Groups | Images to generate |
+### Methods
+
+Each image's `method` in `docs/art_regeneration.json` is one of these:
+
+| Method | What it means | Credits |
 |---|---|---|
-| 1. Characters | Operatives, AXIOM-7, enemies | 15 |
-| 2. Deployment cutscene | City, rooftop, drone layers and Shogun poses, reused by six later cutscenes | 8 |
-| 3. Other cutscenes, in story order | Concrete Wildfire arrival, Tokyo Remembers, Concrete Wildfire aftermath, Neon Rust intro (Silent Freight), Neon Rust aftermath, Shattered Aegis intro, Names without Numbers epilogue, Act II opening | 50 |
-| 4. Mission props | Concrete Wildfire props, Neon Rust props, Shattered Aegis props, Names without Numbers props | 25 |
-| 5. Later-campaign environments | 7 families | 53 |
-| 6. City kits | Los Angeles first, then 6 cities | 141 |
-| 7. Menus, Level 1 map, titles | Menu backdrops, isometric map, 17 language titles | 24 |
+| `generate:2K` / `generate:4K` | One SpriteCook image, fitted with `tools/art/fit_spritecook_image.py`. | 18 / 30 |
+| `sheet:<id>` | One cell of a shared grid sheet. Scene sheets are 4K 16:9 images laid out 2x2 (each quadrant becomes a 1920x1080 layer). Sprite sheets are 2K 1:1 images laid out 3x3 or 4x4. Cut with `tools/art/slice_sheet.py`. | one image per sheet |
+| `animate:<run>` | A SpriteCook character animation run (`generate_character_animations`). Phase 1 runs cost about 15 per animation. | about 15 per animation |
+| `slice:lineup_2k` | Cut from the Phase 1 lineup sheet and enlarged with nearest-neighbour. | 0 |
+| `derive:<rule> <source>` | Made locally from another file by `tools/art/derive_layers.py`: `lights_of` (bright, saturated pixels of the source, on transparency), `aftermath_of` (the environment layer graded darker, with an ember and smoke overlay), `drone_from` (a `vanguard` idle frame placed in the deployment drone box), `icon_from` (the ICO and SVG favicon from the icon PNG). | 0 |
+| `compose:<sources>` | A cutscene pose sheet built by `tools/art/compose_poses.py` from Phase 1 animation frames (idle for calm and ready, running for walk and approach, the attacks for gesture and shield, blade_dash for brace) plus cells of the 2K pose sheets for poses no animation covers (survey, look_back, inspect, concealed, settle). | 0 beyond the pose sheets |
+| `render:title_plate` | The language's title text set onto the shared title plate by `tools/art/render_titles.py`. | 0 |
+| `copy:<path>` | A copy of another listed file. The city menu reuses the deployment city layers. | 0 |
 
-Totals: 316 to generate, 17 copies, 89 skipped (of 422 deleted images), plus 9 to remake and 106 skipped from the 115 deleted on 2026-11-12. All 537 are in `docs/art_regeneration.json`.
+**Transparency:** structure layers and sprites are generated on a flat magenta background and keyed out by `slice_sheet.py`, which works cleanly on pixel art. Use `remove_background` only where keying fails, and check its price first.
+
+**Fallback:** if a sheet's cells bleed into each other or a derived layer looks wrong, remake only that file as `generate:2K` and pay for it from the retry reserve.
+
+### Adventurer budget
+
+Prices assumed: 2K image 18, 4K image 30, animation 15. Recompute this table from `list_generation_models` and `get_credit_balance` on day one.
+
+| Phase | Paid work | Credits |
+|---|---|---|
+| 1. Characters | 3x3 lineup at 2K (18); six operative runs of six animations (6 x 90); `vanguard` and `heavy` idle runs (2 x 20). Portraits and AXIOM-7 are sliced from the lineup. Upload clean crops of the lineup instead of making the 2026-11-12 run-pose prep stills | 598 |
+| 2. Deployment cutscene | City base, city structure and roof structure at 2K. Lights, the drone and `shogun.png` are derived or composed | 54 |
+| 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K 3x3 pose sheets, the second also holding both blades (36). Lights derived, poses composed | 216 |
+| 4. Mission props | 21 props on three 2K 3x3 sheets (54); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30) | 84 |
+| 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
+| 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a 2K top-down base plus south, north and west walk animations (6 x 63 = 378). `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 540 |
+| 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
+| 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
+| **Total** | | **1,762** |
+
+- **Retry reserve:** 1,238 of the month's 3,000 credits. Any Starter balance carried over is extra.
+- **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
+- **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
+- **Totals:** 316 images to remake, 17 copies and 89 skipped (of 422 deleted images), plus 9 to remake and 106 skipped from the 115 deleted on 2026-11-12. All 537 are in `docs/art_regeneration.json`. About 60 paid generations and animation runs make all of them.
 
 ## Fitting SpriteCook output to the exact size
 
@@ -151,10 +175,10 @@ SpriteCook returns its own sizes: it trims margins (`smart_crop_mode`), may add 
 - Enemy `.tres` files (`vanguard`, `heavy`) define only `idle`. Do not restore `axiom7.tres`.
 
 **Method:**
-1. **Base character:** `generate_character` with `perspective="platformer"`, facing right, one per operative and enemy. The old portrait or atlas is the reference.
-2. **Animations:** `generate_character_animations` on that base, with `output_frames=8`:
-   - preset ids for idle, run and jump (see `list_character_workflows`);
-   - `custom_animations` for `blade_dash`, `sword_attack` and `karate_attack`, which are not presets.
+1. **Base characters (2026-11-13):** one 2K 3x3 lineup sheet (`generate_game_art`, pixel art, facing right) holds all nine designs. Cut each cell locally, then upload a clean single-character crop with `spritecook-upload-assets` (free) as that character's base. Portraits and AXIOM-7 come from these crops.
+2. **Animations:** `generate_character_animations` on the uploaded crop, with `output_frames=8`:
+   - `custom_animations` with an explicit single-character prompt for all six rows (idle, running, jumping, blade_dash, sword_attack, karate_attack). Do not use presets on lineup slices; see the lesson above.
+   - Enemies need only `idle`.
 3. **Fit** the frames into the 2048x1536 atlas (see Fitting).
 4. **Portraits:** `generate_game_art` with the base character as `reference_asset_id`, at 9:16, cropped to 3:4 (768x1024).
 
@@ -202,8 +226,8 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 **Shared rules:**
 - Every scene is a 1920x1080 layer stack: an opaque base plate (where listed) plus transparent structure and lights layers.
 - Pose sheets use the cell size and pivot listed per cutscene, with each pose's feet on the pivot.
-- **Route:** one approved key frame per cutscene with `generate_game_art`, then the other layers as edits of it.
-- Pose sheets come from `generate_character` + `generate_character_animations`, reusing the Phase 1 designs, then are normalized into the grid.
+- **Route (2026-11-13):** the three deployment layers are single 2K images and set the style. Every other scene layer is a quadrant of a 4K 2x2 sheet that uses them as `style_asset_ids`. Lights layers are derived. See each file's `method`.
+- Pose sheets are composed from Phase 1 animation frames and the two 2K pose sheets (`compose_poses.py`). No new animation runs.
 
 ### Deployment (opening cutscene)
 
@@ -460,7 +484,7 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 - 512x512 side-view sprites with a transparent background and empty margins (nothing touching the edge). The game stretches each one to the display size listed below, which is rarely square; see Fitting.
 - Pivot at the centre: the game centres each sprite on its node with an offset.
 - The C# code scales them and owns their collision.
-- **Route:** `generate_game_art` per prop, with one approved prop per mission as the style reference.
+- **Route (2026-11-13):** three 2K 3x3 sheets for the small props and one 4K 2x2 sheet for the four wide ones, each cell drawn at its display aspect on magenta. See each file's `method`.
 
 ### Concrete Wildfire props
 
@@ -568,7 +592,7 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 - **Cutscene rule:** `CampaignArtwork.Available` plays a family's cutscenes only when `environment_structure.png`, `aftermath_structure.png` and the cutscene's `cues.json` all exist.
 - **Exception:** Judgment Day's aftermath is drawn without a base, so its `aftermath_base.png` is skipped.
 - **Boss plates:** the game draws them as a sprite centred on the boss at scale 0.45, offset (0, -7). Judgment Day's commander is also drawn at 260x260 above its feet.
-- **Route:** a base plate per scene, then structure and lights as edits of it.
+- **Route (2026-11-13):** environment bases and structures are quadrants of four 4K 2x2 sheets; lights and every aftermath layer are derived; boss structures share one 2K 3x3 sheet and their lights are derived.
 
 ### Cyber Grave
 
@@ -696,7 +720,7 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 - Los Angeles has 32 landmarks. Every third ID is a plaza with no image (`WorldCatalog.cs` makes it a plaza and `NeoKyotoWorld.cs` skips it), which is why IDs 0, 3, 6 and so on are missing.
 - **The six home cities** each need all 16 module and landmark files or none: `test_all_cities.gd` fails on a partial set.
 - **Los Angeles** has 7 used modules (kind 2 is never placed, so `module_2.png` is skipped), 32 landmarks and the operative sheets.
-- **Route:** `generate_game_art` per item with one approved module per city as the style reference.
+- **Route (2026-11-13):** one 2K 4x4 sheet per city (three for Los Angeles), each cell drawn on magenta in the city's style.
 
 
 ### Los Angeles
@@ -926,7 +950,7 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 
 Each menu has three 1920x1080 layers: `_base` (opaque), `_structure` (drifts for parallax) and `_lights` (pulses). They load by path in `animated_menu_backdrop.gd`.
 
-**Method:** `generate_game_art` at 16:9 for the base, then structure and lights as edits of it (`edit_asset_id`).
+**Method (2026-11-13):** the city menu copies the deployment city layers. The command bay base and structure are 2K images; its lights are derived.
 
 **Loaded by:** `scripts/ui/animated_menu_backdrop.gd` (7, 28, 39)
 
@@ -961,7 +985,7 @@ Each menu has three 1920x1080 layers: `_base` (opaque), `_structure` (drifts for
 - **Wording:** keep each old image's wording. Latin-script languages show the English "AXIOM FORCE". View the old file for each language.
 - **Arabic and Hebrew:** need correct letter joining and right-to-left order.
 - **Files to make:** only the 17 marked `remake`, one per language in `LocaleCatalog`. The website copies come from these.
-- **Route:** `spritecook-build-ui-kits`, with one approved English title and each language as an edit of it.
+- **Route (2026-11-13):** one 4K title plate (the English title, or the plate without words), then `tools/art/render_titles.py` sets each language's text with the font `LocaleCatalog` lists and writes the website copies.
 
 **Loaded by:** `scripts/main_menu/GameHome.cs` (33), `scripts/ui/LoadingScreen.cs` (214), `scripts/ui/TitleLogo.cs` (17, 20, 26), `website/src/translations/titleLogo.js` (10, 15, 19, 29, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91)
 

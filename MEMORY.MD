@@ -1,5 +1,20 @@
 # Axiom Force — Project Memory
 
+## .NET SDK version in docs — 2026-11-13
+
+- Owner: the latest C# .NET SDK is 11.0.100 (the only SDK installed on Windows). Recorded it in the agent guides' Language line and the README prerequisites. Projects still target `net10.0` (Godot 4.7.2); the Docker export image still pins .NET 10.0.403. Documentation only; no tests needed.
+
+## Adventurer-plan art budget — 2026-11-13
+
+- Owner: upgrade to SpriteCook Adventurer for one month; generate at **2K/4K only (never 1K)**; produce scenes differently so all 325 images fit in one month with retry room.
+- Plan: same paths and sizes and no game-code change. A per-image `method` in `docs/art_regeneration.json`; "Methods" and "Adventurer budget" in `docs/ART_REGENERATION.md`. 1,762 credits planned, 1,238 reserve, stop at 1.5x a phase.
+- New tools: `tools/art/slice_sheet.py`, `derive_layers.py`, `compose_poses.py`, `pack_topdown.py`; synthetic self-test passed. NUnit 422 passed / 17 PostgreSQL tests failed only because Docker was stopped; art spec tests passed. Django/GdUnit not run (need Docker; ask first).
+- Open: prices are inferred (confirm with `list_generation_models`); `render_titles.py` crop box needs adjusting for the new plate; `finish_ui_batch.py` obsolete. No credits spent; nothing committed.
+
+## Docker stop after art reset — 2026-11-13
+
+- Owner asked to stop the containers Claude had started for the art reset (started under the CLAUDE.md preflight without asking; owner had them stopped). Ran `docker compose stop`; no `axiom-force` containers running. Containers and volumes kept; Docker Desktop left running for the owner to close. Pushed the art reset as `3b1fdd9`.
+
 ## SpriteCook art reset — 2026-11-13
 
 - Owner request: delete all SpriteCook assets Claude and Codex made on 2026-11-12; owner is temporarily upgrading to the Adventurer plan to regenerate.

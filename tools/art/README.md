@@ -2,9 +2,25 @@
 
 `fit_spritecook_image.py` crops/fits downloaded art to exact project sizes.
 `render_titles.py <plate.png>` typesets the 17 supported title variants and writes
-game/web copies; it requires Pillow with libraqm. `finish_ui_batch.py <buttons.png>`
-extracts the approved three-state button sheet, restores icon references and merges
-the UI batch into the manifest. These helpers use existing assets and spend no credits.
+game/web copies; it requires Pillow with libraqm. Its crop box was fitted to the deleted
+2026-11-12 plate, so adjust it to the new plate before use. `finish_ui_batch.py` belongs to
+the deleted 2026-11-12 UI batch (its crops and asset IDs no longer apply); do not run it as is.
+
+## Adventurer-plan tools (2026-11-13)
+
+These make one paid generation cover many files, or make files with no generation at all.
+Each image's `method` in `docs/art_regeneration.json` says which tool makes it (see
+`docs/ART_REGENERATION.md`, "Methods"). They read local files only and spend no credits.
+Run each with `uv run --system-certs --no-project --with pillow python tools/art/<tool>.py --help`.
+
+- `slice_sheet.py`: cuts a 2x2 (4K scene) or 3x3/4x4 (2K sprite) grid sheet into exact-size files. It removes the gutter where cells bleed, keys out the magenta background, trims sprites, and fits with `fit_spritecook_image.fit`. Base plates are flattened to opaque.
+- `derive_layers.py`:
+  - `lights` makes a strictly 0/255-alpha lights layer from the bright, saturated pixels of a layer.
+  - `aftermath` grades an environment layer into its aftermath version, with a repeatable seed for the embers.
+  - `drone` places the `vanguard` idle frame inside the deployment drone box.
+  - `icon` writes the ICO and SVG favicon from the icon PNG.
+- `compose_poses.py <spec.json>`: builds a cutscene pose sheet (512 cells, feet on the pivot) from Phase 1 atlas frames plus trimmed pose images, following a JSON layout spec.
+- `pack_topdown.py`: builds `assets/world/operative_<n>.png` (4x8 frames of 96x128, feet on y=87) from south, north and west walk strips. East is mirrored from west and the diagonals reuse the side views.
 
 Blender was retired on 2026-11-11. The Blender generators that used to live here (character sprites, menu backdrops, the Level 1 map, title logos and their shared render settings) were deleted with the art they made. New art comes from SpriteCook; see `docs/ART_REGENERATION.md` for what to remake and the "Art pipeline" rule in `CLAUDE.md`.
 
