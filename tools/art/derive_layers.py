@@ -22,12 +22,12 @@ Subcommands:
         ember pixels. Alpha is unchanged, so a base stays opaque and a structure keeps its
         cut-out. The seed makes the embers repeatable.
 
-    drone ATLAS STRUCTURE_OUT [--lights LIGHTS_OUT]
+    drone ATLAS STRUCTURE_OUT [--lights LIGHTS_OUT] [--sprite DRONE.png]
         The deployment drone layers. The game draws only the box x 840-1080, y 440-500 of
-        ``drone_structure.png``/``drone_lights.png`` (Phase 2, "Fixed positions"). Frame 0 of
-        the ``vanguard`` idle row (the 256x256 cell at the atlas origin) is trimmed, scaled to
-        fill that box with nearest-neighbour, and placed on a transparent 1920x1080 canvas.
-        ``--lights`` also writes its lights layer.
+        ``drone_structure.png``/``drone_lights.png`` (Phase 2, "Fixed positions"). The drone
+        (``--sprite``, or else frame 0 of the ``vanguard`` idle row at the atlas origin) is
+        trimmed, scaled to fit that box with nearest-neighbour, and placed on a transparent
+        1920x1080 canvas. ``--lights`` also writes its lights layer.
 
     icon SRC --ico OUT.ico --svg OUT.svg
         The Windows icon (16 to 256 px) and the website favicon (an SVG with a 100x100
@@ -127,12 +127,18 @@ def aftermath(source: Image.Image, seed: int, darken: float = 0.62, desaturate: 
     return out
 
 
-def drone(atlas: Image.Image) -> Image.Image:
-    """Place the ``vanguard`` idle frame 0 into the deployment drone box on a 1920x1080 canvas."""
-    frame = atlas.convert("RGBA").crop((0, 0, ATLAS_CELL, ATLAS_CELL))
+def drone(atlas: Image.Image, sprite: Image.Image | None = None) -> Image.Image:
+    """Place a drone into the deployment drone box on a 1920x1080 canvas.
+
+    Args:
+        atlas: the ``vanguard`` atlas; its idle frame 0 is used when ``sprite`` is None.
+        sprite: a ready drone sprite on transparency (Phase 2 uses the drone cut from the
+            ``items_2k`` sheet, because a humanoid frame is tiny in the wide 240x60 box).
+    """
+    frame = sprite.convert("RGBA") if sprite is not None else atlas.convert("RGBA").crop((0, 0, ATLAS_CELL, ATLAS_CELL))
     used = frame.getchannel("A").getbbox()
     if not used:
-        raise ValueError("the atlas's first cell is empty; is this the vanguard atlas?")
+        raise ValueError("the drone source is empty")
     art = frame.crop(used)
     box_w, box_h = DRONE_BOX[2] - DRONE_BOX[0], DRONE_BOX[3] - DRONE_BOX[1]
     # Keep the aspect ratio and leave a 1-pixel margin so nothing touches the drawn region's edge.
@@ -179,6 +185,7 @@ def main(argv: list[str] | None = None) -> None:
     drone_cmd.add_argument("atlas", type=Path)
     drone_cmd.add_argument("structure_out", type=Path)
     drone_cmd.add_argument("--lights", type=Path)
+    drone_cmd.add_argument("--sprite", type=Path, help="use this drone sprite instead of atlas frame 0")
     icon_cmd = sub.add_parser("icon")
     icon_cmd.add_argument("src", type=Path)
     icon_cmd.add_argument("--ico", type=Path, required=True)
@@ -190,7 +197,7 @@ def main(argv: list[str] | None = None) -> None:
     elif args.command == "aftermath":
         save(aftermath(Image.open(args.src), args.seed), args.out)
     elif args.command == "drone":
-        structure = drone(Image.open(args.atlas))
+        structure = drone(Image.open(args.atlas), Image.open(args.sprite) if args.sprite else None)
         save(structure, args.structure_out)
         if args.lights:
             save(lights(structure, 0.72, 0.45, 0.93), args.lights)

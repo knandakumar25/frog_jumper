@@ -81,14 +81,14 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | Phase | Paid work | Credits |
 |---|---|---|
 | 1. Characters | 3x3 lineup at 2K (18); six operative runs of six animations (6 x 90); `vanguard` and `heavy` idle runs (2 x 20). Portraits and AXIOM-7 are sliced from the lineup. Upload clean crops of the lineup instead of making the 2026-11-12 run-pose prep stills | 598 |
-| 2. Deployment cutscene | City base, city structure and roof structure at 2K. Lights, the drone and `shogun.png` are derived or composed | 54 |
+| 2. Deployment cutscene | City base, city structure and roof structure at 2K, plus one 2K items sheet (patrol drone and both Phase 3 blades). Lights, drone layers and `shogun.png` are derived or composed. **Done 2026-11-13: 72 credits** | 72 |
 | 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K 3x3 pose sheets, the second also holding both blades (36). Lights derived, poses composed | 216 |
 | 4. Mission props | 21 props on three 2K 3x3 sheets (54); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30) | 84 |
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
 | 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 882 |
 | 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
-| **Total** | | **2,104** |
+| **Total** | | **2,122** |
 
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
@@ -251,6 +251,15 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 - Pose sheets are composed from Phase 1 animation frames and the two 2K pose sheets (`compose_poses.py`). No new animation runs.
 
 ### Deployment (opening cutscene)
+
+**Status: done 2026-11-13 (72 credits).**
+- **Generation:** four 2K Nano Banana 2.1 images (`city_base`, `city_structure`, `roof_structure`, an items sheet). The old `ca92679` layers were uploaded as composition references.
+- **Snapping:** every raw was snapped locally with `tools/art/snap_pixels.py`: a 480x270 grid upscaled exactly 4x, magenta keyed out.
+- **Roof:** the two rooftops came back at y 420 and 448, so the halves were shifted separately and both walking surfaces now sit at y 764. The gap is at x 767–1051, matching the old one.
+- **Lights:** derived from the city and roof structures (`derive_layers.py lights`).
+- **Drone:** a real wide patrol drone from the items sheet, placed by `derive_layers.py drone --sprite`. A humanoid `vanguard` frame was too small for the 240x60 box.
+- **`shogun.png`:** composed from `cyber_shogun_atlas.png` (settle = idle frames 4–7, then 0).
+- **Blades:** the items sheet also produced both Phase 3 blades (`wildfire/blade.png` silver, `tokyo/blade.png` cyan edge).
 
 **Shows:** Night rooftop city above the opening deployment: far skyline (opaque base), mid city structure and lights, the rooftop, a patrol drone, and Cyber Shogun's pose sheet.
 

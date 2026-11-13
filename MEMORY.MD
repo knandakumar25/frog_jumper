@@ -1,5 +1,15 @@
 # Axiom Force — Project Memory
 
+## Phase 2 deployment cutscene done — 2026-11-13
+
+- 72 credits (balance 2,104).
+- **Files:** the 8 deployment layers and both Phase 3 blades. New tool `tools/art/snap_pixels.py`; `derive_layers.py drone` gained `--sprite`.
+- **Learned:**
+  - SpriteCook pixel outputs come back at random sizes (529x295, 367x205, 100x100), so always snap the raw locally.
+  - Magenta keying needs a dark-fringe rule (140,6,152) plus an output-cell pass.
+  - Layout hints like "roof at 71% height" are ignored, so measure and shift locally.
+- **Verified:** tool self-test, art spec 3/3, audit, Godot import, GdUnit 13/0. Full suite not run (needs Docker). Nothing committed.
+
 ## Phase 1 characters done — 2026-11-13
 
 - Phase 1 redone: 634 credits (54 on lineups, 580 on animations); balance 2,176 (including a +30 rewards bonus). 15 PNGs and 8 `.tres` in `assets/characters/rendered`; IDs and hashes in `spritecook-assets.json` (50 assets, 15 files).

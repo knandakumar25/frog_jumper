@@ -20,6 +20,11 @@ Run each with `uv run --system-certs --no-project --with pillow python tools/art
   - `drone` places the `vanguard` idle frame inside the deployment drone box.
   - `icon` writes the ICO and SVG favicon from the icon PNG.
 - `compose_poses.py <spec.json>`: builds a cutscene pose sheet (512 cells, feet on the pivot) from Phase 1 atlas frames plus trimmed pose images, following a JSON layout spec.
+- `snap_pixels.py`: turns a SpriteCook raw 2K image into real pixel art at an exact size.
+  - Steps: an optional background key (magenta, including dark fringe, or white flood-filled from the border), a palette quantize, block mode down to a logical grid (for example 480x270), then an exact nearest upscale (4x to 1920x1080).
+  - Options: `--offset` shifts the result; `--opaque` flattens base plates.
+  - Use it on `raw_url`, because SpriteCook's own pixel snap fails on 2K sheets.
+- `derive_layers.py drone --sprite DRONE.png`: places a given drone sprite instead of a vanguard frame (used for Phase 2).
 - `pack_topdown.py`: builds `assets/world/operative_<n>.png` (4x8 frames of 96x128, feet on y=87) from south, north and west walk strips. East is mirrored from west and the diagonals reuse the side views.
 
 Blender was retired on 2026-11-11. The Blender generators that used to live here (character sprites, menu backdrops, the Level 1 map, title logos and their shared render settings) were deleted with the art they made. New art comes from SpriteCook; see `docs/ART_REGENERATION.md` for what to remake and the "Art pipeline" rule in `CLAUDE.md`.

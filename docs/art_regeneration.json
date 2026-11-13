@@ -2610,14 +2610,14 @@
           "width": 1920,
           "height": 1080,
           "status": "remake",
-          "method": "derive:drone_from assets/characters/rendered/vanguard_atlas.png"
+          "method": "derive:drone_from sheet:items_2k"
         },
         {
           "path": "assets/cutscenes/deployment/live/drone_structure.png",
           "width": 1920,
           "height": 1080,
           "status": "remake",
-          "method": "derive:drone_from assets/characters/rendered/vanguard_atlas.png"
+          "method": "derive:drone_from sheet:items_2k"
         },
         {
           "path": "assets/cutscenes/deployment/live/roof_lights.png",
@@ -2656,7 +2656,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:poses_2k_2"
+          "method": "sheet:items_2k"
         },
         {
           "path": "assets/cutscenes/tokyo/dojo_lights.png",
@@ -2690,7 +2690,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:poses_2k_2"
+          "method": "sheet:items_2k"
         },
         {
           "path": "assets/cutscenes/wildfire/checkpoint_lights.png",

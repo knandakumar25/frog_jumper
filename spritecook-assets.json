@@ -208,6 +208,38 @@
     {
       "asset_id": "1e84a2e2-f892-4b3d-89ac-f2a63c8a51a3",
       "label": "heavy idle animation (8 frames, pixel-engine-v1.1, custom prompt)"
+    },
+    {
+      "asset_id": "70284c19-3844-4eee-bf49-b7ff26611919",
+      "label": "Phase 2 reference: old ca92679 deployment city_base (upload, free)"
+    },
+    {
+      "asset_id": "5966b313-433e-47da-bb30-beb0f9a500c0",
+      "label": "Phase 2 reference: old city_structure on navy (upload, free)"
+    },
+    {
+      "asset_id": "fed391db-1965-40e3-aa72-af83dab33cce",
+      "label": "Phase 2 reference: old roof_structure on navy (upload, free)"
+    },
+    {
+      "asset_id": "3ca272bd-4a33-4e1c-adb5-28a5d480db2a",
+      "label": "Phase 2 reference: old drone region crop (upload, free)"
+    },
+    {
+      "asset_id": "ba9d173f-cd9e-47ca-a0b1-d803befaccf7",
+      "label": "Phase 2 city_base, 2K NB2.1 16:9 (18 cr); raw snapped locally 480x270 -> 1920x1080"
+    },
+    {
+      "asset_id": "9273cbc4-451c-4f35-91da-5c12f0371627",
+      "label": "Phase 2 city_structure on magenta, 2K (18 cr); raw snapped + keyed locally"
+    },
+    {
+      "asset_id": "9728512e-31ab-48a1-8c14-2d486c7017ff",
+      "label": "Phase 2 roof_structure on magenta, 2K (18 cr); raw snapped, halves shifted +348/+316 so both roof tops sit at y 764"
+    },
+    {
+      "asset_id": "9057f7cd-24cb-40d1-9b73-bc466d817f38",
+      "label": "Phase 2 items_2k sheet (drone, silver katana, cyan katana), 2K (18 cr); raw snapped 512x512"
     }
   ],
   "files": [
@@ -285,6 +317,56 @@
       "path": "assets/characters/rendered/heavy_atlas.png",
       "sha12": "5cb2f7972886",
       "source": "packed at 2x by pack_spritecook_character.py from idle (1e84a2e2)"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/city_base.png",
+      "sha12": "b06b2ac561e7",
+      "source": "snap_pixels of ba9d173f raw (key none, opaque)"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/city_structure.png",
+      "sha12": "dde5bf96d427",
+      "source": "snap_pixels of 9273cbc4 raw (key magenta, 64 colours)"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/city_lights.png",
+      "sha12": "4b716c7f8f03",
+      "source": "derive_layers lights of city_structure.png"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/roof_structure.png",
+      "sha12": "909fc4f5b292",
+      "source": "snap_pixels of 9728512e raw (key magenta), left/right halves shifted to y 764"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/roof_lights.png",
+      "sha12": "415522ba94a2",
+      "source": "derive_layers lights of roof_structure.png (min-value 0.6, min-sat 0.4)"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/drone_structure.png",
+      "sha12": "9435cbca5004",
+      "source": "derive_layers drone --sprite (drone cut from 9057f7cd)"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/drone_lights.png",
+      "sha12": "c3b8351c9f24",
+      "source": "derive_layers lights of drone_structure.png"
+    },
+    {
+      "path": "assets/cutscenes/deployment/live/shogun.png",
+      "sha12": "745f40667b8f",
+      "source": "compose_poses from cyber_shogun_atlas.png (idle, running, jumping, blade_dash, settle=idle)"
+    },
+    {
+      "path": "assets/cutscenes/wildfire/blade.png",
+      "sha12": "a8333b983558",
+      "source": "silver katana cut from 9057f7cd, 3x nearest"
+    },
+    {
+      "path": "assets/cutscenes/tokyo/blade.png",
+      "sha12": "bf7d05152005",
+      "source": "cyan-edge katana cut from 9057f7cd, 3x nearest"
     }
   ]
 }

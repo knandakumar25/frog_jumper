@@ -1,5 +1,24 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 2 deployment cutscene done — 2026-11-13
+
+- **Credits:** 72, balance 2,104.
+- **Files:** all 8 in `assets/cutscenes/deployment/live/`, plus `assets/cutscenes/wildfire/blade.png` and `assets/cutscenes/tokyo/blade.png`. `deployment_stage.gd`'s `art_available()` is now true, so the opening cutscene plays.
+- **Method:**
+  - Four 2K Nano Banana 2.1 images (city base, city structure on magenta, roof on magenta, a 3x3 items sheet), with the old `ca92679` layers as composition references.
+  - All raws were snapped locally with the new `tools/art/snap_pixels.py` (480x270 grid, 4x).
+  - Roof halves were shifted separately (+348/+316) so both walking surfaces sit at y 764; gap at x 767–1051.
+  - Lights and drone layers were derived; `shogun.png` was composed from the Phase 1 atlas.
+- **Plan change:** the drone is a generated sprite rather than the vanguard frame (+18 credits). Plan total is now 2,122.
+- **Verified:**
+  - Tool self-test passed (keying, even 4x blocks, offset, opaque base, `--sprite` drone box).
+  - `ArtRegenerationSpecTests` 3/3; image audit 27 images.
+  - Godot import exit 0 (8 + 2 `.import`; only the known System.Runtime and shutdown-leak messages).
+  - GdUnit `test_deployment_cutscene` + `test_rendered_character_assets`: 13/0.
+  - A Pillow composite at the scene's positions shows Shogun's feet on both rooftops and the jump clearing the gap.
+  - Full `run_tests.ps1` not run (needs Docker; ask first). `graphify update .` done.
+- **Next:** Phase 3 (other cutscenes, 216 credits planned) needs owner approval.
+
 ## Phase 1 characters redone — 2026-11-13
 
 - **Credits and files:** Adventurer plan, 634 credits (54 on three lineups, 580 on animation); balance afterwards 2,176. Files in `assets/characters/rendered/`:

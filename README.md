@@ -151,7 +151,7 @@ Blender was retired on 2026-11-11. All game and website art is now made with the
   - the app icon and favicon.
   Of these, 9 are listed to remake; the rest are unused or superseded.
 - **Plan:** one month of the Adventurer plan, 2K/4K only; see `docs/ART_REGENERATION.md` ("Adventurer budget").
-- **Done so far:** Phase 1 characters, redone on 2026-11-13 on the Adventurer plan (634 credits): pixel-art atlases, portraits and restored `.tres` for all six operatives, the `vanguard` and `heavy` idles, and the AXIOM-7 portrait. Asset IDs are in `spritecook-assets.json`.
+- **Done so far:** Phase 2 deployment cutscene (2026-11-13, 72 credits: city, roof, drone and Shogun layers, plus both Phase 3 blades), so the opening cutscene plays again. Phase 1 characters, redone on 2026-11-13 on the Adventurer plan (634 credits): pixel-art atlases, portraits and restored `.tres` for all six operatives, the `vanguard` and `heavy` idles, and the AXIOM-7 portrait. Asset IDs are in `spritecook-assets.json`.
 - **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
 - **Until then the game has gaps on purpose:**
   - Every mission, Level 1, the squad cutscenes and the selection preview draw operatives from their SpriteCook atlas through `OperativeVisuals`.
