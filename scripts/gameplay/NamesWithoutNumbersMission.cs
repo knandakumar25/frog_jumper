@@ -335,13 +335,13 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
     protected override bool CanActivateCheckpoint(PalaceObjective shrine)=>!GameplaySuspended&&(shrine.Name.ToString() switch {
         "Service"=>true,"Hall"=>Progress.Has("phase"),"Utilities"=>Progress.Has("signal"),"Records"=>Progress.Has("maintenance"),
         "Core"=>Progress.Has("record:3"),"District"=>Progress.Has("defense:3"),_=>false });
-    /// <summary>Loads original Docker/Blender props independently of authored collision; absent decoration never blocks play.</summary>
+    /// <summary>Loads the district props (SpriteCook pixel art, Phase 4) independently of authored collision; absent decoration never blocks play. Nearest filtering keeps the stretched pixel art crisp (each 512x512 prop is drawn at a non-square display size). The access gates keep this filter when their texture is swapped to access_restored.</summary>
     private void Art(string name,Vector2 position,Vector2 size,int z=-2)
     {
         string path="res://assets/environment/names/"+name+".png";
         if(!ResourceLoader.Exists(path))return;
         var texture=GD.Load<Texture2D>(path);
-        var sprite=new Sprite2D { Texture=texture,Position=position,Scale=size/texture.GetSize(),ZIndex=z,Name="Art"+name };
+        var sprite=new Sprite2D { Texture=texture,Position=position,Scale=size/texture.GetSize(),ZIndex=z,Name="Art"+name,TextureFilter=CanvasItem.TextureFilterEnum.Nearest };
         World.AddChild(sprite);if(name=="access_denied")_civilianGates.Add(sprite);
     }
     /// <summary>Dark glass and white scanners frame amber denial; the final playable district keeps restrained civilian warmth.</summary>

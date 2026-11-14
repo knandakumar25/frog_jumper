@@ -28,6 +28,7 @@ Run each with `uv run --system-certs --no-project --with pillow python tools/art
   - `--despill` (with `--key magenta`) also clears bright pink lamp halos that were blended into the key colour. Use it only on layers with no magenta art.
   - The palette is built from foreground pixels only, so a mostly-empty layer keeps its real colours.
   - `--opaque` output stays RGBA (alpha 255 everywhere), because the cutscene validators read only RGBA PNGs.
+  - `--defringe N` (with `--key magenta`) clears N rings of magenta-tinted outline cells, dark ones included: the purple edge left where art was blended into the key. Phase 4 props use 2. Leave it off for violet art, whose own outline would be cleared.
 - `derive_layers.py drone --sprite DRONE.png`: places a given drone sprite instead of a vanguard frame (used for Phase 2).
 - `pack_topdown.py`: builds `assets/world/operative_<n>.png` (4x8 frames of 96x128, feet on y=87) from south, north and west walk strips. East is mirrored from west and the diagonals reuse the side views.
 

@@ -83,14 +83,14 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | 1. Characters | 3x3 lineup at 2K (18); six operative runs of six animations (6 x 90); `vanguard` and `heavy` idle runs (2 x 20). Portraits and AXIOM-7 are sliced from the lineup. Upload clean crops of the lineup instead of making the 2026-11-12 run-pose prep stills | 598 |
 | 2. Deployment cutscene | City base, city structure and roof structure at 2K, plus one 2K items sheet (patrol drone and both Phase 3 blades). Lights, drone layers and `shogun.png` are derived or composed. **Done 2026-11-13: 72 credits** | 72 |
 | 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K pose sheets (36). Lights derived, poses composed. **Done 2026-11-14: 282 credits** (216 planned plus 66 of retries: a seventh 4K sheet for the sparse cargo strip and reunion road, and 2K remakes of the shield road and the fortress; see "Phase 3 status") | 282 |
-| 4. Mission props | 21 props on three 2K 3x3 sheets (54); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30) | 84 |
+| 4. Mission props | 21 props on two 2K 4x4 sheets (36; was three 3x3 sheets, 54, until the owner chose 4x4 on 2026-11-14); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30). **Done 2026-11-14: 66 credits**, no retries | 66 |
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
 | 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 882 |
 | 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
-| **Total** | | **2,188** |
+| **Total** | | **2,170** |
 
-- **Spent so far:** Phases 1–3 used 988 credits (634 + 72 + 282). The balance on 2026-11-14 was 1,822, against 1,200 still planned for Phases 4–7 and the 2026-11-12 items.
+- **Spent so far:** Phases 1–4 used 1,054 credits (634 + 72 + 282 + 66). The balance on 2026-11-14 was 1,756, against 1,152 still planned for Phases 5–7 and the 2026-11-12 items.
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
@@ -548,7 +548,21 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 - 512x512 side-view sprites with a transparent background and empty margins (nothing touching the edge). The game stretches each one to the display size listed below, which is rarely square; see Fitting.
 - Pivot at the centre: the game centres each sprite on its node with an offset.
 - The C# code scales them and owns their collision.
-- **Route (2026-11-13):** three 2K 3x3 sheets for the small props and one 4K 2x2 sheet for the four wide ones, each cell drawn at its display aspect on magenta. See each file's `method`.
+- **Route (2026-11-14):** two 2K 4x4 sheets for the 21 small props (the second sheet's spare cells hold alternates) and one 4K 2x2 sheet for the four wide ones, each on magenta. See each file's `method`.
+- **Filtering:** the four loaders draw props with nearest filtering since 2026-11-14 (they used linear for the old Blender art), so the stretched pixel art stays crisp.
+
+### Phase 4 status (done 2026-11-14, 66 credits)
+
+- **Sheets:** `props_2k_1` and `props_2k_2` (2K 4x4) and `props_wide_4k` (4K 2x2), each made with a layout reference built from the old props at their display aspect. Asset ids and the chosen cell for every file are in `spritecook-assets.json`.
+- **Choices from the alternates:** Wildfire civilians and shelter come from `props_2k_2`. The first sheet's shelter runs off the sheet edge, and its civilians stand on a dark ground shadow.
+- **Fortress:** the fortress wall runs off the left and bottom edges of its quadrant. It is kept as a cut wall section, padded so no pixel touches the file edge.
+- **How each file was made:**
+  1. Crop the cell, key the magenta, and take the opaque bounding box.
+  2. Pad (never stretch) to the display aspect plus a 4% margin.
+  3. Snap with `snap_pixels.py --key magenta --despill --defringe 2`, using `--colors 96` for the wide props, with `--size 512x512`.
+- **Grid:** the art's native block size (about 6 raw px per art pixel on the 2K sheets and 14 on the 4K sheet), capped at the display size.
+- **`--defringe` (new):** it clears the dark purple outline left where edges were blended into the key. The coolant unit and the fortress are violet, so they skip it.
+- **Checks:** every file is 512x512, its alpha is only 0 and 255, and no opaque pixel touches an edge.
 
 ### Concrete Wildfire props
 

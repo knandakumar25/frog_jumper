@@ -316,6 +316,30 @@
   {
    "asset_id": "50279d9e-45b0-4bc4-979e-8b0bbf96566d",
    "label": "Phase 3 poses_2k_b (2K 2x2, 18 cr): Oceanus and Titan concealed and inspect; Titan recoloured violet->Phase 1 green locally; snapped 61 px per cell"
+  },
+  {
+   "asset_id": "8c7b8f6a-c078-4d44-a1ae-e848a4b03c7a",
+   "label": "Phase 4 layout reference props_2k_1: old props at display aspect on magenta (upload, free)"
+  },
+  {
+   "asset_id": "1133bd80-ef2f-4026-b577-3798984e9ea3",
+   "label": "Phase 4 layout reference props_2k_2 (upload, free)"
+  },
+  {
+   "asset_id": "034c0bf9-ade1-4538-83eb-8e49b60eb5e7",
+   "label": "Phase 4 layout reference props_wide_4k (upload, free)"
+  },
+  {
+   "asset_id": "f6340b58-9830-4ffd-80cd-417449592a8f",
+   "label": "Phase 4 props_2k_1 (2K 4x4, 18 cr): Wildfire battery, gunner; Neon Rust coupler, freight, laser, machinery, sonic, support; Aegis civilians, controller, coolant, crossing, gun used. Wildfire civilians and shelter unused (shelter runs off the sheet edge)"
+  },
+  {
+   "asset_id": "158f4edb-3d8d-41b7-ac07-041068b85857",
+   "label": "Phase 4 props_2k_2 (2K 4x4, 18 cr): Names access_denied, access_restored, archive, civilians, scanner, terminal; Wildfire civilians (cell 13) and shelter (cell 16) used; other cells are unused alternates"
+  },
+  {
+   "asset_id": "2724c88a-ba03-49d2-993e-80bc1d0b6066",
+   "label": "Phase 4 props_wide_4k (4K 2x2, 30 cr): Wildfire facade, Neon Rust depot, Aegis fortress (runs off the left and bottom edges, kept as a cut wall section), Names district"
   }
  ],
  "files": [
@@ -683,6 +707,131 @@
    "path": "assets/cutscenes/shattered_aegis_intro/surya.png",
    "sha12": "fd7299144648",
    "source": "compose_poses: surya_prime idle 0, karate_attack 5"
+  },
+  {
+   "path": "assets/environment/wildfire/battery.png",
+   "sha12": "d916ca94f0db",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 0: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/wildfire/civilians.png",
+   "sha12": "c1fc1ef6e0d0",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 12: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/wildfire/gunner.png",
+   "sha12": "f9b6e1ca5923",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 2: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/wildfire/shelter.png",
+   "sha12": "8f84e751e880",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 15: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/coupler.png",
+   "sha12": "f70879fb092c",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 4: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/freight.png",
+   "sha12": "e8795494cb19",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 5: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/laser.png",
+   "sha12": "e59cb406c32d",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 6: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/machinery.png",
+   "sha12": "b5256a002d7b",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 7: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/sonic.png",
+   "sha12": "4c275a91452b",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 8: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/support.png",
+   "sha12": "fefe03502f80",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 9: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/shattered_aegis/civilians.png",
+   "sha12": "fe6e2b114dca",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 10: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/shattered_aegis/controller.png",
+   "sha12": "b94aa27c8769",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 11: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/shattered_aegis/coolant.png",
+   "sha12": "02d40e299b8c",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 12: padded to display aspect, snap_pixels --despill (no --defringe: violet art)"
+  },
+  {
+   "path": "assets/environment/shattered_aegis/crossing.png",
+   "sha12": "b567537e027c",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 13: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/shattered_aegis/gun.png",
+   "sha12": "a6d8c291886e",
+   "source": "props_2k_1 (f6340b58-9830-4ffd-80cd-417449592a8f) cell 14: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/names/access_denied.png",
+   "sha12": "dd93845b981d",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 0: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/names/access_restored.png",
+   "sha12": "0d704f5bd76f",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 1: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/names/archive.png",
+   "sha12": "4014efff73b2",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 2: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/names/civilians.png",
+   "sha12": "d27c7db34815",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 3: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/names/scanner.png",
+   "sha12": "b3a5e32ed2db",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 4: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/names/terminal.png",
+   "sha12": "2c0b2f0617b6",
+   "source": "props_2k_2 (158f4edb-3d8d-41b7-ac07-041068b85857) cell 5: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/wildfire/facade.png",
+   "sha12": "80d4e721f7ad",
+   "source": "props_wide_4k (2724c88a-ba03-49d2-993e-80bc1d0b6066) cell 0: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/neon_rust/depot.png",
+   "sha12": "81fb16f21d15",
+   "source": "props_wide_4k (2724c88a-ba03-49d2-993e-80bc1d0b6066) cell 1: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environment/shattered_aegis/fortress.png",
+   "sha12": "b62d992e0b71",
+   "source": "props_wide_4k (2724c88a-ba03-49d2-993e-80bc1d0b6066) cell 2: padded to display aspect, snap_pixels --despill (no --defringe: violet art)"
+  },
+  {
+   "path": "assets/environment/names/district.png",
+   "sha12": "3b9c7f27788f",
+   "source": "props_wide_4k (2724c88a-ba03-49d2-993e-80bc1d0b6066) cell 3: padded to display aspect, snap_pixels --despill --defringe"
   }
  ]
 }

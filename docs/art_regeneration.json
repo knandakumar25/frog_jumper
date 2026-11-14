@@ -1199,7 +1199,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_1"
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/wildfire/facade.png",
@@ -1220,7 +1220,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_1"
+          "method": "sheet:props_2k_2"
         }
       ]
     },
@@ -1275,7 +1275,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_2"
+          "method": "sheet:props_2k_1"
         }
       ]
     },
@@ -1288,28 +1288,28 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_2"
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/shattered_aegis/controller.png",
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_2"
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/shattered_aegis/coolant.png",
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_2"
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/shattered_aegis/crossing.png",
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_2"
+          "method": "sheet:props_2k_1"
         },
         {
           "path": "assets/environment/shattered_aegis/fortress.png",
@@ -1323,7 +1323,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_2"
+          "method": "sheet:props_2k_1"
         }
       ]
     },
@@ -1357,7 +1357,7 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_3"
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/names/district.png",
@@ -1371,14 +1371,14 @@
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_3"
+          "method": "sheet:props_2k_2"
         },
         {
           "path": "assets/environment/names/terminal.png",
           "width": 512,
           "height": 512,
           "status": "remake",
-          "method": "sheet:props_2k_3"
+          "method": "sheet:props_2k_2"
         }
       ]
     },

@@ -24,7 +24,12 @@ uneven blocks rather than a true grid. This tool turns that raw image into real 
    transparent fill. It is used to put a roof line where the game's code expects it.
 6. ``--despill`` (magenta key only) also clears bright pink or lilac cells: lamp glows that
    were blended into the magenta background. Use it only on layers with no magenta art.
-7. ``--opaque`` flattens onto black and makes every pixel fully opaque (base plates must be). The file
+7. ``--defringe N`` (magenta key only) clears up to N rings of outline cells that took a
+   magenta-tinted colour, dark ones included (for example 60,20,70 where a navy edge was blended
+   into the key). ``--despill`` misses these because they are not bright. Each pass clears only
+   cells that touch a transparent cell, so a violet object's inside survives, but its violet
+   outline would be eaten: leave it off for violet art (Phase 4 coolant and fortress).
+8. ``--opaque`` flattens onto black and makes every pixel fully opaque (base plates must be). The file
    stays RGBA, because the cutscene validators read only 8-bit RGBA PNGs.
 
 ``--crop X,Y,W,H`` (optional, applied first) cuts one region out of the raw image before any
@@ -104,12 +109,35 @@ def magenta_halo(rgb: np.ndarray) -> np.ndarray:
     return (np.maximum(r, b) > 120) & (r > g * 1.3) & (b > g * 1.3) & (np.abs(r - b) < 0.55 * np.maximum(r, b))
 
 
+def magenta_tinted(rgb: np.ndarray) -> np.ndarray:
+    """True where a colour leans magenta at any brightness (for ``--defringe``).
+
+    Red and blue both clearly exceed green and are within 60% of each other. Unlike
+    ``magenta_halo`` there is no brightness floor, so dark blended edges count too.
+    """
+    r, g, b = rgb[..., 0].astype(int), rgb[..., 1].astype(int), rgb[..., 2].astype(int)
+    return (r > g * 1.25 + 4) & (b > g * 1.25 + 4) & (np.abs(r - b) < 0.6 * np.maximum(r, b))
+
+
+def defringe(cells: np.ndarray, passes: int) -> None:
+    """Clear magenta-tinted outline cells of an RGBA grid in place, ``passes`` rings deep.
+
+    An outline cell is opaque and has a transparent 4-neighbour (or lies on the grid edge).
+    """
+    for _ in range(passes):
+        opaque = cells[..., 3] > 0
+        pad = np.pad(~opaque, 1, constant_values=True)
+        outline = opaque & (pad[:-2, 1:-1] | pad[2:, 1:-1] | pad[1:-1, :-2] | pad[1:-1, 2:])
+        cells[outline & magenta_tinted(cells[..., :3]), 3] = 0
+
+
 def snap(image: Image.Image, grid: tuple[int, int], key: str, colors: int, tolerance: int,
-         despill: bool = False) -> Image.Image:
+         despill: bool = False, defringe_passes: int = 0) -> Image.Image:
     """Key, quantize and block-mode ``image`` down to ``grid``; returns an RGBA image of that size.
 
     With ``despill`` (magenta key only), output cells whose colour is a magenta glow halo
-    (``magenta_halo``) are cleared too.
+    (``magenta_halo``) are cleared too. ``defringe_passes`` (magenta key only) then clears that
+    many rings of magenta-tinted outline cells (``defringe``).
     """
     rgb_img = image.convert("RGB")
     rgb = np.asarray(rgb_img)
@@ -147,7 +175,10 @@ def snap(image: Image.Image, grid: tuple[int, int], key: str, colors: int, toler
         if despill:
             leftover |= magenta_halo(out[:, :3].reshape(gh, gw, 3)).ravel()
         out[leftover, 3] = 0
-    return Image.fromarray(out.reshape(gh, gw, 4), "RGBA")
+    out = out.reshape(gh, gw, 4)
+    if key == "magenta" and defringe_passes:
+        defringe(out, defringe_passes)
+    return Image.fromarray(out, "RGBA")
 
 
 def parse_box(text: str) -> tuple[int, int, int, int]:
@@ -176,6 +207,8 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--opaque", action="store_true", help="flatten onto black, alpha 255 everywhere (still RGBA)")
     parser.add_argument("--despill", action="store_true",
                         help="with --key magenta, also clear bright pink glow halos (scene layers with no magenta art)")
+    parser.add_argument("--defringe", type=int, default=0, metavar="N",
+                        help="with --key magenta, clear N rings of magenta-tinted outline cells (not for violet art)")
     parser.add_argument("--crop", type=parse_box, help="X,Y,W,H region of the raw image to use (applied first)")
     args = parser.parse_args(argv)
 
@@ -185,7 +218,7 @@ def main(argv: list[str] | None = None) -> None:
         if args.crop[2] > source.width or args.crop[3] > source.height or min(args.crop[:2]) < 0:
             parser.error(f"--crop {args.crop} is outside the {source.width}x{source.height} image")
         source = source.crop(args.crop)
-    small = snap(source, args.grid, args.key, args.colors, args.tolerance, args.despill)
+    small = snap(source, args.grid, args.key, args.colors, args.tolerance, args.despill, args.defringe)
     big = small.resize(args.size, Image.Resampling.NEAREST)
     if args.offset != (0, 0):
         shifted = Image.new("RGBA", big.size, (0, 0, 0, 0))

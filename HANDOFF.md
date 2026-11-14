@@ -1,5 +1,20 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 4 mission props done — 2026-11-14
+
+- **Credits:** 66, matching the plan once the owner chose two 2K 4x4 sheets over three 3x3 sheets. No retries. The balance is 1,756, and the plan total is now 2,170.
+- **Files:** all 25 props in `assets/environment/{wildfire,neon_rust,shattered_aegis,names}/`. Each is 512x512, with alpha only 0 or 255 and a clear edge.
+  - Wildfire civilians and shelter come from the second sheet's alternate cells. The first sheet's shelter runs off the sheet edge.
+  - The fortress is a cut wall section, because it ran off its quadrant.
+- **How they were made:** see `docs/ART_REGENERATION.md` ("Phase 4 status"). In short:
+  1. crop the cell;
+  2. pad to the display aspect (never stretch);
+  3. snap at the art's native block grid to 512x512.
+- **Code:**
+  - `WildfireVisual.cs`, `NeonRustVisual.cs`, `AegisVisual.cs` and `NamesWithoutNumbersMission.Art()` now use nearest filtering. The old Blender art used linear filtering, which blurred stretched pixel art.
+  - `snap_pixels.py` gained `--defringe N`, which clears the dark purple outline left by the magenta key.
+- **Verification (2026-11-14, Docker stack up at the owner's OK):** `dotnet build` 0 errors; Godot headless import exit 0 (only the known System.Runtime 11 and shutdown messages), with 25 new `.import` files; full `run_tests.ps1`: Django 111 OK, NUnit 439/439, GdUnit 363 with 0 errors, 0 failures and 0 orphans; `audit_images.py` 100 images, no prop flagged; `compare_images.py` against the old props 0 failures; `graphify update .` done.
+
 ## Phase 3 cutscenes done — 2026-11-14
 
 - **Credits:** 282 (216 planned, 66 of retries); balance 1,822. Plan total is now 2,188.

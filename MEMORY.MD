@@ -1,7 +1,23 @@
 # Axiom Force — Project Memory
 
+## Phase 4 mission props done — 2026-11-14
+
+- **Credits:** 66 (two 2K 4x4 sheets plus one 4K 2x2 sheet, no retries); balance 1,756. Plan total is now 2,170. Not committed.
+- **Owner decisions:**
+  - 4x4 sheets instead of 3x3 (saved 18 credits).
+  - Nearest filtering for the props: a code change in `WildfireVisual.cs`, `NeonRustVisual.cs`, `AegisVisual.cs` and `NamesWithoutNumbersMission.Art()`.
+  - Docker may be started for the preflight and tests.
+- **Files:** 25 props in `assets/environment/`. Wildfire civilians and shelter come from alternates on the second sheet. The fortress is a cut wall section.
+- **Tool:** `snap_pixels.py --defringe N` clears the dark purple outline the magenta key leaves. Don't use it on violet art (coolant, fortress).
+- **Lessons:**
+  - Snap props at the art's native block grid (about 6 raw px on 2K sheets and 14 on 4K), not at display/4.
+  - Use 96 colours for the big props, or their window colours wash out.
+- **Verification (2026-11-14, Docker stack up at the owner's OK):** `dotnet build` 0 errors; Godot headless import exit 0 (only the known System.Runtime 11 and shutdown messages), with 25 new `.import` files; full `run_tests.ps1`: Django 111 OK, NUnit 439/439, GdUnit 363 with 0 errors, 0 failures and 0 orphans; `audit_images.py` 100 images, no prop flagged; `compare_images.py` against the old props 0 failures; `graphify update .` done.
+- **Next:** Phase 5 (later-campaign environments, 138 planned). The Tokyo blade offset fix is still open.
+
 ## Phase 3 cutscenes done — 2026-11-14
 
+- **Pushed:** committed and pushed to `main` as `254bc7a` at the owner's "push to git".
 - **Credits:** 282 (216 planned, 66 of retries); balance 1,822. Plan total is now 2,188.
 - **Files:** all 50 Phase 3 files in `assets/cutscenes/{wildfire,tokyo,wildfire_aftermath,neon_rust_intro,neon_rust_aftermath,shattered_aegis_intro,names_without_numbers,act_ii_opening}/`. No code changes.
 - **Method:**
