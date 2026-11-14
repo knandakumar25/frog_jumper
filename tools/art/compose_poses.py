@@ -34,7 +34,9 @@ The layout comes from a JSON spec:
 - ``image`` cells are trimmed to their opaque pixels and enlarged by a whole-number factor
   chosen so the figure is as tall as the same character's idle frame would be in this sheet
   (``match_atlas`` names that atlas). Without ``match_atlas`` the largest factor that fits is
-  used. The trimmed figure's bottom-centre goes on the pivot.
+  used. The trimmed figure's bottom-centre goes on the pivot. ``"scale": N`` instead forces a
+  whole-number enlargement (still capped by the cell), for crouching or kneeling poses whose
+  height must not be matched to a standing frame.
 - ``flip`` mirrors a figure horizontally (a look back, or a walk in the other direction).
 
 Run from the project root:
@@ -91,8 +93,15 @@ def place_atlas_frame(frame: Image.Image, cell: int, pivot: tuple[int, int], fli
 
 
 def place_image(image: Image.Image, cell: int, pivot: tuple[int, int], flip: bool,
-                target_height: int | None) -> Image.Image:
-    """Trim a pose image and put its bottom-centre on the pivot at a whole-number scale."""
+                target_height: int | None, fixed_scale: int | None = None) -> Image.Image:
+    """Trim a pose image and put its bottom-centre on the pivot at a whole-number scale.
+
+    ``fixed_scale`` (the spec's ``scale``) wins over ``target_height``. Crouching and kneeling
+    poses need it: matching their height to a standing idle frame would make them giants, so
+    such cells are snapped at the atlas pixel density and enlarged by the same factor as the
+    atlas frames (4 for a 512 cell: a Phase 1 sprite pixel is 2 atlas pixels, times 512/256).
+    It is still capped so the figure fits inside the cell margins.
+    """
     used = image.getchannel("A").getbbox()
     if not used:
         raise ValueError("pose image is empty")
@@ -100,7 +109,9 @@ def place_image(image: Image.Image, cell: int, pivot: tuple[int, int], flip: boo
     room = min(pivot[0] - MARGIN, cell - pivot[0] - MARGIN) * 2
     fit_scale = max(1, int(min(room / art.width, (pivot[1] - MARGIN) / art.height)))
     scale = fit_scale
-    if target_height:
+    if fixed_scale:
+        scale = max(1, min(fit_scale, int(fixed_scale)))
+    elif target_height:
         scale = max(1, min(fit_scale, round(target_height / art.height)))
     art = art.resize((art.width * scale, art.height * scale), Image.Resampling.NEAREST)
     if flip:
@@ -144,7 +155,7 @@ def compose(spec: dict, root: Path) -> Image.Image:
         else:
             target = idle_height(load_atlas(item["match_atlas"]), cell) if "match_atlas" in item else None
             figure = place_image(Image.open(root / item["image"]).convert("RGBA"), cell, pivot,
-                                 item.get("flip", False), target)
+                                 item.get("flip", False), target, item.get("scale"))
         placements.append((item["row"], item["col"], figure))
 
     filled: set[tuple[int, int]] = set()

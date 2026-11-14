@@ -2771,7 +2771,7 @@
           "width": 1920,
           "height": 1080,
           "status": "remake",
-          "method": "sheet:cutscenes_4k_2"
+          "method": "sheet:cutscenes_4k_7"
         },
         {
           "path": "assets/cutscenes/wildfire_aftermath/terminal_base.png",
@@ -2810,7 +2810,7 @@
           "width": 1920,
           "height": 1080,
           "status": "remake",
-          "method": "sheet:cutscenes_4k_2"
+          "method": "sheet:cutscenes_4k_7"
         },
         {
           "path": "assets/cutscenes/neon_rust_intro/depot_lights.png",
@@ -2879,7 +2879,7 @@
           "width": 1920,
           "height": 1080,
           "status": "remake",
-          "method": "sheet:cutscenes_4k_3"
+          "method": "generate:2K"
         },
         {
           "path": "assets/cutscenes/neon_rust_aftermath/poses.png",
@@ -2934,7 +2934,7 @@
           "width": 1920,
           "height": 1080,
           "status": "remake",
-          "method": "sheet:cutscenes_4k_4"
+          "method": "generate:2K"
         },
         {
           "path": "assets/cutscenes/shattered_aegis_intro/surya.png",

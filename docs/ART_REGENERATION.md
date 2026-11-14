@@ -48,7 +48,7 @@ Gaps are intentional (owner decision):
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
 - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline instead of the painted garden.
 - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
-- Cutscenes skip.
+- Cutscenes: all nine have their art again (Phases 2 and 3, 2026-11-13 and 2026-11-14), so they play.
 - The title slot is empty in the game; the website shows the words "AXIOM FORCE".
 
 ## Work order
@@ -82,14 +82,15 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 |---|---|---|
 | 1. Characters | 3x3 lineup at 2K (18); six operative runs of six animations (6 x 90); `vanguard` and `heavy` idle runs (2 x 20). Portraits and AXIOM-7 are sliced from the lineup. Upload clean crops of the lineup instead of making the 2026-11-12 run-pose prep stills | 598 |
 | 2. Deployment cutscene | City base, city structure and roof structure at 2K, plus one 2K items sheet (patrol drone and both Phase 3 blades). Lights, drone layers and `shogun.png` are derived or composed. **Done 2026-11-13: 72 credits** | 72 |
-| 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K 3x3 pose sheets, the second also holding both blades (36). Lights derived, poses composed | 216 |
+| 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K pose sheets (36). Lights derived, poses composed. **Done 2026-11-14: 282 credits** (216 planned plus 66 of retries: a seventh 4K sheet for the sparse cargo strip and reunion road, and 2K remakes of the shield road and the fortress; see "Phase 3 status") | 282 |
 | 4. Mission props | 21 props on three 2K 3x3 sheets (54); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30) | 84 |
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
 | 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 882 |
 | 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
-| **Total** | | **2,122** |
+| **Total** | | **2,188** |
 
+- **Spent so far:** Phases 1–3 used 988 credits (634 + 72 + 282). The balance on 2026-11-14 was 1,822, against 1,200 still planned for Phases 4–7 and the 2026-11-12 items.
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
@@ -249,6 +250,39 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 - Pose sheets use the cell size and pivot listed per cutscene, with each pose's feet on the pivot.
 - **Route (2026-11-13):** the three deployment layers are single 2K images and set the style. Every other scene layer is a quadrant of a 4K 2x2 sheet that uses them as `style_asset_ids`. Lights layers are derived. See each file's `method`.
 - Pose sheets are composed from Phase 1 animation frames and the two 2K pose sheets (`compose_poses.py`). No new animation runs.
+
+### Phase 3 status
+
+**Status: done 2026-11-14 (282 credits; 216 planned).** All 50 files are in place. `spritecook-assets.json` lists every asset ID, how each file was cut, and its offset.
+- **Generation:**
+  - six 4K 2x2 scene sheets;
+  - pose sheet A (2K 3x3, Kaito: survey, look_back, testimony, sheathe, escape, concealed, inspect, plus two spares);
+  - pose sheet B (2K 2x2, Oceanus and Titan concealed and inspect).
+  - **Layout guides:** a 2x2 composite of the old `ca92679` layers was uploaded for each sheet.
+- **Retries (66 credits):**
+  - **Stacked layers must be sparse.** The Neon Rust intro draws depot, cargo, underpass and walkway at once, and the Wildfire aftermath draws reunion over the checkpoint and siege layers. The first cargo and reunion quadrants were full scenes that hid everything behind them. Sheet 7 (4K) remade them as a freight-car strip and a road with families, with the ramp after x 1550 that `WildfireAftermathStage.cs` walks the squad up.
+  - **Fortress.** It needs the road ramp from (1000, 805) to (1690, 590) that `NeonRustAftermathStage.cs` walks the squad along, so it was remade at 2K.
+  - **Shield road.** The first one came back fully opaque, so it was remade at 2K.
+- **Snapping:**
+  - Every raw quadrant was cut with `snap_pixels.py --crop` onto a 480x270 grid, then upscaled 4x.
+  - Structures use `--key magenta --despill`, which removes pink lamp halos.
+  - Act II bases use `--opaque`. They are RGBA, because the validators read only RGBA.
+  - The "TICKET" lettering on the service kiosk was painted out (no text in game art).
+- **Measured offsets** (ground lines matched to each stage's feet lines):
+  - civilians 0,-180, so the families stand just behind the checkpoint ground;
+  - dojo 0,-8 (feet at 820);
+  - walkway 0,+152 (deck at the shot 0–1 feet line, 680);
+  - cargo 0,-240 (rails near 590 in the intro and on the 805 floor in the aftermath, which draws it 220 lower);
+  - shield road 0,+304 (road top at Surya's feet, 732).
+- **Pose sheets:**
+  - Pose cells were snapped at the Phase 1 sprite pixel density: 87 logical pixels per cell for sheet A and 61 for sheet B.
+  - They were then composed at a fixed scale of 4 (`compose_poses.py` `scale`), so crouches are not stretched to standing height.
+  - Phase 1 Titan is green, not violet as the old palette notes say, so the two Titan poses were recoloured to the Phase 1 green palette.
+- **Lights:** derived from every structure. The darker layers needed lower thresholds (`--min-value` down to 0.38). The Wildfire civilians lights only repeat the few coloured pixels, because the silhouettes have no light sources.
+- **Known gap:**
+  - In Tokyo's escape shot (the first 8 seconds) the blade is drawn above Kaito's head. `TokyoStage.cs` places it where the old pose held it raised, and no new or Phase 1 pose has a hand there.
+  - The fix is a one-line change of the escape blade offset in `TokyoStage.cs`. That is a code change for the owner to approve.
+  - The testimony blade sits about 20 px from the raised hand.
 
 ### Deployment (opening cutscene)
 

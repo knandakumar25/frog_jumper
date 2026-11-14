@@ -1,5 +1,35 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 3 cutscenes done — 2026-11-14
+
+- **Credits:** 282 (216 planned, 66 of retries); balance 1,822. Plan total is now 2,188.
+- **Files:** all 50 Phase 3 files in `assets/cutscenes/{wildfire,tokyo,wildfire_aftermath,neon_rust_intro,neon_rust_aftermath,shattered_aegis_intro,names_without_numbers,act_ii_opening}/`. No code changes.
+- **Method:**
+  - Six 4K 2x2 scene sheets and two 2K pose sheets, with old `ca92679` layer composites as layout guides.
+  - Retries:
+    - one 4K sheet for the sparse Neon cargo strip and Wildfire reunion road, because those stages stack layers;
+    - 2K fortress with the ramp road;
+    - 2K shield road, because the first one came back fully opaque.
+  - Cutting, snapping and offsets are written up in `docs/ART_REGENERATION.md` ("Phase 3 status").
+- **Tool changes:**
+  - `snap_pixels.py`: `--crop`, `--despill`, a foreground-only palette, and `--opaque` output that stays RGBA.
+  - `compose_poses.py`: per-cell fixed `scale`.
+- **Lessons:**
+  - Check how a stage stacks its layers before generating. A full-scene quadrant hides the layers behind it.
+  - Phase 1 Titan is green, not violet as the old palette notes say.
+- **Known gap:** in Tokyo's escape shot (t < 8 s) the blade is drawn above Kaito's head, because the `TokyoStage.cs:77` offsets fit the old pose. A one-line offset change would fix it; it needs the owner's approval, since it is code (Docker preflight).
+- **Verified:**
+  - Tool self-test (`--crop`, `--despill`, RGBA `--opaque`, out-of-range crop rejected, compose `scale`).
+  - A generic image check of all 50 files: sizes, RGBA, opaque bases, alpha 0 and 255, pose cells filled and clear of edges.
+  - The 8 `validate_*.py` image checks run locally; they stop at the ffprobe audio step, which needs Docker.
+  - `ArtRegenerationSpecTests` 3/3; image audit 75 images.
+  - Full NUnit run: 422 passed, 17 failed. All 17 failed with "Failed to connect to 127.0.0.1:5432" (PostgreSQL, Docker stopped), not from these changes.
+  - Godot import exit 0, with all 50 `.import` files.
+  - 10 GdUnit cutscene and character suites: 69/0, 0 orphans.
+  - Stage composites with feet lines checked by eye.
+  - Not run: the full `run_tests.ps1` and the Docker validators (ask first). Nothing committed.
+- **Next:** Phase 4 (mission props, 84 credits planned) needs owner approval.
+
 ## Phase 2 deployment cutscene done — 2026-11-13
 
 - **Credits:** 72, balance 2,104.

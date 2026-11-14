@@ -12,7 +12,8 @@ uneven blocks rather than a true grid. This tool turns that raw image into real 
      white parts inside a figure survive. This is the Phase 1 lineup method.
    - ``none``: keep every pixel (opaque base plates).
 2. **Quantize** the colours to ``--colors`` (median cut, no dithering), so near-duplicate shades
-   collapse into one palette entry.
+   collapse into one palette entry. The palette is built from foreground pixels only, so a
+   large keyed background cannot crowd the figures' colours out of it.
 3. **Block mode** down to the logical grid ``--grid`` (for example 480x270): every grid cell takes
    the most common palette colour among its foreground pixels, and stays transparent unless at
    least half of the cell is foreground. Cell edges follow the raw size divided by the grid, so
@@ -21,7 +22,15 @@ uneven blocks rather than a true grid. This tool turns that raw image into real 
    every logical pixel becomes an even square block.
 5. **Offset** (optional): ``--offset X,Y`` moves the result by whole output pixels with a
    transparent fill. It is used to put a roof line where the game's code expects it.
-6. ``--opaque`` flattens onto black with no alpha channel (base plates must be fully opaque).
+6. ``--despill`` (magenta key only) also clears bright pink or lilac cells: lamp glows that
+   were blended into the magenta background. Use it only on layers with no magenta art.
+7. ``--opaque`` flattens onto black and makes every pixel fully opaque (base plates must be). The file
+   stays RGBA, because the cutscene validators read only 8-bit RGBA PNGs.
+
+``--crop X,Y,W,H`` (optional, applied first) cuts one region out of the raw image before any
+other step, in raw-image pixels. Phase 3 uses it to take one quadrant of a 4K 2x2 scene sheet
+(for example ``0,0,2752,1536`` for the top-left of a 5504x3072 raw) or one cell of a pose sheet,
+usually inset by a few pixels so the bleed along the dividing lines is dropped.
 
 Run from the project root, for example:
 
@@ -84,12 +93,36 @@ def background_mask(rgb: np.ndarray, mode: str, tolerance: int) -> np.ndarray:
     raise ValueError(f"unknown key mode {mode!r}")
 
 
-def snap(image: Image.Image, grid: tuple[int, int], key: str, colors: int, tolerance: int) -> Image.Image:
-    """Key, quantize and block-mode ``image`` down to ``grid``; returns an RGBA image of that size."""
+def magenta_halo(rgb: np.ndarray) -> np.ndarray:
+    """True where a pixel is a bright glow blended into the magenta key (for ``--despill``).
+
+    Lamp glows drawn over a magenta background come out pink or lilac (for example 230,120,200).
+    They are bright, red and blue are within 55% of each other, and both clearly exceed green. Dark violet
+    silhouettes (crowds, shadows) stay, because the test needs red or blue above 120.
+    """
+    r, g, b = rgb[..., 0].astype(int), rgb[..., 1].astype(int), rgb[..., 2].astype(int)
+    return (np.maximum(r, b) > 120) & (r > g * 1.3) & (b > g * 1.3) & (np.abs(r - b) < 0.55 * np.maximum(r, b))
+
+
+def snap(image: Image.Image, grid: tuple[int, int], key: str, colors: int, tolerance: int,
+         despill: bool = False) -> Image.Image:
+    """Key, quantize and block-mode ``image`` down to ``grid``; returns an RGBA image of that size.
+
+    With ``despill`` (magenta key only), output cells whose colour is a magenta glow halo
+    (``magenta_halo``) are cleared too.
+    """
     rgb_img = image.convert("RGB")
     rgb = np.asarray(rgb_img)
     h, w, _ = rgb.shape
     bg = background_mask(rgb, key, tolerance)
+    if bg.any() and not bg.all():
+        # Build the palette from foreground pixels only. On a mostly-empty layer (a few turrets
+        # on magenta) the key colour would otherwise take most palette entries, and the figures
+        # would be snapped to magenta-tinted shades. Background pixels are painted with the mean
+        # foreground colour first; their votes are ignored below anyway.
+        filled = rgb.copy()
+        filled[bg] = rgb[~bg].mean(axis=0).astype(np.uint8)
+        rgb_img = Image.fromarray(filled, "RGB")
     pal_img = rgb_img.quantize(colors=colors, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
     labels = np.asarray(pal_img).astype(np.int64)
     palette = np.array(pal_img.getpalette()[: colors * 3], dtype=np.uint8).reshape(-1, 3)
@@ -111,8 +144,22 @@ def snap(image: Image.Image, grid: tuple[int, int], key: str, colors: int, toler
         # A cell can still win a magenta-ish palette colour when its foreground pixels were
         # fringe shades the per-pixel test missed; clear those cells with the same rule.
         leftover = background_mask(out[:, :3].reshape(gh, gw, 3), "magenta", tolerance).ravel()
+        if despill:
+            leftover |= magenta_halo(out[:, :3].reshape(gh, gw, 3)).ravel()
         out[leftover, 3] = 0
     return Image.fromarray(out.reshape(gh, gw, 4), "RGBA")
+
+
+def parse_box(text: str) -> tuple[int, int, int, int]:
+    """Parse ``X,Y,W,H`` into a Pillow crop box ``(left, top, right, bottom)``.
+
+    Raises:
+        ValueError: for anything other than four integers or a non-positive width or height.
+    """
+    x, y, w, h = (int(v) for v in text.split(","))
+    if w <= 0 or h <= 0:
+        raise ValueError("crop width and height must be positive")
+    return x, y, x + w, y + h
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -126,19 +173,30 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--colors", type=int, default=48, help="palette size before block mode")
     parser.add_argument("--tolerance", type=int, default=60, help="magenta key tolerance per channel")
     parser.add_argument("--offset", type=lambda t: parse_pair(t, ","), default=(0, 0), help="X,Y shift in output px")
-    parser.add_argument("--opaque", action="store_true", help="flatten onto black, no alpha")
+    parser.add_argument("--opaque", action="store_true", help="flatten onto black, alpha 255 everywhere (still RGBA)")
+    parser.add_argument("--despill", action="store_true",
+                        help="with --key magenta, also clear bright pink glow halos (scene layers with no magenta art)")
+    parser.add_argument("--crop", type=parse_box, help="X,Y,W,H region of the raw image to use (applied first)")
     args = parser.parse_args(argv)
 
-    small = snap(Image.open(args.src), args.grid, args.key, args.colors, args.tolerance)
+    source = Image.open(args.src)
+    if args.crop:
+        # Pillow pads out-of-range boxes with black, which would become false foreground.
+        if args.crop[2] > source.width or args.crop[3] > source.height or min(args.crop[:2]) < 0:
+            parser.error(f"--crop {args.crop} is outside the {source.width}x{source.height} image")
+        source = source.crop(args.crop)
+    small = snap(source, args.grid, args.key, args.colors, args.tolerance, args.despill)
     big = small.resize(args.size, Image.Resampling.NEAREST)
     if args.offset != (0, 0):
         shifted = Image.new("RGBA", big.size, (0, 0, 0, 0))
         shifted.paste(big, args.offset, big)
         big = shifted
     if args.opaque:
+        # Stay RGBA (every pixel alpha 255): the cutscene validators' decoder
+        # (tools/cutscene/png_pixels.py) reads only 8-bit RGBA PNGs.
         flat = Image.new("RGBA", big.size, (0, 0, 0, 255))
         flat.alpha_composite(big)
-        big = flat.convert("RGB")
+        big = flat
     args.out.parent.mkdir(parents=True, exist_ok=True)
     big.save(args.out, optimize=True)
     print(f"SNAP {args.src.name} -> {args.out} grid={args.grid[0]}x{args.grid[1]} size={big.width}x{big.height} key={args.key}")

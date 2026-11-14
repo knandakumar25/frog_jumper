@@ -19,11 +19,15 @@ Run each with `uv run --system-certs --no-project --with pillow python tools/art
   - `aftermath` grades an environment layer into its aftermath version, with a repeatable seed for the embers.
   - `drone` places the `vanguard` idle frame inside the deployment drone box.
   - `icon` writes the ICO and SVG favicon from the icon PNG.
-- `compose_poses.py <spec.json>`: builds a cutscene pose sheet (512 cells, feet on the pivot) from Phase 1 atlas frames plus trimmed pose images, following a JSON layout spec.
+- `compose_poses.py <spec.json>`: builds a cutscene pose sheet (512 cells, feet on the pivot) from Phase 1 atlas frames plus trimmed pose images, following a JSON layout spec. An image cell's `"scale": N` forces a whole-number enlargement. Phase 3 uses 4, the Phase 1 sprite density, for crouch and kneel poses, which matching the standing idle height would blow up.
 - `snap_pixels.py`: turns a SpriteCook raw 2K image into real pixel art at an exact size.
   - Steps: an optional background key (magenta, including dark fringe, or white flood-filled from the border), a palette quantize, block mode down to a logical grid (for example 480x270), then an exact nearest upscale (4x to 1920x1080).
   - Options: `--offset` shifts the result; `--opaque` flattens base plates.
   - Use it on `raw_url`, because SpriteCook's own pixel snap fails on 2K sheets.
+  - `--crop X,Y,W,H` cuts one quadrant or pose cell out of a raw sheet first (Phase 3).
+  - `--despill` (with `--key magenta`) also clears bright pink lamp halos that were blended into the key colour. Use it only on layers with no magenta art.
+  - The palette is built from foreground pixels only, so a mostly-empty layer keeps its real colours.
+  - `--opaque` output stays RGBA (alpha 255 everywhere), because the cutscene validators read only RGBA PNGs.
 - `derive_layers.py drone --sprite DRONE.png`: places a given drone sprite instead of a vanguard frame (used for Phase 2).
 - `pack_topdown.py`: builds `assets/world/operative_<n>.png` (4x8 frames of 96x128, feet on y=87) from south, north and west walk strips. East is mirrored from west and the diagonals reuse the side views.
 
