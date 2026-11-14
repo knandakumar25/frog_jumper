@@ -1,5 +1,10 @@
 # Axiom Force - Universal Agent Guidelines
 
+Phase 5 art update (2026-11-14): the five approved sheets cost 138 credits, with
+1,618 remaining. Generation is finished; see the Phase 5 status in
+`docs/ART_REGENERATION.md` for integration and verification. The 2,170-credit
+plan total is unchanged. Future phases still require their own approval.
+
 ## Project Overview
 A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and React web client. It is a 2D cyber-action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*) with a 12-mission, 3-act campaign, multi-operative synergy, dynamic combat HUDs, wall mobility, and multi-phase boss mechs, set in Los Angeles in 2157. Finishing Mission 1 opens a top-down open world (`scripts/world/`). In that world only Little Tokyo and Concrete Wards have playable quests and combat; the other 14 regions can be explored, but their quests, operations and endgame content are data only (see the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`). Saves are PostgreSQL-only, and the desktop game signs in through a Clerk browser flow.
 

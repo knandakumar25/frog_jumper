@@ -1,5 +1,13 @@
 # Axiom Force
 
+## Later-campaign art (Phase 5, 2026-11-14)
+
+The approved Phase 5 batch restores the environment, aftermath and boss plates
+for Missions 6–12 using 53 SpriteCook-derived images. It uses existing paths and
+scene timing. The repeatable cutting/derivation helper is
+`tools/art/build_later_campaign_art.py`; source IDs and hashes live in
+`spritecook-assets.json`. See HANDOFF for verification and remaining limitations.
+
 ## SpriteCook art reset (2026-11-13)
 
 All art made with SpriteCook on 2026-11-12 was deleted at the owner's request: the Phase 1

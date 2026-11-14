@@ -340,6 +340,26 @@
   {
    "asset_id": "2724c88a-ba03-49d2-993e-80bc1d0b6066",
    "label": "Phase 4 props_wide_4k (4K 2x2, 30 cr): Wildfire facade, Neon Rust depot, Aegis fortress (runs off the left and bottom edges, kept as a cut wall section), Names district"
+  },
+  {
+   "asset_id": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "label": "Phase 5 later_4k_1"
+  },
+  {
+   "asset_id": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "label": "Phase 5 later_4k_2"
+  },
+  {
+   "asset_id": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "label": "Phase 5 later_4k_3"
+  },
+  {
+   "asset_id": "eb117132-96fe-42b9-8105-40cc94f6d21c",
+   "label": "Phase 5 later_4k_4"
+  },
+  {
+   "asset_id": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "label": "Phase 5 boss_2k"
   }
  ],
  "files": [
@@ -832,6 +852,324 @@
    "path": "assets/environment/names/district.png",
    "sha12": "3b9c7f27788f",
    "source": "props_wide_4k (2724c88a-ba03-49d2-993e-80bc1d0b6066) cell 3: padded to display aspect, snap_pixels --despill --defringe"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_grave/environment_base.png",
+   "sha12": "8717bb681244",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family cyber_grave, cell 0, offset (0, 0); environment_base; aftermath seed 50"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_grave/environment_structure.png",
+   "sha12": "ca5701ab543f",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family cyber_grave, cell 1, offset (0, 61); environment_structure; aftermath seed 50"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_grave/environment_lights.png",
+   "sha12": "d3dd549c291e",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family cyber_grave, cell 1, offset (0, 61); environment_lights; aftermath seed 50"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_grave/aftermath_structure.png",
+   "sha12": "59d884c1dfb2",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family cyber_grave, cell 1, offset (0, 61); aftermath_structure; aftermath seed 50"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_grave/aftermath_base.png",
+   "sha12": "5a2ffe8856b9",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family cyber_grave, cell 0, offset (0, 0); aftermath_base; aftermath seed 50"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_grave/aftermath_lights.png",
+   "sha12": "17181f3c5cdd",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family cyber_grave, cell 1, offset (0, 61); aftermath_lights; aftermath seed 50"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/environment_base.png",
+   "sha12": "e7036fa839cd",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family foundry_forge, cell 2, offset (0, 0); environment_base; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/environment_structure.png",
+   "sha12": "78ed3f5bd505",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family foundry_forge, cell 3, offset (0, 117); environment_structure; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/environment_lights.png",
+   "sha12": "5b6f9b9c7708",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family foundry_forge, cell 3, offset (0, 117); environment_lights; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/aftermath_structure.png",
+   "sha12": "aaaca572c7ed",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family foundry_forge, cell 3, offset (0, 117); aftermath_structure; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/aftermath_base.png",
+   "sha12": "b4a324e36f0c",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family foundry_forge, cell 2, offset (0, 0); aftermath_base; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/aftermath_lights.png",
+   "sha12": "0c39fe4d75fb",
+   "source": "8d9910a7-2771-4a11-b991-c8fdeeb361d0",
+   "recipe": "later_4k_1, family foundry_forge, cell 3, offset (0, 117); aftermath_lights; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/boss_structure.png",
+   "sha12": "d8c3209391e3",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family foundry_forge, cell 0, offset (16, 26); boss_structure; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/foundry_forge/boss_lights.png",
+   "sha12": "bc2093eeddb2",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family foundry_forge, cell 0, offset (16, 26); boss_lights; aftermath seed 51"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/environment_base.png",
+   "sha12": "5b1b3027b01e",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family stratos_docks, cell 0, offset (0, 0); environment_base; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/environment_structure.png",
+   "sha12": "08ee516f9f2f",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family stratos_docks, cell 1, offset (0, 45); environment_structure; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/environment_lights.png",
+   "sha12": "89cfef371d48",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family stratos_docks, cell 1, offset (0, 45); environment_lights; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/aftermath_structure.png",
+   "sha12": "abac2d73d1ec",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family stratos_docks, cell 1, offset (0, 45); aftermath_structure; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/aftermath_base.png",
+   "sha12": "352a8dd6d199",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family stratos_docks, cell 0, offset (0, 0); aftermath_base; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/aftermath_lights.png",
+   "sha12": "6fcf8acf8c75",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family stratos_docks, cell 1, offset (0, 45); aftermath_lights; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/boss_structure.png",
+   "sha12": "204ba6a48a23",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family stratos_docks, cell 1, offset (16, 26); boss_structure; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/stratos_docks/boss_lights.png",
+   "sha12": "0f1decb96499",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family stratos_docks, cell 1, offset (16, 26); boss_lights; aftermath seed 52"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/environment_base.png",
+   "sha12": "17ef8627561c",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family spire_outer_hull, cell 2, offset (0, 0); environment_base; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/environment_structure.png",
+   "sha12": "ef0b2ab3e052",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family spire_outer_hull, cell 3, offset (0, 41); environment_structure; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/environment_lights.png",
+   "sha12": "9198ec8fbf3f",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family spire_outer_hull, cell 3, offset (0, 41); environment_lights; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_structure.png",
+   "sha12": "2d1e074b36e0",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family spire_outer_hull, cell 3, offset (0, 41); aftermath_structure; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_base.png",
+   "sha12": "602a57cee522",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family spire_outer_hull, cell 2, offset (0, 0); aftermath_base; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/aftermath_lights.png",
+   "sha12": "ddbd88b0463f",
+   "source": "10de11f9-3bc1-4361-8eef-65ec42c685d6",
+   "recipe": "later_4k_2, family spire_outer_hull, cell 3, offset (0, 41); aftermath_lights; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/boss_structure.png",
+   "sha12": "dd54faaf8386",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family spire_outer_hull, cell 2, offset (16, 26); boss_structure; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/spire_outer_hull/boss_lights.png",
+   "sha12": "81e1f81bb7e6",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family spire_outer_hull, cell 2, offset (16, 26); boss_lights; aftermath seed 53"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/environment_base.png",
+   "sha12": "632c33ffa3e3",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family cyber_nexus, cell 0, offset (0, 0); environment_base; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/environment_structure.png",
+   "sha12": "2620b3e27959",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family cyber_nexus, cell 1, offset (0, -39); environment_structure; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/environment_lights.png",
+   "sha12": "9798ca340937",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family cyber_nexus, cell 1, offset (0, -39); environment_lights; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/aftermath_structure.png",
+   "sha12": "bce1d91d6532",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family cyber_nexus, cell 1, offset (0, -39); aftermath_structure; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/aftermath_base.png",
+   "sha12": "43c5877cfcb7",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family cyber_nexus, cell 0, offset (0, 0); aftermath_base; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/aftermath_lights.png",
+   "sha12": "24b254b51b5f",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family cyber_nexus, cell 1, offset (0, -39); aftermath_lights; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/boss_structure.png",
+   "sha12": "0d2570ee8d12",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family cyber_nexus, cell 3, offset (16, 26); boss_structure; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/cyber_nexus/boss_lights.png",
+   "sha12": "3c86fa09d074",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family cyber_nexus, cell 3, offset (16, 26); boss_lights; aftermath seed 54"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/environment_base.png",
+   "sha12": "2c7052095a55",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family apex_bastion, cell 2, offset (0, 0); environment_base; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/environment_structure.png",
+   "sha12": "f6cda319c242",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family apex_bastion, cell 3, offset (0, -43); environment_structure; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/environment_lights.png",
+   "sha12": "0fac0787b087",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family apex_bastion, cell 3, offset (0, -43); environment_lights; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/aftermath_structure.png",
+   "sha12": "e72e3e07c5bd",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family apex_bastion, cell 3, offset (0, -43); aftermath_structure; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/aftermath_base.png",
+   "sha12": "ac03ff90d525",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family apex_bastion, cell 2, offset (0, 0); aftermath_base; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/aftermath_lights.png",
+   "sha12": "168c80d72fa1",
+   "source": "7d6407e4-426a-43c7-b5a4-8eb2e7158849",
+   "recipe": "later_4k_3, family apex_bastion, cell 3, offset (0, -43); aftermath_lights; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/boss_structure.png",
+   "sha12": "2e83fa7b38e9",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family apex_bastion, cell 4, offset (16, 26); boss_structure; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/apex_bastion/boss_lights.png",
+   "sha12": "caaf09e2fab1",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family apex_bastion, cell 4, offset (16, 26); boss_lights; aftermath seed 55"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/environment_base.png",
+   "sha12": "362017eb7664",
+   "source": "eb117132-96fe-42b9-8105-40cc94f6d21c",
+   "recipe": "later_4k_4, family judgment_day, cell 0, offset (0, 0); environment_base; aftermath seed 56"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/environment_structure.png",
+   "sha12": "e98cacefd04c",
+   "source": "eb117132-96fe-42b9-8105-40cc94f6d21c",
+   "recipe": "later_4k_4, family judgment_day, cell 1, offset (0, 69); environment_structure; aftermath seed 56"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/environment_lights.png",
+   "sha12": "d374b1b95030",
+   "source": "eb117132-96fe-42b9-8105-40cc94f6d21c",
+   "recipe": "later_4k_4, family judgment_day, cell 1, offset (0, 69); environment_lights; aftermath seed 56"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/aftermath_structure.png",
+   "sha12": "7b0577dd63ea",
+   "source": "eb117132-96fe-42b9-8105-40cc94f6d21c",
+   "recipe": "later_4k_4, family judgment_day, cell 1, offset (0, 69); aftermath_structure; aftermath seed 56"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/aftermath_lights.png",
+   "sha12": "461b06e946bc",
+   "source": "eb117132-96fe-42b9-8105-40cc94f6d21c",
+   "recipe": "later_4k_4, family judgment_day, cell 1, offset (0, 69); aftermath_lights; aftermath seed 56"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/boss_structure.png",
+   "sha12": "0892f39559c9",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family judgment_day, cell 5, offset (16, 4); boss_structure; aftermath seed 56; collar mask (214,153)-(292,240), transparent pixels only, darkest opaque source collar swatch from (190,140)-(320,260)"
+  },
+  {
+   "path": "assets/environments/later_campaign/judgment_day/boss_lights.png",
+   "sha12": "aeeebf1bae87",
+   "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
+   "recipe": "boss_2k, family judgment_day, cell 5, offset (16, 4); boss_lights; aftermath seed 56; collar mask (214,153)-(292,240), transparent pixels only, darkest opaque source collar swatch from (190,140)-(320,260)"
   }
  ]
 }

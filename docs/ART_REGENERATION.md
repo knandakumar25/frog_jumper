@@ -90,7 +90,7 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
 | **Total** | | **2,170** |
 
-- **Spent so far:** Phases 1–4 used 1,054 credits (634 + 72 + 282 + 66). The balance on 2026-11-14 was 1,756, against 1,152 still planned for Phases 5–7 and the 2026-11-12 items.
+- **Spent so far:** Phases 1–5 used 1,192 credits (634 + 72 + 282 + 66 + 138). After the five Phase 5 sheets, the balance is 1,618, against 1,014 still planned for Phases 6–7 and the 2026-11-12 items.
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
@@ -661,6 +661,22 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
 | `assets/environment/names/terminal.png` | 512x512 | sprite, transparent | remake | `a4b10306be9c` |
 
 ## Phase 5: Later-campaign environments
+
+### Phase 5 status (done 2026-11-14, 138 credits)
+
+All five reference uploads were recovered from Claude's interrupted approved task.
+Four 4K scene sheets and one 2K boss sheet completed for 138 credits; no retries.
+`tools/art/build_later_campaign_art.py` cuts the sheets, snaps to pixel grids,
+aligns decks, derives aftermath and light layers, and records file hashes/source
+cells in `spritecook-assets.json`. It produces 53 files across the seven families;
+Judgment Day's unused aftermath base is omitted. The Apex deck uses inspected
+source-normalized y808 rather than the wall's first opaque row. Boss placement
+is reviewed at runtime scale over the existing chassis geometry. Judgment's collar
+gap is closed with a sampled source shadow colour; the mask is recorded in the
+manifest. All 53 files have imports; image audit and all seven comparisons pass.
+The final full suites passed: Django 111, NUnit 439, GdUnit 363 with zero errors,
+failures or orphans. Import exits 0 with the previously known editor shutdown
+messages. See HANDOFF and MEMORY for verification details and remaining work.
 
 **Shared rules:**
 - Each family has an environment scene and an aftermath scene. Each scene has three 1920x1080 layers: `_base` (opaque), `_structure` and `_lights` (transparent).

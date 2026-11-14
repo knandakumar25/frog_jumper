@@ -1,8 +1,22 @@
 # Axiom Force — Project Memory
 
+## Phase 5 delivery and shutdown
+
+- Owner requested Docker shutdown followed by a Git push. Stopped all project Compose services, including any profile services, with `docker compose --profile '*' stop`; database volumes retained.
+- Publishing the completed Phase 5 art, processing helper, manifest and documentation to `origin/main`. Prior full test results remain applicable; this delivery task changes documentation only and does not run exports or generation.
+
+## Phase 5 resumed — 2026-11-14
+
+- Latest Claude session `f67cb27c-…` stopped after five free reference uploads. Its Phase 5 plan was approved: 53 later-campaign layers, 138-credit budget, 207 stop. Recovered uploads; no duplicated generation.
+- Generated four 4K scene sheets and one 2K boss sheet for 138 total, balance 1,618. Raw sheets and source IDs retained in ignored `reports/phase5/`; manifest records the delivered assets.
+- Added the documented processing helper; all 53 layers delivered. Review fixed Apex wall/deck detection and structure source-cell records. A targeted source-colour collar repair gives Judgment Day complete chassis coverage; transparent boss margins remain clear. Runtime gameplay code and Tokyo blade offset unchanged.
+- Server restart interrupted orchestration, but original processing survived; checked process state before continuing. Final verification: build 0 errors (151 warnings); all 53 `.import` files present; image audit 153 images; all seven old/new comparisons passed. Final full tests: Django 111, NUnit 439, GdUnit 363 with 0 errors, 0 failures, 0 orphans. Python helper compiles; Graphify refreshed locally without LLM calls.
+- Import exits 0 with no art import failures; existing System.Runtime/Android EditorSettings and resource cleanup messages remain. Reviewed seven scene/aftermath composites and six boss/chassis overlays; fresh-context EGM review found no blocking artifact issues. Composites and logs live in ignored `reports/phase5/`. No commits/pushes or exports. Docker stack left running. Next: separately approved Phase 6; Tokyo blade offset still deferred.
+
 ## Phase 4 mission props done — 2026-11-14
 
-- **Credits:** 66 (two 2K 4x4 sheets plus one 4K 2x2 sheet, no retries); balance 1,756. Plan total is now 2,170. Not committed.
+- **Pushed:** committed and pushed to `main` as `e092594` at the owner's "push to git".
+- **Credits:** 66 (two 2K 4x4 sheets plus one 4K 2x2 sheet, no retries); balance 1,756. Plan total is now 2,170.
 - **Owner decisions:**
   - 4x4 sheets instead of 3x3 (saved 18 credits).
   - Nearest filtering for the props: a code change in `WildfireVisual.cs`, `NeonRustVisual.cs`, `AegisVisual.cs` and `NamesWithoutNumbersMission.Art()`.

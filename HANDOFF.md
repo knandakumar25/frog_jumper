@@ -1,5 +1,14 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 5 resumed from Claude — 2026-11-14
+
+- Recovered the approved 138-credit plan and all five uploaded references; generated four 4K scene sheets and one 2K boss sheet for exactly 138 credits. Balance 1,618; no retries.
+- Produces 53 files under `assets/environments/later_campaign/` using the documented `build_later_campaign_art.py` helper. No gameplay or cutscene script changes; Tokyo blade offset remains deferred.
+- Pixel snapping, magenta keying, per-family aftermath seeds and light extraction reuse existing tools. Apex's deck needs explicit y808 alignment; source quadrant/offset provenance was corrected during review.
+- Final verification: build 0 errors (151 warnings); 53 `.import` files; image audit 153 images; all seven comparisons passed. Full tests after final edits: Django 111, NUnit 439, GdUnit 363 with 0 errors/failures/orphans. Helper compiles and local Graphify is refreshed.
+- Import exits 0 without asset failures, while retaining the known System.Runtime/Android EditorSettings/resource cleanup messages. Seven scene/aftermath composites and six runtime scale boss/chassis overlays were reviewed. The Judgment collar gap was repaired with its own source shadow colour; source recipes include the mask. Fresh-context EGM review found no blocking artifact issues.
+- Evidence is retained in ignored `reports/phase5/`. Changes are local, Docker remains up, and no exports ran. Next phase still needs its own cost approval.
+
 ## Phase 4 mission props done — 2026-11-14
 
 - **Credits:** 66, matching the plan once the owner chose two 2K 4x4 sheets over three 3x3 sheets. No retries. The balance is 1,756, and the plan total is now 2,170.
