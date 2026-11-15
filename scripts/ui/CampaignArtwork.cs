@@ -106,7 +106,7 @@ public static class CampaignArtwork
     /// that baseline and placed with its baseline on <paramref name="feet"/>. A speaker uses the
     /// second idle frame so the pose changes slightly while they talk.
     /// </summary>
-    private static void DrawOperative(CanvasItem canvas, string id, Vector2 feet, float height, bool speaking)
+    public static void DrawOperative(CanvasItem canvas, string id, Vector2 feet, float height, bool speaking)
     {
         var texture = Texture($"res://assets/characters/rendered/{id}_atlas.png");
         if (texture == null) return;
@@ -117,25 +117,71 @@ public static class CampaignArtwork
             cell * scale, cell * scale), region);
     }
 
-    /// <summary>Adds the matching rendered boss armor and emissive plate without changing collision or phase effects.</summary>
+    /// <summary>Draws one complete SpriteCook civilian at the requested foot position; absent art stays empty.</summary>
+    public static bool DrawCivilian(CanvasItem canvas, Vector2 feet, float height, int variant = 0)
+    {
+        var texture = Texture("res://assets/environment/names/civilians.png");
+        if (texture == null) return false;
+        variant = Math.Clamp(variant, 0, 2);
+        // Measured alpha bounds of the three separated figures in the approved 512x512 sheet.
+        int left = variant == 0 ? 0 : variant == 1 ? 171 : 341;
+        int width = variant == 1 ? 170 : 171;
+        int baseline = variant == 1 ? 443 : 453;
+        float centre = variant == 0 ? 74.5f : variant == 1 ? 85 : 100;
+        float scale = height / 394f;
+        canvas.DrawTextureRectRegion(texture,
+            new Rect2(feet.X - centre * scale, feet.Y - baseline * scale, width * scale, baseline * scale),
+            new Rect2(left, 0, width, baseline));
+        return true;
+    }
+
+    /// <summary>Reuses the SpriteCook deployment drone's authored region without stretching its proportions.</summary>
+    public static void DrawDrone(CanvasItem canvas, Vector2 centre, float width)
+    {
+        Vector2 size = new(width, width / 4);
+        foreach (string layer in new[] { "structure", "lights" })
+        {
+            var texture = Texture($"res://assets/cutscenes/deployment/live/drone_{layer}.png");
+            if (texture != null)
+                canvas.DrawTextureRectRegion(texture, new Rect2(centre - size / 2, size), new Rect2(840, 440, 240, 60));
+        }
+    }
+
+    /// <summary>
+    /// Attaches the SpriteCook body to its shared visual transform. Separate shield, aura
+    /// and orbital indicators remain visible; actors contain no legacy chassis geometry.
+    /// Missing art leaves a gap rather than bringing back a different character design.
+    /// </summary>
     public static void AttachBoss(Node2D boss, string family)
+    {
+        Node2D body = boss.GetNodeOrNull<Node2D>("VisualRoot") ?? boss;
+        foreach (string layer in new[] { "structure", "lights" })
+        {
+            var texture = Texture(FamilyPath(family) + "boss_" + layer + ".png");
+            if (texture == null) continue;
+            body.AddChild(new Sprite2D { Name = "Armor_" + layer, Texture = texture,
+                Scale = Vector2.One * .45f, Position = new Vector2(0, -7), ZIndex = 2,
+                TextureFilter = CanvasItem.TextureFilterEnum.Nearest,
+                Material = new CanvasItemMaterial { LightMode = CanvasItemMaterial.LightModeEnum.Unshaded } });
+        }
+    }
+
+    /// <summary>Fits the SpriteCook boss plates into a cinematic staging box without stretching their aspect ratio.</summary>
+    public static void DrawBoss(CanvasItem canvas, string family, Rect2 destination, Color? tint = null)
     {
         foreach (string layer in new[] { "structure", "lights" })
         {
             var texture = Texture(FamilyPath(family) + "boss_" + layer + ".png");
             if (texture == null) continue;
-            boss.AddChild(new Sprite2D { Name = "Armor_" + layer, Texture = texture,
-                Scale = Vector2.One * .45f, Position = new Vector2(0, -7), ZIndex = 2 });
+            Vector2 native = texture.GetSize();
+            float fit = Mathf.Min(destination.Size.X / native.X, destination.Size.Y / native.Y);
+            Vector2 size = native * fit;
+            canvas.DrawTextureRect(texture, new Rect2(destination.Position + (destination.Size - size) * .5f, size),
+                false, tint ?? Godot.Colors.White);
         }
     }
 
     /// <summary>Uses the same identifiable armor plate for a cinematic commander and its gameplay encounter.</summary>
-    public static void DrawCommander(CanvasItem canvas, Vector2 feet)
-    {
-        foreach (string layer in new[] { "structure", "lights" })
-        {
-            var texture = Texture(FamilyPath("judgment_day") + "boss_" + layer + ".png");
-            if (texture != null) canvas.DrawTextureRect(texture, new Rect2(feet + new Vector2(-130, -225), new Vector2(260, 260)), false);
-        }
-    }
+    public static void DrawCommander(CanvasItem canvas, Vector2 feet) =>
+        DrawBoss(canvas, "judgment_day", new Rect2(feet + new Vector2(-130, -225), new Vector2(260, 260)));
 }

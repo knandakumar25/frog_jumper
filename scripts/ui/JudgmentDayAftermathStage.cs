@@ -294,13 +294,6 @@ public partial class JudgmentDayAftermathStage : Control
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
-    private void DrawCapsule(Vector2 center, Vector2 size, Color color)
-    {
-        DrawRect(new Rect2(center.X - size.X * 0.5f, center.Y - size.Y * 0.5f, size.X, size.Y), color);
-        DrawCircle(new Vector2(center.X, center.Y - size.Y * 0.5f), size.X * 0.5f, color);
-        DrawCircle(new Vector2(center.X, center.Y + size.Y * 0.5f), size.X * 0.5f, color);
-    }
-
     private void DrawCinematicOverlays(Vector2 size, float t)
     {
         // 1. Anamorphic 2.39:1 letterbox bars (138px top and bottom on 1080p canvas)

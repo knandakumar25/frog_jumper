@@ -45,10 +45,9 @@ public partial class SpireSentinelBoss2D : CharacterBody2D
     private Vector2 _originPosition;
     private float _hoverTimer;
     private float _attackCooldown;
-    private PointLight2D? _coreLight;
     private Node2D? _visualRoot;
 
-    /// <summary>Initializes boss positioning, groups, procedural visuals, and HUD telemetry.</summary>
+    /// <summary>Initializes boss positioning, groups, SpriteCook artwork, and HUD telemetry.</summary>
     public override void _Ready()
     {
         CollisionLayer = 2;
@@ -63,7 +62,7 @@ public partial class SpireSentinelBoss2D : CharacterBody2D
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
-    /// <summary>Creates procedural high-tech Spire guardian visuals and collision shape if not pre-configured.</summary>
+    /// <summary>Creates the artwork root and collision shape if not pre-configured.</summary>
     private void SetupVisuals()
     {
         if (GetNodeOrNull<CollisionShape2D>("CollisionShape2D") == null)
@@ -78,54 +77,6 @@ public partial class SpireSentinelBoss2D : CharacterBody2D
 
         _visualRoot = new Node2D { Name = "VisualRoot" };
         AddChild(_visualRoot);
-
-        // Heavy aerodynamic Spire Sentinel armored torso
-        var chassis = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(0, -50),
-                new Vector2(40, -25),
-                new Vector2(45, 20),
-                new Vector2(25, 50),
-                new Vector2(-25, 50),
-                new Vector2(-45, 20),
-                new Vector2(-40, -25)
-            },
-            Color = new Color(0.16f, 0.22f, 0.32f) // Deep stratospheric titanium armor
-        };
-        _visualRoot.AddChild(chassis);
-
-        // Swept vertical stabilizers
-        var leftFin = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(-40, -15), new Vector2(-75, 5), new Vector2(-45, 35) },
-            Color = new Color(0.28f, 0.38f, 0.52f)
-        };
-        var rightFin = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(40, -15), new Vector2(75, 5), new Vector2(45, 35) },
-            Color = new Color(0.28f, 0.38f, 0.52f)
-        };
-        _visualRoot.AddChild(leftFin);
-        _visualRoot.AddChild(rightFin);
-
-        // Central optic sensor lens (magenta/violet)
-        var sensor = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(-18, -18), new Vector2(18, -18), new Vector2(12, 2), new Vector2(-12, 2) },
-            Color = new Color(0.95f, 0.2f, 0.6f)
-        };
-        _visualRoot.AddChild(sensor);
-
-        _coreLight = new PointLight2D
-        {
-            Name = "CoreLight",
-            Color = new Color(0.9f, 0.2f, 0.7f, 0.85f),
-            Energy = 1.3f,
-            TextureScale = 1.6f
-        };
-        AddChild(_coreLight);
     }
 
     /// <summary>Executes hover traversal, phase-specific attacks, and projectile volleys.</summary>
@@ -216,7 +167,6 @@ public partial class SpireSentinelBoss2D : CharacterBody2D
         if (CurrentHealth <= boundary && !PhaseBlocked && CurrentPhase < 3)
         {
             ++CurrentPhase;
-            if (_coreLight != null) _coreLight.Color = CurrentPhase == 2 ? new Color("ff9900") : new Color("ff2255");
         }
         if (amount > 0 || oldPhase != CurrentPhase || wasBlocked != PhaseBlocked)
             EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);

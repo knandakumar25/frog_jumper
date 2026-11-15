@@ -215,27 +215,7 @@ public partial class ApexBastionAftermathStage : Control
     {
         Vector2 wreckPos = new(1180, 670);
 
-        // Ruptured obsidian armor chassis collapsed onto rampart
-        Vector2[] chassisPts = {
-            wreckPos + new Vector2(-55, -20),
-            wreckPos + new Vector2(-25, -60),
-            wreckPos + new Vector2(40, -45),
-            wreckPos + new Vector2(65, 5),
-            wreckPos + new Vector2(25, 45),
-            wreckPos + new Vector2(-40, 35)
-        };
-        DrawColoredPolygon(chassisPts, new Color("0c101d"));
-        DrawPolyline(chassisPts, new Color("1e293b"), 2.5f);
-
-        // Severed flak cannon mounts with glowing heat and spark emissions
-        Vector2 leftMount = wreckPos + new Vector2(-45, -35);
-        Vector2 rightMount = wreckPos + new Vector2(35, -25);
-        DrawCircle(leftMount, 10f, new Color(1f, 0.3f, 0.1f, 0.7f));
-        DrawCircle(rightMount, 10f, new Color(1f, 0.3f, 0.1f, 0.7f));
-
-        // Cracked command visor (flickering red dying pulse)
-        float visorFlicker = Mathf.Abs(Mathf.Sin(t * 6f)) * (1f - Mathf.Clamp(t / 80f, 0f, 0.85f));
-        DrawCircle(wreckPos + new Vector2(-5, -15), 6f, new Color(1f, 0.1f, 0.25f, visorFlicker));
+        CampaignArtwork.DrawBoss(this, "apex_bastion", new Rect2(1125, 610, 120, 105), new Color(0.55f, 0.55f, 0.6f));
 
         // Electric spark discharges firing intermittently
         if (Mathf.Sin(t * 13f) > 0.45f)

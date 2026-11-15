@@ -59,6 +59,7 @@ public partial class NamesWithoutNumbersAftermathStage : Control
     /// <summary>Loads the two original transparent district plates without emitting missing-file errors.</summary>
     public override void _Ready()
     {
+        TextureFilter = TextureFilterEnum.Nearest;
         _district = Load(ArtPath + "district_structure.png");
         _lights = Load(ArtPath + "district_lights.png");
     }
@@ -241,26 +242,14 @@ public partial class NamesWithoutNumbersAftermathStage : Control
             float x = 935 + i * 91 + (i > 0 ? Mathf.Min(t, 24) * (i % 2 == 0 ? 0.9f : -0.45f) : 0);
             float feet = 828 + (i % 2) * 3;
             float scale = i == 0 ? 1.08f : 0.82f + (i % 3) * 0.08f;
-            Color coat = i == 0 ? new Color("79918a") : new Color(i % 2 == 0 ? "495c64" : "655c62");
-            DrawCivilian(x, feet, scale, coat, i == 0 && t < 13);
+            DrawCivilian(x, feet, scale, i % 3, i == 0 && t < 13);
         }
     }
 
-    /// <summary>Draws an individual civilian with expressive silhouette and paper in hand.</summary>
-    private void DrawCivilian(float x, float feet, float scale, Color coat, bool holdingRecord)
+    /// <summary>Reuses one of the three SpriteCook civilians, keeping the authored ground line and record effect.</summary>
+    private void DrawCivilian(float x, float feet, float scale, int variant, bool holdingRecord)
     {
-        DrawCircle(new Vector2(x, feet - 117 * scale), 22 * scale, new Color("b98e70"));
-        DrawRect(new Rect2(x - 19 * scale, feet - 151 * scale, 38 * scale, 10 * scale), new Color("273a42"));
-        DrawPolygon(new Vector2[] {
-            new(x - 34 * scale, feet - 88 * scale),
-            new(x + 34 * scale, feet - 88 * scale),
-            new(x + 47 * scale, feet - 14 * scale),
-            new(x - 46 * scale, feet - 14 * scale)
-        }, new Color[] { coat });
-
-        DrawLine(new Vector2(x - 22 * scale, feet - 15 * scale), new Vector2(x - 26 * scale, feet), new Color("26323a"), 12 * scale);
-        DrawLine(new Vector2(x + 22 * scale, feet - 15 * scale), new Vector2(x + 28 * scale, feet), new Color("26323a"), 12 * scale);
-        DrawLine(new Vector2(x + 25 * scale, feet - 76 * scale), new Vector2(x + 50 * scale, feet - 57 * scale), new Color("b98e70"), 8 * scale);
+        if (!CampaignArtwork.DrawCivilian(this, new Vector2(x, feet), 151f * scale, variant)) return;
 
         // Glowing identity paper in hand
         if (holdingRecord)
@@ -320,56 +309,15 @@ public partial class NamesWithoutNumbersAftermathStage : Control
         DrawArc(new Vector2(x, feet), 48 + pulse * 12, 0, Mathf.Tau, 32, new Color(color, 0.2f), 1.5f);
     }
 
-    /// <summary>Renders distinctive operative silhouettes with signature gear.</summary>
+    /// <summary>Uses the matching SpriteCook body at the shot's original foot position.</summary>
     private void DrawOperative(float x, float feet, Color color, int id)
     {
-        // Head
-        DrawCircle(new Vector2(x, feet - 125), 26, new Color("c69b7d"));
-
-        // Torso
-        DrawPolygon(new Vector2[] {
-            new(x - 40, feet - 91),
-            new(x + 40, feet - 91),
-            new(x + 48, feet - 14),
-            new(x - 47, feet - 14)
-        }, new Color[] { color });
-
-        // Legs
-        DrawLine(new Vector2(x - 21, feet - 14), new Vector2(x - 25, feet), new Color("141e28"), 14);
-        DrawLine(new Vector2(x + 21, feet - 14), new Vector2(x + 27, feet), new Color("141e28"), 14);
-
-        // Signature gear details
-        if (id == 0) // Kaito: Katana sheath & glint
+        string operative = id switch
         {
-            DrawLine(new Vector2(x + 38, feet - 82), new Vector2(x + 68, feet - 24), new Color("c8d4d7"), 4);
-            DrawLine(new Vector2(x + 36, feet - 84), new Vector2(x + 42, feet - 88), ColorKaito, 6);
-        }
-        else if (id == 1) // Mirage: Phase daggers
-        {
-            DrawLine(new Vector2(x - 36, feet - 55), new Vector2(x - 48, feet - 35), ColorMirage, 3);
-            DrawLine(new Vector2(x + 36, feet - 55), new Vector2(x + 48, feet - 35), ColorMirage, 3);
-        }
-        else if (id == 2) // Aura: Prism resonance rings
-        {
-            DrawArc(new Vector2(x - 30, feet - 60), 12, 0, Mathf.Tau, 16, ColorAura, 2);
-            DrawArc(new Vector2(x + 30, feet - 60), 12, 0, Mathf.Tau, 16, ColorAura, 2);
-        }
-        else if (id == 3) // Oceanus: Hydro robes & ripples
-        {
-            DrawPolygon(new Vector2[] {
-                new(x - 48, feet - 40),
-                new(x + 48, feet - 40),
-                new(x + 56, feet - 4),
-                new(x - 56, feet - 4)
-            }, new Color[] { new Color(ColorOceanus, 0.5f) });
-        }
-        else if (id == 4) // Titan: Heavy kinetic pauldrons
-        {
-            DrawRect(new Rect2(x - 52, feet - 96, 22, 28), ColorTitan);
-            DrawRect(new Rect2(x + 30, feet - 96, 22, 28), ColorTitan);
-        }
+            1 => "mirage_blade", 2 => "phoenicia", 3 => "oceanus", 4 => "apex_titan", _ => "cyber_shogun"
+        };
+        CampaignArtwork.DrawOperative(this, operative, new Vector2(x, feet), 151f, speaking: true);
     }
-
     /// <summary>Draws horizontal anamorphic cyber flare sweeps during key narrative moments.</summary>
     private void DrawAnamorphicFlares(float t, int shot)
     {

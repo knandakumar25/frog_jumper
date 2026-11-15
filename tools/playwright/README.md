@@ -31,6 +31,22 @@ docker compose run --rm -e CLERK_PUBLISHABLE_KEY -e BASE_URL=http://localhost:51
 docker compose run --rm playwright
 ```
 
+The account security and client refresh checks use the same isolated server:
+
+```powershell
+docker compose run --rm -v "${PWD}/website/src:/website/src:ro" playwright npx playwright test account-security.spec.cjs client-refresh.spec.cjs --workers=1
+```
+
+`account-security.spec.cjs` checks real password login, emailed 2FA setup/login/removal,
+incorrect/expired/reused codes, email changes, and revoked refresh tokens through the API.
+The public website exposes Clerk sign-in only; these password checks do not claim a
+password-login browser screen exists. The Clerk signup browser case also exercises the
+actual account 2FA and email-change screens. `client-refresh.spec.cjs` loads the website's
+actual Axios client and verifies two concurrent expired requests spend one refresh token.
+Only import resolution and Vite's environment substitution are adapted for the Node runner.
+The test-only `/__test__/expire-codes` route ages codes belonging to `browsercheck*`
+fixtures in the isolated database; it is absent from the normal server.
+
 The first command exercises real login/MFA, signed-in reloads, a complete switch to
 another account, cancellation/replay, browser closure, fresh signup, email/phone
 verification, captured onboarding mail in a fresh browser context, and explicit

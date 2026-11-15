@@ -275,23 +275,6 @@ public partial class StratosDocksStage : Control
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
-    /// <summary>Draws a humanoid operative silhouette with energy ability rim glow.</summary>
-    private void DrawOperativeSilhouette(Vector2 pos, Color energy, float scale, string tag)
-    {
-        float h = 60 * scale;
-        float w = 18 * scale;
-
-        // Torso & legs
-        DrawRect(new Rect2(pos.X - w * 0.5f, pos.Y - h, w, h), new Color(0.02f, 0.03f, 0.05f));
-        // Head
-        DrawCircle(new Vector2(pos.X, pos.Y - h - 8 * scale), 8 * scale, new Color(0.02f, 0.03f, 0.05f));
-
-        // Distinctive energy glow contour
-        DrawLine(new Vector2(pos.X - w * 0.5f, pos.Y), new Vector2(pos.X - w * 0.5f, pos.Y - h), energy, 1.5f);
-        DrawLine(new Vector2(pos.X + w * 0.5f, pos.Y), new Vector2(pos.X + w * 0.5f, pos.Y - h), energy, 1.5f);
-        DrawCircle(new Vector2(pos.X, pos.Y - h - 8 * scale), 9 * scale, new Color(energy.R, energy.G, energy.B, 0.35f));
-    }
-
     /// <summary>Renders sweeping airport security searchlights across the dark sky.</summary>
     private void DrawSearchlights(float time)
     {

@@ -24,7 +24,11 @@ test.beforeAll(async () => {
 
 test.afterAll(async () => {
   // Cleanup runs even after a failed assertion; only accounts created here are removed.
-  if (client) for (const id of users) await client.users.deleteUser(id);
+  if (client) {
+    const results = await Promise.allSettled(users.map(id => client.users.deleteUser(id)));
+    const failed = results.filter(result => result.status === 'rejected').length;
+    if (failed) throw new Error(`Cleanup could not remove ${failed} disposable Clerk users`);
+  }
 });
 
 /** Route all browser API traffic to the ephemeral test database, preserving the website/Clerk origin. */
@@ -75,10 +79,17 @@ async function finishVerification(page) {
     // present; filling only the first cell leaves phone/MFA verification pending.
     const fields = page.locator('input[autocomplete="one-time-code"]');
     const count = await fields.count();
-    if (count === 1) await fields.fill('424242');
-    else for (let index = 0; index < count; index++) await fields.nth(index).fill('424242'[index]);
-    const submit = page.getByRole('button', { name: /^continue$/i });
-    if (await submit.isVisible()) await submit.click();
+    try {
+      if (count === 1) await fields.fill('424242', { timeout: 3000 });
+      else for (let index = 0; index < count; index++) await fields.nth(index).fill('424242'[index], { timeout: 3000 });
+      const submit = page.getByRole('button', { name: /^continue$/i });
+      if (await submit.isVisible()) await submit.click();
+    } catch (error) {
+      // Clerk can complete a challenge and redirect between observing its input
+      // and filling it. A completed redirect wins over the now-removed input.
+      if (new URL(page.url()).pathname === '/auth/browser-confirm') return;
+      throw error;
+    }
     await page.waitForTimeout(1500);
   }
   await expect(page).toHaveURL(/browser-confirm/);
@@ -92,6 +103,22 @@ async function signInFromForm(page, email, password) {
   await page.getByRole('button', { name: /^continue$/i }).click();
   await finishVerification(page);
   await expect(page.getByTestId('authorize-game')).toBeVisible();
+}
+
+/** Read only this disposable account's most recent code from the in-memory mail capture. */
+async function capturedCode(request, email) {
+  const messages = await (await request.get(backend + '/__test__/mail')).json();
+  const message = [...messages].reverse().find(msg => msg.to.includes(email) && /code.*\d{6}/i.test(msg.body));
+  if (!message) throw new Error('Expected captured verification mail was missing');
+  return message.body.match(/\b\d{6}\b/)[0];
+}
+
+/** Preserve the page-lifetime auth context while exercising another existing SPA route. */
+async function navigateWithinSite(page, path) {
+  await page.evaluate(path => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  }, path);
 }
 
 test('actual Clerk login, already-signed-in approval, switching and single-use redemption', async ({ page, request }) => {
@@ -115,12 +142,12 @@ test('actual Clerk login, already-signed-in approval, switching and single-use r
   expect((await result.json()).user.username).toBe(`handoff${stamp}`);
   expect((await request.post(backend + '/api/auth/browser-poll/', { data })).status()).toBe(410);
   if (process.env.LIVE_GAME_SESSION_ID) {
-    // The Windows game owns the private proof. Approve only its public handle,
-    // leaving redemption and profile/focus verification to the running game.
+    // The external client owns the private proof. Approve only its public handle,
+    // leaving redemption and any game-process UI verification to that client.
     await page.goto(base + `/auth/browser-confirm?session_id=${process.env.LIVE_GAME_SESSION_ID}`);
     await page.getByTestId('authorize-game').click();
     await expect(page.getByTestId('browser-authorized')).toBeVisible();
-    console.log('Live Windows game approved as:', user.username);
+    console.log('External game request approved for disposable account');
   }
   const again = await device(request);
   await openRequest(page, again);
@@ -202,6 +229,40 @@ test('fresh Clerk signup, verification, captured onboarding email opened in anot
     await expect(other.getByTestId('browser-authorized')).toBeVisible();
     const profile = await (await request.post(backend + '/api/auth/browser-poll/', { data })).json();
     expect(profile.user.email).toBe(email);
+    // Onboarding retains its API session in memory. Use the real account screens,
+    // without inventing a password-login UI or persisting credentials on reload.
+    await navigateWithinSite(other, '/en-US/account/2fa');
+    await other.getByRole('button', { name: /Enable Two.Factor Authentication/i }).click();
+    await expect(other.locator('form input')).toBeVisible();
+    let otp = await capturedCode(request, email);
+    await other.locator('form input').fill(otp === '000000' ? '111111' : '000000');
+    await other.getByRole('button', { name: /Verify.*Enable/i }).click();
+    await expect(other.getByText('Invalid code or verification failed.', { exact: true })).toBeVisible();
+    await other.locator('form input').fill(otp);
+    await other.getByRole('button', { name: /Verify.*Enable/i }).click();
+    await expect(other.getByText('2FA is currently enabled on your account.', { exact: true })).toBeVisible();
+    await other.getByRole('button', { name: 'Disable 2FA', exact: true }).click();
+    await expect(other.locator('form input')).toBeVisible();
+    otp = await capturedCode(request, email);
+    await other.locator('form input').fill(otp);
+    await other.getByRole('button', { name: 'Disable 2FA', exact: true }).click();
+    await expect(other.getByRole('button', { name: /Enable Two.Factor Authentication/i })).toBeVisible();
+    await other.getByRole('button', { name: 'Back to My Account', exact: true }).click();
+    await expect(other.locator('input[name="email"]')).toHaveValue(email);
+    const changedEmail = `signup${stamp}changed+clerk_test@example.com`;
+    await other.locator('input[name="email"]').fill(changedEmail);
+    await other.getByRole('button', { name: 'Save Changes', exact: true }).click();
+    await expect(other.locator('input[name="email_code"]')).toBeVisible();
+    otp = await capturedCode(request, email);
+    await other.locator('input[name="email_code"]').fill(otp === '000000' ? '111111' : '000000');
+    await other.getByRole('button', { name: 'Save Changes', exact: true }).click();
+    await expect(other.getByText(/Failed to update profile\./)).toBeVisible();
+    await other.locator('input[name="email_code"]').fill(otp);
+    await other.getByRole('button', { name: 'Save Changes', exact: true }).click();
+    await expect(other.getByText(/Profile updated successfully!/)).toBeVisible();
+    await expect(other.locator('input[name="email"]')).toHaveValue(changedEmail);
+    const notices = await (await request.get(backend + '/__test__/mail')).json();
+    expect(notices.some(msg => msg.to.includes(email) && msg.body.includes(changedEmail))).toBeTruthy();
   } finally {
     if (emailContext) await emailContext.close();
     // Lookup is scoped to the generated test address, even if signup failed midway.

@@ -1,6 +1,6 @@
 using Godot;
 
-/// <summary>Demolition saw-drone with readable patrols, a telegraphed beam and cover-aware line-of-sight.</summary>
+/// <summary>SpriteCook vanguard sentry with readable patrols, a telegraphed beam and cover-aware line-of-sight.</summary>
 public partial class PalaceSentry : CharacterBody2D
 {
     /// <summary>Initial integrity; reinforcement drones can be configured before entering the tree.</summary>
@@ -17,7 +17,7 @@ public partial class PalaceSentry : CharacterBody2D
     private float _time, _cooldown = 1.8f, _windup, _beam, _flash, _contact;
     private bool _dead;
     private AudioStreamPlayer2D? _beamSound;
-    private Sprite2D? _body;
+    private AnimatedSprite2D? _body;
 
     /// <summary>Installs the layer-two hurtbox used by the platform controller's real melee queries.</summary>
     public override void _Ready()
@@ -29,8 +29,17 @@ public partial class PalaceSentry : CharacterBody2D
         AddToGroup("enemies");
         AddChild(new CollisionShape2D { Shape = new CircleShape2D { Radius = 34 } });
         _beamSound = StandInAssets.AddPlayer(this, StandInAssets.BeamShot, -9);
-        // The drone fills only about 15 of its frame's 32 pixels, so 4.5x matches the 34-radius hurtbox.
-        _body = StandInAssets.AddSheet(this, StandInAssets.DroneIdle, 8, 1, 4.5f, Vector2.Zero, TextureFilterEnum.Nearest);
+        // The 256-pixel SpriteCook cell's body spans roughly y=65..224. Centre that body on
+        // the retained hovering hurtbox; visual changes do not move the beam or collision.
+        _body = new AnimatedSprite2D
+        {
+            Name = "SpriteCookBody",
+            SpriteFrames = OperativeVisuals.LoadFramesAt("res://assets/characters/rendered/vanguard.tres"),
+            Animation = "idle", Scale = Vector2.One * .42f, Offset = new Vector2(0, -16),
+            TextureFilter = TextureFilterEnum.Nearest, ShowBehindParent = true,
+            Material = new CanvasItemMaterial { LightMode = CanvasItemMaterial.LightModeEnum.Unshaded }
+        };
+        AddChild(_body);
     }
 
     /// <summary>Patrols a bounded hover lane, warns before firing, and damages only a player visible past world collision.</summary>
@@ -73,7 +82,9 @@ public partial class PalaceSentry : CharacterBody2D
         }
         if (_body != null)
         {
-            _body.Frame = (int)(_time * 10) % 8;
+            int frames = _body.SpriteFrames.GetFrameCount("idle");
+            if (frames > 0) _body.Frame = (int)(_time * _body.SpriteFrames.GetAnimationSpeed("idle")) % frames;
+            _body.FlipH = difference.X < 0;
             // Values above 1 brighten the sprite, standing in for the hull's drawn hit flash.
             _body.Modulate = _flash > 0 ? new Color(2.2f, 2.2f, 2.2f) : Colors.White;
         }
@@ -96,12 +107,11 @@ public partial class PalaceSentry : CharacterBody2D
         QueueRedraw();
     }
 
-    /// <summary>Draws armored saw housings, scanning optics, exhaust and the warning/fire state.</summary>
+    /// <summary>Draws only the beam telegraph and damage bar over the SpriteCook body.</summary>
     public override void _Draw()
     {
         if (_windup > 0 || _beam > 0)
             DrawLine(Vector2.Zero, _aim, _beam > 0 ? new Color("#ffad73") : new Color(1, .39f, .36f, .3f), _beam > 0 ? 7 : 1.5f, true);
-        if (_body == null) DrawHull();
         if (CurrentHealth < MaxHealth)
         {
             DrawLine(new Vector2(-30,-44),new Vector2(30,-44),new Color("#16222d"),4);
@@ -109,25 +119,4 @@ public partial class PalaceSentry : CharacterBody2D
         }
     }
 
-    /// <summary>Draws the original code-based saw housings and hull, used when the stand-in sprite is absent.</summary>
-    private void DrawHull()
-    {
-        for (int side = -1; side <= 1; side += 2)
-        {
-            Vector2 center = new(side * 31, 9);
-            DrawCircle(center, 22, new Color("#0d1725"));
-            for (int tooth = 0; tooth < 10; tooth++)
-            {
-                float a = tooth * Mathf.Tau / 10 + _time * side * 3;
-                DrawLine(center + Vector2.FromAngle(a) * 16, center + Vector2.FromAngle(a + .1f) * 23, new Color("#6e8593"), 4, true);
-            }
-            DrawArc(center, 12, 0, Mathf.Tau, 24, new Color("#ba6479"), 2, true);
-            DrawLine(new Vector2(side * 18, 26), new Vector2(side * 18, 36 + Mathf.Sin(_time * 14) * 5), new Color("#81e3e6"), 5, true);
-        }
-        DrawColoredPolygon(new Vector2[] { new(-36,-11),new(-22,-28),new(22,-28),new(36,-11),new(25,22),new(-25,22) }, _flash > 0 ? new Color("#ffe9db") : new Color("#263748"));
-        DrawPolyline(new Vector2[] { new(-32,-9),new(-20,-23),new(20,-23),new(32,-9) }, new Color("#9a9ca8"), 3, true);
-        DrawLine(new Vector2(-20, -5), new Vector2(20, -5), new Color("#08131e"), 14, true);
-        DrawLine(new Vector2(-14, -6), new Vector2(14, -6), new Color(_windup > 0 ? "#ff9d79" : "#a0f0ee"), 4, true);
-        DrawLine(new Vector2(-8,14), new Vector2(8,14), new Color("#b27672"), 3, true);
-    }
 }

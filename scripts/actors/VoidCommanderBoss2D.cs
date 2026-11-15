@@ -46,12 +46,11 @@ public partial class VoidCommanderBoss2D : CharacterBody2D
     private float _hoverTimer;
     private float _attackCooldown;
     private Node2D? _visualRoot;
-    private Polygon2D? _visor;
     private Node2D? _darkAura;
     private Line2D? _bladeRight;
     private Line2D? _bladeLeft;
 
-    /// <summary>Initializes boss positioning, groups, procedural visuals, and HUD telemetry.</summary>
+    /// <summary>Initializes boss positioning, groups, SpriteCook artwork, and HUD telemetry.</summary>
     public override void _Ready()
     {
         CollisionLayer = 2;
@@ -66,7 +65,7 @@ public partial class VoidCommanderBoss2D : CharacterBody2D
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
-    /// <summary>Creates procedural high-tech cybernetic warlord visuals and collision shape if not pre-configured.</summary>
+    /// <summary>Creates the artwork root, combat indicators, and collision shape if not pre-configured.</summary>
     private void SetupVisuals()
     {
         if (GetNodeOrNull<CollisionShape2D>("CollisionShape2D") == null)
@@ -102,67 +101,6 @@ public partial class VoidCommanderBoss2D : CharacterBody2D
             };
             _darkAura.AddChild(auraSegment);
         }
-
-        // Billowing dark matter cape
-        var cape = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(-28, -50),
-                new Vector2(28, -50),
-                new Vector2(50, 65),
-                new Vector2(-50, 65)
-            },
-            Color = new Color(0.04f, 0.01f, 0.08f, 0.95f)
-        };
-        _visualRoot.AddChild(cape);
-
-        // Heavy cyber-exosuit torso chassis
-        var chassis = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(0, -70),
-                new Vector2(32, -50),
-                new Vector2(40, -10),
-                new Vector2(30, 45),
-                new Vector2(16, 65),
-                new Vector2(-16, 65),
-                new Vector2(-30, 45),
-                new Vector2(-40, -10),
-                new Vector2(-32, -50)
-            },
-            Color = new Color(0.08f, 0.04f, 0.14f) // Obsidian warlord armor
-        };
-        _visualRoot.AddChild(chassis);
-
-        // Shoulder pauldrons
-        var leftShoulder = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(-32, -50), new Vector2(-60, -35), new Vector2(-45, -5), new Vector2(-25, -20) },
-            Color = new Color(0.18f, 0.08f, 0.28f)
-        };
-        var rightShoulder = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(32, -50), new Vector2(60, -35), new Vector2(45, -5), new Vector2(25, -20) },
-            Color = new Color(0.18f, 0.08f, 0.28f)
-        };
-        _visualRoot.AddChild(leftShoulder);
-        _visualRoot.AddChild(rightShoulder);
-
-        // Crimson command ocular visor
-        _visor = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(-20, -35),
-                new Vector2(20, -35),
-                new Vector2(14, -26),
-                new Vector2(-14, -26)
-            },
-            Color = new Color(1.0f, 0.1f, 0.3f) // Glowing crimson visor
-        };
-        _visualRoot.AddChild(_visor);
 
         // Twin dual-phase energy blades
         _bladeRight = new Line2D
@@ -206,18 +144,9 @@ public partial class VoidCommanderBoss2D : CharacterBody2D
     /// <summary>Damage stops at the current authored phase threshold; excess damage never skips defenders or a phase.</summary>
     private float PhaseFloor => CurrentPhase switch { 1 => MaxHealth * 0.70f, 2 => MaxHealth * 0.35f, _ => 0 };
 
-    /// <summary>Updates phase-specific armor and weapon feedback.</summary>
+    /// <summary>Updates the phase-specific energy blade indicators.</summary>
     private void OnPhaseShift(int newPhase)
     {
-        if (_visor != null)
-        {
-            _visor.Color = newPhase switch
-            {
-                2 => new Color(1.0f, 0.75f, 0.1f), // Coronal gold targeting
-                _ => new Color(1.0f, 0.0f, 0.35f)  // Singularity Overdrive blazing crimson
-            };
-        }
-
         if (_bladeRight != null && _bladeLeft != null && newPhase == 3)
         {
             _bladeRight.Width = 6.5f;

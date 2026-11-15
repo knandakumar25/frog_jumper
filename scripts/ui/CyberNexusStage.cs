@@ -289,10 +289,7 @@ public partial class CyberNexusStage : Control
             float dAngle = d * 2.1f + t * 0.35f;
             Vector2 dPos = new(960 + Mathf.Cos(dAngle) * 440f, 320 + Mathf.Sin(dAngle * 1.5f) * 120f);
 
-            // Hexagonal prism chassis
-            DrawCircle(dPos, 16f, new Color("0f172a"));
-            DrawCircle(dPos, 10f, new Color("1e293b"));
-            DrawCircle(dPos, 5f, ColorAmber);
+            CampaignArtwork.DrawDrone(this, dPos, 32f);
 
             // Scanning cone emitted downward
             Vector2 coneLeft = dPos + new Vector2(-40, 140);

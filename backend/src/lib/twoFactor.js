@@ -3,7 +3,7 @@
  *
  * Changes from Django (owner decision, 2026-11-15):
  * - Codes come from a cryptographic random source (`crypto.randomInt`), not `random.choices`.
- * - Only the newest unused code for a user and purpose (and login session) counts, and it allows
+ * - Only the newest code for a user and purpose (and login session) counts, and it allows
  *   five wrong guesses. On the sixth try it fails even when the code is right, so the code cannot
  *   be guessed by trying all million values within its 10 minutes. Django accepted any older
  *   matching code and allowed unlimited guesses.
@@ -37,26 +37,30 @@ export function generateCode() {
  * @returns {Promise<{code: string, sessionId: string | null}>}
  */
 export async function createCode(pool, userId, purpose, config) {
-  const recent = (await pool.query(
-    `SELECT count(*)::int AS n FROM accounts_twofactorcode
-      WHERE user_id = $1 AND purpose = $2 AND created_at > now() - interval '15 minutes'`,
-    [userId, purpose],
-  )).rows[0].n;
-  if (recent >= config.codesPerUserPer15Min) {
-    throw new HttpError(429, { detail: 'Too many codes requested. Try again in 15 minutes.' }, { 'Retry-After': '900' });
-  }
-  const code = generateCode();
-  const sessionId = purpose === 'login' ? randomUUID() : null;
-  await pool.query(
-    `INSERT INTO accounts_twofactorcode (user_id, code, created_at, is_verified, purpose, session_id, attempts)
-     VALUES ($1, $2, now(), false, $3, $4, 0)`,
-    [userId, code, purpose, sessionId],
-  );
-  return { code, sessionId };
+  return withTransaction(pool, async (client) => {
+    // Serialize issuance and verification for an account, including the count/insert boundary.
+    await client.query('SELECT id FROM accounts_user WHERE id = $1 FOR UPDATE', [userId]);
+    const recent = (await client.query(
+      `SELECT count(*)::int AS n FROM accounts_twofactorcode
+        WHERE user_id = $1 AND purpose = $2 AND created_at > now() - interval '15 minutes'`,
+      [userId, purpose],
+    )).rows[0].n;
+    if (recent >= config.codesPerUserPer15Min) {
+      throw new HttpError(429, { detail: 'Too many codes requested. Try again in 15 minutes.' }, { 'Retry-After': '900' });
+    }
+    const code = generateCode();
+    const sessionId = purpose === 'login' ? randomUUID() : null;
+    await client.query(
+      `INSERT INTO accounts_twofactorcode (user_id, code, created_at, is_verified, purpose, session_id, attempts)
+       VALUES ($1, $2, now(), false, $3, $4, 0)`,
+      [userId, code, purpose, sessionId],
+    );
+    return { code, sessionId };
+  });
 }
 
 /**
- * Check a code. The newest unused, unexpired code is locked, its attempt count raised, and it is
+ * Check only the newest code, rejecting it if consumed or expired. Its attempt count is raised and it is
  * marked used when it matches. Returns false for no code, expired, too many tries or mismatch.
  * @param {import('pg').Pool} pool
  * @param {import('../config.js').Config} config
@@ -67,15 +71,16 @@ export async function createCode(pool, userId, purpose, config) {
 export async function verifyCode(pool, config, { userId, code, purpose, sessionId = null }) {
   const given = Buffer.from(String(code ?? ''));
   return withTransaction(pool, async (client) => {
+    await client.query('SELECT id FROM accounts_user WHERE id = $1 FOR UPDATE', [userId]);
     const row = (await client.query(
-      `SELECT id, code, attempts FROM accounts_twofactorcode
-        WHERE user_id = $1 AND purpose = $2 AND is_verified = false
+      `SELECT id, code, attempts, is_verified, created_at > now() - make_interval(mins => $4) AS live
+         FROM accounts_twofactorcode
+        WHERE user_id = $1 AND purpose = $2
           AND ($3::uuid IS NULL OR session_id = $3::uuid)
-          AND created_at > now() - make_interval(mins => $4)
         ORDER BY created_at DESC, id DESC LIMIT 1 FOR UPDATE`,
       [userId, purpose, sessionId, CODE_LIFETIME_MINUTES],
     )).rows[0];
-    if (!row || row.attempts >= config.twoFactorMaxAttempts) return false;
+    if (!row || row.is_verified || !row.live || row.attempts >= config.twoFactorMaxAttempts) return false;
     const stored = Buffer.from(row.code);
     const match = stored.length === given.length && timingSafeEqual(stored, given);
     await client.query(

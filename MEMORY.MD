@@ -1,5 +1,29 @@
 # Axiom Force — Project Memory
 
+## Approved handoff follow-up and actor provenance — 2026-11-15
+
+- Owner clarified that SpriteCook output is the accepted design for heroes/enemies; original
+  procedural bodies and retired stand-ins are wrong. Hero/enemy artwork must retain this source.
+- Found active hero bypass in NamesWithoutNumbersAftermathStage; it now uses canonical hero
+  atlases and existing SpriteCook civilian regions. PalaceSentry/WorldHostile use vanguard.tres.
+  Original boss chassis constructors and 22 unused operative drawing methods were deleted,
+  along with remaining commander, guard, captive, civilian fallback and boss-wreck bodies.
+  Active figures use existing SpriteCook plates/atlases; separate combat indicators remain.
+  No generation credits spent or image files overwritten.
+- All 342 manifest file hashes and 323 imported texture MD5s matched. Actual SpriteCook Shogun
+  idle download repacked at 2x matches all eight installed RGBA cells byte for byte.
+- Backend fixes serialize account code issuance/verification and refresh/revoke operations;
+  selecting newest code before consumed/expiry checks prevents older-code resurrection.
+- Seven backend README contracts and reviewed documentation corrections completed. Live Clerk,
+  account 2FA/email forms, password API, concurrent refresh client and isolated proxy verified.
+  Test identities/database/helpers cleaned up; normal Docker stack stays up.
+- Tokyo runtime standard/wide blade, transition/motion, natural/Skip and replay movement accepted.
+  Editor SDK11 MSBuild integration required a task-local SDK10.0.404 process environment for QA;
+  no global SDK or project target change. Evidence and final test outcomes:
+  `docs/HANDOFF_PRIORITIES_VERIFICATION.md`.
+- Changes remain local. Native title acceptance/provider-secret rotation are still owner actions;
+  legacy-password rehash policy and unrelated architecture remain deferred. No exports/commit/push.
+
 ## EGM review fixes to the Express backend — 2026-11-15 (pushed on owner request)
 
 - **Owner request:** run the Google EGM skills (owner chose drift report + review loop + bootstrap), then "fix all of the 10 issues"; further EGM steps (round 2, bootstrap READMEs) are handed to Codex or Antigravity.

@@ -15,12 +15,6 @@ public partial class CyberGraveStage : Control
     public bool ResourcesAvailable => CampaignArtwork.Available("cyber_grave", ArtPath);
 
     // Distinctive operative squad palette
-    private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
-    private static readonly Color ColorMirage = new("34d399");   // Phase Emerald
-    private static readonly Color ColorAura = new("f472b6");     // Prism Pink
-    private static readonly Color ColorOceanus = new("66d9e8");  // Hydro Aqua
-    private static readonly Color ColorTitan = new("c084fc");    // Kinetic Violet
-    private static readonly Color ColorSurya = new("ffe29a");    // Solar Gold
     private static readonly Color ColorAmber = new("ffaa00");    // Industrial Hazard
     private static readonly Color ColorBioGreen = new("00ff99"); // Bio-Fluid Nutrient
     private static readonly Color ColorCyan = new("00f0ff");     // Cyber Cyan
@@ -322,115 +316,6 @@ public partial class CyberGraveStage : Control
     private void DrawOperativeSilhouettes(float t, int shot)
     {
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
-    }
-
-    /// <summary>Draws Kaito's silhouette with katana blade gleam and signature crimson scarf glow.</summary>
-    private void DrawKaitoSilhouette(Vector2 pos, float t, bool isSpeaker)
-    {
-        Color highlight = isSpeaker ? ColorKaito : ColorKaito * 0.5f;
-        // Body silhouette
-        DrawRect(new Rect2(pos.X - 16, pos.Y - 110, 32, 110), new Color("0a1018"));
-        // Head / Samurai helm silhouette
-        DrawCircle(new Vector2(pos.X, pos.Y - 124), 16, new Color("0a1018"));
-        // Helm crest
-        DrawLine(new Vector2(pos.X - 14, pos.Y - 134), new Vector2(pos.X + 14, pos.Y - 134), highlight, 3);
-        // Katana on back / shoulder
-        Vector2 hilt = new(pos.X - 22, pos.Y - 140);
-        Vector2 tip = new(pos.X + 26, pos.Y - 40);
-        DrawLine(hilt, tip, new Color("1e2c38"), 4);
-        DrawLine(hilt, hilt + (tip - hilt) * 0.85f, highlight, 2);
-        // Scarf wisps drifting in descent wind
-        for (int i = 0; i < 3; i++)
-        {
-            float wind = Mathf.Sin(t * 8.0f + i) * 14.0f;
-            DrawLine(new Vector2(pos.X - 10, pos.Y - 108), new Vector2(pos.X - 35 - i * 10, pos.Y - 120 + wind), highlight * 0.7f, 3);
-        }
-    }
-
-    /// <summary>Draws Oceanus's silhouette with hydro catalyst rings and flowing cape.</summary>
-    private void DrawOceanusSilhouette(Vector2 pos, float t, bool isSpeaker)
-    {
-        Color highlight = isSpeaker ? ColorOceanus : ColorOceanus * 0.5f;
-        DrawRect(new Rect2(pos.X - 14, pos.Y - 100, 28, 100), new Color("081018"));
-        DrawCircle(new Vector2(pos.X, pos.Y - 114), 14, new Color("081018"));
-        // Hydro catalyst orbs floating around shoulders
-        for (int i = 0; i < 2; i++)
-        {
-            float orbAngle = t * 2.2f + i * Mathf.Pi;
-            Vector2 orbPos = new(pos.X + Mathf.Cos(orbAngle) * 26.0f, pos.Y - 80 + Mathf.Sin(orbAngle) * 10.0f);
-            DrawCircle(orbPos, 6, highlight);
-            DrawCircle(orbPos, 3, Colors.White);
-        }
-    }
-
-    /// <summary>Draws Aura Phoenicia's silhouette with ultrasonic prism emitter antennae.</summary>
-    private void DrawAuraSilhouette(Vector2 pos, float t, bool isSpeaker)
-    {
-        Color highlight = isSpeaker ? ColorAura : ColorAura * 0.5f;
-        DrawRect(new Rect2(pos.X - 12, pos.Y - 96, 24, 96), new Color("0c0a16"));
-        DrawCircle(new Vector2(pos.X, pos.Y - 110), 13, new Color("0c0a16"));
-        // Prism tuning fork antennae on shoulders
-        DrawLine(new Vector2(pos.X - 12, pos.Y - 90), new Vector2(pos.X - 22, pos.Y - 125), highlight, 2);
-        DrawLine(new Vector2(pos.X + 12, pos.Y - 90), new Vector2(pos.X + 22, pos.Y - 125), highlight, 2);
-        // Ultrasonic frequency arc pulses
-        if (isSpeaker)
-        {
-            for (int r = 1; r <= 3; r++)
-            {
-                float arcRad = 16.0f + r * 14.0f;
-                DrawArc(new Vector2(pos.X, pos.Y - 110), arcRad, -Mathf.Pi * 0.8f, -Mathf.Pi * 0.2f, 16, highlight * (0.6f / r), 2);
-            }
-        }
-    }
-
-    /// <summary>Draws Mirage Blade's low crouching infiltration silhouette with phase daggers.</summary>
-    private void DrawMirageSilhouette(Vector2 pos, float t, bool isSpeaker)
-    {
-        Color highlight = isSpeaker ? ColorMirage : ColorMirage * 0.5f;
-        // Crouching posture
-        DrawRect(new Rect2(pos.X - 18, pos.Y - 74, 36, 74), new Color("06120e"));
-        DrawCircle(new Vector2(pos.X, pos.Y - 86), 13, new Color("06120e"));
-        // Twin phase daggers gleaming
-        DrawLine(new Vector2(pos.X - 16, pos.Y - 50), new Vector2(pos.X - 32, pos.Y - 20), highlight, 3);
-        DrawLine(new Vector2(pos.X + 16, pos.Y - 50), new Vector2(pos.X + 32, pos.Y - 20), highlight, 3);
-        // Holographic wrist display map
-        if (isSpeaker)
-        {
-            DrawCircle(new Vector2(pos.X - 20, pos.Y - 45), 7, highlight * 0.8f);
-            DrawRect(new Rect2(pos.X - 45, pos.Y - 80, 50, 30), new Color(ColorMirage.R, ColorMirage.G, ColorMirage.B, 0.25f));
-            DrawRect(new Rect2(pos.X - 45, pos.Y - 80, 50, 30), highlight, false, 1);
-        }
-    }
-
-    /// <summary>Draws Apex Titan's massive kinetic armored silhouette.</summary>
-    private void DrawTitanSilhouette(Vector2 pos, float t, bool isSpeaker)
-    {
-        Color highlight = isSpeaker ? ColorTitan : ColorTitan * 0.5f;
-        // Heavy broad shoulder plates
-        DrawRect(new Rect2(pos.X - 34, pos.Y - 130, 68, 130), new Color("0c0c16"));
-        DrawRect(new Rect2(pos.X - 46, pos.Y - 120, 92, 36), new Color("141424"));
-        DrawCircle(new Vector2(pos.X, pos.Y - 142), 18, new Color("0c0c16"));
-        // Kinetic shield battery capacitors
-        DrawLine(new Vector2(pos.X - 38, pos.Y - 110), new Vector2(pos.X - 38, pos.Y - 40), highlight, 4);
-        DrawLine(new Vector2(pos.X + 38, pos.Y - 110), new Vector2(pos.X + 38, pos.Y - 40), highlight, 4);
-    }
-
-    /// <summary>Draws Surya Prime's silhouette with orbital uplink beacon.</summary>
-    private void DrawSuryaSilhouette(Vector2 pos, float t, bool isSpeaker)
-    {
-        Color highlight = isSpeaker ? ColorSurya : ColorSurya * 0.5f;
-        DrawRect(new Rect2(pos.X - 16, pos.Y - 105, 32, 105), new Color("141006"));
-        DrawCircle(new Vector2(pos.X, pos.Y - 118), 14, new Color("141006"));
-        // Solar transmitter staff / antenna
-        Vector2 antennaBase = new(pos.X - 18, pos.Y);
-        Vector2 antennaTip = new(pos.X - 22, pos.Y - 160);
-        DrawLine(antennaBase, antennaTip, new Color("2a2414"), 3);
-        DrawCircle(antennaTip, 5, highlight);
-        if (isSpeaker)
-        {
-            float pulse = Mathf.Sin(t * 6.0f) * 8.0f;
-            DrawCircle(antennaTip, 8 + pulse, new Color(ColorSurya.R, ColorSurya.G, ColorSurya.B, 0.4f));
-        }
     }
 
     /// <summary>Renders holographic tactical telemetry projected above the central lift console.</summary>

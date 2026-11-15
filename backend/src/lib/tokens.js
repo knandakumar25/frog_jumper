@@ -76,15 +76,18 @@ export async function issueTokenPair(db, config, userId, family = null) {
 /**
  * Revoke every unused refresh token of a user (after 2FA is switched off or the email changes).
  * Access tokens already issued stay valid until they expire (at most 1 hour).
- * @param {import('pg').Pool | import('pg').PoolClient} db
+ * @param {import('pg').Pool} db
  * @param {number} userId
  * @returns {Promise<number>} how many tokens were revoked
  */
 export async function revokeAllRefreshTokens(db, userId) {
-  const result = await db.query(
-    'UPDATE accounts_refreshtoken SET used_at = now() WHERE user_id = $1 AND used_at IS NULL', [userId],
-  );
-  return result.rowCount;
+  return withTransaction(db, async (client) => {
+    await client.query('SELECT id FROM accounts_user WHERE id = $1 FOR UPDATE', [userId]);
+    const result = await client.query(
+      'UPDATE accounts_refreshtoken SET used_at = now() WHERE user_id = $1 AND used_at IS NULL', [userId],
+    );
+    return result.rowCount;
+  });
 }
 
 /**
@@ -175,6 +178,9 @@ export async function rotateRefreshToken(pool, config, token) {
     throw refused(error instanceof ExpiredToken ? 'Token is expired' : 'Token is invalid');
   }
   const outcome = await withTransaction(pool, async (client) => {
+    // A token-row lock cannot serialize replay of an ancestor against rotation of its child.
+    // Lock the account first, also shared by revoke-all, before reading the family state.
+    await client.query('SELECT id FROM accounts_user WHERE id = $1 FOR UPDATE', [payload.user_id]);
     const row = (await client.query(
       `SELECT t.id, t.user_id, t.family, t.used_at, t.expires_at > now() AS live, u.is_active
          FROM accounts_refreshtoken t JOIN accounts_user u ON u.id = t.user_id

@@ -1,7 +1,7 @@
 # Axiom Force — web portal image.
 #
 # Two stages: Vite builds the static bundle, then Nginx serves it and proxies
-# /api/ and /admin/ to the `backend` service (see nginx.conf), so the browser
+# /api/ to the `backend` service (see nginx.conf), so the browser
 # only ever talks to one origin.
 FROM node:26-alpine AS builder
 

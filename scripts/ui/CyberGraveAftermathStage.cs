@@ -21,14 +21,10 @@ public partial class CyberGraveAftermathStage : Control
     // Distinctive operative squad palette
     private static readonly Color ColorKaito = new("f87171");    // Crimson Vanguard
     private static readonly Color ColorMirage = new("34d399");   // Phase Emerald
-    private static readonly Color ColorAura = new("f472b6");     // Prism Pink
-    private static readonly Color ColorOceanus = new("66d9e8");  // Hydro Aqua
-    private static readonly Color ColorTitan = new("c084fc");    // Kinetic Violet
     private static readonly Color ColorSurya = new("ffe29a");    // Solar Gold
     private static readonly Color ColorCyan = new("00f0ff");     // Cyber Cyan
     private static readonly Color ColorAmber = new("fbbf24");    // Hazard Amber
     private static readonly Color ColorBioGreen = new("10b981"); // Bio Green
-    private static readonly Color ColorFoil = new("fef08a");     // Thermal Blanket Gold
 
     // Shot boundary schedule matching CyberGraveAftermath dialogue cues (90 seconds)
     private static readonly float[] ShotTimes = { 0f, 8f, 18f, 28f, 38f, 48f, 58f, 68f, 78f, 90f };
@@ -263,21 +259,7 @@ public partial class CyberGraveAftermathStage : Control
             Vector2 pos = captivePositions[i];
             float breathe = Mathf.Sin(t * 1.8f + i * 0.7f) * 2.0f;
 
-            // Thermal emergency blanket wrap (trapezoid-like polygon simulation)
-            float shimmer = 0.75f + 0.25f * Mathf.Sin(t * 3.0f + i * 1.1f);
-            Color blanketColor = ColorFoil * shimmer;
-
-            Vector2[] foilPoly = {
-                new(pos.X - 16, pos.Y),
-                new(pos.X - 12, pos.Y - 32 + breathe),
-                new(pos.X + 12, pos.Y - 32 + breathe),
-                new(pos.X + 16, pos.Y)
-            };
-            DrawColoredPolygon(foilPoly, blanketColor * 0.85f);
-            DrawPolyline(foilPoly, new Color("fef9c3"), 1.5f);
-
-            // Silhouette head
-            DrawCircle(new Vector2(pos.X, pos.Y - 38 + breathe), 7, new Color("0f172a"));
+            CampaignArtwork.DrawCivilian(this, pos + new Vector2(0, breathe), 46f, i % 3);
         }
 
         // Bio-stability status display floating above the captive cluster
@@ -289,147 +271,6 @@ public partial class CyberGraveAftermathStage : Control
     private void DrawOperativeSilhouettes(float t, int shot)
     {
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
-    }
-
-    /// <summary>Renders Oceanus kneeling and channeling soothing hydro-cellular mist.</summary>
-    private void DrawOceanusSilhouette(Vector2 pos, float t, bool active)
-    {
-        Color color = active ? ColorOceanus : ColorOceanus * 0.7f;
-
-        // Kneeling torso & legs
-        Vector2[] torso = {
-            new(pos.X - 10, pos.Y),
-            new(pos.X - 12, pos.Y - 34),
-            new(pos.X + 8, pos.Y - 34),
-            new(pos.X + 14, pos.Y)
-        };
-        DrawColoredPolygon(torso, new Color("0a192f"));
-        DrawPolyline(torso, color, 2f);
-
-        // Head and visor
-        DrawCircle(new Vector2(pos.X - 2, pos.Y - 42), 8, new Color("0a192f"));
-        DrawLine(new Vector2(pos.X, pos.Y - 42), new Vector2(pos.X + 6, pos.Y - 42), color, 2f);
-
-        // Outstretched hand administering hydro-mist toward civilians
-        DrawLine(new Vector2(pos.X + 6, pos.Y - 26), new Vector2(pos.X + 24, pos.Y - 22), color, 2f);
-
-        // Soothing aqua hydro mist particles
-        for (int p = 0; p < 6; p++)
-        {
-            float ang = t * 2.0f + p * Mathf.Pi / 3.0f;
-            Vector2 mist = new Vector2(pos.X + 26, pos.Y - 22) + new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)) * (12.0f + p * 2.0f);
-            DrawCircle(mist, 3f, ColorOceanus * 0.4f);
-        }
-    }
-
-    /// <summary>Renders Aura Phoenicia projecting harmonic resonance waves that calm the bio-network.</summary>
-    private void DrawAuraSilhouette(Vector2 pos, float t, bool active)
-    {
-        Color color = active ? ColorAura : ColorAura * 0.7f;
-
-        // Standing slender figure
-        Vector2[] body = {
-            new(pos.X - 8, pos.Y),
-            new(pos.X - 7, pos.Y - 52),
-            new(pos.X + 7, pos.Y - 52),
-            new(pos.X + 8, pos.Y)
-        };
-        DrawColoredPolygon(body, new Color("1a0b1e"));
-        DrawPolyline(body, color, 2f);
-
-        // Head
-        DrawCircle(new Vector2(pos.X, pos.Y - 60), 7, new Color("1a0b1e"));
-        DrawCircle(new Vector2(pos.X, pos.Y - 60), 8, color * 0.4f);
-
-        // Ultrasonic harmonic resonance wave rings expanding outwards
-        for (int w = 1; w <= 3; w++)
-        {
-            float ringPhase = (t * 1.5f + w * 0.33f) % 1.0f;
-            float ringRadius = 15.0f + ringPhase * 55.0f;
-            float ringAlpha = (1.0f - ringPhase) * 0.5f;
-            DrawCircle(new Vector2(pos.X, pos.Y - 45), ringRadius, ColorAura * (ringAlpha * 0.25f));
-            DrawArc(new Vector2(pos.X, pos.Y - 45), ringRadius, 0, Mathf.Tau, 32, ColorAura * ringAlpha, 1.5f);
-        }
-    }
-
-    /// <summary>Renders Apex Titan standing as a massive kinetic bulwark overlooking the reactor shaft.</summary>
-    private void DrawTitanSilhouette(Vector2 pos, float t, bool active)
-    {
-        Color color = active ? ColorTitan : ColorTitan * 0.7f;
-
-        // Heavy broad-shouldered torso
-        Vector2[] torso = {
-            new(pos.X - 18, pos.Y),
-            new(pos.X - 22, pos.Y - 62),
-            new(pos.X + 22, pos.Y - 62),
-            new(pos.X + 18, pos.Y)
-        };
-        DrawColoredPolygon(torso, new Color("160b24"));
-        DrawPolyline(torso, color, 3f);
-
-        // Kinetic shoulder pauldrons
-        DrawRect(new Rect2(pos.X - 28, pos.Y - 66, 12, 14), color);
-        DrawRect(new Rect2(pos.X + 16, pos.Y - 66, 12, 14), color);
-
-        // Armored helmet
-        DrawRect(new Rect2(pos.X - 8, pos.Y - 78, 16, 16), new Color("160b24"));
-        DrawLine(new Vector2(pos.X - 6, pos.Y - 72), new Vector2(pos.X + 6, pos.Y - 72), color, 2f);
-
-        // Heavy arm resting on the elevator railing
-        DrawLine(new Vector2(pos.X + 20, pos.Y - 50), new Vector2(pos.X + 38, pos.Y - 40), color, 3f);
-    }
-
-    /// <summary>Renders Mirage Blade crouched, analyzing the decrypted vault slate.</summary>
-    private void DrawMirageSilhouette(Vector2 pos, float t, bool active)
-    {
-        Color color = active ? ColorMirage : ColorMirage * 0.7f;
-
-        // Agile crouched stance
-        Vector2[] stance = {
-            new(pos.X - 12, pos.Y),
-            new(pos.X - 14, pos.Y - 38),
-            new(pos.X + 10, pos.Y - 38),
-            new(pos.X + 12, pos.Y)
-        };
-        DrawColoredPolygon(stance, new Color("051c14"));
-        DrawPolyline(stance, color, 2f);
-
-        // Head and phantom hood
-        DrawCircle(new Vector2(pos.X - 2, pos.Y - 46), 7, new Color("051c14"));
-        DrawLine(new Vector2(pos.X - 5, pos.Y - 46), new Vector2(pos.X + 2, pos.Y - 46), color, 2f);
-
-        // Glowing holographic tactical data slate in hand
-        Vector2 slatePos = new(pos.X + 16, pos.Y - 32);
-        DrawRect(new Rect2(slatePos.X - 6, slatePos.Y - 10, 12, 20), ColorMirage * 0.9f, false, 2f);
-        DrawRect(new Rect2(slatePos.X - 4, slatePos.Y - 8, 8, 16), ColorMirage * 0.3f);
-        DrawLine(slatePos, slatePos + new Vector2(14, -14), ColorMirage * 0.5f, 1f);
-    }
-
-    /// <summary>Renders Cyber Shogun Kaito Kurogane at the platform center vanguard stance.</summary>
-    private void DrawKaitoSilhouette(Vector2 pos, float t, bool active)
-    {
-        Color color = active ? ColorKaito : ColorKaito * 0.75f;
-
-        // Centered vanguard stance
-        Vector2[] torso = {
-            new(pos.X - 12, pos.Y),
-            new(pos.X - 14, pos.Y - 56),
-            new(pos.X + 14, pos.Y - 56),
-            new(pos.X + 12, pos.Y)
-        };
-        DrawColoredPolygon(torso, new Color("1f0d0d"));
-        DrawPolyline(torso, color, 2.5f);
-
-        // Crest helmet
-        DrawCircle(new Vector2(pos.X, pos.Y - 66), 8, new Color("1f0d0d"));
-        DrawLine(new Vector2(pos.X - 4, pos.Y - 66), new Vector2(pos.X + 4, pos.Y - 66), color, 2f);
-        // Shogun crest crescent
-        DrawArc(new Vector2(pos.X, pos.Y - 74), 7, Mathf.Pi * 0.2f, Mathf.Pi * 0.8f, 16, color, 2f);
-
-        // Katana scabbard angled at hip
-        DrawLine(new Vector2(pos.X - 14, pos.Y - 32), new Vector2(pos.X - 32, pos.Y - 8), color, 3f);
-        // Hilt resting under right hand
-        DrawLine(new Vector2(pos.X - 14, pos.Y - 32), new Vector2(pos.X - 8, pos.Y - 42), ColorCyan, 2f);
     }
 
     /// <summary>Renders holographic projection of Citadel Spire blueprints and topside extraction radar.</summary>

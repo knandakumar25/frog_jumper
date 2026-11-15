@@ -100,7 +100,7 @@ public partial class CyberNexusAftermathStage : Control
         DrawApexAscentLift(t);
 
         // Ominous silhouette of the Apex Bastion high in the shaft
-        DrawBastionSilhouettes(t);
+        DrawBastionRamparts(t);
 
         // Operative silhouettes standing on the gantry deck
         DrawSquadSilhouettes(t, shot);
@@ -203,23 +203,7 @@ public partial class CyberNexusAftermathStage : Control
     {
         Vector2 bossPos = new(1180, 680);
 
-        // Ruptured hexagonal armor shell lying tilted on the gantry
-        Vector2[] hullPoints = {
-            bossPos + new Vector2(-60, -25),
-            bossPos + new Vector2(-20, -55),
-            bossPos + new Vector2(45, -45),
-            bossPos + new Vector2(70, 10),
-            bossPos + new Vector2(30, 45),
-            bossPos + new Vector2(-45, 35)
-        };
-        DrawColoredPolygon(hullPoints, new Color("1e293b"));
-        DrawPolyline(hullPoints, new Color("334155"), 2.5f);
-
-        // Cracked central core (faint flickering cyan/magenta spark)
-        float coreFlicker = Mathf.Abs(Mathf.Sin(t * 8f));
-        Color coreCol = ColorAlert.Lerp(ColorCyan, coreFlicker * 0.5f);
-        DrawCircle(bossPos + new Vector2(0, -5), 14f, new Color("0a0f1e"));
-        DrawCircle(bossPos + new Vector2(0, -5), 8f, coreCol);
+        CampaignArtwork.DrawBoss(this, "cyber_nexus", new Rect2(1120, 625, 130, 100), new Color(0.55f, 0.55f, 0.6f));
 
         // Fractured orbital containment prism shards scattered around the wreckage
         Vector2[] shardOffsets = {
@@ -349,7 +333,7 @@ public partial class CyberNexusAftermathStage : Control
     }
 
     /// <summary>Draws ominous silhouette ramparts and red searchlights in the high shaft leading to Apex Bastion.</summary>
-    private void DrawBastionSilhouettes(float t)
+    private void DrawBastionRamparts(float t)
     {
         // High bulkhead archway above the elevator shaft
         Vector2[] arch = {
@@ -377,60 +361,6 @@ public partial class CyberNexusAftermathStage : Control
     private void DrawSquadSilhouettes(float t, int shot)
     {
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
-    }
-
-    /// <summary>Draws a single operative silhouette with combat stance and glowing weapon/accent.</summary>
-    private void DrawOperativeSilhouette(Vector2 feet, Color accent, string name, bool active)
-    {
-        // Shadow base
-        DrawCircle(feet + new Vector2(0, 2), 16f, new Color(0, 0, 0, 0.45f));
-
-        Color bodyCol = new("090d16");
-
-        // Body torso and legs
-        DrawRect(new Rect2(feet.X - 10, feet.Y - 60, 20, 38), bodyCol);
-        DrawRect(new Rect2(feet.X - 8, feet.Y - 26, 7, 26), bodyCol);
-        DrawRect(new Rect2(feet.X + 2, feet.Y - 26, 7, 26), bodyCol);
-
-        // Head and helmet
-        DrawCircle(new Vector2(feet.X, feet.Y - 70), 9f, bodyCol);
-
-        // Glowing visor / signature energy accent
-        DrawLine(new Vector2(feet.X + 1, feet.Y - 71), new Vector2(feet.X + 8, feet.Y - 70), accent, 2.2f);
-
-        // Weapon silhouette based on operative
-        if (name == "Kaito")
-        {
-            // Katana blade at side
-            DrawLine(new Vector2(feet.X - 12, feet.Y - 45), new Vector2(feet.X + 22, feet.Y - 72), accent, 2.4f);
-        }
-        else if (name == "Mirage")
-        {
-            // Phase daggers
-            DrawLine(new Vector2(feet.X + 8, feet.Y - 45), new Vector2(feet.X + 18, feet.Y - 32), accent, 2f);
-            DrawLine(new Vector2(feet.X - 12, feet.Y - 42), new Vector2(feet.X - 20, feet.Y - 30), accent, 2f);
-        }
-        else if (name == "Titan")
-        {
-            // Massive kinetic shoulder pauldrons
-            DrawRect(new Rect2(feet.X - 16, feet.Y - 65, 32, 14), bodyCol);
-            DrawLine(new Vector2(feet.X - 16, feet.Y - 65), new Vector2(feet.X + 16, feet.Y - 65), accent, 2f);
-        }
-        else if (name == "Surya")
-        {
-            // Bulwark shield energy plate
-            DrawLine(new Vector2(feet.X + 12, feet.Y - 62), new Vector2(feet.X + 12, feet.Y - 25), accent, 3f);
-        }
-        else if (name == "Oceanus")
-        {
-            // Hydro conduit glow
-            DrawLine(new Vector2(feet.X - 6, feet.Y - 55), new Vector2(feet.X - 6, feet.Y - 35), accent, 2.2f);
-        }
-        else if (name == "Aura")
-        {
-            // Ultrasonic prism harp ring
-            DrawArc(new Vector2(feet.X + 10, feet.Y - 48), 11f, 0, Mathf.Pi, 12, accent, 2f);
-        }
     }
 
     /// <summary>Draws CRT scanlines across the viewport for atmospheric sci-fi texture.</summary>

@@ -101,6 +101,44 @@ func test_rollback_portraits_and_reused_sprite_sheets_are_removed() -> void:
 		assert_bool(FileAccess.file_exists(path)).is_false()
 
 
+## Supplied boss art replaces the old chassis, follows facing transforms and keeps combat effects.
+func test_campaign_bosses_use_spritecook_bodies_without_legacy_chassis() -> void:
+	var families := {
+		"BastionPraetorBoss2D": "apex_bastion",
+		"IgnisColossusBoss2D": "foundry_forge",
+		"AeroCenturionBoss2D": "stratos_docks",
+		"SpireSentinelBoss2D": "spire_outer_hull",
+		"NexusOverseerBoss2D": "cyber_nexus",
+		"VoidCommanderBoss2D": "judgment_day",
+	}
+	for actor in families:
+		var boss: Node2D = load("res://scripts/actors/" + actor + ".cs").new()
+		add_child(boss)
+		boss.set_physics_process(false)
+		var visual: Node2D = boss.get_node_or_null("VisualRoot")
+		if visual == null:
+			visual = boss
+		var armor: Sprite2D = visual.get_node("Armor_structure")
+		assert_str(armor.texture.resource_path).is_equal(
+			"res://assets/environments/later_campaign/" + families[actor] + "/boss_structure.png")
+		assert_int(armor.texture_filter).is_equal(CanvasItem.TEXTURE_FILTER_NEAREST)
+		assert_int(armor.material.light_mode).is_equal(CanvasItemMaterial.LIGHT_MODE_UNSHADED)
+		var legacy_body_nodes: Array = visual.get_children().filter(func(child: Node) -> bool: return child is Polygon2D)
+		assert_int(legacy_body_nodes.size()).is_equal(0)
+		# The visible body follows the same facing/rotation root the controller animates.
+		visual.scale.x = -1
+		assert_float(armor.global_transform.x.x).is_less(0.0)
+		assert_that(boss.get_node("CollisionShape2D").shape).is_not_null()
+		if actor == "BastionPraetorBoss2D":
+			boss.call("TakeDamage", 10000.0)
+			assert_bool(visual.get_node("EnergyShield").visible).is_true()
+		elif actor == "NexusOverseerBoss2D":
+			assert_bool(visual.get_node("OrbitalRing").visible).is_true()
+		elif actor == "VoidCommanderBoss2D":
+			assert_bool(visual.get_node("DarkAura").visible).is_true()
+		boss.free()
+
+
 ## The placeholder must define every animation actors play, each with one empty frame, so
 ## Play() never errors and nothing is drawn.
 func _assert_placeholder(frames: SpriteFrames) -> void:

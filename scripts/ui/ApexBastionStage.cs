@@ -95,11 +95,11 @@ public partial class ApexBastionStage : Control
         // Automated twin-linked plasma flak turrets and laser beams
         DrawAutomatedPlasmaTurrets(t);
 
-        // Looming Bastion Praetor war mechanoid silhouette
-        DrawBastionPraetorSilhouette(t);
+        // Bastion Praetor SpriteCook boss plate
+        DrawBastionPraetor();
 
-        // Praetorian shock-trooper and cyber-samurai silhouettes on ramparts
-        DrawPraetorianEnemySilhouettes(t);
+        // SpriteCook guards on ramparts
+        DrawPraetorianGuards();
 
         // Freight lift platform and open pneumatic doors on screen left
         DrawFreightLiftPlatform(t);
@@ -263,76 +263,19 @@ public partial class ApexBastionStage : Control
         }
     }
 
-    /// <summary>Draws looming giant silhouette of the Bastion Praetor war mechanoid guarding the gate.</summary>
-    private void DrawBastionPraetorSilhouette(float t)
+    /// <summary>Draws the SpriteCook Bastion Praetor plate guarding the gate.</summary>
+    private void DrawBastionPraetor()
     {
-        Vector2 mechPos = new(1620, 480);
-
-        // Massive armored torso and shoulders
-        Vector2[] chassis = {
-            mechPos + new Vector2(-55, -80),
-            mechPos + new Vector2(55, -80),
-            mechPos + new Vector2(75, -20),
-            mechPos + new Vector2(40, 60),
-            mechPos + new Vector2(-40, 60),
-            mechPos + new Vector2(-75, -20)
-        };
-        DrawColoredPolygon(chassis, new Color("090c16"));
-        DrawPolyline(chassis, new Color("1a233a"), 2.5f);
-
-        // Giant shoulder missile pods
-        DrawRect(new Rect2(mechPos.X - 95, mechPos.Y - 95, 38, 50), new Color("090c16"));
-        DrawRect(new Rect2(mechPos.X + 57, mechPos.Y - 95, 38, 50), new Color("090c16"));
-
-        // Glowing red ocular sensor array (pulsing menacingly)
-        float eyeGlow = 0.5f + Mathf.Abs(Mathf.Sin(t * 3f)) * 0.5f;
-        Color eyeCol = new(1f, 0.05f, 0.2f, eyeGlow);
-        DrawLine(mechPos + new Vector2(-22, -50), mechPos + new Vector2(22, -50), eyeCol, 3.5f);
-        DrawCircle(mechPos + new Vector2(-12, -50), 3.5f, Colors.White);
-        DrawCircle(mechPos + new Vector2(12, -50), 3.5f, Colors.White);
-
-        // Heavy arm cannon silhouette extending downward
-        DrawLine(mechPos + new Vector2(-75, -10), mechPos + new Vector2(-90, 80), new Color("141c2e"), 14f);
-        DrawLine(mechPos + new Vector2(75, -10), mechPos + new Vector2(90, 80), new Color("141c2e"), 14f);
+        CampaignArtwork.DrawBoss(this, "apex_bastion", new Rect2(1525, 385, 190, 175));
     }
 
-    /// <summary>Draws elite Praetorian shock-trooper and cyber-samurai silhouettes stationed along the ramparts.</summary>
-    private void DrawPraetorianEnemySilhouettes(float t)
+    /// <summary>Draws SpriteCook vanguard guards stationed along the ramparts.</summary>
+    private void DrawPraetorianGuards()
     {
         float[] guardX = { 840f, 1180f, 1310f, 1500f };
-        for (int i = 0; i < guardX.Length; i++)
+        foreach (float x in guardX)
         {
-            float gx = guardX[i];
-            float gy = 660f;
-
-            Color guardCol = new("060810");
-
-            // Shadow
-            DrawCircle(new Vector2(gx, gy + 2), 14f, new Color(0, 0, 0, 0.5f));
-
-            // Armor body
-            DrawRect(new Rect2(gx - 8, gy - 55, 16, 35), guardCol);
-            DrawRect(new Rect2(gx - 7, gy - 20, 6, 20), guardCol);
-            DrawRect(new Rect2(gx + 1, gy - 20, 6, 20), guardCol);
-
-            // Helmet
-            DrawCircle(new Vector2(gx, gy - 64), 8f, guardCol);
-
-            // Glowing red visor
-            DrawLine(new Vector2(gx - 4, gy - 65), new Vector2(gx + 4, gy - 65), ColorPraetorian, 2f);
-
-            // Dual red vibro-blades (for cyber-samurai)
-            if (i % 2 == 0)
-            {
-                DrawLine(new Vector2(gx - 12, gy - 40), new Vector2(gx - 20, gy - 15), ColorPraetorian, 2.2f);
-                DrawLine(new Vector2(gx + 12, gy - 40), new Vector2(gx + 20, gy - 15), ColorPraetorian, 2.2f);
-            }
-            else
-            {
-                // Heavy plasma rifle
-                DrawLine(new Vector2(gx - 6, gy - 38), new Vector2(gx + 18, gy - 42), new Color("334155"), 4f);
-                DrawCircle(new Vector2(gx + 18, gy - 42), 2.5f, ColorPraetorian);
-            }
+            CampaignArtwork.DrawOperative(this, "vanguard", new Vector2(x, 660f), 72f, false);
         }
     }
 
@@ -378,53 +321,6 @@ public partial class ApexBastionStage : Control
     private void DrawSquadSilhouettes(float t, int shot)
     {
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
-    }
-
-    /// <summary>Draws an individual operative silhouette with glowing weapon/visor accent.</summary>
-    private void DrawOperative(Vector2 feet, Color accent, string name)
-    {
-        DrawCircle(feet + new Vector2(0, 2), 15f, new Color(0, 0, 0, 0.5f));
-
-        Color bodyCol = new("080c16");
-
-        // Body & legs
-        DrawRect(new Rect2(feet.X - 9, feet.Y - 58, 18, 36), bodyCol);
-        DrawRect(new Rect2(feet.X - 7, feet.Y - 24, 6, 24), bodyCol);
-        DrawRect(new Rect2(feet.X + 1, feet.Y - 24, 6, 24), bodyCol);
-
-        // Head
-        DrawCircle(new Vector2(feet.X, feet.Y - 68), 8.5f, bodyCol);
-
-        // Visor glow
-        DrawLine(new Vector2(feet.X + 1, feet.Y - 69), new Vector2(feet.X + 7, feet.Y - 68), accent, 2.2f);
-
-        // Weapons
-        if (name == "Kaito")
-        {
-            DrawLine(new Vector2(feet.X - 10, feet.Y - 45), new Vector2(feet.X + 24, feet.Y - 74), accent, 2.4f);
-        }
-        else if (name == "Mirage")
-        {
-            DrawLine(new Vector2(feet.X + 8, feet.Y - 42), new Vector2(feet.X + 18, feet.Y - 30), accent, 2f);
-            DrawLine(new Vector2(feet.X - 10, feet.Y - 40), new Vector2(feet.X - 18, feet.Y - 28), accent, 2f);
-        }
-        else if (name == "Titan")
-        {
-            DrawRect(new Rect2(feet.X - 16, feet.Y - 62, 32, 14), bodyCol);
-            DrawLine(new Vector2(feet.X - 16, feet.Y - 62), new Vector2(feet.X + 16, feet.Y - 62), accent, 2.2f);
-        }
-        else if (name == "Surya")
-        {
-            DrawLine(new Vector2(feet.X + 11, feet.Y - 60), new Vector2(feet.X + 11, feet.Y - 22), accent, 3f);
-        }
-        else if (name == "Oceanus")
-        {
-            DrawLine(new Vector2(feet.X - 5, feet.Y - 52), new Vector2(feet.X - 5, feet.Y - 32), accent, 2.2f);
-        }
-        else if (name == "Aura")
-        {
-            DrawArc(new Vector2(feet.X + 10, feet.Y - 45), 10f, 0, Mathf.Pi, 12, accent, 2f);
-        }
     }
 
     /// <summary>Draws CRT scanlines across the viewport for atmospheric sci-fi texture.</summary>

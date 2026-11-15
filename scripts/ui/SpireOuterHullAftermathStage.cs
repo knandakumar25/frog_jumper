@@ -347,16 +347,7 @@ public partial class SpireOuterHullAftermathStage : Control
     {
         Vector2 bossPos = new(360, 630);
 
-        // Crushed, shattered chassis of the Spire Sentinel mechanoid
-        DrawRect(new Rect2(bossPos.X - 80, bossPos.Y - 15, 160, 45), new Color("0f172a"));
-        DrawRect(new Rect2(bossPos.X - 50, bossPos.Y - 45, 100, 35), new Color("1e293b"));
-
-        // Bent, shattered turbine wings resting on the deck
-        DrawLine(bossPos + new Vector2(-70, -20), bossPos + new Vector2(-150, 30), new Color("334155"), 7f);
-        DrawLine(bossPos + new Vector2(60, -20), bossPos + new Vector2(130, 25), new Color("334155"), 7f);
-
-        // Shattered central plasma cannon barrel
-        DrawRect(new Rect2(bossPos.X + 20, bossPos.Y - 10, 55, 16), new Color("1e293b"));
+        CampaignArtwork.DrawBoss(this, "spire_outer_hull", new Rect2(210, 585, 280, 75), new Color(0.55f, 0.55f, 0.6f));
 
         // Exposed sparking wiring & electric arc discharge
         if (Mathf.Sin(t * 8f) > 0.6f)

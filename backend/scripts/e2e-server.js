@@ -7,12 +7,13 @@
  *
  * It recreates its own database, `test_browser_handoff` (never `accounts_db`), applies the
  * migrations, keeps every outgoing email in memory, and serves the real API on container port
- * 8002 with four test-only routes that the normal server never has:
+ * 8002 with test-only routes that the normal server never has:
  *
  *   GET  /__test__/ready  {ready: true}
  *   GET  /__test__/mail   captured messages as [{to, body}]
  *   POST /__test__/seed   {id, email, username}: create an onboarded account for a Clerk test
  *                         user (only `+clerk_test@example.com` addresses are accepted)
+ *   POST /__test__/expire-codes {username, purpose}: age only browsercheck fixture codes
  *   POST /__test__/stop   answer, then shut down and drop the test database
  *
  * It refuses to start without a Clerk development key (`sk_test_...`). Ctrl-C also drops the
@@ -31,7 +32,8 @@ import { createUser } from '../src/lib/users.js';
 const TEST_DB = 'test_browser_handoff';
 const base = loadConfig();
 if (!base.clerkSecretKey.startsWith('sk_test_')) throw new Error('A Clerk development instance (sk_test_ key) is required');
-const config = withOverrides(base, { db: { ...base.db, database: TEST_DB } });
+// Lifecycle cases share the runner IP. Rate-limit behavior has separate backend tests.
+const config = withOverrides(base, { db: { ...base.db, database: TEST_DB }, authPerIpPerMinute: 1000 });
 
 /** Drop (and optionally recreate) the throwaway database through the normal one. */
 async function resetDatabase(recreate) {
@@ -62,6 +64,18 @@ app.post('/__test__/seed', async (req, res) => {
   const user = found ?? await createUser(pool, config, { username, email, country: 'Japan',
     date_of_birth: '1995-04-12', clerk_user_id: id }, null);
   res.json({ username: user.username });
+});
+/** Age only an isolated fixture's codes, without waiting ten minutes in browser checks. */
+app.post('/__test__/expire-codes', async (req, res) => {
+  const { username, purpose } = req.body ?? {};
+  if (typeof username !== 'string' || !username.startsWith('browsercheck') ||
+      !['opt_in', 'login', 'opt_out', 'email_change'].includes(purpose)) {
+    res.status(400).json({ error: 'Only browsercheck fixture codes may be expired' });
+    return;
+  }
+  await pool.query(`UPDATE accounts_twofactorcode SET created_at = now() - interval '11 minutes'
+    WHERE user_id IN (SELECT id FROM accounts_user WHERE username = $1) AND purpose = $2`, [username, purpose]);
+  res.json({ expired: true });
 });
 app.post('/__test__/stop', (req, res) => {
   res.json({ stopping: true });

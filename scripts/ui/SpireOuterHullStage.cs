@@ -303,31 +303,6 @@ public partial class SpireOuterHullStage : Control
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
-    private void DrawOperativeSilhouette(Vector2 pos, Color accent, bool highlighted, float scale = 1.0f)
-    {
-        float h = 48f * scale;
-        float w = 16f * scale;
-
-        // Dark operative silhouette body
-        DrawRect(new Rect2(pos.X - w * 0.5f, pos.Y - h, w, h), new Color(0.08f, 0.09f, 0.12f));
-        // Head
-        DrawCircle(new Vector2(pos.X, pos.Y - h - 6f * scale), 7f * scale, new Color(0.08f, 0.09f, 0.12f));
-
-        // Signature visor / energy accent
-        float glowAlpha = highlighted ? 1.0f : 0.6f;
-        DrawLine(
-            new Vector2(pos.X - 3f * scale, pos.Y - h - 6f * scale),
-            new Vector2(pos.X + 4f * scale, pos.Y - h - 6f * scale),
-            accent * glowAlpha, 2f * scale
-        );
-
-        if (highlighted)
-        {
-            // Aura ring when speaking
-            DrawArc(new Vector2(pos.X, pos.Y - h * 0.5f), 32f * scale, 0, Mathf.Tau, 16, accent * 0.5f, 1.5f);
-        }
-    }
-
     private void DrawScreenOverlays(Vector2 size, float t, int shot)
     {
         // 1. 2.39:1 Anamorphic cinema letterbox bars

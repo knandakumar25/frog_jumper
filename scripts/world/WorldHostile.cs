@@ -2,8 +2,8 @@ using Godot;
 using System;
 
 /// <summary>
-/// One surveillance drone for open-world encounters. Position and logic use world metres,
-/// and the node is only a drawing. Drones hover, so they don't collide with the terrain.
+/// One SpriteCook vanguard for open-world encounters. Position and logic use world metres,
+/// and the node is only a drawing; movement does not collide with the terrain.
 /// Attacks wind up visibly before landing, so a dodge or stepping away avoids them.
 /// </summary>
 public partial class WorldHostile : Node2D
@@ -24,25 +24,29 @@ public partial class WorldHostile : Node2D
     private double _windup, _recovery;
     private AudioStreamPlayer2D? _strikeSound;
 
-    private Sprite2D? _body;
-    private string _sheetKey = "";
-    private int _sheetFrames = 1;
+    private AnimatedSprite2D? _body;
     private double _animationTime;
 
-    /// <summary>Adds the optional stand-in robot and strike sound once the drone is in the scene.</summary>
+    /// <summary>Adds the canonical SpriteCook body and optional strike sound without replacing combat markers.</summary>
     public override void _Ready()
     {
         _strikeSound = StandInAssets.AddPlayer(this, StandInAssets.Strike, -9);
-        // Scale keeps the robot close to the operative's height; the offset lifts its feet (about y 138 in a 256 cell) to the origin.
-        // At 0.3x the 256 px cells shimmer when moving unless mipmaps are sampled; the sheets import with mipmaps on.
-        _body = StandInAssets.AddSheet(this, StandInAssets.RobotSheet("IdleAim", 8), 5, 5, .3f, new Vector2(0, -10), TextureFilterEnum.LinearWithMipmaps);
-        _sheetKey = "IdleAim8";
-        _sheetFrames = 24;
+        // SpriteCook's 256-pixel cell has its feet at y=224: offset -96 aligns them with
+        // this actor's ground ring. Keep the existing world position and attack origin intact.
+        _body = new AnimatedSprite2D
+        {
+            Name = "SpriteCookBody",
+            SpriteFrames = OperativeVisuals.LoadFramesAt("res://assets/characters/rendered/vanguard.tres"),
+            Animation = "idle", Scale = Vector2.One * .28f, Offset = new Vector2(0, -96),
+            TextureFilter = TextureFilterEnum.Nearest, ShowBehindParent = true,
+            Material = new CanvasItemMaterial { LightMode = CanvasItemMaterial.LightModeEnum.Unshaded }
+        };
+        AddChild(_body);
     }
 
     /// <summary>
-    /// Maps a world direction to a robot sheet number. Uses the player's facing formula: 0 is south, stepping
-    /// clockwise. The art's dir1 to dir7 match those steps and dir8 is south.
+    /// Retains the public eight-direction numbering for callers: south=8, west=2, north=4, east=6.
+    /// SpriteCook's side-facing idle sheet uses horizontal mirroring rather than the retired robot sheets.
     /// </summary>
     public int RobotDirection(double dx, double dy)
     {
@@ -50,31 +54,14 @@ public partial class WorldHostile : Node2D
         return facing == 0 ? 8 : facing;
     }
 
-    /// <summary>Picks the sheet for the current action and direction, and advances its frame at 12 per second.</summary>
-    private void UpdateBody(double delta, double dx, double dy, bool walking)
+    /// <summary>Advances the available SpriteCook idle cycle and faces the target; no invented attack/walk sheets.</summary>
+    private void UpdateBody(double delta, double dx)
     {
         if (_body == null) return;
-        var (animation, columns, rows, frames) = _windup > 0 ? ("StandingShoot", 4, 3, 10)
-            : walking ? ("WalkingShoot", 4, 4, 16)
-            : ("IdleAim", 5, 5, 24);
-        int direction = RobotDirection(dx, dy);
-        string key = animation + direction;
-        if (key != _sheetKey)
-        {
-            Texture2D? texture = StandInAssets.Texture(StandInAssets.RobotSheet(animation, direction));
-            if (texture != null)
-            {
-                // Frame must be reset first so it is valid for the new, possibly smaller, grid.
-                _body.Frame = 0;
-                _body.Texture = texture;
-                _body.Hframes = columns;
-                _body.Vframes = rows;
-                _sheetKey = key;
-                _sheetFrames = frames;
-            }
-        }
         _animationTime += delta;
-        _body.Frame = (int)(_animationTime * 12) % _sheetFrames;
+        int frames = _body.SpriteFrames.GetFrameCount("idle");
+        if (frames > 0) _body.Frame = (int)(_animationTime * _body.SpriteFrames.GetAnimationSpeed("idle")) % frames;
+        _body.FlipH = dx < 0;
     }
 
     /// <summary>Sets the starting position before the drone joins the tree.</summary>
@@ -103,7 +90,6 @@ public partial class WorldHostile : Node2D
         else if (State != Awareness.Engaged) State = distance < InvestigateRange ? Awareness.Investigating : Awareness.Unaware;
 
         if (_recovery > 0) _recovery = Math.Max(0, _recovery - delta);
-        bool walking = false;
         if (State == Awareness.Engaged)
         {
             if (_windup > 0)
@@ -131,21 +117,15 @@ public partial class WorldHostile : Node2D
                 double step = Math.Min(MoveSpeed * delta, distance);
                 XMetres += dx / distance * step;
                 YMetres += dy / distance * step;
-                walking = true;
             }
         }
-        UpdateBody(delta, dx, dy, walking);
+        UpdateBody(delta, dx);
         Position = ExplorationPlayer.Project(XMetres - origin.X * 128, YMetres - origin.Y * 128);
     }
 
-    /// <summary>Draws the ground ring, the windup range and health bar, plus the code-drawn drone when the stand-in art is absent.</summary>
+    /// <summary>Draws only the ground ring, windup range and health bar; absent SpriteCook art leaves no fallback body.</summary>
     public override void _Draw()
     {
-        if (_body == null)
-        {
-            DrawColoredPolygon(new[] { new Vector2(-12, -26), new(0, -36), new(12, -26), new(0, -16) }, new Color("3b4a63"));
-            DrawCircle(new Vector2(0, -26), 4, _windup > 0 ? new Color("ff3b30") : new Color("4edee5"));
-        }
         DrawArc(Vector2.Zero, 9, 0, Mathf.Tau, 16, new Color(0, 0, 0, 0.5f), 2);
         if (_windup > 0)
         {

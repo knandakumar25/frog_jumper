@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Subterranean bio-synthetic gene-warping incubation pod.
 /// Renders a pressurized glass stasis cylinder with rising bio-nutrient bubbles,
-/// captive silhouette, and high-voltage containment rings.
+/// SpriteCook captive artwork, and high-voltage containment rings.
 /// Interaction or kinetic impact frees the captive and advances the mission objective.
 /// </summary>
 public partial class GenePod : Node2D
@@ -26,6 +26,9 @@ public partial class GenePod : Node2D
     private bool _usingPad;
     private readonly float[] _bubbleYs = { -30f, -60f, -90f, -120f };
     private readonly float[] _bubbleXs = { -10f, 8f, -6f, 12f };
+
+    /// <summary>Keeps the SpriteCook captive's pixel edges sharp at the pod's display size.</summary>
+    public override void _Ready() => TextureFilter = TextureFilterEnum.Nearest;
 
     /// <summary>Advances procedural nutrient bubble animation.</summary>
     public override void _Process(double delta)
@@ -109,12 +112,8 @@ public partial class GenePod : Node2D
                 DrawCircle(new Vector2(_bubbleXs[i], _bubbleYs[i]), 2.5f, new Color(1f, 1f, 1f, 0.6f));
             }
 
-            // Captive humanoid silhouette inside
-            Vector2 headPos = new(0, -98);
-            DrawCircle(headPos, 9, new Color(0.08f, 0.12f, 0.15f, 0.85f));
-            DrawRect(new Rect2(-8, -88, 16, 26), new Color(0.08f, 0.12f, 0.15f, 0.85f));
-            DrawLine(new Vector2(-8, -75), new Vector2(-16, -58), new Color(0.08f, 0.12f, 0.15f, 0.85f), 3);
-            DrawLine(new Vector2(8, -75), new Vector2(16, -58), new Color(0.08f, 0.12f, 0.15f, 0.85f), 3);
+            // Captive artwork shares the approved SpriteCook civilian source.
+            CampaignArtwork.DrawCivilian(this, new Vector2(0, -58), 49f);
         }
         else
         {

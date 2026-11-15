@@ -45,7 +45,7 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 
 Gaps are intentional (owner decision):
 - **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 redone 2026-11-13).
-- **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
+- **Actor wiring:** sentries and open-world hostiles use the SpriteCook vanguard animation. Aegis civilians use the restored Phase 4 image. The Names aftermath uses the hero atlases; later boss plates replace their old chassis. Combat beams, shields and health indicators remain code-drawn effects.
 - The menus, the Level 1 map, the open-world cities and the top-down operatives have their art again (Phases 6 and 7, 2026-11-15).
 - The 2026-11-12 items are back too (2026-11-15): the three button states, the speech bubble's frame and pointer, the game and Windows icons, the website favicon and the painted palace garden behind Level 1.
 - Cutscenes: all nine have their art again (Phases 2 and 3, 2026-11-13 and 2026-11-14), so they play.
@@ -80,7 +80,7 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 
 | Phase | Paid work | Credits |
 |---|---|---|
-| 1. Characters | 3x3 lineup at 2K (18); six operative runs of six animations (6 x 90); `vanguard` and `heavy` idle runs (2 x 20). Portraits and AXIOM-7 are sliced from the lineup. Upload clean crops of the lineup instead of making the 2026-11-12 run-pose prep stills | 598 |
+| 1. Characters | Three 2K lineups (54), operative and enemy animation runs (580). Portraits and AXIOM-7 sliced from the lineups. **Done 2026-11-13: 634 credits**; see Phase 1 status | 634 |
 | 2. Deployment cutscene | City base, city structure and roof structure at 2K, plus one 2K items sheet (patrol drone and both Phase 3 blades). Lights, drone layers and `shogun.png` are derived or composed. **Done 2026-11-13: 72 credits** | 72 |
 | 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K pose sheets (36). Lights derived, poses composed. **Done 2026-11-14: 282 credits** (216 planned plus 66 of retries: a seventh 4K sheet for the sparse cargo strip and reunion road, and 2K remakes of the shield road and the fortress; see "Phase 3 status") | 282 |
 | 4. Mission props | 21 props on two 2K 4x4 sheets (36; was three 3x3 sheets, 54, until the owner chose 4x4 on 2026-11-14); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30). **Done 2026-11-14: 66 credits**, no retries | 66 |
@@ -91,7 +91,7 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | **Total** | | **2,206** |
 
 - **Spent:** the whole list is done. Phases 1–7 used 2,170 credits (634 + 72 + 282 + 66 + 138 + 882 + 96) and the 2026-11-12 items 36, so 2,206 in all. The balance after the last batch is 604. (The total row read 2,170 before 2026-11-15 although it included the 36 still planned.)
-- **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
+- **Remaining balance:** 604 after completion. The original estimated retry reserve was about 676 before generation and the top-up.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
 - **Totals:** 316 images to remake, 17 copies and 89 skipped (of 422 deleted images), plus 9 to remake and 106 skipped from the 115 deleted on 2026-11-12. All 537 are in `docs/art_regeneration.json`. About 60 paid generations and animation runs make all of them.
@@ -1302,8 +1302,8 @@ On the owner's instruction, every image left after the Blender deletion was remo
 | `assets/images/cyber_button_normal.png`, `_hover.png`, `_pressed.png` | 800x140 each | `scripts/ui/CyberButton.cs` (`OptionalArt`) | buttons show text only |
 | `assets/textures/cyber_speech_frame.png`, `cyber_speech_pointer.png` | 512x320 and 128x128 | `scripts/ui/CyberDialogueBubble.cs` (`OptionalArt`) | bubble has no frame or pointer |
 | `assets/images/level1/palace_garden_painted.png` | 2149x732 | `PalaceMission.BackdropPath` | procedural skyline |
-| `assets/icons/axiom_force.png`, `assets/icons/axiom_force.ico` | 1254x1254 PNG; ICO up to 256x256 | **re-add** `config/icon` and `config/windows_native_icon` to `project.godot`, and `application/icon` and `icons/icon_1024x1024` to `export_presets.cfg` | default Godot icon |
-| `website/public/favicon.svg` | SVG, 100x100 viewBox | **re-add** `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />` to `website/index.html` and `index.html` | browser default icon |
+| `assets/icons/axiom_force.png`, `assets/icons/axiom_force.ico` | 1254x1254 PNG; ICO up to 256x256 | Restored `config/icon` and `config/windows_native_icon` in `project.godot`; Windows `application/icon` and iOS `icons/icon_1024x1024` in `export_presets.cfg`. Android and macOS export icons remain unset. | default Godot icon |
+| `website/public/favicon.svg` | SVG, 100x100 viewBox | Restored favicon link in `website/index.html`; the root static page uses the existing website favicon path | browser default icon |
 
 **Skipped (106):**
 - **Superseded:** the hand-drawn studies (`assets/characters/hand_drawn`, `assets/characters/shogun_study`), replaced by the pixel atlases. The code that drew them (`TrainingArtwork`, `OperativeStudyAtlas`, the hand-drawn branch of `ShogunArtPreview`, Level 1's `campaign_atlas` frames) was removed, and every mission and the selection preview now use `OperativeVisuals`.

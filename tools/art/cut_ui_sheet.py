@@ -2,7 +2,7 @@
 
 Usage (from the repository root, with Pillow, numpy and scipy):
 
-    uv run --system-certs --no-project --with pillow --with numpy --with scipy \n        python tools/art/cut_ui_sheet.py RAW_SHEET .
+    uv run --system-certs --no-project --with pillow --with numpy --with scipy python tools/art/cut_ui_sheet.py RAW_SHEET .
 
 RAW_SHEET is the raw_url download of SpriteCook asset 99c9f6ae-b59e-4016-8423-98779b38699f.
 Writes the three cyber_button_*.png files, cyber_speech_frame.png, cyber_speech_pointer.png and

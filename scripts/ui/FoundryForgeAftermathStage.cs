@@ -382,44 +382,6 @@ public partial class FoundryForgeAftermathStage : Control
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
     }
 
-    /// <summary>Draws a styled operative silhouette with glowing cyber energy highlights.</summary>
-    private void DrawCharacterSilhouette(Vector2 pos, Color glow, string name, bool isSpeaking, bool isLeader = false, bool isHeavy = false)
-    {
-        float scale = isHeavy ? 1.25f : (isLeader ? 1.1f : 1.0f);
-        Color bodyColor = new("080a10");
-
-        // Active speaker ground highlight ring
-        if (isSpeaking)
-        {
-            DrawArc(pos + new Vector2(0, 50), 32f * scale, 0f, Mathf.Tau, 24, new Color(glow, 0.7f), 2f);
-        }
-
-        // Head and cyber visor / crest
-        DrawCircle(pos + new Vector2(0, -18 * scale), 12f * scale, bodyColor);
-        DrawLine(pos + new Vector2(-6 * scale, -18 * scale), pos + new Vector2(8 * scale, -18 * scale), glow, 2.5f);
-
-        // Torso
-        DrawRect(new Rect2(pos.X - 10 * scale, pos.Y - 6 * scale, 20 * scale, 32 * scale), bodyColor);
-
-        // Signature equipment accents
-        if (isLeader)
-        {
-            // Katana scabbard and flowing crimson scarf
-            DrawLine(pos + new Vector2(-12 * scale, 10 * scale), pos + new Vector2(-28 * scale, -15 * scale), glow, 2.5f);
-            DrawLine(pos + new Vector2(-6 * scale, -12 * scale), pos + new Vector2(-20 * scale, -2 * scale), glow, 2f);
-        }
-        else if (isHeavy)
-        {
-            // Massive shoulder pauldrons and kinetic coil hum
-            DrawRect(new Rect2(pos.X - 18 * scale, pos.Y - 8 * scale, 8 * scale, 14 * scale), glow);
-            DrawRect(new Rect2(pos.X + 10 * scale, pos.Y - 8 * scale, 8 * scale, 14 * scale), glow);
-        }
-
-        // Legs
-        DrawLine(pos + new Vector2(-6 * scale, 26 * scale), pos + new Vector2(-8 * scale, 50 * scale), bodyColor, 5f * scale);
-        DrawLine(pos + new Vector2(6 * scale, 26 * scale), pos + new Vector2(8 * scale, 50 * scale), bodyColor, 5f * scale);
-    }
-
     /// <summary>Renders AXIOM-7 holographic city map and sky-shield countdown telemetry.</summary>
     private void DrawHolographicTelemetry(float t, int shot)
     {

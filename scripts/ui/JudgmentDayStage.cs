@@ -271,43 +271,6 @@ public partial class JudgmentDayStage : Control
         // Silhouette of the VOID COMMANDER
         Vector2 cmdPos = daisCenter + new Vector2(0, -10);
 
-        // Flowing dark matter cape billowing
-        float capeWave = Mathf.Sin(t * 3.5f) * 15f;
-        Vector2[] capePoints = {
-            cmdPos + new Vector2(-22, -90),
-            cmdPos + new Vector2(22, -90),
-            cmdPos + new Vector2(40 + capeWave, 0),
-            cmdPos + new Vector2(-40 + capeWave, 0)
-        };
-        DrawColoredPolygon(capePoints, new Color(0.03f, 0.01f, 0.07f, 0.9f));
-
-        // Armored Torso & Legs
-        DrawRect(new Rect2(cmdPos.X - 18, cmdPos.Y - 95, 36, 50), new Color(0.1f, 0.04f, 0.18f));
-        DrawRect(new Rect2(cmdPos.X - 16, cmdPos.Y - 45, 13, 45), new Color(0.08f, 0.03f, 0.15f)); // Left leg
-        DrawRect(new Rect2(cmdPos.X + 3, cmdPos.Y - 45, 13, 45), new Color(0.08f, 0.03f, 0.15f));  // Right leg
-
-        // Shoulders & Armor Plating
-        DrawRect(new Rect2(cmdPos.X - 30, cmdPos.Y - 98, 14, 20), new Color(0.16f, 0.06f, 0.26f));
-        DrawRect(new Rect2(cmdPos.X + 16, cmdPos.Y - 98, 14, 20), new Color(0.16f, 0.06f, 0.26f));
-
-        // Helmet & Glowing Crimson Command Visor
-        DrawCircle(cmdPos + new Vector2(0, -112), 14f, new Color(0.12f, 0.05f, 0.22f));
-        DrawRect(new Rect2(cmdPos.X - 9, cmdPos.Y - 115, 18, 4), new Color(ColorAlert.R, ColorAlert.G, ColorAlert.B, 0.95f));
-
-        // Twin Dual-Phase Energy Katanas (Ignited)
-        float bladeGlow = 0.8f + 0.2f * Mathf.Sin(t * 8f);
-
-        // Right Hand Blade (Crimson Plasma)
-        Vector2 hiltR = cmdPos + new Vector2(28, -65);
-        Vector2 tipR = hiltR + new Vector2(35, -75);
-        DrawLine(hiltR, tipR, new Color(ColorAlert.R, ColorAlert.G, ColorAlert.B, bladeGlow), 4.5f);
-        DrawLine(hiltR, tipR, Colors.White, 1.8f);
-
-        // Left Hand Blade (Dark Matter Magenta / Cyan)
-        Vector2 hiltL = cmdPos + new Vector2(-28, -65);
-        Vector2 tipL = hiltL + new Vector2(-35, -75);
-        DrawLine(hiltL, tipL, new Color(ColorVoidMagenta.R, ColorVoidMagenta.G, ColorVoidMagenta.B, bladeGlow), 4.5f);
-        DrawLine(hiltL, tipL, Colors.White, 1.8f);
         CampaignArtwork.DrawCommander(this, cmdPos);
     }
 
@@ -315,45 +278,6 @@ public partial class JudgmentDayStage : Control
     private void DrawAxiomForceSquad(Vector2 size, float t, int shot)
     {
         CampaignArtwork.DrawSquad(this, ArtPath, Seconds);
-    }
-
-    /// <summary>Draws a single operative silhouette with distinct weapon glow, visor, and stance.</summary>
-    private void DrawOperativeSilhouette(Vector2 pos, Color accent, string name, float t, bool isVanguard, bool isCrouched = false)
-    {
-        float h = isCrouched ? 50f : 75f;
-        float w = (name == "Titan") ? 28f : 20f;
-
-        // Shadow beneath operative
-        DrawCircle(new Vector2(pos.X, pos.Y + 2f), w * 0.9f, new Color(0f, 0f, 0f, 0.45f));
-
-        // Torso & Legs
-        Rect2 bodyRect = new(pos.X - w * 0.5f, pos.Y - h, w, h * 0.65f);
-        DrawRect(bodyRect, new Color(0.04f, 0.02f, 0.08f));
-        DrawRect(new Rect2(pos.X - w * 0.5f, pos.Y - h * 0.35f, w * 0.45f, h * 0.35f), new Color(0.03f, 0.01f, 0.06f));
-        DrawRect(new Rect2(pos.X + w * 0.05f, pos.Y - h * 0.35f, w * 0.45f, h * 0.35f), new Color(0.03f, 0.01f, 0.06f));
-
-        // Head
-        Vector2 headCenter = new(pos.X, pos.Y - h - 10f);
-        DrawCircle(headCenter, 9f, new Color(0.05f, 0.02f, 0.1f));
-
-        // Accent Visor / Edge Line
-        DrawLine(headCenter + new Vector2(-5, 0), headCenter + new Vector2(5, 0), accent, 2.5f);
-
-        // Signature Weapon Glow
-        if (name == "Kaito")
-        {
-            // Kinetic Katana raised high
-            Vector2 hilt = pos + new Vector2(15, -45);
-            Vector2 tip = hilt + new Vector2(25, -60);
-            DrawLine(hilt, tip, accent, 3.5f);
-            DrawLine(hilt, tip, Colors.White, 1.5f);
-        }
-        else if (name == "Mirage")
-        {
-            // Twin Phase Daggers
-            DrawLine(pos + new Vector2(-15, -30), pos + new Vector2(-25, -45), accent, 2.5f);
-            DrawLine(pos + new Vector2(15, -30), pos + new Vector2(25, -45), accent, 2.5f);
-        }
     }
 
     /// <summary>Draws drifting cosmic dust motes and void lightning sparks across the screen.</summary>

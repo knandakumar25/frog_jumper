@@ -205,18 +205,4 @@ public partial class IgnisColossusBoss2D : CharacterBody2D
             QueueFree();
         }
     }
-    /// <summary>Draws the armored geothermal guardian even when no optional sprite or light children were authored.</summary>
-    public override void _Draw()
-    {
-        Color hot = CurrentPhase == 3 ? new Color("ff2255") : new Color("ffaa33");
-        DrawRect(new Rect2(-78, -76, 156, 150), new Color("25313f"));
-        DrawRect(new Rect2(-100, -55, 44, 96), new Color("526172"));
-        DrawRect(new Rect2(56, -55, 44, 96), new Color("526172"));
-        DrawCircle(new Vector2(0, -8), 34, new Color("101822"));
-        DrawCircle(new Vector2(0, -8), 22 + Mathf.Sin(_hoverTimer * 5) * 3, hot);
-        DrawLine(new Vector2(-45, -52), new Vector2(45, -52), hot, 9);
-        for (int side = -1; side <= 1; side += 2)
-            DrawLine(new Vector2(side * 48, 46), new Vector2(side * 62, 77), new Color("8495a6"), 24);
-    }
-
 }

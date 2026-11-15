@@ -1,16 +1,26 @@
 # Axiom Force
 
+## Verified handoff follow-up and SpriteCook actor wiring (2026-11-15)
+
+The Names aftermath heroes and civilians, campaign sentries, world hostiles and six later
+bosses now use the existing SpriteCook artwork throughout their body rendering. Combat
+indicators remain separate. No new art was generated. Backend race fixes, seven README
+contracts, real browser authentication checks and Tokyo runtime acceptance are recorded in
+[the verification report](docs/HANDOFF_PRIORITIES_VERIFICATION.md), including final tests,
+local evidence and remaining owner actions. All changes remain local.
+
 ## Express.js accounts API, last art items and Tokyo fix (2026-11-15)
 
 - **Backend:** the website and game accounts API in `backend/` is now **Express.js 5 on
   Node 26**, replacing Django. It keeps the same `/api/auth/...` paths, JSON and status codes,
-  the same `accounts_*` PostgreSQL tables, and accepts Django password hashes, so the game and
-  website did not change. Unused routes went with Django (third-party and social sign-in, and the
+  the same `accounts_*` PostgreSQL tables, and accepts Django password hashes. The website
+  now uses emailed proof for 2FA disable and email changes; refresh tokens are single use.
+  See [backend contracts](backend/README.md) for the API boundaries. Unused routes went with Django (third-party and social sign-in, and the
   `/admin/` site). Security fixes: the token key comes from `JWT_SIGNING_KEY` (required;
   see `.env.example`), login gives one answer for every failure, 2FA codes are cryptographically
   random with a five-try limit and can be switched off, and refresh tokens work once. Everyone
   signs in again once, because the key changed. Tests: `docker compose exec -T backend npm test`
-  (150: the 111 Django tests ported, plus 39 for the fixes).
+  (154: the 111 Django tests ported, plus 43 for the fixes).
 - **Review fixes (EGM review, 2026-11-15):** rate limits on login, register, 2FA and token
   refresh; a cap on emailed codes; the API and database are published on 127.0.0.1 only; turning
   2FA off and changing the account email now need a code emailed to the account, and send a
@@ -51,15 +61,15 @@ scene timing. The repeatable cutting/derivation helper is
 `tools/art/build_later_campaign_art.py`; source IDs and hashes live in
 `spritecook-assets.json`. See HANDOFF for verification and remaining limitations.
 
-## SpriteCook art reset (2026-11-13)
+## SpriteCook art reset (historical, 2026-11-13)
 
 All art made with SpriteCook on 2026-11-12 was deleted at the owner's request: the Phase 1
 character atlases, portraits and `.tres`, the button states, dialogue frame/pointer, app
 icon and favicon, the city menu base and the 17 localized titles with their website copies.
-`spritecook-assets.json` is empty again and the icon references in `project.godot`,
-`export_presets.cfg` and both `index.html` files were removed. Operatives, the drone and
-the boss are invisible placeholders until the art is regenerated on the Adventurer plan.
-The deleted files are in git at `3d05726`. The redo is planned in `docs/ART_REGENERATION.md` ("Methods" and "Adventurer budget"): about 60 paid generations at 2K/4K (2,104 credits, with about 676 in reserve after the owner's top-up) make all 325 images, using grid sheets, layers derived locally and cutscene poses built from the Phase 1 animations (`tools/art/slice_sheet.py`, `derive_layers.py`, `compose_poses.py`, `pack_topdown.py`). The helpers in `tools/art/` are kept; the
+The deleted files are in git at `3d05726`. Regeneration finished on 2026-11-15:
+2,206 credits spent, 604 remaining. The manifest and icon references are restored.
+See `docs/ART_REGENERATION.md` for methods and completed phases. Grid sheets,
+derived layers and composed poses use the helpers in `tools/art/`; the
 title helper needs Pillow with libraqm for Arabic and Hebrew (use Linux Docker on Windows).
 
 ## Open world status (2026-11-08)
@@ -201,19 +211,19 @@ Blender was retired on 2026-11-11. All game and website art is now made with the
   - the UI art, backgrounds and template images;
   - the app icon and favicon.
   Of these, 9 are listed to remake; the rest are unused or superseded.
-- **Plan:** one month of the Adventurer plan, 2K/4K only; see `docs/ART_REGENERATION.md` ("Adventurer budget").
-- **Done so far:** Phase 4, the 25 mission props for Concrete Wildfire, Neon Rust, Shattered Aegis and Names without Numbers (2026-11-14, 66 credits), now drawn with nearest filtering so the stretched pixel art stays crisp. Phase 3, the other eight cutscenes (2026-11-14, 282 credits: Wildfire arrival and aftermath, Tokyo, Neon Rust intro and aftermath, Shattered Aegis, Names without Numbers, Act II), so every cutscene plays again; Tokyo's escape shot still draws the blade above Kaito's head until `TokyoStage.cs` gets a new offset. Phase 2 deployment cutscene (2026-11-13, 72 credits: city, roof, drone and Shogun layers, plus both Phase 3 blades), so the opening cutscene plays again. Phase 1 characters, redone on 2026-11-13 on the Adventurer plan (634 credits): pixel-art atlases, portraits and restored `.tres` for all six operatives, the `vanguard` and `heavy` idles, and the AXIOM-7 portrait. Asset IDs are in `spritecook-assets.json`.
+- **Plan:** completed on the Adventurer plan, 2K/4K only; see `docs/ART_REGENERATION.md` ("Adventurer budget").
+- **Completed:** all seven phases and the 2026-11-12 replacement items, 2,206 credits total with 604 remaining. This includes characters, all cutscenes, mission props, later environments, city kits, menus, Level 1 map, titles, UI and icons. Asset IDs are in `spritecook-assets.json`. Tokyo blade offsets have been re-measured; runtime acceptance is recorded in HANDOFF.
 - **To regenerate:** `docs/ART_REGENERATION.md` lists each image's path, pixel size, layer role, frame layout and the code that loads it. Put each new file at its listed path and size; the game picks it up with no code change. `ArtRegenerationSpecTests` checks the sizes against `docs/art_regeneration.json`.
-- **Until then the game has gaps on purpose:**
+- **Current rendering:**
   - Every mission, Level 1, the squad cutscenes and the selection preview draw operatives from their SpriteCook atlas through `OperativeVisuals`.
     - All six operatives, the drone and the boss have pixel-art atlases again (2026-11-13).
     - An actor without an atlas would be invisible but still play, using an empty placeholder animation set.
-    - Sentries, open-world hostiles and Aegis civilians are drawn in code.
-  - Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline.
-  - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
+    - Sentries and open-world hostiles use the SpriteCook vanguard animation; Aegis civilians use the Phase 4 image.
+  - Cities, menus, Level 1 map and garden use restored art.
+  - Buttons, speech frame and pointer, game icon and website favicon are restored.
   - Cutscenes play again (Phases 2 and 3 done).
-  - The title slot is empty in the game and shows text on the website (`website/src/components/TitleLogo.jsx`).
-- The downloaded CC0 stand-ins (`assets/stand_in/`) and the Pixel Adventure leftovers were deleted as well. The bike, sentries and open-world drones are drawn in code, and their sounds are silent.
+  - All 17 localized titles are restored in the game and website (`website/src/components/TitleLogo.jsx`). Native-reader wording approval remains open.
+- The downloaded CC0 stand-ins (`assets/stand_in/`) and the Pixel Adventure leftovers were deleted as well. The bike is drawn in code and the retired stand-in sounds remain silent. Enemy bodies use SpriteCook art.
 - Mentions of "Blender" or "Docker/Blender" artwork in the dated sections below describe art that has since been deleted.
 
 ## Asset quality tools
@@ -996,16 +1006,16 @@ AxiomForce/
 │   └── fonts/                        # Cyber typography resources
 ├── scenes/
 │   ├── main_menu/                    # Squad roster, menus, and story
-│   ├── gameplay/                     # Level 1-4 scenes, boss encounter, hazards
+│   ├── gameplay/                     # Level 1-12 campaign scenes, bosses, hazards
 │   └── ui/                           # Combat HUD, scorecard, and dialog bubbles
 ├── scripts/
 │   ├── actors/                       # CyberShogun, OperativeProfile, CyberBossMech2D, CyberDrone2D
-│   ├── gameplay/                     # CodeLevel + the four mission classes, PalacePlatform, AbilityGate, RecruitBeat, hazards
+│   ├── gameplay/                     # Campaign mission classes, CodeLevel, gates, recruits, hazards
 │   ├── ui/                           # CyberCombatHud, CyberVictoryScorecard
 │   ├── managers/                     # SessionManager, UISoundManager, OperativeRoster, LevelCatalog, CampaignProgress
 │   └── tools/                        # generate_cyber_sfx.py sound synthesizer
 ├── backend/                          # Express.js accounts API (src/, migrations/, test/)
-├── frontend/                         # React + Vite web application
+├── website/                          # React + Vite web application
 └── tests/                            # GdUnit4 and NUnit test suites
 ```
 

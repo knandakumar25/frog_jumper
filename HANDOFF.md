@@ -1,8 +1,34 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Approved follow-up and SpriteCook actor wiring — 2026-11-15
+
+Implementation and final verification complete; changes remain local. See
+[verification record](docs/HANDOFF_PRIORITIES_VERIFICATION.md) for current outcomes and evidence.
+
+- Second EGM review and first-round reconciliation completed; seven backend README contracts added.
+- Repaired superseded-code reuse, concurrent code issuance, and refresh/revocation races.
+- Real Clerk browser flows, account 2FA/email forms, password API and Axios concurrency verified;
+  disposable users/database/mail/proxy cleaned up. Issue 14's Clerk-key contest is verified live.
+- Owner rule: hero/enemy bodies must come from SpriteCook. Replaced active primitive heroes and
+  civilians in the Names aftermath, sentry/world-hostile bodies and old chassis under six bosses.
+  Deleted original body constructors and 22 unused operative drawing methods, plus remaining
+  commander, guard, captive, civilian fallback and wreck drawings. Existing SpriteCook assets
+  reused; no art generation or asset replacement. Gameplay scripts remain for their behavior.
+- Tokyo blade accepted in running Godot at standard/wide aspects, through both blade shots,
+  their transition and motion. Natural/Skip each produce results once; Replay restores movement.
+- Backend 154/154, NUnit 439/439, GdUnit 366/366 (0 errors/failures/orphans), browser 5/5 and smoke 1/1 pass. A quiet full GdUnit rerun passed after a
+  timing-sensitive dodge assertion during concurrent QA; the isolated suite also passed without edits.
+- Global SDK 11/project target unchanged; runtime QA used a process-local temporary SDK 10.
+  Normal Docker stack remains running. No exports, commits or pushes.
+- Owner actions remain native title approval and provider-secret rotation. Legacy password
+  rehash and unrelated architectural changes remain deferred.
+
+The dated sections below preserve earlier implementation history; this section supersedes their
+outstanding items for the approved follow-up.
+
 ## Express.js backend, 2026-11-12 art items, Tokyo blade and titles check — 2026-11-15
 
-Uncommitted. The owner asked for the four Phase 7 follow-ups and a move of the backend from Django to Express.js.
+Historical implementation at commit `646130a`. The owner asked for the four Phase 7 follow-ups and a move of the backend from Django to Express.js. Current local follow-up status is recorded above this section.
 
 - **Backend (`backend/`, Express 5 on Node 26):**
   - **Layout:** `src/app.js` (app built from injected dependencies), `src/server.js`, `src/config.js`, `src/db.js`, `src/migrate.js`; `src/lib/` (tokens, auth, Django hashes, Clerk, mail and templates, users, 2FA, throttle, countries); `src/routes/` (accounts, browser, onboarding); `migrations/*.sql`; `test/*.test.js`; `scripts/e2e-server.js` and `e2e-proxy.js` (Playwright helpers, replacing the Python ones); `data/countries.json`.
@@ -19,7 +45,7 @@ Uncommitted. The owner asked for the four Phase 7 follow-ups and a move of the b
   - **Known risks (not changed):** the game's browser sign-in has no code the player compares between game and website, so a sent `auth_url` could trick someone into approving an attacker's request, and a Clerk-approved request skips the game account's 2FA. A fix needs a game and website change (show a short code in the game, type it on the page). There is no logout or revoke-all route; the API connects as the `postgres` superuser.
   - **Docker:** build context `./backend`, multi-stage, non-root, pinned `node:26.13.1-alpine3.23`. Compose runs the `dev` target (it has the test packages and the e2e scripts), has no source bind mount (rebuild before `npm test` after edits), and health-checks `/api/health`; the website only waits for the backend to start. Local development only: there is no production deployment; a slim image is `docker build --target runtime ./backend`.
   - **First run / fresh clone:** copy `.env.example` to `.env` and set `JWT_SIGNING_KEY` (32+ characters). Without it the backend restarts in a loop and its log says why; the website and database still run.
-  - **Rollback to Django:** back up first with `tools/db/backup.ps1`. The work is uncommitted, so `git restore backend requirements.txt docker-compose.yml run_tests.ps1 .env.example website/nginx.conf tools/playwright` (plus the guides and docs if wanted) and `git clean -fd backend` bring the Django files back; then `docker compose up -d --build backend website`. Django ignores the added `attempts`, `family` and `accounts_refreshtoken` (they have defaults or are unknown to it). On a database the Express API created from scratch, Django needs `python manage.py migrate --fake-initial`. Everyone signs in again either way. `requirements.txt` deleted. `.env.example`: Django and OAuth lines removed, `JWT_SIGNING_KEY` documented.
+  - **Rollback to Django (historical migration boundary):** back up saves with `tools/db/backup.ps1` first. Express is committed at `646130a`; restoring current HEAD cannot restore Django. The pre-migration tree is `1bb6282`; inspect its backend, requirements, Compose, nginx and test-helper files in a separate checkout before planning a rollback. Do not execute the old restore/clean recipe over current work. Django ignores added token tables/columns, but an Express-created database needs its initial migrations reconciled (`--fake-initial`) and validation on a restored test copy. All sessions must sign in again. Restoring or deploying that revision is a separate owner action.
   - **Owner action (tracked, Issue 10):** the old third-party OAuth client secrets were committed in `.env.example` and the Django settings and remain in git history. The GitHub repository is private (checked 2026-11-15); whether it was ever public is not known here. Rotate them in the providers' developer portals, or delete those apps if unused; until then they count as exposed to anyone with repository access. All other mentions were removed at the owner's request (2026-11-15), including the unused `*_login` strings for those providers in `website/src/translations/ui_translations.json` and the local `.env` keys.
 - **2026-11-12 art (36 credits, balance 604):** buttons, speech frame and pointer, app icon (with ICO and favicon), palace garden. See "2026-11-12 items status" in `docs/ART_REGENERATION.md`. Code: the icon references are re-added; the `CodeLevel.cs` garden uses nearest filtering. Tool: `tools/art/cut_ui_sheet.py`.
 - **Tokyo blade:** `TokyoStage.cs` escape and testimony offsets re-measured; checked on rendered frames, not in the running game.

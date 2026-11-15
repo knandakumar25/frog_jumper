@@ -47,9 +47,8 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
     private float _attackCooldown;
     private Node2D? _visualRoot;
     private Node2D? _orbitalRing;
-    private Polygon2D? _coreSphere;
 
-    /// <summary>Initializes boss positioning, groups, procedural visuals, and HUD telemetry.</summary>
+    /// <summary>Initializes boss positioning, groups, SpriteCook artwork, and HUD telemetry.</summary>
     public override void _Ready()
     {
         CollisionLayer = 2;
@@ -64,7 +63,7 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
-    /// <summary>Creates procedural high-tech Nexus guardian visuals and collision shape if not pre-configured.</summary>
+    /// <summary>Creates the artwork root, combat indicators, and collision shape if not pre-configured.</summary>
     private void SetupVisuals()
     {
         if (GetNodeOrNull<CollisionShape2D>("CollisionShape2D") == null)
@@ -79,55 +78,6 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
 
         _visualRoot = new Node2D { Name = "VisualRoot" };
         AddChild(_visualRoot);
-
-        // Heavy aerodynamic Overseer chassis
-        var chassis = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(0, -60),
-                new Vector2(45, -30),
-                new Vector2(50, 25),
-                new Vector2(30, 55),
-                new Vector2(-30, 55),
-                new Vector2(-50, 25),
-                new Vector2(-45, -30)
-            },
-            Color = new Color(0.08f, 0.12f, 0.22f) // Deep obsidian cyber armor
-        };
-        _visualRoot.AddChild(chassis);
-
-        // Stabilizer wings
-        var leftWing = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(-45, -20), new Vector2(-85, 0), new Vector2(-50, 40) },
-            Color = new Color(0.15f, 0.25f, 0.45f)
-        };
-        var rightWing = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(45, -20), new Vector2(85, 0), new Vector2(50, 40) },
-            Color = new Color(0.15f, 0.25f, 0.45f)
-        };
-        _visualRoot.AddChild(leftWing);
-        _visualRoot.AddChild(rightWing);
-
-        // Central Quantum Core Sphere
-        _coreSphere = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(0, -22),
-                new Vector2(16, -16),
-                new Vector2(22, 0),
-                new Vector2(16, 16),
-                new Vector2(0, 22),
-                new Vector2(-16, 16),
-                new Vector2(-22, 0),
-                new Vector2(-16, -16)
-            },
-            Color = new Color(0.0f, 0.95f, 1.0f) // Cyan quantum energy
-        };
-        _visualRoot.AddChild(_coreSphere);
 
         // Orbital Ring with Prisms
         _orbitalRing = new Node2D { Name = "OrbitalRing" };
@@ -164,7 +114,6 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
         if (CurrentHealth <= boundary && !PhaseBlocked && CurrentPhase < 3)
         {
             ++CurrentPhase;
-            OnPhaseShift(CurrentPhase);
         }
         if (amount > 0 || oldPhase != CurrentPhase || wasBlocked != PhaseBlocked)
             EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
@@ -176,19 +125,6 @@ public partial class NexusOverseerBoss2D : CharacterBody2D
 
     /// <summary>Damage stops at the current authored phase threshold; excess damage never skips defenders or a phase.</summary>
     private float PhaseFloor => CurrentPhase switch { 1 => MaxHealth * 0.66f, 2 => MaxHealth * 0.33f, _ => 0 };
-
-    /// <summary>Updates phase-specific armor and weapon feedback.</summary>
-    private void OnPhaseShift(int newPhase)
-    {
-        if (_coreSphere != null)
-        {
-            _coreSphere.Color = newPhase switch
-            {
-                2 => new Color(1.0f, 0.7f, 0.1f), // Amber Overdrive
-                _ => new Color(1.0f, 0.2f, 0.3f)  // Red/Meltdown Overload
-            };
-        }
-    }
 
     /// <summary>Stops owned attacks and emits the accepted defeat before visual teardown.</summary>
     private void OnDefeated()

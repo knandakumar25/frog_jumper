@@ -45,10 +45,9 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
     private Vector2 _originPosition;
     private float _hoverTimer;
     private float _attackCooldown;
-    private PointLight2D? _coreLight;
     private Node2D? _visualRoot;
 
-    /// <summary>Initializes boss positioning, groups, procedural visuals, and HUD telemetry.</summary>
+    /// <summary>Initializes boss positioning, groups, SpriteCook artwork, and HUD telemetry.</summary>
     public override void _Ready()
     {
         CollisionLayer = 2;
@@ -63,7 +62,7 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
         EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
     }
 
-    /// <summary>Creates procedural high-tech aviation mechanoid visuals and collision shape if not pre-configured.</summary>
+    /// <summary>Creates the artwork root and collision shape if not pre-configured.</summary>
     private void SetupVisuals()
     {
         if (GetNodeOrNull<CollisionShape2D>("CollisionShape2D") == null)
@@ -78,54 +77,6 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
 
         _visualRoot = new Node2D { Name = "VisualRoot" };
         AddChild(_visualRoot);
-
-        // Mechanoid chassis polygon
-        var chassis = new Polygon2D
-        {
-            Polygon = new[]
-            {
-                new Vector2(0, -45),
-                new Vector2(35, -20),
-                new Vector2(40, 25),
-                new Vector2(20, 45),
-                new Vector2(-20, 45),
-                new Vector2(-40, 25),
-                new Vector2(-35, -20)
-            },
-            Color = new Color(0.2f, 0.28f, 0.38f) // Steel titanium aviation armor
-        };
-        _visualRoot.AddChild(chassis);
-
-        // Jet wings
-        var leftWing = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(-35, -10), new Vector2(-65, 10), new Vector2(-40, 30) },
-            Color = new Color(0.35f, 0.45f, 0.6f)
-        };
-        var rightWing = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(35, -10), new Vector2(65, 10), new Vector2(40, 30) },
-            Color = new Color(0.35f, 0.45f, 0.6f)
-        };
-        _visualRoot.AddChild(leftWing);
-        _visualRoot.AddChild(rightWing);
-
-        // Cockpit visor / core glow
-        var visor = new Polygon2D
-        {
-            Polygon = new[] { new Vector2(-15, -15), new Vector2(15, -15), new Vector2(10, 0), new Vector2(-10, 0) },
-            Color = new Color(0.1f, 0.8f, 1.0f) // Aero cyan
-        };
-        _visualRoot.AddChild(visor);
-
-        _coreLight = new PointLight2D
-        {
-            Name = "CoreLight",
-            Color = new Color(0.2f, 0.7f, 1.0f, 0.8f),
-            Energy = 1.2f,
-            TextureScale = 1.5f
-        };
-        AddChild(_coreLight);
     }
 
     /// <summary>Executes hover traversal, phase-specific attacks, and projectile volleys.</summary>
@@ -218,7 +169,6 @@ public partial class AeroCenturionBoss2D : CharacterBody2D
         if (CurrentHealth <= boundary && !PhaseBlocked && CurrentPhase < 3)
         {
             ++CurrentPhase;
-            if (_coreLight != null) _coreLight.Color = CurrentPhase == 2 ? new Color("ff9900") : new Color("ff2255");
         }
         if (amount > 0 || oldPhase != CurrentPhase || wasBlocked != PhaseBlocked)
             EmitSignal(SignalName.BossHealthChanged, CurrentHealth, MaxHealth, CurrentPhase);
