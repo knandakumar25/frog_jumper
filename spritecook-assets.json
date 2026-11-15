@@ -360,6 +360,82 @@
   {
    "asset_id": "6ee97a12-d432-4c8e-bf29-0bf584432252",
    "label": "Phase 5 boss_2k"
+  },
+  {
+   "asset_id": "f188f288-4f94-4221-a6ff-9e78311e7af4",
+   "label": "Phase 6 layout reference world_la_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "a2189289-7c92-4a93-ab84-68ea2fa18ef1",
+   "label": "Phase 6 layout reference world_la_2k_2 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "ce7b8157-9746-4568-a295-74000032fcb9",
+   "label": "Phase 6 layout reference world_la_2k_3 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "edda5ba9-fad1-438a-8300-aeaed78db3e5",
+   "label": "Phase 6 layout reference world_kyoto_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "15dfb5be-b87a-4902-91dc-338161f42b5b",
+   "label": "Phase 6 layout reference world_beirut_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "88468c91-3610-4320-a8b3-198b58375dfc",
+   "label": "Phase 6 layout reference world_dubai_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "a5623ec7-0ba6-44dd-9d16-ff225ecf977e",
+   "label": "Phase 6 layout reference world_honolulu_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "a9efe9d4-35e2-4de3-90d2-7573f5100209",
+   "label": "Phase 6 layout reference world_luanda_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "05da0df9-3643-47c2-845f-5dc1a89b282b",
+   "label": "Phase 6 layout reference world_mumbai_2k_1 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "0f0c467b-3b0c-4861-9fda-a8f1399c4113",
+   "label": "Phase 6 layout reference op0 (old ca92679 cells on magenta)"
+  },
+  {
+   "asset_id": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "label": "Phase 6 world_la_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "label": "Phase 6 world_la_2k_2 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "493202eb-4405-4175-9c4e-c561998d9734",
+   "label": "Phase 6 world_la_2k_3 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "label": "Phase 6 world_kyoto_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "label": "Phase 6 world_beirut_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "label": "Phase 6 world_dubai_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "fa672345-53f4-4b08-8598-df80160cd860",
+   "label": "Phase 6 world_honolulu_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "label": "Phase 6 world_luanda_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "label": "Phase 6 world_mumbai_2k_1 (2K 4x4 sheet)"
   }
  ],
  "files": [
@@ -1170,6 +1246,816 @@
    "sha12": "aeeebf1bae87",
    "source": "6ee97a12-d432-4c8e-bf29-0bf584432252",
    "recipe": "boss_2k, family judgment_day, cell 5, offset (16, 4); boss_lights; aftermath seed 56; collar mask (214,153)-(292,240), transparent pixels only, darkest opaque source collar swatch from (190,140)-(320,260)"
+  },
+  {
+   "path": "assets/world/kyoto/module_0.png",
+   "sha12": "56807f3b02aa",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 72x63 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 84,55"
+  },
+  {
+   "path": "assets/world/kyoto/module_1.png",
+   "sha12": "0c7e9aa55eae",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 73x59 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 83,67"
+  },
+  {
+   "path": "assets/world/kyoto/module_2.png",
+   "sha12": "e263cd8e1754",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 69x67 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 89,43"
+  },
+  {
+   "path": "assets/world/kyoto/module_3.png",
+   "sha12": "4742c68e5e91",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 65x74 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,22"
+  },
+  {
+   "path": "assets/world/kyoto/module_4.png",
+   "sha12": "dc93665898ec",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 65x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,61"
+  },
+  {
+   "path": "assets/world/kyoto/module_5.png",
+   "sha12": "3965dd19bd22",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 29x29 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 149,108"
+  },
+  {
+   "path": "assets/world/kyoto/module_6.png",
+   "sha12": "4ed39e40dda2",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 23x34 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 157,106"
+  },
+  {
+   "path": "assets/world/kyoto/module_7.png",
+   "sha12": "f6978c7f173d",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 26x15 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 153,167"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_0.png",
+   "sha12": "ed7e2e7b56ed",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 63x34 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,149"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_1.png",
+   "sha12": "5bb486cbda41",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 64x53 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,92"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_2.png",
+   "sha12": "1ecf5d02e888",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 64x58 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,77"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_3.png",
+   "sha12": "c8541efda445",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 64x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,101"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_4.png",
+   "sha12": "7a30df6c0632",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 64x62 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,65"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_5.png",
+   "sha12": "7c379057f38f",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_6.png",
+   "sha12": "d000250a23dc",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 57x34 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 107,149"
+  },
+  {
+   "path": "assets/world/kyoto/landmark_7.png",
+   "sha12": "b74ee4c3c028",
+   "source": "d4cd5ab8-60ef-4e45-a84d-27266408bbde",
+   "recipe": "world_kyoto_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 63x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,101"
+  },
+  {
+   "path": "assets/world/beirut/module_0.png",
+   "sha12": "d49491d1cb31",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 64x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,61"
+  },
+  {
+   "path": "assets/world/beirut/module_1.png",
+   "sha12": "4f4c78ec9bc8",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 70x63 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 87,55"
+  },
+  {
+   "path": "assets/world/beirut/module_2.png",
+   "sha12": "7c0208cc321f",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 70x69 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 87,37"
+  },
+  {
+   "path": "assets/world/beirut/module_3.png",
+   "sha12": "202474b4d74f",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 64x75 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,19"
+  },
+  {
+   "path": "assets/world/beirut/module_4.png",
+   "sha12": "0508266a8fc8",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 64x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,61"
+  },
+  {
+   "path": "assets/world/beirut/module_5.png",
+   "sha12": "ca5a151e737d",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 24x26 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 156,123"
+  },
+  {
+   "path": "assets/world/beirut/module_6.png",
+   "sha12": "8b5aa0304e5c",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 17x18 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 167,140"
+  },
+  {
+   "path": "assets/world/beirut/module_7.png",
+   "sha12": "d940e3557d31",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 25x15 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 155,167"
+  },
+  {
+   "path": "assets/world/beirut/landmark_0.png",
+   "sha12": "394e2448ffaf",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 68x57 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 97,80"
+  },
+  {
+   "path": "assets/world/beirut/landmark_1.png",
+   "sha12": "4af0d7b2c01d",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 51x40 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 116,131"
+  },
+  {
+   "path": "assets/world/beirut/landmark_2.png",
+   "sha12": "9e67edeb3471",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 64x52 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,95"
+  },
+  {
+   "path": "assets/world/beirut/landmark_3.png",
+   "sha12": "28245ff920d2",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 60x37 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 102,140"
+  },
+  {
+   "path": "assets/world/beirut/landmark_4.png",
+   "sha12": "ad374a653bbe",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 56x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 108,83"
+  },
+  {
+   "path": "assets/world/beirut/landmark_5.png",
+   "sha12": "3b463beca359",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 57x51 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 107,98"
+  },
+  {
+   "path": "assets/world/beirut/landmark_6.png",
+   "sha12": "144f83ab7b0a",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 64x60 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,71"
+  },
+  {
+   "path": "assets/world/beirut/landmark_7.png",
+   "sha12": "6e75905bfc26",
+   "source": "88950f36-7f5f-49b9-92e1-e10a4a55c88a",
+   "recipe": "world_beirut_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 60x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 102,101"
+  },
+  {
+   "path": "assets/world/dubai/module_0.png",
+   "sha12": "2b5eda2b3e54",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 62x58 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 99,70"
+  },
+  {
+   "path": "assets/world/dubai/module_1.png",
+   "sha12": "464827717054",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 62x62 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 99,58"
+  },
+  {
+   "path": "assets/world/dubai/module_2.png",
+   "sha12": "32c72470ce4e",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 63x66 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,46"
+  },
+  {
+   "path": "assets/world/dubai/module_3.png",
+   "sha12": "48e9176b9fa4",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 63x75 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,19"
+  },
+  {
+   "path": "assets/world/dubai/module_4.png",
+   "sha12": "eecacae88cc5",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 65x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,61"
+  },
+  {
+   "path": "assets/world/dubai/module_5.png",
+   "sha12": "cf5b79928541",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 24x29 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 156,107"
+  },
+  {
+   "path": "assets/world/dubai/module_6.png",
+   "sha12": "bc3482ebff1c",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 18x18 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 165,140"
+  },
+  {
+   "path": "assets/world/dubai/module_7.png",
+   "sha12": "90de4c226265",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 26x15 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 153,167"
+  },
+  {
+   "path": "assets/world/dubai/landmark_0.png",
+   "sha12": "83fe9e7d9b34",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 67x57 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 99,80"
+  },
+  {
+   "path": "assets/world/dubai/landmark_1.png",
+   "sha12": "cb79aa4140ca",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 57x40 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 107,131"
+  },
+  {
+   "path": "assets/world/dubai/landmark_2.png",
+   "sha12": "b0fec763b941",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 62x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 99,101"
+  },
+  {
+   "path": "assets/world/dubai/landmark_3.png",
+   "sha12": "9e13ff730721",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 64x51 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,98"
+  },
+  {
+   "path": "assets/world/dubai/landmark_4.png",
+   "sha12": "65a1bda36f7e",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 64x60 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,71"
+  },
+  {
+   "path": "assets/world/dubai/landmark_5.png",
+   "sha12": "651e025b9174",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 61x40 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 101,131"
+  },
+  {
+   "path": "assets/world/dubai/landmark_6.png",
+   "sha12": "429dc25a45ca",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 65x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,101"
+  },
+  {
+   "path": "assets/world/dubai/landmark_7.png",
+   "sha12": "5a95a6478e00",
+   "source": "6e4a12e4-8e18-454c-9900-aa7788f69441",
+   "recipe": "world_dubai_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 52x45 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 115,116"
+  },
+  {
+   "path": "assets/world/honolulu/module_0.png",
+   "sha12": "05c08903cb8d",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 70x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 87,61"
+  },
+  {
+   "path": "assets/world/honolulu/module_1.png",
+   "sha12": "40a61208a9c6",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 70x65 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 87,49"
+  },
+  {
+   "path": "assets/world/honolulu/module_2.png",
+   "sha12": "c5f76935bc10",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 69x69 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 89,37"
+  },
+  {
+   "path": "assets/world/honolulu/module_3.png",
+   "sha12": "2004b4c8b76c",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 65x75 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,19"
+  },
+  {
+   "path": "assets/world/honolulu/module_4.png",
+   "sha12": "8331632809d5",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 64x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,61"
+  },
+  {
+   "path": "assets/world/honolulu/module_5.png",
+   "sha12": "e4b1d7065bc7",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 24x29 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 156,107"
+  },
+  {
+   "path": "assets/world/honolulu/module_6.png",
+   "sha12": "974083b5dfff",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 17x18 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 167,140"
+  },
+  {
+   "path": "assets/world/honolulu/module_7.png",
+   "sha12": "5e1a1132f222",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 26x15 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 153,167"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_0.png",
+   "sha12": "2f29f27b7465",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 65x55 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,86"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_1.png",
+   "sha12": "2ca5bd8576c3",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 65x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,134"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_2.png",
+   "sha12": "253b3901af78",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 64x63 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,62"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_3.png",
+   "sha12": "34c25102cdb0",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 64x57 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,80"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_4.png",
+   "sha12": "07d23b408f3a",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 64x64 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,59"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_5.png",
+   "sha12": "fdcce6dda732",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 60x51 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 102,98"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_6.png",
+   "sha12": "4392c1193eab",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 65x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,101"
+  },
+  {
+   "path": "assets/world/honolulu/landmark_7.png",
+   "sha12": "388ef6c6e1fd",
+   "source": "fa672345-53f4-4b08-8598-df80160cd860",
+   "recipe": "world_honolulu_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 65x45 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,116"
+  },
+  {
+   "path": "assets/world/luanda/module_0.png",
+   "sha12": "5750bca2b7e3",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 67x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 92,61"
+  },
+  {
+   "path": "assets/world/luanda/module_1.png",
+   "sha12": "0b423ba162ce",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 64x65 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,49"
+  },
+  {
+   "path": "assets/world/luanda/module_2.png",
+   "sha12": "369bd9da0469",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 67x69 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 92,37"
+  },
+  {
+   "path": "assets/world/luanda/module_3.png",
+   "sha12": "859d1579850e",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 65x75 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,19"
+  },
+  {
+   "path": "assets/world/luanda/module_4.png",
+   "sha12": "76fe643b7adb",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 64x61 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,61"
+  },
+  {
+   "path": "assets/world/luanda/module_5.png",
+   "sha12": "1d25248c0de2",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 22x19 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 159,144"
+  },
+  {
+   "path": "assets/world/luanda/module_6.png",
+   "sha12": "82e3b46971ef",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 23x29 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 158,107"
+  },
+  {
+   "path": "assets/world/luanda/module_7.png",
+   "sha12": "f381184f328b",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 25x15 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 155,167"
+  },
+  {
+   "path": "assets/world/luanda/landmark_0.png",
+   "sha12": "b24772c95c55",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 60x50 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 102,101"
+  },
+  {
+   "path": "assets/world/luanda/landmark_1.png",
+   "sha12": "2370202e3e76",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 62x53 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 99,92"
+  },
+  {
+   "path": "assets/world/luanda/landmark_2.png",
+   "sha12": "d013f8ef5484",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 55x55 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 110,86"
+  },
+  {
+   "path": "assets/world/luanda/landmark_3.png",
+   "sha12": "1c020622ce8d",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 64x45 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,116"
+  },
+  {
+   "path": "assets/world/luanda/landmark_4.png",
+   "sha12": "13b90d8f2946",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 67x69 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 92,44"
+  },
+  {
+   "path": "assets/world/luanda/landmark_5.png",
+   "sha12": "adc3dae491de",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 60x43 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 102,122"
+  },
+  {
+   "path": "assets/world/luanda/landmark_6.png",
+   "sha12": "4fd2ddff084b",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 63x60 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,71"
+  },
+  {
+   "path": "assets/world/luanda/landmark_7.png",
+   "sha12": "d64e3065f826",
+   "source": "fd4ac339-d670-4207-b36a-8cad1ec066a0",
+   "recipe": "world_luanda_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 63x53 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,92"
+  },
+  {
+   "path": "assets/world/mumbai/module_0.png",
+   "sha12": "bb0f081eb12b",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 65x58 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,70"
+  },
+  {
+   "path": "assets/world/mumbai/module_1.png",
+   "sha12": "08611c67337b",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 65x57 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,73"
+  },
+  {
+   "path": "assets/world/mumbai/module_2.png",
+   "sha12": "adae54c7c143",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 65x65 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,49"
+  },
+  {
+   "path": "assets/world/mumbai/module_3.png",
+   "sha12": "e39b8dd09d30",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 64x75 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,19"
+  },
+  {
+   "path": "assets/world/mumbai/module_4.png",
+   "sha12": "8aa5cd4599d8",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 65x60 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,64"
+  },
+  {
+   "path": "assets/world/mumbai/module_5.png",
+   "sha12": "e4343616e963",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 31x31 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 146,109"
+  },
+  {
+   "path": "assets/world/mumbai/module_6.png",
+   "sha12": "0b4cb3570bd1",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 20x29 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 162,107"
+  },
+  {
+   "path": "assets/world/mumbai/module_7.png",
+   "sha12": "c23b7095a8b0",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 26x15 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 153,167"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_0.png",
+   "sha12": "ad37eed6dd99",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 67x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 92,134"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_1.png",
+   "sha12": "a085abe7d3fa",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 67x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 91,83"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_2.png",
+   "sha12": "3b4a17cc6f26",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 64x60 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,71"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_3.png",
+   "sha12": "61942101a4f3",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 65x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 94,83"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_4.png",
+   "sha12": "bd80c13a9663",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 73x69 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 83,44"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_5.png",
+   "sha12": "7c329eadc1aa",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 64x45 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,116"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_6.png",
+   "sha12": "79adc792273c",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 64x62 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,65"
+  },
+  {
+   "path": "assets/world/mumbai/landmark_7.png",
+   "sha12": "a3705a4641af",
+   "source": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
+   "recipe": "world_mumbai_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 62x41 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 99,128"
+  },
+  {
+   "path": "assets/world/landmark_1.png",
+   "sha12": "7b8a68f3a61c",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 63x51 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,98"
+  },
+  {
+   "path": "assets/world/landmark_2.png",
+   "sha12": "b5f9d6f30446",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 54x38 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 111,137"
+  },
+  {
+   "path": "assets/world/landmark_4.png",
+   "sha12": "f9fc2ae270d0",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 64x53 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,92"
+  },
+  {
+   "path": "assets/world/landmark_5.png",
+   "sha12": "ae275b078db4",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 55x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 110,134"
+  },
+  {
+   "path": "assets/world/landmark_7.png",
+   "sha12": "a9d4fd38c2dc",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_8.png",
+   "sha12": "48546b871f09",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 64x40 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,131"
+  },
+  {
+   "path": "assets/world/landmark_10.png",
+   "sha12": "605313d3b97a",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_11.png",
+   "sha12": "43805575f80e",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 55x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 110,134"
+  },
+  {
+   "path": "assets/world/landmark_13.png",
+   "sha12": "648e17b327bc",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 69x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 89,83"
+  },
+  {
+   "path": "assets/world/landmark_14.png",
+   "sha12": "fa8f4901e26d",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 63x38 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,137"
+  },
+  {
+   "path": "assets/world/landmark_16.png",
+   "sha12": "a160b28fb140",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 69x51 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 89,98"
+  },
+  {
+   "path": "assets/world/landmark_17.png",
+   "sha12": "d832dd399322",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/landmark_19.png",
+   "sha12": "ed112f2b75fc",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 64x66 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,53"
+  },
+  {
+   "path": "assets/world/landmark_20.png",
+   "sha12": "bbb1bad006da",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 53x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 113,134"
+  },
+  {
+   "path": "assets/world/landmark_22.png",
+   "sha12": "72cd3a5931d8",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_23.png",
+   "sha12": "a2f7ec2dfd18",
+   "source": "8c69f74a-0868-49ac-bd62-f98d35495db2",
+   "recipe": "world_la_2k_1 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/landmark_25.png",
+   "sha12": "fe646ac9191c",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_26.png",
+   "sha12": "3ce421b8e436",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 63x38 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,137"
+  },
+  {
+   "path": "assets/world/landmark_28.png",
+   "sha12": "0d48b1a914e1",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 65x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,83"
+  },
+  {
+   "path": "assets/world/landmark_29.png",
+   "sha12": "4639101b36f4",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/landmark_31.png",
+   "sha12": "b022b97b1c04",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 59x66 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 104,53"
+  },
+  {
+   "path": "assets/world/landmark_32.png",
+   "sha12": "1ac9768944fc",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 59x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 104,134"
+  },
+  {
+   "path": "assets/world/landmark_34.png",
+   "sha12": "9ae0c594f3c4",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_35.png",
+   "sha12": "01f463a6e36b",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 7; border flood-fill key; fitted in the old ca92679 opaque box on a 57x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 107,134"
+  },
+  {
+   "path": "assets/world/landmark_37.png",
+   "sha12": "151a58d8477b",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 8; border flood-fill key; fitted in the old ca92679 opaque box on a 69x53 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 89,92"
+  },
+  {
+   "path": "assets/world/landmark_38.png",
+   "sha12": "697b9ed8c79e",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 9; border flood-fill key; fitted in the old ca92679 opaque box on a 63x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 98,134"
+  },
+  {
+   "path": "assets/world/landmark_40.png",
+   "sha12": "49d004e266f2",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 10; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_41.png",
+   "sha12": "e76852aed21d",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 11; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/landmark_43.png",
+   "sha12": "f9e377b2def1",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 12; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_44.png",
+   "sha12": "dff4ca96e60c",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 13; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/landmark_46.png",
+   "sha12": "289b83f37e78",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 14; border flood-fill key; fitted in the old ca92679 opaque box on a 64x56 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,83"
+  },
+  {
+   "path": "assets/world/landmark_47.png",
+   "sha12": "1137c4c11b54",
+   "source": "977e6339-f0be-4f7e-a946-1224d432fa27",
+   "recipe": "world_la_2k_2 cell 15; border flood-fill key; fitted in the old ca92679 opaque box on a 64x39 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 96,134"
+  },
+  {
+   "path": "assets/world/module_0.png",
+   "sha12": "c3143e26d3e9",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 0; border flood-fill key; fitted in the old ca92679 opaque box on a 65x75 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,19"
+  },
+  {
+   "path": "assets/world/module_1.png",
+   "sha12": "9019d0c08b65",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 1; border flood-fill key; fitted in the old ca92679 opaque box on a 75x64 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 80,52"
+  },
+  {
+   "path": "assets/world/module_3.png",
+   "sha12": "73ec92990447",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 2; border flood-fill key; fitted in the old ca92679 opaque box on a 65x59 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 95,67"
+  },
+  {
+   "path": "assets/world/module_4.png",
+   "sha12": "ee1cc0d09a6a",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 3; border flood-fill key; fitted in the old ca92679 opaque box on a 55x81 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 110,3"
+  },
+  {
+   "path": "assets/world/module_5.png",
+   "sha12": "08c7aaa65ff7",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 4; border flood-fill key; fitted in the old ca92679 opaque box on a 27x37 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 152,89"
+  },
+  {
+   "path": "assets/world/module_6.png",
+   "sha12": "9d1396d1ac2a",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 5; border flood-fill key; fitted in the old ca92679 opaque box on a 29x24 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 149,139"
+  },
+  {
+   "path": "assets/world/module_7.png",
+   "sha12": "4d6afb810d74",
+   "source": "493202eb-4405-4175-9c4e-c561998d9734",
+   "recipe": "world_la_2k_3 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 37x33 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 137,119"
   }
  ]
 }

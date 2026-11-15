@@ -1,5 +1,19 @@
 # Axiom Force — Project Memory
 
+## Phase 6 city kits — in progress 2026-11-14 (partial push)
+
+- Owner approved the plan: 141 files; nine 2K 4x4 sheets (162) plus six top-down operatives (720); 882 planned, stop at 1,323.
+- **Done:** all nine city sheets generated (162 credits, no retries) and cut by scratch `phase6/cut_cities.py`: border flood-fill key (handles tinted backgrounds on the Beirut and Honolulu sheets), each object fitted inside the old `ca92679` file's opaque box (aspect kept) on a 1/3 grid via `snap_pixels.snap` (despill, defringe 2), 3x nearest, bottom-centre on the old box's bottom-centre so footprints match collisions. 135 files in `assets/world/` (6 cities x 16, LA 7 modules + 32 landmarks); all 384x384, alpha 0/255, clear edges.
+- **Pilot:** `operative_0` (Cyber Shogun) done for 120: `generate_character` topdown (text prompt only; the tool takes no reference image) + walk_down/up/left with five preps; packed with `pack_topdown.py`. The figure is ~85 px tall in the 96x128 cell (old ~60), because the packer uses the largest whole scale.
+- The animation call timed out client-side but was charged and ran; check `get_credit_balance` / `list_recent_assets` before ever resubmitting.
+- **Pushed mid-phase at the owner's "push to git":** the 135 city files, `operative_0.png`, the manifest entries and this note. Not yet done at push time: Godot import (.import files), tests, README/HANDOFF/ART_REGENERATION updates, `operative_1`–`5`.
+- **Owner OK'd the other five operatives (600);** bases made and all five walk runs submitted (balance 736). Run ids/bases in scratch `phase6/ids.json`. Credits: 282 spent this phase; balance 1,336. Asset IDs in scratch `phase6/ids.json`; records (`spritecook-assets.json`, docs), import and tests not done yet.
+- Recreated scratch `put_uploads.py` / `fetch.py` (the old scratch copies were deleted).
+
+## Docker restart — 2026-11-14
+
+- At the owner's "restart the Docker server": the engine was hung (Desktop processes running, `docker version`/`docker desktop restart` never answered). Force-closed the Desktop processes, terminated the `docker-desktop` WSL distro and relaunched Docker Desktop from its per-user install `%LOCALAPPDATA%\Programs\DockerDesktop\Docker Desktop.exe` (not Program Files). Engine 29.9.3 came back; `docker compose up -d` started db (healthy), backend and website. Volumes untouched.
+
 ## Phase 5 delivery and shutdown
 
 - Owner requested Docker shutdown followed by a Git push. Stopped all project Compose services, including any profile services, with `docker compose --profile '*' stop`; database volumes retained.
