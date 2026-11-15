@@ -7,6 +7,7 @@ COPY --chown=pwuser:pwuser smoke.spec.cjs ./
 COPY --chown=pwuser:pwuser browser-auth.spec.cjs ./
 COPY --chown=pwuser:pwuser account-security.spec.cjs client-refresh.spec.cjs ./
 COPY --chown=pwuser:pwuser playwright.config.cjs ./
+COPY --chown=pwuser:pwuser showcase.spec.cjs ./
 RUN chown pwuser:pwuser /app
 USER pwuser
 CMD ["npx", "playwright", "test", "smoke.spec.cjs", "--reporter=line", "--workers=1"]

@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LanguageProvider, useLanguage } from './translations/LanguageContext';
 import LanguageModal from './translations/LanguageModal';
 import Navbar from './components/Navbar';
@@ -19,6 +20,7 @@ import Signup from './pages/Signup';
 import TwoFactor from './pages/TwoFactor';
 import Account from './pages/Account';
 import FAQ from './pages/FAQ';
+import AccountAccess from './components/AccountAccess';
 
 // Redirect helper to default or stored locale
 function LocaleRedirect() {
@@ -28,12 +30,23 @@ function LocaleRedirect() {
 }
 
 function MainLayout() {
+  const location = useLocation();
+  const { t, i18n } = useTranslation();
+  const previousPath = useRef(location.pathname);
+  useEffect(() => {
+    const page = location.pathname.includes('/auth/browser-confirm') ? 'signin' : location.pathname === '/onboarding' ? 'onboarding' : location.pathname.endsWith('/account/2fa') ? 'security' : location.pathname.split('/')[2] || 'home';
+    const titleKey = ({ 'tech-hub': 'development', login: 'login', signup: 'signup', account: 'account', signin: 'signinQ' })[page] || page;
+    document.title = `${page === 'design-system' ? t('nav.design_system') : t(`showcase.${titleKey}`, t('showcase.account'))} | AXIOM FORCE`;
+    if (previousPath.current !== location.pathname) {
+      document.getElementById('main-content')?.focus();
+      window.scrollTo(0, 0);
+      previousPath.current = location.pathname;
+    }
+  }, [location.pathname, i18n.language, t]);
   return (
-    <div className="flex flex-col min-h-screen bg-surface text-on-surface relative antialiased crt-flicker">
-      {/* Global scanline overlay */}
-      <div className="fixed inset-0 glitch-overlay pointer-events-none z-[9999] opacity-75"></div>
+    <div className="site-shell">
       <Navbar />
-      <main className="flex-grow">
+      <main id="main-content" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<LocaleRedirect />} />
           <Route path="/:locale" element={<Home />} />
@@ -44,8 +57,8 @@ function MainLayout() {
           <Route path="/:locale/faq" element={<FAQ />} />
           <Route path="/:locale/login/*" element={<Login />} />
           <Route path="/:locale/signup/*" element={<Signup />} />
-          <Route path="/:locale/account" element={<Account />} />
-          <Route path="/:locale/account/2fa" element={<TwoFactor />} />
+          <Route path="/:locale/account" element={<AccountAccess><Account /></AccountAccess>} />
+          <Route path="/:locale/account/2fa" element={<AccountAccess><TwoFactor /></AccountAccess>} />
           <Route path="/auth/browser-confirm" element={<BrowserAuth />} />
           {/*
             Registered BARE, not under /:locale. LocaleRedirect matches the "*"

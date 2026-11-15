@@ -1,41 +1,42 @@
-# Axiom Force — Web Portal & Player Hub
+# Player website
 
-The official web portal and companion dashboard for **Axiom Force**, built with **React**, **Vite**, and **Tailwind CSS**.
+React/Vite showcase and account UI, served locally by the Compose `website` service at
+http://localhost:5173. The Nginx configuration proxies `/api` to the Express backend.
 
-## Features
+## Boundaries
 
-- **Cyberpunk Command Dashboard**: Neon-aesthetic interface matching the in-game UI.
-- **Operative Dossiers**: In-depth lore, attributes, and signature ability breakdowns for all 6 operatives:
-  - Cyber Shogun (Kaito Kurogane)
-  - Surya Prime (Arjun Varma)
-  - Oceanus (Kiana Vaea)
-  - Mirage Blade (Zayd Al-Mansoor)
-  - Apex Titan (King Tariq Nzinga)
-  - Aura Phoenicia (Maya Khoury)
-- **Live Leaderboards**: Integration with Django REST Framework backend for high scores and level completion stats.
-- **Authentication**: User account management with Clerk and Django backend integration.
+- `src/App.jsx` keeps localized player routes, Clerk wildcard routes, bare `/onboarding`
+  and `/auth/browser-confirm`; it owns route titles and navigation focus.
+- `components/Navbar.jsx` and `Footer.jsx` own navigation. Closed mobile content is hidden
+  from keyboard focus. Escape and language-driven menu closure restore toggle focus.
+- `components/Showcase.jsx` holds campaign/operative presentation identifiers and shared content
+  components. Verify changes against `LevelCatalog`, `OperativeRoster` and the game registry.
+- `showcase.css` supplies neutral surfaces, readable text, logical spacing, shared forms/cards,
+  focus outlines, responsive layouts and reduced-motion behavior. Title imagery remains separate
+  from explanatory copy. Existing onboarding and Clerk panels share the form baseline.
+- `translations/ui_translations.json` contains all 17 showcase and onboarding translations.
+  Every locale must preserve key sets and interpolation placeholders. Language changes retain
+  the current query/hash and keep bare auth/onboarding routes bare.
+- `components/AccountAccess.jsx` resolves loading, signed-out, linked, onboarding-required,
+  expired and unavailable states. It acquires fresh Clerk proof per protected account call.
+  `AuthContext` discards old API memory when the Clerk identity changes anywhere in the site.
+- `api/tokens.js` retains API credentials only in memory. Install and clear invalidate earlier
+  work. `api/client.js` coalesces refresh within one generation and rejects stale writes/retries.
+- `pages/BrowserAuth.jsx` alone submits explicit game approval. Visiting account settings,
+  changing language, loading a profile or signing in never approves a pending request.
+- `public/images/showcase` contains unmodified copies of seven existing SpriteCook images;
+  source paths, hashes and asset references are in root `spritecook-assets.json`.
 
-## Architecture & Integration
+## Verification
 
-- **Frontend**: React 19, Vite, Tailwind CSS, Lucide icons.
-- **Backend API**: Django REST Framework (Python 3.15.2) running at `http://localhost:8000/api/`.
+Build locally with `docker compose build website`, then `docker compose up -d website`.
+After backend edits rebuild that service too. Never export the game as part of a website build.
 
-## Development Setup
+Run `run_tests.ps1` from the repository root after final code changes. Browser checks use
+`tools/playwright/showcase.spec.cjs`, the existing smoke/Clerk/security checks, and
+`client-refresh.spec.cjs`. See [browser instructions](../tools/playwright/README.md) and
+[redesign verification](../docs/WEBSITE_REDESIGN_VERIFICATION.md).
 
-### Local Development
-```bash
-# Install dependencies
-npm install
-
-# Start Vite dev server (runs at http://localhost:5173/)
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run linter
-npm run lint
-```
+The application has no access/refresh credential persistence. Clerk's own existing session
+handling remains responsible for public sign-in. Password API settings retain their mailed-code
+rules; they do not configure Clerk's authentication factors.

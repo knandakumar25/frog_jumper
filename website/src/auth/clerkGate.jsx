@@ -10,6 +10,7 @@ import {
   useAuth as useRealAuth,
   useClerk as useRealClerk,
 } from '@clerk/clerk-react';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Auth gate for the whole app. Never import from '@clerk/clerk-react' directly.
@@ -40,9 +41,10 @@ export const CLERK_ENABLED = /^pk_(test|live)_/.test(CLERK_PUBLISHABLE_KEY);
 const AUTH_DISABLED_NOTICE = 'Sign-in is not available on this deployment.';
 
 function AuthDisabledNotice() {
+  const { t } = useTranslation();
   return (
     <p className="text-on-surface-variant text-sm font-bold uppercase tracking-widest text-center">
-      {AUTH_DISABLED_NOTICE}
+      {t('showcase.notConfigured', AUTH_DISABLED_NOTICE)}
     </p>
   );
 }

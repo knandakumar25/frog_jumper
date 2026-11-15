@@ -1,5 +1,21 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Approved player website redesign — 2026-11-15
+
+Implemented the approved showcase plan locally. See
+[verification record](docs/WEBSITE_REDESIGN_VERIFICATION.md) and [website contracts](website/README.md).
+The shell now uses Home, Gameplay, Squad and FAQ; Development stays at `/tech-hub` in the footer.
+Campaign acts contain missions 1–4, 5–7 and 8–12. All six portrait links, roles and recruitment
+rules are present. New copy, mission titles and onboarding states cover all 17 languages.
+
+Account settings recover linked profiles through verified `Authorization: Clerk` proof on
+existing account routes. This adds no API/game token issuance. Existing Bearer semantics
+remain. Public game requests still require an explicit BrowserAuth approval. Language changes
+preserve bare onboarding/auth URLs, nested Clerk routes, selected operative and request IDs.
+Identity changes invalidate profile callbacks, token installations and pending refreshes.
+Existing SpriteCook images were copied without modification; engine files were not changed.
+Changes remain uncommitted; normal Docker services stay running.
+
 ## Approved follow-up and SpriteCook actor wiring — 2026-11-15
 
 Implementation and final verification complete; changes remain local. See

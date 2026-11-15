@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useLayoutEffect, useRef, useContext, useCallback } from 'react';
+import { useClerkSession } from '../auth/clerkGate';
 import apiClient from '../api/client';
 import { tokens } from '../api/tokens';
 
@@ -8,6 +9,28 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const clerk = useClerkSession();
+  const identity = clerk.isLoaded ? (clerk.isSignedIn ? clerk.userId : null) : undefined;
+  const previousIdentity = useRef(undefined);
+  const currentIdentity = useRef(identity);
+  currentIdentity.current = identity;
+  const epoch = useRef(0);
+  const [version, setVersion] = useState(0);
+  const ownedSetUser = useCallback(value => {
+    if (currentIdentity.current === identity && epoch.current === version) setUser(value);
+  }, [identity, version]);
+  const identityChanged = identity !== undefined && identity !== previousIdentity.current;
+  // This bridge remains mounted on public pages too. Signing out or changing
+  // Clerk accounts must discard both API tokens and the old profile before paint.
+  // A token-only emailed-onboarding tab has no Clerk identity and stays supported.
+  useLayoutEffect(() => {
+    if (identity === undefined) return;
+    if (previousIdentity.current !== identity && (previousIdentity.current !== undefined || identity !== null)) {
+      epoch.current += 1; setVersion(epoch.current);
+      tokens.clear(); setUser(null);
+    }
+    previousIdentity.current = identity;
+  }, [identity]);
 
   useEffect(() => {
     const loadUser = async () => {
@@ -15,10 +38,10 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const response = await apiClient.get('/auth/profile/');
-          setUser(response.data);
+          if (currentIdentity.current === identity && epoch.current === version) setUser(response.data);
         } catch (error) {
           console.error('Failed to fetch user profile', error);
-          tokens.clear();
+          if (currentIdentity.current === identity && epoch.current === version) tokens.clear();
         }
       }
       setIsLoading(false);
@@ -38,8 +61,9 @@ export const AuthProvider = ({ children }) => {
     }
 
     const { access, refresh, user: userData } = data;
-    tokens.access = access;
-    tokens.refresh = refresh;
+    if (currentIdentity.current !== identity || epoch.current !== version) throw new Error('Session changed during sign-in');
+    epoch.current += 1; setVersion(epoch.current);
+    tokens.install(access, refresh);
     setUser(userData);
     return data;
   };
@@ -51,8 +75,9 @@ export const AuthProvider = ({ children }) => {
       code,
     });
     const { access, refresh, user: userData } = response.data;
-    tokens.access = access;
-    tokens.refresh = refresh;
+    if (currentIdentity.current !== identity || epoch.current !== version) throw new Error('Session changed during sign-in');
+    epoch.current += 1; setVersion(epoch.current);
+    tokens.install(access, refresh);
     setUser(userData);
     return response.data;
   };
@@ -75,19 +100,22 @@ export const AuthProvider = ({ children }) => {
   // /auth/onboarding/complete/ rather than from a login form. Kept here so the
   // storage contract lives in one place instead of being hand-written by a page.
   const loginWithTokens = (access, refresh, userData) => {
-    tokens.access = access;
-    tokens.refresh = refresh;
+    if (currentIdentity.current !== identity || epoch.current !== version) return false;
+    epoch.current += 1; setVersion(epoch.current);
+    tokens.install(access, refresh);
     setUser(userData);
+    return true;
   };
 
   /** Discards this page’s credentials and user state. */
   const logout = () => {
+    epoch.current += 1; setVersion(epoch.current);
     tokens.clear();
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, isLoading, login, verifyLogin2FA, register, loginWithTokens, logout }}>
+    <AuthContext.Provider value={{ user: identityChanged && (previousIdentity.current !== undefined || identity !== null) ? null : user, setUser: ownedSetUser, isLoading, login, verifyLogin2FA, register, loginWithTokens, logout }}>
       {children}
     </AuthContext.Provider>
   );

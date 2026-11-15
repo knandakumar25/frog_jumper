@@ -55,7 +55,7 @@ export default function BrowserAuth() {
     <h1 className="text-2xl mb-6">{t('auth.authorize_client', 'Authorize Game Client')}</h1>
     {!sid ? <p>{t('browserAuth.missing')}</p> :
       !isLoaded ? <p data-testid="browser-loading">{t('onboarding.loading', 'Loading...')}</p> :
-      status === 'authorized' ? <p data-testid="browser-authorized">{t('auth.auth_success_desc', 'You can now return to the game client. This window can be safely closed.')}</p> : <>
+      status === 'authorized' ? <p data-testid="browser-authorized">{t('showcase.returnGame')}</p> : <>
         {isSignedIn || djangoUser ? <>
           <p className="mb-6">{t('browserAuth.confirm', { account: clerkUser?.primaryEmailAddress?.emailAddress || clerkUser?.username || djangoUser?.username })}</p>
           <button data-testid="authorize-game" className="brutal-btn p-3" disabled={status === 'sending'} onClick={confirm}>{t('auth.authorize_now', 'Authorize Now')}</button>

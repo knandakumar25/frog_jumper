@@ -25,6 +25,11 @@ These routers are mounted at `/api/auth` by `src/app.js`. Paths below include th
 
 ## Invariants
 
+- Protected profile and account-security routes also accept an explicit verified `Clerk`
+  Authorization scheme for the active linked user. Missing linkage is 403
+  `onboarding_required`; no API token pair or game approval is issued by this lookup.
+  Existing Bearer clients, request bodies and success JSON remain unchanged.
+
 - Account login/register/refresh/2FA verification share an IP request budget; login has an additional username budget (`accounts.js:accountRoutes`). Failed credentials use the same 401 body for missing, wrong-password and inactive accounts; unusable hashes perform a decoy check.
 - Profile PUT requires username/email; PATCH is partial. Changing email requires an `email_change` code sent to the old address. Changing `is_2fa_enabled` through profile is refused; dedicated code routes must be used (`accounts.js:editProfile`, `users.js:validateProfileUpdate`).
 - Browser start accepts intent `login` or `signup` and string locale up to 32 characters; defaults are `login` and `en-US`. The URL contains only public session ID/intent/locale (`browser.js:browserRoutes`).

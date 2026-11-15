@@ -133,6 +133,13 @@ test('actual Clerk login, already-signed-in approval, switching and single-use r
   await openRequest(page, data);
   await expect(page.locator('[data-handoff-target]')).toHaveAttribute('data-handoff-target', new RegExp(data.session_id));
   await signInFromForm(page, email, password);
+  // Ordinary website account access is restored from verified Clerk proof after
+  // a full reload, without issuing API tokens or approving the pending game.
+  await page.goto(base + '/en/account');
+  await expect(page.locator('input[name="email"]')).toHaveValue(email);
+  await page.reload();
+  await expect(page.locator('input[name="email"]')).toHaveValue(email);
+  expect((await (await request.post(backend + '/api/auth/browser-poll/', { data })).json()).status).toBe('pending');
   await page.goto(base + `/auth/browser-confirm?session_id=${data.session_id}`);
   await expect(page.getByTestId('authorize-game')).toBeVisible();
   expect((await request.post(backend + '/api/auth/browser-poll/', { data })).status()).toBe(200);
@@ -221,7 +228,7 @@ test('fresh Clerk signup, verification, captured onboarding email opened in anot
     await other.goto(base + url.pathname + url.search);
     await other.locator('select[name="country"]').selectOption('Japan');
     await other.locator('input[name="date_of_birth"]').fill('1995-04-12');
-    await other.getByRole('button', { name: 'Create Account', exact: true }).click();
+    await other.getByRole('button', { name: /^create account$/i }).click();
     await expect(other.getByTestId('authorize-game')).toBeVisible();
     const pending = await (await request.post(backend + '/api/auth/browser-poll/', { data })).json();
     expect(pending.status).toBe('pending');
@@ -256,10 +263,10 @@ test('fresh Clerk signup, verification, captured onboarding email opened in anot
     otp = await capturedCode(request, email);
     await other.locator('input[name="email_code"]').fill(otp === '000000' ? '111111' : '000000');
     await other.getByRole('button', { name: 'Save Changes', exact: true }).click();
-    await expect(other.getByText(/Failed to update profile\./)).toBeVisible();
+    await expect(other.getByText(/Could not save your profile\./)).toBeVisible();
     await other.locator('input[name="email_code"]').fill(otp);
     await other.getByRole('button', { name: 'Save Changes', exact: true }).click();
-    await expect(other.getByText(/Profile updated successfully!/)).toBeVisible();
+    await expect(other.getByText(/Profile saved\./)).toBeVisible();
     await expect(other.locator('input[name="email"]')).toHaveValue(changedEmail);
     const notices = await (await request.get(backend + '/__test__/mail')).json();
     expect(notices.some(msg => msg.to.includes(email) && msg.body.includes(changedEmail))).toBeTruthy();

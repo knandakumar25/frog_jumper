@@ -1,5 +1,18 @@
 # Axiom Force
 
+## Player website redesign (2026-11-15)
+
+The local website is a game showcase with Home, Gameplay, Squad and FAQ navigation.
+Gameplay lists all twelve missions by act, and Squad preserves direct operative links.
+Development remains at `/tech-hub` through the footer. Content and onboarding copy cover
+all 17 website languages. See [website contracts](website/README.md) and
+[verification record](docs/WEBSITE_REDESIGN_VERIFICATION.md) for implementation, tests,
+review resolutions and limits. Existing SpriteCook artwork is reused; no credits were spent.
+
+Website account settings now verify Clerk proof on the existing protected account routes,
+so a linked account can reopen settings after a reload. Game approval remains explicit.
+Existing Bearer clients retain their paths and response shapes. No changes were deployed.
+
 ## Verified handoff follow-up and SpriteCook actor wiring (2026-11-15)
 
 The Names aftermath heroes and civilians, campaign sentries, world hostiles and six later

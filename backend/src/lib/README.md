@@ -22,7 +22,13 @@ Shared authentication, validation, persistence helpers, transport and throttling
 
 ## Invariants
 
-- Required auth resolves an active database user; optional auth allows no token but rejects invalid supplied Bearer credentials. Exact `Bearer` scheme is recognized; other schemes are anonymous. `authFailed` uses 401 with challenge for authenticated routes and 403 when `routeHasAuth=false` (`auth.js`, `errors.js`).
+- Required auth resolves an active database user. Existing Bearer semantics remain unchanged.
+  Required account routes additionally accept `Authorization: Clerk <session proof>`: verify
+  through the configured Clerk verifier, validate the subject, and resolve only its linked active
+  user. Missing linkage returns 403 `onboarding_required`; invalid proof/inactive user returns
+  401. This issues no credentials and approves no game request. Optional auth still recognizes
+  only exact `Bearer`, allows no token, and rejects invalid supplied Bearer credentials.
+  `authFailed` uses 401 with challenge on authenticated routes and 403 when `routeHasAuth=false`.
 - `clerkSubject` verifies RS256 with configured trusted issuer/JWKS, required lifetime/subject/origin claims, allowed `azp` and non-pending session. It checks a `user_` subject prefix; `fetchClerkUser` separately enforces the stricter alphanumeric ID pattern before a URL/network call. JWKS URLs never come from token input (`clerk.js`).
 - Passwords use Django `pbkdf2_sha256` with stored iteration count and constant-time key comparison. `!` passwords cannot authenticate. Async hashing shares a process-wide concurrency cap (`djangoHash.js`).
 - `profileOf` emits only ID, username, email, first/last name, picture, 2FA flag, phone and country. Creation normalizes username NFKC and email domain case; updates take validated fixed column names (`users.js`).

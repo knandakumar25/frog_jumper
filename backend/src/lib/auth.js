@@ -9,7 +9,8 @@
  * - routes with no auth middleware at all ignore the header (browser sign-in, onboarding,
  *   countries), so a stale website token never blocks them.
  */
-import { authFailed } from './errors.js';
+import { authFailed, HttpError } from './errors.js';
+import { isValidUserId } from './clerk.js';
 import { userIdFromAccessToken } from './tokens.js';
 import { findUserById } from './users.js';
 
@@ -60,7 +61,21 @@ export async function userFromRequest(deps, req, routeHasAuth = true) {
  */
 export function requireUser(deps) {
   return async (req, res, next) => {
-    req.user = await userFromRequest(deps, req);
+    // An explicit Clerk scheme restores website account access after a reload.
+    // Bearer semantics for the desktop and password clients stay unchanged.
+    const header = req.get('authorization') || '';
+    if (/^Clerk(?:\s|$)/i.test(header)) {
+      const parts = header.trim().split(/\s+/);
+      if (parts.length !== 2) throw authFailed({ detail: 'Invalid Clerk session' });
+      let subject;
+      try { subject = await deps.clerk.subject(parts[1], deps.config); }
+      catch { throw authFailed({ detail: 'Invalid Clerk session' }); }
+      if (!isValidUserId(subject)) throw authFailed({ detail: 'Invalid Clerk session' });
+      const result = await deps.pool.query('SELECT * FROM accounts_user WHERE clerk_user_id = $1', [subject]);
+      req.user = result.rows[0];
+      if (!req.user) throw new HttpError(403, { error: 'onboarding_required' });
+      if (!req.user.is_active) throw authFailed({ detail: 'User is inactive', code: 'user_inactive' });
+    } else req.user = await userFromRequest(deps, req);
     if (!req.user) throw authFailed({ detail: 'Authentication credentials were not provided.' });
     next();
   };

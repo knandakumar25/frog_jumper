@@ -1,5 +1,20 @@
 # Axiom Force — Project Memory
 
+## Approved website showcase — 2026-11-15
+
+- Approved redesign implemented locally; see `docs/WEBSITE_REDESIGN_VERIFICATION.md`.
+- Player navigation: Home, Gameplay, Squad, FAQ. Footer Development keeps `/tech-hub`.
+- Campaign grouping is 1–4 / 5–7 / 8–12. Six operative portraits and direct IDs are retained;
+  roles/signatures are conservative and Surya's Mission 5 exclusion is stated.
+- New showcase and onboarding copy covers 17 languages. No release, platform, cooperative-play,
+  hardware or early-access promises. World limitations are scoped to Los Angeles.
+- Required account routes additionally accept verified `Authorization: Clerk` proof to recover
+  linked account settings after reload; no browser persistence or automatic game approval.
+- Clerk identity changes clear API memory globally. Credential replacement and clear advance
+  ownership versions; late profile/onboarding/refresh responses cannot restore another session.
+- Reused seven SpriteCook images with original bytes and provenance; no generation/spending.
+- Keep changes uncommitted and Docker stack running. No deployment or game export.
+
 ## Approved handoff follow-up and actor provenance — 2026-11-15
 
 - Owner clarified that SpriteCook output is the accepted design for heroes/enemies; original

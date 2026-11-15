@@ -88,7 +88,7 @@ const TwoFactor = () => {
       setUser(profileRes.data);
       setIsDisabling(false);
       setCode('');
-      setStatusMessage(t('auth.two_factor_disabled_success', 'Two‑Factor Authentication disabled.'));
+      setStatusMessage(t('auth.two_factor_disabled_success', 'Two-Factor Authentication disabled.') + ' ' + t('showcase.sessionRenewal'));
     } catch (e) {
       console.error(e);
       setErrorMessage(t('auth.invalid_code', 'Invalid code or verification failed.'));
@@ -104,26 +104,27 @@ const TwoFactor = () => {
   return (
     <div className="pt-[120px] md:pt-[150px] pb-32 px-4 flex justify-center items-center">
       <div className="w-full max-w-md bg-surface-container-lowest border-2 border-primary-container/30 p-8">
-        <h2 className="text-headline-lg font-headline-lg text-primary-container uppercase mb-8 text-center font-extrabold tracking-wider">
+        <h1 className="text-headline-lg font-headline-lg text-primary-container uppercase mb-8 text-center font-extrabold tracking-wider">
           {t('auth.two_factor_title', 'Two‑Factor Authentication')}
-        </h2>
+        </h1>
+        {(isEnabling || isDisabling) && <div className="notice"><p id="two-factor-help">{t('showcase.codeHelp')}</p><div className="actions"><button type="button" disabled={isSubmitting} className="button secondary" onClick={isDisabling ? disable2FA : startEnable}>{t('showcase.retry')}</button><button type="button" disabled={isSubmitting} className="button secondary" onClick={() => { setIsEnabling(false); setIsDisabling(false); setCode(''); setErrorMessage(''); setStatusMessage(''); }}>{t('showcase.cancel')}</button></div></div>}
 
         {errorMessage && (
-          <div className="bg-error/15 border border-error/50 p-4 mb-4 text-error text-sm font-semibold">
+          <div role="alert" className="bg-error/15 border border-error/50 p-4 mb-4 text-error text-sm font-semibold">
             {errorMessage}
           </div>
         )}
         {statusMessage && (
-          <div className="bg-primary-container/15 border border-primary-container/50 p-4 mb-4 text-primary-container text-sm font-semibold">
+          <div role="status" className="bg-primary-container/15 border border-primary-container/50 p-4 mb-4 text-primary-container text-sm font-semibold">
             {statusMessage}
           </div>
         )}
 
         {isEnabled && isDisabling ? (
           <form onSubmit={verifyDisable} className="flex flex-col gap-4">
-            <label className="text-xs uppercase font-bold text-on-surface-variant">{t('auth.verification_code', 'Verification Code')}</label>
+            <label htmlFor="two-factor-code" className="text-xs uppercase font-bold text-on-surface-variant">{t('auth.verification_code', 'Verification Code')}</label>
             <input
-              type="text"
+              id="two-factor-code" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} aria-describedby="two-factor-help"
               placeholder={t('auth.enter_code', 'Enter code')}
               className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
               value={code}
@@ -154,9 +155,9 @@ const TwoFactor = () => {
         ) : (
           isEnabling ? (
             <form onSubmit={verifyEnable} className="flex flex-col gap-4">
-              <label className="text-xs uppercase font-bold text-on-surface-variant">{t('auth.verification_code', 'Verification Code')}</label>
+              <label htmlFor="two-factor-code" className="text-xs uppercase font-bold text-on-surface-variant">{t('auth.verification_code', 'Verification Code')}</label>
               <input
-                type="text"
+                id="two-factor-code" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} aria-describedby="two-factor-help"
                 placeholder={t('auth.enter_code', 'Enter code')}
                 className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
                 value={code}

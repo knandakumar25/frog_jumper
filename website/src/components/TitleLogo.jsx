@@ -4,10 +4,8 @@ import { getTitleLogoPath } from '../translations/titleLogo';
 /**
  * Localized AXIOM FORCE title image with a text fallback.
  *
- * The title images in public/images were made with Blender and deleted on 2026-11-11; they are
- * waiting to be remade with SpriteCook (docs/ART_REGENERATION.md). Until a file comes back, the
- * image fails to load and this component shows the words "AXIOM FORCE" instead of a broken-image
- * icon. A regenerated file at the same path is shown again with no code change.
+ * Restored SpriteCook title art lives in public/images; retain a text fallback if
+ * a deployment is missing a localized file. See docs/ART_REGENERATION.md.
  *
  * @param {object} props
  * @param {string} props.lang - Language or locale code passed to getTitleLogoPath.
@@ -36,6 +34,8 @@ export default function TitleLogo({ lang, alt = 'AXIOM FORCE', className = '', t
     <img
       src={src}
       alt={alt}
+      width="1920"
+      height="588"
       className={className}
       fetchpriority={fetchPriority}
       onError={() => setFailedSrc(src)}

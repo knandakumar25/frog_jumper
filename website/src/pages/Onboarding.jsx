@@ -196,7 +196,7 @@ const Onboarding = () => {
         date_of_birth: form.date_of_birth,
       });
       const { access, refresh, user: userData } = res.data;
-      loginWithTokens(access, refresh, userData);
+      if (!loginWithTokens(access, refresh, userData)) throw new Error('Session changed during setup');
       // A full navigation is deliberate. AuthProvider's loadUser effect runs
       // once on mount with [] deps, so updating tokens without the auth context does
       // not update `user` -- a same-document navigate() would leave Account.jsx
@@ -291,10 +291,11 @@ const Onboarding = () => {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-bold uppercase text-on-surface-variant">
+            <label htmlFor="onboarding-email" className="text-xs font-bold uppercase text-on-surface-variant">
               {t('auth.email', 'Email')}
             </label>
             <input
+              id="onboarding-email"
               value={profile?.email || ''}
               readOnly
               className="bg-surface-container-highest border-2 border-outline-variant p-2 font-mono opacity-70 cursor-not-allowed"
@@ -302,11 +303,11 @@ const Onboarding = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-bold uppercase text-on-surface-variant">
+            <label htmlFor="onboarding-country" className="text-xs font-bold uppercase text-on-surface-variant">
               {t('account.country', 'Country')}
             </label>
             <select
-              name="country"
+              id="onboarding-country" name="country"
               value={form.country}
               onChange={handleChange}
               required
@@ -322,11 +323,11 @@ const Onboarding = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-bold uppercase text-on-surface-variant">
+            <label htmlFor="onboarding-birth" className="text-xs font-bold uppercase text-on-surface-variant">
               {t('onboarding.date_of_birth', 'Date of Birth')}
             </label>
             <input
-              type="date"
+              id="onboarding-birth" type="date"
               name="date_of_birth"
               value={form.date_of_birth}
               onChange={handleChange}
@@ -338,7 +339,7 @@ const Onboarding = () => {
           </div>
 
           {submitError && (
-            <div className="p-3 text-xs font-bold uppercase border-2 border-error text-error">
+            <div role="alert" className="p-3 text-xs font-bold uppercase border-2 border-error text-error">
               {submitError}
             </div>
           )}

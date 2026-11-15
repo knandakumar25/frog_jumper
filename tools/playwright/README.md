@@ -1,5 +1,22 @@
 # Local browser authentication verification
 
+The showcase redesign adds `showcase.spec.cjs` for route layouts at 360/768/1440 CSS pixels,
+200% equivalent reflow, Arabic/Hebrew/German, keyboard menu/focus, native FAQ accordions,
+six direct operative links, twelve missions, translation parity and URL context preservation.
+`client-refresh.spec.cjs` additionally covers failed refresh locale preservation and late
+success/failure after credentials are replaced. The Clerk flow now checks linked account
+settings after reload while the game request remains pending.
+
+To run public checks with current source mounted:
+
+```powershell
+docker compose build playwright
+docker compose run --rm -v "${PWD}/website/src:/website/src:ro" playwright npx playwright test showcase.spec.cjs client-refresh.spec.cjs smoke.spec.cjs --workers=1
+```
+
+These checks do not replace real Clerk tests below. Full results and limits are recorded in
+[`docs/WEBSITE_REDESIGN_VERIFICATION.md`](../../docs/WEBSITE_REDESIGN_VERIFICATION.md).
+
 Use the existing local backend/db/website stack and a **Clerk development instance**.
 The runner refuses production keys and uses reserved `+clerk_test@example.com`
 addresses, fictional phone numbers, and `424242` verification codes. It preserves

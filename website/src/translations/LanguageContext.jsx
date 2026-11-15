@@ -153,11 +153,6 @@ export function LanguageProvider({ children }) {
     document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
     document.documentElement.lang = langCode;
 
-    // Dynamically set document title based on localized game name
-    const titleObj = GAME_NAME_TRANSLATIONS[langCode] || GAME_NAME_TRANSLATIONS['en'];
-    if (titleObj) {
-      document.title = titleObj.brand;
-    }
   }, [selectedLanguage]);
 
   // Direct 1-click language switcher (Fortnite-style)
@@ -178,8 +173,12 @@ export function LanguageProvider({ children }) {
       restOfPath = pathParts.join('/');
     }
 
-    const targetUrl = restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
-    navigate(targetUrl);
+    const query = new URLSearchParams(location.search);
+    const bare = firstPart === 'auth' || firstPart === 'onboarding';
+    if (bare) query.set('locale', newLocale);
+    const targetUrl = bare ? location.pathname : restOfPath ? `/${newLocale}/${restOfPath}` : `/${newLocale}`;
+    const search = query.toString();
+    navigate(`${targetUrl}${search ? `?${search}` : ''}${location.hash}`);
   };
 
   // Backward compatibility alias for any component still calling chooseLanguageAndCountry
