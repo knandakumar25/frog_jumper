@@ -1,5 +1,15 @@
 # Axiom Force
 
+## Menus, Level 1 map and titles (Phase 7, 2026-11-15)
+
+The main menus have layered backdrops again (the city menu reuses the deployment
+cutscene's city layers; the command bay is new), Level 1 shows its isometric palace
+map, and the game title is back in all 17 languages, in the game and in
+`website/public/images`. Localized titles are typeset by `tools/art/render_titles.py`,
+which needs libraqm and therefore runs in the cutscene image:
+`docker compose --profile cutscene run --rm cutscene tools/art/render_titles.py <plate.png>`.
+Details are in `docs/ART_REGENERATION.md` ("Phase 7 status").
+
 ## Open-world art (Phase 6, 2026-11-15)
 
 The six home cities and Los Angeles have their open-world art again: 135

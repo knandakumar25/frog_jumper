@@ -1,5 +1,18 @@
 # Axiom Force — Project Memory
 
+## Phase 7 menus, Level 1 map and titles done — 2026-11-15 (pushed on owner request)
+
+- **Credits:** 96 as planned, no retries; balance 640. The whole 2,170-credit plan is spent; the 2026-11-12 items (36) still need approval.
+- **Owner decisions:** run `render_titles.py` in the cutscene image (Dockerfile now installs `libraqm0` and Pillow 13.0.0); nearest filtering for the Level 1 map in `IsometricMission.cs`.
+- **Files:** 6 menu layers (city = copies of the deployment layers), the Level 1 map, 17 titles and 17 website copies.
+- **Lessons:**
+  - Don't use `--despill` on art with pink or hot-magenta content: it cleared the cherry blossoms.
+  - The magenta key also removes hot-magenta glow inside objects; refill interior holes (not connected to the edge) from an unkeyed snap.
+  - Orbitron lacks Vietnamese letters; `render_titles.py` now checks for missing glyphs.
+  - The SpriteCook raw sizes are 2752x1536 (2K 16:9) and 5504x3072 (4K 16:9).
+- **Verification:** build 0 errors; import exit 0 with 24 `.import` files; audit 335 images, none flagged; compares pass (Level 1 reports only the missing 2026-11-12 palace garden); full tests Django 111, NUnit 439, GdUnit 363 with 0 errors/failures/orphans; graphify updated.
+- **Open:** native-reader check of the non-Latin titles; website image rebuild for the new title copies; the 2026-11-12 items; Tokyo blade offset.
+
 ## Phase 6 city kits and operatives done — 2026-11-15
 
 - **Credits:** 882 as planned, no retries; balance 736. All 141 files in `assets/world/`.

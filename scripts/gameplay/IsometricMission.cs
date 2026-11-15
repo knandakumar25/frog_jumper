@@ -63,13 +63,19 @@ public partial class IsometricMission : Node2D
         _map = new Sprite2D
         {
             Name = "IsometricPalaceMap",
-            // Null (an empty map sprite) while the map awaits regeneration; see docs/ART_REGENERATION.md.
+            // The SpriteCook pixel-art map (Phase 7, 2026-11-15). OptionalArt returns null (an empty
+            // sprite) if the file is ever missing; see docs/ART_REGENERATION.md.
             Texture = OptionalArt.Texture("res://assets/images/level1/ghost_gridlock.png"),
             Position = new Vector2(MapWidth * .5f, MapHeight * .5f),
+            // Stretches the 4608x1536 file to the 4800x1600 world, so the ten cover collisions in
+            // BuildCoverCollisions land on the lanterns, trees and shelves drawn in the image.
             Scale = new Vector2(MapWidth / 4608f, MapHeight / 1536f),
+            // The file is stored upside down; flipping it here shows it upright.
             FlipV = true,
             ZIndex = -100,
-            TextureFilter = CanvasItem.TextureFilterEnum.Linear
+            // Nearest keeps the stretched pixel art crisp (owner choice, 2026-11-15); linear blurred
+            // the pixel blocks across the 4608 -> 4800 stretch.
+            TextureFilter = CanvasItem.TextureFilterEnum.Nearest
         };
         AddChild(_map);
 

@@ -46,10 +46,10 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 Gaps are intentional (owner decision):
 - **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 redone 2026-11-13).
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
-- Menus and the Level 1 map have no art; the open-world cities and top-down operatives returned in Phase 6 (2026-11-15). Level 1 uses its procedural skyline instead of the painted garden.
+- The menus, the Level 1 map, the open-world cities and the top-down operatives have their art again (Phases 6 and 7, 2026-11-15). The painted palace garden (a 2026-11-12 item) is still missing, so Level 1 uses its procedural skyline there.
 - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
 - Cutscenes: all nine have their art again (Phases 2 and 3, 2026-11-13 and 2026-11-14), so they play.
-- The title slot is empty in the game; the website shows the words "AXIOM FORCE".
+- The titles are back in all 17 languages (Phase 7, 2026-11-15), in the game and in `website/public/images`. The website container serves the new copies only after its image is rebuilt.
 
 ## Work order
 
@@ -86,11 +86,11 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | 4. Mission props | 21 props on two 2K 4x4 sheets (36; was three 3x3 sheets, 54, until the owner chose 4x4 on 2026-11-14); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30). **Done 2026-11-14: 66 credits**, no retries | 66 |
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
 | 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction. **Done 2026-11-15: 882 credits**, no retries (see "Phase 6 status") | 882 |
-| 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
+| 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally. **Done 2026-11-15: 96 credits**, no retries (see "Phase 7 status") | 96 |
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
 | **Total** | | **2,170** |
 
-- **Spent so far:** Phases 1–6 used 2,074 credits (634 + 72 + 282 + 66 + 138 + 882). After Phase 6 the balance is 736, against 132 still planned for Phase 7 and the 2026-11-12 items.
+- **Spent so far:** Phases 1–7 used 2,170 credits (634 + 72 + 282 + 66 + 138 + 882 + 96). After Phase 7 the balance is 640, against 36 still planned for the 2026-11-12 items.
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
@@ -1051,6 +1051,23 @@ messages. See HANDOFF and MEMORY for verification details and remaining work.
 | `assets/world/mumbai/module_7.png` | 384x384 | sprite, transparent | remake | `a8fe0766e0c9` |
 
 ## Phase 7: Menus, Level 1 map and titles
+
+### Phase 7 status
+
+**Status: done 2026-11-15 (96 credits, as planned; no retries).** All 41 files are in place; the `skip: unused alias` titles stay unmade. `spritecook-assets.json` lists each generation and every file's recipe.
+- **City menu:** copies of the Phase 2 deployment layers (`assets/cutscenes/deployment/live/city_*.png`), as the method says. No credits.
+- **Command bay (36):** a 2K base and a 2K structure on magenta, each snapped to 480x270 and enlarged 4x. The lights are derived from the structure with `--min-value 0.38 --min-sat 0.35`, because the default thresholds keep nothing on this dark layer.
+- **Level 1 map (30):** one 4K image that follows the old L-shaped layout (training frame, lanterns, cherry trees, archive shelves, dojo, cranes and the Data-Blade altar).
+  - It was cut from the 3:1 band (y 619–2454), snapped to 1152x384 and enlarged 4x to 4608x1536, then flipped vertically, because the game draws it with `FlipV`.
+  - **No `--despill`:** despill cleared the pink cherry blossoms as if they were magenta halo.
+  - **Altar glow:** the magenta key also removed the altar's hot-magenta glow lines. Those interior holes (9,952 px, none connected to the edge) were refilled from an unkeyed snap of the same crop, so the map is fully opaque, as the old one was.
+  - **Collisions:** all ten `BuildCoverCollisions` points land on drawn props (lanterns 0–3, cherry trees 4–6, archive shelves 7–9), so no prop had to be pasted in.
+  - **Code:** `IsometricMission.cs` now draws the map with nearest filtering (owner choice).
+- **Titles (30):** one 4K word-free plate, keyed and snapped to the 480x147 working grid; `tools/art/render_titles.py` set each language's text and wrote the 17 game titles and 17 website copies.
+  - The Windows host's Pillow has no libraqm, so `tools/cutscene/Dockerfile` now installs `libraqm0` and Pillow 13.0.0, and the script runs in that image (owner choice).
+  - The script now fits any keyed plate (it used a crop box fitted to the deleted 2026-11-12 plate) and stops if a character would draw as a missing-glyph box.
+  - Orbitron lacks the Vietnamese letters Ư, Ự and Đ, so Vietnamese now uses Noto Sans.
+  - **Still to check:** a reader of Arabic, Hebrew, Thai, Japanese, Korean and Chinese (acceptance check 8).
 
 ### Menu backdrops
 

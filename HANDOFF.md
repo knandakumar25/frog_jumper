@@ -1,5 +1,26 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 7 menus, Level 1 map and titles done — 2026-11-15
+
+- **Credits:** 96, exactly as planned, with no retries. The balance is 640. The 2,170-credit plan is now fully spent; only the 2026-11-12 items (36) remain, and they need approval.
+- **Files (41):** `assets/images/menu_backdrops/` (6), `assets/images/level1/ghost_gridlock.png`, 17 `assets/images/axiom_force_title_2d*.png`, and 17 copies in `website/public/images/`.
+- **Code and tooling:**
+  - `IsometricMission.cs`: the Level 1 map uses nearest filtering (owner choice), with updated comments.
+  - `tools/art/render_titles.py`: rewritten to fit any keyed plate and to stop on a missing glyph; Vietnamese uses Noto Sans.
+  - `tools/cutscene/Dockerfile`: adds `libraqm0` and Pillow 13.0.0 (owner choice). The image was rebuilt; the always-on services are unchanged.
+- **How:** see `docs/ART_REGENERATION.md` ("Phase 7 status"). The Level 1 map needed no `--despill` (it cleared the pink trees), and its keyed-out altar glow was refilled from an unkeyed snap. All ten cover collisions land on drawn props.
+- **Verification (2026-11-15, Docker up):**
+  - `dotnet build`: 0 errors (151 warnings, as before).
+  - Godot headless import: exit 0, only the known System.Runtime 11 and shutdown messages; all 24 new game PNGs have `.import` files.
+  - `audit_images.py`: 335 images, none flagged.
+  - `compare_images.py` against `ca92679`: menus 0 and titles 0 failures. Level 1 reports only `palace_garden_painted.png`, a 2026-11-12 item not yet made.
+  - Full `run_tests.ps1`: Django 111 OK, NUnit 439/439, GdUnit 363 with 0 errors, failures and orphans.
+  - `graphify update .`: done.
+- **Open:**
+  - A native reader should check the Arabic, Hebrew, Thai, Japanese, Korean and Chinese titles.
+  - The website container serves the new title copies only after its image is rebuilt; that was not done.
+  - The 2026-11-12 items (UI sheet, palace garden) and the Tokyo blade offset are still to do.
+
 ## Phase 6 city kits and top-down operatives done — 2026-11-15
 
 - **Credits:** 882, exactly as planned, with no retries. The balance is 736, against 132 planned for Phase 7 and the 2026-11-12 items.

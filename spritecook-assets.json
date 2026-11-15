@@ -532,6 +532,38 @@
   {
    "asset_id": "6b8ab0a8-b947-46b5-9a42-320129648df0",
    "label": "Phase 6 operative_5 Surya Prime walk_left"
+  },
+  {
+   "asset_id": "5e1b0497-d140-485d-a19e-d8f6bfaf3e4f",
+   "label": "Phase 7 reference: command bay base (2K) from ca92679"
+  },
+  {
+   "asset_id": "837d93d2-a41c-489f-a1db-dd0c99b0fa75",
+   "label": "Phase 7 reference: command bay structure (2K) from ca92679"
+  },
+  {
+   "asset_id": "4dd32e4b-699d-44e1-a8ff-44c867a157b6",
+   "label": "Phase 7 reference: Level 1 map (4K) from ca92679"
+  },
+  {
+   "asset_id": "f4938182-bdd6-4f0d-af9e-addcab70cce8",
+   "label": "Phase 7 reference: old English title from ca92679"
+  },
+  {
+   "asset_id": "e79e41df-a2f1-46c5-ba9d-0092156d9d37",
+   "label": "Phase 7 command bay base (2K)"
+  },
+  {
+   "asset_id": "8fedbdb8-6e1a-4953-a66e-981b701b929b",
+   "label": "Phase 7 command bay structure (2K)"
+  },
+  {
+   "asset_id": "35ed446f-747c-448c-834a-b2ce6b782c3b",
+   "label": "Phase 7 Level 1 map (4K)"
+  },
+  {
+   "asset_id": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "label": "Phase 7 word-free title plate (4K)"
   }
  ],
  "files": [
@@ -2188,6 +2220,252 @@
    "sha12": "6a0895b025fc",
    "source": "a237671f-2142-460f-8b50-3f4500c09ca5",
    "recipe": "pack_topdown.py rows south=4d88d717-2f9a-46af-987e-84e8bb5af506 north=68a475ea-ab45-424d-bc5a-b2fa8ad3c3e3 west=6b8ab0a8-b947-46b5-9a42-320129648df0; east mirrored from west, diagonals from the nearest side view"
+  },
+  {
+   "path": "assets/images/menu_backdrops/city_base.png",
+   "sha12": "b06b2ac561e7",
+   "source": "copy",
+   "recipe": "copy of assets/cutscenes/deployment/live/city_base.png (Phase 2)"
+  },
+  {
+   "path": "assets/images/menu_backdrops/city_structure.png",
+   "sha12": "dde5bf96d427",
+   "source": "copy",
+   "recipe": "copy of assets/cutscenes/deployment/live/city_structure.png (Phase 2)"
+  },
+  {
+   "path": "assets/images/menu_backdrops/city_lights.png",
+   "sha12": "4b716c7f8f03",
+   "source": "copy",
+   "recipe": "copy of assets/cutscenes/deployment/live/city_lights.png (Phase 2)"
+  },
+  {
+   "path": "assets/images/menu_backdrops/command_bay_base.png",
+   "sha12": "2722a315d3dc",
+   "source": "e79e41df-a2f1-46c5-ba9d-0092156d9d37",
+   "recipe": "snap_pixels --crop 10,0,2731,1536 --grid 480x270 --size 1920x1080 --opaque --colors 96"
+  },
+  {
+   "path": "assets/images/menu_backdrops/command_bay_structure.png",
+   "sha12": "e59ef8b2742b",
+   "source": "8fedbdb8-6e1a-4953-a66e-981b701b929b",
+   "recipe": "snap_pixels --crop 10,0,2731,1536 --grid 480x270 --size 1920x1080 --key magenta --despill --defringe 2 --colors 96"
+  },
+  {
+   "path": "assets/images/menu_backdrops/command_bay_lights.png",
+   "sha12": "7e3c103bbf68",
+   "source": "8fedbdb8-6e1a-4953-a66e-981b701b929b",
+   "recipe": "derive_layers lights of command_bay_structure --min-value 0.38 --min-sat 0.35"
+  },
+  {
+   "path": "assets/images/level1/ghost_gridlock.png",
+   "sha12": "0803bbbe66a3",
+   "source": "35ed446f-747c-448c-834a-b2ce6b782c3b",
+   "recipe": "snap_pixels --crop 0,619,5504,1835 --grid 1152x384 --size 4608x1536 --key magenta --colors 96 (no despill: pink trees); interior holes (altar glow keyed out) refilled from an unkeyed snap of the same crop; flipped vertically (game draws FlipV). All ten BuildCoverCollisions points land on drawn props"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_arabic.png",
+   "sha12": "7b62e05ae5c8",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_brazilianportuguese.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_eurofrench.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_german.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_hebrew.png",
+   "sha12": "85276a61fc88",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_indonesian.png",
+   "sha12": "f6579979ffae",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_italian.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_japanese.png",
+   "sha12": "c9a547eb173e",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_korean.png",
+   "sha12": "802ffb06f98c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_mandarin.png",
+   "sha12": "7e926d4c557a",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_polish.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_spanish.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_thai.png",
+   "sha12": "cee291b53e4b",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_traditionalchinese.png",
+   "sha12": "30780f6ac2dd",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_turkish.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/images/axiom_force_title_2d_vietnamese.png",
+   "sha12": "50e93428a7a2",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_arabic.png",
+   "sha12": "7b62e05ae5c8",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_brazilianportuguese.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_eurofrench.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_german.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_hebrew.png",
+   "sha12": "85276a61fc88",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_indonesian.png",
+   "sha12": "f6579979ffae",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_italian.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_japanese.png",
+   "sha12": "c9a547eb173e",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_korean.png",
+   "sha12": "802ffb06f98c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_mandarin.png",
+   "sha12": "7e926d4c557a",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_polish.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_spanish.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_thai.png",
+   "sha12": "cee291b53e4b",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_traditionalchinese.png",
+   "sha12": "30780f6ac2dd",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_turkish.png",
+   "sha12": "e570b8b75c0c",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "website/public/images/axiom_force_title_2d_vietnamese.png",
+   "sha12": "50e93428a7a2",
+   "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
+   "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
   }
  ]
 }

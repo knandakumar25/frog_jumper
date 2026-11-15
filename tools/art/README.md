@@ -1,9 +1,12 @@
 # Art tools
 
 `fit_spritecook_image.py` crops/fits downloaded art to exact project sizes.
-`render_titles.py <plate.png>` typesets the 17 supported title variants and writes
-game/web copies; it requires Pillow with libraqm. Its crop box was fitted to the deleted
-2026-11-12 plate, so adjust it to the new plate before use. `finish_ui_batch.py` belongs to
+`render_titles.py <plate.png>` typesets the 17 supported title variants onto a word-free,
+keyed title plate and writes the game and website copies. It needs Pillow with libraqm, which
+the Windows host lacks, so run it in the cutscene image (`docker compose --profile cutscene run
+--rm cutscene tools/art/render_titles.py <plate.png>`; the image installs `libraqm0`). It fits
+any plate to its 480x147 working grid and stops if a font lacks a character (Vietnamese uses
+Noto Sans for that reason). `finish_ui_batch.py` belongs to
 the deleted 2026-11-12 UI batch (its crops and asset IDs no longer apply); do not run it as is.
 
 ## Adventurer-plan tools (2026-11-13)

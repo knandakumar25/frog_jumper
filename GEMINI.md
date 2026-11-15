@@ -1,9 +1,9 @@
 # Axiom Force - Project Guide (Antigravity / Gemini)
 
-Phase 6 art update (2026-11-15): the city kits and six top-down operative sheets cost
-882 credits as planned, with 736 remaining. Phases 1–6 are done; see the Phase 6
-status in `docs/ART_REGENERATION.md`. The 2,170-credit plan total is unchanged.
-Phase 7 and the 2026-11-12 items still require their own approval.
+Phase 7 art update (2026-11-15): the menus, Level 1 map and 17 localized titles cost
+96 credits as planned, with 640 remaining. Phases 1–7 are done (2,170 credits, the
+whole plan); see the Phase 7 status in `docs/ART_REGENERATION.md`. Only the 2026-11-12
+items (36) remain, and they still require their own approval.
 
 ## Project Overview
 A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and React web client. It is a 2D cyber-action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*) with a 12-mission, 3-act campaign, multi-operative synergy, dynamic combat HUDs, wall mobility, and multi-phase boss mechs, set in Los Angeles in 2157. Finishing Mission 1 opens a top-down open world (`scripts/world/`). In that world only Little Tokyo and Concrete Wards have playable quests and combat; the other 14 regions can be explored, but their quests, operations and endgame content are data only (see the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`). Saves are PostgreSQL-only, and the desktop game signs in through a Clerk browser flow.
@@ -70,7 +70,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
   - Save each new image at its listed path and exact size, so the game uses it with no code change.
   - `ArtRegenerationSpecTests` (NUnit) fails if a regenerated file has the wrong size.
   - Record each saved file's `asset_id` in `spritecook-assets.json` at the repository root (create it on first use).
-- **Until art returns, the game leaves gaps on purpose:** any actor whose SpriteCook atlas is missing would be invisible (an empty placeholder in `OperativeVisuals`); the 2026-11-12 SpriteCook set was deleted on 2026-11-13 and Phase 1 (the six operatives, the drone and the boss) was redone the same day on the Adventurer plan, with Phases 2 and 3 (all nine cutscenes), Phase 4 (the 25 mission props) and Phase 5 (the later-campaign environments) done by 2026-11-14, and Phase 6 (the city kits and top-down operatives) done on 2026-11-15; UI, titles, menus and icons are still to be regenerated. Also: sentries, open-world hostiles and Aegis civilians drawn in code, blank menus, an empty title slot (a text title on the website), text-only buttons, a frameless speech bubble and default app and browser icons. Every other image (the hand-drawn studies, older logos, UI art, backgrounds and icons) was deleted on 2026-11-12; `docs/ART_REGENERATION.md` lists the 9 of those to remake. The art style is pixel art (owner, 2026-11-12). Do not add stand-in art to fill these gaps unless the owner asks.
+- **Until art returns, the game leaves gaps on purpose:** any actor whose SpriteCook atlas is missing would be invisible (an empty placeholder in `OperativeVisuals`); the 2026-11-12 SpriteCook set was deleted on 2026-11-13 and Phase 1 (the six operatives, the drone and the boss) was redone the same day on the Adventurer plan, with Phases 2 and 3 (all nine cutscenes), Phase 4 (the 25 mission props) and Phase 5 (the later-campaign environments) done by 2026-11-14, and Phases 6 and 7 (the city kits, top-down operatives, menus, Level 1 map and titles) done on 2026-11-15; the button states, speech frame, icons and palace garden (the 2026-11-12 items) are still to be regenerated. Also: sentries, open-world hostiles and Aegis civilians drawn in code, text-only buttons, a frameless speech bubble and default app and browser icons. Every other image (the hand-drawn studies, older logos, UI art, backgrounds and icons) was deleted on 2026-11-12; `docs/ART_REGENERATION.md` lists the 9 of those to remake. The art style is pixel art (owner, 2026-11-12). Do not add stand-in art to fill these gaps unless the owner asks.
 - Check new art with `tools/assets/audit_images.py` and `tools/assets/compare_images.py`, which run on Pillow and numpy.
 - This rule never authorizes commits, pushes or spending credits.
 
