@@ -16,6 +16,8 @@ const TwoFactor = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [code, setCode] = useState('');
   const [isEnabling, setIsEnabling] = useState(false);
+  // Turning 2FA off needs a code mailed to the account (backend change, 2026-11-15).
+  const [isDisabling, setIsDisabling] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isEnabled = user?.is_2fa_enabled;
@@ -56,18 +58,40 @@ const TwoFactor = () => {
     }
   };
 
+  /** Step 1 of turning 2FA off: ask the API to email a confirmation code. */
   const disable2FA = async () => {
     setErrorMessage('');
     setStatusMessage('');
     setIsSubmitting(true);
     try {
-      await apiClient.patch('/auth/profile/', { is_2fa_enabled: false });
-      const profileRes = await apiClient.get('/auth/profile/');
-      setUser(profileRes.data);
-      setStatusMessage(t('auth.two_factor_disabled_success', 'Two‑Factor Authentication disabled.'));
+      await apiClient.post('/auth/2fa/disable-request/');
+      setCode('');
+      setStatusMessage(t('auth.code_sent', 'Verification code sent to your email. Please enter it below.'));
+      setIsDisabling(true);
     } catch (e) {
       console.error(e);
       setErrorMessage(t('auth.disable_failed', 'Failed to disable 2FA.'));
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  /** Step 2: send the emailed code. The API then signs other sessions out and emails a notice. */
+  const verifyDisable = async (e) => {
+    e.preventDefault();
+    setErrorMessage('');
+    setStatusMessage('');
+    setIsSubmitting(true);
+    try {
+      await apiClient.post('/auth/2fa/disable/', { code });
+      const profileRes = await apiClient.get('/auth/profile/');
+      setUser(profileRes.data);
+      setIsDisabling(false);
+      setCode('');
+      setStatusMessage(t('auth.two_factor_disabled_success', 'Two‑Factor Authentication disabled.'));
+    } catch (e) {
+      console.error(e);
+      setErrorMessage(t('auth.invalid_code', 'Invalid code or verification failed.'));
     } finally {
       setIsSubmitting(false);
     }
@@ -95,7 +119,27 @@ const TwoFactor = () => {
           </div>
         )}
 
-        {isEnabled ? (
+        {isEnabled && isDisabling ? (
+          <form onSubmit={verifyDisable} className="flex flex-col gap-4">
+            <label className="text-xs uppercase font-bold text-on-surface-variant">{t('auth.verification_code', 'Verification Code')}</label>
+            <input
+              type="text"
+              placeholder={t('auth.enter_code', 'Enter code')}
+              className="bg-surface-container-highest border-2 border-outline-variant/40 p-3.5 text-on-surface outline-none focus:border-primary-container transition-all text-sm font-body-md"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              required
+              disabled={isSubmitting}
+            />
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="brutal-btn py-4 font-headline-md text-headline-md uppercase font-bold text-void-black bg-primary-container hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-150 disabled:opacity-50"
+            >
+              {isSubmitting ? t('auth.verifying', 'Verifying…') : t('auth.disable_2fa', 'Disable 2FA')}
+            </button>
+          </form>
+        ) : isEnabled ? (
           <div className="flex flex-col gap-4 items-center">
             <p className="text-center">{t('auth.two_factor_enabled_desc', '2FA is currently enabled on your account.')}</p>
             <button

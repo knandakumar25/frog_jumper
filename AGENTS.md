@@ -1,17 +1,18 @@
 # Axiom Force - Universal Agent Guidelines
 
-Phase 7 art update (2026-11-15): the menus, Level 1 map and 17 localized titles cost
-96 credits as planned, with 640 remaining. Phases 1–7 are done (2,170 credits, the
-whole plan); see the Phase 7 status in `docs/ART_REGENERATION.md`. Only the 2026-11-12
-items (36) remain, and they still require their own approval.
+Update (2026-11-15): the whole art plan is done. The 2026-11-12 items (buttons, speech
+frame and pointer, icons, palace garden) cost 36 credits, so 2,206 in all, with 604
+remaining; see "2026-11-12 items status" in `docs/ART_REGENERATION.md`. The website
+backend is now **Express.js** (`backend/`, Node 26), replacing Django; see
+`backend/` and HANDOFF.md.
 
 ## Project Overview
-A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and React web client. It is a 2D cyber-action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*) with a 12-mission, 3-act campaign, multi-operative synergy, dynamic combat HUDs, wall mobility, and multi-phase boss mechs, set in Los Angeles in 2157. Finishing Mission 1 opens a top-down open world (`scripts/world/`). In that world only Little Tokyo and Concrete Wards have playable quests and combat; the other 14 regions can be explored, but their quests, operations and endgame content are data only (see the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`). Saves are PostgreSQL-only, and the desktop game signs in through a Clerk browser flow.
+A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an **Express.js** accounts API (Node 26; replaced Django REST Framework on 2026-11-15) and React web client. It is a 2D cyber-action platformer (inspired by *Katana Zero*, *Hades*, and *Ghostrunner*) with a 12-mission, 3-act campaign, multi-operative synergy, dynamic combat HUDs, wall mobility, and multi-phase boss mechs, set in Los Angeles in 2157. Finishing Mission 1 opens a top-down open world (`scripts/world/`). In that world only Little Tokyo and Concrete Wards have playable quests and combat; the other 14 regions can be explored, but their quests, operations and endgame content are data only (see the status table in `docs/NEO_KYOTO_EXPANSION_PLAN.md`). Saves are PostgreSQL-only, and the desktop game signs in through a Clerk browser flow.
 
 ## Technical Stack
 - **Engine**: Godot 4.7.2 .NET
 - **Language**: C# (.NET SDK 11.0.100, the latest installed; projects target `net10.0`)
-- **Backend**: Django REST Framework (Python 3.15.2)
+- **Backend**: Express.js 5 on Node 26 (`backend/`: `pg`, `jose`; tests with `node:test` and `supertest`). It keeps the Django API's paths, JSON and `accounts_*` tables, including Django password hashes. Python 3.15.2 remains for the art and cutscene tools only.
 - **Frontend Web**: React + Vite
 - **Architecture**: Component-based with specialized Managers (e.g., `SessionManager`, `UISoundManager`, `OperativeRegistry`).
 - **UI & Gameplay Approach**: High-fidelity 2D combat platforming with a 12-mission linear campaign (`LevelCatalog.cs`), dynamic combat HUD, and a squad of operatives that are unlocked through the story (roster screen, in-level swap).
@@ -70,7 +71,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a 
   - Save each new image at its listed path and exact size, so the game uses it with no code change.
   - `ArtRegenerationSpecTests` (NUnit) fails if a regenerated file has the wrong size.
   - Record each saved file's `asset_id` in `spritecook-assets.json` at the repository root (create it on first use).
-- **Until art returns, the game leaves gaps on purpose:** any actor whose SpriteCook atlas is missing would be invisible (an empty placeholder in `OperativeVisuals`); the 2026-11-12 SpriteCook set was deleted on 2026-11-13 and Phase 1 (the six operatives, the drone and the boss) was redone the same day on the Adventurer plan, with Phases 2 and 3 (all nine cutscenes), Phase 4 (the 25 mission props) and Phase 5 (the later-campaign environments) done by 2026-11-14, and Phases 6 and 7 (the city kits, top-down operatives, menus, Level 1 map and titles) done on 2026-11-15; the button states, speech frame, icons and palace garden (the 2026-11-12 items) are still to be regenerated. Also: sentries, open-world hostiles and Aegis civilians drawn in code, text-only buttons, a frameless speech bubble and default app and browser icons. Every other image (the hand-drawn studies, older logos, UI art, backgrounds and icons) was deleted on 2026-11-12; `docs/ART_REGENERATION.md` lists the 9 of those to remake. The art style is pixel art (owner, 2026-11-12). Do not add stand-in art to fill these gaps unless the owner asks.
+- **Until art returns, the game leaves gaps on purpose:** any actor whose SpriteCook atlas is missing would be invisible (an empty placeholder in `OperativeVisuals`); the 2026-11-12 SpriteCook set was deleted on 2026-11-13 and Phase 1 (the six operatives, the drone and the boss) was redone the same day on the Adventurer plan, with Phases 2 and 3 (all nine cutscenes), Phase 4 (the 25 mission props) and Phase 5 (the later-campaign environments) done by 2026-11-14, and Phases 6 and 7 (the city kits, top-down operatives, menus, Level 1 map and titles) done on 2026-11-15, and the 2026-11-12 items (button states, speech frame and pointer, icons and palace garden) were remade the same day, so the regeneration list is complete. Still drawn in code: sentries, open-world hostiles and Aegis civilians. Every other image (the hand-drawn studies, older logos, UI art, backgrounds and icons) was deleted on 2026-11-12; `docs/ART_REGENERATION.md` lists the 9 of those that were remade. The art style is pixel art (owner, 2026-11-12). Do not add stand-in art to fill these gaps unless the owner asks.
 - Check new art with `tools/assets/audit_images.py` and `tools/assets/compare_images.py`, which run on Pillow and numpy.
 - This rule never authorizes commits, pushes or spending credits.
 
@@ -144,9 +145,9 @@ docker ps
 ```
 
 - If Docker Desktop itself is down, start it and wait until `docker info` reports a live daemon before continuing.
-- If the project containers (Django backend, PostgreSQL, website) are missing from `docker ps`, start them from the project root with `docker compose up -d` and re-check with `docker ps`. If a container exits immediately, read `docker compose logs <service>` before editing.
+- If the project containers (Express backend, PostgreSQL, website) are missing from `docker ps`, start them from the project root with `docker compose up -d` and re-check with `docker ps`. If a container exits immediately, read `docker compose logs <service>` before editing.
 - Do not begin code edits while the stack is down, and never stop containers the user started.
-- The stack is defined in `docker-compose.yml`: `db` (`postgres:latest`, 5432), `backend` (Django, 8000), `website` (Nginx, 5173). All three are always-on members of `docker compose up`. The `cutscene`, `playwright` and `export` services only run under their own profiles. Back up saves manually with `tools/db/backup.ps1`.
+- The stack is defined in `docker-compose.yml`: `db` (`postgres:latest`, 5432), `backend` (Express.js accounts API, 8000; healthy when `/api/health` answers; rebuild with `docker compose up -d --build backend` after editing `backend/`, since there is no source bind mount), `website` (Nginx, 5173). All three are always-on members of `docker compose up`. The `cutscene`, `playwright` and `export` services only run under their own profiles. Back up saves manually with `tools/db/backup.ps1`.
 - **Game edits and website edits may run at the same time as the stack** — they do not conflict, so do not stop the containers to work on either.
 - **Game exports are exclusive.** Never run one while another export, a Godot import refresh, a website image build, or a game/website edit batch is still in progress, and never chain an export into the same command as other work. Finish or park everything else first.
 - The exporter is a one-shot service behind the `export` profile (`docker compose run --rm export <linux|windows|web|android|macos|ios|all>`, image `axiom-force-export`). A plain `docker compose up` never starts it, and starting the service by itself is inert: with no explicit target it prints usage and exits without building anything. Never add `export` to the default services, and rebuild the image after editing `export/export.sh` because the script is baked into it.
@@ -183,9 +184,9 @@ Run a background Godot refresh only after creating, modifying, or deleting game 
 > ```
 >
 > You can also run the individual test suites:
-> 1. **Django Unit Tests (Backend)**:
+> 1. **Accounts API Tests (Backend, Express.js)**:
 >    ```powershell
->    docker compose exec -T backend python manage.py test accounts
+>    docker compose exec -T backend npm test
 >    ```
 > 2. **NUnit Tests (.NET 10 C#)**:
 >    ```powershell

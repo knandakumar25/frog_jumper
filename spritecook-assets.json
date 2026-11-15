@@ -564,6 +564,14 @@
   {
    "asset_id": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
    "label": "Phase 7 word-free title plate (4K)"
+  },
+  {
+   "asset_id": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "label": "2026-11-12 items: UI sheet (2K) - button states, speech frame and pointer, icon"
+  },
+  {
+   "asset_id": "030ba3c2-baad-4074-9400-49fb6d90b9ab",
+   "label": "2026-11-12 items: palace garden backdrop (2K)"
   }
  ],
  "files": [
@@ -2466,6 +2474,60 @@
    "sha12": "50e93428a7a2",
    "source": "e96132ee-ed39-414c-a1f6-f5fa5067ccc3",
    "recipe": "plate snap_pixels --key magenta --grid 480x147 --size 480x147; text by tools/art/render_titles.py in the cutscene image (libraqm)"
+  },
+  {
+   "path": "assets/icons/axiom_force.ico",
+   "sha12": "ef73546ea138",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "derive_layers.py icon assets/icons/axiom_force.png --ico (16-256)"
+  },
+  {
+   "path": "assets/icons/axiom_force.png",
+   "sha12": "905dcaa3428c",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "tools/art/cut_ui_sheet.py (snap 200x200 unkeyed, magenta flood-keyed per element, 31x, centred in 1254x1254)"
+  },
+  {
+   "path": "assets/images/cyber_button_hover.png",
+   "sha12": "cfa1b4b7f90d",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "tools/art/cut_ui_sheet.py (snap 200x200 unkeyed, magenta flood-keyed per element, 5x, nine-slice 70/16 to 800x140)"
+  },
+  {
+   "path": "assets/images/cyber_button_normal.png",
+   "sha12": "7d12523a06ca",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "tools/art/cut_ui_sheet.py (snap 200x200 unkeyed, magenta flood-keyed per element, 5x, nine-slice 70/16 to 800x140)"
+  },
+  {
+   "path": "assets/images/cyber_button_pressed.png",
+   "sha12": "60a3aa4db36f",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "tools/art/cut_ui_sheet.py (snap 200x200 unkeyed, magenta flood-keyed per element, 5x, nine-slice 70/16 to 800x140)"
+  },
+  {
+   "path": "assets/images/level1/palace_garden_painted.png",
+   "sha12": "2ce4bc4b16f2",
+   "source": "030ba3c2-baad-4074-9400-49fb6d90b9ab",
+   "recipe": "snap_pixels --crop 131,355,2490,848 --grid 430x146 --size 2149x732 --opaque --colors 96"
+  },
+  {
+   "path": "assets/textures/cyber_speech_frame.png",
+   "sha12": "52418f14e89f",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "tools/art/cut_ui_sheet.py (snap 200x200 unkeyed, magenta flood-keyed per element, 4x, nine-slice 48 to 512x320)"
+  },
+  {
+   "path": "assets/textures/cyber_speech_pointer.png",
+   "sha12": "1ecd3eff1ed8",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "tools/art/cut_ui_sheet.py (snap 200x200 unkeyed, magenta flood-keyed per element, 3x, turned to point left, centred in 128x128)"
+  },
+  {
+   "path": "website/public/favicon.svg",
+   "sha12": "6c6924785f24",
+   "source": "99c9f6ae-b59e-4016-8423-98779b38699f",
+   "recipe": "derive_layers.py icon assets/icons/axiom_force.png --svg (100x100 pixelated)"
   }
  ]
 }

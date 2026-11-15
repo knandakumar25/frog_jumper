@@ -1,33 +1,48 @@
-# Axiom Force — Django REST Framework backend image.
+# syntax=docker/dockerfile:1
+# Axiom Force accounts API (Express.js on Node 26), replacing the Django backend on 2026-11-15.
 #
-# Pin the application interpreter and distribution for reproducible rebuilds.
-# Root requirements.txt also supplies the developer's independent local .venv.
-FROM python:3.15.2-slim-trixie
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
-
+# Build context is ./backend (see docker-compose.yml). Stages:
+#   deps     - production packages only (npm ci --omit=dev)
+#   dev      - adds the test packages; the target Compose runs, so
+#              `docker compose exec -T backend npm test` works in the running container
+#   runtime  - production image: production packages and source, nothing else
+# Both final targets run as the image's unprivileged `node` user. Start-up applies the SQL
+# migrations, then serves on port 8000 (the port nginx, the game and the website already use).
+FROM node:26.13.1-alpine3.23 AS base
 WORKDIR /app
+ENV NODE_ENV=production
 
-# libpq5 is required at runtime by psycopg2; everything else stays out of the
-# image to keep it small.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends libpq5 \
-    && rm -rf /var/lib/apt/lists/*
+FROM base AS deps
+# The lockfile pins every package version; the npm cache mount keeps rebuilds fast without
+# storing the cache in a layer.
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=package-lock.json,target=package-lock.json \
+    --mount=type=cache,target=/root/.npm \
+    npm ci --omit=dev
 
-# Build from the repository root; copy its canonical manifest before application code for caching.
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+FROM base AS dev-deps
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=package-lock.json,target=package-lock.json \
+    --mount=type=cache,target=/root/.npm \
+    npm ci --include=dev
 
-COPY backend/ /app/
-
-# entrypoint.sh is checked out with CRLF endings on Windows, which makes the
-# kernel reject the shebang and `set -e` fail on a stray \r. Normalise it.
-RUN sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
-
+FROM base AS runtime
+LABEL org.opencontainers.image.title="axiom-force-backend" \
+      org.opencontainers.image.description="Axiom Force accounts API (Express.js)"
+COPY --link --from=deps /app/node_modules ./node_modules
+COPY --link package.json package-lock.json ./
+COPY --link data ./data
+COPY --link migrations ./migrations
+COPY --link src ./src
+USER node
 EXPOSE 8000
+# Migrate, then serve. Exec form, so the server gets SIGTERM directly and shuts down cleanly.
+CMD ["node", "src/server.js"]
 
-# The entrypoint blocks until PostgreSQL answers, runs `manage.py migrate`,
-# then execs whatever command compose supplies (the dev server by default).
-ENTRYPOINT ["/app/entrypoint.sh"]
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+FROM runtime AS dev
+USER root
+COPY --link --from=dev-deps /app/node_modules ./node_modules
+COPY --link test ./test
+# Playwright helpers (tools/playwright/README.md): throwaway test API and loopback proxy.
+COPY --link scripts ./scripts
+USER node

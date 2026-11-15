@@ -5,8 +5,10 @@
 # Stop everything:    docker compose down
 #
 # Variables come from the gitignored `.env` in this directory (see
-# `.env.example`); every value below has a safe default so a fresh clone with
-# no `.env` still boots. The database password is shared between the `db`
+# `.env.example`). First run: copy `.env.example` to `.env` and set
+# JWT_SIGNING_KEY (the backend refuses to start without it; the website and
+# database still start, and `docker compose logs backend` says what is missing).
+# Every other value has a safe default. The database password is shared between the `db`
 # service (POSTGRES_PASSWORD) and the backend (DB_PASSWORD), so set both to the
 # same value in `.env` if you change either.
 name: axiom-force
@@ -31,7 +33,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
     ports:
-      - "5432:5432"
+      # Loopback only (2026-11-15 review): other machines cannot reach the database.
+      - "127.0.0.1:5432:5432"
     volumes:
       # PostgreSQL 18+ stores data in a major-version subdirectory and refuses
       # to start when the volume is mounted at the old /var/lib/postgresql/data
@@ -46,16 +49,19 @@ services:
       retries: 12
     restart: unless-stopped
 
-  # Django REST Framework on Python 3.15.2. The image's entrypoint waits for
-  # PostgreSQL and applies migrations before starting the dev server.
+  # Accounts API: Express.js on Node 26 (replaced Django on 2026-11-15). On start it waits for
+  # PostgreSQL and applies the SQL migrations in backend/migrations, then serves on 8000. The
+  # `dev` target includes the test packages so `docker compose exec -T backend npm test` works.
+  # There is no source bind mount (it would hide the image's node_modules); rebuild after
+  # editing backend code: `docker compose up -d --build backend`.
   backend:
     build:
-      # Root requirements.txt is the sole Python dependency manifest.
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      target: dev
     env_file:
-      # Optional so the stack still starts before anyone copies .env.example
-      # to .env; the backend falls back to settings.py defaults in that case.
+      # Optional so Compose itself does not fail before anyone copies .env.example to .env.
+      # The API refuses to start without JWT_SIGNING_KEY (see backend/src/config.js); it then
+      # restarts until the key is set, while the website and database keep running.
       - path: .env
         required: false
     environment:
@@ -66,22 +72,25 @@ services:
       DB_NAME: ${POSTGRES_DB:-accounts_db}
       DB_USER: ${POSTGRES_USER:-postgres}
       DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
-      PYTHONUNBUFFERED: "1"
     ports:
-      - "8000:8000"
-    volumes:
-      # Bind-mount the source for live reload; the image still provides the
-      # installed dependencies.
-      - ./backend:/app
+      # Loopback only (2026-11-15 review): the game on this machine still reaches
+      # localhost:8000, but other machines cannot call the API around nginx.
+      - "127.0.0.1:8000:8000"
     depends_on:
       db:
         condition: service_healthy
-    command: python manage.py runserver 0.0.0.0:8000
+    healthcheck:
+      # /api/health answers 200 once the database is reachable.
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8000/api/health').then(r=>process.exit(r.ok?0:1),()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
     restart: unless-stopped
 
-  # React + Vite build served by Nginx, which also proxies /api/ and /admin/
-  # to `backend` (see website/nginx.conf). FRONTEND_URL points at 5173, so that
-  # is the host port this service is published on.
+  # React + Vite build served by Nginx, which also proxies /api/ to `backend`
+  # (see website/nginx.conf). FRONTEND_URL points at 5173, so that is the host
+  # port this service is published on.
   website:
     build:
       context: ./website
@@ -90,7 +99,8 @@ services:
     ports:
       - "5173:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_started
     restart: unless-stopped
 
   # Microsoft’s browser image is a one-shot verification tool, separate from the server.

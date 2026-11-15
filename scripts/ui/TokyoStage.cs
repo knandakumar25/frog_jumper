@@ -73,8 +73,12 @@ public partial class TokyoStage : Control
             DrawTextureRectRegion(_poses, new Rect2(x - 256, 372 + bob, 512, 512), new Rect2(pose * 512, 0, 512, 512));
             if (t < 23 && _blade != null)
             {
-                // Match the Data-Blade hilt to the authored hand pivot for escape and testimony poses.
-                DrawTextureRect(_blade, new Rect2(x - (t < 8 ? 39 : 21), (t < 8 ? 417 : 479) + bob, 205, 205), false);
+                // Put the Data-Blade grip in Kaito's forward fist. The blade art is 512x512 drawn at 205x205, so
+                // its grip centre sits at about (44, 99) of the drawn square. In the SpriteCook pose sheet
+                // (2026-11-13) the escape pose's fist is at (372, 243) of its 512 cell and the testimony
+                // pose's raised fist is at (335, 228); the cell is drawn at (x - 256, 372). The offsets are
+                // fist minus grip. Re-measure them if poses.png or blade.png is regenerated.
+                DrawTextureRect(_blade, new Rect2(x + (t < 8 ? 72 : 35), (t < 8 ? 516 : 501) + bob, 205, 205), false);
                 for (int i = 0; i < 6; i++)
                 {
                     Vector2 p = new(x + 100 + Mathf.Sin(t + i) * 26, 510 + i * 12 + bob);

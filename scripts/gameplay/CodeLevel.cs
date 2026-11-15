@@ -412,7 +412,9 @@ public abstract partial class CodeLevel : Node2D
                 Scale = Vector2.One * 2.35f,
                 // Dim it so bright lanterns and platform rims stay readable on top.
                 Modulate = new Color(.78f, .8f, .95f),
-                TextureFilter = CanvasItem.TextureFilterEnum.Linear
+                // The SpriteCook painting (2026-11-15) is pixel art; nearest keeps its pixel blocks
+                // crisp at this non-integer scale, the same owner choice as the Level 1 map.
+                TextureFilter = CanvasItem.TextureFilterEnum.Nearest
             };
             layer.AddChild(_backdrop);
             _backdrop.Position = new Vector2(960f, 540f);

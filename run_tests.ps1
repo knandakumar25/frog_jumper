@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
     Runs all unit test suites for Frog Jumper / Axiom Force.
-    Supports Django (DRF), NUnit (.NET 10 / C#), and GdUnit4 (Godot 4).
+    Supports the accounts API (Express.js, node:test), NUnit (.NET 10 / C#), and GdUnit4 (Godot 4).
 
 .PARAMETER Suite
-    Which test suite to execute: 'all', 'django', 'nunit', or 'gdunit'. Default is 'all'.
+    Which test suite to execute: 'all', 'backend', 'nunit', or 'gdunit'. Default is 'all'.
 #>
 param(
-    [ValidateSet("all", "django", "nunit", "gdunit")]
+    [ValidateSet("all", "backend", "nunit", "gdunit")]
     [string]$Suite = "all"
 )
 
@@ -20,34 +20,36 @@ Write-Host "======================================================" -ForegroundC
 
 $Results = @{}
 
-function Invoke-DjangoInBackendContainer {
+function Invoke-BackendTestsInContainer {
     <#
     .SYNOPSIS
-        Runs Django tests using Python and packages already installed in the running backend container.
+        Runs the accounts API tests (npm test) inside the running backend container.
     .DESCRIPTION
-        Requires the normal Compose stack. Does not create a host virtualenv, install packages,
-        copy credentials, or create disposable containers. Returns the container command's exit status.
+        Requires the normal Compose stack; the backend image's `dev` target includes the test
+        packages. The tests create and drop their own `accounts_test` database on the `db`
+        service and never touch `accounts_db`. Does not install packages, copy credentials or
+        create disposable containers. Sets $script:ContainerBackendExitCode.
     #>
-    $script:ContainerDjangoExitCode = 1
+    $script:ContainerBackendExitCode = 1
     $DockerExe = (Get-Command docker.exe -ErrorAction SilentlyContinue).Source
     if (-not $DockerExe) {
         $DockerCandidate = Join-Path $env:LOCALAPPDATA "Programs\DockerDesktop\resources\bin\docker.exe"
         if (Test-Path $DockerCandidate) { $DockerExe = $DockerCandidate }
     }
     if (-not $DockerExe) {
-        Write-Warning "Docker CLI not found. Start the normal Compose backend before running Django tests."
+        Write-Warning "Docker CLI not found. Start the normal Compose backend before running the backend tests."
         return
     }
 
-    & $DockerExe compose --project-directory $ProjectRoot exec -T backend python manage.py test accounts
-    $script:ContainerDjangoExitCode = $LASTEXITCODE
+    & $DockerExe compose --project-directory $ProjectRoot exec -T backend npm test
+    $script:ContainerBackendExitCode = $LASTEXITCODE
 }
 
-# 1. Django Unit Tests: the running image supplies dependencies from root requirements.txt.
-if ($Suite -eq "all" -or $Suite -eq "django") {
-    Write-Host "`n[1/3] Running Django (Python) Unit Tests in Docker..." -ForegroundColor Yellow
-    Invoke-DjangoInBackendContainer
-    $Results["Django"] = if ($ContainerDjangoExitCode -eq 0) { "PASSED" } else { "FAILED" }
+# 1. Accounts API tests (Express.js, node:test) inside the running backend container.
+if ($Suite -eq "all" -or $Suite -eq "backend") {
+    Write-Host "`n[1/3] Running accounts API (Express.js) tests in Docker..." -ForegroundColor Yellow
+    Invoke-BackendTestsInContainer
+    $Results["Backend"] = if ($ContainerBackendExitCode -eq 0) { "PASSED" } else { "FAILED" }
 }
 
 # 2. NUnit Unit Tests

@@ -1,8 +1,9 @@
-# Nothing in the image needs the local virtualenv, caches or test artefacts;
-# excluding them keeps the build context small and stops host binaries from
-# shadowing the image's site-packages.
-.venv/
-**/__pycache__/
-**/*.py[cod]
-.pytest_cache/
-*.sqlite3
+# Build context is ./backend. Send only what the image needs; never credentials or local installs.
+node_modules/
+npm-debug.log*
+.env
+.env.*
+**/.env
+**/.env.*
+*.md
+.gdignore

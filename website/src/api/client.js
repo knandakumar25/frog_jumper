@@ -24,6 +24,23 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// The refresh in progress, shared by every request that got a 401 meanwhile. Refresh tokens
+// work once (backend change, 2026-11-15): two parallel refreshes with the same token would make
+// the second fail and sign the user out, so all waiting requests reuse one refresh.
+let refreshInFlight = null;
+
+/** Trade the stored refresh token for a new pair once, however many requests are waiting. */
+function refreshTokens() {
+  refreshInFlight ??= axios.post(`${API_BASE_URL}/auth/token/refresh/`, { refresh: tokens.refresh })
+    .then((response) => {
+      tokens.access = response.data.access;
+      if (response.data.refresh) tokens.refresh = response.data.refresh;
+      return response.data.access;
+    })
+    .finally(() => { refreshInFlight = null; });
+  return refreshInFlight;
+}
+
 // Interceptor to handle token refresh on 401
 apiClient.interceptors.response.use(
   (response) => response,
@@ -32,13 +49,7 @@ apiClient.interceptors.response.use(
     if (error.response?.status === 401 && originalRequest && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const refreshToken = tokens.refresh;
-        const response = await axios.post(`${API_BASE_URL}/auth/token/refresh/`, {
-          refresh: refreshToken,
-        });
-        const { access } = response.data;
-        tokens.access = access;
-        if (response.data.refresh) tokens.refresh = response.data.refresh;
+        const access = await refreshTokens();
         originalRequest.headers.Authorization = `Bearer ${access}`;
         return apiClient(originalRequest);
       } catch (refreshError) {

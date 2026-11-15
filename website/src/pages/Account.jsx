@@ -29,6 +29,9 @@ const Account = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
+  // Changing the email needs a code mailed to the current address (backend change, 2026-11-15).
+  const [emailCode, setEmailCode] = useState('');
+  const [awaitingEmailCode, setAwaitingEmailCode] = useState(false);
 
   useEffect(() => {
     const fetchCountriesAndInitialize = async () => {
@@ -90,6 +93,14 @@ const Account = () => {
     setIsLoading(true);
     setMessage(null);
     try {
+      const emailChanged = formData.email.trim() !== (user.email || '');
+      if (emailChanged && !awaitingEmailCode) {
+        // First save with a new address: mail a code to the current one and ask for it.
+        await apiClient.post('/auth/profile/email-code/');
+        setAwaitingEmailCode(true);
+        setMessage({ type: 'success', text: t('account.email_code_sent', 'We sent a code to your current email. Enter it below and save again.') });
+        return;
+      }
       const combinedPhoneNumber = (formData.country_code + formData.phone_number.trim()).trim();
       const payload = {
         first_name: formData.first_name,
@@ -98,8 +109,11 @@ const Account = () => {
         phone_number: combinedPhoneNumber,
         country: formData.country,
       };
+      if (emailChanged) payload.email_code = emailCode.trim();
       const response = await apiClient.patch('/auth/profile/', payload);
       setUser(response.data);
+      setAwaitingEmailCode(false);
+      setEmailCode('');
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
     } catch (error) {
       console.error('Failed to update profile', error);
@@ -171,6 +185,19 @@ const Account = () => {
                 className="bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
               />
             </div>
+
+            {awaitingEmailCode && (
+              <div className="flex flex-col gap-1.5 md:col-span-2">
+                <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('auth.verification_code', 'Verification Code')}</label>
+                <input
+                  name="email_code"
+                  value={emailCode}
+                  onChange={(e) => setEmailCode(e.target.value)}
+                  required
+                  className="bg-void-black/80 border border-outline-variant/40 p-2.5 text-on-surface focus:border-primary-container outline-none transition-colors font-mono text-[13px]"
+                />
+              </div>
+            )}
 
             <div className="flex flex-col gap-1.5 md:col-span-2">
               <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-on-surface-variant">{t('account.phone_number', 'Phone Number')}</label>

@@ -46,10 +46,10 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 Gaps are intentional (owner decision):
 - **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 redone 2026-11-13).
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
-- The menus, the Level 1 map, the open-world cities and the top-down operatives have their art again (Phases 6 and 7, 2026-11-15). The painted palace garden (a 2026-11-12 item) is still missing, so Level 1 uses its procedural skyline there.
-- Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
+- The menus, the Level 1 map, the open-world cities and the top-down operatives have their art again (Phases 6 and 7, 2026-11-15).
+- The 2026-11-12 items are back too (2026-11-15): the three button states, the speech bubble's frame and pointer, the game and Windows icons, the website favicon and the painted palace garden behind Level 1.
 - Cutscenes: all nine have their art again (Phases 2 and 3, 2026-11-13 and 2026-11-14), so they play.
-- The titles are back in all 17 languages (Phase 7, 2026-11-15), in the game and in `website/public/images`. The website container serves the new copies only after its image is rebuilt.
+- The titles are back in all 17 languages (Phase 7, 2026-11-15), in the game and in `website/public/images`; the website image was rebuilt on 2026-11-15, so it serves them.
 
 ## Work order
 
@@ -87,10 +87,10 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
 | 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction. **Done 2026-11-15: 882 credits**, no retries (see "Phase 6 status") | 882 |
 | 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally. **Done 2026-11-15: 96 credits**, no retries (see "Phase 7 status") | 96 |
-| 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
-| **Total** | | **2,170** |
+| 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18). **Done 2026-11-15: 36 credits**, no retries (see "2026-11-12 items status") | 36 |
+| **Total** | | **2,206** |
 
-- **Spent so far:** Phases 1–7 used 2,170 credits (634 + 72 + 282 + 66 + 138 + 882 + 96). After Phase 7 the balance is 640, against 36 still planned for the 2026-11-12 items.
+- **Spent:** the whole list is done. Phases 1–7 used 2,170 credits (634 + 72 + 282 + 66 + 138 + 882 + 96) and the 2026-11-12 items 36, so 2,206 in all. The balance after the last batch is 604. (The total row read 2,170 before 2026-11-15 although it included the 36 still planned.)
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
@@ -280,9 +280,8 @@ It does not check the 2048 px width, the row order, the baseline or the extra fi
   - Phase 1 Titan is green, not violet as the old palette notes say, so the two Titan poses were recoloured to the Phase 1 green palette.
 - **Lights:** derived from every structure. The darker layers needed lower thresholds (`--min-value` down to 0.38). The Wildfire civilians lights only repeat the few coloured pixels, because the silhouettes have no light sources.
 - **Known gap:**
-  - In Tokyo's escape shot (the first 8 seconds) the blade is drawn above Kaito's head. `TokyoStage.cs` places it where the old pose held it raised, and no new or Phase 1 pose has a hand there.
-  - The fix is a one-line change of the escape blade offset in `TokyoStage.cs`. That is a code change for the owner to approve.
-  - The testimony blade sits about 20 px from the raised hand.
+  - **Fixed 2026-11-15:** in Tokyo's escape shot (the first 8 seconds) the blade was drawn above Kaito's head, and the testimony blade sat about 20 px from the raised hand, because `TokyoStage.cs` used the old poses' hand positions.
+  - The offsets were re-measured on `poses.png` (escape fist at (372, 243) of its 512 cell, testimony fist at (335, 228); blade grip at about (44, 99) of the 205 px drawn blade), so the grip now sits in the fist in both shots. Re-measure if `poses.png` or `blade.png` is regenerated.
 
 ### Deployment (opening cutscene)
 
@@ -1068,6 +1067,18 @@ messages. See HANDOFF and MEMORY for verification details and remaining work.
   - The script now fits any keyed plate (it used a crop box fitted to the deleted 2026-11-12 plate) and stops if a character would draw as a missing-glyph box.
   - Orbitron lacks the Vietnamese letters Ư, Ự and Đ, so Vietnamese now uses Noto Sans.
   - **Still to check:** a reader of Arabic, Hebrew, Thai, Japanese, Korean and Chinese (acceptance check 8).
+  - **Machine check, 2026-11-15:** in the shipped Hebrew and Arabic titles the first word sits on the right (measured by matching each word's glyphs in the image), every character exists in its font, and Arabic letters join. A review page for native readers, with each title, its meaning and the differing wording in the game CSV and the website, is a private Artifact the owner can share: https://claude.ai/artifact/2GRigKufZfNT2LnG7DJoT8. Open wording questions: Korean 엑시옴 (title) vs 액시엄 (subtitle row); Vietnamese TIÊN ĐỀ (title, "axiom") vs TIỀN ĐỀ (website, "premise"), and the CSV's LỰC TỤC ĐÍCH, which looks wrong; Chinese 公理部队/部隊 vs 公理力; Indonesian PASUKAN AKSIOMA vs KEKUATAN AKSIOM.
+
+### 2026-11-12 items status
+
+**Status: done 2026-11-15 (36 credits, as approved; no retries).** Two 2K Nano Banana 2.1 images; asset ids and recipes are in `spritecook-assets.json`.
+- **UI sheet (18):** one 2K 1:1 sheet on magenta with the three button bars, the speech frame, the pointer and the A-shaped insignia icon. `tools/art/cut_ui_sheet.py` snaps it unkeyed to its 200x200 pixel grid, then removes the magenta by flood fill from each element's border, so the magenta stripe inside the hover button survives.
+  - **Buttons:** 5x, then a nine-slice rebuild to 800x140 that keeps the 70 px ends and 16 px rims `CyberButton.cs` uses as patch margins.
+  - **Speech frame:** 4x, nine-slice rebuilt to 512x320 with 48 px corners (the bubble's patch margin is 40).
+  - **Pointer:** 3x, turned to point left like the old one (it sits on the bubble's left edge), centred in 128x128.
+  - **Icon:** 31x into 1254x1254; `derive_layers.py icon` made `axiom_force.ico` (16–256) and `website/public/favicon.svg`. `project.godot`, `export_presets.cfg` and both `index.html` files reference them again.
+- **Palace garden (18):** one 2K 16:9 night garden; the 3:1 band (x 131, y 355, 2490x848) was snapped to 430x146 and enlarged to 2149x732. `CodeLevel.cs` now draws it with nearest filtering, the same choice as the Level 1 map.
+- **Checks:** sizes match the originals at `67eab0a` (`compare_images.py`, 0 failures); `audit_images.py` flags none of 342 images.
 
 ### Menu backdrops
 
@@ -1265,7 +1276,7 @@ The downloaded stand-in packs (`assets/stand_in/`) and the Pixel Adventure lefto
 
 These are unchanged:
 - the hand-drawn and AI art in `assets/characters/hand_drawn` and `assets/characters/shogun_study`;
-- the painted Level 1 backdrop (`palace_garden_painted.png`) and the story image;
+- the story image (the painted Level 1 backdrop listed here before was in fact deleted on 2026-11-12 and remade on 2026-11-15);
 - the painted `axiom_force_title_logo*.jpg` files;
 - the fonts;
 - all cutscene audio, cue and dialogue files.
@@ -1284,7 +1295,7 @@ On the owner's instruction, every image left after the Blender deletion was remo
 | `ui_and_backgrounds` | 14 |
 | `app_icons` | 4 |
 
-**To remake (9).** Each is loaded by path, so a file saved at the same path and size returns with no code change:
+**To remake (9). All done 2026-11-15** (see "2026-11-12 items status" under Phase 7). Each is loaded by path, so a file saved at the same path and size returns with no code change:
 
 | File | Size | Loaded by | Until it returns |
 |---|---|---|---|

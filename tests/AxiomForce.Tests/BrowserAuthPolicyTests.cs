@@ -1,7 +1,7 @@
 /// <summary>Transport boundaries that prevent accidental shell execution or plaintext remote credential exchange.</summary>
 public class BrowserAuthPolicyTests
 {
-    /// <summary>Device proof must reach Django WSGI in a length-delimited body rather than an unreadable chunked stream.</summary>
+    /// <summary>Device proof is sent in a length-delimited body rather than a chunked stream (required by the old Django server; kept for proxy compatibility).</summary>
     [Test]
     public async Task JsonBodiesHaveExplicitUtf8ContentLength()
     {

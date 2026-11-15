@@ -1,5 +1,28 @@
 # Axiom Force
 
+## Express.js accounts API, last art items and Tokyo fix (2026-11-15)
+
+- **Backend:** the website and game accounts API in `backend/` is now **Express.js 5 on
+  Node 26**, replacing Django. It keeps the same `/api/auth/...` paths, JSON and status codes,
+  the same `accounts_*` PostgreSQL tables, and accepts Django password hashes, so the game and
+  website did not change. Unused routes went with Django (third-party and social sign-in, and the
+  `/admin/` site). Security fixes: the token key comes from `JWT_SIGNING_KEY` (required;
+  see `.env.example`), login gives one answer for every failure, 2FA codes are cryptographically
+  random with a five-try limit and can be switched off, and refresh tokens work once. Everyone
+  signs in again once, because the key changed. Tests: `docker compose exec -T backend npm test`
+  (150: the 111 Django tests ported, plus 39 for the fixes).
+- **Review fixes (EGM review, 2026-11-15):** rate limits on login, register, 2FA and token
+  refresh; a cap on emailed codes; the API and database are published on 127.0.0.1 only; turning
+  2FA off and changing the account email now need a code emailed to the account, and send a
+  notice; a replayed refresh token signs out that whole sign-in; expired rows are cleaned up
+  hourly; migrations are checksummed and the schema is checked at start-up. The website's 2FA
+  and account pages use the new code steps.
+- **Art:** the button states, the speech bubble's frame and pointer, the game and Windows icons,
+  the website favicon and the painted palace garden behind Level 1 are back (36 SpriteCook
+  credits). The whole regeneration list is now done.
+- **Tokyo Remembers:** the Data-Blade now sits in Kaito's hand in the escape and testimony shots.
+- **Website:** rebuilt, so it serves the new titles and favicon.
+
 ## Menus, Level 1 map and titles (Phase 7, 2026-11-15)
 
 The main menus have layered backdrops again (the city menu reuses the deployment
@@ -149,7 +172,7 @@ The backend, database and website remain running. No game exports or Git
 publication were performed.
 
 
-A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with a **Django REST Framework** backend and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
+A high-fidelity 2D cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an **Express.js** accounts API (Node 26) and **React** web client. The twelve-mission campaign spans three acts. The game features dynamic operative combat, special abilities, multi-operative passive synergy, multi-phase boss mechs, and a reactive 2D combat HUD.
 
 ## Code knowledge graph (Graphify, local)
 
@@ -777,7 +800,7 @@ Scene background photos and project-owned 3D assets, scenes, scripts, and web vi
 - **4-Level Campaign Chain** — Linear mission progression through neon rooftops and industrial sectors (`level1.tscn` $\rightarrow$ `level4.tscn`).
 - **Synthesized 16-Bit SFX Engine** — Dedicated procedural sound design for blade slashes, dashes, clashes, laser hums, drone explosions, and boss alarms.
 - **Squad Roster** — Reached from the main menu. A two-panel layout pairs the roster (locked operatives marked) with one unified dossier containing the animated sprite preview (empty for operatives without SpriteCook art yet), identity, stats, movement controls, a single set of ability buttons, and Upgrade / Set Active actions. Keyboard and controller navigation follow the visible controls for each operative.
-- **Cross-Platform Backend & Web Portal** — Django REST Framework backend with PostgreSQL session leaderboards and a modern React + Vite frontend.
+- **Cross-Platform Backend & Web Portal** — Express.js accounts API (password, Clerk and game browser sign-in, onboarding, profile, 2FA) on PostgreSQL, and a modern React + Vite frontend.
 
 ---
 
@@ -807,7 +830,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 |---|---|---|
 | **Game Engine** | Godot 4.7.2 .NET | C# scripting with .NET 10 runtime (`net10.0`). |
 | **Core Architecture** | Component & Manager Pattern | `OperativeRegistry`, `SessionManager`, `UISoundManager`, `CyberCombatHud`. |
-| **Backend API** | Django 5.x / DRF | Python 3.15.2 REST API managing authentication and high scores. |
+| **Backend API** | Express.js 5 (Node 26) | Accounts and sign-in API in `backend/` (`pg`, `jose`); replaced Django REST Framework on 2026-11-15. |
 | **Web Frontend** | React + Vite + Tailwind | Web dashboard and player hub. |
 | **Database** | PostgreSQL 18 | Sole persistent application store; no local save fallback. |
 
@@ -819,7 +842,8 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 
 - [Godot 4.7.2 .NET (Mono)](https://godotengine.org/)
 - [.NET SDK 11.0.100](https://dotnet.microsoft.com/) (latest; builds the `net10.0` projects) — **required on Windows, not from Docker**
-- Python 3.15.2 (for Django backend tests and sound synthesis tools)
+- Python 3.15.2 (for the art, cutscene and sound synthesis tools; the backend no longer needs Python)
+- Node 26 (only to run the backend outside Docker; its tests normally run in the container)
 
 > **"Failed to load .NET runtime, specifically hostfxr" on launching Godot** means Windows has no usable .NET SDK. The Godot editor is a native Windows binary that loads Windows `hostfxr.dll`, so the Linux .NET inside the export image cannot satisfy it. Confirm with `dotnet --list-sdks` and by checking that `C:\Program Files\dotnet\host\fxr\` exists. If the installer leaves `C:\Program Files\dotnet` without `dotnet.exe` and `host\`, install per-user and point Godot at it:
 >
@@ -840,7 +864,7 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 
 ### Running the Stack with Docker
 
-The Django backend, PostgreSQL database and React web portal run together with Docker Compose:
+The Express.js accounts API, PostgreSQL database and React web portal run together with Docker Compose:
 
 These three services are the complete default stack; the local inference service
 has been removed. The exporter and browser test runner remain opt-in.
@@ -850,22 +874,30 @@ three services running; all three project test suites passed.
 ```powershell
 docker compose up -d --build     # build/start db, backend, website
 docker compose ps                # verify all three run; inspect configured health checks
-docker compose logs -f backend   # follow the Django log
+docker compose logs -f backend   # follow the API log
 docker compose down              # stop everything (add -v to drop the DB volume)
 ```
 
-Allow Django's startup checks to finish before testing API readiness; a running
-container can briefly precede the HTTP server accepting connections.
+**First run:** copy `.env.example` to `.env` and set `JWT_SIGNING_KEY` to a random value of at
+least 32 characters (the command is in `.env.example`). Without it the backend keeps restarting
+and `docker compose logs backend` says what is missing; the website and database still start.
 
-- **Django API**: <http://localhost:8000/api/> (admin site at `/admin/`)
-- **Web portal**: <http://localhost:5173/> — Nginx serves the built bundle and proxies `/api/` and `/admin/` to Django
+The backend applies its SQL migrations (`backend/migrations/`) on start, checks the schema, then
+serves. Compose marks it healthy once `/api/health` answers. The API (8000) and database (5432)
+are published on 127.0.0.1 only; the website (5173) on all interfaces.
+There is no source bind mount: after editing `backend/`, run
+`docker compose up -d --build backend`. The API refuses to start without
+`JWT_SIGNING_KEY` in `.env`.
+
+- **Accounts API**: <http://localhost:8000/api/> (health at `/api/health`; there is no admin site)
+- **Web portal**: <http://localhost:5173/> — Nginx serves the built bundle and proxies `/api/` to the API
 - **PostgreSQL 18**: published on `5432`, data kept in the `pgdata` volume
 - Container startup and application readiness are separate checks: verify the
   portal on `http://127.0.0.1:5173/`, the backend on
   `http://127.0.0.1:8000/api/auth/countries/basic/`.
   Initial image downloads/builds can delay readiness.
-- Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default, so the stack also boots without one
-- `backend/Dockerfile` builds on Python 3.15.2; `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
+- Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default except `JWT_SIGNING_KEY`, which the backend requires
+- `backend/Dockerfile` builds on Node 26 (Compose runs its `dev` target, which includes the test packages); `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
 
 ### Exporting the Game (Docker)
 
@@ -928,7 +960,7 @@ dotnet build AxiomForce.csproj
 
 ### Running Unit Tests
 
-A unified test runner is provided to execute all automated test suites (NUnit for .NET 10 C#, GdUnit4 for Godot GDScript/engine tests, and Django backend tests):
+A unified test runner is provided to execute all automated test suites (NUnit for .NET 10 C#, GdUnit4 for Godot GDScript/engine tests, and the Express.js backend tests):
 
 ```powershell
 # Run the complete test suite
@@ -937,14 +969,14 @@ A unified test runner is provided to execute all automated test suites (NUnit fo
 # Or run individual suites
 .\run_tests.ps1 -Suite nunit
 .\run_tests.ps1 -Suite gdunit
-.\run_tests.ps1 -Suite django
+.\run_tests.ps1 -Suite backend
 ```
 
-The Django suite runs `python manage.py test accounts` inside the existing Compose
-backend. Its installed dependencies come from root `requirements.txt` when the
-backend image is built. The runner does not require host Python, package a venv,
-install packages or skip Django merely because `.venv` is absent. Start the normal
-stack with `docker compose up -d` before running tests.
+The backend suite runs `npm test` (Node's built-in test runner with `supertest`) inside
+the running Compose backend. The tests create and drop their own `accounts_test` database
+on the `db` service and never touch `accounts_db`; Clerk, Resend and mail are faked. The
+runner installs nothing on the host. Start the normal stack with `docker compose up -d`
+before running tests.
 
 > **Note for Windows Headless Testing**: GdUnit4 executes using `Godot_v4.7.2-stable_mono_win64_console.exe` to avoid headless console deadlocks.
 
@@ -972,7 +1004,7 @@ AxiomForce/
 │   ├── ui/                           # CyberCombatHud, CyberVictoryScorecard
 │   ├── managers/                     # SessionManager, UISoundManager, OperativeRoster, LevelCatalog, CampaignProgress
 │   └── tools/                        # generate_cyber_sfx.py sound synthesizer
-├── backend/                          # Django REST Framework backend service
+├── backend/                          # Express.js accounts API (src/, migrations/, test/)
 ├── frontend/                         # React + Vite web application
 └── tests/                            # GdUnit4 and NUnit test suites
 ```

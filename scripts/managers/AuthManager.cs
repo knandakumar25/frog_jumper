@@ -166,10 +166,10 @@ public partial class AuthManager : Node
     }
 }
 
-/// <summary>Profile contract returned by Django; credentials remain separate.</summary>
+/// <summary>Profile contract returned by the accounts API (Express.js since 2026-11-15; same JSON as the Django backend it replaced); credentials remain separate.</summary>
 public class UserProfile
 {
-    /// <summary>Stable Django account identifier.</summary>
+    /// <summary>Stable account identifier (the accounts_user row id).</summary>
     public int Id { get; set; }
     /// <summary>Account handle displayed without localization.</summary>
     public string Username { get; set; }

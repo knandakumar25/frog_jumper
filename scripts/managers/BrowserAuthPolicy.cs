@@ -13,7 +13,7 @@ public static class BrowserAuthPolicy
     /// <summary>Return a two-second polling interval with bounded exponential backoff after transient failures.</summary>
     public static int PollDelaySeconds(int failures) => 2 * (1 << Math.Clamp(failures, 0, 2));
 
-    /// <summary>Django's WSGI development server requires Content-Length; streaming JsonContent uses unsupported chunked bodies.</summary>
+    /// <summary>Sends a length-delimited body (Content-Length) rather than a chunked stream. The old Django dev server could not read chunked bodies; the Express API can, but a fixed length stays the most widely accepted form for any proxy in between.</summary>
     public static StringContent CreateJsonContent(object payload) =>
         new(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
 }
