@@ -1,14 +1,15 @@
 # Axiom Force — Project Memory
 
-## Phase 6 city kits — in progress 2026-11-14 (partial push)
+## Phase 6 city kits and operatives done — 2026-11-15
 
-- Owner approved the plan: 141 files; nine 2K 4x4 sheets (162) plus six top-down operatives (720); 882 planned, stop at 1,323.
-- **Done:** all nine city sheets generated (162 credits, no retries) and cut by scratch `phase6/cut_cities.py`: border flood-fill key (handles tinted backgrounds on the Beirut and Honolulu sheets), each object fitted inside the old `ca92679` file's opaque box (aspect kept) on a 1/3 grid via `snap_pixels.snap` (despill, defringe 2), 3x nearest, bottom-centre on the old box's bottom-centre so footprints match collisions. 135 files in `assets/world/` (6 cities x 16, LA 7 modules + 32 landmarks); all 384x384, alpha 0/255, clear edges.
-- **Pilot:** `operative_0` (Cyber Shogun) done for 120: `generate_character` topdown (text prompt only; the tool takes no reference image) + walk_down/up/left with five preps; packed with `pack_topdown.py`. The figure is ~85 px tall in the 96x128 cell (old ~60), because the packer uses the largest whole scale.
-- The animation call timed out client-side but was charged and ran; check `get_credit_balance` / `list_recent_assets` before ever resubmitting.
-- **Pushed mid-phase at the owner's "push to git":** the 135 city files, `operative_0.png`, the manifest entries and this note. Not yet done at push time: Godot import (.import files), tests, README/HANDOFF/ART_REGENERATION updates, `operative_1`–`5`.
-- **Owner OK'd the other five operatives (600);** bases made and all five walk runs submitted (balance 736). Run ids/bases in scratch `phase6/ids.json`. Credits: 282 spent this phase; balance 1,336. Asset IDs in scratch `phase6/ids.json`; records (`spritecook-assets.json`, docs), import and tests not done yet.
-- Recreated scratch `put_uploads.py` / `fetch.py` (the old scratch copies were deleted).
+- **Credits:** 882 as planned, no retries; balance 736. All 141 files in `assets/world/`.
+- **Pushed:** `9af0a76` (135 city files, `operative_0`) mid-phase, then the rest (operatives 1–5, `.import` files, manifest, docs) at the owner's second "push to git" on 2026-11-15.
+- **Method:** scratch `phase6/cut_cities.py` (border flood-fill key, fit inside the old opaque box on a 1/3 grid, 3x nearest, bottom-centre on the old footprint). Operatives: topdown `generate_character` (text only) + walk_down/up/left, `pack_topdown.py`.
+- **Owner decision:** keep the larger operative figures (~85 px in the 96x128 cell vs ~60 before).
+- **Lessons:** submit `generate_character_animations` with `wait_seconds=0`; a timed-out call was still charged and ran. The Beirut and Honolulu sheets drew some cells on tinted magenta, so key from the border, not by colour. Plugin MCP servers only reconnect in a new session (`/reload-plugins` is not enough).
+- **Verification:** import exit 0 with 141 `.import` files; audit 294 images, none flagged; compares 0 failures (LA reports only skipped `module_2`); full tests Django 111, NUnit 439, GdUnit 363 with 0 errors/failures/orphans.
+- **Known limits:** Apex Titan's side rows are nearly front-on; `cut_cities.py` is scratch only.
+- **Next:** Phase 7 (96) and the 2026-11-12 items (36), each needing approval; Tokyo blade offset still deferred.
 
 ## Docker restart — 2026-11-14
 

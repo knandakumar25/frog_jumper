@@ -46,7 +46,7 @@ Already decided: titles keep the wording of the old title images (owner, 2026-11
 Gaps are intentional (owner decision):
 - **Visible:** all six operatives, the `vanguard` drone and the `heavy` boss (Phase 1 redone 2026-11-13).
 - **Drawn in code:** sentries, open-world hostiles and Aegis civilians.
-- Cities, menus and the Level 1 map have no art. Level 1 uses its procedural skyline instead of the painted garden.
+- Menus and the Level 1 map have no art; the open-world cities and top-down operatives returned in Phase 6 (2026-11-15). Level 1 uses its procedural skyline instead of the painted garden.
 - Buttons show text only, the AXIOM-7 speech bubble has no frame, and the game window and browser tab use default icons.
 - Cutscenes: all nine have their art again (Phases 2 and 3, 2026-11-13 and 2026-11-14), so they play.
 - The title slot is empty in the game; the website shows the words "AXIOM FORCE".
@@ -85,12 +85,12 @@ Real prices (2026-11-13): Nano Banana 2.1 image 18 at 2K and 30 at 4K; animation
 | 3. Other cutscenes | 24 scene layers on six 4K 2x2 sheets (180); two 2K pose sheets (36). Lights derived, poses composed. **Done 2026-11-14: 282 credits** (216 planned plus 66 of retries: a seventh 4K sheet for the sparse cargo strip and reunion road, and 2K remakes of the shield road and the fortress; see "Phase 3 status") | 282 |
 | 4. Mission props | 21 props on two 2K 4x4 sheets (36; was three 3x3 sheets, 54, until the owner chose 4x4 on 2026-11-14); the four wide props (facade, depot, fortress, district) on one 4K 2x2 sheet (30). **Done 2026-11-14: 66 credits**, no retries | 66 |
 | 5. Later-campaign environments | 7 environment bases and 7 structures on four 4K 2x2 sheets (120); 6 boss structures on one 2K 3x3 sheet (18). Aftermath layers, lights and boss lights derived | 138 |
-| 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction | 882 |
+| 6. City kits | 135 modules and landmarks on nine 2K 4x4 sheets (162); six top-down operatives, each a top-down base character (12) plus walk_down, walk_up and walk_left animations (20 + 14 + 14) and their five pose preps (front walk, back idle, back walk, left idle, left walk: 5 x 12), so 6 x 120 = 720. `tools/art/pack_topdown.py` mirrors west to east and fills the diagonal rows from the nearest direction. **Done 2026-11-15: 882 credits**, no retries (see "Phase 6 status") | 882 |
 | 7. Menus, Level 1 map, titles | Command bay base and structure at 2K (36); Level 1 map at 4K (30); one 4K title plate (30), with all 17 languages and the website copies rendered locally | 96 |
 | 2026-11-12 items | One 2K UI sheet (three button states, speech frame and pointer, icon) (18); palace garden at 2K (18) | 36 |
 | **Total** | | **2,170** |
 
-- **Spent so far:** Phases 1–5 used 1,192 credits (634 + 72 + 282 + 66 + 138). After the five Phase 5 sheets, the balance is 1,618, against 1,014 still planned for Phases 6–7 and the 2026-11-12 items.
+- **Spent so far:** Phases 1–6 used 2,074 credits (634 + 72 + 282 + 66 + 138 + 882). After Phase 6 the balance is 736, against 132 still planned for Phase 7 and the 2026-11-12 items.
 - **Retry reserve:** about 676 of about 2,780 available (2,280 balance plus the owner's ~500 top-up). The balance was 2,280, not the 3,000 the plan first assumed.
 - **Stop rule:** if a phase reaches 1.5 times its planned credits, stop and report to the owner before spending more.
 - **Approvals:** each phase is still one approval request with its asset list and credits. Up to 5 jobs run at once, with 10 more queued.
@@ -816,6 +816,22 @@ messages. See HANDOFF and MEMORY for verification details and remaining work.
 - **Los Angeles** has 7 used modules (kind 2 is never placed, so `module_2.png` is skipped), 32 landmarks and the operative sheets.
 - **Route (2026-11-13):** one 2K 4x4 sheet per city (three for Los Angeles), each cell drawn on magenta in the city's style.
 
+
+### Phase 6 status
+
+**Status: done 2026-11-15 (882 credits, as planned; no retries).** All 141 files are in `assets/world/`; LA `module_2.png` stays skipped. `spritecook-assets.json` lists every sheet, base character and walk animation, and each file's sheet cell or walk rows.
+- **City sheets (162):** nine 2K 4x4 Nano Banana 2.1 sheets, one per home city and three for Los Angeles (two of landmarks; the third holds the seven modules, a second try at each, and two spare landmarks). Each had a layout guide of the old `ca92679` cells on magenta as `reference_asset_id`.
+- **Cutting (scratch `cut_cities.py`):**
+  1. crop the cell, inset 10 raw px;
+  2. flood-fill the background from the cell border to magenta. The Beirut and Honolulu sheets drew some cells on a dull tinted magenta, which a fixed-colour key misses;
+  3. fit the object inside the old file's opaque box (aspect kept) on a grid of a third of that size, with `snap_pixels.snap` (despill, defringe 2);
+  4. enlarge 3x nearest and put its bottom-centre on the old box's bottom-centre.
+  The old objects fill only a third to a half of the 384 cell, and the collision footprints are fixed in data, so new art is placed on the old footprint rather than stretched to fill the cell. Every object uses the same 3-pixel block.
+- **Operatives (720):** for each, `generate_character` with `perspective="topdown"` (12; it takes a text prompt only, so each design was described from its Phase 1 idle frame), then `generate_character_animations` walk_down, walk_up and walk_left with their five pose preps (108). Packed with `tools/art/pack_topdown.py`. Cyber Shogun ran first as a pilot.
+  - The figures are about 85 px tall in the 96x128 cell (the old ones were about 60), because the packer uses the largest whole scale. At the player's 0.65 scale they show about 55 px tall.
+  - Apex Titan's walk-left came out nearly front-on, so his side rows read less clearly than the others.
+- **Lesson:** a `generate_character_animations` call with `wait_seconds=90` timed out on the client but was charged and ran. Check `get_credit_balance` and `list_recent_assets` before resubmitting; submit with `wait_seconds=0`.
+- **Checks:** all city files are 384x384 and all sheets 384x1024, with alpha only 0 or 255 and nothing on an edge. `audit_images.py` flagged none of 294 images. `compare_images.py` against `ca92679` passed for every city; the only Los Angeles "failure" is the skipped `module_2.png`.
 
 ### Los Angeles
 

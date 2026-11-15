@@ -1,5 +1,18 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Phase 6 city kits and top-down operatives done — 2026-11-15
+
+- **Credits:** 882, exactly as planned, with no retries. The balance is 736, against 132 planned for Phase 7 and the 2026-11-12 items.
+- **Files:** all 141 in `assets/world/` (6 cities x 16, LA 7 modules + 32 landmarks, `operative_0`–`5`). LA `module_2.png` stays skipped.
+- **Pushed:** the 135 city files and `operative_0` as `9af0a76` mid-phase; operatives 1–5, the `.import` files, manifest entries and docs in the follow-up commit (owner's "push to git", 2026-11-15).
+- **How:** see `docs/ART_REGENERATION.md` ("Phase 6 status"). City objects are fitted to the old file's opaque box and placed bottom-centre on the old footprint, because collision footprints are fixed in data. Operatives use a topdown `generate_character` plus walk_down/up/left; `pack_topdown.py` fills east and the diagonals.
+- **Known limits:**
+  - The figures are about 85 px tall in the 96x128 cell (old about 60), so they read larger in game. The owner OK'd running all five at the pilot's size.
+  - Apex Titan's walk-left is nearly front-on, so his side rows are weak.
+  - The scratch cutting script (`cut_cities.py`) was not added to `tools/art/`.
+- **Verification (2026-11-15, Docker up):** Godot headless import exit 0 (only the known System.Runtime 11 and shutdown messages), 141 `.import` files for the 141 world PNGs. `audit_images.py`: 294 images, none flagged. `compare_images.py` against `ca92679`: 0 failures for every city; Los Angeles reports only the skipped `module_2.png`. Full `run_tests.ps1`: Django 111 OK, NUnit 439/439, GdUnit 363 with 0 errors, 0 failures and 0 orphans (including `test_every_city_has_all_or_none_of_its_art`).
+- **Next:** Phase 7 (menus, Level 1 map, titles: 96) and the 2026-11-12 items (36), each needing approval. The Tokyo blade offset is still deferred.
+
 ## Phase 5 resumed from Claude — 2026-11-14
 
 - Recovered the approved 138-credit plan and all five uploaded references; generated four 4K scene sheets and one 2K boss sheet for exactly 138 credits. Balance 1,618; no retries.

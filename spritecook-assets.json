@@ -436,6 +436,102 @@
   {
    "asset_id": "f636fc8f-35d2-4703-8e3a-7c81bcf7c2c6",
    "label": "Phase 6 world_mumbai_2k_1 (2K 4x4 sheet)"
+  },
+  {
+   "asset_id": "e7bb1e36-582e-4993-8e05-e3af9aeea6e9",
+   "label": "Phase 6 operative_0 Cyber Shogun top-down base character"
+  },
+  {
+   "asset_id": "a43dad72-1b84-460a-a329-67438973b1b5",
+   "label": "Phase 6 operative_0 Cyber Shogun walk_down"
+  },
+  {
+   "asset_id": "658181eb-e10f-45a9-aec1-176b81a8c001",
+   "label": "Phase 6 operative_0 Cyber Shogun walk_up"
+  },
+  {
+   "asset_id": "9d9a61a5-e944-4e53-b6d8-f33e74804f2b",
+   "label": "Phase 6 operative_0 Cyber Shogun walk_left"
+  },
+  {
+   "asset_id": "3595d76c-a9e5-4c6d-93a8-3bb35b0b554b",
+   "label": "Phase 6 operative_1 Oceanus top-down base character"
+  },
+  {
+   "asset_id": "e7114dd4-7556-49fb-8068-fec226738300",
+   "label": "Phase 6 operative_1 Oceanus walk_down"
+  },
+  {
+   "asset_id": "c34b3983-ee42-4182-9c1f-a50492ead21e",
+   "label": "Phase 6 operative_1 Oceanus walk_up"
+  },
+  {
+   "asset_id": "1f354dd2-7cc0-49f7-b9e3-a54b0d2bab2c",
+   "label": "Phase 6 operative_1 Oceanus walk_left"
+  },
+  {
+   "asset_id": "6b9b96bb-55cc-496a-af92-79e7baf18a91",
+   "label": "Phase 6 operative_2 Apex Titan top-down base character"
+  },
+  {
+   "asset_id": "911c6070-453b-48a9-8d49-5f4ec19764d5",
+   "label": "Phase 6 operative_2 Apex Titan walk_down"
+  },
+  {
+   "asset_id": "16514de0-f2c6-455a-99d6-8a3257e5df80",
+   "label": "Phase 6 operative_2 Apex Titan walk_up"
+  },
+  {
+   "asset_id": "36bb80d7-bfc3-4e96-84a2-be2287231d05",
+   "label": "Phase 6 operative_2 Apex Titan walk_left"
+  },
+  {
+   "asset_id": "1c92a38c-dc35-454e-a7e8-fd9116794c11",
+   "label": "Phase 6 operative_3 Aura Phoenicia top-down base character"
+  },
+  {
+   "asset_id": "734d6f19-d4ff-4068-a765-8219a0e5511c",
+   "label": "Phase 6 operative_3 Aura Phoenicia walk_down"
+  },
+  {
+   "asset_id": "c5f9a389-b505-4fa3-b6a4-09bcf0135a69",
+   "label": "Phase 6 operative_3 Aura Phoenicia walk_up"
+  },
+  {
+   "asset_id": "ddf70b79-5354-48bf-84c9-a729e911e24d",
+   "label": "Phase 6 operative_3 Aura Phoenicia walk_left"
+  },
+  {
+   "asset_id": "6483c871-5efa-4ece-973b-c627386dcb94",
+   "label": "Phase 6 operative_4 Mirage Blade top-down base character"
+  },
+  {
+   "asset_id": "ca7e3fcf-f40b-411f-8960-1fe754834414",
+   "label": "Phase 6 operative_4 Mirage Blade walk_down"
+  },
+  {
+   "asset_id": "6df387c5-ef7d-41e3-8f5e-e8255a68667a",
+   "label": "Phase 6 operative_4 Mirage Blade walk_up"
+  },
+  {
+   "asset_id": "0f3151e1-0a5a-48d1-8c1e-8f89f4d75c5a",
+   "label": "Phase 6 operative_4 Mirage Blade walk_left"
+  },
+  {
+   "asset_id": "a237671f-2142-460f-8b50-3f4500c09ca5",
+   "label": "Phase 6 operative_5 Surya Prime top-down base character"
+  },
+  {
+   "asset_id": "4d88d717-2f9a-46af-987e-84e8bb5af506",
+   "label": "Phase 6 operative_5 Surya Prime walk_down"
+  },
+  {
+   "asset_id": "68a475ea-ab45-424d-bc5a-b2fa8ad3c3e3",
+   "label": "Phase 6 operative_5 Surya Prime walk_up"
+  },
+  {
+   "asset_id": "6b8ab0a8-b947-46b5-9a42-320129648df0",
+   "label": "Phase 6 operative_5 Surya Prime walk_left"
   }
  ],
  "files": [
@@ -2056,6 +2152,42 @@
    "sha12": "4d6afb810d74",
    "source": "493202eb-4405-4175-9c4e-c561998d9734",
    "recipe": "world_la_2k_3 cell 6; border flood-fill key; fitted in the old ca92679 opaque box on a 37x33 grid (snap_pixels.snap, despill, defringe 2); 3x nearest at 137,119"
+  },
+  {
+   "path": "assets/world/operative_0.png",
+   "sha12": "98fe21a7f839",
+   "source": "e7bb1e36-582e-4993-8e05-e3af9aeea6e9",
+   "recipe": "pack_topdown.py rows south=a43dad72-1b84-460a-a329-67438973b1b5 north=658181eb-e10f-45a9-aec1-176b81a8c001 west=9d9a61a5-e944-4e53-b6d8-f33e74804f2b; east mirrored from west, diagonals from the nearest side view"
+  },
+  {
+   "path": "assets/world/operative_1.png",
+   "sha12": "b2aa1fdd1cda",
+   "source": "3595d76c-a9e5-4c6d-93a8-3bb35b0b554b",
+   "recipe": "pack_topdown.py rows south=e7114dd4-7556-49fb-8068-fec226738300 north=c34b3983-ee42-4182-9c1f-a50492ead21e west=1f354dd2-7cc0-49f7-b9e3-a54b0d2bab2c; east mirrored from west, diagonals from the nearest side view"
+  },
+  {
+   "path": "assets/world/operative_2.png",
+   "sha12": "7ff3f9340774",
+   "source": "6b9b96bb-55cc-496a-af92-79e7baf18a91",
+   "recipe": "pack_topdown.py rows south=911c6070-453b-48a9-8d49-5f4ec19764d5 north=16514de0-f2c6-455a-99d6-8a3257e5df80 west=36bb80d7-bfc3-4e96-84a2-be2287231d05; east mirrored from west, diagonals from the nearest side view"
+  },
+  {
+   "path": "assets/world/operative_3.png",
+   "sha12": "ecd4deb80914",
+   "source": "1c92a38c-dc35-454e-a7e8-fd9116794c11",
+   "recipe": "pack_topdown.py rows south=734d6f19-d4ff-4068-a765-8219a0e5511c north=c5f9a389-b505-4fa3-b6a4-09bcf0135a69 west=ddf70b79-5354-48bf-84c9-a729e911e24d; east mirrored from west, diagonals from the nearest side view"
+  },
+  {
+   "path": "assets/world/operative_4.png",
+   "sha12": "20378422c033",
+   "source": "6483c871-5efa-4ece-973b-c627386dcb94",
+   "recipe": "pack_topdown.py rows south=ca7e3fcf-f40b-411f-8960-1fe754834414 north=6df387c5-ef7d-41e3-8f5e-e8255a68667a west=0f3151e1-0a5a-48d1-8c1e-8f89f4d75c5a; east mirrored from west, diagonals from the nearest side view"
+  },
+  {
+   "path": "assets/world/operative_5.png",
+   "sha12": "6a0895b025fc",
+   "source": "a237671f-2142-460f-8b50-3f4500c09ca5",
+   "recipe": "pack_topdown.py rows south=4d88d717-2f9a-46af-987e-84e8bb5af506 north=68a475ea-ab45-424d-bc5a-b2fa8ad3c3e3 west=6b8ab0a8-b947-46b5-9a42-320129648df0; east mirrored from west, diagonals from the nearest side view"
   }
  ]
 }

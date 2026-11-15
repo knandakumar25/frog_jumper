@@ -1,5 +1,15 @@
 # Axiom Force
 
+## Open-world art (Phase 6, 2026-11-15)
+
+The six home cities and Los Angeles have their open-world art again: 135
+SpriteCook top-down buildings, props and landmarks in `assets/world/`, plus six
+top-down operative walk sheets (`assets/world/operative_0.png` to `_5.png`). Each
+new object sits on its old footprint, so collisions are unchanged. Sheets were cut
+with `tools/art/snap_pixels.py` and packed with `tools/art/pack_topdown.py`;
+source IDs and hashes are in `spritecook-assets.json`. See
+`docs/ART_REGENERATION.md` ("Phase 6 status").
+
 ## Later-campaign art (Phase 5, 2026-11-14)
 
 The approved Phase 5 batch restores the environment, aftermath and boss plates
