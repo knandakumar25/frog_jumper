@@ -1,5 +1,18 @@
 # Axiom Force — Project Memory
 
+## Godot startup diagnostics & GitHub secret remediation — 2026-11-16
+
+- GitHub secret scanning and push protection enabled on knandakumar25/frog_jumper.
+  Resolved open alerts #1 (Google OAuth Client ID) and #2 (Google OAuth Client Secret)
+  as revoked via gh api. Verified 0 open alerts and 0 exposed secrets in HEAD.
+- System.Runtime 11.0.0.0 assembly load error resolved: updated HKCU DOTNET_ROOT to
+  `C:\Program Files\dotnet` (aligning .NET host runtime with SDK 11 MSBuild tools), removed
+  `AppData\Local\Microsoft\dotnet` from user PATH, and added fail-safe directory junctions in AppData
+  pointing to the .NET 11 runtimes and SDK.
+- GdUnit4 C# API warning resolved: added `gdUnit4.api` (5.0.0) package to `AxiomForce.csproj`.
+- Full test suites passed: Express 158/158, NUnit 454/454, GdUnit4 385/385 (0 errors/failures/orphans, `reports/report_701/results.xml`).
+- Docker stack healthy.
+
 ## Google EGM input review Round 2 & repairs verified — 2026-11-16
 
 - Implemented all five approved Round 1 findings: localized remap modal title with

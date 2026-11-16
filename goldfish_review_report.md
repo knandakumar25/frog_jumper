@@ -92,3 +92,11 @@ findings: [input prompt EGM report Round 1](docs/INPUT_GOOGLE_REVIEW_2026-11-16.
   applied.
 - Final Status: **APPROVED & CLEAN** (0 Blockers, 0 Majors, 0 Nits).
 
+## Godot startup diagnostics & GitHub secret remediation review — 2026-11-16
+
+Audit target: `AxiomForce.csproj`, `HANDOFF.md`, and `MEMORY.MD` post-remediation.
+Reviewers: `egm-codebase-details` and `egm-implementation-readiness` (plus `.validation/egm/2026-11-16_DRIFT_REPORT.md`).
+- `egm-codebase-details`: Certified CLEAN (0 Blockers, 0 Majors, 0 Nits). Verified `gdUnit4.api` v5.0.0 activates `#if GDUNIT4NET_API_V5` in `GdUnit4CSharpApi.cs` under .NET 10 without breaking Godot SDK. Confirmed `DOTNET_ROOT` host muxer diagnostic and GitHub secret API operations.
+- `egm-implementation-readiness`: Certified CLEAN (0 Blockers, 0 Majors, 0 Nits). Verified reproducible project restore, test suite execution (385/385 GdUnit4 tests across 78 suites in `reports/report_700/results.xml`, Express 158/158, NUnit 454/454), and 0 open GitHub secret scanning alerts.
+- Final Status: **APPROVED & CLEAN** (0 Blockers, 0 Majors, 0 Nits).
+

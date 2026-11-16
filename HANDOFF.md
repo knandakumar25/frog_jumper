@@ -1,5 +1,23 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Godot startup diagnostics & GitHub secret remediation — 2026-11-16
+
+- **GitHub Secret Remediation:** Enabled GitHub secret scanning and push protection on
+  `knandakumar25/frog_jumper`. Resolved open secret scanning alerts #1 (Google OAuth Client ID)
+  and #2 (Google OAuth Client Secret) as revoked via `gh api`. Scanned tracked files in HEAD;
+  verified 0 exposed secrets or private tokens in tracked repository code.
+- **Godot Mono System.Runtime 11 Resolution:** Root cause of `FileNotFoundException: System.Runtime 11.0.0.0`
+  was `DOTNET_ROOT` pointing to `AppData\Local\Microsoft\dotnet` (.NET 10 only) and `AppData\Local\Microsoft\dotnet`
+  being in user PATH, while Godot Sharp editor loaded SDK 11 MSBuild tools from `C:\Program Files\dotnet\sdk\11.0.100`.
+  Permanently updated User `DOTNET_ROOT` to `C:\Program Files\dotnet` in HKCU environment, removed `AppData\Local\Microsoft\dotnet`
+  from user PATH, and created directory junctions in `AppData\Local\Microsoft\dotnet` (`shared/Microsoft.NETCore.App/11.0.0`,
+  `10.0.15`, `shared/Microsoft.AspNetCore.App/11.0.0`, `shared/Microsoft.WindowsDesktop.App/11.0.0`, `sdk/11.0.100`) to guarantee
+  fail-safe resolution even from terminals inheriting older environment blocks.
+- **GdUnit4 C# API Dependency:** Resolved `No gdunit4.api dependency found` warning by adding
+  `gdUnit4.api` (5.0.0) to `AxiomForce.csproj`. Full suites pass: Express 158/158, NUnit 454/454,
+  GdUnit4 385/385 across 78 suites with 0 errors/failures/orphans (`reports/report_701/results.xml`).
+  Keep Docker running.
+
 ## Approved EGM input repairs and Round 2 review completed — 2026-11-16
 
 Applied all five approved findings: localized/live remap-modal title, viewport-routed

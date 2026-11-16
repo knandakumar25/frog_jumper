@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.7", "C#", "Mobile")
 config/icon="res://assets/icons/axiom_force.png"
 config/windows_native_icon="res://assets/icons/axiom_force.ico"
 
+[audio]
+
+buses/default_bus_layout="uid://bkxvlkqrtv1ay"
+
 [autoload]
 
 GameManager="*res://scripts/managers/GameManager.gd"
