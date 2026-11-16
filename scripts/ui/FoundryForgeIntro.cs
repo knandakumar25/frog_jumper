@@ -163,6 +163,7 @@ public partial class FoundryForgeIntro : CanvasLayer
         skip.AddThemeStyleboxOverride("focus", skipStyle);
         ui.AddChild(skip);
         _skip = skip;
+        InputPromptBinding.Cinematic(_skip, true);
         skip.Pressed += Finish;
         skip.GrabFocus();
 
@@ -243,6 +244,7 @@ public partial class FoundryForgeIntro : CanvasLayer
     /// <summary>Handles keyboard, controller, mouse, and touch skip shortcuts.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;

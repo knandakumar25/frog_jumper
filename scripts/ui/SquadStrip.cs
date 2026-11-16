@@ -8,6 +8,7 @@ using Godot;
 public partial class SquadStrip : HBoxContainer
 {
     private CyberShogun? _player;
+    private InputPromptService? _prompts;
     private OperativeRoster _roster = OperativeRoster.Current;
 
     /// <summary>Short on-screen names so six slots fit in a row.</summary>
@@ -26,6 +27,10 @@ public partial class SquadStrip : HBoxContainer
         AddThemeConstantOverride("separation", 6);
         player.OperativeProfileChanged += OnProfileChanged;
         _roster.OperativeUnlocked += OnUnlocked;
+        // Rebuild owns every child slot, so the listener must stay on this node
+        // rather than being a child that the first rebuild would remove.
+        _prompts = InputPromptService.Instance;
+        if (_prompts != null) _prompts.PromptsChanged += Rebuild;
         Rebuild();
     }
 
@@ -37,6 +42,7 @@ public partial class SquadStrip : HBoxContainer
     /// <summary>Unsubscribes from the long-lived roster/player events so a freed strip is never called back.</summary>
     public override void _ExitTree()
     {
+        if (_prompts != null && GodotObject.IsInstanceValid(_prompts)) _prompts.PromptsChanged -= Rebuild;
         _roster.OperativeUnlocked -= OnUnlocked;
         if (_player != null && GodotObject.IsInstanceValid(_player)) _player.OperativeProfileChanged -= OnProfileChanged;
     }
@@ -45,8 +51,9 @@ public partial class SquadStrip : HBoxContainer
     private void Rebuild()
     {
         if (!IsInsideTree() && GetParent() == null) return;
-        // Detach immediately (not just QueueFree) so the slot count is always exactly six, even mid-frame.
-        foreach (Node child in GetChildren()) { RemoveChild(child); child.QueueFree(); }
+        // These passive panels own no input callbacks. Free them immediately so an
+        // in-place prompt refresh during scene teardown cannot leave detached queued nodes.
+        foreach (Node child in GetChildren()) child.Free();
         string active = _player?.ActiveProfile.DisplayName ?? _roster.Active;
         for (int i = 0; i < OperativeRoster.RosterOrder.Count; i++)
         {
@@ -64,7 +71,7 @@ public partial class SquadStrip : HBoxContainer
             panel.AddThemeStyleboxOverride("panel", style);
             var label = new Label
             {
-                Text = unlocked ? (_roster.IsAvailable(name) ? $"{i + 1} {ShortName(name)}" : "SURYA / " + WildfireText.Get("NAMES_SURYA_QUEUE", "Protecting the queue")) : $"{i + 1} ???",
+                Text = unlocked ? (_roster.IsAvailable(name) ? $"{SlotBinding(i)}{ShortName(name)}" : "SURYA / " + WildfireText.Get("NAMES_SURYA_QUEUE", "Protecting the queue")) : $"{SlotBinding(i)}???",
                 MouseFilter = MouseFilterEnum.Ignore
             };
             label.AddThemeFontSizeOverride("font_size", 12);
@@ -75,4 +82,7 @@ public partial class SquadStrip : HBoxContainer
             AddChild(panel);
         }
     }
+
+    /// <summary>Shows direct-slot keys only for keyboard prompts; pads cycle the squad through the HUD's named actions.</summary>
+    private static string SlotBinding(int index) => InputPromptService.Instance?.IsGamepad == true ? "" : InputPromptBinding.Binding("squad_slot_" + (index + 1)) + " ";
 }

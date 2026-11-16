@@ -101,6 +101,7 @@ public partial class NeoKyotoWorld : Node2D
             { "x", p.X }, { "y", p.Y }, { "layer", p.Layer },
             { "resident", ResidentChunks }, { "cached", CachedChunks },
             { "busy", _busy }, { "map_open", _mapOpen }, { "progress", Progress },
+            { "waypoint_set", State.Waypoint != null },
             { "moving_enabled", _player?.MovementEnabled ?? false },
             { "riding_bike", _player?.IsRidingBike ?? false },
             { "riding_boat", _player?.IsRidingBoat ?? false },
@@ -210,7 +211,7 @@ public partial class NeoKyotoWorld : Node2D
     public override void _Ready()
     {
         AddToGroup("world_exploration");
-        ConfigureInput();
+        InputActionDefaults.Initialize();
         Input.MouseMode = Input.MouseModeEnum.Visible;
         GetNodeOrNull<Node>("/root/Global")?.Call("set_control_prompt_visible", false);
         _player = new ExplorationPlayer { Name = "ExplorationPlayer" };
@@ -220,6 +221,7 @@ public partial class NeoKyotoWorld : Node2D
         _encounter.WaveCleared += OnWaveCleared;
         _player.Defeated += OnPlayerDefeated;
         BuildHud();
+        InputPromptService.Instance?.SetContext("world", "world_left", "world_right", "world_up", "world_down", "world_map", "world_interact", "world_swap");
         _session = SessionManager.Instance?.CurrentSessionId ?? -1;
         Progress = Math.Max(1, GetNodeOrNull<Node>("/root/Global")?.Get("unlocked_levels").AsInt32() ?? 1);
         RunOperation(LoadWorld);
@@ -253,36 +255,6 @@ public partial class NeoKyotoWorld : Node2D
         if (State.ActiveVehicle == WorldContentCatalog.StarterBike.Id) _player.ToggleBike(State.Position);
         _loaded = true;
         PopulateDestinations();
-    }
-
-    /// <summary>Registers world-specific named actions with keyboard, D-pad and analog defaults without changing mission controls.</summary>
-    private static void ConfigureInput()
-    {
-        AddAction("world_left", Key.A, JoyButton.DpadLeft, JoyAxis.LeftX, -1);
-        AddAction("world_right", Key.D, JoyButton.DpadRight, JoyAxis.LeftX, 1);
-        AddAction("world_up", Key.W, JoyButton.DpadUp, JoyAxis.LeftY, -1);
-        AddAction("world_down", Key.S, JoyButton.DpadDown, JoyAxis.LeftY, 1);
-        AddAction("world_run", Key.Shift, JoyButton.LeftStick);
-        AddAction("world_map", Key.M, JoyButton.Back);
-        AddAction("world_interact", Key.E, JoyButton.A);
-        AddAction("world_swap", Key.Tab, JoyButton.Y);
-        AddAction("world_zoom_in", Key.Equal, JoyButton.RightShoulder);
-        AddAction("world_zoom_out", Key.Minus, JoyButton.LeftShoulder);
-        AddAction("world_bike", Key.V, JoyButton.X);
-        // The shoulder buttons also zoom, but zoom is only read while the map is open.
-        AddAction("world_attack", Key.F, JoyButton.B);
-        AddAction("world_dodge", Key.Space, JoyButton.RightShoulder);
-        AddAction("world_defend", Key.Q, JoyButton.LeftShoulder);
-    }
-
-    /// <summary>Adds defaults only once, retaining any action bindings already configured in the project.</summary>
-    private static void AddAction(string name, Key key, JoyButton button, JoyAxis? axis = null, float value = 0)
-    {
-        if (InputMap.HasAction(name)) return;
-        InputMap.AddAction(name, .2f);
-        InputMap.ActionAddEvent(name, new InputEventKey { PhysicalKeycode = key });
-        InputMap.ActionAddEvent(name, new InputEventJoypadButton { ButtonIndex = button, Device = -1 });
-        if (axis != null) InputMap.ActionAddEvent(name, new InputEventJoypadMotion { Axis = axis.Value, AxisValue = value, Device = -1 });
     }
 
     /// <summary>Rebases rendering to an integer chunk and discards old layer views before a committed transit or elevator move.</summary>
@@ -884,9 +856,18 @@ public partial class NeoKyotoWorld : Node2D
 
         _hint = new Label();
         header.AddChild(_hint);
-        header.AddChild(new Label { Text = WorldText.Get("Move: WASD / stick · Run: Shift · Bike: V · Map: M · Interact: E / A · Squad: Tab") });
+        var movementHelp = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart, CustomMinimumSize = new(600, 0) };
+        header.AddChild(movementHelp);
+        InputPromptBinding.Track(movementHelp, () => movementHelp.Text = string.Join("  |  ",
+            InputPromptBinding.Text("world_left", "Left"), InputPromptBinding.Text("world_right", "Right"),
+            InputPromptBinding.Text("world_up", "Up"), InputPromptBinding.Text("world_down", "Down"),
+            InputPromptBinding.Text("world_run", "Run"), InputPromptBinding.Text("world_bike", "Bike"),
+            InputPromptBinding.Text("world_map", "Map"), InputPromptBinding.Text("world_interact", "Interact"), InputPromptBinding.Text("world_swap", "Squad")));
 
-        header.AddChild(new Label { Text = WorldText.Get("Attack: F / B · Dodge: Space / RB · Guard: Q / LB") });
+        var combatHelp = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart, CustomMinimumSize = new(600, 0) };
+        header.AddChild(combatHelp);
+        InputPromptBinding.Track(combatHelp, () => combatHelp.Text = string.Join("  |  ",
+            InputPromptBinding.Text("world_attack", "Attack"), InputPromptBinding.Text("world_dodge", "Dodge"), InputPromptBinding.Text("world_defend", "Guard")));
         _combatLabel = new Label();
         header.AddChild(_combatLabel);
 
@@ -989,7 +970,13 @@ public partial class NeoKyotoWorld : Node2D
         });
 
         AddButton(side, "Close map", ToggleMap);
-        side.AddChild(new Label { Text = WorldText.Get("Pan: WASD / stick\nZoom: + −\nRight-drag to pan · click for waypoint"), AutowrapMode = TextServer.AutowrapMode.WordSmart });
+        var mapHelp = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart };
+        side.AddChild(mapHelp);
+        InputPromptBinding.Track(mapHelp, () => mapHelp.Text = string.Join("\n",
+            InputPromptBinding.Text("world_left", "Pan left"), InputPromptBinding.Text("world_right", "Pan right"),
+            InputPromptBinding.Text("world_zoom_in", "Zoom in"), InputPromptBinding.Text("world_zoom_out", "Zoom out"),
+            InputPromptBinding.Text("world_map", "Close map")) + (InputPromptService.Instance?.IsGamepad == true ? "" :
+            "\n" + WorldText.Get("Right-drag to pan · click for waypoint")));
     }
 
     /// <summary>Creates a translated, focusable button whose container controls sizing.</summary>

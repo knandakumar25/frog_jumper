@@ -1,5 +1,47 @@
 # Axiom Force
 
+Axiom Force is a 2D action game (12 missions across three acts) built in Godot 4 with C#,
+with a Node.js/PostgreSQL accounts service and a player website. I build it with AI coding
+agents (Claude Code, Codex) and review their work against written specs and automated tests.
+
+## Testing
+
+`run_tests.ps1` runs the automated suites:
+
+- **NUnit** (C# game logic): 454 tests
+- **GdUnit4** (Godot scene and engine tests): 385 tests across 78 suites
+- **Accounts API** (Node's test runner with supertest, inside Docker): 158 tests
+
+Playwright, also run in Docker, checks the website (layouts at 360, 768 and 1440 px,
+keyboard navigation, language switching and right-to-left text) and the browser sign-in
+flow from the desktop game. Python tools audit AI-generated art and level-match voice and
+music; tests fail when an asset changes without the tools being re-run.
+
+## Run it
+
+See [Getting Started](#getting-started) for prerequisites, the Docker stack and exports.
+The development log follows.
+
+---
+
+## Shared input prompts (2026-11-15)
+
+Game menus, campaign instructions, recruitment, world/map help and cinematic Skip
+buttons now use the current bindings through `InputPromptService`. Controls offers
+Automatic, Xbox, PlayStation, Nintendo and Keyboard label styles. Keyboard style
+keeps controller input enabled. The four keyboard remaps retain controller bindings;
+Reset restores project and runtime defaults together. Menus support mouse clicks;
+The separate isometric feature and world map retain pointer controls. Campaign
+Mission 1 currently uses PalaceMission, a platformer; platformer mouse combat stays disabled.
+
+The key-rebind dialog translates its action title on opening and when the language
+changes. The graphical harness sends synthetic controller presses/releases through
+Godot's viewport and verifies menu cancel, cinematic Skip and platformer attack
+under Keyboard prompt style. Physical controller testing remains outstanding.
+
+See [input prompt audit and verification](docs/INPUT_PROMPTS_AUDIT.md) for scope,
+test evidence and physical-device coverage. This pass adds text labels, with no new artwork.
+
 ## Player website redesign (2026-11-15)
 
 The local website is a game showcase with Home, Gameplay, Squad and FAQ navigation.

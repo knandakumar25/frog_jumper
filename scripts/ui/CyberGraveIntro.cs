@@ -140,6 +140,7 @@ public partial class CyberGraveIntro : CanvasLayer
         };
         ui.AddChild(skip);
         _skip = skip;
+        InputPromptBinding.Cinematic(_skip, true);
         skip.Pressed += Finish;
         skip.GrabFocus();
 
@@ -231,6 +232,7 @@ public partial class CyberGraveIntro : CanvasLayer
     /// <summary>Keyboard and controller shortcuts share the focused button's pointer/touch completion route.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;

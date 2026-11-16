@@ -274,6 +274,7 @@ public partial class CyberVictoryScorecard : CanvasLayer
 	/// <summary>Handles pointer and direct touch before Global's legacy mouse suppression consumes them.</summary>
 	public override void _Input(InputEvent input)
 	{
+		InputPromptService.Instance?.ObserveInput(input);
 		if (_rootPanel is not { Visible: true } || !IsInsideTree() || _navigating) return;
 		Vector2 point;
 		if (input is InputEventScreenTouch { Pressed: true } touch) point = touch.Position;

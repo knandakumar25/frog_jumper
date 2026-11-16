@@ -161,6 +161,7 @@ public partial class CyberNexusAftermath : CanvasLayer
         _skip.AddThemeStyleboxOverride("normal", skipStyle);
         _skip.AddThemeFontSizeOverride("font_size", 14);
         _skip.Pressed += Finish;
+        InputPromptBinding.Cinematic(_skip, true);
         _ui.AddChild(_skip);
 
         // Ambience Player (looped procedural atmospheric audio)
@@ -220,6 +221,7 @@ public partial class CyberNexusAftermath : CanvasLayer
     /// <summary>Handles ESC, Enter, Space, and gamepad skip inputs.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;

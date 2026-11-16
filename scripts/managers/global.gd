@@ -18,7 +18,7 @@ var menu_music_player: AudioStreamPlayer = null
 func _ready() -> void:
 	# Global is registered before SessionManager; defer database access until all autoloads exist.
 	call_deferred("load_saved_settings")
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if DisplayServer.get_name() != "headless":
 		apply_display_mode(current_display_mode)
@@ -39,6 +39,7 @@ func _ready() -> void:
 	# Connect Joypad detection signals for gamepad hardware (Logitech F310, Xbox, DualShock).
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	_check_initial_gamepads()
+	InputPromptService.PromptsChanged.connect(_on_prompts_changed)
 	_setup_prompt_banner()
 
 # ─── Localization & Fonts ──────────────────────────────────────────────────────
@@ -112,6 +113,7 @@ func _setup_prompt_banner() -> void:
 
 	var panel = PanelContainer.new()
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var style = GoStyleBoxCutScript.new()
 	style.bg_color = Color(0.02, 0.055, 0.12, 0.88)
 	style.border_color = Color(0.0, 0.78, 0.96, 0.72)
@@ -147,6 +149,8 @@ func _setup_prompt_banner() -> void:
 	_prompt_label = Label.new()
 	_prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_prompt_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_prompt_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_prompt_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if orbitron_font != null:
 		_prompt_label.add_theme_font_override("font", orbitron_font)
 	_prompt_label.add_theme_font_size_override("font_size", 13)
@@ -159,11 +163,15 @@ func _setup_prompt_banner() -> void:
 
 # Updates the control prompt text based on the active input device.
 func update_prompt_text() -> void:
-	if _prompt_label == null: return
-	if is_gamepad_mode:
-		_prompt_label.text = "🎮 " + tr("GAMEPAD MODE") + "  //  D-PAD/L-STICK: " + tr("Navigate") + "  |  (A): " + tr("Select") + "  |  (X)/(Y): " + tr("Ability") + "  |  (START): " + tr("Pause")
-	else:
-		_prompt_label.text = "⌨️ " + tr("KEYBOARD MODE") + "  //  WASD/ARROWS: " + tr("Navigate") + "  |  ENTER/SPACE: " + tr("Select") + "  |  E/F: " + tr("Abilities") + "  |  Q/E: " + tr("Rotate") + "  |  ESC: " + tr("Pause")
+	if is_instance_valid(_prompt_label):
+		_prompt_label.text = InputPromptService.GetContextText()
+
+func _on_prompts_changed() -> void:
+	var current: bool = InputPromptService.IsGamepad
+	is_gamepad_mode = current
+	update_prompt_text()
+	# Legacy consumers also need a refresh for bindings, family, context and language.
+	input_device_changed.emit(is_gamepad_mode)
 
 func _update_prompt_text() -> void:
 	update_prompt_text()
@@ -177,55 +185,15 @@ func _on_joy_connection_changed(device: int, connected: bool) -> void:
 		print("Global: Gamepad disconnected: Device ", device)
 		show_gamepad_toast("⚠️ GAMEPAD DISCONNECTED")
 
-# Monitors input events to automatically toggle between Keyboard and Gamepad modes,
-# and strictly consumes any mouse input to remove cursor compatibility.
-func _input(event: InputEvent) -> void:
-	# Exploration owns a pointer-driven map; other scenes retain their existing keyboard/controller policy.
-	if get_tree().current_scene != null and get_tree().current_scene.is_in_group("world_exploration"):
-		return
-	# Consume all mouse events to disable cursor and mouse interaction project-wide
-	if event is InputEventMouse:
-		get_viewport().set_input_as_handled()
-		return
-
-	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
-		var is_pressed_or_moved = false
-		if event is InputEventJoypadButton and event.pressed:
-			is_pressed_or_moved = true
-		elif event is InputEventJoypadMotion and abs(event.axis_value) > 0.4:
-			is_pressed_or_moved = true
-
-		if is_pressed_or_moved and not is_gamepad_mode:
-			is_gamepad_mode = true
-			_update_prompt_text()
-			emit_signal("input_device_changed", true)
-			print("Global: Input device switched to -> GAMEPAD MODE 🎮")
-
-	elif event is InputEventKey:
-		if event.pressed and is_gamepad_mode:
-			is_gamepad_mode = false
-			_update_prompt_text()
-			emit_signal("input_device_changed", false)
-			print("Global: Input device switched to -> KEYBOARD MODE ⌨️")
-
-# ─── UI Prompt Helpers ──────────────────────────────────────────────────────────
+# Compatibility prompt methods use the shared binding formatter.
 func get_nav_prompt() -> String:
-	if is_gamepad_mode:
-		return "[ 🎮 D-PAD / L-STICK: " + tr("Navigate") + "  |  (A): " + tr("Select") + "  |  (B): " + tr("Back") + " ]"
-	else:
-		return "[ ⌨️ ARROWS / WASD: " + tr("Navigate") + "  |  ENTER / SPACE: " + tr("Select") + "  |  ESC: " + tr("Back") + " ]"
+	return tr("Navigate") + ": [ " + InputPromptService.GetBinding("ui_up") + " / " + InputPromptService.GetBinding("ui_down") + " ]   |   " + tr("Select") + ": [ " + InputPromptService.GetBinding("ui_accept") + " ]   |   " + tr("Back") + ": [ " + InputPromptService.GetBinding("ui_cancel") + " ]"
 
 func get_home_prompt() -> String:
-	if is_gamepad_mode:
-		return tr("// PRESS (A) OR (START) ON GAMEPAD TO INITIALIZE //")
-	else:
-		return tr("// PRESS ENTER OR SPACE TO INITIALIZE SYSTEM //")
+	return tr("Select") + ": [ " + InputPromptService.GetBinding("home_start") + " ]"
 
 func get_story_prompt() -> String:
-	if is_gamepad_mode:
-		return tr("Press (A) / (X) to Advance  |  Press (START) / (Y) to Skip")
-	else:
-		return tr("Press SPACE / ENTER to Advance  |  Press ESC to Skip")
+	return tr("Advance") + ": [ " + InputPromptService.GetBinding("story_advance") + " ]   |   " + tr("Skip") + ": [ " + InputPromptService.GetBinding("story_skip") + " ]"
 
 # Displays a temporary, animated notification toast when a gamepad is connected/disconnected.
 func show_gamepad_toast(message: String) -> void:
@@ -325,9 +293,6 @@ func update_font_for_locale(locale_code: String) -> void:
 					f.fallbacks = fallbacks_list
 		print("Global: Configured explicit script fallbacks for sci-fi fonts")
 
-	# Cursor compatibility completely removed - hide mouse cursor globally
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	print("Global: Mouse cursor compatibility disabled. Cursor hidden.")
 
 func apply_display_mode(mode_name: String) -> void:
 	current_display_mode = mode_name
@@ -362,37 +327,14 @@ func save_user_settings() -> void:
 
 ## Restores supported keyboard mappings from the database document.
 func load_custom_keybindings() -> void:
-	var bindings: Dictionary = get_node("/root/SessionManager").ReadState("user_keybindings")
-	for action_name in ["left", "right", "jump", "escape"]:
-		if not InputMap.has_action(action_name):
-			continue
-		var keycodes = bindings.get(action_name)
-		if keycodes is Array and not keycodes.is_empty():
-			InputMap.action_erase_events(action_name)
-			for kc in keycodes:
-				var code_val = int(kc)
-				if code_val != 0:
-					var ev = InputEventKey.new()
-					ev.physical_keycode = code_val
-					ev.keycode = code_val
-					InputMap.action_add_event(action_name, ev)
+	InputPromptService.ApplyKeyboardBindings(get_node("/root/SessionManager").ReadState("user_keybindings"))
 
-## Commits keyboard bindings to PostgreSQL without creating a local save.
+## Commits keyboard bindings without altering controller bindings or creating a local save.
 func save_custom_keybindings() -> void:
-	var bindings = {}
-	for action in ["left", "right", "jump", "escape"]:
-		if InputMap.has_action(action):
-			var keycodes = []
-			for ev in InputMap.action_get_events(action):
-				if ev is InputEventKey:
-					var code = ev.physical_keycode if ev.physical_keycode != 0 else ev.keycode
-					if code != 0 and not keycodes.has(code):
-						keycodes.append(code)
-			bindings[action] = keycodes
-	if not get_node("/root/SessionManager").WriteState("user_keybindings", bindings):
+	if not get_node("/root/SessionManager").WriteState("user_keybindings", InputPromptService.CaptureKeyboardBindings()):
 		push_warning("Keybindings were not saved. PostgreSQL must be available.")
+	InputPromptService.NotifyBindingsChanged()
 
-# ─── Audio Management ──────────────────────────────────────────────────────────
 func load_mp3_stream(res_path: String) -> AudioStream:
 	if ResourceLoader.exists(res_path):
 		var res = load(res_path)

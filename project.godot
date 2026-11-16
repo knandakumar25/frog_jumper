@@ -20,6 +20,7 @@ config/windows_native_icon="res://assets/icons/axiom_force.ico"
 
 GameManager="*res://scripts/managers/GameManager.gd"
 LocaleService="*res://scripts/managers/LocaleService.cs"
+InputPromptService="*res://scripts/input/InputPromptService.cs"
 Global="*res://scripts/managers/global.gd"
 SessionManager="*res://scripts/managers/SessionManager.cs"
 NarrativeManager="*res://scripts/managers/NarrativeManager.gd"

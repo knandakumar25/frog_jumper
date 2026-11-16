@@ -69,6 +69,10 @@ backend/node_modules/
 # GdUnit4 Test Reports
 reports/
 
+# Logs
+*.log
+!assets/narrative/translate_progress.log
+
 # Local environment / secrets
 # NOTE: negation must come last, or .env.* swallows .env.example
 .env

@@ -145,7 +145,7 @@ func test_recruits_precede_required_gates_and_device_prompts_follow_input() -> v
 	pad.button_index = JOY_BUTTON_Y
 	recruit.call("_Input", pad)
 	recruit.call("_PhysicsProcess", 0.01)
-	assert_str(mission.get("PromptText")).contains("D-Pad")
+	assert_str(mission.get("PromptText")).contains(get_node("/root/InputPromptService").call("GetBindingForDevice", "squad_next", true))
 	assert_str(mission.get("PromptText")).not_contains("press Q")
 	var touch := InputEventScreenTouch.new()
 	touch.pressed = true

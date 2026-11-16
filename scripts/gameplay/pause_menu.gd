@@ -2,6 +2,8 @@ extends Control
 
 # Reference to the LoadingScreen helper for scene transitions.
 const LoadingScreen = preload("res://scripts/ui/loading_screen.gd")
+var _previous_prompt_context: String = "platformer"
+var _previous_prompt_actions: Array[String] = []
 
 ## Purpose:
 ## This script manages the game's Pause Menu. It controls the freezing and unfreezing
@@ -51,6 +53,7 @@ func _translate_ui() -> void:
 
 # Unfreezes the game world and hides the pause UI.
 func resume() -> void:
+	InputPromptService.SetPromptContext(_previous_prompt_context, _previous_prompt_actions)
 	GameManager.set_game_state(GameManager.State.GAMEPLAY)
 	get_tree().paused = false
 	var panel = get_node_or_null("ColorRect2")
@@ -64,6 +67,9 @@ func resume() -> void:
 
 # Freezes the game world and displays the pause UI.
 func pause() -> void:
+	_previous_prompt_context = InputPromptService.Context
+	_previous_prompt_actions.assign(InputPromptService.ContextActions)
+	InputPromptService.SetPromptContext("menu", ["ui_up", "ui_down", "ui_accept", "escape"])
 	GameManager.set_game_state(GameManager.State.PAUSED)
 	get_tree().paused = true
 	var panel = get_node_or_null("ColorRect2")

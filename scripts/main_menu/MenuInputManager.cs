@@ -19,8 +19,10 @@ public partial class MenuInputManager : Node
 	private Button          _cancelKeyButton;
 	private MenuSettingsManager _settingsManager;
 	private string          _remappingAction = "";
+	private string          _remappingTitle = "";
 	private InputEventKey   _proposedKey = null;
 
+	/// <summary>Stores menu controls and connects each capture action once.</summary>
 	public void Initialize(Button controlsButton, Panel keybindingsPopup, VBoxContainer rowsContainer, Button resetBtn, Button closeBtn, Panel detectModal, Label promptLbl, Label detectedLbl, Button acceptBtn, Button cancelBtn, MenuSettingsManager settingsManager)
 	{
 		_controlsButton = controlsButton;
@@ -42,6 +44,7 @@ public partial class MenuInputManager : Node
 		ConnectButtonSafely(_cancelKeyButton, CancelKey);
 	}
 
+	/// <summary>Connects a supplied button callback unless that exact callback is already connected.</summary>
 	private static void ConnectButtonSafely(Button btn, Action action)
 	{
 		if (btn == null) return;
@@ -52,6 +55,7 @@ public partial class MenuInputManager : Node
 		}
 	}
 
+	/// <summary>Builds current binding rows and raises the controls popup above other panels.</summary>
 	public void OpenControls()
 	{
 		PopulateKeybindingRows(_settingsManager);
@@ -67,6 +71,7 @@ public partial class MenuInputManager : Node
 		}
 	}
 
+	/// <summary>Hides controls and capture overlays and restores focus to the controls button.</summary>
 	public void CloseControls()
 	{
 		if (_keybindingsPopup != null) _keybindingsPopup.Visible = false;
@@ -74,6 +79,7 @@ public partial class MenuInputManager : Node
 		_controlsButton?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
+	/// <summary>Builds localized remap rows and the persisted prompt-style selector.</summary>
 	public void PopulateKeybindingRows(MenuSettingsManager settingsManager)
 	{
 		if (_keybindingRowsContainer == null) return;
@@ -85,10 +91,10 @@ public partial class MenuInputManager : Node
 
 		var actions = new (string key, string title)[]
 		{
-			("left",   Tr("Move Left")),
-			("right",  Tr("Move Right")),
-			("jump",   Tr("Jump")),
-			("escape", Tr("Pause Game"))
+			("left",   "Move Left"),
+			("right",  "Move Right"),
+			("jump",   "Jump"),
+			("escape", "Pause Game")
 		};
 
 		foreach (var (actionKey, actionTitle) in actions)
@@ -99,7 +105,7 @@ public partial class MenuInputManager : Node
 
 			var nameLbl = new Label
 			{
-				Text = actionTitle,
+				Text = Tr(actionTitle),
 				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
 				VerticalAlignment = VerticalAlignment.Center
 			};
@@ -112,6 +118,8 @@ public partial class MenuInputManager : Node
 			var keysLbl = new Label
 			{
 				Text = $"[ {keyDisplay} ]",
+				AutowrapMode = TextServer.AutowrapMode.WordSmart,
+				SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
 				CustomMinimumSize = new Vector2(240, 0),
 				HorizontalAlignment = HorizontalAlignment.Center,
 				VerticalAlignment = VerticalAlignment.Center
@@ -132,33 +140,44 @@ public partial class MenuInputManager : Node
 			string capturedTitle = actionTitle;
 			rebindBtn.Pressed += () => OpenKeyDetectModal(capturedKey, capturedTitle);
 			row.AddChild(rebindBtn);
+			InputPromptBinding.Track(row, () => {
+				nameLbl.Text = Tr(actionTitle);
+				keysLbl.Text = $"[ {GetBoundKeysString(actionKey)} ]";
+				rebindBtn.Text = Tr("Rebind");
+			});
 
 			_keybindingRowsContainer.AddChild(row);
 			_keybindingRowsContainer.AddChild(new Control { CustomMinimumSize = new Vector2(0, 10) });
 		}
+
+		var styleRow = new HBoxContainer();
+		var styleLabel = new Label { Text = Tr("Input prompt style"), SizeFlagsHorizontal = Control.SizeFlags.ExpandFill, AutowrapMode = TextServer.AutowrapMode.WordSmart };
+		styleRow.AddChild(styleLabel);
+		var style = new OptionButton { CustomMinimumSize = new Vector2(240, 44) };
+		foreach (string name in new[] { "Automatic", "Xbox", "PlayStation", "Nintendo", "Keyboard" }) style.AddItem(Tr(name));
+		style.Select((int)(InputPromptService.Instance?.Style ?? ControllerGlyphStyle.AutoDetect));
+		style.ItemSelected += value => InputPromptService.Instance?.SetStyle((int)value);
+		styleRow.AddChild(style);
+		InputPromptBinding.Track(styleRow, () => {
+			styleLabel.Text = Tr("Input prompt style");
+			string[] names = { "Automatic", "Xbox", "PlayStation", "Nintendo", "Keyboard" };
+			for (int i = 0; i < names.Length; i++) style.SetItemText(i, Tr(names[i]));
+			style.Select((int)(InputPromptService.Instance?.Style ?? ControllerGlyphStyle.AutoDetect));
+		});
+		_keybindingRowsContainer.AddChild(styleRow);
 	}
 
+	/// <summary>Formats keyboard bindings for one remappable action, retaining an Unbound fallback.</summary>
 	public string GetBoundKeysString(string actionName)
 	{
-		if (!InputMap.HasAction(actionName)) return Tr("None");
-		var events = InputMap.ActionGetEvents(actionName);
-		var keyNames = new List<string>();
-		foreach (var ev in events)
-		{
-			if (ev is InputEventKey keyEv)
-			{
-				string keyStr = OS.GetKeycodeString(keyEv.PhysicalKeycode);
-				if (string.IsNullOrEmpty(keyStr)) keyStr = OS.GetKeycodeString(keyEv.Keycode);
-				if (!string.IsNullOrEmpty(keyStr) && !keyNames.Contains(keyStr))
-					keyNames.Add(keyStr);
-			}
-		}
-		return keyNames.Count > 0 ? string.Join(" / ", keyNames) : Tr("None");
+		return InputPromptService.Instance?.Binding(actionName, false) ?? Tr("Unbound");
 	}
 
+	/// <summary>Opens key capture while retaining the source title for later locale changes.</summary>
 	private void OpenKeyDetectModal(string actionKey, string actionTitle)
 	{
 		_remappingAction = actionKey;
+		_remappingTitle = actionTitle;
 		_proposedKey = null;
 		GetViewport().GuiReleaseFocus();
 
@@ -167,7 +186,7 @@ public partial class MenuInputManager : Node
 
 		if (_promptLabel != null)
 		{
-			_promptLabel.Text = $"{Tr("PRESS ANY KEY TO REBIND")} [{actionTitle}]...";
+			RefreshRemapPrompt();
 			_promptLabel.AddThemeFontOverride("font", orbitronFont);
 			_promptLabel.AddThemeFontSizeOverride("font_size", 18);
 			_promptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
@@ -200,6 +219,21 @@ public partial class MenuInputManager : Node
 		}
 	}
 
+	/// <summary>Retranslates the open capture prompt without replacing a proposed key.</summary>
+	private void RefreshRemapPrompt()
+	{
+		if (_promptLabel != null)
+			_promptLabel.Text = $"{Tr("PRESS ANY KEY TO REBIND")} [{Tr(_remappingTitle)}]...";
+	}
+
+	/// <summary>Updates the open modal when the language changes in place.</summary>
+	public override void _Notification(int what)
+	{
+		if (what == NotificationTranslationChanged && IsInsideTree() && _keyDetectModal?.Visible == true)
+			RefreshRemapPrompt();
+	}
+
+	/// <summary>Captures a fresh key in the open modal and consumes it before normal navigation.</summary>
 	public void HandleInput(InputEvent @event)
 	{
 		if (_keyDetectModal != null && _keyDetectModal.Visible)
@@ -207,8 +241,7 @@ public partial class MenuInputManager : Node
 			if (@event is InputEventKey keyEv && keyEv.Pressed && !keyEv.Echo)
 			{
 				_proposedKey = keyEv;
-				string keyName = OS.GetKeycodeString(keyEv.PhysicalKeycode);
-				if (string.IsNullOrEmpty(keyName)) keyName = OS.GetKeycodeString(keyEv.Keycode);
+				string keyName = InputPromptService.Instance?.FormatBindingEvent(keyEv) ?? keyEv.AsText();
 
 				if (_detectedKeyLabel != null)
 				{
@@ -224,12 +257,12 @@ public partial class MenuInputManager : Node
 		}
 	}
 
+	/// <summary>Applies the proposed keyboard binding, saves through Global and refreshes rows.</summary>
 	public void AcceptKey()
 	{
 		if (_proposedKey != null && !string.IsNullOrEmpty(_remappingAction))
 		{
-			InputMap.ActionEraseEvents(_remappingAction);
-			InputMap.ActionAddEvent(_remappingAction, _proposedKey);
+			InputPromptService.Instance?.ReplaceKeyboardBinding(_remappingAction, _proposedKey);
 
 			var globalNode = GetNodeOrNull<Node>("/root/Global");
 			if (globalNode != null)
@@ -241,15 +274,17 @@ public partial class MenuInputManager : Node
 		PopulateKeybindingRows(_settingsManager);
 	}
 
+	/// <summary>Discards the proposed key and hides its capture panel without changing bindings.</summary>
 	public void CancelKey()
 	{
 		_proposedKey = null;
 		if (_keyDetectModal != null) _keyDetectModal.Visible = false;
 	}
 
+	/// <summary>Restores all action defaults, persists keyboard settings and rebuilds rows.</summary>
 	public void ResetDefaults()
 	{
-		InputMap.LoadFromProjectSettings();
+		InputPromptService.Instance?.ResetDefaults();
 		var globalNode = GetNodeOrNull<Node>("/root/Global");
 		if (globalNode != null)
 		{
@@ -258,19 +293,21 @@ public partial class MenuInputManager : Node
 		PopulateKeybindingRows(_settingsManager);
 	}
 
+	/// <summary>Updates instruction labels from the shared active-device bindings.</summary>
 	public void UpdateInstructionsControlsText(Label moveLbl, Label jumpLbl, Label pauseLbl)
 	{
 		if (moveLbl == null || jumpLbl == null || pauseLbl == null) return;
 
-		string leftKeys  = GetBoundKeysString("left");
-		string rightKeys = GetBoundKeysString("right");
-		string jumpKeys  = GetBoundKeysString("jump");
-		string pauseKeys = GetBoundKeysString("escape");
+		string leftKeys  = InputPromptBinding.Binding("left");
+		string rightKeys = InputPromptBinding.Binding("right");
+		string jumpKeys  = InputPromptBinding.Binding("jump");
+		string pauseKeys = InputPromptBinding.Binding("escape");
 
 		moveLbl.Text = $"{Tr("Move")}: {Tr("Left")} [ {leftKeys} ]  |  {Tr("Right")} [ {rightKeys} ]";
 		jumpLbl.Text = $"{Tr("Jump")}: [ {jumpKeys} ]";
 		pauseLbl.Text = $"{Tr("Pause")}: [ {pauseKeys} ]";
 	}
 
+	/// <summary>Uses the main menu translation policy for source text.</summary>
 	private string Tr(string text) => MainMenu.Tr(text);
 }

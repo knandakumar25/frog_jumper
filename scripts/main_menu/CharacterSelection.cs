@@ -53,8 +53,10 @@ public partial class CharacterSelection : Control
 
 		EnsureUIReferences();
 		BuildArtStudy();
+		EnableButtonMouseInput(this);
 
-		Input.MouseMode = Input.MouseModeEnum.Hidden;
+		InputPromptService.Instance?.SetContext("menu", "ui_up", "ui_down", "ui_accept", "ui_cancel");
+		Input.MouseMode = InputPromptService.Instance?.UsingController == true ? Input.MouseModeEnum.Hidden : Input.MouseModeEnum.Visible;
 
 		var global = GetNodeOrNull<Node>("/root/Global");
 		int reached = global != null ? global.Get("unlocked_levels").AsInt32() : 1;
@@ -108,18 +110,22 @@ public partial class CharacterSelection : Control
 		shogunBtn?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
+	private static void EnableButtonMouseInput(Node owner)
+	{
+		foreach (Node child in owner.GetChildren())
+		{
+			if (child is BaseButton button) button.MouseFilter = MouseFilterEnum.Stop;
+			EnableButtonMouseInput(child);
+		}
+	}
+
 	public override void _Input(InputEvent @event)
 	{
+		InputPromptService.Instance?.ObserveInput(@event);
 		// Escape / B returns to the main menu without changing the active operative.
 		if (@event.IsActionPressed("ui_cancel") || @event.IsActionPressed("escape"))
 		{
 			ReturnToMenu();
-			GetViewport()?.SetInputAsHandled();
-			return;
-		}
-		// Completely eliminate mouse cursor compatibility
-		if (@event is InputEventMouse)
-		{
 			GetViewport()?.SetInputAsHandled();
 			return;
 		}

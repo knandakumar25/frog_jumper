@@ -94,6 +94,7 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
         _skip.AddThemeStyleboxOverride("focus", skipStyle);
         ui.AddChild(_skip);
         _skip.Pressed += Finish;
+        InputPromptBinding.Cinematic(_skip, false);
         _skip.GrabFocus();
         _speech = CreateAudio("Speech", SpeechPath, 0);
         _ambience = CreateAudio("Atmosphere", ArtPath + "atmosphere.ogg", -18);
@@ -167,6 +168,7 @@ public partial class NamesWithoutNumbersAftermath : CanvasLayer
     /// <summary>Routes keyboard, controller, pointer and touch Skip through the same idempotent completion.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A;

@@ -77,6 +77,7 @@ public partial class ShatteredAegisIntro : CanvasLayer
             AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
         ui.AddChild(skip);
         _skip = skip;
+        InputPromptBinding.Cinematic(_skip, false);
         skip.Pressed += Finish;
         skip.GrabFocus();
         _speech = CreateAudio("Speech", SpeechPath, 0);
@@ -141,6 +142,7 @@ public partial class ShatteredAegisIntro : CanvasLayer
     /// <summary>Keyboard and controller shortcuts share the focused button's pointer/touch completion route.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key &&
             key.Keycode is Key.Escape or Key.Space or Key.Enter;

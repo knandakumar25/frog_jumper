@@ -23,7 +23,7 @@ public partial class GenePod : Node2D
         Mission.Player.GlobalPosition.DistanceTo(GlobalPosition + new Vector2(0, -46)) < 140;
 
     private float _timer;
-    private bool _usingPad;
+    private bool _usingPad => InputPromptService.Instance?.IsGamepad ?? false;
     private readonly float[] _bubbleYs = { -30f, -60f, -90f, -120f };
     private readonly float[] _bubbleXs = { -10f, 8f, -6f, 12f };
 
@@ -52,9 +52,8 @@ public partial class GenePod : Node2D
     /// <summary>Handles pointer/touch and context interactions.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (!IsInsideTree() || Mission == null || Mission.GameplaySuspended || !InRange) return;
-        if (input is InputEventJoypadButton or InputEventJoypadMotion) _usingPad = true;
-        else if (input is InputEventKey or InputEventMouseButton) _usingPad = false;
         if (input.IsActionPressed("attack") && !input.IsEcho() && TryLiberate())
         {
             GetViewport().SetInputAsHandled();

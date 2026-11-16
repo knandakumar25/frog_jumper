@@ -23,6 +23,7 @@ public partial class RecoveryTerminal : Node2D
     /// <summary>Pointer and touch can select the visible console while in context range; combat collision remains absent.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (!IsInsideTree() || Mission.GameplaySuspended || !InRange) return;
         Vector2? point = input is InputEventScreenTouch { Pressed: true } touch ? touch.Position :
             input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse ? mouse.Position : null;

@@ -53,7 +53,17 @@ public partial class CyberButton : Control
 		}
 	}
 
-	[Export] public bool IsDisabled { get; set; } = false;
+	private bool _isDisabled;
+	[Export] public bool IsDisabled
+	{
+		get => _isDisabled;
+		set
+		{
+			_isDisabled = value;
+			if (value) _isPressed = false;
+			if (IsInsideTree() && _ninePatch != null) AnimatePress(false);
+		}
+	}
 
 	// 2D NinePatch Background
 	private NinePatchRect _ninePatch;
@@ -74,6 +84,7 @@ public partial class CyberButton : Control
 	// State tracking
 	private bool _isHovered = false;
 	private bool _isPressed = false;
+	private bool _pointerInside;
 	private Tween _scaleTween;
 	private Tween _colorTween;
 
@@ -82,7 +93,7 @@ public partial class CyberButton : Control
 		CustomMinimumSize = new Vector2(240, 68);
 		SizeFlagsHorizontal = SizeFlags.ExpandFill;
 		FocusMode = FocusModeEnum.All;
-		MouseFilter = MouseFilterEnum.Ignore; // Completely eliminate cursor compatibility
+		MouseFilter = MouseFilterEnum.Stop;
 
 		LoadStaticResources();
 		SetupNinePatch();
@@ -101,10 +112,25 @@ public partial class CyberButton : Control
 
 		FocusExited += () =>
 		{
-			if (IsDisabled) return;
-			_isHovered = false;
+			_isHovered = _pointerInside;
 			_isPressed = false;
-			AnimateHover(false);
+			AnimateHover(_isHovered && !IsDisabled);
+		};
+		MouseEntered += () =>
+		{
+			_pointerInside = true;
+			if (IsDisabled) return;
+			bool wasHovered = _isHovered;
+			_isHovered = true;
+			AnimateHover(true);
+			if (_isPressed) AnimatePress(true);
+			if (!wasHovered) UISoundManager.Instance?.PlayHoverSound();
+		};
+		MouseExited += () =>
+		{
+			_pointerInside = false;
+			_isHovered = HasFocus();
+			AnimateHover(_isHovered && !IsDisabled);
 		};
 	}
 
@@ -118,6 +144,11 @@ public partial class CyberButton : Control
 		else if (what == NotificationTranslationChanged)
 		{
 			UpdateLocalization();
+		}
+		else if (what == NotificationVisibilityChanged && !IsVisibleInTree())
+		{
+			_isPressed = false;
+			_pointerInside = false;
 		}
 	}
 
@@ -304,7 +335,24 @@ public partial class CyberButton : Control
 
 	public override void _GuiInput(InputEvent @event)
 	{
-		// Completely eliminate mouse cursor compatibility - ignore all mouse clicks/motion
+		InputPromptService.Instance?.ObserveInput(@event);
+		if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Left } mouse) return;
+		// Disabled controls still own their click region, preventing gameplay beneath them from firing.
+		AcceptEvent();
+		if (IsDisabled) { _isPressed = false; return; }
+		if (mouse.Pressed)
+		{
+			GrabFocus();
+			_isPressed = true;
+			AnimatePress(true);
+			return;
+		}
+		bool activate = _isPressed && new Rect2(Vector2.Zero, Size).HasPoint(mouse.Position);
+		_isPressed = false;
+		AnimatePress(false);
+		if (!activate) return;
+		UISoundManager.Instance?.PlayClickSound();
+		EmitSignal(SignalName.Pressed);
 	}
 
 	public void UpdateLocalization()

@@ -4,6 +4,10 @@ extends GdUnitTestSuite
 
 func _mission(level: int) -> Node:
 	## Create a fresh scene-local run and use the shipped Skip path for independently tested arrival media.
+	var key := InputEventKey.new()
+	key.physical_keycode = KEY_Q
+	key.pressed = true
+	get_node("/root/InputPromptService").call("ObserveInput", key)
 	var m := scene_runner("res://scenes/gameplay/level%d.tscn" % level).scene()
 	if level == 2: m.get_node("ConcreteWildfireIntro").call("Finish")
 	if level == 3: m.get_node("NeonRustIntro").call("Finish")
@@ -55,14 +59,16 @@ func test_beacon_state_binding_and_recovery_guidance() -> void:
 	assert_bool(blade.get("Sealed")).is_true()
 	var keyboard := InputEventKey.new()
 	keyboard.physical_keycode = KEY_Q
+	keyboard.pressed = true
 	m.call("_Input", keyboard)
 	m.call("_PhysicsProcess", 0.016)
 	assert_str(m.get("CurrentObjective")).contains("PARRY: Q")
 	var pad := InputEventJoypadButton.new()
 	pad.button_index = JOY_BUTTON_Y
+	pad.pressed = true
 	m.call("_Input", pad)
 	m.call("_PhysicsProcess", 0.016)
-	assert_str(m.get("CurrentObjective")).contains("PARRY: Y")
+	assert_str(m.get("CurrentObjective")).contains("PARRY: " + String(get_node("/root/InputPromptService").call("GetBindingForDevice", "karate", true)))
 	var touch := InputEventScreenTouch.new()
 	m.call("_Input", touch)
 	m.call("_PhysicsProcess", 0.016)

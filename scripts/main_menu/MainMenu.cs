@@ -95,6 +95,8 @@ public partial class MainMenu : Control
 			EnsureUISoundManager();
 			UISoundManager.AutoWireButtons(this);
 			SetupNavPromptFooter();
+			InputPromptService.Instance?.SetContext("menu", "ui_up", "ui_down", "ui_accept", "ui_cancel");
+			InputPromptBinding.Track(this, UpdateLocalization);
 
 			GD.Print("main_menu: _ready() complete successfully");
 		}
@@ -311,6 +313,7 @@ public partial class MainMenu : Control
 		_settingsManager?.UpdateLocalizedTexts(this);
 		_authUI?.UpdateLocalizedTexts();
 		UpdateLocalizedTitle();
+		if (_instructionsPopup != null && _inputManager != null) UpdateInstructionsUI();
 
 		var global = GetNodeOrNull<Node>("/root/Global");
 		if (_navPromptLabel != null && global != null && global.HasMethod("get_nav_prompt"))
@@ -345,13 +348,7 @@ public partial class MainMenu : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		// Completely eliminate mouse cursor compatibility
-		if (@event is InputEventMouse)
-		{
-			GetViewport()?.SetInputAsHandled();
-			return;
-		}
-
+		InputPromptService.Instance?.ObserveInput(@event);
 		_inputManager.HandleInput(@event);
 
 		if (@event.IsActionPressed("ui_cancel"))
@@ -364,7 +361,7 @@ public partial class MainMenu : Control
 	// ─── Visuals ────────────────────────────────────────────────────────────────
 	private void ApplyCustomCursor()
 	{
-		Input.MouseMode = Input.MouseModeEnum.Hidden;
+		Input.MouseMode = InputPromptService.Instance?.UsingController == true ? Input.MouseModeEnum.Hidden : Input.MouseModeEnum.Visible;
 	}
 
 	private Texture2D LoadImageTexture(string resPath)
@@ -389,7 +386,8 @@ public partial class MainMenu : Control
 		var navPromptLabel = new Label
 		{
 			HorizontalAlignment = HorizontalAlignment.Center,
-			VerticalAlignment = VerticalAlignment.Center
+			VerticalAlignment = VerticalAlignment.Center,
+			AutowrapMode = TextServer.AutowrapMode.WordSmart
 		};
 
 		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
@@ -402,14 +400,6 @@ public partial class MainMenu : Control
 		AddChild(footerContainer);
 
 		var global = GetNodeOrNull<Node>("/root/Global");
-		if (global != null)
-		{
-			global.Connect("input_device_changed", Callable.From<bool>((isGamepad) => {
-				if (navPromptLabel != null)
-					navPromptLabel.Text = (string)global.Call("get_nav_prompt");
-			}));
-		}
-
 		if (global != null && global.HasMethod("get_nav_prompt"))
 			navPromptLabel.Text = (string)global.Call("get_nav_prompt");
 	}

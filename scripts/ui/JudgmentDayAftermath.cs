@@ -162,6 +162,7 @@ public partial class JudgmentDayAftermath : CanvasLayer
         _skip.AddThemeFontSizeOverride("font_size", 14);
         _skip.AddThemeColorOverride("font_color", new Color(0.95f, 0.75f, 0.3f));
         _skip.Pressed += Finish;
+        InputPromptBinding.Cinematic(_skip, true);
         _ui.AddChild(_skip);
 
         // Atmosphere audio
@@ -274,6 +275,7 @@ public partial class JudgmentDayAftermath : CanvasLayer
     /// <summary>Handles skip shortcuts on key and gamepad input.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;

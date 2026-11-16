@@ -1,5 +1,78 @@
 # Axiom Force — Project Memory
 
+## Google EGM input review Round 2 & repairs verified — 2026-11-16
+
+- Implemented all five approved Round 1 findings: localized remap modal title with
+  dynamic translation in `MenuInputManager.cs`, viewport-routed synthetic pad events
+  in `tools/input_prompt_smoke.gd` (popup cancel, forced-Keyboard platformer attack,
+  cinematic skip), specific menu prompt assertions on `NavPromptFooter/Label`, and
+  documentation calibrations.
+- Full test suites completed cleanly: Express backend 158/158, NUnit 454/454, GdUnit4
+  385/385 across 78 suites with 0 errors, 0 failures, 0 flaky, 0 orphans (`reports/report_699/results.xml`).
+  Graphical smoke passed 64 checks (0 failures, `reports/input-prompts-smoke/results.json`).
+- Executed second fresh-context Google EGM review round (`egm-codebase-details`,
+  `egm-implementation-readiness`, `egm-style`). All three personas verified resolution of
+  prior issues and certified the implementation Clean (0 Blockers, 0 Majors, 0 Nits).
+  Report recorded in `docs/INPUT_GOOGLE_REVIEW_ROUND2_2026-11-16.md` and root `goldfish_review_report.md`.
+- Docker containers (website, Express backend, PostgreSQL) remain running and healthy.
+  Changes remain local; no commits, pushes, exports or art generation.
+
+## Google EGM input review Round 1 — 2026-11-16
+
+- Owner requested Google skills. Ran one fresh EGM round with codebase_details,
+  implementation_readiness and style reviewers; all completed. One Major:
+  controller verification selects labels through direct service calls, leaving
+  viewport event routing/forced Keyboard gameplay unverified. Four Nits: weak menu
+  prompt assertion, untranslated remap-modal action title, stale test wording,
+  ambiguous keyboard/pad alias notation.
+- All five are proposed fixes, not applied. Report and raw reviews:
+  `docs/INPUT_GOOGLE_REVIEW_2026-11-16.md`; root Goldfish report links it.
+  Await owner resolution choice per egm-resolve; no two-round convergence claim.
+- Review/docs only: no suites/import rerun or Docker changes. Previous suite counts
+  stand; no commits, pushes, exports or art generation.
+
+## Docker restart and input verification resumed — 2026-11-16
+
+- Started the normal Compose stack; website, Express API and PostgreSQL are running.
+  API health returned `status: ok` and website returned HTTP 200. Compose built missing
+  images and created the network/volume present in this Docker environment; no deletion/reset.
+- Resumed unfinished input verification: previous final suite log stopped mid-run and
+  the saved isometric screenshots predated the final control-row positioning fix.
+  Fresh full suites passed: backend 158, NUnit 454, GdUnit4 385 with zero failures,
+  errors or orphans. Graphical smoke passed 58 checks and fresh captures confirm the
+  isometric control row clears dialogue. Evidence: `docs/INPUT_PROMPTS_AUDIT.md`.
+- No additional game code edits were needed. Hardware controller validation remains
+  outstanding; prior editor-import shutdown diagnostics remain documented.
+- Changes remain local; no commits, pushes, exports or art generation. Leave Docker up.
+
+## Approved shared input prompts — 2026-11-15
+
+- Implemented shared text prompts and physical binding tokens, device drift filtering,
+  active controller identity/family labels, five prompt styles, and separate persisted
+  `input_prompt_settings.glyph_style`. Last device stays in memory; Keyboard labels do not disable pads.
+- Central defaults initialize before saved mappings; four keyboard remaps retain pads,
+  modifiers and legacy numeric save compatibility. Reset reconstructs runtime actions.
+- Menus/custom buttons/dropdowns/roster accept mouse input; Mission 1 owns pointer combat,
+  world map owns dragging/waypoints. Platformer ignores mouse combat and retains legacy
+  keyboard/pad ordering, including existing B/Back overlap with pause.
+- Live prompt/locale subscriptions cover menus, campaign, recruitment/pods, world/map and
+  cinematic Skip labels; new prompt terminology covers 17 locales. No new artwork or credits.
+- Final verification evidence and physical-device limits: `docs/INPUT_PROMPTS_AUDIT.md`.
+  No exports, backend/schema edits, commits or pushes. Docker stays running.
+
+## Input prompt exploration — 2026-11-15
+
+- Source/Graphify inspection recorded in `docs/INPUT_PROMPTS_AUDIT.md`. Current prompts are text, bracketed key names and emoji, with partial keyboard/gamepad switching; no shared active button-icon renderer found.
+- Controller-family glyph preference exists as data only. Hardcoded HUD/menu bindings differ from action-derived recruitment/pod labels; the latter omit mouse/axis formatting. Global mouse suppression outside world exploration conflicts with Mission 1's intended pointer support and needs runtime verification.
+- No game launch, physical-device test, input/code/art changes or generation. Documentation-only task; no tests/import rerun, commit or push. Existing Docker services left untouched.
+
+## Docker startup — 2026-11-15
+
+- Owner requested the Docker server. Daemon was available with no running containers; `docker compose up -d --wait --wait-timeout 120` pulled PostgreSQL, built missing backend/website images and started all three normal services successfully.
+- Compose created the project network and `axiom-force_pgdata` volume in the current Docker environment. No existing volumes were deleted or reset by this task.
+- Backend and database are healthy. Host curl checks returned website HTTP 200 at `http://127.0.0.1:5173/` and API health `{"status":"ok"}` at port 8000; internal website and nginx API proxy checks also returned 200. PowerShell's initial localhost request timed out; explicit loopback curl succeeded.
+- Images built from existing source; no code/configuration changes, exports, generation, commits or pushes. Unit tests and Godot import were not rerun for this startup/documentation task. Stack left running.
+
 ## Approved website showcase — 2026-11-15
 
 - Approved redesign implemented locally; see `docs/WEBSITE_REDESIGN_VERIFICATION.md`.
@@ -2776,3 +2849,16 @@ artifacts and environment credentials are excluded. This Git-only publication re
 the recorded final build/import, Django 111, NUnit 314, Godot 321, Python 20 and live
 twelve-entrance verification; no code/assets changed or tests/imports/exports rerun.
 Sustained 1080p/60 and native art/language acceptance remain open as documented.
+
+## Paused checkpoint — owner requested stop, 2026-11-15
+
+- Resume approved shared input prompts plan from this working tree; do not restart implementation.
+- Owner requested stopping until tomorrow. Changes remain uncommitted; keep Docker running.
+- Latest stable graphical smoke: 58 checks passed, 0 failures, 22 screenshots in reports/input-prompts-smoke/. Physical controllers untested.
+- SquadStrip child-listener teardown bug fixed using a direct service subscription and immediate freeing of passive slot panels; focused ApexBastion suite passed 3/3 with 0 errors/failures/orphans. New prompt suite contains 19 cases including squad lifetime regression.
+- Root full run log input-tests-verified.log was running when stop requested; inspect its completion and counts before claiming final pass. Earlier full run had 384 cases with 0 failures but 276 orphans before the SquadStrip fix.
+- IMPORTANT last root edits are NOT rebuilt or verified: CodeLevel and IsometricMission control hints increased to14px with outline; isometric hints moved above subtitles (-200..-128).
+- Newly found remaining plan gap: CyberCombatHud badges still used fixed SHIFT/F/Q-RT. Prompt-consumer agent was implementing this when interrupted; inspect its partial diff before continuing. Preserve cooldown state while adding live action/device/style/locale labels. No final checks after these edits yet.
+- Latest background editor import exited but logged System.Runtime11 editor-tool loading and native EditorSettings/resource/ObjectDB shutdown diagnostics. Do not claim import logs are clean.
+- Read docs/INPUT_PROMPTS_AUDIT.md and review reports. Documentation verification totals remain provisional. After final edits: build, background import, full run_tests.ps1 (0 errors/failures/orphans), graphical smoke/screenshot inspection, Graphify update, and final README/HANDOFF/MEMORY results.
+- Root temporary logs remain untracked; move into ignored reports/input-prompts-smoke or a verification log folder after final verification. Preserve unrelated owner changes. No exports, generation spending, commits or pushes.

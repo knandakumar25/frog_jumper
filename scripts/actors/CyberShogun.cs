@@ -217,41 +217,21 @@ public partial class CyberShogun : BaseCharacter
 	/// <summary>Queues keyboard and controller combat requests for the physics tick.</summary>
 	public override void _Input(InputEvent @event)
 	{
+		InputPromptService.Instance?.ObserveInput(@event);
+		// Preserve the existing keyboard/pad ordering before the pause owner; mouse
+		// events never queue combat, including clicks on UI overlays.
 		if (@event is InputEventMouse) return;
-
-		// Squad swapping: Tab / Shift+Tab cycles unlocked operatives and 1-6 picks one directly. On gamepad D-pad Down is
-		// "next" and Back/Select is "previous" (D-pad up/left/right are already jump and movement).
-		if (@event is InputEventKey swapKey && swapKey.Pressed && !swapKey.Echo)
+		if (InputActionDefaults.Matches(@event, "squad_previous")) { CycleOperative(-1); return; }
+		if (InputActionDefaults.Matches(@event, "squad_next")) { CycleOperative(1); return; }
+		for (int slot = 0; slot < OperativeRoster.RosterOrder.Count; slot++)
 		{
-			if (swapKey.Keycode == Key.Tab) { CycleOperative(swapKey.ShiftPressed ? -1 : 1); return; }
-			int slot = (int)(swapKey.Keycode - Key.Key1);
-			if (slot >= 0 && slot < OperativeRoster.RosterOrder.Count) { SwapOperative(OperativeRoster.RosterOrder[slot]); return; }
+			if (!InputActionDefaults.Matches(@event, "squad_slot_" + (slot + 1))) continue;
+			SwapOperative(OperativeRoster.RosterOrder[slot]);
+			return;
 		}
-		else if (@event is InputEventJoypadButton swapPad && swapPad.Pressed)
-		{
-			if (swapPad.ButtonIndex == JoyButton.DpadDown) { CycleOperative(1); return; }
-			if (swapPad.ButtonIndex == JoyButton.Back) { CycleOperative(-1); return; }
-		}
-
-		// Detect 'F' key or 'attack' action for Sword attack.
-		if (@event is InputEventKey key && key.Pressed && !key.Echo)
-		{
-			if (key.Keycode == Key.F || @event.IsActionPressed("attack"))
-				_attackPressed = true;
-			else if (key.Keycode == Key.Q)
-				_qPressed = true;
-			else if (key.Keycode == Key.Shift || key.Keycode == Key.C)
-				_dashPressed = true;
-		}
-		else if (@event is InputEventJoypadButton jb && jb.Pressed)
-		{
-			if (jb.ButtonIndex == JoyButton.X || jb.ButtonIndex == JoyButton.B)
-				_attackPressed = true;
-			else if (jb.ButtonIndex == JoyButton.Y || jb.ButtonIndex == JoyButton.LeftShoulder)
-				_qPressed = true;
-			else if (jb.ButtonIndex == JoyButton.RightShoulder)
-				_dashPressed = true;
-		}
+		if (InputActionDefaults.Matches(@event, "attack")) _attackPressed = true;
+		else if (InputActionDefaults.Matches(@event, "karate")) _qPressed = true;
+		else if (InputActionDefaults.Matches(@event, "dash")) _dashPressed = true;
 	}
 
 	/// <summary>Updates combat timers, shield recovery, physics, and wall mobility.</summary>
@@ -913,4 +893,3 @@ public partial class CyberShogun : BaseCharacter
 	}
 
 }
-

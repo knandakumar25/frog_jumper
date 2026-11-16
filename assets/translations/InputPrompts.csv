@@ -1,0 +1,38 @@
+,english,spanish,eurofrench,brazilianportuguese,german,italian,polish,arabic,turkish,japanese,korean,mandarin,hebrew,traditionalchinese,indonesian,vietnamese,thai
+Input prompt style,Input prompt style,Estilo de indicaciones,Style des commandes,Estilo das indicações,Tastenanzeige,Stile dei comandi,Styl podpowiedzi,نمط عرض الأزرار,Tuş gösterim biçimi,操作表示スタイル,입력 표시 스타일,按键提示样式,סגנון תצוגת מקשים,按鍵提示樣式,Gaya petunjuk input,Kiểu gợi ý điều khiển,รูปแบบคำแนะนำปุ่ม
+Automatic,Automatic,Automático,Automatique,Automático,Automatisch,Automatico,Automatyczny,تلقائي,Otomatik,自動,자동,自动,אוטומטי,自動,Otomatis,Tự động,อัตโนมัติ
+Keyboard,Keyboard,Teclado,Clavier,Teclado,Tastatur,Tastiera,Klawiatura,لوحة المفاتيح,Klavye,キーボード,키보드,键盘,מקלדת,鍵盤,Keyboard,Bàn phím,แป้นพิมพ์
+Unbound,Unbound,Sin asignar,Non attribué,Sem atribuição,Nicht belegt,Non assegnato,Nieprzypisane,غير معيّن,Atanmamış,未割り当て,미지정,未绑定,לא מוקצה,未綁定,Belum ditetapkan,Chưa gán,ยังไม่กำหนด
+Left mouse,Left mouse,Ratón izquierdo,Clic gauche,Mouse esquerdo,Linke Maustaste,Mouse sinistro,Lewy przycisk myszy,زر الفأرة الأيسر,Sol fare,マウス左,마우스 왼쪽,鼠标左键,לחצן עכבר שמאלי,滑鼠左鍵,Mouse kiri,Chuột trái,เมาส์ซ้าย
+Right mouse,Right mouse,Ratón derecho,Clic droit,Mouse direito,Rechte Maustaste,Mouse destro,Prawy przycisk myszy,زر الفأرة الأيمن,Sağ fare,マウス右,마우스 오른쪽,鼠标右键,לחצן עכבר ימני,滑鼠右鍵,Mouse kanan,Chuột phải,เมาส์ขวา
+Middle mouse,Middle mouse,Ratón central,Clic du milieu,Mouse central,Mittlere Maustaste,Mouse centrale,Środkowy przycisk myszy,زر الفأرة الأوسط,Orta fare,マウス中央,마우스 가운데,鼠标中键,לחצן עכבר אמצעי,滑鼠中鍵,Mouse tengah,Chuột giữa,เมาส์กลาง
+Wheel,Wheel,Rueda,Molette,Roda,Mausrad,Rotella,Kółko,عجلة الفأرة,Tekerlek,ホイール,휠,滚轮,גלגלת,滾輪,Roda,Lăn chuột,ล้อเมาส์
+Left stick,Left stick,Stick izquierdo,Stick gauche,Analógico esquerdo,Linker Stick,Stick sinistro,Lewy drążek,العصا اليسرى,Sol çubuk,左スティック,왼쪽 스틱,左摇杆,מוט שמאלי,左搖桿,Stik kiri,Cần trái,ก้านซ้าย
+Right stick,Right stick,Stick derecho,Stick droit,Analógico direito,Rechter Stick,Stick destro,Prawy drążek,العصا اليمنى,Sağ çubuk,右スティック,오른쪽 스틱,右摇杆,מוט ימני,右搖桿,Stik kanan,Cần phải,ก้านขวา
+Press,Press,Pulsar,Appuyer,Pressionar,Drücken,Premi,Naciśnij,اضغط,Bas,押す,누르기,按下,לחיצה,按下,Tekan,Nhấn,กด
+Up,Up,Arriba,Haut,Cima,Oben,Su,W górę,أعلى,Yukarı,上,위,上,למעלה,上,Atas,Lên,ขึ้น
+Down,Down,Abajo,Bas,Baixo,Unten,Giù,W dół,أسفل,Aşağı,下,아래,下,למטה,下,Bawah,Xuống,ลง
+South face,South face,Botón inferior,Bouton du bas,Botão inferior,Untere Aktionstaste,Pulsante inferiore,Dolny przycisk,الزر السفلي,Alt yüz düğmesi,下側ボタン,아래쪽 버튼,下侧面键,כפתור תחתון,下側面鍵,Tombol bawah,Nút dưới,ปุ่มด้านล่าง
+East face,East face,Botón derecho,Bouton de droite,Botão direito,Rechte Aktionstaste,Pulsante destro,Prawy przycisk,الزر الأيمن,Sağ yüz düğmesi,右側ボタン,오른쪽 버튼,右侧面键,כפתור ימני,右側面鍵,Tombol kanan,Nút phải,ปุ่มด้านขวา
+West face,West face,Botón izquierdo,Bouton de gauche,Botão esquerdo,Linke Aktionstaste,Pulsante sinistro,Lewy przycisk,الزر الأيسر,Sol yüz düğmesi,左側ボタン,왼쪽 버튼,左侧面键,כפתור שמאלי,左側面鍵,Tombol kiri,Nút trái,ปุ่มด้านซ้าย
+North face,North face,Botón superior,Bouton du haut,Botão superior,Obere Aktionstaste,Pulsante superiore,Górny przycisk,الزر العلوي,Üst yüz düğmesi,上側ボタン,위쪽 버튼,上侧面键,כפתור עליון,上側面鍵,Tombol atas,Nút trên,ปุ่มด้านบน
+Left shoulder,Left shoulder,Superior izquierdo,Gâchette gauche,Botão superior esquerdo,Linke Schultertaste,Dorsale sinistro,Lewy górny przycisk,الزر العلوي الأيسر,Sol omuz,左ショルダー,왼쪽 숄더,左肩键,כפתור כתף שמאלי,左肩鍵,Bahu kiri,Nút vai trái,ปุ่มไหล่ซ้าย
+Right shoulder,Right shoulder,Superior derecho,Gâchette droite,Botão superior direito,Rechte Schultertaste,Dorsale destro,Prawy górny przycisk,الزر العلوي الأيمن,Sağ omuz,右ショルダー,오른쪽 숄더,右肩键,כפתור כתף ימני,右肩鍵,Bahu kanan,Nút vai phải,ปุ่มไหล่ขวา
+Left trigger,Left trigger,Gatillo izquierdo,Gâchette analogique gauche,Gatilho esquerdo,Linker Trigger,Grilletto sinistro,Lewy spust,الزناد الأيسر,Sol tetik,左トリガー,왼쪽 트리거,左扳机,הדק שמאלי,左扳機,Pelatuk kiri,Cò trái,ทริกเกอร์ซ้าย
+Right trigger,Right trigger,Gatillo derecho,Gâchette analogique droite,Gatilho direito,Rechter Trigger,Grilletto destro,Prawy spust,الزناد الأيمن,Sağ tetik,右トリガー,오른쪽 트리거,右扳机,הדק ימני,右扳機,Pelatuk kanan,Cò phải,ทริกเกอร์ขวา
+Advance,Advance,Avanzar,Continuer,Avançar,Weiter,Avanti,Dalej,متابعة,İlerle,次へ,다음,继续,המשך,繼續,Lanjut,Tiếp tục,ถัดไป
+Attack,Attack,Atacar,Attaquer,Atacar,Angreifen,Attacca,Atak,هجوم,Saldır,攻撃,공격,攻击,תקוף,攻擊,Serang,Tấn công,โจมตี
+Dash,Dash,Impulso,Ruée,Avanço,Sprint,Scatto,Zryw,اندفاع,Atıl,ダッシュ,대시,冲刺,הסתערות,衝刺,Dash,Lướt,พุ่ง
+Next operative,Next operative,Siguiente agente,Agent suivant,Próximo agente,Nächster Agent,Agente successivo,Następny agent,العميل التالي,Sonraki ajan,次の隊員,다음 요원,下一名干员,לוחם הבא,下一名幹員,Operatif berikutnya,Đặc vụ tiếp theo,เจ้าหน้าที่ถัดไป
+Previous operative,Previous operative,Agente anterior,Agent précédent,Agente anterior,Vorheriger Agent,Agente precedente,Poprzedni agent,العميل السابق,Önceki ajan,前の隊員,이전 요원,上一名干员,לוחם קודם,上一名幹員,Operatif sebelumnya,Đặc vụ trước,เจ้าหน้าที่ก่อนหน้า
+Map,Map,Mapa,Carte,Mapa,Karte,Mappa,Mapa,الخريطة,Harita,マップ,지도,地图,מפה,地圖,Peta,Bản đồ,แผนที่
+Dodge,Dodge,Esquivar,Esquiver,Esquivar,Ausweichen,Schiva,Unik,مراوغة,Kaçın,回避,회피,闪避,התחמק,閃避,Menghindar,Né,หลบ
+Guard,Guard,Defender,Garder,Defender,Blocken,Parata,Blok,دفاع,Savun,防御,방어,防御,הגן,防禦,Bertahan,Đỡ,ป้องกัน
+Use,Use,Usar,Utiliser,Usar,Benutzen,Usa,Użyj,استخدام,Kullan,使う,사용,使用,השתמש,使用,Gunakan,Dùng,ใช้
+Pan left,Pan left,Desplazar izquierda,Déplacer à gauche,Mover à esquerda,Nach links schwenken,Sposta a sinistra,Przesuń w lewo,تحريك لليسار,Sola kaydır,左に移動,왼쪽으로 이동,向左平移,הזז שמאלה,向左平移,Geser ke kiri,Dịch trái,เลื่อนไปซ้าย
+Pan right,Pan right,Desplazar derecha,Déplacer à droite,Mover à direita,Nach rechts schwenken,Sposta a destra,Przesuń w prawo,تحريك لليمين,Sağa kaydır,右に移動,오른쪽으로 이동,向右平移,הזז ימינה,向右平移,Geser ke kanan,Dịch phải,เลื่อนไปขวา
+Zoom in,Zoom in,Acercar,Zoom avant,Aproximar,Vergrößern,Ingrandisci,Powiększ,تكبير,Yakınlaştır,拡大,확대,放大,התקרב,放大,Perbesar,Phóng to,ซูมเข้า
+Zoom out,Zoom out,Alejar,Zoom arrière,Afastar,Verkleinern,Riduci,Pomniejsz,تصغير,Uzaklaştır,縮小,축소,缩小,התרחק,縮小,Perkecil,Thu nhỏ,ซูมออก
+Close map,Close map,Cerrar mapa,Fermer la carte,Fechar mapa,Karte schließen,Chiudi mappa,Zamknij mapę,إغلاق الخريطة,Haritayı kapat,マップを閉じる,지도 닫기,关闭地图,סגור מפה,關閉地圖,Tutup peta,Đóng bản đồ,ปิดแผนที่
+Mouse: Aim,Mouse: Aim,Ratón: apuntar,Souris : viser,Mouse: mirar,Maus: Zielen,Mouse: mira,Mysz: celowanie,الفأرة: تصويب,Fare: nişan,マウス: 照準,마우스: 조준,鼠标：瞄准,עכבר: כיוון,滑鼠：瞄準,Mouse: bidik,Chuột: ngắm,เมาส์: เล็ง
+Right stick: Aim,Right stick: Aim,Stick derecho: apuntar,Stick droit : viser,Analógico direito: mirar,Rechter Stick: Zielen,Stick destro: mira,Prawy drążek: celowanie,العصا اليمنى: تصويب,Sağ çubuk: nişan,右スティック: 照準,오른쪽 스틱: 조준,右摇杆：瞄准,מוט ימני: כיוון,右搖桿：瞄準,Stik kanan: bidik,Cần phải: ngắm,ก้านขวา: เล็ง

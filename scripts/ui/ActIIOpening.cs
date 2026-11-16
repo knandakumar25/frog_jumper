@@ -83,6 +83,7 @@ public partial class ActIIOpening : CanvasLayer
             AnchorLeft = 1, AnchorRight = 1, OffsetLeft = -270, OffsetRight = -28, OffsetTop = 24, OffsetBottom = 72 };
         ui.AddChild(skip);
         _skip = skip;
+        InputPromptBinding.Cinematic(_skip, false);
         skip.Pressed += Finish;
         skip.GrabFocus();
         _speech = CreateAudio("Speech", SpeechPath, 0);
@@ -158,6 +159,7 @@ public partial class ActIIOpening : CanvasLayer
     /// <summary>Keyboard and controller shortcuts share the focused button's pointer/touch completion route.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (!IsInsideTree() || _navigating) return;
         if (HasFinished) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key &&

@@ -98,12 +98,6 @@ public static class WildfireText
     /// <summary>Returns the current keyboard or controller binding for a gameplay action.</summary>
     public static string Binding(string action, bool pad)
     {
-        foreach (var input in InputMap.ActionGetEvents(action))
-        {
-            if (pad && input is InputEventJoypadButton button) return button.ButtonIndex.ToString();
-            if (!pad && input is InputEventKey key)
-                return OS.GetKeycodeString(key.PhysicalKeycode != Key.None ? key.PhysicalKeycode : key.Keycode);
-        }
-        return Get("WF_TOUCH_" + action.ToUpperInvariant(), action);
+        return InputPromptService.Instance?.Binding(action, pad) ?? TranslationServer.Translate("Unbound");
     }
 }

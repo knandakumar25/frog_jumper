@@ -49,11 +49,8 @@ public partial class GameHome : Control
 		}
 
 		var global = GetNodeOrNull<Node>("/root/Global");
-		if (global != null)
-		{
-			global.Connect("input_device_changed", Callable.From<bool>(OnInputDeviceChanged));
-		}
-
+		InputPromptService.Instance?.SetContext("menu", "home_start");
+		InputPromptBinding.Track(this, UpdatePromptLabel);
 		UpdatePromptLabel();
 
 		if (_versionLabel != null)
@@ -98,13 +95,14 @@ public partial class GameHome : Control
 
 	public override void _Input(InputEvent @event)
 	{
+		InputPromptService.Instance?.ObserveInput(@event);
 		if (_isTransitioning) return;
 
 		bool isGamepadInput = (@event is InputEventJoypadButton joyBtn && joyBtn.Pressed) ||
 							  (@event is InputEventJoypadMotion joyMot && Mathf.Abs(joyMot.AxisValue) > 0.5f);
 
 		if ((@event is InputEventKey keyEv && keyEv.Pressed && !keyEv.Echo) ||
-			isGamepadInput)
+			isGamepadInput || (@event is InputEventMouseButton { ButtonIndex: MouseButton.Left, Pressed: true }))
 		{
 			TriggerStartTransition();
 			GetViewport().SetInputAsHandled();

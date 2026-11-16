@@ -42,6 +42,7 @@ public partial class MainCharacter : CharacterBody2D
 	/// </summary>
 	public override void _Input(InputEvent @event)
 	{
+		InputPromptService.Instance?.ObserveInput(@event);
 		if (@event is InputEventMouse) return;
 
 		// Handle 'F' key or attack action for Sword Attack.

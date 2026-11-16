@@ -1,5 +1,50 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Approved EGM input repairs and Round 2 review completed — 2026-11-16
+
+Applied all five approved findings: localized/live remap-modal title, viewport-routed
+controller checks (including Keyboard-style gameplay and consuming menu/cinematic
+handlers), exact menu instruction-label assertions, and two audit wording corrections.
+Graphical smoke passed 64 checks (0 failures). Full test suites completed cleanly:
+backend 158/158, NUnit 454/454, GdUnit4 385/385 across 78 suites with zero errors, failures,
+flaky cases, or orphan nodes (`reports/report_699/results.xml`).
+A second fresh-context Google EGM review round was executed across `codebase_details`,
+`implementation_readiness`, and `style`. All findings are resolved and documented in
+`docs/INPUT_GOOGLE_REVIEW_ROUND2_2026-11-16.md` and `docs/INPUT_PROMPTS_AUDIT.md`.
+Status: Approved & Clean. Keep Docker running and changes local. Import retains the documented
+SDK 11/editor shutdown diagnostics; no global SDK or project target changes were made.
+
+
+
+
+## Resume verification completed — 2026-11-16
+
+Normal Docker services are running; website/API health checks pass. Finished the
+input task's interrupted verification without further game code changes: backend
+158/158, NUnit 454/454, GdUnit4 385/385 with zero errors/failures/orphans, and
+graphical smoke 58 checks with zero failures. Fresh isometric captures confirm the
+final controls/dialogue separation. See `docs/INPUT_PROMPTS_AUDIT.md` for evidence
+and physical-device/import-diagnostic limits. Keep changes local and Docker running.
+
+## Shared input prompts — 2026-11-15
+
+Approved input plan implemented through `scripts/input/InputActionDefaults.cs`,
+`InputPromptService.cs` (autoload before Global) and lifetime-owned `InputPromptBinding`.
+Global retains compatibility helpers/signals. Keyboard remaps serialize physical/logical
+keys and modifiers while preserving pad events; old numeric arrays still load.
+Prompt styles persist only `glyph_style` in SessionManager's `input_prompt_settings`;
+active device/controller history stays in memory. No backend/schema changes.
+
+Prompts follow meaningful input, current mappings and locale; unknown pads use positional
+names. Scene `_Input` owners observe before consuming events because dispatch precedes
+the autoload. Mission 1 queues combat after GUI handling. Platformer retains its original
+keyboard/pad input ordering and ignores mouse events, including UI clicks. Existing B/Back
+overlaps with pause remain as before. Menus, custom buttons/dropdowns, roster and pause
+pointer ownership now allow clicks. Cinematic handlers and timing remain unchanged.
+
+Verification and review findings/resolutions are recorded in
+[the audit](docs/INPUT_PROMPTS_AUDIT.md). Changes are local and uncommitted; leave Docker running.
+
 ## Approved player website redesign — 2026-11-15
 
 Implemented the approved showcase plan locally. See
@@ -3128,3 +3173,16 @@ Verified Windows through Godot AI MCP: real Clerk-approved profile handoff, exac
 Final checks: C# build (zero errors, 153 existing warnings), background import exit 0 with all seventeen translation outputs present, Django 111/111, NUnit 303/303, GdUnit4 319/319 with zero errors/failures/orphans (report_518), twenty Python checks, structural localization gate and four Playwright checks. The final build/import and full run_tests.ps1 rerun completed successfully after all source edits. Editor import still logs existing addon TLS/updater and shutdown/leaked-resource diagnostics. The independent strict voice gate remains exit 1 for seven historical evidence/listening candidates; no audio/cue ordering/timing changed. Regenerated voice metadata resolves current subtitle aliases.
 
 Reproduction and test isolation are documented in tools/playwright/README.md. The optional host test proxy uses port 18002; 8002 is occupied by Godot MCP's WebSocket server. OS-denied focus/taskbar fallback was not forcibly reproduced. macOS/Linux verification, mobile integration and production rollout remain deferred. No exports, deployments or Neon/game-storage migration were performed. On 2026-11-06 the user separately authorized committing and pushing this verified change to origin/main; Git-only publication reuses the checks above. Local keys and ignored validation logs are excluded.
+
+## Paused checkpoint — owner requested stop, 2026-11-15
+
+- Resume approved shared input prompts plan from this working tree; do not restart implementation.
+- Owner requested stopping until tomorrow. Changes remain uncommitted; keep Docker running.
+- Latest stable graphical smoke: 58 checks passed, 0 failures, 22 screenshots in reports/input-prompts-smoke/. Physical controllers untested.
+- SquadStrip child-listener teardown bug fixed using a direct service subscription and immediate freeing of passive slot panels; focused ApexBastion suite passed 3/3 with 0 errors/failures/orphans. New prompt suite contains 19 cases including squad lifetime regression.
+- Root full run log input-tests-verified.log was running when stop requested; inspect its completion and counts before claiming final pass. Earlier full run had 384 cases with 0 failures but 276 orphans before the SquadStrip fix.
+- IMPORTANT last root edits are NOT rebuilt or verified: CodeLevel and IsometricMission control hints increased to14px with outline; isometric hints moved above subtitles (-200..-128).
+- Newly found remaining plan gap: CyberCombatHud badges still used fixed SHIFT/F/Q-RT. Prompt-consumer agent was implementing this when interrupted; inspect its partial diff before continuing. Preserve cooldown state while adding live action/device/style/locale labels. No final checks after these edits yet.
+- Latest background editor import exited but logged System.Runtime11 editor-tool loading and native EditorSettings/resource/ObjectDB shutdown diagnostics. Do not claim import logs are clean.
+- Read docs/INPUT_PROMPTS_AUDIT.md and review reports. Documentation verification totals remain provisional. After final edits: build, background import, full run_tests.ps1 (0 errors/failures/orphans), graphical smoke/screenshot inspection, Graphify update, and final README/HANDOFF/MEMORY results.
+- Root temporary logs remain untracked; move into ignored reports/input-prompts-smoke or a verification log folder after final verification. Preserve unrelated owner changes. No exports, generation spending, commits or pushes.

@@ -95,12 +95,8 @@ public partial class StoryIntro : Control
 			robotSprite.Play();
 
 
-		// Handle gamepad/keyboard prompt updates.
-		if (global != null)
-		{
-			global.Connect("input_device_changed", Callable.From<bool>((isGamepad) => UpdateStoryPrompts()));
-		}
-
+		InputPromptService.Instance?.SetContext("cinematic", "story_advance", "story_skip");
+		InputPromptBinding.Track(this, UpdateStoryPrompts);
 		UpdateStoryPrompts();
 		StartNextLine();
 	}
@@ -143,16 +139,18 @@ public partial class StoryIntro : Control
 	/// </summary>
 	private void UpdateStoryPrompts()
 	{
-		var global = GetNodeOrNull<Node>("/root/Global");
-		bool isGamepad = (global != null && (bool)global.Get("is_gamepad_mode"));
-
 		if (skipButton != null)
 		{
-			skipButton.Text = isGamepad ? TranslationServer.Translate("Skip") + " (START) >>>" : TranslationServer.Translate("Skip") + " (ESC) >>>";
+			skipButton.AutowrapMode = TextServer.AutowrapMode.WordSmart;
+			skipButton.GrowHorizontal = Control.GrowDirection.Begin;
+			skipButton.OffsetLeft = -440;
+			skipButton.OffsetRight = -24;
+			skipButton.OffsetBottom = skipButton.OffsetTop + 90;
+			skipButton.Text = InputPromptBinding.Text("story_skip", "Skip") + " >>>";
 		}
 		if (continueButton != null)
 		{
-			continueButton.Text = isGamepad ? TranslationServer.Translate("Continue") + " (A) >>>" : TranslationServer.Translate("Continue") + " (SPACE) >>>";
+			continueButton.Text = InputPromptBinding.Text("story_advance", "Continue") + " >>>";
 		}
 	}
 
@@ -303,6 +301,7 @@ public partial class StoryIntro : Control
 
 	public override void _Input(InputEvent @event)
 	{
+		InputPromptService.Instance?.ObserveInput(@event);
 		// Global skip trigger (Escape / Cancel).
 		if (@event.IsActionPressed("escape") || @event.IsActionPressed("ui_cancel") ||
 			(@event is InputEventKey ke && ke.Pressed && !ke.Echo && ke.Keycode == Key.Escape))

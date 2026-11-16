@@ -149,13 +149,12 @@ public abstract partial class CodeLevel : Node2D
         GetTree().Paused || _player == null || _player.CurrentHealth <= 0;
     private bool _finishing;
     private bool _recovering;
-    private bool _usingPad;
+    private bool _usingPad => InputPromptService.Instance?.IsGamepad ?? false;
     private bool _usingTouch;
 
     /// <summary>Names the current device's control; signature input uses shipped Q/Y defaults when its optional InputMap action is absent.</summary>
     protected string ContextBinding(string action) => _usingTouch
         ? WildfireText.Get("WF_TOUCH_" + action.ToUpperInvariant(), action == "karate" ? "Ability" : action)
-        : action == "karate" && !InputMap.HasAction(action) ? (_usingPad ? "Y / LB" : "Q")
         : WildfireText.Binding(action, _usingPad);
     private OperativeRoster? _hintRoster;
     private CyberVictoryScorecard? _scorecard;
@@ -211,6 +210,8 @@ public abstract partial class CodeLevel : Node2D
         SpawnEnemies();
         BuildPetals();
         BuildUserInterface();
+        InputPromptService.Instance?.SetContext("platformer", "left", "right", "jump", "attack", "karate", "dash", "escape");
+        InputPromptBinding.Track(this, RefreshControlsHint);
         BuildAudioAndPause();
         Speech = new MissionSpeechQueue { Name = "MissionSpeechQueue", Mission = this };
         AddChild(Speech);
@@ -244,10 +245,11 @@ public abstract partial class CodeLevel : Node2D
     /// <summary>Switches the on-screen hint between keyboard and gamepad as the player changes device.</summary>
     public override void _Input(InputEvent @event)
     {
+        InputPromptService.Instance?.ObserveInput(@event);
         if (_controlsLabel == null) return;
-        if (@event is InputEventJoypadButton or InputEventJoypadMotion) { _usingPad = true; _usingTouch = false; RefreshControlsHint(); }
-        else if (@event is InputEventScreenTouch) { _usingPad = false; _usingTouch = true; }
-        else if (@event is InputEventKey) { _usingPad = false; _usingTouch = false; RefreshControlsHint(); }
+        if (@event is InputEventScreenTouch) { _usingTouch = true; RefreshControlsHint(); }
+        else if (InputPromptBinding.DeliberateNonTouch(@event))
+        { _usingTouch = false; RefreshControlsHint(); }
     }
 
     /// <summary>Refreshes the controls hint when a new operative joins (it then also lists the swap keys).</summary>
@@ -774,12 +776,16 @@ public abstract partial class CodeLevel : Node2D
         box.AddChild(_fragmentLabel);
         UpdateFragmentLabel();
 
-        _controlsLabel = NewLabel("", 12, Colors.White);
-        _controlsLabel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomLeft);
+        _controlsLabel = NewLabel("", 14, Colors.White);
+        _controlsLabel.AddThemeColorOverride("font_outline_color", Colors.Black);
+        _controlsLabel.AddThemeConstantOverride("outline_size", 4);
+        _controlsLabel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomWide);
         _controlsLabel.OffsetLeft = 20;
-        _controlsLabel.OffsetTop = -34;
-        _controlsLabel.OffsetRight = 1240;
-        _controlsLabel.OffsetBottom = -10;
+        // Keep wrapped alternatives above both the subtitle panel and the squad row.
+        _controlsLabel.OffsetTop = -200;
+        _controlsLabel.OffsetRight = -20;
+        _controlsLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
+        _controlsLabel.OffsetBottom = -128;
         root.AddChild(_controlsLabel);
         RefreshControlsHint();
 
@@ -886,11 +892,18 @@ public abstract partial class CodeLevel : Node2D
     {
         if (_controlsLabel == null) return;
         bool canSwap = OperativeRoster.Current.Unlocked.Count > 1;
-        _controlsLabel.Text = _usingPad
-            ? WildfireText.Format("HUD_PAD_CONTROLS", "L STICK MOVE | A JUMP | X ATTACK | Y ABILITY | RB DASH | {swap}START PAUSE",
-                ("swap", canSwap ? TranslationServer.Translate("D-PAD DOWN / BACK SWAP | ").ToString() : ""))
-            : WildfireText.Format("HUD_KEY_CONTROLS", "A / D MOVE | SPACE JUMP | F ATTACK | Q ABILITY | SHIFT DASH | {swap}ESC PAUSE",
-                ("swap", canSwap ? TranslationServer.Translate("TAB / 1-6 SWAP | ").ToString() : ""));
+        if (_usingTouch)
+        {
+            _controlsLabel.Text = WildfireText.Get("WF_TOUCH_CONTROLS", "Use the touch controls to move, jump, attack and use abilities.");
+            return;
+        }
+        _controlsLabel.Text = string.Join("  |  ",
+            InputPromptBinding.Text("left", "Left"), InputPromptBinding.Text("right", "Right"),
+            InputPromptBinding.Text("jump", "Jump"), InputPromptBinding.Text("attack", "Attack"),
+            InputPromptBinding.Text("karate", "Ability"), InputPromptBinding.Text("dash", "Dash"),
+            InputPromptBinding.Text("escape", "Pause"));
+        if (canSwap) _controlsLabel.Text += "  |  " + InputPromptBinding.Text("squad_next", "Next operative") +
+            "  |  " + InputPromptBinding.Text("squad_previous", "Previous operative");
     }
 
     /// <summary>Starts the stage music and instantiates the shared pause menu used by the other levels.</summary>

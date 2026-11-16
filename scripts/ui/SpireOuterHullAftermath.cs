@@ -161,6 +161,7 @@ public partial class SpireOuterHullAftermath : CanvasLayer
         _skip.AddThemeColorOverride("font_color", new Color(0.8f, 0.9f, 1.0f, 0.8f));
         _skip.AddThemeFontSizeOverride("font_size", 14);
         _skip.Pressed += Finish;
+        InputPromptBinding.Cinematic(_skip, true);
         _ui.AddChild(_skip);
 
         // Audio streams
@@ -258,6 +259,7 @@ public partial class SpireOuterHullAftermath : CanvasLayer
     /// <summary>Handles keyboard, controller, mouse, and touch skip shortcuts.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;

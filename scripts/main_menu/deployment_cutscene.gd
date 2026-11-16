@@ -19,6 +19,8 @@ var transitioning := false
 var elapsed := 0.0
 var _last_audio := -1.0
 var _stalled := 0.0
+var _previous_prompt_context := "menu"
+var _previous_prompt_actions: Array[String] = []
 @onready var narrator: AudioStreamPlayer = $Narrator
 @onready var subtitle: Label = $UI/SubtitlePanel/Subtitle
 @onready var stage: Node2D = $Frame/Screen/World/Stage
@@ -35,6 +37,12 @@ func _ready() -> void:
 		global.call('set_control_prompt_visible', false)
 	$UI/Skip.pressed.connect(finish)
 	$UI/Skip.grab_focus()
+	_previous_prompt_context = InputPromptService.Context
+	_previous_prompt_actions.assign(InputPromptService.ContextActions)
+	InputPromptService.SetPromptContext("cinematic", ["deployment_skip"])
+	InputPromptService.PromptsChanged.connect(_refresh_skip_prompt)
+	$UI/Skip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_refresh_skip_prompt()
 	# Skip straight to the briefing while the cutscene art awaits regeneration
 	# (docs/ART_REGENERATION.md), as the C# cutscenes do when ResourcesAvailable is false.
 	if not stage.art_available():
@@ -45,6 +53,12 @@ func _ready() -> void:
 		_apply_voice_gain(narration_path)
 		narrator.play()
 	seek_visuals(0.0)
+
+
+## Shows actual shortcuts without changing the narration timeline or accepted Skip events.
+func _refresh_skip_prompt() -> void:
+	if is_instance_valid($UI/Skip):
+		$UI/Skip.text = tr("Skip") + ": [ " + InputPromptService.GetBinding("deployment_skip") + " ]"
 
 
 func _apply_voice_gain(path: String) -> void:
@@ -114,7 +128,8 @@ func subtitle_at(time: float) -> String:
 
 
 func _input(event: InputEvent) -> void:
-	## Catch the Skip region before Global consumes mouse events project-wide.
+	InputPromptService.ObserveInput(event)
+	## Catch the Skip region before a pointer event reaches another scene owner.
 	## Native touch is handled directly, independent of mouse-emulation settings.
 	if transitioning or not is_inside_tree():
 		return
@@ -162,6 +177,10 @@ func _exit_tree() -> void:
 	## Removing the scene terminates audio; all visuals are owned child nodes.
 	_stop_audio()
 	set_process(false)
+	if InputPromptService.PromptsChanged.is_connected(_refresh_skip_prompt):
+		InputPromptService.PromptsChanged.disconnect(_refresh_skip_prompt)
+	if InputPromptService.Context == "cinematic" and "deployment_skip" in InputPromptService.ContextActions:
+		InputPromptService.SetPromptContext(_previous_prompt_context, _previous_prompt_actions)
 	var global := get_node_or_null('/root/Global')
 	if global and global.has_method('set_control_prompt_visible'):
 		global.call('set_control_prompt_visible', true)

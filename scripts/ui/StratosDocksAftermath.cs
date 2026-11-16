@@ -142,6 +142,7 @@ public partial class StratosDocksAftermath : CanvasLayer
         _skip.AnchorTop = 0.04f;
         _skip.AnchorBottom = 0.09f;
         _skip.Pressed += Finish;
+        InputPromptBinding.Cinematic(_skip, true);
 
         // Audio streams
         _speech = new AudioStreamPlayer { Name = "SpeechPlayer", Bus = "SFX" };
@@ -230,6 +231,7 @@ public partial class StratosDocksAftermath : CanvasLayer
     /// <summary>Handles keyboard, controller, mouse, and touch skip shortcuts.</summary>
     public override void _Input(InputEvent input)
     {
+        InputPromptService.Instance?.ObserveInput(input);
         if (HasFinished || !IsInsideTree()) return;
         bool skip = input is InputEventKey { Pressed: true, Echo: false } key && key.Keycode is Key.Escape or Key.Space or Key.Enter;
         skip |= input is InputEventJoypadButton { Pressed: true } joy && joy.ButtonIndex is JoyButton.Start or JoyButton.A or JoyButton.B;

@@ -58,13 +58,15 @@ public partial class CyberDropdown : Control
 	public override void _Ready()
 	{
 		CustomMinimumSize = new Vector2(320, 52);
-		MouseFilter = MouseFilterEnum.Ignore; // Completely eliminate cursor compatibility
+		MouseFilter = MouseFilterEnum.Stop;
 		FocusMode = FocusModeEnum.All;
 		_font = GD.Load<Font>("res://assets/fonts/LocaleSelectorFont.tres") ?? ThemeDB.FallbackFont;
 		AddThemeFontOverride("font", _font);
 
 		FocusEntered += () => { _isHovered = true;  QueueRedraw(); };
 		FocusExited  += () => { _isHovered = false; QueueRedraw(); };
+		MouseEntered += () => { _isHovered = true; QueueRedraw(); };
+		MouseExited += () => { _isHovered = HasFocus(); QueueRedraw(); };
 
 		CreatePopupLayer();
 	}
@@ -73,6 +75,7 @@ public partial class CyberDropdown : Control
 	public override void _Notification(int what)
 	{
 		if (what == NotificationTranslationChanged) QueueRedraw();
+		if (what == NotificationVisibilityChanged && _isOpen && !IsVisibleInTree()) ClosePopup();
 	}
 
 	/// <summary>
@@ -110,8 +113,10 @@ public partial class CyberDropdown : Control
 
 	public override void _GuiInput(InputEvent @event)
 	{
-		if (@event is InputEventMouse)
+		if (@event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left })
 		{
+			GrabFocus();
+			TogglePopup();
 			AcceptEvent();
 			return;
 		}
@@ -129,6 +134,14 @@ public partial class CyberDropdown : Control
 
 	public override void _Input(InputEvent @event)
 	{
+		InputPromptService.Instance?.ObserveInput(@event);
+		if (_isOpen && @event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse &&
+			!_popupPanel.GetGlobalRect().HasPoint(mouse.Position) && !GetGlobalRect().HasPoint(mouse.Position))
+		{
+			ClosePopup();
+			GetViewport()?.SetInputAsHandled();
+			return;
+		}
 		if (_isOpen && @event.IsActionPressed("ui_cancel"))
 		{
 			ClosePopup();
@@ -206,7 +219,10 @@ public partial class CyberDropdown : Control
 		if (_items.Count == 0) return;
 
 		foreach (Node child in _popupVBox.GetChildren())
+		{
+			_popupVBox.RemoveChild(child);
 			child.QueueFree();
+		}
 
 		for (int i = 0; i < _items.Count; i++)
 		{
@@ -284,6 +300,7 @@ public partial class CyberDropdown : Control
 		if (_popupPanel != null) _popupPanel.Visible = false;
 		_isOpen = false;
 		QueueRedraw();
+		if (IsInsideTree() && IsVisibleInTree()) CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	/// <summary>

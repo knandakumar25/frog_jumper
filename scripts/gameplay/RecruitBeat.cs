@@ -30,14 +30,15 @@ public partial class RecruitBeat : Node2D
 
     private float _time, _promptTimeout;
     private CyberShogun? _player;
-    private bool _usingPad, _usingTouch;
+    private bool _usingPad => InputPromptService.Instance?.IsGamepad ?? false;
+    private bool _usingTouch;
 
     /// <summary>Tracks the current input device so lessons name the controls the player is using.</summary>
     public override void _Input(InputEvent input)
     {
-        if (input is InputEventJoypadButton or InputEventJoypadMotion) { _usingPad = true; _usingTouch = false; }
-        else if (input is InputEventScreenTouch) { _usingPad = false; _usingTouch = true; }
-        else if (input is InputEventKey) { _usingPad = false; _usingTouch = false; }
+        InputPromptService.Instance?.ObserveInput(input);
+        if (input is InputEventScreenTouch) _usingTouch = true;
+        else if (InputPromptBinding.DeliberateNonTouch(input)) _usingTouch = false;
     }
 
     /// <summary>Name, one-line instruction and ability-use radius for each signature ability tag.</summary>
@@ -96,10 +97,6 @@ public partial class RecruitBeat : Node2D
         string tag = OperativeRoster.AbilityTagOf(Operative) ?? "";
         var (name, hint) = Describe(tag);
         string binding = _usingTouch ? WildfireText.Get("WF_TOUCH_ABILITY", "Ability") : WildfireText.Binding("karate", _usingPad);
-        // These missions use the controller's direct Q/Y input when the optional bootstrap action is absent.
-        // Keep the existing fortress lesson presentation unchanged.
-        if (!_usingTouch && binding == "karate" && Level is PalaceMission or ConcreteWildfireMission or NeonRustMission)
-            binding = _usingPad ? "Y / LB" : "Q";
         hint = WildfireText.Get("ABILITY_HINT_" + tag.ToUpperInvariant(), hint.Replace("Q", "{ability}")).Replace("{ability}", binding);
         name = WildfireText.Get("ABILITY_NAME_" + tag.ToUpperInvariant(), name);
         string active = _player!.ActiveProfile.DisplayName;
@@ -108,8 +105,8 @@ public partial class RecruitBeat : Node2D
         else
         {
             int slot = System.Linq.Enumerable.ToList(OperativeRoster.RosterOrder).IndexOf(OperativeRoster.Normalize(Operative)) + 1;
-            // Swap bindings are handled directly by CyberShogun rather than an InputMap action.
-            string swap = _usingTouch ? WildfireText.Get("WF_TOUCH_SWAP", "Squad") : _usingPad ? "D-Pad Down / Back" : WildfireText.Interpolate("UI_RECRUITBEAT_REFRESHPROMPT_574535D3", $"{slot} / Tab");
+            string swap = _usingTouch ? WildfireText.Get("WF_TOUCH_SWAP", "Squad") :
+                InputPromptBinding.Binding("squad_next") + (_usingPad ? "" : " / " + InputPromptBinding.Binding($"squad_slot_{slot}"));
             string template = WildfireText.Get("RECRUIT_SWAP_PROMPT", "{operative} JOINED - {swap}: swap, then {name}: {hint}");
             Level.ShowPrompt(template.Replace("{operative}", Operative.ToUpperInvariant()).Replace("{swap}", swap)
                 .Replace("{name}", name).Replace("{hint}", hint));

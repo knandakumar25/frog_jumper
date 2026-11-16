@@ -101,6 +101,8 @@ public partial class IsometricMission : Node2D
         SpawnDroneCrew();
         BuildObjectives();
         BuildUserInterface();
+        InputPromptService.Instance?.SetContext("isometric", "iso_move_left", "iso_move_right", "iso_move_up", "iso_move_down", "iso_primary_attack", "iso_special_ability", "iso_dash", "iso_interact", "iso_pause");
+        InputPromptBinding.Track(this, RefreshControlsHint);
         AddSweepBeam();
         AddMemoryFragments();
         InstallCheckpointMarkers();
@@ -133,24 +135,24 @@ public partial class IsometricMission : Node2D
     /// <summary>Accepts the pause key while the world is paused and routes resume through the same action.</summary>
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventJoypadButton or InputEventJoypadMotion)
-            _controlsLabel.Text = "L STICK MOVE | R STICK AIM | LT ATTACK | RT ABILITY | RB DASH | A USE | START PAUSE";
-        else if (@event is InputEventKey or InputEventMouseButton or InputEventMouseMotion)
-            _controlsLabel.Text = "WASD MOVE | MOUSE AIM | F ATTACK | Q ABILITY | SHIFT DASH | E USE | ESC PAUSE";
-        if (_paused && @event is InputEventKey key && key.Pressed && !key.Echo && key.Keycode == Key.Escape)
+        InputPromptService.Instance?.ObserveInput(@event);
+        if (InputActionDefaults.Matches(@event, "iso_pause"))
         {
-            SetPaused(false);
+            SetPaused(!_paused);
             GetViewport().SetInputAsHandled();
         }
-        else if (_paused && @event is InputEventJoypadButton button && button.Pressed && button.ButtonIndex == JoyButton.Start)
-        {
-            SetPaused(false);
-            GetViewport().SetInputAsHandled();
-        }
-        else if (!_paused && @event is InputEventKey keyPressed && keyPressed.Pressed && !keyPressed.Echo && keyPressed.Keycode == Key.Escape)
-            SetPaused(true);
-        else if (!_paused && @event is InputEventJoypadButton padPressed && padPressed.Pressed && padPressed.ButtonIndex == JoyButton.Start)
-            SetPaused(true);
+    }
+
+    private void RefreshControlsHint()
+    {
+        if (_controlsLabel == null) return;
+        _controlsLabel.Text = string.Join("  |  ",
+            InputPromptBinding.Text("iso_move_left", "Left"), InputPromptBinding.Text("iso_move_right", "Right"),
+            InputPromptBinding.Text("iso_move_up", "Up"), InputPromptBinding.Text("iso_move_down", "Down"),
+            InputPromptBinding.Text("iso_primary_attack", "Attack"), InputPromptBinding.Text("iso_special_ability", "Ability"),
+            InputPromptBinding.Text("iso_dash", "Dash"), InputPromptBinding.Text("iso_interact", "Use"),
+            InputPromptBinding.Text("iso_pause", "Pause"));
+        _controlsLabel.Text += "  |  " + TranslationServer.Translate(InputPromptService.Instance?.IsGamepad == true ? "Right stick: Aim" : "Mouse: Aim");
     }
 
     /// <summary>Builds invisible world edges so players cannot leave the palace footprint.</summary>
@@ -283,12 +285,16 @@ public partial class IsometricMission : Node2D
         _purgeProgress.AddThemeStyleboxOverride("fill", progressFill);
         objectiveVBox.AddChild(_purgeProgress);
 
-        _controlsLabel = NewLabel("WASD MOVE | MOUSE AIM | F ATTACK | Q ABILITY | SHIFT DASH | E USE | ESC PAUSE", 12, Colors.White);
-        _controlsLabel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomLeft);
+        _controlsLabel = NewLabel("", 14, Colors.White);
+        _controlsLabel.AddThemeColorOverride("font_outline_color", Colors.Black);
+        _controlsLabel.AddThemeConstantOverride("outline_size", 4);
+        _controlsLabel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomWide);
         _controlsLabel.OffsetLeft = 20;
-        _controlsLabel.OffsetTop = -34;
-        _controlsLabel.OffsetRight = 1240;
-        _controlsLabel.OffsetBottom = -10;
+        // Keep all binding alternatives above the independent dialogue panel.
+        _controlsLabel.OffsetTop = -200;
+        _controlsLabel.OffsetRight = -20;
+        _controlsLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
+        _controlsLabel.OffsetBottom = -128;
         root.AddChild(_controlsLabel);
 
         var dialoguePanel = NewPanel(new Vector2(-430, -112), new Vector2(860, 88), new Vector2(.5f, 1));

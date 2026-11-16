@@ -77,3 +77,18 @@ Full adversarial re-audit across `docs/ART_REGENERATION.md`, `docs/art_regenerat
 ### Conclusion & Final Status
 The art regeneration specification in `docs/ART_REGENERATION.md` is **APPROVED** and ready for phased execution upon the owner's resolution of open gates (art style selection and SpriteCook subscription activation).
 
+## Input prompt review — 2026-11-16
+
+The earlier art review above is preserved. Current review target and full annotated
+findings: [input prompt EGM report Round 1](docs/INPUT_GOOGLE_REVIEW_2026-11-16.md) and
+[input prompt EGM report Round 2](docs/INPUT_GOOGLE_REVIEW_ROUND2_2026-11-16.md).
+- Round 1: 0 Blockers, 1 Major (controller event routing coverage), 4 Nits. All five
+  findings were approved and implemented: viewport-routed synthetic pad events in
+  `tools/input_prompt_smoke.gd`, localized remap action titles in `MenuInputManager.cs`,
+  instruction-label checks, and documentation calibrations.
+- Round 2: Three fresh reviewers (`codebase_details`, `implementation_readiness`, `style`)
+  verified the fixes and test suite completion (Express 158/158, NUnit 454/454, GdUnit4 385/385
+  with zero errors/failures/orphans, smoke 64/64 passed). Minor test currency and style calibrations
+  applied.
+- Final Status: **APPROVED & CLEAN** (0 Blockers, 0 Majors, 0 Nits).
+

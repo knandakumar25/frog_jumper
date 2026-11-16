@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bwb72tkoh8n38"
+
+[deps]
+
+files=["res://assets/translations/InputPrompts.english.translation", "res://assets/translations/InputPrompts.spanish.translation", "res://assets/translations/InputPrompts.eurofrench.translation", "res://assets/translations/InputPrompts.brazilianportuguese.translation", "res://assets/translations/InputPrompts.german.translation", "res://assets/translations/InputPrompts.italian.translation", "res://assets/translations/InputPrompts.polish.translation", "res://assets/translations/InputPrompts.arabic.translation", "res://assets/translations/InputPrompts.turkish.translation", "res://assets/translations/InputPrompts.japanese.translation", "res://assets/translations/InputPrompts.korean.translation", "res://assets/translations/InputPrompts.mandarin.translation", "res://assets/translations/InputPrompts.hebrew.translation", "res://assets/translations/InputPrompts.traditionalchinese.translation", "res://assets/translations/InputPrompts.indonesian.translation", "res://assets/translations/InputPrompts.vietnamese.translation", "res://assets/translations/InputPrompts.thai.translation"]
+
+source_file="res://assets/translations/InputPrompts.csv"
+dest_files=["res://assets/translations/InputPrompts.english.translation", "res://assets/translations/InputPrompts.spanish.translation", "res://assets/translations/InputPrompts.eurofrench.translation", "res://assets/translations/InputPrompts.brazilianportuguese.translation", "res://assets/translations/InputPrompts.german.translation", "res://assets/translations/InputPrompts.italian.translation", "res://assets/translations/InputPrompts.polish.translation", "res://assets/translations/InputPrompts.arabic.translation", "res://assets/translations/InputPrompts.turkish.translation", "res://assets/translations/InputPrompts.japanese.translation", "res://assets/translations/InputPrompts.korean.translation", "res://assets/translations/InputPrompts.mandarin.translation", "res://assets/translations/InputPrompts.hebrew.translation", "res://assets/translations/InputPrompts.traditionalchinese.translation", "res://assets/translations/InputPrompts.indonesian.translation", "res://assets/translations/InputPrompts.vietnamese.translation", "res://assets/translations/InputPrompts.thai.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
