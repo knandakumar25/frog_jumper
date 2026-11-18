@@ -1,5 +1,139 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Game saves linked to accounts — 2026-11-18
+
+**Before:** the game opened PostgreSQL itself (`PostgresStorage.cs`, user `postgres`) and wrote global rows (`game_sessions`, `game_state`). No row had a user, so every player on a machine shared every save. It only worked on a development machine.
+
+**The owner decided:**
+- no guest play, and a connection is required;
+- discard the old saves;
+- the game calculates rewards and the server stores them;
+- remember sign-in for 7 days;
+- settings and operative progression live on the account;
+- the leaderboard is global, by username.
+
+**Backend (`backend/`):**
+- **Migration `0005_game_saves.sql`**, applied to `accounts_db`:
+  - drops `game_state`/`game_sessions` (backup first: `backups/axiom-force-20261118-180233.dump`);
+  - creates `game_slot` (owned by `user_id`, with `revision`), `game_slot_doc`, `game_slot_receipt` and `game_account_doc`.
+- **`src/lib/gameSaves.js` + `src/routes/game.js` at `/api/game`.** See `backend/src/routes/README.md`.
+  - Every query is scoped to the signed-in user; another user's slot is 404.
+  - `POST /slots/:id/commit/` is the only slot write. It locks the slot row, then:
+    1. checks the receipt token (same value: `alreadyCommitted`; different value: 409 `receipt_mismatch`);
+    2. checks the revision (409 `revision_conflict` with the current slot);
+    3. refuses to overwrite a newer `schema_version`;
+    4. applies everything and adds 1 to the revision.
+  - Limits: key whitelist, 256 KB per document, 1 MB per commit, 20 documents per commit. Write and leaderboard rate limits are set in `config.js` / `.env.example`.
+  - `GET /leaderboard/` is public: rank, username, best score, level. No ids or emails.
+- **Account deletion** now also deletes receipts, slot documents, slots and account documents. The emails, website page (`delete_removed`/`delete_kept` in 17 languages) and README say so.
+
+**Game:**
+- **`scripts/managers/SaveStore.cs` (new):**
+  - `ISaveStore`, with `HttpSaveStore` for real play and `InMemorySaveStore` for tests (same commit rules as the server);
+  - `SlotTransaction.RunAsync` (load, compute, commit; on conflict reload and recompute, up to 3 tries);
+  - `AccountDocs` (cached account documents).
+- **`AuthManager`:**
+  - `SendAuthorizedAsync` refreshes once on a 401. Refresh is single-flight, because the refresh token is single-use and a replay revokes the family.
+  - Remembered sign-in uses `user://auth.dat`, encrypted with a key tied to `OS.GetUniqueId()`. It is resumed at launch except in headless runs, and removed on sign-out.
+- **Ported from SQL to `SlotTransaction`/commits:** `WorldStorage`, `CampaignSettlement`, `WorldTransactionService` and `CampaignProgressionState`.
+  - Receipts are stable values, so a new token for the same quest or operation is still refused.
+  - `PurchaseItemAsync` no longer takes a cost: prices come from `ModuleCatalog`/`GadgetCatalog` (`ItemPrice`), and unknown items give `InvalidOperation`.
+- **`SessionManager`:**
+  - Slots go through the store. It adds the `AccountLoaded` signal and `AccountReady`.
+  - `ReadState`/`WriteState` use `AccountDocs`; `WriteState` returns false before sign-in.
+  - Test hooks: `UseInMemoryStoreForTests`/`UseServiceStore`.
+- **Settings follow the account:** `global.gd`, `InputPromptService` and `CharacterProgressionManager` reload on `AccountLoaded`.
+- **Main menu gate:** New Game and Squad are disabled and Continue is hidden until the account loads, with the hint "Sign in to play…" (2 new strings in 17 languages).
+- `leaderboard.gd` reads the API (4 new strings).
+- `finish.gd` no longer adds the score a second time after `GameManager.SaveScore`.
+- Npgsql, `PostgresStorage.cs` and `scripts/db/init-db.sql` are removed.
+
+**Tests:**
+- The database-backed NUnit tests now run on `InMemorySaveStore` with the same checks: `CampaignSettlementTests`, `WorldStorageTests`, `WorldTransactionTests` and `KyotoSaveTests`.
+- New tests:
+  - `SaveStoreTests` (commit rules, conflict recompute, outages, progression seeded from the account);
+  - a concurrent-runs settlement test;
+  - a purchase test that checks catalog prices.
+- `PostgresStorageTests` and `test_postgres_storage.gd` are deleted. The new `test_account_saves.gd` covers the slot round trip, no settings saved before sign-in, and the menu gate.
+
+**Verification:**
+- `dotnet build` 0 errors; Godot import exit 0 (known shutdown messages and the old bus-layout UID only).
+- Full `run_tests.ps1` (`reports/saves-full-tests.log`): backend 182/182, NUnit 526/526, GdUnit4 408/408, with 0 errors, failures or orphans.
+- **End-to-end against the real `accounts_db`** (temporary API on port 8099 with console mail; no Resend email): 19/19 checks passed. They cover:
+  - two accounts; a slot, commit, same-token retry and stale revision;
+  - B cannot list, read or write A's slot;
+  - settings round trip and an unknown key refused;
+  - the leaderboard (username only);
+  - deleting both accounts removes slots, documents, receipts and users;
+  - the old tables are gone.
+- `graphify update .` exit 0.
+- **App-store-compliance guard** (`reports/app-store-guard-saves-2026-11-18.txt`): `BLOCKED.` with the same 5 false positives as before (`.skill-install-staging/` scanner config, `js-cookie` in the lockfile).
+  - The skill's privacy check now applies more: saves are account data, so a privacy policy must list them. There is still no privacy policy page.
+
+**Not done / limits:**
+- **Not checked by hand in the game window:** signing in, playing a mission, relaunching to see the remembered sign-in, Continue, Kyoto travel and the leaderboard screen. The owner should do this once.
+- Python review tools that call `create_new_session` (`tools/cutscene/review_*.py`, `verify_wildfire_routes.py`, `tools/gameplay/navigate_*.py`) now need a signed-in game; they were not updated.
+- Losing the connection mid-play shows the existing save-retry panel for mission results. A failed background settings write is only a warning in the log.
+- Campaign progression on an existing slot does not flow back into the account's `operative_progression` document; a new slot starts from the account document.
+
+## Player account deletion — 2026-11-18
+
+Apple and Google require apps that let people create accounts to let them delete them. Until now nothing could delete an account ("the API never deletes users"). The owner approved the plan and decided:
+- **In the game:** a button opens the website's deletion page.
+- **Clerk:** the Clerk identity is deleted too, with retry if Clerk is unreachable.
+- **Timing:** deletion happens immediately after an emailed code.
+- **Saves:** at first left alone; superseded the same day: saves are now on the account and are deleted with it (see the section above).
+
+**Backend (`backend/`):**
+- **Migration `0004_account_deletion.sql`:** creates `accounts_clerkdeletion`, the Clerk retry queue. It has been applied to `accounts_db`.
+- **`src/lib/accountDeletion.js`:**
+  - `deleteAccount` runs one transaction. It locks the user row, then deletes refresh tokens, two-factor codes, pending registrations (matching Clerk id, email or browser request), browser requests and the user row. It deletes these explicitly because Django-made foreign keys have no ON DELETE action. It queues the Clerk id.
+  - `processClerkDeletions` retries the queue at 1 h, 6 h, then daily, for 14 days. After that it reports rows as "stuck".
+- **`src/lib/clerk.js`:** new `deleteClerkUser`. `DELETE /users/{id}`; a 404 counts as already gone.
+- **Routes:**
+  - `POST /api/auth/account/delete-request/` emails a `delete_account` code, rate-limited like other codes.
+  - `POST /api/auth/account/delete/` needs `{code, confirm: "DELETE"}`. After deleting, it emails an "account deleted" notice to the old address and makes one immediate Clerk attempt.
+- **Hourly cleanup** (`src/server.js`) also runs `processClerkDeletions`.
+- Until Clerk confirms, a Clerk session for that identity finds no account and is sent to onboarding.
+
+**Website:**
+- `src/pages/DeleteAccount.jsx` at `/:locale/account/delete`, behind `AccountAccess`, linked from Account → "Delete account".
+- Steps: explanation, emailed code, the code, typing DELETE, confirm. On success it signs out of both the API tokens and Clerk.
+- New `.button.danger` style. 14 strings × 17 languages in `ui_translations.json`, translated by the AI agent and awaiting native review.
+- This page is the web deletion URL for the Play listing.
+
+**Game:**
+- `MenuAuthUI` has a "DELETE ACCOUNT // OPENS WEBSITE" button in the signed-in profile row. It opens `AccountLinks.DeleteAccountUrl` in the game's language (`scripts/managers/AccountLinks.cs`, website base `AXIOM_WEBSITE_URL`, default `http://localhost:5173`). When the game regains focus it re-checks the account.
+- `AuthManager.GetProfileAsync` signs out on 401/404 (`SessionEnded`).
+- 4 strings added to `Translations - Sheet1.csv`, in 17 languages.
+
+**Verification:**
+- Backend `npm test` in the container: 168/168, including 10 new tests in `test/accountDeletion.test.js`.
+- NUnit `AccountLinksTests`: 13/13. GdUnit `test_account_deletion_link.gd`: 2/2.
+- The website image builds; `/en/account/delete` returns 200, and the bundle calls the new route.
+- **End-to-end against the real `accounts_db`:** a temporary API copy on port 8099 inside the backend container, with console mail so no Resend email was sent. All 10 checks passed: register, login, request code, wrong word refused, delete, goodbye email, old access token 401, old refresh token 401, row gone.
+- A real Clerk deletion was **not** run; it uses fakes in tests.
+- Full suite results are at the end of this section.
+
+**`app-store-compliance` guard (first run; report in `reports/app-store-guard-2026-11-18.txt`):** it printed `BLOCKED.` with 5 critical findings, all reviewed as false positives:
+- four come from the git-ignored `.skill-install-staging/` (an Android skill's own scanner config that lists permission names);
+- one comes from `js-cookie` in `website/package-lock.json` (Clerk's essential sign-in cookies).
+
+Most high findings are lockfile, test-fixture or Graphify-cache matches.
+- **Real items still open for the owner:**
+  - no privacy policy page or URL (both stores require one);
+  - the Android preset signs release builds with the debug keystore and has the placeholder package name;
+  - R8 minification applies only once a native Gradle export exists.
+- The guard took 76 s; it scans `.skill-install-staging/` and `graphify-out/` too.
+- The skill's human check for account deletion is now met.
+
+**Limits:**
+- No real Clerk deletion was tested.
+- The deletion page has no automated browser test; it was checked by build and HTTP only.
+- The game re-check runs only after the delete button was used, when the game regains focus.
+
+Full `run_tests.ps1` (`reports/deletion-full-tests.log`): backend 168/168, NUnit 522/522, GdUnit4 406/406, with 0 errors, failures or orphans. `dotnet build` 0 errors; Godot import exit 0 (known shutdown messages only).
+
 ## App store compliance skill added — 2026-11-18
 
 - The owner asked to add the skills from https://github.com/mjmirza/app-store-compliance and to have every agent run them on every edit to the codebase.

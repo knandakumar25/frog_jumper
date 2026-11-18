@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Npgsql;
-using NpgsqlTypes;
 
-/// <summary>Versioned PostgreSQL exploration snapshot. Campaign ID stays in the database key, never shared static state.</summary>
+/// <summary>Versioned exploration snapshot, stored as a document of the account's save slot.</summary>
 public sealed record WorldSave(int Version, string World, WorldPoint Position, WorldPoint? Waypoint,
     WorldPoint LastExtraction, string Resume, int Mission, string Operative,
     Dictionary<string, string?>? CompletedQuests = null,
@@ -116,80 +114,117 @@ public sealed record WorldSave(int Version, string World, WorldPoint Position, W
     }
 }
 
-/// <summary>Database-only world persistence; transaction helpers allow mission settlement and extraction to commit together.</summary>
+/// <summary>
+/// World persistence on the account's save slot (2026-11-18; previously direct PostgreSQL).
+/// Each city's record is one slot document: Los Angeles is <c>world</c>, any other city
+/// <c>world:&lt;cityId&gt;</c>. Writes go through one all-or-nothing commit per action
+/// (<see cref="SlotTransaction"/>), so travel stores the departure, the arrival and Los Angeles'
+/// current-city marker together, and a conflicting save from elsewhere is recomputed, not lost.
+/// The pure helpers (<see cref="TravelArrival"/>, <see cref="SettleReturn"/>, <see cref="Read"/>)
+/// hold the rules and are shared with the settlement and quest code.
+/// </summary>
 public static class WorldStorage
 {
+    /// <summary>Slot document key of a city's record: <c>world</c> for Los Angeles, <c>world:&lt;id&gt;</c> otherwise.</summary>
+    public static string DocKey(WorldDefinition? city) => city==null || city==WorldCatalog.Definition ? "world" : $"world:{city.Id}";
+
     /// <summary>
-    /// Moves a campaign to its safe post-mission arrival in the settlement transaction.
-    /// Merges into the existing record, so quests, choices, vehicles, the waypoint and the
-    /// clock survive a mission. An absent or invalid record falls back to fresh defaults.
+    /// The old database key of a city's record (before saves moved to accounts). Kept as a pure
+    /// helper for tests and tools that still reason about per-campaign keys.
     /// </summary>
-    public static async Task SettleReturnAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,int mission,string operative)
+    public static string StateKey(int session,WorldDefinition? city) => city==null || city==WorldCatalog.Definition ? $"world:{session}" : $"world:{session}:{city.Id}";
+
+    /// <summary>
+    /// A city's record from a slot snapshot. Null only when the slot has none; a damaged record or
+    /// one saved by a newer game version throws, so callers can't overwrite it with defaults.
+    /// </summary>
+    public static WorldSave? Read(SlotSnapshot snapshot,WorldDefinition? city=null)
     {
-        var state=WorldSave.AfterMission(mission,operative);
-        await using(var read=new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key",connection,transaction))
-        {
-            read.Parameters.AddWithValue("key",$"world:{session}");
-            await using var reader=await read.ExecuteReaderAsync();
-            if(await reader.ReadAsync() && !reader.IsDBNull(0))
-            {
-                var existing=JsonSerializer.Deserialize<WorldSave>(reader.GetString(0));
-                // Campaign missions always finish in Los Angeles, so any city the player had visited is left behind.
-                if(existing!=null && existing.Valid()) state=existing with { World=state.World,Position=state.Position,LastExtraction=state.LastExtraction,Resume="world",Mission=state.Mission,Operative=state.Operative,ActiveVehicle=null,CurrentCity=null };
-            }
-        }
-        await SaveAsync(connection,transaction,session,state);
+        if(!snapshot.Docs.TryGetValue(DocKey(city),out var doc)) return null;
+        if(doc.SchemaVersion!=1) throw new InvalidOperationException("Unsupported world version.");
+        var state=JsonSerializer.Deserialize<WorldSave>(doc.Json);
+        if(state?.Valid()!=true) throw new InvalidOperationException("Invalid world state.");
+        return state;
     }
 
-    /// <summary>Database key of a city's record. Los Angeles keeps the original key, so existing saves need no migration.</summary>
-    public static string StateKey(int session,WorldDefinition? city) => city==null || city==WorldCatalog.Definition ? $"world:{session}" : $"world:{session}:{city.Id}";
+    /// <summary>The document write for a record. The record's own identity picks the key, so a city can never overwrite Los Angeles.</summary>
+    public static SlotDocWrite Write(WorldSave state)
+    {
+        if(!state.Valid()) throw new InvalidOperationException("Invalid world state.");
+        return new SlotDocWrite(DocKey(CityRegistry.ForIdentity(state.World)),JsonSerializer.Serialize(state));
+    }
+
+    /// <summary>
+    /// The safe post-mission arrival in Los Angeles, merged into the existing record so quests,
+    /// choices, vehicles, the waypoint and the clock survive a mission. An absent or invalid record
+    /// falls back to fresh defaults. Campaign missions always finish in Los Angeles.
+    /// </summary>
+    public static WorldSave SettleReturn(SlotSnapshot snapshot,int mission,string operative)
+    {
+        var state=WorldSave.AfterMission(mission,operative);
+        WorldSave? existing=null;
+        try { existing=Read(snapshot); } catch(InvalidOperationException) { existing=null; }
+        return existing!=null
+            ? existing with { World=state.World,Position=state.Position,LastExtraction=state.LastExtraction,Resume="world",Mission=state.Mission,Operative=state.Operative,ActiveVehicle=null,CurrentCity=null }
+            : state;
+    }
+
+    /// <summary>Reads one campaign's Los Angeles record, filling unvisited campaigns at their latest safe mission terminal.</summary>
+    public static async Task<WorldSave?> LoadAsync(int session,int progress,ISaveStore? store=null,string? preferredOperative=null)
+    {
+        if(session<=0) return null;
+        var snapshot=await (store??SaveStore.Current).GetSlotAsync(session).ConfigureAwait(false)
+            ?? throw new InvalidOperationException("Campaign no longer exists.");
+        return Read(snapshot) ?? (progress>1?WorldSave.AfterMission(progress-1,preferredOperative??OperativeRoster.Starter):null);
+    }
 
     /// <summary>
     /// Loads the record of the city the player is currently in. Los Angeles stores which city that
     /// is. A missing city record falls back to Los Angeles rather than stranding the player.
     /// </summary>
-    public static async Task<WorldSave?> LoadActiveAsync(int session,int progress,string? connectionString=null,string? preferredOperative=null)
+    public static async Task<WorldSave?> LoadActiveAsync(int session,int progress,ISaveStore? store=null,string? preferredOperative=null)
     {
-        var home=await LoadAsync(session,progress,connectionString,preferredOperative).ConfigureAwait(false);
+        if(session<=0) return null;
+        var snapshot=await (store??SaveStore.Current).GetSlotAsync(session).ConfigureAwait(false)
+            ?? throw new InvalidOperationException("Campaign no longer exists.");
+        var home=Read(snapshot) ?? (progress>1?WorldSave.AfterMission(progress-1,preferredOperative??OperativeRoster.Starter):null);
         var city=CityRegistry.ById(home?.CurrentCity);
         if(home==null || city==null || city==WorldCatalog.Definition) return home;
-        await using var connection=new NpgsqlConnection(connectionString??PostgresStorage.ConnectionString);
-        await connection.OpenAsync().ConfigureAwait(false);
-        await using var transaction=await connection.BeginTransactionAsync().ConfigureAwait(false);
-        var state=await ReadAsync(connection,transaction,session,city).ConfigureAwait(false);
-        await transaction.CommitAsync().ConfigureAwait(false);
-        return state??home with { CurrentCity=null };
+        return Read(snapshot,city) ?? home with { CurrentCity=null };
+    }
+
+    /// <summary>Saves one record and the slot's current operative in one commit; a conflict is retried on the newer slot.</summary>
+    public static async Task SaveAsync(int session,WorldSave state,ISaveStore? store=null)
+    {
+        if(session<=0 || !state.Valid()) throw new InvalidOperationException("An active campaign and valid world state are required.");
+        var write=Write(state);
+        var result=await SlotTransaction.RunAsync(store??SaveStore.Current,session,
+            snapshot=>new SlotCommit(snapshot.Slot.Revision,Character:state.Operative,Docs:new[]{ write })).ConfigureAwait(false);
+        ThrowUnlessSaved(result);
     }
 
     /// <summary>
-    /// Moves the player between cities as one transaction: the departure is stored, the arrival
-    /// record is created or updated, and Los Angeles records the new location. A failed write
-    /// changes nothing. Returns the arrival record the scene should now use.
+    /// Moves the player between cities as one commit: the departure is stored, the arrival record is
+    /// created or updated, and Los Angeles records the new location. A failed commit changes nothing.
+    /// Returns the arrival record the scene should now use.
     /// </summary>
-    public static async Task<WorldSave> TravelAsync(int session,WorldSave departing,WorldDefinition destination,string? connectionString=null)
+    public static async Task<WorldSave> TravelAsync(int session,WorldSave departing,WorldDefinition destination,ISaveStore? store=null)
     {
         if(session<=0 || !departing.Valid()) throw new InvalidOperationException("An active campaign and valid world state are required.");
-        await using var connection=new NpgsqlConnection(connectionString??PostgresStorage.ConnectionString);
-        await connection.OpenAsync().ConfigureAwait(false);
-        await using var transaction=await connection.BeginTransactionAsync().ConfigureAwait(false);
-        await using(var selected=new NpgsqlCommand("SELECT id FROM game_sessions WHERE id=@id FOR UPDATE",connection,transaction))
+        WorldSave? arrival=null;
+        var result=await SlotTransaction.RunAsync(store??SaveStore.Current,session,snapshot=>
         {
-            selected.Parameters.AddWithValue("id",session);
-            if(await selected.ExecuteScalarAsync().ConfigureAwait(false)==null) throw new InvalidOperationException("Campaign no longer exists.");
-        }
-        await EnsureAsync(connection,transaction).ConfigureAwait(false);
-        bool leavingHome=CityRegistry.IsLosAngeles(departing.World);
-        var home=leavingHome?departing:await ReadAsync(connection,transaction,session).ConfigureAwait(false)??throw new InvalidOperationException("Campaign has no Los Angeles record.");
-        var arrival=TravelArrival(home,departing,destination,await ReadAsync(connection,transaction,session,destination).ConfigureAwait(false));
-        if(!leavingHome) await WriteAsync(connection,transaction,session,departing).ConfigureAwait(false);
-        if(destination==WorldCatalog.Definition) await WriteAsync(connection,transaction,session,arrival).ConfigureAwait(false);
-        else
-        {
-            await WriteAsync(connection,transaction,session,home with { CurrentCity=destination.Id }).ConfigureAwait(false);
-            await WriteAsync(connection,transaction,session,arrival).ConfigureAwait(false);
-        }
-        await transaction.CommitAsync().ConfigureAwait(false);
-        return arrival;
+            bool leavingHome=CityRegistry.IsLosAngeles(departing.World);
+            var home=leavingHome?departing:Read(snapshot)??throw new InvalidOperationException("Campaign has no Los Angeles record.");
+            arrival=TravelArrival(home,departing,destination,Read(snapshot,destination));
+            var docs=new List<SlotDocWrite>();
+            if(!leavingHome) docs.Add(Write(departing));
+            if(destination==WorldCatalog.Definition) docs.Add(Write(arrival));
+            else { docs.Add(Write(home with { CurrentCity=destination.Id })); docs.Add(Write(arrival)); }
+            return new SlotCommit(snapshot.Slot.Revision,Character:departing.Operative,Docs:docs);
+        }).ConfigureAwait(false);
+        ThrowUnlessSaved(result);
+        return arrival!;
     }
 
     /// <summary>
@@ -203,81 +238,17 @@ public static class WorldStorage
         return baseState with { Position=destination.Skyport,Resume="world",Operative=departing.Operative,WorldTimeMinutes=departing.WorldTimeMinutes,ActiveVehicle=null,Waypoint=null };
     }
 
-    /// <summary>Reads a campaign's exploration record inside an open transaction. Returns null only if none exists; a damaged record throws so callers can't overwrite it with defaults.</summary>
-    public static async Task<WorldSave?> ReadAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,WorldDefinition? city=null)
+    /// <summary>Turns a failed commit into an exception with a player-safe message (callers show Retry).</summary>
+    private static void ThrowUnlessSaved(CommitResult result)
     {
-        await EnsureAsync(connection,transaction).ConfigureAwait(false);
-        await using var read=new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key",connection,transaction);
-        read.Parameters.AddWithValue("key",StateKey(session,city));
-        if(await read.ExecuteScalarAsync().ConfigureAwait(false) is not string json) return null;
-        var state=JsonSerializer.Deserialize<WorldSave>(json);
-        if(state?.Valid()!=true) throw new InvalidOperationException("Invalid world state.");
-        return state;
-    }
-
-    /// <summary>Single-row atomic save with standard retry at callsite on transient errors.</summary>
-    public static async Task SaveAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,WorldSave state)
-    {
-        if(!state.Valid()) throw new InvalidOperationException("Invalid exploration snapshot state rejected.");
-        await EnsureAsync(connection,transaction).ConfigureAwait(false);
-        await WriteAsync(connection,transaction,session,state).ConfigureAwait(false);
-    }
-
-    /// <summary>Reads one campaign's exploration snapshot, populating unvisited campaigns at their latest safe mission terminal.</summary>
-    public static async Task<WorldSave?> LoadAsync(int session,int progress,string? connectionString=null,string? preferredOperative=null)
-    {
-        if(session<=0) return null;
-        await using var connection=new NpgsqlConnection(connectionString??PostgresStorage.ConnectionString);
-        await connection.OpenAsync().ConfigureAwait(false);
-        await EnsureAsync(connection,null).ConfigureAwait(false);
-        await using var command=new NpgsqlCommand("SELECT schema_version,value::text FROM game_state WHERE state_key=@key",connection);
-        command.Parameters.AddWithValue("key",$"world:{session}");
-        await using var reader=await command.ExecuteReaderAsync().ConfigureAwait(false);
-        if(!await reader.ReadAsync().ConfigureAwait(false)) return progress>1?WorldSave.AfterMission(progress-1,preferredOperative??OperativeRoster.Starter):null;
-        if(reader.GetInt32(0)!=1) throw new InvalidOperationException("Unsupported world version.");
-        var state=JsonSerializer.Deserialize<WorldSave>(reader.GetString(1));
-        if(state?.Valid()!=true) throw new InvalidOperationException("Invalid world state.");
-        return state;
-    }
-
-    /// <summary>Locks the selected existing campaign before writing, serializing entry, transit and mission settlement.</summary>
-    public static async Task SaveAsync(int session,WorldSave state,string? connectionString=null)
-    {
-        if(session<=0 || !state.Valid()) throw new InvalidOperationException("An active campaign and valid world state are required.");
-        await using var connection=new NpgsqlConnection(connectionString??PostgresStorage.ConnectionString);
-        await connection.OpenAsync().ConfigureAwait(false);
-        await using var transaction=await connection.BeginTransactionAsync().ConfigureAwait(false);
-        await using(var selected=new NpgsqlCommand("SELECT id FROM game_sessions WHERE id=@id FOR UPDATE",connection,transaction))
+        if(result.Outcome is CommitOutcome.Committed or CommitOutcome.AlreadyCommitted) return;
+        throw result.Outcome switch
         {
-            selected.Parameters.AddWithValue("id",session);
-            if(await selected.ExecuteScalarAsync().ConfigureAwait(false)==null) throw new InvalidOperationException("Campaign no longer exists.");
-        }
-        await EnsureAsync(connection,transaction).ConfigureAwait(false);
-        await WriteAsync(connection,transaction,session,state).ConfigureAwait(false);
-        await using(var touched=new NpgsqlCommand("UPDATE game_sessions SET character=@operative,last_played=@last WHERE id=@id",connection,transaction))
-        {
-            touched.Parameters.AddWithValue("operative",state.Operative); touched.Parameters.AddWithValue("last",DateTime.UtcNow.ToString("O")); touched.Parameters.AddWithValue("id",session);
-            await touched.ExecuteNonQueryAsync().ConfigureAwait(false);
-        }
-        await transaction.CommitAsync().ConfigureAwait(false);
-    }
-
-    /// <summary>Creates the existing generic JSONB store without replacing any document or schema version.</summary>
-    private static async Task EnsureAsync(NpgsqlConnection connection,NpgsqlTransaction? transaction)
-    {
-        await using var command=new NpgsqlCommand("CREATE TABLE IF NOT EXISTS game_state (state_key text PRIMARY KEY, schema_version integer NOT NULL DEFAULT 1, value jsonb NOT NULL)",connection,transaction);
-        await command.ExecuteNonQueryAsync().ConfigureAwait(false);
-    }
-
-    /// <summary>Writes inside an already locked campaign transaction; future versions cannot be silently downgraded.</summary>
-    public static async Task WriteAsync(NpgsqlConnection connection,NpgsqlTransaction transaction,int session,WorldSave state)
-    {
-        if(!state.Valid()) throw new InvalidOperationException("Invalid world state.");
-        await using var command=new NpgsqlCommand("INSERT INTO game_state(state_key,value) VALUES (@key,@value) ON CONFLICT(state_key) DO UPDATE SET value=EXCLUDED.value WHERE game_state.schema_version=1 AND (game_state.value->>'Version')::integer=1",connection,transaction);
-        // The record's own identity picks the row, so a city can never overwrite Los Angeles.
-        command.Parameters.AddWithValue("key",StateKey(session,CityRegistry.ForIdentity(state.World)));
-        command.Parameters.AddWithValue("value",NpgsqlDbType.Jsonb,JsonSerializer.Serialize(state));
-        if(await command.ExecuteNonQueryAsync().ConfigureAwait(false)!=1) throw new InvalidOperationException("Unsupported world save version.");
+            CommitOutcome.NotFound => new InvalidOperationException("Campaign no longer exists."),
+            CommitOutcome.NotSignedIn => new SaveStoreException("Sign in to save.",notSignedIn:true),
+            CommitOutcome.SchemaNewer => new InvalidOperationException("Unsupported world save version."),
+            _ => new SaveStoreException(string.IsNullOrEmpty(result.Error)?"The campaign could not be saved. Retry.":result.Error),
+        };
     }
 }
 

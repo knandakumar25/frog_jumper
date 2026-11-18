@@ -8,7 +8,16 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
-/// <summary>Owns process-memory game credentials and one cancellable browser approval attempt.</summary>
+/// <summary>
+/// Owns the game's credentials and one cancellable browser approval attempt.
+///
+/// Since 2026-11-18 saves live on the account, so play requires sign-in. Sign-in is remembered for
+/// up to 7 days (the refresh token's lifetime): the refresh token is stored encrypted in
+/// <c>user://auth.dat</c>, with a key derived from this device's id, and is exchanged at launch.
+/// Every authorized call goes through <see cref="SendAuthorizedAsync"/>, which refreshes an expired
+/// access token once (refresh tokens are single-use, so concurrent callers share one refresh) and
+/// retries. A failed refresh signs the game out.
+/// </summary>
 public partial class AuthManager : Node
 {
     /// <summary>The process-wide authentication autoload; null after scene-tree teardown.</summary>
@@ -20,10 +29,15 @@ public partial class AuthManager : Node
     /// <summary>API endpoint can be overridden without saving authentication data to disk.</summary>
     public static string ApiBaseUrl => OS.HasEnvironment("AXIOM_API_BASE_URL")
         ? OS.GetEnvironment("AXIOM_API_BASE_URL").TrimEnd('/') : "http://localhost:8000/api";
-    /// <summary>Bearer credential retained only in process memory.</summary>
+    /// <summary>Bearer credential (one hour), kept in memory only.</summary>
     public string AccessToken { get; private set; }
-    /// <summary>Refresh credential retained only in process memory.</summary>
+    /// <summary>Refresh credential (single use, seven days); also stored encrypted in <see cref="TokenFile"/>.</summary>
     public string RefreshToken { get; private set; }
+    /// <summary>Encrypted file holding the remembered refresh token.</summary>
+    public const string TokenFile = "user://auth.dat";
+    // The refresh in progress, shared by every caller that hits an expired token at the same time.
+    private Task<bool> _refreshing;
+    private readonly object _refreshLock = new();
     /// <summary>The verified game profile, or null for guest play.</summary>
     public UserProfile CurrentUser { get; private set; }
     /// <summary>True while a device attempt owns the polling/cancellation lifecycle.</summary>
@@ -33,8 +47,123 @@ public partial class AuthManager : Node
     /// <summary>Send only localized presentation keys, never transport bodies or credentials.</summary>
     public event Action<string> OnBrowserStatus;
 
-    /// <summary>Starts each process signed out.</summary>
-    public override void _Ready() => Instance = this;
+    /// <summary>Registers the singleton and, outside headless test runs, resumes a remembered sign-in.</summary>
+    public override void _Ready()
+    {
+        Instance = this;
+        // Headless runs are tests and tools; they must never pick up the developer's real account.
+        if (DisplayServer.GetName() != "headless") Callable.From(() => _ = TryResumeAsync()).CallDeferred();
+    }
+
+    /// <summary>The API base address, for GDScript callers (the static property is not visible there).</summary>
+    public string GetApiBaseUrl() => ApiBaseUrl;
+
+    /// <summary>
+    /// Exchanges the remembered refresh token for a session and loads the profile. Returns false when
+    /// nothing is remembered or the token is no longer valid (the file is then removed).
+    /// </summary>
+    public async Task<bool> TryResumeAsync()
+    {
+        string stored = ReadStoredRefreshToken();
+        if (string.IsNullOrEmpty(stored) || CurrentUser != null) return false;
+        RefreshToken = stored;
+        if (!await RefreshAsync()) return false;
+        var profile = await GetProfileAsync();
+        if (profile == null) return false;
+        CurrentUser = profile;
+        OnProfileUpdated?.Invoke();
+        return true;
+    }
+
+    /// <summary>
+    /// Sends a request built by <paramref name="makeRequest"/> with the bearer token. On 401 it
+    /// refreshes once and sends a fresh request. Returns null when not signed in or the refresh failed
+    /// (the game is then signed out). Network errors propagate to the caller.
+    /// </summary>
+    public async Task<HttpResponseMessage> SendAuthorizedAsync(Func<HttpRequestMessage> makeRequest)
+    {
+        // ConfigureAwait(false) throughout: blocking GDScript save helpers may wait on the main thread.
+        if (string.IsNullOrEmpty(AccessToken) && !(await RefreshAsync().ConfigureAwait(false))) return null;
+        var response = await SendWithTokenAsync(makeRequest).ConfigureAwait(false);
+        if (response.StatusCode != System.Net.HttpStatusCode.Unauthorized) return response;
+        response.Dispose();
+        if (!await RefreshAsync().ConfigureAwait(false)) return null;
+        return await SendWithTokenAsync(makeRequest).ConfigureAwait(false);
+    }
+
+    /// <summary>Sends one request with the current access token.</summary>
+    private Task<HttpResponseMessage> SendWithTokenAsync(Func<HttpRequestMessage> makeRequest)
+    {
+        var request = makeRequest();
+        request.Headers.Authorization = new("Bearer", AccessToken);
+        return _http.SendAsync(request);
+    }
+
+    /// <summary>
+    /// Exchanges the refresh token for a new pair. Single-flight: refresh tokens work once (a replay
+    /// revokes the whole sign-in), so callers arriving during a refresh wait for the same one.
+    /// A refused token signs the game out; a network failure keeps the session for a later retry.
+    /// </summary>
+    public Task<bool> RefreshAsync()
+    {
+        lock (_refreshLock)
+        {
+            if (_refreshing != null) return _refreshing;
+            _refreshing = RefreshOnceAsync();
+            var current = _refreshing;
+            current.ContinueWith(_ => { lock (_refreshLock) { if (_refreshing == current) _refreshing = null; } });
+            return current;
+        }
+    }
+
+    /// <summary>One refresh call; see <see cref="RefreshAsync"/>.</summary>
+    private async Task<bool> RefreshOnceAsync()
+    {
+        string refresh = RefreshToken;
+        if (string.IsNullOrEmpty(refresh)) return false;
+        try
+        {
+            using var content = BrowserAuthPolicy.CreateJsonContent(new { refresh });
+            using var response = await _http.PostAsync(ApiBaseUrl + "/auth/token/refresh/", content).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+            {
+                // This may run off the main thread, so sign-out (which updates menus) is deferred to it.
+                if (SessionEnded((int)response.StatusCode)) { AccessToken = RefreshToken = null; DeleteStoredRefreshToken(); Callable.From(Logout).CallDeferred(); }
+                return false;
+            }
+            using var doc = JsonDocument.Parse(await response.Content.ReadAsStringAsync().ConfigureAwait(false));
+            AccessToken = doc.RootElement.GetProperty("access").GetString();
+            RefreshToken = doc.RootElement.GetProperty("refresh").GetString();
+            StoreRefreshToken(RefreshToken);
+            return !string.IsNullOrEmpty(AccessToken);
+        }
+        catch (Exception error) when (error is HttpRequestException or TaskCanceledException or JsonException or KeyNotFoundException) { return false; }
+    }
+
+    /// <summary>Encryption key for <see cref="TokenFile"/>, tied to this device so a copied file is useless elsewhere.</summary>
+    private static string TokenKey() => "axiom-force-auth-" + OS.GetUniqueId();
+
+    /// <summary>Writes the refresh token to <see cref="TokenFile"/> (encrypted), or deletes the file for null.</summary>
+    private static void StoreRefreshToken(string token)
+    {
+        if (string.IsNullOrEmpty(token)) { DeleteStoredRefreshToken(); return; }
+        using var file = FileAccess.OpenEncryptedWithPass(TokenFile, FileAccess.ModeFlags.Write, TokenKey());
+        file?.StoreString(token);
+    }
+
+    /// <summary>The remembered refresh token, or "" when none is stored or it cannot be read.</summary>
+    private static string ReadStoredRefreshToken()
+    {
+        if (!FileAccess.FileExists(TokenFile)) return "";
+        using var file = FileAccess.OpenEncryptedWithPass(TokenFile, FileAccess.ModeFlags.Read, TokenKey());
+        return file?.GetAsText().Trim() ?? "";
+    }
+
+    /// <summary>Forgets the remembered sign-in.</summary>
+    private static void DeleteStoredRefreshToken()
+    {
+        if (FileAccess.FileExists(TokenFile)) DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(TokenFile));
+    }
 
     /// <summary>Reopen only the current public URL; no device proof is sent to the browser.</summary>
     public void OpenBrowserAgain()
@@ -91,6 +220,7 @@ public partial class AuthManager : Node
                             throw new JsonException("Incomplete authentication response");
                         AccessToken = accessToken;
                         RefreshToken = refreshToken;
+                        StoreRefreshToken(refreshToken);
                         CurrentUser = profile;
                         OnProfileUpdated?.Invoke();
                         return true;
@@ -137,24 +267,40 @@ public partial class AuthManager : Node
         _attempt?.Cancel();
     }
 
-    /// <summary>Clear the game session without changing the independent website Clerk session.</summary>
+    /// <summary>Clear the game session and the remembered sign-in, without changing the independent website Clerk session.</summary>
     public void Logout()
     {
         CancelBrowserLogin();
         AccessToken = RefreshToken = null;
+        DeleteStoredRefreshToken();
         CurrentUser = null;
         OnProfileUpdated?.Invoke();
     }
 
-    /// <summary>Retrieve the profile using a per-request header so device calls never inherit tokens.</summary>
+    /// <summary>
+    /// Retrieve the profile using a per-request header so device calls never inherit tokens.
+    /// If the API answers 401 or 404, the account is gone (for example deleted on the website,
+    /// 2026-11-18) or the session was revoked, so the game signs out instead of keeping a dead
+    /// session. Network failures keep the session and return null.
+    /// </summary>
     public async Task<UserProfile> GetProfileAsync()
     {
         if (AccessToken == null) return null;
         using var request = new HttpRequestMessage(HttpMethod.Get, ApiBaseUrl + "/auth/profile/");
         request.Headers.Authorization = new("Bearer", AccessToken);
-        try { using var response = await _http.SendAsync(request); return response.IsSuccessStatusCode ? await response.Content.ReadFromJsonAsync<UserProfile>() : null; }
+        try
+        {
+            using var response = await _http.SendAsync(request);
+            if (response.IsSuccessStatusCode) return await response.Content.ReadFromJsonAsync<UserProfile>();
+            if (SessionEnded((int)response.StatusCode)) Logout();
+            return null;
+        }
         catch (HttpRequestException) { return null; }
+        catch (TaskCanceledException) { return null; }
     }
+
+    /// <summary>True for API answers that mean the signed-in session no longer exists (401, 404).</summary>
+    public static bool SessionEnded(int statusCode) => statusCode is 401 or 404;
 
     /// <summary>Cancel asynchronous work when the autoload exits; never touch freed UI nodes.</summary>
     public override void _ExitTree()

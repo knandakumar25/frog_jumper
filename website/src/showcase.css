@@ -52,6 +52,10 @@ figcaption { font-size: 14px; color: var(--muted); margin-block-start: .75rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 1.5rem; padding: .8rem 1.3rem; min-height: 48px; background: var(--cyan); color: #07141a !important; border: 1px solid var(--cyan); border-radius: 4px; text-decoration: none; font-weight: 650; line-height: 1.4; text-align: center; }
 .button:hover { background: #a4f3f6; }
 .button.secondary { background: transparent; color: var(--ink) !important; border-color: #71808e; }
+/* Destructive action (account deletion): red outline that stays readable in both themes. */
+.button.danger { background: transparent; color: #ff8a8a !important; border-color: #ff5c5c; }
+.button.danger:hover { background: rgba(255, 92, 92, .14); }
+.button.danger:disabled { opacity: .5; cursor: not-allowed; }
 .home-content > section { margin-block-end: clamp(3rem,8vw,7rem); }
 .feature-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 5rem); margin-block: 1rem 3rem; }
 .section-heading { display: flex; gap: 1rem; align-items: baseline; justify-content: space-between; }

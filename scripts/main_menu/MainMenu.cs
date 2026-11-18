@@ -53,12 +53,9 @@ public partial class MainMenu : Control
 
 			MoveChild(_titleContainer, GetChildCount() - 1);
 
-			// Update continue button visibility based on session data.
-			var continueBtn = GetNodeOrNull<Control>("ButtonContainer/ContinueButton");
-			if (continueBtn != null)
-			{
-				continueBtn.Visible = SessionManager.Instance?.HasSessions() ?? false;
-			}
+			// Saves belong to accounts (2026-11-18): play needs a signed-in, loaded account.
+			ApplyAccountGate();
+			if (SessionManager.Instance != null) SessionManager.Instance.AccountLoaded += OnAccountLoaded;
 
 			// Initial styling pass.
 			_settingsManager.ApplyCyberpunkPanelStyles(this);
@@ -204,9 +201,40 @@ public partial class MainMenu : Control
 		GetNodeOrNull<CyberButton>("ButtonContainer/Play")?.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
+	/// <summary>Re-applies the sign-in gate when the account loads or signs out.</summary>
+	private void OnAccountLoaded(bool signedIn) { if (IsInsideTree()) ApplyAccountGate(); }
+
+	/// <summary>
+	/// No guest play (owner, 2026-11-18): New Game and Squad are disabled, and Continue hidden, until
+	/// an account is signed in and its saves have loaded. A hint below the buttons says why.
+	/// </summary>
+	public void ApplyAccountGate()
+	{
+		bool ready = SessionManager.Instance?.AccountReady ?? false;
+		foreach (string path in new[] { "ButtonContainer/Play", "ButtonContainer/Roster" })
+			if (GetNodeOrNull<CyberButton>(path) is { } button) button.IsDisabled = !ready;
+		if (GetNodeOrNull<Control>("ButtonContainer/ContinueButton") is { } continueButton)
+			continueButton.Visible = ready && (SessionManager.Instance?.HasSessions() ?? false);
+		var hint = GetNodeOrNull<Label>("ButtonContainer/SignInHint");
+		if (hint == null && GetNodeOrNull<Control>("ButtonContainer") is { } container)
+		{
+			hint = new Label { Name = "SignInHint", HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart };
+			hint.AddThemeColorOverride("font_color", new Color(1f, 0.81f, 0.54f));
+			container.AddChild(hint);
+		}
+		if (hint != null)
+		{
+			hint.Visible = !ready;
+			hint.Text = AuthManager.Instance?.CurrentUser != null
+				? Tr("Loading your saves… If this takes long, check your connection.")
+				: Tr("Sign in to play. Your progress is saved to your account.");
+		}
+	}
+
 	// ─── Event Handlers ──────────────────────────────────────────────────────────
 	public void _on_play_pressed()
 	{
+		if (SessionManager.Instance?.AccountReady != true) { ApplyAccountGate(); return; }
 		CloseAllPopups();
 		_sessionUI.OpenNewGame();
 	}
@@ -214,12 +242,14 @@ public partial class MainMenu : Control
 	/// <summary>Opens the squad roster: earned operatives, locked silhouettes, upgrades and the active-operative choice.</summary>
 	public void _on_roster_pressed()
 	{
+		if (SessionManager.Instance?.AccountReady != true) { ApplyAccountGate(); return; }
 		CloseAllPopups();
 		LoadingScreen.LoadScene(GetTree(), "res://scenes/main_menu/character_selection.tscn");
 	}
 
 	public void _on_continue_pressed()
 	{
+		if (SessionManager.Instance?.AccountReady != true) { ApplyAccountGate(); return; }
 		CloseAllPopups();
 		_sessionUI.OpenContinue();
 	}
@@ -429,9 +459,11 @@ public partial class MainMenu : Control
 		}
 	}
 
+	/// <summary>Stops the menu music and stops listening to account changes when the menu closes.</summary>
 	public override void _ExitTree()
 	{
 		base._ExitTree();
+		if (SessionManager.Instance != null) SessionManager.Instance.AccountLoaded -= OnAccountLoaded;
 		GetNodeOrNull<Node>("/root/Global")?.Call("stop_menu_music");
 	}
 }

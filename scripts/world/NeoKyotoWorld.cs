@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Streamed Neo-Los Angeles exploration scene (the class keeps its original name for save and scene stability).
 /// Runs walking, the electric bike, residents, safehouses, the eight playable slice quests with
-/// conversations and combat encounters, local alert states and PostgreSQL persistence.
+/// conversations and combat encounters, local alert states and account save persistence.
 /// Scene mutations and UI run on the main thread; workers produce data only.
 /// </summary>
 public partial class NeoKyotoWorld : Node2D
@@ -724,7 +724,7 @@ public partial class NeoKyotoWorld : Node2D
         if (_mapOpen) ToggleMap();
     }
 
-    /// <summary>Commits an immutable snapshot to PostgreSQL. Preview mode explicitly has no persistent campaign.</summary>
+    /// <summary>Commits an immutable snapshot to the account's save slot. Preview mode explicitly has no persistent campaign.</summary>
     private async Task Commit(WorldSave candidate)
     {
         if (_session > 0) await WorldStorage.SaveAsync(_session, candidate);

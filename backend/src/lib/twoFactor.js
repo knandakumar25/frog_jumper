@@ -26,13 +26,14 @@ export function generateCode() {
 /**
  * Store a new code and return it with its login session id (null for other purposes).
  *
- * Purposes: `opt_in` (turn 2FA on), `login`, `opt_out` (turn 2FA off) and `email_change`.
+ * Purposes: `opt_in` (turn 2FA on), `login`, `opt_out` (turn 2FA off), `email_change` and
+ * `delete_account` (confirm deleting the account, 2026-11-18).
  * At most `config.codesPerUserPer15Min` codes per user and purpose are issued in 15 minutes;
  * more answers 429. Without this cap, logging in again would hand out a fresh code with five new
  * tries every time, which defeats the five-try limit (2026-11-15 EGM review, issue 1).
  * @param {import('pg').Pool} pool
  * @param {number} userId
- * @param {'opt_in' | 'login' | 'opt_out' | 'email_change'} purpose
+ * @param {'opt_in' | 'login' | 'opt_out' | 'email_change' | 'delete_account'} purpose
  * @param {{codesPerUserPer15Min: number}} config
  * @returns {Promise<{code: string, sessionId: string | null}>}
  */
@@ -64,7 +65,7 @@ export async function createCode(pool, userId, purpose, config) {
  * marked used when it matches. Returns false for no code, expired, too many tries or mismatch.
  * @param {import('pg').Pool} pool
  * @param {import('../config.js').Config} config
- * @param {{userId: number, code: unknown, purpose: 'opt_in' | 'login' | 'opt_out' | 'email_change',
+ * @param {{userId: number, code: unknown, purpose: 'opt_in' | 'login' | 'opt_out' | 'email_change' | 'delete_account',
  *   sessionId?: string | null}} attempt
  * @returns {Promise<boolean>}
  */

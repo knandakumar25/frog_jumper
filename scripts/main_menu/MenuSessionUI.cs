@@ -263,7 +263,9 @@ public partial class MenuSessionUI : Node
 		int sessionId = await CampaignProgress.StartNewCampaignAsync();
 		if (sessionId <= 0)
 		{
-			var error = new AcceptDialog { DialogText = "PostgreSQL is unavailable. Start the server, then try again." };
+			var error = new AcceptDialog { DialogText = string.IsNullOrEmpty(SessionManager.Instance?.LastStorageError)
+				? "Your campaign could not be created. Check your connection and sign-in, then try again."
+				: SessionManager.Instance.LastStorageError };
 			AddChild(error);
 			error.Confirmed += () => error.QueueFree();
 			error.Canceled += () => error.QueueFree();

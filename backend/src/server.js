@@ -3,7 +3,8 @@
  * port 8000 (the port nginx, the game and the website already use).
  *
  * Once an hour it deletes expired refresh tokens, old 2FA codes and stale browser sign-in
- * requests (`purgeExpired`), so those tables do not grow without limit.
+ * requests (`purgeExpired`), so those tables do not grow without limit, and retries Clerk
+ * deletions for deleted accounts that Clerk could not take at the time (`processClerkDeletions`).
  *
  * SIGTERM and SIGINT (`docker compose stop`) close the listener and the pool before exiting.
  */
@@ -11,6 +12,8 @@ import { createApp } from './app.js';
 import { loadConfig } from './config.js';
 import { createPool, waitForDatabase } from './db.js';
 import { purgeExpired } from './lib/tokens.js';
+import { processClerkDeletions } from './lib/accountDeletion.js';
+import { deleteClerkUser } from './lib/clerk.js';
 import { migrate } from './migrate.js';
 
 const config = loadConfig();
@@ -32,6 +35,13 @@ async function cleanUp() {
     }
   } catch (error) {
     console.error('Cleanup failed:', error.message);
+  }
+  try {
+    const clerk = await processClerkDeletions(pool, config, deleteClerkUser);
+    if (clerk.deleted || clerk.failed) console.log(`Clerk deletions: ${clerk.deleted} done, ${clerk.failed} to retry`);
+    if (clerk.stuck) console.warn(`${clerk.stuck} Clerk deletion(s) failed for 14 days; see accounts_clerkdeletion.`);
+  } catch (error) {
+    console.error('Clerk deletion retry failed:', error.message);
   }
 }
 cleanUp();

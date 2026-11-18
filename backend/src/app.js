@@ -7,7 +7,7 @@
  */
 import express from 'express';
 
-import { clerkSubject, fetchClerkUser } from './lib/clerk.js';
+import { clerkSubject, deleteClerkUser, fetchClerkUser } from './lib/clerk.js';
 import { errorHandler } from './lib/errors.js';
 import { mailerFor } from './lib/mail.js';
 import { setHashConcurrency } from './lib/djangoHash.js';
@@ -15,6 +15,7 @@ import { byIp, createClientIp, rateLimit } from './lib/throttle.js';
 import { accountRoutes } from './routes/accounts.js';
 import { browserRoutes } from './routes/browser.js';
 import { onboardingRoutes } from './routes/onboarding.js';
+import { gameRoutes } from './routes/game.js';
 
 /**
  * @typedef {object} Deps
@@ -22,7 +23,8 @@ import { onboardingRoutes } from './routes/onboarding.js';
  * @property {import('pg').Pool} pool
  * @property {import('./lib/mail.js').Mailer} mailer
  * @property {{ subject: (token: string, config: import('./config.js').Config) => Promise<string>,
- *   fetchUser: (id: unknown, config: import('./config.js').Config) => Promise<object> }} clerk
+ *   fetchUser: (id: unknown, config: import('./config.js').Config) => Promise<object>,
+ *   deleteUser: (id: string, config: import('./config.js').Config) => Promise<unknown> }} clerk
  * @property {ReturnType<typeof createClientIp>} clientIp the caller's address (see throttle.js)
  * @property {ReturnType<typeof rateLimit>} browserThrottle 90 a minute per IP on browser-* routes
  * @property {ReturnType<typeof rateLimit>[]} limiters every limiter, so tests can reset them
@@ -64,6 +66,7 @@ export function createApp(partial) {
     clerk: {
       subject: (token, config) => clerkSubject(token, config),
       fetchUser: (id, config) => fetchClerkUser(id, config),
+      deleteUser: (id, config) => deleteClerkUser(id, config),
     },
     clientIp: partial.clientIp ?? createClientIp(partial.config),
     limiters: [],
@@ -92,6 +95,8 @@ export function createApp(partial) {
   });
 
   app.use('/api/auth', accountRoutes(deps), browserRoutes(deps), onboardingRoutes(deps));
+  // Per-account game saves (2026-11-18).
+  app.use('/api/game', gameRoutes(deps));
   app.use((req, res) => { res.status(404).json({ detail: 'Not found.' }); });
   app.use(errorHandler);
   return app;

@@ -9,7 +9,7 @@ using System.Text.Json;
 /// - Hero Sparks currency and level-up progress meters
 /// - Skill Points and 3 unique hero-specific Augmentation Tracks (Tiers 0 to 5)
 /// - Real-time stat multipliers applied to gameplay and showcased in UI
-/// - Persistent progression stored exclusively in PostgreSQL JSONB
+/// - Persistent progression stored on the signed-in account (account document operative_progression)
 /// </summary>
 public partial class CharacterProgressionManager : Node
 {
@@ -17,7 +17,8 @@ public partial class CharacterProgressionManager : Node
 
 	public const int MaxLevel = 10;
 	public const int MaxUpgradeRank = 5;
-	private const string StorageKey = "operative_progression";
+	/// <summary>Account document key of the shared operative progression.</summary>
+	public const string StorageKey = "operative_progression";
 	private bool _storageLoaded;
 
 	/// <summary>Describes an operative augmentation and its per-rank bonuses.</summary>
@@ -383,7 +384,7 @@ public partial class CharacterProgressionManager : Node
 		}
 	};
 
-	/// <summary>Registers the singleton and restores progression from PostgreSQL.</summary>
+	/// <summary>Registers the singleton and restores progression from the signed-in account.</summary>
 	public override void _Ready()
 	{
 		if (Instance != null && Instance != this)
@@ -393,6 +394,12 @@ public partial class CharacterProgressionManager : Node
 		}
 		Instance = this;
 		LoadProgression();
+		// Progression is an account document (2026-11-18): reload when the account signs in or out.
+		Callable.From(() =>
+		{
+			if (SessionManager.Instance != null && IsInstanceValid(this))
+				SessionManager.Instance.AccountLoaded += _ => LoadProgression();
+		}).CallDeferred();
 	}
 
 	/// <summary>
@@ -568,30 +575,42 @@ public partial class CharacterProgressionManager : Node
 		return (healthPct, speedPct, dmgPct, Math.Min(0.50f, cdrPct));
 	}
 
-	/// <summary>Commits progression only after a successful database load, preventing outage defaults from overwriting saves.</summary>
+	/// <summary>
+	/// Saves progression to the signed-in account, only after it loaded from that account, so
+	/// defaults shown before sign-in can never overwrite a real save.
+	/// </summary>
 	public void SaveProgression()
 	{
 		// Standalone test nodes model runtime state without creating persistent player data.
 		if (!IsInsideTree() || !_storageLoaded) return;
-		try { PostgresStorage.Write(StorageKey, JsonSerializer.Serialize(_data)); }
-		catch (Exception ex) { GD.PrintErr($"Progression was not saved to PostgreSQL ({ex.GetType().Name})."); }
+		if (SessionManager.Instance?.WriteStateJson(StorageKey, JsonSerializer.Serialize(_data)) != true)
+			GD.PrintErr("Progression was not saved: no account is signed in.");
 	}
 
-	/// <summary>Loads PostgreSQL progression; an unavailable database leaves saving disabled until a successful reload.</summary>
+	/// <summary>
+	/// Loads progression from the signed-in account's documents. Before sign-in (or after sign-out)
+	/// it shows defaults with saving disabled.
+	/// </summary>
 	public void LoadProgression()
 	{
 		if (!IsInsideTree()) return;
+		if (SessionManager.Instance?.AccountReady != true)
+		{
+			_data = new SaveDataModel();
+			_storageLoaded = false;
+			return;
+		}
 		try
 		{
-			string? json = PostgresStorage.Read(StorageKey);
+			string? json = AccountDocs.Get(StorageKey);
 			_data = json == null ? new SaveDataModel() : JsonSerializer.Deserialize<SaveDataModel>(json)
 				?? throw new InvalidOperationException("Invalid progression document.");
 			_storageLoaded = true;
 		}
-		catch (Exception ex)
+		catch (Exception ex) when (ex is JsonException or InvalidOperationException)
 		{
 			_storageLoaded = false;
-			GD.PrintErr($"Progression could not be loaded from PostgreSQL ({ex.GetType().Name}).");
+			GD.PrintErr($"Account progression could not be read ({ex.GetType().Name}).");
 		}
 	}
 }

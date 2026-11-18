@@ -9,13 +9,15 @@ Shared authentication, validation, persistence helpers, transport and throttling
 | File | Exported boundary |
 | --- | --- |
 | [auth.js](./auth.js) | `bearerToken`, `userFromRequest`, `requireUser`, `optionalUser`. |
-| [clerk.js](./clerk.js) | `clerkSubject`, `fetchClerkUser`, `parseClerkUser`, `isValidUserId`; `ClerkError`, `ClerkUserNotFound`, `ClerkUnavailable`, `ClerkAPIError`. |
+| [gameSaves.js](./gameSaves.js) | Account save storage (2026-11-18): `listSlots`, `createSlot`, `getSlot`, `deleteSlots`, `validateCommit`, `commitSlot` (locks the slot row `FOR UPDATE`; checks the receipt before the revision so a lost-answer retry is `alreadyCommitted`; refuses to overwrite a newer `schema_version`), `getAccountDocs`, `putAccountDoc`, `leaderboard`; key patterns `SLOT_DOC_KEY`, `ACCOUNT_DOC_KEYS`; limits `MAX_DOC_BYTES` (256 KB), `MAX_COMMIT_BYTES` (1 MB), `MAX_COMMIT_DOCS` (20). |
+| [accountDeletion.js](./accountDeletion.js) | `deleteAccount` (one transaction: game receipts, slot documents, slots and account documents, tokens, codes, browser requests, matching pending registrations, the user row; queues the Clerk id), `processClerkDeletions` (retry queue with 1 h / 6 h / daily backoff for `CLERK_RETRY_DAYS` = 14 days), `CLERK_RETRY_DAYS`. Added 2026-11-18. |
+| [clerk.js](./clerk.js) | `clerkSubject`, `fetchClerkUser`, `deleteClerkUser` (404 counts as already gone), `parseClerkUser`, `isValidUserId`; `ClerkError`, `ClerkUserNotFound`, `ClerkUnavailable`, `ClerkAPIError`. |
 | [countries.js](./countries.js) | `loadCountries`, `countryCommonNames`, `basicCountries` read/cache `backend/data/countries.json`. |
 | [djangoHash.js](./djangoHash.js) | `makePassword`, `checkPassword`, `makeUnusablePassword`, `hasUsablePassword`, `isCheckableHash`, `setHashConcurrency`. |
 | [errors.js](./errors.js) | `HttpError`, `FieldErrors`, `authFailed`, `validationError`, `MESSAGES`, `errorHandler`. |
 | [users.js](./users.js) | `profileOf`, ID/username lookup, email/username normalization, `createUser`, `readString`, registration/profile validation and `updateUser`. |
 | [tokens.js](./tokens.js) | `issueTokenPair`, `userIdFromAccessToken`, `rotateRefreshToken`, `revokeAllRefreshTokens`, `purgeExpired`. |
-| [twoFactor.js](./twoFactor.js) | `generateCode`, `createCode`, `verifyCode`, `isUuid`, `CODE_LIFETIME_MINUTES`. |
+| [twoFactor.js](./twoFactor.js) | `generateCode`, `createCode`, `verifyCode`, `isUuid`, `CODE_LIFETIME_MINUTES`. Purposes include `delete_account` (2026-11-18). |
 | [throttle.js](./throttle.js) | `normalizeIp`, `limitKeyForIp`, `createClientIp`, `rateLimit`, `byIp`; limiter reset/size/sweep helpers, client-IP stop helper. |
 | [mail.js](./mail.js) | `Mailer`, Resend/Console/Memory transports, `mailerFor`, `timedFetch`, `resendPayload`, transport errors, `RESEND_API_URL`, `USER_AGENT`. |
 | [emails.js](./emails.js) | `welcomeEmail`, `sendWelcomeEmail`, `sendSecurityNotice`, `twoFactorEmail`, `onboardingEmail`. |

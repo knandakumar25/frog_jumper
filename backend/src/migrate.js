@@ -38,6 +38,11 @@ export const REQUIRED_COLUMNS = Object.freeze({
     'browser_session_id'],
   accounts_twofactorcode: ['id', 'code', 'created_at', 'is_verified', 'purpose', 'session_id', 'user_id', 'attempts'],
   accounts_refreshtoken: ['id', 'jti', 'user_id', 'created_at', 'expires_at', 'used_at', 'family'],
+  accounts_clerkdeletion: ['clerk_user_id', 'attempts', 'queued_at', 'next_attempt_at', 'last_error'],
+  game_slot: ['id', 'user_id', 'character', 'current_level', 'total_score', 'collectables', 'created_at', 'last_played', 'revision'],
+  game_slot_doc: ['slot_id', 'doc_key', 'schema_version', 'value'],
+  game_slot_receipt: ['slot_id', 'token', 'kind', 'value', 'created_at'],
+  game_account_doc: ['user_id', 'doc_key', 'value', 'updated_at'],
 });
 
 /**

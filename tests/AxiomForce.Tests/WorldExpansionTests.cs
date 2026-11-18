@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Npgsql;
 using NUnit.Framework;
 
 /// <summary>
@@ -173,80 +172,33 @@ public class WorldExpansionTests
 }
 
 /// <summary>
-/// Integration tests verifying PostgreSQL atomic transactions and action receipt idempotency.
+/// World actions (quests, purchases, settlement) on an account save slot (2026-11-18), against
+/// <see cref="InMemorySaveStore"/>: all-or-nothing commits and action-token receipts.
 /// </summary>
-[NonParallelizable]
 public class WorldTransactionTests
 {
-    private readonly List<int> _owned = new();
-    private string _connection = "";
+    private InMemorySaveStore _store = null!;
 
+    /// <summary>A fresh store per test.</summary>
     [SetUp]
-    public void Configure()
-    {
-        var root = new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
-        while (root != null && !File.Exists(Path.Combine(root.FullName, "project.godot"))) root = root.Parent;
-        string previous = Directory.GetCurrentDirectory();
-        try
-        {
-            Directory.SetCurrentDirectory(root!.FullName);
-            _connection = PostgresStorage.ConnectionString;
-        }
-        finally
-        {
-            Directory.SetCurrentDirectory(previous);
-        }
-    }
+    public void Configure() { AccountDocs.Clear(); _store = new InMemorySaveStore(); }
 
-    private async Task<int> CreateCampaignAsync()
-    {
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        await using (var schema = new NpgsqlCommand(
-            "CREATE TABLE IF NOT EXISTS game_sessions (id SERIAL PRIMARY KEY,character VARCHAR(100) NOT NULL,current_level INT NOT NULL DEFAULT 1,total_score INT NOT NULL DEFAULT 0,collectables INT NOT NULL DEFAULT 0,created_at VARCHAR(100) NOT NULL,last_played VARCHAR(100) NOT NULL)", c))
-            await schema.ExecuteNonQueryAsync();
+    private async Task<int> CreateCampaignAsync() => (await _store.CreateSlotAsync("world-tx-fixture")).Id;
 
-        await using var cmd = new NpgsqlCommand("INSERT INTO game_sessions(character,created_at,last_played) VALUES ('world-tx-fixture','fixture','fixture') RETURNING id", c);
-        int id = Convert.ToInt32(await cmd.ExecuteScalarAsync());
-        _owned.Add(id);
-        return id;
-    }
-
-    [TearDown]
-    public async Task CleanupAsync()
-    {
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        foreach (int id in _owned)
-        {
-            await using var cmd = new NpgsqlCommand("DELETE FROM game_state WHERE state_key LIKE @prefix; DELETE FROM game_sessions WHERE id=@id AND created_at='fixture'", c);
-            cmd.Parameters.AddWithValue("prefix", $"%:{id}%");
-            cmd.Parameters.AddWithValue("id", id);
-            await cmd.ExecuteNonQueryAsync();
-        }
-        _owned.Clear();
-    }
+    /// <summary>The slot's progression as stored.</summary>
+    private async Task<CampaignProgressionState> ProgressionAsync(int session) =>
+        CampaignProgressionState.FromSnapshot((await _store.GetSlotAsync(session))!);
 
     /// <summary>A damaged world record is refused, not replaced by defaults that would erase the campaign.</summary>
     [Test]
     public async Task QuestCompletionRefusesToOverwriteDamagedWorldSave()
     {
         int session = await CreateCampaignAsync();
-        await WorldStorage.SaveAsync(session, WorldSave.AfterMission(1), _connection);
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
         var damaged = WorldSave.AfterMission(1) with { Position = new WorldPoint(-5000, -5000) };
-        await using (var write = new NpgsqlCommand("UPDATE game_state SET value=@v::jsonb WHERE state_key=@k", c))
-        {
-            write.Parameters.AddWithValue("v", JsonSerializer.Serialize(damaged));
-            write.Parameters.AddWithValue("k", $"world:{session}");
-            await write.ExecuteNonQueryAsync();
-        }
-        var receipt = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _connection);
+        await _store.CommitAsync(session, new SlotCommit(0, Docs: new[] { new SlotDocWrite("world", JsonSerializer.Serialize(damaged)) }));
+        var receipt = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _store);
         Assert.That(receipt.Status, Is.EqualTo(TransactionStatus.DatabaseError));
-        await using var read = new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@k", c);
-        read.Parameters.AddWithValue("k", $"world:{session}");
-        var stored = JsonSerializer.Deserialize<WorldSave>((string)(await read.ExecuteScalarAsync())!);
+        var stored = JsonSerializer.Deserialize<WorldSave>((await _store.GetSlotAsync(session))!.Json("world")!);
         Assert.That(stored!.Position, Is.EqualTo(damaged.Position));
     }
 
@@ -255,15 +207,12 @@ public class WorldTransactionTests
     public async Task QuestRewardsCannotBeEarnedTwiceWithNewTokens()
     {
         int session = await CreateCampaignAsync();
-        var first = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _connection);
-        var second = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _connection);
+        var first = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _store);
+        var second = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, Guid.NewGuid().ToString(), _store);
         Assert.That(first.Status, Is.EqualTo(TransactionStatus.Success));
         Assert.That(second.Status, Is.EqualTo(TransactionStatus.AlreadyCommitted));
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        await using var t = await c.BeginTransactionAsync();
-        var progression = await CampaignProgressionState.LoadOrCreateAsync(session, c, t);
-        Assert.That(progression.CityCredits, Is.EqualTo(WorldContentCatalog.Quests.Single(q => q.Id == "quest_ok_01").Reward.CityCredits + new CampaignProgressionState().CityCredits));
+        Assert.That((await ProgressionAsync(session)).CityCredits,
+            Is.EqualTo(WorldContentCatalog.Quests.Single(q => q.Id == "quest_ok_01").Reward.CityCredits + new CampaignProgressionState().CityCredits));
     }
 
     /// <summary>The service enforces the quest chain and rejects branches the quest doesn't offer.</summary>
@@ -271,8 +220,8 @@ public class WorldTransactionTests
     public async Task QuestCompletionEnforcesPrerequisitesAndBranches()
     {
         int session = await CreateCampaignAsync();
-        var blocked = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_02", null, Guid.NewGuid().ToString(), _connection);
-        var badBranch = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", "not_a_choice", Guid.NewGuid().ToString(), _connection);
+        var blocked = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_02", null, Guid.NewGuid().ToString(), _store);
+        var badBranch = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", "not_a_choice", Guid.NewGuid().ToString(), _store);
         Assert.That(blocked.Status, Is.EqualTo(TransactionStatus.PrerequisitesNotMet));
         Assert.That(badBranch.Status, Is.EqualTo(TransactionStatus.InvalidOperation));
     }
@@ -283,9 +232,9 @@ public class WorldTransactionTests
     {
         int session = await CreateCampaignAsync();
         var before = WorldSave.AfterMission(1) with { ActiveQuests = new() { ["quest_ok_02"] = 1 }, DistrictChoices = new() { [5] = "choice_artisan_guild" }, WorldTimeMinutes = 12 };
-        await WorldStorage.SaveAsync(session, before.WithQuestCompleted("quest_ok_01", null), _connection);
-        await CampaignSettlement.SaveAsync(session, 2, 10, Guid.NewGuid().ToString(), _connection, "Cyber Shogun");
-        var after = await WorldStorage.LoadAsync(session, 3, _connection);
+        await WorldStorage.SaveAsync(session, before.WithQuestCompleted("quest_ok_01", null), _store);
+        await CampaignSettlement.SaveAsync(session, 2, 10, Guid.NewGuid().ToString(), _store, "Cyber Shogun");
+        var after = await WorldStorage.LoadAsync(session, 3, _store);
         Assert.That(after!.CompletedQuests, Does.ContainKey("quest_ok_01"));
         Assert.That(after.ActiveQuests!["quest_ok_02"], Is.EqualTo(1));
         Assert.That(after.DistrictChoices![5], Is.EqualTo("choice_artisan_guild"));
@@ -293,66 +242,45 @@ public class WorldTransactionTests
         Assert.That(after.Position, Is.EqualTo(WorldSave.AfterMission(2).Position));
     }
 
-    /// <summary>
-    /// Verifies that quest completion commits rewards and receipt atomically, and retrying the same
-    /// action token is idempotent without duplicating sparks or credits.
-    /// </summary>
+    /// <summary>Quest completion commits rewards and receipt together; retrying the same token adds nothing.</summary>
     [Test]
     public async Task QuestCompletionIsAtomicAndIdempotent()
     {
         int session = await CreateCampaignAsync();
         string token = Guid.NewGuid().ToString();
-
-        // Initial completion
-        var receipt1 = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, token, _connection);
+        var receipt1 = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, token, _store);
         Assert.That(receipt1.Status, Is.EqualTo(TransactionStatus.Success));
+        var prog = await ProgressionAsync(session);
+        Assert.That(prog.GlobalSparksBank, Is.EqualTo(350), "Starter 250 + 100 reward = 350");
+        Assert.That(prog.CityCredits, Is.EqualTo(650), "Starter 500 + 150 reward = 650");
 
-        await using (var conn = new NpgsqlConnection(_connection))
-        {
-            await conn.OpenAsync();
-            var prog = await CampaignProgressionState.LoadOrCreateAsync(session, conn);
-            Assert.That(prog.GlobalSparksBank, Is.EqualTo(350), "Starter 250 + 100 reward = 350");
-            Assert.That(prog.CityCredits, Is.EqualTo(650), "Starter 500 + 150 reward = 650");
-        }
-
-        // Retry with same token
-        var receipt2 = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, token, _connection);
+        var receipt2 = await WorldTransactionService.CompleteQuestAsync(session, "quest_ok_01", null, token, _store);
         Assert.That(receipt2.Status, Is.EqualTo(TransactionStatus.AlreadyCommitted));
-
-        // Balances must not have increased twice
-        await using (var conn = new NpgsqlConnection(_connection))
-        {
-            await conn.OpenAsync();
-            var prog = await CampaignProgressionState.LoadOrCreateAsync(session, conn);
-            Assert.That(prog.GlobalSparksBank, Is.EqualTo(350), "Sparks must not duplicate on retry.");
-            Assert.That(prog.CityCredits, Is.EqualTo(650), "Credits must not duplicate on retry.");
-        }
+        prog = await ProgressionAsync(session);
+        Assert.That(prog.GlobalSparksBank, Is.EqualTo(350), "Sparks must not duplicate on retry.");
+        Assert.That(prog.CityCredits, Is.EqualTo(650), "Credits must not duplicate on retry.");
     }
 
-    /// <summary>
-    /// Verifies purchasing an item with credits, deducting cost and unlocking the module.
-    /// </summary>
+    /// <summary>Purchases charge the catalog price (never a caller's number), unlock the item and enforce the balance.</summary>
     [Test]
     public async Task PurchaseItemDeductsCreditsAndEnforcesBalance()
     {
         int session = await CreateCampaignAsync();
+        Assert.That(WorldTransactionService.ItemPrice("module", "mod_kinetic_coil"), Is.EqualTo(200));
         string token1 = Guid.NewGuid().ToString();
-
-        // Purchase module for 200 credits
-        var receipt1 = await WorldTransactionService.PurchaseItemAsync(session, "module", "mod_kinetic_coil", 200, token1, _connection);
+        var receipt1 = await WorldTransactionService.PurchaseItemAsync(session, "module", "mod_kinetic_coil", token1, _store);
         Assert.That(receipt1.Status, Is.EqualTo(TransactionStatus.Success));
+        var prog = await ProgressionAsync(session);
+        Assert.That(prog.CityCredits, Is.EqualTo(300), "500 - 200 = 300");
+        Assert.That(prog.UnlockedModules, Does.Contain("mod_kinetic_coil"));
+        Assert.That((await WorldTransactionService.PurchaseItemAsync(session, "module", "mod_kinetic_coil", token1, _store)).Status,
+            Is.EqualTo(TransactionStatus.AlreadyCommitted), "a retried purchase is not charged twice");
 
-        await using (var conn = new NpgsqlConnection(_connection))
-        {
-            await conn.OpenAsync();
-            var prog = await CampaignProgressionState.LoadOrCreateAsync(session, conn);
-            Assert.That(prog.CityCredits, Is.EqualTo(300), "500 - 200 = 300");
-            Assert.That(prog.UnlockedModules, Does.Contain("mod_kinetic_coil"));
-        }
-
-        // Attempting to purchase something that costs 1000 credits fails with InsufficientFunds
-        string token2 = Guid.NewGuid().ToString();
-        var receipt2 = await WorldTransactionService.PurchaseItemAsync(session, "module", "mod_expensive", 1000, token2, _connection);
-        Assert.That(receipt2.Status, Is.EqualTo(TransactionStatus.InsufficientFunds));
+        // 300 credits left: the 150 smoke screen is affordable, leaving 150, so a 300 module is not.
+        Assert.That((await WorldTransactionService.PurchaseItemAsync(session, "gadget", "gadget_smoke_screen", Guid.NewGuid().ToString(), _store)).Status, Is.EqualTo(TransactionStatus.Success));
+        var poor = await WorldTransactionService.PurchaseItemAsync(session, "module", "mod_civic_nanobound", Guid.NewGuid().ToString(), _store);
+        Assert.That(poor.Status, Is.EqualTo(TransactionStatus.InsufficientFunds));
+        Assert.That((await WorldTransactionService.PurchaseItemAsync(session, "module", "mod_not_in_catalog", Guid.NewGuid().ToString(), _store)).Status,
+            Is.EqualTo(TransactionStatus.InvalidOperation), "unknown items have no price and cannot be bought");
     }
 }

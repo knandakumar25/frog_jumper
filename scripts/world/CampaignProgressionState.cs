@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Npgsql;
-using NpgsqlTypes;
 
 /// <summary>
 /// Stat modifier types supported by the tactical progression engine.
@@ -63,7 +61,7 @@ public sealed class CampaignHeroProgression
 }
 
 /// <summary>
-/// Campaign-owned progression state document persisted in PostgreSQL table 'game_state'
+/// Campaign-owned progression state document persisted as the save slot document 'progression'
 /// under the key 'progression:{session}'. Fully isolated between campaigns.
 /// </summary>
 public sealed class CampaignProgressionState
@@ -254,57 +252,37 @@ public sealed class CampaignProgressionState
         }
     }
 
+    /// <summary>Slot document key of a campaign's progression.</summary>
+    public const string DocKey = "progression";
+
     /// <summary>
-    /// Loads campaign progression from PostgreSQL. If absent, performs a safe legacy migration
-    /// by copying the legacy global state into this campaign's isolated store.
+    /// Reads a campaign's progression from its slot snapshot. If the slot has none yet, starts from
+    /// the account's shared operative progression (<c>operative_progression</c> in
+    /// <see cref="AccountDocs"/>), as the old per-campaign migration did, or from clean defaults.
     /// </summary>
-    public static async Task<CampaignProgressionState> LoadOrCreateAsync(int session, NpgsqlConnection connection, NpgsqlTransaction? transaction = null)
+    public static CampaignProgressionState FromSnapshot(SlotSnapshot snapshot)
     {
-        if (session <= 0) return new CampaignProgressionState();
-
-        await using var cmd = new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key=@key", connection, transaction);
-        cmd.Parameters.AddWithValue("key", $"progression:{session}");
-        var result = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
-
-        if (result is string json && !string.IsNullOrWhiteSpace(json))
+        if (snapshot.Json(DocKey) is { } json && !string.IsNullOrWhiteSpace(json))
         {
             var loaded = JsonSerializer.Deserialize<CampaignProgressionState>(json);
             if (loaded != null) return loaded;
         }
-
-        // Migrate from legacy global store 'operative_progression' if available
-        var migrated = await MigrateFromLegacyAsync(connection, transaction).ConfigureAwait(false);
-        await SaveAsync(session, migrated, connection, transaction).ConfigureAwait(false);
-        return migrated;
+        return FromAccountProgression(AccountDocs.Get(CharacterProgressionManager.StorageKey));
     }
 
-    /// <summary>
-    /// Saves campaign progression to PostgreSQL game_state under 'progression:{session}'.
-    /// </summary>
-    public static async Task SaveAsync(int session, CampaignProgressionState state, NpgsqlConnection connection, NpgsqlTransaction? transaction = null)
-    {
-        if (session <= 0) return;
-        await using var cmd = new NpgsqlCommand(
-            "INSERT INTO game_state (state_key, schema_version, value) VALUES (@key, @ver, @val) " +
-            "ON CONFLICT (state_key) DO UPDATE SET value=EXCLUDED.value, schema_version=EXCLUDED.schema_version",
-            connection, transaction);
-        cmd.Parameters.AddWithValue("key", $"progression:{session}");
-        cmd.Parameters.AddWithValue("ver", Version);
-        cmd.Parameters.AddWithValue("val", NpgsqlDbType.Jsonb, JsonSerializer.Serialize(state));
-        await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
-    }
+    /// <summary>The document write for this progression.</summary>
+    public SlotDocWrite ToDoc() => new(DocKey, JsonSerializer.Serialize(this), Version);
 
     /// <summary>
-    /// Copies legacy shared progression as an immutable starting baseline for existing campaigns.
+    /// Copies the account's shared operative progression as the starting point for a campaign.
+    /// Any read error falls back to clean defaults.
     /// </summary>
-    private static async Task<CampaignProgressionState> MigrateFromLegacyAsync(NpgsqlConnection connection, NpgsqlTransaction? transaction)
+    public static CampaignProgressionState FromAccountProgression(string? json)
     {
         var newState = new CampaignProgressionState();
         try
         {
-            await using var cmd = new NpgsqlCommand("SELECT value::text FROM game_state WHERE state_key='operative_progression'", connection, transaction);
-            var result = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
-            if (result is string json && !string.IsNullOrWhiteSpace(json))
+            if (!string.IsNullOrWhiteSpace(json))
             {
                 var legacy = JsonSerializer.Deserialize<CharacterProgressionManager.SaveDataModel>(json);
                 if (legacy != null)
@@ -324,9 +302,9 @@ public sealed class CampaignProgressionState
                 }
             }
         }
-        catch
+        catch (JsonException)
         {
-            // Fall back to clean defaults on any legacy read error
+            // Fall back to clean defaults on a damaged account document.
         }
         return newState;
     }

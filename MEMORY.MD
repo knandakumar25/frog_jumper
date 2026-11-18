@@ -1,5 +1,50 @@
 # Axiom Force — Project Memory
 
+## Game saves linked to accounts — 2026-11-18
+
+- **Done (uncommitted):** saves now belong to accounts through the API (`/api/game/`); the game no longer opens PostgreSQL (Npgsql, `PostgresStorage.cs` and `init-db.sql` removed).
+- **Owner decisions:**
+  - no guest play; a connection is required; old saves discarded (backup `backups/axiom-force-20261118-180233.dump`);
+  - the game calculates and the server stores (commit with revision and receipt token);
+  - sign-in remembered for 7 days (`user://auth.dat`, encrypted per device);
+  - settings and `operative_progression` are account documents;
+  - global leaderboard by username;
+  - deleting an account deletes its saves.
+- **Key code:** migration `0005_game_saves.sql`, `backend/src/lib/gameSaves.js`, `routes/game.js`; game `scripts/managers/SaveStore.cs` (`ISaveStore`, `InMemorySaveStore`, `SlotTransaction`, `AccountDocs`). `PurchaseItemAsync` takes no cost (catalog price).
+- **Verified:**
+  - `dotnet build` 0 errors; Godot import exit 0;
+  - `run_tests.ps1`: backend 182/182, NUnit 526/526, GdUnit4 408/408, 0 orphans;
+  - end-to-end on the real database (port 8099, console mail) 19/19;
+  - graphify updated;
+  - compliance guard `BLOCKED.` with the same 5 known false positives.
+- **Open:**
+  - the owner should check sign-in, play, relaunch and the leaderboard by hand in the game window;
+  - Python review tools that call `create_new_session` need a signed-in game;
+  - a privacy policy is still missing and must now list save data.
+
+## Player account deletion built — 2026-11-18
+
+- **Owner decisions:**
+  - the in-game button opens the website deletion page;
+  - the Clerk identity is deleted too (retry queue);
+  - deletion is immediate after an emailed code;
+  - device saves were first left untouched; superseded the same day: saves are on the account and deleted with it.
+- **Built:**
+  - backend migration 0004 (`accounts_clerkdeletion`), `lib/accountDeletion.js`, `deleteClerkUser`, routes `account/delete-request/` and `account/delete/`, and hourly Clerk retries;
+  - website `DeleteAccount.jsx` at `/:locale/account/delete`;
+  - game `AccountLinks.cs`, a `MenuAuthUI` button, and `AuthManager` signing out on 401/404;
+  - translations in 17 languages, AI-written, needing native review.
+- **Verified:**
+  - backend 168/168;
+  - NUnit `AccountLinksTests` 13/13; GdUnit 2/2;
+  - the website builds and serves the page;
+  - end-to-end on the real database via a temporary console-mail API copy: 10/10. The live backend uses Resend, so the live API was not used, to avoid sending real email.
+- **`app-store-compliance` guard, first run:** `BLOCKED.`, but all 5 criticals are false positives (the git-ignored `.skill-install-staging/` and a `js-cookie` lockfile match).
+- **Real store gaps:**
+  - no privacy policy;
+  - the Android debug keystore and placeholder package name.
+- Full suites: backend 168, NUnit 522, GdUnit4 406, 0 failures and 0 orphans. graphify updated. Not committed.
+
 ## App store compliance skill added — 2026-11-18
 
 - The owner asked to add the `mjmirza/app-store-compliance` skill and to run it on every codebase edit.

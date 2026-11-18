@@ -154,15 +154,27 @@ public partial class InputPromptService : Node
         {
             var manager = GetNodeOrNull<SessionManager>("/root/SessionManager");
             if (manager != null && !manager.WriteState("input_prompt_settings", new Godot.Collections.Dictionary { ["glyph_style"] = (int)Style }))
-                GD.PushWarning("Input prompt settings were not saved. PostgreSQL must be available.");
+                GD.PushWarning("Input prompt settings were not saved: sign in to keep them on your account.");
         }
         NotifyBindingsChanged();
     }
 
-    /// <summary>Loads the separate settings document; absent or malformed styles resolve to Automatic.</summary>
+    // True once this service follows account sign-in (prompt style is an account setting, 2026-11-18).
+    private bool _followsAccount;
+
+    /// <summary>
+    /// Loads the prompt-style document from the signed-in account; absent or malformed styles (and
+    /// signed-out play) resolve to Automatic. Re-runs whenever an account loads or signs out.
+    /// </summary>
     private void LoadSettings()
     {
-        var data = GetNodeOrNull<SessionManager>("/root/SessionManager")?.ReadState("input_prompt_settings");
+        var sessions = GetNodeOrNull<SessionManager>("/root/SessionManager");
+        if (sessions != null && !_followsAccount)
+        {
+            _followsAccount = true;
+            sessions.AccountLoaded += _ => { if (IsInsideTree()) LoadSettings(); };
+        }
+        var data = sessions?.ReadState("input_prompt_settings");
         int value = 0;
         if (data != null && data.TryGetValue("glyph_style", out var saved) &&
             (saved.VariantType == Variant.Type.Int || saved.VariantType == Variant.Type.Float) &&

@@ -34,6 +34,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
     ports:
       # Loopback only (2026-11-15 review): other machines cannot reach the database.
+      # The game no longer connects here (2026-11-18): saves go through the backend API.
+      # The port stays published for tools/db/backup.ps1 and local inspection.
       - "127.0.0.1:5432:5432"
     volumes:
       # PostgreSQL 18+ stores data in a major-version subdirectory and refuses

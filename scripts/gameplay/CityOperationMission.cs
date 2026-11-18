@@ -3,7 +3,7 @@ using System;
 
 /// <summary>
 /// Base for optional side-scrolling operations launched from a city. Reuses <see cref="CodeLevel"/>'s level
-/// building but finishes on its own results panel: the reward is stored in PostgreSQL and the player
+/// building but finishes on its own results panel: the reward is stored on the account's save slot and the player
 /// returns to the world scene, which reopens the city they left. Campaign progress is never touched.
 /// </summary>
 public abstract partial class CityOperationMission : CodeLevel

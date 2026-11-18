@@ -12,29 +12,37 @@ func _ready() -> void:
 	load_scores()
 
 ## Purpose:
-## Fetches all recorded game sessions from the SessionManager and populates
-## the leaderboard table with the operative's name and total score.
+## Shows the global leaderboard (2026-11-18): each account's best campaign score with its
+## username, from the public API endpoint GET /api/game/leaderboard/. No sign-in is needed and
+## no ids or emails are returned.
 func load_scores() -> void:
 	# Clear any existing rows from previous loads to avoid duplicates.
 	for child in scores_table.get_children():
 		child.queue_free()
+	add_row(tr("Player"), tr("Best Score"), true)
+	var request := HTTPRequest.new()
+	request.timeout = 10.0
+	add_child(request)
+	request.request_completed.connect(_on_scores_received.bind(request))
+	var url: String = AuthManager.GetApiBaseUrl() + "/game/leaderboard/"
+	if request.request(url) != OK:
+		_on_scores_received(HTTPRequest.RESULT_CANT_CONNECT, 0, PackedStringArray(), PackedByteArray(), request)
 
-	# Add the table header.
-	add_row(tr("Operative"), tr("Total Score"), true)
-
-	# Query all session data from the SessionManager.
-	var sessions = SessionManager.get_all_sessions()
-
-	if sessions.is_empty():
-		# Display a fallback row if no game data exists.
-		add_row("NO DATA", "0", false)
+## Fills the table from the API answer, or shows why it could not load.
+func _on_scores_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray, request: HTTPRequest) -> void:
+	request.queue_free()
+	if not is_inside_tree():
 		return
-
-	# Iterate through sessions and add a row for each recorded score.
-	for session in sessions:
-		var character_name = session.get("character", "Operative")
-		var score = str(session.get("total_score", 0))
-		add_row(character_name, score, false)
+	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+		add_row(tr("Leaderboard unavailable"), "-", false)
+		return
+	var rows = JSON.parse_string(body.get_string_from_utf8())
+	if not (rows is Array) or rows.is_empty():
+		add_row(tr("No scores yet"), "0", false)
+		return
+	for row in rows:
+		if row is Dictionary:
+			add_row("%d. %s" % [int(row.get("rank", 0)), str(row.get("username", "?"))], str(int(row.get("score", 0))), false)
 
 # Creates a visual row in the leaderboard.
 # @param level: The operative's name or header label.

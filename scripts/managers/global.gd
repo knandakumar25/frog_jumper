@@ -9,15 +9,16 @@ var selected_character = "Cyber Shogun"  # Default character
 var unlocked_levels = 1  # Highest mission reached (set from the save on Continue, raised by unlock_next_level)
 var current_display_mode: String = "Windowed Fullscreen"
 
-# Settings and keybindings are stored only in PostgreSQL through SessionManager.
+# Settings and keybindings are stored on the signed-in account through SessionManager (2026-11-18).
 
 # Global menu music player reference.
 var menu_music_player: AudioStreamPlayer = null
 
 # ─── Lifecycle ──────────────────────────────────────────────────────────────────
 func _ready() -> void:
-	# Global is registered before SessionManager; defer database access until all autoloads exist.
-	call_deferred("load_saved_settings")
+	# Global is registered before SessionManager; defer until all autoloads exist, then reload
+	# whenever an account signs in (its settings live on the account) or out (back to defaults).
+	call_deferred("_connect_account_settings")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if DisplayServer.get_name() != "headless":
@@ -338,7 +339,18 @@ func apply_display_mode(mode_name: String) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 # ─── Persistence & Input Customization ──────────────────────────────────────────
-## Restores display/input preferences once SessionManager is available.
+## Follows account sign-in so the account's settings apply as soon as they load.
+func _connect_account_settings() -> void:
+	var sessions := get_node_or_null("/root/SessionManager")
+	if sessions != null and not sessions.is_connected("AccountLoaded", _on_account_loaded):
+		sessions.connect("AccountLoaded", _on_account_loaded)
+	load_saved_settings()
+
+## Applies the loaded account's settings, or the defaults after sign-out.
+func _on_account_loaded(_signed_in: bool) -> void:
+	load_saved_settings()
+
+## Restores display/input preferences from the signed-in account (defaults before sign-in).
 func load_saved_settings() -> void:
 	load_custom_keybindings()
 	var data: Dictionary = get_node("/root/SessionManager").ReadState("user_settings")
@@ -347,19 +359,19 @@ func load_saved_settings() -> void:
 		if DisplayServer.get_name() != "headless":
 			apply_display_mode(current_display_mode)
 
-## Persists the selected display mode exclusively in PostgreSQL.
+## Saves the selected display mode to the signed-in account (not saved before sign-in).
 func save_user_settings() -> void:
 	if not get_node("/root/SessionManager").WriteState("user_settings", {"display_mode": current_display_mode}):
-		push_warning("Display settings were not saved. PostgreSQL must be available.")
+		push_warning("Display settings were not saved: sign in to keep settings on your account.")
 
-## Restores supported keyboard mappings from the database document.
+## Restores supported keyboard mappings from the account document.
 func load_custom_keybindings() -> void:
 	InputPromptService.ApplyKeyboardBindings(get_node("/root/SessionManager").ReadState("user_keybindings"))
 
 ## Commits keyboard bindings without altering controller bindings or creating a local save.
 func save_custom_keybindings() -> void:
 	if not get_node("/root/SessionManager").WriteState("user_keybindings", InputPromptService.CaptureKeyboardBindings()):
-		push_warning("Keybindings were not saved. PostgreSQL must be available.")
+		push_warning("Keybindings were not saved: sign in to keep them on your account.")
 	InputPromptService.NotifyBindingsChanged()
 
 func load_mp3_stream(res_path: String) -> AudioStream:

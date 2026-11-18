@@ -114,7 +114,7 @@ export async function sendWelcomeEmail(mailer, config, user) {
  * @param {import('./mail.js').Mailer} mailer
  * @param {import('../config.js').Config} config
  * @param {string} to
- * @param {'2fa_off' | 'email_changed'} kind
+ * @param {'2fa_off' | 'email_changed' | 'account_deleted'} kind
  * @param {string} [newEmail] for `email_changed`
  */
 export async function sendSecurityNotice(mailer, config, to, kind, newEmail = '') {
@@ -122,6 +122,9 @@ export async function sendSecurityNotice(mailer, config, to, kind, newEmail = ''
   const message = kind === '2fa_off'
     ? { subject: 'Frog Jumper 2FA Was Turned Off',
       text: 'Two-Factor Authentication was turned off on your account, and other signed-in sessions were signed out.\n\nIf this wasn\'t you, sign in, turn it back on and change your password.' }
+    : kind === 'account_deleted'
+    ? { subject: 'Your Frog Jumper Account Was Deleted',
+      text: 'Your account, profile, sign-in identity, security settings and game saves have been deleted, and every signed-in session was signed out. This cannot be undone.\n\nYou can create a new account at any time.\n\nIf this wasn\'t you, contact support at once.' }
     : { subject: 'Frog Jumper Email Address Changed',
       text: `The email address on your account was changed to ${newEmail}, and other signed-in sessions were signed out.\n\nIf this wasn't you, contact support at once.` };
   try {
@@ -135,7 +138,7 @@ export async function sendSecurityNotice(mailer, config, to, kind, newEmail = ''
  * The 2FA code mail.
  * @param {{email: string}} user
  * @param {string} code
- * @param {'opt_in' | 'login' | 'opt_out' | 'email_change'} purpose
+ * @param {'opt_in' | 'login' | 'opt_out' | 'email_change' | 'delete_account'} purpose
  * @param {string} from
  * @returns {object}
  */
@@ -151,6 +154,9 @@ export function twoFactorEmail(user, code, purpose, from) {
   } else if (purpose === 'opt_out') {
     subject = 'Confirm Turning Off Frog Jumper 2FA';
     text = `Someone asked to turn off Two-Factor Authentication on your account. Your verification code is: ${code}\n\nThis code will expire in 10 minutes. If this wasn't you, do not share it, and change your password.`;
+  } else if (purpose === 'delete_account') {
+    subject = 'Confirm Deleting Your Frog Jumper Account';
+    text = `Someone asked to permanently delete your account. Your verification code is: ${code}\n\nThis code will expire in 10 minutes. Deleting removes your account, profile, sign-in identity, security settings and game saves; it cannot be undone.\n\nIf this wasn't you, do not share the code, and change your password.`;
   } else if (purpose === 'email_change') {
     subject = 'Confirm Your Frog Jumper Email Change';
     text = `Someone asked to change the email address on your account. Your verification code is: ${code}\n\nThis code will expire in 10 minutes. If this wasn't you, do not share it, and change your password.`;

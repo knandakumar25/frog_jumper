@@ -7,6 +7,10 @@ using System;
 public partial class MenuAuthUI : Node
 {
 	private CyberButton     _logoutButton;
+	// Opens the website's account-deletion page (2026-11-18; required by Apple and Google).
+	private CyberButton     _deleteAccountButton;
+	// Set after the deletion page is opened, so the next return to the game re-checks the account.
+	private bool            _deletionPageOpened;
 	private TextureRect     _avatarRect;
 	private Label           _usernameLabel;
 	private Label           _headerLabel;
@@ -158,6 +162,19 @@ public partial class MenuAuthUI : Node
 		_logoutButton.Pressed += OnLogoutPressed;
 		_profileDisplayContainer.AddChild(_logoutButton);
 
+		// 3d. Delete account: shown only with the signed-in profile; finishes on the website.
+		_deleteAccountButton = new CyberButton
+		{
+			Name = "DeleteAccountButton",
+			MainText = "DELETE ACCOUNT",
+			SubText = "// OPENS WEBSITE",
+			IndexText = "01",
+			CustomMinimumSize = new Vector2(150, 42),
+			SizeFlagsVertical = Control.SizeFlags.ShrinkCenter
+		};
+		_deleteAccountButton.Pressed += OnDeleteAccountPressed;
+		_profileDisplayContainer.AddChild(_deleteAccountButton);
+
 		// 4. Local / Standby Operative Telemetry Display (shown when not logged into web profile)
 		_guestDisplayContainer = new VBoxContainer
 		{
@@ -245,6 +262,46 @@ public partial class MenuAuthUI : Node
 		return fallback;
 	}
 
+	/// <summary>
+	/// Open the website's account-deletion page in the player's language. The website handles
+	/// sign-in, the emailed code and the confirmation; when the player comes back to the game, the
+	/// account is re-checked and the game signs out if it was deleted.
+	/// </summary>
+	private void OnDeleteAccountPressed()
+	{
+		string url = DeleteAccountUrl();
+		if (!BrowserAuthPolicy.IsSafeUrl(url) || OS.ShellOpen(url) != Error.Ok)
+		{
+			if (_statusLabel != null) _statusLabel.Text = " " + Tr("Could not open the website.");
+			return;
+		}
+		_deletionPageOpened = true;
+		if (_statusLabel != null) _statusLabel.Text = " " + Tr("Finish on the website. You will be signed out here.");
+	}
+
+	/// <summary>The deletion page address for the current game language (see <see cref="AccountLinks"/>).</summary>
+	public static string DeleteAccountUrl() =>
+		AccountLinks.DeleteAccountUrl(AccountLinks.WebsiteBaseUrl, LocaleCatalog.Resolve(TranslationServer.GetLocale()).Iso);
+
+	/// <summary>Instance form of <see cref="DeleteAccountUrl"/> so GDScript tests can call it.</summary>
+	public string GetDeleteAccountUrl() => DeleteAccountUrl();
+
+	/// <summary>After the deletion page was opened, re-check the account whenever the game regains focus.</summary>
+	public override void _Notification(int what)
+	{
+		if (what == NotificationApplicationFocusIn && _deletionPageOpened && IsInsideTree()) _ = RecheckAccountAsync();
+	}
+
+	/// <summary>Ask the API for the profile; a deleted account makes AuthManager sign out, and the panel follows.</summary>
+	private async System.Threading.Tasks.Task RecheckAccountAsync()
+	{
+		if (AuthManager.Instance == null || AuthManager.Instance.CurrentUser == null) { _deletionPageOpened = false; return; }
+		await AuthManager.Instance.GetProfileAsync();
+		if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
+		if (AuthManager.Instance?.CurrentUser == null) _deletionPageOpened = false;
+		UpdateAuthUI();
+	}
+
 	/// <summary>End only the game session.</summary>
 	private void OnLogoutPressed()
 	{
@@ -330,6 +387,7 @@ public partial class MenuAuthUI : Node
 		{
 			_logoutButton.UpdateLocalization();
 		}
+		_deleteAccountButton?.UpdateLocalization();
 	}
 
 	/// <summary>Detach the persistent authentication service when leaving this menu.</summary>

@@ -19,6 +19,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import TwoFactor from './pages/TwoFactor';
 import Account from './pages/Account';
+import DeleteAccount from './pages/DeleteAccount';
 import FAQ from './pages/FAQ';
 import AccountAccess from './components/AccountAccess';
 
@@ -34,9 +35,10 @@ function MainLayout() {
   const { t, i18n } = useTranslation();
   const previousPath = useRef(location.pathname);
   useEffect(() => {
-    const page = location.pathname.includes('/auth/browser-confirm') ? 'signin' : location.pathname === '/onboarding' ? 'onboarding' : location.pathname.endsWith('/account/2fa') ? 'security' : location.pathname.split('/')[2] || 'home';
+    const page = location.pathname.includes('/auth/browser-confirm') ? 'signin' : location.pathname === '/onboarding' ? 'onboarding' : location.pathname.endsWith('/account/2fa') ? 'security' : location.pathname.endsWith('/account/delete') ? 'deleteAccount' : location.pathname.split('/')[2] || 'home';
     const titleKey = ({ 'tech-hub': 'development', login: 'login', signup: 'signup', account: 'account', signin: 'signinQ' })[page] || page;
-    document.title = `${page === 'design-system' ? t('nav.design_system') : t(`showcase.${titleKey}`, t('showcase.account'))} | AXIOM FORCE`;
+    const title = page === 'design-system' ? t('nav.design_system') : page === 'deleteAccount' ? t('account.delete_title') : t(`showcase.${titleKey}`, t('showcase.account'));
+    document.title = `${title} | AXIOM FORCE`;
     if (previousPath.current !== location.pathname) {
       document.getElementById('main-content')?.focus();
       window.scrollTo(0, 0);
@@ -59,6 +61,8 @@ function MainLayout() {
           <Route path="/:locale/signup/*" element={<Signup />} />
           <Route path="/:locale/account" element={<AccountAccess><Account /></AccountAccess>} />
           <Route path="/:locale/account/2fa" element={<AccountAccess><TwoFactor /></AccountAccess>} />
+          {/* Account deletion; also the web deletion address for the Play listing (2026-11-18). */}
+          <Route path="/:locale/account/delete" element={<AccountAccess><DeleteAccount /></AccountAccess>} />
           <Route path="/auth/browser-confirm" element={<BrowserAuth />} />
           {/*
             Registered BARE, not under /:locale. LocaleRedirect matches the "*"

@@ -1,92 +1,57 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Npgsql;
 
 /// <summary>
-/// Real PostgreSQL round trips for city travel. Each test owns a throwaway campaign, and cleanup
-/// matches that exact campaign number so it can never touch another campaign's rows.
+/// City travel on an account save slot (2026-11-18), against <see cref="InMemorySaveStore"/>
+/// (same commit rules as the server). Each test owns a fresh store and slot.
 /// </summary>
 [TestFixture]
 public class KyotoSaveTests
 {
-    private readonly List<int> _owned = new();
-    private string _connection = "";
+    private InMemorySaveStore _store = null!;
 
-    /// <summary>Reads the same connection settings the game uses, which need the project root as working directory.</summary>
+    /// <summary>A fresh store per test.</summary>
     [SetUp]
-    public void Configure()
-    {
-        var root = new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
-        while (root != null && !File.Exists(Path.Combine(root.FullName, "project.godot"))) root = root.Parent;
-        string previous = Directory.GetCurrentDirectory();
-        try { Directory.SetCurrentDirectory(root!.FullName); _connection = PostgresStorage.ConnectionString; }
-        finally { Directory.SetCurrentDirectory(previous); }
-    }
+    public void Configure() { AccountDocs.Clear(); _store = new InMemorySaveStore(); }
 
-    /// <summary>Creates a fixture campaign that starts in Los Angeles.</summary>
+    /// <summary>Creates a slot that starts in Los Angeles after Mission 2.</summary>
     private async Task<int> CreateCampaignAsync()
     {
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        await using var cmd = new NpgsqlCommand("INSERT INTO game_sessions(character,created_at,last_played) VALUES ('kyoto-save-fixture','fixture','fixture') RETURNING id", c);
-        int id = Convert.ToInt32(await cmd.ExecuteScalarAsync());
-        _owned.Add(id);
-        await WorldStorage.SaveAsync(id, WorldSave.AfterMission(2), _connection);
+        int id = (await _store.CreateSlotAsync("kyoto-save-fixture")).Id;
+        await WorldStorage.SaveAsync(id, WorldSave.AfterMission(2), _store);
         return id;
     }
 
-    /// <summary>Deletes only keys whose campaign number is exactly this fixture's.</summary>
-    [TearDown]
-    public async Task CleanupAsync()
-    {
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        foreach (int id in _owned)
-        {
-            await using var cmd = new NpgsqlCommand("DELETE FROM game_state WHERE state_key ~ @pattern; DELETE FROM game_sessions WHERE id=@id AND created_at='fixture'", c);
-            cmd.Parameters.AddWithValue("pattern", $"^[a-z_]+:{id}(:|$)");
-            cmd.Parameters.AddWithValue("id", id);
-            await cmd.ExecuteNonQueryAsync();
-        }
-        _owned.Clear();
-    }
-
-    /// <summary>Reads the shared reward totals for a campaign.</summary>
-    private async Task<int> SparksAsync(int session)
-    {
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        await using var tx = await c.BeginTransactionAsync();
-        return (await CampaignProgressionState.LoadOrCreateAsync(session, c, tx)).GlobalSparksBank;
-    }
+    /// <summary>The slot's shared reward totals.</summary>
+    private async Task<int> SparksAsync(int session) =>
+        CampaignProgressionState.FromSnapshot((await _store.GetSlotAsync(session))!).GlobalSparksBank;
 
     [Test]
     public async Task TravelStoresEachCitySeparatelyAndResumesInTheRightOne()
     {
         int session = await CreateCampaignAsync();
-        var home = (await WorldStorage.LoadAsync(session, 3, _connection))!;
+        var home = (await WorldStorage.LoadAsync(session, 3, _store))!;
 
-        var kyoto = await WorldStorage.TravelAsync(session, home, KyotoCity.Definition, _connection);
+        var kyoto = await WorldStorage.TravelAsync(session, home, KyotoCity.Definition, _store);
         Assert.That(kyoto.World, Is.EqualTo(KyotoCity.Definition.Identity));
-        Assert.That((await WorldStorage.LoadAsync(session, 3, _connection))!.CurrentCity, Is.EqualTo("kyoto"));
-        Assert.That((await WorldStorage.LoadActiveAsync(session, 3, _connection))!.World, Is.EqualTo(KyotoCity.Definition.Identity));
+        Assert.That((await WorldStorage.LoadAsync(session, 3, _store))!.CurrentCity, Is.EqualTo("kyoto"));
+        Assert.That((await WorldStorage.LoadActiveAsync(session, 3, _store))!.World, Is.EqualTo(KyotoCity.Definition.Identity));
+        Assert.That((await _store.GetSlotAsync(session))!.Docs.ContainsKey(WorldStorage.DocKey(KyotoCity.Definition)), Is.True);
 
-        var receipt = await WorldTransactionService.CompleteQuestAsync(session, "kq_gion_01", null, Guid.NewGuid().ToString(), _connection);
+        var receipt = await WorldTransactionService.CompleteQuestAsync(session, "kq_gion_01", null, Guid.NewGuid().ToString(), _store);
         Assert.That(receipt.Status, Is.EqualTo(TransactionStatus.Success));
-        var active = (await WorldStorage.LoadActiveAsync(session, 3, _connection))!;
+        var active = (await WorldStorage.LoadActiveAsync(session, 3, _store))!;
         Assert.That(active.CompletedQuests!.ContainsKey("kq_gion_01"), Is.True);
-        Assert.That((await WorldStorage.LoadAsync(session, 3, _connection))!.CompletedQuests!.ContainsKey("kq_gion_01"), Is.False);
+        Assert.That((await WorldStorage.LoadAsync(session, 3, _store))!.CompletedQuests!.ContainsKey("kq_gion_01"), Is.False);
 
-        var back = await WorldStorage.TravelAsync(session, active, WorldCatalog.Definition, _connection);
+        var back = await WorldStorage.TravelAsync(session, active, WorldCatalog.Definition, _store);
         Assert.That(back.World, Is.EqualTo(WorldCatalog.Identity));
-        var resumed = (await WorldStorage.LoadActiveAsync(session, 3, _connection))!;
+        var resumed = (await WorldStorage.LoadActiveAsync(session, 3, _store))!;
         Assert.That(resumed.World, Is.EqualTo(WorldCatalog.Identity));
         Assert.That(resumed.CurrentCity, Is.Null);
 
-        var again = await WorldStorage.TravelAsync(session, resumed, KyotoCity.Definition, _connection);
+        var again = await WorldStorage.TravelAsync(session, resumed, KyotoCity.Definition, _store);
         Assert.That(again.CompletedQuests!.ContainsKey("kq_gion_01"), Is.True, "Kyoto progress must survive leaving and returning.");
     }
 
@@ -94,15 +59,10 @@ public class KyotoSaveTests
     public async Task FinishingACampaignMissionFromACityReturnsToLosAngeles()
     {
         int session = await CreateCampaignAsync();
-        await WorldStorage.TravelAsync(session, (await WorldStorage.LoadAsync(session, 3, _connection))!, KyotoCity.Definition, _connection);
-        await using (var c = new NpgsqlConnection(_connection))
-        {
-            await c.OpenAsync();
-            await using var tx = await c.BeginTransactionAsync();
-            await WorldStorage.SettleReturnAsync(c, tx, session, 3, OperativeRoster.Starter);
-            await tx.CommitAsync();
-        }
-        var state = (await WorldStorage.LoadActiveAsync(session, 4, _connection))!;
+        await WorldStorage.TravelAsync(session, (await WorldStorage.LoadAsync(session, 3, _store))!, KyotoCity.Definition, _store);
+        var settled = await CampaignSettlement.SaveAsync(session, 3, 0, Guid.NewGuid().ToString(), _store);
+        Assert.That(settled.Status, Is.EqualTo(CompletionSaveStatus.Saved));
+        var state = (await WorldStorage.LoadActiveAsync(session, 4, _store))!;
         Assert.That(state.World, Is.EqualTo(WorldCatalog.Identity));
         Assert.That(state.CurrentCity, Is.Null);
     }
@@ -111,31 +71,26 @@ public class KyotoSaveTests
     public async Task OperationRewardIsPaidOncePerTokenAndLeavesCampaignLevelAlone()
     {
         int session = await CreateCampaignAsync();
-        await WorldStorage.TravelAsync(session, (await WorldStorage.LoadAsync(session, 3, _connection))!, KyotoCity.Definition, _connection);
+        await WorldStorage.TravelAsync(session, (await WorldStorage.LoadAsync(session, 3, _store))!, KyotoCity.Definition, _store);
         int before = await SparksAsync(session);
         string token = Guid.NewGuid().ToString();
 
-        var first = await WorldTransactionService.CompleteOperationAsync(session, "op_kyoto_kamo_locks", token, connectionString: _connection);
-        var retry = await WorldTransactionService.CompleteOperationAsync(session, "op_kyoto_kamo_locks", token, connectionString: _connection);
+        var first = await WorldTransactionService.CompleteOperationAsync(session, "op_kyoto_kamo_locks", token, store: _store);
+        var retry = await WorldTransactionService.CompleteOperationAsync(session, "op_kyoto_kamo_locks", token, store: _store);
         Assert.That(first.Status, Is.EqualTo(TransactionStatus.Success));
         Assert.That(retry.Status, Is.EqualTo(TransactionStatus.AlreadyCommitted));
         Assert.That(await SparksAsync(session), Is.EqualTo(before + 250));
 
-        var state = (await WorldStorage.LoadActiveAsync(session, 3, _connection))!;
+        var state = (await WorldStorage.LoadActiveAsync(session, 3, _store))!;
         Assert.That(state.OperationClears!["op_kyoto_kamo_locks"], Is.EqualTo(1));
-
-        await using var c = new NpgsqlConnection(_connection);
-        await c.OpenAsync();
-        await using var level = new NpgsqlCommand("SELECT current_level FROM game_sessions WHERE id=@id", c);
-        level.Parameters.AddWithValue("id", session);
-        Assert.That(Convert.ToInt32(await level.ExecuteScalarAsync()), Is.EqualTo(1), "A city operation must not advance the campaign.");
+        Assert.That((await _store.GetSlotAsync(session))!.Slot.CurrentLevel, Is.EqualTo(1), "A city operation must not advance the campaign.");
     }
 
     [Test]
     public async Task OperationCannotBeCreditedToACityNeverVisited()
     {
         int session = await CreateCampaignAsync();
-        var receipt = await WorldTransactionService.CompleteOperationAsync(session, "op_kyoto_kamo_locks", Guid.NewGuid().ToString(), connectionString: _connection);
+        var receipt = await WorldTransactionService.CompleteOperationAsync(session, "op_kyoto_kamo_locks", Guid.NewGuid().ToString(), store: _store);
         Assert.That(receipt.Status, Is.EqualTo(TransactionStatus.PrerequisitesNotMet));
     }
 }

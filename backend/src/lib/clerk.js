@@ -153,3 +153,40 @@ export async function fetchClerkUser(userId, config, { request = timedFetch, log
   }
   return parseClerkUser(payload);
 }
+
+/**
+ * Delete a user from Clerk through the Backend API (`DELETE /users/{id}`), used when a player
+ * deletes their account. A 404 means the user is already gone and counts as success.
+ * Throws `ClerkUnavailable` when Clerk cannot be reached and `ClerkAPIError` for any other
+ * refusal or a missing secret key; callers keep the id queued and retry later.
+ * @param {string} userId Clerk user id (`user_...`)
+ * @param {import('../config.js').Config} config
+ * @param {{ request?: typeof timedFetch, logger?: Pick<Console, 'warn'> }} [options]
+ * @returns {Promise<'deleted' | 'already_gone'>}
+ */
+export async function deleteClerkUser(userId, config, { request = timedFetch, logger = console } = {}) {
+  // A malformed id can never exist in Clerk, so there is nothing to delete.
+  if (!isValidUserId(userId)) return 'already_gone';
+  if (!config.clerkSecretKey) throw new ClerkAPIError('CLERK_SECRET_KEY is not configured.');
+  const url = `${config.clerkApiBase.replace(/\/+$/, '')}/users/${encodeURIComponent(userId)}`;
+  let response;
+  try {
+    response = await request(url, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${config.clerkSecretKey}`,
+        Accept: 'application/json',
+        'User-Agent': USER_AGENT,
+      },
+    }, config.clerkTimeoutMs);
+  } catch (error) {
+    throw new ClerkUnavailable(`Could not reach Clerk: ${error.message}`);
+  }
+  if (response.status === 404) return 'already_gone';
+  if (!response.ok) {
+    const body = await response.text().catch(() => '');
+    logger.warn(`Clerk refused DELETE /users/<id> (HTTP ${response.status}): ${body}`);
+    throw new ClerkAPIError(`Clerk returned HTTP ${response.status}.`);
+  }
+  return 'deleted';
+}

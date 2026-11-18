@@ -1,85 +1,57 @@
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Npgsql;
-using NpgsqlTypes;
 
 /// <summary>Explicit extraction persistence result; direct scene play can finish without creating a campaign.</summary>
 public enum CompletionSaveStatus { Saved, Failed, NoActiveCampaign }
 
-/// <summary>Engine-free result safe to return from database worker continuations without touching Godot nodes.</summary>
+/// <summary>Engine-free result safe to return from worker continuations without touching Godot nodes.</summary>
 public sealed record CompletionSaveResult(CompletionSaveStatus Status, int CurrentLevel = 0, int TotalScore = 0,
     string Error = "");
 
-/// <summary>PostgreSQL extraction settlement. A stable per-run receipt and the score/progress update commit in one
-/// transaction; retrying a lost response or concurrently settling the same token cannot award twice.</summary>
+/// <summary>
+/// Mission settlement on the account's save slot (2026-11-18; previously a PostgreSQL transaction).
+/// One commit carries the run's receipt (its stable per-run token), the progress and score update,
+/// and the post-mission return to Los Angeles. Retrying after a lost answer, or settling the same
+/// token concurrently, cannot award twice: the server answers "already committed".
+/// </summary>
 public static class CampaignSettlement
 {
-    /// <summary>Claims one run in the existing game_state schema. Locks only the selected campaign and never lowers progress.
-    /// Optional connection override is for owned integration fixtures and outage tests, never a fallback store.</summary>
+    /// <summary>Receipt kind stored with each settled run.</summary>
+    public const string ReceiptKind = "mission_completion";
+
+    /// <summary>
+    /// Settles one run. Never lowers progress. Reusing a token for a different result is refused.
+    /// The optional store is for tests; the game uses <see cref="SaveStore.Current"/>.
+    /// </summary>
     public static async Task<CompletionSaveResult> SaveAsync(int sessionId, int mission, int score, string runToken,
-        string? connectionString = null, string operative = OperativeRoster.Starter)
+        ISaveStore? store = null, string operative = OperativeRoster.Starter)
     {
         if (sessionId <= 0) return new(CompletionSaveStatus.NoActiveCampaign);
         if (mission < 1 || mission > LevelCatalog.Count || score < 0 || !Guid.TryParse(runToken, out _))
             return new(CompletionSaveStatus.Failed, Error: "Invalid mission completion receipt.");
+        string receipt = JsonSerializer.Serialize(new { mission, score });
         try
         {
-            await using var connection = new NpgsqlConnection(connectionString ?? PostgresStorage.ConnectionString);
-            await connection.OpenAsync().ConfigureAwait(false);
-            await using var transaction = await connection.BeginTransactionAsync().ConfigureAwait(false);
-            // Row locking serializes different runs as well as concurrent retries of the same run.
-            await using var selected = new NpgsqlCommand(
-                "SELECT current_level, total_score FROM game_sessions WHERE id=@id FOR UPDATE", connection, transaction);
-            selected.Parameters.AddWithValue("id", sessionId);
-            int level, total;
-            await using (var reader = await selected.ExecuteReaderAsync().ConfigureAwait(false))
+            var result = await SlotTransaction.RunAsync(store ?? SaveStore.Current, sessionId, snapshot =>
+                new SlotCommit(snapshot.Slot.Revision, runToken, ReceiptKind, receipt,
+                    Character: operative, LevelAtLeast: LevelCatalog.Clamp(mission + 1), ScoreAdd: score,
+                    // A lost settlement answer must never reapply the return over later transit or a new
+                    // mission entry; the receipt makes a retry a no-op, so this write happens once.
+                    Docs: new[] { WorldStorage.Write(WorldStorage.SettleReturn(snapshot, mission, operative)) })).ConfigureAwait(false);
+            return result.Outcome switch
             {
-                if (!await reader.ReadAsync().ConfigureAwait(false))
-                    return new(CompletionSaveStatus.Failed, Error: "The selected campaign no longer exists.");
-                level = reader.GetInt32(0); total = reader.GetInt32(1);
-            }
-            await using var schema = new NpgsqlCommand(
-                "CREATE TABLE IF NOT EXISTS game_state (state_key text PRIMARY KEY, schema_version integer NOT NULL DEFAULT 1, value jsonb NOT NULL)", connection, transaction);
-            await schema.ExecuteNonQueryAsync().ConfigureAwait(false);
-            string key = $"mission-completion:{sessionId}:{runToken}";
-            await using var receipt = new NpgsqlCommand(
-                "INSERT INTO game_state(state_key,value) VALUES (@key,@value) ON CONFLICT(state_key) DO NOTHING", connection, transaction);
-            receipt.Parameters.AddWithValue("key", key);
-            receipt.Parameters.AddWithValue("value", NpgsqlDbType.Jsonb, JsonSerializer.Serialize(new { mission, score }));
-            if (await receipt.ExecuteNonQueryAsync().ConfigureAwait(false) == 1)
-            {
-                await using var update = new NpgsqlCommand(@"UPDATE game_sessions
-                    SET current_level=GREATEST(current_level,@level), total_score=total_score+@score, last_played=@last
-                    WHERE id=@id RETURNING current_level,total_score", connection, transaction);
-                update.Parameters.AddWithValue("id", sessionId);
-                update.Parameters.AddWithValue("level", LevelCatalog.Clamp(mission + 1));
-                update.Parameters.AddWithValue("score", score);
-                update.Parameters.AddWithValue("last", DateTime.UtcNow.ToString("O"));
-                await using (var reader = await update.ExecuteReaderAsync().ConfigureAwait(false))
-                {
-                    await reader.ReadAsync().ConfigureAwait(false);
-                    level = reader.GetInt32(0); total = reader.GetInt32(1);
-                }
-                // A lost settlement response must never reapply the return over subsequent transit or a new mission entry.
-                await WorldStorage.SettleReturnAsync(connection, transaction, sessionId, mission, operative).ConfigureAwait(false);
-            }
-            else
-            {
-                // Reusing a token for a different snapshot is an error rather than a second award or silent success.
-                await using var verify = new NpgsqlCommand(
-                    "SELECT schema_version=1 AND value=@value FROM game_state WHERE state_key=@key", connection, transaction);
-                verify.Parameters.AddWithValue("key", key);
-                verify.Parameters.AddWithValue("value", NpgsqlDbType.Jsonb, JsonSerializer.Serialize(new { mission, score }));
-                if (await verify.ExecuteScalarAsync().ConfigureAwait(false) is not true)
-                    return new(CompletionSaveStatus.Failed, Error: "Completion receipt does not match this run.");
-            }
-            await transaction.CommitAsync().ConfigureAwait(false);
-            return new(CompletionSaveStatus.Saved, level, total);
+                CommitOutcome.Committed or CommitOutcome.AlreadyCommitted => new(CompletionSaveStatus.Saved,
+                    result.Snapshot!.Slot.CurrentLevel, (int)Math.Min(int.MaxValue, result.Snapshot.Slot.TotalScore)),
+                CommitOutcome.ReceiptMismatch => new(CompletionSaveStatus.Failed, Error: "Completion receipt does not match this run."),
+                CommitOutcome.NotFound => new(CompletionSaveStatus.Failed, Error: "The selected campaign no longer exists."),
+                CommitOutcome.NotSignedIn => new(CompletionSaveStatus.Failed, Error: "Sign in to save. Retry Save uses the same receipt."),
+                _ => new(CompletionSaveStatus.Failed, Error: "Campaign save could not be confirmed. Retry Save uses the same receipt."),
+            };
         }
-        catch (Exception exception) when (exception is NpgsqlException or TimeoutException or InvalidOperationException)
+        catch (InvalidOperationException)
         {
-            // No credentials, SQL payload or unrelated campaign details reach the results screen.
+            // An invalid world record cannot be settled; no detail reaches the results screen.
             return new(CompletionSaveStatus.Failed, Error: "Campaign save could not be confirmed. Retry Save uses the same receipt.");
         }
     }

@@ -21,7 +21,7 @@ public static class CampaignProgress
         var sessions = SessionManager.Instance;
         int id = sessions == null ? -1 : await sessions.CreateNewSessionAsync(OperativeRoster.Starter);
         if (id <= 0) return id;
-        // Reset runtime progress only after PostgreSQL has committed the new campaign.
+        // Reset runtime progress only after the account's save service has created the new campaign.
         Global?.Set("unlocked_levels", 1);
         Global?.Set("selected_character", OperativeRoster.Starter);
         PrepareMission(1);
@@ -50,7 +50,7 @@ public static class CampaignProgress
         return roster;
     }
 
-    /// <summary>Awaits PostgreSQL settlement, then applies runtime unlocks on the engine main thread.
+    /// <summary>Awaits the account save settlement, then applies runtime unlocks on the engine main thread.
     /// Direct scene play without a campaign may navigate; failed active-campaign saves keep forward actions disabled.</summary>
     public static async Task<CompletionSaveResult> CompleteMissionAsync(int completedMission, int points, string runToken, int sessionId)
     {

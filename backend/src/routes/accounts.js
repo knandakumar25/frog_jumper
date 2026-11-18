@@ -7,6 +7,9 @@
  * - login, register, 2fa/verify-login and token/refresh: `authPerIpPerMinute` per client IP;
  * - login also `loginPerUserPer15Min` per username (so spread-out guessing still stops);
  * - every emailed code: `codesPerUserPer15Min` per user and purpose (`twoFactor.createCode`).
+ *
+ * Account deletion (2026-11-18): `account/delete-request/` emails a code and `account/delete/`
+ * deletes the account with it (`lib/accountDeletion.js`).
  */
 import express from 'express';
 
@@ -18,6 +21,7 @@ import { basicCountries, loadCountries } from '../lib/countries.js';
 import { byIp, rateLimit } from '../lib/throttle.js';
 import { issueTokenPair, revokeAllRefreshTokens, rotateRefreshToken } from '../lib/tokens.js';
 import { createCode, isUuid, verifyCode } from '../lib/twoFactor.js';
+import { deleteAccount, processClerkDeletions } from '../lib/accountDeletion.js';
 import {
   createUser, findUserById, findUserByUsername, profileOf, readString, updateUser,
   validateProfileUpdate, validateRegistration,
@@ -207,6 +211,52 @@ export function accountRoutes(deps) {
         return;
       }
       res.status(400).json({ error: 'Invalid or expired code' });
+    }],
+  });
+
+  /**
+   * POST account/delete-request/: email a code that confirms deleting the account. Works for
+   * password and Clerk-only accounts alike, because it needs only the account's email.
+   */
+  route(router, '/account/delete-request/', {
+    post: [signedIn, async (req, res) => {
+      const { code } = await createCode(pool, req.user.id, 'delete_account', deps.config);
+      await deps.mailer.send(twoFactorEmail(req.user, code, 'delete_account', deps.config.defaultFromEmail));
+      res.json({ message: 'Verification code sent to your email.' });
+    }],
+  });
+
+  /**
+   * POST account/delete/: permanently delete the account with the emailed code and the typed
+   * word DELETE. Removes the account and its linked rows in one transaction, then sends a notice
+   * to the old address and asks Clerk to delete the sign-in identity (retried hourly if Clerk is
+   * unreachable). The account's game saves are deleted with it.
+   */
+  route(router, '/account/delete/', {
+    post: [signedIn, async (req, res) => {
+      const code = req.body?.code;
+      if (!code) {
+        res.status(400).json({ error: 'Code is required' });
+        return;
+      }
+      if (req.body?.confirm !== 'DELETE') {
+        res.status(400).json({ error: 'Type DELETE to confirm' });
+        return;
+      }
+      if (!await verifyCode(pool, deps.config, { userId: req.user.id, code, purpose: 'delete_account' })) {
+        res.status(400).json({ error: 'Invalid or expired code' });
+        return;
+      }
+      const result = await deleteAccount(pool, req.user.id);
+      if (result.deleted) {
+        await sendSecurityNotice(deps.mailer, deps.config, result.email, 'account_deleted');
+        if (result.clerkUserId) {
+          // One immediate try; a failure stays queued for the hourly cleanup.
+          await processClerkDeletions(pool, deps.config, deps.clerk.deleteUser, { onlyId: result.clerkUserId })
+            .catch((error) => console.error('Clerk deletion attempt failed:', error.message));
+        }
+      }
+      res.json({ message: 'Account deleted.' });
     }],
   });
 

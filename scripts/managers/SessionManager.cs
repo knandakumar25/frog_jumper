@@ -1,344 +1,209 @@
 using Godot;
 using Godot.Collections;
 using System;
-using System.Collections.Generic;
-using Npgsql;
-
+using System.Linq;
 using System.Threading.Tasks;
 
 /// <summary>
-/// SessionManager is a singleton autoload that manages game sessions (user progress, scores, and character data).
-/// PostgreSQL is the only persistent store; database failures are reported without a local fallback.
+/// SessionManager is the autoload for campaign save slots and account settings.
+///
+/// Since 2026-11-18 saves belong to the signed-in account and live behind the accounts API
+/// (<see cref="SaveStore"/>); the game no longer opens a database. Play requires sign-in. When
+/// the account signs in, its settings documents and slot list are loaded into memory
+/// (<see cref="AccountDocs"/>), and <see cref="AccountLoadedEventHandler"/> fires so settings,
+/// key bindings, prompt style and operative progression can re-apply. Failures are reported in
+/// <see cref="LastStorageError"/>; nothing is written locally.
 /// </summary>
 public partial class SessionManager : Node
 {
+	/// <summary>The process-wide autoload.</summary>
 	public static SessionManager Instance { get; private set; }
 
-	private static string PgConnectionString => PostgresStorage.ConnectionString;
+	/// <summary>Raised after the signed-in account's data loaded (true) or after sign-out (false).</summary>
+	[Signal] public delegate void AccountLoadedEventHandler(bool signedIn);
 
-	/// <summary>Most recent database failure; empty after a successful initialization.</summary>
+	/// <summary>Most recent save failure, in player-safe words; empty after a success.</summary>
 	public string LastStorageError { get; private set; } = "";
 
-	private bool _isPostgresAvailable = false;
-
+	/// <summary>The selected campaign slot id, or -1 for none (direct scene play saves nothing).</summary>
 	[Export] public int CurrentSessionId { get; set; } = -1;
+	/// <summary>The selected slot's summary in the old dictionary shape (id, character, current_level, ...).</summary>
 	public Dictionary CurrentSessionData { get; set; } = new Dictionary();
 
-	/// <summary>Registers the singleton and verifies storage before other autoloads read settings.</summary>
+	/// <summary>True when a player is signed in and their account data has loaded.</summary>
+	public bool AccountReady => AuthManager.Instance?.CurrentUser != null && AccountDocs.Loaded;
+
+	// Slot summaries from the last load, for the synchronous Continue check.
+	private System.Collections.Generic.List<SaveSlot> _slots = new();
+
+	// Blocking GDScript aliases call these async methods on the main thread, so every await below
+	// (except in LoadAccountAsync, which emits a signal) continues off the main thread to avoid deadlock.
+
+	/// <summary>Registers the singleton and follows sign-in changes once AuthManager exists (it loads later).</summary>
 	public override void _Ready()
 	{
 		Instance = this;
-		InitDatabaseAsync().GetAwaiter().GetResult();
+		Callable.From(() =>
+		{
+			if (AuthManager.Instance != null) AuthManager.Instance.OnProfileUpdated += OnAuthChanged;
+		}).CallDeferred();
 	}
 
-	/// <summary>Verifies the database and creates the session table; failures disable storage until a retry.</summary>
-	public async Task InitDatabaseAsync()
+	/// <summary>Stops following sign-in changes.</summary>
+	public override void _ExitTree()
 	{
-		GD.Print("SessionManager: Testing PostgreSQL connection...");
+		if (AuthManager.Instance != null) AuthManager.Instance.OnProfileUpdated -= OnAuthChanged;
+		if (Instance == this) Instance = null;
+	}
+
+	/// <summary>Loads the account after sign-in; clears everything after sign-out.</summary>
+	private void OnAuthChanged()
+	{
+		if (AuthManager.Instance?.CurrentUser != null) _ = LoadAccountAsync();
+		else
+		{
+			AccountDocs.Clear();
+			_slots = new();
+			CurrentSessionId = -1;
+			CurrentSessionData = new Dictionary();
+			if (IsInsideTree()) EmitSignal(SignalName.AccountLoaded, false);
+		}
+	}
+
+	/// <summary>
+	/// Fetches the account's documents and slot list. Returns false (and sets
+	/// <see cref="LastStorageError"/>) when the service cannot be reached; the menu shows Retry.
+	/// </summary>
+	public async Task<bool> LoadAccountAsync()
+	{
 		try
 		{
-			using var conn = new NpgsqlConnection(PgConnectionString);
-			await conn.OpenAsync().ConfigureAwait(false);
-			_isPostgresAvailable = true;
+			var docs = await SaveStore.Current.GetAccountDocsAsync();
+			var slots = await SaveStore.Current.ListSlotsAsync();
+			AccountDocs.ReplaceAll(docs);
+			_slots = slots.ToList();
 			LastStorageError = "";
-			GD.Print("SessionManager: Connected to PostgreSQL server successfully!");
-
-			string createTableSql = @"
-				CREATE TABLE IF NOT EXISTS game_sessions (
-					id SERIAL PRIMARY KEY,
-					character VARCHAR(100) NOT NULL,
-					current_level INT NOT NULL DEFAULT 1,
-					total_score INT NOT NULL DEFAULT 0,
-					collectables INT NOT NULL DEFAULT 0,
-					created_at VARCHAR(100) NOT NULL,
-					last_played VARCHAR(100) NOT NULL
-				);";
-
-			using var cmd = new NpgsqlCommand(createTableSql, conn);
-			await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
-			GD.Print("SessionManager: PostgreSQL table 'game_sessions' verified/created.");
+			if (IsInsideTree()) EmitSignal(SignalName.AccountLoaded, true);
+			return true;
 		}
-		catch (Exception ex)
+		catch (SaveStoreException error)
 		{
-			_isPostgresAvailable = false;
-			LastStorageError = "PostgreSQL is unavailable. Start the server and try again.";
-			GD.PrintErr($"SessionManager: {LastStorageError} ({ex.GetType().Name})");
+			LastStorageError = error.Message;
+			GD.PrintErr($"SessionManager: account load failed ({error.Message}).");
+			return false;
 		}
 	}
 
-	/// <summary>Creates a committed campaign save and selects it; returns -1 on database failure.</summary>
+	/// <summary>The old dictionary shape the menus and GDScript use for one slot.</summary>
+	private static Dictionary RowOf(SaveSlot slot) => new()
+	{
+		{ "id", slot.Id }, { "character", slot.Character }, { "current_level", slot.CurrentLevel },
+		{ "total_score", (int)Math.Min(int.MaxValue, slot.TotalScore) }, { "collectables", slot.Collectables },
+		{ "created_at", slot.CreatedAt }, { "last_played", slot.LastPlayed },
+	};
+
+	/// <summary>Records a failure message and logs it without details that could leak tokens.</summary>
+	private void Fail(Exception error, string action)
+	{
+		LastStorageError = error is SaveStoreException ? error.Message : "The save service could not be reached. Retry.";
+		GD.PrintErr($"SessionManager: {action} failed ({error.GetType().Name}).");
+	}
+
+	/// <summary>Creates a campaign slot on the account and selects it; returns -1 on failure.</summary>
 	public async Task<int> CreateNewSessionAsync(string characterName)
 	{
-		string now = Time.GetDatetimeStringFromSystem();
-
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
+		try
 		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-				string sql = @"
-					INSERT INTO game_sessions (character, current_level, total_score, collectables, created_at, last_played)
-					VALUES (@char, 1, 0, 0, @created, @last)
-					RETURNING id;";
-
-				using var cmd = new NpgsqlCommand(sql, conn);
-				cmd.Parameters.AddWithValue("char", characterName);
-				cmd.Parameters.AddWithValue("created", now);
-				cmd.Parameters.AddWithValue("last", now);
-
-				int newId = Convert.ToInt32(await cmd.ExecuteScalarAsync().ConfigureAwait(false));
-				CurrentSessionId = newId;
-				CurrentSessionData = await GetSessionAsync(newId).ConfigureAwait(false);
-				GD.Print($"SessionManager: Created new PostgreSQL session ID {newId}");
-				return newId;
-			}
-			catch (Exception ex)
-			{
-
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error creating PostgreSQL session: {ex.GetType().Name}");
-			}
+			var slot = await SaveStore.Current.CreateSlotAsync(characterName).ConfigureAwait(false);
+			_slots.Insert(0, slot);
+			CurrentSessionId = slot.Id;
+			CurrentSessionData = RowOf(slot);
+			LastStorageError = "";
+			return slot.Id;
 		}
-
-		return -1;
+		catch (SaveStoreException error) { Fail(error, "creating a campaign"); return -1; }
 	}
 
-	/// <summary>Lists persisted campaigns, newest first; returns an empty array on failure.</summary>
+	/// <summary>Lists the account's campaigns, newest first; returns an empty array on failure.</summary>
 	public async Task<Godot.Collections.Array> GetAllSessionsAsync()
 	{
 		var result = new Godot.Collections.Array();
-
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
+		try
 		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-				string sql = "SELECT * FROM game_sessions ORDER BY last_played DESC;";
-				using var cmd = new NpgsqlCommand(sql, conn);
-				using var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
-
-				while (await reader.ReadAsync().ConfigureAwait(false))
-				{
-					var row = new Dictionary
-					{
-						{ "id", reader.GetInt32(0) },
-						{ "character", reader.GetString(1) },
-						{ "current_level", reader.GetInt32(2) },
-						{ "total_score", reader.GetInt32(3) },
-						{ "collectables", reader.GetInt32(4) },
-						{ "created_at", reader.GetString(5) },
-						{ "last_played", reader.GetString(6) }
-					};
-					result.Add(row);
-				}
-				return result;
-			}
-			catch (Exception ex)
-			{
-
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error fetching PostgreSQL sessions: {ex.GetType().Name}");
-			}
+			_slots = (await SaveStore.Current.ListSlotsAsync().ConfigureAwait(false)).ToList();
+			foreach (var slot in _slots) result.Add(RowOf(slot));
+			LastStorageError = "";
 		}
-
+		catch (SaveStoreException error) { Fail(error, "listing campaigns"); }
 		return result;
 	}
 
-	/// <summary>Loads one campaign by id; returns an empty dictionary when absent or unavailable.</summary>
+	/// <summary>Loads one campaign summary by id; returns an empty dictionary when absent or unavailable.</summary>
 	public async Task<Dictionary> GetSessionAsync(int sessionId)
 	{
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
+		try
 		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-				string sql = "SELECT * FROM game_sessions WHERE id = @id;";
-				using var cmd = new NpgsqlCommand(sql, conn);
-				cmd.Parameters.AddWithValue("id", sessionId);
-				using var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
-
-				if (await reader.ReadAsync().ConfigureAwait(false))
-				{
-					return new Dictionary
-					{
-						{ "id", reader.GetInt32(0) },
-						{ "character", reader.GetString(1) },
-						{ "current_level", reader.GetInt32(2) },
-						{ "total_score", reader.GetInt32(3) },
-						{ "collectables", reader.GetInt32(4) },
-						{ "created_at", reader.GetString(5) },
-						{ "last_played", reader.GetString(6) }
-					};
-				}
-			}
-			catch (Exception ex)
-			{
-
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error getting PostgreSQL session: {ex.GetType().Name}");
-			}
+			var snapshot = await SaveStore.Current.GetSlotAsync(sessionId).ConfigureAwait(false);
+			return snapshot == null ? new Dictionary() : RowOf(snapshot.Slot);
 		}
-
-		return new Dictionary();
+		catch (SaveStoreException error) { Fail(error, "reading a campaign"); return new Dictionary(); }
 	}
 
-	/// <summary>Selects an existing saved campaign and updates its last-played timestamp.</summary>
+	/// <summary>Selects an existing campaign. Its last-played time updates with its next save.</summary>
 	public async Task<bool> LoadSessionAsync(int sessionId)
 	{
 		var data = await GetSessionAsync(sessionId).ConfigureAwait(false);
 		if (data.Count == 0) return false;
-
 		CurrentSessionId = sessionId;
 		CurrentSessionData = data;
-		await UpdateLastPlayedAsync(sessionId).ConfigureAwait(false);
 		return true;
 	}
 
-	/// <summary>Atomically adds score and collectibles while advancing the saved mission.</summary>
+	/// <summary>Adds score and collectibles while advancing the saved mission (never lowers it), as one commit.</summary>
 	public async Task UpdateSessionAsync(int sessionId, int level, int scoreIncrement, int collectablesIncrement)
 	{
-		string now = Time.GetDatetimeStringFromSystem();
-
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
+		var result = await SlotTransaction.RunAsync(SaveStore.Current, sessionId, snapshot => new SlotCommit(snapshot.Slot.Revision,
+			LevelAtLeast: Math.Clamp(level, 1, 99), ScoreAdd: Math.Max(0, scoreIncrement), CollectablesAdd: Math.Max(0, collectablesIncrement))).ConfigureAwait(false);
+		if (result.Outcome is CommitOutcome.Committed or CommitOutcome.AlreadyCommitted)
 		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-
-				string sql = @"
-					UPDATE game_sessions
-					SET current_level = GREATEST(current_level, @level), total_score = total_score + @score, collectables = collectables + @coll, last_played = @last
-					WHERE id = @id;";
-
-				using var cmd = new NpgsqlCommand(sql, conn);
-				cmd.Parameters.AddWithValue("level", level);
-				cmd.Parameters.AddWithValue("score", scoreIncrement);
-				cmd.Parameters.AddWithValue("coll", collectablesIncrement);
-				cmd.Parameters.AddWithValue("last", now);
-				cmd.Parameters.AddWithValue("id", sessionId);
-
-				await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
-
-				if (sessionId == CurrentSessionId)
-					CurrentSessionData = await GetSessionAsync(sessionId).ConfigureAwait(false);
-				return;
-			}
-			catch (Exception ex)
-			{
-
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error updating PostgreSQL session: {ex.GetType().Name}");
-			}
+			LastStorageError = "";
+			if (sessionId == CurrentSessionId && result.Snapshot != null) CurrentSessionData = RowOf(result.Snapshot.Slot);
 		}
-
-
+		else LastStorageError = string.IsNullOrEmpty(result.Error) ? "The campaign could not be saved. Retry." : result.Error;
 	}
 
-	/// <summary>Touches the saved campaign timestamp without modifying progress.</summary>
-	public async Task UpdateLastPlayedAsync(int sessionId)
-	{
-		string now = Time.GetDatetimeStringFromSystem();
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
-		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-				string sql = "UPDATE game_sessions SET last_played = @last WHERE id = @id;";
-				using var cmd = new NpgsqlCommand(sql, conn);
-				cmd.Parameters.AddWithValue("last", now);
-				cmd.Parameters.AddWithValue("id", sessionId);
-				await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
-			}
-			catch (Exception ex)
-			{
+	/// <summary>Kept for older callers: a slot's last-played time now updates with every save.</summary>
+	public Task UpdateLastPlayedAsync(int sessionId) => Task.CompletedTask;
 
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error updating PostgreSQL last_played: {ex.GetType().Name}");
-			}
-		}
-	}
-
-	/// <summary>Deletes a campaign and clears the active selection only after the database confirms deletion.</summary>
+	/// <summary>Deletes one of the account's campaigns and clears the selection if it was selected.</summary>
 	public async Task DeleteSessionAsync(int sessionId)
 	{
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
+		try
 		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-				string sql = "DELETE FROM game_sessions WHERE id = @id;";
-				using var cmd = new NpgsqlCommand(sql, conn);
-				cmd.Parameters.AddWithValue("id", sessionId);
-				await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
-
-				if (sessionId == CurrentSessionId)
-				{
-					CurrentSessionId = -1;
-					CurrentSessionData = new Dictionary();
-				}
-				return;
-			}
-			catch (Exception ex)
-			{
-
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error deleting PostgreSQL session: {ex.GetType().Name}");
-			}
+			await SaveStore.Current.DeleteSlotAsync(sessionId).ConfigureAwait(false);
+			_slots.RemoveAll(s => s.Id == sessionId);
+			if (sessionId == CurrentSessionId) { CurrentSessionId = -1; CurrentSessionData = new Dictionary(); }
+			LastStorageError = "";
 		}
-
-
+		catch (SaveStoreException error) { Fail(error, "deleting a campaign"); }
 	}
 
-	/// <summary>Deletes all campaigns and clears the active runtime selection after success.</summary>
+	/// <summary>Deletes all of the account's campaigns (no one else's) and clears the selection.</summary>
 	public async Task DeleteAllSessionsAsync()
 	{
-		if (!_isPostgresAvailable) await InitDatabaseAsync().ConfigureAwait(false);
-		if (_isPostgresAvailable)
+		try
 		{
-			try
-			{
-				using var conn = new NpgsqlConnection(PgConnectionString);
-				await conn.OpenAsync().ConfigureAwait(false);
-				string sql = "DELETE FROM game_sessions;";
-				using var cmd = new NpgsqlCommand(sql, conn);
-				await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
-
-				CurrentSessionId = -1;
-				CurrentSessionData = new Dictionary();
-				return;
-			}
-			catch (Exception ex)
-			{
-
-				_isPostgresAvailable = false;
-				LastStorageError = "PostgreSQL operation failed; no changes were saved locally.";
-				GD.PrintErr($"SessionManager: Error deleting all PostgreSQL sessions: {ex.GetType().Name}");
-			}
+			await SaveStore.Current.DeleteAllSlotsAsync().ConfigureAwait(false);
+			_slots = new();
+			CurrentSessionId = -1;
+			CurrentSessionData = new Dictionary();
+			LastStorageError = "";
 		}
-
-
+		catch (SaveStoreException error) { Fail(error, "deleting campaigns"); }
 	}
 
-	/// <summary>Checks whether PostgreSQL has any campaigns for the Continue menu.</summary>
-	public bool HasSessions() => GetAllSessionsAsync().GetAwaiter().GetResult().Count > 0;
+	/// <summary>True when the signed-in account has campaigns (from the last load; no network call).</summary>
+	public bool HasSessions() => AccountReady && _slots.Count > 0;
 
 	/// <summary>Formats a saved ISO timestamp to minute precision for the menu.</summary>
 	public string FormatDatetime(string datetimeStr)
@@ -349,38 +214,62 @@ public partial class SessionManager : Node
 		return parts.Length >= 2 ? parts[0] + ":" + parts[1] : formatted;
 	}
 
-	/// <summary>Loads a settings document for GDScript; failures are surfaced without reading a local file.</summary>
+	/// <summary>An account settings document for GDScript and C#; empty before the account loads.</summary>
 	public Dictionary ReadState(string key)
 	{
-		try { return Json.ParseString(PostgresStorage.Read(key) ?? "{}").AsGodotDictionary(); }
-		catch (Exception ex) { GD.PrintErr($"PostgreSQL settings load failed ({ex.GetType().Name})."); return new Dictionary(); }
+		try { return Json.ParseString(AccountDocs.Get(key) ?? "{}").AsGodotDictionary(); }
+		catch (Exception ex) { GD.PrintErr($"Account settings could not be read ({ex.GetType().Name})."); return new Dictionary(); }
 	}
 
-	/// <summary>Commits settings to PostgreSQL; returns false when they could not be saved.</summary>
-	public bool WriteState(string key, Dictionary value)
+	/// <summary>
+	/// Saves an account settings document: the cache updates at once and the account copy is sent in
+	/// the background. Returns false when no account is loaded (nothing is written anywhere).
+	/// </summary>
+	public bool WriteState(string key, Dictionary value) => WriteStateJson(key, Json.Stringify(value));
+
+	/// <summary>Like <see cref="WriteState"/>, for callers that already hold JSON text.</summary>
+	public bool WriteStateJson(string key, string json)
 	{
-		try { PostgresStorage.Write(key, Json.Stringify(value)); return true; }
-		catch (Exception ex) { GD.PrintErr($"PostgreSQL settings save failed ({ex.GetType().Name})."); return false; }
+		if (!AccountReady) return false;
+		AccountDocs.Set(key, json);
+		_ = PutInBackgroundAsync(key, json);
+		return true;
 	}
 
-	// ─── GDScript snake_case aliases ─────────────────────────────────────────
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>Sends one account document; a failure is recorded so the menu can show it.</summary>
+	private async Task PutInBackgroundAsync(string key, string json)
+	{
+		try { await SaveStore.Current.PutAccountDocAsync(key, json).ConfigureAwait(false); LastStorageError = ""; }
+		catch (SaveStoreException error) { Fail(error, $"saving {key}"); }
+	}
+
+	/// <summary>
+	/// Test hook: routes every save through a fresh in-memory store with the server's commit rules,
+	/// so GDScript tests never reach the network or a real account. Pair with <see cref="UseServiceStore"/>.
+	/// </summary>
+	public void UseInMemoryStoreForTests() => SaveStore.Current = new InMemorySaveStore();
+
+	/// <summary>Test hook: restores the real HTTPS save service.</summary>
+	public void UseServiceStore() => SaveStore.Current = new HttpSaveStore();
+
+	// ─── GDScript snake_case aliases (blocking; HTTP calls do not need the main thread) ───
+	/// <summary>GDScript entry point: create a campaign.</summary>
 	public int create_new_session(string character_name) => CreateNewSessionAsync(character_name).GetAwaiter().GetResult();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: list campaigns.</summary>
 	public Godot.Collections.Array get_all_sessions() => GetAllSessionsAsync().GetAwaiter().GetResult();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: read a campaign.</summary>
 	public Dictionary get_session(int session_id) => GetSessionAsync(session_id).GetAwaiter().GetResult();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: select a campaign.</summary>
 	public bool load_session(int session_id) => LoadSessionAsync(session_id).GetAwaiter().GetResult();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: update a campaign's progress.</summary>
 	public void update_session(int session_id, int level, int score, int collectables)
 		=> UpdateSessionAsync(session_id, level, score, collectables).Wait();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: delete a campaign.</summary>
 	public void delete_session(int session_id) => DeleteSessionAsync(session_id).Wait();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: delete all of the account's campaigns.</summary>
 	public void delete_all_sessions() => DeleteAllSessionsAsync().Wait();
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
-	public bool has_sessions() => GetAllSessionsAsync().GetAwaiter().GetResult().Count > 0;
-	/// <summary>GDScript compatibility entry point for PostgreSQL session operations.</summary>
+	/// <summary>GDScript entry point: whether the account has campaigns.</summary>
+	public bool has_sessions() => HasSessions();
+	/// <summary>GDScript entry point: format a timestamp.</summary>
 	public string format_datetime(string datetime_str) => FormatDatetime(datetime_str);
 }

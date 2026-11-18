@@ -24,6 +24,14 @@ The development log follows.
 
 ---
 
+## Account deletion (2026-11-18)
+
+Players can permanently delete their account, as Apple and Google require.
+- **Website:** Account → **Delete account** (`/:locale/account/delete`). Request an emailed code, enter it, type `DELETE` and confirm. The account, profile, Clerk sign-in identity, security settings all sessions and all game saves and settings stored on the account are deleted, and a confirmation email goes to the old address.
+- **Game:** the main-menu profile row has **DELETE ACCOUNT**. It opens that page in the game's language; set the site address with `AXIOM_WEBSITE_URL` (default `http://localhost:5173`). When the player returns to the game after deleting, it signs out.
+- **API:** `POST /api/auth/account/delete-request/`, then `POST /api/auth/account/delete/` with `{code, confirm: "DELETE"}`. If Clerk is unreachable, the Clerk identity deletion is retried hourly for 14 days (`accounts_clerkdeletion`).
+- **Still missing for store release:** a privacy policy page.
+
 ## On-screen touch controls for iOS and Android (2026-11-17, fixes 2026-11-18)
 
 iOS and Android builds show on-screen controls: a virtual joystick at the bottom left and round buttons at the bottom right. The joystick appears where the thumb lands. They have not yet been tested on a device (see Limits).
@@ -788,25 +796,45 @@ container Django 104/104 pass. Existing compile/import diagnostics remain; Djang
 used a temporary source copy because the running container's host bind mount is
 unreadable. The wrapper skips Django when the host virtual environment is absent.
 
-## PostgreSQL-only persistence and browser checks
+## Account saves and browser checks
 
 If Docker has no existing project containers or cached images, restoring the
 stack with `docker compose up -d` also pulls images and builds the application
 services. Wait for completion and endpoint readiness; initial image downloads
 can delay the first startup.
 
-Campaign saves, operative progression, display preferences, and keybindings persist
-only in PostgreSQL. There is no local JSON, ConfigFile, browser storage, or SQLite
-test fallback. New Game requires a successful database save. Start the stack with
-`docker compose up -d`; the game reads PostgreSQL credentials from environment
-(`PGHOST`, `PGPORT`, `PGDATABASE`, `PGUSER`, `PGPASSWORD`) or the development
-root `.env`. Compose shares the database's `POSTGRES_*` credentials with Django.
-Existing local saves are left untouched and are no longer loaded; they have not
-been migrated automatically. State remains scoped to this development database,
-as with the existing shared campaign table.
+**Saves belong to accounts (2026-11-18).** The game no longer opens PostgreSQL. All
+saves go through the accounts API (`/api/game/`, see `backend/src/routes/README.md`),
+and every row is owned by one user:
 
-Game and portal JWTs live only in memory; restarting the game or reloading the
-portal requires sign-in again. Portal language is carried in the URL. Upstream
+- **No guest play.** New Game, Continue and Squad stay disabled until the player signs
+  in; the menu says "Sign in to play". A connection is required; nothing is written on
+  the device.
+- **Save slots** (`game_slot`) hold the campaign level, score and collectables. Each
+  slot has documents: `world`, `world:<city>` (one per city) and `progression`.
+- **Account documents** (`game_account_doc`) hold settings that follow the player:
+  `user_settings` (display mode), `user_keybindings`, `input_prompt_settings` and
+  `operative_progression`. They load after sign-in and reset to defaults on sign-out.
+- **The game calculates, the server stores.** Rewards and world rules stay in C#. Each
+  action is one all-or-nothing commit (`POST /api/game/slots/:id/commit/`) carrying
+  the slot revision it was based on and a receipt token. A retry with the same token
+  returns "already committed" and pays nothing twice; a stale revision makes the game
+  reload and recompute (up to 3 tries, `SlotTransaction`). Purchases use catalog
+  prices, never a caller's number.
+- **Leaderboard:** global, each account's best score with its username only
+  (`GET /api/game/leaderboard/`, public, rate-limited).
+- **Deleting an account deletes its saves.**
+- The old global `game_sessions`/`game_state` tables were dropped (migration 0005);
+  old saves were discarded on the owner's instruction, after a backup.
+- The game reaches the API at `AXIOM_API_BASE_URL` (default
+  `http://localhost:8000/api`).
+
+**Remembered sign-in:** the game keeps the refresh token for 7 days in
+`user://auth.dat`, encrypted with a key tied to this device (`OS.GetUniqueId()`), and
+resumes on the next launch. Access tokens refresh automatically (once per expiry; the
+refresh token is single-use). Sign-out and account deletion remove the file. Headless
+runs (tests) never resume a remembered sign-in. Portal JWTs live only in memory;
+reloading the portal requires sign-in again. Portal language is carried in the URL. Upstream
 Clerk identity remains an external authentication dependency; its own session
 cookies are separate from application saves. Assets, build caches, logs, Docker
 volumes remain normal runtime/tooling files.

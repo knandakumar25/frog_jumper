@@ -70,6 +70,8 @@ export function secondsToMs(raw, fallbackSeconds) {
  *   2fa/verify-login and token/refresh (added 2026-11-15)
  * @property {number} loginPerUserPer15Min login attempts per username in 15 minutes
  * @property {number} codesPerUserPer15Min emailed codes per user and purpose in 15 minutes
+ * @property {number} gameWritesPerUserPerMinute game save writes per user per minute (2026-11-18)
+ * @property {number} leaderboardPerIpPerMinute public leaderboard reads per IP per minute
  * @property {number} maxConcurrentHashes password hashes allowed to run at once
  * @property {string} trustedProxyHost host name of the reverse proxy (nginx) whose
  *   X-Forwarded-For is trusted; any other caller's header is ignored
@@ -121,6 +123,9 @@ export function loadConfig(env = process.env, { requireSigningKey = true } = {})
     authPerIpPerMinute: intSetting(env.AUTH_PER_IP_PER_MINUTE, 10),
     loginPerUserPer15Min: intSetting(env.LOGIN_PER_USER_PER_15_MIN, 10),
     codesPerUserPer15Min: intSetting(env.CODES_PER_USER_PER_15_MIN, 5),
+    // World autosave runs every 20 s plus action commits; 120 a minute leaves wide headroom.
+    gameWritesPerUserPerMinute: intSetting(env.GAME_WRITES_PER_USER_PER_MINUTE, 120),
+    leaderboardPerIpPerMinute: intSetting(env.LEADERBOARD_PER_IP_PER_MINUTE, 30),
     maxConcurrentHashes: intSetting(env.MAX_CONCURRENT_HASHES, 4),
     // Issue 2: only the nginx container's X-Forwarded-For counts (Compose service `website`).
     trustedProxyHost: env.TRUSTED_PROXY_HOST ?? 'website',

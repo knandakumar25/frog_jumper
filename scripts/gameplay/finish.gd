@@ -27,20 +27,17 @@ func _on_body_entered(body):
 		if game_manager and game_manager.has_method("save_score"):
 			game_manager.save_score(level_name)
 		
-		# Update session progress to next level if in a session
+		# Advance the saved mission if in a session. The score was already added by save_score
+		# above, so only the level moves here (adding it again counted it twice; fixed 2026-11-18).
 		if SessionManager.CurrentSessionId > 0:
 			var next_level = current_level_number + 1
-			var total_score = 0
-			if game_manager:
-				total_score = game_manager.Points
-			
 			SessionManager.update_session(
 				SessionManager.CurrentSessionId,
 				next_level,
-				total_score,
+				0,  # score already saved
 				0  # collectables
 			)
-			print("Session updated: Level ", next_level, " Score: ", total_score)
+			print("Session updated: Level ", next_level)
 
 		# Check for CyberVictoryScorecard in current level
 		var scorecard = get_tree().current_scene.get_node_or_null("CyberVictoryScorecard")

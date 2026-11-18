@@ -71,7 +71,8 @@ export function useDatabase() {
 /** Empty all account tables and restart their id counters. */
 export async function resetDatabase() {
   await pool.query(`TRUNCATE accounts_refreshtoken, accounts_twofactorcode, accounts_pendingregistration,
-    accounts_browsersession, accounts_user RESTART IDENTITY CASCADE`);
+    accounts_browsersession, accounts_clerkdeletion, game_slot_receipt, game_slot_doc, game_slot,
+    game_account_doc, accounts_user RESTART IDENTITY CASCADE`);
 }
 
 /** A Clerk call that fails the test if reached without being replaced. */
@@ -90,7 +91,7 @@ export function makeApp(overrides = {}) {
     config: withOverrides(baseConfig, overrides),
     pool,
     mailer,
-    clerk: { subject: unexpectedClerk, fetchUser: unexpectedClerk },
+    clerk: { subject: unexpectedClerk, fetchUser: unexpectedClerk, deleteUser: unexpectedClerk },
   });
   return { app, deps: app.locals.deps, outbox: () => mailer.outbox };
 }

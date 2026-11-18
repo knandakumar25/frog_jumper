@@ -1,5 +1,4 @@
 using System.Text.Json;
-using Npgsql;
 
 /// <summary>Engine-independent geographic, deterministic-generation and bounded-streaming acceptance tests.</summary>
 public class WorldTests
@@ -107,43 +106,19 @@ public class WorldTests
     }
 }
 
-/// <summary>Real PostgreSQL world tests use only newly owned campaigns; failures cannot alter player saves.</summary>
-[NonParallelizable]
+/// <summary>
+/// World storage on an account save slot (2026-11-18), against <see cref="InMemorySaveStore"/>
+/// (same commit rules as the server). Each test owns a fresh store, so nothing is shared.
+/// </summary>
 public class WorldStorageTests
 {
-    private readonly List<int> _owned=new();
-    private string _connection="";
-    /// <summary>Reads the existing configured store from the repository, without logging connection credentials.</summary>
+    private InMemorySaveStore _store=null!;
+    /// <summary>A fresh store per test.</summary>
     [SetUp]
-    public void Configure()
-    {
-        var root=new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
-        while(root!=null && !File.Exists(Path.Combine(root.FullName,"project.godot"))) root=root.Parent;
-        string previous=Directory.GetCurrentDirectory();
-        try { Directory.SetCurrentDirectory(root!.FullName); _connection=PostgresStorage.ConnectionString; }
-        finally { Directory.SetCurrentDirectory(previous); }
-    }
-    /// <summary>Creates a uniquely owned temporary campaign in the existing game save schema.</summary>
-    private async Task<int> Campaign()
-    {
-        await using var c=new NpgsqlConnection(_connection); await c.OpenAsync();
-        await using(var schema=new NpgsqlCommand("CREATE TABLE IF NOT EXISTS game_sessions (id SERIAL PRIMARY KEY,character VARCHAR(100) NOT NULL,current_level INT NOT NULL DEFAULT 1,total_score INT NOT NULL DEFAULT 0,collectables INT NOT NULL DEFAULT 0,created_at VARCHAR(100) NOT NULL,last_played VARCHAR(100) NOT NULL)",c)) await schema.ExecuteNonQueryAsync();
-        await using var cmd=new NpgsqlCommand("INSERT INTO game_sessions(character,created_at,last_played) VALUES ('world-fixture','fixture','fixture') RETURNING id",c);
-        int id=Convert.ToInt32(await cmd.ExecuteScalarAsync()); _owned.Add(id); return id;
-    }
-    /// <summary>Removes only exact IDs allocated by this fixture, including their namespaced receipts and world snapshots.</summary>
-    [TearDown]
-    public async Task Cleanup()
-    {
-        await using var c=new NpgsqlConnection(_connection); await c.OpenAsync();
-        foreach(int id in _owned)
-        {
-            await using var cmd=new NpgsqlCommand("DELETE FROM game_state WHERE state_key=@key OR state_key LIKE @prefix; DELETE FROM game_sessions WHERE id=@id AND created_at='fixture'",c);
-            cmd.Parameters.AddWithValue("key",$"world:{id}"); cmd.Parameters.AddWithValue("prefix",$"mission-completion:{id}:%"); cmd.Parameters.AddWithValue("id",id);
-            await cmd.ExecuteNonQueryAsync();
-        }
-        _owned.Clear();
-    }
+    public void Configure() { AccountDocs.Clear(); _store=new InMemorySaveStore(); }
+    /// <summary>Creates a slot in this test's store.</summary>
+    private async Task<int> Campaign() => (await _store.CreateSlotAsync("world-fixture")).Id;
+
     /// <summary>Every mission commits its extraction alongside rewards; receipt replay cannot overwrite later free transit.</summary>
     [Test]
     public async Task AllTwelveReturnsAreAtomicAndRetriesPreserveNewerWorldState()
@@ -152,51 +127,49 @@ public class WorldStorageTests
         for(int mission=1;mission<=12;mission++)
         {
             string token=Guid.NewGuid().ToString();
-            var result=await CampaignSettlement.SaveAsync(id,mission,10,token,_connection,"Oceanus");
+            var result=await CampaignSettlement.SaveAsync(id,mission,10,token,_store,"Oceanus");
             Assert.That(result.Status,Is.EqualTo(CompletionSaveStatus.Saved));
-            var state=await WorldStorage.LoadAsync(id,result.CurrentLevel,_connection);
+            var state=await WorldStorage.LoadAsync(id,result.CurrentLevel,_store);
             Assert.That(state,Is.EqualTo(WorldSave.AfterMission(mission,"Oceanus")));
             var transit=state! with {Position=WorldCatalog.Stations[255].Position,Waypoint=new(1000,1000),Resume="mission",Mission=mission};
-            await WorldStorage.SaveAsync(id,transit,_connection);
-            await CampaignSettlement.SaveAsync(id,mission,10,token,_connection,"Oceanus");
-            Assert.That(await WorldStorage.LoadAsync(id,result.CurrentLevel,_connection),Is.EqualTo(transit));
+            await WorldStorage.SaveAsync(id,transit,_store);
+            await CampaignSettlement.SaveAsync(id,mission,10,token,_store,"Oceanus");
+            Assert.That(await WorldStorage.LoadAsync(id,result.CurrentLevel,_store),Is.EqualTo(transit));
             // The next settlement preserves the waypoint, so clear it before comparing the next default arrival.
-            await WorldStorage.SaveAsync(id,transit with {Waypoint=null},_connection);
+            await WorldStorage.SaveAsync(id,transit with {Waypoint=null},_store);
         }
     }
-    /// <summary>Legacy campaigns migrate only after Mission 1; independent campaigns never share exploration positions.</summary>
+
+    /// <summary>Campaigns without a record start after their last mission; independent campaigns never share positions; an outage changes nothing.</summary>
     [Test]
     public async Task LegacyAndIndependentCampaignsRemainIsolated()
     {
         int first=await Campaign(),second=await Campaign();
-        Assert.That(await WorldStorage.LoadAsync(first,1,_connection),Is.Null);
-        Assert.That(await WorldStorage.LoadAsync(first,5,_connection),Is.EqualTo(WorldSave.AfterMission(4)));
+        Assert.That(await WorldStorage.LoadAsync(first,1,_store),Is.Null);
+        Assert.That(await WorldStorage.LoadAsync(first,5,_store),Is.EqualTo(WorldSave.AfterMission(4)));
         var state=WorldSave.AfterMission(3) with {Position=WorldCatalog.Stations[0].Position};
-        await WorldStorage.SaveAsync(first,state,_connection);
-        Assert.That(await WorldStorage.LoadAsync(second,5,_connection),Is.EqualTo(WorldSave.AfterMission(4)));
-        Assert.That(await WorldStorage.LoadAsync(first,5,_connection),Is.EqualTo(state));
-        var unavailable=new NpgsqlConnectionStringBuilder(_connection) {Port=1,Timeout=1};
-        Assert.ThrowsAsync<NpgsqlException>(async()=>await WorldStorage.SaveAsync(first,state with {Position=new(100,100)},unavailable.ConnectionString));
-        Assert.That(await WorldStorage.LoadAsync(first,5,_connection),Is.EqualTo(state));
+        await WorldStorage.SaveAsync(first,state,_store);
+        Assert.That(await WorldStorage.LoadAsync(second,5,_store),Is.EqualTo(WorldSave.AfterMission(4)));
+        Assert.That(await WorldStorage.LoadAsync(first,5,_store),Is.EqualTo(state));
+        _store.Offline=true;
+        Assert.ThrowsAsync<SaveStoreException>(async()=>await WorldStorage.SaveAsync(first,state with {Position=new(100,100)},_store));
+        _store.Offline=false;
+        Assert.That(await WorldStorage.LoadAsync(first,5,_store),Is.EqualTo(state));
     }
 
-    /// <summary>An unsupported world document rolls back receipt, reward and campaign progress together.</summary>
+    /// <summary>A world document from a newer game version blocks settlement entirely and is never downgraded.</summary>
     [Test]
     public async Task UnsupportedWorldVersionCannotPartiallySettleOrBeDowngraded()
     {
         int id=await Campaign();
-        await WorldStorage.SaveAsync(id,WorldSave.AfterMission(1),_connection);
-        await using var c=new NpgsqlConnection(_connection); await c.OpenAsync();
-        await using(var change=new NpgsqlCommand("UPDATE game_state SET value=jsonb_set(value,'{Version}','2') WHERE state_key=@key",c))
-        {
-            change.Parameters.AddWithValue("key",$"world:{id}"); await change.ExecuteNonQueryAsync();
-        }
+        var newer=JsonSerializer.Serialize(WorldSave.AfterMission(1) with {Version=2});
+        await _store.CommitAsync(id,new SlotCommit(0,Docs:new[]{ new SlotDocWrite("world",newer,SchemaVersion:2) }));
         string token=Guid.NewGuid().ToString();
-        Assert.That((await CampaignSettlement.SaveAsync(id,2,40,token,_connection)).Status,Is.EqualTo(CompletionSaveStatus.Failed));
-        Assert.ThrowsAsync<InvalidOperationException>(async()=>await WorldStorage.SaveAsync(id,WorldSave.AfterMission(2),_connection));
-        await using var verify=new NpgsqlCommand("SELECT current_level,total_score,(SELECT count(*) FROM game_state WHERE state_key=@receipt) FROM game_sessions WHERE id=@id",c);
-        verify.Parameters.AddWithValue("receipt",$"mission-completion:{id}:{token}"); verify.Parameters.AddWithValue("id",id);
-        await using var reader=await verify.ExecuteReaderAsync(); await reader.ReadAsync();
-        Assert.That(reader.GetInt32(0),Is.EqualTo(1)); Assert.That(reader.GetInt32(1),Is.EqualTo(0)); Assert.That(reader.GetInt64(2),Is.EqualTo(0));
+        Assert.That((await CampaignSettlement.SaveAsync(id,2,40,token,_store)).Status,Is.EqualTo(CompletionSaveStatus.Failed));
+        Assert.ThrowsAsync<InvalidOperationException>(async()=>await WorldStorage.SaveAsync(id,WorldSave.AfterMission(2),_store));
+        var slot=(await _store.GetSlotAsync(id))!;
+        Assert.That(slot.Slot.CurrentLevel,Is.EqualTo(1));
+        Assert.That(slot.Slot.TotalScore,Is.EqualTo(0));
+        Assert.That(slot.Docs["world"].SchemaVersion,Is.EqualTo(2));
     }
 }
