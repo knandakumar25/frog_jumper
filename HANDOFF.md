@@ -1,5 +1,30 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## App store compliance skill added — 2026-11-18
+
+- The owner asked to add the skills from https://github.com/mjmirza/app-store-compliance and to have every agent run them on every edit to the codebase.
+- The repository has one skill, `app-store-compliance`, from commit `d2156ba` (2026-11-15). It is copied with its `docs/`, `data/`, `references/`, `scripts/`, `templates/`, `evals/` and `agent-os/` folders into all four skill roots:
+  - `~/.claude/skills/`;
+  - `~/.agents/skills/`;
+  - `~/.gemini/config/skills/`;
+  - `~/.gemini/antigravity-cli/skills/`.
+- Each copy has an `INSTALLED_FROM.txt`.
+- The repository's `install.sh` was **not** run. It would add a hook that runs before every shell command (`settings.json` PreToolUse in Claude Code) and edit other tools' configs; that needs the owner's approval.
+- New rule "Mandatory App Store Compliance Skill (Every Codebase Edit)" in `CLAUDE.md`, `AGENTS.md`, `CODEX.md` and `GEMINI.md`:
+  - after any non-documentation edit, read the skill;
+  - run its local guard on the repository root;
+  - apply the matching human checks;
+  - record the result;
+  - network and store-account scripts need approval.
+- **Trigger narrowed (owner, 2026-11-18):** the rule now applies only to store-relevant edits (export settings, accounts and privacy, payments, age rating, permissions, mobile behaviour, listing material) and before any `android`/`ios` export, not every edit. The guard script was reviewed by reading: no network calls; it only writes and deletes its own temporary files; it does not recognize Godot projects.
+- **Suggested next step:** run the full skill once on a real Android export.
+- **Known findings to expect:**
+  - the Android preset signs release builds with the debug keystore and has the placeholder package name;
+  - the game has accounts but, as far as known, no in-app account deletion.
+- **Not run this round, at the owner's request.** The first real run will come with the next code edit. The guard will probably print `NOT CHECKED.` because the repository holds a Godot project, not native iOS/Android projects. Its human checks still apply to `export_presets.cfg`, accounts and privacy.
+- Licence: OpenRoots Agent License 2.3 (free for individuals and companies at or below USD 20M revenue).
+- Documentation-only change: no Docker, Godot import or tests were run. Docker containers are stopped.
+
 ## Google EGM review fixes for touch controls and button images — 2026-11-18
 
 The 2026-11-17 review round (`docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`) found 3 Blockers and 25 Majors. The owner asked for all of them to be fixed. The two sections below were rewritten to match the code and the evidence.

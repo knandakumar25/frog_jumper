@@ -1153,6 +1153,8 @@ The current development milestone is the Evacuation Under Siege gameplay expansi
 following the Level 2 arrival cinematic (`4260282`). See HANDOFF and MEMORY for
 verification and outstanding pacing/hardware checks.
 
+**App store compliance (2026-11-18):** edits that could affect an iOS or Android store submission must also apply the `app-store-compliance` skill, from `mjmirza/app-store-compliance` and installed in each agent's skill folder. Store-relevant edits are export settings, accounts and privacy, payments, age rating, permissions, mobile behaviour and listing material, plus any edit made before an `android`/`ios` export. After the edit, run its local guard and record the result. See "Mandatory App Store Compliance Skill" in `CLAUDE.md`, `AGENTS.md`, `CODEX.md` and `GEMINI.md`.
+
 AI agents collaborating on this repository must consult the following guides:
 
 [`MEMORY.MD`](./MEMORY.MD) preserves durable user preferences, project decisions,

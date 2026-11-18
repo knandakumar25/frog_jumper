@@ -1,5 +1,17 @@
 # Axiom Force — Project Memory
 
+## App store compliance skill added — 2026-11-18
+
+- The owner asked to add the `mjmirza/app-store-compliance` skill and to run it on every codebase edit.
+- Installed the single skill `app-store-compliance` (commit `d2156ba`) by copying files into the four agent skill roots. The installer and its settings hooks were not run (needs approval).
+- Rule added to `CLAUDE.md`, `AGENTS.md`, `CODEX.md` and `GEMINI.md`:
+  - after any non-`.md` edit, read the skill and run its local guard on the repository root;
+  - record `BLOCKED.`, `CLEAR.` or `NOT CHECKED.` (expected for a Godot-only repository) plus the relevant human checks;
+  - network and store scripts need approval.
+- **Trigger narrowed (owner, same day):** the rule applies only to store-relevant edits and before `android`/`ios` exports. The guard script was read: no network calls, temporary files only, no Godot detection.
+- Next: one full run on a real Android export. Expected findings: the debug keystore and placeholder package name, and missing in-app account deletion.
+- At the owner's request the skill was **not run this round**. Documentation-only change, so no tests or import were run. Pushed on owner request.
+
 ## Review findings fixed — 2026-11-18
 
 - Docker stack started on owner request. All PROPOSE FIX items from `docs/INPUT_GOOGLE_REVIEW_2026-11-17.md` were applied (owner: "fix those issues"); the report is marked resolved.

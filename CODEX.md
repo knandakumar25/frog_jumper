@@ -123,6 +123,49 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
 - Use the installed package through the agent's skill discovery mechanism. If it is not exposed there, locate and read the installed `docker/skills` skill files directly. If the relevant skills cannot be accessed, explain the missing dependency and resolve access before continuing Docker work; do not silently bypass them.
 - These skills supplement the project's container preflight, export exclusivity, and permission rules below. Explicit user instructions take precedence. Use `docker` directly from PATH for CLI commands.
 
+### Mandatory App Store Compliance Skill (Store-Relevant Edits)
+
+- **Whenever an agent's edit could affect an iOS or Android store submission, it MUST read and apply the `app-store-compliance` skill before finishing the task.** This applies to every agent: Claude Code, Codex and Google Antigravity. The owner narrowed the trigger from "every edit" on 2026-11-18. Store-relevant means any of:
+  - export and platform settings: `export_presets.cfg`, `project.godot` (application name, icons, permissions, orientation, rendering for mobile), `export/` and the Docker `export` service;
+  - accounts, sign-in, privacy and data collection: the Express backend (`backend/`), Clerk browser sign-in (`AuthManager.cs`, website account pages), save data in PostgreSQL, analytics or any new third-party SDK;
+  - account deletion, payments or in-app purchases, ads, age rating or mature content, user-generated content, and new device permissions (camera, microphone, location, contacts, notifications);
+  - mobile-only behaviour: touch controls (`scripts/ui/touch/`), mobile input or UI, safe-area handling;
+  - store listing material: app name, description, screenshots, title art and the game icon;
+  - **before any `android` or `ios` export**, which an export request alone does not authorize.
+- **Not triggered by** ordinary gameplay, level, art, audio, test or tooling edits that change none of the above. If unsure, run it.
+- **Source:** `mjmirza/app-store-compliance` (https://github.com/mjmirza/app-store-compliance), commit `d2156ba` (2026-11-15), added on the owner's instruction on 2026-11-18.
+  - It was installed by copying files only. Its `scripts/install.sh` was **not** run, so no tool hooks or `settings.json` entries were added.
+  - Licence: OpenRoots Agent License 2.3. It is free for individuals and for companies at or below USD 20 million annual revenue. AI training on it needs a separate licence.
+- **Where each agent finds it.** Each copy holds `SKILL.md` plus the skill's `docs/`, `data/`, `references/`, `scripts/`, `templates/` and `agent-os/` folders, and `INSTALLED_FROM.txt`.
+  - Claude Code: `C:\Users\karthiknk21\.claude\skills\app-store-compliance\`. Skill discovery lists it as `app-store-compliance`.
+  - Codex: `C:\Users\karthiknk21\.agents\skills\app-store-compliance\`.
+  - Antigravity app/IDE: `C:\Users\karthiknk21\.gemini\config\skills\app-store-compliance\`.
+  - Antigravity CLI: `C:\Users\karthiknk21\.gemini\antigravity-cli\skills\app-store-compliance\`.
+  - Use skill discovery first. If it does not show the skill, read `SKILL.md` directly from the agent's root. If it cannot be read, stop and resolve access; do not silently skip it.
+- **What to run after the task's final edits, together with the testing protocol:**
+  1. Read `SKILL.md`. Paths in it are relative to the skill folder.
+  2. Run the guard on the repository root, using the copy inside the skill folder. It is local and read-only toward the project: it writes only temporary files, makes no network calls, and was reviewed by reading on 2026-11-18. After an `android`/`ios` export, also run it on the exported native project folder.
+     `bash "<skill folder>/agent-os/hooks/app-store-compliance-guard.sh" "D:/Projects/frog_jumper"`
+  3. Read the last line:
+     - `BLOCKED.`: a critical store-rejection risk. Report each `[CRITICAL]` finding with its file, line and fix. Fix it if it is inside the task's scope; otherwise list it as open for the owner. Never call the work release-ready while a critical finding stands.
+     - `CLEAR.`: record it.
+     - `NOT CHECKED.`: no native iOS/Android project was found. This is expected for the repository root: the guard does not recognize Godot projects, and native projects only exist after the Docker `android`/`ios` export targets. Record it and still apply step 4.
+  4. Apply the skill's human checks (Step 3 of `SKILL.md`) that the edit touches. Examples:
+     - changes to `export_presets.cfg` (package name, signing, permissions, iOS project-only export);
+     - privacy and data collection: accounts, the Express backend, Clerk sign-in, saves in PostgreSQL;
+     - account deletion;
+     - purchases and age rating;
+     - accessibility, and EU, US and global legal items.
+- **Approval required (not authorized by this rule):** running `scripts/install.sh` or `install_harness.py` (they edit agent settings and add hooks). Also anything that uses the network or store accounts:
+  - `pull-metadata.sh` (needs the `asc` CLI and store credentials);
+  - the `monitor*.py` scripts;
+  - `verify-citations.py`;
+  - `metadata-audit.py --check-urls`.
+
+  Never send project files or credentials to an outside service without the owner's approval.
+- **Record:** add the guard's last line and any findings to `HANDOFF.md` and `MEMORY.MD` with the task's other verification results. Never claim a result that was not run.
+- This skill supplements the testing, documentation, Docker, export and permission rules. It never authorizes exports, store submissions, commits or pushes.
+
 ### Mandatory PostgreSQL and Android Skills (All Relevant Work)
 
 - Whenever an agent performs PostgreSQL-related work, it **MUST first read and apply** `postgresql-best-practices/SKILL.md`. This covers database commands and tools, schema/query design, migrations, performance, reliability, security, troubleshooting, and PostgreSQL-related advice, planning, reviews, and documentation. For graph modeling, Apache AGE, or openCypher work, it **MUST also read and apply** `pg-graph/SKILL.md` before acting.
