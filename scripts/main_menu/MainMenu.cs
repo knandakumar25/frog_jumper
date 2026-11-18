@@ -26,7 +26,8 @@ public partial class MainMenu : Control
 	private ColorRect   _quitBackground;
 	private Panel       _instructionsPopup;
 	private HBoxContainer _titleContainer;
-	private Label       _navPromptLabel;
+	// Rich label so controller prompts show button images.
+	private RichTextLabel _navPromptLabel;
 
 	// ─── Lifecycle ───────────────────────────────────────────────────────────
 	/// <summary>Initialize menu presentation, guest navigation, profile display and browser sign-in controls.</summary>
@@ -243,9 +244,9 @@ public partial class MainMenu : Control
 		var content = _instructionsPopup.GetNodeOrNull<Container>("VBoxContainer/ScrollContainer/MarginContainer/ContentContainer");
 		if (content == null) return;
 
-		var moveLbl  = content.GetNodeOrNull<Label>("ControlMove");
-		var jumpLbl  = content.GetNodeOrNull<Label>("ControlJump");
-		var pauseLbl = content.GetNodeOrNull<Label>("ControlPause");
+		var moveLbl  = RichControl(content, "ControlMove");
+		var jumpLbl  = RichControl(content, "ControlJump");
+		var pauseLbl = RichControl(content, "ControlPause");
 
 		_inputManager.UpdateInstructionsControlsText(moveLbl, jumpLbl, pauseLbl);
 		UpdateInstructionsAlignment();
@@ -274,8 +275,24 @@ public partial class MainMenu : Control
 				lbl.TextDirection       = Control.TextDirection.Auto;
 				lbl.HorizontalAlignment = alignment;
 			}
+			else if (child is RichTextLabel rich)
+			{
+				rich.TextDirection       = Control.TextDirection.Auto;
+				rich.HorizontalAlignment = alignment;
+			}
 		}
 	}
+
+	/// <summary>
+	/// Returns an instructions line as a rich label, replacing the scene's Label the first time so
+	/// controller bindings can be drawn as button images. Null when the node is missing.
+	/// </summary>
+	private static RichTextLabel RichControl(Node content, string name) => content.GetNodeOrNull<Control>(name) switch
+	{
+		RichTextLabel rich => rich,
+		Label label => InputGlyphText.Upgrade(label),
+		_ => null,
+	};
 
 	public void _on_quit_button_pressed()
 	{
@@ -316,10 +333,8 @@ public partial class MainMenu : Control
 		if (_instructionsPopup != null && _inputManager != null) UpdateInstructionsUI();
 
 		var global = GetNodeOrNull<Node>("/root/Global");
-		if (_navPromptLabel != null && global != null && global.HasMethod("get_nav_prompt"))
-		{
-			_navPromptLabel.Text = (string)global.Call("get_nav_prompt");
-		}
+		if (_navPromptLabel != null && global != null && global.HasMethod("get_nav_prompt_rich"))
+			SetNavPrompt(_navPromptLabel, global);
 	}
 
 	public void _on_close_settings_pressed()
@@ -383,25 +398,26 @@ public partial class MainMenu : Control
 		footerContainer.SetAnchorsPreset(Control.LayoutPreset.BottomWide);
 		footerContainer.AddThemeConstantOverride("margin_bottom", 16);
 
-		var navPromptLabel = new Label
-		{
-			HorizontalAlignment = HorizontalAlignment.Center,
-			VerticalAlignment = VerticalAlignment.Center,
-			AutowrapMode = TextServer.AutowrapMode.WordSmart
-		};
-
-		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
-		if (orbitronFont != null) navPromptLabel.AddThemeFontOverride("font", orbitronFont);
-		navPromptLabel.AddThemeFontSizeOverride("font_size", 16);
-		navPromptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.85f));
+		var navPromptLabel = InputGlyphText.CreateLabel(16, new Color(0f, 0.94f, 1f, 0.85f),
+			GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf"));
+		navPromptLabel.Name = "NavPromptLabel";
+		navPromptLabel.HorizontalAlignment = HorizontalAlignment.Center;
+		navPromptLabel.VerticalAlignment = VerticalAlignment.Center;
 
 		_navPromptLabel = navPromptLabel;
 		footerContainer.AddChild(navPromptLabel);
 		AddChild(footerContainer);
 
 		var global = GetNodeOrNull<Node>("/root/Global");
-		if (global != null && global.HasMethod("get_nav_prompt"))
-			navPromptLabel.Text = (string)global.Call("get_nav_prompt");
+		if (global != null && global.HasMethod("get_nav_prompt_rich"))
+			SetNavPrompt(navPromptLabel, global);
+	}
+
+	/// <summary>Shows Global's navigation prompt as BBCode (button images on a controller), keeping the plain text for tests.</summary>
+	private static void SetNavPrompt(RichTextLabel label, Node global)
+	{
+		label.SetMeta(InputGlyphText.PlainMeta, (string)global.Call("get_nav_prompt"));
+		label.Text = (string)global.Call("get_nav_prompt_rich", 22);
 	}
 
 	private void EnsureUISoundManager()

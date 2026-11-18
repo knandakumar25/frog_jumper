@@ -304,7 +304,7 @@ public partial class ConcreteWildfireMission : CodeLevel, IFiniteCombatHost
         var rescue = _rescues.FirstOrDefault(r => !r.Evacuated);
         if (rescue != null && key is "RESIDENTIAL" or "OVERPASS" or "FINAL_RESCUE")
             instruction = rescue.Id.ToUpperInvariant() + " / " + rescue.StatusText;
-        if (key is "TITAN" or "FINAL_WALL") instruction += " / " + AbilityControl;
+        if (key is "TITAN" or "FINAL_WALL") instruction += " / " + ContextGlyph("karate");
         if (key == "SPIRES")
         {
             var pending = _spireDefenses.FirstOrDefault(s => !s.Spire.Collected);

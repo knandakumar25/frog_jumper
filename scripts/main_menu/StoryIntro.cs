@@ -146,11 +146,11 @@ public partial class StoryIntro : Control
 			skipButton.OffsetLeft = -440;
 			skipButton.OffsetRight = -24;
 			skipButton.OffsetBottom = skipButton.OffsetTop + 90;
-			skipButton.Text = InputPromptBinding.Text("story_skip", "Skip") + " >>>";
+			InputGlyphText.SetButton(skipButton, InputPromptBinding.Marked("story_skip", "Skip") + " >>>");
 		}
 		if (continueButton != null)
 		{
-			continueButton.Text = InputPromptBinding.Text("story_advance", "Continue") + " >>>";
+			InputGlyphText.SetButton(continueButton, InputPromptBinding.Marked("story_advance", "Continue") + " >>>");
 		}
 	}
 

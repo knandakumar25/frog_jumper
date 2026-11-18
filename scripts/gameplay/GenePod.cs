@@ -125,8 +125,20 @@ public partial class GenePod : Node2D
         // Context prompt indicator when in range and ready
         if (InRange && ready && !done)
         {
-            DrawString(ThemeDB.FallbackFont, new Vector2(-100, -192),
-                WildfireText.Binding("attack", _usingPad) + " // " + Caption, fontSize: 15, modulate: rimColor);
+            // On a controller with a known image set, draw the attack button's image before the caption.
+            string? glyph = null;
+            if (_usingPad && InputPromptService.Instance is { } prompts)
+                foreach (var token in prompts.Tokens("attack", true))
+                    if (token.GlyphPath != null) { glyph = token.GlyphPath; break; }
+            var texture = glyph != null ? ResourceLoader.Load<Texture2D>(glyph) : null;
+            if (texture != null)
+            {
+                DrawTextureRect(texture, new Rect2(-100, -210, 22, 22), false);
+                DrawString(ThemeDB.FallbackFont, new Vector2(-74, -192), "// " + Caption, fontSize: 15, modulate: rimColor);
+            }
+            else
+                DrawString(ThemeDB.FallbackFont, new Vector2(-100, -192),
+                    WildfireText.Binding("attack", _usingPad) + " // " + Caption, fontSize: 15, modulate: rimColor);
             float pulse = 0.7f + 0.3f * Mathf.Sin(_timer * 8f);
             DrawArc(new Vector2(0, -170), 12, 0, Mathf.Tau, 16, new Color(0f, 1f, 0.8f, pulse), 2f);
         }

@@ -82,6 +82,29 @@ func _pad_button(button: int) -> void:
 	await _frames()
 
 
+## Routes a synthetic finger press or release through the viewport, as a phone's touchscreen would.
+func _touch_at(point: Vector2, index := 0, pressed := true) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = index
+	event.position = point
+	event.pressed = pressed
+	root.push_input(event, true)
+	await _frames(2)
+
+
+## Taps the centre of a touch button (press, short hold, release).
+func _tap(control: Control, hold_frames := 2) -> void:
+	var point := control.get_global_rect().get_center()
+	await _touch_at(point, 0, true)
+	await _frames(hold_frames)
+	await _touch_at(point, 0, false)
+
+
+## The scene's on-screen controls, if it has them.
+func _touch_controls(scene: Node) -> CanvasLayer:
+	return scene.get("TouchControlsNode") as CanvasLayer
+
+
 func _keyboard() -> void:
 	var event := InputEventKey.new()
 	event.physical_keycode = KEY_F12
@@ -103,10 +126,19 @@ func _capture(name: String) -> void:
 
 func _visible_label_text(node: Node) -> String:
 	var texts: PackedStringArray = []
-	for child: Node in node.find_children("*", "Label", true, false):
-		if child.is_visible_in_tree():
-			texts.append(child.text)
+	for child: Node in node.find_children("*", "Control", true, false):
+		if (child is Label or child is RichTextLabel) and child.is_visible_in_tree():
+			texts.append(_plain(child))
 	return "\n".join(texts)
+
+
+## Plain text of a prompt label: a rich label's saved plain text (button images read as names) or a Label's text.
+func _plain(node: Node) -> String:
+	if node.has_meta("input_prompt_plain"):
+		return String(node.get_meta("input_prompt_plain"))
+	if node is RichTextLabel:
+		return (node as RichTextLabel).get_parsed_text()
+	return String(node.get("text"))
 
 
 func _run() -> void:
@@ -162,16 +194,17 @@ func _run() -> void:
 	await _keyboard()
 	await _pad_button(JOY_BUTTON_B)
 	_check(not menu.get_node("SettingsPopup").visible and bool(_service.get("UsingController")), "consuming menu pad cancel closes popup and updates active device")
-	var instructions: Label = menu.get_node("NavPromptFooter").get_child(0)
+	var instructions: RichTextLabel = menu.get_node("NavPromptFooter").get_child(0)
 	for size: Vector2i in [Vector2i(1920, 1080), Vector2i(2560, 1080)]:
 		root.size = size
 		for language: String in ["english", "arabic", "german"]:
 			locale.call("ApplyLocale", language)
 			await _keyboard()
-			var keyboard_instructions := instructions.text
+			var keyboard_instructions := _plain(instructions)
 			await _capture("menu_%s_%d" % [language, size.x])
 			await _pad()
-			_check(instructions.text == String(root.get_node("Global").call("get_nav_prompt")) and instructions.text.contains("[ A ]") and instructions.text != keyboard_instructions, "specific menu instruction label refreshes for routed pad input " + language)
+			_check(_plain(instructions) == String(root.get_node("Global").call("get_nav_prompt")) and _plain(instructions).contains("[ A ]") and _plain(instructions) != keyboard_instructions, "specific menu instruction label refreshes for routed pad input " + language)
+			_check(instructions.text.contains("[img") and instructions.text.contains("xbox_series/face_south.png"), "menu instruction label draws the Xbox A button image " + language)
 
 	locale.call("ApplyLocale", "english")
 	catalog.call("PrepareMission", 1)
@@ -226,6 +259,18 @@ func _run() -> void:
 	root.size = Vector2i(1920, 1080)
 	await _keyboard()
 	await _capture("isometric_feature_mouse_standard")
+	# Touch: a finger on empty ground shows the controls; the Attack button attacks.
+	var iso_touch := _touch_controls(mission)
+	_check(iso_touch != null and not bool(iso_touch.get("Shown")), "isometric touch controls start hidden on desktop")
+	await _touch_at(Vector2(960, 300), 3, true)
+	await _touch_at(Vector2(960, 300), 3, false)
+	_check(iso_touch != null and bool(iso_touch.get("Shown")), "isometric touch shows on-screen controls")
+	_check(not _visible_label_text(mission).contains("Left mouse"), "isometric key list hides while touch controls show")
+	await _tap(iso_touch.call("ButtonFor", "iso_primary_attack"))
+	_check(player.get_node("Sprite2D").animation == "sword_attack", "isometric touch Attack button attacks")
+	await _capture("isometric_touch_1920")
+	await _keyboard()
+	_check(not bool(iso_touch.get("Shown")), "isometric key press hides touch controls")
 
 	catalog.call("PrepareMission", 2)
 	var platformer := await _mount("res://scenes/gameplay/level2.tscn")
@@ -248,13 +293,16 @@ func _run() -> void:
 	await _pad()
 	await _frames()
 	_check(String(platformer.get("PromptText")).contains("Y"), "recruitment prompt follows controller ability binding")
-	var controls: Label
+	var controls: Control
 	var subtitle: Label
-	for label: Label in platformer.find_children("*", "Label", true, false):
-		if label.text.contains(String(_service.call("GetBinding", "jump")) + ": " + tr("Jump")):
+	for label: Control in platformer.find_children("*", "Control", true, false):
+		if not (label is Label or label is RichTextLabel):
+			continue
+		if _plain(label).contains(String(_service.call("GetBinding", "jump")) + ": " + tr("Jump")):
 			controls = label
-		if label.is_visible_in_tree() and label.text.begins_with("AXIOM-7:"):
+		if label is Label and label.is_visible_in_tree() and _plain(label).begins_with("AXIOM-7:"):
 			subtitle = label
+	_check(controls is RichTextLabel and String(controls.get("text")).contains("[img"), "platformer controls draw controller button images")
 	_check(controls != null and subtitle != null, "platformer controls and active subtitle are observable")
 	if controls != null and subtitle != null:
 		_check(not controls.get_global_rect().intersects((subtitle.get_parent() as Control).get_global_rect()), "platformer control row stays above visible subtitle panel")
@@ -267,6 +315,36 @@ func _run() -> void:
 			locale.call("ApplyLocale", language)
 			await _frames()
 			await _capture("platformer_%s_%d" % [language, size.x])
+
+	# Touch on the platformer: controls appear, Jump lifts the operative, nothing overlaps the HUD.
+	locale.call("ApplyLocale", "english")
+	root.size = Vector2i(1920, 1080)
+	var plat_touch := _touch_controls(platformer)
+	await _touch_at(Vector2(960, 400), 4, true)
+	await _touch_at(Vector2(960, 400), 4, false)
+	_check(plat_touch != null and bool(plat_touch.get("Shown")), "platformer touch shows on-screen controls")
+	_check(String(platformer.get("ControlsHintText")).to_lower().contains("touch"), "platformer hint stays on touch text after a tap")
+	var jumper: Node2D = platformer.get_node("Actors/CyberShogun")
+	var start_y := jumper.global_position.y
+	await _tap(plat_touch.call("ButtonFor", "jump"), 6)
+	await _frames(6)
+	_check(jumper.global_position.y < start_y - 4.0, "platformer touch Jump button jumps")
+	for touch_button: Node in plat_touch.get_node("Root").get_children():
+		if touch_button is Control and touch_button.visible and String(touch_button.name).begins_with("Touch_"):
+			var rect := (touch_button as Control).get_global_rect()
+			if subtitle != null and subtitle.is_visible_in_tree():
+				_check(not rect.intersects((subtitle.get_parent() as Control).get_global_rect()), "touch %s clears the subtitle panel" % touch_button.name)
+			if squad != null:
+				_check(not rect.intersects(squad.get_global_rect()), "touch %s clears the squad strip" % touch_button.name)
+	for size: Vector2i in [Vector2i(1920, 1080), Vector2i(2560, 1080)]:
+		root.size = size
+		for language: String in ["english", "arabic"]:
+			locale.call("ApplyLocale", language)
+			await _frames()
+			await _capture("touch_platformer_%s_%d" % [language, size.x])
+	root.size = Vector2i(1920, 1080)
+	await _keyboard()
+	_check(not bool(plat_touch.get("Shown")), "platformer key press hides touch controls")
 
 	locale.call("ApplyLocale", "english")
 	var world := await _mount("res://scenes/world/neo_kyoto.tscn")
@@ -299,6 +377,16 @@ func _run() -> void:
 	await _press(MOUSE_BUTTON_LEFT, map.get_global_rect().get_center(), false)
 	_check(bool(world.call("InspectionState").get("waypoint_set", false)), "world map pointer creates waypoint")
 	await _capture("world_map_mouse_wide")
+	# Touch in the world: the map hides the on-screen controls; closing it brings them back.
+	var world_touch := _touch_controls(world)
+	await _touch_at(Vector2(960, 200), 5, true)
+	await _touch_at(Vector2(960, 200), 5, false)
+	_check(world_touch != null and not bool(world_touch.get("Shown")), "world map open suppresses touch controls")
+	world.call("_UnhandledInput", map_action)
+	await _frames()
+	_check(world_touch != null and bool(world_touch.get("Shown")), "world touch controls return when the map closes")
+	await _capture("touch_world_1920")
+	await _keyboard()
 
 	if is_instance_valid(_scene):
 		_scene.free()
@@ -312,7 +400,9 @@ func _run() -> void:
 	var skip: Button = cinematic.get_node("UI/Skip")
 	_check(skip.text.contains("Escape"), "cinematic Skip displays accepted keyboard bindings")
 	await _pad()
-	_check(skip.text.contains("A"), "cinematic Skip follows controller labels")
+	_check(skip.text.is_empty() and skip.tooltip_text.contains("A"), "cinematic Skip follows controller labels")
+	var skip_glyphs: RichTextLabel = skip.get_node_or_null("PromptGlyphs")
+	_check(skip_glyphs != null and skip_glyphs.visible and skip_glyphs.text.contains("[img"), "cinematic Skip draws controller button images")
 	for size: Vector2i in [Vector2i(1920, 1080), Vector2i(2560, 1080)]:
 		root.size = size
 		for language: String in ["english", "arabic", "german"]:

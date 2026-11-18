@@ -48,7 +48,13 @@ public partial class IsometricMission : Node2D
     private bool _finishing;
     private float _elapsed;
     private float _dialogueRemaining;
-    private Label _controlsLabel = null!;
+    // Rich label so controller prompts can show button images (InputGlyphText).
+    private RichTextLabel _controlsLabel = null!;
+    // On-screen joystick and buttons for phones and tablets (shown on iOS/Android or after a touch).
+    private TouchControls? _touchControls;
+
+    /// <summary>This mission's on-screen touch controls; used by tests.</summary>
+    public TouchControls? TouchControlsNode => _touchControls;
 
     /// <summary>Creates the Blender map, isometric world collision, selected operative and mission props.</summary>
     public override void _Ready()
@@ -146,13 +152,16 @@ public partial class IsometricMission : Node2D
     private void RefreshControlsHint()
     {
         if (_controlsLabel == null) return;
-        _controlsLabel.Text = string.Join("  |  ",
-            InputPromptBinding.Text("iso_move_left", "Left"), InputPromptBinding.Text("iso_move_right", "Right"),
-            InputPromptBinding.Text("iso_move_up", "Up"), InputPromptBinding.Text("iso_move_down", "Down"),
-            InputPromptBinding.Text("iso_primary_attack", "Attack"), InputPromptBinding.Text("iso_special_ability", "Ability"),
-            InputPromptBinding.Text("iso_dash", "Dash"), InputPromptBinding.Text("iso_interact", "Use"),
-            InputPromptBinding.Text("iso_pause", "Pause"));
-        _controlsLabel.Text += "  |  " + TranslationServer.Translate(InputPromptService.Instance?.IsGamepad == true ? "Right stick: Aim" : "Mouse: Aim");
+        // The on-screen buttons label themselves, so the key/controller list is hidden while they show.
+        _controlsLabel.Visible = !(_touchControls?.Shown ?? false);
+        string text = string.Join("  |  ",
+            InputPromptBinding.Marked("iso_move_left", "Left"), InputPromptBinding.Marked("iso_move_right", "Right"),
+            InputPromptBinding.Marked("iso_move_up", "Up"), InputPromptBinding.Marked("iso_move_down", "Down"),
+            InputPromptBinding.Marked("iso_primary_attack", "Attack"), InputPromptBinding.Marked("iso_special_ability", "Ability"),
+            InputPromptBinding.Marked("iso_dash", "Dash"), InputPromptBinding.Marked("iso_interact", "Use"),
+            InputPromptBinding.Marked("iso_pause", "Pause"));
+        text += "  |  " + TranslationServer.Translate(InputPromptService.Instance?.IsGamepad == true ? "Right stick: Aim" : "Mouse: Aim");
+        InputGlyphText.Set(_controlsLabel, text);
     }
 
     /// <summary>Builds invisible world edges so players cannot leave the palace footprint.</summary>
@@ -285,7 +294,7 @@ public partial class IsometricMission : Node2D
         _purgeProgress.AddThemeStyleboxOverride("fill", progressFill);
         objectiveVBox.AddChild(_purgeProgress);
 
-        _controlsLabel = NewLabel("", 14, Colors.White);
+        _controlsLabel = InputGlyphText.CreateLabel(14, Colors.White, GD.Load<FontFile>("res://assets/fonts/Orbitron-VariableFont.ttf"));
         _controlsLabel.AddThemeColorOverride("font_outline_color", Colors.Black);
         _controlsLabel.AddThemeConstantOverride("outline_size", 4);
         _controlsLabel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomWide);
@@ -296,6 +305,11 @@ public partial class IsometricMission : Node2D
         _controlsLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
         _controlsLabel.OffsetBottom = -128;
         root.AddChild(_controlsLabel);
+
+        _touchControls = TouchControls.Create(TouchLayout.Isometric);
+        AddChild(_touchControls);
+        _touchControls.ShownChanged += _ => RefreshControlsHint();
+        RefreshControlsHint();
 
         var dialoguePanel = NewPanel(new Vector2(-430, -112), new Vector2(860, 88), new Vector2(.5f, 1));
         root.AddChild(dialoguePanel);

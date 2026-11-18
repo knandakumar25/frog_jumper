@@ -11,15 +11,20 @@ public enum PuzzleAssistance
 }
 
 /// <summary>
-/// Controller and input glyph style for on-screen prompt displays.
+/// Controller and input glyph style for on-screen prompt displays. The numbers are saved in
+/// <c>input_prompt_settings.glyph_style</c>, so existing values never change and new ones are appended.
+/// Since 2026-11-17 the three original console styles force the newest controller's button images:
+/// Xbox = Xbox Series X|S, PlayStation = PS5, NintendoSwitch = Switch 2 (see <c>ControllerGlyphCatalog.ForcedSet</c>).
 /// </summary>
 public enum ControllerGlyphStyle
 {
-    AutoDetect,
-    Xbox,
-    PlayStation,
-    NintendoSwitch,
-    Keyboard
+    AutoDetect = 0,
+    Xbox = 1,
+    PlayStation = 2,
+    NintendoSwitch = 3,
+    Keyboard = 4,
+    Xbox360 = 5,
+    XboxOne = 6
 }
 
 /// <summary>

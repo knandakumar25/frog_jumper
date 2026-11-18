@@ -154,18 +154,32 @@ public partial class MenuInputManager : Node
 		var styleLabel = new Label { Text = Tr("Input prompt style"), SizeFlagsHorizontal = Control.SizeFlags.ExpandFill, AutowrapMode = TextServer.AutowrapMode.WordSmart };
 		styleRow.AddChild(styleLabel);
 		var style = new OptionButton { CustomMinimumSize = new Vector2(240, 44) };
-		foreach (string name in new[] { "Automatic", "Xbox", "PlayStation", "Nintendo", "Keyboard" }) style.AddItem(Tr(name));
-		style.Select((int)(InputPromptService.Instance?.Style ?? ControllerGlyphStyle.AutoDetect));
-		style.ItemSelected += value => InputPromptService.Instance?.SetStyle((int)value);
+		// Each item's id is the saved ControllerGlyphStyle number, so the list order can differ from it.
+		foreach (var (name, value) in StyleChoices) style.AddItem(Tr(name), (int)value);
+		style.Select(style.GetItemIndex((int)(InputPromptService.Instance?.Style ?? ControllerGlyphStyle.AutoDetect)));
+		style.ItemSelected += index => InputPromptService.Instance?.SetStyle(style.GetItemId((int)index));
 		styleRow.AddChild(style);
 		InputPromptBinding.Track(styleRow, () => {
 			styleLabel.Text = Tr("Input prompt style");
-			string[] names = { "Automatic", "Xbox", "PlayStation", "Nintendo", "Keyboard" };
-			for (int i = 0; i < names.Length; i++) style.SetItemText(i, Tr(names[i]));
-			style.Select((int)(InputPromptService.Instance?.Style ?? ControllerGlyphStyle.AutoDetect));
+			for (int i = 0; i < StyleChoices.Length; i++) style.SetItemText(i, Tr(StyleChoices[i].Name));
+			style.Select(style.GetItemIndex((int)(InputPromptService.Instance?.Style ?? ControllerGlyphStyle.AutoDetect)));
 		});
 		_keybindingRowsContainer.AddChild(styleRow);
 	}
+
+	/// <summary>
+	/// Prompt styles in menu order with their saved numbers. The original Xbox, PlayStation and
+	/// Nintendo numbers (1-3) now mean the newest consoles; Xbox 360 and Xbox One were appended (5, 6).
+	/// </summary>
+	private static readonly (string Name, ControllerGlyphStyle Value)[] StyleChoices = {
+		("Automatic", ControllerGlyphStyle.AutoDetect),
+		("Xbox 360", ControllerGlyphStyle.Xbox360),
+		("Xbox One", ControllerGlyphStyle.XboxOne),
+		("Xbox Series X|S", ControllerGlyphStyle.Xbox),
+		("PlayStation 5", ControllerGlyphStyle.PlayStation),
+		("Nintendo Switch 2", ControllerGlyphStyle.NintendoSwitch),
+		("Keyboard", ControllerGlyphStyle.Keyboard),
+	};
 
 	/// <summary>Formats keyboard bindings for one remappable action, retaining an Unbound fallback.</summary>
 	public string GetBoundKeysString(string actionName)
@@ -294,18 +308,19 @@ public partial class MenuInputManager : Node
 	}
 
 	/// <summary>Updates instruction labels from the shared active-device bindings.</summary>
-	public void UpdateInstructionsControlsText(Label moveLbl, Label jumpLbl, Label pauseLbl)
+	public void UpdateInstructionsControlsText(RichTextLabel moveLbl, RichTextLabel jumpLbl, RichTextLabel pauseLbl)
 	{
 		if (moveLbl == null || jumpLbl == null || pauseLbl == null) return;
 
-		string leftKeys  = InputPromptBinding.Binding("left");
-		string rightKeys = InputPromptBinding.Binding("right");
-		string jumpKeys  = InputPromptBinding.Binding("jump");
-		string pauseKeys = InputPromptBinding.Binding("escape");
+		// Marked bindings: controller buttons are drawn as images.
+		string leftKeys  = InputPromptBinding.MarkedBinding("left");
+		string rightKeys = InputPromptBinding.MarkedBinding("right");
+		string jumpKeys  = InputPromptBinding.MarkedBinding("jump");
+		string pauseKeys = InputPromptBinding.MarkedBinding("escape");
 
-		moveLbl.Text = $"{Tr("Move")}: {Tr("Left")} [ {leftKeys} ]  |  {Tr("Right")} [ {rightKeys} ]";
-		jumpLbl.Text = $"{Tr("Jump")}: [ {jumpKeys} ]";
-		pauseLbl.Text = $"{Tr("Pause")}: [ {pauseKeys} ]";
+		InputGlyphText.Set(moveLbl, $"{Tr("Move")}: {Tr("Left")} [ {leftKeys} ]  |  {Tr("Right")} [ {rightKeys} ]");
+		InputGlyphText.Set(jumpLbl, $"{Tr("Jump")}: [ {jumpKeys} ]");
+		InputGlyphText.Set(pauseLbl, $"{Tr("Pause")}: [ {pauseKeys} ]");
 	}
 
 	/// <summary>Uses the main menu translation policy for source text.</summary>

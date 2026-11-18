@@ -26,7 +26,9 @@ public partial class PalaceMission : CodeLevel
     private PalaceObjective _extraction = null!;
     private PalacePlatform _dojoGate = null!;
     private bool _bladeHintShown;
-    private Label _lanternInstruction = null!, _bladeStatus = null!, _beaconStatus = null!;
+    private Label _bladeStatus = null!;
+    // Rich labels: these two name the ability binding, which is a button image on a controller.
+    private RichTextLabel _lanternInstruction = null!, _beaconStatus = null!;
     private float _parrySuccessRemaining;
     private bool _courtDeflected;
 
@@ -164,7 +166,7 @@ public partial class PalaceMission : CodeLevel
     /// <summary>Adds the Kinetic Parry lesson in the Lantern Court, just before the sentries start firing in earnest.</summary>
     protected override void OnLevelReady()
     {
-        _lanternInstruction = GuidanceLabel(GetNode<Control>("MissionHUD/HUDRoot"), "LanternInstruction", new Vector2(0, 230));
+        _lanternInstruction = RichGuidanceLabel(GetNode<Control>("MissionHUD/HUDRoot"), "LanternInstruction", new Vector2(0, 230));
         _lanternInstruction.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.CenterTop);
         _lanternInstruction.OffsetLeft = -340; _lanternInstruction.OffsetRight = 340;
         _lanternInstruction.OffsetTop = 230; _lanternInstruction.OffsetBottom = 310;
@@ -172,7 +174,7 @@ public partial class PalaceMission : CodeLevel
         // Keep all sealed-state lines above the extraction portal's lintel rather than behind its bright bar.
         _bladeStatus = GuidanceLabel(_dataBlade, "BladeStatus", new Vector2(-180, -260));
         _bladeStatus.Size = new Vector2(360, 105);
-        _beaconStatus = GuidanceLabel(_beacon, "BeaconStatus", new Vector2(-240, -245));
+        _beaconStatus = RichGuidanceLabel(_beacon, "BeaconStatus", new Vector2(-240, -245));
         _beaconStatus.Size = new Vector2(480, 110);
         GuidanceLabel(World, "ArchiveRoofSign", new Vector2(5700, -860)).Text = WildfireText.Get("PALACE_ARCHIVE_ROOF", "ARCHIVE →\nDESCEND THE SHELVES");
         GuidanceLabel(World, "ArchiveDescentSign", new Vector2(6530, -420)).Text = WildfireText.Get("PALACE_ARCHIVE_DOWN", "↓ ARCHIVE / BEACON COURT →");
@@ -198,6 +200,20 @@ public partial class PalaceMission : CodeLevel
         return label;
     }
 
+    /// <summary>Same as <see cref="GuidanceLabel"/>, but able to draw controller button images; fixed size, so no fit-to-content.</summary>
+    private static RichTextLabel RichGuidanceLabel(Node parent, string name, Vector2 position)
+    {
+        var label = InputGlyphText.CreateLabel(18, Colors.White);
+        label.Name = name;
+        label.FitContent = false;
+        label.Position = position;
+        label.Size = new Vector2(320, 90);
+        label.HorizontalAlignment = HorizontalAlignment.Center;
+        label.Modulate = new Color("#77efff");
+        parent.AddChild(label);
+        return label;
+    }
+
     /// <summary>Maintains the Lantern Court instruction independently of the optional recruit lesson's prompt timeout.</summary>
     public override void _Process(double delta)
     {
@@ -206,10 +222,10 @@ public partial class PalaceMission : CodeLevel
         _parrySuccessRemaining = Mathf.Max(0, _parrySuccessRemaining - (float)delta);
         bool inCourt = Player.Position.X >= 1550 && Player.Position.X < 3100;
         _lanternInstruction.Visible = inCourt && (!_courtDeflected || _parrySuccessRemaining > 0);
-        _lanternInstruction.Text = _courtDeflected
+        InputGlyphText.Set(_lanternInstruction, _courtDeflected
             ? WildfireText.Get("PALACE_PARRY_SUCCESS", "DEFLECTION CONFIRMED / KINETIC PARRY")
-            : WildfireText.Get("PALACE_PARRY_CONTEXT", "KINETIC PARRY / {ability} as a sentry shot lands. Deflect it back.").Replace("{ability}", ContextBinding("karate"));
-        _beaconStatus.Text = BeaconNeutralized ? "" : BeaconGuidance();
+            : WildfireText.Get("PALACE_PARRY_CONTEXT", "KINETIC PARRY / {ability} as a sentry shot lands. Deflect it back.").Replace("{ability}", ContextGlyph("karate")));
+        InputGlyphText.Set(_beaconStatus, BeaconNeutralized ? "" : BeaconGuidance());
         _bladeStatus.Text = BeaconNeutralized
             ? WildfireText.Get("PALACE_BLADE_READY", "DATA-BLADE / ACCESSIBLE")
             : _beacon.Shielded
@@ -221,7 +237,7 @@ public partial class PalaceMission : CodeLevel
     /// <summary>Reads live shield charges after recovery, so damage is never advertised while the field remains active.</summary>
     private string BeaconGuidance() => _beacon.Shielded
         ? WildfireText.Get("PALACE_BEACON_SHIELD", "BEACON SHIELD / {charges} CHARGES\nKINETIC PARRY: {ability} as nearby sentry fire lands")
-            .Replace("{charges}", _beacon.ShieldCharges.ToString()).Replace("{ability}", ContextBinding("karate"))
+            .Replace("{charges}", _beacon.ShieldCharges.ToString()).Replace("{ability}", ContextGlyph("karate"))
         : WildfireText.Get("PALACE_BEACON_EXPOSED", "Shield down—strike the beacon");
 
     /// <summary>A deflected shot near the beacon knocks down one shield charge.</summary>

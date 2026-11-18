@@ -84,6 +84,12 @@ public partial class IsometricOperative : CyberShogun
         {
             _aimDirection = stickAim.Normalized();
         }
+        else if (TouchControls.Active)
+        {
+            // Touches move the emulated mouse onto the buttons, so on-screen controls aim where the
+            // operative walks, keeping the last direction while standing still.
+            if (_moveDirection.LengthSquared() > .04f) _aimDirection = _moveDirection.Normalized();
+        }
         else if (!_usingGamepadAim)
         {
             Vector2 mouseDirection = GetGlobalMousePosition() - GlobalPosition;

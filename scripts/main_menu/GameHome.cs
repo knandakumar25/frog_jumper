@@ -8,7 +8,8 @@ using System;
 public partial class GameHome : Control
 {
 	private TextureRect _titleLogo;
-	private Label       _promptLabel;
+	// Upgraded from the scene's Label so a controller prompt can show its button image.
+	private RichTextLabel _promptLabel;
 	private Label       _versionLabel;
 	private ColorRect   _fadeOverlay;
 
@@ -20,7 +21,8 @@ public partial class GameHome : Control
 		GetNodeOrNull<Node>("/root/Global")?.Call("play_home_music");
 
 		_titleLogo    = GetNodeOrNull<TextureRect>("CenterContainer/VBoxContainer/TitleLogo");
-		_promptLabel  = GetNodeOrNull<Label>("CenterContainer/VBoxContainer/PromptLabel");
+		var promptLabel = GetNodeOrNull<Label>("CenterContainer/VBoxContainer/PromptLabel");
+		_promptLabel  = promptLabel == null ? null : InputGlyphText.Upgrade(promptLabel);
 		_versionLabel = GetNodeOrNull<Label>("BottomMarginContainer/VersionLabel");
 		_fadeOverlay  = GetNodeOrNull<ColorRect>("FadeOverlay");
 
@@ -121,7 +123,7 @@ public partial class GameHome : Control
 		if (_promptLabel != null)
 		{
 			_promptLabel.Modulate = new Color(1f, 0f, 0.5f, 1f);
-			_promptLabel.Text = Tr("// SYSTEM INITIALIZED //");
+			InputGlyphText.Set(_promptLabel, Tr("// SYSTEM INITIALIZED //"));
 		}
 
 		// Fade out black overlay
@@ -146,18 +148,20 @@ public partial class GameHome : Control
 	private void UpdatePromptLabel()
 	{
 		if (_promptLabel == null) return;
+		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
+		if (orbitronFont != null) _promptLabel.AddThemeFontOverride("normal_font", orbitronFont);
+		_promptLabel.AddThemeFontSizeOverride("normal_font_size", 20);
+		_promptLabel.AddThemeColorOverride("default_color", new Color(0f, 0.94f, 1f, 0.95f));
 		var global = GetNodeOrNull<Node>("/root/Global");
-		if (global != null && global.HasMethod("get_home_prompt"))
+		if (global != null && global.HasMethod("get_home_prompt_rich"))
 		{
-			_promptLabel.Text = (string)global.Call("get_home_prompt");
+			// Already BBCode (escaped text plus button images), so it is assigned directly.
+			_promptLabel.SetMeta(InputGlyphText.PlainMeta, (string)global.Call("get_home_prompt"));
+			_promptLabel.Text = (string)global.Call("get_home_prompt_rich", 27);
 		}
 		else
 		{
-			_promptLabel.Text = Tr("// PRESS ANY KEY OR CLICK TO INITIALIZE SYSTEM //");
+			InputGlyphText.Set(_promptLabel, Tr("// PRESS ANY KEY OR CLICK TO INITIALIZE SYSTEM //"));
 		}
-		var orbitronFont = GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf");
-		if (orbitronFont != null) _promptLabel.AddThemeFontOverride("font", orbitronFont);
-		_promptLabel.AddThemeFontSizeOverride("font_size", 20);
-		_promptLabel.AddThemeColorOverride("font_color", new Color(0f, 0.94f, 1f, 0.95f));
 	}
 }

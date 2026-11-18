@@ -25,7 +25,7 @@ func test_lantern_instruction_survives_lesson_use_and_requires_deflection() -> v
 	## An ability press can finish the optional lesson but contextual teaching persists until a successful parry.
 	var m := _mission(1)
 	var p := m.get_node("Actors/CyberShogun")
-	var hint := m.get_node("MissionHUD/HUDRoot/LanternInstruction") as Label
+	var hint := m.get_node("MissionHUD/HUDRoot/LanternInstruction") as RichTextLabel
 	p.position = Vector2(2100, 450)
 	m.get_node("Actors/ParryLesson").call("Trigger")
 	assert_str(m.get("PromptText")).contains("press Q")

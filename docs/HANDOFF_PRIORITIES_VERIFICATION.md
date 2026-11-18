@@ -91,7 +91,8 @@ Confirmed findings were repaired;
 no unresolved Blocker/Major remains in the changed scope. This does not claim two clean EGM
 rounds or elimination of the migration's previously accepted architectural risks.
 
-Still owner actions: native title wording acceptance and provider-secret rotation. Deferred
+Still owner action: native title wording acceptance (provider-secret rotation dropped 2026-11-17;
+the owner abandoned those credentials). Deferred
 architecture includes legacy-password rehash policy, browser comparison-code UI/account-2FA
 semantics, logout/revoke-all API design and a limited database role. No production account or
 provider setting was changed.

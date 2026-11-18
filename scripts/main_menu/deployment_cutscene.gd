@@ -58,7 +58,8 @@ func _ready() -> void:
 ## Shows actual shortcuts without changing the narration timeline or accepted Skip events.
 func _refresh_skip_prompt() -> void:
 	if is_instance_valid($UI/Skip):
-		$UI/Skip.text = tr("Skip") + ": [ " + InputPromptService.GetBinding("deployment_skip") + " ]"
+		# Controller bindings are drawn as button images on the button.
+		InputPromptService.SetActionButton($UI/Skip, tr("Skip"), "deployment_skip")
 
 
 func _apply_voice_gain(path: String) -> void:

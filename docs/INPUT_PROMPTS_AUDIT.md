@@ -31,6 +31,26 @@ this task does not rewire campaign scenes. Using Xbox-style pad names, B is shar
 by attack and the UI cancel pause shortcut; Back is shared by previous-operative
 selection and the escape pause action. Their original queue-before-pause ordering remains.
 
+## On-screen touch controls — 2026-11-17
+
+- iOS/Android builds show a virtual joystick and action buttons (`scripts/ui/touch/`). Other platforms show them after a touch. A deliberate key, controller or real mouse press hides them.
+- Mouse events copied from touches no longer count as deliberate mouse use (`InputPromptBinding.DeliberateNonTouch`).
+- Verification:
+  - `test_touch_controls.gd`: 10/10;
+  - `TouchLayoutTests`: 6/6;
+  - smoke harness: 101 checks with 0 failures, including touch checks in the platformer, isometric and world scenes.
+- No physical touchscreen device was used.
+
+## Controller button images — 2026-11-17
+
+- Controller prompts now show Kenney "Input Prompts" 1.5A (CC0) button images for Xbox 360, Xbox One, Xbox Series X|S, PS5 and Switch 2. See `assets/ui/input_prompts/README.md` and the HANDOFF entry for the same date.
+- The "Controller labels" and "Styles" rows above still describe the text labels. These remain the fallback, the tooltip and the plain text that tests read.
+- The Styles menu is now Automatic, Xbox 360, Xbox One, Xbox Series X|S, PlayStation 5, Nintendo Switch 2, Keyboard. Saved values 0–4 are unchanged, and 5 and 6 were appended.
+- Verification:
+  - smoke harness: 72 checks, 0 failures, including new checks that the menu label, the platformer controls and the cinematic Skip draw images;
+  - full suites: backend 158, NUnit 492, GdUnit4 390, with 0 failures and 0 orphans.
+  - There is still no physical-device test.
+
 ## Validation record
 
 Build, full suites, graphical smoke, import diagnostics and graph refresh results

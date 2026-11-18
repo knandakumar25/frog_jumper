@@ -856,18 +856,31 @@ public partial class NeoKyotoWorld : Node2D
 
         _hint = new Label();
         header.AddChild(_hint);
-        var movementHelp = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart, CustomMinimumSize = new(600, 0) };
+        // Help lines are rich labels so controller prompts show button images (InputGlyphText).
+        var movementHelp = HelpLabel();
+        movementHelp.Name = "MovementHelp";
+        movementHelp.CustomMinimumSize = new(600, 0);
         header.AddChild(movementHelp);
-        InputPromptBinding.Track(movementHelp, () => movementHelp.Text = string.Join("  |  ",
-            InputPromptBinding.Text("world_left", "Left"), InputPromptBinding.Text("world_right", "Right"),
-            InputPromptBinding.Text("world_up", "Up"), InputPromptBinding.Text("world_down", "Down"),
-            InputPromptBinding.Text("world_run", "Run"), InputPromptBinding.Text("world_bike", "Bike"),
-            InputPromptBinding.Text("world_map", "Map"), InputPromptBinding.Text("world_interact", "Interact"), InputPromptBinding.Text("world_swap", "Squad")));
 
-        var combatHelp = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart, CustomMinimumSize = new(600, 0) };
+        // On-screen joystick and buttons for phones and tablets; the key/controller help lines hide
+        // while they show, because the buttons label themselves.
+        _touchControls = TouchControls.Create(TouchLayout.World);
+        AddChild(_touchControls);
+        InputPromptBinding.Track(movementHelp, () => InputGlyphText.Set(movementHelp, string.Join("  |  ",
+            InputPromptBinding.Marked("world_left", "Left"), InputPromptBinding.Marked("world_right", "Right"),
+            InputPromptBinding.Marked("world_up", "Up"), InputPromptBinding.Marked("world_down", "Down"),
+            InputPromptBinding.Marked("world_run", "Run"), InputPromptBinding.Marked("world_bike", "Bike"),
+            InputPromptBinding.Marked("world_map", "Map"), InputPromptBinding.Marked("world_interact", "Interact"), InputPromptBinding.Marked("world_swap", "Squad"))));
+
+        var combatHelp = HelpLabel();
+        combatHelp.Name = "CombatHelp";
+        combatHelp.CustomMinimumSize = new(600, 0);
         header.AddChild(combatHelp);
-        InputPromptBinding.Track(combatHelp, () => combatHelp.Text = string.Join("  |  ",
-            InputPromptBinding.Text("world_attack", "Attack"), InputPromptBinding.Text("world_dodge", "Dodge"), InputPromptBinding.Text("world_defend", "Guard")));
+        InputPromptBinding.Track(combatHelp, () => InputGlyphText.Set(combatHelp, string.Join("  |  ",
+            InputPromptBinding.Marked("world_attack", "Attack"), InputPromptBinding.Marked("world_dodge", "Dodge"), InputPromptBinding.Marked("world_defend", "Guard"))));
+        void ShowHelp(bool touchShown) { movementHelp.Visible = !touchShown; combatHelp.Visible = !touchShown; }
+        _touchControls.ShownChanged += ShowHelp;
+        ShowHelp(_touchControls.Shown);
         _combatLabel = new Label();
         header.AddChild(_combatLabel);
 
@@ -970,14 +983,22 @@ public partial class NeoKyotoWorld : Node2D
         });
 
         AddButton(side, "Close map", ToggleMap);
-        var mapHelp = new Label { AutowrapMode = TextServer.AutowrapMode.WordSmart };
+        var mapHelp = HelpLabel();
+        mapHelp.Name = "MapHelp";
         side.AddChild(mapHelp);
-        InputPromptBinding.Track(mapHelp, () => mapHelp.Text = string.Join("\n",
-            InputPromptBinding.Text("world_left", "Pan left"), InputPromptBinding.Text("world_right", "Pan right"),
-            InputPromptBinding.Text("world_zoom_in", "Zoom in"), InputPromptBinding.Text("world_zoom_out", "Zoom out"),
-            InputPromptBinding.Text("world_map", "Close map")) + (InputPromptService.Instance?.IsGamepad == true ? "" :
-            "\n" + WorldText.Get("Right-drag to pan · click for waypoint")));
+        InputPromptBinding.Track(mapHelp, () => InputGlyphText.Set(mapHelp, string.Join("\n",
+            InputPromptBinding.Marked("world_left", "Pan left"), InputPromptBinding.Marked("world_right", "Pan right"),
+            InputPromptBinding.Marked("world_zoom_in", "Zoom in"), InputPromptBinding.Marked("world_zoom_out", "Zoom out"),
+            InputPromptBinding.Marked("world_map", "Close map")) + (InputPromptService.Instance?.IsGamepad == true ? "" :
+            "\n" + WorldText.Get("Right-drag to pan · click for waypoint"))));
     }
+
+    /// <summary>This world's on-screen touch controls; used by tests.</summary>
+    public TouchControls? TouchControlsNode => _touchControls;
+    private TouchControls? _touchControls;
+
+    /// <summary>A wrapping help label that can draw controller button images, at the theme's normal 16 px size.</summary>
+    private static RichTextLabel HelpLabel() => InputGlyphText.CreateLabel(16, Colors.White);
 
     /// <summary>Creates a translated, focusable button whose container controls sizing.</summary>
     private static Button AddButton(Container parent, string text, Action action)
@@ -1019,6 +1040,8 @@ public partial class NeoKyotoWorld : Node2D
         _mapOpen = !_mapOpen;
         _mapPanel.Visible = _mapOpen;
         _mini.Visible = !_mapOpen;
+        // The map has its own touch handling (drag to pan, tap for a waypoint) and a Close button.
+        _touchControls?.SetSuppressed(_mapOpen);
         if (_mapOpen) _destinations.GrabFocus();
     }
 

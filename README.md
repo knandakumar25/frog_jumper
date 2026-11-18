@@ -24,6 +24,55 @@ The development log follows.
 
 ---
 
+## On-screen touch controls for iOS and Android (2026-11-17)
+
+Phones and tablets can play with on-screen controls: a virtual joystick at the bottom left and round buttons at the bottom right. The joystick appears where the thumb lands.
+
+| Mode | Joystick | Buttons |
+|---|---|---|
+| Platformer missions 1–12 | Left/right only, so stick-up never jumps | Jump, Attack, Ability, Dash, plus a small row with Pause and Squad (Squad appears once a second operative has joined) |
+| Top-down mission | 8-way move | Attack, Ability, Dash, Use, Pause. Aim follows the move direction while touch controls are in use |
+| Open world | Move | Attack, Dodge, Guard (hold), Interact, Run (hold), Bike, plus a small row with Map and Squad. The controls hide while the map is open |
+
+- **When they show:**
+  - always on iOS/Android builds; on PC and web only after the screen is touched;
+  - a keyboard, controller or real mouse press hides them, and the next touch brings them back;
+  - hidden while the game is paused.
+- **Help text:** the top-down mission and the open world hide their key/controller help lines while the touch controls show. Platformer missions show their touch hint.
+- **Input:** the controls press the same InputMap actions as keys and controllers (`Input.ParseInputEvent` with `InputEventAction`). Several fingers work at once. Hiding the controls releases anything still held.
+- **Bluetooth controllers** on a phone work as before and show their button images.
+- **Code:**
+  - `scripts/ui/touch/TouchLayout.cs`: layouts, joystick-to-action mapping and the show/hide rule;
+  - `TouchActionButton.cs`: a multi-touch round button;
+  - `TouchControls.cs`: placement inside the safe area, the GoHUD `GoJoystick` (MIT, already in `addons/gohud`), and visibility.
+- **Limits:**
+  - tested only with synthetic touch events on a desktop; no real iPhone or Android device and no mobile export were used;
+  - the existing touch hint "Use the touch controls…" is still English in other languages.
+
+## Controller button images (2026-11-17)
+
+When a controller is in use, prompts show that controller's button images instead of text names. This covers:
+- the mission controls bar, lesson prompts and objective line;
+- the Palace parry hints and the gene-pod hint;
+- the isometric and open-world help lines and the world map;
+- cinematic, story and deployment Skip/Continue buttons;
+- the shared prompt banner, the home-screen prompt, the main-menu footer and the instructions popup.
+
+- **Sets:** Xbox 360, Xbox One, Xbox Series X|S, PlayStation 5 and Nintendo Switch 2. They come from Kenney "Input Prompts" 1.5A (CC0) in `assets/ui/input_prompts/`. This is an owner-approved exception to the SpriteCook-only rule; see that folder's README.
+- **Which set (Automatic):**
+  - an Xbox 360, One or Series pad gets its own set, and any other Microsoft/XInput pad gets Series;
+  - every Sony pad (DualShock 4 included) gets PS5;
+  - every Nintendo pad gets Switch 2;
+  - unknown pads and the keyboard keep text.
+  - USB vendor/product IDs are used when Godot reports them; otherwise the controller name decides.
+- **Consoles:** builds with the `xbox` export feature (the "Xbox / Windows GDK" preset) always use the Series set. The `ps5` and `switch2` feature tags are checked too, but no preset sets them yet.
+- **Controls menu:** "Input prompt style" now lists Automatic, Xbox 360, Xbox One, Xbox Series X|S, PlayStation 5, Nintendo Switch 2 and Keyboard. Old saved values keep working: Xbox, PlayStation and Nintendo now mean Series, PS5 and Switch 2.
+- **Code:**
+  - `scripts/input/ControllerGlyphCatalog.cs` handles detection and file mapping;
+  - `scripts/input/InputGlyphText.cs` carries images inside prompt strings and draws them in `RichTextLabel`s and on buttons;
+  - `InputPromptService.MarkedBinding` / `GetRichBinding` / `GetRichContextText` / `SetActionButton` produce the image versions.
+  - Plain-text methods are unchanged.
+
 ## Shared input prompts (2026-11-15)
 
 Game menus, campaign instructions, recruitment, world/map help and cinematic Skip

@@ -1,3 +1,5 @@
+> **Latest review (2026-11-17):** touch controls and controller button images, one round, three reviewers. It is **not clean**: 3 Blockers, 25 Majors. Full report with proposed fixes: [`docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`](docs/INPUT_GOOGLE_REVIEW_2026-11-17.md). Fixes await the owner's choice.
+
 # Goldfish review report: Blender retirement and art regeneration list
 
 EGM review loop (`egm-review-loop`) plus drift report (`egm-drift-report`), run 2026-11-11 on the uncommitted change that retired Blender and deleted the downloaded stand-ins. The owner chose to auto-accept fixes.

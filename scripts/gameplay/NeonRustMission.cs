@@ -288,7 +288,7 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         if (GameplaySuspended) return;
         foreach (var target in _targets)
         {
-            target.Marker.Text = TargetGuidance(target.Event);
+            target.Marker.Text = InputGlyphText.ToPlain(TargetGuidance(target.Event));
             target.Marker.Visible = !Progress.Has(target.Event);
         }
         if (_aura.Triggered) Progress.Complete("recruit:aura");
@@ -316,7 +316,7 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         };
         string instruction = target.Length > 0 ? TargetGuidance(target)
             : WildfireText.Get("NR_" + objective.Key + "_LOCAL", objective.Text);
-        if (objective.Key is "PHASE" or "ESCAPE") instruction += " / " + ContextBinding("karate");
+        if (objective.Key is "PHASE" or "ESCAPE") instruction += " / " + ContextGlyph("karate");
         return WildfireText.Interpolate("UI_NEONRUSTMISSION_COMPUTEOBJECTIVE_DD0F3113", $"{Progress.Shipments}/3 CARGO  {Progress.Uplinks}/2 UPLINKS\n{instruction}");
     }
 
@@ -330,7 +330,7 @@ public partial class NeonRustMission : CodeLevel, IFiniteCombatHost
         return WildfireText.Get("NR_TARGET_" + id.Replace(':', '_').ToUpperInvariant(), id.Replace(':', ' ').ToUpperInvariant()) + "\n" +
             (blockers.Length > 0 ? WildfireText.Get("NR_LOCAL_DEFENDERS", "LOCAL DEFENDERS / {groups}").Replace("{groups}", blockers) + "\n" : "") +
             WildfireText.Get("NR_USE_" + (id == "shipment:runoff" ? "DOUSE" : id == "barrier:insertion" || id == "shipment:freight" ? "SLAM" : "RESONATE"), operative) +
-            " / " + ContextBinding("karate");
+            " / " + ContextGlyph("karate");
     }
     /// <inheritdoc/>
     public bool HasCombatEvent(string id) => Progress.Has(id);

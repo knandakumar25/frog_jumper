@@ -131,12 +131,15 @@ public abstract partial class CodeLevel : Node2D
     private GameManager _gameManager = null!;
     private Node2D? _skyline;
     private Sprite2D? _backdrop;
-    private Label _objectiveLabel = null!;
+    private RichTextLabel _objectiveLabel = null!;
     private Label _fragmentLabel = null!;
     private Label _dialogueLabel = null!;
     private Control _dialoguePanel = null!;
-    private Label _controlsLabel = null!;
-    private Label _promptLabel = null!;
+    // Rich labels so controller prompts can show button images (InputGlyphText).
+    private RichTextLabel _controlsLabel = null!;
+    private RichTextLabel _promptLabel = null!;
+    // On-screen joystick and buttons for phones and tablets (shown on iOS/Android or after a touch).
+    private TouchControls? _touchControls;
     private Control _promptPanel = null!;
     private readonly List<PalaceObjective> _fragments = new();
     private readonly List<PalaceObjective> _checkpoints = new();
@@ -156,6 +159,15 @@ public abstract partial class CodeLevel : Node2D
     protected string ContextBinding(string action) => _usingTouch
         ? WildfireText.Get("WF_TOUCH_" + action.ToUpperInvariant(), action == "karate" ? "Ability" : action)
         : WildfireText.Binding(action, _usingPad);
+
+    /// <summary>
+    /// Like <see cref="ContextBinding"/>, but a controller binding comes back as a button-image marker.
+    /// Use it only for text that reaches <see cref="ShowPrompt"/> or <see cref="ComputeObjective"/>,
+    /// which draw markers; anywhere else, use <see cref="ContextBinding"/>.
+    /// </summary>
+    protected string ContextGlyph(string action) => _usingTouch || !_usingPad
+        ? ContextBinding(action)
+        : InputPromptService.Instance?.MarkedBinding(action, true) ?? ContextBinding(action);
     private OperativeRoster? _hintRoster;
     private CyberVictoryScorecard? _scorecard;
     private int _maxCombo = 1;
@@ -237,8 +249,10 @@ public abstract partial class CodeLevel : Node2D
         UpdateShrines();
         CollectFragments();
         UpdateMission();
-        CurrentObjective = TranslationServer.Translate(ComputeObjective());
-        _objectiveLabel.Text = WildfireText.Format("HUD_OBJECTIVE", "OBJECTIVE / {objective}", ("objective", CurrentObjective));
+        // ComputeObjective may carry button-image markers; CurrentObjective stays plain text for readers and tests.
+        string objective = TranslationServer.Translate(ComputeObjective());
+        CurrentObjective = InputGlyphText.ToPlain(objective);
+        InputGlyphText.Set(_objectiveLabel, WildfireText.Format("HUD_OBJECTIVE", "OBJECTIVE / {objective}", ("objective", objective)));
         if (_player.GlobalPosition.Y > WorldBounds.End.Y + KillMargin) RecoverFromFall();
     }
 
@@ -604,7 +618,7 @@ public abstract partial class CodeLevel : Node2D
         Speech?.Cancel();
         _player.StopMovement();
         CurrentObjective = "Mission complete";
-        _objectiveLabel.Text = CompletionLine;
+        InputGlyphText.Set(_objectiveLabel, CompletionLine);
         _dialoguePanel.Visible = true;
         // Snapshot before any cinematic or asynchronous work: results describe the extraction instant.
         int finalScore = _gameManager.Points;
@@ -770,13 +784,13 @@ public abstract partial class CodeLevel : Node2D
         root.AddChild(objectivePanel);
         var box = new VBoxContainer();
         objectivePanel.AddChild(box);
-        _objectiveLabel = NewLabel("", 15, new Color("#77efff"));
+        _objectiveLabel = NewRichLabel(15, new Color("#77efff"));
         box.AddChild(_objectiveLabel);
         _fragmentLabel = NewLabel("", 13, new Color("#ffcf8a"));
         box.AddChild(_fragmentLabel);
         UpdateFragmentLabel();
 
-        _controlsLabel = NewLabel("", 14, Colors.White);
+        _controlsLabel = NewRichLabel(14, Colors.White);
         _controlsLabel.AddThemeColorOverride("font_outline_color", Colors.Black);
         _controlsLabel.AddThemeConstantOverride("outline_size", 4);
         _controlsLabel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.BottomWide);
@@ -798,6 +812,10 @@ public abstract partial class CodeLevel : Node2D
         squad.OffsetBottom = -8;
         root.AddChild(squad);
         squad.Bind(_player);
+
+        _touchControls = TouchControls.Create(TouchLayout.Platformer);
+        AddChild(_touchControls);
+        _touchControls.SetButtonVisible("squad_next", OperativeRoster.Current.Unlocked.Count > 1);
         _hintRoster = OperativeRoster.Current;
         _hintRoster.OperativeUnlocked += OnOperativeUnlocked;
 
@@ -812,7 +830,7 @@ public abstract partial class CodeLevel : Node2D
         // Prompt: a persistent top-centre hint used by ability lessons; hidden until a lesson shows it.
         _promptPanel = NewPanel(new Vector2(-300, 90), new Vector2(600, 64), new Vector2(.5f, 0));
         root.AddChild(_promptPanel);
-        _promptLabel = NewLabel("", 16, new Color("#ffffff"));
+        _promptLabel = NewRichLabel(16, new Color("#ffffff"));
         _promptLabel.HorizontalAlignment = HorizontalAlignment.Center;
         _promptPanel.AddChild(_promptLabel);
         _promptPanel.Visible = false;
@@ -892,18 +910,20 @@ public abstract partial class CodeLevel : Node2D
     {
         if (_controlsLabel == null) return;
         bool canSwap = OperativeRoster.Current.Unlocked.Count > 1;
+        _touchControls?.SetButtonVisible("squad_next", canSwap);
         if (_usingTouch)
         {
-            _controlsLabel.Text = WildfireText.Get("WF_TOUCH_CONTROLS", "Use the touch controls to move, jump, attack and use abilities.");
+            InputGlyphText.Set(_controlsLabel, WildfireText.Get("WF_TOUCH_CONTROLS", "Use the touch controls to move, jump, attack and use abilities."));
             return;
         }
-        _controlsLabel.Text = string.Join("  |  ",
-            InputPromptBinding.Text("left", "Left"), InputPromptBinding.Text("right", "Right"),
-            InputPromptBinding.Text("jump", "Jump"), InputPromptBinding.Text("attack", "Attack"),
-            InputPromptBinding.Text("karate", "Ability"), InputPromptBinding.Text("dash", "Dash"),
-            InputPromptBinding.Text("escape", "Pause"));
-        if (canSwap) _controlsLabel.Text += "  |  " + InputPromptBinding.Text("squad_next", "Next operative") +
-            "  |  " + InputPromptBinding.Text("squad_previous", "Previous operative");
+        string text = string.Join("  |  ",
+            InputPromptBinding.Marked("left", "Left"), InputPromptBinding.Marked("right", "Right"),
+            InputPromptBinding.Marked("jump", "Jump"), InputPromptBinding.Marked("attack", "Attack"),
+            InputPromptBinding.Marked("karate", "Ability"), InputPromptBinding.Marked("dash", "Dash"),
+            InputPromptBinding.Marked("escape", "Pause"));
+        if (canSwap) text += "  |  " + InputPromptBinding.Marked("squad_next", "Next operative") +
+            "  |  " + InputPromptBinding.Marked("squad_previous", "Previous operative");
+        InputGlyphText.Set(_controlsLabel, text);
     }
 
     /// <summary>Starts the stage music and instantiates the shared pause menu used by the other levels.</summary>
@@ -943,10 +963,10 @@ public abstract partial class CodeLevel : Node2D
         _dialoguePanel.Visible = true;
     }
 
-    /// <summary>Shows a persistent prompt at the top of the screen (used by ability lessons).</summary>
+    /// <summary>Shows a persistent prompt at the top of the screen (used by ability lessons); button-image markers are drawn.</summary>
     public void ShowPrompt(string text)
     {
-        _promptLabel.Text = text;
+        InputGlyphText.Set(_promptLabel, text);
         _promptPanel.Visible = true;
     }
 
@@ -954,7 +974,17 @@ public abstract partial class CodeLevel : Node2D
     public void HidePrompt() => _promptPanel.Visible = false;
 
     /// <summary>Text currently shown in the lesson prompt (empty when hidden); used by tests.</summary>
-    public string PromptText => _promptPanel != null && _promptPanel.Visible ? _promptLabel.Text : "";
+    public string PromptText => _promptPanel != null && _promptPanel.Visible ? InputGlyphText.Plain(_promptLabel) : "";
+
+    /// <summary>Plain text of the controls hint (button images read as their names); used by tests.</summary>
+    public string ControlsHintText => InputGlyphText.Plain(_controlsLabel);
+
+    /// <summary>This mission's on-screen touch controls; used by tests.</summary>
+    public TouchControls? TouchControlsNode => _touchControls;
+
+    /// <summary>Creates a HUD label that can draw button images, in the same font and style as <see cref="NewLabel"/>.</summary>
+    private static RichTextLabel NewRichLabel(int fontSize, Color color) =>
+        InputGlyphText.CreateLabel(fontSize, color, GD.Load<FontFile>("res://assets/fonts/Orbitron-VariableFont.ttf"));
 
     /// <summary>Creates an anchored translucent panel in the game's cyan-edged HUD style.</summary>
     private static PanelContainer NewPanel(Vector2 offset, Vector2 size, Vector2 anchor)

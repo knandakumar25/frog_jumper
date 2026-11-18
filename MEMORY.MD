@@ -1,5 +1,90 @@
 # Axiom Force — Project Memory
 
+## Google EGM review of touch controls and button images — 2026-11-17
+
+- Owner asked to "run the google skills". Owner chose the same setup as 2026-11-16: one fresh round of `codebase_details`, `implementation_readiness` and `style` on HANDOFF lines 3–114. All three completed.
+- Result: **not clean** — 3 Blockers, 25 Majors, about 31 Nits.
+- Real code defects confirmed:
+  - no touch way to resume the paused top-down mission;
+  - taps on the top-down field attack (emulated left click);
+  - `ObserveInput` still counts emulated clicks;
+  - the joystick can stay pressed while hidden;
+  - mobile platformer shows key hints before the first touch.
+- Report: `docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`; root `goldfish_review_report.md` links it.
+- No fixes applied yet. The owner said to push as-is and fix all findings the next morning (2026-11-18), starting from the report.
+- Pushed on owner request: button images, touch controls, review report and docs, all in one commit.
+
+## On-screen touch controls for iOS/Android — 2026-11-17
+
+- **Owner decisions:**
+  - on-screen touch controls (GoHUD `GoJoystick` plus round buttons drawn in code; no art, no credits) for the platformer missions, the top-down mission and the open world;
+  - shown all the time on iOS/Android and after a touch elsewhere; hidden by a pad, keyboard or real mouse press.
+- **Built:**
+  - `scripts/ui/touch/` (`TouchLayout`, `TouchActionButton`, `TouchControls`), wired into `CodeLevel`, `IsometricMission` and `NeoKyotoWorld` (suppressed while the map is open);
+  - presses go through `Input.ParseInputEvent(InputEventAction)`, so no gameplay code changed;
+  - fixes: `DeliberateNonTouch` ignores emulated mouse; top-down aim follows movement while touch is active;
+  - "Run", "Bike" and "Squad" added to `InputPrompts.csv`.
+- **Lessons:**
+  - Godot `Button` is single-pointer, so multi-touch needs per-index `ScreenTouch` handling;
+  - square hit areas of diagonal arc neighbours overlap, so hit-testing is round;
+  - the headless test viewport is 1920x1920;
+  - `parse_input_event` can buffer, so call `Input.flush_buffered_events()` in tests.
+- **Verified:**
+  - build: 0 errors;
+  - import: exit 0;
+  - `TouchLayoutTests` 6/6; `test_touch_controls.gd` 10/10;
+  - smoke harness: 101/101 (touch screenshots checked);
+  - full suites: backend 158, NUnit 498, GdUnit4 400, with 0 failures and 0 orphans;
+  - graphify updated.
+- **Open:**
+  - no real device or mobile export test;
+  - `WF_TOUCH_CONTROLS` is untranslated (existing);
+  - native review of the new Run/Bike/Squad words.
+- No commit or push; Docker left running.
+
+## Controller button images — 2026-11-17
+
+- **Owner decisions:**
+  - Show real button images for Xbox 360, Xbox One, Xbox Series X|S, PS5 and Switch 2, on consoles and whenever those pads are connected on PC, Mac or Linux. iOS and Android are out of scope.
+  - Image source: the free CC0 **Kenney Input Prompts 1.5A**, as an exception to the SpriteCook-only rule. The exception is recorded in the four agent guides and `docs/STAND_IN_ASSETS.md`; do not delete these images.
+  - Other pads: closest set (DS4 → PS5, any Nintendo pad → Switch 2, XInput → Series); unknown pads keep text.
+  - The Controls menu lists each console.
+- **Built:**
+  - 124 images in `assets/ui/input_prompts/` (128 px, mipmaps on).
+  - `ControllerGlyphCatalog.cs` (detection by USB IDs, then name; console feature tags) and `InputGlyphText.cs` (markers → BBCode `[img]`; button overlay).
+  - Service APIs `MarkedBinding`, `GetRichBinding`, `GetRichContextText` and `SetActionButton`. Styles 5 (Xbox 360) and 6 (Xbox One) were appended; 1–3 now mean Series, PS5 and Switch 2.
+  - The HUD, prompts, cinematic, story and deployment Skip buttons, banner, home, menu footer, instructions, isometric and world help were converted to rich labels.
+- **Lessons:**
+  - Only send marked strings to rich sinks: `ContextGlyph` is marked, `ContextBinding` stays plain.
+  - `Button` can't draw BBCode, so a `PromptGlyphs` child overlay draws the images.
+  - Tests read plain text through `InputGlyphText.Plain` or the `input_prompt_plain` meta.
+  - Python passed through Bash heredocs can write raw control characters; use files.
+  - The Kenney download needs the page's session cookie for `/download-link/<hex id>`.
+- **Verified:**
+  - build: 0 errors;
+  - import: exit 0, 124 `.import` files;
+  - image audit: none of the new images flagged;
+  - full `run_tests.ps1`: backend 158/158, NUnit 492/492, GdUnit4 390/390, with 0 errors, failures and orphans;
+  - graphical smoke harness: 72/72;
+  - `graphify update` done.
+- **Open:**
+  - no physical controller test, so whether Godot reports vendor/product IDs is unverified;
+  - some plain-text spots remain (listed in HANDOFF);
+  - no PS5 or Switch 2 export presets.
+- Docker stack started on owner approval and left running. No commit or push.
+
+## Orientation read (Claude Code, read-only) — 2026-11-17
+
+- Owner asked for a catch-up on the md files and git history. Read the recent MEMORY/HANDOFF/README
+  sections and the commits up to `49a7b03` (485 commits, clean tree on `main`). No code, Docker or test runs.
+- Drift seen: the 2026-11-16 HANDOFF/MEMORY entries still say "changes remain local", but
+  `b1c78ed` and `49a7b03` are committed.
+- **Owner decision (2026-11-17):** no rotation of the old third-party OAuth secrets in git history;
+  those credentials are abandoned and only the current login service (Express + Clerk) is kept.
+  Do not list rotation as an open owner action. HANDOFF and the verification doc updated.
+- `godot-ai` MCP showed CONNECTION_CLOSED at this Claude session's start while the owner's view
+  showed it connected; treat it as a session-start timing issue, not a broken server.
+
 ## Godot startup diagnostics & GitHub secret remediation — 2026-11-16
 
 - GitHub secret scanning and push protection enabled on knandakumar25/frog_jumper.

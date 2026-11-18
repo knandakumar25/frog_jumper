@@ -54,12 +54,23 @@ public partial class InputPromptBinding : Node
     /// <summary>Pairs a translated action title with current binding alternatives.</summary>
     public static string Text(string action, string label) => $"{Binding(action)}: {TranslationServer.Translate(label)}";
 
-    /// <summary>Keeps touch instructions until a deliberate desktop/controller event arrives.</summary>
-    public static bool DeliberateNonTouch(InputEvent input) => input is InputEventKey { Pressed: true, Echo: false }
+    /// <summary>Like <see cref="Binding"/>, with button-image markers for <see cref="InputGlyphText.Set"/>.</summary>
+    public static string MarkedBinding(string action) => InputPromptService.Instance?.MarkedBinding(action) ?? TranslationServer.Translate("Unbound");
+    /// <summary>Like <see cref="Text"/>, with button-image markers for <see cref="InputGlyphText.Set"/>.</summary>
+    public static string Marked(string action, string label) => $"{MarkedBinding(action)}: {TranslationServer.Translate(label)}";
+
+    /// <summary>
+    /// Keeps touch instructions until a deliberate desktop/controller event arrives. Mouse events that
+    /// Godot copies from touches (device <see cref="InputEvent.DeviceIdEmulation"/>) are not deliberate
+    /// mouse use; counting them would switch back to keyboard hints right after every tap.
+    /// </summary>
+    public static bool DeliberateNonTouch(InputEvent input) =>
+        !(input is InputEventMouse && input.Device == InputEvent.DeviceIdEmulation) &&
+        (input is InputEventKey { Pressed: true, Echo: false }
         or InputEventMouseButton { Pressed: true } or InputEventJoypadButton { Pressed: true } ||
         input is InputEventMouseMotion mouse && mouse.Relative.LengthSquared() >= 16 ||
         input is InputEventJoypadMotion axis && (axis.Axis is JoyAxis.TriggerLeft or JoyAxis.TriggerRight
-            ? axis.AxisValue > .5f : Math.Abs(axis.AxisValue) > .5f);
+            ? axis.AxisValue > .5f : Math.Abs(axis.AxisValue) > .5f));
 
     /// <summary>Uses each cinematic's existing accepted shortcuts; playback and Skip handling are unchanged.</summary>
     public static void Cinematic(Button button, bool allowBack)
@@ -71,6 +82,6 @@ public partial class InputPromptBinding : Node
         button.OffsetTop = 24; button.OffsetBottom = 104;
         string action = allowBack ? "cinematic_skip_back" : "cinematic_skip";
         button.AddChild(new InputPromptBinding { _cinematicAction = action,
-            _refresh = () => button.Text = Text(action, "Skip") });
+            _refresh = () => InputGlyphText.SetButton(button, Marked(action, "Skip")) });
     }
 }

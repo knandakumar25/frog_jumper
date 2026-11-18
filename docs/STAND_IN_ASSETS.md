@@ -1,5 +1,7 @@
 # Free stand-in assets
 
+> **Not a stand-in: controller button images (2026-11-17).** The owner chose Kenney "Input Prompts" 1.5A (CC0) for the controller button images in `assets/ui/input_prompts/`. They are permanent, owner-approved art, not stand-ins; see that folder's README.
+
 > **Removed 2026-11-11.** At the owner's request, all four packs that were in the game (Kenney Racing, Kenney Sci-fi Sounds, Foozle Mecha Boss, Hormelz robot) were deleted along with `assets/stand_in/`. The Pixel Adventure leftovers in `assets/images` (`Blue`, `Green`, `Cherries`, `End (Idle)`, `Terrain (16x16)`) went too. `StandInAssets.cs` returns null for each missing file, so the bike, sentries and open-world drones are drawn in code and their sounds are silent. Art direction is now SpriteCook only, so don't bring these packs back unless the owner asks; this file is kept as a record of the sources and licenses.
 
 Temporary art and audio candidates, checked 2026-11-09. Four packs were in the game until 2026-11-11; they are listed in the record table at the end of this file. The rest are candidates only.

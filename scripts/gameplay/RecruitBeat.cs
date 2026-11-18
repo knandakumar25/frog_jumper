@@ -96,7 +96,10 @@ public partial class RecruitBeat : Node2D
     {
         string tag = OperativeRoster.AbilityTagOf(Operative) ?? "";
         var (name, hint) = Describe(tag);
-        string binding = _usingTouch ? WildfireText.Get("WF_TOUCH_ABILITY", "Ability") : WildfireText.Binding("karate", _usingPad);
+        // Marked bindings: Level.ShowPrompt draws controller buttons as images.
+        string binding = _usingTouch ? WildfireText.Get("WF_TOUCH_ABILITY", "Ability")
+            : _usingPad ? InputPromptService.Instance?.MarkedBinding("karate", true) ?? WildfireText.Binding("karate", true)
+            : WildfireText.Binding("karate", false);
         hint = WildfireText.Get("ABILITY_HINT_" + tag.ToUpperInvariant(), hint.Replace("Q", "{ability}")).Replace("{ability}", binding);
         name = WildfireText.Get("ABILITY_NAME_" + tag.ToUpperInvariant(), name);
         string active = _player!.ActiveProfile.DisplayName;
@@ -106,7 +109,7 @@ public partial class RecruitBeat : Node2D
         {
             int slot = System.Linq.Enumerable.ToList(OperativeRoster.RosterOrder).IndexOf(OperativeRoster.Normalize(Operative)) + 1;
             string swap = _usingTouch ? WildfireText.Get("WF_TOUCH_SWAP", "Squad") :
-                InputPromptBinding.Binding("squad_next") + (_usingPad ? "" : " / " + InputPromptBinding.Binding($"squad_slot_{slot}"));
+                InputPromptBinding.MarkedBinding("squad_next") + (_usingPad ? "" : " / " + InputPromptBinding.Binding($"squad_slot_{slot}"));
             string template = WildfireText.Get("RECRUIT_SWAP_PROMPT", "{operative} JOINED - {swap}: swap, then {name}: {hint}");
             Level.ShowPrompt(template.Replace("{operative}", Operative.ToUpperInvariant()).Replace("{swap}", swap)
                 .Replace("{name}", name).Replace("{hint}", hint));

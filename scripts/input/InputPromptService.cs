@@ -6,9 +6,12 @@ using System.Linq;
 public enum PromptInputKind { Keyboard, MouseButton, ControllerButton, ControllerAxis }
 public enum PromptControllerFamily { Unknown, Xbox, PlayStation, Nintendo }
 
-/// <summary>A binding's physical identity and current localized text; textures can be added by a later renderer.</summary>
+/// <summary>
+/// A binding's physical identity, current localized text and, for controller bindings when an image
+/// set is active, the button image path (<see cref="GlyphPath"/>; null means draw <see cref="Label"/>).
+/// </summary>
 public sealed record InputBindingToken(PromptInputKind Kind, int PhysicalCode, float AxisDirection,
-    bool Shift, bool Ctrl, bool Alt, bool Meta, string Label);
+    bool Shift, bool Ctrl, bool Alt, bool Meta, string Label, string? GlyphPath = null);
 
 /// <summary>Owns prompt presentation, never input consumption or gameplay functions.</summary>
 public partial class InputPromptService : Node
@@ -160,7 +163,7 @@ public partial class InputPromptService : Node
         int value = 0;
         if (data != null && data.TryGetValue("glyph_style", out var saved) &&
             (saved.VariantType == Variant.Type.Int || saved.VariantType == Variant.Type.Float) &&
-            double.IsInteger(saved.AsDouble()) && saved.AsDouble() >= 0 && saved.AsDouble() <= 4)
+            double.IsInteger(saved.AsDouble()) && saved.AsDouble() >= 0 && saved.AsDouble() <= (int)ControllerGlyphStyle.XboxOne)
             value = saved.AsInt32();
         SetStyle(value, false);
     }
@@ -238,6 +241,61 @@ public partial class InputPromptService : Node
     public string GetBindingForDevice(string action, bool controller) => Binding(action, controller);
     /// <summary>Shows every distinct current binding, or a localized Unbound label.</summary>
     public string Binding(string action, bool? controller = null) => string.Join(" / ", Tokens(action, controller).Select(t => t.Label).Distinct());
+
+    /// <summary>
+    /// Like <see cref="Binding"/>, but controller bindings that have an image come back as
+    /// <see cref="InputGlyphText"/> markers. Only send the result to a label through
+    /// <see cref="InputGlyphText.Set"/> or <see cref="InputGlyphText.SetButton"/>.
+    /// </summary>
+    public string MarkedBinding(string action, bool? controller = null) => string.Join(" / ",
+        Tokens(action, controller).Select(t => t.GlyphPath == null ? t.Label : InputGlyphText.Mark(t.GlyphPath, t.Label)).Distinct());
+
+    /// <summary>Marked version of <see cref="Describe"/> ("Label: [ image ]").</summary>
+    public string MarkedDescribe(string action, string label) => $"{label}: [ {MarkedBinding(action)} ]";
+
+    /// <summary>
+    /// BBCode for one action's bindings, for GDScript labels that set <c>bbcode_enabled</c>.
+    /// Images are <paramref name="height"/> pixels tall; text is escaped.
+    /// </summary>
+    public string GetRichBinding(string action, int height) => InputGlyphText.ToBbcode(MarkedBinding(action), height);
+
+    /// <summary>
+    /// Shows "label: [ bindings ]" on a GDScript-owned button, drawing controller buttons as images
+    /// (see <see cref="InputGlyphText.SetButton"/>). <paramref name="label"/> must already be translated.
+    /// </summary>
+    public void SetActionButton(Button button, string label, string action) =>
+        InputGlyphText.SetButton(button, $"{label}: [ {MarkedBinding(action)} ]");
+
+    /// <summary>BBCode version of <see cref="GetContextText"/> for the shared prompt banner.</summary>
+    public string GetRichContextText(int height) => InputGlyphText.ToBbcode(
+        string.Join("   |   ", _actions.Select(a => MarkedDescribe(a, ActionLabel(a)))), height);
+
+    /// <summary>
+    /// The button-image set used for controller prompts right now: none for Keyboard style or while
+    /// the keyboard is in use; otherwise a style forced in the Controls menu, then the console the
+    /// game was exported for, then the connected controller (closest set; unknown pads get none).
+    /// </summary>
+    public ControllerGlyphSet ActiveGlyphSet => GlyphSetFor(IsGamepad);
+
+    /// <summary>Resolves the image set for a controller (pad) lookup; keyboard lookups never get images.</summary>
+    private ControllerGlyphSet GlyphSetFor(bool pad)
+    {
+        if (!pad || Style == ControllerGlyphStyle.Keyboard) return ControllerGlyphSet.None;
+        if (ControllerGlyphCatalog.ForcedSet(Style) is { } forced) return forced;
+        if (ControllerGlyphCatalog.PlatformSet(f => OS.HasFeature(f)) is { } platform) return platform;
+        return DetectActiveSet();
+    }
+
+    /// <summary>Reads the active pad's name and, where the platform reports them, its USB vendor/product IDs.</summary>
+    private ControllerGlyphSet DetectActiveSet()
+    {
+        if (ActiveController < 0) return ControllerGlyphSet.None;
+        int vendor = 0, product = 0;
+        var info = Input.GetJoyInfo(ActiveController);
+        if (info.TryGetValue("vendor_id", out var v) && v.VariantType is Variant.Type.Int or Variant.Type.Float) vendor = v.AsInt32();
+        if (info.TryGetValue("product_id", out var p) && p.VariantType is Variant.Type.Int or Variant.Type.Float) product = p.AsInt32();
+        return ControllerGlyphCatalog.Detect(Input.GetJoyName(ActiveController), vendor, product);
+    }
     /// <summary>Pairs a localized action title with readable bracketed bindings.</summary>
     public string Describe(string action, string label) => $"{label}: [ {Binding(action)} ]";
     /// <summary>Joins a screen-owned action list with spacing suitable for wrapping labels.</summary>
@@ -247,6 +305,7 @@ public partial class InputPromptService : Node
     public IReadOnlyList<InputBindingToken> Tokens(string action, bool? controller = null)
     {
         bool pad = controller ?? IsGamepad;
+        var glyphs = GlyphSetFor(pad);
         var tokens = new List<InputBindingToken>();
         // StoryIntro also accepts the remappable pause and UI-cancel actions.
         var sources = action switch {
@@ -259,7 +318,7 @@ public partial class InputPromptService : Node
             {
                 bool isPad = input is InputEventJoypadButton or InputEventJoypadMotion;
                 if (pad != isPad) continue;
-                var token = Token(input);
+                var token = Token(input, glyphs);
                 if (token != null && !tokens.Any(t => t == token)) tokens.Add(token);
             }
         if (tokens.Count == 0) tokens.Add(new(pad ? PromptInputKind.ControllerButton : PromptInputKind.Keyboard, -1, 0, false, false, false, false, T("Unbound")));
@@ -267,10 +326,13 @@ public partial class InputPromptService : Node
     }
 
     /// <summary>Formats a captured event using the current keyboard layout and controller presentation.</summary>
-    public string FormatBindingEvent(InputEvent input) => Token(input)?.Label ?? T("Unbound");
+    public string FormatBindingEvent(InputEvent input) => Token(input, ControllerGlyphSet.None)?.Label ?? T("Unbound");
 
-    /// <summary>Converts supported engine events into stable physical tokens with localized display text.</summary>
-    private InputBindingToken? Token(InputEvent input)
+    /// <summary>
+    /// Converts supported engine events into stable physical tokens with localized display text and,
+    /// for controller events, the image from <paramref name="glyphs"/> when that set has one.
+    /// </summary>
+    private InputBindingToken? Token(InputEvent input, ControllerGlyphSet glyphs)
     {
         string label;
         int code;
@@ -316,15 +378,17 @@ public partial class InputPromptService : Node
                 break;
             default: return null;
         }
-        return new(kind, code, direction, shift, ctrl, alt, meta, label);
+        return new(kind, code, direction, shift, ctrl, alt, meta, label,
+            ControllerGlyphCatalog.Path(glyphs, kind, code, direction));
     }
 
-    /// <summary>Combines a manual family preference with the active controller's reported identity.</summary>
-    private PromptControllerFamily Family() => Style switch {
-        ControllerGlyphStyle.Xbox => PromptControllerFamily.Xbox,
-        ControllerGlyphStyle.PlayStation => PromptControllerFamily.PlayStation,
-        ControllerGlyphStyle.NintendoSwitch => PromptControllerFamily.Nintendo,
-        _ => DetectFamily(ActiveController >= 0 ? Input.GetJoyName(ActiveController) : "") };
+    /// <summary>Combines a manual family preference, the console build and the active controller's identity.</summary>
+    private PromptControllerFamily Family()
+    {
+        if (ControllerGlyphCatalog.ForcedSet(Style) is { } forced) return ControllerGlyphCatalog.FamilyOf(forced);
+        if (ControllerGlyphCatalog.PlatformSet(f => OS.HasFeature(f)) is { } platform) return ControllerGlyphCatalog.FamilyOf(platform);
+        return DetectFamily(ActiveController >= 0 ? Input.GetJoyName(ActiveController) : "");
+    }
 
     /// <summary>Maps recognized reported identities, leaving unknown pads with neutral position labels.</summary>
     public static PromptControllerFamily DetectFamily(string identity)

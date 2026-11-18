@@ -1,5 +1,117 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## On-screen touch controls for iOS and Android — 2026-11-17
+
+The owner asked for in-game controls on iOS and Android. They chose on-screen touch controls (joystick plus buttons), drawn in code with no new art, for platformer missions, the top-down mission and the open world. The controls show all the time on iOS/Android and after a touch on other platforms, and hide when a pad, keyboard or real mouse is used. Before this, the game had no touch controls; CodeLevel only displayed a "Use the touch controls…" hint.
+
+**Done:**
+- **`scripts/ui/touch/TouchLayout.cs` (engine-light):**
+  - three layouts, listed in the README;
+  - `StickStrengths`: joystick vector to per-action strength. The platformer uses X only, so stick-up never jumps;
+  - `TouchVisibility`: the show/hide rule.
+- **`TouchActionButton.cs`:** a round button drawn in code (cyan ring, translated label, non-Latin labels in the theme font).
+  - Tracks its own touch index, so multi-touch works. Godot's `Button` follows only one pointer.
+  - Presses through `Input.ParseInputEvent(InputEventAction)`, so both `InputActionDefaults.Matches` event readers and `Input.Is/GetAction*` pollers see it.
+  - Ignores emulated mouse copies, and accepts a real left click for desktop testing.
+  - The hit area is round, so diagonal neighbours' square corners don't overlap.
+  - Releases on hide, pause or exit, so no action stays stuck.
+- **`TouchControls.cs` (CanvasLayer 20, ProcessMode Always):**
+  - builds GoHUD `GoJoystick` (FOLLOW mode, cyan), loaded from its GDScript file;
+  - places the buttons as an arc around the bottom-right corner, with a ring radius large enough that neighbours never touch;
+  - puts secondary buttons (Pause, Map, Squad) in a row above the arc, below the top-right HUD and minimap;
+  - keeps everything inside the OS safe area;
+  - for C# callers: static `Active`, `ShownChanged`, `SetSuppressed`, `SetButtonVisible`, `ButtonFor`, `SetWanted`;
+  - for GDScript: `UseLayout(name)`.
+- **Wiring:**
+  - `CodeLevel`: platformer layout; the Squad button follows `Unlocked.Count > 1`; `TouchControlsNode` exposed for tests.
+  - `IsometricMission`: isometric layout; the key list hides while touch shows.
+  - `NeoKyotoWorld`: world layout; help lines hide while touch shows; suppressed while the map is open.
+- **Fixes:**
+  - `InputPromptBinding.DeliberateNonTouch` now ignores emulated mouse events (`InputEvent.DeviceIdEmulation`). Before, every tap flipped CodeLevel's hint back to keyboard text.
+  - `IsometricOperative` aims along the move direction while `TouchControls.Active`, because touches move the emulated mouse onto the buttons.
+- **Translations:** "Run", "Bike" and "Squad" added to `InputPrompts.csv` in all 17 columns (my translations; native review still open).
+
+**Verification:**
+- `dotnet build`: 0 errors.
+- Godot import: exit 0, with only the known shutdown diagnostics.
+- NUnit `TouchLayoutTests`: 6/6.
+- GdUnit `test_touch_controls.gd`: 10/10 with 0 orphans. Covers press/release, two fingers, joystick strength, stick-up not jumping, hiding releasing actions, show/hide rules including emulated mouse, the Squad toggle, buttons inside the view without overlap for all layouts, and the level 1 tap keeping the touch hint.
+- Smoke harness: 101 checks, 0 failures. New touch checks:
+  - isometric: touch shows the controls, Attack attacks, a key hides them;
+  - platformer: Jump jumps and the buttons clear the subtitle panel and squad strip;
+  - world: the map suppresses and restores the controls.
+- Screenshots checked: `touch_platformer_*` (English/Arabic, 1920/2560), `isometric_touch_1920`, `touch_world_1920`.
+- Full `run_tests.ps1` (`reports/touch-full-tests.log`): backend 158/158, NUnit 498/498, GdUnit4 400/400, with 0 errors, failures, flaky cases or orphans.
+
+**Not done / limits:**
+- **No real iPhone or Android device and no mobile export.** Exports are Docker-only and were not run. Real multi-touch routing, safe-area insets and performance on hardware are unverified.
+- The platformer touch hint `WF_TOUCH_CONTROLS` is English in other locales (an existing gap).
+- No touch controls in menus. Menus already work by tap through Godot's touch-to-mouse emulation, which stays on.
+- Changes are local; no commit or push.
+
+## Controller button images — 2026-11-17
+
+The owner asked for real button images for Xbox Series X|S, Xbox One, Xbox 360, PS5 and Switch 2, both on those consoles and whenever one of those controllers is plugged into a PC, Mac or Linux machine. iOS and Android are out of scope. The approved plan is in the Claude plans folder (`for-all-other-potential-parsed-codd.md`).
+
+**Owner decisions (2026-11-17):**
+- **Image source:** a free CC0 pack, as an exception to the SpriteCook-only rule. The pack is Kenney "Input Prompts" 1.5A.
+- **Other pads on PC:** use the closest set (DualShock 4 → PS5, any Nintendo pad → Switch 2, generic XInput → Series). Unknown pads keep text.
+- **Controls menu:** list each console separately.
+- **Secret rotation:** the abandoned OAuth secrets will not be rotated.
+
+**Done:**
+- **Assets:** `assets/ui/input_prompts/{xbox_360,xbox_one,xbox_series,ps5,switch2}/`, 124 PNGs at 128x128 from the pack's `Double` folders. Mipmaps are on in every `.import`. The folder also holds `LICENSE.txt` (CC0) and a `README.md` with the source and the file mapping.
+  - The exception is recorded in the Art Pipeline rule of CLAUDE/AGENTS/CODEX/GEMINI and at the top of `docs/STAND_IN_ASSETS.md`.
+  - Xbox One and Series images are identical for every button the game uses; only Xbox 360's Back/Start differ.
+  - PS5 has no Home image, so Guide stays text there. Guide is not bound anyway.
+- **`scripts/input/ControllerGlyphCatalog.cs`:** engine-free set detection.
+  - USB vendor/product IDs come first; Microsoft product IDs split 360, One and Series.
+  - The controller name is the fallback.
+  - Also handles forced styles, the console feature tags (`xbox`, plus dormant `ps5` and `switch2`), and binding-to-file paths.
+- **`scripts/input/InputGlyphText.cs`:** marks an image inside a prompt string using private-use characters.
+  - `Set` turns marked text into escaped BBCode with `[img]` for a `RichTextLabel`.
+  - `ToPlain`/`Plain` give the text version for tests and tooltips.
+  - `Upgrade` swaps a scene-authored Label for a matching RichTextLabel.
+  - `SetButton` draws images on a Button through a mouse-transparent `PromptGlyphs` child. The button's own text is cleared, and its minimum width is kept from the plain text.
+- **`InputPromptService`:**
+  - `ActiveGlyphSet`;
+  - `InputBindingToken.GlyphPath`;
+  - `MarkedBinding`, `MarkedDescribe`, `GetRichBinding`, `GetRichContextText` and `SetActionButton` (the last three are for GDScript);
+  - saved style range widened to 0–6.
+  - `ControllerGlyphStyle` gained `Xbox360 = 5` and `XboxOne = 6`. 1–3 now mean Series, PS5 and Switch 2.
+  - The Controls dropdown uses item ids, so menu order differs from the saved numbers. The five console names are in `InputPrompts.csv` in all 17 columns; they are brand names, so every column reads the same.
+- **Screens switched to images:**
+  - `CodeLevel`: the controls bar, `ShowPrompt` and the objective (all three are now RichTextLabels). `CurrentObjective` and `PromptText` stay plain, and there is a new `ControlsHintText`.
+  - Palace: `LanternInstruction` and `BeaconStatus` are now rich.
+  - `RecruitBeat`, Names, NeonRust and ConcreteWildfire use the new `ContextGlyph`. The plain `ContextBinding` is kept for plain sinks such as the NeonRust world marker and WildfireRescueGroup status.
+  - `GenePod` draws its texture directly.
+  - `IsometricMission`.
+  - NeoKyotoWorld: movement, combat and map help.
+  - All cinematic Skip buttons, through `InputPromptBinding.Cinematic`.
+  - StoryIntro Skip/Continue.
+  - The `deployment_cutscene.gd` Skip.
+  - The `global.gd` banner. `_prompt_label` is now a `Control`, so tests can still substitute a plain Label. It has new `get_nav_prompt_rich`/`get_home_prompt_rich`.
+  - The GameHome prompt (upgraded from its scene Label), the MainMenu footer and the instructions popup lines.
+
+**Verification:**
+- `dotnet build`: 0 errors.
+- Two headless imports: exit 0, with 124 new `.import` files. The logs show only the known shutdown diagnostics, the IDE-socket messages and an `Unrecognized UID uid://bkxvlkqrtv1ay` message. That UID is `default_bus_layout.tres`'s own header UID, which matches project.godot, so the message was not caused by this change.
+- `audit_images.py`: 473 images audited, none of the 124 new ones flagged.
+- NUnit prompt suites: 53/53, including the new `ControllerGlyphCatalogTests`.
+- GdUnit `test_input_prompts.gd`: 24/24, including 5 new image tests. The targeted mission, cinematic and wildfire suites also passed.
+- Graphical smoke harness: 72 checks, 0 failures (it was 64). New checks cover menu, platformer and Skip images. I looked at the platformer, cinematic and isometric captures.
+- Full `run_tests.ps1` (`reports/glyph-full-tests.log`): backend 158/158, NUnit 492/492 and GdUnit4 390/390, with 0 errors, failures, flaky cases or orphans.
+
+**Not done / limits:**
+- **No physical controller test.** It is unverified whether Godot 4.7.2 on Windows reports `vendor_id`/`product_id` in `Input.GetJoyInfo`. If it doesn't, detection falls back to the name, so an Xbox One pad reporting only "Xbox Controller" would show Series images, which look identical anyway.
+- **Unconverted plain-text spots:**
+  - other world labels;
+  - the SquadStrip slot keys (shown for keyboard only);
+  - the remap modal (keyboard only);
+  - the NeonRust world markers and WildfireRescueGroup status text.
+- **Console builds:** there are still no PS5 or Switch 2 export presets, which need licensed SDKs. The Kenney images are look-alikes, not the platform holders' official glyphs.
+- Changes are local; no commit or push.
+
 ## Godot startup diagnostics & GitHub secret remediation — 2026-11-16
 
 - **GitHub Secret Remediation:** Enabled GitHub secret scanning and push protection on
@@ -99,7 +211,8 @@ Implementation and final verification complete; changes remain local. See
   timing-sensitive dodge assertion during concurrent QA; the isolated suite also passed without edits.
 - Global SDK 11/project target unchanged; runtime QA used a process-local temporary SDK 10.
   Normal Docker stack remains running. No exports, commits or pushes.
-- Owner actions remain native title approval and provider-secret rotation. Legacy password
+- Owner action remaining: native title approval. (Secret rotation dropped 2026-11-17: the owner
+  abandoned the old third-party OAuth credentials and keeps only the current login.) Legacy password
   rehash and unrelated architectural changes remain deferred.
 
 The dated sections below preserve earlier implementation history; this section supersedes their
@@ -138,7 +251,7 @@ Historical implementation at commit `646130a`. The owner asked for the four Phas
   - A live password, 2FA and Clerk sign-in on the website, including the new 2FA-off and email-change code steps.
   - Tokyo blade in the running game: play "Tokyo Remembers"; from 0–8 s and 8–23 s the blade grip should sit in Kaito's fist.
   - Native readers for the titles (share the review page); the old title wording wins unless the owner decides otherwise (2026-11-10 decision).
-  - Rotate the leaked OAuth secrets (owner).
+  - ~~Rotate the leaked OAuth secrets (owner).~~ Dropped 2026-11-17: the owner abandoned those credentials; no rotation planned.
 - **Docker note:** mid-session, Docker Desktop's drive mount failed for bind mounts (the cutscene service and the old backend). The cutscene image was used by streaming files in. Docker later restarted and the stack is healthy.
 
 ## Phase 7 menus, Level 1 map and titles done — 2026-11-15

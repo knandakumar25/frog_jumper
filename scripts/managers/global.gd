@@ -81,7 +81,8 @@ func _check_initial_gamepads() -> void:
 signal input_device_changed(is_gamepad: bool)
 
 var is_gamepad_mode: bool = false
-var _prompt_label: Label = null
+# A RichTextLabel (button images for controller prompts); tests may substitute a plain Label.
+var _prompt_label: Control = null
 
 const GoStyleBoxCutScript = preload("res://addons/gohud/widgets/go_stylebox_cut.gd")
 
@@ -146,15 +147,22 @@ func _setup_prompt_banner() -> void:
 	sys_tag.add_theme_color_override("font_color", Color(1.0, 0.15, 0.58, 0.92))
 	inner_hbox.add_child(sys_tag)
 
-	_prompt_label = Label.new()
-	_prompt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_prompt_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_prompt_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_prompt_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	var rich := RichTextLabel.new()
+	rich.bbcode_enabled = true
+	rich.fit_content = true
+	rich.scroll_active = false
+	rich.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Button images are 128 px shrunk to text height; mipmaps keep them smooth.
+	rich.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	rich.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	rich.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	rich.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	rich.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if orbitron_font != null:
-		_prompt_label.add_theme_font_override("font", orbitron_font)
-	_prompt_label.add_theme_font_size_override("font_size", 13)
-	_prompt_label.add_theme_color_override("font_color", Color(0.0, 0.95, 1.0, 0.95))
+		rich.add_theme_font_override("normal_font", orbitron_font)
+	rich.add_theme_font_size_override("normal_font_size", 13)
+	rich.add_theme_color_override("default_color", Color(0.0, 0.95, 1.0, 0.95))
+	_prompt_label = rich
 	inner_hbox.add_child(_prompt_label)
 
 	center_row.add_child(panel)
@@ -163,7 +171,12 @@ func _setup_prompt_banner() -> void:
 
 # Updates the control prompt text based on the active input device.
 func update_prompt_text() -> void:
-	if is_instance_valid(_prompt_label):
+	if not is_instance_valid(_prompt_label):
+		return
+	if _prompt_label is RichTextLabel:
+		# BBCode with controller button images, 18 px tall to sit with the 13 px text.
+		_prompt_label.text = InputPromptService.GetRichContextText(18)
+	elif _prompt_label is Label:
 		_prompt_label.text = InputPromptService.GetContextText()
 
 func _on_prompts_changed() -> void:
@@ -191,6 +204,20 @@ func get_nav_prompt() -> String:
 
 func get_home_prompt() -> String:
 	return tr("Select") + ": [ " + InputPromptService.GetBinding("home_start") + " ]"
+
+## BBCode versions for rich labels: controller bindings become button images `height` px tall.
+func get_nav_prompt_rich(height: int) -> String:
+	return _rich_text(tr("Navigate")) + ": [lb] " + InputPromptService.GetRichBinding("ui_up", height) + " / " + InputPromptService.GetRichBinding("ui_down", height) + " [rb]   |   " + _rich_text(tr("Select")) + ": [lb] " + InputPromptService.GetRichBinding("ui_accept", height) + " [rb]   |   " + _rich_text(tr("Back")) + ": [lb] " + InputPromptService.GetRichBinding("ui_cancel", height) + " [rb]"
+
+func get_home_prompt_rich(height: int) -> String:
+	return _rich_text(tr("Select")) + ": [lb] " + InputPromptService.GetRichBinding("home_start", height) + " [rb]"
+
+## Escapes translated text for BBCode so brackets are shown, not read as tags.
+func _rich_text(text: String) -> String:
+	var out := ""
+	for c in text:
+		out += "[lb]" if c == "[" else ("[rb]" if c == "]" else c)
+	return out
 
 func get_story_prompt() -> String:
 	return tr("Advance") + ": [ " + InputPromptService.GetBinding("story_advance") + " ]   |   " + tr("Skip") + ": [ " + InputPromptService.GetBinding("story_skip") + " ]"

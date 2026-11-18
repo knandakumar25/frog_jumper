@@ -272,11 +272,11 @@ public partial class NamesWithoutNumbersMission : CodeLevel, IFiniteCombatHost
         var terminal=_terminals.FirstOrDefault(t=>t.InRange&&!Progress.Has(t.Objective));
         if(terminal!=null)
         {
-            ShowPrompt(Progress.CanComplete(terminal.Objective)?ContextBinding("attack")+" / "+WildfireText.Get("NAMES_TAP_CONSOLE","tap console")+" / "+WildfireText.Get("NAMES_TERMINAL_"+terminal.Objective.Replace(':','_').ToUpperInvariant(),terminal.Caption):WildfireText.Get("NAMES_TERMINAL_LOCKED","TERMINAL LOCKED")+" / "+ComputeObjective());
+            ShowPrompt(Progress.CanComplete(terminal.Objective)?ContextGlyph("attack")+" / "+WildfireText.Get("NAMES_TAP_CONSOLE","tap console")+" / "+WildfireText.Get("NAMES_TERMINAL_"+terminal.Objective.Replace(':','_').ToUpperInvariant(),terminal.Caption):WildfireText.Get("NAMES_TERMINAL_LOCKED","TERMINAL LOCKED")+" / "+ComputeObjective());
             if(!Progress.CanComplete(terminal.Objective))_dialogue.Enqueue("hint");
             if(Input.IsActionJustPressed("attack"))terminal.TryInteract();
         }
-        else if(Player.Position.X>3650 && !Progress.Has("phase"))ShowPrompt(WildfireText.Get("NAMES_PHASE_PROMPT","MIRAGE / PHASE THROUGH THE WHITE SERVICE MARKER")+" / "+ContextBinding("karate"));
+        else if(Player.Position.X>3650 && !Progress.Has("phase"))ShowPrompt(WildfireText.Get("NAMES_PHASE_PROMPT","MIRAGE / PHASE THROUGH THE WHITE SERVICE MARKER")+" / "+ContextGlyph("karate"));
         else HidePrompt();
         _previous=Player.Position;
     }

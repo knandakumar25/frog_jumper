@@ -361,3 +361,78 @@ func test_squad_strip_survives_repeated_live_refresh_and_teardown_without_orphan
 	holder.free()
 	_service.call("NotifyBindingsChanged")
 	assert_int(int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))).is_equal(orphans)
+
+
+const XBOX_360 := 5
+const XBOX_ONE := 6
+
+
+func test_forced_console_styles_draw_their_button_images() -> void:
+	## Each console style draws its own image for the south face button; the plain label stays text.
+	InputMap.action_add_event(SCRATCH, _button(JOY_BUTTON_A))
+	_service.call("ObserveInput", _button(JOY_BUTTON_A))
+	for example: Array in [[XBOX_360, "xbox_360"], [XBOX_ONE, "xbox_one"], [XBOX, "xbox_series"], [PLAYSTATION, "ps5"], [NINTENDO, "switch2"]]:
+		_service.call("SetStyle", example[0], false)
+		var rich: String = _service.call("GetRichBinding", SCRATCH, 20)
+		assert_str(rich).is_equal("[img height=20]res://assets/ui/input_prompts/%s/face_south.png[/img]" % example[1])
+		assert_bool(ResourceLoader.exists("res://assets/ui/input_prompts/%s/face_south.png" % example[1])).is_true()
+		assert_str(_service.call("GetBinding", SCRATCH)).not_contains("[img")
+
+
+func test_keyboard_use_keyboard_style_and_unknown_pads_keep_text() -> void:
+	InputMap.action_add_event(SCRATCH, _key(KEY_R))
+	InputMap.action_add_event(SCRATCH, _button(JOY_BUTTON_A))
+	# Keyboard in use: no images even with a console style chosen.
+	_service.call("SetStyle", PLAYSTATION, false)
+	_service.call("ObserveInput", _key(KEY_R))
+	assert_str(_service.call("GetRichBinding", SCRATCH, 20)).is_equal("R")
+	# Keyboard style while a pad is in use: text only.
+	_service.call("ObserveInput", _button(JOY_BUTTON_A))
+	_service.call("SetStyle", KEYBOARD, false)
+	assert_str(_service.call("GetRichBinding", SCRATCH, 20)).is_equal("R")
+	# Automatic with an unrecognized test pad (no name): position text, no image.
+	_service.call("SetStyle", AUTO, false)
+	assert_int(_service.get("ActiveGlyphSet")).is_equal(0)
+	var rich: String = _service.call("GetRichBinding", SCRATCH, 20)
+	assert_str(rich).not_contains("[img")
+	assert_str(rich).contains("South")
+
+
+func test_new_style_numbers_load_and_out_of_range_falls_back() -> void:
+	_service.call("SetStyle", XBOX_ONE, false)
+	assert_int(_service.get("Style")).is_equal(XBOX_ONE)
+	_service.call("SetStyle", 7, false)
+	assert_int(_service.get("Style")).is_equal(AUTO)
+
+
+func test_rich_context_text_escapes_brackets_around_images() -> void:
+	var actions: Array[String] = ["jump"]
+	_service.call("SetPromptContext", "platformer", actions)
+	_service.call("SetStyle", XBOX, false)
+	_service.call("ObserveInput", _button(JOY_BUTTON_A))
+	var rich: String = _service.call("GetRichContextText", 18)
+	assert_str(rich).contains("[lb] ")
+	assert_str(rich).contains(" [rb]")
+	assert_str(rich).contains("[img height=18]res://assets/ui/input_prompts/xbox_series/face_south.png[/img]")
+	assert_str(_service.call("GetContextText")).contains("/ A ]")
+
+
+func test_action_button_switches_between_images_and_text() -> void:
+	## Buttons cannot draw BBCode, so an overlay draws the images; keyboard use restores plain text.
+	InputMap.action_add_event(SCRATCH, _key(KEY_R))
+	InputMap.action_add_event(SCRATCH, _button(JOY_BUTTON_START))
+	var button := Button.new()
+	add_child(button)
+	_service.call("SetStyle", PLAYSTATION, false)
+	_service.call("ObserveInput", _button(JOY_BUTTON_START))
+	_service.call("SetActionButton", button, "Skip", SCRATCH)
+	var overlay: RichTextLabel = button.get_node("PromptGlyphs")
+	assert_str(button.text).is_equal("")
+	assert_bool(overlay.visible).is_true()
+	assert_str(overlay.text).contains("ps5/start.png")
+	assert_str(button.tooltip_text).is_equal("Skip: [ Options ]")
+	_service.call("ObserveInput", _key(KEY_R))
+	_service.call("SetActionButton", button, "Skip", SCRATCH)
+	assert_str(button.text).is_equal("Skip: [ R ]")
+	assert_bool(overlay.visible).is_false()
+	button.free()
