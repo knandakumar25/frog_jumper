@@ -31,6 +31,15 @@ this task does not rewire campaign scenes. Using Xbox-style pad names, B is shar
 by attack and the UI cancel pause shortcut; Back is shared by previous-operative
 selection and the escape pause action. Their original queue-before-pause ordering remains.
 
+## Review fixes — 2026-11-18
+
+- **Copied clicks:** mouse clicks Godot copies from touches no longer switch prompts (`ObserveInput`) or attack in the top-down mission.
+- **Top-down pause:** the pause panel has a tappable Resume button.
+- **Release:** the joystick releases when hidden or when the app loses focus.
+- **Detection:** text labels follow the same controller detection as the images, and USB IDs are read whether Godot reports them as numbers or text.
+- **Smoke harness:** now 131 checks, 0 failures. New checks cover stick plus Jump through the viewport, phone and tablet layouts, and captures of every console set.
+- Details: `HANDOFF.md` (2026-11-18) and `docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`.
+
 ## On-screen touch controls — 2026-11-17
 
 - iOS/Android builds show a virtual joystick and action buttons (`scripts/ui/touch/`). Other platforms show them after a touch. A deliberate key, controller or real mouse press hides them.

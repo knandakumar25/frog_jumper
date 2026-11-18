@@ -105,6 +105,46 @@ func _touch_controls(scene: Node) -> CanvasLayer:
 	return scene.get("TouchControlsNode") as CanvasLayer
 
 
+## Routes a synthetic finger drag through the viewport.
+func _drag_to(point: Vector2, index := 0, relative := Vector2(40, 0)) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = index
+	event.position = point
+	event.relative = relative
+	root.push_input(event, true)
+	await _frames(2)
+
+
+## Checks one scene's touch layout at the current window size: every visible button inside the
+## view, circles not overlapping, and no visible lower-layer button under the joystick zone.
+func _check_touch_layout(scene: Node, label: String) -> void:
+	var controls := _touch_controls(scene)
+	if controls == null:
+		_check(false, "%s has touch controls" % label)
+		return
+	var view := Rect2(Vector2.ZERO, root.get_visible_rect().size)
+	var circles: Array[Rect2] = []
+	var ok_inside := true
+	var ok_apart := true
+	for child: Node in controls.get_node("Root").get_children():
+		if child is Control and child.visible and String(child.name).begins_with("Touch_"):
+			var rect := (child as Control).get_global_rect()
+			ok_inside = ok_inside and view.grow(1).encloses(rect)
+			for other: Rect2 in circles:
+				ok_apart = ok_apart and rect.get_center().distance_to(other.get_center()) >= (rect.size.x + other.size.x) * 0.5 - 0.5
+			circles.append(rect)
+	_check(ok_inside, "%s touch buttons stay inside the view" % label)
+	_check(ok_apart, "%s touch buttons do not overlap" % label)
+	var zone: Rect2 = (controls.get("Joystick") as Control).get_global_rect()
+	var blocked := false
+	for button: Node in scene.find_children("*", "BaseButton", true, false):
+		if button.is_ancestor_of(controls) or controls.is_ancestor_of(button):
+			continue
+		if (button as Control).is_visible_in_tree() and (button as Control).get_global_rect().intersects(zone):
+			blocked = true
+	_check(not blocked, "%s has no visible button under the joystick zone" % label)
+
+
 func _keyboard() -> void:
 	var event := InputEventKey.new()
 	event.physical_keycode = KEY_F12
@@ -268,6 +308,17 @@ func _run() -> void:
 	_check(not _visible_label_text(mission).contains("Left mouse"), "isometric key list hides while touch controls show")
 	await _tap(iso_touch.call("ButtonFor", "iso_primary_attack"))
 	_check(player.get_node("Sprite2D").animation == "sword_attack", "isometric touch Attack button attacks")
+	await _frames(60)
+	var copied_click := InputEventMouseButton.new()
+	copied_click.button_index = MOUSE_BUTTON_LEFT
+	copied_click.position = Vector2(960, 300)
+	copied_click.global_position = copied_click.position
+	copied_click.pressed = true
+	copied_click.device = InputEvent.DEVICE_ID_EMULATION
+	root.push_input(copied_click, true)
+	await _frames(4)
+	_check(player.get_node("Sprite2D").animation != "sword_attack", "isometric tap copied as a mouse click does not attack")
+	_check_touch_layout(mission, "isometric")
 	await _capture("isometric_touch_1920")
 	await _keyboard()
 	_check(not bool(iso_touch.get("Shown")), "isometric key press hides touch controls")
@@ -329,6 +380,25 @@ func _run() -> void:
 	await _tap(plat_touch.call("ButtonFor", "jump"), 6)
 	await _frames(6)
 	_check(jumper.global_position.y < start_y - 4.0, "platformer touch Jump button jumps")
+	await _frames(40)
+	var zone_rect: Rect2 = (plat_touch.get("Joystick") as Control).get_global_rect()
+	var thumb := zone_rect.get_center()
+	await _touch_at(thumb, 0, true)
+	await _drag_to(thumb + Vector2(90, 0), 0, Vector2(90, 0))
+	_check(Input.get_action_strength("right") > 0.5, "platformer joystick drag through the viewport presses right")
+	var jump_rect: Rect2 = (plat_touch.call("ButtonFor", "jump") as Control).get_global_rect()
+	await _touch_at(jump_rect.get_center(), 1, true)
+	_check(Input.is_action_pressed("jump") and Input.get_action_strength("right") > 0.5, "platformer stick and Jump held by two fingers at once")
+	await _touch_at(jump_rect.get_center(), 1, false)
+	await _touch_at(thumb + Vector2(90, 0), 0, false)
+	_check(Input.get_action_strength("right") == 0.0 and not Input.is_action_pressed("jump"), "platformer two-finger release clears both")
+	for phone: Vector2i in [Vector2i(2340, 1080), Vector2i(1280, 800), Vector2i(1024, 768)]:
+		root.size = phone
+		await _frames(3)
+		_check_touch_layout(platformer, "platformer %dx%d" % [phone.x, phone.y])
+		await _capture("touch_platformer_%dx%d" % [phone.x, phone.y])
+	root.size = Vector2i(1920, 1080)
+	await _frames(3)
 	for touch_button: Node in plat_touch.get_node("Root").get_children():
 		if touch_button is Control and touch_button.visible and String(touch_button.name).begins_with("Touch_"):
 			var rect := (touch_button as Control).get_global_rect()
@@ -345,6 +415,17 @@ func _run() -> void:
 	root.size = Vector2i(1920, 1080)
 	await _keyboard()
 	_check(not bool(plat_touch.get("Shown")), "platformer key press hides touch controls")
+	for forced: Array in [[5, "xbox_360"], [6, "xbox_one"], [2, "ps5"], [3, "switch2"]]:
+		_service.call("SetStyle", forced[0], false)
+		await _pad()
+		var hud_text := ""
+		for rich: Node in platformer.find_children("*", "RichTextLabel", true, false):
+			if (rich as Control).is_visible_in_tree():
+				hud_text += String(rich.get("text"))
+		_check(hud_text.contains("input_prompts/%s/" % forced[1]), "platformer HUD draws %s button images" % forced[1])
+		await _capture("glyphs_%s" % forced[1])
+	_service.call("SetStyle", 1, false)
+	await _keyboard()
 
 	locale.call("ApplyLocale", "english")
 	var world := await _mount("res://scenes/world/neo_kyoto.tscn")
@@ -385,6 +466,7 @@ func _run() -> void:
 	world.call("_UnhandledInput", map_action)
 	await _frames()
 	_check(world_touch != null and bool(world_touch.get("Shown")), "world touch controls return when the map closes")
+	_check_touch_layout(world, "world")
 	await _capture("touch_world_1920")
 	await _keyboard()
 

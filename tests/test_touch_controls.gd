@@ -187,3 +187,59 @@ func test_mission_tap_keeps_touch_hint_and_shows_controls() -> void:
 	assert_str(mission.get("ControlsHintText")).contains("touch")
 	assert_bool(controls.get("Shown")).is_true()
 	controls.call("SetWanted", false)
+
+
+func test_hidden_controls_ignore_held_thumb_and_reset_the_joystick() -> void:
+	## Review cb-M1/ir-M3: a thumb left on the stick when the controls hide presses nothing, and
+	## the joystick lets go of that finger so a new touch works when the controls return.
+	var controls := _controls("world")
+	var stick: Control = controls.get("Joystick")
+	stick.call("_begin", Vector2(40, 40))
+	assert_bool(stick.call("is_active")).is_true()
+	controls.call("SetSuppressed", true)
+	assert_bool(stick.call("is_active")).is_false()
+	stick.emit_signal("moved", Vector2(1.0, 0.0))
+	_settle()
+	assert_bool(Input.is_action_pressed("world_right")).is_false()
+	controls.call("SetSuppressed", false)
+	stick.emit_signal("moved", Vector2(1.0, 0.0))
+	_settle()
+	assert_bool(Input.is_action_pressed("world_right")).is_true()
+	controls.free()
+	_settle()
+	assert_bool(Input.is_action_pressed("world_right")).is_false()
+
+
+func test_focus_loss_releases_everything() -> void:
+	var controls := _controls("platformer")
+	var jump: Control = controls.call("ButtonFor", "jump")
+	jump.call("_GuiInput", _touch(0, true))
+	_settle()
+	assert_bool(Input.is_action_pressed("jump")).is_true()
+	controls.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_settle()
+	assert_bool(Input.is_action_pressed("jump")).is_false()
+	# The button forgot the lost finger, so a new touch presses it again.
+	jump.call("_GuiInput", _touch(2, true))
+	_settle()
+	assert_bool(Input.is_action_pressed("jump")).is_true()
+	controls.free()
+
+
+func test_isometric_pause_has_a_tappable_resume() -> void:
+	## Review cb-2: with the touch controls hidden by the pause, the panel's Resume button unpauses.
+	var mission: Node = load("res://scripts/gameplay/IsometricMission.cs").new()
+	add_child(mission)
+	var pause := InputEventAction.new()
+	pause.action = "iso_pause"
+	pause.pressed = true
+	mission.call("_Input", pause)
+	assert_bool(mission.get("IsPaused")).is_true()
+	var resume: Button = mission.find_child("ResumeButton", true, false)
+	assert_object(resume).is_not_null()
+	assert_bool(resume.is_visible_in_tree()).is_true()
+	resume.emit_signal("pressed")
+	assert_bool(mission.get("IsPaused")).is_false()
+	assert_bool(get_tree().paused).is_false()
+	mission.free()
+	get_tree().paused = false

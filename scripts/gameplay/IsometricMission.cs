@@ -40,6 +40,10 @@ public partial class IsometricMission : Node2D
     private Label _pauseLabel = null!;
     private ProgressBar _purgeProgress = null!;
     private Control _pausePanel = null!;
+    private Button _resumeButton = null!;
+
+    /// <summary>True while the top-down world is paused; used by tests.</summary>
+    public bool IsPaused => _paused;
     private GameManager _gameManager = null!;
     private Vector2 _checkpoint = new(520f, 1160f);
     private bool _firstCheckpointReached;
@@ -324,7 +328,17 @@ public partial class IsometricMission : Node2D
         _pauseLabel = NewLabel("MISSION PAUSED\n\nPress ESC / START to resume", 22, new Color("#77efff"));
         _pauseLabel.HorizontalAlignment = HorizontalAlignment.Center;
         _pauseLabel.VerticalAlignment = VerticalAlignment.Center;
-        _pausePanel.AddChild(_pauseLabel);
+        // A tappable Resume button: on a phone without a pad or keyboard, the on-screen controls hide
+        // while paused, so the panel itself must offer a way back (review finding cb-2, 2026-11-17).
+        var pauseBox = new VBoxContainer { Alignment = BoxContainer.AlignmentMode.Center };
+        pauseBox.AddThemeConstantOverride("separation", 14);
+        _pausePanel.AddChild(pauseBox);
+        pauseBox.AddChild(_pauseLabel);
+        _resumeButton = new Button { Name = "ResumeButton", Text = "Resume", CustomMinimumSize = new Vector2(220, 64),
+            SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter, ProcessMode = ProcessModeEnum.Always };
+        _resumeButton.AddThemeFontSizeOverride("font_size", 22);
+        _resumeButton.Pressed += () => SetPaused(false);
+        pauseBox.AddChild(_resumeButton);
     }
 
     /// <summary>Returns the story's canonical Shogun line or a short response for another operative.</summary>
@@ -483,6 +497,7 @@ public partial class IsometricMission : Node2D
         _collisionRoot.ProcessMode = paused ? ProcessModeEnum.Pausable : ProcessModeEnum.Inherit;
         GetTree().Paused = paused;
         _pausePanel.Visible = paused;
+        if (paused && IsInsideTree()) _resumeButton.CallDeferred(Control.MethodName.GrabFocus);
     }
 
     /// <summary>Creates a themed anchored panel for the mission-only objective HUD.</summary>

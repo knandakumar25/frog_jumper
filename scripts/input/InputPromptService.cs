@@ -70,6 +70,9 @@ public partial class InputPromptService : Node
     /// <summary>Idempotently selects a device from deliberate input; never consumes an event.</summary>
     public void ObserveInput(InputEvent input)
     {
+        // Mouse events Godot copies from touches are not deliberate mouse use; counting them would flip
+        // controller prompts to keyboard text on every tap (review finding cb-M6, 2026-11-17).
+        if (input is InputEventMouse && input.Device == InputEvent.DeviceIdEmulation) return;
         bool controller;
         switch (input)
         {
@@ -292,8 +295,9 @@ public partial class InputPromptService : Node
         if (ActiveController < 0) return ControllerGlyphSet.None;
         int vendor = 0, product = 0;
         var info = Input.GetJoyInfo(ActiveController);
-        if (info.TryGetValue("vendor_id", out var v) && v.VariantType is Variant.Type.Int or Variant.Type.Float) vendor = v.AsInt32();
-        if (info.TryGetValue("product_id", out var p) && p.VariantType is Variant.Type.Int or Variant.Type.Float) product = p.AsInt32();
+        // Godot's drivers may report the IDs as numbers or as decimal text; both are accepted.
+        if (info.TryGetValue("vendor_id", out var v)) vendor = ControllerGlyphCatalog.ParseId(v.VariantType == Variant.Type.String ? v.AsString() : v.ToString());
+        if (info.TryGetValue("product_id", out var p)) product = ControllerGlyphCatalog.ParseId(p.VariantType == Variant.Type.String ? p.AsString() : p.ToString());
         return ControllerGlyphCatalog.Detect(Input.GetJoyName(ActiveController), vendor, product);
     }
     /// <summary>Pairs a localized action title with readable bracketed bindings.</summary>
@@ -387,7 +391,10 @@ public partial class InputPromptService : Node
     {
         if (ControllerGlyphCatalog.ForcedSet(Style) is { } forced) return ControllerGlyphCatalog.FamilyOf(forced);
         if (ControllerGlyphCatalog.PlatformSet(f => OS.HasFeature(f)) is { } platform) return ControllerGlyphCatalog.FamilyOf(platform);
-        return DetectFamily(ActiveController >= 0 ? Input.GetJoyName(ActiveController) : "");
+        // Use the image detection (USB IDs, then name) so text, tooltips and images always agree.
+        var detected = DetectActiveSet();
+        return detected != ControllerGlyphSet.None ? ControllerGlyphCatalog.FamilyOf(detected)
+            : DetectFamily(ActiveController >= 0 ? Input.GetJoyName(ActiveController) : "");
     }
 
     /// <summary>Maps recognized reported identities, leaving unknown pads with neutral position labels.</summary>

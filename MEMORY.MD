@@ -1,5 +1,30 @@
 # Axiom Force — Project Memory
 
+## Review findings fixed — 2026-11-18
+
+- Docker stack started on owner request. All PROPOSE FIX items from `docs/INPUT_GOOGLE_REVIEW_2026-11-17.md` were applied (owner: "fix those issues"); the report is marked resolved.
+- **Code fixes:**
+  - top-down pause Resume button;
+  - copied (emulated) clicks ignored by `ObserveInput` and the top-down attack;
+  - the joystick ends its hold and ignores drags while hidden; focus loss releases everything;
+  - the mobile platformer starts in touch-hint mode and the hint moves clear of the joystick;
+  - `ParseId` reads number or text USB IDs; text labels use the image detection;
+  - a 10 mm / 8 mm minimum button size from DPI;
+  - world help lines hidden while the map is open; world Squad only with 2+ operatives;
+  - smaller fixes.
+- **Docs:** HANDOFF's 2026-11-17 sections rewritten, plus a 2026-11-18 section with a device-test checklist and mobile-export facts (Android release signs with the debug keystore; iOS exports a project only). README and the assets README are fixed. The secret decision moved to the 2026-11-16 section.
+- **Verified:**
+  - build: 0 errors; import: exit 0;
+  - NUnit glyph/touch tests 55/55; GdUnit touch and prompt suites 38/38; smoke harness 131/131;
+  - full suites: backend 158, NUnit 509, GdUnit4 404, with 0 orphans;
+  - graphify updated.
+- **Open:**
+  - no second review round yet;
+  - no device or export test;
+  - at 1024x768 the mission title card briefly sits under the joystick ring.
+- **Note:** an untracked `Claude outputs/` folder (owner's résumé files) appeared in the project root. Godot's import logs it. Never commit it (no `git add -A`).
+- Pushed on owner request (`Claude outputs/` left out). Docker containers then stopped on owner request.
+
 ## Google EGM review of touch controls and button images — 2026-11-17
 
 - Owner asked to "run the google skills". Owner chose the same setup as 2026-11-16: one fresh round of `codebase_details`, `implementation_readiness` and `style` on HANDOFF lines 3–114. All three completed.

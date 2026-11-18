@@ -878,9 +878,14 @@ public partial class NeoKyotoWorld : Node2D
         header.AddChild(combatHelp);
         InputPromptBinding.Track(combatHelp, () => InputGlyphText.Set(combatHelp, string.Join("  |  ",
             InputPromptBinding.Marked("world_attack", "Attack"), InputPromptBinding.Marked("world_dodge", "Dodge"), InputPromptBinding.Marked("world_defend", "Guard"))));
-        void ShowHelp(bool touchShown) { movementHelp.Visible = !touchShown; combatHelp.Visible = !touchShown; }
+        // Help lines hide while the touch controls show (the buttons label themselves) and while the
+        // map is open (map suppression also fires ShownChanged(false); review finding cb-N6).
+        void ShowHelp(bool touchShown) { movementHelp.Visible = !touchShown && !_mapOpen; combatHelp.Visible = !touchShown && !_mapOpen; }
         _touchControls.ShownChanged += ShowHelp;
         ShowHelp(_touchControls.Shown);
+        _refreshWorldHelp = () => ShowHelp(_touchControls.Shown);
+        // Squad only cycles the unlocked roster, so it is pointless with one operative (review ir-N3).
+        _touchControls.SetButtonVisible("world_swap", OperativeRoster.Current.Unlocked.Count > 1);
         _combatLabel = new Label();
         header.AddChild(_combatLabel);
 
@@ -996,6 +1001,8 @@ public partial class NeoKyotoWorld : Node2D
     /// <summary>This world's on-screen touch controls; used by tests.</summary>
     public TouchControls? TouchControlsNode => _touchControls;
     private TouchControls? _touchControls;
+    // Re-applies the help-line visibility after the map opens or closes.
+    private Action? _refreshWorldHelp;
 
     /// <summary>A wrapping help label that can draw controller button images, at the theme's normal 16 px size.</summary>
     private static RichTextLabel HelpLabel() => InputGlyphText.CreateLabel(16, Colors.White);
@@ -1040,8 +1047,9 @@ public partial class NeoKyotoWorld : Node2D
         _mapOpen = !_mapOpen;
         _mapPanel.Visible = _mapOpen;
         _mini.Visible = !_mapOpen;
-        // The map has its own touch handling (drag to pan, tap for a waypoint) and a Close button.
+        // The map has its own touch handling (tap for a waypoint) and a Close button.
         _touchControls?.SetSuppressed(_mapOpen);
+        _refreshWorldHelp?.Invoke();
         if (_mapOpen) _destinations.GrabFocus();
     }
 

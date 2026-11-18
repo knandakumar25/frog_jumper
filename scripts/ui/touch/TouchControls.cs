@@ -102,6 +102,15 @@ public partial class TouchControls : CanvasLayer
         UpdateShown();
     }
 
+    /// <summary>
+    /// Releases everything when the app or window loses focus (phone backgrounded, notification
+    /// shade, alt-tab): the matching finger releases may never arrive (review finding ir-M3).
+    /// </summary>
+    public override void _Notification(int what)
+    {
+        if (what is (int)NotificationApplicationFocusOut or (int)NotificationWMWindowFocusOut) ReleaseAll();
+    }
+
     /// <summary>Hides the controls while the game is paused, so they never cover the pause menu.</summary>
     public override void _Process(double delta)
     {
@@ -120,7 +129,7 @@ public partial class TouchControls : CanvasLayer
     /// <summary>Shows or hides one button (for example Squad before a second operative joins) and re-lays out.</summary>
     public void SetButtonVisible(string action, bool visible)
     {
-        if (!_buttons.TryGetValue(action, out var button)) return;
+        if (!_buttons.TryGetValue(action, out var button) || button.Visible == visible) return;
         button.Visible = visible;
         ApplyLayout();
     }
@@ -164,6 +173,9 @@ public partial class TouchControls : CanvasLayer
     /// <summary>Turns the joystick vector into action strengths, sending only the directions that changed.</summary>
     private void OnStick(Vector2 vector)
     {
+        // A thumb that stayed on the stick when the controls hid can still send drags; ignore all but
+        // the release, so nothing is pressed while the map is open or the game is paused.
+        if (!Shown && vector != Vector2.Zero) return;
         foreach (var (action, strength) in Layout.StickStrengths(vector))
         {
             float previous = _stick.GetValueOrDefault(action);
@@ -177,6 +189,10 @@ public partial class TouchControls : CanvasLayer
     /// <summary>Releases every joystick direction and button, so nothing stays held after hiding.</summary>
     private void ReleaseAll()
     {
+        // GoJoystick keeps the finger index it is following; end that hold so a new finger works
+        // after the controls return (otherwise it ignores touches until the old finger lifts).
+        if (_joystick != null && GodotObject.IsInstanceValid(_joystick) && _joystick.Call("is_active").AsBool())
+            _joystick.Call("_end");
         if (_stick.Count > 0) OnStick(Vector2.Zero);
         foreach (var button in _buttons.Values)
             if (GodotObject.IsInstanceValid(button)) button.Release();
@@ -194,6 +210,14 @@ public partial class TouchControls : CanvasLayer
         Rect2 safe = SafeArea(view);
         float unit = Mathf.Clamp(view.Y * 0.105f, 64f, 132f);          // main button diameter
         float small = unit * 0.72f;                                    // secondary button diameter
+        // On small high-density phones the height-based size can be ~7 mm; keep at least 10 mm for
+        // main buttons and 8 mm for secondary ones (thumb targets), capped so the layout still fits.
+        float perMm = PixelsPerMillimetre(view);
+        if (perMm > 0f)
+        {
+            unit = Mathf.Min(Mathf.Max(unit, 10f * perMm), view.Y * 0.17f);
+            small = Mathf.Min(Mathf.Max(small, 8f * perMm), unit);
+        }
         float gap = unit * 0.18f;
 
         if (_joystick != null)
@@ -242,6 +266,20 @@ public partial class TouchControls : CanvasLayer
         // top-right HUD (objective panel, world minimap) even when the arc has two rings.
         for (int i = 0; i < column.Count; i++)
             Place(column[i], new Vector2(safe.End.X - small * 0.5f - gap - i * (small + gap), top), small);
+    }
+
+    /// <summary>
+    /// Viewport pixels per physical millimetre, from the screen DPI and the window-to-viewport scale.
+    /// Returns 0 when unknown (headless runs, or a DPI the OS does not report), which keeps the
+    /// height-based sizes.
+    /// </summary>
+    private float PixelsPerMillimetre(Vector2 view)
+    {
+        if (DisplayServer.GetName() == "headless") return 0f;
+        int dpi = DisplayServer.ScreenGetDpi();
+        Vector2I window = DisplayServer.WindowGetSize();
+        if (dpi <= 0 || window.Y <= 0) return 0f;
+        return dpi / 25.4f * (view.Y / window.Y);
     }
 
     /// <summary>Centres a button of the given diameter on a point.</summary>

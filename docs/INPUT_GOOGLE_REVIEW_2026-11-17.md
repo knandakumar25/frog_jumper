@@ -1,6 +1,9 @@
 # Goldfish Annotated Review Report: touch controls and controller button images
 
-Status: round 1 completed; resolution awaits owner choice. No fixes applied.
+Status: resolved 2026-11-18. The owner asked to fix all findings.
+- All PROPOSE FIX items were applied: code fixes, tests, and the HANDOFF, README and assets-README rewrites. The six DECLINE items stay recorded only.
+- No second review round has been run, so convergence is not claimed.
+- The applied changes are summarized in HANDOFF.md, "Google EGM review fixes … 2026-11-18".
 
 **Target:** `HANDOFF.md` (lines 3–114: "On-screen touch controls for iOS and Android — 2026-11-17" and "Controller button images — 2026-11-17"). The style reviewer also read the matching README.md sections and `assets/ui/input_prompts/README.md`.
 

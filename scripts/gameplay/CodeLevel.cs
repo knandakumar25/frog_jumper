@@ -153,7 +153,8 @@ public abstract partial class CodeLevel : Node2D
     private bool _finishing;
     private bool _recovering;
     private bool _usingPad => InputPromptService.Instance?.IsGamepad ?? false;
-    private bool _usingTouch;
+    // Starts true on iOS/Android, where the touch controls are visible before any touch (review cb-M2).
+    private bool _usingTouch = TouchVisibility.IsMobileBuild();
 
     /// <summary>Names the current device's control; signature input uses shipped Q/Y defaults when its optional InputMap action is absent.</summary>
     protected string ContextBinding(string action) => _usingTouch
@@ -816,6 +817,8 @@ public abstract partial class CodeLevel : Node2D
         _touchControls = TouchControls.Create(TouchLayout.Platformer);
         AddChild(_touchControls);
         _touchControls.SetButtonVisible("squad_next", OperativeRoster.Current.Unlocked.Count > 1);
+        _touchControls.ShownChanged += OnTouchControlsShown;
+        OnTouchControlsShown(_touchControls.Shown);
         _hintRoster = OperativeRoster.Current;
         _hintRoster.OperativeUnlocked += OnOperativeUnlocked;
 
@@ -978,6 +981,22 @@ public abstract partial class CodeLevel : Node2D
 
     /// <summary>Plain text of the controls hint (button images read as their names); used by tests.</summary>
     public string ControlsHintText => InputGlyphText.Plain(_controlsLabel);
+
+    /// <summary>
+    /// Keeps the controls hint readable beside the on-screen controls: while they show, the hint sits
+    /// between the joystick zone (left third) and the button arc (right quarter) instead of under the
+    /// joystick ring (review finding ir-M4); otherwise it spans the bottom as before.
+    /// </summary>
+    private void OnTouchControlsShown(bool shown)
+    {
+        if (_controlsLabel == null) return;
+        if (shown) _usingTouch = true;
+        _controlsLabel.AnchorLeft = shown ? 0.34f : 0f;
+        _controlsLabel.AnchorRight = shown ? 0.76f : 1f;
+        _controlsLabel.OffsetLeft = shown ? 0f : 20f;
+        _controlsLabel.OffsetRight = shown ? 0f : -20f;
+        RefreshControlsHint();
+    }
 
     /// <summary>This mission's on-screen touch controls; used by tests.</summary>
     public TouchControls? TouchControlsNode => _touchControls;

@@ -24,54 +24,76 @@ The development log follows.
 
 ---
 
-## On-screen touch controls for iOS and Android (2026-11-17)
+## On-screen touch controls for iOS and Android (2026-11-17, fixes 2026-11-18)
 
-Phones and tablets can play with on-screen controls: a virtual joystick at the bottom left and round buttons at the bottom right. The joystick appears where the thumb lands.
+iOS and Android builds show on-screen controls: a virtual joystick at the bottom left and round buttons at the bottom right. The joystick appears where the thumb lands. They have not yet been tested on a device (see Limits).
 
-| Mode | Joystick | Buttons |
-|---|---|---|
-| Platformer missions 1–12 | Left/right only, so stick-up never jumps | Jump, Attack, Ability, Dash, plus a small row with Pause and Squad (Squad appears once a second operative has joined) |
-| Top-down mission | 8-way move | Attack, Ability, Dash, Use, Pause. Aim follows the move direction while touch controls are in use |
-| Open world | Move | Attack, Dodge, Guard (hold), Interact, Run (hold), Bike, plus a small row with Map and Squad. The controls hide while the map is open |
+| Mode | Joystick | Main buttons (bottom-right arc) | Small buttons (row above) |
+|---|---|---|---|
+| Platformer missions 1–12 | left/right only, so stick-up never jumps | Jump, Attack, Ability, Dash | Pause, Squad (Squad only with 2+ operatives) |
+| Top-down (isometric) mission | 8-way move | Attack, Ability, Dash, Use | Pause |
+| Open world | move | Attack, Dodge, Guard (hold), Interact, Run (hold), Bike | Map, Squad (Squad only with 2+ operatives) |
 
 - **When they show:**
-  - always on iOS/Android builds; on PC and web only after the screen is touched;
-  - a keyboard, controller or real mouse press hides them, and the next touch brings them back;
-  - hidden while the game is paused.
-- **Help text:** the top-down mission and the open world hide their key/controller help lines while the touch controls show. Platformer missions show their touch hint.
-- **Input:** the controls press the same InputMap actions as keys and controllers (`Input.ParseInputEvent` with `InputEventAction`). Several fingers work at once. Hiding the controls releases anything still held.
-- **Bluetooth controllers** on a phone work as before and show their button images.
+  - on iOS/Android they start visible; elsewhere they appear after the first touch;
+  - on every platform, a keyboard, controller or real-mouse press hides them, and the next touch shows them again;
+  - they are hidden while the game is paused, and in the open world while the map is open.
+  - Godot copies each touch into a fake "emulated" mouse event; those never count as mouse use.
+- **Top-down mission:**
+  - aim follows the move direction while touch controls are in use;
+  - tapping the ground does not attack (use the Attack button);
+  - the pause panel has a tappable **Resume** button.
+- **Help text:**
+  - while touch controls show, the top-down mission and the open world hide their key/controller help lines;
+  - platformer missions show their touch hint between the joystick and the buttons.
+- **Input:**
+  - the controls press the same InputMap actions as keys and controllers (`Input.ParseInputEvent` with `InputEventAction`);
+  - two fingers can hold two controls at once (tested with synthetic touch events);
+  - hiding the controls, losing app focus or leaving the scene releases anything held.
+- **Size:** main buttons are 10.5% of the screen height, but at least 10 mm on phones (8 mm for the small buttons).
+- **Bluetooth controllers** on a phone use the same input and button-image code as on desktop; untested on a phone.
 - **Code:**
   - `scripts/ui/touch/TouchLayout.cs`: layouts, joystick-to-action mapping and the show/hide rule;
-  - `TouchActionButton.cs`: a multi-touch round button;
-  - `TouchControls.cs`: placement inside the safe area, the GoHUD `GoJoystick` (MIT, already in `addons/gohud`), and visibility.
+  - `TouchActionButton.cs`: a round button that tracks its own finger;
+  - `TouchControls.cs`: placement inside the safe area, the GoHUD `GoJoystick` (MIT licence, in `addons/gohud`), and visibility.
 - **Limits:**
   - tested only with synthetic touch events on a desktop; no real iPhone or Android device and no mobile export were used;
-  - the existing touch hint "Use the touch controls…" is still English in other languages.
+  - the device checklist and mobile-export facts are in `HANDOFF.md` (2026-11-18);
+  - the world map can't be panned by touch (right-drag only);
+  - the touch hint "Use the touch controls…" is still English in other languages;
+  - "Run", "Bike" and "Squad" were translated by the AI agent and not reviewed by native speakers.
 
 ## Controller button images (2026-11-17)
 
 When a controller is in use, prompts show that controller's button images instead of text names. This covers:
 - the mission controls bar, lesson prompts and objective line;
 - the Palace parry hints and the gene-pod hint;
-- the isometric and open-world help lines and the world map;
+- the top-down mission's key list and the open world's movement, combat and map help lines;
 - cinematic, story and deployment Skip/Continue buttons;
 - the shared prompt banner, the home-screen prompt, the main-menu footer and the instructions popup.
 
 - **Sets:** Xbox 360, Xbox One, Xbox Series X|S, PlayStation 5 and Nintendo Switch 2. They come from Kenney "Input Prompts" 1.5A (CC0) in `assets/ui/input_prompts/`. This is an owner-approved exception to the SpriteCook-only rule; see that folder's README.
 - **Which set (Automatic):**
-  - an Xbox 360, One or Series pad gets its own set, and any other Microsoft/XInput pad gets Series;
+  - an Xbox 360, One or Series pad gets its own set, and any other Microsoft or XInput pad (Microsoft's Windows controller API) gets Series;
   - every Sony pad (DualShock 4 included) gets PS5;
   - every Nintendo pad gets Switch 2;
   - unknown pads and the keyboard keep text.
-  - USB vendor/product IDs are used when Godot reports them; otherwise the controller name decides.
-- **Consoles:** builds with the `xbox` export feature (the "Xbox / Windows GDK" preset) always use the Series set. The `ps5` and `switch2` feature tags are checked too, but no preset sets them yet.
-- **Controls menu:** "Input prompt style" now lists Automatic, Xbox 360, Xbox One, Xbox Series X|S, PlayStation 5, Nintendo Switch 2 and Keyboard. Old saved values keep working: Xbox, PlayStation and Nintendo now mean Series, PS5 and Switch 2.
+  - Detection uses USB vendor/product IDs when Godot reports them (as numbers or text); otherwise the controller name decides. Text labels follow the same detection.
+- **Consoles:** any build from the "Xbox / Windows GDK" preset (export feature `xbox`) always uses the Series set, even with another brand's pad. The `ps5` and `switch2` feature tags are checked too, but no preset sets them yet.
+- **Controls menu:** "Input prompt style" lists Automatic, Xbox 360, Xbox One, Xbox Series X|S, PlayStation 5, Nintendo Switch 2 and Keyboard.
+  - Saved values: 0 Automatic, 1 Xbox Series, 2 PS5, 3 Switch 2, 4 Keyboard, 5 Xbox 360, 6 Xbox One.
+  - Old saves keep working: Xbox, PlayStation and Nintendo now mean Series, PS5 and Switch 2.
 - **Code:**
   - `scripts/input/ControllerGlyphCatalog.cs` handles detection and file mapping;
   - `scripts/input/InputGlyphText.cs` carries images inside prompt strings and draws them in `RichTextLabel`s and on buttons;
-  - `InputPromptService.MarkedBinding` / `GetRichBinding` / `GetRichContextText` / `SetActionButton` produce the image versions.
+  - `InputPromptService.MarkedBinding` / `MarkedDescribe` / `GetRichBinding` / `GetRichContextText` return image versions of prompt text;
+  - `SetActionButton` draws them on a button.
   - Plain-text methods are unchanged.
+- **Limits:**
+  - no physical controller tested;
+  - if no USB IDs arrive, an Xbox 360 pad with a generic name shows the Series set;
+  - some screens still use text (other world labels, `SquadStrip` slot keys, the remap dialog, NeonRust world markers, wildfire rescue status);
+  - the images are look-alikes, not the platform holders' official art.
 
 ## Shared input prompts (2026-11-15)
 

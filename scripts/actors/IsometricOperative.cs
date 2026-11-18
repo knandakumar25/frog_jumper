@@ -63,6 +63,10 @@ public partial class IsometricOperative : CyberShogun
     /// <summary>Queues only gameplay events that UI controls have not consumed.</summary>
     public override void _UnhandledInput(InputEvent input)
     {
+        // Godot copies every touch into an emulated left click, and iso_primary_attack is bound to the
+        // left mouse button on any device, so a tap on the ground would attack. On a touchscreen the
+        // on-screen Attack button is the way to attack (review finding cb-M5, 2026-11-17).
+        if (input is InputEventMouse && input.Device == Godot.InputEvent.DeviceIdEmulation) return;
         if (IsGameplayPress(input, "iso_primary_attack")) _primaryRequested = true;
         if (IsGameplayPress(input, "iso_special_ability")) _abilityRequested = true;
         if (IsGameplayPress(input, "iso_dash")) _dashRequested = true;

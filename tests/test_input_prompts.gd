@@ -436,3 +436,20 @@ func test_action_button_switches_between_images_and_text() -> void:
 	assert_str(button.text).is_equal("Skip: [ R ]")
 	assert_bool(overlay.visible).is_false()
 	button.free()
+
+
+func test_mouse_clicks_copied_from_touches_do_not_switch_prompts_to_keyboard() -> void:
+	## Review cb-M6: only real mouse use switches prompts away from the controller.
+	_service.call("ObserveInput", _button(JOY_BUTTON_A))
+	assert_bool(_service.get("UsingController")).is_true()
+	var copied := InputEventMouseButton.new()
+	copied.button_index = MOUSE_BUTTON_LEFT
+	copied.pressed = true
+	copied.device = InputEvent.DEVICE_ID_EMULATION
+	_service.call("ObserveInput", copied)
+	assert_bool(_service.get("UsingController")).is_true()
+	var real := InputEventMouseButton.new()
+	real.button_index = MOUSE_BUTTON_LEFT
+	real.pressed = true
+	_service.call("ObserveInput", real)
+	assert_bool(_service.get("UsingController")).is_false()

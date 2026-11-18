@@ -115,7 +115,7 @@ public static class InputGlyphText
     /// Replaces a scene-authored <see cref="Label"/> with an equivalent rich label in the same place:
     /// same name, parent position, anchors, offsets, size flags, minimum size, visibility, alignment,
     /// wrapping, font, font size, colour and outline. The old label is freed, so callers must keep
-    /// the returned node instead. Returns the label itself if it is already rich-capable.
+    /// the returned node instead. A new rich label is always created.
     /// </summary>
     public static RichTextLabel Upgrade(Label label)
     {
@@ -169,6 +169,8 @@ public static class InputGlyphText
         {
             if (overlay != null) overlay.Visible = false;
             button.Text = text;
+            // The tooltip and saved plain text only exist for the image overlay; drop them with it.
+            if (button.HasMeta(PlainMeta)) { button.RemoveMeta(PlainMeta); button.TooltipText = ""; }
             return;
         }
         if (overlay == null)

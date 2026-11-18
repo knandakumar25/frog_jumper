@@ -1,4 +1,4 @@
-> **Latest review (2026-11-17):** touch controls and controller button images, one round, three reviewers. It is **not clean**: 3 Blockers, 25 Majors. Full report with proposed fixes: [`docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`](docs/INPUT_GOOGLE_REVIEW_2026-11-17.md). Fixes await the owner's choice.
+> **Latest review (2026-11-17):** touch controls and controller button images, one round, three reviewers. It is **not clean**: 3 Blockers, 25 Majors. Full report with proposed fixes: [`docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`](docs/INPUT_GOOGLE_REVIEW_2026-11-17.md). All proposed fixes were applied on 2026-11-18 at the owner's request; no second round yet.
 
 # Goldfish review report: Blender retirement and art regeneration list
 

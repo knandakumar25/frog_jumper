@@ -9,9 +9,10 @@ using Godot;
 /// gameplay code that reads events (<c>InputActionDefaults.Matches</c>) and code that polls
 /// (<c>Input.IsActionPressed</c>, <c>IsActionJustPressed</c>) both see them, exactly as for a key.</para>
 ///
-/// <para>A left mouse press is handled the same way (touch index -2), so the controls can be tried
-/// on a desktop. Mouse events Godot copies from touches are ignored, because the touch itself
-/// already pressed the button.</para>
+/// <para>A left mouse press is handled the same way (touch index -2), but only tests reach that
+/// path: in play, a real mouse press hides the touch controls before the click arrives (owner rule).
+/// Mouse events Godot copies from touches are ignored, because the touch itself already pressed
+/// the button.</para>
 ///
 /// <para>The action is always released when the button is hidden, disabled by pause, or freed,
 /// so an action can never stay stuck down.</para>
@@ -109,7 +110,7 @@ public partial class TouchActionButton : Control
         _font ??= GD.Load<Font>("res://assets/fonts/Orbitron-VariableFont.ttf") ?? ThemeDB.FallbackFont;
         // Non-Latin labels fall back to the theme font, which carries the locale's glyphs.
         Font font = IsAscii(Tr(Label)) ? _font : GetThemeFont("font");
-        string text = Tr(Label).ToUpper();
+        string text = Tr(Label).ToUpperInvariant();
         int fontSize = Mathf.Clamp(Mathf.RoundToInt(radius * 0.38f), 10, 22);
         Vector2 extent = font.GetStringSize(text, HorizontalAlignment.Center, -1, fontSize);
         // Shrink long translations to fit inside the circle.

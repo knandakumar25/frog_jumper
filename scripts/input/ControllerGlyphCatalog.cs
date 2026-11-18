@@ -136,6 +136,21 @@ public static class ControllerGlyphCatalog
         }
     }
 
+    /// <summary>
+    /// Reads a USB vendor or product ID that Godot reported either as a number or as decimal text
+    /// (for example "1118"); "0x"-prefixed hexadecimal is accepted too. Returns 0 when unreadable.
+    /// </summary>
+    public static int ParseId(string? text)
+    {
+        string value = (text ?? "").Trim();
+        if (value.StartsWith("0x", System.StringComparison.OrdinalIgnoreCase))
+            return int.TryParse(value[2..], System.Globalization.NumberStyles.HexNumber, null, out int hex) ? hex : 0;
+        // A float-typed Variant prints as "1118" or "1118.0"; drop the fraction.
+        int dot = value.IndexOf('.');
+        if (dot >= 0) value = value[..dot];
+        return int.TryParse(value, out int number) && number > 0 ? number : 0;
+    }
+
     /// <summary>Name-only detection; <paramref name="fallback"/> is used when no family word matches.</summary>
     private static ControllerGlyphSet FromName(string name, ControllerGlyphSet fallback)
     {
@@ -143,7 +158,7 @@ public static class ControllerGlyphCatalog
         // Generation words only count next to an Xbox word, so "Series" on another brand is not an Xbox pad.
         bool xbox = lower.Contains("xbox") || lower.Contains("x-box") || lower.Contains("microsoft");
         if (xbox && lower.Contains("360")) return ControllerGlyphSet.Xbox360;
-        if (xbox && lower.Contains("one")) return ControllerGlyphSet.XboxOne;
+        if (xbox && System.Text.RegularExpressions.Regex.IsMatch(lower, @"\bone\b")) return ControllerGlyphSet.XboxOne;
         if (xbox && lower.Contains("series")) return ControllerGlyphSet.XboxSeries;
         return InputPromptService.DetectFamily(lower) switch
         {

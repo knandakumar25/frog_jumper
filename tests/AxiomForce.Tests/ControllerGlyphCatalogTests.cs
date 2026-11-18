@@ -110,6 +110,25 @@ public class ControllerGlyphCatalogTests
         }
     }
 
+    [TestCase("1118", 0x045E)]
+    [TestCase("1118.0", 0x045E)]
+    [TestCase("0x054c", 0x054C)]
+    [TestCase(" 1356 ", 0x054C)]
+    [TestCase("", 0)]
+    [TestCase("abc", 0)]
+    [TestCase("-5", 0)]
+    [TestCase(null, 0)]
+    /// <summary>USB IDs reported as numbers, decimal text or 0x-hex all read the same; junk reads as 0 (review ir-M6).</summary>
+    public void UsbIdsParseFromNumbersOrText(string? text, int expected) =>
+        Assert.That(ControllerGlyphCatalog.ParseId(text), Is.EqualTo(expected));
+
+    [TestCase("Xbox One Controller", ControllerGlyphSet.XboxOne)]
+    [TestCase("Microsoft Xbox Phone Pad", ControllerGlyphSet.XboxSeries)]
+    [TestCase("Xbox Zone Controller", ControllerGlyphSet.XboxSeries)]
+    /// <summary>"One" only counts as a whole word, so "phone" or "zone" in a name is not an Xbox One (review ir-N5).</summary>
+    public void XboxOneNeedsTheWholeWord(string name, ControllerGlyphSet expected) =>
+        Assert.That(ControllerGlyphCatalog.Detect(name, 0, 0), Is.EqualTo(expected));
+
     /// <summary>Markers become images in BBCode and names in plain text; surrounding brackets are escaped.</summary>
     [Test]
     public void MarkersBecomeImagesOrNames()
