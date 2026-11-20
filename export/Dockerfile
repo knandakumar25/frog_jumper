@@ -1,7 +1,7 @@
 # Axiom Force — headless game exporter.
 #
 # Linux-hosted Godot 4.7.2 .NET export tools, with nothing borrowed from the
-# host: the .NET 10 SDK, a JDK 17 (the version Godot's Android Gradle step
+# host: the .NET 11 SDK, a JDK 17 (the version Godot's Android Gradle step
 # expects — NOT the JDK 25 in eclipse-temurin:latest), the Android SDK, the
 # headless Godot .NET editor and matching templates. macOS ZIPs are unsigned;
 # iOS source handoffs need a native Mac/Xcode for final project generation.
@@ -12,7 +12,7 @@
 # Bookworm's Python binaries use an older glibc baseline than the .NET runtime
 # image, avoiding a dependency on Trixie's newer glibc in the Apple helper.
 FROM python:3.15.2-slim-bookworm AS python-runtime
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS python-verified
+FROM mcr.microsoft.com/dotnet/sdk:11.0 AS python-verified
 
 ENV DEBIAN_FRONTEND=noninteractive \
     GODOT_VERSION=4.7.2 \

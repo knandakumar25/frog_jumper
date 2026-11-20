@@ -20,10 +20,10 @@ the image with `docker compose --profile export build export`.
 | Target | Docker output | Remaining work |
 |---|---|---|
 | macos | build/macos/AxiomForce-unsigned.zip | Sign, notarize, staple and test on a Mac |
-| ios | build/ios/AxiomForce-iOS-source.zip | Generate the Xcode project on a Mac, configure signing, archive and distribute |
+| ios | build/ios/AxiomForce-iOS-source.zip | Generate the native iOS project on a Mac, configure signing, archive and distribute |
 | all | Existing platform attempts plus both Apple outputs | Requires a real macOS bundle ID before any exports; Apple steps remain manual |
 
-The iOS ZIP is **source**, not an Xcode project, simulator build or installable IPA.
+The iOS ZIP is **source**, not a native iOS project, simulator build or installable IPA.
 It contains the game, required add-ons, presets, and these completion tools.
 Development environment files, backend/website, build caches, signing files and
 signing passwords are excluded. Do not add credentials to source files.
@@ -72,13 +72,12 @@ the normal Docker-only policy. They are manual, local Mac operations, never Acti
 ## Finish iOS on a Mac
 
 1. Extract the source handoff into its own project directory. Install **Godot
-   4.7.2 .NET**, matching export templates, the **.NET 10 SDK**, full Xcode, and
-   Python 3. Launch Xcode, accept its license, install the iOS platform/device
-   support, and select its Command Line Tools. If needed, use
-   `sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer`.
-2. Install the .NET iOS workload compatible with your .NET SDK and Xcode:
+   4.7.2 .NET**, matching export templates, the **.NET 11 SDK**, Apple build tools, and
+   Python 3. Accept the build tools license, install the iOS platform/device
+   support, and configure the developer command-line tools.
+2. Install the .NET iOS workload compatible with your .NET SDK and developer toolchain:
    `dotnet workload install ios`. Follow Microsoft's compatibility guidance if
-   the installed workload requires a different Xcode version.
+   the installed workload requires a different toolchain version.
 3. Open the extracted project in Godot. In its iOS preset set your real bundle ID,
    ten-character Apple Developer Team ID, versions, distribution identity and
    provisioning settings. Keep **Export Project Only** enabled. ARM64 and
@@ -93,18 +92,18 @@ the normal Docker-only policy. They are manual, local Mac operations, never Acti
 
    Adjust GODOT_BIN to the actual .NET app executable. The check does not export
    and cannot verify installed signing certificates, templates or device behavior.
-5. When ready to explicitly generate the native Xcode project:
+5. When ready to explicitly generate the native iOS project:
 
    ```bash
    bash export/finish_ios.sh project
    ```
 
-   Output is under build/ios/xcode. Open the generated .xcodeproj (unzip the
+   Output is under build/ios/xcode. Open the generated project (unzip the
    project archive first if needed). Select your Team, matching bundle ID, signing
-   certificate and provisioning profile. Resolve Xcode capability/privacy/icon
+   certificate and provisioning profile. Resolve iOS capability/privacy/icon
    validation and third-party native plug-in compatibility before archiving.
-6. Test on a physical iPhone and iPad, then use Xcode's Product > Archive and
-   Organizer > Distribute App for TestFlight/App Store Connect. This setup does
+6. Test on a physical iPhone and iPad, then use the Apple developer toolchain to archive and
+   distribute the app for TestFlight/App Store Connect. This setup does
    not create/upload an IPA or choose your signing credentials automatically.
 
 iOS C# support is experimental. Device/.NET AOT and third-party library
@@ -119,6 +118,6 @@ without writing an archive or invoking Godot. Helper tests use a tiny synthetic
 project in a temporary directory; they do not export this game.
 
 - [Godot macOS export and signing](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_macos.html)
-- [Godot iOS/Xcode requirements](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_ios.html)
+- [Godot iOS requirements](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_ios.html)
 - [Microsoft .NET for iOS installation](https://learn.microsoft.com/en-us/dotnet/maui/ios/deployment/)
 - [Apple notarization workflow](https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution)

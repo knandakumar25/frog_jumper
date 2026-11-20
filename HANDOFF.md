@@ -214,7 +214,7 @@ The 2026-11-17 review round (`docs/INPUT_GOOGLE_REVIEW_2026-11-17.md`) found 3 B
 **Mobile export facts (from `export_presets.cfg`):**
 - Exports run only through Docker: `docker compose run --rm export android` or `… export ios`.
 - The Android preset signs **release** builds with the debug keystore (`android/keystore/release`, lines 389–391). A real release needs a proper keystore and package name.
-- The iOS preset has `application/export_project_only=true` (line 513). It produces an Xcode project that must be finished on a Mac (`export/APPLE_RELEASE.md`).
+- The iOS preset has `application/export_project_only=true` (line 513). It produces a native iOS project that must be finished on a Mac (`export/APPLE_RELEASE.md`).
 - Godot's C# support on Android and iOS is less mature than on desktop, so a first export may need fixes.
 
 ## On-screen touch controls for iOS and Android — 2026-11-17
@@ -338,7 +338,7 @@ Button images on iOS/Android were not in scope and are untested there; the same 
 
 **Verification (2026-11-17):**
 - `dotnet build`: 0 errors.
-- Two headless imports: exit 0, with 124 new `.import` files. The logs show the shutdown messages recorded in `docs/INPUT_PROMPTS_AUDIT.md`, messages from the editor's IDE connection, and `Unrecognized UID uid://bkxvlkqrtv1ay`. That UID is `default_bus_layout.tres`'s header UID and matches `project.godot`, so the message probably predates this change.
+- Two headless imports: exit 0, with 124 new `.import` files. The logs show the shutdown messages recorded in `docs/INPUT_PROMPTS_AUDIT.md`, messages from the editor's language connection, and `Unrecognized UID uid://bkxvlkqrtv1ay`. That UID is `default_bus_layout.tres`'s header UID and matches `project.godot`, so the message probably predates this change.
 - `tools/assets/audit_images.py` (size, alpha and quality flags): 473 images, none of the 124 new ones flagged.
 - NUnit prompt tests: 53/53.
 - GdUnit `test_input_prompts.gd`: 24/24. Also passed: `test_mission_readability.gd`, `test_wildfire_gameplay.gd`, `test_level1_2d_cyber_shogun.gd`, `test_later_cinematic_lifecycle.gd` and `test_deployment_cutscene.gd`.
@@ -943,7 +943,7 @@ Owner decisions: six operative home cities (Kyoto/Kaito, Mumbai/Arjun, Honolulu/
 
 ## uv tooling moved from Python 3.14.10 to 3.15.2 — 2026-11-08
 
-- `addons/godot_ai/utils/uv_resolution_policy.gd` now selects Python 3.15 and adds `%APPDATA%\uv\wheelhouse` as a second `--find-links`. The godot-ai entries for Claude Code, VS Code, Codex and Antigravity match.
+- `addons/godot_ai/utils/uv_resolution_policy.gd` now selects Python 3.15 and adds `%APPDATA%\uv\wheelhouse` as a second `--find-links`. The godot-ai entries for Claude Code, Codex and Antigravity match.
 - That folder holds `pyyaml-6.0.3-py3-none-any.whl`, built once from uv's cached sdist with `PYYAML_FORCE_LIBYAML=0`, because PyYAML has no 3.15 wheel and there is no Visual C++ here. `--no-build` stays on for every launch. YAML runs on the slower pure-Python parser.
 - uv's Python 3.14.10, its cached environments and its cp314 wheels were removed. Python 3.12.16 was not touched.
 - Limits: a plugin update can overwrite the policy file. `~/.gemini/settings.json` still points at a `Python314` launcher that no longer exists, and was already broken. `.validation/venv-backups/20261106-314` is an old non-uv backup and was kept.
@@ -1268,7 +1268,7 @@ system CA store, retaining TLS validation, canonical indexes and release cutoff.
 Exact corrected uvx launch resolves 73 packages and CLI help exits successfully.
 After the user reloaded the plugin, authenticated MCP confirmed the real project
 session, existing editor PID 12880 and matching plugin/server 4.4.1. Read-only
-client status confirms Codex, Claude Code/Desktop, Antigravity and VS Code are
+client status confirms Codex, Claude Code/Desktop, and Antigravity are
 configured; eight other installed client entries remain mismatched and unchanged.
 No editor
 was closed or scene saved. A future plugin update can overwrite this local patch.
@@ -2222,7 +2222,7 @@ Elevated the ChatGPT-era prototype implementation of the Act II start screen, pr
   - **NUnit**: 100/100 passing.
   - **GdUnit4**: 214/214 passing (0 errors, 0 failures, 0 orphans, report_413).
   - **Django (Containerized)**: 104/104 passing.
-- **Git Status**: Pushed to `origin/main` per explicit user instruction. Machine-specific `.vscode/settings.json` and untracked `.skill-install-staging/` excluded.
+- **Git Status**: Pushed to `origin/main` per explicit user instruction. Machine-specific settings and untracked `.skill-install-staging/` excluded.
 
 ## Mission 5 — Names Without Numbers (2026-11-02)
 
@@ -2534,8 +2534,7 @@ iOS ARM64/iPhone+iPad/project-only generation. Owner bundle IDs and Apple Team
 ID remain deliberately unconfigured. Native Mac helper has an inert default,
 read-only --check, and explicit project generation; all Actions paths remain
 blocked. Updated all agent rules with the user's Apple native-completion exception.
-export/APPLE_RELEASE.md documents the precise Docker/native split, Godot/.NET/
-Xcode prerequisites, identity/provisioning, signing/notarization and distribution.
+export/APPLE_RELEASE.md documents the precise Docker/native split, Godot/.NET/Apple toolchain prerequisites, identity/provisioning, signing/notarization and distribution.
 
 No actual game export, Apple handoff, signing or exporter image build has run.
 Helper tests only package a tiny synthetic fixture. Final verification:
@@ -2545,7 +2544,7 @@ import exited 0 with the existing TLS/editor shutdown resource diagnostics.
 run_tests.ps1 passes NUnit 93/93 and Godot 161/161 (report_369, zero failures/
 errors/orphans). Host Django is skipped for absent venv; container Django passes
 104/104. Incremental build has zero warnings/errors. No real build/ output exists.
-Mac/Xcode, device/AOT/native-addon compatibility and production networking
+Mac build tools, device/AOT/native-addon compatibility and production networking
 remain unverified until a real Apple build. Prior export-policy edits are retained.
 
 ## Docker-only game exports — 2026-11-01
@@ -2787,7 +2786,7 @@ paths were checked, not a full touch-only gameplay session. No new voiceover was
 > pinned to commit `19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9`, using the Codex
 > skill-installer helper. Independent global copies live under `~/.agents/skills`
 > (Codex), `~/.claude/skills` (Claude Code), `~/.gemini/config/skills`
-> (Antigravity app/IDE), and `~/.gemini/antigravity-cli/skills` (CLI).
+> (Antigravity app), and `~/.gemini/antigravity-cli/skills` (CLI).
 > Updated CODEX, CLAUDE, GEMINI, and AGENTS with the same mandatory router-first
 > rule for game-related work; README records the setup. Supporting references,
 > scripts, and assets were installed alongside each skill. Existing skills were
@@ -3119,7 +3118,7 @@ Runtime startup loaded without cutscene errors; host SessionManager reports a
 PostgreSQL password failure and uses its existing local JSON fallback.
 The 45-second, 60-fps-capped headless playback check reached StoryIntro and
 successfully started its first existing AXIOM-7 voice line, with no ERROR lines.
-Existing `.vscode/settings.json`
+Existing local editor settings
 changes are unrelated and were preserved.
 
 ## Live 2D deployment cinematic (2026-10-30; supersedes the film playback above)

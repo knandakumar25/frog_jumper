@@ -35,7 +35,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
   - **Adversarial Goldfish Subagents**: Leverage the specialized review personas registered in the environment (`egm-design`, `egm-implementation-readiness`, `egm-codebase-details`, `egm-structural`, `egm-style`, `egm-comprehension`, `egm-zoom-out`, `egm-inventive-catalyst`, `egm-synthesizer`) to audit proposals and changes with fresh context.
   - **Stress-Testing by Default**: Actively find edge cases, failure modes, and counter-arguments before validating any solution.
 - **Installation Roots on this Machine**:
-  - Antigravity app/IDE: `C:\Users\karthiknk21\.gemini\config\skills\` & plugin `C:\Users\karthiknk21\.gemini\config\plugins\egm\`
+  - Antigravity app: `C:\Users\karthiknk21\.gemini\config\skills\` & plugin `C:\Users\karthiknk21\.gemini\config\plugins\egm\`
   - Antigravity CLI: `C:\Users\karthiknk21\.gemini\antigravity-cli\skills\`
   - Claude Code: `C:\Users\karthiknk21\.claude\skills\` & marketplace plugin `C:\Users\karthiknk21\.claude\plugins\marketplaces\egm\`
   - Codex: `C:\Users\karthiknk21\.agents\skills\`
@@ -49,7 +49,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
   - **Graph:** `graphify-out/graph.json`, which is git-ignored.
   - **Claude Code:** a local-scope stdio MCP server named `graphify` (`claude mcp add --transport stdio graphify -- C:/Users/karthiknk21/.local/bin/graphify-mcp.exe D:/Projects/frog_jumper/graphify-out/graph.json`).
   - **Codex:** a global stdio server named `graphify` in `~/.codex/config.toml`, same command and graph path (`codex mcp add graphify -- <exe> <graph.json>`).
-  - **Google Antigravity:** the app/IDE and the `agy` CLI share `~/.gemini/config/mcp_config.json`, which has a `graphify` entry (`agy mcp add graphify <exe> <graph.json>`).
+  - **Google Antigravity:** the app and the `agy` CLI share `~/.gemini/config/mcp_config.json`, which has a `graphify` entry (`agy mcp add graphify <exe> <graph.json>`).
   - Check the entries with `claude mcp get graphify`, `codex mcp list` and `agy mcp list`. If MCP is unavailable, use the CLI below.
 - **How to use it:**
   - **MCP tools:** `query_graph`, `get_node`, `get_neighbors`, `get_community`, `god_nodes`, `graph_stats` and `shortest_path`.
@@ -98,7 +98,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
 - **Where each agent finds them:**
   - Claude Code: the `spritecook@spritecook` plugin skills (named `spritecook:spritecook-...`).
   - Codex: the `spritecook@openai-curated-remote` plugin skills.
-  - Antigravity: `~/.gemini/config/skills/spritecook-*` (app/IDE) and `~/.gemini/antigravity-cli/skills/spritecook-*` (CLI).
+  - Antigravity: `~/.gemini/config/skills/spritecook-*` (app) and `~/.gemini/antigravity-cli/skills/spritecook-*` (CLI).
   - Use skill discovery first. If it does not show them, read the `SKILL.md` files directly from those locations. If they cannot be read, stop and resolve access before doing asset work; do not silently skip them.
 - **How they fit with the other rules:**
   - Read them together with the game-development `create-game-assets` skill (art direction, asset manifest, quality gates) and with this project's Art Pipeline rule above (exact paths and sizes from `docs/ART_REGENERATION.md`, `spritecook-assets.json`, no stand-in art).
@@ -111,7 +111,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
 - Start a new game-development task by reading the installed `router/SKILL.md`, then read the complete `SKILL.md` files for the engine, discipline, genre, or workflow it selects before acting. Load the relevant set rather than every installed skill, and re-route when the task changes concern.
 - This project uses Godot 4.7.2 .NET/C# and a 2D platformer campaign. Choose the Godot/C# and relevant 2D/task skills; adapt version-specific examples to the actual project instead of changing engines, languages, or architecture to match a skill.
 - For Godot C#/.NET tasks involving setup, scenes/nodes, scripting, debugging, prototyping, interactions, or UI, agents **MUST also read and apply** the installed godot-csharp-essentials/SKILL.md and the relevant bundled course lesson. It supplements the specialized Godot C# and task skills; its Godot 4.5 examples must be adapted to this project's Godot 4.7.2 .NET/C# and 2D architecture.
-- Global installation roots: Codex `~/.agents/skills/`; Claude Code `~/.claude/skills/`; Antigravity app/IDE `~/.gemini/config/skills/`; Antigravity CLI `~/.gemini/antigravity-cli/skills/`. Each contains the router and all 77 specialized skills, including bundled supporting files.
+- Global installation roots: Codex `~/.agents/skills/`; Claude Code `~/.claude/skills/`; Antigravity app `~/.gemini/config/skills/`; Antigravity CLI `~/.gemini/antigravity-cli/skills/`. Each contains the router and all 77 specialized skills, including bundled supporting files.
 - Use skill discovery first. If it does not expose the installed skills, read their files directly from the appropriate root. Resolve missing skill access before continuing game-related work; do not silently bypass this requirement.
 - Skills supplement this project's lifecycle safety, testing, documentation, Docker, and permission rules. Explicit user instructions take precedence, and skills never authorize commits, pushes, publishing, or destructive operations on their own.
 
@@ -139,7 +139,7 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
 - **Where each agent finds it.** Each copy holds `SKILL.md` plus the skill's `docs/`, `data/`, `references/`, `scripts/`, `templates/` and `agent-os/` folders, and `INSTALLED_FROM.txt`.
   - Claude Code: `C:\Users\karthiknk21\.claude\skills\app-store-compliance\`. Skill discovery lists it as `app-store-compliance`.
   - Codex: `C:\Users\karthiknk21\.agents\skills\app-store-compliance\`.
-  - Antigravity app/IDE: `C:\Users\karthiknk21\.gemini\config\skills\app-store-compliance\`.
+  - Antigravity app: `C:\Users\karthiknk21\.gemini\config\skills\app-store-compliance\`.
   - Antigravity CLI: `C:\Users\karthiknk21\.gemini\antigravity-cli\skills\app-store-compliance\`.
   - Use skill discovery first. If it does not show the skill, read `SKILL.md` directly from the agent's root. If it cannot be read, stop and resolve access; do not silently skip it.
 - **What to run after the task's final edits, together with the testing protocol:**
@@ -171,13 +171,13 @@ A high-fidelity cyber-action game developed in **Godot 4.7.2 .NET (C#)** with an
 - Whenever an agent performs PostgreSQL-related work, it **MUST first read and apply** `postgresql-best-practices/SKILL.md`. This covers database commands and tools, schema/query design, migrations, performance, reliability, security, troubleshooting, and PostgreSQL-related advice, planning, reviews, and documentation. For graph modeling, Apache AGE, or openCypher work, it **MUST also read and apply** `pg-graph/SKILL.md` before acting.
 - Whenever an agent performs Android-related work, it **MUST first identify and read the complete relevant Android `SKILL.md` and its bundled references**, then apply that guidance. This covers Android tools and commands, implementation, debugging, testing, architecture, advice, planning, reviews, and documentation. Choose every skill relevant to the task (for example Compose, navigation, security, performance, testing, or Android tooling).
 - Use normal skill discovery first. If discovery does not expose the installed skills, read them directly from the active agent's user-level root below. If a required skill cannot be accessed, resolve access before continuing; do not silently bypass this requirement. Merely having a skill installed does not satisfy the requirement to read and apply it for relevant work.
-- User-level installation roots on this machine: Codex `C:\Users\karthiknk21\.agents\skills\`; Claude Code `C:\Users\karthiknk21\.claude\skills\`; Antigravity app/IDE `C:\Users\karthiknk21\.gemini\config\skills\`; Antigravity CLI `C:\Users\karthiknk21\.gemini\antigravity-cli\skills\`. Each requested skill is a direct child directory containing `SKILL.md`; keep its bundled files alongside it.
+- User-level installation roots on this machine: Codex `C:\Users\karthiknk21\.agents\skills\`; Claude Code `C:\Users\karthiknk21\.claude\skills\`; Antigravity app `C:\Users\karthiknk21\.gemini\config\skills\`; Antigravity CLI `C:\Users\karthiknk21\.gemini\antigravity-cli\skills\`. Each requested skill is a direct child directory containing `SKILL.md`; keep its bundled files alongside it.
 - Sources: PostgreSQL skills from `microsoft/postgres-skills` (`plugin/skills/`); Android skills from `android/skills` (all skill directories). The PostgreSQL skills are guidance only and do not configure a PostgreSQL MCP server or database connection.
 
 ### Docker-Only Game Exports
 
 - Game exports must run only through the local Docker Compose `export` service, with an explicit target (`linux`, `windows`, `web`, `android`, `macos`, `ios`, or `all`). Use the root `export.bat` / `export.sh` launchers or the documented Compose command; never invoke host Godot export commands except the Apple completion steps described below.
-- Apple release exception: after Docker preparation, macOS signing/notarization and native iOS Godot/Xcode project generation, archiving and distribution must be completed locally on a Mac. The `ios` Docker target produces a source handoff, not an IPA; see `export/APPLE_RELEASE.md`. Native Apple completion is authorized as a workflow capability, not permission to export during a setup-only task.
+- Apple release exception: after Docker preparation, macOS signing/notarization and native iOS Godot project generation, archiving and distribution must be completed locally on a Mac. The `ios` Docker target produces a source handoff, not an IPA; see `export/APPLE_RELEASE.md`. Native Apple completion is authorized as a workflow capability, not permission to export during a setup-only task.
 - Do not create, restore, or run GitHub Actions export workflows or export jobs, including manual, scheduled, push, pull-request, release, reusable, or Docker-based Actions jobs. GitHub Actions must not produce game export artifacts.
 - A request to reorganize export configuration does not authorize an actual export. Keep the exporter opt-in and inert without an explicit target; preserve export exclusivity.
 
@@ -248,7 +248,7 @@ Run a background Godot refresh only after creating, modifying, or deleting game 
 > ### 1. Explicit Permission Required for Git Commits and Pushes
 > **NEVER create a Git commit or push to a remote repository unless the user explicitly instructs you to perform that action on the current changes.**
 
-- This applies to every agent and every tool, including Git commands, IDE integrations, APIs, and automation scripts. It includes creating or amending commits and publishing commits remotely.
+- This applies to every agent and every tool, including Git commands, editor integrations, APIs, and automation scripts. It includes creating or amending commits and publishing commits remotely.
 - A request to commit authorizes a local commit only. A request to commit and push authorizes both. If the user explicitly asks to push the current uncommitted changes, creating the commit needed for that push is included.
 - Authorization applies only to the requested operation and current changes. Previous commit or push instructions do **not** authorize committing or pushing later edits or future tasks.
 - Requests to edit, fix, test, refresh Godot, or continue work do **not** authorize commits or pushes.

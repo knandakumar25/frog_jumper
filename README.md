@@ -1067,12 +1067,12 @@ There is no source bind mount: after editing `backend/`, run
 
 Game export preparation is requested locally through Docker with an explicit target.
 Apple signing/distribution and iOS native project generation are the documented
-manual Mac/Xcode exception; see [Apple release steps](export/APPLE_RELEASE.md).
+manual Mac build exception; see [Apple release steps](export/APPLE_RELEASE.md).
 GitHub Actions must not export the game, including from manual or container jobs.
 The repository and GitHub workflow list were checked on 2026-11-01: neither has
 any Actions workflows to remove. Existing historical runs/artifacts were not deleted.
 
-Game exports run headless from a dedicated image (`export/Dockerfile`: Godot 4.7.2 .NET, .NET 10 SDK, Android SDK with build-tools 34, **JDK 17 only**, and the matching export templates). The image owns a container-native `.godot` import cache — importing through the Windows bind mount is ~1 KB/s, so imports stay on the Linux filesystem and only the finished binaries are written back to `./build`.
+Game exports run headless from a dedicated image (`export/Dockerfile`: Godot 4.7.2 .NET, .NET 11 SDK, Android SDK with build-tools 34, **JDK 17 only**, and the matching export templates). The image owns a container-native `.godot` import cache — importing through the Windows bind mount is ~1 KB/s, so imports stay on the Linux filesystem and only the finished binaries are written back to `./build`.
 
 ```powershell
 docker compose --profile export build export   # first run, or after editing the Dockerfile
@@ -1096,12 +1096,12 @@ Compose isolation, 93 NUnit tests, 161 Godot tests (zero errors/failures/orphans
 and 104 container Django tests pass. No packaged game build was produced.
 
 Apple setup (2026-11-01): `export.bat macos` prepares an unsigned universal ZIP;
-`export.bat ios` prepares a credential-filtered source ZIP for a Mac with Xcode.
-The latter is not an Xcode project or IPA. Set a real macOS bundle ID before
+`export.bat ios` prepares a credential-filtered source ZIP for a Mac.
+The latter is not a native project or IPA. Set a real macOS bundle ID before
 requesting `macos` or `all`; the checked-in ID is an intentional example.
 The iOS preset has a blank Team ID and project-only export for later completion.
 The native Mac helper `bash export/finish_ios.sh --check` checks prerequisites;
-its explicit `project` command generates the Xcode project on the Mac.
+its explicit `project` command generates the native iOS project on the Mac.
 Apple signing, provisioning, icons/privacy review, physical device validation,
 and distribution remain manual. Setup alone does not certify an Apple release.
 
@@ -1198,7 +1198,7 @@ For all game-related tasks, agents must read the `router` and apply the relevant
 skills from [awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)
 before acting. The router plus 77 specialized skills are installed globally in
 `~/.agents/skills/` for Codex, `~/.claude/skills/` for Claude Code,
-`~/.gemini/config/skills/` for Antigravity app/IDE, and
+`~/.gemini/config/skills/` for Antigravity app, and
 `~/.gemini/antigravity-cli/skills/` for Antigravity CLI. Use Godot/C# and the
 relevant task skills for this project. If discovery is unavailable, read the
 installed files directly; resolve missing access before continuing.

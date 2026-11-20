@@ -580,8 +580,8 @@
 - **Antigravity switched to the API-key setup (same day):**
   - Codex SpriteCook was fixed on the owner's side.
   - Removed the old Claude-plugin copy for Antigravity: `~/.gemini/config/plugins/spritecook` and its `import_manifest.json` entry.
-  - Added Node to new PowerShell sessions through `$PROFILE`. VS Code started before Node was installed, so its terminals had a stale PATH.
-  - The owner ran `npx spritecook-mcp setup`. It wrote the Antigravity entry to `~/.gemini/antigravity/mcp_config.json`, which this install does not read. It also added a second `spritecook` server with a plain-text API key to `~/.claude.json`, `~/.codex/config.toml` and the project's `.vscode/mcp.json` (not git-ignored), and copied skills into `.agent/`, `.agents/`, `.claude/skills/`, `.github/skills/` and `~/.agents/skills/`.
+  - Added Node to new PowerShell sessions through `$PROFILE`. The editor started before Node was installed, so its terminals had a stale PATH.
+  - The owner ran `npx spritecook-mcp setup`. It wrote the Antigravity entry to `~/.gemini/antigravity/mcp_config.json`, which this install does not read. It also added a second `spritecook` server with a plain-text API key to `~/.claude.json`, `~/.codex/config.toml` and an unignored `mcp.json`, and copied skills into `.agent/`, `.agents/`, `.claude/skills/`, `.github/skills/` and `~/.agents/skills/`.
   - Fixed:
     - moved the Antigravity entry into `~/.gemini/config/mcp_config.json` (`agy mcp list` shows `spritecook http enabled`);
     - copied the 10 skills to `~/.gemini/config/skills` and `~/.gemini/antigravity-cli/skills`;
@@ -726,7 +726,7 @@
 
 ## uv moved from Python 3.14.10 to 3.15.2 — 2026-11-08
 
-- **Outcome**: uv manages Python 3.15.2 and 3.14.10 is removed. `godot-ai` launches on 3.15 in the plugin policy and in the Claude Code, VS Code, Codex and Antigravity configs.
+- **Outcome**: uv manages Python 3.15.2 and 3.14.10 is removed. `godot-ai` launches on 3.15 in the plugin policy and in the Claude Code, Codex and Antigravity configs.
 - **Decision by owner**: allow PyYAML alone to be built from source, since it has no 3.15 wheel. Implemented as one local pure-Python wheel in `%APPDATA%\uv\wheelhouse`, so every launch keeps `--no-build`.
 - **Verified**: 3.14.10 uninstalled; 20 cached 3.14 environments and 56 cp314 wheel entries deleted; 3.12.16 and 3.15.2 kept; all four saved client commands exit 0 on 3.15. The running Godot editor's godot-ai is already on 3.15.
 - **Open**: a client session that was connected to the old server must reconnect `godot-ai`. A plugin update can overwrite the policy file. `~/.gemini/settings.json` points at a missing `Python314` launcher.
@@ -1059,7 +1059,7 @@ system CA store, retaining TLS validation, canonical indexes and release cutoff.
 Exact corrected uvx launch resolves 73 packages and CLI help exits successfully.
 After the user reloaded the plugin, authenticated MCP confirmed the real project
 session, existing editor PID 12880 and matching plugin/server 4.4.1. Read-only
-client status confirms Codex, Claude Code/Desktop, Antigravity and VS Code are
+client status confirms Codex, Claude Code/Desktop, and Antigravity are
 configured; eight other installed client entries remain mismatched and unchanged.
 No editor
 was closed or scene saved. A future plugin update can overwrite this local patch.
@@ -1894,9 +1894,9 @@ eport_470).
 - Completed prerequisite assets: Pre-Level 6 cinematic cutscene ('Into the Cyber-Grave' / CyberGraveIntro.cs) is fully authored with ElevenLabs voiceover, 120s audio, and verified unit tests.
 - LevelCatalog currently defines 5 playable missions (Missions 1–5). Mission 6 (level6.tscn / CyberGraveMission.cs) is the active next development frontier.
 
-## JetBrains Rider PostgreSQL Data Source Diagnosis — 2026-11-03
+## PostgreSQL Data Source Diagnosis — 2026-11-03
 
-- Diagnosed user's connection error in JetBrains Rider Database window ('Unable to connect to postgres@localhost').
+- Diagnosed user's connection error in the database client window ('Unable to connect to postgres@localhost').
 - Root cause: Connection string 'jdbc:postgresql://localhost:5432/postgres' omitted credentials and specified default maintenance DB instead of 'accounts_db'.
 - Verified PostgreSQL container (axiom-force-db-1) is accepting connections on localhost:5432 (TcpTestSucceeded: True).
 - Provided manual and connection string configuration: User=postgres, Password=postgres, Database=accounts_db.
@@ -1909,14 +1909,14 @@ eport_470).
   - axiom-force-db-1 (PostgreSQL 18, port 5432) -> Healthy
   - axiom-force-backend-1 (Django REST Framework, port 8000) -> Up (HTTP 200 on /api/auth/countries/basic/)
   - axiom-force-website-1 (Nginx / React Vite client, port 5173) -> Up (HTTP 200 on /)
-- JetBrains Rider is running (PID 11844) with AxiomForce.sln.
+- An external client is running with AxiomForce.sln.
 - Status inspection only; no game code/assets modified, no tests or Godot refresh required. No git commit or push without explicit user instruction.
 
 ## Status and History Audit — 2026-11-03
 
 - Completed comprehensive review of all project Markdown files (README.md, HANDOFF.md, MEMORY.MD, AGENTS.md, docs/ACT_I_REVIEW.md, docs/TECHNICAL_AUDIT.md, tools/*, etc.) and Git history through HEAD (e94dbaf).
 - Campaign currently consists of 5 fully implemented and verified 2D missions across Act I (Missions 1–4) and Act II (Mission 5), plus the completed Pre-Level 6 cinematic (Into the Cyber-Grave).
-- Created AxiomForce.sln linking AxiomForce.csproj and tests/AxiomForce.Tests/AxiomForce.Tests.csproj to resolve JetBrains Rider's Godot .NET project recognition.
+- Created AxiomForce.sln linking AxiomForce.csproj and tests/AxiomForce.Tests/AxiomForce.Tests.csproj to resolve external Godot .NET project recognition.
 - Current frontier: Mission 6 (Cyber-Grave Labs - Underground Facility) gameplay design and implementation.
 - Read-only review and memory update; no game engine files changed, so no Godot refresh or test rerun required. No git commit or push without explicit authorization.
 
@@ -2017,7 +2017,7 @@ eport_470).
 - 2026-11-01: User plans macOS and iOS releases and accepts manual Apple steps.
   Added macos unsigned-universal packaging and ios source-handoff targets, Apple
   preset settings, a native Mac iOS completion helper, and export/APPLE_RELEASE.md.
-  Apple signing/notarization and native iOS Godot/Xcode generation/distribution
+  Apple signing/notarization and native iOS Godot project generation/distribution
   are the explicit exception to Docker-only execution. GitHub Actions stays
   prohibited; setup does not authorize an actual export. Real owner bundle IDs
   and Team ID must be supplied later; no keys/passwords are stored.
@@ -2827,7 +2827,7 @@ the isolated helper avoids it. No exports, staging, commits or pushes.
 
 ## PostgreSQL and Android user-level skills — 2026-11-02
 
-Installed `postgresql-best-practices` and `pg-graph` from `microsoft/postgres-skills`, plus all 36 Android skills from `android/skills`, into Codex (`C:\Users\karthiknk21\.agents\skills`), Claude Code (`C:\Users\karthiknk21\.claude\skills`), Antigravity app/IDE (`C:\Users\karthiknk21\.gemini\config\skills`), and Antigravity CLI (`C:\Users\karthiknk21\.gemini\antigravity-cli\skills`). Skills are direct children of each user-level skills root, with bundled references preserved. Updated AGENTS.md, CODEX.md, CLAUDE.md and GEMINI.md with task triggers, source repositories and installation paths. All four roots contain all 38 requested `SKILL.md` files, with identical SHA256 hashes and file counts for every skill tree compared against the checked-out source. No PostgreSQL MCP server, database connection, or project code/assets changed. No tests or Godot refresh required; no commits or pushes.
+Installed `postgresql-best-practices` and `pg-graph` from `microsoft/postgres-skills`, plus all 36 Android skills from `android/skills`, into Codex (`C:\Users\karthiknk21\.agents\skills`), Claude Code (`C:\Users\karthiknk21\.claude\skills`), Antigravity app (`C:\Users\karthiknk21\.gemini\config\skills`), and Antigravity CLI (`C:\Users\karthiknk21\.gemini\antigravity-cli\skills`). Skills are direct children of each user-level skills root, with bundled references preserved. Updated AGENTS.md, CODEX.md, CLAUDE.md and GEMINI.md with task triggers, source repositories and installation paths. All four roots contain all 38 requested `SKILL.md` files, with identical SHA256 hashes and file counts for every skill tree compared against the checked-out source. No PostgreSQL MCP server, database connection, or project code/assets changed. No tests or Godot refresh required; no commits or pushes.
 
 ## Mandatory skill-use policy — PostgreSQL and Android — 2026-11-02
 
@@ -2835,7 +2835,7 @@ Strengthened AGENTS.md, CODEX.md, CLAUDE.md and GEMINI.md: relevant PostgreSQL a
 
 ## Microsoft Godot C# Essentials skill — 2026-11-02
 
-Downloaded `microsoft/godot-csharp-essentials` at commit `781ebb984d67ef652bf034d24cf573174436be47` and installed it as discoverable `godot-csharp-essentials` skill for Codex, Claude Code, Antigravity app/IDE, and Antigravity CLI. The source repository has lesson READMEs and sample projects but no `SKILL.md`; added a concise skill entrypoint that routes to the relevant lesson and bundled the complete repository under `references/course/`. Sample projects declare Godot 4.5, so the entrypoint and all four agent guides require adaptation to this project's Godot 4.7.2 .NET/C# and 2D architecture. No project code/assets changed. Source-to-install SHA256 and file-count comparisons pass in all four roots (339 repository files plus SKILL.md). All four agent guides expose the Godot C# task trigger; direct frontmatter and discovery-path checks pass. The skill-creator quick validator could not start because the available Python lacks PyYAML. No tests or Godot refresh required.
+Downloaded `microsoft/godot-csharp-essentials` at commit `781ebb984d67ef652bf034d24cf573174436be47` and installed it as discoverable `godot-csharp-essentials` skill for Codex, Claude Code, Antigravity app, and Antigravity CLI. The source repository has lesson READMEs and sample projects but no `SKILL.md`; added a concise skill entrypoint that routes to the relevant lesson and bundled the complete repository under `references/course/`. Sample projects declare Godot 4.5, so the entrypoint and all four agent guides require adaptation to this project's Godot 4.7.2 .NET/C# and 2D architecture. No project code/assets changed. Source-to-install SHA256 and file-count comparisons pass in all four roots (339 repository files plus SKILL.md). All four agent guides expose the Godot C# task trigger; direct frontmatter and discovery-path checks pass. The skill-creator quick validator could not start because the available Python lacks PyYAML. No tests or Godot refresh required.
 
 ## Microsoft Xbox/GDK repository integration review — 2026-11-02
 
@@ -2864,13 +2864,13 @@ remains outstanding.
 
 User explicitly requested pushing the current tracked project changes before switching
 to Google Antigravity. This includes the Mission 5 tuning and agent skill-guidance updates;
-the machine-specific VS Code editor path and untracked local skill-install staging files
+the machine-specific editor path and untracked local skill-install staging files
 are excluded. The existing import, build and test results above are the verification for
 the gameplay code.
 
 ## Repository and status audit — 2026-11-02
 
-Completed a full read-only review of project Markdown documentation, recent Git history (through commit `127b3af`), and runtime state before continuing work. The campaign features five playable 2D cyber-action missions with story-unlocked operatives, custom cutscene arrivals/epilogues, and PostgreSQL persistence. Core Docker containers (website, backend, db) are active and healthy. The working tree has only the local machine-specific VS Code setting and untracked skill install staging. No code, scenes, or assets were changed; no tests, imports, commits, or pushes were authorized or performed.
+Completed a full read-only review of project Markdown documentation, recent Git history (through commit `127b3af`), and runtime state before continuing work. The campaign features five playable 2D cyber-action missions with story-unlocked operatives, custom cutscene arrivals/epilogues, and PostgreSQL persistence. Core Docker containers (website, backend, db) are active and healthy. The working tree has only the local machine-specific editor setting and untracked skill install staging. No code, scenes, or assets were changed; no tests, imports, commits, or pushes were authorized or performed.
 
 ## Act II and Level 5 Revamp — 2026-11-02
 
@@ -2901,7 +2901,7 @@ No code or scene changes; updated memory only.
 
 Per explicit user instruction ("Ok, push to git"), authorized and executed staging, local commit, and push of the Act II and Level 5 revamp changes to remote `origin/main`.
 - Staged all modified project code, scenes, test files, and project documentation: `HANDOFF.md`, `MEMORY.MD`, `README.md`, `scenes/main_menu/level_selection.tscn`, `scripts/gameplay/CodeLevel.cs`, `scripts/gameplay/NamesWithoutNumbersMission.cs`, `scripts/gameplay/RecoveryTerminal.cs`, `scripts/gameplay/RegistryScanner.cs`, `scripts/ui/ActIIOpening.cs`, `scripts/ui/ActIIStage.cs`, `tests/test_names_without_numbers.gd`.
-- Preserved exclusion of user machine-specific `.vscode/settings.json` and untracked `.skill-install-staging/`.
+- Preserved exclusion of user machine-specific local settings and untracked `.skill-install-staging/`.
 - Created commit and pushed to `origin/main`.
 
 ## ElevenLabs MCP Access Audit and Configuration — 2026-11-02
