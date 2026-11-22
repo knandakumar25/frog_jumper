@@ -203,8 +203,7 @@ icon and favicon, the city menu base and the 17 localized titles with their webs
 The deleted files are in git at `3d05726`. Regeneration finished on 2026-11-15:
 2,206 credits spent, 604 remaining. The manifest and icon references are restored.
 See `docs/ART_REGENERATION.md` for methods and completed phases. Grid sheets,
-derived layers and composed poses use the helpers in `tools/art/`; the
-title helper needs Pillow with libraqm for Arabic and Hebrew (use Linux Docker on Windows).
+derived layers and composed poses use the helpers in `tools/art/`.
 
 ## Open world status (2026-11-08)
 
