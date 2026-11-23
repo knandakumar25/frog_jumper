@@ -1,5 +1,76 @@
 # Axiom Force — Project Memory
 
+## Future addition: DigitalOcean hosting — 2026-11-23
+
+- Follow-up: owner authorized committing and pushing the audit, context refresh
+  and future-hosting documentation to `origin/main`. Pre-existing `.claude/`
+  and ignored diagnostic captures are excluded. Documentation-only changes do
+  not require another unit-test run or Godot import.
+- Owner asked to save DigitalOcean integration as a future addition. This is a
+  deferred option, not authorization to provision, migrate or deploy anything.
+- Feasibility check: App Platform could host the Express API and React website;
+  Managed PostgreSQL could hold accounts/saves; optional Spaces could serve
+  downloads/media. The game would use the hosted HTTPS API. Keep Clerk sign-in;
+  retaining Vercel and/or Neon remains an option. No provider migration was chosen.
+- Before implementation: choose region and budget, set production game/API/site
+  URLs and Clerk origins, configure database TLS/access, preserve /api routing,
+  adapt proxy trust, supply frontend build settings, explicitly build the backend
+  runtime stage, and review process-local rate limiting before scaling. Test
+  browser sign-in, saves, relaunch/Continue and leaderboard against deployment.
+- Regions checked today: NYC, San Francisco, Atlanta, Richmond, Kansas City,
+  Memphis, Toronto, Amsterdam, London, Frankfurt, Singapore, Bangalore, Sydney.
+  App Platform and Spaces exclude Memphis; PostgreSQL plan availability varies.
+  Static-site origin regions are a subset; CDN distribution is global. Recheck
+  current availability and pricing when planning:
+  https://docs.digitalocean.com/platform/regional-availability/
+- Nothing provisioned or edited during the feasibility check. This follow-up
+  changes documentation only; no tests, imports or container changes needed.
+
+## SpriteCook scene audit — 2026-11-23
+
+- Docker stack started and left running (backend/db healthy, website 5173).
+- See docs/SPRITECOOK_SCENE_AUDIT_2026-11-23.md: reviewed all 61 game scenes,
+  sampled seven city definitions and 16 Los Angeles region centers. All 349
+  manifest files match hashes; required sizes and existing texture imports match.
+- Open asset integration: blank AXIOM briefing portrait (obsolete node lookup),
+  procedural world bike, procedural civilian child in Level 2 aftermath, blank
+  dialogue avatar. Terrain, resident markers and some cutscene foregrounds remain
+  procedural; dormant drone/boat/helper paths are separately documented.
+- Graphical startup also logs AuthManager.cs:55 Task<bool> Variant conversion error.
+  Headless suites pass; this runtime issue remains unfixed.
+- Fresh full suites: backend 182/182, NUnit 526/526, GdUnit4 408/408;
+  zero failures/errors/orphans, runner exit 0. Runtime previews were not error-free.
+- Production code/art unchanged; documentation only, no generation/charges,
+  exports or pushes. 604 SpriteCook credits remain. Ignored diagnostic folder:
+  .validation/spritecook-audit-2026-11-23/. Existing editor left running.
+
+## Repository context refresh — 2026-11-23
+
+- Reviewed all 87 tracked Markdown files (including vendor/addon docs and the hidden
+  CSG pull-request template), plus Git history and targeted source confirmations.
+  Ignored generated reports, caches and dependency installations were outside this inventory.
+- Current branch `main`, HEAD `2f04dea` (2026-11-20): export image uses .NET SDK 11;
+  the preceding commits removed tracked `.vscode` files. Account saves/deletion are
+  already committed in `521e55d`; older "uncommitted" notes are historical.
+- Current game: 12 missions; required Clerk browser sign-in; account saves/settings
+  through `/api/game/`, no direct game PostgreSQL connection; encrypted seven-day
+  remembered sign-in. Nov 17 controller images/touch controls and Nov 18 repairs
+  supersede the original text-only input work. Kenney images are an explicit art exception.
+- Latest recorded checks remain backend 182, NUnit 526, Godot 408 (zero failures/
+  errors/orphans), plus account-save API E2E 19/19. These were not rerun today.
+- Open: manual sign-in/play/relaunch/Continue/travel/leaderboard acceptance, physical
+  controller/mobile testing, second review of Nov 18 touch repairs, touch map panning,
+  privacy policy and release signing/package configuration, native-language/audio/pacing
+  acceptance. Python tools expecting old session creation need signed-in operation.
+- Documentation drift remains: README mixes obsolete guest play, four missions,
+  direct database/Django setup, deleted art and older test/SDK counts with current
+  sections; NEO_KYOTO.md has retired persistence/Blender instructions; icons README
+  and the old scene/asset audit are historical. Prefer current source and later commits.
+  The original `Axiom Force.md` explicitly marks its 16-level script as historical.
+- Context-only task: updated this memory entry only; no runtime/container changes,
+  tests/imports, generation, exports, commits or pushes. Pre-existing untracked
+  `.claude/` left untouched; no live server health was inferred from old notes.
+
 ## Game saves linked to accounts — 2026-11-18
 
 - **Done (uncommitted):** saves now belong to accounts through the API (`/api/game/`); the game no longer opens PostgreSQL (Npgsql, `PostgresStorage.cs` and `init-db.sql` removed).

@@ -6,11 +6,15 @@ agents (Claude Code, Codex) and review their work against written specs and auto
 
 ## Testing
 
+Asset status (2026-11-23): the [scene and open-world audit](docs/SPRITECOOK_SCENE_AUDIT_2026-11-23.md)
+verified all 349 SpriteCook manifest files. It found disconnected portrait art and
+remaining procedural figures/vehicles; full replacement is not yet complete.
+
 `run_tests.ps1` runs the automated suites:
 
-- **NUnit** (C# game logic): 454 tests
-- **GdUnit4** (Godot scene and engine tests): 385 tests across 78 suites
-- **Accounts API** (Node's test runner with supertest, inside Docker): 158 tests
+- **NUnit** (C# game logic): 526 tests
+- **GdUnit4** (Godot scene and engine tests): 408 tests
+- **Accounts API** (Node's test runner with supertest, inside Docker): 182 tests
 
 Playwright, also run in Docker, checks the website (layouts at 360, 768 and 1440 px,
 keyboard navigation, language switching and right-to-left text) and the browser sign-in

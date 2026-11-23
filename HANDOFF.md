@@ -1,5 +1,36 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Deferred addition: DigitalOcean hosting — 2026-11-23
+
+The owner wants DigitalOcean kept as a future option for the game API and website.
+Consider App Platform for Express/React, optional Managed PostgreSQL and Spaces,
+while retaining Clerk. Vercel and/or Neon can remain; no migration, region or budget
+has been selected, and no provisioning/deployment is authorized by this note.
+
+See `MEMORY.MD` under "Future addition: DigitalOcean hosting" for prerequisites,
+testing expectations and the region snapshot. Recheck
+[regional availability](https://docs.digitalocean.com/platform/regional-availability/)
+and pricing before implementation. Production URLs, database TLS, proxy trust,
+API routing, frontend build settings, the backend runtime image and rate limiting
+need deployment preparation. This is deferred work, not the next active task.
+
+## SpriteCook scene audit — 2026-11-23
+
+- Docker started and left up: backend/db healthy, website on port 5173.
+- [Audit](docs/SPRITECOOK_SCENE_AUDIT_2026-11-23.md): all 61 game scenes reviewed;
+  seven cities sampled at runtime, plus 16 Los Angeles region centers.
+  All 349 manifest files match; required image sizes and existing imports check out.
+- Open: blank AXIOM briefing portrait, procedural world bike and Level 2 aftermath
+  child, empty dialogue avatar. World terrain/resident markers and some cinematic
+  foregrounds remain procedural; dormant paths are distinguished in the report.
+- Additional graphical startup issue: `AuthManager.cs:55` callable returns a Task
+  that cannot convert to Variant. Not fixed during this asset audit.
+- Full suites passed: backend 182, NUnit 526, GdUnit4 408; zero failures/errors/orphans.
+  Runtime sampling logged issues; it was not an error-free full playthrough.
+- Production code/art untouched; no generation, charges, exports or pushes.
+  Ignored diagnostics: `.validation/spritecook-audit-2026-11-23/`.
+
+
 ## Game saves linked to accounts — 2026-11-18
 
 **Before:** the game opened PostgreSQL itself (`PostgresStorage.cs`, user `postgres`) and wrote global rows (`game_sessions`, `game_state`). No row had a user, so every player on a machine shared every save. It only worked on a development machine.
