@@ -40,14 +40,14 @@ Status: resolved 2026-11-18. The owner asked to fix all findings.
 ## Blockers
 
 ### [cb-1] `codebase_details` – Blocker – A real mouse cannot use the touch buttons on desktop
-* **Affected Scope:** [HANDOFF.md L15](../HANDOFF.md#L15) ("accepts a real left click for desktop testing")
+* **Affected Scope:** [HANDOFF.md L15](../../HANDOFF.md#original-game) ("accepts a real left click for desktop testing")
 * **Discrepancy:** `TouchControls._Input` runs before GUI input and treats a real mouse press as "hide" (`TouchLayout.cs` `TouchVisibility.Classify`). The button disappears before the click reaches it. `test_touch_controls.gd` itself asserts that a real click hides the controls.
 * **AI Suggestion:** PROPOSE FIX (document)
 * **Justification:** Confirmed. Hiding on real mouse use is the owner's rule, so the code is right and the claim is wrong. The button's mouse path is only reachable from direct test calls.
 * **Proposed Edit:** L15: replace "and accepts a real left click for desktop testing" with "(its left-click path is only reachable from tests; a real mouse press hides the controls by design)". Same in the code comment in `TouchActionButton.cs`.
 
 ### [cb-2] `codebase_details` – Blocker – Touch-only players cannot resume the top-down mission after pausing
-* **Affected Scope:** [HANDOFF.md L46-L50](../HANDOFF.md#L46-L50) (limits); code `IsometricMission.cs:142-149, 321-327, 478-486`
+* **Affected Scope:** [HANDOFF.md L46-L50](../../HANDOFF.md#original-game) (limits); code `IsometricMission.cs:142-149, 321-327, 478-486`
 * **Discrepancy:**
   1. The touch Pause button pauses the tree.
   2. The touch controls hide while paused.
@@ -57,7 +57,7 @@ Status: resolved 2026-11-18. The owner asked to fix all findings.
 * **Proposed Edit:** add a tappable "Resume" button (`CyberButton`/`Button`, ProcessMode Always) to `_pausePanel` that calls `SetPaused(false)`. Change the label to the existing translated pause text. Add a GdUnit test: pause via the `iso_pause` action, press Resume, and the tree is unpaused.
 
 ### [cb-3] `codebase_details` – Blocker – HANDOFF says RecruitBeat uses `ContextGlyph`; it does not
-* **Affected Scope:** [HANDOFF.md L86](../HANDOFF.md#L86)
+* **Affected Scope:** [HANDOFF.md L86](../../HANDOFF.md#original-game)
 * **Discrepancy:** `RecruitBeat.cs:99-112` builds marked bindings inline with `WF_TOUCH_ABILITY`. Only Names, NeonRust, ConcreteWildfire and Palace call `ContextGlyph`.
 * **AI Suggestion:** PROPOSE FIX (document)
 * **Justification:** Confirmed. The behaviour is intended (RecruitBeat already had its own touch key), but the record is wrong.
