@@ -1,6 +1,0 @@
-# The image installs its own dependencies with `npm ci` and builds its own
-# bundle, so the host's copies must not leak into the build context.
-node_modules/
-dist/
-.vite/
-npm-debug.log*

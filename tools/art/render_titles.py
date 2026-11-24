@@ -20,7 +20,7 @@ For each language in ``scripts/managers/LocaleCatalog.cs`` the script:
 3. draws a soft pink glow, then the pale cyan text with a thin dark outline, centred on the
    banner at (240, ``--text-y``); right-to-left languages are shaped with ``direction="rtl"``;
 4. enlarges the canvas 4x with nearest-neighbour to 1920x588 and writes it to both
-   ``assets/images`` and ``website/public/images`` (``axiom_force_title_2d.png`` for English,
+   ``assets/images`` and optionally the shared website's ``public/images`` (``axiom_force_title_2d.png`` for English,
    ``axiom_force_title_2d_<key>.png`` otherwise).
 
 No generation or network requests occur. Complex scripts (Arabic letter joining, right-to-left
@@ -121,13 +121,20 @@ def render(plate: Image.Image, text: str, font_path: Path, rtl: bool, text_y: in
 
 
 def main() -> None:
-    """Render all catalog languages and write the game and website copies."""
+    """Render all catalog languages and optionally update the shared website checkout."""
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("plate", type=Path, help="word-free plate, keyed to transparency")
     parser.add_argument("--text-y", type=int, default=93, help="banner centre line in the 480x147 canvas")
     parser.add_argument("--max-width", type=int, default=330, help="widest text allowed, in canvas pixels")
     parser.add_argument("--max-size", type=int, default=40, help="largest font size, in canvas pixels")
+    parser.add_argument("--website-root", type=Path, help="shared website checkout for matching copies")
     args = parser.parse_args()
+    folders = [ROOT / "assets/images"]
+    if args.website_root is not None:
+        website_images = args.website_root / "public/images"
+        if not website_images.is_dir():
+            parser.error("--website-root must contain public/images")
+        folders.append(website_images)
     if not features.check_feature("raqm"):
         raise RuntimeError("libraqm is required for Arabic, Hebrew and Thai titles; run in the cutscene image")
     plate = fit_plate(Image.open(args.plate))
@@ -136,12 +143,12 @@ def main() -> None:
         text = TITLES.get(key, "AXIOM FORCE")
         result = render(plate, text, ROOT / "assets/fonts" / font_name, rtl, args.text_y, args.max_width, args.max_size)
         name = "axiom_force_title_2d" + ("" if key == "english" else "_" + key) + ".png"
-        for folder in ("assets/images", "website/public/images"):
-            target = ROOT / folder / name
-            target.parent.mkdir(parents=True, exist_ok=True)
+        for folder in folders:
+            target = folder / name
+            folder.mkdir(parents=True, exist_ok=True)
             result.save(target, optimize=True)
         count += 1
-    print(f"Rendered {count} game titles and matching website copies")
+    print(f"Rendered {count} titles in {len(folders)} output directories")
 
 
 if __name__ == "__main__":

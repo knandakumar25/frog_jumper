@@ -121,15 +121,6 @@ class WrittenLocalizationTests(unittest.TestCase):
             for language in languages:
                 self.assertTrue(row[language].strip(), (row[''], language))
 
-    def test_browser_confirmation_copy_covers_seventeen_website_locales(self):
-        """Browser handoff wording keeps the account placeholder and covers the same seventeen languages."""
-        data = json.loads((ROOT/'website/src/translations/browser_auth.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(data), 17)
-        for language, values in data.items():
-            self.assertEqual(len(values), 4, language)
-            self.assertTrue(all(value.strip() for value in values), language)
-            self.assertIn('{{account}}', values[2], language)
-
     def test_syntax_inventory_excludes_lookup_key_templates_and_colors(self):
         """Translation-key construction and render colors must never be localized as visible prose."""
         import re

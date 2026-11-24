@@ -16,7 +16,7 @@ remaining procedural figures/vehicles; full replacement is not yet complete.
 - **GdUnit4** (Godot scene and engine tests): 408 tests
 - **Accounts API** (Node's test runner with supertest, inside Docker): 182 tests
 
-Playwright, also run in Docker, checks the website (layouts at 360, 768 and 1440 px,
+The shared website checkout owns Playwright (layouts at 360, 768 and 1440 px,
 keyboard navigation, language switching and right-to-left text) and the browser sign-in
 flow from the desktop game. Python tools audit AI-generated art and level-match voice and
 music; tests fail when an asset changes without the tools being re-run.
@@ -130,7 +130,7 @@ test evidence and physical-device coverage. This pass adds text labels, with no 
 The local website is a game showcase with Home, Gameplay, Squad and FAQ navigation.
 Gameplay lists all twelve missions by act, and Squad preserves direct operative links.
 Development remains at `/tech-hub` through the footer. Content and onboarding copy cover
-all 17 website languages. See [website contracts](website/README.md) and
+all 17 website languages. See the shared website README and the
 [verification record](docs/WEBSITE_REDESIGN_VERIFICATION.md) for implementation, tests,
 review resolutions and limits. Existing SpriteCook artwork is reused; no credits were spent.
 
@@ -842,13 +842,11 @@ Clerk identity remains an external authentication dependency; its own session
 cookies are separate from application saves. Assets, build caches, logs, Docker
 volumes remain normal runtime/tooling files.
 
-The opt-in `playwright` Compose service uses Microsoft's official
-[`mcr.microsoft.com/playwright:v1.64.1-noble`](https://playwright.dev/docs/docker)
-with the matching npm runner. Run `docker compose build playwright`, then
-`docker compose run --rm playwright` for the portal/API smoke check with browser
-storage access disabled. It exits after testing and is not an always-on server.
-Django tests now use an isolated PostgreSQL test database:
-`docker compose exec -T backend python manage.py test accounts --noinput`.
+Build the opt-in browser runner using `docker compose build playwright` from
+the shared website checkout. From this checkout, run
+`./tools/website-smoke.ps1` for the portal and API check with browser storage
+disabled. Express tests use an isolated database and run with
+`docker compose exec -T backend npm test`.
 
 Verified 2026-10-31: 47 NUnit, 135 Godot (zero errors/failures/orphans),
 104 PostgreSQL-backed Django tests, and the container Chromium smoke check pass.
@@ -1031,27 +1029,24 @@ The on-screen hint switches between keyboard and gamepad, and lists the swap key
 
 ### Running the Stack with Docker
 
-The Express.js accounts API, PostgreSQL database and React web portal run together with Docker Compose:
-
-These three services are the complete default stack; the local inference service
-has been removed. The exporter and browser test runner remain opt-in.
-Verified 2026-11-05: Compose validation and website/API readiness passed with the
-three services running; all three project test suites passed.
+This checkout's default Compose services are the Express accounts API and
+PostgreSQL. The sibling `axiom_force_website` checkout serves both Axiom Force
+titles. Run its `start.ps1` to start the accounts services and the site together.
 
 ```powershell
-docker compose up -d --build     # build/start db, backend, website
-docker compose ps                # verify all three run; inspect configured health checks
+docker compose up -d --build --wait  # start the accounts API and database
+docker compose ps                    # check API and database readiness
 docker compose logs -f backend   # follow the API log
-docker compose down              # stop everything (add -v to drop the DB volume)
+./tools/website-smoke.ps1        # run the shared site's public Playwright checks
 ```
 
 **First run:** copy `.env.example` to `.env` and set `JWT_SIGNING_KEY` to a random value of at
 least 32 characters (the command is in `.env.example`). Without it the backend keeps restarting
-and `docker compose logs backend` says what is missing; the website and database still start.
+and `docker compose logs backend` says what is missing.
 
 The backend applies its SQL migrations (`backend/migrations/`) on start, checks the schema, then
 serves. Compose marks it healthy once `/api/health` answers. The API (8000) and database (5432)
-are published on 127.0.0.1 only; the website (5173) on all interfaces.
+are published on 127.0.0.1. The shared website uses the same local port 5173.
 There is no source bind mount: after editing `backend/`, run
 `docker compose up -d --build backend`. The API refuses to start without
 `JWT_SIGNING_KEY` in `.env`.
@@ -1064,7 +1059,7 @@ There is no source bind mount: after editing `backend/`, run
   `http://127.0.0.1:8000/api/auth/countries/basic/`.
   Initial image downloads/builds can delay readiness.
 - Configuration comes from the gitignored `.env` (see `.env.example`); every value has a default except `JWT_SIGNING_KEY`, which the backend requires
-- `backend/Dockerfile` builds on Node 26 (Compose runs its `dev` target, which includes the test packages); `website/Dockerfile` builds with Node 26 and serves the bundle through Nginx
+- `backend/Dockerfile` builds on Node 26 (Compose runs its `dev` target, which includes the test packages). The website checkout owns its Vite and Nginx image.
 
 ### Exporting the Game (Docker)
 
@@ -1172,9 +1167,11 @@ AxiomForce/
 │   ├── managers/                     # SessionManager, UISoundManager, OperativeRoster, LevelCatalog, CampaignProgress
 │   └── tools/                        # generate_cyber_sfx.py sound synthesizer
 ├── backend/                          # Express.js accounts API (src/, migrations/, test/)
-├── website/                          # React + Vite web application
 └── tests/                            # GdUnit4 and NUnit test suites
 ```
+
+The React and Vite web application lives in the sibling `axiom_force_website`
+checkout.
 
 ---
 
@@ -1405,4 +1402,4 @@ The handoff stores only a private-secret hash and uses POST polling/cancellation
 
 Windows checks verified the exact Clerk-approved profile reaching the running game, guest navigation, both buttons hiding, Play focus and restoration/foreground ownership after minimizing. Final checks passed: C# build, background import, Django 111/111, NUnit 303/303, Godot 319/319 (zero errors/failures/orphans), Python 20/20, localization coverage and Playwright 4/4. Existing editor-import diagnostics and the independent seven-item voice-review gate remain documented in `HANDOFF.md`.
 
-The isolated PostgreSQL/mail browser workflow is in [tools/playwright/README.md](tools/playwright/README.md). Disposable Clerk accounts and the test database are removed afterward; normal backend/db/website stay running. macOS/Linux verification, mobile integration and production rollout remain deferred. No Neon/game-storage migration, exports or deployment are included. Git publication is handled separately from implementation verification.
+The isolated PostgreSQL and mail browser workflow is in the shared website checkout at `playwright/README.md`. The runner removes disposable Clerk accounts and the test database afterward. The normal API, database and website stay running.

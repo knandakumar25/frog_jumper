@@ -25,5 +25,5 @@ These executables provide an isolated API for the browser sign-in workflow and a
 
 ## Verification
 
-- From `backend/`: `npm test` covers the shared app, not a live Clerk browser run. The opt-in integration workflow is described in repository file `tools/playwright/README.md`.
+- From `backend/`: `npm test` covers the API. The opt-in Clerk workflow is documented in the shared website checkout at `playwright/README.md`.
 - Running `e2e-server.js` is a destructive reset of the fixed disposable database and requires suitable PostgreSQL privileges; it is not part of the default unit-test command.

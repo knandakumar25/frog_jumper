@@ -1,5 +1,19 @@
 # Axiom Force — Project Memory
 
+## Shared player website — 2026-11-23
+
+- `D:/Projects/axiom_force_website` owns the React, Nginx and Playwright
+  source for both titles. Its startup script serves localhost:5173 using
+  the original accounts API. Both game checkouts point their smoke launchers
+  to the shared site. Racing Express and PostgreSQL run independently.
+- Local verification covered Clerk and account flows, Godot browser approval
+  and save/load, proxy recovery after an actual Express address change, and
+  per-client rate limits. Public hosting cutover is deferred. See
+  `docs/SHARED_WEBSITE_CUTOVER.md`.
+- The post-cutover Express, NUnit and GdUnit4 suites passed. The app-store
+  guard returned `BLOCKED` after scanning ignored Android skill fixtures.
+  The website checkout still needs the owner's Git URL for `origin`.
+
 ## Future addition: DigitalOcean hosting — 2026-11-23
 
 - Follow-up: owner authorized committing and pushing the audit, context refresh

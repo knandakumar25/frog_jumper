@@ -1,5 +1,22 @@
 # Axiom Force - Strategic Inter-Agent Handoff Briefing
 
+## Shared player website (2026-11-23)
+
+- The sibling checkout at `D:/Projects/axiom_force_website` serves both games.
+  Run its `start.ps1` for the site at `http://localhost:5173`. The site's
+  Playwright runner owns the original browser checks and is available from
+  both game repositories through `tools/website-smoke.ps1`.
+- The shared Docker network carries only the website-to-original API traffic
+  and the opt-in browser runner. PostgreSQL is on the game network. The
+  racing checkout keeps its independent database and API.
+- A local Clerk development sign-in, Godot save and load, same-origin API
+  health, Express restart and address change, and per-client throttling were
+  verified. The old website copies and local containers were retired.
+  See [cutover verification](docs/SHARED_WEBSITE_CUTOVER.md).
+- The original Express, NUnit and GdUnit4 suites passed after the cutover.
+  The app-store guard returned `BLOCKED` on four rules matched in ignored
+  Android skill scanner data. File and rule details are in the cutover record.
+
 ## Deferred addition: DigitalOcean hosting — 2026-11-23
 
 The owner wants DigitalOcean kept as a future option for the game API and website.

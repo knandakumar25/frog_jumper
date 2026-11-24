@@ -8,7 +8,8 @@ because this machine's HTTPS inspection breaks uv's built-in certificates):
 It ran inside Blender's bundled Python until Blender was retired on 2026-11-11; it now uses
 Pillow, so it works on regenerated SpriteCook art the same way.
 
-Inputs: all PNG/JPG files under ``assets/`` and ``website/public/``, except inside any
+Inputs: PNG/JPG files under ``assets/`` and, with ``--website-root``, under the
+shared site's ``public/``, except inside any
 ``.godot``, ``addons``, ``reports`` or ``.validation`` folder. Nothing is modified.
 ``--out`` is resolved against the repository root.
 
@@ -52,7 +53,7 @@ SOURCES = {
     'assets/images/level1/ghost_gridlock.png': SPRITECOOK,
     'assets/images/axiom_force_title_2d': SPRITECOOK,
     'website/public/images/axiom_force_title_2d': SPRITECOOK,
-    'website/public/images/title_logos/axiom_force_title_2d': SPRITECOOK,
+    'website/public/images/showcase/': SPRITECOOK,
     'assets/stand_in/': 'third-party (CC0)',
 }
 
@@ -113,12 +114,19 @@ def main():
     """Audit every image and write the JSON report named by ``--out``."""
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--website-root', type=Path, help='also include the shared website checkout')
     args = parser.parse_args()
-    files = sorted(p for base in ('assets', 'website/public') for p in (ROOT / base).rglob('*')
+    roots = [(ROOT / 'assets', 'assets')]
+    if args.website_root is not None:
+        public = args.website_root / 'public'
+        if not public.is_dir():
+            parser.error('--website-root must contain public/')
+        roots.append((public, 'website/public'))
+    files = sorted((f'{label}/{p.relative_to(folder).as_posix()}', p)
+                   for folder, label in roots for p in folder.rglob('*')
                    if p.suffix.lower() in ('.png', '.jpg', '.jpeg'))
     report = []
-    for path in files:
-        rel = path.relative_to(ROOT).as_posix()
+    for rel, path in files:
         if any(part in SKIP for part in Path(rel).parts[:-1]):
             continue
         entry = {'path': rel, 'bytes': path.stat().st_size, 'source': source_for(rel),
